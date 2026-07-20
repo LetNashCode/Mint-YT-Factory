@@ -26,7 +26,8 @@ The JSON schema you must return:
     {
       "rank": 5,
       "name": "short name of this item",
-      "narration": "2-3 sentences of dramatic narration for this item, written to be spoken aloud",
+      "narration": "2-3 sentences of dramatic narration for this item, written in Hindi (Devanagari script), to be spoken aloud by a text-to-speech voice",
+      "narration_hinglish": "the SAME narration content, but transliterated into Hinglish (Hindi words written in Roman/English letters, the way Indians casually type Hindi in texts/social media, e.g. 'Ye kahani hai ek purani havli ki'). This is only used for on-screen captions, not for audio.",
       "visual_keywords": ["2-4 words describing what stock footage would match this, e.g. 'old fort night fog'"]
     }
   ]
@@ -35,6 +36,7 @@ The JSON schema you must return:
 Rules:
 - Exactly the requested number of items, ranked from highest number down to #1 (countdown style, most shocking/best saved for #1).
 - Narration must be spoken-language, not written-language: short sentences, no complex punctuation, dramatic pacing.
+- narration_hinglish must match narration's meaning and pacing closely (same sentence breaks), just in Roman script instead of Devanagari.
 - Never name real living private individuals or attribute crimes to real named people. Folklore, historical legends, and clearly-attributed public reports are fine.
 - Total narration across all items should fit the requested target duration at natural spoken pace (~2.4 words/second).
 - No sexual, graphic gore, or hateful content. Spooky and suspenseful, not gruesome.
@@ -54,7 +56,7 @@ def generate_script(topic: str, config: dict) -> dict:
     user_prompt = f"""Channel niche: {niche}
 Tone: {tone}
 Audience: {audience}
-Language for narration text: {language} (if hindi or hinglish, write narration in that language/script)
+Language for spoken narration: {language} (write in Devanagari script for correct TTS pronunciation)
 Topic for this video: {topic}
 Number of countdown items: {items}
 Target total narration length: about {seconds} seconds spoken aloud
@@ -72,7 +74,11 @@ Write the script now as JSON only."""
 
     text = response.text.strip()
     text = text.replace("```json", "").replace("```", "").strip()
-    return json.loads(text)
+    # Gemini occasionally appends stray text/whitespace after the JSON object.
+    # Parse only the first valid JSON value and ignore anything after it.
+    decoder = json.JSONDecoder()
+    obj, _ = decoder.raw_decode(text)
+    return obj
 
 
 if __name__ == "__main__":

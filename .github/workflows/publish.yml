@@ -19,6 +19,17 @@ jobs:
       - name: Install ffmpeg
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
 
+      - name: Install ImageMagick (needed for captions)
+        run: |
+          sudo apt-get install -y imagemagick
+          sudo sed -i 's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' /etc/ImageMagick-6/policy.xml
+          which convert && convert --version
+
+      - name: Install Hindi (Devanagari) font for captions
+        run: |
+          sudo apt-get install -y fonts-noto-core
+          fc-list :lang=hi
+
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 

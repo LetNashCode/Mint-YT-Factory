@@ -56,44 +56,60 @@ def _fit_portrait(clip, size):
 
 
 def _caption_caption_clips(caption_text: str, duration: float, config: dict, video_size):
-    """Splits the Hinglish caption text into sentence-sized chunks and shows
-    each one for a slice of the item's runtime, roughly synced to speech
-    pace. A fixed height (instead of None) avoids a known MoviePy/ImageMagick
-    bug where 'caption' mode can silently render a blank/invisible clip."""
-    import re
+    """
+    TikTok/Shorts style captions:
+    - 2 words at a time
+    - Bigger font
+    - Higher position
+    - Fade in/out
+    """
 
-    font_size = config["video"]["captions"]["font_size"]
+    font_size = int(config["video"]["captions"]["font_size"] * 1.25)
+
     w, h = video_size
 
-    sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", caption_text.strip()) if s.strip()]
-    if not sentences:
-        sentences = [caption_text.strip()]
+    words = caption_text.upper().split()
 
-    total_chars = sum(len(s) for s in sentences) or 1
+    GROUP_SIZE = 2
+
+    groups = [
+        " ".join(words[i:i + GROUP_SIZE])
+        for i in range(0, len(words), GROUP_SIZE)
+    ]
+
+    if not groups:
+        return []
+
+    segment_duration = duration / len(groups)
+
     clips = []
-    t = 0.0
-    for s in sentences:
-        frac = len(s) / total_chars
-        seg_duration = max(0.6, duration * frac)
-        if t + seg_duration > duration:
-            seg_duration = max(0.3, duration - t)
 
-        txt = TextClip(
-            s,
-            fontsize=font_size,
-            color="yellow",
-            font=_LATIN_FONT,
-            method="caption",
-            size=(int(w * 0.85), int(h * 0.25)),
-            stroke_color="black",
-            stroke_width=3,
-            align="center",
+    current_time = 0
+
+    for group in groups:
+
+        txt = (
+            TextClip(
+                group,
+                fontsize=font_size,
+                color="white",
+                font=_LATIN_FONT,
+                method="caption",
+                size=(int(w * 0.82), None),
+                stroke_color="black",
+                stroke_width=5,
+                align="center",
+            )
+            .set_position(("center", h * 0.73))
+            .set_start(current_time)
+            .set_duration(segment_duration)
+            .crossfadein(0.08)
+            .crossfadeout(0.08)
         )
-        txt = txt.set_position(("center", h * 0.72)).set_start(t).set_duration(seg_duration)
+
         clips.append(txt)
-        t += seg_duration
-        if t >= duration:
-            break
+
+        current_time += segment_duration
 
     return clips
 

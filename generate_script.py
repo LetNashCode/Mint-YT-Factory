@@ -22,28 +22,52 @@ Schema:
   "story":"",
   "twist":"",
   "ending":"",
-  "scene_plan": [
+  "scene_plan":[
     {
-      "text": "...",
-      "duration": 4,
-      "shots": [
-  {
-    "type": "wide",
-    "search": ""
-  },
-  {
-    "type": "medium",
-    "search": ""
-  },
-  {
-    "type": "closeup",
-    "search": ""
-  },
-  {
-    "type": "detail",
-    "search": ""
-  }
-]
+      "text":"",
+      "duration":4,
+      "shots":[
+        {
+          "type":"wide",
+          "searches":[
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type":"medium",
+          "searches":[
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type":"closeup",
+          "searches":[
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type":"detail",
+          "searches":[
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        }
+      ]
     }
   ]
 }
@@ -75,27 +99,38 @@ Rules for tags:
 - specific to the topic
 - mix broad and niche keywords
 - maximize YouTube search discoverability
-For every scene, generate exactly 4 unique stock footage searches.
 
-Each search must be:
+For every scene generate exactly 4 shots.
+
+Each shot must contain exactly 5 alternative search queries.
+
+The search queries should describe the SAME shot from different perspectives.
+
+Example:
+
+Wide Shot:
+- titanic ship sailing at night cinematic
+- luxury ocean liner atlantic
+- historic steamship aerial
+- passenger liner sunset
+- dramatic ocean ship
+
+Close Up:
+- captain steering ship
+- ship wheel close up
+- vintage navigation room
+- captain looking through binoculars
+- sailor operating controls
+
+Rules:
+
 - highly specific
 - cinematic
 - searchable on Pixabay and Pexels
-- different from the others
-- directly related to the narration
-
-Avoid generic searches like:
-- nature
-- city
-- people
-- building
-
-Prefer searches like:
-- abandoned soviet bunker cinematic
-- underwater shipwreck close up
-- radio telescope at night
-- scientist operating vintage computer
-- medieval castle drone aerial
+- avoid generic words
+- no repeated searches
+- every search should increase the chance of finding relevant footage
+- generate realistic stock footage searches
 """
 
 def generate_script(topic:str, config:dict)->dict:

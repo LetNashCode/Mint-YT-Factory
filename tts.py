@@ -1,5 +1,5 @@
-import tiktoktts
+from tiktoktts import TTS
 
-print(dir(tiktoktts))
+print(TTS)
 
 raise SystemExit

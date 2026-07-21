@@ -1,58 +1,63 @@
 """
 generate_script.py
-Story-driven YouTube Shorts generator (English)
+Story-first generator for YouTube Shorts.
 """
 
 import json
 import os
-
 from google import genai
 from google.genai import types
 
 SYSTEM_PROMPT = """
-You are an elite YouTube Shorts writer.
+You are an elite viral YouTube Shorts writer.
 
 Return ONLY valid JSON.
 
 Schema:
-
 {
-  "title":"",
-  "hook":"",
-  "story":"",
-  "twist":"",
-  "ending":"",
-  "scene_plan":[
-    {
-      "text":"",
-      "visual":"",
-      "keywords":[]
-    }
-  ]
+ "title":"",
+ "hook":"",
+ "story":"",
+ "twist":"",
+ "ending":"",
+ "scene_plan":[
+   {
+     "text":"",
+     "visual":"",
+     "keywords":[]
+   }
+ ]
 }
 
-RULES
+Rules:
 - English only.
-- No Top 5.
-- No countdowns.
 - 40-45 seconds.
-- Structure:
-  Hook
-  Story
-  Twist
-  Ending + Open Loop
-- Build suspense every sentence.
-- Return only JSON.
+- Hook (0-3s)
+- Story (3-20s)
+- Twist (20-35s)
+- Ending with open loop (35-45s)
+- No countdowns.
+- No lists.
+- No greetings.
+- Every sentence must increase curiosity.
+- Create 6-8 scenes.
+- Each scene needs cinematic visual keywords.
 """
 
-def generate_script(topic: str, config: dict) -> dict:
+def generate_script(topic:str, config:dict)->dict:
     client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
 
-    prompt = f"""
+    prompt=f"""
 Topic:
 {topic}
 
-Target narration:
+Audience:
+{config["channel"]["audience"]}
+
+Tone:
+{config["channel"]["tone"]}
+
+Target Length:
 {config["script"]["target_narration_seconds"]} seconds.
 
 Return JSON only.
@@ -67,9 +72,21 @@ Return JSON only.
         ),
     )
 
-    decoder = json.JSONDecoder()
-    obj, _ = decoder.raw_decode(
-        response.text.replace("```json", "").replace("```", "").strip()
-    )
+    text=response.text.strip()
+    text=text.replace("```json","").replace("```","").strip()
 
+    decoder=json.JSONDecoder()
+    obj,_=decoder.raw_decode(text)
     return obj
+
+
+if __name__=="__main__":
+    import yaml
+    with open("config.yaml") as f:
+        cfg=yaml.safe_load(f)
+
+    print(json.dumps(
+        generate_script("The signal from space nobody can explain",cfg),
+        indent=2,
+        ensure_ascii=False
+    ))

@@ -4,7 +4,7 @@ import shutil
 from moviepy.editor import AudioFileClip, concatenate_audioclips
 from tiktoktts import TTS
 
-VOICE_ID = "en_female_ht_f08_wonderful_world"
+VOICE_ID = "en_us_ghostface"
 MAX_BYTES = 300
 
 

@@ -7,3 +7,5 @@ google-auth>=2.29.0
 google-auth-oauthlib>=1.2.0
 google-api-python-client>=2.130.0
 tiktoktts==1.2
+openai-whisper>=20250625
+torch>=2.2.0

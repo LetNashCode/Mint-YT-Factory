@@ -1,6 +1,8 @@
+# assemble.py (Whisper version)
 import os
 import shutil
 
+from whisper_align import transcribe
 from moviepy.config import change_settings
 
 _im = shutil.which("convert") or shutil.which("magick")
@@ -27,23 +29,15 @@ def _fit(c, size):
     return c.crop(x_center=c.w / 2, y_center=c.h / 2, width=w, height=h)
 
 
-def _caption(text, duration, size):
+def _caption(audio_path, size):
     w, h = size
-
-    words = text.upper().replace("...", ".").replace("..", ".").split()
-
-    characters = max(1, sum(len(w) for w in words))
-
+    words = transcribe(audio_path)
     clips = []
 
-    t = 0
-
-    for word in words:
-        word_duration = duration * (len(word) / characters)
-
+    for item in words:
         clips.append(
             TextClip(
-                word,
+                item["word"].upper(),
                 font=FONT,
                 fontsize=82,
                 color="white",
@@ -51,11 +45,9 @@ def _caption(text, duration, size):
                 stroke_width=4,
             )
             .set_position(("center", h * 0.65))
-            .set_start(t)
-            .set_duration(word_duration)
+            .set_start(item["start"])
+            .set_duration(max(0.05, item["end"] - item["start"]))
         )
-
-        t += word_duration
 
     return clips
 
@@ -64,46 +56,40 @@ def assemble_video(script, audio_paths, visual_paths, config, out_path):
     size = tuple(config["video"]["resolution"])
 
     narration = AudioFileClip(audio_paths[0])
-
     total = narration.duration
-    scenes = script["scene_plan"]
-    seg = total / max(1, len(scenes))
 
-    clips = []
+    seg = total / max(1, len(visual_paths))
+    video_clips = []
 
-    for i, scene in enumerate(scenes):
-        vp = visual_paths[i] if i < len(visual_paths) else None
+    for i, vp in enumerate(visual_paths):
+        start = i * seg
 
         if vp and os.path.exists(vp):
             base = VideoFileClip(vp).without_audio()
-
             if base.duration < seg:
                 base = base.loop(duration=seg)
             else:
                 base = base.subclip(0, seg)
-
             base = _fit(base, size)
-
         else:
             base = ColorClip(size, color=(15, 15, 15)).set_duration(seg)
 
-        comp = CompositeVideoClip(
-            [base, *_caption(scene["text"], seg, size)],
-            size=size,
-        ).set_duration(seg)
+        base = base.set_start(start).set_duration(seg)
+        video_clips.append(base)
 
-        clips.append(comp)
+    captions = _caption(audio_paths[0], size)
 
-    final = concatenate_videoclips(clips, method="compose").set_audio(narration)
+    final = CompositeVideoClip(
+        video_clips + captions,
+        size=size
+    ).set_duration(total).set_audio(narration)
 
     music = config["video"].get("background_music")
-
     if music and os.path.exists(music):
-        bg = (
-            AudioFileClip(music)
-            .fx(afx.audio_loop, duration=final.duration)
-            .volumex(0.08)
-        )
+        bg = AudioFileClip(music).fx(
+            afx.audio_loop,
+            duration=final.duration
+        ).volumex(0.08)
 
         final = final.set_audio(
             CompositeAudioClip([final.audio, bg])

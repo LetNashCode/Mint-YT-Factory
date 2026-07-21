@@ -47,6 +47,6 @@ def fetch_visuals_for_script(script,config,workdir):
             out=os.path.join(workdir,f"clip_{clip_no}.mp4")
             _download(url,out)
             scene_paths.append(out);clip_no+=1
-        if scene_paths:paths.extend(scene_paths)
+        if scene_paths:paths.append(scene_paths)
         else:paths.append(None)
     return paths

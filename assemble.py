@@ -189,8 +189,8 @@ def assemble_video(script, audio_paths, visual_paths, config, out_path):
         fps=config["video"].get("fps", 30),
         codec="libx264",
         audio_codec="aac",
-        preset="medium",
-        threads=4,
+        preset="ultrafast",
+        threads=2,
     )
 
     return out_path

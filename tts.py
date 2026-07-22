@@ -9,27 +9,16 @@ VOICE_ID = "en_us_ghostface"
 MAX_BYTES = 300
 
 
-EMOTION_STYLE = {
-    "curiosity": lambda t: t.replace(".", "..."),
-    "mystery": lambda t: t.replace(".", "..."),
-    "suspense": lambda t: t.replace(".", "..."),
-    "fear": lambda t: t.replace(".", "..."),
-    "shock": lambda t: t.replace("!", "..."),
-    "wonder": lambda t: t,
-    "urgency": lambda t: t.replace(",", "."),
-    "excitement": lambda t: t,
-    "sadness": lambda t: t.replace(".", "..."),
-    "hope": lambda t: t,
-}
-
-
 def apply_emotion(text, emotion):
-    text = text.strip()
-
+    """
+    Placeholder for future emotion support.
+    Currently returns the text unchanged because
+    TikTok TTS reads "..." as "dot dot dot".
+    """
     if not text:
         return ""
 
-    return EMOTION_STYLE.get(emotion, lambda x: x)(text)
+    return text.strip()
 
 
 def split_text(text, limit=MAX_BYTES):
@@ -64,7 +53,6 @@ def synthesize_narration(text, config, out_path):
 
     for i, chunk in enumerate(split_text(text)):
 
-        chunk = re.sub(r"\.{4,}", "...", chunk)
         chunk = re.sub(r"\!{2,}", "!", chunk)
         chunk = re.sub(r"\?{2,}", "?", chunk)
         chunk = re.sub(r"\s+", " ", chunk).strip()
@@ -133,9 +121,14 @@ def synthesize_script(script, config, workdir):
         )
     )
 
-    full_text = " ".join(narration)
+    full_text = " ".join(
+        part for part in narration if part
+    )
 
-    out = os.path.join(workdir, "story.mp3")
+    out = os.path.join(
+        workdir,
+        "story.mp3",
+    )
 
     synthesize_narration(
         full_text,

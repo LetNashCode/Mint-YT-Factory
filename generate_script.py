@@ -32,13 +32,15 @@ SERIES
 7. Reality Glitch
 8. Choose Your Fate
 
-Generate a brand-new viral idea by first selecting ONE of the eight series at random.
+Generate a brand-new viral story.
 
-Then create a unique scenario for that series.
+First choose the ONE series that best fits the idea.
 
-Never reuse examples verbatim.
+Then create a completely original scenario.
 
-Every story should feel original.
+Never copy the examples.
+
+Every story must feel unique and unpredictable.
 
 Return ONLY valid JSON.
 
@@ -48,6 +50,8 @@ SCHEMA
   "title":"",
   "description":"",
   "tags":[],
+  "music_search":"",
+  "sfx_search":[],
   "scene_plan":[
     {
       "text":"",
@@ -211,6 +215,48 @@ Generate:
 • Title under 70 characters
 • Description under 500 characters
 • Exactly 15 tags
+
+==================================================
+AUDIO RULES
+==================================================
+
+Generate one field called:
+
+music_search
+
+This must contain a short search phrase (5–8 words) describing the ideal cinematic background music.
+
+Examples:
+
+epic superhero orchestral
+
+dark horror ambience
+
+cinematic suspense trailer
+
+emotional piano soundtrack
+
+mysterious sci fi ambience
+
+heroic battle music
+
+Generate another field called:
+
+sfx_search
+
+Return an array of 3–8 short keywords describing the most important sound effects used in the story.
+
+Examples:
+
+[
+  "whoosh",
+  "explosion",
+  "heartbeat",
+  "glass break"
+]
+
+Only return search phrases.
+Never explain them.
 
 ==================================================
 QUALITY CHECK

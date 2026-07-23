@@ -108,6 +108,7 @@ def assemble_video(
     audio_paths,
     image_paths,
     music_path,
+    sfx_paths,
     config,
     out_path,
 ):
@@ -178,7 +179,9 @@ def assemble_video(
         size=size,
     ).set_duration(total_duration)
 
-    final = final.set_audio(narration)
+    # ---------------- Audio ----------------
+
+    audio_tracks = [narration]
 
     if music_path and os.path.exists(music_path):
 
@@ -196,14 +199,36 @@ def assemble_video(
             )
         )
 
-        final = final.set_audio(
-            CompositeAudioClip(
-                [
-                    bg,
-                    final.audio,
-                ]
+        audio_tracks.append(bg)
+
+    current = 0
+
+    for scene, sfx in zip(script["scene_plan"], sfx_paths):
+
+        if not os.path.exists(sfx):
+            current += scene.get("duration", 1) * scale
+            continue
+
+        effect = (
+            AudioFileClip(sfx)
+            .set_start(current)
+            .volumex(
+                config["video"].get(
+                    "sfx_volume",
+                    0.75,
+                )
             )
         )
+
+        audio_tracks.append(effect)
+
+        current += scene.get("duration", 1) * scale
+
+    final = final.set_audio(
+        CompositeAudioClip(audio_tracks)
+    )
+
+    # ---------------------------------------
 
     os.makedirs(
         os.path.dirname(out_path),

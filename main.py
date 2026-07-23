@@ -11,6 +11,7 @@ from topics import get_next_topic
 from generate_script import generate_script
 from tts import synthesize_script
 from generate_images import generate_images
+from music import download_music
 from assemble import assemble_video
 from upload_youtube import upload_video
 
@@ -56,12 +57,22 @@ def run(dry_run=False):
         os.path.join(workdir, "visuals"),
     )
 
+    print("=" * 80)
+    print("🎵 Downloading Background Music...")
+    print("=" * 80)
+
+    music = download_music(
+        script,
+        os.path.join(workdir, "music"),
+    )
+
     final_video = os.path.join(workdir, "final.mp4")
 
     assemble_video(
         script,
         audio,
         visuals,
+        music,
         config,
         final_video,
     )

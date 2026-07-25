@@ -1,6 +1,6 @@
 name: Publish Short
 
-on:
+off:
   schedule:
     - cron: "0 2 * * *"      # 07:30 IST
     - cron: "30 4 * * *"     # 10:00 IST

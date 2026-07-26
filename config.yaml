@@ -12,14 +12,23 @@ voice:
   voice_name: "en_us_ghostface"
 
 visuals:
-  provider: "pixabay"
+  provider: "pollinations"
   orientation: "portrait"
+
+image:
+  provider: "pollinations"
+  model: "gptimage"
+  width: 1080
+  height: 1920
+  enhance: true
+  nologo: true
 
 video:
   resolution: [1080, 1920]
   fps: 30
   background_music: "assets/music/background.mp3"
   music_volume: 0.08
+  sfx_volume: 0.75
   captions:
     font_size: 72
 

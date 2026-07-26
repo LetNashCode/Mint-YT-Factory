@@ -30,9 +30,17 @@ STYLE_PREFIX = (
 )
 
 
-def generate_images(script, workdir):
+def generate_images(script, workdir, config):
 
     os.makedirs(workdir, exist_ok=True)
+
+    image_cfg = config["image"]
+
+    model = image_cfg["model"]
+    width = image_cfg["width"]
+    height = image_cfg["height"]
+    enhance = str(image_cfg["enhance"]).lower()
+    nologo = str(image_cfg["nologo"]).lower()
 
     image_paths = []
 
@@ -51,11 +59,11 @@ def generate_images(script, workdir):
         url = (
             BASE_URL
             + urllib.parse.quote(prompt)
-            + "?width=1080"
-            + "&height=1920"
-            + "&model=gptimage"
-            + "&nologo=true"
-            + "&enhance=true"
+            + f"?width={width}"
+            + f"&height={height}"
+            + f"&model={model}"
+            + f"&nologo={nologo}"
+            + f"&enhance={enhance}"
         )
 
         print("=" * 80)

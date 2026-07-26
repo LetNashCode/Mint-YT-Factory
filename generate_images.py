@@ -53,7 +53,7 @@ def generate_images(script, workdir):
             + urllib.parse.quote(prompt)
             + "?width=1080"
             + "&height=1920"
-            + "&model=flux"
+            + "&model=gptimage"
             + "&nologo=true"
             + "&enhance=true"
         )

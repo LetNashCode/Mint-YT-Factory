@@ -77,6 +77,7 @@ def run(dry_run=False):
             workdir,
             "visuals",
         ),
+        config,
     )
 
     print("=" * 80)

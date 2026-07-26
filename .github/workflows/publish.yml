@@ -30,7 +30,7 @@ jobs:
         run: |
           sudo apt-get install -y imagemagick
           sudo sed -i 's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' /etc/ImageMagick-6/policy.xml
-          which convert && convert --version      
+          which convert && convert --version
 
       - name: Install Python dependencies
         run: pip install -r requirements.txt
@@ -40,6 +40,8 @@ jobs:
           echo '${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}' > client_secret.json
 
       - name: Run pipeline
+        id: pipeline
+        continue-on-error: true
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
@@ -60,25 +62,33 @@ jobs:
           df -h
           echo "=========================================="
 
-          set +e
-
           python -u main.py
 
-          EXIT_CODE=$?
+      - name: Upload Final Video
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: final-video
+          path: output/**/final.mp4
+          if-no-files-found: warn
 
-          echo "=========================================="
-          echo "Pipeline Finished"
-          echo "End Time: $(date)"
-          echo "Exit Code: $EXIT_CODE"
-          echo "=========================================="
+      - name: Upload Generated Images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-images
+          path: output/**/visuals/
+          if-no-files-found: warn
 
-          exit $EXIT_CODE
-
-          
       - name: Commit updated used_topics.json
+        if: always()
         run: |
           git config user.name "auto-publish-bot"
           git config user.email "actions@github.com"
           git add used_topics.json
           git diff --cached --quiet || git commit -m "Update used topics [skip ci]"
           git push
+
+      - name: Fail workflow if pipeline failed
+        if: steps.pipeline.outcome == 'failure'
+        run: exit 1

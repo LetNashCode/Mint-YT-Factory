@@ -5,10 +5,6 @@ import requests
 
 BASE_URL = "https://image.pollinations.ai/prompt/"
 
-# Anonymous (no-signup) Pollinations requests are rate-limited to roughly
-# one request every 15 seconds — this pause keeps us comfortably under that.
-_REQUEST_DELAY_SECONDS = 16
-
 HEADERS = {
     "User-Agent": "Mozilla/5.0"
 }
@@ -23,11 +19,19 @@ def generate_image(prompt, width, height):
 
     full_prompt = STYLE_PREFIX + prompt
 
-    # Keep Pollinations prompt from becoming too long
+    # Prevent extremely long prompts
     if len(full_prompt) > 350:
         full_prompt = full_prompt[:350]
 
-    url = BASE_URL + urllib.parse.quote(full_prompt)
+    url = (
+        BASE_URL
+        + urllib.parse.quote(full_prompt)
+        + f"?model=flux"
+        + f"&width={width}"
+        + f"&height={height}"
+        + f"&seed={int(time.time())}"
+        + "&nologo=true"
+    )
 
     print("=" * 80)
     print("REQUEST URL:")
@@ -45,8 +49,10 @@ def generate_image(prompt, width, height):
             )
 
             print("STATUS:", response.status_code)
-            print(response.text[:1000])
-            
+
+            if response.status_code != 200:
+                print(response.text[:2000])
+
             response.raise_for_status()
 
             if response.content:
@@ -54,7 +60,7 @@ def generate_image(prompt, width, height):
 
         except Exception as e:
 
-            print(f"Retry {attempt + 1}/5")
+            print(f"Retry {attempt+1}/5")
             print(e)
 
             time.sleep(5)
@@ -72,7 +78,7 @@ def generate_images(script, workdir, config):
     image_paths = []
 
     print("=" * 80)
-    print("🎨 Generating Images with Pollinations")
+    print("🎨 Generating Images with Pollinations (FLUX)")
     print("=" * 80)
 
     total = len(script["scene_plan"])
@@ -105,7 +111,6 @@ def generate_images(script, workdir, config):
 
         image_paths.append(filename)
 
-        # Prevent hitting Pollinations too quickly
         time.sleep(2)
 
     return image_paths

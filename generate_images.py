@@ -39,21 +39,17 @@ def generate_image(prompt, width, height):
 
     full_prompt = STYLE_PREFIX + prompt
 
-    seed = int(time.time() * 1000)
-    
+      
     url = (
         BASE_URL
         + urllib.parse.quote(full_prompt)
-        + (
-            f"?width={width}"
-            f"&height={height}"
-            f"&model=flux"
-            f"&seed={seed}"
-            f"&nologo=true"
-            f"&enhance=true"
-            f"&safe=false"
-        )
+        + "?model=flux"
     )
+
+    print("REQUEST URL:")
+    print(url)
+    print("-" * 80)
+
     for attempt in range(5):
 
         try:

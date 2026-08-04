@@ -17,7 +17,9 @@ STYLE_PREFIX = (
 
 def generate_image(prompt, width, height):
 
-    full_prompt = "cat"
+    full_prompt = STYLE_PREFIX + prompt
+    if len(full_prompt) > 250:
+        full_prompt = full_prompt[:250]
 
     url = BASE_URL + urllib.parse.quote(full_prompt)
 

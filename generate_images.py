@@ -3,7 +3,7 @@ import time
 import urllib.parse
 import requests
 
-BASE_URL = "https://image.pollinations.ai/prompt/"
+BASE_URL = "https://image.pollinations.ai/prompt/{prompt}"
 
 STYLE_PREFIX = (
     "Masterpiece. "

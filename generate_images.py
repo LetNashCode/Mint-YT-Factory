@@ -18,8 +18,10 @@ STYLE_PREFIX = (
 def generate_image(prompt, width, height):
 
     full_prompt = STYLE_PREFIX + prompt
-    if len(full_prompt) > 250:
-        full_prompt = full_prompt[:250]
+
+    # Keep Pollinations prompt from becoming too long
+    if len(full_prompt) > 350:
+        full_prompt = full_prompt[:350]
 
     url = BASE_URL + urllib.parse.quote(full_prompt)
 
@@ -28,15 +30,29 @@ def generate_image(prompt, width, height):
     print(url)
     print("=" * 80)
 
-    response = requests.get(
-        url,
-        headers=HEADERS,
-        timeout=180,
-    )
+    for attempt in range(5):
 
-    response.raise_for_status()
+        try:
 
-    return response.content
+            response = requests.get(
+                url,
+                headers=HEADERS,
+                timeout=180,
+            )
+
+            response.raise_for_status()
+
+            if response.content:
+                return response.content
+
+        except Exception as e:
+
+            print(f"Retry {attempt + 1}/5")
+            print(e)
+
+            time.sleep(5)
+
+    raise Exception("Failed to generate image after 5 attempts.")
 
 
 def generate_images(script, workdir, config):
@@ -57,11 +73,12 @@ def generate_images(script, workdir, config):
     for i, scene in enumerate(script["scene_plan"], start=1):
 
         print("=" * 80)
-        print(f"Scene {i}/{total}")
+        print(f"🖼️ Scene {i}/{total}")
         print("=" * 80)
 
+        print("PROMPT:")
         print(scene["image_prompt"])
-        print()
+        print("-" * 80)
 
         image = generate_image(
             scene["image_prompt"],
@@ -77,10 +94,11 @@ def generate_images(script, workdir, config):
         with open(filename, "wb") as f:
             f.write(image)
 
-        print(f"✅ Saved {filename}")
+        print(f"✅ Saved -> {filename}")
 
         image_paths.append(filename)
 
+        # Prevent hitting Pollinations too quickly
         time.sleep(2)
 
     return image_paths

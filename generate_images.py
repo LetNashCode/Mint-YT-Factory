@@ -6,27 +6,28 @@ import requests
 BASE_URL = "https://image.pollinations.ai/prompt/"
 
 STYLE_PREFIX = (
+    "Masterpiece. "
     "Dark graphic novel illustration. "
     "Premium comic book artwork. "
     "Netflix horror series concept art. "
+    "AAA horror game concept art. "
     "Highly detailed ink illustration. "
-    "Cinematic composition. "
-    "Heavy shadows. "
-    "Dramatic rim lighting. "
-    "Volumetric fog. "
-    "Dark atmosphere. "
     "Professional digital painting. "
-    "Graphic novel cover art. "
-    "High contrast lighting. "
-    "Muted color palette. "
+    "Heavy shadows. "
+    "Volumetric fog. "
+    "Dramatic rim lighting. "
+    "High contrast. "
     "Deep blacks. "
+    "Muted cinematic color palette. "
+    "Dynamic composition. "
+    "Professional lighting. "
+    "Cinematic perspective. "
     "Sharp focus. "
-    "Dynamic perspective. "
-    "Portrait composition. "
-    "Vertical 9:16. "
+    "Extremely detailed. "
+    "Portrait 9:16. "
     "No text. "
-    "No watermark. "
     "No logo. "
+    "No watermark. "
 )
 
 HEADERS = {
@@ -38,12 +39,21 @@ def generate_image(prompt, width, height):
 
     full_prompt = STYLE_PREFIX + prompt
 
+    seed = int(time.time() * 1000)
+    
     url = (
         BASE_URL
         + urllib.parse.quote(full_prompt)
-        + f"?width={width}&height={height}&model=flux&nologo=true"
+        + (
+            f"?width={width}"
+            f"&height={height}"
+            f"&model=flux"
+            f"&seed={seed}"
+            f"&nologo=true"
+            f"&enhance=true"
+            f"&safe=false"
+        )
     )
-
     for attempt in range(5):
 
         try:

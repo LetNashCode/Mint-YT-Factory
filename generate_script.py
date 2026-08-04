@@ -234,18 +234,39 @@ Describe only what should appear in the image.
 
 Every prompt MUST describe:
 
+• the single most dramatic moment
 • main character
 • facial expression
 • body language
 • clothing
-• environment
 • foreground
 • background
+• environment
 • dramatic lighting
 • atmosphere
 • weather (if relevant)
 • camera angle
+• camera distance
 • perspective
+• depth of field
+• composition
+
+Use cinematic camera language such as:
+
+• Extreme Close Up
+• Close Up
+• Medium Shot
+• Full Body Shot
+• Over-the-Shoulder
+• Low Angle
+• High Angle
+• Dutch Angle
+• Bird's Eye View
+• Worm's Eye View
+
+Every image should look like a professionally illustrated comic panel.
+
+Focus on ONE powerful moment instead of multiple actions.
 
 Style:
 
@@ -274,6 +295,37 @@ watermarks
 UI
 split screen
 collage
+
+==================================================
+CHARACTER CONSISTENCY
+==================================================
+
+If a character appears in multiple scenes, ALWAYS describe them exactly the same.
+
+The first time a character appears, establish:
+
+• approximate age
+• gender
+• hairstyle
+• hair color
+• eye color
+• facial features
+• clothing
+• accessories
+
+Every later scene MUST repeat those same characteristics.
+
+Never change:
+
+• clothing
+• hairstyle
+• age
+• body type
+
+Unless the story explicitly requires the character to transform.
+
+Background environments should also remain visually consistent unless the story changes location.
+
 ==================================================
 SCENE RULES
 ==================================================

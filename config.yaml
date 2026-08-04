@@ -12,17 +12,15 @@ voice:
   voice_name: "en_us_ghostface"
 
 visuals:
-  provider: "pollinations"
+  provider: "imagen"
   orientation: "portrait"
 
 image:
-  provider: "pollinations"
-  model: "gptimage"
+  provider: "imagen"
+  model: "imagen-4.0-generate-001"
   width: 1080
   height: 1920
-  enhance: true
-  nologo: true
-
+ 
 video:
   resolution: [1080, 1920]
   fps: 30

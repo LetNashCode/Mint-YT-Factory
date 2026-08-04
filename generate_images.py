@@ -3,31 +3,11 @@ import time
 import urllib.parse
 import requests
 
-BASE_URL = "https://image.pollinations.ai/prompt/{prompt}"
+BASE_URL = "https://image.pollinations.ai/prompt/"
 
 STYLE_PREFIX = (
-    "Masterpiece. "
-    "Dark graphic novel illustration. "
-    "Premium comic book artwork. "
-    "Netflix horror series concept art. "
-    "AAA horror game concept art. "
-    "Highly detailed ink illustration. "
-    "Professional digital painting. "
-    "Heavy shadows. "
-    "Volumetric fog. "
-    "Dramatic rim lighting. "
-    "High contrast. "
-    "Deep blacks. "
-    "Muted cinematic color palette. "
-    "Dynamic composition. "
-    "Professional lighting. "
-    "Cinematic perspective. "
-    "Sharp focus. "
-    "Extremely detailed. "
-    "Portrait 9:16. "
-    "No text. "
-    "No logo. "
-    "No watermark. "
+    "Graphic novel illustration. "
+    "Dark comic book art. "
 )
 
 HEADERS = {

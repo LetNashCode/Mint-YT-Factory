@@ -40,6 +40,9 @@ def generate_image(prompt, width, height):
                 timeout=180,
             )
 
+            print("STATUS:", response.status_code)
+            print(response.text[:1000])
+            
             response.raise_for_status()
 
             if response.content:

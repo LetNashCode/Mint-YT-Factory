@@ -6,6 +6,7 @@ client = genai.Client(
     api_key=os.environ["GEMINI_API_KEY"]
 )
 
+
 def generate_images(script, workdir, config):
 
     os.makedirs(workdir, exist_ok=True)
@@ -26,7 +27,28 @@ def generate_images(script, workdir, config):
 
         prompt = scene["image_prompt"]
 
-        print(prompt)
-        print()
+        response = client.models.generate_images(
+            model="imagen-4.0-generate-001",
+            prompt=prompt,
+            config=types.GenerateImagesConfig(
+                number_of_images=1,
+            ),
+        )
+
+        image = response.generated_images[0].image
+
+        path = os.path.join(
+            workdir,
+            f"scene_{i:02d}.png",
+        )
+
+        image.save(path)
+
+        image_paths.append(path)
+
+        print(f"✅ Saved {path}")
+
+        # ONLY TEST ONE IMAGE
+        break
 
     return image_paths

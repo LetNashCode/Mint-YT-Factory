@@ -207,37 +207,73 @@ Every scene in scene_plan must correspond exactly to the narration.
 IMAGE PROMPT RULES
 ==================================================
 
-Generate ONE image prompt per scene.
+Generate ONE image prompt for every scene.
 
-The image must match the exact narrated action.
+The image must match the narrated action exactly.
 
-Start every prompt with:
+IMPORTANT
 
-Ultra cinematic.
-Movie still.
-Hyper realistic.
-Highly detailed.
-Professional color grading.
-Volumetric lighting.
-Sharp focus.
-Vertical composition.
-9:16.
+The artwork MUST be in a premium DARK GRAPHIC NOVEL style.
 
-Describe:
+Think:
 
-• action
-• expression
+• Batman graphic novel
+• The Walking Dead comics
+• Sin City
+• Hellboy
+• Netflix horror artwork
+• AAA horror game concept art
+
+Every prompt should describe ONE frozen cinematic moment.
+
+Do NOT describe multiple actions.
+
+Do NOT describe a sequence.
+
+Describe only what should appear in the image.
+
+Every prompt MUST describe:
+
+• main character
+• facial expression
+• body language
+• clothing
 • environment
-• lighting
-• camera angle
+• foreground
+• background
+• dramatic lighting
 • atmosphere
+• weather (if relevant)
+• camera angle
+• perspective
+
+Style:
+
+Dark graphic novel illustration.
+Premium comic book artwork.
+Highly detailed ink illustration.
+Professional digital painting.
+AAA horror game concept art.
+Heavy shadows.
+Volumetric fog.
+Dramatic rim lighting.
+High contrast.
+Muted colors.
+Deep blacks.
+Sharp focus.
+Dynamic composition.
+Portrait orientation.
+Vertical 9:16.
 
 Never mention:
+
+text
 captions
 logos
-text
 watermarks
-
+UI
+split screen
+collage
 ==================================================
 SCENE RULES
 ==================================================

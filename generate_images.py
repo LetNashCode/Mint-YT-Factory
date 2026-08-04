@@ -5,6 +5,10 @@ import requests
 
 BASE_URL = "https://image.pollinations.ai/prompt/"
 
+# Anonymous (no-signup) Pollinations requests are rate-limited to roughly
+# one request every 15 seconds — this pause keeps us comfortably under that.
+_REQUEST_DELAY_SECONDS = 16
+
 HEADERS = {
     "User-Agent": "Mozilla/5.0"
 }

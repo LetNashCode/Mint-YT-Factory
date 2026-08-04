@@ -48,7 +48,7 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
           FREESOUND_API_KEY: ${{ secrets.FREESOUND_API_KEY }}
-          HF_TOKEN: ${{ secrets. HF_TOKEN }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           echo "=========================================="
           echo "🚀 AI YouTube Shorts Pipeline Started"

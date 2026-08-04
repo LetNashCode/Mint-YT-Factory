@@ -12,12 +12,12 @@ voice:
   voice_name: "en_us_ghostface"
 
 visuals:
-  provider: "imagen"
+  provider: "pollinations"
   orientation: "portrait"
 
 image:
-  provider: "imagen"
-  model: "imagen-4.0-generate-001"
+  provider: "pollinations"
+  model: "flux"
   width: 1080
   height: 1920
  

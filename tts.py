@@ -5,34 +5,23 @@ import shutil
 from moviepy.editor import AudioFileClip, concatenate_audioclips
 from tiktoktts import TTS
 
-VOICE_ID = "en_us_ghostface"
 MAX_BYTES = 300
 
 
-def apply_emotion(text, emotion):
-    """
-    Placeholder for future emotion support.
-    Currently returns the text unchanged because
-    TikTok TTS reads "..." as "dot dot dot".
-    """
-    if not text:
-        return ""
-
-    return text.strip()
-
-
 def split_text(text, limit=MAX_BYTES):
+
     words = text.split()
 
     chunks = []
+
     current = ""
 
     for word in words:
 
-        test = word if not current else current + " " + word
+        candidate = word if not current else current + " " + word
 
-        if len(test.encode("utf-8")) <= limit:
-            current = test
+        if len(candidate.encode("utf-8")) <= limit:
+            current = candidate
         else:
             if current:
                 chunks.append(current)
@@ -44,28 +33,41 @@ def split_text(text, limit=MAX_BYTES):
     return chunks
 
 
+def clean_text(text):
+
+    text = re.sub(r"\s+", " ", text)
+
+    text = re.sub(r"\!{2,}", "!", text)
+
+    text = re.sub(r"\?{2,}", "?", text)
+
+    return text.strip()
+
+
 def synthesize_narration(text, config, out_path):
 
+    voice = config["voice"]["voice_name"]
+
     tts = TTS()
-    tts.SetVoice(VOICE_ID)
 
-    temp = []
+    tts.SetVoice(voice)
 
-    for i, chunk in enumerate(split_text(text)):
+    temp_files = []
 
-        chunk = re.sub(r"\!{2,}", "!", chunk)
-        chunk = re.sub(r"\?{2,}", "?", chunk)
-        chunk = re.sub(r"\s+", " ", chunk).strip()
+    for i, chunk in enumerate(split_text(clean_text(text))):
 
         tts.New(chunk)
 
-        part = f"tts_part_{i}.mp3"
+        filename = f"tts_part_{i}.mp3"
 
-        shutil.move("output.mp3", part)
+        shutil.move("output.mp3", filename)
 
-        temp.append(part)
+        temp_files.append(filename)
 
-    clips = [AudioFileClip(x) for x in temp]
+    clips = [
+        AudioFileClip(x)
+        for x in temp_files
+    ]
 
     final = concatenate_audioclips(clips)
 
@@ -81,7 +83,7 @@ def synthesize_narration(text, config, out_path):
     for clip in clips:
         clip.close()
 
-    for file in temp:
+    for file in temp_files:
         os.remove(file)
 
     return out_path
@@ -93,37 +95,27 @@ def synthesize_script(script, config, workdir):
 
     narration = []
 
-    narration.append(
-        apply_emotion(
-            script["hook"],
-            "curiosity",
-        )
-    )
+    for key in [
 
-    narration.append(
-        apply_emotion(
-            script["story"],
-            "suspense",
-        )
-    )
+        "hook",
 
-    narration.append(
-        apply_emotion(
-            script["twist"],
-            "shock",
-        )
-    )
+        "question",
 
-    narration.append(
-        apply_emotion(
-            script["ending"],
-            "mystery",
-        )
-    )
+        "explanation",
 
-    full_text = " ".join(
-        part for part in narration if part
-    )
+        "example",
+
+        "mindblowing_fact",
+
+        "ending",
+
+    ]:
+
+        if key in script:
+
+            narration.append(script[key])
+
+    text = " ".join(narration)
 
     out = os.path.join(
         workdir,
@@ -131,7 +123,7 @@ def synthesize_script(script, config, workdir):
     )
 
     synthesize_narration(
-        full_text,
+        text,
         config,
         out,
     )

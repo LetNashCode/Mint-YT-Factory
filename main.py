@@ -1,5 +1,6 @@
 """
 main.py
+Educational YouTube Shorts Pipeline
 """
 
 import argparse
@@ -18,34 +19,62 @@ from upload_youtube import upload_video
 
 
 def load_config():
-    with open("config.yaml") as f:
+
+    with open("config.yaml", "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
 
 
 def build_title_description(script):
+
     title = script["title"]
-    description = (
-        script["hook"] + "\n\n"
-        + script["story"] + "\n\n"
-        + script["twist"] + "\n\n"
-        + script["ending"]
+
+    description = "\n\n".join([
+        script["hook"],
+        script["question"],
+        script["explanation"],
+        script["example"],
+        script["mindblowing_fact"],
+        script["ending"],
+    ])
+
+    if script.get("tags"):
+
+        description += "\n\n"
+
+        description += " ".join(
+            "#" + tag.replace(" ", "")
+            for tag in script["tags"]
+        )
+
+    return (
+        title[:100],
+        description[:5000],
     )
-    return title[:100], description[:5000]
 
 
 def run(dry_run=False):
 
     config = load_config()
 
-    idea = get_next_topic()
-    print("Idea:", idea)
+    print("=" * 80)
+    print("🧠 GENERATING TOPIC")
+    print("=" * 80)
+
+    topic = get_next_topic()
+
+    print(topic)
+
+    print("=" * 80)
+    print("✍️ GENERATING SCRIPT")
+    print("=" * 80)
 
     script = generate_script(
-        idea,
+        topic,
         config,
     )
 
     run_id = str(int(time.time()))
+
     workdir = os.path.join(
         "output",
         run_id,
@@ -56,6 +85,10 @@ def run(dry_run=False):
         exist_ok=True,
     )
 
+    print("=" * 80)
+    print("🎙️ GENERATING NARRATION")
+    print("=" * 80)
+
     audio = synthesize_script(
         script,
         config,
@@ -65,10 +98,8 @@ def run(dry_run=False):
         ),
     )
 
-    print("Generating Whisper timestamps...")
-
     print("=" * 80)
-    print("🎨 Generating AI Images...")
+    print("🖼️ GENERATING VISUALS")
     print("=" * 80)
 
     visuals = generate_images(
@@ -81,7 +112,7 @@ def run(dry_run=False):
     )
 
     print("=" * 80)
-    print("🎵 Downloading Background Music...")
+    print("🎵 DOWNLOADING MUSIC")
     print("=" * 80)
 
     music = download_music(
@@ -93,7 +124,7 @@ def run(dry_run=False):
     )
 
     print("=" * 80)
-    print("💥 Downloading Sound Effects...")
+    print("💥 DOWNLOADING SOUND EFFECTS")
     print("=" * 80)
 
     sfx = download_sfx(
@@ -109,6 +140,10 @@ def run(dry_run=False):
         "final.mp4",
     )
 
+    print("=" * 80)
+    print("🎬 RENDERING VIDEO")
+    print("=" * 80)
+
     assemble_video(
         script,
         audio,
@@ -119,11 +154,27 @@ def run(dry_run=False):
         final_video,
     )
 
-    if dry_run or not config["upload"]["auto_upload"]:
-        print("Dry run.")
+    if dry_run:
+
+        print("=" * 80)
+        print("✅ DRY RUN COMPLETE")
+        print(final_video)
+        print("=" * 80)
         return
 
-    title, description = build_title_description(script)
+    if not config["upload"]["auto_upload"]:
+
+        print("Auto upload disabled.")
+
+        return
+
+    title, description = build_title_description(
+        script
+    )
+
+    print("=" * 80)
+    print("🚀 UPLOADING TO YOUTUBE")
+    print("=" * 80)
 
     upload_video(
         final_video,
@@ -132,10 +183,15 @@ def run(dry_run=False):
         config,
     )
 
+    print("=" * 80)
+    print("🎉 PIPELINE COMPLETE")
+    print("=" * 80)
+
 
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
+
     parser.add_argument(
         "--dry-run",
         action="store_true",

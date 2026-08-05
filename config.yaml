@@ -1,18 +1,34 @@
 channel:
-  niche: "Curiosity, Mystery, Science, History"
-  tone: "Cinematic, suspenseful, fast-paced"
+  niche: "Educational"
+  tone: "Curious, engaging, educational, cinematic"
   audience: "Global"
+
+content:
+  pillars:
+    - Human Body
+    - Psychology
+    - Science
+    - Space
+    - Earth
+    - Technology
+    - History
+    - Animals
 
 script:
   language: "English"
   target_narration_seconds: 45
+  reading_level: "Grade 6"
+  style: "Question → Explanation → Example → Mind-Blowing Fact"
+  scenes: 7
 
 voice:
   provider: "tiktok"
-  voice_name: "en_us_ghostface"
+  voice_name: "en_us_001"
+  speed: 1.0
 
 visuals:
   provider: "pollinations"
+  style: "educational"
   orientation: "portrait"
 
 image:
@@ -20,25 +36,42 @@ image:
   model: "flux"
   width: 1080
   height: 1920
- 
+  enhance: false
+  nologo: true
+
 video:
   resolution: [1080, 1920]
   fps: 30
+
+  transitions: true
+  zoom: true
+  pan: true
+  motion_strength: 0.30
+
   background_music: "assets/music/background.mp3"
   music_volume: 0.08
-  sfx_volume: 0.75
+  sfx_volume: 0.55
+
   captions:
+    enabled: true
     font_size: 72
+    highlight: true
 
 upload:
   auto_upload: true
   privacy_status: "public"
   category_id: "27"
-  title_template: "{topic}"
-  description_template: "{hook_line}"
-  default_tags:
+
+branding:
+  channel_name: "Wonder Minute"
+  ending_text: "Follow for more."
+
+seo:
+  hashtags:
     - shorts
-    - facts
-    - mystery
     - science
-    - history
+    - education
+    - facts
+    - learn
+    - curiosity
+    - knowledge

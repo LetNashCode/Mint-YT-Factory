@@ -1,71 +1,146 @@
 import os
+import random
 import requests
 
 API_URL = "https://freesound.org/apiv2/search/text/"
 
 
+def search_sound(api_key, query):
+
+    params = {
+
+        "query": query,
+
+        "fields": "id,name,previews,tags",
+
+        "filter": "duration:[0 TO 12]",
+
+        "sort": "score",
+
+        "token": api_key,
+
+    }
+
+    response = requests.get(
+        API_URL,
+        params=params,
+        timeout=60,
+    )
+
+    response.raise_for_status()
+
+    return response.json().get("results", [])
+
+
 def download_sfx(script, workdir):
+
     os.makedirs(workdir, exist_ok=True)
 
     api_key = os.environ["FREESOUND_API_KEY"]
 
-    sfx_paths = []
+    downloads = []
 
-    for keyword in script.get("sfx_search", []):
+    fallback = [
+
+        "whoosh",
+
+        "soft whoosh",
+
+        "digital beep",
+
+        "notification",
+
+        "camera shutter",
+
+        "page flip",
+
+        "click",
+
+        "light impact",
+
+        "ui click",
+
+        "pop",
+
+        "bubble",
+
+        "sparkle",
+
+        "swish",
+
+    ]
+
+    searches = script.get("sfx_search", [])
+
+    if not searches:
+
+        searches = fallback
+
+    for keyword in searches:
 
         print("=" * 80)
-        print(f"💥 Searching SFX: {keyword}")
+        print("💥 SEARCHING SFX")
+        print(keyword)
         print("=" * 80)
 
-        params = {
-            "query": keyword,
-            "fields": "id,name,previews",
-            "filter": "duration:[0 TO 15]",
-            "sort": "score",
-            "token": api_key,
-        }
+        try:
 
-        response = requests.get(
-            API_URL,
-            params=params,
-            timeout=60,
-        )
+            results = search_sound(
+                api_key,
+                keyword,
+            )
 
-        response.raise_for_status()
+            if not results:
 
-        results = response.json().get("results", [])
+                continue
 
-        if not results:
-            print(f"No SFX found for '{keyword}'")
-            continue
+            random.shuffle(results)
 
-        sound = results[0]
+            sound = results[0]
 
-        preview_url = (
-            sound.get("previews", {}).get("preview-hq-mp3")
-            or sound.get("previews", {}).get("preview-lq-mp3")
-        )
+            preview = (
 
-        if not preview_url:
-            continue
+                sound.get("previews", {}).get("preview-hq-mp3")
 
-        path = os.path.join(
-            workdir,
-            f"{keyword.replace(' ', '_')}.mp3",
-        )
+                or
 
-        audio = requests.get(
-            preview_url,
-            timeout=120,
-        )
+                sound.get("previews", {}).get("preview-lq-mp3")
 
-        audio.raise_for_status()
+            )
 
-        with open(path, "wb") as f:
-            f.write(audio.content)
+            if not preview:
 
-        print(f"Downloaded: {keyword}")
+                continue
 
-        sfx_paths.append(path)
+            filename = os.path.join(
 
-    return sfx_paths
+                workdir,
+
+                keyword.replace(
+                    " ",
+                    "_",
+                )
+                + ".mp3",
+
+            )
+
+            audio = requests.get(
+                preview,
+                timeout=120,
+            )
+
+            audio.raise_for_status()
+
+            with open(filename, "wb") as f:
+
+                f.write(audio.content)
+
+            print("Downloaded:", keyword)
+
+            downloads.append(filename)
+
+        except Exception as e:
+
+            print(e)
+
+    return downloads

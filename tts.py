@@ -36,9 +36,7 @@ def split_text(text, limit=MAX_BYTES):
 def clean_text(text):
 
     text = re.sub(r"\s+", " ", text)
-
     text = re.sub(r"\!{2,}", "!", text)
-
     text = re.sub(r"\?{2,}", "?", text)
 
     return text.strip()
@@ -49,7 +47,6 @@ def synthesize_narration(text, config, out_path):
     voice = config["voice"]["voice_name"]
 
     tts = TTS()
-
     tts.SetVoice(voice)
 
     temp_files = []
@@ -64,10 +61,7 @@ def synthesize_narration(text, config, out_path):
 
         temp_files.append(filename)
 
-    clips = [
-        AudioFileClip(x)
-        for x in temp_files
-    ]
+    clips = [AudioFileClip(x) for x in temp_files]
 
     final = concatenate_audioclips(clips)
 
@@ -95,25 +89,17 @@ def synthesize_script(script, config, workdir):
 
     narration = []
 
-    for key in [
+    for scene in script["scene_plan"]:
 
-        "hook",
+        line = scene.get("narration", "").strip()
 
-        "question",
+        if line:
+            narration.append(line)
 
-        "explanation",
+        pause_ms = scene.get("pause_after_ms", 0)
 
-        "example",
-
-        "mindblowing_fact",
-
-        "ending",
-
-    ]:
-
-        if key in script:
-
-            narration.append(script[key])
+        if pause_ms >= 300:
+            narration.append("...")
 
     text = " ".join(narration)
 

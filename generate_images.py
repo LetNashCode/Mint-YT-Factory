@@ -10,8 +10,24 @@ HEADERS = {
 }
 
 STYLE_PREFIX = (
-    "Graphic novel illustration. "
-    "Dark comic book art. "
+    "Educational infographic. "
+    "High quality 3D render. "
+    "Professional educational illustration. "
+    "Clean composition. "
+    "Bright colors. "
+    "Modern science documentary style. "
+    "National Geographic quality. "
+    "Highly detailed. "
+    "Sharp focus. "
+    "Realistic lighting. "
+    "White background when appropriate. "
+    "No text. "
+    "No labels. "
+    "No watermark. "
+    "No logo. "
+    "Vertical 9:16 composition. "
+    "Subject centered. "
+    "Educational visual. "
 )
 
 
@@ -19,7 +35,6 @@ def generate_image(prompt, width, height):
 
     full_prompt = STYLE_PREFIX + prompt
 
-    # Prevent extremely long prompts
     if len(full_prompt) > 350:
         full_prompt = full_prompt[:350]
 
@@ -60,7 +75,7 @@ def generate_image(prompt, width, height):
 
         except Exception as e:
 
-            print(f"Retry {attempt+1}/5")
+            print(f"Retry {attempt + 1}/5")
             print(e)
 
             time.sleep(5)
@@ -78,7 +93,7 @@ def generate_images(script, workdir, config):
     image_paths = []
 
     print("=" * 80)
-    print("🎨 Generating Images with Pollinations (FLUX)")
+    print("🎨 Generating Educational Visuals")
     print("=" * 80)
 
     total = len(script["scene_plan"])
@@ -89,9 +104,7 @@ def generate_images(script, workdir, config):
         print(f"🖼️ Scene {i}/{total}")
         print("=" * 80)
 
-        print("PROMPT:")
         print(scene["image_prompt"])
-        print("-" * 80)
 
         image = generate_image(
             scene["image_prompt"],

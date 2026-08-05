@@ -26,20 +26,24 @@ def load_config():
 
 def build_title_description(script):
 
-    title = script["title"]
+    title = script.get("title", "Educational Short")
 
-    description = "\n\n".join([
-        script["hook"],
-        script["question"],
-        script["explanation"],
-        script["example"],
-        script["mindblowing_fact"],
-        script["ending"],
-    ])
+    description = script.get("description", "")
+
+    if script.get("scene_plan"):
+
+        description += "\n\n"
+
+        for scene in script["scene_plan"]:
+
+            narration = scene.get("narration", "").strip()
+
+            if narration:
+                description += narration + "\n"
 
     if script.get("tags"):
 
-        description += "\n\n"
+        description += "\n"
 
         description += " ".join(
             "#" + tag.replace(" ", "")
@@ -158,8 +162,10 @@ def run(dry_run=False):
 
         print("=" * 80)
         print("✅ DRY RUN COMPLETE")
+        print("=" * 80)
         print(final_video)
         print("=" * 80)
+
         return
 
     if not config["upload"]["auto_upload"]:

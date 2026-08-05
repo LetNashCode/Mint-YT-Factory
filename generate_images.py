@@ -10,46 +10,99 @@ HEADERS = {
 }
 
 STYLE_PREFIX = (
-    "Educational infographic. "
-    "High quality 3D render. "
-    "Professional educational illustration. "
-    "Clean composition. "
-    "Bright colors. "
-    "Modern science documentary style. "
-    "National Geographic quality. "
+    "Educational documentary illustration. "
+    "Ultra realistic 3D render. "
+    "Professional educational artwork. "
+    "National Geographic documentary quality. "
     "Highly detailed. "
+    "Photorealistic. "
+    "Clean composition. "
+    "Volumetric lighting. "
     "Sharp focus. "
-    "Realistic lighting. "
-    "White background when appropriate. "
+    "8K quality. "
+    "Vertical 9:16 composition. "
     "No text. "
     "No labels. "
     "No watermark. "
     "No logo. "
-    "Vertical 9:16 composition. "
-    "Subject centered. "
-    "Educational visual. "
 )
+
+
+def build_prompt(scene):
+
+    prompt_parts = []
+
+    if scene.get("image_prompt"):
+        prompt_parts.append(scene["image_prompt"])
+
+    if scene.get("image_style"):
+        prompt_parts.append(scene["image_style"])
+
+    if scene.get("lighting"):
+        prompt_parts.append(
+            f"Lighting: {scene['lighting']}"
+        )
+
+    if scene.get("color_palette"):
+        prompt_parts.append(
+            f"Color palette: {scene['color_palette']}"
+        )
+
+    if scene.get("visual_identity"):
+        prompt_parts.append(scene["visual_identity"])
+
+    if scene.get("visual_role"):
+        prompt_parts.append(
+            f"Visual role: {scene['visual_role']}"
+        )
+
+    if scene.get("camera"):
+        prompt_parts.append(
+            f"Camera angle: {scene['camera']}"
+        )
+
+    if scene.get("mood"):
+        prompt_parts.append(
+            f"Mood: {scene['mood']}"
+        )
+
+    prompt_parts.append(
+        "Centered subject."
+    )
+
+    prompt_parts.append(
+        "Designed for YouTube Shorts."
+    )
+
+    prompt_parts.append(
+        "Educational documentary style."
+    )
+
+    prompt = ". ".join(prompt_parts)
+
+    return prompt
 
 
 def generate_image(prompt, width, height):
 
     full_prompt = STYLE_PREFIX + prompt
 
-    if len(full_prompt) > 350:
-        full_prompt = full_prompt[:350]
+    if len(full_prompt) > 700:
+        full_prompt = full_prompt[:700]
 
     url = (
         BASE_URL
         + urllib.parse.quote(full_prompt)
-        + f"?model=flux"
+        + "?model=flux"
         + f"&width={width}"
         + f"&height={height}"
         + f"&seed={int(time.time())}"
+        + "&enhance=true"
         + "&nologo=true"
     )
 
     print("=" * 80)
-    print("REQUEST URL:")
+    print("REQUEST URL")
     print(url)
     print("=" * 80)
 
@@ -80,7 +133,9 @@ def generate_image(prompt, width, height):
 
             time.sleep(5)
 
-    raise Exception("Failed to generate image after 5 attempts.")
+    raise RuntimeError(
+        "Failed to generate image."
+    )
 
 
 def generate_images(script, workdir, config):
@@ -92,29 +147,31 @@ def generate_images(script, workdir, config):
 
     image_paths = []
 
+    scenes = script["scene_plan"]
+
     print("=" * 80)
-    print("🎨 Generating Educational Visuals")
+    print("🎨 GENERATING EDUCATIONAL VISUALS")
     print("=" * 80)
 
-    total = len(script["scene_plan"])
+    for index, scene in enumerate(scenes, start=1):
 
-    for i, scene in enumerate(script["scene_plan"], start=1):
+        prompt = build_prompt(scene)
 
         print("=" * 80)
-        print(f"🖼️ Scene {i}/{total}")
+        print(f"SCENE {index}/{len(scenes)}")
         print("=" * 80)
-
-        print(scene["image_prompt"])
+        print(prompt)
+        print("=" * 80)
 
         image = generate_image(
-            scene["image_prompt"],
+            prompt,
             width,
             height,
         )
 
         filename = os.path.join(
             workdir,
-            f"scene_{i:02d}.png",
+            f"scene_{index:02d}.png",
         )
 
         with open(filename, "wb") as f:

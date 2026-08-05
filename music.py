@@ -1,4 +1,5 @@
 import os
+import random
 import requests
 
 API_URL = "https://freesound.org/apiv2/search/text/"
@@ -7,11 +8,17 @@ API_URL = "https://freesound.org/apiv2/search/text/"
 def _search(api_key, query):
 
     params = {
+
         "query": query,
-        "fields": "id,name,previews",
+
+        "fields": "id,name,previews,tags",
+
         "filter": "tag:music duration:[20 TO 300]",
+
         "sort": "score",
+
         "token": api_key,
+
     }
 
     response = requests.get(
@@ -32,18 +39,38 @@ def download_music(script, workdir):
     api_key = os.environ["FREESOUND_API_KEY"]
 
     searches = [
+
         script.get("music_search", ""),
-        "cinematic",
-        "epic",
-        "orchestral",
-        "suspense",
-        "ambient",
-        "horror",
-        "dramatic",
-        "trailer",
+
+        "science documentary",
+
+        "educational documentary",
+
+        "technology ambient",
+
+        "cinematic curiosity",
+
+        "uplifting orchestral",
+
+        "future technology",
+
+        "space ambient",
+
+        "nature documentary",
+
+        "light cinematic",
+
+        "corporate cinematic",
+
+        "motivational",
+
+        "inspiring",
+
+        "educational",
+
     ]
 
-    music = None
+    selected = None
 
     for query in searches:
 
@@ -51,50 +78,71 @@ def download_music(script, workdir):
             continue
 
         print("=" * 80)
-        print("🎵 Searching Freesound")
+        print("🎵 SEARCHING MUSIC")
         print(query)
         print("=" * 80)
 
         try:
-            results = _search(api_key, query)
+
+            results = _search(
+                api_key,
+                query,
+            )
 
             if results:
-                music = results[0]
+
+                random.shuffle(results)
+
+                selected = results[0]
+
                 break
 
         except Exception as e:
+
             print(e)
 
-    if music is None:
-        print("⚠️ No background music found.")
+    if selected is None:
+
+        print("⚠️ No suitable music found.")
+
         return None
 
-    preview_url = (
-        music.get("previews", {}).get("preview-hq-mp3")
-        or music.get("previews", {}).get("preview-lq-mp3")
+    preview = (
+
+        selected.get("previews", {}).get("preview-hq-mp3")
+
+        or
+
+        selected.get("previews", {}).get("preview-lq-mp3")
+
     )
 
-    if not preview_url:
-        print("⚠️ Music preview unavailable.")
+    if not preview:
+
+        print("⚠️ Preview unavailable.")
+
         return None
 
-    print(f"Selected: {music['name']}")
+    print("=" * 80)
+    print("🎵 SELECTED MUSIC")
+    print(selected["name"])
+    print("=" * 80)
 
-    path = os.path.join(
+    output = os.path.join(
         workdir,
         "background.mp3",
     )
 
     audio = requests.get(
-        preview_url,
+        preview,
         timeout=120,
     )
 
     audio.raise_for_status()
 
-    with open(path, "wb") as f:
+    with open(output, "wb") as f:
         f.write(audio.content)
 
-    print(f"Saved: {path}")
+    print(f"Saved: {output}")
 
-    return path
+    return output

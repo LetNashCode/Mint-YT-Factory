@@ -1,8 +1,7 @@
 """
 topics.py
 
-Generates one unique video idea using Gemini.
-Keeps track of previous ideas in used_topics.json.
+Generates one unique educational YouTube Shorts topic.
 """
 
 import json
@@ -16,31 +15,36 @@ USED_TOPICS_PATH = "used_topics.json"
 
 
 SYSTEM_PROMPT = """
-You are an expert viral YouTube Shorts idea generator.
+You are the content strategist behind one of the world's largest educational YouTube Shorts channels.
 
-Generate ONE completely original video idea.
+Generate ONE highly viral educational topic.
 
-The idea must belong to ONE of these series:
+The topic MUST belong to ONE of these categories:
 
-1. Survival Simulator
-2. One Wrong Choice
-3. You Wake Up As
-4. Last Person Alive
-5. Every Minute Gets Worse
-6. Impossible Challenge
-7. Reality Glitch
-8. Choose Your Fate
+1. Human Body
+2. Psychology
+3. Science
+4. Space
+5. Earth
+6. Technology
+7. History
+8. Animals
 
-Rules
+Rules:
 
-• Return ONLY ONE idea.
-• Keep it under 8 words.
-• Make it extremely clickable.
-• Never explain.
+• Return ONLY ONE topic.
+• Maximum 8 words.
+• Must be phrased as a curiosity question.
+• No clickbait.
+• No listicles.
+• No "Top 10".
+• No "Did you know".
+• No emojis.
 • No numbering.
 • No quotation marks.
 • No punctuation at the end.
-• Do not copy previous ideas.
+• Must make people instantly curious.
+• Never repeat previous topics.
 """
 
 
@@ -56,7 +60,12 @@ def _load_used():
 def _save_used(used):
 
     with open(USED_TOPICS_PATH, "w", encoding="utf-8") as f:
-        json.dump(used, f, indent=2, ensure_ascii=False)
+        json.dump(
+            used,
+            f,
+            indent=2,
+            ensure_ascii=False,
+        )
 
 
 def get_next_topic():
@@ -67,49 +76,48 @@ def get_next_topic():
 
     used = _load_used()
 
-    previous = "\n".join(used[-200:])
+    previous = "\n".join(used[-300:])
 
     prompt = f"""
-Previously used ideas:
+Previously used topics:
 
 {previous}
 
-Generate ONE completely different idea.
+Generate ONE completely different educational topic.
 
-Return ONLY the idea.
+Return ONLY the topic.
 """
 
     for _ in range(5):
 
         response = client.models.generate_content(
-            model="gemini-flash-lite-latest",
+            model="gemini-2.5-flash-lite",
             contents=prompt,
             config=types.GenerateContentConfig(
                 system_instruction=SYSTEM_PROMPT,
+                temperature=1.1,
             ),
         )
 
-        idea = response.text.strip()
-
-        idea = (
-            idea
+        topic = (
+            response.text.strip()
             .replace('"', "")
             .replace(".", "")
             .strip()
         )
 
-        if idea not in used:
+        if topic not in used:
 
-            used.append(idea)
+            used.append(topic)
 
             _save_used(used)
 
             print("=" * 80)
-            print("GENERATED IDEA")
+            print("GENERATED TOPIC")
             print("=" * 80)
-            print(idea)
+            print(topic)
             print("=" * 80)
 
-            return idea
+            return topic
 
-    raise RuntimeError("Could not generate a unique idea.")
+    raise RuntimeError("Could not generate a unique topic.")

@@ -49,44 +49,69 @@ def _captions(audio_path, size):
 
 
 def _animate(clip, duration):
-
     mode = random.choice([
-        "left",
-        "right",
-        "up",
-        "down",
+        "zoom_in",
+        "zoom_out",
+        "pan_left",
+        "pan_right",
+        "pan_up",
+        "pan_down",
+        "kenburns",
+        "hold",
     ])
-
-    if mode == "left":
-        return clip.set_position(
+    if mode == "zoom_in":
+        clip = clip.fx(
+            vfx.resize,
+            lambda t: 1 + 0.08 * (t / max(duration, 0.1)),
+        )
+    elif mode == "zoom_out":
+        clip = clip.fx(
+            vfx.resize,
+            lambda t: 1.08 - 0.08 * (t / max(duration, 0.1)),
+        )
+    elif mode == "pan_left":
+        clip = clip.set_position(
             lambda t: (
-                -20 * t / max(duration, 0.1),
+                -60 * (t / max(duration, 0.1)),
                 "center",
             )
         )
-
-    if mode == "right":
-        return clip.set_position(
+    elif mode == "pan_right":
+        clip = clip.set_position(
             lambda t: (
-                20 * t / max(duration, 0.1),
+                60 * (t / max(duration, 0.1)),
                 "center",
             )
         )
-
-    if mode == "up":
-        return clip.set_position(
+    elif mode == "pan_up":
+        clip = clip.set_position(
             lambda t: (
                 "center",
-                -20 * t / max(duration, 0.1),
+                -60 * (t / max(duration, 0.1)),
             )
         )
-
-    return clip.set_position(
-        lambda t: (
-            "center",
-            20 * t / max(duration, 0.1),
+    elif mode == "pan_down":
+        clip = clip.set_position(
+            lambda t: (
+                "center",
+                60 * (t / max(duration, 0.1)),
+            )
         )
-    )
+    elif mode == "kenburns":
+        clip = (
+            clip
+            .fx(
+                vfx.resize,
+                lambda t: 1 + 0.06 * (t / max(duration, 0.1)),
+            )
+            .set_position(
+                lambda t: (
+                    -30 * (t / max(duration, 0.1)),
+                    -20 * (t / max(duration, 0.1)),
+                )
+            )
+        )
+    return clip
 
 
 def assemble_video(

@@ -26,13 +26,17 @@ from moviepy.editor import (
 # Constants / Defaults
 # ============================================================
 
-FONT = "DejaVu-Sans-Bold"
+FONT = os.path.join(
+    "assets",
+    "fonts",
+    "Poppins-ExtraBold.ttf",
+)
 
-CAPTION_FONT_SIZE = 82
+CAPTION_FONT_SIZE = 66
 CAPTION_COLOR = "white"
-CAPTION_HIGHLIGHT_COLOR = "#FFD400"
-CAPTION_STROKE = "black"
-CAPTION_STROKE_WIDTH = 4
+CAPTION_HIGHLIGHT_COLOR = "#FFD54A"
+CAPTION_STROKE = "#222222"
+CAPTION_STROKE_WIDTH = 2
 
 OVERLAY_FONT_SIZE = 88
 OVERLAY_STROKE_WIDTH = 6

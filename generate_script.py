@@ -505,7 +505,15 @@ def generate_script(topic: str, config: dict) -> dict:
 
     print("=" * 80)
 
-    return script, scene_count
+    script = validate_script(
+
+    script,
+
+    expected_scene_count=scene_count,
+
+    )
+
+    return script
 
 
 # --------------------------------------------------------------------------
@@ -860,8 +868,7 @@ if __name__ == "__main__":
         print(topic)
         print("=" * 100)
 
-        script, scene_count = generate_script(topic, config)
-        script = validate_script(script, expected_scene_count=scene_count)
+        script = generate_script(topic, config)
 
         print(
             json.dumps(

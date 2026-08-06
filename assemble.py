@@ -637,7 +637,7 @@ def build_captions(audio_path, script, timeline, size):
 
         clip = (
             TextClip(
-                phrase["text"],
+                phrase["text"].title(),
                 font=FONT,
                 fontsize=CAPTION_FONT_SIZE,
                 color=color,

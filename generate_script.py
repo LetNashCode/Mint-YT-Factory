@@ -451,7 +451,7 @@ def generate_script(topic: str, config: dict) -> dict:
 
     response = client.models.generate_content(
 
-        model="gemini-2.5-flash",
+        model="gemini-flash-lite-latest",
 
         contents=prompt,
 

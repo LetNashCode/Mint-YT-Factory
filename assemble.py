@@ -551,7 +551,7 @@ def get_caption_position(style, h):
     if style == "bottom":
         return ("center", h * 0.82)
     # default / lower_third
-    return ("center", h * 0.72)
+    return ("center", h * 0.78)
 
 
 def group_words_into_phrases(words):
@@ -637,7 +637,7 @@ def build_captions(audio_path, script, timeline, size):
 
         clip = (
             TextClip(
-                phrase["text"].upper(),
+                phrase["text"],
                 font=FONT,
                 fontsize=CAPTION_FONT_SIZE,
                 color=color,

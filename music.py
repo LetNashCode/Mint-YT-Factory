@@ -1,148 +1,98 @@
+"""
+music.py
+Random local background music selector
+"""
+
+import glob
 import os
 import random
-import requests
 
-API_URL = "https://freesound.org/apiv2/search/text/"
+MUSIC_FOLDER = os.path.join(
+    "assets",
+    "music",
+)
 
-
-def _search(api_key, query):
-
-    params = {
-
-        "query": query,
-
-        "fields": "id,name,previews,tags",
-
-        "filter": "tag:music duration:[20 TO 300]",
-
-        "sort": "score",
-
-        "token": api_key,
-
-    }
-
-    response = requests.get(
-        API_URL,
-        params=params,
-        timeout=60,
-    )
-
-    response.raise_for_status()
-
-    return response.json().get("results", [])
+LAST_TRACK_FILE = os.path.join(
+    MUSIC_FOLDER,
+    ".last_track",
+)
 
 
 def download_music(script, workdir):
 
-    os.makedirs(workdir, exist_ok=True)
-
-    api_key = os.environ["FREESOUND_API_KEY"]
-
-    searches = [
-
-        script.get("music_search", ""),
-
-        "science documentary",
-
-        "educational documentary",
-
-        "technology ambient",
-
-        "cinematic curiosity",
-
-        "uplifting orchestral",
-
-        "future technology",
-
-        "space ambient",
-
-        "nature documentary",
-
-        "light cinematic",
-
-        "corporate cinematic",
-
-        "motivational",
-
-        "inspiring",
-
-        "educational",
-
-    ]
-
-    selected = None
-
-    for query in searches:
-
-        if not query:
-            continue
+    if not os.path.isdir(MUSIC_FOLDER):
 
         print("=" * 80)
-        print("🎵 SEARCHING MUSIC")
-        print(query)
+        print("⚠️ Music folder not found.")
+        print(MUSIC_FOLDER)
         print("=" * 80)
+
+        return None
+
+    tracks = glob.glob(
+        os.path.join(
+            MUSIC_FOLDER,
+            "*.mp3",
+        )
+    )
+
+    if not tracks:
+
+        print("=" * 80)
+        print("⚠️ No music files found.")
+        print("=" * 80)
+
+        return None
+
+    last_track = None
+
+    if os.path.exists(LAST_TRACK_FILE):
 
         try:
 
-            results = _search(
-                api_key,
-                query,
-            )
+            with open(
+                LAST_TRACK_FILE,
+                "r",
+                encoding="utf-8",
+            ) as f:
 
-            if results:
+                last_track = f.read().strip()
 
-                random.shuffle(results)
+        except Exception:
 
-                selected = results[0]
+            last_track = None
 
-                break
+    available_tracks = [
+        track
+        for track in tracks
+        if track != last_track
+    ]
 
-        except Exception as e:
+    if not available_tracks:
 
-            print(e)
+        available_tracks = tracks
 
-    if selected is None:
-
-        print("⚠️ No suitable music found.")
-
-        return None
-
-    preview = (
-
-        selected.get("previews", {}).get("preview-hq-mp3")
-
-        or
-
-        selected.get("previews", {}).get("preview-lq-mp3")
-
+    music = random.choice(
+        available_tracks
     )
 
-    if not preview:
+    try:
 
-        print("⚠️ Preview unavailable.")
+        with open(
+            LAST_TRACK_FILE,
+            "w",
+            encoding="utf-8",
+        ) as f:
 
-        return None
+            f.write(music)
+
+    except Exception:
+
+        pass
 
     print("=" * 80)
-    print("🎵 SELECTED MUSIC")
-    print(selected["name"])
+    print("🎵 SELECTED BACKGROUND MUSIC")
+    print(os.path.basename(music))
     print("=" * 80)
 
-    output = os.path.join(
-        workdir,
-        "background.mp3",
-    )
-
-    audio = requests.get(
-        preview,
-        timeout=120,
-    )
-
-    audio.raise_for_status()
-
-    with open(output, "wb") as f:
-        f.write(audio.content)
-
-    print(f"Saved: {output}")
-
-    return output
+    return music

@@ -98,9 +98,6 @@ def synthesize_script(script, config, workdir):
 
         pause_ms = scene.get("pause_after_ms", 0)
 
-        if pause_ms >= 300:
-            narration.append("...")
-
     text = " ".join(narration)
 
     out = os.path.join(

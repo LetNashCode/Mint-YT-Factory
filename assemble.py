@@ -32,11 +32,11 @@ FONT = os.path.join(
     "Poppins-ExtraBold.ttf",
 )
 
-CAPTION_FONT_SIZE = 66
+CAPTION_FONT_SIZE = 74
 CAPTION_COLOR = "white"
 CAPTION_HIGHLIGHT_COLOR = "#FFD54A"
 CAPTION_STROKE = "#222222"
-CAPTION_STROKE_WIDTH = 2
+CAPTION_STROKE_WIDTH = 1
 
 OVERLAY_FONT_SIZE = 88
 OVERLAY_STROKE_WIDTH = 6
@@ -54,8 +54,8 @@ DEFAULT_MOTION_SPEED = "medium"
 DEFAULT_MUSIC_VOLUME = 0.12
 DEFAULT_SFX_VOLUME = 0.80
 
-CAPTION_GROUP_MIN_WORDS = 2
-CAPTION_GROUP_MAX_WORDS = 4
+CAPTION_GROUP_MIN_WORDS = 1
+CAPTION_GROUP_MAX_WORDS = 1
 # a gap this large between words forces a new caption group even
 # if we haven't hit CAPTION_GROUP_MAX_WORDS yet
 CAPTION_GROUP_MAX_GAP = 0.6
@@ -549,9 +549,9 @@ def get_caption_position(style, h):
     if style == "center":
         return ("center", h * 0.50)
     if style == "bottom":
-        return ("center", h * 0.82)
+        return ("center", h * 0.68)
     # default / lower_third
-    return ("center", h * 0.78)
+    return ("center", h * 0.68)
 
 
 def group_words_into_phrases(words):
@@ -635,7 +635,25 @@ def build_captions(audio_path, script, timeline, size):
 
         duration = max(0.05, phrase["end"] - phrase["start"])
 
-        clip = (
+        shadow = (
+           TextClip(
+                phrase["text"].title(),
+                font=FONT,
+                fontsize=CAPTION_FONT_SIZE,
+                color="black",
+            )
+            .set_start(phrase["start"])
+            .set_duration(duration)    
+            .set_position(
+                (
+                    position[0],
+                    position[1] + 2,
+                )
+            )
+            .set_opacity(0.60)
+        )
+
+        text = (
             TextClip(
                 phrase["text"].title(),
                 font=FONT,
@@ -643,13 +661,14 @@ def build_captions(audio_path, script, timeline, size):
                 color=color,
                 stroke_color=CAPTION_STROKE,
                 stroke_width=CAPTION_STROKE_WIDTH,
-            )
-            .set_start(phrase["start"])
-            .set_duration(duration)
-            .set_position(position)
         )
+        .set_start(phrase["start"])
+        .set_duration(duration)
+        .set_position(position)
+    )
 
-        clips.append(clip)
+    clips.append(shadow)
+    clips.append(text)
 
     return clips
 
@@ -761,7 +780,7 @@ def assemble_video(
 
     visual_clips = build_timeline_visuals(timeline, image_paths, size)
     caption_clips = build_captions(audio_paths[0], script, timeline, size)
-    overlay_clips = build_overlays(timeline, size)
+    overlay_clips = []
 
     final = CompositeVideoClip(
         visual_clips + caption_clips + overlay_clips,

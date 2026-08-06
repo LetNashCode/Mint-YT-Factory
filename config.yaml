@@ -23,7 +23,7 @@ script:
 
 voice:
   provider: "tiktok"
-  voice_name: "en_us_001"
+  voice_name: "en_us_010"
   speed: 1.0
 
 visuals:

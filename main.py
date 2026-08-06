@@ -76,7 +76,7 @@ def run(dry_run=False):
         topic,
         config,
     )
-
+    print(type(script))
     run_id = str(int(time.time()))
 
     workdir = os.path.join(

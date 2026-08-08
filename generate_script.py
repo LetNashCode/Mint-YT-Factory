@@ -2,7 +2,18 @@
 generate_script.py
 
 Educational YouTube Shorts Script Generator
-Version 5.2
+Version 5.3
+
+Changes from v5.2:
+- FIX: removed minItems/maxItems from response_schema (scene_plan,
+  visuals, caption_highlights). Gemini's structured-output schema
+  support for these keywords has been inconsistent across API/SDK
+  versions and was causing a deterministic 400 INVALID_ARGUMENT on
+  every generation attempt. Exact counts are still fully enforced
+  afterward in validate_script(), so behavior is unchanged.
+- Improved error logging in generate_script(): now prints the full
+  API error body/response when available, instead of just str(e),
+  so future failures are diagnosable from the log alone.
 
 Changes from v5.1:
 - Gemini structured JSON schema output
@@ -730,10 +741,16 @@ def build_response_schema(scene_count: int) -> dict:
     """
     JSON schema supplied directly to Gemini.
 
-    This is the biggest improvement over v5.1.
+    FIX (v5.3): minItems/maxItems removed from all array fields
+    (scene_plan, visuals, caption_highlights). Gemini's structured
+    output schema support for these keywords has been inconsistent
+    across API/SDK versions and was causing a deterministic
+    400 INVALID_ARGUMENT on every generation attempt.
 
-    Previously Gemini was merely asked to return JSON.
-    Now the API is explicitly told what JSON structure to produce.
+    Exact scene count, exact visuals-per-scene (1-2), and
+    caption_highlights count (1-3) are still fully enforced
+    afterward in validate_script(), so runtime behavior is
+    unchanged -- only the schema sent to the API is smaller.
     """
 
     visual_schema = {
@@ -895,6 +912,7 @@ def build_response_schema(scene_count: int) -> dict:
             },
             "caption_highlights": {
                 "type": "array",
+                # minItems: 1, maxItems: 3 removed -- enforced in validate_script()
                 "items": {
                     "type": "object",
                     "properties": {
@@ -997,8 +1015,7 @@ def build_response_schema(scene_count: int) -> dict:
             },
             "visuals": {
                 "type": "array",
-                "minItems": 1,
-                "maxItems": 2,
+                # minItems: 1, maxItems: 2 removed -- enforced in validate_script()
                 "items": visual_schema,
             },
         },
@@ -1135,8 +1152,7 @@ def build_response_schema(scene_count: int) -> dict:
             },
             "scene_plan": {
                 "type": "array",
-                "minItems": scene_count,
-                "maxItems": scene_count,
+                # minItems/maxItems: scene_count removed -- enforced in validate_script()
                 "items": scene_schema,
             },
         },
@@ -1398,6 +1414,25 @@ def generate_script(topic: str, config: dict) -> dict:
             print(
                 f"{type(e).__name__}: {e}"
             )
+
+            # FIX (v5.3): surface the full API error body when available.
+            # The Gemini SDK's ClientError often truncates the useful
+            # field-level violation message in str(e). This tries every
+            # plausible attribute across SDK versions so future 400s are
+            # diagnosable directly from the log.
+            for attr in (
+                "response",
+                "body",
+                "details",
+                "message",
+                "args",
+            ):
+                val = getattr(e, attr, None)
+
+                if val:
+                    print(f"--- error.{attr} ---")
+                    print(val)
+
             print("=" * 80)
 
             if attempt < MAX_GENERATION_ATTEMPTS:

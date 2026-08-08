@@ -32,12 +32,31 @@ FONT = os.path.join(
     "Poppins-ExtraBold.ttf",
 )
 
+# Caption appearance
 CAPTION_FONT_SIZE = 74
 CAPTION_COLOR = "white"
 CAPTION_HIGHLIGHT_COLOR = "#FFD54A"
+
+# Subtle shadow
+CAPTION_SHADOW_COLOR = "black"
+CAPTION_SHADOW_OPACITY = 0.60
+CAPTION_SHADOW_OFFSET = 3
+
+# Optional thin outline
 CAPTION_STROKE = "#222222"
 CAPTION_STROKE_WIDTH = 1
 
+# Caption position
+CAPTION_VERTICAL_POSITION = 0.68
+
+# One word at a time
+CAPTION_GROUP_MIN_WORDS = 1
+CAPTION_GROUP_MAX_WORDS = 1
+
+# If Whisper detects a large pause, start a new caption
+CAPTION_GROUP_MAX_GAP = 0.6
+
+# These are retained for compatibility with existing config/script
 OVERLAY_FONT_SIZE = 88
 OVERLAY_STROKE_WIDTH = 6
 OVERLAY_MAX_DURATION = 2.5
@@ -54,11 +73,6 @@ DEFAULT_MOTION_SPEED = "medium"
 DEFAULT_MUSIC_VOLUME = 0.12
 DEFAULT_SFX_VOLUME = 0.80
 
-CAPTION_GROUP_MIN_WORDS = 1
-CAPTION_GROUP_MAX_WORDS = 1
-# a gap this large between words forces a new caption group even
-# if we haven't hit CAPTION_GROUP_MAX_WORDS yet
-CAPTION_GROUP_MAX_GAP = 0.6
 
 CAMERA_SCALES = {
     "macro": 1.35,
@@ -99,11 +113,7 @@ TRANSITION_DURATIONS = {
 
 
 # ============================================================
-# Small safe-parsing helpers
-#
-# Every one of these takes possibly-missing / possibly-wrong-typed
-# input from the Gemini-generated storyboard and returns a safe,
-# defaulted value. Nothing here raises.
+# Safe Parsing Helpers
 # ============================================================
 
 def _safe_lower(value, default):
@@ -152,17 +162,29 @@ def get_scene_duration(scene):
 
 
 def get_pause_after(scene):
-    ms = _safe_float(scene.get("pause_after_ms", 0), 0, min_value=0)
+    ms = _safe_float(
+        scene.get("pause_after_ms", 0),
+        0,
+        min_value=0,
+    )
+
     return ms / 1000.0
 
 
 def get_camera(scene):
-    cam = _safe_lower(scene.get("camera", DEFAULT_CAMERA), DEFAULT_CAMERA)
+    cam = _safe_lower(
+        scene.get("camera", DEFAULT_CAMERA),
+        DEFAULT_CAMERA,
+    )
+
     return cam if cam in CAMERA_SCALES else DEFAULT_CAMERA
 
 
 def get_animation(scene):
-    return _safe_lower(scene.get("animation", DEFAULT_ANIMATION), DEFAULT_ANIMATION)
+    return _safe_lower(
+        scene.get("animation", DEFAULT_ANIMATION),
+        DEFAULT_ANIMATION,
+    )
 
 
 def get_zoom_factor(scene):
@@ -175,60 +197,135 @@ def get_zoom_factor(scene):
 
 
 def get_motion_multiplier(scene):
-    speed = _safe_lower(scene.get("motion_speed", DEFAULT_MOTION_SPEED), DEFAULT_MOTION_SPEED)
-    return MOTION_MULTIPLIERS.get(speed, MOTION_MULTIPLIERS[DEFAULT_MOTION_SPEED])
+    speed = _safe_lower(
+        scene.get("motion_speed", DEFAULT_MOTION_SPEED),
+        DEFAULT_MOTION_SPEED,
+    )
+
+    return MOTION_MULTIPLIERS.get(
+        speed,
+        MOTION_MULTIPLIERS[DEFAULT_MOTION_SPEED],
+    )
 
 
 def get_transition(scene):
-    raw = _safe_lower(scene.get("transition", DEFAULT_TRANSITION), DEFAULT_TRANSITION)
-    return TRANSITION_ALIASES.get(raw, DEFAULT_TRANSITION)
+    raw = _safe_lower(
+        scene.get("transition", DEFAULT_TRANSITION),
+        DEFAULT_TRANSITION,
+    )
+
+    return TRANSITION_ALIASES.get(
+        raw,
+        DEFAULT_TRANSITION,
+    )
 
 
 def get_subtitle_style(scene):
-    return _safe_lower(scene.get("subtitle_style", DEFAULT_SUBTITLE_STYLE), DEFAULT_SUBTITLE_STYLE)
+    return _safe_lower(
+        scene.get(
+            "subtitle_style",
+            DEFAULT_SUBTITLE_STYLE,
+        ),
+        DEFAULT_SUBTITLE_STYLE,
+    )
 
+
+# ============================================================
+# Caption Highlight Parsing
+# ============================================================
 
 def get_caption_highlights(scene):
-    raw = scene.get("caption_highlights", [])
+    """
+    Gemini produces:
+
+    "caption_highlights": [
+        {
+            "word": "body",
+            "emphasis": "strong"
+        }
+    ]
+
+    Extract only the actual word.
+    """
+
+    raw = scene.get(
+        "caption_highlights",
+        [],
+    )
+
     if not isinstance(raw, list):
         return set()
-    out = set()
-    for item in raw:
-        try:
-            out.add(str(item).strip().lower())
-        except Exception:
-            continue
-    return out
 
+    highlights = set()
+
+    for item in raw:
+
+        if isinstance(item, dict):
+
+            word = item.get(
+                "word",
+                "",
+            )
+
+            if word:
+                highlights.add(
+                    str(word)
+                    .strip()
+                    .lower()
+                )
+
+        elif isinstance(item, str):
+
+            highlights.add(
+                item.strip().lower()
+            )
+
+    return highlights
+
+
+# ============================================================
+# Visuals
+# ============================================================
 
 def get_visuals(scene, fallback_image):
-    """
-    Returns a list of image paths for this scene.
-    Prefers scene['visuals'] (list of paths/dicts), falls back to the
-    single positional image_paths[i] passed into assemble_video, and
-    finally to None (renderer will use a solid-color placeholder clip).
-    """
+
     raw = scene.get("visuals")
 
     paths = []
 
     if isinstance(raw, list) and raw:
+
         for item in raw:
+
             if isinstance(item, dict):
-                p = item.get("path") or item.get("image") or item.get("src")
+
+                p = (
+                    item.get("path")
+                    or item.get("image")
+                    or item.get("src")
+                )
+
             else:
+
                 p = item
+
             if p:
                 paths.append(str(p))
+
     elif isinstance(raw, str) and raw.strip():
-        paths.append(raw.strip())
+
+        paths.append(
+            raw.strip()
+        )
 
     if not paths and fallback_image:
         paths.append(fallback_image)
 
-    # Filter to files that actually exist; keep at least one slot so
-    # a placeholder clip still gets generated downstream.
-    existing = [p for p in paths if p and os.path.exists(p)]
+    existing = [
+        p
+        for p in paths
+        if p and os.path.exists(p)
+    ]
 
     if existing:
         return existing
@@ -237,52 +334,128 @@ def get_visuals(scene, fallback_image):
 
 
 def get_music_cue(scene):
-    cue = scene.get("music_cue", {})
+
+    cue = scene.get(
+        "music_cue",
+        {},
+    )
+
     if not isinstance(cue, dict):
         return {}
+
     return cue
 
 
 def get_sfx_cue(scene):
-    cue = scene.get("sfx_cue", {})
+
+    cue = scene.get(
+        "sfx_cue",
+        {},
+    )
+
     if not isinstance(cue, dict):
         return {}
+
     return cue
 
 
 def get_subtitle_text(scene):
-    overlay = scene.get("subtitle_text")
+
+    overlay = scene.get(
+        "subtitle_text"
+    )
+
     if overlay is None:
         return None
 
     if isinstance(overlay, dict):
-        text = overlay.get("content", "")
-        style = overlay.get("style", "center")
+
+        text = overlay.get(
+            "content",
+            "",
+        )
+
+        style = overlay.get(
+            "style",
+            "center",
+        )
+
     else:
+
         text = str(overlay)
         style = "center"
 
     text = text.strip()
+
     if not text:
         return None
 
-    return {"text": text, "style": _safe_lower(style, "center")}
+    return {
+        "text": text,
+        "style": _safe_lower(
+            style,
+            "center",
+        ),
+    }
 
+
+# ============================================================
+# Video Config
+# ============================================================
 
 def get_video_config(config):
-    video_cfg = config.get("video", {}) if isinstance(config, dict) else {}
+
+    video_cfg = (
+        config.get("video", {})
+        if isinstance(config, dict)
+        else {}
+    )
+
     if not isinstance(video_cfg, dict):
         video_cfg = {}
 
-    resolution = video_cfg.get("resolution", (1080, 1920))
-    try:
-        size = (int(resolution[0]), int(resolution[1]))
-    except Exception:
-        size = (1080, 1920)
+    resolution = video_cfg.get(
+        "resolution",
+        (1080, 1920),
+    )
 
-    fps = _safe_int(video_cfg.get("fps", 30), 30, min_value=1)
-    music_volume = _safe_float(video_cfg.get("music_volume", DEFAULT_MUSIC_VOLUME), DEFAULT_MUSIC_VOLUME, min_value=0.0)
-    sfx_volume = _safe_float(video_cfg.get("sfx_volume", DEFAULT_SFX_VOLUME), DEFAULT_SFX_VOLUME, min_value=0.0)
+    try:
+
+        size = (
+            int(resolution[0]),
+            int(resolution[1]),
+        )
+
+    except Exception:
+
+        size = (
+            1080,
+            1920,
+        )
+
+    fps = _safe_int(
+        video_cfg.get("fps", 30),
+        30,
+        min_value=1,
+    )
+
+    music_volume = _safe_float(
+        video_cfg.get(
+            "music_volume",
+            DEFAULT_MUSIC_VOLUME,
+        ),
+        DEFAULT_MUSIC_VOLUME,
+        min_value=0.0,
+    )
+
+    sfx_volume = _safe_float(
+        video_cfg.get(
+            "sfx_volume",
+            DEFAULT_SFX_VOLUME,
+        ),
+        DEFAULT_SFX_VOLUME,
+        min_value=0.0,
+    )
 
     return {
         "size": size,
@@ -294,16 +467,29 @@ def get_video_config(config):
 
 # ============================================================
 # Master Timeline
-#
-# One structure describing where every scene sits in time.
-# Visuals, captions, overlays, and SFX all read from this instead
-# of recomputing their own offsets.
 # ============================================================
 
 class SceneTiming:
-    __slots__ = ("scene", "index", "start", "end", "duration", "pause_after")
 
-    def __init__(self, scene, index, start, end, duration, pause_after):
+    __slots__ = (
+        "scene",
+        "index",
+        "start",
+        "end",
+        "duration",
+        "pause_after",
+    )
+
+    def __init__(
+        self,
+        scene,
+        index,
+        start,
+        end,
+        duration,
+        pause_after,
+    ):
+
         self.scene = scene
         self.index = index
         self.start = start
@@ -312,44 +498,82 @@ class SceneTiming:
         self.pause_after = pause_after
 
 
-def build_master_timeline(script, total_duration):
-    """
-    Computes one authoritative list of SceneTiming entries.
+def build_master_timeline(
+    script,
+    total_duration,
+):
 
-    Scene durations from the storyboard are scaled so the sum of all
-    scene durations (plus pauses) matches total_duration, which comes
-    from the narration track — the true source of truth for length.
-    """
-    scene_plan = script.get("scene_plan", []) if isinstance(script, dict) else []
+    scene_plan = (
+        script.get(
+            "scene_plan",
+            [],
+        )
+        if isinstance(script, dict)
+        else []
+    )
 
     if not scene_plan:
-        # No scenes at all: single placeholder scene spanning the
-        # whole narration so nothing downstream divides by zero.
+
         return [
             SceneTiming(
                 scene={},
                 index=0,
                 start=0.0,
-                end=max(total_duration, 0.1),
-                duration=max(total_duration, 0.1),
+                end=max(
+                    total_duration,
+                    0.1,
+                ),
+                duration=max(
+                    total_duration,
+                    0.1,
+                ),
                 pause_after=0.0,
             )
         ]
 
-    raw_durations = [get_scene_duration(s) for s in scene_plan]
-    raw_pauses = [get_pause_after(s) for s in scene_plan]
+    raw_durations = [
+        get_scene_duration(s)
+        for s in scene_plan
+    ]
 
-    raw_total = sum(raw_durations) + sum(raw_pauses)
-    raw_total = max(raw_total, 0.1)
+    raw_pauses = [
+        get_pause_after(s)
+        for s in scene_plan
+    ]
 
-    scale = total_duration / raw_total if total_duration > 0 else 1.0
+    raw_total = (
+        sum(raw_durations)
+        + sum(raw_pauses)
+    )
+
+    raw_total = max(
+        raw_total,
+        0.1,
+    )
+
+    scale = (
+        total_duration / raw_total
+        if total_duration > 0
+        else 1.0
+    )
 
     timeline = []
+
     current = 0.0
 
-    for index, scene in enumerate(scene_plan):
-        duration = raw_durations[index] * scale
-        pause = raw_pauses[index] * scale
+    for index, scene in enumerate(
+        scene_plan
+    ):
+
+        duration = (
+            raw_durations[index]
+            * scale
+        )
+
+        pause = (
+            raw_pauses[index]
+            * scale
+        )
 
         start = current
         end = start + duration
@@ -370,11 +594,18 @@ def build_master_timeline(script, total_duration):
     return timeline
 
 
-def scene_at_time(timeline, t):
-    """Finds the SceneTiming entry covering time t; falls back to the
-    nearest scene if t falls in a pause gap or past the end."""
+def scene_at_time(
+    timeline,
+    t,
+):
+
     for entry in timeline:
-        if entry.start <= t <= entry.end:
+
+        if (
+            entry.start
+            <= t
+            <= entry.end
+        ):
             return entry
 
     if not timeline:
@@ -390,8 +621,18 @@ def scene_at_time(timeline, t):
 # Camera
 # ============================================================
 
-def apply_camera(clip, camera_name):
-    scale = CAMERA_SCALES.get(camera_name, CAMERA_SCALES[DEFAULT_CAMERA])
+def apply_camera(
+    clip,
+    camera_name,
+):
+
+    scale = CAMERA_SCALES.get(
+        camera_name,
+        CAMERA_SCALES[
+            DEFAULT_CAMERA
+        ],
+    )
+
     return clip.resize(scale)
 
 
@@ -399,66 +640,164 @@ def apply_camera(clip, camera_name):
 # Animation
 # ============================================================
 
-def apply_animation(clip, scene, duration):
+def apply_animation(
+    clip,
+    scene,
+    duration,
+):
+
     animation = get_animation(scene)
+
     zoom = get_zoom_factor(scene)
+
     speed = get_motion_multiplier(scene)
 
-    safe_duration = max(duration, 0.1)
+    safe_duration = max(
+        duration,
+        0.1,
+    )
 
     if animation == "hold":
         return clip
 
     if animation == "zoom_in":
+
         return clip.fx(
             vfx.resize,
-            lambda t: 1 + (zoom - 1) * (t / safe_duration),
+            lambda t:
+                1
+                + (
+                    zoom - 1
+                )
+                * (
+                    t
+                    / safe_duration
+                ),
         )
 
     if animation == "zoom_out":
+
         return clip.fx(
             vfx.resize,
-            lambda t: zoom - (zoom - 1) * (t / safe_duration),
+            lambda t:
+                zoom
+                - (
+                    zoom - 1
+                )
+                * (
+                    t
+                    / safe_duration
+                ),
         )
 
     if animation == "pan_left":
+
         return clip.set_position(
-            lambda t: (-80 * speed * (t / safe_duration), "center")
+            lambda t:
+                (
+                    -80
+                    * speed
+                    * (
+                        t
+                        / safe_duration
+                    ),
+                    "center",
+                )
         )
 
     if animation == "pan_right":
+
         return clip.set_position(
-            lambda t: (80 * speed * (t / safe_duration), "center")
+            lambda t:
+                (
+                    80
+                    * speed
+                    * (
+                        t
+                        / safe_duration
+                    ),
+                    "center",
+                )
         )
 
     if animation == "pan_up":
+
         return clip.set_position(
-            lambda t: ("center", -80 * speed * (t / safe_duration))
+            lambda t:
+                (
+                    "center",
+                    -80
+                    * speed
+                    * (
+                        t
+                        / safe_duration
+                    ),
+                )
         )
 
     if animation == "pan_down":
+
         return clip.set_position(
-            lambda t: ("center", 80 * speed * (t / safe_duration))
+            lambda t:
+                (
+                    "center",
+                    80
+                    * speed
+                    * (
+                        t
+                        / safe_duration
+                    ),
+                )
         )
 
     if animation == "rotate":
-        return clip.rotate(lambda t: 3 * speed * (t / safe_duration))
+
+        return clip.rotate(
+            lambda t:
+                3
+                * speed
+                * (
+                    t
+                    / safe_duration
+                )
+        )
 
     if animation == "kenburns":
+
         clip = clip.fx(
             vfx.resize,
-            lambda t: 1 + (0.05 * speed * (t / safe_duration)),
+            lambda t:
+                1
+                + (
+                    0.05
+                    * speed
+                    * (
+                        t
+                        / safe_duration
+                    )
+                ),
         )
+
         clip = clip.set_position(
-            lambda t: (
-                -30 * speed * (t / safe_duration),
-                -20 * speed * (t / safe_duration),
-            )
+            lambda t:
+                (
+                    -30
+                    * speed
+                    * (
+                        t
+                        / safe_duration
+                    ),
+                    -20
+                    * speed
+                    * (
+                        t
+                        / safe_duration
+                    ),
+                )
         )
+
         return clip
 
-    # Unknown animation name from Gemini: fail safe to a static hold
-    # rather than crash the render.
     return clip
 
 
@@ -466,299 +805,584 @@ def apply_animation(clip, scene, duration):
 # Transitions
 # ============================================================
 
-def apply_transition(clip, transition_name):
-    fade_time = TRANSITION_DURATIONS.get(transition_name, TRANSITION_DURATIONS[DEFAULT_TRANSITION])
+def apply_transition(
+    clip,
+    transition_name,
+):
+
+    fade_time = TRANSITION_DURATIONS.get(
+        transition_name,
+        TRANSITION_DURATIONS[
+            DEFAULT_TRANSITION
+        ],
+    )
 
     if fade_time <= 0:
         return clip
 
-    return clip.crossfadein(fade_time).crossfadeout(fade_time)
+    return clip.crossfadein(
+        fade_time
+    ).crossfadeout(
+        fade_time
+    )
 
 
 # ============================================================
-# Visual clip building (supports multiple visuals per scene)
+# Visual Clip Building
 # ============================================================
 
-def build_visual_clip_for_image(image_path, sub_duration, size, scene):
-    if image_path and os.path.exists(image_path):
-        clip = ImageClip(image_path)
+def build_visual_clip_for_image(
+    image_path,
+    sub_duration,
+    size,
+    scene,
+):
 
-        image_scale = min(size[0] / clip.w, size[1] / clip.h)
-        clip = clip.resize(image_scale)
+    if (
+        image_path
+        and os.path.exists(
+            image_path
+        )
+    ):
+
+        clip = ImageClip(
+            image_path
+        )
+
+        image_scale = min(
+            size[0] / clip.w,
+            size[1] / clip.h,
+        )
+
+        clip = clip.resize(
+            image_scale
+        )
 
         clip = CompositeVideoClip(
-            [clip.set_position("center")],
+            [
+                clip.set_position(
+                    "center"
+                )
+            ],
             size=size,
-        ).set_duration(sub_duration)
-    else:
-        clip = ColorClip(size=size, color=(20, 20, 20)).set_duration(sub_duration)
+        ).set_duration(
+            sub_duration
+        )
 
-    clip = apply_camera(clip, get_camera(scene))
-    clip = apply_animation(clip, scene, sub_duration)
+    else:
+
+        clip = ColorClip(
+            size=size,
+            color=(
+                20,
+                20,
+                20,
+            ),
+        ).set_duration(
+            sub_duration
+        )
+
+    clip = apply_camera(
+        clip,
+        get_camera(scene),
+    )
+
+    clip = apply_animation(
+        clip,
+        scene,
+        sub_duration,
+    )
 
     return clip
 
 
-def build_scene_visual_clips(entry, image_paths, size):
-    """
-    Builds the visual clip(s) for one scene, positioned at their
-    absolute start time on the master timeline. Supports multiple
-    visuals per scene by splitting the scene's duration evenly and
-    animating each visual independently.
-    """
+def build_scene_visual_clips(
+    entry,
+    image_paths,
+    size,
+):
+
     scene = entry.scene
 
     fallback_image = None
-    if entry.index < len(image_paths):
-        fallback_image = image_paths[entry.index]
 
-    visuals = get_visuals(scene, fallback_image)
+    if entry.index < len(
+        image_paths
+    ):
+
+        fallback_image = image_paths[
+            entry.index
+        ]
+
+    visuals = get_visuals(
+        scene,
+        fallback_image,
+    )
 
     count = len(visuals)
-    sub_duration = entry.duration / count if count else entry.duration
+
+    sub_duration = (
+        entry.duration / count
+        if count
+        else entry.duration
+    )
 
     clips = []
 
-    for sub_index, image_path in enumerate(visuals):
-        sub_start = entry.start + sub_index * sub_duration
+    for sub_index, image_path in enumerate(
+        visuals
+    ):
 
-        clip = build_visual_clip_for_image(image_path, sub_duration, size, scene)
-        clip = apply_transition(clip, get_transition(scene))
+        sub_start = (
+            entry.start
+            + sub_index
+            * sub_duration
+        )
 
-        clip = clip.set_start(sub_start).set_duration(sub_duration)
+        clip = build_visual_clip_for_image(
+            image_path,
+            sub_duration,
+            size,
+            scene,
+        )
+
+        clip = apply_transition(
+            clip,
+            get_transition(scene),
+        )
+
+        clip = (
+            clip
+            .set_start(sub_start)
+            .set_duration(sub_duration)
+        )
 
         clips.append(clip)
 
     return clips
 
 
-def build_timeline_visuals(timeline, image_paths, size):
+def build_timeline_visuals(
+    timeline,
+    image_paths,
+    size,
+):
+
     clips = []
+
     for entry in timeline:
-        clips.extend(build_scene_visual_clips(entry, image_paths, size))
+
+        clips.extend(
+            build_scene_visual_clips(
+                entry,
+                image_paths,
+                size,
+            )
+        )
+
     return clips
 
 
 # ============================================================
-# Captions (phrase-grouped, not per-word)
+# Captions
 # ============================================================
 
-def get_caption_position(style, h):
+def get_caption_position(
+    style,
+    h,
+):
+
+    # We intentionally keep captions low in the safe area.
+    # This avoids the top title area and the right-side YouTube
+    # action buttons.
+
     if style == "top":
-        return ("center", h * 0.18)
+
+        return (
+            "center",
+            h * 0.18,
+        )
+
     if style == "center":
-        return ("center", h * 0.50)
+
+        return (
+            "center",
+            h * 0.50,
+        )
+
     if style == "bottom":
-        return ("center", h * 0.68)
-    # default / lower_third
-    return ("center", h * 0.68)
+
+        return (
+            "center",
+            h * CAPTION_VERTICAL_POSITION,
+        )
+
+    return (
+        "center",
+        h * CAPTION_VERTICAL_POSITION,
+    )
 
 
 def group_words_into_phrases(words):
+
     """
-    Groups Whisper word-level timestamps into small readable phrases
-    of CAPTION_GROUP_MIN_WORDS-CAPTION_GROUP_MAX_WORDS words, breaking
-    early on a long pause between words so captions don't straddle
-    unrelated speech.
+    One-word caption mode.
 
-    Returns a list of dicts: {text, start, end, word_list}
-    where word_list preserves each raw word for highlight matching.
+    Whisper gives us:
+
+        word
+        start
+        end
+
+    Each word becomes its own caption.
     """
-    groups = []
-    current_words = []
-
-    for word in words:
-        if not current_words:
-            current_words.append(word)
-            continue
-
-        gap = word["start"] - current_words[-1]["end"]
-
-        if gap > CAPTION_GROUP_MAX_GAP or len(current_words) >= CAPTION_GROUP_MAX_WORDS:
-            groups.append(current_words)
-            current_words = [word]
-        else:
-            current_words.append(word)
-
-    if current_words:
-        groups.append(current_words)
 
     phrases = []
-    for group in groups:
-        text = " ".join(w["word"] for w in group)
+
+    for word in words:
+
+        text = str(
+            word.get(
+                "word",
+                "",
+            )
+        ).strip()
+
+        if not text:
+            continue
+
+        start = _safe_float(
+            word.get(
+                "start",
+                0,
+            ),
+            0,
+            min_value=0,
+        )
+
+        end = _safe_float(
+            word.get(
+                "end",
+                start + 0.1,
+            ),
+            start + 0.1,
+            min_value=start,
+        )
+
         phrases.append(
             {
                 "text": text,
-                "start": group[0]["start"],
-                "end": group[-1]["end"],
-                "words": group,
+                "start": start,
+                "end": end,
+                "words": [
+                    {
+                        "word": text,
+                        "start": start,
+                        "end": end,
+                    }
+                ],
             }
         )
 
     return phrases
 
 
-def build_captions(audio_path, script, timeline, size):
+def build_captions(
+    audio_path,
+    script,
+    timeline,
+    size,
+):
+
     _, h = size
 
+    print("=" * 80)
+    print("📝 GENERATING CAPTIONS")
+    print("=" * 80)
+
     try:
-        words = transcribe(audio_path)
-    except Exception:
-        words = []
+
+        words = transcribe(
+            audio_path
+        )
+
+        print(
+            f"Whisper detected {len(words)} words."
+        )
+
+    except Exception as e:
+
+        print("=" * 80)
+        print("❌ CAPTION TRANSCRIPTION FAILED")
+        print("=" * 80)
+        print(e)
+        print("=" * 80)
+
+        raise
 
     if not words:
+
+        print(
+            "⚠️ Whisper returned no words."
+        )
+
         return []
 
-    phrases = group_words_into_phrases(words)
+    phrases = group_words_into_phrases(
+        words
+    )
+
+    print(
+        f"Creating {len(phrases)} caption clips."
+    )
 
     clips = []
 
     for phrase in phrases:
-        mid_time = (phrase["start"] + phrase["end"]) / 2.0
-        entry = scene_at_time(timeline, mid_time)
-        scene = entry.scene if entry else {}
 
-        style = get_subtitle_style(scene)
-        position = get_caption_position(style, h)
-        highlights = get_caption_highlights(scene)
+        mid_time = (
+            phrase["start"]
+            + phrase["end"]
+        ) / 2.0
 
-        # Build the phrase text with per-word highlight coloring.
-        # TextClip doesn't support mixed-color runs in one call, so
-        # when any word in the phrase is highlighted we color the
-        # whole phrase clip using the highlight color; this keeps
-        # clip count low (one TextClip per phrase, not per word)
-        # while still surfacing emphasis.
-        any_highlighted = any(
-            w["word"].strip().lower() in highlights for w in phrase["words"]
+        entry = scene_at_time(
+            timeline,
+            mid_time,
         )
-        color = CAPTION_HIGHLIGHT_COLOR if any_highlighted else CAPTION_COLOR
 
-        duration = max(0.05, phrase["end"] - phrase["start"])
+        scene = (
+            entry.scene
+            if entry
+            else {}
+        )
+
+        style = get_subtitle_style(
+            scene
+        )
+
+        position = get_caption_position(
+            style,
+            h,
+        )
+
+        highlights = get_caption_highlights(
+            scene
+        )
+
+        word = phrase["text"]
+
+        is_highlighted = (
+            word.strip()
+            .lower()
+            in highlights
+        )
+
+        color = (
+            CAPTION_HIGHLIGHT_COLOR
+            if is_highlighted
+            else CAPTION_COLOR
+        )
+
+        duration = max(
+            0.05,
+            phrase["end"]
+            - phrase["start"],
+        )
+
+        # ----------------------------------------------------
+        # Shadow
+        # ----------------------------------------------------
 
         shadow = (
-           TextClip(
-                phrase["text"].title(),
+            TextClip(
+                word,
                 font=FONT,
                 fontsize=CAPTION_FONT_SIZE,
-                color="black",
+                color=CAPTION_SHADOW_COLOR,
             )
-            .set_start(phrase["start"])
-            .set_duration(duration)    
+            .set_start(
+                phrase["start"]
+            )
+            .set_duration(
+                duration
+            )
             .set_position(
                 (
                     position[0],
-                    position[1] + 2,
+                    position[1]
+                    + CAPTION_SHADOW_OFFSET,
                 )
             )
-            .set_opacity(0.60)
+            .set_opacity(
+                CAPTION_SHADOW_OPACITY
+            )
         )
+
+        # ----------------------------------------------------
+        # Main Caption
+        # ----------------------------------------------------
 
         text = (
             TextClip(
-                phrase["text"].title(),
+                word,
                 font=FONT,
                 fontsize=CAPTION_FONT_SIZE,
                 color=color,
                 stroke_color=CAPTION_STROKE,
                 stroke_width=CAPTION_STROKE_WIDTH,
+            )
+            .set_start(
+                phrase["start"]
+            )
+            .set_duration(
+                duration
+            )
+            .set_position(
+                position
+            )
         )
-        .set_start(phrase["start"])
-        .set_duration(duration)
-        .set_position(position)
-    )
 
-    clips.append(shadow)
-    clips.append(text)
+        # IMPORTANT:
+        # Append INSIDE the loop so every word is included.
+        clips.append(shadow)
+        clips.append(text)
+
+    print(
+        f"✅ Caption clips created: {len(clips)}"
+    )
 
     return clips
 
 
 # ============================================================
-# Text Overlays (subtitle_text — separate from spoken captions)
+# Text Overlays
+#
+# Disabled intentionally.
+# The video should contain ONLY spoken captions.
 # ============================================================
 
-def build_overlays(timeline, size):
-    w, h = size
+def build_overlays(
+    timeline,
+    size,
+):
 
-    overlays = []
+    return []
 
-    for entry in timeline:
-        overlay = get_subtitle_text(entry.scene)
 
-        if not overlay:
-            continue
+# ============================================================
+# Audio
+# ============================================================
 
-        y = h * 0.20
-        if overlay["style"] == "lower_third":
-            y = h * 0.72
-        elif overlay["style"] == "top":
-            y = h * 0.18
+def build_audio(
+    timeline,
+    narration,
+    music_path,
+    sfx_paths,
+    total_duration,
+    video_cfg,
+):
 
-        duration = min(entry.duration, OVERLAY_MAX_DURATION)
+    tracks = [
+        narration
+    ]
 
-        clip = (
-            TextClip(
-                overlay["text"].upper(),
-                font=FONT,
-                fontsize=OVERLAY_FONT_SIZE,
-                color="white",
-                stroke_color="black",
-                stroke_width=OVERLAY_STROKE_WIDTH,
-                method="caption",
-                size=(int(w * 0.88), None),
-            )
-            .set_position(("center", y))
-            .set_start(entry.start)
-            .set_duration(duration)
-            .crossfadein(OVERLAY_FADE)
-            .crossfadeout(OVERLAY_FADE)
+    # --------------------------------------------------------
+    # Background Music
+    # --------------------------------------------------------
+
+    if (
+        music_path
+        and os.path.exists(
+            music_path
         )
+    ):
 
-        overlays.append(clip)
-
-    return overlays
-
-
-# ============================================================
-# Audio (narration + music + SFX, all keyed off the master timeline)
-# ============================================================
-
-def build_audio(timeline, narration, music_path, sfx_paths, total_duration, video_cfg):
-    tracks = [narration]
-
-    if music_path and os.path.exists(music_path):
         music = (
-            AudioFileClip(music_path)
-            .fx(afx.audio_loop, duration=total_duration)
-            .volumex(video_cfg["music_volume"])
+            AudioFileClip(
+                music_path
+            )
+            .fx(
+                afx.audio_loop,
+                duration=total_duration,
+            )
+            .volumex(
+                video_cfg[
+                    "music_volume"
+                ]
+            )
         )
-        tracks.append(music)
+
+        tracks.append(
+            music
+        )
+
+    # --------------------------------------------------------
+    # SFX
+    #
+    # main.py currently passes [] so nothing is added.
+    # --------------------------------------------------------
 
     for entry in timeline:
-        if entry.index >= len(sfx_paths):
+
+        if entry.index >= len(
+            sfx_paths
+        ):
             continue
 
-        sfx_path = sfx_paths[entry.index]
+        sfx_path = sfx_paths[
+            entry.index
+        ]
 
-        if not (sfx_path and os.path.exists(sfx_path)):
+        if not (
+            sfx_path
+            and os.path.exists(
+                sfx_path
+            )
+        ):
             continue
 
-        cue = get_sfx_cue(entry.scene)
-        offset = _safe_float(cue.get("at_ms", 0), 0, min_value=0) / 1000.0
+        cue = get_sfx_cue(
+            entry.scene
+        )
+
+        offset = (
+            _safe_float(
+                cue.get(
+                    "at_ms",
+                    0,
+                ),
+                0,
+                min_value=0,
+            )
+            / 1000.0
+        )
 
         effect = (
-            AudioFileClip(sfx_path)
-            .set_start(entry.start + offset)
-            .volumex(video_cfg["sfx_volume"])
+            AudioFileClip(
+                sfx_path
+            )
+            .set_start(
+                entry.start
+                + offset
+            )
+            .volumex(
+                video_cfg[
+                    "sfx_volume"
+                ]
+            )
         )
 
-        tracks.append(effect)
+        tracks.append(
+            effect
+        )
 
-    return CompositeAudioClip(tracks)
+    return CompositeAudioClip(
+        tracks
+    )
 
 
 # ============================================================
-# Assemble Video (public API — signature unchanged)
+# Assemble Video
 # ============================================================
 
 def assemble_video(
@@ -770,22 +1394,54 @@ def assemble_video(
     config,
     out_path,
 ):
-    video_cfg = get_video_config(config)
-    size = video_cfg["size"]
 
-    narration = AudioFileClip(audio_paths[0])
-    total_duration = narration.duration
+    video_cfg = get_video_config(
+        config
+    )
 
-    timeline = build_master_timeline(script, total_duration)
+    size = video_cfg[
+        "size"
+    ]
 
-    visual_clips = build_timeline_visuals(timeline, image_paths, size)
-    caption_clips = build_captions(audio_paths[0], script, timeline, size)
+    narration = AudioFileClip(
+        audio_paths[0]
+    )
+
+    total_duration = (
+        narration.duration
+    )
+
+    timeline = build_master_timeline(
+        script,
+        total_duration,
+    )
+
+    visual_clips = (
+        build_timeline_visuals(
+            timeline,
+            image_paths,
+            size,
+        )
+    )
+
+    caption_clips = build_captions(
+        audio_paths[0],
+        script,
+        timeline,
+        size,
+    )
+
+    # No separate title/subtitle overlays.
     overlay_clips = []
 
     final = CompositeVideoClip(
-        visual_clips + caption_clips + overlay_clips,
+        visual_clips
+        + caption_clips
+        + overlay_clips,
         size=size,
-    ).set_duration(total_duration)
+    ).set_duration(
+        total_duration
+    )
 
     audio = build_audio(
         timeline,
@@ -796,13 +1452,22 @@ def assemble_video(
         video_cfg,
     )
 
-    final = final.set_audio(audio)
+    final = final.set_audio(
+        audio
+    )
 
-    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    os.makedirs(
+        os.path.dirname(
+            out_path
+        ),
+        exist_ok=True,
+    )
 
     final.write_videofile(
         out_path,
-        fps=video_cfg["fps"],
+        fps=video_cfg[
+            "fps"
+        ],
         codec="libx264",
         audio_codec="aac",
         preset="medium",

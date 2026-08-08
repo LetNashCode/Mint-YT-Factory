@@ -61,6 +61,16 @@ Rejected for v5 (with reasoning):
   domain tagging only earns its complexity if a single video genuinely
   spans multiple science domains, which a 45-second single-phenomenon
   Short generally does not.
+
+v5.1 change (JSON parsing hardening):
+- Gemini occasionally returns slightly malformed JSON (stray text
+  around the object, trailing commas, etc.), which broke the pipeline
+  in GitHub Actions with an unhelpful JSONDecodeError. Raw response
+  parsing now goes through parse_gemini_json(), which tries a strict
+  parse first, then a tolerant recovery pass (strip markdown fences,
+  extract the outermost {...}, drop trailing commas), and only then
+  fails loudly with the exact error location and the raw response
+  printed for CI debugging. No other pipeline behavior changes.
 """
 
 import json
@@ -430,6 +440,75 @@ Return ONLY valid JSON. No markdown. No commentary.
 """
 
 
+# --------------------------------------------------------------------------
+# JSON PARSING (hardened against slightly malformed Gemini output)
+# --------------------------------------------------------------------------
+
+def parse_gemini_json(text: str) -> dict:
+    """Safely parse Gemini's raw text response into a JSON object.
+
+    Parsing order:
+      1. Try a strict json.loads() on the raw text — the common case.
+      2. If that fails, run a tolerant recovery pass:
+         - strip markdown ```json / ``` fences
+         - extract only the outermost {...} block (drops stray text
+           before/after the JSON object)
+         - remove trailing commas before } or ]
+         - try json.loads() again
+      3. If it still fails, print full diagnostics (error message, line,
+         column, character position, and the raw response) and raise a
+         clear RuntimeError — this is what makes CI failures debuggable
+         instead of a bare JSONDecodeError.
+    """
+
+    if text is None or not text.strip():
+        raise RuntimeError("Gemini returned an empty response; cannot parse JSON.")
+
+    # 1. Strict parse of the raw text.
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+
+    # 2. Tolerant recovery pass.
+    cleaned = text.strip()
+
+    # Strip markdown code fences.
+    cleaned = re.sub(r"```json", "", cleaned, flags=re.IGNORECASE)
+    cleaned = cleaned.replace("```", "")
+    cleaned = cleaned.strip()
+
+    # Extract only the outermost JSON object, discarding any stray text
+    # before or after it.
+    start = cleaned.find("{")
+    end = cleaned.rfind("}")
+    if start != -1 and end != -1 and end > start:
+        cleaned = cleaned[start:end + 1]
+
+    # Remove trailing commas before a closing } or ].
+    cleaned = re.sub(r",(\s*[}\]])", r"\1", cleaned)
+
+    try:
+        return json.loads(cleaned)
+    except json.JSONDecodeError as e:
+        print("=" * 80)
+        print("JSON PARSE ERROR")
+        print("=" * 80)
+        print(f"Error message: {e.msg}")
+        print(f"Line: {e.lineno}")
+        print(f"Column: {e.colno}")
+        print(f"Character position: {e.pos}")
+        print("=" * 80)
+        print("RAW GEMINI RESPONSE")
+        print("=" * 80)
+        print(text)
+        print("=" * 80)
+        raise RuntimeError(
+            "Failed to parse Gemini JSON response: "
+            f"{e.msg} (line {e.lineno}, column {e.colno}, char {e.pos})"
+        )
+
+
 def generate_script(topic: str, config: dict) -> dict:
     """Call Gemini to produce one full educational Short storyboard."""
 
@@ -471,15 +550,7 @@ def generate_script(topic: str, config: dict) -> dict:
 
     text = response.text
 
-    text = (
-        text.replace("```json", "")
-        .replace("```", "")
-        .strip()
-    )
-
-    decoder = json.JSONDecoder()
-
-    script, _ = decoder.raw_decode(text)
+    script = parse_gemini_json(text)
 
     script["topic"] = topic
 

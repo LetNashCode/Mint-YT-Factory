@@ -3,102 +3,297 @@ const path = require("path");
 
 const { init } = require("@heyputer/puter.js/src/init.cjs");
 
+// ============================================================
+// PUTER CONFIG
+// ============================================================
+
+const PUTER_AUTH_TOKEN =
+    process.env.PUTER_AUTH_TOKEN;
+
 const OUTPUT_DIR = path.join(
     __dirname,
     "puter_test_output"
 );
 
+// ============================================================
+// TEST PROMPT
+// ============================================================
+
 const PROMPT = `
-Photorealistic cinematic scientific documentary visualization
-of a real human brain in a dark professional medical laboratory
-environment, three-quarter view.
+A cinematic National Geographic style scientific visualization
+of a realistic human brain viewed from a three-quarter angle,
+showing detailed natural brain anatomy with subtle illuminated
+neural pathways connecting different regions.
 
-Extremely realistic human brain anatomy,
-natural biological textures,
-realistic blood vessels and tissue detail,
-high-end medical visualization,
-National Geographic documentary quality,
-cinematic photography,
-physically realistic lighting,
-subtle deep blue and warm gold illumination,
-strong subject separation,
-shallow depth of field.
-
-The brain is the single dominant subject,
-large and clearly visible,
-centered in the vertical frame,
-realistic scale and perspective.
+Photorealistic scientific documentary quality.
+Physically realistic anatomy.
+Realistic biological textures.
+Professional medical visualization.
+Cinematic depth of field.
+Dark neutral background.
+Subtle blue and warm gold lighting.
+One clearly identifiable main subject.
+Strong subject separation.
+Premium documentary photography aesthetic.
 
 Vertical 9:16 composition.
-Premium documentary photography.
+The brain should dominate the frame.
+
 No text.
 No labels.
 No typography.
 No logo.
 No watermark.
-No cartoon.
-No fantasy.
+No cartoon style.
+No fantasy elements.
 No excessive neon.
-No glowing fantasy effects.
+No unnecessary particles.
 No distorted anatomy.
 No duplicated objects.
 No visual clutter.
 `;
 
+// ============================================================
+// HELPERS
+// ============================================================
+
+function printHeader(text) {
+    console.log("=".repeat(80));
+    console.log(text);
+    console.log("=".repeat(80));
+}
+
+// ============================================================
+// MAIN
+// ============================================================
+
 async function main() {
 
-    console.log("=".repeat(80));
-    console.log("🎨 PUTER IMAGE TEST");
-    console.log("=".repeat(80));
+    printHeader("🎨 PUTER IMAGE GENERATION TEST");
+
+    // --------------------------------------------------------
+    // Check token
+    // --------------------------------------------------------
+
+    if (!PUTER_AUTH_TOKEN) {
+
+        console.error(
+            "❌ PUTER_AUTH_TOKEN is missing."
+        );
+
+        console.error(
+            "Add PUTER_AUTH_TOKEN to GitHub:"
+        );
+
+        console.error(
+            "Settings → Secrets and variables → Actions"
+        );
+
+        process.exit(1);
+    }
+
+    console.log(
+        "✅ PUTER_AUTH_TOKEN detected."
+    );
+
+    // Never print the actual token.
+    console.log(
+        `Token length: ${PUTER_AUTH_TOKEN.length}`
+    );
+
+    // --------------------------------------------------------
+    // Prepare output directory
+    // --------------------------------------------------------
 
     fs.mkdirSync(
         OUTPUT_DIR,
-        { recursive: true }
+        {
+            recursive: true
+        }
     );
 
-    console.log("Generating test image...");
+    console.log(
+        `📁 Output directory: ${OUTPUT_DIR}`
+    );
+
+    // --------------------------------------------------------
+    // Initialize Puter
+    // --------------------------------------------------------
+
+    console.log(
+        "🔐 Initializing Puter..."
+    );
+
+    let puter;
 
     try {
 
-        const puter = init();
+        puter = init(
+            PUTER_AUTH_TOKEN
+        );
+
+        console.log(
+            "✅ Puter initialized."
+        );
+
+    } catch (error) {
+
+        printHeader(
+            "❌ PUTER INITIALIZATION FAILED"
+        );
+
+        console.error(
+            error
+        );
+
+        process.exit(1);
+    }
+
+    // --------------------------------------------------------
+    // Generate image
+    // --------------------------------------------------------
+
+    printHeader(
+        "🧠 GENERATING TEST IMAGE"
+    );
+
+    console.log(
+        `Prompt length: ${PROMPT.length}`
+    );
+
+    try {
 
         const image =
             await puter.ai.txt2img(
                 PROMPT,
                 {
-                    model: "gpt-image-1-mini",
-                    quality: "medium",
-                    test_mode: true
+                    provider:
+                        "openai-image-generation",
+
+                    model:
+                        "gpt-image-1-mini",
+
+                    quality:
+                        "medium",
+
+                    ratio: {
+                        w: 9,
+                        h: 16
+                    }
                 }
             );
 
-        if (!image || !image.src) {
+        console.log(
+            "✅ Puter returned an image."
+        );
+
+        // ----------------------------------------------------
+        // Validate response
+        // ----------------------------------------------------
+
+        if (
+            !image ||
+            typeof image !== "object"
+        ) {
+
             throw new Error(
-                "Puter returned no image."
+                "Puter returned an invalid response."
             );
         }
 
-        const dataUrl = image.src;
+        console.log(
+            `Response keys: ${Object.keys(image).join(", ")}`
+        );
 
-        if (!dataUrl.startsWith("data:image/")) {
+        // ----------------------------------------------------
+        // Extract image source
+        // ----------------------------------------------------
+
+        let dataUrl = null;
+
+        if (
+            typeof image.src === "string"
+        ) {
+
+            dataUrl = image.src;
+
+        } else if (
+            typeof image.url === "string"
+        ) {
+
+            dataUrl = image.url;
+        }
+
+        if (!dataUrl) {
+
             throw new Error(
-                "Unexpected image format."
+                "Puter response does not contain an image src/url."
             );
         }
 
-        const commaIndex =
-            dataUrl.indexOf(",");
+        console.log(
+            "✅ Image source received."
+        );
 
-        const base64 =
-            dataUrl.substring(
-                commaIndex + 1
-            );
+        // ----------------------------------------------------
+        // Handle data URL
+        // ----------------------------------------------------
 
-        const buffer =
-            Buffer.from(
-                base64,
-                "base64"
+        let buffer;
+
+        if (
+            dataUrl.startsWith(
+                "data:image/"
+            )
+        ) {
+
+            const commaIndex =
+                dataUrl.indexOf(",");
+
+            if (
+                commaIndex === -1
+            ) {
+
+                throw new Error(
+                    "Invalid image data URL."
+                );
+            }
+
+            const base64Data =
+                dataUrl.substring(
+                    commaIndex + 1
+                );
+
+            buffer =
+                Buffer.from(
+                    base64Data,
+                    "base64"
+                );
+
+        } else {
+
+            throw new Error(
+                `Unsupported image response format: ${dataUrl.substring(0, 100)}`
             );
+        }
+
+        if (
+            !buffer ||
+            buffer.length === 0
+        ) {
+
+            throw new Error(
+                "Image buffer is empty."
+            );
+        }
+
+        console.log(
+            `✅ Image data decoded: ${buffer.length} bytes`
+        );
+
+        // ----------------------------------------------------
+        // Save image
+        // ----------------------------------------------------
 
         const outputPath =
             path.join(
@@ -111,25 +306,99 @@ async function main() {
             buffer
         );
 
-        console.log("=".repeat(80));
-        console.log("✅ IMAGE GENERATED");
-        console.log("=".repeat(80));
-        console.log(`Saved: ${outputPath}`);
-        console.log(
-            `Size: ${buffer.length} bytes`
+        // ----------------------------------------------------
+        // Verify file
+        // ----------------------------------------------------
+
+        if (
+            !fs.existsSync(
+                outputPath
+            )
+        ) {
+
+            throw new Error(
+                "Image file was not created."
+            );
+        }
+
+        const stats =
+            fs.statSync(
+                outputPath
+            );
+
+        printHeader(
+            "🎉 PUTER IMAGE GENERATED SUCCESSFULLY"
         );
-        console.log("=".repeat(80));
+
+        console.log(
+            `📸 File: ${outputPath}`
+        );
+
+        console.log(
+            `📦 Size: ${stats.size} bytes`
+        );
+
+        printHeader(
+            "✅ PUTER TEST COMPLETE"
+        );
 
     } catch (error) {
 
-        console.error("=".repeat(80));
-        console.error("❌ PUTER TEST FAILED");
-        console.error("=".repeat(80));
-        console.error(error);
-        console.error("=".repeat(80));
+        printHeader(
+            "❌ PUTER IMAGE GENERATION FAILED"
+        );
+
+        console.error(
+            "Error:"
+        );
+
+        console.error(
+            error
+        );
+
+        if (
+            error &&
+            error.status
+        ) {
+
+            console.error(
+                `HTTP Status: ${error.status}`
+            );
+        }
+
+        if (
+            error &&
+            error.message
+        ) {
+
+            console.error(
+                `Message: ${error.message}`
+            );
+        }
+
+        printHeader(
+            "PUTER TEST FAILED"
+        );
 
         process.exit(1);
     }
 }
 
-main();
+// ============================================================
+// RUN
+// ============================================================
+
+main().catch(
+    (error) => {
+
+        console.error(
+            "❌ Unexpected error:"
+        );
+
+        console.error(
+            error
+        );
+
+        process.exit(1);
+    }
+);

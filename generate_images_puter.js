@@ -13,9 +13,6 @@ const {
 const PUTER_AUTH_TOKEN =
     process.env.PUTER_AUTH_TOKEN;
 
-const PROMPT =
-    process.env.PUTER_IMAGE_PROMPT;
-
 const OUTPUT_PATH =
     process.env.PUTER_OUTPUT_PATH;
 
@@ -30,8 +27,22 @@ const QUALITY =
     process.env.PUTER_IMAGE_QUALITY ||
     "medium";
 
-const TIMEOUT_MS =
-    120000;
+const TIMEOUT_MS = 120000;
+
+
+// ============================================================
+// DIAGNOSTIC PROMPT
+// ============================================================
+//
+// IMPORTANT:
+// Keep this intentionally short for the first test.
+// Do NOT use PUTER_IMAGE_PROMPT yet.
+// Do NOT pass the long 2772-character prompt.
+//
+// ============================================================
+
+const PROMPT =
+    "A realistic cinematic close-up of a human eye.";
 
 
 // ============================================================
@@ -67,14 +78,6 @@ function validateEnvironment() {
 
     }
 
-    if (!PROMPT) {
-
-        throw new Error(
-            "PUTER_IMAGE_PROMPT is missing."
-        );
-
-    }
-
     if (!OUTPUT_PATH) {
 
         throw new Error(
@@ -98,7 +101,7 @@ async function main() {
 
 
     // --------------------------------------------------------
-    // Validate
+    // Validate environment
     // --------------------------------------------------------
 
     validateEnvironment();
@@ -133,6 +136,10 @@ async function main() {
     );
 
     console.log(
+        `Prompt: ${PROMPT}`
+    );
+
+    console.log(
         `Output: ${OUTPUT_PATH}`
     );
 
@@ -156,7 +163,9 @@ async function main() {
     );
 
 
-    // Remove an old incomplete file if present.
+    // --------------------------------------------------------
+    // Remove previous output
+    // --------------------------------------------------------
 
     try {
 
@@ -236,6 +245,7 @@ async function main() {
         "⏳ Sending image generation request..."
     );
 
+
     const startTime =
         Date.now();
 
@@ -243,64 +253,68 @@ async function main() {
     try {
 
         /*
-         * IMPORTANT
+         * ====================================================
+         * MINIMAL PUTER IMAGE REQUEST
+         * ====================================================
          *
-         * Do NOT explicitly pass:
+         * Deliberately NOT using:
          *
-         * provider: "openai-image-generation"
+         * provider
+         * puter_output_path
+         * long prompt
          *
-         * when using gpt-image-2.
+         * This isolates the Puter SDK request itself.
          *
-         * Puter can infer the provider from the model.
-         *
-         * We also use puter_output_path so Puter handles
-         * the image output directly instead of returning
-         * a potentially huge base64 data URL.
+         * ====================================================
          */
+
+        const generationPromise =
+            puter.ai.txt2img(
+                PROMPT,
+                {
+                    model:
+                        MODEL,
+
+                    quality:
+                        QUALITY,
+
+                    ratio:
+                        {
+                            w: 9,
+                            h: 16
+                        }
+                }
+            );
+
+
+        const timeoutPromise =
+            new Promise(
+                (_, reject) => {
+
+                    setTimeout(
+                        () => {
+
+                            reject(
+                                new Error(
+                                    `Puter image generation timed out after ${
+                                        TIMEOUT_MS / 1000
+                                    } seconds.`
+                                )
+                            );
+
+                        },
+                        TIMEOUT_MS
+                    );
+
+                }
+            );
+
 
         const result =
             await Promise.race(
                 [
-                    puter.ai.txt2img(
-                        "A realistic cinematic close-up of a human eye, vertical 9:16.",
-                        {
-                            model:
-                                MODEL,
-
-                            quality:
-                                QUALITY,
-
-                            ratio:
-                                {
-                                    w: 9,
-                                    h: 16
-                                },
-
-                            puter_output_path:
-                                OUTPUT_PATH
-                        }
-                    ),
-
-                    new Promise(
-                        (_, reject) => {
-
-                            setTimeout(
-                                () => {
-
-                                    reject(
-                                        new Error(
-                                            `Puter image generation timed out after ${
-                                                TIMEOUT_MS / 1000
-                                            } seconds.`
-                                        )
-                                    );
-
-                                },
-                                TIMEOUT_MS
-                            );
-
-                        }
-                    )
+                    generationPromise,
+                    timeoutPromise
                 ]
             );
 
@@ -318,116 +332,54 @@ async function main() {
 
 
         // ----------------------------------------------------
-        // Check direct output
+        // Inspect response
         // ----------------------------------------------------
 
-        /*
-         * Puter may save the image directly when
-         * puter_output_path is supplied.
-         *
-         * Give the filesystem a very short moment in case
-         * the write completes immediately after the promise.
-         */
-
-        for (
-            let attempt = 0;
-            attempt < 20;
-            attempt++
-        ) {
-
-            if (
-                fs.existsSync(
-                    OUTPUT_PATH
-                )
-            ) {
-
-                const stats =
-                    fs.statSync(
-                        OUTPUT_PATH
-                    );
-
-
-                if (
-                    stats.size >= 1000
-                ) {
-
-                    printHeader(
-                        "🎉 PUTER IMAGE GENERATION SUCCESSFUL"
-                    );
-
-                    console.log(
-                        `File: ${OUTPUT_PATH}`
-                    );
-
-                    console.log(
-                        `Size: ${stats.size} bytes`
-                    );
-
-                    console.log(
-                        `Generation time: ${
-                            (
-                                (Date.now() - startTime)
-                                / 1000
-                            ).toFixed(1)
-                        } seconds`
-                    );
-
-                    console.log(
-                        `Seed: ${SEED}`
-                    );
-
-                    printHeader(
-                        "✅ IMAGE COMPLETE"
-                    );
-
-                    return;
-
-                }
-
-            }
-
-            await sleep(250);
-
-        }
-
-
-        // ----------------------------------------------------
-        // Fallback: inspect returned image
-        // ----------------------------------------------------
-
-        console.log(
-            "⚠️ Direct output file was not detected."
-        );
-
-        console.log(
-            "Inspecting Puter response..."
-        );
-
-
-        if (
-            !result ||
-            typeof result !== "object"
-        ) {
+        if (!result) {
 
             throw new Error(
-                "Puter completed but returned an invalid image response."
+                "Puter returned an empty response."
             );
 
         }
 
 
         console.log(
-            `Response keys: ${
-                Object.keys(result).join(", ")
-            }`
+            "Response type:",
+            typeof result
         );
 
+
+        if (
+            typeof result === "object"
+        ) {
+
+            console.log(
+                `Response keys: ${
+                    Object.keys(result).join(", ")
+                }`
+            );
+
+        }
+
+
+        // ----------------------------------------------------
+        // Extract image source
+        // ----------------------------------------------------
 
         let dataUrl =
             null;
 
 
         if (
+            typeof result === "string"
+        ) {
+
+            dataUrl =
+                result;
+
+        }
+        else if (
             typeof result.src === "string"
         ) {
 
@@ -448,78 +400,158 @@ async function main() {
         if (!dataUrl) {
 
             throw new Error(
-                "Puter completed but returned neither a saved file nor image.src/image.url."
+                "Puter completed but no image source was returned."
             );
 
         }
 
 
         // ----------------------------------------------------
-        // Decode fallback data URL
+        // Handle data URL
         // ----------------------------------------------------
 
         if (
-            !dataUrl.startsWith(
+            dataUrl.startsWith(
                 "data:image/"
             )
         ) {
+
+            const commaIndex =
+                dataUrl.indexOf(",");
+
+
+            if (
+                commaIndex === -1
+            ) {
+
+                throw new Error(
+                    "Invalid image data URL returned by Puter."
+                );
+
+            }
+
+
+            const base64Data =
+                dataUrl.substring(
+                    commaIndex + 1
+                );
+
+
+            const buffer =
+                Buffer.from(
+                    base64Data,
+                    "base64"
+                );
+
+
+            if (
+                !buffer ||
+                buffer.length < 1000
+            ) {
+
+                throw new Error(
+                    "Generated image buffer is empty or invalid."
+                );
+
+            }
+
+
+            fs.writeFileSync(
+                OUTPUT_PATH,
+                buffer
+            );
+
+
+            console.log(
+                `📸 Saved image: ${OUTPUT_PATH}`
+            );
+
+        }
+
+
+        // ----------------------------------------------------
+        // Handle URL response
+        // ----------------------------------------------------
+
+        else if (
+            dataUrl.startsWith(
+                "http://"
+            ) ||
+            dataUrl.startsWith(
+                "https://"
+            )
+        ) {
+
+            console.log(
+                "🌐 Puter returned an image URL."
+            );
+
+            console.log(
+                `URL: ${dataUrl}`
+            );
+
+
+            /*
+             * Download using native fetch.
+             */
+
+            const response =
+                await fetch(
+                    dataUrl
+                );
+
+
+            if (
+                !response.ok
+            ) {
+
+                throw new Error(
+                    `Failed to download generated image. HTTP ${response.status}`
+                );
+
+            }
+
+
+            const arrayBuffer =
+                await response.arrayBuffer();
+
+
+            const buffer =
+                Buffer.from(
+                    arrayBuffer
+                );
+
+
+            if (
+                buffer.length < 1000
+            ) {
+
+                throw new Error(
+                    "Downloaded image is empty or invalid."
+                );
+
+            }
+
+
+            fs.writeFileSync(
+                OUTPUT_PATH,
+                buffer
+            );
+
+
+            console.log(
+                `📸 Downloaded image: ${OUTPUT_PATH}`
+            );
+
+        }
+
+        else {
 
             throw new Error(
                 "Unsupported Puter image response format."
             );
 
         }
-
-
-        const commaIndex =
-            dataUrl.indexOf(",");
-
-
-        if (
-            commaIndex === -1
-        ) {
-
-            throw new Error(
-                "Invalid image data URL."
-            );
-
-        }
-
-
-        const base64Data =
-            dataUrl.substring(
-                commaIndex + 1
-            );
-
-
-        const buffer =
-            Buffer.from(
-                base64Data,
-                "base64"
-            );
-
-
-        if (
-            !buffer ||
-            buffer.length < 1000
-        ) {
-
-            throw new Error(
-                "Generated image buffer is empty or invalid."
-            );
-
-        }
-
-
-        fs.writeFileSync(
-            OUTPUT_PATH,
-            buffer
-        );
-
-
-        console.log(
-            `📸 Saved fallback image: ${OUTPUT_PATH}`
-        );
 
 
         // ----------------------------------------------------
@@ -578,7 +610,15 @@ async function main() {
         );
 
         console.log(
-            `Seed: ${SEED}`
+            `Model: ${MODEL}`
+        );
+
+        console.log(
+            `Quality: ${QUALITY}`
+        );
+
+        console.log(
+            "Ratio: 9:16"
         );
 
         printHeader(

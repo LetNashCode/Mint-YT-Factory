@@ -15,6 +15,11 @@ const OUTPUT_DIR = path.join(
     "puter_test_output"
 );
 
+const OUTPUT_FILE = path.join(
+    OUTPUT_DIR,
+    "puter_test.png"
+);
+
 // ============================================================
 // TEST PROMPT
 // ============================================================
@@ -58,9 +63,22 @@ No visual clutter.
 // ============================================================
 
 function printHeader(text) {
+    console.log("");
     console.log("=".repeat(80));
     console.log(text);
     console.log("=".repeat(80));
+}
+
+function timeoutPromise(ms) {
+    return new Promise((_, reject) => {
+        setTimeout(() => {
+            reject(
+                new Error(
+                    `Puter image generation timed out after ${ms / 1000} seconds.`
+                )
+            );
+        }, ms);
+    });
 }
 
 // ============================================================
@@ -82,27 +100,19 @@ async function main() {
         );
 
         console.error(
-            "Add PUTER_AUTH_TOKEN to GitHub:"
-        );
-
-        console.error(
-            "Settings → Secrets and variables → Actions"
+            "GitHub → Settings → Secrets and variables → Actions"
         );
 
         process.exit(1);
     }
 
-    console.log(
-        "✅ PUTER_AUTH_TOKEN detected."
-    );
-
-    // Never print the actual token.
+    console.log("✅ PUTER_AUTH_TOKEN detected.");
     console.log(
         `Token length: ${PUTER_AUTH_TOKEN.length}`
     );
 
     // --------------------------------------------------------
-    // Prepare output directory
+    // Output directory
     // --------------------------------------------------------
 
     fs.mkdirSync(
@@ -120,9 +130,7 @@ async function main() {
     // Initialize Puter
     // --------------------------------------------------------
 
-    console.log(
-        "🔐 Initializing Puter..."
-    );
+    printHeader("🔐 INITIALIZING PUTER");
 
     let puter;
 
@@ -133,7 +141,7 @@ async function main() {
         );
 
         console.log(
-            "✅ Puter initialized."
+            "✅ Puter initialized successfully."
         );
 
     } catch (error) {
@@ -142,9 +150,7 @@ async function main() {
             "❌ PUTER INITIALIZATION FAILED"
         );
 
-        console.error(
-            error
-        );
+        console.error(error);
 
         process.exit(1);
     }
@@ -154,24 +160,43 @@ async function main() {
     // --------------------------------------------------------
 
     printHeader(
-        "🧠 GENERATING TEST IMAGE"
+        "🧠 STARTING IMAGE GENERATION"
+    );
+
+    console.log(
+        "Model: gpt-image-2"
+    );
+
+    console.log(
+        "Quality: medium"
+    );
+
+    console.log(
+        "Ratio: 9:16"
     );
 
     console.log(
         `Prompt length: ${PROMPT.length}`
     );
 
+    console.log(
+        "⏳ Waiting for Puter..."
+    );
+
+    const startTime =
+        Date.now();
+
     try {
 
-        const image =
-            await puter.ai.txt2img(
+        const generationPromise =
+            puter.ai.txt2img(
                 PROMPT,
                 {
                     provider:
                         "openai-image-generation",
 
                     model:
-                        "gpt-image-1-mini",
+                        "gpt-image-2",
 
                     quality:
                         "medium",
@@ -183,8 +208,18 @@ async function main() {
                 }
             );
 
+        const image =
+            await Promise.race([
+                generationPromise,
+                timeoutPromise(90000)
+            ]);
+
+        const elapsed =
+            ((Date.now() - startTime) / 1000)
+            .toFixed(1);
+
         console.log(
-            "✅ Puter returned an image."
+            `✅ Puter returned image after ${elapsed} seconds.`
         );
 
         // ----------------------------------------------------
@@ -197,16 +232,18 @@ async function main() {
         ) {
 
             throw new Error(
-                "Puter returned an invalid response."
+                "Puter returned an invalid image response."
             );
         }
 
         console.log(
-            `Response keys: ${Object.keys(image).join(", ")}`
+            `Response keys: ${
+                Object.keys(image).join(", ")
+            }`
         );
 
         // ----------------------------------------------------
-        // Extract image source
+        // Get image source
         // ----------------------------------------------------
 
         let dataUrl = null;
@@ -215,19 +252,21 @@ async function main() {
             typeof image.src === "string"
         ) {
 
-            dataUrl = image.src;
+            dataUrl =
+                image.src;
 
         } else if (
             typeof image.url === "string"
         ) {
 
-            dataUrl = image.url;
+            dataUrl =
+                image.url;
         }
 
         if (!dataUrl) {
 
             throw new Error(
-                "Puter response does not contain an image src/url."
+                "Puter response does not contain image.src or image.url."
             );
         }
 
@@ -236,46 +275,42 @@ async function main() {
         );
 
         // ----------------------------------------------------
-        // Handle data URL
+        // Decode data URL
         // ----------------------------------------------------
 
-        let buffer;
-
         if (
-            dataUrl.startsWith(
+            !dataUrl.startsWith(
                 "data:image/"
             )
         ) {
 
-            const commaIndex =
-                dataUrl.indexOf(",");
-
-            if (
-                commaIndex === -1
-            ) {
-
-                throw new Error(
-                    "Invalid image data URL."
-                );
-            }
-
-            const base64Data =
-                dataUrl.substring(
-                    commaIndex + 1
-                );
-
-            buffer =
-                Buffer.from(
-                    base64Data,
-                    "base64"
-                );
-
-        } else {
-
             throw new Error(
-                `Unsupported image response format: ${dataUrl.substring(0, 100)}`
+                `Unsupported image format: ${dataUrl.substring(0, 100)}`
             );
         }
+
+        const commaIndex =
+            dataUrl.indexOf(",");
+
+        if (
+            commaIndex === -1
+        ) {
+
+            throw new Error(
+                "Invalid image data URL."
+            );
+        }
+
+        const base64Data =
+            dataUrl.substring(
+                commaIndex + 1
+            );
+
+        const buffer =
+            Buffer.from(
+                base64Data,
+                "base64"
+            );
 
         if (
             !buffer ||
@@ -283,36 +318,34 @@ async function main() {
         ) {
 
             throw new Error(
-                "Image buffer is empty."
+                "Decoded image buffer is empty."
             );
         }
 
         console.log(
-            `✅ Image data decoded: ${buffer.length} bytes`
+            `✅ Image decoded: ${buffer.length} bytes`
         );
 
         // ----------------------------------------------------
         // Save image
         // ----------------------------------------------------
 
-        const outputPath =
-            path.join(
-                OUTPUT_DIR,
-                "puter_test.png"
-            );
-
         fs.writeFileSync(
-            outputPath,
+            OUTPUT_FILE,
             buffer
         );
 
+        console.log(
+            `📸 Saved: ${OUTPUT_FILE}`
+        );
+
         // ----------------------------------------------------
-        // Verify file
+        // Verify
         // ----------------------------------------------------
 
         if (
             !fs.existsSync(
-                outputPath
+                OUTPUT_FILE
             )
         ) {
 
@@ -323,23 +356,29 @@ async function main() {
 
         const stats =
             fs.statSync(
-                outputPath
+                OUTPUT_FILE
             );
 
         printHeader(
-            "🎉 PUTER IMAGE GENERATED SUCCESSFULLY"
+            "🎉 PUTER IMAGE GENERATION SUCCESSFUL"
         );
 
         console.log(
-            `📸 File: ${outputPath}`
+            `File: ${OUTPUT_FILE}`
         );
 
         console.log(
-            `📦 Size: ${stats.size} bytes`
+            `Size: ${stats.size} bytes`
+        );
+
+        console.log(
+            `Generation time: ${(
+                (Date.now() - startTime) / 1000
+            ).toFixed(1)} seconds`
         );
 
         printHeader(
-            "✅ PUTER TEST COMPLETE"
+            "✅ TEST COMPLETE"
         );
 
     } catch (error) {
@@ -352,29 +391,25 @@ async function main() {
             "Error:"
         );
 
-        console.error(
-            error
-        );
+        console.error(error);
 
-        if (
-            error &&
-            error.status
-        ) {
-
+        if (error?.status) {
             console.error(
                 `HTTP Status: ${error.status}`
             );
         }
 
-        if (
-            error &&
-            error.message
-        ) {
-
+        if (error?.message) {
             console.error(
                 `Message: ${error.message}`
             );
         }
+
+        console.error(
+            `Elapsed time: ${(
+                (Date.now() - startTime) / 1000
+            ).toFixed(1)} seconds`
+        );
 
         printHeader(
             "PUTER TEST FAILED"
@@ -395,9 +430,7 @@ main().catch(
             "❌ Unexpected error:"
         );
 
-        console.error(
-            error
-        );
+        console.error(error);
 
         process.exit(1);
     }

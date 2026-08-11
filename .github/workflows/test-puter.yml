@@ -1,0 +1,44 @@
+name: Test Puter Image Generation
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-puter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check Node version
+        run: node --version
+
+      - name: Check Puter package
+        run: npm list @heyputer/puter.js
+
+      - name: Generate test image
+        env:
+          PUTER_AUTH_TOKEN: ${{ secrets.PUTER_AUTH_TOKEN }}
+        run: node generate_images_puter.js
+
+      - name: Verify generated image
+        run: |
+          echo "Checking generated files..."
+          ls -lah puter_test_output/
+
+      - name: Upload generated image
+        uses: actions/upload-artifact@v4
+        with:
+          name: puter-test-image
+          path: puter_test_output/puter_test.png
+          if-no-files-found: error

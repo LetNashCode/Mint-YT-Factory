@@ -27,8 +27,8 @@ const {
 // Grok image model
 //
 // IMPORTANT:
-// This file does NOT contain a hardcoded image prompt.
-// The prompt always comes from generate_images.py.
+// No image prompt is hardcoded here.
+// The prompt ALWAYS comes from generate_images.py.
 // ============================================================
 
 
@@ -48,18 +48,24 @@ const PROMPT =
 const SEED =
     process.env.PUTER_IMAGE_SEED || "0";
 
-const TIMEOUT_MS = 120000;
+const TIMEOUT_MS =
+    120000;
 
 
 // ============================================================
 // MODEL FALLBACK CHAIN
 // ============================================================
 //
-// Change the order here if required.
+// Default order:
 //
-// You can also override it using:
+// 1. gpt-image-2
+// 2. gpt-image-1-mini
+// 3. gemini-2.5-flash-image
+// 4. grok-imagine-image
 //
-// PUTER_IMAGE_MODELS="gpt-image-2,gpt-image-1-mini,..."
+// You can override the order with:
+//
+// PUTER_IMAGE_MODELS="model1,model2,model3"
 //
 // ============================================================
 
@@ -92,6 +98,29 @@ const MODELS = (
     .filter(
         Boolean
     );
+
+
+// ============================================================
+// HEADER HELPER
+// ============================================================
+
+function printHeader(text) {
+
+    console.log("");
+
+    console.log(
+        "=".repeat(80)
+    );
+
+    console.log(
+        text
+    );
+
+    console.log(
+        "=".repeat(80)
+    );
+
+}
 
 
 // ============================================================
@@ -197,7 +226,7 @@ function getModelOptions(model) {
 
 
     // --------------------------------------------------------
-    // GENERIC FALLBACK
+    // GENERIC MODEL
     // --------------------------------------------------------
 
     return {
@@ -242,8 +271,9 @@ function validateEnvironment() {
     }
 
 
-    // IMPORTANT:
-    // There is intentionally NO fallback prompt.
+    // --------------------------------------------------------
+    // Prompt MUST come from Python
+    // --------------------------------------------------------
 
     if (
         !PROMPT ||
@@ -257,6 +287,10 @@ function validateEnvironment() {
 
     }
 
+
+    // --------------------------------------------------------
+    // Models
+    // --------------------------------------------------------
 
     if (
         !MODELS.length
@@ -293,11 +327,32 @@ function describeError(error) {
     }
 
 
+    const possibleMessages = [
+
+        error?.message,
+
+        error?.error?.message,
+
+        error?.error_description,
+
+        error?.statusText,
+
+        error?.code
+
+    ]
+        .filter(
+            Boolean
+        )
+        .map(
+            value => String(value)
+        );
+
+
     if (
-        error.message
+        possibleMessages.length
     ) {
 
-        return error.message;
+        return possibleMessages.join(" | ");
 
     }
 
@@ -321,13 +376,13 @@ function describeError(error) {
 
 
 // ============================================================
-// CREDIT / QUOTA DETECTION
+// CREDIT / QUOTA ERROR DETECTION
 // ============================================================
 //
-// Only these types of errors cause a model fallback.
+// Only credit/quota/billing errors trigger model fallback.
 //
-// Authentication errors, invalid prompts, SDK errors,
-// malformed requests, etc. are NOT silently switched.
+// Other errors stop the pipeline because silently switching
+// models could hide a real configuration or API problem.
 // ============================================================
 
 function isCreditError(error) {
@@ -344,7 +399,9 @@ function isCreditError(error) {
 
         error?.status,
 
-        error?.statusText
+        error?.statusText,
+
+        error?.error_description
 
     ]
         .filter(
@@ -374,6 +431,8 @@ function isCreditError(error) {
 
         "quota_exceeded",
 
+        "quota exceeded",
+
         "credit limit",
 
         "credit_limit",
@@ -400,6 +459,7 @@ function isCreditError(error) {
     return creditPatterns.some(
 
         pattern =>
+
             text.includes(
                 pattern
             )
@@ -415,7 +475,9 @@ function isCreditError(error) {
 
 function extractImageSource(result) {
 
-    if (!result) {
+    if (
+        !result
+    ) {
 
         return null;
 
@@ -448,10 +510,6 @@ function extractImageSource(result) {
     }
 
 
-    // --------------------------------------------------------
-    // URL response
-    // --------------------------------------------------------
-
     if (
         typeof result.url === "string"
     ) {
@@ -466,21 +524,25 @@ function extractImageSource(result) {
     // --------------------------------------------------------
 
     if (
-        result.image &&
-        typeof result.image.src === "string"
+        result.image
     ) {
 
-        return result.image.src;
+        if (
+            typeof result.image.src === "string"
+        ) {
 
-    }
+            return result.image.src;
+
+        }
 
 
-    if (
-        result.image &&
-        typeof result.image.url === "string"
-    ) {
+        if (
+            typeof result.image.url === "string"
+        ) {
 
-        return result.image.url;
+            return result.image.url;
+
+        }
 
     }
 
@@ -490,21 +552,25 @@ function extractImageSource(result) {
     // --------------------------------------------------------
 
     if (
-        result.data &&
-        typeof result.data.src === "string"
+        result.data
     ) {
 
-        return result.data.src;
+        if (
+            typeof result.data.src === "string"
+        ) {
 
-    }
+            return result.data.src;
+
+        }
 
 
-    if (
-        result.data &&
-        typeof result.data.url === "string"
-    ) {
+        if (
+            typeof result.data.url === "string"
+        ) {
 
-        return result.data.url;
+            return result.data.url;
+
+        }
 
     }
 
@@ -689,14 +755,23 @@ async function generateWithModel(
         );
 
 
-    console.log("");
+    printHeader(
+        `🧠 TRYING IMAGE MODEL: ${model}`
+    );
+
 
     console.log(
-        `🧠 Trying model: ${model}`
+        `Model: ${model}`
     );
+
 
     console.log(
         `Options: ${JSON.stringify(options)}`
+    );
+
+
+    console.log(
+        `Prompt length: ${PROMPT.length}`
     );
 
 
@@ -705,7 +780,7 @@ async function generateWithModel(
 
 
     // --------------------------------------------------------
-    // Send request
+    // Generate image
     // --------------------------------------------------------
 
     const generationPromise =
@@ -753,7 +828,7 @@ async function generateWithModel(
 
 
     // --------------------------------------------------------
-    // Wait for Puter
+    // Wait
     // --------------------------------------------------------
 
     const result =
@@ -789,7 +864,7 @@ async function generateWithModel(
 
 
     // --------------------------------------------------------
-    // Response diagnostics
+    // Diagnostics
     // --------------------------------------------------------
 
     console.log(
@@ -838,7 +913,7 @@ async function generateWithModel(
 
 
     // --------------------------------------------------------
-    // Save
+    // Save image
     // --------------------------------------------------------
 
     const bytes =
@@ -871,9 +946,9 @@ async function main() {
     );
 
 
-    // --------------------------------------------------------
-    // Validate environment
-    // --------------------------------------------------------
+    // ========================================================
+    // VALIDATE ENVIRONMENT
+    // ========================================================
 
     validateEnvironment();
 
@@ -890,11 +965,6 @@ async function main() {
 
     console.log(
         `Prompt length: ${PROMPT.length}`
-    );
-
-
-    console.log(
-        `Prompt: ${PROMPT}`
     );
 
 
@@ -944,7 +1014,7 @@ async function main() {
 
 
     // ========================================================
-    // REMOVE OLD OUTPUT
+    // REMOVE PREVIOUS OUTPUT
     // ========================================================
 
     try {
@@ -959,6 +1029,10 @@ async function main() {
 
             fs.unlinkSync(
                 OUTPUT_PATH
+            );
+
+            console.log(
+                "🗑️ Removed previous output file."
             );
 
         }
@@ -1079,7 +1153,7 @@ async function main() {
 
 
             // ------------------------------------------------
-            // Validate output
+            // Validate file
             // ------------------------------------------------
 
             if (
@@ -1210,7 +1284,8 @@ async function main() {
 
                 if (
 
-                    modelIndex + 1 < MODELS.length
+                    modelIndex + 1 <
+                    MODELS.length
 
                 ) {
 
@@ -1219,6 +1294,8 @@ async function main() {
                             modelIndex + 1
                         ];
 
+
+                    console.log("");
 
                     console.log(
                         `➡️ Switching to ${nextModel}`
@@ -1241,20 +1318,13 @@ async function main() {
 
 
             // =================================================
-            // OTHER ERROR
-            // =================================================
-            //
-            // Do NOT silently switch models.
-            //
-            // This prevents authentication errors,
-            // invalid prompts, malformed requests, SDK
-            // errors, etc. from being hidden.
+            // NON-CREDIT ERROR
             // =================================================
 
             console.error("");
 
             console.error(
-                "🛑 This does not look like a credit/quota error."
+                "🛑 This does not appear to be a credit/quota error."
             );
 
 

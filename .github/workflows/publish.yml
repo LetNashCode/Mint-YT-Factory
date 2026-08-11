@@ -31,12 +31,16 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "22"
+          node-version: "20"
+          cache: "npm"
 
       - name: Install Puter.js
         run: |
+          node --version
+          npm --version
           npm init -y
           npm install @heyputer/puter.js@2.6.0
+          npm list @heyputer/puter.js
 
       # --------------------------------------------------------
       # FFMPEG
@@ -53,14 +57,17 @@ jobs:
         run: |
           sudo apt-get install -y imagemagick
           sudo sed -i 's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' /etc/ImageMagick-6/policy.xml
-          which convert && convert --version
+          which convert
+          convert --version
 
       # --------------------------------------------------------
       # PYTHON DEPENDENCIES
       # --------------------------------------------------------
 
       - name: Install Python dependencies
-        run: pip install -r requirements.txt
+        run: |
+          python --version
+          pip install -r requirements.txt
 
       # --------------------------------------------------------
       # YOUTUBE CREDENTIALS
@@ -92,6 +99,7 @@ jobs:
           echo "=========================================="
           echo "🚀 AI YouTube Shorts Pipeline Started"
           echo "=========================================="
+
           echo "Start Time: $(date)"
           echo "Runner: $(uname -a)"
 
@@ -150,8 +158,12 @@ jobs:
         run: |
           git config user.name "auto-publish-bot"
           git config user.email "actions@github.com"
+
           git add used_topics.json
-          git diff --cached --quiet || git commit -m "Update used topics [skip ci]"
+
+          git diff --cached --quiet || \
+            git commit -m "Update used topics [skip ci]"
+
           git push
 
       # --------------------------------------------------------

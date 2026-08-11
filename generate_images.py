@@ -1,48 +1,53 @@
 """
 generate_images.py
 
-AI Visual Generation for Mint-YT-Factory
-Version 6.0
+Mint-YT-Factory
+Puter AI Image Generation
 
 Purpose:
-Generate high-quality AI visuals from the storyboard produced by
-generate_script.py.
+Generate AI visuals from the storyboard produced by generate_script.py.
 
-Major improvements:
-- Generates every visual segment from scene["visuals"]
-- Uses detailed scene-level image prompts
-- Preserves visual identity across the entire Short
-- Uses controlled seed variation
-- Better prompt construction
-- No arbitrary 700-character prompt truncation
-- Automatic retries
-- AI artifact prevention
-- Stronger cinematic composition
-- Compatible with the existing main.py pipeline
+Pipeline:
+
+generate_script.py
+        ↓
+generate_images.py
+        ↓
+generate_images_puter.js
+        ↓
+Puter AI
+        ↓
+PNG images
+        ↓
+assemble.py
+
+Puter handles the actual image generation.
+This file handles storyboard parsing, prompts, seeds,
+file naming, retries and pipeline integration.
 """
 
 import os
+import subprocess
 import time
-import urllib.parse
-import requests
 
 
 # ==========================================================================
 # CONFIGURATION
 # ==========================================================================
 
-BASE_URL = "https://image.pollinations.ai/prompt/"
+DEFAULT_WIDTH = 768
+DEFAULT_HEIGHT = 1365
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0"
-}
-
-MAX_RETRIES = 5
+MAX_RETRIES = 3
 
 RETRY_DELAY = 5
 
-DEFAULT_WIDTH = 768
-DEFAULT_HEIGHT = 1365
+PUTER_SCRIPT = os.path.join(
+    os.path.dirname(
+        os.path.abspath(__file__)
+    ),
+    "generate_images_puter.js",
+)
 
 
 # ==========================================================================
@@ -177,7 +182,7 @@ CAMERA_MAP = {
 
 
 # ==========================================================================
-# LIGHTING MAPPING
+# DEFAULT LIGHTING
 # ==========================================================================
 
 DEFAULT_LIGHTING = (
@@ -188,13 +193,10 @@ DEFAULT_LIGHTING = (
 
 
 # ==========================================================================
-# PROMPT CLEANING
+# HELPERS
 # ==========================================================================
 
 def _clean_prompt(text):
-    """
-    Remove accidental formatting while preserving useful detail.
-    """
 
     if not text:
         return ""
@@ -203,12 +205,12 @@ def _clean_prompt(text):
 
     text = text.replace(
         "\n",
-        " ",
+        " "
     )
 
     text = text.replace(
         "```",
-        "",
+        ""
     )
 
     text = " ".join(
@@ -219,7 +221,7 @@ def _clean_prompt(text):
 
 
 # ==========================================================================
-# BUILD VISUAL PROMPT
+# BUILD PROMPT
 # ==========================================================================
 
 def build_prompt(
@@ -227,31 +229,21 @@ def build_prompt(
     visual,
     script=None,
 ):
-    """
-    Build a strong production prompt from the storyboard.
-
-    Priority:
-        visual.image_prompt
-        visual technical information
-        scene context
-        global style
-    """
 
     parts = []
 
     # ----------------------------------------------------------------------
-    # PRIMARY IMAGE DESCRIPTION
+    # IMAGE DESCRIPTION
     # ----------------------------------------------------------------------
 
     image_prompt = _clean_prompt(
         visual.get(
             "image_prompt",
-            "",
+            ""
         )
     )
 
     if image_prompt:
-
         parts.append(
             image_prompt
         )
@@ -262,18 +254,16 @@ def build_prompt(
 
     image_style = visual.get(
         "image_style",
-        "realistic_3d_render",
-    )
-
-    style_description = IMAGE_STYLE_MAP.get(
-        image_style,
-        IMAGE_STYLE_MAP[
-            "realistic_3d_render"
-        ],
+        "realistic_3d_render"
     )
 
     parts.append(
-        style_description
+        IMAGE_STYLE_MAP.get(
+            image_style,
+            IMAGE_STYLE_MAP[
+                "realistic_3d_render"
+            ]
+        )
     )
 
     # ----------------------------------------------------------------------
@@ -282,13 +272,13 @@ def build_prompt(
 
     camera = visual.get(
         "camera",
-        "medium",
+        "medium"
     )
 
     parts.append(
         CAMERA_MAP.get(
             camera,
-            CAMERA_MAP["medium"],
+            CAMERA_MAP["medium"]
         )
     )
 
@@ -299,12 +289,11 @@ def build_prompt(
     lighting = _clean_prompt(
         visual.get(
             "lighting",
-            DEFAULT_LIGHTING,
+            DEFAULT_LIGHTING
         )
     )
 
     if lighting:
-
         parts.append(
             f"Lighting: {lighting}."
         )
@@ -316,12 +305,11 @@ def build_prompt(
     palette = _clean_prompt(
         visual.get(
             "color_palette",
-            "",
+            ""
         )
     )
 
     if palette:
-
         parts.append(
             f"Color palette: {palette}."
         )
@@ -334,36 +322,34 @@ def build_prompt(
 
         identity = script.get(
             "visual_identity",
-            {},
+            {}
         )
 
         if isinstance(
             identity,
-            dict,
+            dict
         ):
 
             style = _clean_prompt(
                 identity.get(
                     "style",
-                    "",
+                    ""
                 )
             )
 
             mood_arc = _clean_prompt(
                 identity.get(
                     "mood_arc",
-                    "",
+                    ""
                 )
             )
 
             if style:
-
                 parts.append(
                     f"Overall visual identity: {style}."
                 )
 
             if mood_arc:
-
                 parts.append(
                     f"Production mood: {mood_arc}."
                 )
@@ -372,13 +358,14 @@ def build_prompt(
     # SCENE PURPOSE
     # ----------------------------------------------------------------------
 
-    purpose = scene.get(
-        "purpose",
-        "",
+    purpose = _clean_prompt(
+        scene.get(
+            "purpose",
+            ""
+        )
     )
 
     if purpose:
-
         parts.append(
             f"Scene purpose: {purpose}."
         )
@@ -387,24 +374,25 @@ def build_prompt(
     # EMOTIONAL TONE
     # ----------------------------------------------------------------------
 
-    emotional_tone = scene.get(
-        "emotional_tone",
-        "",
+    emotional_tone = _clean_prompt(
+        scene.get(
+            "emotional_tone",
+            ""
+        )
     )
 
     if emotional_tone:
-
         parts.append(
             f"Emotional tone: {emotional_tone}."
         )
 
     # ----------------------------------------------------------------------
-    # VISUAL ROLE
+    # VISUAL PRIORITY
     # ----------------------------------------------------------------------
 
     priority = scene.get(
         "visual_priority",
-        "supporting",
+        "supporting"
     )
 
     parts.append(
@@ -457,12 +445,10 @@ def _get_base_seed(script):
         seed = int(
             script.get(
                 "image_generation",
-                {},
+                {}
             ).get(
                 "seed",
-                int(
-                    time.time()
-                ),
+                int(time.time())
             )
         )
 
@@ -476,118 +462,113 @@ def _get_base_seed(script):
 
 
 # ==========================================================================
-# IMAGE REQUEST
+# PUTER IMAGE GENERATION
 # ==========================================================================
 
 def generate_image(
     prompt,
-    width,
-    height,
+    output_path,
     seed,
 ):
-    """
-    Generate one image through Pollinations.
-    """
 
-    full_prompt = _clean_prompt(
-        prompt
-    )
-
-    encoded_prompt = urllib.parse.quote(
-        full_prompt,
-        safe="",
-    )
-
-    url = (
-        BASE_URL
-        + encoded_prompt
-        + "?model=flux"
-        + f"&width={int(width)}"
-        + f"&height={int(height)}"
-        + f"&seed={int(seed)}"
-        + "&enhance=true"
-        + "&nologo=true"
-    )
-
+    print("")
     print("=" * 80)
-    print("IMAGE GENERATION REQUEST")
+    print("🎨 PUTER IMAGE GENERATION")
     print("=" * 80)
+
     print(
         f"Seed: {seed}"
     )
+
     print(
-        f"Size: {width}x{height}"
+        f"Prompt length: {len(prompt)}"
     )
+
     print(
-        f"Prompt length: {len(full_prompt)}"
+        f"Output: {output_path}"
     )
+
     print("=" * 80)
 
     last_error = None
 
     for attempt in range(
         1,
-        MAX_RETRIES + 1,
+        MAX_RETRIES + 1
     ):
+
+        print(
+            f"🎨 Attempt {attempt}/{MAX_RETRIES}"
+        )
+
+        env = os.environ.copy()
+
+        env[
+            "PUTER_IMAGE_PROMPT"
+        ] = prompt
+
+        env[
+            "PUTER_OUTPUT_PATH"
+        ] = output_path
+
+        env[
+            "PUTER_IMAGE_SEED"
+        ] = str(seed)
 
         try:
 
-            print(
-                f"🎨 Image attempt "
-                f"{attempt}/{MAX_RETRIES}"
+            result = subprocess.run(
+                [
+                    "node",
+                    PUTER_SCRIPT
+                ],
+                env=env,
+                text=True,
+                check=False
             )
 
-            response = requests.get(
-                url,
-                headers=HEADERS,
-                timeout=180,
-            )
-
-            print(
-                f"HTTP status: "
-                f"{response.status_code}"
-            )
-
-            response.raise_for_status()
-
-            content = response.content
-
-            if not content:
+            if result.returncode != 0:
 
                 raise RuntimeError(
-                    "Image response was empty."
+                    "Puter generator exited with "
+                    f"code {result.returncode}"
                 )
 
-            content_type = (
-                response.headers.get(
-                    "Content-Type",
-                    "",
-                ).lower()
-            )
-
-            if (
-                "image" not in content_type
-                and len(content) < 10000
+            if not os.path.exists(
+                output_path
             ):
 
                 raise RuntimeError(
-                    "Server returned an unexpected "
-                    "non-image response."
+                    "Puter completed but image "
+                    "file was not created."
+                )
+
+            file_size = os.path.getsize(
+                output_path
+            )
+
+            if file_size < 1000:
+
+                raise RuntimeError(
+                    "Generated image file appears invalid."
                 )
 
             print(
-                "✅ Image generated successfully."
+                f"✅ Image generated successfully."
             )
 
-            return content
+            print(
+                f"📦 Size: {file_size} bytes"
+            )
+
+            return output_path
 
         except Exception as error:
 
             last_error = error
 
             print(
-                f"❌ Image attempt "
-                f"{attempt} failed:"
+                f"❌ Attempt {attempt} failed:"
             )
 
             print(
@@ -596,47 +577,19 @@ def generate_image(
 
             if attempt < MAX_RETRIES:
 
+                print(
+                    f"⏳ Retrying in "
+                    f"{RETRY_DELAY} seconds..."
+                )
+
                 time.sleep(
                     RETRY_DELAY
                 )
 
     raise RuntimeError(
-        "Failed to generate image after "
-        f"{MAX_RETRIES} attempts: "
-        f"{last_error}"
+        "Puter image generation failed after "
+        f"{MAX_RETRIES} attempts: {last_error}"
     )
-
-
-# ==========================================================================
-# SAVE IMAGE
-# ==========================================================================
-
-def _save_image(
-    content,
-    path,
-):
-
-    with open(
-        path,
-        "wb",
-    ) as file:
-
-        file.write(
-            content
-        )
-
-    size = os.path.getsize(
-        path
-    )
-
-    if size < 1000:
-
-        raise RuntimeError(
-            f"Generated image appears invalid: "
-            f"{path}"
-        )
-
-    return path
 
 
 # ==========================================================================
@@ -646,50 +599,26 @@ def _save_image(
 def generate_images(
     script,
     workdir,
-    config,
+    config
 ):
 
     os.makedirs(
         workdir,
-        exist_ok=True,
+        exist_ok=True
     )
 
-    image_config = config.get(
-        "image",
-        {},
-    )
+    if not os.path.exists(
+        PUTER_SCRIPT
+    ):
 
-    width = int(
-        image_config.get(
-            "width",
-            DEFAULT_WIDTH,
+        raise RuntimeError(
+            "generate_images_puter.js was not found at:\n"
+            f"{PUTER_SCRIPT}"
         )
-    )
-
-    height = int(
-        image_config.get(
-            "height",
-            DEFAULT_HEIGHT,
-        )
-    )
-
-    # Force portrait orientation.
-    if width >= height:
-
-        width, height = (
-            height,
-            width,
-        )
-
-    base_seed = _get_base_seed(
-        script
-    )
-
-    image_paths = []
 
     scenes = script.get(
         "scene_plan",
-        [],
+        []
     )
 
     if not scenes:
@@ -698,19 +627,34 @@ def generate_images(
             "Script contains no scene_plan."
         )
 
+    base_seed = _get_base_seed(
+        script
+    )
+
+    print("")
     print("=" * 80)
-    print("🎨 GENERATING AI VISUALS")
+    print("🎨 GENERATING AI VISUALS WITH PUTER")
     print("=" * 80)
+
     print(
         f"Scenes: {len(scenes)}"
     )
-    print(
-        f"Resolution: {width}x{height}"
-    )
+
     print(
         f"Base seed: {base_seed}"
     )
+
+    print(
+        "Model: gpt-image-2"
+    )
+
+    print(
+        "Ratio: 9:16"
+    )
+
     print("=" * 80)
+
+    image_paths = []
 
     # ----------------------------------------------------------------------
     # EVERY SCENE
@@ -718,12 +662,12 @@ def generate_images(
 
     for scene_index, scene in enumerate(
         scenes,
-        start=1,
+        start=1
     ):
 
         visuals = scene.get(
             "visuals",
-            [],
+            []
         )
 
         if not visuals:
@@ -734,6 +678,7 @@ def generate_images(
 
         scene_paths = []
 
+        print("")
         print("=" * 80)
         print(
             f"SCENE {scene_index}/{len(scenes)}"
@@ -744,29 +689,37 @@ def generate_images(
         print("=" * 80)
 
         # ------------------------------------------------------------------
-        # EVERY SHOT
+        # EVERY VISUAL
         # ------------------------------------------------------------------
 
         for visual_index, visual in enumerate(
             visuals,
-            start=1,
+            start=1
         ):
 
             prompt = build_prompt(
                 scene,
                 visual,
-                script,
+                script
             )
 
-            # Deterministic but different seed for every shot.
             shot_seed = (
                 base_seed
-                + (
-                    scene_index * 100
-                )
+                + scene_index * 100
                 + visual_index
             )
 
+            filename = (
+                f"scene_{scene_index:02d}"
+                f"_shot_{visual_index:02d}.png"
+            )
+
+            output_path = os.path.join(
+                workdir,
+                filename
+            )
+
+            print("")
             print(
                 f"SHOT {visual_index}/{len(visuals)}"
             )
@@ -776,47 +729,21 @@ def generate_images(
             )
 
             print(
-                "Prompt:"
+                f"File: {filename}"
             )
 
-            print(
-                prompt
-            )
-
-            print("=" * 80)
-
-            image = generate_image(
+            generated_path = generate_image(
                 prompt,
-                width,
-                height,
-                shot_seed,
-            )
-
-            filename = os.path.join(
-                workdir,
-                (
-                    f"scene_{scene_index:02d}"
-                    f"_shot_{visual_index:02d}.png"
-                ),
-            )
-
-            _save_image(
-                image,
-                filename,
-            )
-
-            print(
-                f"✅ Saved -> {filename}"
+                output_path,
+                shot_seed
             )
 
             scene_paths.append(
-                filename
+                generated_path
             )
 
-            # Small delay to reduce request bursts.
-            time.sleep(
-                2
-            )
+            # Small delay between images.
+            time.sleep(2)
 
         image_paths.append(
             scene_paths
@@ -831,22 +758,26 @@ def generate_images(
         for scene in image_paths
     )
 
+    print("")
     print("=" * 80)
-    print("✅ VISUAL GENERATION COMPLETE")
+    print("✅ PUTER VISUAL GENERATION COMPLETE")
     print("=" * 80)
+
     print(
         f"Scenes: {len(image_paths)}"
     )
+
     print(
         f"Images generated: {total_images}"
     )
+
     print("=" * 80)
 
     return image_paths
 
 
 # ==========================================================================
-# OPTIONAL SINGLE-IMAGE HELPER
+# SINGLE IMAGE HELPER
 # ==========================================================================
 
 def generate_single_image(
@@ -855,12 +786,12 @@ def generate_single_image(
     filename="generated.png",
     width=DEFAULT_WIDTH,
     height=DEFAULT_HEIGHT,
-    seed=None,
+    seed=None
 ):
 
     os.makedirs(
         workdir,
-        exist_ok=True,
+        exist_ok=True
     )
 
     if seed is None:
@@ -869,21 +800,13 @@ def generate_single_image(
             time.time()
         )
 
-    image = generate_image(
-        prompt,
-        width,
-        height,
-        seed,
-    )
-
-    path = os.path.join(
+    output_path = os.path.join(
         workdir,
-        filename,
+        filename
     )
 
-    _save_image(
-        image,
-        path,
+    return generate_image(
+        prompt,
+        output_path,
+        seed
     )
-
-    return path

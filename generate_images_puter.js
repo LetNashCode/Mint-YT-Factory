@@ -16,6 +16,9 @@ const PUTER_AUTH_TOKEN =
 const OUTPUT_PATH =
     process.env.PUTER_OUTPUT_PATH;
 
+const PROMPT =
+    process.env.PUTER_IMAGE_PROMPT;
+
 const SEED =
     process.env.PUTER_IMAGE_SEED || "0";
 
@@ -31,21 +34,6 @@ const TIMEOUT_MS = 120000;
 
 
 // ============================================================
-// DIAGNOSTIC PROMPT
-// ============================================================
-//
-// IMPORTANT:
-// Keep this intentionally short for the first test.
-// Do NOT use PUTER_IMAGE_PROMPT yet.
-// Do NOT pass the long 2772-character prompt.
-//
-// ============================================================
-
-const PROMPT =
-    "A realistic cinematic close-up of a human eye.";
-
-
-// ============================================================
 // HELPERS
 // ============================================================
 
@@ -55,15 +43,6 @@ function printHeader(text) {
     console.log("=".repeat(80));
     console.log(text);
     console.log("=".repeat(80));
-
-}
-
-
-function sleep(ms) {
-
-    return new Promise(
-        resolve => setTimeout(resolve, ms)
-    );
 
 }
 
@@ -82,6 +61,14 @@ function validateEnvironment() {
 
         throw new Error(
             "PUTER_OUTPUT_PATH is missing."
+        );
+
+    }
+
+    if (!PROMPT) {
+
+        throw new Error(
+            "PUTER_IMAGE_PROMPT is missing."
         );
 
     }
@@ -252,21 +239,9 @@ async function main() {
 
     try {
 
-        /*
-         * ====================================================
-         * MINIMAL PUTER IMAGE REQUEST
-         * ====================================================
-         *
-         * Deliberately NOT using:
-         *
-         * provider
-         * puter_output_path
-         * long prompt
-         *
-         * This isolates the Puter SDK request itself.
-         *
-         * ====================================================
-         */
+        // ====================================================
+        // PUTER IMAGE REQUEST
+        // ====================================================
 
         const generationPromise =
             puter.ai.txt2img(
@@ -490,10 +465,6 @@ async function main() {
                 `URL: ${dataUrl}`
             );
 
-
-            /*
-             * Download using native fetch.
-             */
 
             const response =
                 await fetch(

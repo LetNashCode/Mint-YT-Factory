@@ -8,10 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -20,23 +21,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Check Node version
-        run: node --version
-
-      - name: Check Puter package
-        run: npm list @heyputer/puter.js
-
-      - name: Generate test image
-        env:
-          PUTER_AUTH_TOKEN: ${{ secrets.PUTER_AUTH_TOKEN }}
+      - name: Generate Puter test image
         run: node generate_images_puter.js
 
-      - name: Verify generated image
-        run: |
-          echo "Checking generated files..."
-          ls -lah puter_test_output/
-
-      - name: Upload generated image
+      - name: Upload test image
         uses: actions/upload-artifact@v4
         with:
           name: puter-test-image

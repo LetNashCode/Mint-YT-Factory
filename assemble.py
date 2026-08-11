@@ -32,31 +32,23 @@ FONT = os.path.join(
     "Poppins-ExtraBold.ttf",
 )
 
-# Caption appearance
 CAPTION_FONT_SIZE = 74
 CAPTION_COLOR = "white"
 CAPTION_HIGHLIGHT_COLOR = "#FFD54A"
 
-# Subtle shadow
 CAPTION_SHADOW_COLOR = "black"
 CAPTION_SHADOW_OPACITY = 0.60
 CAPTION_SHADOW_OFFSET = 3
 
-# Optional thin outline
 CAPTION_STROKE = "#222222"
 CAPTION_STROKE_WIDTH = 1
 
-# Caption position
 CAPTION_VERTICAL_POSITION = 0.68
 
-# One word at a time
 CAPTION_GROUP_MIN_WORDS = 1
 CAPTION_GROUP_MAX_WORDS = 1
-
-# If Whisper detects a large pause, start a new caption
 CAPTION_GROUP_MAX_GAP = 0.6
 
-# These are retained for compatibility with existing config/script
 OVERLAY_FONT_SIZE = 88
 OVERLAY_STROKE_WIDTH = 6
 OVERLAY_MAX_DURATION = 2.5
@@ -123,7 +115,12 @@ def _safe_lower(value, default):
         return default
 
 
-def _safe_float(value, default, min_value=None, max_value=None):
+def _safe_float(
+    value,
+    default,
+    min_value=None,
+    max_value=None,
+):
     try:
         result = float(value)
     except Exception:
@@ -141,7 +138,11 @@ def _safe_float(value, default, min_value=None, max_value=None):
     return result
 
 
-def _safe_int(value, default, min_value=None):
+def _safe_int(
+    value,
+    default,
+    min_value=None,
+):
     try:
         result = int(value)
     except Exception:
@@ -155,15 +156,22 @@ def _safe_int(value, default, min_value=None):
 
 def get_scene_duration(scene):
     return _safe_float(
-        scene.get("duration", DEFAULT_SCENE_DURATION),
+        scene.get(
+            "duration",
+            DEFAULT_SCENE_DURATION,
+        ),
         DEFAULT_SCENE_DURATION,
         min_value=0.1,
     )
 
 
 def get_pause_after(scene):
+
     ms = _safe_float(
-        scene.get("pause_after_ms", 0),
+        scene.get(
+            "pause_after_ms",
+            0,
+        ),
         0,
         min_value=0,
     )
@@ -172,24 +180,40 @@ def get_pause_after(scene):
 
 
 def get_camera(scene):
+
     cam = _safe_lower(
-        scene.get("camera", DEFAULT_CAMERA),
+        scene.get(
+            "camera",
+            DEFAULT_CAMERA,
+        ),
         DEFAULT_CAMERA,
     )
 
-    return cam if cam in CAMERA_SCALES else DEFAULT_CAMERA
+    return (
+        cam
+        if cam in CAMERA_SCALES
+        else DEFAULT_CAMERA
+    )
 
 
 def get_animation(scene):
+
     return _safe_lower(
-        scene.get("animation", DEFAULT_ANIMATION),
+        scene.get(
+            "animation",
+            DEFAULT_ANIMATION,
+        ),
         DEFAULT_ANIMATION,
     )
 
 
 def get_zoom_factor(scene):
+
     return _safe_float(
-        scene.get("zoom_factor", DEFAULT_ZOOM_FACTOR),
+        scene.get(
+            "zoom_factor",
+            DEFAULT_ZOOM_FACTOR,
+        ),
         DEFAULT_ZOOM_FACTOR,
         min_value=1.0,
         max_value=1.40,
@@ -197,20 +221,30 @@ def get_zoom_factor(scene):
 
 
 def get_motion_multiplier(scene):
+
     speed = _safe_lower(
-        scene.get("motion_speed", DEFAULT_MOTION_SPEED),
+        scene.get(
+            "motion_speed",
+            DEFAULT_MOTION_SPEED,
+        ),
         DEFAULT_MOTION_SPEED,
     )
 
     return MOTION_MULTIPLIERS.get(
         speed,
-        MOTION_MULTIPLIERS[DEFAULT_MOTION_SPEED],
+        MOTION_MULTIPLIERS[
+            DEFAULT_MOTION_SPEED
+        ],
     )
 
 
 def get_transition(scene):
+
     raw = _safe_lower(
-        scene.get("transition", DEFAULT_TRANSITION),
+        scene.get(
+            "transition",
+            DEFAULT_TRANSITION,
+        ),
         DEFAULT_TRANSITION,
     )
 
@@ -221,6 +255,7 @@ def get_transition(scene):
 
 
 def get_subtitle_style(scene):
+
     return _safe_lower(
         scene.get(
             "subtitle_style",
@@ -235,18 +270,6 @@ def get_subtitle_style(scene):
 # ============================================================
 
 def get_caption_highlights(scene):
-    """
-    Gemini produces:
-
-    "caption_highlights": [
-        {
-            "word": "body",
-            "emphasis": "strong"
-        }
-    ]
-
-    Extract only the actual word.
-    """
 
     raw = scene.get(
         "caption_highlights",
@@ -284,54 +307,285 @@ def get_caption_highlights(scene):
 
 
 # ============================================================
-# Visuals
+# Visual Path Normalization
+#
+# Supports BOTH:
+#
+# OLD:
+# [
+#     "scene_01.png",
+#     "scene_02.png"
+# ]
+#
+# NEW:
+# [
+#     ["scene_01_shot_01.png"],
+#     ["scene_02_shot_01.png",
+#      "scene_02_shot_02.png"]
+# ]
+#
+# Also supports:
+#
+# [
+#     [
+#         {"path": "..."}
+#     ]
+# ]
 # ============================================================
 
-def get_visuals(scene, fallback_image):
+def _normalize_visual_paths(raw):
 
-    raw = scene.get("visuals")
+    if raw is None:
+        return []
+
+    # Single path
+    if isinstance(raw, str):
+
+        raw = raw.strip()
+
+        return [raw] if raw else []
+
+    # Not a list
+    if not isinstance(raw, list):
+        return []
+
+    normalized = []
+
+    for item in raw:
+
+        # Direct string
+        if isinstance(item, str):
+
+            item = item.strip()
+
+            if item:
+                normalized.append(item)
+
+            continue
+
+        # Dictionary
+        if isinstance(item, dict):
+
+            path = (
+                item.get("path")
+                or item.get("image")
+                or item.get("src")
+            )
+
+            if isinstance(path, str):
+                path = path.strip()
+
+                if path:
+                    normalized.append(path)
+
+            continue
+
+        # Nested list
+        if isinstance(item, list):
+
+            nested = _normalize_visual_paths(
+                item
+            )
+
+            normalized.extend(
+                nested
+            )
+
+    return normalized
+
+
+def _scene_visuals_from_generated_paths(
+    image_paths,
+    scene_index,
+):
+    """
+    Extract visual paths belonging to one scene.
+
+    image_paths can be:
+
+        [
+            "scene_01.png",
+            "scene_02.png"
+        ]
+
+    OR:
+
+        [
+            ["scene_01_shot_01.png"],
+            ["scene_02_shot_01.png",
+             "scene_02_shot_02.png"]
+        ]
+
+    Returns a flat list of valid paths for
+    the requested scene.
+    """
+
+    if not isinstance(
+        image_paths,
+        list,
+    ):
+        return []
+
+    if scene_index < 0:
+        return []
+
+    if scene_index >= len(
+        image_paths
+    ):
+        return []
+
+    scene_data = image_paths[
+        scene_index
+    ]
+
+    paths = _normalize_visual_paths(
+        scene_data
+    )
+
+    return [
+        p
+        for p in paths
+        if p
+        and isinstance(p, str)
+        and os.path.exists(p)
+    ]
+
+
+def get_visuals(
+    scene,
+    fallback_image=None,
+    generated_scene_paths=None,
+):
+    """
+    Resolve visuals for a scene.
+
+    Priority:
+
+    1. Explicit paths inside scene["visuals"]
+    2. Generated AI scene paths
+    3. fallback image
+
+    IMPORTANT:
+    This function always returns a FLAT list
+    of filesystem paths.
+
+    This prevents os.path.exists()
+    from receiving a list.
+    """
 
     paths = []
 
-    if isinstance(raw, list) and raw:
+    # --------------------------------------------------------
+    # 1. Explicit visual paths from storyboard
+    # --------------------------------------------------------
+
+    raw = scene.get(
+        "visuals"
+    )
+
+    if isinstance(
+        raw,
+        list,
+    ) and raw:
 
         for item in raw:
 
-            if isinstance(item, dict):
+            if isinstance(
+                item,
+                dict,
+            ):
 
                 p = (
-                    item.get("path")
-                    or item.get("image")
-                    or item.get("src")
+                    item.get(
+                        "path"
+                    )
+                    or item.get(
+                        "image"
+                    )
+                    or item.get(
+                        "src"
+                    )
                 )
 
             else:
 
                 p = item
 
-            if p:
-                paths.append(str(p))
+            if isinstance(
+                p,
+                str,
+            ) and p.strip():
 
-    elif isinstance(raw, str) and raw.strip():
+                paths.append(
+                    p.strip()
+                )
+
+    elif isinstance(
+        raw,
+        str,
+    ) and raw.strip():
 
         paths.append(
             raw.strip()
         )
 
-    if not paths and fallback_image:
-        paths.append(fallback_image)
+    # --------------------------------------------------------
+    # 2. AI generated paths
+    # --------------------------------------------------------
 
-    existing = [
-        p
-        for p in paths
-        if p and os.path.exists(p)
-    ]
+    if not paths:
+
+        paths.extend(
+            _normalize_visual_paths(
+                generated_scene_paths
+            )
+        )
+
+    # --------------------------------------------------------
+    # 3. Fallback
+    # --------------------------------------------------------
+
+    if (
+        not paths
+        and fallback_image
+    ):
+
+        paths.append(
+            fallback_image
+        )
+
+    # --------------------------------------------------------
+    # Only return real files
+    # --------------------------------------------------------
+
+    existing = []
+
+    for path in paths:
+
+        if not isinstance(
+            path,
+            str,
+        ):
+            continue
+
+        if not path:
+            continue
+
+        if os.path.exists(path):
+
+            existing.append(
+                path
+            )
 
     if existing:
         return existing
 
     return [None]
 
+
+# ============================================================
+# Music / SFX
+# ============================================================
 
 def get_music_cue(scene):
 
@@ -340,7 +594,10 @@ def get_music_cue(scene):
         {},
     )
 
-    if not isinstance(cue, dict):
+    if not isinstance(
+        cue,
+        dict,
+    ):
         return {}
 
     return cue
@@ -353,7 +610,10 @@ def get_sfx_cue(scene):
         {},
     )
 
-    if not isinstance(cue, dict):
+    if not isinstance(
+        cue,
+        dict,
+    ):
         return {}
 
     return cue
@@ -368,7 +628,10 @@ def get_subtitle_text(scene):
     if overlay is None:
         return None
 
-    if isinstance(overlay, dict):
+    if isinstance(
+        overlay,
+        dict,
+    ):
 
         text = overlay.get(
             "content",
@@ -382,7 +645,10 @@ def get_subtitle_text(scene):
 
     else:
 
-        text = str(overlay)
+        text = str(
+            overlay
+        )
+
         style = "center"
 
     text = text.strip()
@@ -406,24 +672,40 @@ def get_subtitle_text(scene):
 def get_video_config(config):
 
     video_cfg = (
-        config.get("video", {})
-        if isinstance(config, dict)
+        config.get(
+            "video",
+            {},
+        )
+        if isinstance(
+            config,
+            dict,
+        )
         else {}
     )
 
-    if not isinstance(video_cfg, dict):
+    if not isinstance(
+        video_cfg,
+        dict,
+    ):
         video_cfg = {}
 
     resolution = video_cfg.get(
         "resolution",
-        (1080, 1920),
+        (
+            1080,
+            1920,
+        ),
     )
 
     try:
 
         size = (
-            int(resolution[0]),
-            int(resolution[1]),
+            int(
+                resolution[0]
+            ),
+            int(
+                resolution[1]
+            ),
         )
 
     except Exception:
@@ -434,7 +716,10 @@ def get_video_config(config):
         )
 
     fps = _safe_int(
-        video_cfg.get("fps", 30),
+        video_cfg.get(
+            "fps",
+            30,
+        ),
         30,
         min_value=1,
     )
@@ -508,7 +793,10 @@ def build_master_timeline(
             "scene_plan",
             [],
         )
-        if isinstance(script, dict)
+        if isinstance(
+            script,
+            dict,
+        )
         else []
     )
 
@@ -532,12 +820,16 @@ def build_master_timeline(
         ]
 
     raw_durations = [
-        get_scene_duration(s)
+        get_scene_duration(
+            s
+        )
         for s in scene_plan
     ]
 
     raw_pauses = [
-        get_pause_after(s)
+        get_pause_after(
+            s
+        )
         for s in scene_plan
     ]
 
@@ -552,7 +844,8 @@ def build_master_timeline(
     )
 
     scale = (
-        total_duration / raw_total
+        total_duration
+        / raw_total
         if total_duration > 0
         else 1.0
     )
@@ -576,7 +869,10 @@ def build_master_timeline(
         )
 
         start = current
-        end = start + duration
+        end = (
+            start
+            + duration
+        )
 
         timeline.append(
             SceneTiming(
@@ -589,7 +885,10 @@ def build_master_timeline(
             )
         )
 
-        current = end + pause
+        current = (
+            end
+            + pause
+        )
 
     return timeline
 
@@ -611,7 +910,10 @@ def scene_at_time(
     if not timeline:
         return None
 
-    if t < timeline[0].start:
+    if (
+        t
+        < timeline[0].start
+    ):
         return timeline[0]
 
     return timeline[-1]
@@ -633,7 +935,9 @@ def apply_camera(
         ],
     )
 
-    return clip.resize(scale)
+    return clip.resize(
+        scale
+    )
 
 
 # ============================================================
@@ -646,11 +950,17 @@ def apply_animation(
     duration,
 ):
 
-    animation = get_animation(scene)
+    animation = get_animation(
+        scene
+    )
 
-    zoom = get_zoom_factor(scene)
+    zoom = get_zoom_factor(
+        scene
+    )
 
-    speed = get_motion_multiplier(scene)
+    speed = get_motion_multiplier(
+        scene
+    )
 
     safe_duration = max(
         duration,
@@ -658,6 +968,7 @@ def apply_animation(
     )
 
     if animation == "hold":
+
         return clip
 
     if animation == "zoom_in":
@@ -810,11 +1121,13 @@ def apply_transition(
     transition_name,
 ):
 
-    fade_time = TRANSITION_DURATIONS.get(
-        transition_name,
-        TRANSITION_DURATIONS[
-            DEFAULT_TRANSITION
-        ],
+    fade_time = (
+        TRANSITION_DURATIONS.get(
+            transition_name,
+            TRANSITION_DURATIONS[
+                DEFAULT_TRANSITION
+            ],
+        )
     )
 
     if fade_time <= 0:
@@ -828,7 +1141,7 @@ def apply_transition(
 
 
 # ============================================================
-# Visual Clip Building
+# Visual Clip
 # ============================================================
 
 def build_visual_clip_for_image(
@@ -849,7 +1162,7 @@ def build_visual_clip_for_image(
             image_path
         )
 
-        image_scale = min(
+        image_scale = max(
             size[0] / clip.w,
             size[1] / clip.h,
         )
@@ -896,6 +1209,10 @@ def build_visual_clip_for_image(
     return clip
 
 
+# ============================================================
+# Scene Visual Clips
+# ============================================================
+
 def build_scene_visual_clips(
     entry,
     image_paths,
@@ -904,10 +1221,48 @@ def build_scene_visual_clips(
 
     scene = entry.scene
 
+    # --------------------------------------------------------
+    # IMPORTANT FIX
+    #
+    # image_paths may be:
+    #
+    # [
+    #   ["scene_01.png"],
+    #   ["scene_02.png"]
+    # ]
+    #
+    # instead of:
+    #
+    # [
+    #   "scene_01.png",
+    #   "scene_02.png"
+    # ]
+    #
+    # Extract ONLY this scene's paths.
+    # --------------------------------------------------------
+
+    generated_scene_paths = (
+        _scene_visuals_from_generated_paths(
+            image_paths,
+            entry.index,
+        )
+    )
+
     fallback_image = None
 
-    if entry.index < len(
-        image_paths
+    # --------------------------------------------------------
+    # Legacy flat-list support
+    # --------------------------------------------------------
+
+    if (
+        entry.index
+        < len(image_paths)
+        and isinstance(
+            image_paths[
+                entry.index
+            ],
+            str,
+        )
     ):
 
         fallback_image = image_paths[
@@ -917,14 +1272,36 @@ def build_scene_visual_clips(
     visuals = get_visuals(
         scene,
         fallback_image,
+        generated_scene_paths,
     )
 
-    count = len(visuals)
+    # --------------------------------------------------------
+    # Debug
+    # --------------------------------------------------------
+
+    print(
+        f"🎬 Scene {entry.index + 1}: "
+        f"{len(visuals)} visual(s)"
+    )
+
+    for visual_index, visual in enumerate(
+        visuals,
+        start=1,
+    ):
+
+        print(
+            f"   Visual {visual_index}: "
+            f"{visual}"
+        )
+
+    count = max(
+        len(visuals),
+        1,
+    )
 
     sub_duration = (
-        entry.duration / count
-        if count
-        else entry.duration
+        entry.duration
+        / count
     )
 
     clips = []
@@ -935,8 +1312,10 @@ def build_scene_visual_clips(
 
         sub_start = (
             entry.start
-            + sub_index
-            * sub_duration
+            + (
+                sub_index
+                * sub_duration
+            )
         )
 
         clip = build_visual_clip_for_image(
@@ -948,19 +1327,31 @@ def build_scene_visual_clips(
 
         clip = apply_transition(
             clip,
-            get_transition(scene),
+            get_transition(
+                scene
+            ),
         )
 
         clip = (
             clip
-            .set_start(sub_start)
-            .set_duration(sub_duration)
+            .set_start(
+                sub_start
+            )
+            .set_duration(
+                sub_duration
+            )
         )
 
-        clips.append(clip)
+        clips.append(
+            clip
+        )
 
     return clips
 
+
+# ============================================================
+# Timeline Visuals
+# ============================================================
 
 def build_timeline_visuals(
     timeline,
@@ -992,10 +1383,6 @@ def get_caption_position(
     h,
 ):
 
-    # We intentionally keep captions low in the safe area.
-    # This avoids the top title area and the right-side YouTube
-    # action buttons.
-
     if style == "top":
 
         return (
@@ -1023,19 +1410,9 @@ def get_caption_position(
     )
 
 
-def group_words_into_phrases(words):
-
-    """
-    One-word caption mode.
-
-    Whisper gives us:
-
-        word
-        start
-        end
-
-    Each word becomes its own caption.
-    """
+def group_words_into_phrases(
+    words
+):
 
     phrases = []
 
@@ -1107,13 +1484,16 @@ def build_captions(
         )
 
         print(
-            f"Whisper detected {len(words)} words."
+            f"Whisper detected "
+            f"{len(words)} words."
         )
 
     except Exception as e:
 
         print("=" * 80)
-        print("❌ CAPTION TRANSCRIPTION FAILED")
+        print(
+            "❌ CAPTION TRANSCRIPTION FAILED"
+        )
         print("=" * 80)
         print(e)
         print("=" * 80)
@@ -1133,7 +1513,8 @@ def build_captions(
     )
 
     print(
-        f"Creating {len(phrases)} caption clips."
+        f"Creating "
+        f"{len(phrases)} caption clips."
     )
 
     clips = []
@@ -1165,11 +1546,15 @@ def build_captions(
             h,
         )
 
-        highlights = get_caption_highlights(
-            scene
+        highlights = (
+            get_caption_highlights(
+                scene
+            )
         )
 
-        word = phrase["text"]
+        word = phrase[
+            "text"
+        ]
 
         is_highlighted = (
             word.strip()
@@ -1188,10 +1573,6 @@ def build_captions(
             phrase["end"]
             - phrase["start"],
         )
-
-        # ----------------------------------------------------
-        # Shadow
-        # ----------------------------------------------------
 
         shadow = (
             TextClip(
@@ -1218,10 +1599,6 @@ def build_captions(
             )
         )
 
-        # ----------------------------------------------------
-        # Main Caption
-        # ----------------------------------------------------
-
         text = (
             TextClip(
                 word,
@@ -1242,13 +1619,17 @@ def build_captions(
             )
         )
 
-        # IMPORTANT:
-        # Append INSIDE the loop so every word is included.
-        clips.append(shadow)
-        clips.append(text)
+        clips.append(
+            shadow
+        )
+
+        clips.append(
+            text
+        )
 
     print(
-        f"✅ Caption clips created: {len(clips)}"
+        f"✅ Caption clips created: "
+        f"{len(clips)}"
     )
 
     return clips
@@ -1256,9 +1637,6 @@ def build_captions(
 
 # ============================================================
 # Text Overlays
-#
-# Disabled intentionally.
-# The video should contain ONLY spoken captions.
 # ============================================================
 
 def build_overlays(
@@ -1318,8 +1696,6 @@ def build_audio(
 
     # --------------------------------------------------------
     # SFX
-    #
-    # main.py currently passes [] so nothing is added.
     # --------------------------------------------------------
 
     for entry in timeline:
@@ -1395,6 +1771,10 @@ def assemble_video(
     out_path,
 ):
 
+    print("=" * 80)
+    print("🎬 ASSEMBLING VIDEO")
+    print("=" * 80)
+
     video_cfg = get_video_config(
         config
     )
@@ -1402,6 +1782,11 @@ def assemble_video(
     size = video_cfg[
         "size"
     ]
+
+    print(
+        f"Resolution: "
+        f"{size[0]}x{size[1]}"
+    )
 
     narration = AudioFileClip(
         audio_paths[0]
@@ -1411,10 +1796,31 @@ def assemble_video(
         narration.duration
     )
 
+    print(
+        f"Narration duration: "
+        f"{total_duration:.2f}s"
+    )
+
+    # --------------------------------------------------------
+    # Build timeline
+    # --------------------------------------------------------
+
     timeline = build_master_timeline(
         script,
         total_duration,
     )
+
+    print(
+        f"Scenes: {len(timeline)}"
+    )
+
+    # --------------------------------------------------------
+    # Visuals
+    # --------------------------------------------------------
+
+    print("=" * 80)
+    print("🖼️ BUILDING VISUAL TIMELINE")
+    print("=" * 80)
 
     visual_clips = (
         build_timeline_visuals(
@@ -1424,6 +1830,15 @@ def assemble_video(
         )
     )
 
+    print(
+        f"Visual clips: "
+        f"{len(visual_clips)}"
+    )
+
+    # --------------------------------------------------------
+    # Captions
+    # --------------------------------------------------------
+
     caption_clips = build_captions(
         audio_paths[0],
         script,
@@ -1431,8 +1846,15 @@ def assemble_video(
         size,
     )
 
-    # No separate title/subtitle overlays.
+    # --------------------------------------------------------
+    # No separate overlays
+    # --------------------------------------------------------
+
     overlay_clips = []
+
+    # --------------------------------------------------------
+    # Composite video
+    # --------------------------------------------------------
 
     final = CompositeVideoClip(
         visual_clips
@@ -1442,6 +1864,10 @@ def assemble_video(
     ).set_duration(
         total_duration
     )
+
+    # --------------------------------------------------------
+    # Audio
+    # --------------------------------------------------------
 
     audio = build_audio(
         timeline,
@@ -1456,12 +1882,26 @@ def assemble_video(
         audio
     )
 
-    os.makedirs(
-        os.path.dirname(
-            out_path
-        ),
-        exist_ok=True,
+    # --------------------------------------------------------
+    # Output
+    # --------------------------------------------------------
+
+    output_dir = os.path.dirname(
+        out_path
     )
+
+    if output_dir:
+
+        os.makedirs(
+            output_dir,
+            exist_ok=True,
+        )
+
+    print("=" * 80)
+    print(
+        f"🎥 WRITING VIDEO"
+    )
+    print("=" * 80)
 
     final.write_videofile(
         out_path,
@@ -1473,5 +1913,26 @@ def assemble_video(
         preset="medium",
         threads=4,
     )
+
+    print("=" * 80)
+    print(
+        f"✅ VIDEO COMPLETE: "
+        f"{out_path}"
+    )
+    print("=" * 80)
+
+    # --------------------------------------------------------
+    # Cleanup
+    # --------------------------------------------------------
+
+    try:
+        narration.close()
+    except Exception:
+        pass
+
+    try:
+        final.close()
+    except Exception:
+        pass
 
     return out_path

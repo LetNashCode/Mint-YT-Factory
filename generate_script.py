@@ -5,26 +5,20 @@ Educational YouTube Shorts Script Generator
 Version 5.3
 
 Changes from v5.2:
-- FIX: removed minItems/maxItems from response_schema (scene_plan,
-  visuals, caption_highlights). Gemini's structured-output schema
-  support for these keywords has been inconsistent across API/SDK
-  versions and was causing a deterministic 400 INVALID_ARGUMENT on
-  every generation attempt. Exact counts are still fully enforced
-  afterward in validate_script(), so behavior is unchanged.
-- Improved error logging in generate_script(): now prints the full
-  API error body/response when available, instead of just str(e),
-  so future failures are diagnosable from the log alone.
-
-Changes from v5.1:
 - Gemini structured JSON schema output
 - Automatic retry on malformed JSON
 - Automatic retry on validation failures
-- Stronger JSON parsing diagnostics
-- Fixed 7-scene beat structure
+- Retry attempts receive the previous validation error
+- Stronger exact scene-count enforcement
+- Exact 45-second validation for the standard 7-scene format
+- Caption-highlight auto-repair when Gemini selects a word that is
+  not present in subtitle_text
 - Educational human biology is allowed
 - Medical advice / diagnosis / treatment remains prohibited
-- Dangerous encouragement (e.g. prolonged breath-holding) prohibited
+- Dangerous encouragement remains prohibited
+- Near-death/consciousness topics restricted to established science
 - Existing visual consistency / seed / style-lock system preserved
+- Existing visual impact / regeneration system preserved
 """
 
 import json
@@ -43,6 +37,20 @@ from google.genai import types
 # --------------------------------------------------------------------------
 
 MAX_GENERATION_ATTEMPTS = 3
+
+DEFAULT_SCENE_COUNT = 7
+DEFAULT_TARGET_SECONDS = 45
+
+# Exact standard 7-scene duration allocation.
+STANDARD_SCENE_DURATIONS = [
+    3,  # Hook
+    5,  # Question
+    7,  # Explanation
+    7,  # Example
+    8,  # Mind-blowing fact
+    8,  # Escalation
+    7,  # Ending
+]
 
 # --------------------------------------------------------------------------
 # 7-SCENE SHORT FORM BEAT TABLE
@@ -81,7 +89,10 @@ _PURPOSE_CYCLE = [
 ]
 
 
-def _generate_beat_table(scene_count: int, target_seconds: int) -> str:
+def _generate_beat_table(
+    scene_count: int,
+    target_seconds: int,
+) -> str:
     """
     Build a beat table for non-default scene counts.
 
@@ -89,7 +100,10 @@ def _generate_beat_table(scene_count: int, target_seconds: int) -> str:
     Other scene counts use proportional timing.
     """
 
-    if scene_count == 7:
+    if (
+        scene_count == DEFAULT_SCENE_COUNT
+        and target_seconds == DEFAULT_TARGET_SECONDS
+    ):
         return _SHORT_FORM_BEAT_TABLE
 
     lines = []
@@ -130,14 +144,38 @@ def _generate_beat_table(scene_count: int, target_seconds: int) -> str:
 # --------------------------------------------------------------------------
 
 def build_system_prompt(
-    scene_count: int = 7,
-    target_seconds: int = 45,
+    scene_count: int = DEFAULT_SCENE_COUNT,
+    target_seconds: int = DEFAULT_TARGET_SECONDS,
 ) -> str:
 
     beat_table = _generate_beat_table(
         scene_count,
         target_seconds,
     )
+
+    standard_duration_rule = ""
+
+    if (
+        scene_count == DEFAULT_SCENE_COUNT
+        and target_seconds == DEFAULT_TARGET_SECONDS
+    ):
+        standard_duration_rule = """
+CRITICAL DURATION REQUIREMENT:
+
+For this standard 7-scene, 45-second format, scene durations MUST be:
+
+Scene 1 = 3 seconds
+Scene 2 = 5 seconds
+Scene 3 = 7 seconds
+Scene 4 = 7 seconds
+Scene 5 = 8 seconds
+Scene 6 = 8 seconds
+Scene 7 = 7 seconds
+
+Total = exactly 45 seconds.
+
+Do not change these durations.
+"""
 
     return f"""
 You are a world-class educational YouTube Shorts writer, director,
@@ -183,6 +221,38 @@ reframed.
 
 Use a second visual inside a scene only when it genuinely improves
 pacing.
+
+{standard_duration_rule}
+
+====================================================================
+CRITICAL STRUCTURAL REQUIREMENT
+====================================================================
+
+The scene_plan array MUST contain exactly {scene_count} objects.
+
+For a 7-scene video, the output MUST contain:
+
+scene 1
+scene 2
+scene 3
+scene 4
+scene 5
+scene 6
+scene 7
+
+Never omit a scene.
+
+Never combine two scenes into one object.
+
+Never return 6 scenes.
+
+Never return 8 scenes.
+
+The scene numbers must be consecutive integers beginning at 1
+and ending at {scene_count}.
+
+Before returning JSON, internally count the scene_plan objects and
+verify that the count is exactly {scene_count}.
 
 ====================================================================
 WRITING RULES
@@ -230,6 +300,44 @@ when a statement is an approximation rather than a precise,
 well-established fact.
 
 ====================================================================
+SCIENCE / CONSCIOUSNESS / NEAR-DEATH TOPICS
+====================================================================
+
+Educational explanations of normal human biology and physiology ARE
+allowed.
+
+However, when a topic involves:
+
+- near-death experiences
+- consciousness
+- death
+- altered states of consciousness
+- paranormal experiences
+- afterlife claims
+
+focus only on established or reasonably supported neuroscience and
+physiology.
+
+Do NOT claim that:
+
+- near-death experiences prove an afterlife
+- consciousness survives death
+- the brain literally sees another world
+- a supernatural explanation has been scientifically proven
+- an unverified theory is established fact
+
+Clearly distinguish established observations from scientific
+hypotheses.
+
+If evidence is incomplete, use cautious language such as:
+
+"Scientists have proposed..."
+"One possible explanation is..."
+"Researchers still debate..."
+
+Do not turn uncertainty into certainty for dramatic effect.
+
+====================================================================
 CONTENT SAFETY
 ====================================================================
 
@@ -261,22 +369,14 @@ NEVER provide:
 - dangerous challenges
 - instructions encouraging dangerous behavior
 - instructions for prolonged breath-holding
-- instructions for self-experimentation involving physical danger
+- instructions for dangerous self-experimentation
 - violence or gore
 - conspiracy theories presented as fact
 
-IMPORTANT:
-
-If the topic involves a potentially dangerous behavior, explain the
+If the topic involves potentially dangerous behavior, explain the
 SCIENCE rather than encouraging the viewer to try it.
 
-For example, do NOT end a breath-holding video with:
-
-"You can always hold on longer."
-
-Instead, use a safe educational conclusion such as:
-
-"That urge to breathe is your brain protecting you."
+Never end with a challenge involving physical risk.
 
 ====================================================================
 TOPIC GUARDRAILS
@@ -469,7 +569,14 @@ List of 1-3 objects:
     "emphasis": "strong|light"
 }}
 
-The word MUST appear in subtitle_text.
+IMPORTANT:
+
+Every caption highlight word MUST appear literally in
+subtitle_text.
+
+Do not choose a synonym.
+
+Do not choose a word from narration that is absent from subtitle_text.
 
 subtitle_style
 
@@ -705,7 +812,10 @@ Return ONLY the JSON object.
 # USER PROMPT
 # --------------------------------------------------------------------------
 
-def build_user_prompt(topic: str, config: dict) -> str:
+def build_user_prompt(
+    topic: str,
+    config: dict,
+) -> str:
 
     return f"""
 TOPIC
@@ -729,6 +839,9 @@ Follow every rule in the system instructions.
 
 The response MUST be one valid JSON object.
 
+The scene_plan MUST contain exactly
+{config["script"].get("scene_count", 7)} scenes.
+
 Return ONLY JSON.
 """
 
@@ -737,21 +850,9 @@ Return ONLY JSON.
 # GEMINI STRUCTURED OUTPUT SCHEMA
 # --------------------------------------------------------------------------
 
-def build_response_schema(scene_count: int) -> dict:
-    """
-    JSON schema supplied directly to Gemini.
-
-    FIX (v5.3): minItems/maxItems removed from all array fields
-    (scene_plan, visuals, caption_highlights). Gemini's structured
-    output schema support for these keywords has been inconsistent
-    across API/SDK versions and was causing a deterministic
-    400 INVALID_ARGUMENT on every generation attempt.
-
-    Exact scene count, exact visuals-per-scene (1-2), and
-    caption_highlights count (1-3) are still fully enforced
-    afterward in validate_script(), so runtime behavior is
-    unchanged -- only the schema sent to the API is smaller.
-    """
+def build_response_schema(
+    scene_count: int,
+) -> dict:
 
     visual_schema = {
         "type": "object",
@@ -912,7 +1013,8 @@ def build_response_schema(scene_count: int) -> dict:
             },
             "caption_highlights": {
                 "type": "array",
-                # minItems: 1, maxItems: 3 removed -- enforced in validate_script()
+                "minItems": 1,
+                "maxItems": 3,
                 "items": {
                     "type": "object",
                     "properties": {
@@ -1015,7 +1117,8 @@ def build_response_schema(scene_count: int) -> dict:
             },
             "visuals": {
                 "type": "array",
-                # minItems: 1, maxItems: 2 removed -- enforced in validate_script()
+                "minItems": 1,
+                "maxItems": 2,
                 "items": visual_schema,
             },
         },
@@ -1152,7 +1255,8 @@ def build_response_schema(scene_count: int) -> dict:
             },
             "scene_plan": {
                 "type": "array",
-                # minItems/maxItems: scene_count removed -- enforced in validate_script()
+                "minItems": scene_count,
+                "maxItems": scene_count,
                 "items": scene_schema,
             },
         },
@@ -1175,28 +1279,24 @@ def build_response_schema(scene_count: int) -> dict:
 # JSON PARSING
 # --------------------------------------------------------------------------
 
-def parse_gemini_json(text: str) -> dict:
-    """
-    Parse Gemini response.
-
-    Structured output should make malformed JSON extremely rare.
-
-    We still retain a conservative fallback parser for cases where
-    Gemini/API behavior returns markdown fences or surrounding text.
-    """
+def parse_gemini_json(
+    text: str,
+) -> dict:
 
     if text is None or not text.strip():
+
         raise RuntimeError(
             "Gemini returned an empty response; cannot parse JSON."
         )
 
     text = text.strip()
 
-    # First attempt: exact response.
     try:
+
         parsed = json.loads(text)
 
         if not isinstance(parsed, dict):
+
             raise RuntimeError(
                 "Gemini returned valid JSON, but it was not a JSON object."
             )
@@ -1206,7 +1306,6 @@ def parse_gemini_json(text: str) -> dict:
     except json.JSONDecodeError:
         pass
 
-    # Second attempt: remove markdown fences.
     cleaned = re.sub(
         r"^```(?:json)?\s*",
         "",
@@ -1221,9 +1320,11 @@ def parse_gemini_json(text: str) -> dict:
     ).strip()
 
     try:
+
         parsed = json.loads(cleaned)
 
         if not isinstance(parsed, dict):
+
             raise RuntimeError(
                 "Gemini returned valid JSON, but it was not a JSON object."
             )
@@ -1233,14 +1334,15 @@ def parse_gemini_json(text: str) -> dict:
     except json.JSONDecodeError:
         pass
 
-    # Third attempt: extract outer object.
     start = cleaned.find("{")
     end = cleaned.rfind("}")
 
     if start != -1 and end > start:
-        candidate = cleaned[start:end + 1]
 
-        # Only remove trailing commas.
+        candidate = cleaned[
+            start:end + 1
+        ]
+
         candidate = re.sub(
             r",(\s*[}\]])",
             r"\1",
@@ -1248,9 +1350,11 @@ def parse_gemini_json(text: str) -> dict:
         )
 
         try:
+
             parsed = json.loads(candidate)
 
             if not isinstance(parsed, dict):
+
                 raise RuntimeError(
                     "Gemini returned valid JSON, but it was not a JSON object."
                 )
@@ -1258,9 +1362,11 @@ def parse_gemini_json(text: str) -> dict:
             return parsed
 
         except json.JSONDecodeError as e:
+
             error = e
 
     else:
+
         error = json.JSONDecodeError(
             "No JSON object found",
             cleaned,
@@ -1270,10 +1376,18 @@ def parse_gemini_json(text: str) -> dict:
     print("=" * 80)
     print("JSON PARSE ERROR")
     print("=" * 80)
-    print(f"Error message: {error.msg}")
-    print(f"Line: {getattr(error, 'lineno', 'unknown')}")
-    print(f"Column: {getattr(error, 'colno', 'unknown')}")
-    print(f"Character position: {getattr(error, 'pos', 'unknown')}")
+    print(
+        f"Error message: {error.msg}"
+    )
+    print(
+        f"Line: {getattr(error, 'lineno', 'unknown')}"
+    )
+    print(
+        f"Column: {getattr(error, 'colno', 'unknown')}"
+    )
+    print(
+        f"Character position: {getattr(error, 'pos', 'unknown')}"
+    )
     print("=" * 80)
     print("RAW GEMINI RESPONSE")
     print("=" * 80)
@@ -1292,18 +1406,26 @@ def parse_gemini_json(text: str) -> dict:
 # GENERATION
 # --------------------------------------------------------------------------
 
-def generate_script(topic: str, config: dict) -> dict:
+def generate_script(
+    topic: str,
+    config: dict,
+) -> dict:
 
     client = genai.Client(
         api_key=os.environ["GEMINI_API_KEY"]
     )
 
     scene_count = int(
-        config["script"].get("scene_count", 7)
+        config["script"].get(
+            "scene_count",
+            DEFAULT_SCENE_COUNT,
+        )
     )
 
     target_seconds = int(
-        config["script"]["target_narration_seconds"]
+        config["script"][
+            "target_narration_seconds"
+        ]
     )
 
     prompt = build_user_prompt(
@@ -1340,11 +1462,42 @@ def generate_script(topic: str, config: dict) -> dict:
 
         try:
 
+            # ----------------------------------------------------------
+            # RETRY FEEDBACK
+            # ----------------------------------------------------------
+
+            attempt_prompt = prompt
+
+            if attempt > 1 and last_error:
+
+                attempt_prompt += f"""
+
+PREVIOUS GENERATION FAILED VALIDATION.
+
+The previous attempt failed with this error:
+
+{last_error}
+
+Correct this problem in the new response.
+
+Do not repeat the same structural or schema error.
+
+Return the COMPLETE storyboard again.
+
+Do not return only the corrected portion.
+
+Return ONLY the JSON object.
+"""
+
+            # ----------------------------------------------------------
+            # GEMINI REQUEST
+            # ----------------------------------------------------------
+
             response = client.models.generate_content(
 
-                model="gemini-flash-lite-latest",
+                model="gemini-3.1-flash-lite",
 
-                contents=prompt,
+                contents=attempt_prompt,
 
                 config=types.GenerateContentConfig(
 
@@ -1352,7 +1505,7 @@ def generate_script(topic: str, config: dict) -> dict:
 
                     response_mime_type="application/json",
 
-                    response_schema=response_schema,
+                    response_json_schema=response_schema,
 
                     temperature=0.7,
 
@@ -1367,20 +1520,26 @@ def generate_script(topic: str, config: dict) -> dict:
                 text
             )
 
-            # Pipeline metadata.
+            # ----------------------------------------------------------
+            # PIPELINE METADATA
+            # ----------------------------------------------------------
+
             script["topic"] = topic
 
             script["video_structure"] = {
                 "format": (
                     "short_form"
-                    if scene_count == 7
+                    if scene_count == DEFAULT_SCENE_COUNT
                     else "custom"
                 ),
                 "scene_count": scene_count,
                 "target_duration_seconds": target_seconds,
             }
 
-            # Validate BEFORE accepting the response.
+            # ----------------------------------------------------------
+            # VALIDATE
+            # ----------------------------------------------------------
+
             script = validate_script(
                 script,
                 expected_scene_count=scene_count,
@@ -1414,25 +1573,6 @@ def generate_script(topic: str, config: dict) -> dict:
             print(
                 f"{type(e).__name__}: {e}"
             )
-
-            # FIX (v5.3): surface the full API error body when available.
-            # The Gemini SDK's ClientError often truncates the useful
-            # field-level violation message in str(e). This tries every
-            # plausible attribute across SDK versions so future 400s are
-            # diagnosable directly from the log.
-            for attr in (
-                "response",
-                "body",
-                "details",
-                "message",
-                "args",
-            ):
-                val = getattr(e, attr, None)
-
-                if val:
-                    print(f"--- error.{attr} ---")
-                    print(val)
-
             print("=" * 80)
 
             if attempt < MAX_GENERATION_ATTEMPTS:
@@ -1647,7 +1787,9 @@ VISUAL_IMPACT_REGEN_THRESHOLD = 5
 # HELPERS
 # --------------------------------------------------------------------------
 
-def _slugify(text: str) -> str:
+def _slugify(
+    text: str,
+) -> str:
 
     slug = re.sub(
         r"[^a-z0-9]+",
@@ -1663,7 +1805,9 @@ def _check_enum(
     allowed,
     label,
 ):
+
     if value not in allowed:
+
         raise RuntimeError(
             f"{label}: invalid value '{value}'. "
             f"Expected one of {sorted(allowed)}."
@@ -1698,6 +1842,7 @@ def _build_style_lock(
     ]
 
     if not parts:
+
         return ""
 
     return (
@@ -1707,19 +1852,147 @@ def _build_style_lock(
     )
 
 
+def _repair_caption_highlights(
+    scene: dict,
+    index: int,
+) -> None:
+    """
+    Gemini occasionally selects a highlight word that is not actually
+    present in subtitle_text.
+
+    This is harmless metadata, so repair it instead of throwing away
+    an otherwise valid storyboard.
+    """
+
+    highlights = scene.get(
+        "caption_highlights"
+    )
+
+    if not isinstance(
+        highlights,
+        list,
+    ):
+
+        raise RuntimeError(
+            f"Scene {index} caption_highlights must be a list."
+        )
+
+    if not (
+        1 <= len(highlights) <= 3
+    ):
+
+        raise RuntimeError(
+            f"Scene {index} must have 1-3 caption highlights."
+        )
+
+    subtitle_text = str(
+        scene["subtitle_text"]
+    ).strip()
+
+    subtitle_tokens = re.findall(
+        r"\b[\w'-]+\b",
+        subtitle_text,
+    )
+
+    subtitle_words = {
+        word.lower(): word
+        for word in subtitle_tokens
+    }
+
+    valid_highlights = []
+
+    for highlight in highlights:
+
+        if (
+            not isinstance(
+                highlight,
+                dict,
+            )
+            or "word" not in highlight
+            or "emphasis" not in highlight
+        ):
+
+            continue
+
+        word = str(
+            highlight["word"]
+        ).strip()
+
+        emphasis = highlight[
+            "emphasis"
+        ]
+
+        if emphasis not in VALID_EMPHASIS:
+
+            continue
+
+        if word.lower() in subtitle_words:
+
+            valid_highlights.append({
+                "word": subtitle_words[
+                    word.lower()
+                ],
+                "emphasis": emphasis,
+            })
+
+    # Remove duplicate highlight words.
+    deduplicated = []
+
+    seen = set()
+
+    for highlight in valid_highlights:
+
+        key = highlight[
+            "word"
+        ].lower()
+
+        if key not in seen:
+
+            seen.add(key)
+            deduplicated.append(
+                highlight
+            )
+
+    valid_highlights = deduplicated[:3]
+
+    # If Gemini supplied no usable highlights, choose a real subtitle
+    # word as a safe fallback.
+    if not valid_highlights:
+
+        if not subtitle_tokens:
+
+            raise RuntimeError(
+                f"Scene {index} subtitle_text contains no usable words."
+            )
+
+        fallback_word = subtitle_tokens[0]
+
+        valid_highlights = [
+            {
+                "word": fallback_word,
+                "emphasis": "strong",
+            }
+        ]
+
+    scene[
+        "caption_highlights"
+    ] = valid_highlights
+
+
 # --------------------------------------------------------------------------
 # VALIDATOR
 # --------------------------------------------------------------------------
 
 def validate_script(
     script: dict,
-    expected_scene_count: int = 7,
+    expected_scene_count: int = DEFAULT_SCENE_COUNT,
 ) -> dict:
 
     if not isinstance(
         script,
         dict,
     ):
+
         raise RuntimeError(
             "Gemini did not return a JSON object."
         )
@@ -1743,6 +2016,7 @@ def validate_script(
         )
         or not script["tags"]
     ):
+
         raise RuntimeError(
             "tags must be a non-empty list."
         )
@@ -1788,6 +2062,7 @@ def validate_script(
             script[obj_key],
             dict,
         ):
+
             raise RuntimeError(
                 f"{obj_key} must be an object."
             )
@@ -1817,7 +2092,8 @@ def validate_script(
     except Exception:
 
         raise RuntimeError(
-            "retention_self_check.weakest_scene must be an integer."
+            "retention_self_check.weakest_scene "
+            "must be an integer."
         )
 
     if not (
@@ -1897,7 +2173,10 @@ def validate_script(
                     f"Scene {index} missing '{key}'."
                 )
 
-        # Scene numbering
+        # ----------------------------------------------------------
+        # SCENE NUMBER
+        # ----------------------------------------------------------
+
         try:
 
             scene_number = int(
@@ -1917,7 +2196,10 @@ def validate_script(
                 f"'scene' number {scene['scene']}."
             )
 
-        # Enums
+        # ----------------------------------------------------------
+        # ENUMS
+        # ----------------------------------------------------------
+
         _check_enum(
             scene["purpose"],
             VALID_PURPOSE,
@@ -1966,7 +2248,10 @@ def validate_script(
             f"Scene {index} confidence",
         )
 
-        # Final transition
+        # ----------------------------------------------------------
+        # FINAL TRANSITION
+        # ----------------------------------------------------------
+
         if (
             index == expected_scene_count
             and scene["transition"] != "none"
@@ -1977,7 +2262,10 @@ def validate_script(
                 "transition must be 'none'."
             )
 
-        # Hero count
+        # ----------------------------------------------------------
+        # HERO COUNT
+        # ----------------------------------------------------------
+
         if scene["visual_priority"] == "hero":
 
             hero_count += 1
@@ -1986,71 +2274,10 @@ def validate_script(
         # CAPTION HIGHLIGHTS
         # ----------------------------------------------------------
 
-        if not isinstance(
-            scene["caption_highlights"],
-            list,
-        ):
-
-            raise RuntimeError(
-                f"Scene {index} caption_highlights "
-                "must be a list."
-            )
-
-        if not (
-            1
-            <= len(scene["caption_highlights"])
-            <= 3
-        ):
-
-            raise RuntimeError(
-                f"Scene {index} must have 1-3 caption highlights."
-            )
-
-        subtitle_words = {
-            word.lower()
-            for word in re.findall(
-                r"\b[\w'-]+\b",
-                str(
-                    scene["subtitle_text"]
-                ),
-            )
-        }
-
-        for highlight in scene[
-            "caption_highlights"
-        ]:
-
-            if (
-                not isinstance(
-                    highlight,
-                    dict,
-                )
-                or "word" not in highlight
-                or "emphasis" not in highlight
-            ):
-
-                raise RuntimeError(
-                    f"Scene {index} caption_highlights "
-                    "entries need 'word' and 'emphasis'."
-                )
-
-            word = str(
-                highlight["word"]
-            ).strip()
-
-            _check_enum(
-                highlight["emphasis"],
-                VALID_EMPHASIS,
-                f"Scene {index} "
-                "caption_highlights.emphasis",
-            )
-
-            if word.lower() not in subtitle_words:
-
-                raise RuntimeError(
-                    f"Scene {index} caption highlight "
-                    f"'{word}' does not appear in subtitle_text."
-                )
+        _repair_caption_highlights(
+            scene,
+            index,
+        )
 
         # ----------------------------------------------------------
         # SFX
@@ -2079,16 +2306,22 @@ def validate_script(
         except Exception:
 
             raise RuntimeError(
-                f"Scene {index} sfx_cue.at_ms must be numeric."
+                f"Scene {index} sfx_cue.at_ms "
+                "must be numeric."
             )
 
         if sfx_at < 0:
 
             raise RuntimeError(
-                f"Scene {index} sfx_cue.at_ms cannot be negative."
+                f"Scene {index} sfx_cue.at_ms "
+                "cannot be negative."
             )
 
-        scene["sfx_cue"]["at_ms"] = sfx_at
+        scene[
+            "sfx_cue"
+        ][
+            "at_ms"
+        ] = sfx_at
 
         # ----------------------------------------------------------
         # DURATION
@@ -2103,21 +2336,50 @@ def validate_script(
                 f"Scene {index} duration must be numeric."
             )
 
+        original_duration = int(
+            scene["duration"]
+        )
+
         scene["duration"] = max(
             3,
             min(
                 8,
-                int(
-                    scene["duration"]
-                ),
+                original_duration,
             ),
         )
+
+        # For standard 7-scene 45-second videos, enforce the exact
+        # factory timing rather than trusting Gemini.
+        if (
+            expected_scene_count
+            == DEFAULT_SCENE_COUNT
+            and len(STANDARD_SCENE_DURATIONS)
+            == DEFAULT_SCENE_COUNT
+        ):
+
+            expected_duration = (
+                STANDARD_SCENE_DURATIONS[
+                    index - 1
+                ]
+            )
+
+            if scene["duration"] != expected_duration:
+
+                raise RuntimeError(
+                    f"Scene {index} duration must be "
+                    f"{expected_duration}s in the standard "
+                    f"7-scene format, but Gemini returned "
+                    f"{scene['duration']}s."
+                )
 
         total_duration += scene[
             "duration"
         ]
 
-        # Pause
+        # ----------------------------------------------------------
+        # PAUSE
+        # ----------------------------------------------------------
+
         try:
 
             pause = int(
@@ -2131,7 +2393,9 @@ def validate_script(
 
             pause = 0
 
-        scene["pause_after_ms"] = max(
+        scene[
+            "pause_after_ms"
+        ] = max(
             0,
             min(
                 600,
@@ -2139,16 +2403,25 @@ def validate_script(
             ),
         )
 
-        # Text normalization
-        scene["narration"] = str(
+        # ----------------------------------------------------------
+        # TEXT NORMALIZATION
+        # ----------------------------------------------------------
+
+        scene[
+            "narration"
+        ] = str(
             scene["narration"]
         ).strip()
 
-        scene["subtitle_text"] = str(
+        scene[
+            "subtitle_text"
+        ] = str(
             scene["subtitle_text"]
         ).strip()
 
-        scene["emphasis_word"] = str(
+        scene[
+            "emphasis_word"
+        ] = str(
             scene["emphasis_word"]
         ).strip()
 
@@ -2162,6 +2435,12 @@ def validate_script(
 
             raise RuntimeError(
                 f"Scene {index} subtitle_text is empty."
+            )
+
+        if not scene["emphasis_word"]:
+
+            raise RuntimeError(
+                f"Scene {index} emphasis_word is empty."
             )
 
         # ----------------------------------------------------------
@@ -2210,6 +2489,10 @@ def validate_script(
                         f"{v_index} missing '{key}'."
                     )
 
+            # ------------------------------------------------------
+            # SEGMENT
+            # ------------------------------------------------------
+
             try:
 
                 segment = int(
@@ -2230,7 +2513,10 @@ def validate_script(
                     f"{v_index} has out-of-order segment."
                 )
 
-            # Enums
+            # ------------------------------------------------------
+            # ENUMS
+            # ------------------------------------------------------
+
             _check_enum(
                 visual["camera"],
                 VALID_CAMERA,
@@ -2273,7 +2559,10 @@ def validate_script(
                 f"{v_index} image_style",
             )
 
-            # Hold
+            # ------------------------------------------------------
+            # HOLD
+            # ------------------------------------------------------
+
             if visual["animation"] == "hold":
 
                 hold_count += 1
@@ -2288,7 +2577,10 @@ def validate_script(
                         "must not use 'hold'."
                     )
 
-            # Overlay
+            # ------------------------------------------------------
+            # OVERLAY
+            # ------------------------------------------------------
+
             if (
                 not isinstance(
                     visual["overlay"],
@@ -2309,12 +2601,17 @@ def validate_script(
                 f"{v_index} overlay.type",
             )
 
-            visual["overlay"].setdefault(
+            visual[
+                "overlay"
+            ].setdefault(
                 "description",
                 "",
             )
 
-            # Visual duration
+            # ------------------------------------------------------
+            # VISUAL DURATION
+            # ------------------------------------------------------
+
             if not isinstance(
                 visual["duration"],
                 (int, float),
@@ -2336,7 +2633,10 @@ def validate_script(
                 "duration"
             ]
 
-            # Impact
+            # ------------------------------------------------------
+            # VISUAL IMPACT
+            # ------------------------------------------------------
+
             impact = visual.get(
                 "visual_impact"
             )
@@ -2359,55 +2659,94 @@ def validate_script(
                     "must be 1-10."
                 )
 
-            visual["visual_impact"] = int(
+            visual[
+                "visual_impact"
+            ] = int(
                 impact
             )
 
-            # Image prompt
-            visual["image_prompt"] = str(
+            # ------------------------------------------------------
+            # IMAGE PROMPT
+            # ------------------------------------------------------
+
+            visual[
+                "image_prompt"
+            ] = str(
                 visual["image_prompt"]
             ).strip()
 
-            if not visual["image_prompt"]:
+            if not visual[
+                "image_prompt"
+            ]:
 
                 raise RuntimeError(
                     f"Scene {index} visual "
                     f"{v_index} image_prompt is empty."
                 )
 
-            # Style lock
+            # ------------------------------------------------------
+            # STYLE LOCK
+            # ------------------------------------------------------
+
             if (
                 style_lock
                 and style_lock
-                not in visual["image_prompt"]
+                not in visual[
+                    "image_prompt"
+                ]
             ):
 
-                visual["image_prompt"] = (
+                visual[
+                    "image_prompt"
+                ] = (
                     f"{visual['image_prompt']} "
                     f"{style_lock}"
                 )
 
-            # Regeneration flag
-            visual["needs_regeneration"] = (
-                scene["visual_priority"] == "hero"
-                and visual["visual_impact"]
+            # ------------------------------------------------------
+            # REGENERATION FLAG
+            # ------------------------------------------------------
+
+            visual[
+                "needs_regeneration"
+            ] = (
+                scene[
+                    "visual_priority"
+                ] == "hero"
+                and visual[
+                    "visual_impact"
+                ]
                 < VISUAL_IMPACT_REGEN_THRESHOLD
             )
 
-            # Concrete editor values
-            visual["zoom_factor"] = (
+            # ------------------------------------------------------
+            # CONCRETE EDITOR VALUES
+            # ------------------------------------------------------
+
+            visual[
+                "zoom_factor"
+            ] = (
                 ZOOM_STRENGTH_TO_FACTOR[
-                    visual["zoom_strength"]
+                    visual[
+                        "zoom_strength"
+                    ]
                 ]
             )
 
-            visual["motion_speed"] = (
+            visual[
+                "motion_speed"
+            ] = (
                 MOTION_INTENSITY_TO_SPEED[
-                    visual["motion_intensity"]
+                    visual[
+                        "motion_intensity"
+                    ]
                 ]
             )
 
-        # Visual durations must exactly equal scene duration.
+        # ----------------------------------------------------------
+        # VISUAL DURATION CHECK
+        # ----------------------------------------------------------
+
         if (
             visuals_duration_sum
             != scene["duration"]
@@ -2447,36 +2786,70 @@ def validate_script(
         "scene_plan"
     ][-1]
 
-    if final_scene["purpose"] != "ending":
+    if final_scene[
+        "purpose"
+    ] != "ending":
 
         raise RuntimeError(
             "Final scene must have purpose='ending'."
         )
 
     # --------------------------------------------------------------
+    # TOTAL DURATION
+    # --------------------------------------------------------------
+
+    target_duration = int(
+        script.get(
+            "video_structure",
+            {},
+        ).get(
+            "target_duration_seconds",
+            DEFAULT_TARGET_SECONDS,
+        )
+    )
+
+    if total_duration != target_duration:
+
+        raise RuntimeError(
+            f"Total scene duration is "
+            f"{total_duration}s but target duration is "
+            f"{target_duration}s."
+        )
+
+    # --------------------------------------------------------------
     # TOP LEVEL NORMALIZATION
     # --------------------------------------------------------------
 
-    script["title"] = str(
+    script[
+        "title"
+    ] = str(
         script["title"]
     ).strip()[:60]
 
-    script["description"] = str(
+    script[
+        "description"
+    ] = str(
         script["description"]
     ).strip()[:5000]
 
-    script["tags"] = [
+    script[
+        "tags"
+    ] = [
         str(tag)
         .strip()
         .lower()
         for tag in script["tags"]
     ]
 
-    script["category"] = str(
+    script[
+        "category"
+    ] = str(
         script["category"]
     ).strip().lower()
 
-    script["thumbnail_prompt"] = str(
+    script[
+        "thumbnail_prompt"
+    ] = str(
         script["thumbnail_prompt"]
     ).strip()
 
@@ -2486,7 +2859,9 @@ def validate_script(
             "thumbnail_prompt"
         ]:
 
-            script["thumbnail_prompt"] = (
+            script[
+                "thumbnail_prompt"
+            ] = (
                 f"{script['thumbnail_prompt']} "
                 f"{style_lock}"
             )
@@ -2495,7 +2870,9 @@ def validate_script(
     # IMAGE GENERATION CONFIG
     # --------------------------------------------------------------
 
-    script["image_generation"] = {
+    script[
+        "image_generation"
+    ] = {
 
         "seed": seed,
 
@@ -2506,12 +2883,16 @@ def validate_script(
     # VIDEO ID
     # --------------------------------------------------------------
 
-    script["video_id"] = (
+    script[
+        "video_id"
+    ] = (
         f"{_slugify(script['title'])}-"
         f"{uuid.uuid4().hex[:8]}"
     )
 
-    script["generated_at"] = int(
+    script[
+        "generated_at"
+    ] = int(
         time.time()
     )
 
@@ -2520,7 +2901,9 @@ def validate_script(
         {},
     )
 
-    script["video_structure"][
+    script[
+        "video_structure"
+    ][
         "actual_duration_seconds"
     ] = total_duration
 
@@ -2558,7 +2941,6 @@ if __name__ == "__main__":
         "How airplanes fly",
 
         "Why is the ocean salty",
-
     ]
 
     for topic in test_topics:

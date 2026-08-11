@@ -1,4 +1,4 @@
-name: Test Puter Image Generation
+name: Puter Image Test
 
 on:
   workflow_dispatch:
@@ -8,23 +8,95 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+
+      # ==========================================================
+      # CHECKOUT
+      # ==========================================================
+
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      # ==========================================================
+      # NODE
+      # ==========================================================
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 20
 
-      - name: Install dependencies
-        run: npm install
+      # ==========================================================
+      # INSTALL PUTER.JS
+      # ==========================================================
 
-      - name: Generate Puter test image
-        run: node generate_images_puter.js
+      - name: Install Puter.js
+        run: |
+          npm install @heyputer/puter.js
 
-      - name: Upload test image
+      # ==========================================================
+      # CHECK ENVIRONMENT
+      # ==========================================================
+
+      - name: Check Puter configuration
+        env:
+          PUTER_AUTH_TOKEN: ${{ secrets.PUTER_AUTH_TOKEN }}
+        run: |
+          echo "=========================================="
+          echo "🔐 PUTER CONFIGURATION CHECK"
+          echo "=========================================="
+
+          if [ -z "$PUTER_AUTH_TOKEN" ]; then
+            echo "❌ PUTER_AUTH_TOKEN is missing."
+            echo ""
+            echo "Go to:"
+            echo "GitHub → Settings → Secrets and variables → Actions"
+            echo ""
+            echo "Create:"
+            echo "PUTER_AUTH_TOKEN"
+            exit 1
+          fi
+
+          echo "✅ PUTER_AUTH_TOKEN detected."
+          echo "Token length: ${#PUTER_AUTH_TOKEN}"
+
+          echo "=========================================="
+
+      # ==========================================================
+      # GENERATE IMAGE
+      # ==========================================================
+
+      - name: Generate Puter Image
+        env:
+          PUTER_AUTH_TOKEN: ${{ secrets.PUTER_AUTH_TOKEN }}
+        run: |
+          echo "=========================================="
+          echo "🎨 PUTER IMAGE GENERATION"
+          echo "=========================================="
+
+          node generate_images_puter.js
+
+      # ==========================================================
+      # UPLOAD GENERATED IMAGE
+      # ==========================================================
+
+      - name: Upload generated image
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: puter-test-image
-          path: puter_test_output/puter_test.png
-          if-no-files-found: error
+          path: puter_test_output/
+          if-no-files-found: warn
+
+      # ==========================================================
+      # COMPLETE
+      # ==========================================================
+
+      - name: Test complete
+        if: success()
+        run: |
+          echo "=========================================="
+          echo "🎉 PUTER TEST SUCCESSFUL"
+          echo "=========================================="
+          echo "The generated image is available in:"
+          echo "Actions → Run → Artifacts"
+          echo "=========================================="

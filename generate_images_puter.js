@@ -3,205 +3,102 @@ const path = require("path");
 
 const { init } = require("@heyputer/puter.js/src/init.cjs");
 
-// ============================================================
-// PUTER CONFIG
-// ============================================================
+const OUTPUT_DIR = path.join(
+    __dirname,
+    "puter_test_output"
+);
 
-const PUTER_AUTH_TOKEN =
-    process.env.PUTER_AUTH_TOKEN;
-
-const OUTPUT_DIR =
-    path.join(
-        __dirname,
-        "puter_test_output"
-    );
-
-// Test prompt
 const PROMPT = `
-A cinematic National Geographic style scientific visualization
-of a realistic human brain viewed from a three-quarter angle,
-showing detailed natural brain anatomy with subtle illuminated
-neural pathways connecting different regions.
+Photorealistic cinematic scientific documentary visualization
+of a real human brain in a dark professional medical laboratory
+environment, three-quarter view.
 
-Photorealistic scientific documentary quality.
-Physically realistic anatomy.
-Realistic biological textures.
-Professional medical visualization.
-Cinematic depth of field.
-Dark neutral background.
-Subtle blue and warm gold lighting.
-One clearly identifiable main subject.
-Strong subject separation.
-Premium documentary photography aesthetic.
+Extremely realistic human brain anatomy,
+natural biological textures,
+realistic blood vessels and tissue detail,
+high-end medical visualization,
+National Geographic documentary quality,
+cinematic photography,
+physically realistic lighting,
+subtle deep blue and warm gold illumination,
+strong subject separation,
+shallow depth of field.
+
+The brain is the single dominant subject,
+large and clearly visible,
+centered in the vertical frame,
+realistic scale and perspective.
 
 Vertical 9:16 composition.
-The brain should dominate the frame.
+Premium documentary photography.
 No text.
 No labels.
 No typography.
 No logo.
 No watermark.
-No cartoon style.
-No fantasy elements.
+No cartoon.
+No fantasy.
 No excessive neon.
-No unnecessary particles.
+No glowing fantasy effects.
 No distorted anatomy.
 No duplicated objects.
 No visual clutter.
 `;
 
-// ============================================================
-// MAIN
-// ============================================================
-
 async function main() {
 
     console.log("=".repeat(80));
-    console.log("🎨 PUTER IMAGE GENERATION TEST");
+    console.log("🎨 PUTER IMAGE TEST");
     console.log("=".repeat(80));
-
-    if (!PUTER_AUTH_TOKEN) {
-
-        console.error(
-            "❌ PUTER_AUTH_TOKEN is not set."
-        );
-
-        console.error(
-            "Add PUTER_AUTH_TOKEN to GitHub Secrets."
-        );
-
-        process.exit(1);
-    }
-
-    console.log(
-        "✅ PUTER_AUTH_TOKEN detected."
-    );
 
     fs.mkdirSync(
         OUTPUT_DIR,
         { recursive: true }
     );
 
-    console.log(
-        `📁 Output directory: ${OUTPUT_DIR}`
-    );
-
-    // --------------------------------------------------------
-    // Initialize Puter
-    // --------------------------------------------------------
-
-    console.log(
-        "🔐 Initializing Puter..."
-    );
-
-    const puter = init(
-        PUTER_AUTH_TOKEN
-    );
-
-    console.log(
-        "✅ Puter initialized."
-    );
-
-    // --------------------------------------------------------
-    // Generate image
-    // --------------------------------------------------------
-
-    console.log(
-        "🧠 Generating test image..."
-    );
-
-    console.log(
-        `Prompt length: ${PROMPT.length}`
-    );
+    console.log("Generating test image...");
 
     try {
+
+        const puter = init();
 
         const image =
             await puter.ai.txt2img(
                 PROMPT,
                 {
-                    provider:
-                        "openai-image-generation",
-
-                    model:
-                        "gpt-image-1-mini",
-
-                    quality:
-                        "medium",
-
-                    ratio: {
-                        w: 9,
-                        h: 16
-                    }
+                    model: "gpt-image-1-mini",
+                    quality: "medium",
+                    test_mode: true
                 }
             );
 
-        console.log(
-            "✅ Puter returned image."
-        );
-
-        // ----------------------------------------------------
-        // Extract image data
-        // ----------------------------------------------------
-
-        if (
-            !image ||
-            !image.src
-        ) {
-
+        if (!image || !image.src) {
             throw new Error(
-                "Puter returned an invalid image object."
+                "Puter returned no image."
             );
         }
 
-        const dataUrl =
-            image.src;
+        const dataUrl = image.src;
 
-        if (
-            !dataUrl.startsWith(
-                "data:image/"
-            )
-        ) {
-
+        if (!dataUrl.startsWith("data:image/")) {
             throw new Error(
-                "Returned image is not a data URL."
+                "Unexpected image format."
             );
         }
-
-        console.log(
-            "✅ Image data received."
-        );
-
-        // ----------------------------------------------------
-        // Convert data URL to PNG
-        // ----------------------------------------------------
 
         const commaIndex =
             dataUrl.indexOf(",");
 
-        if (
-            commaIndex === -1
-        ) {
-
-            throw new Error(
-                "Invalid image data URL."
-            );
-        }
-
-        const base64Data =
+        const base64 =
             dataUrl.substring(
                 commaIndex + 1
             );
 
         const buffer =
             Buffer.from(
-                base64Data,
+                base64,
                 "base64"
             );
-
-        // ----------------------------------------------------
-        // Save image
-        // ----------------------------------------------------
 
         const outputPath =
             path.join(
@@ -215,33 +112,20 @@ async function main() {
         );
 
         console.log("=".repeat(80));
-        console.log(
-            "🎉 IMAGE GENERATED SUCCESSFULLY"
-        );
+        console.log("✅ IMAGE GENERATED");
         console.log("=".repeat(80));
-
-        console.log(
-            `Saved: ${outputPath}`
-        );
-
+        console.log(`Saved: ${outputPath}`);
         console.log(
             `Size: ${buffer.length} bytes`
         );
-
         console.log("=".repeat(80));
 
     } catch (error) {
 
         console.error("=".repeat(80));
-        console.error(
-            "❌ PUTER IMAGE GENERATION FAILED"
-        );
+        console.error("❌ PUTER TEST FAILED");
         console.error("=".repeat(80));
-
-        console.error(
-            error
-        );
-
+        console.error(error);
         console.error("=".repeat(80));
 
         process.exit(1);

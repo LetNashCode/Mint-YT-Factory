@@ -262,7 +262,7 @@ async function main() {
             await Promise.race(
                 [
                     puter.ai.txt2img(
-                        PROMPT,
+                        "A realistic cinematic close-up of a human eye, vertical 9:16.",
                         {
                             model:
                                 MODEL,

@@ -1,200 +1,658 @@
 """
 generate_images.py
 
-Cinematic AI Visual Generator
+AI Visual Generation for Mint-YT-Factory
 Version 6.0
 
-Designed for:
-    generate_script.py v5.3+
-
 Purpose:
-    Convert Gemini scene visual plans into high-quality AI images.
+Generate high-quality AI visuals from the storyboard produced by
+generate_script.py.
 
 Major improvements:
-    - Uses scene.visuals[] instead of ignoring visual planning data
-    - Uses global visual_identity from the script
-    - No artificial prompt truncation
-    - Strong cinematic prompt construction
-    - Consistent visual identity across the entire video
-    - Consistent seed family across scenes
-    - Configurable Pollinations model
-    - Supports current Pollinations API when API key is available
-    - Legacy Pollinations endpoint fallback
-    - Saves prompts for debugging
-    - Preserves generate_images() interface
-    - Generates exactly one primary image per scene
-    - Existing assemble.py/main.py interface remains compatible
+- Generates every visual segment from scene["visuals"]
+- Uses detailed scene-level image prompts
+- Preserves visual identity across the entire Short
+- Uses controlled seed variation
+- Better prompt construction
+- No arbitrary 700-character prompt truncation
+- Automatic retries
+- AI artifact prevention
+- Stronger cinematic composition
+- Compatible with the existing main.py pipeline
 """
 
-import json
 import os
-import random
 import time
 import urllib.parse
-
 import requests
 
 
 # ==========================================================================
-# SETTINGS
+# CONFIGURATION
 # ==========================================================================
 
-DEFAULT_MODEL = "flux"
+BASE_URL = "https://image.pollinations.ai/prompt/"
+
+HEADERS = {
+    "User-Agent": "Mozilla/5.0"
+}
+
+MAX_RETRIES = 5
+
+RETRY_DELAY = 5
 
 DEFAULT_WIDTH = 768
 DEFAULT_HEIGHT = 1365
 
-MAX_RETRIES = 5
 
-RETRY_DELAY_SECONDS = 5
+# ==========================================================================
+# GLOBAL VISUAL STYLE
+# ==========================================================================
 
-REQUEST_TIMEOUT_SECONDS = 180
+GLOBAL_STYLE = """
+Premium cinematic educational documentary visualization.
 
-# Current Pollinations unified API.
-CURRENT_BASE_URL = "https://gen.pollinations.ai/image/"
+Highly realistic.
+Scientifically grounded.
+Professional documentary production quality.
 
-# Legacy endpoint kept as fallback for existing projects.
-LEGACY_BASE_URL = "https://image.pollinations.ai/prompt/"
+Natural physical proportions.
+Realistic materials.
+Realistic textures.
+Realistic depth.
+Realistic lighting.
 
-HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 "
-        "(Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 "
-        "(KHTML, like Gecko) "
-        "Chrome/131.0 Safari/537.36"
-    )
+Strong subject separation.
+Clear visual hierarchy.
+One dominant subject.
+One clear visual idea.
+
+Cinematic composition.
+Natural depth of field.
+Subtle atmospheric depth.
+Sharp primary subject.
+Controlled background detail.
+
+Designed specifically for vertical 9:16 YouTube Shorts.
+
+No text.
+No typography.
+No captions.
+No labels.
+No diagrams containing words.
+No logos.
+No watermark.
+
+Avoid generic AI-art appearance.
+Avoid fantasy aesthetics.
+Avoid cartoon aesthetics.
+Avoid excessive neon.
+Avoid excessive glowing objects.
+Avoid unnecessary particles.
+Avoid duplicated objects.
+Avoid extra limbs.
+Avoid distorted anatomy.
+Avoid malformed hands.
+Avoid floating objects.
+Avoid impossible geometry.
+Avoid clutter.
+"""
+
+
+# ==========================================================================
+# VISUAL STYLE MAPPING
+# ==========================================================================
+
+IMAGE_STYLE_MAP = {
+
+    "realistic_3d_render":
+        """
+        Photorealistic cinematic 3D scientific reconstruction.
+        Physically realistic surfaces and materials.
+        High-end documentary visualization.
+        """,
+
+    "scientific_illustration":
+        """
+        Premium scientific visualization.
+        Anatomically and physically accurate.
+        Clean realistic scientific artwork.
+        """,
+
+    "cinematic_photograph":
+        """
+        Cinematic documentary photograph.
+        Natural photographic lighting.
+        Realistic lens characteristics.
+        Authentic environmental detail.
+        """,
+
+    "macro_photography":
+        """
+        Extreme macro documentary photography.
+        Highly detailed microscopic surface texture.
+        Shallow realistic depth of field.
+        """,
+
+    "infographic_diagram":
+        """
+        Clean scientific visualization.
+        Minimal diagrammatic composition.
+        No written labels or text.
+        Physically accurate visual relationships.
+        """,
 }
 
 
 # ==========================================================================
-# GLOBAL VISUAL PHILOSOPHY
+# CAMERA MAPPING
 # ==========================================================================
 
-GLOBAL_NEGATIVE_PROMPT = """
-No text.
-No typography.
-No captions.
-No subtitles.
-No labels.
-No arrows unless explicitly requested.
-No UI.
-No logos.
-No brand marks.
-No watermark.
-No signature.
-No border.
-No frame.
-No collage.
-No split screen.
-No poster design.
-No infographic layout unless explicitly requested.
-No generic stock-photo look.
-No cheap cartoon look.
-No plastic-looking toy appearance.
-No oversaturated colors.
-No excessive glow.
-No distorted anatomy.
-No duplicated objects.
-No extra limbs.
-No malformed hands.
-No impossible geometry.
-No random objects unrelated to the subject.
-No visual clutter.
-"""
+CAMERA_MAP = {
 
+    "close_up":
+        "tight close-up framing with the subject filling most of the frame",
 
-CINEMATIC_BASE = """
-Premium cinematic science documentary visual.
+    "medium":
+        "medium cinematic framing showing the subject and immediate environment",
 
-Photorealistic or physically plausible depending on the selected
-visual style.
+    "wide":
+        "wide cinematic composition showing the subject within its environment",
 
-The image must look like a frame from a high-budget modern science
-documentary, not a generic AI artwork.
+    "macro":
+        "extreme macro framing showing fine physical detail",
 
-Strong subject hierarchy.
-One unmistakable visual idea.
-Clear foreground, subject, and background separation.
-Natural depth.
-Controlled composition.
-Professional cinematography.
-Physically believable lighting.
-Fine surface detail.
-Realistic materials.
-Subtle atmospheric depth.
-High dynamic range.
-Sharp primary subject.
-Natural contrast.
-Premium production quality.
+    "top_down":
+        "precise top-down cinematic composition",
 
-Vertical 9:16 composition for YouTube Shorts.
+    "side":
+        "cinematic side-view composition",
 
-The primary subject must be immediately understandable within
-one second.
+    "aerial":
+        "high aerial documentary perspective",
 
-The subject should occupy approximately 55-80 percent of the
-useful frame when appropriate.
-
-Leave safe visual breathing room around important edges.
-
-No text.
-No labels.
-No logos.
-No watermark.
-"""
+    "orbit":
+        "cinematic three-quarter orbital perspective",
+}
 
 
 # ==========================================================================
-# HELPERS
+# LIGHTING MAPPING
 # ==========================================================================
 
-def _safe_string(value):
-    if value is None:
+DEFAULT_LIGHTING = (
+    "soft cinematic key light, realistic natural fill light, "
+    "subtle rim lighting, physically plausible shadows, "
+    "high dynamic range"
+)
+
+
+# ==========================================================================
+# PROMPT CLEANING
+# ==========================================================================
+
+def _clean_prompt(text):
+    """
+    Remove accidental formatting while preserving useful detail.
+    """
+
+    if not text:
         return ""
 
-    return str(value).strip()
+    text = str(text)
 
-
-def _get_model(config):
-    """
-    Model selection priority:
-
-    1. config.yaml image.model
-    2. POLLINATIONS_IMAGE_MODEL environment variable
-    3. DEFAULT_MODEL
-    """
-
-    try:
-        configured = config.get(
-            "image",
-            {},
-        ).get(
-            "model"
-        )
-
-        if configured:
-            return str(
-                configured
-            ).strip()
-
-    except Exception:
-        pass
-
-    env_model = os.environ.get(
-        "POLLINATIONS_IMAGE_MODEL"
+    text = text.replace(
+        "\n",
+        " ",
     )
 
-    if env_model:
-        return env_model.strip()
+    text = text.replace(
+        "```",
+        "",
+    )
 
-    return DEFAULT_MODEL
+    text = " ".join(
+        text.split()
+    )
+
+    return text.strip()
 
 
-def _get_dimensions(config):
+# ==========================================================================
+# BUILD VISUAL PROMPT
+# ==========================================================================
+
+def build_prompt(
+    scene,
+    visual,
+    script=None,
+):
     """
-    Preserve existing config.yaml dimensions.
+    Build a strong production prompt from the storyboard.
+
+    Priority:
+        visual.image_prompt
+        visual technical information
+        scene context
+        global style
     """
+
+    parts = []
+
+    # ----------------------------------------------------------------------
+    # PRIMARY IMAGE DESCRIPTION
+    # ----------------------------------------------------------------------
+
+    image_prompt = _clean_prompt(
+        visual.get(
+            "image_prompt",
+            "",
+        )
+    )
+
+    if image_prompt:
+
+        parts.append(
+            image_prompt
+        )
+
+    # ----------------------------------------------------------------------
+    # VISUAL STYLE
+    # ----------------------------------------------------------------------
+
+    image_style = visual.get(
+        "image_style",
+        "realistic_3d_render",
+    )
+
+    style_description = IMAGE_STYLE_MAP.get(
+        image_style,
+        IMAGE_STYLE_MAP[
+            "realistic_3d_render"
+        ],
+    )
+
+    parts.append(
+        style_description
+    )
+
+    # ----------------------------------------------------------------------
+    # CAMERA
+    # ----------------------------------------------------------------------
+
+    camera = visual.get(
+        "camera",
+        "medium",
+    )
+
+    parts.append(
+        CAMERA_MAP.get(
+            camera,
+            CAMERA_MAP["medium"],
+        )
+    )
+
+    # ----------------------------------------------------------------------
+    # LIGHTING
+    # ----------------------------------------------------------------------
+
+    lighting = _clean_prompt(
+        visual.get(
+            "lighting",
+            DEFAULT_LIGHTING,
+        )
+    )
+
+    if lighting:
+
+        parts.append(
+            f"Lighting: {lighting}."
+        )
+
+    # ----------------------------------------------------------------------
+    # COLOR
+    # ----------------------------------------------------------------------
+
+    palette = _clean_prompt(
+        visual.get(
+            "color_palette",
+            "",
+        )
+    )
+
+    if palette:
+
+        parts.append(
+            f"Color palette: {palette}."
+        )
+
+    # ----------------------------------------------------------------------
+    # VISUAL IDENTITY
+    # ----------------------------------------------------------------------
+
+    if script:
+
+        identity = script.get(
+            "visual_identity",
+            {},
+        )
+
+        if isinstance(
+            identity,
+            dict,
+        ):
+
+            style = _clean_prompt(
+                identity.get(
+                    "style",
+                    "",
+                )
+            )
+
+            mood_arc = _clean_prompt(
+                identity.get(
+                    "mood_arc",
+                    "",
+                )
+            )
+
+            if style:
+
+                parts.append(
+                    f"Overall visual identity: {style}."
+                )
+
+            if mood_arc:
+
+                parts.append(
+                    f"Production mood: {mood_arc}."
+                )
+
+    # ----------------------------------------------------------------------
+    # SCENE PURPOSE
+    # ----------------------------------------------------------------------
+
+    purpose = scene.get(
+        "purpose",
+        "",
+    )
+
+    if purpose:
+
+        parts.append(
+            f"Scene purpose: {purpose}."
+        )
+
+    # ----------------------------------------------------------------------
+    # EMOTIONAL TONE
+    # ----------------------------------------------------------------------
+
+    emotional_tone = scene.get(
+        "emotional_tone",
+        "",
+    )
+
+    if emotional_tone:
+
+        parts.append(
+            f"Emotional tone: {emotional_tone}."
+        )
+
+    # ----------------------------------------------------------------------
+    # VISUAL ROLE
+    # ----------------------------------------------------------------------
+
+    priority = scene.get(
+        "visual_priority",
+        "supporting",
+    )
+
+    parts.append(
+        f"Visual priority: {priority}."
+    )
+
+    # ----------------------------------------------------------------------
+    # COMPOSITION
+    # ----------------------------------------------------------------------
+
+    parts.append(
+        """
+The main subject must be immediately recognizable within one second.
+
+Place the main subject in a strong cinematic composition.
+
+Use realistic scale and perspective.
+
+Keep the background visually supportive rather than competing
+with the main subject.
+
+Create clear foreground, subject, and background separation.
+
+The image should look like a frame from an expensive science
+documentary rather than generic AI artwork.
+"""
+    )
+
+    # ----------------------------------------------------------------------
+    # GLOBAL STYLE
+    # ----------------------------------------------------------------------
+
+    parts.append(
+        GLOBAL_STYLE
+    )
+
+    return "\n\n".join(
+        parts
+    )
+
+
+# ==========================================================================
+# SEED
+# ==========================================================================
+
+def _get_base_seed(script):
+
+    try:
+
+        seed = int(
+            script.get(
+                "image_generation",
+                {},
+            ).get(
+                "seed",
+                int(
+                    time.time()
+                ),
+            )
+        )
+
+    except Exception:
+
+        seed = int(
+            time.time()
+        )
+
+    return seed
+
+
+# ==========================================================================
+# IMAGE REQUEST
+# ==========================================================================
+
+def generate_image(
+    prompt,
+    width,
+    height,
+    seed,
+):
+    """
+    Generate one image through Pollinations.
+    """
+
+    full_prompt = _clean_prompt(
+        prompt
+    )
+
+    encoded_prompt = urllib.parse.quote(
+        full_prompt,
+        safe="",
+    )
+
+    url = (
+        BASE_URL
+        + encoded_prompt
+        + "?model=flux"
+        + f"&width={int(width)}"
+        + f"&height={int(height)}"
+        + f"&seed={int(seed)}"
+        + "&enhance=true"
+        + "&nologo=true"
+    )
+
+    print("=" * 80)
+    print("IMAGE GENERATION REQUEST")
+    print("=" * 80)
+    print(
+        f"Seed: {seed}"
+    )
+    print(
+        f"Size: {width}x{height}"
+    )
+    print(
+        f"Prompt length: {len(full_prompt)}"
+    )
+    print("=" * 80)
+
+    last_error = None
+
+    for attempt in range(
+        1,
+        MAX_RETRIES + 1,
+    ):
+
+        try:
+
+            print(
+                f"🎨 Image attempt "
+                f"{attempt}/{MAX_RETRIES}"
+            )
+
+            response = requests.get(
+                url,
+                headers=HEADERS,
+                timeout=180,
+            )
+
+            print(
+                f"HTTP status: "
+                f"{response.status_code}"
+            )
+
+            response.raise_for_status()
+
+            content = response.content
+
+            if not content:
+
+                raise RuntimeError(
+                    "Image response was empty."
+                )
+
+            content_type = (
+                response.headers.get(
+                    "Content-Type",
+                    "",
+                ).lower()
+            )
+
+            if (
+                "image" not in content_type
+                and len(content) < 10000
+            ):
+
+                raise RuntimeError(
+                    "Server returned an unexpected "
+                    "non-image response."
+                )
+
+            print(
+                "✅ Image generated successfully."
+            )
+
+            return content
+
+        except Exception as error:
+
+            last_error = error
+
+            print(
+                f"❌ Image attempt "
+                f"{attempt} failed:"
+            )
+
+            print(
+                error
+            )
+
+            if attempt < MAX_RETRIES:
+
+                time.sleep(
+                    RETRY_DELAY
+                )
+
+    raise RuntimeError(
+        "Failed to generate image after "
+        f"{MAX_RETRIES} attempts: "
+        f"{last_error}"
+    )
+
+
+# ==========================================================================
+# SAVE IMAGE
+# ==========================================================================
+
+def _save_image(
+    content,
+    path,
+):
+
+    with open(
+        path,
+        "wb",
+    ) as file:
+
+        file.write(
+            content
+        )
+
+    size = os.path.getsize(
+        path
+    )
+
+    if size < 1000:
+
+        raise RuntimeError(
+            f"Generated image appears invalid: "
+            f"{path}"
+        )
+
+    return path
+
+
+# ==========================================================================
+# GENERATE ALL VISUALS
+# ==========================================================================
+
+def generate_images(
+    script,
+    workdir,
+    config,
+):
+
+    os.makedirs(
+        workdir,
+        exist_ok=True,
+    )
 
     image_config = config.get(
         "image",
@@ -215,950 +673,19 @@ def _get_dimensions(config):
         )
     )
 
-    return width, height
+    # Force portrait orientation.
+    if width >= height:
 
-
-def _get_api_key():
-    """
-    Current Pollinations API uses a server-side API key.
-
-    POLLINATIONS_API_KEY is preferred.
-
-    The old pipeline did not require this variable, so the function
-    returns None when it is unavailable and the legacy endpoint can
-    still be attempted.
-    """
-
-    return (
-        os.environ.get(
-            "POLLINATIONS_API_KEY"
-        )
-        or os.environ.get(
-            "POLLINATIONS_API_TOKEN"
-        )
-    )
-
-
-def _get_style_lock(script):
-    """
-    Build a global visual identity instruction.
-
-    This is intentionally stronger than the old style_lock because
-    image generation should receive the same visual language for
-    every scene.
-    """
-
-    identity = script.get(
-        "visual_identity",
-        {},
-    )
-
-    style = _safe_string(
-        identity.get(
-            "style"
-        )
-    )
-
-    palette = _safe_string(
-        identity.get(
-            "palette"
-        )
-    )
-
-    mood_arc = _safe_string(
-        identity.get(
-            "mood_arc"
-        )
-    )
-
-    parts = []
-
-    if style:
-        parts.append(
-            f"Overall visual style: {style}"
+        width, height = (
+            height,
+            width,
         )
 
-    if palette:
-        parts.append(
-            f"Consistent color palette: {palette}"
-        )
-
-    if mood_arc:
-        parts.append(
-            f"Overall mood progression: {mood_arc}"
-        )
-
-    if not parts:
-        return (
-            "Use a premium cinematic science documentary "
-            "visual identity consistently across the video."
-        )
-
-    return ". ".join(parts) + "."
-
-
-def _visual_style_instruction(image_style):
-    """
-    Translate Gemini's image_style enum into a stronger image-generation
-    instruction.
-    """
-
-    style = _safe_string(
-        image_style
-    ).lower()
-
-    mapping = {
-
-        "realistic_3d_render": """
-Photorealistic high-end 3D scientific visualization.
-Physically plausible materials.
-Realistic volumetric depth.
-Precise anatomical or mechanical detail where applicable.
-Cinematic rendering rather than game-engine aesthetics.
-""",
-
-        "scientific_illustration": """
-Premium scientific visualization.
-Accurate forms and proportions.
-Clear visual explanation.
-Sophisticated museum-quality scientific artwork.
-Realistic depth and lighting.
-Not childish.
-Not cartoon-like.
-""",
-
-        "cinematic_photograph": """
-High-end cinematic documentary photography.
-Natural realistic textures.
-Real optical depth of field.
-Professional lens characteristics.
-Subtle filmic contrast.
-Authentic environmental detail.
-""",
-
-        "macro_photography": """
-Extreme macro documentary photography.
-Microscopic surface detail.
-Very shallow depth of field.
-Natural optical falloff.
-Realistic textures and tiny structures.
-""",
-
-        "infographic_diagram": """
-Premium scientific visualization with restrained explanatory graphics.
-Clean spatial hierarchy.
-Minimal visual elements.
-Only use diagrammatic elements when explicitly requested.
-No text or labels.
-""",
-    }
-
-    return mapping.get(
-        style,
-        """
-Premium photorealistic cinematic science documentary visualization.
-""",
-    ).strip()
-
-
-def _camera_instruction(camera):
-    mapping = {
-
-        "close_up": """
-Close-up cinematic framing.
-Subject dominates the frame.
-Reveal important surface detail.
-Strong foreground separation.
-""",
-
-        "medium": """
-Medium cinematic framing.
-Subject clearly visible with enough surrounding context
-to explain the phenomenon.
-""",
-
-        "wide": """
-Wide cinematic establishing composition.
-Show the environment and scale of the phenomenon.
-Maintain a clearly dominant subject.
-""",
-
-        "macro": """
-Extreme macro framing.
-Reveal fine physical detail invisible to the naked eye.
-""",
-
-        "top_down": """
-Professional overhead documentary composition.
-Clean geometry.
-Strong visual organization.
-""",
-
-        "side": """
-Side-profile cinematic composition.
-Strong depth and directional visual flow.
-""",
-
-        "aerial": """
-Cinematic aerial perspective.
-Clear sense of scale and environment.
-""",
-
-        "orbit": """
-Dynamic orbital camera perspective.
-Subject remains dominant while surrounding environment
-creates dimensional depth.
-""",
-    }
-
-    return mapping.get(
-        _safe_string(camera).lower(),
-        """
-Cinematic medium framing with strong subject separation.
-""",
-    ).strip()
-
-
-def _animation_composition_instruction(animation):
-    """
-    Animation does not actually animate the generated image.
-
-    Instead, use it to choose a composition that works well with the
-    later Ken Burns / motion stage.
-    """
-
-    mapping = {
-
-        "zoom_in": """
-Compose with strong central subject detail and layered depth.
-Leave enough surrounding space for a later cinematic push-in.
-""",
-
-        "zoom_out": """
-Compose with the subject clearly readable while preserving
-meaningful environmental space for a later pull-back.
-""",
-
-        "pan_left": """
-Create strong horizontal visual flow from right toward left.
-Leave visual space in the direction of movement.
-""",
-
-        "pan_right": """
-Create strong horizontal visual flow from left toward right.
-Leave visual space in the direction of movement.
-""",
-
-        "rotate": """
-Use a visually balanced composition with circular or radial depth
-that can support a subtle rotation effect.
-""",
-
-        "parallax": """
-Use clearly separated foreground, middle ground, and background
-layers to create strong parallax potential.
-""",
-
-        "highlight": """
-Create a clearly identifiable focal subject with surrounding
-context that can support a later visual highlight.
-""",
-
-        "hold": """
-Create an exceptionally strong standalone composition.
-The image must remain visually interesting even without movement.
-""",
-    }
-
-    return mapping.get(
-        _safe_string(animation).lower(),
-        """
-Create strong layered depth suitable for subtle cinematic motion.
-""",
-    ).strip()
-
-
-def _motion_instruction(motion_intensity):
-    mapping = {
-
-        "low": """
-Keep composition calm and stable.
-Use subtle depth rather than extreme perspective.
-""",
-
-        "medium": """
-Use moderate depth and directional composition.
-Suitable for smooth cinematic camera movement.
-""",
-
-        "high": """
-Use dramatic depth, strong perspective and clear foreground/background
-separation suitable for energetic Shorts pacing.
-""",
-    }
-
-    return mapping.get(
-        _safe_string(
-            motion_intensity
-        ).lower(),
-        "",
-    ).strip()
-
-
-def _complexity_instruction(complexity):
-    mapping = {
-
-        "simple": """
-Keep the scene visually clean.
-One dominant subject.
-Minimal background distractions.
-""",
-
-        "moderate": """
-Use enough environmental detail to communicate the concept,
-while maintaining one dominant focal point.
-""",
-
-        "complex": """
-Use rich environmental and scientific detail,
-but preserve a clear primary subject and readable composition.
-""",
-    }
-
-    return mapping.get(
-        _safe_string(
-            complexity
-        ).lower(),
-        "",
-    ).strip()
-
-
-def _build_visual_prompt(
-    script,
-    scene,
-    visual,
-    scene_index,
-):
-    """
-    Build the final image prompt.
-
-    Gemini's image_prompt remains the creative concept.
-
-    This function adds the production-level visual direction.
-    """
-
-    image_prompt = _safe_string(
-        visual.get(
-            "image_prompt"
-        )
+    base_seed = _get_base_seed(
+        script
     )
 
-    image_style = _safe_string(
-        visual.get(
-            "image_style"
-        )
-    )
-
-    lighting = _safe_string(
-        visual.get(
-            "lighting"
-        )
-    )
-
-    palette = _safe_string(
-        visual.get(
-            "color_palette"
-        )
-    )
-
-    camera = _safe_string(
-        visual.get(
-            "camera"
-        )
-    )
-
-    animation = _safe_string(
-        visual.get(
-            "animation"
-        )
-    )
-
-    motion_intensity = _safe_string(
-        visual.get(
-            "motion_intensity"
-        )
-    )
-
-    complexity = _safe_string(
-        visual.get(
-            "visual_complexity"
-        )
-    )
-
-    overlay = visual.get(
-        "overlay",
-        {},
-    )
-
-    overlay_type = _safe_string(
-        overlay.get(
-            "type"
-        )
-    )
-
-    overlay_description = _safe_string(
-        overlay.get(
-            "description"
-        )
-    )
-
-    scene_purpose = _safe_string(
-        scene.get(
-            "purpose"
-        )
-    )
-
-    emotional_tone = _safe_string(
-        scene.get(
-            "emotional_tone"
-        )
-    )
-
-    # ------------------------------------------------------------------
-    # SUBJECT / ACTION
-    # ------------------------------------------------------------------
-
-    parts = [
-
-        CINEMATIC_BASE,
-
-        f"""
-SCENE PURPOSE:
-{scene_purpose}
-
-EMOTIONAL TONE:
-{emotional_tone}
-
-PRIMARY VISUAL CONCEPT:
-{image_prompt}
-""",
-
-        _get_style_lock(
-            script
-        ),
-
-        _visual_style_instruction(
-            image_style
-        ),
-
-        _camera_instruction(
-            camera
-        ),
-
-        _animation_composition_instruction(
-            animation
-        ),
-
-        _motion_instruction(
-            motion_intensity
-        ),
-
-        _complexity_instruction(
-            complexity
-        ),
-    ]
-
-    # ------------------------------------------------------------------
-    # LIGHTING
-    # ------------------------------------------------------------------
-
-    if lighting:
-
-        parts.append(
-            f"""
-LIGHTING DIRECTION:
-{lighting}
-
-Lighting must feel physically plausible and cinematic.
-Do not flatten the image with uniform illumination.
-"""
-        )
-
-    # ------------------------------------------------------------------
-    # COLOR
-    # ------------------------------------------------------------------
-
-    if palette:
-
-        parts.append(
-            f"""
-COLOR DIRECTION:
-{palette}
-
-Maintain this palette consistently with the other scenes.
-Do not introduce unrelated dominant colors.
-"""
-        )
-
-    # ------------------------------------------------------------------
-    # OVERLAY
-    # ------------------------------------------------------------------
-
-    if overlay_type and overlay_type != "none":
-
-        parts.append(
-            f"""
-VISUAL OVERLAY CONCEPT:
-{overlay_type}
-
-{overlay_description}
-
-Keep the visual clean and premium.
-Do not generate written text.
-"""
-        )
-
-    # ------------------------------------------------------------------
-    # COMPOSITION
-    # ------------------------------------------------------------------
-
-    parts.append(
-        """
-COMPOSITION:
-
-Create one clear visual idea.
-
-The viewer should understand the subject immediately.
-
-Use a strong foreground-to-background depth relationship.
-
-Avoid placing important subject details against visually confusing
-background elements.
-
-Use cinematic negative space where appropriate.
-
-The image must look intentional and professionally art-directed.
-
-Do not create a generic centered stock image unless centered framing
-is clearly the strongest composition for the subject.
-
-Vertical 9:16.
-"""
-    )
-
-    # ------------------------------------------------------------------
-    # DOCUMENTARY QUALITY
-    # ------------------------------------------------------------------
-
-    parts.append(
-        """
-QUALITY TARGET:
-
-High-end modern science documentary.
-Premium streaming-documentary production value.
-Physically believable details.
-Natural material response.
-Realistic textures.
-Subtle atmospheric depth.
-Controlled highlights.
-Natural shadows.
-Sharp primary subject.
-No plastic AI appearance.
-
-The image should feel like it was deliberately photographed or
-rendered by a professional visual-effects and documentary team.
-"""
-    )
-
-    # ------------------------------------------------------------------
-    # NEGATIVE
-    # ------------------------------------------------------------------
-
-    parts.append(
-        GLOBAL_NEGATIVE_PROMPT
-    )
-
-    final_prompt = "\n\n".join(
-        part.strip()
-        for part in parts
-        if part and part.strip()
-    )
-
-    return final_prompt.strip()
-
-
-# ==========================================================================
-# REQUEST URL
-# ==========================================================================
-
-def _build_request(
-    prompt,
-    model,
-    width,
-    height,
-    seed,
-):
-    """
-    Build request for the current Pollinations API when a key exists.
-
-    The current API documents:
-        /image/{prompt}
-        model
-        width
-        height
-        seed
-        quality
-
-    The legacy endpoint remains available as fallback for compatibility.
-    """
-
-    api_key = _get_api_key()
-
-    if api_key:
-
-        base_url = CURRENT_BASE_URL
-
-        headers = dict(
-            HEADERS
-        )
-
-        headers[
-            "Authorization"
-        ] = f"Bearer {api_key}"
-
-        params = {
-            "model": model,
-            "width": width,
-            "height": height,
-            "seed": seed,
-            "quality": "high",
-        }
-
-        return (
-            base_url,
-            params,
-            headers,
-        )
-
-    # ------------------------------------------------------------------
-    # LEGACY FALLBACK
-    # ------------------------------------------------------------------
-
-    base_url = LEGACY_BASE_URL
-
-    headers = dict(
-        HEADERS
-    )
-
-    params = {
-        "model": model,
-        "width": width,
-        "height": height,
-        "seed": seed,
-        "nologo": "true",
-    }
-
-    return (
-        base_url,
-        params,
-        headers,
-    )
-
-
-# ==========================================================================
-# IMAGE GENERATION
-# ==========================================================================
-
-def generate_image(
-    prompt,
-    width,
-    height,
-    seed,
-    model=DEFAULT_MODEL,
-):
-    """
-    Generate one image from Pollinations.
-
-    Returns:
-        bytes
-    """
-
-    base_url, params, headers = _build_request(
-        prompt,
-        model,
-        width,
-        height,
-        seed,
-    )
-
-    encoded_prompt = urllib.parse.quote(
-        prompt,
-        safe="",
-    )
-
-    url = (
-        base_url
-        + encoded_prompt
-    )
-
-    print("=" * 80)
-    print("IMAGE MODEL")
-    print(model)
-    print("=" * 80)
-
-    print("IMAGE SIZE")
-    print(
-        f"{width}x{height}"
-    )
-
-    print("=" * 80)
-
-    for attempt in range(
-        1,
-        MAX_RETRIES + 1,
-    ):
-
-        try:
-
-            print(
-                f"🎨 Image generation attempt "
-                f"{attempt}/{MAX_RETRIES}"
-            )
-
-            response = requests.get(
-                url,
-                params=params,
-                headers=headers,
-                timeout=REQUEST_TIMEOUT_SECONDS,
-            )
-
-            print(
-                "STATUS:",
-                response.status_code,
-            )
-
-            if response.status_code != 200:
-
-                print(
-                    response.text[:1000]
-                )
-
-            response.raise_for_status()
-
-            content_type = (
-                response.headers.get(
-                    "Content-Type",
-                    "",
-                )
-                .lower()
-            )
-
-            if not response.content:
-
-                raise RuntimeError(
-                    "Pollinations returned an empty response."
-                )
-
-            # Some services can return an error page with HTTP 200.
-            if (
-                "image" not in content_type
-                and not response.content.startswith(
-                    b"\x89PNG"
-                )
-                and not response.content.startswith(
-                    b"\xff\xd8"
-                )
-            ):
-
-                preview = response.text[:500]
-
-                raise RuntimeError(
-                    "Pollinations did not return an image. "
-                    f"Content-Type={content_type}; "
-                    f"Response={preview}"
-                )
-
-            print(
-                "✅ Image generated successfully."
-            )
-
-            return response.content
-
-        except Exception as e:
-
-            print(
-                f"❌ Image attempt {attempt} failed:"
-            )
-
-            print(
-                f"{type(e).__name__}: {e}"
-            )
-
-            if attempt < MAX_RETRIES:
-
-                print(
-                    f"Waiting {RETRY_DELAY_SECONDS}s..."
-                )
-
-                time.sleep(
-                    RETRY_DELAY_SECONDS
-                )
-
-    raise RuntimeError(
-        "Pollinations failed to generate the image "
-        f"after {MAX_RETRIES} attempts."
-    )
-
-
-# ==========================================================================
-# SAVE PROMPT
-# ==========================================================================
-
-def _save_prompt(
-    path,
-    prompt,
-    metadata,
-):
-    """
-    Save the exact prompt used for the image.
-
-    This is extremely useful when comparing image quality.
-    """
-
-    prompt_path = (
-        os.path.splitext(
-            path
-        )[0]
-        + "_prompt.txt"
-    )
-
-    with open(
-        prompt_path,
-        "w",
-        encoding="utf-8",
-    ) as f:
-
-        f.write(
-            prompt
-        )
-
-        f.write(
-            "\n\n"
-            + "=" * 80
-            + "\nMETADATA\n"
-            + "=" * 80
-            + "\n"
-        )
-
-        json.dump(
-            metadata,
-            f,
-            indent=2,
-            ensure_ascii=False,
-        )
-
-    return prompt_path
-
-
-# ==========================================================================
-# PRIMARY VISUAL SELECTION
-# ==========================================================================
-
-def _select_primary_visual(
-    scene,
-):
-    """
-    A scene can contain 1-2 visual segments.
-
-    Existing assembly expects one image per scene, so we select the
-    strongest visual concept as the primary image.
-
-    Priority:
-        1. visual_impact
-        2. hero scene preference
-        3. first visual
-    """
-
-    visuals = scene.get(
-        "visuals",
-        [],
-    )
-
-    if not visuals:
-
-        return None
-
-    def score(visual):
-
-        try:
-
-            impact = float(
-                visual.get(
-                    "visual_impact",
-                    0,
-                )
-            )
-
-        except Exception:
-
-            impact = 0
-
-        score_value = impact * 10
-
-        if (
-            visual.get(
-                "needs_regeneration",
-                False,
-            )
-        ):
-
-            score_value -= 5
-
-        return score_value
-
-    return max(
-        visuals,
-        key=score,
-    )
-
-
-# ==========================================================================
-# GENERATE ALL SCENE IMAGES
-# ==========================================================================
-
-def generate_images(
-    script,
-    workdir,
-    config,
-):
-    """
-    Generate one primary AI image for every scene.
-
-    IMPORTANT:
-        This preserves the existing return format:
-
-            [
-                "scene_01.png",
-                "scene_02.png",
-                ...
-            ]
-
-    Therefore existing main.py and assemble.py should continue
-    working without modification.
-    """
-
-    os.makedirs(
-        workdir,
-        exist_ok=True,
-    )
-
-    width, height = _get_dimensions(
-        config
-    )
-
-    model = _get_model(
-        config
-    )
+    image_paths = []
 
     scenes = script.get(
         "scene_plan",
@@ -1171,277 +698,192 @@ def generate_images(
             "Script contains no scene_plan."
         )
 
-    # ------------------------------------------------------------------
-    # VIDEO SEED
-    # ------------------------------------------------------------------
-
-    image_generation = script.get(
-        "image_generation",
-        {},
-    )
-
-    configured_seed = image_generation.get(
-        "seed"
-    )
-
-    try:
-
-        base_seed = int(
-            configured_seed
-        )
-
-    except Exception:
-
-        base_seed = random.randint(
-            1,
-            2_147_483_647,
-        )
-
     print("=" * 80)
-    print("🎨 CINEMATIC AI VISUAL GENERATION")
+    print("🎨 GENERATING AI VISUALS")
     print("=" * 80)
-
-    print(
-        f"Model: {model}"
-    )
-
-    print(
-        f"Resolution: {width}x{height}"
-    )
-
-    print(
-        f"Base seed: {base_seed}"
-    )
-
     print(
         f"Scenes: {len(scenes)}"
     )
-
+    print(
+        f"Resolution: {width}x{height}"
+    )
+    print(
+        f"Base seed: {base_seed}"
+    )
     print("=" * 80)
 
-    image_paths = []
-
-    # ------------------------------------------------------------------
-    # GENERATE EACH SCENE
-    # ------------------------------------------------------------------
+    # ----------------------------------------------------------------------
+    # EVERY SCENE
+    # ----------------------------------------------------------------------
 
     for scene_index, scene in enumerate(
         scenes,
         start=1,
     ):
 
-        visual = _select_primary_visual(
-            scene
+        visuals = scene.get(
+            "visuals",
+            [],
         )
 
-        if visual is None:
+        if not visuals:
 
             raise RuntimeError(
-                f"Scene {scene_index} contains no visuals."
+                f"Scene {scene_index} has no visuals."
             )
 
-        # --------------------------------------------------------------
-        # STABLE SCENE SEED
-        # --------------------------------------------------------------
-
-        scene_seed = (
-            base_seed
-            + (scene_index * 1009)
-        )
-
-        # --------------------------------------------------------------
-        # BUILD PROMPT
-        # --------------------------------------------------------------
-
-        prompt = _build_visual_prompt(
-            script=script,
-            scene=scene,
-            visual=visual,
-            scene_index=scene_index,
-        )
+        scene_paths = []
 
         print("=" * 80)
         print(
             f"SCENE {scene_index}/{len(scenes)}"
         )
+        print(
+            f"Visuals: {len(visuals)}"
+        )
         print("=" * 80)
 
-        print(
-            "Visual segment:",
-            visual.get(
-                "segment"
-            ),
-        )
+        # ------------------------------------------------------------------
+        # EVERY SHOT
+        # ------------------------------------------------------------------
 
-        print(
-            "Visual style:",
-            visual.get(
-                "image_style"
-            ),
-        )
+        for visual_index, visual in enumerate(
+            visuals,
+            start=1,
+        ):
 
-        print(
-            "Camera:",
-            visual.get(
-                "camera"
-            ),
-        )
-
-        print(
-            "Visual impact:",
-            visual.get(
-                "visual_impact"
-            ),
-        )
-
-        print(
-            "Seed:",
-            scene_seed,
-        )
-
-        print("=" * 80)
-        print("FINAL IMAGE PROMPT")
-        print("=" * 80)
-        print(prompt)
-        print("=" * 80)
-
-        # --------------------------------------------------------------
-        # OUTPUT
-        # --------------------------------------------------------------
-
-        filename = os.path.join(
-            workdir,
-            f"scene_{scene_index:02d}.png",
-        )
-
-        # --------------------------------------------------------------
-        # GENERATE
-        # --------------------------------------------------------------
-
-        image = generate_image(
-            prompt=prompt,
-            width=width,
-            height=height,
-            seed=scene_seed,
-            model=model,
-        )
-
-        # --------------------------------------------------------------
-        # SAVE IMAGE
-        # --------------------------------------------------------------
-
-        with open(
-            filename,
-            "wb",
-        ) as f:
-
-            f.write(
-                image
+            prompt = build_prompt(
+                scene,
+                visual,
+                script,
             )
 
-        # --------------------------------------------------------------
-        # SAVE DEBUG PROMPT
-        # --------------------------------------------------------------
+            # Deterministic but different seed for every shot.
+            shot_seed = (
+                base_seed
+                + (
+                    scene_index * 100
+                )
+                + visual_index
+            )
 
-        metadata = {
+            print(
+                f"SHOT {visual_index}/{len(visuals)}"
+            )
 
-            "scene": scene_index,
+            print(
+                f"Seed: {shot_seed}"
+            )
 
-            "model": model,
+            print(
+                "Prompt:"
+            )
 
-            "width": width,
+            print(
+                prompt
+            )
 
-            "height": height,
+            print("=" * 80)
 
-            "seed": scene_seed,
+            image = generate_image(
+                prompt,
+                width,
+                height,
+                shot_seed,
+            )
 
-            "purpose": scene.get(
-                "purpose"
-            ),
+            filename = os.path.join(
+                workdir,
+                (
+                    f"scene_{scene_index:02d}"
+                    f"_shot_{visual_index:02d}.png"
+                ),
+            )
 
-            "emotional_tone": scene.get(
-                "emotional_tone"
-            ),
+            _save_image(
+                image,
+                filename,
+            )
 
-            "visual_segment": visual.get(
-                "segment"
-            ),
+            print(
+                f"✅ Saved -> {filename}"
+            )
 
-            "image_style": visual.get(
-                "image_style"
-            ),
+            scene_paths.append(
+                filename
+            )
 
-            "camera": visual.get(
-                "camera"
-            ),
-
-            "animation": visual.get(
-                "animation"
-            ),
-
-            "motion_intensity": visual.get(
-                "motion_intensity"
-            ),
-
-            "visual_complexity": visual.get(
-                "visual_complexity"
-            ),
-
-            "visual_impact": visual.get(
-                "visual_impact"
-            ),
-        }
-
-        prompt_path = _save_prompt(
-            filename,
-            prompt,
-            metadata,
-        )
-
-        print(
-            f"✅ Saved image -> {filename}"
-        )
-
-        print(
-            f"📝 Saved prompt -> {prompt_path}"
-        )
-
-        image_paths.append(
-            filename
-        )
-
-        # Small delay to avoid hammering the endpoint.
-        if scene_index < len(scenes):
-
+            # Small delay to reduce request bursts.
             time.sleep(
                 2
             )
 
-    print("=" * 80)
-    print("✅ ALL CINEMATIC VISUALS GENERATED")
-    print("=" * 80)
-
-    for path in image_paths:
-
-        print(
-            path
+        image_paths.append(
+            scene_paths
         )
 
+    # ----------------------------------------------------------------------
+    # SUMMARY
+    # ----------------------------------------------------------------------
+
+    total_images = sum(
+        len(scene)
+        for scene in image_paths
+    )
+
+    print("=" * 80)
+    print("✅ VISUAL GENERATION COMPLETE")
+    print("=" * 80)
+    print(
+        f"Scenes: {len(image_paths)}"
+    )
+    print(
+        f"Images generated: {total_images}"
+    )
     print("=" * 80)
 
     return image_paths
 
 
 # ==========================================================================
-# MANUAL TEST
+# OPTIONAL SINGLE-IMAGE HELPER
 # ==========================================================================
 
-if __name__ == "__main__":
+def generate_single_image(
+    prompt,
+    workdir,
+    filename="generated.png",
+    width=DEFAULT_WIDTH,
+    height=DEFAULT_HEIGHT,
+    seed=None,
+):
 
-    print(
-        "generate_images.py is designed to be called by main.py."
+    os.makedirs(
+        workdir,
+        exist_ok=True,
     )
 
-    print(
-        "Use main.py or import generate_images()."
+    if seed is None:
+
+        seed = int(
+            time.time()
+        )
+
+    image = generate_image(
+        prompt,
+        width,
+        height,
+        seed,
     )
+
+    path = os.path.join(
+        workdir,
+        filename,
+    )
+
+    _save_image(
+        image,
+        path,
+    )
+
+    return path

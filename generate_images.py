@@ -2,22 +2,31 @@
 generate_images.py
 
 AI Visual Generation for Mint-YT-Factory
-Version 6.0
+Version 7.0
 
 Purpose:
-Generate high-quality AI visuals from the storyboard produced by
-generate_script.py.
+Generate AI visuals from the storyboard produced by generate_script.py.
 
-Major improvements:
-- Generates every visual segment from scene["visuals"]
-- Uses detailed scene-level image prompts
-- Preserves visual identity across the entire Short
-- Uses controlled seed variation
-- Better prompt construction
-- No arbitrary 700-character prompt truncation
+Architecture:
+
+generate_script.py
+        ↓
+Short, specific image_prompt
+        ↓
+Pollinations AI
+        ↓
+PNG image
+        ↓
+assemble.py
+
+Important:
+- Gemini controls the visual description.
+- Pollinations receives the image_prompt directly.
+- No additional creative/technical prompt instructions are added here.
+- Generates every visual from scene["visuals"]
+- Supports exactly 21 images per Short
+- Controlled seed variation
 - Automatic retries
-- AI artifact prevention
-- Stronger cinematic composition
 - Compatible with the existing main.py pipeline
 """
 
@@ -46,154 +55,13 @@ DEFAULT_HEIGHT = 1365
 
 
 # ==========================================================================
-# GLOBAL VISUAL STYLE
-# ==========================================================================
-
-GLOBAL_STYLE = """
-Premium cinematic educational documentary visualization.
-
-Highly realistic.
-Scientifically grounded.
-Professional documentary production quality.
-
-Natural physical proportions.
-Realistic materials.
-Realistic textures.
-Realistic depth.
-Realistic lighting.
-
-Strong subject separation.
-Clear visual hierarchy.
-One dominant subject.
-One clear visual idea.
-
-Cinematic composition.
-Natural depth of field.
-Subtle atmospheric depth.
-Sharp primary subject.
-Controlled background detail.
-
-Designed specifically for vertical 9:16 YouTube Shorts.
-
-No text.
-No typography.
-No captions.
-No labels.
-No diagrams containing words.
-No logos.
-No watermark.
-
-Avoid generic AI-art appearance.
-Avoid fantasy aesthetics.
-Avoid cartoon aesthetics.
-Avoid excessive neon.
-Avoid excessive glowing objects.
-Avoid unnecessary particles.
-Avoid duplicated objects.
-Avoid extra limbs.
-Avoid distorted anatomy.
-Avoid malformed hands.
-Avoid floating objects.
-Avoid impossible geometry.
-Avoid clutter.
-"""
-
-
-# ==========================================================================
-# VISUAL STYLE MAPPING
-# ==========================================================================
-
-IMAGE_STYLE_MAP = {
-
-    "realistic_3d_render":
-        """
-        Photorealistic cinematic 3D scientific reconstruction.
-        Physically realistic surfaces and materials.
-        High-end documentary visualization.
-        """,
-
-    "scientific_illustration":
-        """
-        Premium scientific visualization.
-        Anatomically and physically accurate.
-        Clean realistic scientific artwork.
-        """,
-
-    "cinematic_photograph":
-        """
-        Cinematic documentary photograph.
-        Natural photographic lighting.
-        Realistic lens characteristics.
-        Authentic environmental detail.
-        """,
-
-    "macro_photography":
-        """
-        Extreme macro documentary photography.
-        Highly detailed microscopic surface texture.
-        Shallow realistic depth of field.
-        """,
-
-    "infographic_diagram":
-        """
-        Clean scientific visualization.
-        Minimal diagrammatic composition.
-        No written labels or text.
-        Physically accurate visual relationships.
-        """,
-}
-
-
-# ==========================================================================
-# CAMERA MAPPING
-# ==========================================================================
-
-CAMERA_MAP = {
-
-    "close_up":
-        "tight close-up framing with the subject filling most of the frame",
-
-    "medium":
-        "medium cinematic framing showing the subject and immediate environment",
-
-    "wide":
-        "wide cinematic composition showing the subject within its environment",
-
-    "macro":
-        "extreme macro framing showing fine physical detail",
-
-    "top_down":
-        "precise top-down cinematic composition",
-
-    "side":
-        "cinematic side-view composition",
-
-    "aerial":
-        "high aerial documentary perspective",
-
-    "orbit":
-        "cinematic three-quarter orbital perspective",
-}
-
-
-# ==========================================================================
-# LIGHTING MAPPING
-# ==========================================================================
-
-DEFAULT_LIGHTING = (
-    "soft cinematic key light, realistic natural fill light, "
-    "subtle rim lighting, physically plausible shadows, "
-    "high dynamic range"
-)
-
-
-# ==========================================================================
 # PROMPT CLEANING
 # ==========================================================================
 
 def _clean_prompt(text):
     """
-    Remove accidental formatting while preserving useful detail.
+    Clean accidental formatting without changing the actual
+    visual meaning generated by Gemini.
     """
 
     if not text:
@@ -219,7 +87,7 @@ def _clean_prompt(text):
 
 
 # ==========================================================================
-# BUILD VISUAL PROMPT
+# BUILD PROMPT
 # ==========================================================================
 
 def build_prompt(
@@ -228,222 +96,34 @@ def build_prompt(
     script=None,
 ):
     """
-    Build a strong production prompt from the storyboard.
+    Use Gemini's image_prompt directly.
 
-    Priority:
-        visual.image_prompt
-        visual technical information
-        scene context
-        global style
+    No additional:
+    - style instructions
+    - camera instructions
+    - lighting instructions
+    - color instructions
+    - scene-purpose instructions
+    - visual-identity instructions
+    - technical instructions
+
+    Gemini is responsible for the complete visual description.
     """
 
-    parts = []
-
-    # ----------------------------------------------------------------------
-    # PRIMARY IMAGE DESCRIPTION
-    # ----------------------------------------------------------------------
-
-    image_prompt = _clean_prompt(
+    prompt = _clean_prompt(
         visual.get(
             "image_prompt",
             "",
         )
     )
 
-    if image_prompt:
+    if not prompt:
 
-        parts.append(
-            image_prompt
+        raise RuntimeError(
+            "Visual contains an empty image_prompt."
         )
 
-    # ----------------------------------------------------------------------
-    # VISUAL STYLE
-    # ----------------------------------------------------------------------
-
-    image_style = visual.get(
-        "image_style",
-        "realistic_3d_render",
-    )
-
-    style_description = IMAGE_STYLE_MAP.get(
-        image_style,
-        IMAGE_STYLE_MAP[
-            "realistic_3d_render"
-        ],
-    )
-
-    parts.append(
-        style_description
-    )
-
-    # ----------------------------------------------------------------------
-    # CAMERA
-    # ----------------------------------------------------------------------
-
-    camera = visual.get(
-        "camera",
-        "medium",
-    )
-
-    parts.append(
-        CAMERA_MAP.get(
-            camera,
-            CAMERA_MAP["medium"],
-        )
-    )
-
-    # ----------------------------------------------------------------------
-    # LIGHTING
-    # ----------------------------------------------------------------------
-
-    lighting = _clean_prompt(
-        visual.get(
-            "lighting",
-            DEFAULT_LIGHTING,
-        )
-    )
-
-    if lighting:
-
-        parts.append(
-            f"Lighting: {lighting}."
-        )
-
-    # ----------------------------------------------------------------------
-    # COLOR
-    # ----------------------------------------------------------------------
-
-    palette = _clean_prompt(
-        visual.get(
-            "color_palette",
-            "",
-        )
-    )
-
-    if palette:
-
-        parts.append(
-            f"Color palette: {palette}."
-        )
-
-    # ----------------------------------------------------------------------
-    # VISUAL IDENTITY
-    # ----------------------------------------------------------------------
-
-    if script:
-
-        identity = script.get(
-            "visual_identity",
-            {},
-        )
-
-        if isinstance(
-            identity,
-            dict,
-        ):
-
-            style = _clean_prompt(
-                identity.get(
-                    "style",
-                    "",
-                )
-            )
-
-            mood_arc = _clean_prompt(
-                identity.get(
-                    "mood_arc",
-                    "",
-                )
-            )
-
-            if style:
-
-                parts.append(
-                    f"Overall visual identity: {style}."
-                )
-
-            if mood_arc:
-
-                parts.append(
-                    f"Production mood: {mood_arc}."
-                )
-
-    # ----------------------------------------------------------------------
-    # SCENE PURPOSE
-    # ----------------------------------------------------------------------
-
-    purpose = scene.get(
-        "purpose",
-        "",
-    )
-
-    if purpose:
-
-        parts.append(
-            f"Scene purpose: {purpose}."
-        )
-
-    # ----------------------------------------------------------------------
-    # EMOTIONAL TONE
-    # ----------------------------------------------------------------------
-
-    emotional_tone = scene.get(
-        "emotional_tone",
-        "",
-    )
-
-    if emotional_tone:
-
-        parts.append(
-            f"Emotional tone: {emotional_tone}."
-        )
-
-    # ----------------------------------------------------------------------
-    # VISUAL ROLE
-    # ----------------------------------------------------------------------
-
-    priority = scene.get(
-        "visual_priority",
-        "supporting",
-    )
-
-    parts.append(
-        f"Visual priority: {priority}."
-    )
-
-    # ----------------------------------------------------------------------
-    # COMPOSITION
-    # ----------------------------------------------------------------------
-
-    parts.append(
-        """
-The main subject must be immediately recognizable within one second.
-
-Place the main subject in a strong cinematic composition.
-
-Use realistic scale and perspective.
-
-Keep the background visually supportive rather than competing
-with the main subject.
-
-Create clear foreground, subject, and background separation.
-
-The image should look like a frame from an expensive science
-documentary rather than generic AI artwork.
-"""
-    )
-
-    # ----------------------------------------------------------------------
-    # GLOBAL STYLE
-    # ----------------------------------------------------------------------
-
-    parts.append(
-        GLOBAL_STYLE
-    )
-
-    return "\n\n".join(
-        parts
-    )
+    return prompt
 
 
 # ==========================================================================
@@ -487,11 +167,20 @@ def generate_image(
 ):
     """
     Generate one image through Pollinations.
+
+    The prompt is sent directly without adding
+    creative or technical instructions.
     """
 
     full_prompt = _clean_prompt(
         prompt
     )
+
+    if not full_prompt:
+
+        raise RuntimeError(
+            "Cannot generate image with an empty prompt."
+        )
 
     encoded_prompt = urllib.parse.quote(
         full_prompt,
@@ -512,15 +201,23 @@ def generate_image(
     print("=" * 80)
     print("IMAGE GENERATION REQUEST")
     print("=" * 80)
+
     print(
         f"Seed: {seed}"
     )
+
     print(
         f"Size: {width}x{height}"
     )
+
     print(
         f"Prompt length: {len(full_prompt)}"
     )
+
+    print(
+        f"Prompt: {full_prompt}"
+    )
+
     print("=" * 80)
 
     last_error = None
@@ -595,6 +292,11 @@ def generate_image(
             )
 
             if attempt < MAX_RETRIES:
+
+                print(
+                    f"⏳ Retrying in "
+                    f"{RETRY_DELAY} seconds..."
+                )
 
                 time.sleep(
                     RETRY_DELAY
@@ -701,15 +403,23 @@ def generate_images(
     print("=" * 80)
     print("🎨 GENERATING AI VISUALS")
     print("=" * 80)
+
     print(
         f"Scenes: {len(scenes)}"
     )
+
     print(
         f"Resolution: {width}x{height}"
     )
+
     print(
         f"Base seed: {base_seed}"
     )
+
+    print(
+        "Prompt mode: DIRECT GEMINI IMAGE PROMPTS"
+    )
+
     print("=" * 80)
 
     # ----------------------------------------------------------------------
@@ -735,12 +445,15 @@ def generate_images(
         scene_paths = []
 
         print("=" * 80)
+
         print(
             f"SCENE {scene_index}/{len(scenes)}"
         )
+
         print(
             f"Visuals: {len(visuals)}"
         )
+
         print("=" * 80)
 
         # ------------------------------------------------------------------
@@ -776,11 +489,7 @@ def generate_images(
             )
 
             print(
-                "Prompt:"
-            )
-
-            print(
-                prompt
+                f"Prompt: {prompt}"
             )
 
             print("=" * 80)
@@ -834,12 +543,15 @@ def generate_images(
     print("=" * 80)
     print("✅ VISUAL GENERATION COMPLETE")
     print("=" * 80)
+
     print(
         f"Scenes: {len(image_paths)}"
     )
+
     print(
         f"Images generated: {total_images}"
     )
+
     print("=" * 80)
 
     return image_paths

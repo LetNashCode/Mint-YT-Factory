@@ -2,7 +2,7 @@
 generate_images.py
 
 Mint-YT-Factory
-Puter AI Image Generation
+Pollinations AI Image Generation
 
 Purpose:
 Generate AI visuals from the storyboard produced by generate_script.py.
@@ -13,22 +13,20 @@ generate_script.py
         ↓
 generate_images.py
         ↓
-generate_images_puter.js
-        ↓
-Puter AI
+Pollinations AI
         ↓
 PNG images
         ↓
 assemble.py
 
-Puter handles the actual image generation.
+Pollinations handles the actual image generation.
 This file handles storyboard parsing, prompts, seeds,
 file naming, retries and pipeline integration.
 """
 
 import os
-import subprocess
 import time
+import requests
 
 
 # ==========================================================================
@@ -39,15 +37,22 @@ DEFAULT_WIDTH = 768
 DEFAULT_HEIGHT = 1365
 
 MAX_RETRIES = 3
-
 RETRY_DELAY = 5
 
-PUTER_SCRIPT = os.path.join(
-    os.path.dirname(
-        os.path.abspath(__file__)
-    ),
-    "generate_images_puter.js",
+POLLINATIONS_API_URL = (
+    "https://gen.pollinations.ai/image/"
 )
+
+POLLINATIONS_MODEL = os.getenv(
+    "POLLINATIONS_IMAGE_MODEL",
+    "flux"
+)
+
+POLLINATIONS_API_KEY = os.getenv(
+    "POLLINATIONS_API_KEY"
+)
+
+REQUEST_TIMEOUT = 180
 
 
 # ==========================================================================
@@ -462,7 +467,51 @@ def _get_base_seed(script):
 
 
 # ==========================================================================
-# PUTER IMAGE GENERATION
+# POLLINATIONS ERROR HANDLING
+# ==========================================================================
+
+def _get_error_message(response):
+
+    try:
+
+        data = response.json()
+
+        if isinstance(data, dict):
+
+            for key in (
+                "error",
+                "message",
+                "detail"
+            ):
+
+                if data.get(key):
+
+                    return str(
+                        data[key]
+                    )
+
+    except Exception:
+
+        pass
+
+    try:
+
+        text = response.text.strip()
+
+        if text:
+            return text[:1000]
+
+    except Exception:
+
+        pass
+
+    return (
+        f"HTTP {response.status_code}"
+    )
+
+
+# ==========================================================================
+# POLLINATIONS IMAGE GENERATION
 # ==========================================================================
 
 def generate_image(
@@ -473,11 +522,19 @@ def generate_image(
 
     print("")
     print("=" * 80)
-    print("🎨 PUTER IMAGE GENERATION")
+    print("🎨 POLLINATIONS AI IMAGE GENERATION")
     print("=" * 80)
 
     print(
+        f"Model: {POLLINATIONS_MODEL}"
+    )
+
+    print(
         f"Seed: {seed}"
+    )
+
+    print(
+        f"Resolution: {DEFAULT_WIDTH}x{DEFAULT_HEIGHT}"
     )
 
     print(
@@ -490,7 +547,58 @@ def generate_image(
 
     print("=" * 80)
 
+    if not POLLINATIONS_API_KEY:
+
+        raise RuntimeError(
+            "POLLINATIONS_API_KEY environment variable "
+            "is not configured."
+        )
+
+    os.makedirs(
+        os.path.dirname(
+            output_path
+        ),
+        exist_ok=True
+    )
+
     last_error = None
+
+    encoded_prompt = requests.utils.quote(
+        prompt,
+        safe=""
+    )
+
+    url = (
+        f"{POLLINATIONS_API_URL}"
+        f"{encoded_prompt}"
+    )
+
+    params = {
+
+        "model":
+            POLLINATIONS_MODEL,
+
+        "width":
+            DEFAULT_WIDTH,
+
+        "height":
+            DEFAULT_HEIGHT,
+
+        "seed":
+            seed,
+
+        "n":
+            1,
+    }
+
+    headers = {
+
+        "Authorization":
+            f"Bearer {POLLINATIONS_API_KEY}",
+
+        "Accept":
+            "image/png,image/jpeg,image/*",
+    }
 
     for attempt in range(
         1,
@@ -501,46 +609,78 @@ def generate_image(
             f"🎨 Attempt {attempt}/{MAX_RETRIES}"
         )
 
-        env = os.environ.copy()
-
-        env[
-            "PUTER_IMAGE_PROMPT"
-        ] = prompt
-
-        env[
-            "PUTER_OUTPUT_PATH"
-        ] = output_path
-
-        env[
-            "PUTER_IMAGE_SEED"
-        ] = str(seed)
-
         try:
 
-            result = subprocess.run(
-                [
-                    "node",
-                    PUTER_SCRIPT
-                ],
-                env=env,
-                text=True,
-                check=False
+            response = requests.get(
+                url,
+                params=params,
+                headers=headers,
+                timeout=REQUEST_TIMEOUT
             )
 
-            if result.returncode != 0:
+            # --------------------------------------------------------------
+            # HTTP ERROR
+            # --------------------------------------------------------------
+
+            if response.status_code != 200:
+
+                error_message = (
+                    _get_error_message(
+                        response
+                    )
+                )
 
                 raise RuntimeError(
-                    "Puter generator exited with "
-                    f"code {result.returncode}"
+                    "Pollinations API error "
+                    f"{response.status_code}: "
+                    f"{error_message}"
                 )
+
+            # --------------------------------------------------------------
+            # VALIDATE CONTENT
+            # --------------------------------------------------------------
+
+            content_type = (
+                response.headers.get(
+                    "content-type",
+                    ""
+                ).lower()
+            )
+
+            if (
+                "image" not in content_type
+                and len(response.content) < 1000
+            ):
+
+                raise RuntimeError(
+                    "Pollinations returned an "
+                    "invalid image response."
+                )
+
+            # --------------------------------------------------------------
+            # WRITE FILE
+            # --------------------------------------------------------------
+
+            with open(
+                output_path,
+                "wb"
+            ) as file:
+
+                file.write(
+                    response.content
+                )
+
+            # --------------------------------------------------------------
+            # VALIDATE FILE
+            # --------------------------------------------------------------
 
             if not os.path.exists(
                 output_path
             ):
 
                 raise RuntimeError(
-                    "Puter completed but image "
-                    "file was not created."
+                    "Pollinations completed but "
+                    "image file was not created."
                 )
 
             file_size = os.path.getsize(
@@ -549,16 +689,24 @@ def generate_image(
 
             if file_size < 1000:
 
+                try:
+                    os.remove(
+                        output_path
+                    )
+                except Exception:
+                    pass
+
                 raise RuntimeError(
-                    "Generated image file appears invalid."
+                    "Generated image file "
+                    "appears invalid."
                 )
 
             print(
-                f"✅ Image generated successfully."
+                "✅ Pollinations image generated successfully."
             )
 
             print(
-                f"📦 Size: {file_size} bytes"
+                f"📦 Size: {file_size:,} bytes"
             )
 
             return output_path
@@ -587,7 +735,7 @@ def generate_image(
                 )
 
     raise RuntimeError(
-        "Puter image generation failed after "
+        "Pollinations image generation failed after "
         f"{MAX_RETRIES} attempts: {last_error}"
     )
 
@@ -607,15 +755,6 @@ def generate_images(
         exist_ok=True
     )
 
-    if not os.path.exists(
-        PUTER_SCRIPT
-    ):
-
-        raise RuntimeError(
-            "generate_images_puter.js was not found at:\n"
-            f"{PUTER_SCRIPT}"
-        )
-
     scenes = script.get(
         "scene_plan",
         []
@@ -633,7 +772,7 @@ def generate_images(
 
     print("")
     print("=" * 80)
-    print("🎨 GENERATING AI VISUALS WITH PUTER")
+    print("🎨 GENERATING AI VISUALS WITH POLLINATIONS")
     print("=" * 80)
 
     print(
@@ -645,7 +784,11 @@ def generate_images(
     )
 
     print(
-        "Model: gpt-image-2"
+        f"Model: {POLLINATIONS_MODEL}"
+    )
+
+    print(
+        f"Resolution: {DEFAULT_WIDTH}x{DEFAULT_HEIGHT}"
     )
 
     print(
@@ -760,7 +903,7 @@ def generate_images(
 
     print("")
     print("=" * 80)
-    print("✅ PUTER VISUAL GENERATION COMPLETE")
+    print("✅ POLLINATIONS VISUAL GENERATION COMPLETE")
     print("=" * 80)
 
     print(

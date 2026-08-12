@@ -1,31 +1,29 @@
 """
 generate_images.py
 
-Mint-YT-Factory
-Pollinations AI Image Generation
+AI Visual Generation for Mint-YT-Factory
+Version 6.0
 
 Purpose:
-Generate AI visuals from the storyboard produced by generate_script.py.
+Generate high-quality AI visuals from the storyboard produced by
+generate_script.py.
 
-Pipeline:
-
-generate_script.py
-        ↓
-generate_images.py
-        ↓
-Pollinations AI
-        ↓
-PNG images
-        ↓
-assemble.py
-
-Pollinations handles the actual image generation.
-This file handles storyboard parsing, prompts, seeds,
-file naming, retries and pipeline integration.
+Major improvements:
+- Generates every visual segment from scene["visuals"]
+- Uses detailed scene-level image prompts
+- Preserves visual identity across the entire Short
+- Uses controlled seed variation
+- Better prompt construction
+- No arbitrary 700-character prompt truncation
+- Automatic retries
+- AI artifact prevention
+- Stronger cinematic composition
+- Compatible with the existing main.py pipeline
 """
 
 import os
 import time
+import urllib.parse
 import requests
 
 
@@ -33,26 +31,18 @@ import requests
 # CONFIGURATION
 # ==========================================================================
 
-DEFAULT_WIDTH = 768
-DEFAULT_HEIGHT = 1365
+BASE_URL = "https://image.pollinations.ai/prompt/"
 
-MAX_RETRIES = 3
+HEADERS = {
+    "User-Agent": "Mozilla/5.0"
+}
+
+MAX_RETRIES = 5
+
 RETRY_DELAY = 5
 
-POLLINATIONS_API_URL = (
-    "https://gen.pollinations.ai/image/"
-)
-
-POLLINATIONS_MODEL = os.getenv(
-    "POLLINATIONS_IMAGE_MODEL",
-    "flux"
-)
-
-POLLINATIONS_API_KEY = os.getenv(
-    "POLLINATIONS_API_KEY"
-)
-
-REQUEST_TIMEOUT = 180
+DEFAULT_WIDTH = 768
+DEFAULT_HEIGHT = 1365
 
 
 # ==========================================================================
@@ -187,7 +177,7 @@ CAMERA_MAP = {
 
 
 # ==========================================================================
-# DEFAULT LIGHTING
+# LIGHTING MAPPING
 # ==========================================================================
 
 DEFAULT_LIGHTING = (
@@ -198,10 +188,13 @@ DEFAULT_LIGHTING = (
 
 
 # ==========================================================================
-# HELPERS
+# PROMPT CLEANING
 # ==========================================================================
 
 def _clean_prompt(text):
+    """
+    Remove accidental formatting while preserving useful detail.
+    """
 
     if not text:
         return ""
@@ -210,12 +203,12 @@ def _clean_prompt(text):
 
     text = text.replace(
         "\n",
-        " "
+        " ",
     )
 
     text = text.replace(
         "```",
-        ""
+        "",
     )
 
     text = " ".join(
@@ -226,7 +219,7 @@ def _clean_prompt(text):
 
 
 # ==========================================================================
-# BUILD PROMPT
+# BUILD VISUAL PROMPT
 # ==========================================================================
 
 def build_prompt(
@@ -234,21 +227,31 @@ def build_prompt(
     visual,
     script=None,
 ):
+    """
+    Build a strong production prompt from the storyboard.
+
+    Priority:
+        visual.image_prompt
+        visual technical information
+        scene context
+        global style
+    """
 
     parts = []
 
     # ----------------------------------------------------------------------
-    # IMAGE DESCRIPTION
+    # PRIMARY IMAGE DESCRIPTION
     # ----------------------------------------------------------------------
 
     image_prompt = _clean_prompt(
         visual.get(
             "image_prompt",
-            ""
+            "",
         )
     )
 
     if image_prompt:
+
         parts.append(
             image_prompt
         )
@@ -259,16 +262,18 @@ def build_prompt(
 
     image_style = visual.get(
         "image_style",
-        "realistic_3d_render"
+        "realistic_3d_render",
+    )
+
+    style_description = IMAGE_STYLE_MAP.get(
+        image_style,
+        IMAGE_STYLE_MAP[
+            "realistic_3d_render"
+        ],
     )
 
     parts.append(
-        IMAGE_STYLE_MAP.get(
-            image_style,
-            IMAGE_STYLE_MAP[
-                "realistic_3d_render"
-            ]
-        )
+        style_description
     )
 
     # ----------------------------------------------------------------------
@@ -277,13 +282,13 @@ def build_prompt(
 
     camera = visual.get(
         "camera",
-        "medium"
+        "medium",
     )
 
     parts.append(
         CAMERA_MAP.get(
             camera,
-            CAMERA_MAP["medium"]
+            CAMERA_MAP["medium"],
         )
     )
 
@@ -294,11 +299,12 @@ def build_prompt(
     lighting = _clean_prompt(
         visual.get(
             "lighting",
-            DEFAULT_LIGHTING
+            DEFAULT_LIGHTING,
         )
     )
 
     if lighting:
+
         parts.append(
             f"Lighting: {lighting}."
         )
@@ -310,11 +316,12 @@ def build_prompt(
     palette = _clean_prompt(
         visual.get(
             "color_palette",
-            ""
+            "",
         )
     )
 
     if palette:
+
         parts.append(
             f"Color palette: {palette}."
         )
@@ -327,34 +334,36 @@ def build_prompt(
 
         identity = script.get(
             "visual_identity",
-            {}
+            {},
         )
 
         if isinstance(
             identity,
-            dict
+            dict,
         ):
 
             style = _clean_prompt(
                 identity.get(
                     "style",
-                    ""
+                    "",
                 )
             )
 
             mood_arc = _clean_prompt(
                 identity.get(
                     "mood_arc",
-                    ""
+                    "",
                 )
             )
 
             if style:
+
                 parts.append(
                     f"Overall visual identity: {style}."
                 )
 
             if mood_arc:
+
                 parts.append(
                     f"Production mood: {mood_arc}."
                 )
@@ -363,14 +372,13 @@ def build_prompt(
     # SCENE PURPOSE
     # ----------------------------------------------------------------------
 
-    purpose = _clean_prompt(
-        scene.get(
-            "purpose",
-            ""
-        )
+    purpose = scene.get(
+        "purpose",
+        "",
     )
 
     if purpose:
+
         parts.append(
             f"Scene purpose: {purpose}."
         )
@@ -379,25 +387,24 @@ def build_prompt(
     # EMOTIONAL TONE
     # ----------------------------------------------------------------------
 
-    emotional_tone = _clean_prompt(
-        scene.get(
-            "emotional_tone",
-            ""
-        )
+    emotional_tone = scene.get(
+        "emotional_tone",
+        "",
     )
 
     if emotional_tone:
+
         parts.append(
             f"Emotional tone: {emotional_tone}."
         )
 
     # ----------------------------------------------------------------------
-    # VISUAL PRIORITY
+    # VISUAL ROLE
     # ----------------------------------------------------------------------
 
     priority = scene.get(
         "visual_priority",
-        "supporting"
+        "supporting",
     )
 
     parts.append(
@@ -450,10 +457,12 @@ def _get_base_seed(script):
         seed = int(
             script.get(
                 "image_generation",
-                {}
+                {},
             ).get(
                 "seed",
-                int(time.time())
+                int(
+                    time.time()
+                ),
             )
         )
 
@@ -467,256 +476,118 @@ def _get_base_seed(script):
 
 
 # ==========================================================================
-# POLLINATIONS ERROR HANDLING
-# ==========================================================================
-
-def _get_error_message(response):
-
-    try:
-
-        data = response.json()
-
-        if isinstance(data, dict):
-
-            for key in (
-                "error",
-                "message",
-                "detail"
-            ):
-
-                if data.get(key):
-
-                    return str(
-                        data[key]
-                    )
-
-    except Exception:
-
-        pass
-
-    try:
-
-        text = response.text.strip()
-
-        if text:
-            return text[:1000]
-
-    except Exception:
-
-        pass
-
-    return (
-        f"HTTP {response.status_code}"
-    )
-
-
-# ==========================================================================
-# POLLINATIONS IMAGE GENERATION
+# IMAGE REQUEST
 # ==========================================================================
 
 def generate_image(
     prompt,
-    output_path,
+    width,
+    height,
     seed,
 ):
+    """
+    Generate one image through Pollinations.
+    """
 
-    print("")
-    print("=" * 80)
-    print("🎨 POLLINATIONS AI IMAGE GENERATION")
-    print("=" * 80)
-
-    print(
-        f"Model: {POLLINATIONS_MODEL}"
+    full_prompt = _clean_prompt(
+        prompt
     )
 
-    print(
-        f"Seed: {seed}"
-    )
-
-    print(
-        f"Resolution: {DEFAULT_WIDTH}x{DEFAULT_HEIGHT}"
-    )
-
-    print(
-        f"Prompt length: {len(prompt)}"
-    )
-
-    print(
-        f"Output: {output_path}"
-    )
-
-    print("=" * 80)
-
-    if not POLLINATIONS_API_KEY:
-
-        raise RuntimeError(
-            "POLLINATIONS_API_KEY environment variable "
-            "is not configured."
-        )
-
-    os.makedirs(
-        os.path.dirname(
-            output_path
-        ),
-        exist_ok=True
-    )
-
-    last_error = None
-
-    encoded_prompt = requests.utils.quote(
-        prompt,
-        safe=""
+    encoded_prompt = urllib.parse.quote(
+        full_prompt,
+        safe="",
     )
 
     url = (
-        f"{POLLINATIONS_API_URL}"
-        f"{encoded_prompt}"
+        BASE_URL
+        + encoded_prompt
+        + "?model=flux"
+        + f"&width={int(width)}"
+        + f"&height={int(height)}"
+        + f"&seed={int(seed)}"
+        + "&enhance=true"
+        + "&nologo=true"
     )
 
-    params = {
+    print("=" * 80)
+    print("IMAGE GENERATION REQUEST")
+    print("=" * 80)
+    print(
+        f"Seed: {seed}"
+    )
+    print(
+        f"Size: {width}x{height}"
+    )
+    print(
+        f"Prompt length: {len(full_prompt)}"
+    )
+    print("=" * 80)
 
-        "model":
-            POLLINATIONS_MODEL,
-
-        "width":
-            DEFAULT_WIDTH,
-
-        "height":
-            DEFAULT_HEIGHT,
-
-        "seed":
-            seed,
-
-        "n":
-            1,
-    }
-
-    headers = {
-
-        "Authorization":
-            f"Bearer {POLLINATIONS_API_KEY}",
-
-        "Accept":
-            "image/png,image/jpeg,image/*",
-    }
+    last_error = None
 
     for attempt in range(
         1,
-        MAX_RETRIES + 1
+        MAX_RETRIES + 1,
     ):
-
-        print(
-            f"🎨 Attempt {attempt}/{MAX_RETRIES}"
-        )
 
         try:
 
-            response = requests.get(
-                url,
-                params=params,
-                headers=headers,
-                timeout=REQUEST_TIMEOUT
+            print(
+                f"🎨 Image attempt "
+                f"{attempt}/{MAX_RETRIES}"
             )
 
-            # --------------------------------------------------------------
-            # HTTP ERROR
-            # --------------------------------------------------------------
+            response = requests.get(
+                url,
+                headers=HEADERS,
+                timeout=180,
+            )
 
-            if response.status_code != 200:
+            print(
+                f"HTTP status: "
+                f"{response.status_code}"
+            )
 
-                error_message = (
-                    _get_error_message(
-                        response
-                    )
-                )
+            response.raise_for_status()
+
+            content = response.content
+
+            if not content:
 
                 raise RuntimeError(
-                    "Pollinations API error "
-                    f"{response.status_code}: "
-                    f"{error_message}"
+                    "Image response was empty."
                 )
-
-            # --------------------------------------------------------------
-            # VALIDATE CONTENT
-            # --------------------------------------------------------------
 
             content_type = (
                 response.headers.get(
-                    "content-type",
-                    ""
+                    "Content-Type",
+                    "",
                 ).lower()
             )
 
             if (
                 "image" not in content_type
-                and len(response.content) < 1000
+                and len(content) < 10000
             ):
 
                 raise RuntimeError(
-                    "Pollinations returned an "
-                    "invalid image response."
-                )
-
-            # --------------------------------------------------------------
-            # WRITE FILE
-            # --------------------------------------------------------------
-
-            with open(
-                output_path,
-                "wb"
-            ) as file:
-
-                file.write(
-                    response.content
-                )
-
-            # --------------------------------------------------------------
-            # VALIDATE FILE
-            # --------------------------------------------------------------
-
-            if not os.path.exists(
-                output_path
-            ):
-
-                raise RuntimeError(
-                    "Pollinations completed but "
-                    "image file was not created."
-                )
-
-            file_size = os.path.getsize(
-                output_path
-            )
-
-            if file_size < 1000:
-
-                try:
-                    os.remove(
-                        output_path
-                    )
-                except Exception:
-                    pass
-
-                raise RuntimeError(
-                    "Generated image file "
-                    "appears invalid."
+                    "Server returned an unexpected "
+                    "non-image response."
                 )
 
             print(
-                "✅ Pollinations image generated successfully."
+                "✅ Image generated successfully."
             )
 
-            print(
-                f"📦 Size: {file_size:,} bytes"
-            )
-
-            return output_path
+            return content
 
         except Exception as error:
 
             last_error = error
 
             print(
-                f"❌ Attempt {attempt} failed:"
+                f"❌ Image attempt "
+                f"{attempt} failed:"
             )
 
             print(
@@ -725,19 +596,47 @@ def generate_image(
 
             if attempt < MAX_RETRIES:
 
-                print(
-                    f"⏳ Retrying in "
-                    f"{RETRY_DELAY} seconds..."
-                )
-
                 time.sleep(
                     RETRY_DELAY
                 )
 
     raise RuntimeError(
-        "Pollinations image generation failed after "
-        f"{MAX_RETRIES} attempts: {last_error}"
+        "Failed to generate image after "
+        f"{MAX_RETRIES} attempts: "
+        f"{last_error}"
     )
+
+
+# ==========================================================================
+# SAVE IMAGE
+# ==========================================================================
+
+def _save_image(
+    content,
+    path,
+):
+
+    with open(
+        path,
+        "wb",
+    ) as file:
+
+        file.write(
+            content
+        )
+
+    size = os.path.getsize(
+        path
+    )
+
+    if size < 1000:
+
+        raise RuntimeError(
+            f"Generated image appears invalid: "
+            f"{path}"
+        )
+
+    return path
 
 
 # ==========================================================================
@@ -747,17 +646,50 @@ def generate_image(
 def generate_images(
     script,
     workdir,
-    config
+    config,
 ):
 
     os.makedirs(
         workdir,
-        exist_ok=True
+        exist_ok=True,
     )
+
+    image_config = config.get(
+        "image",
+        {},
+    )
+
+    width = int(
+        image_config.get(
+            "width",
+            DEFAULT_WIDTH,
+        )
+    )
+
+    height = int(
+        image_config.get(
+            "height",
+            DEFAULT_HEIGHT,
+        )
+    )
+
+    # Force portrait orientation.
+    if width >= height:
+
+        width, height = (
+            height,
+            width,
+        )
+
+    base_seed = _get_base_seed(
+        script
+    )
+
+    image_paths = []
 
     scenes = script.get(
         "scene_plan",
-        []
+        [],
     )
 
     if not scenes:
@@ -766,38 +698,19 @@ def generate_images(
             "Script contains no scene_plan."
         )
 
-    base_seed = _get_base_seed(
-        script
-    )
-
-    print("")
     print("=" * 80)
-    print("🎨 GENERATING AI VISUALS WITH POLLINATIONS")
+    print("🎨 GENERATING AI VISUALS")
     print("=" * 80)
-
     print(
         f"Scenes: {len(scenes)}"
     )
-
+    print(
+        f"Resolution: {width}x{height}"
+    )
     print(
         f"Base seed: {base_seed}"
     )
-
-    print(
-        f"Model: {POLLINATIONS_MODEL}"
-    )
-
-    print(
-        f"Resolution: {DEFAULT_WIDTH}x{DEFAULT_HEIGHT}"
-    )
-
-    print(
-        "Ratio: 9:16"
-    )
-
     print("=" * 80)
-
-    image_paths = []
 
     # ----------------------------------------------------------------------
     # EVERY SCENE
@@ -805,12 +718,12 @@ def generate_images(
 
     for scene_index, scene in enumerate(
         scenes,
-        start=1
+        start=1,
     ):
 
         visuals = scene.get(
             "visuals",
-            []
+            [],
         )
 
         if not visuals:
@@ -821,7 +734,6 @@ def generate_images(
 
         scene_paths = []
 
-        print("")
         print("=" * 80)
         print(
             f"SCENE {scene_index}/{len(scenes)}"
@@ -832,37 +744,29 @@ def generate_images(
         print("=" * 80)
 
         # ------------------------------------------------------------------
-        # EVERY VISUAL
+        # EVERY SHOT
         # ------------------------------------------------------------------
 
         for visual_index, visual in enumerate(
             visuals,
-            start=1
+            start=1,
         ):
 
             prompt = build_prompt(
                 scene,
                 visual,
-                script
+                script,
             )
 
+            # Deterministic but different seed for every shot.
             shot_seed = (
                 base_seed
-                + scene_index * 100
+                + (
+                    scene_index * 100
+                )
                 + visual_index
             )
 
-            filename = (
-                f"scene_{scene_index:02d}"
-                f"_shot_{visual_index:02d}.png"
-            )
-
-            output_path = os.path.join(
-                workdir,
-                filename
-            )
-
-            print("")
             print(
                 f"SHOT {visual_index}/{len(visuals)}"
             )
@@ -872,21 +776,47 @@ def generate_images(
             )
 
             print(
-                f"File: {filename}"
+                "Prompt:"
             )
 
-            generated_path = generate_image(
+            print(
+                prompt
+            )
+
+            print("=" * 80)
+
+            image = generate_image(
                 prompt,
-                output_path,
-                shot_seed
+                width,
+                height,
+                shot_seed,
+            )
+
+            filename = os.path.join(
+                workdir,
+                (
+                    f"scene_{scene_index:02d}"
+                    f"_shot_{visual_index:02d}.png"
+                ),
+            )
+
+            _save_image(
+                image,
+                filename,
+            )
+
+            print(
+                f"✅ Saved -> {filename}"
             )
 
             scene_paths.append(
-                generated_path
+                filename
             )
 
-            # Small delay between images.
-            time.sleep(2)
+            # Small delay to reduce request bursts.
+            time.sleep(
+                2
+            )
 
         image_paths.append(
             scene_paths
@@ -901,26 +831,22 @@ def generate_images(
         for scene in image_paths
     )
 
-    print("")
     print("=" * 80)
-    print("✅ POLLINATIONS VISUAL GENERATION COMPLETE")
+    print("✅ VISUAL GENERATION COMPLETE")
     print("=" * 80)
-
     print(
         f"Scenes: {len(image_paths)}"
     )
-
     print(
         f"Images generated: {total_images}"
     )
-
     print("=" * 80)
 
     return image_paths
 
 
 # ==========================================================================
-# SINGLE IMAGE HELPER
+# OPTIONAL SINGLE-IMAGE HELPER
 # ==========================================================================
 
 def generate_single_image(
@@ -929,12 +855,12 @@ def generate_single_image(
     filename="generated.png",
     width=DEFAULT_WIDTH,
     height=DEFAULT_HEIGHT,
-    seed=None
+    seed=None,
 ):
 
     os.makedirs(
         workdir,
-        exist_ok=True
+        exist_ok=True,
     )
 
     if seed is None:
@@ -943,13 +869,21 @@ def generate_single_image(
             time.time()
         )
 
-    output_path = os.path.join(
-        workdir,
-        filename
+    image = generate_image(
+        prompt,
+        width,
+        height,
+        seed,
     )
 
-    return generate_image(
-        prompt,
-        output_path,
-        seed
+    path = os.path.join(
+        workdir,
+        filename,
     )
+
+    _save_image(
+        image,
+        path,
+    )
+
+    return path

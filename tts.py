@@ -2,7 +2,7 @@
 tts.py
 Mint-YT-Factory
 
-Version 7.2
+Version 7.3
 
 TikTok TTS narration engine.
 
@@ -15,6 +15,7 @@ Fixes:
 - Scene-by-scene narration
 - Preserves scene pauses
 - Correct scene pause indexing
+- Fixed pause duration conversion
 - Cleans temporary files
 - Compatible with main.py
 - Compatible with assemble.py
@@ -45,12 +46,8 @@ SAMPLE_RATE = 44100
 
 DEFAULT_PAUSE_MS = 0
 
-# Small overlap between independently generated TTS chunks.
-# This removes noticeable gaps/clicks between chunks.
 CHUNK_CROSSFADE_MS = 60
 
-# Small silence after the final spoken word.
-# Prevents the final syllable from feeling abruptly cut off.
 FINAL_TAIL_MS = 250
 
 
@@ -59,23 +56,18 @@ FINAL_TAIL_MS = 250
 # ==========================================================================
 
 def clean_text(text):
-    """
-    Clean narration text without changing its meaning.
-    """
 
     if not text:
         return ""
 
     text = str(text)
 
-    # Normalize whitespace.
     text = re.sub(
         r"\s+",
         " ",
         text,
     )
 
-    # Collapse repeated punctuation.
     text = re.sub(
         r"!{2,}",
         "!",
@@ -88,7 +80,6 @@ def clean_text(text):
         text,
     )
 
-    # Remove accidental markdown.
     text = text.replace(
         "**",
         "",
@@ -107,14 +98,6 @@ def clean_text(text):
 # ==========================================================================
 
 def split_sentences(text):
-    """
-    Split narration into natural sentence units.
-
-    Sentence boundaries are preferred so TikTok TTS can generate
-    complete thoughts with natural prosody.
-
-    This is intentionally conservative and keeps punctuation attached.
-    """
 
     text = clean_text(
         text
@@ -123,7 +106,6 @@ def split_sentences(text):
     if not text:
         return []
 
-    # Split after normal sentence-ending punctuation.
     parts = re.split(
         r"(?<=[.!?])\s+",
         text,
@@ -151,12 +133,6 @@ def _split_long_word(
     word,
     limit=MAX_BYTES,
 ):
-    """
-    Extremely long word safety fallback.
-
-    Normally this will never be needed, but it prevents a single
-    unusually long token from exceeding TikTok's byte limit.
-    """
 
     encoded = word.encode(
         "utf-8"
@@ -193,13 +169,6 @@ def _split_sentence_by_words(
     sentence,
     limit=MAX_BYTES,
 ):
-    """
-    Split one sentence on word boundaries while respecting
-    the TikTok TTS byte limit.
-
-    This function is only used when a complete sentence cannot
-    fit into one TTS request.
-    """
 
     words = sentence.split()
 
@@ -227,14 +196,12 @@ def _split_sentence_by_words(
 
             continue
 
-        # Save current chunk.
         if current:
 
             chunks.append(
                 current
             )
 
-        # Handle a single oversized word.
         if len(
             word.encode(
                 "utf-8"
@@ -248,7 +215,6 @@ def _split_sentence_by_words(
 
             if pieces:
 
-                # All but the final piece become complete chunks.
                 chunks.extend(
                     pieces[:-1]
                 )
@@ -280,20 +246,6 @@ def split_text(
     text,
     limit=MAX_BYTES,
 ):
-    """
-    Split narration into TikTok-compatible chunks.
-
-    IMPORTANT:
-
-    Priority is:
-
-    1. Complete sentence
-    2. Word boundary
-    3. Byte limit
-
-    This is much better than blindly splitting the entire narration
-    every 300 bytes because TTS gets complete thoughts whenever possible.
-    """
 
     text = clean_text(
         text
@@ -316,11 +268,6 @@ def split_text(
             )
         )
 
-        # --------------------------------------------------------------
-        # Best case:
-        # Entire sentence fits into one TTS request.
-        # --------------------------------------------------------------
-
         if sentence_bytes <= limit:
 
             chunks.append(
@@ -329,12 +276,6 @@ def split_text(
 
             continue
 
-        # --------------------------------------------------------------
-        # Sentence is too long.
-        #
-        # Only now do we split it by words.
-        # --------------------------------------------------------------
-
         chunks.extend(
             _split_sentence_by_words(
                 sentence,
@@ -342,7 +283,6 @@ def split_text(
             )
         )
 
-    # Final safety validation.
     for index, chunk in enumerate(
         chunks
     ):
@@ -371,9 +311,6 @@ def split_text(
 def create_silence(
     duration,
 ):
-    """
-    Create silent audio for scene pauses.
-    """
 
     duration = float(
         duration
@@ -400,18 +337,6 @@ def join_tts_clips(
     clips,
     crossfade_ms=CHUNK_CROSSFADE_MS,
 ):
-    """
-    Join independently generated TTS clips with a very short
-    crossfade.
-
-    This prevents:
-    - tiny clicks
-    - hard waveform cuts
-    - obvious chunk boundaries
-    - unnatural silence between TTS requests
-
-    The overlap is deliberately small so words do not sound doubled.
-    """
 
     if not clips:
 
@@ -439,7 +364,6 @@ def join_tts_clips(
         clips
     ):
 
-        # Never allow the overlap to be longer than the clip.
         actual_overlap = min(
             overlap,
             max(
@@ -461,7 +385,6 @@ def join_tts_clips(
 
         processed = clip
 
-        # Fade in from the previous chunk.
         if actual_overlap > 0:
 
             try:
@@ -477,7 +400,6 @@ def join_tts_clips(
 
                 pass
 
-        # Fade out into the next chunk.
         if actual_overlap > 0:
 
             try:
@@ -526,12 +448,6 @@ def add_final_tail(
     clip,
     milliseconds=FINAL_TAIL_MS,
 ):
-    """
-    Add a small silence after the final spoken word.
-
-    This is intentionally short.
-    It prevents the final syllable from feeling chopped off.
-    """
 
     tail_seconds = (
         max(
@@ -553,14 +469,12 @@ def add_final_tail(
 
         return clip
 
-    final = concatenate_audioclips(
+    return concatenate_audioclips(
         [
             clip,
             silence,
         ]
     )
-
-    return final
 
 
 # ==========================================================================
@@ -572,11 +486,6 @@ def synthesize_narration(
     config,
     out_path,
 ):
-    """
-    Convert one block of narration into audio.
-
-    Text is split at natural sentence boundaries whenever possible.
-    """
 
     text = clean_text(
         text
@@ -664,10 +573,6 @@ def synthesize_narration(
 
     try:
 
-        # --------------------------------------------------------------
-        # Generate every TTS chunk.
-        # --------------------------------------------------------------
-
         for index, chunk in enumerate(
             chunks
         ):
@@ -681,7 +586,6 @@ def synthesize_narration(
                 f"   {chunk}"
             )
 
-            # Make sure no stale output.mp3 is reused.
             if os.path.exists(
                 "output.mp3"
             ):
@@ -725,10 +629,6 @@ def synthesize_narration(
                 filename
             )
 
-        # --------------------------------------------------------------
-        # Load generated audio.
-        # --------------------------------------------------------------
-
         for filename in temp_files:
 
             clip = AudioFileClip(
@@ -745,10 +645,6 @@ def synthesize_narration(
                 "No TTS audio clips were generated."
             )
 
-        # --------------------------------------------------------------
-        # Join chunks with tiny crossfades.
-        # --------------------------------------------------------------
-
         joined = join_tts_clips(
             clips,
             CHUNK_CROSSFADE_MS,
@@ -758,10 +654,6 @@ def synthesize_narration(
             f"Joined audio duration: "
             f"{joined.duration:.2f}s"
         )
-
-        # --------------------------------------------------------------
-        # Add small final tail.
-        # --------------------------------------------------------------
 
         final = add_final_tail(
             joined,
@@ -800,10 +692,6 @@ def synthesize_narration(
 
     finally:
 
-        # --------------------------------------------------------------
-        # Close joined/final clips.
-        # --------------------------------------------------------------
-
         try:
 
             if final is not None:
@@ -822,10 +710,6 @@ def synthesize_narration(
 
             pass
 
-        # --------------------------------------------------------------
-        # Close source clips.
-        # --------------------------------------------------------------
-
         for clip in clips:
 
             try:
@@ -835,10 +719,6 @@ def synthesize_narration(
             except Exception:
 
                 pass
-
-        # --------------------------------------------------------------
-        # Remove temporary files.
-        # --------------------------------------------------------------
 
         for filename in temp_files:
 
@@ -877,16 +757,6 @@ def synthesize_script(
     config,
     workdir,
 ):
-    """
-    Generate narration from the storyboard.
-
-    Each scene is synthesized separately.
-
-    Scene pauses are preserved.
-
-    The final result is returned as one MP3 path so main.py
-    and assemble.py remain compatible.
-    """
 
     os.makedirs(
         workdir,
@@ -923,8 +793,6 @@ def synthesize_script(
 
     scene_audio_files = []
 
-    # Keep the actual scene objects that produced audio.
-    # This prevents pause indexing errors if a scene has no narration.
     generated_scene_indices = []
 
     pause_clips = []
@@ -934,10 +802,6 @@ def synthesize_script(
     final = None
 
     try:
-
-        # --------------------------------------------------------------
-        # Generate each scene.
-        # --------------------------------------------------------------
 
         for scene_index, scene in enumerate(
             scenes,
@@ -997,10 +861,6 @@ def synthesize_script(
                 "No scene narration was generated."
             )
 
-        # --------------------------------------------------------------
-        # Load scene audio.
-        # --------------------------------------------------------------
-
         for file_index, path in enumerate(
             scene_audio_files
         ):
@@ -1025,16 +885,19 @@ def synthesize_script(
 
             # ----------------------------------------------------------
             # Add pause AFTER this actual scene.
+            #
+            # scene_indexed_pause() already returns seconds.
+            # Do NOT divide by 1000 again.
             # ----------------------------------------------------------
 
-            pause_ms = scene_indexed_pause(
+            pause_seconds = scene_indexed_pause(
                 scene
             )
 
-            if pause_ms > 0:
+            if pause_seconds > 0:
 
                 silence = create_silence(
-                    pause_ms / 1000.0
+                    pause_seconds
                 )
 
                 if silence:
@@ -1046,10 +909,6 @@ def synthesize_script(
                     pause_clips.append(
                         silence
                     )
-
-        # --------------------------------------------------------------
-        # Final narration.
-        # --------------------------------------------------------------
 
         final = concatenate_audioclips(
             scene_clips
@@ -1085,10 +944,6 @@ def synthesize_script(
 
     finally:
 
-        # --------------------------------------------------------------
-        # Close final clip.
-        # --------------------------------------------------------------
-
         try:
 
             if final is not None:
@@ -1097,10 +952,6 @@ def synthesize_script(
         except Exception:
 
             pass
-
-        # --------------------------------------------------------------
-        # Close scene clips.
-        # --------------------------------------------------------------
 
         for clip in scene_clips:
 
@@ -1112,10 +963,6 @@ def synthesize_script(
 
                 pass
 
-        # --------------------------------------------------------------
-        # Close silence clips.
-        # --------------------------------------------------------------
-
         for silence in pause_clips:
 
             try:
@@ -1125,10 +972,6 @@ def synthesize_script(
             except Exception:
 
                 pass
-
-        # --------------------------------------------------------------
-        # Remove temporary scene audio.
-        # --------------------------------------------------------------
 
         if os.path.exists(
             temp_dir
@@ -1147,8 +990,15 @@ def synthesize_script(
 def scene_indexed_pause(
     scene,
 ):
+
     """
     Return scene pause in seconds.
+
+    Input:
+        pause_after_ms = milliseconds
+
+    Output:
+        seconds
 
     Maximum pause is capped at 600 ms.
     """

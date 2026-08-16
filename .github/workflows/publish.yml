@@ -2,9 +2,9 @@ name: Publish Short
 
 on:
   schedule:
-    - cron: "0 2 * * *"      # 07:30 IST
-    - cron: "30 7 * * *"     # 13:00 IST
-    - cron: "30 13 * * *"    # 19:00 IST
+    - cron: "0 2 * * *"       # 07:30 IST
+    - cron: "30 7 * * *"      # 13:00 IST
+    - cron: "30 13 * * *"     # 19:00 IST
 
   workflow_dispatch: {}
 
@@ -14,13 +14,21 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      - uses: actions/checkout@v4
+      # --------------------------------------------------------
+      # CHECKOUT
+      # --------------------------------------------------------
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       # --------------------------------------------------------
       # PYTHON
       # --------------------------------------------------------
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
@@ -39,36 +47,30 @@ jobs:
           echo "🔧 Setting up Node.js / Puter.js"
           echo "=========================================="
 
-          echo "Node Version:"
           node --version
-
-          echo "NPM Version:"
           npm --version
-
-          echo "Installing Puter.js 2.6.0..."
 
           npm init -y
           npm install @heyputer/puter.js@2.6.0
 
-          echo "Installed Puter.js:"
           npm list @heyputer/puter.js
-
-          echo "=========================================="
 
       # --------------------------------------------------------
       # FFMPEG
       # --------------------------------------------------------
 
-      - name: Install ffmpeg
+      - name: Install FFmpeg
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
+
+          ffmpeg -version
 
       # --------------------------------------------------------
       # IMAGEMAGICK
       # --------------------------------------------------------
 
-      - name: Install ImageMagick (needed for captions)
+      - name: Install ImageMagick
         run: |
           sudo apt-get install -y imagemagick
 
@@ -91,13 +93,14 @@ jobs:
           echo "=========================================="
 
           python --version
-          pip install -r requirements.txt
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
 
       # --------------------------------------------------------
       # YOUTUBE CREDENTIALS
       # --------------------------------------------------------
 
-      - name: Write credential files from secrets
+      - name: Write YouTube client credentials
         run: |
           echo '${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}' > client_secret.json
 
@@ -105,39 +108,41 @@ jobs:
       # RUN PIPELINE
       # --------------------------------------------------------
 
-      - name: Run pipeline
-        id: pipeline
-        continue-on-error: true
+      - name: Run Mint-YT-Factory
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+
           YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
-          FREESOUND_API_KEY: ${{ secrets.FREESOUND_API_KEY }}
+
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
 
-          # PUTER
           PUTER_AUTH_TOKEN: ${{ secrets.PUTER_AUTH_TOKEN }}
+
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+
+          FREESOUND_API_KEY: ${{ secrets.FREESOUND_API_KEY }}
 
         run: |
           echo "=========================================="
-          echo "🚀 AI YouTube Shorts Pipeline Started"
+          echo "🚀 MINT-YT-FACTORY STARTED"
           echo "=========================================="
 
-          echo "Start Time: $(date)"
-          echo "Runner: $(uname -a)"
+          echo "Start Time:"
+          date
 
-          echo "Python Version:"
+          echo "Runner:"
+          uname -a
+
+          echo "Python:"
           python --version
 
-          echo "Node Version:"
+          echo "Node:"
           node --version
 
-          echo "NPM Version:"
+          echo "NPM:"
           npm --version
-
-          echo "Puter.js:"
-          npm list @heyputer/puter.js
 
           echo "Memory:"
           free -h
@@ -145,6 +150,8 @@ jobs:
           echo "Disk:"
           df -h
 
+          echo "=========================================="
+          echo "🧠 Starting main.py"
           echo "=========================================="
 
           python -u main.py
@@ -157,9 +164,10 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: final-video
+          name: final-video-${{ github.run_id }}
           path: output/**/final.mp4
           if-no-files-found: warn
+          retention-days: 7
 
       # --------------------------------------------------------
       # UPLOAD GENERATED IMAGES
@@ -169,31 +177,64 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: generated-images
+          name: generated-images-${{ github.run_id }}
           path: output/**/visuals/
           if-no-files-found: warn
+          retention-days: 7
+
+      # --------------------------------------------------------
+      # UPLOAD RESEARCH
+      # --------------------------------------------------------
+
+      - name: Upload Research Package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: research-${{ github.run_id }}
+          path: output/**/research.json
+          if-no-files-found: warn
+          retention-days: 7
+
+      # --------------------------------------------------------
+      # UPLOAD SCRIPT
+      # --------------------------------------------------------
+
+      - name: Upload Generated Script
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: script-${{ github.run_id }}
+          path: output/**/script.json
+          if-no-files-found: warn
+          retention-days: 7
 
       # --------------------------------------------------------
       # UPDATE USED TOPICS
       # --------------------------------------------------------
 
       - name: Commit updated used_topics.json
-        if: always()
+        if: success()
         run: |
           git config user.name "auto-publish-bot"
           git config user.email "actions@github.com"
 
           git add used_topics.json
 
-          git diff --cached --quiet || \
-            git commit -m "Update used topics [skip ci]"
+          if git diff --cached --quiet; then
+            echo "No topic changes to commit."
+            exit 0
+          fi
 
+          git commit -m "Update used topics [skip ci]"
           git push
 
       # --------------------------------------------------------
-      # FAIL IF PIPELINE FAILED
+      # COMPLETE
       # --------------------------------------------------------
 
-      - name: Fail workflow if pipeline failed
-        if: steps.pipeline.outcome == 'failure'
-        run: exit 1
+      - name: Pipeline complete
+        if: success()
+        run: |
+          echo "=========================================="
+          echo "🎉 MINT-YT-FACTORY COMPLETE"
+          echo "=========================================="

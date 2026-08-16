@@ -33,7 +33,7 @@ from google.genai import types
 # CONFIG
 # ==========================================================================
 
-MODEL_NAME = "gemini-3.1-flash-lite"
+MODEL_NAME = "gemini-flash-lite-latest"
 
 MAX_CLAIMS_PER_SCENE = 8
 

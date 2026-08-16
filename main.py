@@ -1,18 +1,21 @@
 """
 main.py
-Educational YouTube Shorts Pipeline
+Mint-YT-Factory
 
-Version 7.1
+Version 8.0
 
-Production:
-- 7 scenes
-- 2 visuals per scene
-- 14 images total
-- 45 seconds
-- Next-Short teaser
-- Subscription/return strategy
-- Research references in description
-- Research sources clearly marked as unverified
+Research-first production pipeline.
+
+FLOW:
+Topic
+→ Verified research
+→ Research-backed script
+→ TTS
+→ Images
+→ Music
+→ Video
+→ Verified citations in description
+→ YouTube upload
 """
 
 import argparse
@@ -21,6 +24,7 @@ import time
 import yaml
 
 from topics import get_next_topic
+from research import research_topic
 from generate_script import generate_script
 from tts import synthesize_script
 from generate_images import generate_images
@@ -45,15 +49,227 @@ def load_config():
 
 
 # ==========================================================================
+# RESEARCH DESCRIPTION
+# ==========================================================================
+
+def build_research_section(script):
+
+    sources = script.get(
+        "research_sources",
+        [],
+    )
+
+    if not isinstance(
+        sources,
+        list,
+    ) or not sources:
+
+        raise RuntimeError(
+            "Cannot build description: "
+            "no verified research sources found."
+        )
+
+    # --------------------------------------------------------------
+    # Map each source to the scenes that cite it.
+    # --------------------------------------------------------------
+
+    source_scene_map = {}
+
+    for index, source in enumerate(
+        sources,
+        start=1,
+    ):
+
+        source_id = source.get(
+            "source_id",
+            f"source_{index}",
+        )
+
+        source_scene_map[
+            source_id
+        ] = []
+
+    for scene in script.get(
+        "scene_plan",
+        [],
+    ):
+
+        scene_number = scene.get(
+            "scene",
+        )
+
+        for source_id in scene.get(
+            "source_ids",
+            [],
+        ):
+
+            if source_id in source_scene_map:
+
+                source_scene_map[
+                    source_id
+                ].append(
+                    scene_number
+                )
+
+    lines = [
+
+        "📚 RESEARCH & FURTHER READING",
+
+        "",
+
+        "This Short is based on verified "
+        "scientific research sources:"
+    ]
+
+    for index, source in enumerate(
+        sources,
+        start=1,
+    ):
+
+        if source.get(
+            "verified"
+        ) is not True:
+
+            raise RuntimeError(
+                f"Source {index} is not verified. "
+                "Publishing stopped."
+            )
+
+        title = str(
+            source.get(
+                "title",
+                "",
+            )
+        ).strip()
+
+        authors = str(
+            source.get(
+                "authors",
+                "",
+            )
+        ).strip()
+
+        journal = str(
+            source.get(
+                "journal",
+                "",
+            )
+        ).strip()
+
+        year = source.get(
+            "year",
+            "",
+        )
+
+        doi = str(
+            source.get(
+                "doi",
+                "",
+            )
+        ).strip()
+
+        url = str(
+            source.get(
+                "url",
+                "",
+            )
+        ).strip()
+
+        verification = str(
+            source.get(
+                "verification",
+                "",
+            )
+        ).strip()
+
+        source_id = source.get(
+            "source_id",
+            f"source_{index}",
+        )
+
+        scenes = source_scene_map.get(
+            source_id,
+            [],
+        )
+
+        if not title or not authors or not url:
+
+            raise RuntimeError(
+                f"Research source {index} "
+                "is incomplete."
+            )
+
+        line = (
+            f"{index}. {title}"
+        )
+
+        if authors:
+
+            line += (
+                f" — {authors}"
+            )
+
+        if journal:
+
+            line += (
+                f" — {journal}"
+            )
+
+        if year:
+
+            line += (
+                f" ({year})"
+            )
+
+        line += (
+            f"\n{url}"
+        )
+
+        if doi:
+
+            line += (
+                f"\nDOI: {doi}"
+            )
+
+        if scenes:
+
+            line += (
+                "\nUsed for scenes: "
+                + ", ".join(
+                    str(x)
+                    for x in scenes
+                )
+            )
+
+        if verification:
+
+            line += (
+                f"\nVerification: {verification}"
+            )
+
+        lines.append(
+            line
+        )
+
+    return "\n\n".join(
+        lines
+    )
+
+
+# ==========================================================================
 # YOUTUBE METADATA
 # ==========================================================================
 
-def build_title_description(script):
+def build_title_description(
+    script,
+):
 
-    title = script.get(
-        "title",
-        "Educational Short",
-    )
+    title = str(
+        script.get(
+            "title",
+            "Educational Short",
+        )
+    ).strip()
 
     description_parts = []
 
@@ -146,133 +362,14 @@ def build_title_description(script):
             )
 
     # ----------------------------------------------------------------------
-    # RESEARCH REFERENCES
+    # VERIFIED RESEARCH
     # ----------------------------------------------------------------------
 
-    research_sources = script.get(
-        "research_sources",
-        [],
+    description_parts.append(
+        build_research_section(
+            script
+        )
     )
-
-    if isinstance(
-        research_sources,
-        list,
-    ) and research_sources:
-
-        research_lines = [
-
-            "📚 RESEARCH & FURTHER READING",
-
-            "",
-
-            "References related to the scientific topics "
-            "discussed in this Short:"
-        ]
-
-        valid_source_count = 0
-
-        for source in research_sources:
-
-            if not isinstance(
-                source,
-                dict,
-            ):
-                continue
-
-            source_title = str(
-                source.get(
-                    "title",
-                    "",
-                )
-            ).strip()
-
-            authors = str(
-                source.get(
-                    "authors",
-                    "",
-                )
-            ).strip()
-
-            organization = str(
-                source.get(
-                    "organization",
-                    "",
-                )
-            ).strip()
-
-            url = str(
-                source.get(
-                    "url",
-                    "",
-                )
-            ).strip()
-
-            claim = str(
-                source.get(
-                    "claim_supported",
-                    "",
-                )
-            ).strip()
-
-            verified = bool(
-                source.get(
-                    "verified",
-                    False,
-                )
-            )
-
-            if not source_title:
-
-                continue
-
-            valid_source_count += 1
-
-            line = (
-                f"{valid_source_count}. "
-                f"{source_title}"
-            )
-
-            if authors:
-
-                line += (
-                    f" — {authors}"
-                )
-
-            if organization:
-
-                line += (
-                    f" — {organization}"
-                )
-
-            if url:
-
-                line += (
-                    f"\n{url}"
-                )
-
-            if claim:
-
-                line += (
-                    f"\nRelated claim: {claim}"
-                )
-
-            if not verified:
-
-                line += (
-                    "\nReference pending verification."
-                )
-
-            research_lines.append(
-                line
-            )
-
-        if valid_source_count:
-
-            description_parts.append(
-                "\n".join(
-                    research_lines
-                )
-            )
 
     # ----------------------------------------------------------------------
     # HASHTAGS
@@ -315,7 +412,7 @@ def build_title_description(script):
     ).strip()
 
     return (
-        str(title)[:100],
+        title[:100],
         final_description[:5000],
     )
 
@@ -343,16 +440,76 @@ def run(
     print(topic)
 
     # ----------------------------------------------------------------------
+    # VERIFIED RESEARCH
+    # ----------------------------------------------------------------------
+
+    print("=" * 80)
+    print("🔬 RESEARCHING TOPIC")
+    print("=" * 80)
+
+    research = research_topic(
+        topic
+    )
+
+    if research.get(
+        "verified"
+    ) is not True:
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "research was not verified."
+        )
+
+    if research.get(
+        "status"
+    ) != "VERIFIED":
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "research status is not VERIFIED."
+        )
+
+    verified_sources = research.get(
+        "sources",
+        [],
+    )
+
+    if len(
+        verified_sources
+    ) < 2:
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "fewer than 2 verified sources."
+        )
+
+    print(
+        f"✅ VERIFIED SOURCES: "
+        f"{len(verified_sources)}"
+    )
+
+    for index, source in enumerate(
+        verified_sources,
+        start=1,
+    ):
+
+        print(
+            f"  {index}. "
+            f"{source.get('title', '')}"
+        )
+
+    # ----------------------------------------------------------------------
     # SCRIPT
     # ----------------------------------------------------------------------
 
     print("=" * 80)
-    print("✍️ GENERATING SCRIPT")
+    print("✍️ GENERATING VERIFIED SCRIPT")
     print("=" * 80)
 
     script = generate_script(
         topic,
         config,
+        research,
     )
 
     print(
@@ -371,9 +528,37 @@ def run(
     )
 
     print(
-        "Research candidates: "
+        "Verified research sources: "
         f"{len(script.get('research_sources', []))}"
     )
+
+    # ----------------------------------------------------------------------
+    # FINAL RESEARCH SAFETY CHECK
+    # ----------------------------------------------------------------------
+
+    if script.get(
+        "publishing",
+        {}
+    ).get(
+        "research_verified"
+    ) is not True:
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "script is not marked research verified."
+        )
+
+    if script.get(
+        "publishing",
+        {}
+    ).get(
+        "citations_ready"
+    ) is not True:
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "citations are not ready."
+        )
 
     # ----------------------------------------------------------------------
     # WORK DIRECTORY
@@ -393,6 +578,62 @@ def run(
     os.makedirs(
         workdir,
         exist_ok=True,
+    )
+
+    # ----------------------------------------------------------------------
+    # SAVE RESEARCH
+    # ----------------------------------------------------------------------
+
+    research_path = os.path.join(
+        workdir,
+        "research.json",
+    )
+
+    import json
+
+    with open(
+        research_path,
+        "w",
+        encoding="utf-8",
+    ) as f:
+
+        json.dump(
+            research,
+            f,
+            indent=2,
+            ensure_ascii=False,
+        )
+
+    print(
+        f"Research saved: "
+        f"{research_path}"
+    )
+
+    # ----------------------------------------------------------------------
+    # SAVE SCRIPT
+    # ----------------------------------------------------------------------
+
+    script_path = os.path.join(
+        workdir,
+        "script.json",
+    )
+
+    with open(
+        script_path,
+        "w",
+        encoding="utf-8",
+    ) as f:
+
+        json.dump(
+            script,
+            f,
+            indent=2,
+            ensure_ascii=False,
+        )
+
+    print(
+        f"Script saved: "
+        f"{script_path}"
     )
 
     # ----------------------------------------------------------------------
@@ -492,6 +733,10 @@ def run(
             f"Video: {final_video}"
         )
 
+        print(
+            "No YouTube upload performed."
+        )
+
         print("=" * 80)
 
         return
@@ -500,7 +745,11 @@ def run(
     # UPLOAD CHECK
     # ----------------------------------------------------------------------
 
-    if not config["upload"]["auto_upload"]:
+    if not config[
+        "upload"
+    ][
+        "auto_upload"
+    ]:
 
         print(
             "Auto upload disabled."
@@ -512,8 +761,10 @@ def run(
     # BUILD YOUTUBE METADATA
     # ----------------------------------------------------------------------
 
-    title, description = build_title_description(
-        script
+    title, description = (
+        build_title_description(
+            script
+        )
     )
 
     print("=" * 80)
@@ -529,6 +780,10 @@ def run(
         f"{len(description)} characters"
     )
 
+    print(
+        "Research citations: VERIFIED"
+    )
+
     print("=" * 80)
 
     # ----------------------------------------------------------------------
@@ -536,7 +791,7 @@ def run(
     # ----------------------------------------------------------------------
 
     print("=" * 80)
-    print("🚀 UPLOADING TO YOUTUBE")
+    print("🚀 UPLOADING VERIFIED SHORT TO YOUTUBE")
     print("=" * 80)
 
     upload_video(
@@ -551,7 +806,7 @@ def run(
     # ----------------------------------------------------------------------
 
     print("=" * 80)
-    print("🎉 PIPELINE COMPLETE")
+    print("🎉 VERIFIED PIPELINE COMPLETE")
     print("=" * 80)
 
 

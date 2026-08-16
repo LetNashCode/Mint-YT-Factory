@@ -10,5 +10,4 @@ google-api-python-client>=2.130.0
 tiktoktts==1.2
 openai-whisper>=20250625
 torch>=2.2.0
-huggingface_hub>=0.34.0
 ffmpeg-python>=0.2.0

@@ -2,7 +2,7 @@
 main.py
 Mint-YT-Factory
 
-Version 10.1
+Version 10.2
 
 Research-first production pipeline.
 
@@ -19,7 +19,7 @@ Previous video's next_short
 → Images
 → Music
 → Video
-→ Verified citations
+→ Final scientific safety check
 → YouTube upload
 → Save NEW next_short
 → Commit current topic
@@ -29,11 +29,6 @@ IMPORTANT:
 The current topic is NOT committed until the complete pipeline
 successfully uploads the video.
 
-If anything fails before upload:
-- Current topic remains pending.
-- The next_short remains available.
-- The current topic can be retried safely.
-
 SCIENTIFIC SAFETY:
 
 Research verification and claim verification are independent gates.
@@ -41,7 +36,7 @@ Research verification and claim verification are independent gates.
 Research must be VERIFIED before script generation.
 
 The generated script must PASS claim verification before
-any production asset is generated.
+production assets are generated.
 
 A failed claim verification ALWAYS stops the pipeline.
 
@@ -52,6 +47,15 @@ No video.
 No upload.
 
 until claim verification passes.
+
+Version 10.2 fixes:
+
+- Research gate now uses evidence_text.
+- Research gate validates evidence_available/evidence_verified.
+- Research gate validates minimum evidence length.
+- --dry-run stops before TTS/images/music/video.
+- Final pre-upload scientific gates remain active.
+- Post-upload next_short handling is explicit.
 """
 
 import argparse
@@ -91,6 +95,13 @@ from upload_youtube import upload_video
 # CONFIG
 # ==========================================================================
 
+MIN_EVIDENCE_CHARACTERS = 120
+
+
+# ==========================================================================
+# CONFIG LOADER
+# ==========================================================================
+
 def load_config():
 
     with open(
@@ -99,7 +110,18 @@ def load_config():
         encoding="utf-8",
     ) as f:
 
-        return yaml.safe_load(f)
+        config = yaml.safe_load(f)
+
+    if not isinstance(
+        config,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "config.yaml did not return a valid configuration."
+        )
+
+    return config
 
 
 # ==========================================================================
@@ -180,14 +202,34 @@ def build_research_section(
         [],
     ):
 
+        if not isinstance(
+            scene,
+            dict,
+        ):
+
+            continue
+
         scene_number = scene.get(
             "scene",
         )
 
-        for source_id in scene.get(
+        source_ids = scene.get(
             "source_ids",
             [],
+        )
+
+        if not isinstance(
+            source_ids,
+            list,
         ):
+
+            continue
+
+        for source_id in source_ids:
+
+            source_id = str(
+                source_id
+            ).strip()
 
             if source_id in source_scene_map:
 
@@ -211,6 +253,15 @@ def build_research_section(
         sources,
         start=1,
     ):
+
+        if not isinstance(
+            source,
+            dict,
+        ):
+
+            raise RuntimeError(
+                f"Research source {index} is invalid."
+            )
 
         if source.get(
             "verified"
@@ -281,8 +332,7 @@ def build_research_section(
         if not title or not authors or not url:
 
             raise RuntimeError(
-                f"Research source {index} "
-                "is incomplete."
+                f"Research source {index} is incomplete."
             )
 
         line = (
@@ -625,12 +675,16 @@ def enforce_research_gate(
             "research sources are invalid."
         )
 
-    if len(sources) < 2:
+    if len(
+        sources
+    ) < 2:
 
         raise RuntimeError(
             "PIPELINE STOPPED: "
             "fewer than 2 verified research sources."
         )
+
+    usable_sources = 0
 
     for index, source in enumerate(
         sources,
@@ -665,22 +719,55 @@ def enforce_research_gate(
                 f"research source {index} is not evidence verified."
             )
 
-        abstract = str(
+        if source.get(
+            "evidence_available"
+        ) is not True:
+
+            raise RuntimeError(
+                f"PIPELINE STOPPED: "
+                f"research source {index} does not have "
+                f"evidence_available=True."
+            )
+
+        evidence_text = str(
             source.get(
-                "abstract",
+                "evidence_text",
                 "",
             )
         ).strip()
 
-        if not abstract:
+        if not evidence_text:
 
             raise RuntimeError(
                 f"PIPELINE STOPPED: "
-                f"research source {index} has no evidence abstract."
+                f"research source {index} has no evidence_text."
             )
+
+        if len(
+            evidence_text
+        ) < MIN_EVIDENCE_CHARACTERS:
+
+            raise RuntimeError(
+                f"PIPELINE STOPPED: "
+                f"research source {index} evidence_text is too short. "
+                f"Minimum: {MIN_EVIDENCE_CHARACTERS} characters."
+            )
+
+        usable_sources += 1
+
+    if usable_sources < 2:
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "fewer than 2 usable evidence-verified sources."
+        )
 
     print(
         "✅ RESEARCH HARD GATE PASSED"
+    )
+
+    print(
+        f"   Usable evidence sources: {usable_sources}"
     )
 
     return True
@@ -821,6 +908,21 @@ def enforce_claim_verification_gate(
                 "claim verification contains a non-supported claim."
             )
 
+        source_ids = claim.get(
+            "source_ids",
+            [],
+        )
+
+        if not isinstance(
+            source_ids,
+            list,
+        ) or not source_ids:
+
+            raise RuntimeError(
+                "PIPELINE STOPPED: "
+                "supported claim has no source IDs."
+            )
+
     print("=" * 80)
     print("✅ CLAIM VERIFICATION HARD GATE PASSED")
     print("=" * 80)
@@ -887,6 +989,68 @@ def enforce_publishing_gate(
     )
 
     return True
+
+
+# ==========================================================================
+# SAVE VERIFIED ARTIFACTS
+# ==========================================================================
+
+def save_verified_artifacts(
+    workdir,
+    research,
+    script,
+):
+
+    os.makedirs(
+        workdir,
+        exist_ok=True,
+    )
+
+    research_path = os.path.join(
+        workdir,
+        "research.json",
+    )
+
+    save_json(
+        research,
+        research_path,
+    )
+
+    print(
+        f"Research saved: {research_path}"
+    )
+
+    script_path = os.path.join(
+        workdir,
+        "script.json",
+    )
+
+    save_json(
+        script,
+        script_path,
+    )
+
+    print(
+        f"Verified script saved: {script_path}"
+    )
+
+    verification_path = os.path.join(
+        workdir,
+        "claim_verification.json",
+    )
+
+    save_json(
+        script.get(
+            "claim_verification",
+            {},
+        ),
+        verification_path,
+    )
+
+    print(
+        f"Claim verification saved: "
+        f"{verification_path}"
+    )
 
 
 # ==========================================================================
@@ -1056,81 +1220,96 @@ def run(
         exist_ok=True,
     )
 
+    # ----------------------------------------------------------------------
+    # SAVE VERIFIED ARTIFACTS
+    # ----------------------------------------------------------------------
+
     print("=" * 80)
     print("💾 SAVING VERIFIED PIPELINE ARTIFACTS")
     print("=" * 80)
 
-    # ----------------------------------------------------------------------
-    # SAVE RESEARCH
-    # ----------------------------------------------------------------------
-
-    research_path = os.path.join(
+    save_verified_artifacts(
         workdir,
-        "research.json",
-    )
-
-    save_json(
         research,
-        research_path,
-    )
-
-    print(
-        f"Research saved: {research_path}"
-    )
-
-    # ----------------------------------------------------------------------
-    # SAVE VERIFIED SCRIPT
-    # ----------------------------------------------------------------------
-
-    script_path = os.path.join(
-        workdir,
-        "script.json",
-    )
-
-    save_json(
         script,
-        script_path,
-    )
-
-    print(
-        f"Verified script saved: {script_path}"
     )
 
     # ----------------------------------------------------------------------
-    # SAVE CLAIM VERIFICATION
-    # ----------------------------------------------------------------------
-
-    verification_path = os.path.join(
-        workdir,
-        "claim_verification.json",
-    )
-
-    save_json(
-        script.get(
-            "claim_verification",
-            {},
-        ),
-        verification_path,
-    )
-
-    print(
-        f"Claim verification saved: "
-        f"{verification_path}"
-    )
-
-    # ----------------------------------------------------------------------
-    # PRODUCTION START
+    # DRY RUN
     #
     # IMPORTANT:
     #
-    # From this point onward the script has already passed:
+    # A dry run stops here.
     #
-    # 1. Research verification
-    # 2. Evidence verification
-    # 3. Script generation validation
-    # 4. Claim verification
-    # 5. Citation validation
+    # It does NOT generate:
     #
+    # - TTS
+    # - images
+    # - music
+    # - video
+    # - YouTube upload
+    # - topic commit
+    #
+    # ----------------------------------------------------------------------
+
+    if dry_run:
+
+        print("=" * 80)
+        print("✅ DRY RUN COMPLETE")
+        print("=" * 80)
+
+        print(
+            "Research: VERIFIED"
+        )
+
+        print(
+            "Claims: VERIFIED"
+        )
+
+        print(
+            f"Verified artifacts: {workdir}"
+        )
+
+        print(
+            f"Current topic remains pending: "
+            f"{topic}"
+        )
+
+        print(
+            f"Next Short remains pending: "
+            f"{next_short_topic}"
+        )
+
+        print(
+            "No TTS generated."
+        )
+
+        print(
+            "No images generated."
+        )
+
+        print(
+            "No music downloaded."
+        )
+
+        print(
+            "No video rendered."
+        )
+
+        print(
+            "No YouTube upload performed."
+        )
+
+        print(
+            "Current topic NOT committed."
+        )
+
+        print("=" * 80)
+
+        return
+
+    # ----------------------------------------------------------------------
+    # PRODUCTION START
     # ----------------------------------------------------------------------
 
     print("=" * 80)
@@ -1253,45 +1432,20 @@ def run(
     )
 
     # ----------------------------------------------------------------------
-    # DRY RUN
+    # AUTO UPLOAD CHECK
     # ----------------------------------------------------------------------
 
-    if dry_run:
+    if not config.get(
+        "upload",
+        {}
+    ).get(
+        "auto_upload",
+        False,
+    ):
 
         print("=" * 80)
-        print("✅ DRY RUN COMPLETE")
+        print("⚠️ AUTO UPLOAD DISABLED")
         print("=" * 80)
-
-        print(
-            f"Video: {final_video}"
-        )
-
-        print(
-            f"Next Short remains pending: "
-            f"{next_short_topic}"
-        )
-
-        print(
-            "No YouTube upload performed."
-        )
-
-        print("=" * 80)
-
-        return
-
-    # ----------------------------------------------------------------------
-    # UPLOAD CHECK
-    # ----------------------------------------------------------------------
-
-    if not config[
-        "upload"
-    ][
-        "auto_upload"
-    ]:
-
-        print(
-            "⚠️ Auto upload disabled."
-        )
 
         print(
             "Current topic will NOT be committed."
@@ -1301,6 +1455,13 @@ def run(
             f"Next Short remains: "
             f"{next_short_topic}"
         )
+
+        print(
+            f"Video available at: "
+            f"{final_video}"
+        )
+
+        print("=" * 80)
 
         return
 
@@ -1369,7 +1530,7 @@ def run(
     print("🚀 UPLOADING VERIFIED SHORT TO YOUTUBE")
     print("=" * 80)
 
-    upload_video(
+    upload_result = upload_video(
         final_video,
         title,
         description,
@@ -1380,22 +1541,57 @@ def run(
         "✅ YouTube upload completed."
     )
 
+    if upload_result:
+
+        print(
+            f"Upload result: {upload_result}"
+        )
+
     # ----------------------------------------------------------------------
     # SAVE NEXT SHORT
+    #
+    # IMPORTANT:
+    #
+    # The video is already published at this point.
+    #
+    # If this fails, DO NOT commit the current topic because the next
+    # topic state has not been safely persisted.
+    #
+    # topics.py will be the next file we harden for crash-safe state.
     # ----------------------------------------------------------------------
 
     print("=" * 80)
     print("🔗 SAVING NEXT SHORT")
     print("=" * 80)
 
-    saved_next = save_next_short(
-        next_short_topic
-    )
+    try:
+
+        saved_next = save_next_short(
+            next_short_topic
+        )
+
+    except Exception as error:
+
+        print(
+            "❌ NEXT SHORT SAVE FAILED"
+        )
+
+        print(
+            f"{type(error).__name__}: {error}"
+        )
+
+        print(
+            "Current topic was NOT committed."
+        )
+
+        raise RuntimeError(
+            "YouTube upload succeeded, but next_short "
+            "could not be persisted safely."
+        ) from error
 
     if not saved_next:
 
         raise RuntimeError(
-            "PIPELINE STOPPED: "
             "YouTube upload succeeded, but the "
             "next_short topic could not be saved."
         )
@@ -1413,8 +1609,36 @@ def run(
     print("📌 COMMITTING CURRENT TOPIC")
     print("=" * 80)
 
-    commit_topic(
-        topic
+    try:
+
+        committed = commit_topic(
+            topic
+        )
+
+    except Exception as error:
+
+        print(
+            "❌ CURRENT TOPIC COMMIT FAILED"
+        )
+
+        print(
+            f"{type(error).__name__}: {error}"
+        )
+
+        raise RuntimeError(
+            "YouTube upload and next_short save succeeded, "
+            "but current topic commit failed."
+        ) from error
+
+    if committed is False:
+
+        raise RuntimeError(
+            "YouTube upload and next_short save succeeded, "
+            "but current topic was not committed."
+        )
+
+    print(
+        f"✅ Current topic committed: {topic}"
     )
 
     # ----------------------------------------------------------------------
@@ -1434,6 +1658,10 @@ def run(
         f"{next_short_topic}"
     )
 
+    print(
+        f"Artifacts: {workdir}"
+    )
+
     print("=" * 80)
 
 
@@ -1448,10 +1676,14 @@ if __name__ == "__main__":
     parser.add_argument(
         "--dry-run",
         action="store_true",
+        help=(
+            "Run research, script generation and claim verification "
+            "only. No TTS, images, music, video or upload."
+        ),
     )
 
     args = parser.parse_args()
 
     run(
-        args.dry_run
+        dry_run=args.dry_run
     )

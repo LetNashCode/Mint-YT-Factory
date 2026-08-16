@@ -2,7 +2,7 @@
 generate_script.py
 Mint-YT-Factory
 
-Version 9.0
+Version 10.0
 
 Research-first production script generator.
 
@@ -35,10 +35,13 @@ IMPORTANT:
 - Gemini may NOT invent sources.
 - Gemini may NOT invent evidence.
 - Metadata is NOT treated as evidence.
-- Evidence is attached to stable source IDs.
+- evidence_text is the authoritative evidence field.
+- Evidence must already be verified by research.py.
+- Gemini may only choose source IDs from verified research.
+- research_sources are copied from research.py.
+- Gemini does NOT generate research metadata.
 - Factual claims require citations.
 - Purely stylistic scenes may contain zero citations.
-- research.py remains the source of truth for research.
 - verify_claims.py remains the final claim-verification gate.
 - next_short.topic has no 8-word limit.
 """
@@ -385,12 +388,28 @@ def validate_research_package(
     research,
     topic,
 ):
-
     """
     HARD RESEARCH GATE.
 
-    The package must be explicitly verified and contain at least
-    two verified evidence-backed sources.
+    research.py is the source of truth.
+
+    A source is accepted only when:
+
+    - research package is VERIFIED
+    - source is verified
+    - evidence_verified is True
+    - evidence_available is True
+    - evidence_text exists
+    - title exists
+    - authors exist
+    - DOI exists
+    - URL exists
+
+    IMPORTANT:
+
+    evidence_text is authoritative.
+
+    We intentionally DO NOT fall back to abstract here.
     """
 
     if not isinstance(
@@ -434,7 +453,10 @@ def validate_research_package(
 
     verified_sources = []
 
-    for source in sources:
+    for index, source in enumerate(
+        sources,
+        start=1,
+    ):
 
         if not isinstance(
             source,
@@ -450,7 +472,13 @@ def validate_research_package(
 
         if source.get(
             "evidence_verified"
-        ) is False:
+        ) is not True:
+
+            continue
+
+        if source.get(
+            "evidence_available"
+        ) is not True:
 
             continue
 
@@ -560,135 +588,48 @@ def validate_research_package(
 def _extract_source_evidence(
     source,
 ):
-
     """
-    Supports the enhanced Step 2 evidence package while remaining
-    compatible with the previous research structure.
+    Extract ONLY the authoritative evidence_text.
 
-    Preferred fields:
+    IMPORTANT:
 
-    evidence
-    evidence_text
-    evidence_summary
-    evidence_chunks
-    abstract
+    research.py is responsible for creating and verifying evidence_text.
 
-    Evidence must come from research.py.
+    generate_script.py must not create, summarize, combine, or invent
+    evidence.
+
+    We deliberately do NOT fall back to:
+
+    - abstract
+    - title
+    - metadata
+    - evidence_summary
+    - evidence_chunks
+
+    This keeps research.py as the single source of truth.
     """
 
-    candidates = []
-
-    # ----------------------------------------------------------------------
-    # Preferred direct evidence fields
-    # ----------------------------------------------------------------------
-
-    for key in (
-        "evidence",
-        "evidence_text",
-        "evidence_summary",
-        "abstract",
+    if not isinstance(
+        source,
+        dict,
     ):
 
-        value = source.get(
-            key
-        )
+        return ""
 
-        if isinstance(
-            value,
-            str,
-        ):
-
-            value = _clean(
-                value
-            )
-
-            if value:
-                candidates.append(
-                    value
-                )
-
-    # ----------------------------------------------------------------------
-    # Evidence chunks
-    # ----------------------------------------------------------------------
-
-    chunks = source.get(
-        "evidence_chunks",
-        [],
+    evidence = source.get(
+        "evidence_text",
+        "",
     )
 
-    if isinstance(
-        chunks,
-        list,
+    if not isinstance(
+        evidence,
+        str,
     ):
 
-        for chunk in chunks:
+        return ""
 
-            if isinstance(
-                chunk,
-                str,
-            ):
-
-                text = _clean(
-                    chunk
-                )
-
-                if text:
-                    candidates.append(
-                        text
-                    )
-
-            elif isinstance(
-                chunk,
-                dict,
-            ):
-
-                for key in (
-                    "text",
-                    "evidence",
-                    "summary",
-                    "content",
-                ):
-
-                    text = _clean(
-                        chunk.get(
-                            key,
-                            "",
-                        )
-                    )
-
-                    if text:
-                        candidates.append(
-                            text
-                        )
-
-                    if text:
-                        break
-
-    # ----------------------------------------------------------------------
-    # Deduplicate
-    # ----------------------------------------------------------------------
-
-    unique = []
-
-    seen = set()
-
-    for text in candidates:
-
-        normalized = text.lower()
-
-        if normalized in seen:
-            continue
-
-        seen.add(
-            normalized
-        )
-
-        unique.append(
-            text
-        )
-
-    return "\n\n".join(
-        unique
+    return _clean(
+        evidence
     )
 
 
@@ -699,18 +640,15 @@ def _extract_source_evidence(
 def build_research_context(
     research,
 ):
-
     """
     Build a strict evidence package for Gemini.
-
-    IMPORTANT:
 
     Metadata is provided only for source identification.
 
     Scientific evidence is provided separately.
 
     Gemini must never treat title, DOI, journal, authors or URL
-    as evidence for a factual claim.
+    as evidence.
     """
 
     sources = research[
@@ -783,8 +721,22 @@ def build_research_context(
 
             raise RuntimeError(
                 f"Research source {source_id} "
-                "has no evidence text."
+                "has no authoritative evidence_text."
             )
+
+        evidence_type = _clean(
+            source.get(
+                "evidence_type",
+                "abstract",
+            )
+        )
+
+        evidence_quality = _clean(
+            source.get(
+                "evidence_quality",
+                "high",
+            )
+        )
 
         block = f"""
 ============================================================
@@ -815,6 +767,12 @@ URL:
 Database:
 {database}
 
+Verification Level:
+{_clean(source.get("verification_level", ""))}
+
+Evidence Verified:
+{source.get("evidence_verified", False)}
+
 IMPORTANT:
 The metadata above identifies the source.
 Metadata itself is NOT scientific evidence.
@@ -823,6 +781,16 @@ Metadata itself is NOT scientific evidence.
 SUPPLIED SCIENTIFIC EVIDENCE
 ============================================================
 
+Evidence Available:
+{source.get("evidence_available", False)}
+
+Evidence Type:
+{evidence_type}
+
+Evidence Quality:
+{evidence_quality}
+
+Evidence Text:
 {evidence}
 
 ============================================================
@@ -1021,6 +989,17 @@ If source_1 and source_2 are both necessary:
 ["source_1", "source_2"]
 
 Do not cite a source that does not actually support the claim.
+
+============================================================
+SOURCE METADATA
+============================================================
+
+The "research_sources" field is NOT generated from your own knowledge.
+
+The pipeline will overwrite it with the exact verified metadata from
+research.py.
+
+Do not invent research source metadata.
 
 ============================================================
 FORMAT
@@ -1511,7 +1490,6 @@ def build_response_schema():
         },
 
         "required": [
-
             "scene",
             "purpose",
             "retention_purpose",
@@ -1593,7 +1571,6 @@ def build_response_schema():
         },
 
         "required": [
-
             "source_id",
             "title",
             "authors",
@@ -1680,7 +1657,6 @@ def build_response_schema():
         },
 
         "required": [
-
             "recurring_subjects",
             "recurring_objects",
             "recurring_environment",
@@ -1867,7 +1843,6 @@ def build_response_schema():
         },
 
         "required": [
-
             "title",
             "description",
             "tags",
@@ -2542,6 +2517,22 @@ def _normalize_research_sources(
     script,
     verified_research,
 ):
+    """
+    IMPORTANT:
+
+    Gemini does not control research_sources.
+
+    We copy the exact verified source metadata from research.py.
+
+    This prevents Gemini from inventing:
+
+    - papers
+    - authors
+    - DOIs
+    - URLs
+    - journals
+    - verification information
+    """
 
     normalized = []
 
@@ -2563,7 +2554,7 @@ def _normalize_research_sources(
         if not evidence:
 
             raise RuntimeError(
-                f"Verified source_{index} has no evidence."
+                f"Verified source_{index} has no evidence_text."
             )
 
         try:
@@ -2734,11 +2725,16 @@ def _validate_source_ids(
                 f"Scene {index} source_ids must be a list."
             )
 
+        cleaned_ids = []
+
         for source_id in source_ids:
 
-            source_id = str(
+            source_id = _clean(
                 source_id
-            ).strip()
+            )
+
+            if not source_id:
+                continue
 
             if source_id not in valid_ids:
 
@@ -2746,6 +2742,16 @@ def _validate_source_ids(
                     f"Scene {index} references invalid source ID: "
                     f"{source_id}"
                 )
+
+            if source_id not in cleaned_ids:
+
+                cleaned_ids.append(
+                    source_id
+                )
+
+        scene[
+            "source_ids"
+        ] = cleaned_ids
 
 
 # ==========================================================================
@@ -3108,8 +3114,6 @@ def validate_script(
 
         # ------------------------------------------------------------------
         # SOURCE CITATIONS
-        #
-        # IMPORTANT:
         #
         # A scene may legitimately contain no citation if it contains
         # only stylistic/storytelling language.
@@ -3555,6 +3559,11 @@ def generate_script(
             f"{len(evidence)} characters"
         )
 
+        print(
+            f"   Evidence verified: "
+            f"{source.get('evidence_verified', False)}"
+        )
+
     print("=" * 80)
 
     api_key = _get_api_key()
@@ -3642,7 +3651,7 @@ Correct the error and return the COMPLETE storyboard.
 
 Remember:
 
-- ONLY use supplied verified evidence.
+- ONLY use supplied verified evidence_text.
 - Do NOT use outside knowledge.
 - Do NOT invent research.
 - Do NOT invent citations.
@@ -3691,9 +3700,17 @@ Return ONLY JSON.
                 response.text
             )
 
+            # --------------------------------------------------------------
+            # The topic is controlled by the pipeline, not Gemini.
+            # --------------------------------------------------------------
+
             script[
                 "topic"
             ] = topic
+
+            # --------------------------------------------------------------
+            # Validate the generated storyboard.
+            # --------------------------------------------------------------
 
             script = validate_script(
                 script,

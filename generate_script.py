@@ -2,7 +2,7 @@
 generate_script.py
 Mint-YT-Factory
 
-Version 10.3
+Version 10.4
 
 Research-first production script generator.
 
@@ -199,6 +199,8 @@ VALID_CATEGORY = {
     "earth_science",
     "human_body",
     "psychology",
+    "history",
+    "animals",
 }
 
 ZOOM_FACTORS = {
@@ -632,7 +634,7 @@ Observational evidence must not become causal claims.
 SOURCE IDs
 ============================================================
 
-Source IDs are supplied directly by research.py.
+Source IDs are supplied directly from research.py.
 
 Use EXACTLY those IDs.
 
@@ -734,6 +736,28 @@ Scene 7 should:
 The next topic must be researchable and specific.
 
 next_short.topic has NO 8-word limit.
+
+============================================================
+DESCRIPTION RULE
+============================================================
+
+The current video's description is ONLY for the current video.
+
+DO NOT mention:
+
+- the next Short topic
+- the next video's title
+- the next video's subject
+- a detailed description of the next video
+
+The next topic belongs ONLY in:
+
+1. Scene 7 narration.
+2. next_short.topic.
+3. next_short.teaser.
+4. next_short.why_viewers_should_return.
+
+Do not reveal it in the current video's description.
 
 ============================================================
 VISUALS
@@ -882,6 +906,21 @@ Do not merely put the next topic inside next_short.
 The next topic must be spoken in Scene 7.
 
 next_short.topic has NO 8-word limit.
+
+============================================================
+CURRENT DESCRIPTION REQUIREMENT
+============================================================
+
+The current video's description must describe ONLY the current video.
+
+Do NOT mention or reveal:
+
+- the next Short topic
+- the next video's title
+- the next video's subject
+- the next video's research question
+
+The next topic must remain outside the current description.
 
 ============================================================
 CITATIONS
@@ -1745,15 +1784,88 @@ def _validate_next_short_is_spoken(script):
             "next_short.topic is empty."
         )
 
-    # Remove common punctuation so we can compare meaningful words.
-    topic_words = [
+    # ----------------------------------------------------------------------
+    # Ignore generic words that do not meaningfully identify a topic.
+    # ----------------------------------------------------------------------
+
+    stop_words = {
+        "what",
+        "why",
+        "how",
+        "when",
+        "where",
+        "which",
+        "does",
+        "do",
+        "did",
+        "can",
+        "could",
+        "would",
+        "will",
+        "should",
+        "are",
+        "is",
+        "was",
+        "were",
+        "the",
+        "a",
+        "an",
+        "and",
+        "or",
+        "of",
+        "to",
+        "in",
+        "on",
+        "for",
+        "with",
+        "from",
+        "your",
+        "our",
+        "their",
+        "this",
+        "that",
+        "these",
+        "those",
+    }
+
+    topic_tokens = [
         word.lower()
         for word in re.findall(
             r"[A-Za-z0-9'-]+",
             topic,
         )
-        if len(word) >= 4
     ]
+
+    meaningful_topic_words = [
+        word
+        for word in topic_tokens
+        if (
+            len(word) >= 5
+            and word not in stop_words
+        )
+    ]
+
+    # Short topics may not contain two 5+ character words.
+    if len(meaningful_topic_words) < 2:
+
+        meaningful_topic_words = [
+            word
+            for word in topic_tokens
+            if (
+                len(word) >= 4
+                and word not in stop_words
+            )
+        ]
+
+    if not meaningful_topic_words:
+        raise RuntimeError(
+            "next_short.topic does not contain enough "
+            "meaningful words for spoken validation."
+        )
+
+    # ----------------------------------------------------------------------
+    # Extract words from Scene 7.
+    # ----------------------------------------------------------------------
 
     narration_words = {
         word.lower()
@@ -1761,29 +1873,244 @@ def _validate_next_short_is_spoken(script):
             r"[A-Za-z0-9'-]+",
             narration,
         )
-        if len(word) >= 4
     }
 
-    if not topic_words:
-        raise RuntimeError(
-            "next_short.topic does not contain usable words."
-        )
-
-    overlap = sum(
-        1
-        for word in set(topic_words)
+    matching_words = [
+        word
+        for word in set(meaningful_topic_words)
         if word in narration_words
+    ]
+
+    overlap = len(matching_words)
+
+    required_overlap = min(
+        2,
+        len(set(meaningful_topic_words)),
     )
 
-    # We deliberately do NOT require the exact full topic sentence.
-    # Gemini should speak naturally rather than reading a research title.
-    #
-    # At least two meaningful topic words must appear in Scene 7.
-    if overlap < 2:
+    # ----------------------------------------------------------------------
+    # At least two meaningful topic words must actually be spoken.
+    # ----------------------------------------------------------------------
+
+    if overlap < required_overlap:
+
         raise RuntimeError(
-            "Scene 7 does not clearly mention the next Short topic. "
-            f"Next topic: '{topic}'. "
+            "Scene 7 does not clearly mention the "
+            "next Short topic.\n"
+            f"Next topic: '{topic}'\n"
+            f"Meaningful topic words: "
+            f"{meaningful_topic_words}\n"
+            f"Words found in Scene 7: "
+            f"{matching_words}\n"
             f"Scene 7 narration: '{narration}'"
+        )
+
+    # ----------------------------------------------------------------------
+    # Require a natural continuation cue.
+    #
+    # This prevents vague endings such as:
+    #
+    # "And that's the mystery."
+    #
+    # from passing even when topic words happen to occur naturally.
+    # ----------------------------------------------------------------------
+
+    continuation_patterns = [
+        r"\bnext\b",
+        r"\bnext short\b",
+        r"\bnext time\b",
+        r"\bwe'?ll see\b",
+        r"\bwe'?ll look\b",
+        r"\bwe'?ll explore\b",
+        r"\bthat raises\b",
+        r"\bthat leaves\b",
+        r"\bthe bigger question\b",
+        r"\bthe question is\b",
+        r"\bbut then\b",
+        r"\bwhich raises\b",
+    ]
+
+    has_continuation_cue = any(
+        re.search(
+            pattern,
+            narration,
+            flags=re.IGNORECASE,
+        )
+        for pattern in continuation_patterns
+    )
+
+    if not has_continuation_cue:
+
+        raise RuntimeError(
+            "Scene 7 mentions the next topic, but does not "
+            "contain a clear continuation cue."
+        )
+
+    print(
+        "✅ Scene 7 verbally introduces the next Short."
+    )
+
+    print(
+        f"   Next topic: {topic}"
+    )
+
+    print(
+        f"   Topic words spoken: "
+        f"{overlap}/{required_overlap}"
+    )
+
+
+# ==========================================================================
+# DESCRIPTION VALIDATION
+# ==========================================================================
+
+def _validate_description_does_not_contain_next_topic(script):
+
+    description = _clean(
+        script.get(
+            "description",
+            "",
+        )
+    ).lower()
+
+    next_short = script.get(
+        "next_short",
+        {},
+    )
+
+    topic = _clean(
+        next_short.get(
+            "topic",
+            "",
+        )
+    ).lower()
+
+    if not description or not topic:
+        return
+
+    stop_words = {
+        "what",
+        "why",
+        "how",
+        "when",
+        "where",
+        "which",
+        "does",
+        "do",
+        "did",
+        "can",
+        "could",
+        "would",
+        "will",
+        "should",
+        "are",
+        "is",
+        "was",
+        "were",
+        "the",
+        "a",
+        "an",
+        "and",
+        "or",
+        "of",
+        "to",
+        "in",
+        "on",
+        "for",
+        "with",
+        "from",
+        "your",
+        "our",
+        "their",
+        "this",
+        "that",
+        "these",
+        "those",
+    }
+
+    topic_words = [
+        word
+        for word in re.findall(
+            r"[A-Za-z0-9'-]+",
+            topic,
+        )
+        if (
+            len(word) >= 5
+            and word not in stop_words
+        )
+    ]
+
+    if len(topic_words) < 2:
+
+        topic_words = [
+            word
+            for word in re.findall(
+                r"[A-Za-z0-9'-]+",
+                topic,
+            )
+            if (
+                len(word) >= 4
+                and word not in stop_words
+            )
+        ]
+
+    if not topic_words:
+        return
+
+    description_words = set(
+        re.findall(
+            r"[A-Za-z0-9'-]+",
+            description,
+        )
+    )
+
+    meaningful_overlap = [
+        word
+        for word in set(topic_words)
+        if word in description_words
+    ]
+
+    overlap_count = len(
+        meaningful_overlap
+    )
+
+    unique_topic_words = len(
+        set(topic_words)
+    )
+
+    # ----------------------------------------------------------------------
+    # Only reject when the description contains a substantial portion
+    # of the distinctive next-topic wording.
+    #
+    # Two-word topics require both words.
+    # Longer topics require roughly 70% overlap.
+    # ----------------------------------------------------------------------
+
+    if unique_topic_words == 2:
+
+        should_reject = (
+            overlap_count == 2
+        )
+
+    else:
+
+        should_reject = (
+            overlap_count >= 2
+            and
+            overlap_count
+            >= int(
+                unique_topic_words * 0.7
+            )
+        )
+
+    if should_reject:
+
+        raise RuntimeError(
+            "Current video's description appears to reveal "
+            "the next Short topic.\n"
+            f"Next topic: '{topic}'\n"
+            f"Matching words: {meaningful_overlap}\n"
+            f"Description: '{description}'"
         )
 
 
@@ -2454,24 +2781,45 @@ def validate_script(
             f"{total_visuals}."
         )
 
+    # ----------------------------------------------------------------------
     # Copy authoritative research metadata.
+    # ----------------------------------------------------------------------
+
     _normalize_research_sources(
         script,
         verified_research,
     )
 
+    # ----------------------------------------------------------------------
     # Validate citations.
+    # ----------------------------------------------------------------------
+
     _validate_source_ids(
         script
     )
 
+    # ----------------------------------------------------------------------
     # CRITICAL:
     # Make sure Scene 7 actually talks about the next Short.
+    # ----------------------------------------------------------------------
+
     _validate_next_short_is_spoken(
         script
     )
 
+    # ----------------------------------------------------------------------
+    # CRITICAL:
+    # Make sure current description does not reveal next Short.
+    # ----------------------------------------------------------------------
+
+    _validate_description_does_not_contain_next_topic(
+        script
+    )
+
+    # ----------------------------------------------------------------------
     # Normalize metadata.
+    # ----------------------------------------------------------------------
+
     script["title"] = _clean(
         script["title"]
     )[:60]
@@ -2704,6 +3052,8 @@ Do not merely put it in metadata.
 
 Do not merely put it in the description.
 
+The current video's description must NOT reveal the next topic.
+
 Use exact source IDs supplied by research.py.
 
 Only use supplied evidence.
@@ -2793,6 +3143,10 @@ Return ONLY JSON.
 
             print(
                 "Next Short spoken in Scene 7: YES"
+            )
+
+            print(
+                "Description does not reveal next topic: YES"
             )
 
             print(

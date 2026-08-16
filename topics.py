@@ -2,7 +2,7 @@
 topics.py
 Mint-YT-Factory
 
-Version 3.0
+Version 4.0
 
 Research-first educational topic generator.
 
@@ -16,6 +16,8 @@ Research
         ↓
 Script
         ↓
+Claim verification
+        ↓
 Video
         ↓
 New next_short becomes next topic
@@ -23,6 +25,14 @@ New next_short becomes next topic
 If no pending topic exists:
         ↓
 Gemini generates a new research-friendly topic
+
+IMPORTANT:
+
+- New Gemini topics: maximum 8 words.
+- next_short topics: NO word-count limit.
+- next_short is allowed to be a continuation/open-loop topic.
+- Topics are only committed after the complete pipeline succeeds.
+- Failed runs do not permanently consume the current topic.
 """
 
 import json
@@ -40,6 +50,18 @@ from google.genai import types
 USED_TOPICS_PATH = "used_topics.json"
 
 NEXT_TOPIC_PATH = "next_topic.json"
+
+
+# ==========================================================================
+# LIMITS
+# ==========================================================================
+
+# Only applies to NEW Gemini-generated topics.
+NEW_TOPIC_MAX_WORDS = 8
+
+# Safety limit for malformed/huge next_short text.
+# This is intentionally character-based, NOT word-based.
+MAX_TOPIC_CHARACTERS = 300
 
 
 # ==========================================================================
@@ -65,7 +87,7 @@ Allowed categories:
 8. Animals
 
 ============================================================
-HARD RULES
+HARD RULES FOR NEW TOPICS
 ============================================================
 
 - Return ONLY ONE topic.
@@ -131,7 +153,9 @@ def _load_used():
     return []
 
 
-def _save_used(used):
+def _save_used(
+    used
+):
 
     with open(
         USED_TOPICS_PATH,
@@ -188,7 +212,7 @@ def _load_next_topic():
             )
 
         # --------------------------------------------------------------
-        # Also support a plain string.
+        # Also support plain string.
         # --------------------------------------------------------------
 
         if isinstance(
@@ -220,7 +244,23 @@ def _save_next_topic(
 
     if not topic:
 
-        return
+        return False
+
+    if len(topic) > MAX_TOPIC_CHARACTERS:
+
+        print(
+            "⚠️ Topic is too long."
+        )
+
+        print(
+            f"Characters: {len(topic)}"
+        )
+
+        print(
+            f"Maximum: {MAX_TOPIC_CHARACTERS}"
+        )
+
+        return False
 
     with open(
         NEXT_TOPIC_PATH,
@@ -236,6 +276,8 @@ def _save_next_topic(
             indent=2,
             ensure_ascii=False,
         )
+
+    return True
 
 
 def clear_next_topic():
@@ -319,18 +361,47 @@ def _clean_topic(
 # ==========================================================================
 
 def _valid_topic(
-    topic
+    topic,
+    max_words=None,
 ):
 
     if not topic:
 
         return False
 
-    words = topic.split()
+    topic = _clean_topic(
+        topic
+    )
 
-    if len(words) > 8:
+    if not topic:
 
         return False
+
+    # --------------------------------------------------------------
+    # Safety character limit.
+    #
+    # This applies to all topics but does NOT impose a word limit.
+    # --------------------------------------------------------------
+
+    if len(topic) > MAX_TOPIC_CHARACTERS:
+
+        return False
+
+    # --------------------------------------------------------------
+    # Word limit is OPTIONAL.
+    #
+    # New Gemini topics use max_words=8.
+    #
+    # next_short uses max_words=None.
+    # --------------------------------------------------------------
+
+    if max_words is not None:
+
+        words = topic.split()
+
+        if len(words) > max_words:
+
+            return False
 
     forbidden = [
 
@@ -414,8 +485,20 @@ def get_pending_topic():
 
         return ""
 
+    # IMPORTANT:
+    #
+    # There is NO 8-word restriction here.
+    #
+    # The previous video's next_short can be:
+    #
+    # "discover how deep ocean trenches drive massive cyclonic
+    # water circulation"
+    #
+    # or longer.
+
     if not _valid_topic(
-        topic
+        topic,
+        max_words=None,
     ):
 
         print(
@@ -434,6 +517,10 @@ def get_pending_topic():
 
     print(
         f"Next topic: {topic}"
+    )
+
+    print(
+        f"Word count: {len(topic.split())}"
     )
 
     print("=" * 80)
@@ -487,7 +574,6 @@ Do not invent obscure claims.
 Return ONLY the topic.
 """
 
-    # More attempts, but failures do NOT crash the whole pipeline.
     for attempt in range(
         1,
         8,
@@ -524,12 +610,17 @@ Return ONLY the topic.
                 f"{topic}"
             )
 
+            # IMPORTANT:
+            #
+            # New Gemini topics ARE restricted to 8 words.
+
             if not _valid_topic(
-                topic
+                topic,
+                max_words=NEW_TOPIC_MAX_WORDS,
             ):
 
                 print(
-                    "⚠️ Invalid topic. Retrying."
+                    "⚠️ Invalid new topic. Retrying."
                 )
 
                 continue
@@ -587,8 +678,6 @@ def get_next_topic():
     This function does NOT immediately mark the topic as used.
 
     The topic is only committed after the entire video succeeds.
-    This prevents a failed GitHub Actions run from permanently
-    losing a topic.
     """
 
     # ----------------------------------------------------------------------
@@ -614,9 +703,14 @@ def get_next_topic():
     if topic:
 
         # Keep it pending until the video succeeds.
-        _save_next_topic(
+        if not _save_next_topic(
             topic
-        )
+        ):
+
+            raise RuntimeError(
+                "Could not save newly generated "
+                "topic to pending queue."
+            )
 
         print("=" * 80)
         print("📌 NEW TOPIC QUEUED")
@@ -631,15 +725,7 @@ def get_next_topic():
         return topic
 
     # ----------------------------------------------------------------------
-    # FINAL FALLBACK:
-    #
-    # If Gemini temporarily fails, use the most recent used topic only
-    # as a last-resort research continuation rather than crashing.
-    #
-    # NOTE:
-    # We deliberately do NOT automatically reuse an old topic here.
-    # Instead, raise a clear error so the pipeline cannot publish
-    # duplicate content.
+    # FINAL FALLBACK
     # ----------------------------------------------------------------------
 
     raise RuntimeError(
@@ -659,10 +745,16 @@ def commit_topic(
     """
     Mark a successfully processed topic as used.
 
-    This must be called by main.py ONLY after the entire video has
-    successfully completed.
+    main.py must call this ONLY after the complete pipeline succeeds.
 
-    The pending topic file is removed at the same time.
+    IMPORTANT:
+
+    If a new next_short has already been saved, it remains in
+    next_topic.json.
+
+    The current topic is added to used_topics.json, while the
+    newly generated next_short becomes the pending topic for the
+    next GitHub Actions run.
     """
 
     topic = _clean_topic(
@@ -705,13 +797,27 @@ def commit_topic(
             f"{USED_TOPICS_PATH}: {topic}"
         )
 
-    # Remove the pending topic only after success.
+    # ----------------------------------------------------------------------
+    # IMPORTANT:
+    #
+    # Do NOT blindly delete next_topic.json here.
+    #
+    # It may already contain the NEW next_short generated by the
+    # current video.
+    #
+    # Only remove it if it still contains the current topic.
+    # ----------------------------------------------------------------------
+
     pending = _load_next_topic()
 
     if (
         pending
-        and _topic_key(pending)
-        == _topic_key(topic)
+        and _topic_key(
+            pending
+        )
+        == _topic_key(
+            topic
+        )
     ):
 
         clear_next_topic()
@@ -737,7 +843,11 @@ def save_next_short(
         discover how deep ocean trenches drive massive cyclonic
         water circulation
 
-    That next_short becomes the next video's research topic.
+    The next_short becomes the next video's research topic.
+
+    IMPORTANT:
+
+    There is NO 8-word restriction here.
     """
 
     next_short = _clean_topic(
@@ -752,8 +862,13 @@ def save_next_short(
 
         return False
 
+    # --------------------------------------------------------------
+    # Validate WITHOUT a word limit.
+    # --------------------------------------------------------------
+
     if not _valid_topic(
-        next_short
+        next_short,
+        max_words=None,
     ):
 
         print(
@@ -767,9 +882,16 @@ def save_next_short(
 
         return False
 
-    _save_next_topic(
+    if not _save_next_topic(
         next_short
-    )
+    ):
+
+        print(
+            "❌ Could not save next_short "
+            "to pending topic queue."
+        )
+
+        return False
 
     print("=" * 80)
     print("🔗 NEXT SHORT SAVED")
@@ -777,6 +899,11 @@ def save_next_short(
 
     print(
         next_short
+    )
+
+    print(
+        f"Word count: "
+        f"{len(next_short.split())}"
     )
 
     print(

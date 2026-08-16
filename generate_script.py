@@ -1,17 +1,36 @@
 """
 generate_script.py
 Mint-YT-Factory
-Version 7.1
+Version 8.0
 
-Production:
-- 7 scenes
-- 2 visuals per scene
-- 14 images total
-- 45 seconds
-- next-Short teaser + subscription strategy
-- research source candidates
-- semantic image prompts
-- visual continuity / subject consistency
+Research-first production script generator.
+
+FLOW:
+
+research.py
+    ↓
+Verified research package
+    ↓
+Gemini
+    ↓
+45-second researched Short
+    ↓
+Citations attached to claims
+    ↓
+generate_images.py
+    ↓
+assemble.py
+    ↓
+main.py
+    ↓
+YouTube
+
+IMPORTANT:
+- Gemini does NOT invent research sources.
+- Gemini may ONLY use sources supplied by research.py.
+- Every research source must already be verified.
+- Script generation FAILS if verified research is missing.
+- Research references remain attached to the final script.
 """
 
 import json
@@ -41,6 +60,8 @@ TOTAL_VISUALS = 14
 SCENE_DURATIONS = [
     3, 5, 7, 7, 8, 8, 7
 ]
+
+MIN_VERIFIED_SOURCES = 2
 
 
 # ==========================================================================
@@ -198,7 +219,6 @@ VALID_SOURCE_PRIORITY = {
     "secondary",
 }
 
-
 ZOOM_FACTORS = {
     "subtle": 1.06,
     "medium": 1.15,
@@ -218,28 +238,292 @@ MOTION_SPEEDS = {
 
 BEAT_TABLE = """
 1. HOOK (0-3s)
-   Start with the most surprising fact or consequence.
+   Start with the strongest verified fact or consequence.
    Never start with a question.
 
 2. CURIOSITY GAP (3-8s)
-   Create an unanswered question that makes the viewer need the answer.
+   Create an unanswered question based only on the verified research.
 
 3. EXPLANATION (8-15s)
-   Explain the core mechanism simply.
+   Explain the verified mechanism simply.
 
 4. EXAMPLE (15-22s)
-   Make the mechanism concrete and visual.
+   Make the verified mechanism concrete and visual.
 
 5. REFRAME (22-30s)
-   Reveal an implication that changes how the viewer sees the idea.
+   Reveal a verified implication that changes how the viewer sees the idea.
 
 6. ESCALATION (30-38s)
-   Add one final consequence or perspective shift.
+   Add one final verified consequence or perspective shift.
 
 7. ENDING + NEXT SHORT (38-45s)
-   Give a satisfying insight and naturally tease a closely related
-   next Short.
+   Give a satisfying insight and tease a related future Short.
 """
+
+
+# ==========================================================================
+# RESEARCH VALIDATION
+# ==========================================================================
+
+def validate_research_package(
+    research,
+    topic,
+):
+    """
+    Research is a HARD GATE.
+
+    No verified research = no script.
+    """
+
+    if not isinstance(
+        research,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "RESEARCH GATE FAILED: "
+            "research package is missing."
+        )
+
+    if research.get(
+        "verified"
+    ) is not True:
+
+        raise RuntimeError(
+            "RESEARCH GATE FAILED: "
+            "research package is not marked VERIFIED."
+        )
+
+    if research.get(
+        "status"
+    ) != "VERIFIED":
+
+        raise RuntimeError(
+            "RESEARCH GATE FAILED: "
+            "research status is not VERIFIED."
+        )
+
+    sources = research.get(
+        "sources",
+        [],
+    )
+
+    if not isinstance(
+        sources,
+        list,
+    ):
+
+        raise RuntimeError(
+            "RESEARCH GATE FAILED: "
+            "sources must be a list."
+        )
+
+    verified_sources = []
+
+    for source in sources:
+
+        if not isinstance(
+            source,
+            dict,
+        ):
+            continue
+
+        if source.get(
+            "verified"
+        ) is not True:
+
+            continue
+
+        title = str(
+            source.get(
+                "title",
+                "",
+            )
+        ).strip()
+
+        authors = str(
+            source.get(
+                "authors",
+                "",
+            )
+        ).strip()
+
+        url = str(
+            source.get(
+                "url",
+                "",
+            )
+        ).strip()
+
+        if (
+            title
+            and authors
+            and url
+        ):
+
+            verified_sources.append(
+                source
+            )
+
+    if len(
+        verified_sources
+    ) < MIN_VERIFIED_SOURCES:
+
+        raise RuntimeError(
+            "RESEARCH GATE FAILED: "
+            f"Only {len(verified_sources)} "
+            "verified sources are available. "
+            f"Minimum required: "
+            f"{MIN_VERIFIED_SOURCES}."
+        )
+
+    research_topic = str(
+        research.get(
+            "topic",
+            "",
+        )
+    ).strip()
+
+    if research_topic:
+
+        if (
+            research_topic.lower()
+            != topic.strip().lower()
+        ):
+
+            print(
+                "⚠️ Research topic differs slightly "
+                "from generated topic."
+            )
+
+    research[
+        "sources"
+    ] = verified_sources
+
+    research[
+        "source_count"
+    ] = len(
+        verified_sources
+    )
+
+    return research
+
+
+# ==========================================================================
+# RESEARCH CONTEXT
+# ==========================================================================
+
+def build_research_context(
+    research,
+):
+    """
+    Convert verified research into a strict context
+    Gemini can use.
+
+    Gemini is explicitly forbidden from creating
+    additional sources.
+    """
+
+    sources = research[
+        "sources"
+    ]
+
+    blocks = []
+
+    for index, source in enumerate(
+        sources,
+        start=1,
+    ):
+
+        title = str(
+            source.get(
+                "title",
+                "",
+            )
+        ).strip()
+
+        authors = str(
+            source.get(
+                "authors",
+                "",
+            )
+        ).strip()
+
+        journal = str(
+            source.get(
+                "journal",
+                "",
+            )
+        ).strip()
+
+        year = source.get(
+            "year",
+            "",
+        )
+
+        doi = str(
+            source.get(
+                "doi",
+                "",
+            )
+        ).strip()
+
+        url = str(
+            source.get(
+                "url",
+                "",
+            )
+        ).strip()
+
+        abstract = str(
+            source.get(
+                "abstract",
+                "",
+            )
+        ).strip()
+
+        database = str(
+            source.get(
+                "source_database",
+                "",
+            )
+        ).strip()
+
+        block = f"""
+VERIFIED SOURCE {index}
+
+Title:
+{title}
+
+Authors:
+{authors}
+
+Journal / Venue:
+{journal}
+
+Year:
+{year}
+
+DOI:
+{doi}
+
+URL:
+{url}
+
+Database:
+{database}
+
+Abstract:
+{abstract}
+"""
+
+        blocks.append(
+            block.strip()
+        )
+
+    return "\n\n".join(
+        blocks
+    )
 
 
 # ==========================================================================
@@ -254,14 +538,64 @@ def build_system_prompt(
     return f"""
 You are an expert educational YouTube Shorts writer and visual director.
 
-Create one original educational Short about the supplied topic.
+Your job is to create a scientifically responsible Short using ONLY
+the VERIFIED RESEARCH SOURCES supplied by the user.
 
 ============================================================
-HARD FORMAT
+ABSOLUTE RESEARCH RULE
+============================================================
+
+The supplied research sources are the ONLY permitted evidence.
+
+You MUST NOT:
+
+- invent sources
+- invent studies
+- invent authors
+- invent statistics
+- invent dates
+- invent institutions
+- invent URLs
+- invent DOIs
+- use outside knowledge as evidence
+- present unsupported claims as facts
+- create citations that are not supplied
+
+Every factual scientific claim in the narration must be supported by
+the supplied verified research.
+
+If a fact cannot be supported by the supplied sources:
+
+DO NOT INCLUDE IT.
+
+If the research is insufficient to support the requested topic:
+
+DO NOT fabricate an answer.
+
+============================================================
+CITATION MAPPING
+============================================================
+
+Every important factual claim must include one or more source IDs.
+
+Use:
+
+"source_ids": ["source_1"]
+
+or:
+
+"source_ids": ["source_1", "source_2"]
+
+A source ID may ONLY refer to a supplied verified source.
+
+Do not create source IDs that do not exist.
+
+============================================================
+FORMAT
 ============================================================
 
 - Exactly {scene_count} scenes.
-- Exactly {VISUALS_PER_SCENE} visuals in every scene.
+- Exactly {VISUALS_PER_SCENE} visuals per scene.
 - Exactly {TOTAL_VISUALS} visuals total.
 - Exactly {target_seconds} seconds.
 - Scene durations:
@@ -270,182 +604,87 @@ HARD FORMAT
 {BEAT_TABLE}
 
 ============================================================
-RETENTION
-============================================================
-
-- One connected story, not a list.
-- Answer one curiosity gap while creating the next.
-- The final scene must tease a specific, closely related next Short.
-- Do not use generic "subscribe for more" language.
-- The next Short should give viewers a concrete reason to return.
-
-============================================================
 WRITING
 ============================================================
 
 - Grade 6 reading level.
-- Short, punchy sentences.
-- Start with a strong statement, never a question.
-- Never say:
-  "Did you know"
-  "in this video"
-  "let's explore"
-  "today we're going to"
+- Short punchy sentences.
+- Strong opening statement.
+- Never start with a question.
+- No "Did you know".
+- No "in this video".
+- No "let's explore".
+- No "today we're going to".
 - No listicles.
 - No countdowns.
 - No Top 5.
-- No generic motivation.
-- Teach one interesting phenomenon.
+- One connected story.
+- Teach one phenomenon.
 
 ============================================================
-ACCURACY
+SCIENTIFIC LANGUAGE
 ============================================================
 
-- Use scientifically defensible claims only.
-- Do not invent statistics.
-- Never turn hypotheses into facts.
-- If evidence is uncertain, clearly say so.
-- Do not invent studies, researchers or institutions.
+Clearly distinguish:
 
-BIOLOGY / CONSCIOUSNESS:
+FACT:
+Supported directly by the supplied research.
 
-Treat consciousness, death, near-death experiences and altered states
-scientifically.
+EVIDENCE:
+Supported by research but not necessarily absolute.
 
-Never present supernatural explanations as proven.
+HYPOTHESIS:
+Must be explicitly described as a hypothesis.
 
-============================================================
-SAFETY
-============================================================
+DEBATE:
+Must be described as uncertain or debated.
 
-No diagnosis, treatment, medication instructions, dangerous
-self-experimentation, political/religious persuasion, gore, violence,
-or conspiracy theories presented as fact.
+Never convert uncertainty into certainty.
 
 ============================================================
-VISUAL STORYTELLING
+VISUALS
 ============================================================
 
 Exactly 2 visuals per scene.
 
-The visuals are NOT decorative.
+Each visual must directly represent the narration.
 
-Every visual must directly represent something being said.
+Visual 1 establishes the idea.
 
-Within each scene:
+Visual 2 advances or reveals the next part.
 
-- Visual 1 establishes the subject/state/action.
-- Visual 2 advances, reveals, changes or zooms into that idea.
-- Do not create two nearly identical images.
-- Do not repeat the same composition unnecessarily.
-
-Across scenes:
-
-- Visuals must feel like consecutive documentary shots.
-- Each scene should visually progress from the previous scene.
-- Preserve important subjects and objects.
-- Preserve the same physical appearance when a recurring subject exists.
-- Preserve clothing when the same person continues through the story.
-- Preserve body shape, age, hair, skin tone and distinctive features.
-- Preserve object design, color and physical state when relevant.
-- Preserve environmental continuity when the story takes place in one
-  location.
-- Do not randomly change the identity of a recurring person.
-- Do not randomly change the appearance of recurring animals.
-- Do not randomly change the design of recurring objects.
-- Do not introduce unrelated people or objects.
-- If a subject changes state because of the story, describe that change
-  explicitly.
-
-============================================================
-VISUAL CONTINUITY
-============================================================
-
-Create a visual continuity system for the entire Short.
-
-At the top level include:
-
-"visual_continuity": {
-    "recurring_subjects": [],
-    "recurring_objects": [],
-    "recurring_environment": "",
-    "continuity_rules": []
-}
-
-For every recurring subject, describe stable identifying features.
-
-Example:
-
-{
-  "name": "young man",
-  "type": "person",
-  "appearance": "short dark hair, brown eyes, medium skin tone,
-                 navy hoodie, slim build",
-  "continuity": "same appearance throughout"
-}
-
-Only create recurring subjects when they are genuinely needed.
-
-For purely conceptual or scientific subjects, do not force a human
-character into the story.
-
-Every visual prompt involving a recurring subject MUST preserve the
-established identity.
+Preserve recurring subjects, objects and environments.
 
 ============================================================
 IMAGE PROMPTS
 ============================================================
 
-- Approximately 15-35 words.
-- Describe ONLY what should be visible.
-- Directly visualize the narration.
-- One clear visual idea per prompt.
-- Include recurring-subject identity when applicable.
-- No camera instructions.
-- No lighting instructions.
-- No aspect ratio instructions.
-- No rendering instructions.
-- No negative prompts.
-- No technical image-generation instructions.
-- No mention of YouTube.
-- No mention of narration.
-- No mention of audio.
-- No mention of subtitles.
-- No mention of viewers.
-- No mention of AI.
-- No text.
-- No logos.
-- No watermarks.
+15-35 words approximately.
 
-============================================================
-RESEARCH
-============================================================
+Describe ONLY what should be visible.
 
-Provide 2-4 credible source candidates supporting important claims.
-
-Prefer:
-
-- primary papers
-- peer-reviewed journals
-- universities
-- government
-- research institutions
-
-Do not invent URLs, DOIs, titles or authors.
-
-If unsure of a URL, leave it empty.
-
-These are candidates and MUST be independently verified before
-publishing.
+No camera instructions.
+No lighting instructions.
+No aspect ratio.
+No rendering instructions.
+No negative prompts.
+No text.
+No logos.
+No watermarks.
+No YouTube.
+No narration.
+No subtitles.
+No viewers.
+No AI.
 
 ============================================================
 FINAL SCENE
 ============================================================
 
-- purpose must be "ending".
-- transition must be "none".
-- narration must naturally contain the next-Short teaser.
-- The teaser must relate directly to the current topic.
+- purpose = "ending"
+- transition = "none"
+- narration contains the next-Short teaser.
+- The teaser must be related to the current subject.
 
 Return ONLY valid JSON.
 """
@@ -455,7 +694,26 @@ Return ONLY valid JSON.
 # USER PROMPT
 # ==========================================================================
 
-def build_user_prompt(topic, config):
+def build_user_prompt(
+    topic,
+    config,
+    research,
+):
+
+    research_context = build_research_context(
+        research
+    )
+
+    source_ids = []
+
+    for index, source in enumerate(
+        research["sources"],
+        start=1,
+    ):
+
+        source_ids.append(
+            f"source_{index}"
+        )
 
     return f"""
 TOPIC:
@@ -470,65 +728,83 @@ TONE:
 LANGUAGE:
 {config["script"]["language"]}
 
-Create the complete 45-second storyboard.
+============================================================
+VERIFIED RESEARCH
+============================================================
 
-Production:
+The following sources have already passed the research verification
+gate.
+
+You MUST use only these sources.
+
+Available source IDs:
+
+{", ".join(source_ids)}
+
+RESEARCH:
+
+{research_context}
+
+============================================================
+PRODUCTION
+============================================================
+
+Create:
 
 - 7 scenes
 - 2 visuals per scene
 - 14 visuals total
-- Scene durations: 3, 5, 7, 7, 8, 8, 7 seconds
+- 45 seconds
 
-IMPORTANT VISUAL CONTINUITY:
+Scene durations:
 
-Before writing the scene visuals, determine whether the story requires
-recurring people, animals, objects or environments.
+3, 5, 7, 7, 8, 8, 7
 
-If yes:
+============================================================
+CRITICAL
+============================================================
 
-1. Define their stable appearance in visual_continuity.
-2. Reuse the same identity in every relevant visual.
-3. Do not randomly change clothing, facial features, body type,
-   object design, colors or environment.
-4. If their state changes, make the change intentional and connected
-   to the narration.
+Every factual claim in narration must have source_ids.
 
-If no recurring subject is necessary, keep the visual storytelling
-conceptual and scientifically focused.
+Do not add unsupported facts.
 
-Each scene must have two visually different but connected shots.
+Do not add new citations.
 
-The final narration must naturally tell viewers what the next Short
-will cover.
+Do not invent research.
 
-Make the next topic closely related to this one.
+If a statement is not supported by the supplied sources, remove it.
 
-Also provide 2-4 credible research source candidates supporting the
-scientific claims.
+The research_sources field in the final JSON MUST contain the supplied
+verified sources exactly.
 
-Keep every image_prompt short, specific and purely visual.
+The final Short must be publishable with citations immediately.
 
 Return ONLY JSON.
 """
 
 
 # ==========================================================================
-# JSON SCHEMA HELPERS
+# ENUM
 # ==========================================================================
 
 def _enum(values):
+
     return {
         "type": "string",
         "enum": list(values),
     }
 
 
-def build_response_schema(
-    scene_count=SCENE_COUNT,
-):
+# ==========================================================================
+# RESPONSE SCHEMA
+# ==========================================================================
+
+def build_response_schema():
 
     visual = {
+
         "type": "object",
+
         "properties": {
 
             "segment": {
@@ -572,7 +848,9 @@ def build_response_schema(
             },
 
             "overlay": {
+
                 "type": "object",
+
                 "properties": {
 
                     "type": _enum(
@@ -583,6 +861,7 @@ def build_response_schema(
                         "type": "string",
                     },
                 },
+
                 "required": [
                     "type",
                     "description",
@@ -616,7 +895,9 @@ def build_response_schema(
     }
 
     scene = {
+
         "type": "object",
+
         "properties": {
 
             "scene": {
@@ -635,14 +916,27 @@ def build_response_schema(
                 "type": "string",
             },
 
+            "source_ids": {
+
+                "type": "array",
+
+                "items": {
+                    "type": "string",
+                },
+            },
+
             "subtitle_text": {
                 "type": "string",
             },
 
             "caption_highlights": {
+
                 "type": "array",
+
                 "items": {
+
                     "type": "object",
+
                     "properties": {
 
                         "word": {
@@ -653,6 +947,7 @@ def build_response_schema(
                             VALID_EMPHASIS
                         ),
                     },
+
                     "required": [
                         "word",
                         "emphasis",
@@ -689,7 +984,9 @@ def build_response_schema(
             ),
 
             "sfx_cue": {
+
                 "type": "object",
+
                 "properties": {
 
                     "term": {
@@ -700,6 +997,7 @@ def build_response_schema(
                         "type": "integer",
                     },
                 },
+
                 "required": [
                     "term",
                     "at_ms",
@@ -715,16 +1013,20 @@ def build_response_schema(
             ),
 
             "visuals": {
+
                 "type": "array",
+
                 "items": visual,
             },
         },
 
         "required": [
+
             "scene",
             "purpose",
             "retention_purpose",
             "narration",
+            "source_ids",
             "subtitle_text",
             "caption_highlights",
             "subtitle_style",
@@ -742,8 +1044,14 @@ def build_response_schema(
     }
 
     source = {
+
         "type": "object",
+
         "properties": {
+
+            "source_id": {
+                "type": "string",
+            },
 
             "title": {
                 "type": "string",
@@ -757,36 +1065,65 @@ def build_response_schema(
                 "type": "string",
             },
 
+            "journal": {
+                "type": "string",
+            },
+
+            "year": {
+                "type": "integer",
+            },
+
+            "doi": {
+                "type": "string",
+            },
+
             "url": {
                 "type": "string",
             },
 
-            "source_type": _enum(
-                VALID_SOURCE_TYPE
-            ),
+            "source_database": {
+                "type": "string",
+            },
 
-            "priority": _enum(
-                VALID_SOURCE_PRIORITY
-            ),
+            "source_type": {
+                "type": "string",
+            },
 
-            "claim_supported": {
+            "priority": {
+                "type": "string",
+            },
+
+            "verified": {
+                "type": "boolean",
+            },
+
+            "verification": {
                 "type": "string",
             },
         },
 
         "required": [
+
+            "source_id",
             "title",
             "authors",
             "organization",
+            "journal",
+            "year",
+            "doi",
             "url",
+            "source_database",
             "source_type",
             "priority",
-            "claim_supported",
+            "verified",
+            "verification",
         ],
     }
 
     recurring_subject = {
+
         "type": "object",
+
         "properties": {
 
             "name": {
@@ -815,27 +1152,37 @@ def build_response_schema(
     }
 
     visual_continuity = {
+
         "type": "object",
+
         "properties": {
 
             "recurring_subjects": {
+
                 "type": "array",
-                "items": recurring_subject,
+
+                "items":
+                    recurring_subject,
             },
 
             "recurring_objects": {
+
                 "type": "array",
+
                 "items": {
                     "type": "string",
                 },
             },
 
             "recurring_environment": {
+
                 "type": "string",
             },
 
             "continuity_rules": {
+
                 "type": "array",
+
                 "items": {
                     "type": "string",
                 },
@@ -843,6 +1190,7 @@ def build_response_schema(
         },
 
         "required": [
+
             "recurring_subjects",
             "recurring_objects",
             "recurring_environment",
@@ -851,6 +1199,7 @@ def build_response_schema(
     }
 
     return {
+
         "type": "object",
 
         "properties": {
@@ -864,7 +1213,9 @@ def build_response_schema(
             },
 
             "tags": {
+
                 "type": "array",
+
                 "items": {
                     "type": "string",
                 },
@@ -879,7 +1230,9 @@ def build_response_schema(
             },
 
             "voice_style": {
+
                 "type": "object",
+
                 "properties": {
 
                     "tone": {
@@ -907,7 +1260,9 @@ def build_response_schema(
             },
 
             "music": {
+
                 "type": "object",
+
                 "properties": {
 
                     "search": {
@@ -926,7 +1281,9 @@ def build_response_schema(
             },
 
             "visual_identity": {
+
                 "type": "object",
+
                 "properties": {
 
                     "style": {
@@ -953,7 +1310,9 @@ def build_response_schema(
                 visual_continuity,
 
             "retention_self_check": {
+
                 "type": "object",
+
                 "properties": {
 
                     "weakest_scene": {
@@ -972,7 +1331,9 @@ def build_response_schema(
             },
 
             "next_short": {
+
                 "type": "object",
+
                 "properties": {
 
                     "topic": {
@@ -1001,17 +1362,22 @@ def build_response_schema(
             },
 
             "research_sources": {
+
                 "type": "array",
+
                 "items": source,
             },
 
             "scene_plan": {
+
                 "type": "array",
+
                 "items": scene,
             },
         },
 
         "required": [
+
             "title",
             "description",
             "tags",
@@ -1030,12 +1396,15 @@ def build_response_schema(
 
 
 # ==========================================================================
-# JSON PARSING
+# JSON PARSER
 # ==========================================================================
 
-def parse_gemini_json(text):
+def parse_gemini_json(
+    text,
+):
 
     if not text:
+
         raise RuntimeError(
             "Gemini returned an empty response."
         )
@@ -1043,9 +1412,15 @@ def parse_gemini_json(text):
     text = text.strip()
 
     try:
-        data = json.loads(text)
 
-        if isinstance(data, dict):
+        data = json.loads(
+            text
+        )
+
+        if isinstance(
+            data,
+            dict,
+        ):
             return data
 
     except json.JSONDecodeError:
@@ -1065,16 +1440,27 @@ def parse_gemini_json(text):
     ).strip()
 
     try:
-        data = json.loads(cleaned)
 
-        if isinstance(data, dict):
+        data = json.loads(
+            cleaned
+        )
+
+        if isinstance(
+            data,
+            dict,
+        ):
             return data
 
     except json.JSONDecodeError:
         pass
 
-    start = cleaned.find("{")
-    end = cleaned.rfind("}")
+    start = cleaned.find(
+        "{"
+    )
+
+    end = cleaned.rfind(
+        "}"
+    )
 
     if start >= 0 and end > start:
 
@@ -1089,15 +1475,22 @@ def parse_gemini_json(text):
         )
 
         try:
-            data = json.loads(candidate)
 
-            if isinstance(data, dict):
+            data = json.loads(
+                candidate
+            )
+
+            if isinstance(
+                data,
+                dict,
+            ):
                 return data
 
         except json.JSONDecodeError as error:
 
             raise RuntimeError(
-                f"Failed to parse Gemini JSON: {error}"
+                f"Failed to parse Gemini JSON: "
+                f"{error}"
             )
 
     raise RuntimeError(
@@ -1118,12 +1511,14 @@ def _check_enum(
     if value not in allowed:
 
         raise RuntimeError(
-            f"{label}: invalid value '{value}'. "
-            f"Expected one of {sorted(allowed)}."
+            f"{label}: invalid value "
+            f"'{value}'."
         )
 
 
-def _slugify(text):
+def _slugify(
+    text,
+):
 
     slug = re.sub(
         r"[^a-z0-9]+",
@@ -1134,7 +1529,9 @@ def _slugify(text):
     return slug[:40] or "video"
 
 
-def _build_style_lock(identity):
+def _build_style_lock(
+    identity,
+):
 
     if not isinstance(
         identity,
@@ -1181,7 +1578,7 @@ def _build_style_lock(identity):
 
 
 # ==========================================================================
-# CAPTION REPAIR
+# CAPTIONS
 # ==========================================================================
 
 def _repair_caption_highlights(
@@ -1245,18 +1642,20 @@ def _repair_caption_highlights(
             and emphasis in VALID_EMPHASIS
         ):
 
-            existing = {
+            if word.lower() not in {
                 x["word"].lower()
                 for x in result
-            }
-
-            if word.lower() not in existing:
+            }:
 
                 result.append({
-                    "word": lookup[
-                        word.lower()
-                    ],
-                    "emphasis": emphasis,
+
+                    "word":
+                        lookup[
+                            word.lower()
+                        ],
+
+                    "emphasis":
+                        emphasis,
                 })
 
     if not result:
@@ -1267,8 +1666,12 @@ def _repair_caption_highlights(
         )
 
         result = [{
-            "word": word,
-            "emphasis": "strong",
+
+            "word":
+                word,
+
+            "emphasis":
+                "strong",
         }]
 
     scene[
@@ -1277,7 +1680,7 @@ def _repair_caption_highlights(
 
 
 # ==========================================================================
-# VISUAL PROMPT CLEANING
+# IMAGE PROMPT
 # ==========================================================================
 
 def _clean_image_prompt(
@@ -1302,8 +1705,8 @@ def _clean_image_prompt(
         prompt,
     )
 
-    # Remove common accidental technical instructions.
     forbidden_patterns = [
+
         r"\baspect ratio\b",
         r"\b16:9\b",
         r"\b9:16\b",
@@ -1372,8 +1775,11 @@ def _repair_visual(
             "cinematic natural tones",
 
         "overlay": {
-            "type": "none",
-            "description": "",
+            "type":
+                "none",
+
+            "description":
+                "",
         },
 
         "visual_impact":
@@ -1382,8 +1788,10 @@ def _repair_visual(
 
     for key, value in defaults.items():
 
-        if key not in visual:
-            visual[key] = value
+        visual.setdefault(
+            key,
+            value,
+        )
 
     if not isinstance(
         visual["overlay"],
@@ -1393,8 +1801,12 @@ def _repair_visual(
         visual[
             "overlay"
         ] = {
-            "type": "none",
-            "description": "",
+
+            "type":
+                "none",
+
+            "description":
+                "",
         }
 
     visual[
@@ -1498,9 +1910,9 @@ def _repair_visual(
     ]:
 
         raise RuntimeError(
-            f"Scene {scene_index} visual "
-            f"{visual_index} has an empty "
-            "image_prompt."
+            f"Scene {scene_index} "
+            f"visual {visual_index} "
+            "has an empty image_prompt."
         )
 
 
@@ -1702,75 +2114,43 @@ def _normalize_next_short(
 
 
 # ==========================================================================
-# RESEARCH
+# RESEARCH NORMALIZATION
 # ==========================================================================
 
 def _normalize_research_sources(
     script,
+    verified_research,
 ):
-
-    sources = script.get(
-        "research_sources",
-        [],
-    )
-
-    if not isinstance(
-        sources,
-        list,
-    ):
-        sources = []
 
     normalized = []
 
-    for source in sources[:4]:
+    supplied_sources = (
+        verified_research[
+            "sources"
+        ]
+    )
 
-        if not isinstance(
-            source,
-            dict,
-        ):
-            continue
+    for index, source in enumerate(
+        supplied_sources,
+        start=1,
+    ):
 
-        title = str(
-            source.get(
-                "title",
-                "",
-            )
-        ).strip()
-
-        claim = str(
-            source.get(
-                "claim_supported",
-                "",
-            )
-        ).strip()
-
-        if not title or not claim:
-            continue
-
-        source_type = str(
-            source.get(
-                "source_type",
-                "journal",
-            )
-        ).strip()
-
-        priority = str(
-            source.get(
-                "priority",
-                "secondary",
-            )
-        ).strip()
-
-        if source_type not in VALID_SOURCE_TYPE:
-            source_type = "journal"
-
-        if priority not in VALID_SOURCE_PRIORITY:
-            priority = "secondary"
+        source_id = (
+            f"source_{index}"
+        )
 
         normalized.append({
 
+            "source_id":
+                source_id,
+
             "title":
-                title[:250],
+                str(
+                    source.get(
+                        "title",
+                        "",
+                    )
+                ).strip()[:300],
 
             "authors":
                 str(
@@ -1778,7 +2158,7 @@ def _normalize_research_sources(
                         "authors",
                         "",
                     )
-                ).strip()[:300],
+                ).strip()[:500],
 
             "organization":
                 str(
@@ -1786,7 +2166,31 @@ def _normalize_research_sources(
                         "organization",
                         "",
                     )
-                ).strip()[:200],
+                ).strip()[:250],
+
+            "journal":
+                str(
+                    source.get(
+                        "journal",
+                        "",
+                    )
+                ).strip()[:250],
+
+            "year":
+                int(
+                    source.get(
+                        "year",
+                        0,
+                    ) or 0
+                ),
+
+            "doi":
+                str(
+                    source.get(
+                        "doi",
+                        "",
+                    )
+                ).strip(),
 
             "url":
                 str(
@@ -1794,19 +2198,44 @@ def _normalize_research_sources(
                         "url",
                         "",
                     )
-                ).strip()[:500],
+                ).strip(),
+
+            "source_database":
+                str(
+                    source.get(
+                        "source_database",
+                        "",
+                    )
+                ).strip(),
 
             "source_type":
-                source_type,
+                str(
+                    source.get(
+                        "source_type",
+                        "paper",
+                    )
+                ).strip(),
 
             "priority":
-                priority,
-
-            "claim_supported":
-                claim[:500],
+                str(
+                    source.get(
+                        "priority",
+                        "secondary",
+                    )
+                ).strip(),
 
             "verified":
-                False,
+                True,
+
+            "verification":
+                str(
+                    source.get(
+                        "verification",
+                        "Verified by research.py",
+                    )
+                ).strip()
+                or
+                "Verified by research.py",
         })
 
     script[
@@ -1815,7 +2244,80 @@ def _normalize_research_sources(
 
 
 # ==========================================================================
-# VISUAL CONTINUITY NORMALIZATION
+# SOURCE ID VALIDATION
+# ==========================================================================
+
+def _validate_source_ids(
+    script,
+):
+
+    valid_ids = {
+
+        source.get(
+            "source_id"
+        )
+
+        for source in script.get(
+            "research_sources",
+            []
+        )
+
+        if isinstance(
+            source,
+            dict,
+        )
+    }
+
+    if not valid_ids:
+
+        raise RuntimeError(
+            "No verified research sources "
+            "are attached to script."
+        )
+
+    for index, scene in enumerate(
+        script.get(
+            "scene_plan",
+            []
+        ),
+        start=1,
+    ):
+
+        source_ids = scene.get(
+            "source_ids",
+            [],
+        )
+
+        if not isinstance(
+            source_ids,
+            list,
+        ):
+
+            raise RuntimeError(
+                f"Scene {index} source_ids "
+                "must be a list."
+            )
+
+        if not source_ids:
+
+            raise RuntimeError(
+                f"Scene {index} has no "
+                "research source citation."
+            )
+
+        for source_id in source_ids:
+
+            if source_id not in valid_ids:
+
+                raise RuntimeError(
+                    f"Scene {index} references "
+                    f"invalid source ID: "
+                    f"{source_id}"
+                )
+
+
+# ==========================================================================
+# VISUAL CONTINUITY
 # ==========================================================================
 
 def _normalize_visual_continuity(
@@ -1861,24 +2363,10 @@ def _normalize_visual_continuity(
             )
         ).strip()
 
-        subject_type = str(
-            subject.get(
-                "type",
-                "",
-            )
-        ).strip()
-
         appearance = str(
             subject.get(
                 "appearance",
                 "",
-            )
-        ).strip()
-
-        continuity_rule = str(
-            subject.get(
-                "continuity",
-                "same appearance throughout",
             )
         ).strip()
 
@@ -1891,13 +2379,23 @@ def _normalize_visual_continuity(
                 name[:100],
 
             "type":
-                subject_type[:80],
+                str(
+                    subject.get(
+                        "type",
+                        "",
+                    )
+                ).strip()[:80],
 
             "appearance":
                 appearance[:500],
 
             "continuity":
-                continuity_rule[:300],
+                str(
+                    subject.get(
+                        "continuity",
+                        "same appearance throughout",
+                    )
+                ).strip()[:300],
         })
 
     objects = continuity.get(
@@ -1911,12 +2409,6 @@ def _normalize_visual_continuity(
     ):
         objects = []
 
-    objects = [
-        str(x).strip()[:200]
-        for x in objects
-        if str(x).strip()
-    ][:20]
-
     rules = continuity.get(
         "continuity_rules",
         [],
@@ -1928,19 +2420,6 @@ def _normalize_visual_continuity(
     ):
         rules = []
 
-    rules = [
-        str(x).strip()[:300]
-        for x in rules
-        if str(x).strip()
-    ][:20]
-
-    environment = str(
-        continuity.get(
-            "recurring_environment",
-            "",
-        )
-    ).strip()
-
     script[
         "visual_continuity"
     ] = {
@@ -1949,97 +2428,36 @@ def _normalize_visual_continuity(
             normalized_subjects,
 
         "recurring_objects":
-            objects,
+            [
+                str(x).strip()[:200]
+                for x in objects
+                if str(x).strip()
+            ][:20],
 
         "recurring_environment":
-            environment[:500],
+            str(
+                continuity.get(
+                    "recurring_environment",
+                    "",
+                )
+            ).strip()[:500],
 
         "continuity_rules":
-            rules,
+            [
+                str(x).strip()[:300]
+                for x in rules
+                if str(x).strip()
+            ][:20],
     }
 
 
 # ==========================================================================
-# CONTINUITY VALIDATION
-# ==========================================================================
-
-def _validate_visual_continuity(
-    script,
-):
-
-    continuity = script.get(
-        "visual_continuity",
-        {},
-    )
-
-    if not isinstance(
-        continuity,
-        dict,
-    ):
-        return
-
-    subjects = continuity.get(
-        "recurring_subjects",
-        [],
-    )
-
-    if not isinstance(
-        subjects,
-        list,
-    ):
-        return
-
-    seen = set()
-
-    for subject in subjects:
-
-        if not isinstance(
-            subject,
-            dict,
-        ):
-            continue
-
-        name = str(
-            subject.get(
-                "name",
-                "",
-            )
-        ).strip().lower()
-
-        if not name:
-            continue
-
-        if name in seen:
-
-            raise RuntimeError(
-                f"Duplicate recurring subject: "
-                f"{name}"
-            )
-
-        seen.add(name)
-
-        appearance = str(
-            subject.get(
-                "appearance",
-                "",
-            )
-        ).strip()
-
-        if not appearance:
-
-            raise RuntimeError(
-                f"Recurring subject '{name}' "
-                "has no appearance definition."
-            )
-
-
-# ==========================================================================
-# MAIN VALIDATION
+# VALIDATION
 # ==========================================================================
 
 def validate_script(
     script,
-    expected_scene_count=SCENE_COUNT,
+    verified_research,
 ):
 
     required_top = [
@@ -2080,26 +2498,15 @@ def validate_script(
             "scene_plan must be a list."
         )
 
-    if len(scenes) != expected_scene_count:
+    if len(scenes) != SCENE_COUNT:
 
         raise RuntimeError(
-            f"Expected exactly "
-            f"{expected_scene_count} scenes "
+            f"Expected {SCENE_COUNT} scenes "
             f"but got {len(scenes)}."
         )
 
     _normalize_visual_continuity(
         script
-    )
-
-    _validate_visual_continuity(
-        script
-    )
-
-    style_lock = _build_style_lock(
-        script[
-            "visual_identity"
-        ]
     )
 
     total_duration = 0
@@ -2117,6 +2524,7 @@ def validate_script(
         "purpose",
         "retention_purpose",
         "narration",
+        "source_ids",
         "subtitle_text",
         "caption_highlights",
         "subtitle_style",
@@ -2151,28 +2559,17 @@ def validate_script(
             if key not in scene:
 
                 raise RuntimeError(
-                    f"Scene {index} "
-                    f"missing '{key}'."
+                    f"Scene {index} missing "
+                    f"'{key}'."
                 )
 
-        try:
-
-            scene_number = int(
-                scene["scene"]
-            )
-
-        except Exception:
+        if int(
+            scene["scene"]
+        ) != index:
 
             raise RuntimeError(
                 f"Scene {index} has invalid "
                 "scene number."
-            )
-
-        if scene_number != index:
-
-            raise RuntimeError(
-                f"Scene {index} has scene "
-                f"number {scene_number}."
             )
 
         _check_enum(
@@ -2223,11 +2620,7 @@ def validate_script(
             f"Scene {index} confidence",
         )
 
-        # --------------------------------------------------------------
-        # FINAL SCENE
-        # --------------------------------------------------------------
-
-        if index == expected_scene_count:
+        if index == SCENE_COUNT:
 
             scene[
                 "purpose"
@@ -2237,39 +2630,35 @@ def validate_script(
                 "transition"
             ] = "none"
 
-        # --------------------------------------------------------------
-        # CAPTIONS
-        # --------------------------------------------------------------
-
-        scene[
-            "narration"
-        ] = str(
+        narration = str(
             scene["narration"]
         ).strip()
 
-        scene[
-            "subtitle_text"
-        ] = str(
+        subtitle = str(
             scene["subtitle_text"]
         ).strip()
 
-        if not scene[
-            "narration"
-        ]:
+        if not narration:
 
             raise RuntimeError(
                 f"Scene {index} narration "
                 "is empty."
             )
 
-        if not scene[
-            "subtitle_text"
-        ]:
+        if not subtitle:
 
             raise RuntimeError(
-                f"Scene {index} subtitle_text "
+                f"Scene {index} subtitle "
                 "is empty."
             )
+
+        scene[
+            "narration"
+        ] = narration
+
+        scene[
+            "subtitle_text"
+        ] = subtitle
 
         _repair_caption_highlights(
             scene,
@@ -2277,21 +2666,28 @@ def validate_script(
         )
 
         # --------------------------------------------------------------
+        # SOURCE CITATIONS
+        # --------------------------------------------------------------
+
+        source_ids = scene.get(
+            "source_ids",
+            [],
+        )
+
+        if not source_ids:
+
+            raise RuntimeError(
+                f"Scene {index} contains "
+                "no research citation."
+            )
+
+        # --------------------------------------------------------------
         # DURATION
         # --------------------------------------------------------------
 
-        try:
-
-            duration = int(
-                scene["duration"]
-            )
-
-        except Exception:
-
-            raise RuntimeError(
-                f"Scene {index} duration "
-                "is invalid."
-            )
+        duration = int(
+            scene["duration"]
+        )
 
         expected_duration = (
             SCENE_DURATIONS[
@@ -2302,15 +2698,9 @@ def validate_script(
         if duration != expected_duration:
 
             raise RuntimeError(
-                f"Scene {index} duration "
-                f"must be {expected_duration}s "
-                f"but Gemini returned "
-                f"{duration}s."
+                f"Scene {index} duration must "
+                f"be {expected_duration}s."
             )
-
-        scene[
-            "duration"
-        ] = duration
 
         total_duration += duration
 
@@ -2359,37 +2749,6 @@ def validate_script(
                 "at_ms": 0,
             }
 
-        scene[
-            "sfx_cue"
-        ].setdefault(
-            "term",
-            "",
-        )
-
-        try:
-
-            sfx_at = int(
-                scene[
-                    "sfx_cue"
-                ].get(
-                    "at_ms",
-                    0,
-                )
-            )
-
-        except Exception:
-
-            sfx_at = 0
-
-        scene[
-            "sfx_cue"
-        ][
-            "at_ms"
-        ] = max(
-            0,
-            sfx_at,
-        )
-
         # --------------------------------------------------------------
         # VISUALS
         # --------------------------------------------------------------
@@ -2412,9 +2771,7 @@ def validate_script(
 
             raise RuntimeError(
                 f"Scene {index} must contain "
-                f"exactly {VISUALS_PER_SCENE} visuals "
-                f"but Gemini returned "
-                f"{len(visuals)}."
+                f"{VISUALS_PER_SCENE} visuals."
             )
 
         durations = _allocate_visual_durations(
@@ -2422,7 +2779,6 @@ def validate_script(
         )
 
         visual_sum = 0
-
         prompts = []
 
         for visual_index, visual in enumerate(
@@ -2437,7 +2793,7 @@ def validate_script(
 
                 raise RuntimeError(
                     f"Scene {index} visual "
-                    f"{visual_index} is invalid."
+                    f"{visual_index} invalid."
                 )
 
             _repair_visual(
@@ -2486,17 +2842,11 @@ def validate_script(
 
                 hold_count += 1
 
-            prompt = visual[
-                "image_prompt"
-            ].lower().strip()
-
             prompts.append(
-                prompt
+                visual[
+                    "image_prompt"
+                ].lower().strip()
             )
-
-        # --------------------------------------------------------------
-        # Prevent identical visual prompts inside a scene.
-        # --------------------------------------------------------------
 
         if len(
             set(prompts)
@@ -2504,20 +2854,19 @@ def validate_script(
 
             raise RuntimeError(
                 f"Scene {index} contains "
-                "duplicate visual prompts. "
-                "The two shots must be different."
+                "duplicate visual prompts."
             )
 
         if visual_sum != duration:
 
             raise RuntimeError(
                 f"Scene {index} visual "
-                f"durations sum to "
-                f"{visual_sum}s but scene "
-                f"duration is {duration}s."
+                "durations do not match."
             )
 
-        total_visuals += VISUALS_PER_SCENE
+        total_visuals += (
+            VISUALS_PER_SCENE
+        )
 
         _add_scene_visual_compatibility(
             scene,
@@ -2526,49 +2875,43 @@ def validate_script(
             ],
         )
 
-    # --------------------------------------------------------------
-    # GLOBAL VALIDATION
-    # --------------------------------------------------------------
-
     if hold_count > 1:
 
         raise RuntimeError(
-            f"'hold' animation used "
-            f"{hold_count} times. "
-            "Maximum is 1."
+            "'hold' animation used more "
+            "than once."
         )
 
     if total_duration != TARGET_SECONDS:
 
         raise RuntimeError(
-            f"Total duration must be exactly "
-            f"{TARGET_SECONDS}s but is "
-            f"{total_duration}s."
+            f"Total duration must be "
+            f"{TARGET_SECONDS}s."
         )
 
     if total_visuals != TOTAL_VISUALS:
 
         raise RuntimeError(
-            f"Total visuals must be exactly "
-            f"{TOTAL_VISUALS} but is "
-            f"{total_visuals}."
+            f"Total visuals must be "
+            f"{TOTAL_VISUALS}."
         )
 
-    # --------------------------------------------------------------
-    # NEXT SHORT + RESEARCH
-    # --------------------------------------------------------------
-
-    _normalize_next_short(
-        script
-    )
+    # ----------------------------------------------------------------------
+    # RESEARCH IS COPIED FROM VERIFIED PACKAGE
+    # ----------------------------------------------------------------------
 
     _normalize_research_sources(
+        script,
+        verified_research,
+    )
+
+    _validate_source_ids(
         script
     )
 
-    # --------------------------------------------------------------
+    # ----------------------------------------------------------------------
     # TOP LEVEL
-    # --------------------------------------------------------------
+    # ----------------------------------------------------------------------
 
     script[
         "title"
@@ -2587,13 +2930,17 @@ def validate_script(
     ] = list(
         dict.fromkeys(
             str(tag).strip().lower()
-            for tag in script["tags"]
+            for tag in script[
+                "tags"
+            ]
             if str(tag).strip()
         )
     )[:12]
 
     category = str(
-        script["category"]
+        script[
+            "category"
+        ]
     ).strip().lower()
 
     script[
@@ -2607,12 +2954,16 @@ def validate_script(
     script[
         "thumbnail_prompt"
     ] = str(
-        script["thumbnail_prompt"]
+        script[
+            "thumbnail_prompt"
+        ]
     ).strip()
 
-    # --------------------------------------------------------------
-    # PIPELINE METADATA
-    # --------------------------------------------------------------
+    style_lock = _build_style_lock(
+        script[
+            "visual_identity"
+        ]
+    )
 
     script[
         "image_generation"
@@ -2674,7 +3025,13 @@ def validate_script(
         "publishing"
     ] = {
 
+        "research_verified":
+            True,
+
         "research_sources_require_verification":
+            False,
+
+        "citations_ready":
             True,
 
         "next_short_teaser_ready":
@@ -2697,7 +3054,38 @@ def validate_script(
 def generate_script(
     topic,
     config,
+    research,
 ):
+
+    # ----------------------------------------------------------------------
+    # HARD RESEARCH GATE
+    # ----------------------------------------------------------------------
+
+    research = validate_research_package(
+        research,
+        topic,
+    )
+
+    print("=" * 80)
+    print("🔬 VERIFIED RESEARCH GATE PASSED")
+    print("=" * 80)
+
+    print(
+        f"Verified sources: "
+        f"{len(research['sources'])}"
+    )
+
+    for index, source in enumerate(
+        research["sources"],
+        start=1,
+    ):
+
+        print(
+            f"✅ source_{index}: "
+            f"{source.get('title', '')}"
+        )
+
+    print("=" * 80)
 
     api_key = os.environ.get(
         "GEMINI_API_KEY"
@@ -2717,14 +3105,17 @@ def generate_script(
     prompt = build_user_prompt(
         topic,
         config,
+        research,
     )
 
     system_prompt = build_system_prompt()
 
-    response_schema = build_response_schema()
+    response_schema = (
+        build_response_schema()
+    )
 
     print("=" * 80)
-    print("GENERATING SCRIPT")
+    print("✍️ GENERATING RESEARCHED SCRIPT")
     print("=" * 80)
 
     print(
@@ -2732,27 +3123,24 @@ def generate_script(
     )
 
     print(
-        "Scenes: 7"
+        f"Verified sources: "
+        f"{len(research['sources'])}"
     )
 
     print(
-        "Visuals per scene: 2"
+        f"Scenes: {SCENE_COUNT}"
     )
 
     print(
-        "TOTAL IMAGES: 14"
+        f"Images: {TOTAL_VISUALS}"
     )
 
     print(
-        "Target: 45s"
+        f"Duration: {TARGET_SECONDS}s"
     )
 
     print(
-        "Visual continuity: ENABLED"
-    )
-
-    print(
-        topic
+        f"Topic: {topic}"
     )
 
     print("=" * 80)
@@ -2765,8 +3153,9 @@ def generate_script(
     ):
 
         print(
-            f"🧠 Gemini generation attempt "
-            f"{attempt}/{MAX_GENERATION_ATTEMPTS}"
+            f"🧠 Gemini attempt "
+            f"{attempt}/"
+            f"{MAX_GENERATION_ATTEMPTS}"
         )
 
         try:
@@ -2780,59 +3169,53 @@ def generate_script(
 
                 attempt_prompt += f"""
 
-============================================================
 RETRY NOTICE
-============================================================
 
 Previous validation error:
 
 {last_error}
 
-Return the COMPLETE storyboard again.
+Correct the error and return the COMPLETE
+storyboard.
 
-Hard requirements:
+Remember:
 
-- exactly 7 scenes
-- exactly 2 visuals in every scene
-- exactly 14 visuals total
-- exactly 45 seconds
-- scene durations 3, 5, 7, 7, 8, 8, 7
-- short semantic image prompts only
-- no technical image-generation instructions
-- final scene is the ending
-- final scene teases the next Short
-- include research source candidates
-- include visual_continuity
-- maintain recurring subject identity
-- no duplicate visual prompts within a scene
+- ONLY use supplied verified research.
+- Every scene needs source_ids.
+- Never invent research.
+- Never invent citations.
+- Exactly 7 scenes.
+- Exactly 14 visuals.
+- Exactly 45 seconds.
 
 Return ONLY JSON.
 """
 
-            response = client.models.generate_content(
+            response = (
+                client.models.generate_content(
 
-                model=MODEL_NAME,
+                    model=MODEL_NAME,
 
-                contents=attempt_prompt,
+                    contents=attempt_prompt,
 
-                config=types.GenerateContentConfig(
+                    config=types.GenerateContentConfig(
 
-                    system_instruction=
-                        system_prompt,
+                        system_instruction=
+                            system_prompt,
 
-                    response_mime_type=
-                        "application/json",
+                        response_mime_type=
+                            "application/json",
 
-                    response_json_schema=
-                        response_schema,
-                ),
+                        response_json_schema=
+                            response_schema,
+                    ),
+                )
             )
 
             if not response.text:
 
                 raise RuntimeError(
-                    "Gemini returned an empty "
-                    "response."
+                    "Gemini returned an empty response."
                 )
 
             script = parse_gemini_json(
@@ -2845,47 +3228,36 @@ Return ONLY JSON.
 
             script = validate_script(
                 script,
-                expected_scene_count=
-                    SCENE_COUNT,
+                research,
             )
 
             print("=" * 80)
-
-            print(
-                "✅ SCRIPT GENERATED AND VALIDATED"
-            )
-
+            print("✅ VERIFIED SCRIPT GENERATED")
             print("=" * 80)
 
             print(
-                "Scenes: 7"
+                f"Scenes: {SCENE_COUNT}"
             )
 
             print(
-                "Images: 14"
+                f"Images: {TOTAL_VISUALS}"
             )
 
             print(
-                "Duration: 45s"
+                f"Duration: {TARGET_SECONDS}s"
             )
 
             print(
-                "Visual continuity: ENABLED"
-            )
-
-            print(
-                f"Recurring subjects: "
-                f"{len(script['visual_continuity']['recurring_subjects'])}"
-            )
-
-            print(
-                f"Next Short: "
-                f"{script['next_short']['topic']}"
-            )
-
-            print(
-                f"Research candidates: "
+                f"Research sources: "
                 f"{len(script['research_sources'])}"
+            )
+
+            print(
+                "Research status: VERIFIED"
+            )
+
+            print(
+                "Citations: READY"
             )
 
             print("=" * 80)
@@ -2899,11 +3271,8 @@ Return ONLY JSON.
             print("=" * 80)
 
             print(
-                f"❌ GENERATION ATTEMPT "
-                f"{attempt} FAILED"
+                f"❌ ATTEMPT {attempt} FAILED"
             )
-
-            print("=" * 80)
 
             print(
                 f"{type(error).__name__}: "
@@ -2923,7 +3292,7 @@ Return ONLY JSON.
 
                 print(
                     f"⏳ Retrying in "
-                    f"{delay} seconds..."
+                    f"{delay}s..."
                 )
 
                 time.sleep(
@@ -2931,9 +3300,11 @@ Return ONLY JSON.
                 )
 
     raise RuntimeError(
-        "Gemini failed to produce a valid "
-        f"{TOTAL_VISUALS}-image storyboard after "
-        f"{MAX_GENERATION_ATTEMPTS} attempts. "
+
+        "SCRIPT GENERATION FAILED.\n"
+        "The pipeline refused to create a "
+        "Short from unverified or insufficient "
+        "research.\n\n"
         f"Last error: {last_error}"
     )
 
@@ -2944,66 +3315,11 @@ Return ONLY JSON.
 
 if __name__ == "__main__":
 
-    import yaml
+    print(
+        "generate_script.py requires a "
+        "VERIFIED research package."
+    )
 
-    with open(
-        "config.yaml",
-        "r",
-        encoding="utf-8",
-    ) as file:
-
-        config = yaml.safe_load(
-            file
-        )
-
-    test_topics = [
-
-        "Why can't you tickle yourself",
-
-        "Why do onions make you cry",
-
-        "Why is space silent",
-
-        "How WiFi finds your phone",
-
-        "Why birds don't get electrocuted on power lines",
-
-        "How airplanes fly",
-
-        "Why the ocean is salty",
-    ]
-
-    for topic in test_topics:
-
-        print("=" * 100)
-
-        print(
-            "TOPIC"
-        )
-
-        print(
-            topic
-        )
-
-        print("=" * 100)
-
-        result = generate_script(
-            topic,
-            config,
-        )
-
-        print(
-            json.dumps(
-                result,
-                indent=2,
-                ensure_ascii=False,
-            )
-        )
-
-        print("=" * 100)
-
-        print(
-            "SCRIPT VALID"
-        )
-
-        print("=" * 100)
+    print(
+        "Run the complete pipeline through main.py."
+    )

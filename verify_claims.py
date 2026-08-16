@@ -2,7 +2,7 @@
 verify_claims.py
 Mint-YT-Factory
 
-Version 1.1
+Version 1.2
 
 Scientific claim verification layer.
 
@@ -10,7 +10,7 @@ FLOW:
 
 Generated Script
       ↓
-Extract scene claims
+Extract IMPORTANT factual claims
       ↓
 Compare against VERIFIED research
       ↓
@@ -28,11 +28,13 @@ IMPORTANT:
 - Claims must use the source IDs cited by their scene.
 - Claims cannot switch to an unrelated source during verification.
 - Every important factual claim must have a valid citation.
+- Purely stylistic/storytelling sentences do NOT require citations.
 - Uncertain claims FAIL.
 - Unsupported claims FAIL.
 - Contradicted claims FAIL.
 - Invalid source IDs FAIL.
 - Claims with zero source IDs FAIL.
+- A scene does NOT need to contain a factual claim.
 """
 
 import json
@@ -59,6 +61,7 @@ MAX_CLAIMS_PER_SCENE = 8
 def _clean(text):
 
     if text is None:
+
         return ""
 
     return re.sub(
@@ -186,7 +189,7 @@ Abstract / Evidence:
 
 
 # ==========================================================================
-# BUILD SCRIPT CLAIMS
+# BUILD SCRIPT CLAIM CONTEXT
 # ==========================================================================
 
 def _build_claim_context(
@@ -201,6 +204,13 @@ def _build_claim_context(
     blocks = []
 
     for scene in scenes:
+
+        if not isinstance(
+            scene,
+            dict,
+        ):
+
+            continue
 
         scene_number = scene.get(
             "scene"
@@ -217,6 +227,13 @@ def _build_claim_context(
             "source_ids",
             [],
         )
+
+        if not isinstance(
+            source_ids,
+            list,
+        ):
+
+            source_ids = []
 
         blocks.append(
             f"""
@@ -359,9 +376,9 @@ You are a strict scientific fact checker.
 
 Your job is NOT to rewrite the script.
 
-Your job is to determine whether factual claims in the generated
-YouTube Short are actually supported by the supplied verified
-research.
+Your job is to determine whether IMPORTANT FACTUAL CLAIMS in the
+generated YouTube Short are actually supported by the supplied
+verified research.
 
 ============================================================
 ABSOLUTE RESEARCH RULE
@@ -381,23 +398,86 @@ Do NOT use:
 - information not contained in the supplied evidence
 
 ============================================================
+IMPORTANT CLAIM EXTRACTION RULE
+============================================================
+
+Extract EVERY IMPORTANT FACTUAL CLAIM from the narration.
+
+A factual claim is a statement about:
+
+- how something works
+- what causes something
+- what happens
+- measurable effects
+- scientific observations
+- biological mechanisms
+- physical mechanisms
+- historical facts
+- dates
+- numbers
+- percentages
+- research findings
+- relationships between variables
+- scientific conclusions
+
+Do NOT create artificial claims from stylistic sentences.
+
+For example:
+
+"Here's where it gets interesting."
+
+This is NOT a factual claim.
+
+"That changes how we see the ocean."
+
+This is NOT necessarily a factual scientific claim.
+
+But:
+
+"Pressure increases by about one atmosphere every ten meters."
+
+This IS a factual claim.
+
+The purpose is to verify the claims actually present in the
+narration, NOT to force every scene to contain a claim.
+
+============================================================
 SOURCE CITATION RULE
 ============================================================
 
 Each scene contains its own CITED SOURCE IDS.
 
-For every claim from a scene:
+For every factual claim from a scene:
 
-- You MUST use only source IDs cited by that scene.
+- You MUST use only source IDs cited by THAT scene.
 - You MUST NOT substitute another source merely because it supports
   the claim better.
 - You MUST NOT add a source ID that the scene did not cite.
-- You MUST NOT remove the scene's relevant source citation.
-- If the scene's cited sources do not support the claim, mark it
-  unsupported or uncertain.
+- You MUST NOT use a source from another scene.
+- The verifier's source_ids MUST be a SUBSET of the source IDs
+  cited by that scene.
 
-The verifier's source_ids for a claim must be a SUBSET of the source
-IDs cited by that scene.
+If a scene cites:
+
+["source_1", "source_2"]
+
+and only source_1 supports the claim:
+
+Return:
+
+["source_1"]
+
+If neither cited source supports the claim:
+
+Return:
+
+"status": "unsupported"
+
+If the cited evidence is related but insufficient:
+
+Return:
+
+"status": "uncertain"
 
 ============================================================
 STATUS DEFINITIONS
@@ -469,11 +549,21 @@ Claim:
 Result:
 NOT SUPPORTED.
 
+Research:
+"could potentially explain"
+
+Claim:
+"explains"
+
+Result:
+NOT SUPPORTED unless the supplied evidence explicitly supports
+the stronger statement.
+
 ============================================================
 CLAIM CITATION REQUIREMENT
 ============================================================
 
-Every important factual claim MUST have at least one source ID.
+Every IMPORTANT FACTUAL CLAIM MUST have at least one source ID.
 
 If a factual claim has zero source IDs:
 
@@ -499,10 +589,13 @@ Minor non-factual statements such as:
 
 "Nature has another surprise."
 
-do not require research evidence.
+"This is where the story gets strange."
 
-However, if a sentence contains a factual scientific statement,
-treat it as a claim that requires evidence.
+do NOT require research evidence.
+
+A scene may therefore contain ZERO factual claims.
+
+A scene with zero factual claims is NOT automatically a failure.
 
 ============================================================
 PASS CONDITION
@@ -510,13 +603,18 @@ PASS CONDITION
 
 The overall result may be PASS only when:
 
-1. Every important factual claim is supported.
-2. No important claim is contradicted.
-3. No important claim is unsupported.
-4. No important claim is uncertain.
-5. Every claim has valid source IDs.
-6. Every claim's source IDs belong to that scene's citations.
-7. The narration does not exaggerate the research.
+1. Every important factual claim was extracted.
+2. Every important factual claim is supported.
+3. No important claim is contradicted.
+4. No important claim is unsupported.
+5. No important claim is uncertain.
+6. Every factual claim has valid source IDs.
+7. Every factual claim's source IDs belong to that scene's citations.
+8. The narration does not exaggerate the research.
+
+IMPORTANT:
+
+Do NOT fail a scene merely because it contains no factual claim.
 
 Return ONLY valid JSON.
 """
@@ -566,18 +664,21 @@ SCRIPT
 TASK
 ============================================================
 
-Extract every important factual claim from the narration.
+Extract EVERY IMPORTANT FACTUAL CLAIM from the narration.
+
+Do NOT invent claims.
+
+Do NOT turn stylistic sentences into factual claims.
 
 For each important factual claim:
 
 1. State the claim.
 2. Identify the scene.
-3. Look at the source IDs cited by THAT scene.
-4. You may ONLY evaluate the claim using those cited source IDs.
-5. Return source_ids that are a subset of the scene's cited source IDs.
-6. Decide whether the supplied evidence supports the claim.
-7. Explain why.
-8. Quote or summarize the relevant evidence.
+3. Look ONLY at the source IDs cited by THAT scene.
+4. Return source_ids that are a subset of that scene's cited sources.
+5. Decide whether the supplied evidence supports the claim.
+6. Explain why.
+7. Quote or summarize the relevant supplied evidence.
 
 IMPORTANT:
 
@@ -589,14 +690,21 @@ Do NOT invent evidence.
 
 Do NOT upgrade uncertainty into certainty.
 
-If the scene cites source_1 and source_2, but only source_1
-supports the claim, return:
+If a scene contains only stylistic narration and no factual claim,
+do NOT create an artificial claim for that scene.
+
+If the scene cites source_1 and source_2, but only source_1 supports
+the claim, return:
 
 "source_ids": ["source_1"]
 
-If neither cited source supports the claim, mark it unsupported.
+If neither cited source supports the claim:
 
-If the evidence is insufficient, mark it uncertain.
+"status": "unsupported"
+
+If the evidence is insufficient:
+
+"status": "uncertain"
 
 Return ONLY JSON.
 """
@@ -626,9 +734,18 @@ Return ONLY JSON.
             "Claim verifier returned an empty response."
         )
 
-    return json.loads(
-        response.text
-    )
+    try:
+
+        return json.loads(
+            response.text
+        )
+
+    except json.JSONDecodeError as error:
+
+        raise RuntimeError(
+            f"Claim verifier returned invalid JSON: "
+            f"{error}"
+        )
 
 
 # ==========================================================================
@@ -943,10 +1060,7 @@ def _local_validate(
             )
 
         # --------------------------------------------------------------
-        # CRITICAL:
-        #
-        # A supported claim is only acceptable if its source IDs are
-        # valid and belong to that scene.
+        # SUPPORTED CLAIM SAFETY
         # --------------------------------------------------------------
 
         if status == "supported":
@@ -981,68 +1095,18 @@ def _local_validate(
     # ----------------------------------------------------------------------
     # IMPORTANT:
     #
-    # Every scene must have at least one verified supported claim if
-    # its narration contains factual content.
+    # DO NOT require every scene to have a claim.
     #
-    # We do not blindly require a claim for purely stylistic scenes.
+    # A scene can legitimately contain:
+    #
+    # "And that's where the mystery deepens."
+    #
+    # without containing a scientific claim.
+    #
+    # Gemini is responsible for extracting actual factual claims.
     # ----------------------------------------------------------------------
 
-    for scene in script.get(
-        "scene_plan",
-        [],
-    ):
-
-        if not isinstance(
-            scene,
-            dict,
-        ):
-            continue
-
-        scene_number = scene.get(
-            "scene"
-        )
-
-        narration = _clean(
-            scene.get(
-                "narration",
-                "",
-            )
-        )
-
-        if not narration:
-            continue
-
-        scene_claims = [
-
-            claim
-
-            for claim in claims
-
-            if isinstance(
-                claim,
-                dict,
-            )
-
-            and claim.get(
-                "scene"
-            ) == scene_number
-        ]
-
-        # --------------------------------------------------------------
-        # No claims at all.
-        #
-        # Because the pipeline is scientific, treat a scene without
-        # any verified claim as a failure.
-        # --------------------------------------------------------------
-
-        if not scene_claims:
-
-            unsupported.append(
-                (
-                    f"Scene {scene_number} has no "
-                    "verified factual claim."
-                )
-            )
+    # No per-scene claim requirement here.
 
     # ----------------------------------------------------------------------
     # DEDUPLICATE
@@ -1227,10 +1291,10 @@ def verify_script_claims(
                 "\n⚠️ Uncertain claims:"
             )
 
-            for claim in warnings:
+            for warning in warnings:
 
                 print(
-                    f"  ⚠️ {claim}"
+                    f"  ⚠️ {warning}"
                 )
 
     print("=" * 80)

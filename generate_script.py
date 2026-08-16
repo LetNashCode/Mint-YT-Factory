@@ -2,49 +2,23 @@
 generate_script.py
 Mint-YT-Factory
 
-Version 10.2
+Version 10.3
 
 Research-first production script generator.
 
-FLOW:
-
-research.py
-    ↓
-Verified research + evidence package
-    ↓
-Gemini
-    ↓
-45-second researched Short
-    ↓
-Citations attached to factual scenes
-    ↓
-verify_claims.py
-    ↓
-generate_images.py
-    ↓
-assemble.py
-    ↓
-main.py
-    ↓
-YouTube
-
 IMPORTANT:
-
 - Gemini may ONLY use supplied verified research evidence.
 - Gemini may NOT use outside knowledge.
-- Gemini may NOT invent sources.
-- Gemini may NOT invent evidence.
-- Metadata is NOT evidence.
+- Gemini may NOT invent sources or evidence.
 - evidence_text is authoritative.
-- Evidence must already be verified by research.py.
 - source_id comes only from research.py.
-- source IDs are never generated from array position.
 - research_sources are copied from research.py.
-- Gemini does NOT control research metadata.
 - Factual claims require citations.
 - Purely stylistic scenes may contain zero citations.
 - verify_claims.py remains the final claim-verification gate.
 - next_short.topic has no 8-word limit.
+- Scene 7 MUST verbally tease the next Short.
+- The current video's description must NOT contain the next topic.
 """
 
 import json
@@ -265,7 +239,9 @@ BEAT_TABLE = """
    Add one final verified consequence or perspective shift.
 
 7. ENDING + NEXT SHORT (38-45s)
-   Give a satisfying insight and tease the next research topic.
+   Give a satisfying insight about the current topic.
+   Then verbally tease the next Short.
+   The next topic must NOT be hidden only in metadata.
 """
 
 
@@ -337,7 +313,7 @@ def _build_style_lock(identity):
         _clean(identity.get("mood_arc", "")),
     ]
 
-    parts = [part for part in parts if part]
+    parts = [x for x in parts if x]
 
     if not parts:
         return ""
@@ -350,27 +326,6 @@ def _build_style_lock(identity):
 # ==========================================================================
 
 def validate_research_package(research, topic):
-    """
-    HARD RESEARCH GATE.
-
-    research.py is the source of truth.
-
-    A source is accepted only when:
-
-    - research package is VERIFIED
-    - source is verified
-    - source_id exists
-    - source_id is unique
-    - evidence_verified is True
-    - evidence_available is True
-    - evidence_text exists
-    - title exists
-    - authors exist
-    - DOI exists
-    - URL exists
-
-    No fallback to abstract or metadata is allowed.
-    """
 
     if not isinstance(research, dict):
         raise RuntimeError(
@@ -427,22 +382,10 @@ def validate_research_package(research, topic):
                 f"duplicate source_id '{source_id}'."
             )
 
-        title = _clean(
-            source.get("title", "")
-        )
-
-        authors = _clean(
-            source.get("authors", "")
-        )
-
-        url = _clean(
-            source.get("url", "")
-        )
-
-        doi = _clean(
-            source.get("doi", "")
-        )
-
+        title = _clean(source.get("title", ""))
+        authors = _clean(source.get("authors", ""))
+        url = _clean(source.get("url", ""))
+        doi = _clean(source.get("doi", ""))
         evidence = _extract_source_evidence(source)
 
         if not title:
@@ -489,21 +432,10 @@ def validate_research_package(research, topic):
 
 
 # ==========================================================================
-# EVIDENCE EXTRACTION
+# EVIDENCE
 # ==========================================================================
 
 def _extract_source_evidence(source):
-    """
-    ONLY evidence_text is authoritative.
-
-    Never fall back to:
-
-    - abstract
-    - title
-    - metadata
-    - evidence_summary
-    - evidence_chunks
-    """
 
     if not isinstance(source, dict):
         return ""
@@ -520,18 +452,16 @@ def _extract_source_evidence(source):
 
 
 # ==========================================================================
-# BUILD RESEARCH CONTEXT
+# RESEARCH CONTEXT
 # ==========================================================================
 
 def build_research_context(research):
-
-    sources = research["sources"]
 
     blocks = []
     seen_ids = set()
 
     for index, source in enumerate(
-        sources,
+        research["sources"],
         start=1,
     ):
 
@@ -541,10 +471,7 @@ def build_research_context(research):
             )
 
         source_id = _clean(
-            source.get(
-                "source_id",
-                "",
-            )
+            source.get("source_id", "")
         )
 
         if not source_id:
@@ -554,8 +481,7 @@ def build_research_context(research):
 
         if source_id in seen_ids:
             raise RuntimeError(
-                "Duplicate research source_id detected: "
-                f"{source_id}"
+                f"Duplicate research source_id detected: {source_id}"
             )
 
         seen_ids.add(source_id)
@@ -568,96 +494,42 @@ def build_research_context(research):
                 "has no authoritative evidence_text."
             )
 
-        title = _clean(
-            source.get("title", "")
-        )
-
-        authors = _clean(
-            source.get("authors", "")
-        )
-
-        journal = _clean(
-            source.get("journal", "")
-        )
-
-        year = source.get(
-            "year",
-            "",
-        )
-
-        doi = _clean(
-            source.get("doi", "")
-        )
-
-        url = _clean(
-            source.get("url", "")
-        )
-
-        database = _clean(
-            source.get("source_database", "")
-        )
-
-        verification_level = _clean(
-            source.get(
-                "verification_level",
-                "",
-            )
-        )
-
-        evidence_type = _clean(
-            source.get(
-                "evidence_type",
-                "abstract",
-            )
-        )
-
-        evidence_quality = _clean(
-            source.get(
-                "evidence_quality",
-                "high",
-            )
-        )
-
         block = f"""
 ============================================================
 VERIFIED SOURCE ID: {source_id}
 ============================================================
 
 IDENTITY / METADATA
--------------------
 
 Source ID:
 {source_id}
 
 Title:
-{title}
+{_clean(source.get("title", ""))}
 
 Authors:
-{authors}
+{_clean(source.get("authors", ""))}
 
 Journal / Venue:
-{journal}
+{_clean(source.get("journal", ""))}
 
 Year:
-{year}
+{source.get("year", "")}
 
 DOI:
-{doi}
+{_clean(source.get("doi", ""))}
 
 URL:
-{url}
+{_clean(source.get("url", ""))}
 
 Database:
-{database}
+{_clean(source.get("source_database", ""))}
 
 Verification Level:
-{verification_level}
-
-Evidence Verified:
-{source.get("evidence_verified", False)}
+{_clean(source.get("verification_level", ""))}
 
 IMPORTANT:
-The metadata above identifies the source.
+Metadata identifies the source.
 Metadata itself is NOT scientific evidence.
 
 ============================================================
@@ -668,10 +540,10 @@ Evidence Available:
 {source.get("evidence_available", False)}
 
 Evidence Type:
-{evidence_type}
+{_clean(source.get("evidence_type", "abstract"))}
 
 Evidence Quality:
-{evidence_quality}
+{_clean(source.get("evidence_quality", "high"))}
 
 Evidence Text:
 {evidence}
@@ -722,14 +594,9 @@ You MUST NOT use:
 - invented statistics
 - invented dates
 - invented institutions
-- invented scientific mechanisms
+- invented mechanisms
 - invented citations
 - unsupported assumptions
-
-You may use normal storytelling language.
-
-However, every factual scientific statement must be supported by the
-supplied evidence.
 
 If the evidence does not support a fact:
 
@@ -739,33 +606,27 @@ DO NOT INCLUDE THAT FACT.
 METADATA VS EVIDENCE
 ============================================================
 
-Source title, authors, journal, year, DOI and URL identify a source.
+Title, authors, journal, year, DOI and URL identify a source.
 
 They are NOT evidence.
 
-ONLY the section:
-
-SUPPLIED SCIENTIFIC EVIDENCE
-
-may be used as evidence for factual claims.
-
-Do not infer scientific findings from a paper title.
+ONLY "SUPPLIED SCIENTIFIC EVIDENCE" may support factual claims.
 
 ============================================================
 CLAIM STRENGTH
 ============================================================
 
-Preserve the exact strength of the research.
+Preserve the exact strength of the evidence.
 
-If evidence says "may", do not write "does".
+"may" must remain "may".
 
-If evidence says "associated with", do not write "causes".
+"associated with" must not become "causes".
 
-If evidence says "possible", do not write "proven".
+"possible" must not become "proven".
 
-If evidence says "hypothesis", do not write "fact".
+"hypothesis" must not become "fact".
 
-If evidence is observational, do not turn it into a causal claim.
+Observational evidence must not become causal claims.
 
 ============================================================
 SOURCE IDs
@@ -773,9 +634,7 @@ SOURCE IDs
 
 Source IDs are supplied directly by research.py.
 
-They are authoritative.
-
-Use EXACTLY the supplied source IDs.
+Use EXACTLY those IDs.
 
 NEVER:
 
@@ -784,97 +643,10 @@ NEVER:
 - rename IDs
 - invent IDs
 - replace IDs with positional IDs
-- assume the first source is source_1
-- assume the second source is source_2
 
-For factual scenes:
+For factual scenes, source_ids MUST contain the exact supporting IDs.
 
-source_ids MUST contain the exact source IDs supporting
-the factual claims.
-
-For purely stylistic/storytelling scenes:
-
-source_ids may be [].
-
-============================================================
-FACTUAL CLAIMS
-============================================================
-
-Factual claims include:
-
-- mechanisms
-- causes
-- effects
-- biological processes
-- physical processes
-- chemical processes
-- measurable quantities
-- scientific observations
-- research findings
-- relationships between variables
-- dates
-- numbers
-- percentages
-- scientific conclusions
-
-Pure storytelling language does not automatically require a citation.
-
-Example:
-
-"Here's where it gets strange."
-
-This is stylistic.
-
-Example:
-
-"Pressure increases rapidly with depth."
-
-This is factual and requires evidence.
-
-============================================================
-CITATION PRECISION
-============================================================
-
-Use the smallest set of sources necessary.
-
-One-source claim:
-
-["ACTUAL_SOURCE_ID"]
-
-Two-source claim:
-
-["ACTUAL_SOURCE_ID_1", "ACTUAL_SOURCE_ID_2"]
-
-Do not cite sources that do not support the claim.
-
-============================================================
-RESEARCH SOURCES
-============================================================
-
-The pipeline will overwrite research_sources with exact metadata
-from research.py.
-
-Do NOT invent research metadata.
-
-Do NOT modify source IDs.
-
-============================================================
-FORMAT
-============================================================
-
-Exactly {scene_count} scenes.
-
-Exactly {VISUALS_PER_SCENE} visuals per scene.
-
-Exactly {TOTAL_VISUALS} visuals total.
-
-Exactly {target_seconds} seconds.
-
-Scene durations:
-
-3, 5, 7, 7, 8, 8, 7 seconds.
-
-{BEAT_TABLE}
+Purely stylistic scenes may use source_ids: [].
 
 ============================================================
 WRITING
@@ -882,6 +654,7 @@ WRITING
 
 - Grade 6 reading level.
 - Short punchy sentences.
+- Natural spoken narration.
 - Strong opening statement.
 - Never start with a question.
 - No "Did you know".
@@ -894,8 +667,73 @@ WRITING
 - One connected story.
 - Teach one phenomenon.
 - Do not pad with unsupported facts.
-- Keep the narration natural for spoken voice.
-- Avoid overly technical wording unless the evidence requires it.
+
+============================================================
+FORMAT
+============================================================
+
+Exactly {scene_count} scenes.
+
+Exactly {VISUALS_PER_SCENE} visuals per scene.
+
+Exactly {TOTAL_VISUALS} visuals.
+
+Exactly {target_seconds} seconds.
+
+Scene durations:
+
+3, 5, 7, 7, 8, 8, 7 seconds.
+
+{BEAT_TABLE}
+
+============================================================
+CRITICAL NEXT-SHORT RULE
+============================================================
+
+The next Short is part of the channel's continuation strategy.
+
+Scene 7 MUST verbally mention the next topic.
+
+This is NOT optional.
+
+The viewer must hear what the next Short is about.
+
+Do NOT merely create:
+
+- an internal next_short object
+- a metadata teaser
+- a description teaser
+
+The NEXT SHORT TOPIC MUST APPEAR IN SCENE 7 NARRATION.
+
+Example structure:
+
+"That raises an even bigger question: how does the brain actually
+combine these signals to guide the bird? That's what we'll look at
+next."
+
+The exact wording should be natural and specific to the next topic.
+
+Do NOT say:
+
+"Coming next."
+
+Do NOT sound like an advertisement.
+
+Do NOT dump the full research title unnaturally.
+
+Make the transition feel like the natural next chapter of the story.
+
+Scene 7 should:
+
+1. Resolve the current story.
+2. Create one curiosity gap.
+3. Verbally introduce the next topic.
+4. Make the viewer want the next Short.
+
+The next topic must be researchable and specific.
+
+next_short.topic has NO 8-word limit.
 
 ============================================================
 VISUALS
@@ -907,8 +745,7 @@ Visual 1 establishes the idea.
 
 Visual 2 advances or reveals the next part.
 
-Recurring subjects, objects and environments must remain visually
-consistent.
+Recurring subjects and environments must remain consistent.
 
 ============================================================
 IMAGE PROMPTS
@@ -932,27 +769,6 @@ Do NOT include:
 - subtitles
 - viewers
 - AI
-
-============================================================
-NEXT SHORT
-============================================================
-
-Scene 7 must create a natural continuation.
-
-The ending must:
-
-1. Deliver a satisfying insight about the current topic.
-2. Leave one natural curiosity gap.
-3. Introduce a next Short that logically continues that gap.
-4. Make the next topic researchable.
-5. Make the next topic specific.
-6. Avoid simply repeating the current topic.
-
-next_short.topic has NO 8-word limit.
-
-It may be a full descriptive research topic.
-
-Do not shorten it merely to make it shorter.
 
 ============================================================
 OUTPUT
@@ -981,22 +797,13 @@ def build_user_prompt(
         start=1,
     ):
 
-        if not isinstance(source, dict):
-            raise RuntimeError(
-                f"Research source {index} is invalid."
-            )
-
         source_id = _clean(
-            source.get(
-                "source_id",
-                "",
-            )
+            source.get("source_id", "")
         )
 
         if not source_id:
             raise RuntimeError(
-                f"Research source {index} "
-                "does not have a source_id."
+                f"Research source {index} has no source_id."
             )
 
         source_ids.append(source_id)
@@ -1011,39 +818,22 @@ def build_user_prompt(
         {},
     )
 
-    audience = channel_config.get(
-        "audience",
-        "",
-    )
-
-    tone = channel_config.get(
-        "tone",
-        "",
-    )
-
-    language = script_config.get(
-        "language",
-        "English",
-    )
-
     return f"""
 TOPIC:
 {topic}
 
 AUDIENCE:
-{audience}
+{channel_config.get("audience", "")}
 
 TONE:
-{tone}
+{channel_config.get("tone", "")}
 
 LANGUAGE:
-{language}
+{script_config.get("language", "English")}
 
 ============================================================
 VERIFIED RESEARCH EVIDENCE
 ============================================================
-
-The following sources passed the research verification gate.
 
 Available source IDs:
 
@@ -1051,22 +841,11 @@ Available source IDs:
 
 These IDs come directly from research.py.
 
-Use these EXACT IDs when citing evidence.
+Use these EXACT IDs.
 
-Do NOT:
+Do not invent or rename them.
 
-- rename them
-- create new source IDs
-- replace them with source_1/source_2
-- invent citations
-- infer IDs from source order
-
-Only the supplied scientific evidence sections may support factual
-claims.
-
-Do not use outside knowledge.
-
-Do not infer facts from titles or metadata.
+Only supplied scientific evidence may support factual claims.
 
 ============================================================
 
@@ -1083,21 +862,38 @@ Create:
 - 14 visuals total
 - 45 seconds
 
-Scene durations:
+Durations:
 
 3, 5, 7, 7, 8, 8, 7
 
 ============================================================
-CITATION RULE
+NEXT SHORT REQUIREMENT
 ============================================================
 
-For each scene:
+Scene 7 MUST actually SAY the next Short topic in the narration.
 
-- Factual scientific claims require supporting source IDs.
-- Purely stylistic scenes may use [].
-- Never invent source IDs.
-- Never cite unsupported sources.
-- Use the minimum necessary sources.
+The next topic must be a natural continuation of the current story.
+
+The viewer should understand what the next video will explore
+without reading the description.
+
+Do not merely put the next topic inside next_short.
+
+The next topic must be spoken in Scene 7.
+
+next_short.topic has NO 8-word limit.
+
+============================================================
+CITATIONS
+============================================================
+
+Factual scientific claims require supporting source IDs.
+
+Purely stylistic language may use [].
+
+Never invent source IDs.
+
+Use the minimum necessary sources.
 
 ============================================================
 RESEARCH FIDELITY
@@ -1112,20 +908,7 @@ Do NOT:
 - convert correlation into causation
 - convert hypotheses into facts
 - use general knowledge
-- use knowledge not present in supplied evidence
-
-============================================================
-NEXT SHORT
-============================================================
-
-next_short.topic is the actual research topic of the NEXT video.
-
-There is NO 8-word limit.
-
-Make it specific and research-ready.
-
-It must naturally follow from the current video's unresolved
-curiosity.
+- use information not present in supplied evidence
 
 Return ONLY JSON.
 """
@@ -1140,43 +923,29 @@ def build_response_schema():
     visual = {
         "type": "object",
         "properties": {
-            "segment": {
-                "type": "integer",
-            },
-            "duration": {
-                "type": "integer",
-            },
+            "segment": {"type": "integer"},
+            "duration": {"type": "integer"},
             "camera": _enum(VALID_CAMERA),
             "animation": _enum(VALID_ANIMATION),
             "zoom_strength": _enum(VALID_ZOOM_STRENGTH),
             "motion_intensity": _enum(VALID_MOTION_INTENSITY),
             "visual_complexity": _enum(VALID_VISUAL_COMPLEXITY),
             "image_style": _enum(VALID_IMAGE_STYLE),
-            "lighting": {
-                "type": "string",
-            },
-            "color_palette": {
-                "type": "string",
-            },
+            "lighting": {"type": "string"},
+            "color_palette": {"type": "string"},
             "overlay": {
                 "type": "object",
                 "properties": {
                     "type": _enum(VALID_OVERLAY_TYPE),
-                    "description": {
-                        "type": "string",
-                    },
+                    "description": {"type": "string"},
                 },
                 "required": [
                     "type",
                     "description",
                 ],
             },
-            "image_prompt": {
-                "type": "string",
-            },
-            "visual_impact": {
-                "type": "integer",
-            },
+            "image_prompt": {"type": "string"},
+            "visual_impact": {"type": "integer"},
         },
         "required": [
             "segment",
@@ -1198,36 +967,24 @@ def build_response_schema():
     scene = {
         "type": "object",
         "properties": {
-            "scene": {
-                "type": "integer",
-            },
+            "scene": {"type": "integer"},
             "purpose": _enum(VALID_PURPOSE),
             "retention_purpose": _enum(
                 VALID_RETENTION_PURPOSE
             ),
-            "narration": {
-                "type": "string",
-            },
+            "narration": {"type": "string"},
             "source_ids": {
                 "type": "array",
-                "items": {
-                    "type": "string",
-                },
+                "items": {"type": "string"},
             },
-            "subtitle_text": {
-                "type": "string",
-            },
+            "subtitle_text": {"type": "string"},
             "caption_highlights": {
                 "type": "array",
                 "items": {
                     "type": "object",
                     "properties": {
-                        "word": {
-                            "type": "string",
-                        },
-                        "emphasis": _enum(
-                            VALID_EMPHASIS
-                        ),
+                        "word": {"type": "string"},
+                        "emphasis": _enum(VALID_EMPHASIS),
                     },
                     "required": [
                         "word",
@@ -1238,15 +995,9 @@ def build_response_schema():
             "subtitle_style": _enum(
                 VALID_SUBTITLE_STYLE
             ),
-            "emphasis_word": {
-                "type": "string",
-            },
-            "duration": {
-                "type": "integer",
-            },
-            "pause_after_ms": {
-                "type": "integer",
-            },
+            "emphasis_word": {"type": "string"},
+            "duration": {"type": "integer"},
+            "pause_after_ms": {"type": "integer"},
             "emotional_tone": _enum(
                 VALID_EMOTIONAL_TONE
             ),
@@ -1259,12 +1010,8 @@ def build_response_schema():
             "sfx_cue": {
                 "type": "object",
                 "properties": {
-                    "term": {
-                        "type": "string",
-                    },
-                    "at_ms": {
-                        "type": "integer",
-                    },
+                    "term": {"type": "string"},
+                    "at_ms": {"type": "integer"},
                 },
                 "required": [
                     "term",
@@ -1307,45 +1054,19 @@ def build_response_schema():
     source = {
         "type": "object",
         "properties": {
-            "source_id": {
-                "type": "string",
-            },
-            "title": {
-                "type": "string",
-            },
-            "authors": {
-                "type": "string",
-            },
-            "organization": {
-                "type": "string",
-            },
-            "journal": {
-                "type": "string",
-            },
-            "year": {
-                "type": "integer",
-            },
-            "doi": {
-                "type": "string",
-            },
-            "url": {
-                "type": "string",
-            },
-            "source_database": {
-                "type": "string",
-            },
-            "source_type": {
-                "type": "string",
-            },
-            "priority": {
-                "type": "string",
-            },
-            "verified": {
-                "type": "boolean",
-            },
-            "verification": {
-                "type": "string",
-            },
+            "source_id": {"type": "string"},
+            "title": {"type": "string"},
+            "authors": {"type": "string"},
+            "organization": {"type": "string"},
+            "journal": {"type": "string"},
+            "year": {"type": "integer"},
+            "doi": {"type": "string"},
+            "url": {"type": "string"},
+            "source_database": {"type": "string"},
+            "source_type": {"type": "string"},
+            "priority": {"type": "string"},
+            "verified": {"type": "boolean"},
+            "verification": {"type": "string"},
         },
         "required": [
             "source_id",
@@ -1367,18 +1088,10 @@ def build_response_schema():
     recurring_subject = {
         "type": "object",
         "properties": {
-            "name": {
-                "type": "string",
-            },
-            "type": {
-                "type": "string",
-            },
-            "appearance": {
-                "type": "string",
-            },
-            "continuity": {
-                "type": "string",
-            },
+            "name": {"type": "string"},
+            "type": {"type": "string"},
+            "appearance": {"type": "string"},
+            "continuity": {"type": "string"},
         },
         "required": [
             "name",
@@ -1397,18 +1110,14 @@ def build_response_schema():
             },
             "recurring_objects": {
                 "type": "array",
-                "items": {
-                    "type": "string",
-                },
+                "items": {"type": "string"},
             },
             "recurring_environment": {
                 "type": "string",
             },
             "continuity_rules": {
                 "type": "array",
-                "items": {
-                    "type": "string",
-                },
+                "items": {"type": "string"},
             },
         },
         "required": [
@@ -1422,30 +1131,18 @@ def build_response_schema():
     return {
         "type": "object",
         "properties": {
-            "title": {
-                "type": "string",
-            },
-            "description": {
-                "type": "string",
-            },
+            "title": {"type": "string"},
+            "description": {"type": "string"},
             "tags": {
                 "type": "array",
-                "items": {
-                    "type": "string",
-                },
+                "items": {"type": "string"},
             },
-            "category": _enum(
-                VALID_CATEGORY
-            ),
-            "thumbnail_prompt": {
-                "type": "string",
-            },
+            "category": _enum(VALID_CATEGORY),
+            "thumbnail_prompt": {"type": "string"},
             "voice_style": {
                 "type": "object",
                 "properties": {
-                    "tone": {
-                        "type": "string",
-                    },
+                    "tone": {"type": "string"},
                     "pace": _enum({
                         "slow",
                         "medium",
@@ -1466,12 +1163,8 @@ def build_response_schema():
             "music": {
                 "type": "object",
                 "properties": {
-                    "search": {
-                        "type": "string",
-                    },
-                    "arc": {
-                        "type": "string",
-                    },
+                    "search": {"type": "string"},
+                    "arc": {"type": "string"},
                 },
                 "required": [
                     "search",
@@ -1481,15 +1174,9 @@ def build_response_schema():
             "visual_identity": {
                 "type": "object",
                 "properties": {
-                    "style": {
-                        "type": "string",
-                    },
-                    "palette": {
-                        "type": "string",
-                    },
-                    "mood_arc": {
-                        "type": "string",
-                    },
+                    "style": {"type": "string"},
+                    "palette": {"type": "string"},
+                    "mood_arc": {"type": "string"},
                 },
                 "required": [
                     "style",
@@ -1501,12 +1188,8 @@ def build_response_schema():
             "retention_self_check": {
                 "type": "object",
                 "properties": {
-                    "weakest_scene": {
-                        "type": "integer",
-                    },
-                    "reason": {
-                        "type": "string",
-                    },
+                    "weakest_scene": {"type": "integer"},
+                    "reason": {"type": "string"},
                 },
                 "required": [
                     "weakest_scene",
@@ -1516,12 +1199,8 @@ def build_response_schema():
             "next_short": {
                 "type": "object",
                 "properties": {
-                    "topic": {
-                        "type": "string",
-                    },
-                    "teaser": {
-                        "type": "string",
-                    },
+                    "topic": {"type": "string"},
+                    "teaser": {"type": "string"},
                     "why_viewers_should_return": {
                         "type": "string",
                     },
@@ -1576,7 +1255,6 @@ def parse_gemini_json(text):
 
     text = text.strip()
 
-    # Direct JSON.
     try:
         data = json.loads(text)
 
@@ -1586,7 +1264,6 @@ def parse_gemini_json(text):
     except json.JSONDecodeError:
         pass
 
-    # Markdown JSON block.
     cleaned = re.sub(
         r"^```(?:json)?\s*",
         "",
@@ -1609,7 +1286,6 @@ def parse_gemini_json(text):
     except json.JSONDecodeError:
         pass
 
-    # Extract outer JSON object.
     start = cleaned.find("{")
     end = cleaned.rfind("}")
 
@@ -1619,7 +1295,6 @@ def parse_gemini_json(text):
             start:end + 1
         ]
 
-        # Remove trailing commas.
         candidate = re.sub(
             r",(\s*[}\]])",
             r"\1",
@@ -1671,6 +1346,7 @@ def _repair_caption_highlights(scene, index):
     }
 
     result = []
+    used = set()
 
     existing = scene.get(
         "caption_highlights",
@@ -1679,8 +1355,6 @@ def _repair_caption_highlights(scene, index):
 
     if not isinstance(existing, list):
         existing = []
-
-    used = set()
 
     for item in existing:
 
@@ -1718,7 +1392,6 @@ def _repair_caption_highlights(scene, index):
 
     if not result:
 
-        # Prefer a meaningful longer word.
         word = max(
             tokens,
             key=len,
@@ -1820,10 +1493,9 @@ def _repair_visual(
         "",
     )
 
-    if (
-        visual["overlay"].get("type")
-        not in VALID_OVERLAY_TYPE
-    ):
+    if visual["overlay"].get(
+        "type"
+    ) not in VALID_OVERLAY_TYPE:
         visual["overlay"]["type"] = "none"
 
     if visual["camera"] not in VALID_CAMERA:
@@ -2027,6 +1699,95 @@ def _normalize_next_short(script):
 
 
 # ==========================================================================
+# NEXT SHORT SPOKEN VALIDATION
+# ==========================================================================
+
+def _validate_next_short_is_spoken(script):
+
+    scenes = script.get(
+        "scene_plan",
+        [],
+    )
+
+    if not scenes:
+        raise RuntimeError(
+            "Cannot validate next-short narration: scene_plan is empty."
+        )
+
+    final_scene = scenes[-1]
+
+    narration = _clean(
+        final_scene.get(
+            "narration",
+            "",
+        )
+    )
+
+    next_short = script.get(
+        "next_short",
+        {},
+    )
+
+    topic = _clean(
+        next_short.get(
+            "topic",
+            "",
+        )
+    )
+
+    if not narration:
+        raise RuntimeError(
+            "Scene 7 narration is empty."
+        )
+
+    if not topic:
+        raise RuntimeError(
+            "next_short.topic is empty."
+        )
+
+    # Remove common punctuation so we can compare meaningful words.
+    topic_words = [
+        word.lower()
+        for word in re.findall(
+            r"[A-Za-z0-9'-]+",
+            topic,
+        )
+        if len(word) >= 4
+    ]
+
+    narration_words = {
+        word.lower()
+        for word in re.findall(
+            r"[A-Za-z0-9'-]+",
+            narration,
+        )
+        if len(word) >= 4
+    }
+
+    if not topic_words:
+        raise RuntimeError(
+            "next_short.topic does not contain usable words."
+        )
+
+    overlap = sum(
+        1
+        for word in set(topic_words)
+        if word in narration_words
+    )
+
+    # We deliberately do NOT require the exact full topic sentence.
+    # Gemini should speak naturally rather than reading a research title.
+    #
+    # At least two meaningful topic words must appear in Scene 7.
+    if overlap < 2:
+        raise RuntimeError(
+            "Scene 7 does not clearly mention the next Short topic. "
+            f"Next topic: '{topic}'. "
+            f"Scene 7 narration: '{narration}'"
+        )
+
+
+# ==========================================================================
 # RESEARCH NORMALIZATION
 # ==========================================================================
 
@@ -2036,13 +1797,10 @@ def _normalize_research_sources(
 ):
 
     normalized = []
-
-    supplied_sources = verified_research["sources"]
-
     seen_ids = set()
 
     for index, source in enumerate(
-        supplied_sources,
+        verified_research["sources"],
         start=1,
     ):
 
@@ -2066,8 +1824,7 @@ def _normalize_research_sources(
 
         if source_id in seen_ids:
             raise RuntimeError(
-                "Duplicate verified research source_id: "
-                f"{source_id}"
+                f"Duplicate verified research source_id: {source_id}"
             )
 
         seen_ids.add(source_id)
@@ -2080,84 +1837,46 @@ def _normalize_research_sources(
                 "has no evidence_text."
             )
 
-        year = _safe_int(
-            source.get(
-                "year",
-                0,
-            ),
-            0,
-        )
-
         normalized.append({
             "source_id": source_id,
-
             "title": _clean(
-                source.get(
-                    "title",
-                    "",
-                )
+                source.get("title", "")
             )[:300],
-
             "authors": _clean(
-                source.get(
-                    "authors",
-                    "",
-                )
+                source.get("authors", "")
             )[:500],
-
             "organization": _clean(
-                source.get(
-                    "organization",
-                    "",
-                )
+                source.get("organization", "")
             )[:250],
-
             "journal": _clean(
-                source.get(
-                    "journal",
-                    "",
-                )
+                source.get("journal", "")
             )[:250],
-
-            "year": year,
-
+            "year": _safe_int(
+                source.get("year", 0),
+                0,
+            ),
             "doi": _clean(
-                source.get(
-                    "doi",
-                    "",
-                )
+                source.get("doi", "")
             ),
-
             "url": _clean(
-                source.get(
-                    "url",
-                    "",
-                )
+                source.get("url", "")
             ),
-
             "source_database": _clean(
-                source.get(
-                    "source_database",
-                    "",
-                )
+                source.get("source_database", "")
             ),
-
             "source_type": _clean(
                 source.get(
                     "source_type",
                     "paper",
                 )
             ),
-
             "priority": _clean(
                 source.get(
                     "priority",
                     "secondary",
                 )
             ),
-
             "verified": True,
-
             "verification": (
                 _clean(
                     source.get(
@@ -2223,11 +1942,6 @@ def _validate_source_ids(script):
         scenes,
         start=1,
     ):
-
-        if not isinstance(scene, dict):
-            raise RuntimeError(
-                f"Scene {index} is invalid."
-            )
 
         source_ids = scene.get(
             "source_ids",
@@ -2308,16 +2022,13 @@ def _normalize_visual_continuity(script):
 
         normalized_subjects.append({
             "name": name[:100],
-
             "type": _clean(
                 subject.get(
                     "type",
                     "",
                 )
             )[:80],
-
             "appearance": appearance[:500],
-
             "continuity": (
                 _clean(
                     subject.get(
@@ -2373,12 +2084,12 @@ def _normalize_visual_continuity(script):
 
 
 # ==========================================================================
-# TOP-LEVEL STRUCTURE VALIDATION
+# TOP LEVEL VALIDATION
 # ==========================================================================
 
 def _validate_top_level(script):
 
-    required_top = [
+    required = [
         "title",
         "description",
         "tags",
@@ -2394,7 +2105,8 @@ def _validate_top_level(script):
         "scene_plan",
     ]
 
-    for key in required_top:
+    for key in required:
+
         if key not in script:
             raise RuntimeError(
                 f"Missing required key: {key}"
@@ -2410,7 +2122,7 @@ def _validate_scene(
     index,
 ):
 
-    required_scene = [
+    required = [
         "scene",
         "purpose",
         "retention_purpose",
@@ -2431,7 +2143,8 @@ def _validate_scene(
         "visuals",
     ]
 
-    for key in required_scene:
+    for key in required:
+
         if key not in scene:
             raise RuntimeError(
                 f"Scene {index} missing '{key}'."
@@ -2702,10 +2415,12 @@ def validate_script(
         )
 
         if index == SCENE_COUNT:
+
             scene["purpose"] = "ending"
             scene["transition"] = "none"
 
         total_duration += scene["duration"]
+
         total_visuals += len(
             scene["visuals"]
         )
@@ -2739,26 +2454,24 @@ def validate_script(
             f"{total_visuals}."
         )
 
-    # ------------------------------------------------------------------
-    # Replace Gemini research metadata with authoritative research.py
-    # metadata.
-    # ------------------------------------------------------------------
-
+    # Copy authoritative research metadata.
     _normalize_research_sources(
         script,
         verified_research,
     )
 
-    # ------------------------------------------------------------------
-    # Validate every citation against authoritative IDs.
-    # ------------------------------------------------------------------
+    # Validate citations.
+    _validate_source_ids(
+        script
+    )
 
-    _validate_source_ids(script)
+    # CRITICAL:
+    # Make sure Scene 7 actually talks about the next Short.
+    _validate_next_short_is_spoken(
+        script
+    )
 
-    # ------------------------------------------------------------------
-    # Normalize top-level metadata.
-    # ------------------------------------------------------------------
-
+    # Normalize metadata.
     script["title"] = _clean(
         script["title"]
     )[:60]
@@ -2837,6 +2550,7 @@ def validate_script(
         "research_sources_require_verification": False,
         "citations_ready": True,
         "next_short_teaser_ready": True,
+        "next_short_spoken_in_scene_7": True,
         "subscription_strategy": "next_short_continuation",
         "visual_continuity_enabled": True,
         "claim_verification_required": True,
@@ -2854,10 +2568,6 @@ def generate_script(
     config,
     research,
 ):
-
-    # ----------------------------------------------------------------------
-    # HARD RESEARCH GATE
-    # ----------------------------------------------------------------------
 
     research = validate_research_package(
         research,
@@ -2902,10 +2612,6 @@ def generate_script(
         )
 
     print("=" * 80)
-
-    # ----------------------------------------------------------------------
-    # GEMINI CLIENT
-    # ----------------------------------------------------------------------
 
     api_key = _get_api_key()
 
@@ -2978,7 +2684,7 @@ def generate_script(
 RETRY NOTICE
 ============================================================
 
-The previous generated storyboard failed validation.
+The previous storyboard failed validation.
 
 Previous validation error:
 
@@ -2986,26 +2692,31 @@ Previous validation error:
 
 Correct the error and return the COMPLETE storyboard.
 
-Remember:
+CRITICAL:
 
-- ONLY use supplied verified evidence_text.
-- Do NOT use outside knowledge.
-- Do NOT invent research.
-- Do NOT invent citations.
-- Do NOT invent source IDs.
-- Do NOT rename source IDs.
-- Use exact source IDs supplied by research.py.
-- Metadata is not evidence.
-- Factual claims need supporting source_ids.
-- Purely stylistic scenes may use source_ids: [].
-- Exactly 7 scenes.
-- Exactly 14 visuals.
-- Exactly 45 seconds.
-- Durations must be 3, 5, 7, 7, 8, 8, 7.
-- next_short.topic has no 8-word limit.
-- Preserve the complete next_short.topic.
-- Make the next topic research-ready.
-- Make the next topic naturally continue the current story.
+Scene 7 MUST verbally mention the next Short topic.
+
+The next topic must appear naturally in Scene 7 narration.
+
+Do not merely put it in next_short.topic.
+
+Do not merely put it in metadata.
+
+Do not merely put it in the description.
+
+Use exact source IDs supplied by research.py.
+
+Only use supplied evidence.
+
+Exactly 7 scenes.
+
+Exactly 14 visuals.
+
+Exactly 45 seconds.
+
+Durations:
+
+3, 5, 7, 7, 8, 8, 7.
 
 Return ONLY JSON.
 """
@@ -3035,15 +2746,8 @@ Return ONLY JSON.
                 response_text
             )
 
-            # ------------------------------------------------------------------
-            # Topic is controlled by pipeline.
-            # ------------------------------------------------------------------
-
+            # Topic is controlled by the pipeline.
             script["topic"] = topic
-
-            # ------------------------------------------------------------------
-            # Validate and normalize.
-            # ------------------------------------------------------------------
 
             script = validate_script(
                 script,
@@ -3088,8 +2792,7 @@ Return ONLY JSON.
             )
 
             print(
-                "Next Short topic words: "
-                f"{len(script['next_short']['topic'].split())}"
+                "Next Short spoken in Scene 7: YES"
             )
 
             print(
@@ -3109,6 +2812,7 @@ Return ONLY JSON.
             last_error = error
 
             print("=" * 80)
+
             print(
                 f"❌ ATTEMPT {attempt} FAILED"
             )

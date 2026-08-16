@@ -2,7 +2,7 @@
 verify_claims.py
 Mint-YT-Factory
 
-Version 1.2
+Version 1.3
 
 Scientific claim verification layer.
 
@@ -12,7 +12,7 @@ Generated Script
       ↓
 Extract IMPORTANT factual claims
       ↓
-Compare against VERIFIED research
+Compare against VERIFIED research evidence
       ↓
 Gemini evaluates support
       ↓
@@ -24,7 +24,7 @@ Only verified scripts continue
 
 IMPORTANT:
 
-- Gemini may ONLY use supplied research.
+- Gemini may ONLY use supplied research evidence.
 - Claims must use the source IDs cited by their scene.
 - Claims cannot switch to an unrelated source during verification.
 - Every important factual claim must have a valid citation.
@@ -35,6 +35,8 @@ IMPORTANT:
 - Invalid source IDs FAIL.
 - Claims with zero source IDs FAIL.
 - A scene does NOT need to contain a factual claim.
+- Evidence is taken from evidence_text first, with abstract as fallback.
+- Metadata alone is NEVER treated as scientific evidence.
 """
 
 import json
@@ -94,6 +96,18 @@ def _get_api_key():
 def _build_research_evidence(
     research
 ):
+    """
+    Build the evidence package that Gemini is allowed to use.
+
+    IMPORTANT:
+
+    evidence_text is preferred.
+
+    abstract is used only as a backwards-compatible fallback for
+    older research packages.
+
+    Metadata is explicitly separated from scientific evidence.
+    """
 
     sources = research.get(
         "sources",
@@ -106,6 +120,13 @@ def _build_research_evidence(
         sources,
         start=1,
     ):
+
+        if not isinstance(
+            source,
+            dict,
+        ):
+
+            continue
 
         source_id = (
             f"source_{index}"
@@ -144,24 +165,105 @@ def _build_research_evidence(
             )
         )
 
-        abstract = _clean(
+        # --------------------------------------------------------------
+        # NEW EVIDENCE PACKAGE FIELDS
+        # --------------------------------------------------------------
+
+        evidence_text = _clean(
             source.get(
-                "abstract",
+                "evidence_text",
                 "",
             )
         )
 
-        if not abstract:
+        evidence_type = _clean(
+            source.get(
+                "evidence_type",
+                "",
+            )
+        )
 
-            abstract = (
-                "NO ABSTRACT AVAILABLE. "
-                "Metadata alone is NOT evidence "
-                "for detailed scientific claims."
+        evidence_quality = _clean(
+            source.get(
+                "evidence_quality",
+                "",
+            )
+        )
+
+        evidence_available = (
+            source.get(
+                "evidence_available",
+                False,
+            )
+        )
+
+        verification_level = _clean(
+            source.get(
+                "verification_level",
+                "",
+            )
+        )
+
+        evidence_verified = (
+            source.get(
+                "evidence_verified",
+                False,
+            )
+        )
+
+        # --------------------------------------------------------------
+        # BACKWARD COMPATIBILITY
+        #
+        # Older research packages may only contain "abstract".
+        # --------------------------------------------------------------
+
+        if not evidence_text:
+
+            evidence_text = _clean(
+                source.get(
+                    "abstract",
+                    "",
+                )
+            )
+
+            if (
+                evidence_text
+                and not evidence_type
+            ):
+
+                evidence_type = (
+                    "ABSTRACT"
+                )
+
+        # --------------------------------------------------------------
+        # NEVER PRESENT METADATA AS EVIDENCE
+        # --------------------------------------------------------------
+
+        if not evidence_text:
+
+            evidence_text = (
+                "NO SCIENTIFIC EVIDENCE AVAILABLE."
+            )
+
+        if not evidence_type:
+
+            evidence_type = (
+                "NONE"
+            )
+
+        if not evidence_quality:
+
+            evidence_quality = (
+                "NONE"
             )
 
         blocks.append(
             f"""
 SOURCE ID: {source_id}
+
+============================================================
+SOURCE METADATA
+============================================================
 
 Title:
 {title}
@@ -178,9 +280,44 @@ Year:
 DOI:
 {doi}
 
-Abstract / Evidence:
-{abstract}
+Verification Level:
+{verification_level}
+
+Evidence Verified:
+{evidence_verified}
+
+============================================================
+EVIDENCE
+============================================================
+
+Evidence Available:
+{evidence_available}
+
+Evidence Type:
+{evidence_type}
+
+Evidence Quality:
+{evidence_quality}
+
+Evidence Text:
+{evidence_text}
+
+============================================================
+EVIDENCE RULE
+============================================================
+
+Only the Evidence Text above may be used to support scientific
+claims.
+
+Title, authors, journal, year, DOI, and verification metadata
+are NOT evidence for detailed scientific claims.
 """.strip()
+        )
+
+    if not blocks:
+
+        return (
+            "NO VERIFIED RESEARCH SOURCES AVAILABLE."
         )
 
     return "\n\n".join(
@@ -378,13 +515,13 @@ Your job is NOT to rewrite the script.
 
 Your job is to determine whether IMPORTANT FACTUAL CLAIMS in the
 generated YouTube Short are actually supported by the supplied
-verified research.
+verified research evidence.
 
 ============================================================
 ABSOLUTE RESEARCH RULE
 ============================================================
 
-You may ONLY use the supplied research evidence.
+You may ONLY use the supplied Evidence Text.
 
 Do NOT use:
 
@@ -395,7 +532,39 @@ Do NOT use:
 - invented evidence
 - invented studies
 - invented statistics
-- information not contained in the supplied evidence
+- information not contained in the supplied Evidence Text
+
+============================================================
+CRITICAL EVIDENCE RULE
+============================================================
+
+SOURCE METADATA IS NOT SCIENTIFIC EVIDENCE.
+
+Do NOT use:
+
+- title
+- authors
+- journal
+- year
+- DOI
+- URL
+- verification status
+- evidence type
+- evidence quality
+
+as proof of a scientific claim.
+
+Only the supplied Evidence Text can support a factual claim.
+
+If the Evidence Text says:
+
+"may contribute"
+
+and the script says:
+
+"causes"
+
+the claim is NOT supported.
 
 ============================================================
 IMPORTANT CLAIM EXTRACTION RULE
@@ -484,28 +653,21 @@ STATUS DEFINITIONS
 ============================================================
 
 supported:
-The supplied evidence directly supports the claim.
+The Evidence Text directly supports the claim.
 
 uncertain:
-The supplied evidence is related but does not provide enough
-evidence to confidently support the claim.
+The Evidence Text is related but does not provide enough evidence
+to confidently support the claim.
 
 unsupported:
-The supplied evidence does not support the claim.
+The Evidence Text does not support the claim.
 
 contradicted:
-The supplied evidence conflicts with the claim.
+The Evidence Text conflicts with the claim.
 
 ============================================================
 EVIDENCE STANDARD
 ============================================================
-
-A source title alone is NOT evidence.
-
-Metadata alone is NOT evidence.
-
-An abstract may support a claim when the abstract clearly contains
-the relevant finding.
 
 Do not assume information that is not explicitly supported.
 
@@ -556,8 +718,8 @@ Claim:
 "explains"
 
 Result:
-NOT SUPPORTED unless the supplied evidence explicitly supports
-the stronger statement.
+NOT SUPPORTED unless the supplied Evidence Text explicitly
+supports the stronger statement.
 
 ============================================================
 CLAIM CITATION REQUIREMENT
@@ -610,7 +772,7 @@ The overall result may be PASS only when:
 5. No important claim is uncertain.
 6. Every factual claim has valid source IDs.
 7. Every factual claim's source IDs belong to that scene's citations.
-8. The narration does not exaggerate the research.
+8. The narration does not exaggerate the supplied Evidence Text.
 
 IMPORTANT:
 
@@ -649,7 +811,7 @@ def _verify_with_gemini(
 VERIFY THIS SCRIPT.
 
 ============================================================
-VERIFIED RESEARCH
+VERIFIED RESEARCH EVIDENCE
 ============================================================
 
 {research_evidence}
@@ -674,11 +836,13 @@ For each important factual claim:
 
 1. State the claim.
 2. Identify the scene.
-3. Look ONLY at the source IDs cited by THAT scene.
-4. Return source_ids that are a subset of that scene's cited sources.
-5. Decide whether the supplied evidence supports the claim.
-6. Explain why.
-7. Quote or summarize the relevant supplied evidence.
+3. Look ONLY at the Evidence Text belonging to source IDs cited
+   by THAT scene.
+4. Do NOT use metadata as evidence.
+5. Return source_ids that are a subset of that scene's cited sources.
+6. Decide whether the supplied Evidence Text supports the claim.
+7. Explain why.
+8. Quote or summarize only the relevant supplied Evidence Text.
 
 IMPORTANT:
 
@@ -1093,20 +1257,10 @@ def _local_validate(
                 )
 
     # ----------------------------------------------------------------------
-    # IMPORTANT:
+    # NO PER-SCENE CLAIM REQUIREMENT
     #
-    # DO NOT require every scene to have a claim.
-    #
-    # A scene can legitimately contain:
-    #
-    # "And that's where the mystery deepens."
-    #
-    # without containing a scientific claim.
-    #
-    # Gemini is responsible for extracting actual factual claims.
+    # A scene can contain purely stylistic narration.
     # ----------------------------------------------------------------------
-
-    # No per-scene claim requirement here.
 
     # ----------------------------------------------------------------------
     # DEDUPLICATE
@@ -1140,7 +1294,6 @@ def _local_validate(
 
     elif warnings:
 
-        # Uncertain claims are not publishable.
         result[
             "overall_status"
         ] = "FAIL"

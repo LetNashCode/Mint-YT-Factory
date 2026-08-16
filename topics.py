@@ -2,9 +2,9 @@
 topics.py
 Mint-YT-Factory
 
-Version 4.1
+Version 4.2
 
-Research-first educational topic generator.
+Crash-safe topic state management.
 
 FLOW:
 
@@ -20,21 +20,23 @@ Claim verification
         ↓
 Video
         ↓
-New next_short becomes next topic
-
-If no pending topic exists:
+Upload
         ↓
-Gemini generates a new research-friendly topic
+Save NEW next_short
+        ↓
+Commit CURRENT topic
 
 IMPORTANT:
 
-- New Gemini topics: maximum 8 words.
-- next_short topics: NO word-count limit.
-- next_short is allowed to be a continuation/open-loop topic.
-- Topics are only committed after the complete pipeline succeeds.
-- Failed runs do not permanently consume the current topic.
-- Pending topics survive failed pipeline runs.
-- The current topic never overwrites the newly generated next_short.
+- Pending topics survive failed runs.
+- Current topics are only committed after upload succeeds.
+- next_topic.json is NEVER blindly deleted during commit.
+- A newly generated next_short is preserved.
+- Topic files are written atomically.
+- A topic is never automatically marked used merely because it
+  was selected.
+- New Gemini topics have an 8-word limit.
+- next_short topics have NO word-count limit.
 """
 
 import json
@@ -59,17 +61,12 @@ NEXT_TOPIC_PATH = "next_topic.json"
 # LIMITS
 # ==========================================================================
 
-# ONLY applies to brand-new Gemini-generated topics.
 NEW_TOPIC_MAX_WORDS = 8
 
-# Safety limit for malformed/huge topic strings.
-# This is NOT a word limit.
 MAX_TOPIC_CHARACTERS = 300
 
-# Number of previous topics supplied to Gemini.
 MAX_PREVIOUS_TOPICS = 300
 
-# Gemini generation attempts.
 MAX_TOPIC_GENERATION_ATTEMPTS = 7
 
 
@@ -141,10 +138,7 @@ def _atomic_write_json(
     data,
 ):
     """
-    Safely write JSON using a temporary file and atomic replacement.
-
-    This reduces the chance of leaving a partially written JSON file
-    if the process is interrupted during a write.
+    Safely write JSON using a temporary file followed by atomic replace.
     """
 
     directory = os.path.dirname(
@@ -206,17 +200,22 @@ def _atomic_write_json(
 
             try:
                 os.close(fd)
+
             except Exception:
                 pass
 
-        if temp_path and os.path.exists(
+        if (
             temp_path
+            and os.path.exists(
+                temp_path
+            )
         ):
 
             try:
                 os.remove(
                     temp_path
                 )
+
             except Exception:
                 pass
 
@@ -246,11 +245,21 @@ def _load_used():
             list,
         ):
 
-            return [
-                _clean_topic(x)
-                for x in data
-                if _clean_topic(x)
-            ]
+            cleaned = []
+
+            for item in data:
+
+                topic = _clean_topic(
+                    item
+                )
+
+                if topic:
+
+                    cleaned.append(
+                        topic
+                    )
+
+            return cleaned
 
     except Exception as error:
 
@@ -266,7 +275,6 @@ def _save_used(
     used
 ):
 
-    # Remove duplicates while preserving order.
     cleaned = []
 
     seen = set()
@@ -278,6 +286,7 @@ def _save_used(
         )
 
         if not topic:
+
             continue
 
         key = _topic_key(
@@ -285,6 +294,7 @@ def _save_used(
         )
 
         if key in seen:
+
             continue
 
         seen.add(
@@ -321,31 +331,17 @@ def _load_next_topic():
                 f
             )
 
-        # --------------------------------------------------------------
-        # Supported format:
-        #
-        # {
-        #   "topic": "discover how deep ocean trenches..."
-        # }
-        # --------------------------------------------------------------
-
         if isinstance(
             data,
             dict,
         ):
 
-            topic = data.get(
-                "topic",
-                "",
-            )
-
             return _clean_topic(
-                topic
+                data.get(
+                    "topic",
+                    "",
+                )
             )
-
-        # --------------------------------------------------------------
-        # Also support plain string.
-        # --------------------------------------------------------------
 
         if isinstance(
             data,
@@ -378,10 +374,12 @@ def _save_next_topic(
 
         return False
 
-    if len(topic) > MAX_TOPIC_CHARACTERS:
+    if len(
+        topic
+    ) > MAX_TOPIC_CHARACTERS:
 
         print(
-            "⚠️ Topic is too long."
+            "⚠️ Topic exceeds character safety limit."
         )
 
         print(
@@ -418,10 +416,10 @@ def _save_next_topic(
 def clear_next_topic():
 
     """
-    Remove the pending topic.
+    Delete the pending topic.
 
-    This should only be called when the pending topic is known to
-    have been successfully consumed.
+    Normally this is only used when the pending topic is still
+    the current topic being committed.
     """
 
     if not os.path.exists(
@@ -437,7 +435,7 @@ def clear_next_topic():
         )
 
         print(
-            "✅ Pending next topic consumed."
+            "✅ Pending topic removed."
         )
 
         return True
@@ -465,11 +463,12 @@ def _clean_topic(
     ).strip()
 
     if not topic:
+
         return ""
 
-    # --------------------------------------------------------------
+    # ----------------------------------------------------------------------
     # Remove Markdown/code formatting.
-    # --------------------------------------------------------------
+    # ----------------------------------------------------------------------
 
     topic = topic.replace(
         "```json",
@@ -481,21 +480,23 @@ def _clean_topic(
         "",
     )
 
-    # --------------------------------------------------------------
+    # ----------------------------------------------------------------------
     # Remove quotation marks.
-    # --------------------------------------------------------------
+    # ----------------------------------------------------------------------
 
     topic = topic.replace(
         '"',
         "",
-    ).replace(
+    )
+
+    topic = topic.replace(
         "'",
         "",
     )
 
-    # --------------------------------------------------------------
-    # Remove accidental leading labels.
-    # --------------------------------------------------------------
+    # ----------------------------------------------------------------------
+    # Remove accidental labels.
+    # ----------------------------------------------------------------------
 
     topic = re.sub(
         r"^(topic|next topic|next_short|next short)\s*:\s*",
@@ -504,9 +505,9 @@ def _clean_topic(
         flags=re.IGNORECASE,
     )
 
-    # --------------------------------------------------------------
+    # ----------------------------------------------------------------------
     # Remove accidental numbering.
-    # --------------------------------------------------------------
+    # ----------------------------------------------------------------------
 
     topic = re.sub(
         r"^\s*\d+[\.\)\-:]\s*",
@@ -514,20 +515,17 @@ def _clean_topic(
         topic,
     )
 
-    # --------------------------------------------------------------
+    # ----------------------------------------------------------------------
     # Normalize whitespace.
-    # --------------------------------------------------------------
+    # ----------------------------------------------------------------------
 
     topic = " ".join(
         topic.split()
     )
 
-    # --------------------------------------------------------------
-    # Remove trailing punctuation.
-    #
-    # The source next_short can technically be a phrase, so we only
-    # remove terminal punctuation for consistency.
-    # --------------------------------------------------------------
+    # ----------------------------------------------------------------------
+    # Remove terminal punctuation.
+    # ----------------------------------------------------------------------
 
     topic = topic.rstrip(
         ".!? "
@@ -557,39 +555,37 @@ def _valid_topic(
 
         return False
 
-    # --------------------------------------------------------------
-    # Character safety limit.
-    #
-    # This applies to ALL topics.
-    #
-    # It does NOT impose a word limit.
-    # --------------------------------------------------------------
+    # ----------------------------------------------------------------------
+    # Character safety.
+    # ----------------------------------------------------------------------
 
-    if len(topic) > MAX_TOPIC_CHARACTERS:
+    if len(
+        topic
+    ) > MAX_TOPIC_CHARACTERS:
 
         return False
 
-    # --------------------------------------------------------------
+    # ----------------------------------------------------------------------
     # Optional word limit.
     #
-    # New Gemini topics:
+    # New generated topics:
     # max_words=8
     #
     # next_short:
-    # max_words=None
-    # --------------------------------------------------------------
+    # no word limit
+    # ----------------------------------------------------------------------
 
     if max_words is not None:
 
-        words = topic.split()
-
-        if len(words) > max_words:
+        if len(
+            topic.split()
+        ) > max_words:
 
             return False
 
-    # --------------------------------------------------------------
-    # Forbidden phrases.
-    # --------------------------------------------------------------
+    # ----------------------------------------------------------------------
+    # Forbidden patterns.
+    # ----------------------------------------------------------------------
 
     forbidden = [
 
@@ -608,9 +604,9 @@ def _valid_topic(
 
             return False
 
-    # --------------------------------------------------------------
-    # Reject obvious list formatting.
-    # --------------------------------------------------------------
+    # ----------------------------------------------------------------------
+    # Obvious list formatting.
+    # ----------------------------------------------------------------------
 
     if re.match(
         r"^(top|best)\s+\d+",
@@ -623,7 +619,7 @@ def _valid_topic(
 
 
 # ==========================================================================
-# NORMALIZED COMPARISON
+# NORMALIZED TOPIC COMPARISON
 # ==========================================================================
 
 def _topic_key(
@@ -655,13 +651,17 @@ def _already_used(
     )
 
     if not key:
+
         return False
 
     for existing in used:
 
-        if _topic_key(
-            existing
-        ) == key:
+        if (
+            _topic_key(
+                existing
+            )
+            == key
+        ):
 
             return True
 
@@ -677,12 +677,7 @@ def get_pending_topic():
     """
     Return the currently queued topic.
 
-    IMPORTANT:
-
-    There is NO 8-word restriction here.
-
-    The previous video's next_short may be a long,
-    research-ready continuation topic.
+    Pending topics have NO 8-word restriction.
     """
 
     topic = _load_next_topic()
@@ -697,7 +692,7 @@ def get_pending_topic():
     ):
 
         print(
-            "⚠️ Pending next topic is invalid:"
+            "⚠️ Pending topic is invalid:"
         )
 
         print(
@@ -813,9 +808,9 @@ Return ONLY the topic.
                 f"{topic}"
             )
 
-            # ----------------------------------------------------------
-            # New Gemini topics HAVE the 8-word limit.
-            # ----------------------------------------------------------
+            # --------------------------------------------------------------
+            # NEW TOPICS MUST BE <= 8 WORDS.
+            # --------------------------------------------------------------
 
             if not _valid_topic(
                 topic,
@@ -828,9 +823,9 @@ Return ONLY the topic.
 
                 continue
 
-            # ----------------------------------------------------------
+            # --------------------------------------------------------------
             # Never repeat a committed topic.
-            # ----------------------------------------------------------
+            # --------------------------------------------------------------
 
             if _already_used(
                 topic,
@@ -843,13 +838,15 @@ Return ONLY the topic.
 
                 continue
 
-            # ----------------------------------------------------------
-            # Never duplicate the currently pending topic.
-            # ----------------------------------------------------------
+            # --------------------------------------------------------------
+            # Never duplicate pending topic.
+            # --------------------------------------------------------------
 
             pending = _load_next_topic()
 
-            if pending and (
+            if (
+                pending
+                and
                 _topic_key(
                     pending
                 )
@@ -904,18 +901,11 @@ def get_next_topic():
     1. Existing pending next_short
     2. Gemini-generated topic
 
-    IMPORTANT:
-
-    This function does NOT immediately mark a topic as used.
-
-    A topic becomes used only after main.py successfully completes
-    the entire production and upload process.
+    The selected topic is NOT committed here.
     """
 
     # ----------------------------------------------------------------------
-    # PRIORITY 1:
-    #
-    # Continue from previous video's next_short.
+    # PRIORITY 1 — PENDING TOPIC
     # ----------------------------------------------------------------------
 
     pending = get_pending_topic()
@@ -925,18 +915,12 @@ def get_next_topic():
         return pending
 
     # ----------------------------------------------------------------------
-    # PRIORITY 2:
-    #
-    # Generate a brand-new topic.
+    # PRIORITY 2 — GENERATE NEW TOPIC
     # ----------------------------------------------------------------------
 
     topic = _generate_new_topic()
 
     if topic:
-
-        # --------------------------------------------------------------
-        # Keep the topic pending until the complete pipeline succeeds.
-        # --------------------------------------------------------------
 
         if not _save_next_topic(
             topic
@@ -959,13 +943,9 @@ def get_next_topic():
 
         return topic
 
-    # ----------------------------------------------------------------------
-    # FINAL FAILURE
-    # ----------------------------------------------------------------------
-
     raise RuntimeError(
         "Could not generate a new research-friendly topic "
-        "and no pending next topic is available."
+        "and no pending topic is available."
     )
 
 
@@ -978,17 +958,15 @@ def commit_topic(
 ):
 
     """
-    Mark a successfully processed topic as used.
-
-    main.py MUST call this only after the video has successfully
-    uploaded.
+    Commit the CURRENT topic after successful YouTube upload.
 
     IMPORTANT:
 
-    If next_topic.json contains the NEW next_short, it is preserved.
+    next_topic.json may already contain the NEW next_short.
 
-    The pending file is deleted only if it still contains the
-    CURRENT topic.
+    Therefore this function NEVER blindly deletes next_topic.json.
+
+    It deletes the file only if it still contains the CURRENT topic.
     """
 
     topic = _clean_topic(
@@ -1004,7 +982,7 @@ def commit_topic(
     used = _load_used()
 
     # ----------------------------------------------------------------------
-    # Add current topic to used topics.
+    # Add topic to used list.
     # ----------------------------------------------------------------------
 
     if not _already_used(
@@ -1021,7 +999,7 @@ def commit_topic(
         )
 
         print("=" * 80)
-        print("✅ TOPIC COMMITTED")
+        print("✅ CURRENT TOPIC COMMITTED")
         print("=" * 80)
 
         print(
@@ -1033,43 +1011,64 @@ def commit_topic(
     else:
 
         print(
-            f"ℹ️ Topic already exists in "
-            f"{USED_TOPICS_PATH}: {topic}"
+            "ℹ️ Current topic is already committed:"
+        )
+
+        print(
+            topic
         )
 
     # ----------------------------------------------------------------------
-    # IMPORTANT:
-    #
-    # Never blindly delete next_topic.json.
-    #
-    # It may contain the NEW next_short.
-    #
-    # Only remove it if it still contains the CURRENT topic.
+    # Check pending file.
     # ----------------------------------------------------------------------
 
     pending = _load_next_topic()
 
     if not pending:
 
-        return
+        return True
 
-    if _topic_key(
-        pending
-    ) == _topic_key(
-        topic
+    # ----------------------------------------------------------------------
+    # If pending file STILL contains current topic, remove it.
+    #
+    # This happens when a newly generated topic was selected but no
+    # new next_short replaced it.
+    # ----------------------------------------------------------------------
+
+    if (
+        _topic_key(
+            pending
+        )
+        ==
+        _topic_key(
+            topic
+        )
     ):
 
-        clear_next_topic()
+        if not clear_next_topic():
 
-    else:
+            raise RuntimeError(
+                "Current topic committed, but its pending queue "
+                "entry could not be removed."
+            )
 
-        print(
-            "🔗 Preserving newly queued next_short:"
-        )
+        return True
 
-        print(
-            f"   {pending}"
-        )
+    # ----------------------------------------------------------------------
+    # Otherwise it is the NEW next_short.
+    #
+    # Preserve it.
+    # ----------------------------------------------------------------------
+
+    print(
+        "🔗 Preserving NEW next_short:"
+    )
+
+    print(
+        f"   {pending}"
+    )
+
+    return True
 
 
 # ==========================================================================
@@ -1083,20 +1082,7 @@ def save_next_short(
     """
     Save the next topic generated by the current video's open loop.
 
-    Example:
-
-    Current video:
-        How do deep sea fish survive immense pressure
-
-    next_short:
-        discover how deep ocean trenches drive massive cyclonic
-        water circulation
-
-    The next_short becomes the next video's research topic.
-
-    IMPORTANT:
-
-    There is NO 8-word restriction here.
+    next_short has NO word-count restriction.
     """
 
     next_short = _clean_topic(
@@ -1112,7 +1098,7 @@ def save_next_short(
         return False
 
     # ----------------------------------------------------------------------
-    # Validate WITHOUT word limit.
+    # Validate basic structure.
     # ----------------------------------------------------------------------
 
     if not _valid_topic(
@@ -1121,8 +1107,7 @@ def save_next_short(
     ):
 
         print(
-            "⚠️ Generated next_short failed "
-            "basic topic validation:"
+            "⚠️ next_short failed basic validation:"
         )
 
         print(
@@ -1132,10 +1117,7 @@ def save_next_short(
         return False
 
     # ----------------------------------------------------------------------
-    # Do not queue a topic that has already been committed.
-    #
-    # This protects against Gemini accidentally generating a continuation
-    # that is identical to an older published topic.
+    # Do not queue an already committed topic.
     # ----------------------------------------------------------------------
 
     used = _load_used()
@@ -1156,7 +1138,7 @@ def save_next_short(
         return False
 
     # ----------------------------------------------------------------------
-    # Save the next topic.
+    # Save atomically.
     # ----------------------------------------------------------------------
 
     if not _save_next_topic(
@@ -1164,8 +1146,7 @@ def save_next_short(
     ):
 
         print(
-            "❌ Could not save next_short "
-            "to pending topic queue."
+            "❌ Could not save next_short."
         )
 
         return False

@@ -2,30 +2,38 @@
 main.py
 Mint-YT-Factory
 
-Version 8.0
+Version 9.0
 
 Research-first production pipeline.
 
 FLOW:
+
 Topic
 → Verified research
 → Research-backed script
+→ Claim verification
 → TTS
 → Images
 → Music
 → Video
-→ Verified citations in description
+→ Verified citations
 → YouTube upload
 """
 
 import argparse
+import json
 import os
 import time
+
 import yaml
 
 from topics import get_next_topic
 from research import research_topic
 from generate_script import generate_script
+from verify_claims import (
+    verify_script_claims,
+    claims_are_verified,
+)
 from tts import synthesize_script
 from generate_images import generate_images
 from music import download_music
@@ -52,7 +60,9 @@ def load_config():
 # RESEARCH DESCRIPTION
 # ==========================================================================
 
-def build_research_section(script):
+def build_research_section(
+    script
+):
 
     sources = script.get(
         "research_sources",
@@ -68,10 +78,6 @@ def build_research_section(script):
             "Cannot build description: "
             "no verified research sources found."
         )
-
-    # --------------------------------------------------------------
-    # Map each source to the scenes that cite it.
-    # --------------------------------------------------------------
 
     source_scene_map = {}
 
@@ -372,6 +378,28 @@ def build_title_description(
     )
 
     # ----------------------------------------------------------------------
+    # CLAIM VERIFICATION
+    # ----------------------------------------------------------------------
+
+    verification = script.get(
+        "claim_verification",
+        {},
+    )
+
+    if verification.get(
+        "verified"
+    ) is not True:
+
+        raise RuntimeError(
+            "Cannot publish: "
+            "claim verification failed."
+        )
+
+    description_parts.append(
+        "🔬 Scientific claim verification: PASSED"
+    )
+
+    # ----------------------------------------------------------------------
     # HASHTAGS
     # ----------------------------------------------------------------------
 
@@ -533,6 +561,82 @@ def run(
     )
 
     # ----------------------------------------------------------------------
+    # CLAIM VERIFICATION
+    # ----------------------------------------------------------------------
+
+    print("=" * 80)
+    print("🧪 VERIFYING SCRIPT CLAIMS")
+    print("=" * 80)
+
+    script = verify_script_claims(
+        script,
+        research,
+    )
+
+    if not claims_are_verified(
+        script
+    ):
+
+        verification = script.get(
+            "claim_verification",
+            {},
+        )
+
+        print("=" * 80)
+        print("❌ PIPELINE STOPPED")
+        print("=" * 80)
+
+        print(
+            "Scientific claim verification failed."
+        )
+
+        unsupported = verification.get(
+            "unsupported_claims",
+            [],
+        )
+
+        warnings = verification.get(
+            "warnings",
+            [],
+        )
+
+        if unsupported:
+
+            print(
+                "\nUnsupported / contradicted claims:"
+            )
+
+            for claim in unsupported:
+
+                print(
+                    f"  ❌ {claim}"
+                )
+
+        if warnings:
+
+            print(
+                "\nUncertain claims:"
+            )
+
+            for claim in warnings:
+
+                print(
+                    f"  ⚠️ {claim}"
+                )
+
+        print("=" * 80)
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "generated script failed scientific "
+            "claim verification."
+        )
+
+    print(
+        "✅ Scientific claim verification PASSED"
+    )
+
+    # ----------------------------------------------------------------------
     # FINAL RESEARCH SAFETY CHECK
     # ----------------------------------------------------------------------
 
@@ -588,8 +692,6 @@ def run(
         workdir,
         "research.json",
     )
-
-    import json
 
     with open(
         research_path,
@@ -782,6 +884,10 @@ def run(
 
     print(
         "Research citations: VERIFIED"
+    )
+
+    print(
+        "Scientific claims: VERIFIED"
     )
 
     print("=" * 80)

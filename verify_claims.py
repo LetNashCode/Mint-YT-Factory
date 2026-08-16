@@ -4,44 +4,26 @@ Mint-YT-Factory
 
 Version 1.0
 
-Post-generation scientific claim verification.
+Scientific claim verification layer.
 
 FLOW:
 
-research.py
-    ↓
-verified research
-    ↓
-generate_script.py
-    ↓
-verify_claims.py
-    ↓
+Generated Script
+      ↓
+Extract scene claims
+      ↓
+Compare against verified research
+      ↓
+Gemini evaluates support
+      ↓
 PASS / FAIL
-    ↓
-YouTube pipeline
-
-Purpose:
-- Extract factual claims from the generated narration.
-- Check each claim against the supplied verified research.
-- Never use outside knowledge as evidence.
-- Never invent citations.
-- Reject unsupported claims.
-- Return a structured verification report.
-
-IMPORTANT:
-This module does NOT decide whether a scientific statement is
-"generally true" from Gemini's own knowledge.
-
-It only asks:
-
-"Is this claim supported by the supplied research?"
+      ↓
+Only verified scripts continue
 """
-
 
 import json
 import os
 import re
-
 
 from google import genai
 from google.genai import types
@@ -53,128 +35,53 @@ from google.genai import types
 
 MODEL_NAME = "gemini-3.1-flash-lite"
 
-MAX_CLAIMS_PER_SCENE = 6
+MAX_CLAIMS_PER_SCENE = 8
 
 
 # ==========================================================================
-# JSON PARSER
+# HELPERS
 # ==========================================================================
 
-def _parse_json(text):
+def _clean(text):
 
-    if not text:
+    if text is None:
+        return ""
 
-        raise RuntimeError(
-            "Claim verifier returned an empty response."
-        )
-
-    text = text.strip()
-
-    # --------------------------------------------------------------
-    # Direct JSON
-    # --------------------------------------------------------------
-
-    try:
-
-        data = json.loads(text)
-
-        if isinstance(data, dict):
-
-            return data
-
-    except json.JSONDecodeError:
-
-        pass
-
-    # --------------------------------------------------------------
-    # Remove markdown fences
-    # --------------------------------------------------------------
-
-    cleaned = re.sub(
-        r"^```(?:json)?\s*",
-        "",
-        text,
-        flags=re.IGNORECASE,
-    )
-
-    cleaned = re.sub(
-        r"\s*```$",
-        "",
-        cleaned,
+    return re.sub(
+        r"\s+",
+        " ",
+        str(text),
     ).strip()
 
-    try:
 
-        data = json.loads(cleaned)
+def _get_api_key():
 
-        if isinstance(data, dict):
-
-            return data
-
-    except json.JSONDecodeError:
-
-        pass
-
-    # --------------------------------------------------------------
-    # Extract JSON object
-    # --------------------------------------------------------------
-
-    start = cleaned.find("{")
-    end = cleaned.rfind("}")
-
-    if start >= 0 and end > start:
-
-        candidate = cleaned[
-            start:end + 1
-        ]
-
-        candidate = re.sub(
-            r",(\s*[}\]])",
-            r"\1",
-            candidate,
-        )
-
-        try:
-
-            data = json.loads(candidate)
-
-            if isinstance(data, dict):
-
-                return data
-
-        except json.JSONDecodeError as error:
-
-            raise RuntimeError(
-                "Could not parse claim verification JSON: "
-                f"{error}"
-            )
-
-    raise RuntimeError(
-        "Claim verifier did not return valid JSON."
+    api_key = os.environ.get(
+        "GEMINI_API_KEY"
     )
 
+    if not api_key:
+
+        raise RuntimeError(
+            "GEMINI_API_KEY environment "
+            "variable is missing."
+        )
+
+    return api_key
+
 
 # ==========================================================================
-# RESEARCH CONTEXT
+# BUILD RESEARCH EVIDENCE
 # ==========================================================================
 
-def build_research_context(
-    research,
+def _build_research_evidence(
+    research
 ):
 
     sources = research.get(
         "sources",
         [],
     )
-
-    if not isinstance(
-        sources,
-        list,
-    ):
-
-        raise RuntimeError(
-            "Research sources must be a list."
-        )
 
     blocks = []
 
@@ -184,63 +91,59 @@ def build_research_context(
     ):
 
         source_id = (
-            source.get(
-                "source_id",
-            )
-            or
             f"source_{index}"
         )
 
-        title = str(
+        title = _clean(
             source.get(
                 "title",
                 "",
             )
-        ).strip()
+        )
 
-        authors = str(
+        authors = _clean(
             source.get(
                 "authors",
                 "",
             )
-        ).strip()
+        )
 
-        journal = str(
+        journal = _clean(
             source.get(
                 "journal",
                 "",
             )
-        ).strip()
+        )
 
-        year = str(
-            source.get(
-                "year",
-                "",
-            )
-        ).strip()
+        year = source.get(
+            "year",
+            "",
+        )
 
-        doi = str(
+        doi = _clean(
             source.get(
                 "doi",
                 "",
             )
-        ).strip()
+        )
 
-        abstract = str(
+        abstract = _clean(
             source.get(
                 "abstract",
                 "",
             )
-        ).strip()
+        )
 
-        verification = str(
-            source.get(
-                "verification",
-                "",
+        if not abstract:
+
+            abstract = (
+                "NO ABSTRACT AVAILABLE. "
+                "Do not treat metadata alone as "
+                "evidence for detailed scientific claims."
             )
-        ).strip()
 
-        block = f"""
+        blocks.append(
+            f"""
 SOURCE ID: {source_id}
 
 Title:
@@ -260,13 +163,7 @@ DOI:
 
 Abstract / Evidence:
 {abstract}
-
-Verification:
-{verification}
-"""
-
-        blocks.append(
-            block.strip()
+""".strip()
         )
 
     return "\n\n".join(
@@ -275,154 +172,53 @@ Verification:
 
 
 # ==========================================================================
-# SYSTEM PROMPT
+# BUILD SCRIPT CLAIMS
 # ==========================================================================
 
-SYSTEM_PROMPT = """
-You are a strict scientific claim verifier.
+def _build_claim_context(
+    script
+):
 
-Your ONLY job is to determine whether factual claims in a generated
-educational YouTube Short are supported by the supplied verified
-research sources.
+    scenes = script.get(
+        "scene_plan",
+        [],
+    )
 
-============================================================
-ABSOLUTE RULE
-============================================================
+    blocks = []
 
-You may ONLY use the research supplied in the user prompt.
+    for scene in scenes:
 
-You MUST NOT use:
+        scene_number = scene.get(
+            "scene"
+        )
 
-- your general knowledge
-- information from memory
-- outside websites
-- outside studies
-- invented evidence
-- invented citations
-- assumptions
-- common knowledge as evidence
+        narration = _clean(
+            scene.get(
+                "narration",
+                "",
+            )
+        )
 
-If the supplied research does not clearly support a claim:
+        source_ids = scene.get(
+            "source_ids",
+            [],
+        )
 
-mark it UNSUPPORTED.
+        blocks.append(
+            f"""
+SCENE {scene_number}
 
-Do NOT try to make the claim true.
+Narration:
+{narration}
 
-============================================================
-CLAIM TYPES
-============================================================
+Cited source IDs:
+{json.dumps(source_ids)}
+""".strip()
+        )
 
-Classify every extracted statement as one of:
-
-FACT
-EVIDENCE
-HYPOTHESIS
-OPINION
-TRANSITION
-
-Only FACT, EVIDENCE and HYPOTHESIS require research support.
-
-OPINION and TRANSITION do not require scientific evidence.
-
-============================================================
-VERIFICATION
-============================================================
-
-A claim is:
-
-SUPPORTED
-
-only when the supplied research clearly supports it.
-
-A claim is:
-
-PARTIALLY_SUPPORTED
-
-when the research supports the general idea but the narration
-overstates, simplifies or extends the evidence.
-
-A claim is:
-
-UNSUPPORTED
-
-when the supplied research does not establish the claim.
-
-A claim is:
-
-CONTRADICTED
-
-when the supplied research indicates the claim is wrong.
-
-============================================================
-STRICTNESS
-============================================================
-
-Pay special attention to:
-
-- numbers
-- percentages
-- dates
-- measurements
-- causal claims
-- medical claims
-- psychological claims
-- statements using "causes"
-- statements using "proves"
-- statements using "always"
-- statements using "never"
-- statements using "the first"
-- statements using "the only"
-- statements using "scientists discovered"
-- statements using "researchers found"
-
-If the source says correlation but the narration says causation:
-
-PARTIALLY_SUPPORTED or UNSUPPORTED.
-
-If the source says "may", "could", "suggests" or "associated with"
-but the narration presents certainty:
-
-PARTIALLY_SUPPORTED or UNSUPPORTED.
-
-============================================================
-SOURCE IDs
-============================================================
-
-You may ONLY reference source IDs supplied in the research.
-
-Never create a source ID.
-
-============================================================
-OUTPUT
-============================================================
-
-Return ONLY valid JSON.
-
-The output must contain:
-
-{
-  "verified": true,
-  "overall_status": "PASS",
-  "claims": [
-    {
-      "scene": 1,
-      "claim": "...",
-      "claim_type": "FACT",
-      "status": "SUPPORTED",
-      "source_ids": ["source_1"],
-      "reason": "..."
-    }
-  ],
-  "unsupported_claims": [],
-  "warnings": []
-}
-
-The overall result may be PASS only when there are no
-UNSUPPORTED or CONTRADICTED factual claims.
-
-PARTIALLY_SUPPORTED claims should produce a warning and
-should normally be treated as requiring revision.
-"""
+    return "\n\n".join(
+        blocks
+    )
 
 
 # ==========================================================================
@@ -437,37 +233,12 @@ def build_response_schema():
 
         "properties": {
 
-            "scene": {
-                "type": "integer",
-            },
-
             "claim": {
                 "type": "string",
             },
 
-            "claim_type": {
-
-                "type": "string",
-
-                "enum": [
-                    "FACT",
-                    "EVIDENCE",
-                    "HYPOTHESIS",
-                    "OPINION",
-                    "TRANSITION",
-                ],
-            },
-
-            "status": {
-
-                "type": "string",
-
-                "enum": [
-                    "SUPPORTED",
-                    "PARTIALLY_SUPPORTED",
-                    "UNSUPPORTED",
-                    "CONTRADICTED",
-                ],
+            "scene": {
+                "type": "integer",
             },
 
             "source_ids": {
@@ -479,18 +250,34 @@ def build_response_schema():
                 },
             },
 
+            "status": {
+
+                "type": "string",
+
+                "enum": [
+                    "supported",
+                    "unsupported",
+                    "uncertain",
+                    "contradicted",
+                ],
+            },
+
             "reason": {
+                "type": "string",
+            },
+
+            "evidence": {
                 "type": "string",
             },
         },
 
         "required": [
-            "scene",
             "claim",
-            "claim_type",
-            "status",
+            "scene",
             "source_ids",
+            "status",
             "reason",
+            "evidence",
         ],
     }
 
@@ -500,10 +287,6 @@ def build_response_schema():
 
         "properties": {
 
-            "verified": {
-                "type": "boolean",
-            },
-
             "overall_status": {
 
                 "type": "string",
@@ -511,7 +294,6 @@ def build_response_schema():
                 "enum": [
                     "PASS",
                     "FAIL",
-                    "REVIEW",
                 ],
             },
 
@@ -542,7 +324,6 @@ def build_response_schema():
         },
 
         "required": [
-            "verified",
             "overall_status",
             "claims",
             "unsupported_claims",
@@ -552,398 +333,177 @@ def build_response_schema():
 
 
 # ==========================================================================
-# SOURCE ID VALIDATION
+# SYSTEM PROMPT
 # ==========================================================================
 
-def _validate_source_ids(
-    report,
-    research,
-):
+def _system_prompt():
 
-    valid_ids = set()
+    return """
+You are a strict scientific fact checker.
 
-    for index, source in enumerate(
-        research.get(
-            "sources",
-            [],
-        ),
-        start=1,
-    ):
+Your job is NOT to rewrite the script.
 
-        source_id = (
-            source.get(
-                "source_id",
-            )
-            or
-            f"source_{index}"
-        )
+Your job is to determine whether the factual claims made in the
+generated YouTube Short are actually supported by the supplied
+verified research.
 
-        valid_ids.add(
-            source_id
-        )
+============================================================
+ABSOLUTE RULE
+============================================================
 
-    for claim in report.get(
-        "claims",
-        [],
-    ):
+You may ONLY use the supplied research evidence.
 
-        source_ids = claim.get(
-            "source_ids",
-            [],
-        )
+Do NOT use:
 
-        if not isinstance(
-            source_ids,
-            list,
-        ):
+- general knowledge
+- memory
+- internet knowledge
+- invented evidence
+- invented studies
+- invented statistics
 
-            raise RuntimeError(
-                "Claim source_ids must be a list."
-            )
+A claim is SUPPORTED only when the supplied research provides reasonable
+evidence for that specific claim.
 
-        for source_id in source_ids:
+============================================================
+STATUS DEFINITIONS
+============================================================
 
-            if source_id not in valid_ids:
+supported:
+The supplied research directly supports the claim.
 
-                raise RuntimeError(
-                    "Claim verifier referenced "
-                    f"invalid source ID: {source_id}"
-                )
+uncertain:
+The research is related but does not provide enough evidence to make
+the claim confidently.
 
+unsupported:
+The supplied research does not support the claim.
 
-# ==========================================================================
-# HARD SAFETY CHECK
-# ==========================================================================
+contradicted:
+The supplied research conflicts with the claim.
 
-def _apply_hard_gate(
-    report,
-):
+============================================================
+IMPORTANT
+============================================================
 
-    unsupported = []
-    warnings = []
+A source title alone is NOT enough evidence for a detailed claim.
 
-    for claim in report.get(
-        "claims",
-        [],
-    ):
+An abstract may support a claim when the abstract clearly contains
+the relevant finding.
 
-        status = str(
-            claim.get(
-                "status",
-                "",
-            )
-        ).upper()
+Do not assume information that is not present.
 
-        claim_text = str(
-            claim.get(
-                "claim",
-                "",
-            )
-        ).strip()
+Do not strengthen cautious research language.
 
-        claim_type = str(
-            claim.get(
-                "claim_type",
-                "",
-            )
-        ).upper()
+For example:
 
-        # ----------------------------------------------------------
-        # Factual claims must have sources.
-        # ----------------------------------------------------------
+Research:
+"may contribute"
 
-        if claim_type in {
-            "FACT",
-            "EVIDENCE",
-            "HYPOTHESIS",
-        }:
+Claim:
+"causes"
 
-            if not claim.get(
-                "source_ids",
-                [],
-            ):
+This should NOT be considered supported.
 
-                unsupported.append(
-                    claim_text
-                )
+Research:
+"associated with"
 
-        # ----------------------------------------------------------
-        # Unsupported / contradicted claims.
-        # ----------------------------------------------------------
+Claim:
+"causes"
 
-        if status in {
-            "UNSUPPORTED",
-            "CONTRADICTED",
-        }:
+This should NOT be considered supported.
 
-            unsupported.append(
-                claim_text
-            )
+Research:
+"hypothesis"
 
-        # ----------------------------------------------------------
-        # Partial support.
-        # ----------------------------------------------------------
+Claim:
+"proven fact"
 
-        if status == "PARTIALLY_SUPPORTED":
+This should NOT be considered supported.
 
-            warnings.append(
-                claim_text
-            )
+============================================================
+PASS CONDITION
+============================================================
 
-    # Remove duplicates.
+The overall result is PASS only when:
 
-    unsupported = list(
-        dict.fromkeys(
-            x for x in unsupported
-            if x
-        )
-    )
+1. Every important factual claim is supported.
+2. No important claim is contradicted.
+3. No important claim is unsupported.
+4. Every claim uses only its cited source IDs.
+5. The narration does not exaggerate the research.
 
-    warnings = list(
-        dict.fromkeys(
-            x for x in warnings
-            if x
-        )
-    )
+Minor stylistic statements such as:
 
-    report[
-        "unsupported_claims"
-    ] = unsupported
+"That changes how we see it."
 
-    report[
-        "warnings"
-    ] = warnings
+do not need research evidence.
 
-    # --------------------------------------------------------------
-    # HARD DECISION
-    # --------------------------------------------------------------
+============================================================
 
-    if unsupported:
-
-        report[
-            "verified"
-        ] = False
-
-        report[
-            "overall_status"
-        ] = "FAIL"
-
-    elif warnings:
-
-        report[
-            "verified"
-        ] = False
-
-        report[
-            "overall_status"
-        ] = "REVIEW"
-
-    else:
-
-        report[
-            "verified"
-        ] = True
-
-        report[
-            "overall_status"
-        ] = "PASS"
-
-    return report
+Return ONLY valid JSON.
+"""
 
 
 # ==========================================================================
-# VERIFY SCRIPT CLAIMS
+# VERIFY WITH GEMINI
 # ==========================================================================
 
-def verify_script_claims(
+def _verify_with_gemini(
     script,
     research,
 ):
 
-    # ----------------------------------------------------------------------
-    # Research gate
-    # ----------------------------------------------------------------------
-
-    if not isinstance(
-        research,
-        dict,
-    ):
-
-        raise RuntimeError(
-            "Claim verification failed: "
-            "research package is missing."
-        )
-
-    if research.get(
-        "verified"
-    ) is not True:
-
-        raise RuntimeError(
-            "Claim verification failed: "
-            "research is not verified."
-        )
-
-    sources = research.get(
-        "sources",
-        [],
-    )
-
-    if not isinstance(
-        sources,
-        list,
-    ) or not sources:
-
-        raise RuntimeError(
-            "Claim verification failed: "
-            "no research sources available."
-        )
-
-    # ----------------------------------------------------------------------
-    # Script gate
-    # ----------------------------------------------------------------------
-
-    if not isinstance(
-        script,
-        dict,
-    ):
-
-        raise RuntimeError(
-            "Claim verification failed: "
-            "script is invalid."
-        )
-
-    scenes = script.get(
-        "scene_plan",
-        [],
-    )
-
-    if not isinstance(
-        scenes,
-        list,
-    ) or not scenes:
-
-        raise RuntimeError(
-            "Claim verification failed: "
-            "script contains no scenes."
-        )
-
-    # ----------------------------------------------------------------------
-    # API
-    # ----------------------------------------------------------------------
-
-    api_key = os.environ.get(
-        "GEMINI_API_KEY"
-    )
-
-    if not api_key:
-
-        raise RuntimeError(
-            "GEMINI_API_KEY environment "
-            "variable is missing."
-        )
-
     client = genai.Client(
-        api_key=api_key
+        api_key=_get_api_key()
     )
 
-    # ----------------------------------------------------------------------
-    # Research context
-    # ----------------------------------------------------------------------
-
-    research_context = (
-        build_research_context(
+    research_evidence = (
+        _build_research_evidence(
             research
         )
     )
 
-    # ----------------------------------------------------------------------
-    # Build narration
-    # ----------------------------------------------------------------------
-
-    scene_blocks = []
-
-    for scene in scenes:
-
-        scene_number = scene.get(
-            "scene",
+    claim_context = (
+        _build_claim_context(
+            script
         )
-
-        narration = str(
-            scene.get(
-                "narration",
-                "",
-            )
-        ).strip()
-
-        source_ids = scene.get(
-            "source_ids",
-            [],
-        )
-
-        scene_blocks.append(
-            f"""
-SCENE {scene_number}
-
-Narration:
-{narration}
-
-Existing source IDs:
-{json.dumps(source_ids)}
-""".strip()
-        )
-
-    narration_context = "\n\n".join(
-        scene_blocks
     )
 
-    # ----------------------------------------------------------------------
-    # Prompt
-    # ----------------------------------------------------------------------
-
     prompt = f"""
-VERIFY THIS EDUCATIONAL SHORT.
-
-TOPIC:
-{script.get("topic", "")}
+VERIFY THIS SCRIPT.
 
 ============================================================
 VERIFIED RESEARCH
 ============================================================
 
-{research_context}
+{research_evidence}
 
 ============================================================
-GENERATED NARRATION
+SCRIPT
 ============================================================
 
-{narration_context}
+{claim_context}
 
 ============================================================
 TASK
 ============================================================
 
-Extract the factual/scientific claims from every scene.
+Extract the important factual claims from the narration.
 
-Check each claim ONLY against the supplied research.
+For each important factual claim:
 
-Do not use external knowledge.
+1. State the claim.
+2. Identify the scene.
+3. Identify the source IDs cited by that scene.
+4. Decide whether the supplied evidence supports it.
+5. Explain why.
+6. Quote or summarize the relevant evidence.
 
-Do not assume something is true merely because it sounds plausible.
-
-Check source_ids carefully.
-
-A factual claim without adequate research support must fail.
+Do NOT introduce outside information.
 
 Return ONLY JSON.
 """
-
-    # ----------------------------------------------------------------------
-    # Gemini
-    # ----------------------------------------------------------------------
-
-    print("=" * 80)
-    print("🔬 VERIFYING GENERATED CLAIMS")
-    print("=" * 80)
 
     response = client.models.generate_content(
 
@@ -954,7 +514,7 @@ Return ONLY JSON.
         config=types.GenerateContentConfig(
 
             system_instruction=
-                SYSTEM_PROMPT,
+                _system_prompt(),
 
             response_mime_type=
                 "application/json",
@@ -967,58 +527,266 @@ Return ONLY JSON.
     if not response.text:
 
         raise RuntimeError(
-            "Claim verifier returned no response."
+            "Claim verifier returned an empty response."
         )
 
-    report = _parse_json(
+    return json.loads(
         response.text
     )
 
-    # ----------------------------------------------------------------------
-    # Validate source references
-    # ----------------------------------------------------------------------
 
-    _validate_source_ids(
-        report,
+# ==========================================================================
+# LOCAL SAFETY VALIDATION
+# ==========================================================================
+
+def _local_validate(
+    result,
+    script,
+    research,
+):
+
+    valid_source_ids = {
+
+        f"source_{index}"
+
+        for index, source in enumerate(
+            research.get(
+                "sources",
+                [],
+            ),
+            start=1,
+        )
+    }
+
+    claims = result.get(
+        "claims",
+        [],
+    )
+
+    unsupported = list(
+        result.get(
+            "unsupported_claims",
+            [],
+        )
+    )
+
+    warnings = list(
+        result.get(
+            "warnings",
+            [],
+        )
+    )
+
+    for claim in claims:
+
+        if not isinstance(
+            claim,
+            dict,
+        ):
+            continue
+
+        status = _clean(
+            claim.get(
+                "status",
+                "",
+            )
+        ).lower()
+
+        source_ids = claim.get(
+            "source_ids",
+            [],
+        )
+
+        if not isinstance(
+            source_ids,
+            list,
+        ):
+
+            unsupported.append(
+                claim.get(
+                    "claim",
+                    "Unknown claim",
+                )
+            )
+
+            continue
+
+        for source_id in source_ids:
+
+            if source_id not in valid_source_ids:
+
+                unsupported.append(
+                    (
+                        f"Invalid source citation "
+                        f"{source_id}: "
+                        f"{claim.get('claim', '')}"
+                    )
+                )
+
+        if status in {
+            "unsupported",
+            "contradicted",
+        }:
+
+            unsupported.append(
+                claim.get(
+                    "claim",
+                    "Unknown claim",
+                )
+            )
+
+        elif status == "uncertain":
+
+            warnings.append(
+                claim.get(
+                    "claim",
+                    "Uncertain claim",
+                )
+            )
+
+    # Deduplicate while preserving order.
+
+    unsupported = list(
+        dict.fromkeys(
+            _clean(x)
+            for x in unsupported
+            if _clean(x)
+        )
+    )
+
+    warnings = list(
+        dict.fromkeys(
+            _clean(x)
+            for x in warnings
+            if _clean(x)
+        )
+    )
+
+    if unsupported:
+
+        result[
+            "overall_status"
+        ] = "FAIL"
+
+    elif warnings:
+
+        # We treat uncertain scientific claims as a failure.
+        # This prevents exaggerated research from being published.
+
+        result[
+            "overall_status"
+        ] = "FAIL"
+
+    else:
+
+        result[
+            "overall_status"
+        ] = "PASS"
+
+    result[
+        "unsupported_claims"
+    ] = unsupported
+
+    result[
+        "warnings"
+    ] = warnings
+
+    return result
+
+
+# ==========================================================================
+# PUBLIC API
+# ==========================================================================
+
+def verify_script_claims(
+    script,
+    research,
+):
+
+    if not isinstance(
+        script,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "Claim verification received "
+            "an invalid script."
+        )
+
+    if not isinstance(
+        research,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "Claim verification received "
+            "invalid research."
+        )
+
+    if research.get(
+        "verified"
+    ) is not True:
+
+        raise RuntimeError(
+            "Claim verification requires "
+            "verified research."
+        )
+
+    print("=" * 80)
+    print("🧪 SCIENTIFIC CLAIM VERIFICATION")
+    print("=" * 80)
+
+    result = _verify_with_gemini(
+        script,
         research,
     )
 
-    # ----------------------------------------------------------------------
-    # Apply deterministic hard gate
-    # ----------------------------------------------------------------------
-
-    report = _apply_hard_gate(
-        report
+    result = _local_validate(
+        result,
+        script,
+        research,
     )
-
-    # ----------------------------------------------------------------------
-    # Attach report
-    # ----------------------------------------------------------------------
 
     script[
         "claim_verification"
-    ] = report
+    ] = {
 
-    # ----------------------------------------------------------------------
-    # Output
-    # ----------------------------------------------------------------------
+        "overall_status":
+            result.get(
+                "overall_status",
+                "FAIL",
+            ),
 
-    print("=" * 80)
+        "claims":
+            result.get(
+                "claims",
+                [],
+            ),
 
-    if report[
+        "unsupported_claims":
+            result.get(
+                "unsupported_claims",
+                [],
+            ),
+
+        "warnings":
+            result.get(
+                "warnings",
+                [],
+            ),
+
+        "verified":
+            result.get(
+                "overall_status"
+            ) == "PASS",
+    }
+
+    if result.get(
         "overall_status"
-    ] == "PASS":
+    ) == "PASS":
 
         print(
-            "✅ CLAIM VERIFICATION PASSED"
-        )
-
-    elif report[
-        "overall_status"
-    ] == "REVIEW":
-
-        print(
-            "⚠️ CLAIM VERIFICATION NEEDS REVIEW"
+            "✅ ALL IMPORTANT CLAIMS VERIFIED"
         )
 
     else:
@@ -1027,29 +795,32 @@ Return ONLY JSON.
             "❌ CLAIM VERIFICATION FAILED"
         )
 
-    print(
-        f"Claims checked: "
-        f"{len(report.get('claims', []))}"
-    )
+        unsupported = result.get(
+            "unsupported_claims",
+            [],
+        )
 
-    print(
-        f"Unsupported claims: "
-        f"{len(report.get('unsupported_claims', []))}"
-    )
+        warnings = result.get(
+            "warnings",
+            [],
+        )
 
-    print(
-        f"Warnings: "
-        f"{len(report.get('warnings', []))}"
-    )
+        for claim in unsupported:
+
+            print(
+                f"❌ {claim}"
+            )
+
+        for warning in warnings:
+
+            print(
+                f"⚠️ {warning}"
+            )
 
     print("=" * 80)
 
     return script
 
-
-# ==========================================================================
-# CONVENIENCE FUNCTION
-# ==========================================================================
 
 def claims_are_verified(
     script,
@@ -1063,13 +834,11 @@ def claims_are_verified(
     return (
         verification.get(
             "verified"
-        )
-        is True
+        ) is True
         and
         verification.get(
             "overall_status"
-        )
-        == "PASS"
+        ) == "PASS"
     )
 
 
@@ -1084,6 +853,5 @@ if __name__ == "__main__":
     )
 
     print(
-        "It verifies generated narration against "
-        "the research package supplied by research.py."
+        "It is called automatically by main.py."
     )

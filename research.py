@@ -2,7 +2,7 @@
 research.py
 Mint-YT-Factory
 
-Version 2.3
+Version 3.0
 
 Research-first scientific evidence layer.
 
@@ -31,7 +31,7 @@ Verified research package
 IMPORTANT:
 
 - DOI verification is NOT the same as evidence verification.
-- Metadata-only sources are NEVER accepted as verified evidence.
+- Metadata-only sources are NEVER accepted as evidence-backed sources.
 - Abstracts are NEVER invented.
 - Sources must actually exist.
 - Minimum 2 evidence-backed sources are required.
@@ -41,6 +41,8 @@ IMPORTANT:
 - next_short.topic is treated as the complete research topic.
 - Evidence text is explicitly separated from metadata.
 - Gemini is NOT used to create or summarize evidence here.
+- Research sources are never fabricated.
+- A DOI alone does not make a source evidence-backed.
 """
 
 
@@ -91,9 +93,9 @@ SEMANTIC_RETRIES = 3
 
 SEMANTIC_BACKOFF_SECONDS = 3
 
-# --------------------------------------------------------------------------
-# Evidence requirements
-# --------------------------------------------------------------------------
+# ==========================================================================
+# EVIDENCE REQUIREMENTS
+# ==========================================================================
 
 MIN_ABSTRACT_CHARACTERS = 120
 
@@ -105,16 +107,13 @@ EVIDENCE_QUALITY_MODERATE = "moderate"
 
 EVIDENCE_QUALITY_NONE = "none"
 
-# --------------------------------------------------------------------------
-# OpenAlex polite pool
-# --------------------------------------------------------------------------
 
-OPENALEX_EMAIL = (
-    "mint-yt-factory@example.com"
-)
+# ==========================================================================
+# USER AGENT
+# ==========================================================================
 
 USER_AGENT = (
-    "Mint-YT-Factory/2.3 "
+    "Mint-YT-Factory/3.0 "
     "(educational research verification)"
 )
 
@@ -249,6 +248,11 @@ def _get(
                     attempt + 1
                 )
 
+                print(
+                    f"⚠️ Request failed. "
+                    f"Retrying in {delay:.1f}s..."
+                )
+
                 time.sleep(
                     delay
                 )
@@ -256,6 +260,10 @@ def _get(
                 continue
 
             raise last_error
+
+    raise RuntimeError(
+        "HTTP request failed."
+    )
 
 
 # ==========================================================================
@@ -341,6 +349,13 @@ def _normalize_doi(
 
     doi = re.sub(
         r"^https?://doi\.org/",
+        "",
+        doi,
+        flags=re.IGNORECASE,
+    )
+
+    doi = re.sub(
+        r"^https?://dx\.doi\.org/",
         "",
         doi,
         flags=re.IGNORECASE,
@@ -589,10 +604,6 @@ def _build_evidence_package(
         )
     )
 
-    # ----------------------------------------------------------------------
-    # Evidence available
-    # ----------------------------------------------------------------------
-
     if abstract:
 
         evidence_available = True
@@ -601,8 +612,9 @@ def _build_evidence_package(
             "abstract"
         )
 
+        # An abstract is evidence text, but not a full paper.
         evidence_quality = (
-            EVIDENCE_QUALITY_HIGH
+            EVIDENCE_QUALITY_MODERATE
         )
 
         evidence_text = abstract
@@ -610,7 +622,8 @@ def _build_evidence_package(
         evidence_notes = (
             "Evidence text is the scholarly "
             "abstract retrieved from a research "
-            "metadata database."
+            "metadata database. It is not the "
+            "full paper."
         )
 
     else:
@@ -630,13 +643,8 @@ def _build_evidence_package(
         evidence_notes = (
             "No abstract or evidence text was "
             "available. Metadata alone must NOT "
-            "be used to support detailed scientific "
-            "claims."
+            "be used to support detailed claims."
         )
-
-    # ----------------------------------------------------------------------
-    # Safety limit
-    # ----------------------------------------------------------------------
 
     if len(
         evidence_text
@@ -726,7 +734,6 @@ STOPWORDS = {
     "about",
     "into",
     "through",
-    "does",
     "will",
     "your",
     "our",
@@ -769,11 +776,6 @@ def _topic_terms(
 def _topic_phrases(
     topic
 ):
-    """
-    Extract useful adjacent 2-word phrases.
-
-    Helps long continuation topics.
-    """
 
     words = re.findall(
         r"[a-zA-Z0-9]+",
@@ -808,13 +810,13 @@ def _relevance_score(
     source
 ):
     """
-    Relevance scoring for both short and long topics.
+    Relevance scoring.
 
-    Title matches are weighted more heavily.
+    Title matches are weighted more heavily than abstract matches.
 
-    Abstract matches provide supporting evidence.
+    Two-word phrase matches receive additional weight.
 
-    Meaningful two-word phrases receive extra weight.
+    This is a ranking mechanism, not scientific claim verification.
     """
 
     terms = _topic_terms(
@@ -879,6 +881,8 @@ def _relevance_score(
 
     abstract_matches = 0
 
+    phrase_matches = 0
+
     # ----------------------------------------------------------------------
     # Individual term matches
     # ----------------------------------------------------------------------
@@ -927,8 +931,6 @@ def _relevance_score(
     # Phrase matches
     # ----------------------------------------------------------------------
 
-    phrase_matches = 0
-
     for phrase in phrases:
 
         pattern = (
@@ -970,10 +972,6 @@ def _relevance_score(
             1,
         )
     )
-
-    # ----------------------------------------------------------------------
-    # Strong title relevance
-    # ----------------------------------------------------------------------
 
     if title_matches >= 2:
 
@@ -1262,12 +1260,10 @@ def search_crossref(
                 False,
         }
 
-        source = _build_evidence_package(
-            source
-        )
-
         results.append(
-            source
+            _build_evidence_package(
+                source
+            )
         )
 
     print(
@@ -1471,12 +1467,10 @@ def search_semantic_scholar(
                 False,
         }
 
-        source = _build_evidence_package(
-            source
-        )
-
         results.append(
-            source
+            _build_evidence_package(
+                source
+            )
         )
 
     print(
@@ -1506,9 +1500,6 @@ def search_openalex(
 
         "per-page":
             MAX_OPENALEX_RESULTS,
-
-        "mailto":
-            OPENALEX_EMAIL,
     }
 
     try:
@@ -1640,16 +1631,12 @@ def search_openalex(
 
         if not url:
 
-            item_id = _clean(
+            url = _clean(
                 item.get(
                     "id",
                     "",
                 )
             )
-
-            if item_id:
-
-                url = item_id
 
         open_access = (
             item.get(
@@ -1733,12 +1720,10 @@ def search_openalex(
                 False,
         }
 
-        source = _build_evidence_package(
-            source
-        )
-
         results.append(
-            source
+            _build_evidence_package(
+                source
+            )
         )
 
     print(
@@ -1889,9 +1874,17 @@ def verify_crossref_source(
             "verified_title"
         ] = returned_title
 
-        # ------------------------------------------------------------------
-        # Prefer the verified Crossref abstract if available.
-        # ------------------------------------------------------------------
+        # --------------------------------------------------------------
+        # Crossref is authoritative for DOI metadata here.
+        # --------------------------------------------------------------
+
+        source[
+            "doi"
+        ] = returned_doi
+
+        # --------------------------------------------------------------
+        # Use Crossref abstract when available.
+        # --------------------------------------------------------------
 
         abstract = _clean_abstract(
             item.get(
@@ -1911,20 +1904,14 @@ def verify_crossref_source(
             ] = "Crossref abstract"
 
         source[
-            "doi"
-        ] = returned_doi
-
-        source[
             "verification"
         ] = (
             "DOI resolved through Crossref."
         )
 
-        source = _build_evidence_package(
+        return _build_evidence_package(
             source
         )
-
-        return True
 
     except Exception as error:
 
@@ -2013,10 +2000,6 @@ def verify_semantic_source(
 
             return False
 
-        # --------------------------------------------------------------
-        # If Semantic Scholar gives us a DOI, it must agree.
-        # --------------------------------------------------------------
-
         if (
             returned_doi
             and
@@ -2052,7 +2035,9 @@ def verify_semantic_source(
 
             source[
                 "evidence_source"
-            ] = "Semantic Scholar abstract"
+            ] = (
+                "Semantic Scholar abstract"
+            )
 
         publication_types = (
             data.get(
@@ -2090,11 +2075,9 @@ def verify_semantic_source(
             "DOI resolved through Semantic Scholar."
         )
 
-        source = _build_evidence_package(
+        return _build_evidence_package(
             source
         )
-
-        return True
 
     except Exception as error:
 
@@ -2116,7 +2099,7 @@ def enrich_from_openalex(
     """
     Retrieve an abstract from OpenAlex using DOI.
 
-    Used as an evidence fallback.
+    Used as a free evidence fallback.
     """
 
     doi = _normalize_doi(
@@ -2141,21 +2124,11 @@ def enrich_from_openalex(
             )
         )
 
-        params = {
-            "mailto":
-                OPENALEX_EMAIL
-        }
-
         data = _get(
             url,
-            params,
             retries=2,
             backoff=2,
         )
-
-        # --------------------------------------------------------------
-        # Abstract
-        # --------------------------------------------------------------
 
         abstract = _openalex_abstract_text(
             data.get(
@@ -2176,10 +2149,6 @@ def enrich_from_openalex(
             source[
                 "openalex_enriched"
             ] = True
-
-        # --------------------------------------------------------------
-        # Additional metadata
-        # --------------------------------------------------------------
 
         source[
             "openalex_citation_count"
@@ -2224,6 +2193,94 @@ def enrich_from_openalex(
 
 
 # ==========================================================================
+# SEMANTIC SCHOLAR ABSTRACT ENRICHMENT
+# ==========================================================================
+
+def enrich_from_semantic(
+    source
+):
+
+    doi = _normalize_doi(
+        source.get(
+            "doi",
+            "",
+        )
+    )
+
+    if not doi:
+
+        return source
+
+    try:
+
+        url = (
+            SEMANTIC_PAPER_URL
+            + "/DOI:"
+            + quote(
+                doi,
+                safe="",
+            )
+        )
+
+        params = {
+
+            "fields":
+                (
+                    "title,"
+                    "abstract,"
+                    "year,"
+                    "externalIds,"
+                    "publicationTypes,"
+                    "citationCount"
+                )
+        }
+
+        data = _get(
+            url,
+            params,
+            retries=SEMANTIC_RETRIES,
+            backoff=SEMANTIC_BACKOFF_SECONDS,
+        )
+
+        abstract = _clean_abstract(
+            data.get(
+                "abstract",
+                "",
+            )
+        )
+
+        if abstract:
+
+            source[
+                "abstract"
+            ] = abstract
+
+            source[
+                "evidence_source"
+            ] = (
+                "Semantic Scholar abstract"
+            )
+
+        source[
+            "citation_count"
+        ] = data.get(
+            "citationCount",
+            source.get(
+                "citation_count",
+                0,
+            )
+        ) or 0
+
+    except Exception as error:
+
+        source[
+            "semantic_enrichment_error"
+        ] = str(error)
+
+    return source
+
+
+# ==========================================================================
 # EVIDENCE ENRICHMENT
 # ==========================================================================
 
@@ -2233,7 +2290,7 @@ def enrich_source(
     """
     Evidence priority:
 
-    1. Existing abstract
+    1. Existing verified abstract
     2. Semantic Scholar abstract
     3. OpenAlex abstract
 
@@ -2249,135 +2306,24 @@ def enrich_source(
 
     if existing:
 
-        source[
-            "abstract"
-        ] = existing
-
         return _build_evidence_package(
             source
         )
 
-    doi = _normalize_doi(
+    source = enrich_from_semantic(
+        source
+    )
+
+    if _clean_abstract(
         source.get(
-            "doi",
+            "abstract",
             "",
         )
-    )
-
-    if not doi:
+    ):
 
         return _build_evidence_package(
             source
         )
-
-    source[
-        "doi"
-    ] = doi
-
-    database = source.get(
-        "source_database",
-        "",
-    )
-
-    # ----------------------------------------------------------------------
-    # Semantic Scholar
-    # ----------------------------------------------------------------------
-
-    if database != "Semantic Scholar":
-
-        try:
-
-            url = (
-                SEMANTIC_PAPER_URL
-                + "/DOI:"
-                + quote(
-                    doi,
-                    safe="",
-                )
-            )
-
-            params = {
-
-                "fields":
-                    (
-                        "title,"
-                        "abstract,"
-                        "year,"
-                        "externalIds,"
-                        "publicationTypes,"
-                        "citationCount"
-                    )
-            }
-
-            data = _get(
-                url,
-                params,
-                retries=SEMANTIC_RETRIES,
-                backoff=SEMANTIC_BACKOFF_SECONDS,
-            )
-
-            abstract = _clean_abstract(
-                data.get(
-                    "abstract",
-                    "",
-                )
-            )
-
-            if abstract:
-
-                source[
-                    "abstract"
-                ] = abstract
-
-                source[
-                    "evidence_source"
-                ] = (
-                    "Semantic Scholar abstract"
-                )
-
-                source[
-                    "citation_count"
-                ] = data.get(
-                    "citationCount",
-                    source.get(
-                        "citation_count",
-                        0,
-                    )
-                ) or 0
-
-                publication_types = (
-                    data.get(
-                        "publicationTypes",
-                        [],
-                    )
-                    or []
-                )
-
-                if publication_types:
-
-                    source[
-                        "publication_types"
-                    ] = publication_types
-
-                    source[
-                        "publication_type"
-                    ] = publication_types[
-                        0
-                    ]
-
-                return _build_evidence_package(
-                    source
-                )
-
-        except Exception as error:
-
-            source[
-                "semantic_enrichment_error"
-            ] = str(error)
-
-    # ----------------------------------------------------------------------
-    # OpenAlex fallback
-    # ----------------------------------------------------------------------
 
     source = enrich_from_openalex(
         source
@@ -2406,11 +2352,7 @@ def enrich_sources(
             f"{source.get('title', '')}"
         )
 
-        enrich_source(
-            source
-        )
-
-        source = _build_evidence_package(
+        source = enrich_source(
             source
         )
 
@@ -2430,6 +2372,11 @@ def enrich_sources(
             print(
                 f"   Quality: "
                 f"{source.get('evidence_quality', 'unknown')}"
+            )
+
+            print(
+                f"   Source: "
+                f"{source.get('evidence_source', 'unknown')}"
             )
 
             print(
@@ -2454,7 +2401,7 @@ def mark_evidence_verified(
     sources
 ):
     """
-    A source becomes evidence-verified ONLY when:
+    A source becomes evidence-backed ONLY when:
 
     - DOI metadata is verified
     - authors exist
@@ -2517,14 +2464,6 @@ def mark_evidence_verified(
                 f"❌ Rejected metadata-only source: "
                 f"{title}"
             )
-
-            source[
-                "evidence_available"
-            ] = False
-
-            source[
-                "evidence_quality"
-            ] = EVIDENCE_QUALITY_NONE
 
             continue
 
@@ -2635,7 +2574,7 @@ def mark_evidence_verified(
 
         source[
             "evidence_quality"
-        ] = EVIDENCE_QUALITY_HIGH
+        ] = EVIDENCE_QUALITY_MODERATE
 
         source[
             "evidence_verified"
@@ -2654,9 +2593,10 @@ def mark_evidence_verified(
         source[
             "evidence_verification"
         ] = (
-            "A non-empty scholarly abstract "
-            "was retrieved and attached to "
-            "verified DOI metadata."
+            "The DOI metadata was verified and "
+            "a scholarly abstract was retrieved. "
+            "The abstract is evidence context, "
+            "not a substitute for the full paper."
         )
 
         accepted.append(
@@ -2689,21 +2629,33 @@ def limit_sources(
         source
     ):
 
-        evidence_quality = (
-            1
-            if source.get(
-                "evidence_quality"
-            )
-            == EVIDENCE_QUALITY_HIGH
-            else 0
+        quality = source.get(
+            "evidence_quality"
+        )
+
+        quality_score = {
+
+            EVIDENCE_QUALITY_HIGH:
+                2,
+
+            EVIDENCE_QUALITY_MODERATE:
+                1,
+
+            EVIDENCE_QUALITY_NONE:
+                0,
+        }.get(
+            quality,
+            0,
         )
 
         citation_count = max(
+
             source.get(
                 "citation_count",
                 0,
             )
             or 0,
+
             source.get(
                 "openalex_citation_count",
                 0,
@@ -2723,7 +2675,7 @@ def limit_sources(
                 0,
             ),
 
-            evidence_quality,
+            quality_score,
 
             len(
                 source.get(
@@ -2846,6 +2798,13 @@ def research_topic(
         f"{len(candidates)}"
     )
 
+    if not candidates:
+
+        raise RuntimeError(
+            "RESEARCH FAILED: "
+            "No research candidates were found."
+        )
+
     # ----------------------------------------------------------------------
     # FIRST RELEVANCE FILTER
     # ----------------------------------------------------------------------
@@ -2923,38 +2882,6 @@ def research_topic(
                 )
             )
 
-            # --------------------------------------------------------------
-            # If Crossref is unavailable, retain OpenAlex identity only
-            # when DOI + title exist.
-            #
-            # Evidence verification still requires actual evidence text.
-            # --------------------------------------------------------------
-
-            if not verified_ok:
-
-                verified_ok = bool(
-                    source.get(
-                        "doi"
-                    )
-                    and source.get(
-                        "title"
-                    )
-                )
-
-                if verified_ok:
-
-                    source[
-                        "metadata_verified"
-                    ] = True
-
-                    source[
-                        "verification"
-                    ] = (
-                        "OpenAlex DOI metadata accepted "
-                        "after Crossref verification was "
-                        "unavailable."
-                    )
-
         if verified_ok:
 
             print(
@@ -2972,7 +2899,7 @@ def research_topic(
             )
 
     # ----------------------------------------------------------------------
-    # ENRICH ABSTRACTS / EVIDENCE
+    # EVIDENCE ENRICHMENT
     # ----------------------------------------------------------------------
 
     verified_metadata = enrich_sources(
@@ -2990,7 +2917,7 @@ def research_topic(
     )
 
     # ----------------------------------------------------------------------
-    # RELEVANCE AGAIN AFTER ENRICHMENT
+    # RELEVANCE AFTER EVIDENCE
     # ----------------------------------------------------------------------
 
     evidence_sources = relevance_filter(
@@ -3007,7 +2934,7 @@ def research_topic(
     )
 
     # ----------------------------------------------------------------------
-    # REQUIRE MULTIPLE EVIDENCE SOURCES
+    # REQUIRE MULTIPLE SOURCES
     # ----------------------------------------------------------------------
 
     if len(
@@ -3040,7 +2967,7 @@ def research_topic(
         )
 
     # ----------------------------------------------------------------------
-    # FINAL EVIDENCE PACKAGE
+    # FINAL RESEARCH PACKAGE
     # ----------------------------------------------------------------------
 
     package = {
@@ -3081,6 +3008,12 @@ def research_topic(
 
             "evidence_verification_required":
                 True,
+
+            "full_text_required":
+                False,
+
+            "abstract_is_full_text":
+                False,
         },
 
         "source_count":
@@ -3126,7 +3059,7 @@ def research_topic(
         )
 
         print(
-            f"   Source: "
+            f"   Database: "
             f"{source['source_database']}"
         )
 

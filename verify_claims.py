@@ -2,7 +2,7 @@
 verify_claims.py
 Mint-YT-Factory
 
-Version 1.3
+Version 2.0
 
 Scientific claim verification layer.
 
@@ -12,11 +12,13 @@ Generated Script
       ↓
 Extract IMPORTANT factual claims
       ↓
-Compare against VERIFIED research evidence
+Use only scene-cited research sources
+      ↓
+Compare against verified Evidence Text
       ↓
 Gemini evaluates support
       ↓
-Local citation validation
+Local citation + evidence validation
       ↓
 PASS / FAIL
       ↓
@@ -24,19 +26,22 @@ Only verified scripts continue
 
 IMPORTANT:
 
-- Gemini may ONLY use supplied research evidence.
-- Claims must use the source IDs cited by their scene.
-- Claims cannot switch to an unrelated source during verification.
+- Gemini may ONLY use supplied Evidence Text.
+- Metadata is NEVER treated as scientific evidence.
+- Claims must use source IDs cited by their scene.
+- Claims cannot switch to an unrelated source.
 - Every important factual claim must have a valid citation.
-- Purely stylistic/storytelling sentences do NOT require citations.
+- Every cited source must be evidence-verified.
+- Evidence Text must actually exist.
 - Uncertain claims FAIL.
 - Unsupported claims FAIL.
 - Contradicted claims FAIL.
 - Invalid source IDs FAIL.
 - Claims with zero source IDs FAIL.
 - A scene does NOT need to contain a factual claim.
-- Evidence is taken from evidence_text first, with abstract as fallback.
-- Metadata alone is NEVER treated as scientific evidence.
+- Abstracts are accepted only when they are part of the verified
+  research evidence package.
+- Gemini cannot introduce outside knowledge.
 """
 
 import json
@@ -55,12 +60,16 @@ MODEL_NAME = "gemini-flash-lite-latest"
 
 MAX_CLAIMS_PER_SCENE = 8
 
+MIN_EVIDENCE_CHARACTERS = 120
+
 
 # ==========================================================================
 # HELPERS
 # ==========================================================================
 
-def _clean(text):
+def _clean(
+    text
+):
 
     if text is None:
 
@@ -90,23 +99,21 @@ def _get_api_key():
 
 
 # ==========================================================================
-# BUILD RESEARCH EVIDENCE
+# BUILD VERIFIED SOURCE MAP
 # ==========================================================================
 
-def _build_research_evidence(
+def _build_source_map(
     research
 ):
     """
-    Build the evidence package that Gemini is allowed to use.
+    Build the authoritative source map.
+
+    Only sources that passed the research evidence gate are allowed.
 
     IMPORTANT:
 
-    evidence_text is preferred.
-
-    abstract is used only as a backwards-compatible fallback for
-    older research packages.
-
-    Metadata is explicitly separated from scientific evidence.
+    source_1, source_2, etc. are assigned according to the exact
+    order of research["sources"].
     """
 
     sources = research.get(
@@ -114,7 +121,7 @@ def _build_research_evidence(
         [],
     )
 
-    blocks = []
+    source_map = {}
 
     for index, source in enumerate(
         sources,
@@ -131,6 +138,36 @@ def _build_research_evidence(
         source_id = (
             f"source_{index}"
         )
+
+        source_map[
+            source_id
+        ] = source
+
+    return source_map
+
+
+# ==========================================================================
+# BUILD RESEARCH EVIDENCE
+# ==========================================================================
+
+def _build_research_evidence(
+    research
+):
+    """
+    Build the evidence package Gemini is allowed to use.
+
+    ONLY evidence-verified sources are presented as usable evidence.
+
+    Metadata is explicitly separated from Evidence Text.
+    """
+
+    source_map = _build_source_map(
+        research
+    )
+
+    blocks = []
+
+    for source_id, source in source_map.items():
 
         title = _clean(
             source.get(
@@ -165,10 +202,6 @@ def _build_research_evidence(
             )
         )
 
-        # --------------------------------------------------------------
-        # NEW EVIDENCE PACKAGE FIELDS
-        # --------------------------------------------------------------
-
         evidence_text = _clean(
             source.get(
                 "evidence_text",
@@ -197,13 +230,6 @@ def _build_research_evidence(
             )
         )
 
-        verification_level = _clean(
-            source.get(
-                "verification_level",
-                "",
-            )
-        )
-
         evidence_verified = (
             source.get(
                 "evidence_verified",
@@ -211,51 +237,34 @@ def _build_research_evidence(
             )
         )
 
+        verification_level = _clean(
+            source.get(
+                "verification_level",
+                "",
+            )
+        )
+
         # --------------------------------------------------------------
-        # BACKWARD COMPATIBILITY
-        #
-        # Older research packages may only contain "abstract".
+        # SAFETY GATE
         # --------------------------------------------------------------
+
+        if evidence_verified is not True:
+
+            continue
+
+        if evidence_available is not True:
+
+            continue
 
         if not evidence_text:
 
-            evidence_text = _clean(
-                source.get(
-                    "abstract",
-                    "",
-                )
-            )
+            continue
 
-            if (
-                evidence_text
-                and not evidence_type
-            ):
+        if len(
+            evidence_text
+        ) < MIN_EVIDENCE_CHARACTERS:
 
-                evidence_type = (
-                    "ABSTRACT"
-                )
-
-        # --------------------------------------------------------------
-        # NEVER PRESENT METADATA AS EVIDENCE
-        # --------------------------------------------------------------
-
-        if not evidence_text:
-
-            evidence_text = (
-                "NO SCIENTIFIC EVIDENCE AVAILABLE."
-            )
-
-        if not evidence_type:
-
-            evidence_type = (
-                "NONE"
-            )
-
-        if not evidence_quality:
-
-            evidence_quality = (
-                "NONE"
-            )
+            continue
 
         blocks.append(
             f"""
@@ -287,7 +296,7 @@ Evidence Verified:
 {evidence_verified}
 
 ============================================================
-EVIDENCE
+SCIENTIFIC EVIDENCE
 ============================================================
 
 Evidence Available:
@@ -303,21 +312,21 @@ Evidence Text:
 {evidence_text}
 
 ============================================================
-EVIDENCE RULE
+IMPORTANT
 ============================================================
 
-Only the Evidence Text above may be used to support scientific
+Only the Evidence Text above may be used to support factual
 claims.
 
-Title, authors, journal, year, DOI, and verification metadata
-are NOT evidence for detailed scientific claims.
+The title, authors, journal, year, DOI, URL, verification level,
+and evidence metadata are NOT scientific evidence.
 """.strip()
         )
 
     if not blocks:
 
         return (
-            "NO VERIFIED RESEARCH SOURCES AVAILABLE."
+            "NO VERIFIED SCIENTIFIC EVIDENCE AVAILABLE."
         )
 
     return "\n\n".join(
@@ -372,6 +381,12 @@ def _build_claim_context(
 
             source_ids = []
 
+        source_ids = [
+            str(source_id).strip()
+            for source_id in source_ids
+            if str(source_id).strip()
+        ]
+
         blocks.append(
             f"""
 SCENE {scene_number}
@@ -397,106 +412,143 @@ def build_response_schema():
 
     claim = {
 
-        "type": "object",
+        "type":
+            "object",
 
         "properties": {
 
             "claim": {
-                "type": "string",
+
+                "type":
+                    "string",
             },
 
             "scene": {
-                "type": "integer",
+
+                "type":
+                    "integer",
             },
 
             "source_ids": {
 
-                "type": "array",
+                "type":
+                    "array",
 
                 "items": {
-                    "type": "string",
+
+                    "type":
+                        "string",
                 },
             },
 
             "status": {
 
-                "type": "string",
+                "type":
+                    "string",
 
                 "enum": [
+
                     "supported",
+
                     "unsupported",
+
                     "uncertain",
+
                     "contradicted",
                 ],
             },
 
             "reason": {
-                "type": "string",
+
+                "type":
+                    "string",
             },
 
             "evidence": {
-                "type": "string",
+
+                "type":
+                    "string",
             },
         },
 
         "required": [
+
             "claim",
+
             "scene",
+
             "source_ids",
+
             "status",
+
             "reason",
+
             "evidence",
         ],
     }
 
     return {
 
-        "type": "object",
+        "type":
+            "object",
 
         "properties": {
 
             "overall_status": {
 
-                "type": "string",
+                "type":
+                    "string",
 
                 "enum": [
+
                     "PASS",
+
                     "FAIL",
                 ],
             },
 
             "claims": {
 
-                "type": "array",
+                "type":
+                    "array",
 
-                "items": claim,
+                "items":
+                    claim,
             },
 
             "unsupported_claims": {
 
-                "type": "array",
+                "type":
+                    "array",
 
                 "items": {
 
-                    "type": "string",
+                    "type":
+                        "string",
                 },
             },
 
             "warnings": {
 
-                "type": "array",
+                "type":
+                    "array",
 
                 "items": {
 
-                    "type": "string",
+                    "type":
+                        "string",
                 },
             },
         },
 
         "required": [
+
             "overall_status",
+
             "claims",
+
             "unsupported_claims",
+
             "warnings",
         ],
     }
@@ -515,13 +567,13 @@ Your job is NOT to rewrite the script.
 
 Your job is to determine whether IMPORTANT FACTUAL CLAIMS in the
 generated YouTube Short are actually supported by the supplied
-verified research evidence.
+verified scientific evidence.
 
 ============================================================
-ABSOLUTE RESEARCH RULE
+ABSOLUTE EVIDENCE RULE
 ============================================================
 
-You may ONLY use the supplied Evidence Text.
+You may ONLY use the supplied SCIENTIFIC EVIDENCE text.
 
 Do NOT use:
 
@@ -535,12 +587,10 @@ Do NOT use:
 - information not contained in the supplied Evidence Text
 
 ============================================================
-CRITICAL EVIDENCE RULE
+METADATA IS NOT EVIDENCE
 ============================================================
 
-SOURCE METADATA IS NOT SCIENTIFIC EVIDENCE.
-
-Do NOT use:
+Never use:
 
 - title
 - authors
@@ -548,31 +598,21 @@ Do NOT use:
 - year
 - DOI
 - URL
-- verification status
+- verification level
 - evidence type
 - evidence quality
 
 as proof of a scientific claim.
 
-Only the supplied Evidence Text can support a factual claim.
-
-If the Evidence Text says:
-
-"may contribute"
-
-and the script says:
-
-"causes"
-
-the claim is NOT supported.
+Only Evidence Text can support a factual claim.
 
 ============================================================
-IMPORTANT CLAIM EXTRACTION RULE
+IMPORTANT CLAIM EXTRACTION
 ============================================================
 
 Extract EVERY IMPORTANT FACTUAL CLAIM from the narration.
 
-A factual claim is a statement about:
+Examples of factual claims:
 
 - how something works
 - what causes something
@@ -589,143 +629,163 @@ A factual claim is a statement about:
 - relationships between variables
 - scientific conclusions
 
-Do NOT create artificial claims from stylistic sentences.
+Do NOT create artificial claims from storytelling language.
 
 For example:
 
 "Here's where it gets interesting."
 
-This is NOT a factual claim.
+is NOT a factual claim.
 
-"That changes how we see the ocean."
+"Nature has another surprise."
 
-This is NOT necessarily a factual scientific claim.
+is NOT a factual claim.
 
 But:
 
 "Pressure increases by about one atmosphere every ten meters."
 
-This IS a factual claim.
-
-The purpose is to verify the claims actually present in the
-narration, NOT to force every scene to contain a claim.
+IS a factual claim.
 
 ============================================================
-SOURCE CITATION RULE
+SCENE CITATION RULE
 ============================================================
 
-Each scene contains its own CITED SOURCE IDS.
+Every scene has its own cited source IDs.
 
-For every factual claim from a scene:
+For every factual claim:
 
-- You MUST use only source IDs cited by THAT scene.
-- You MUST NOT substitute another source merely because it supports
-  the claim better.
-- You MUST NOT add a source ID that the scene did not cite.
-- You MUST NOT use a source from another scene.
-- The verifier's source_ids MUST be a SUBSET of the source IDs
-  cited by that scene.
+- Use ONLY source IDs cited by THAT scene.
+- Never substitute a source from another scene.
+- Never add a source that the scene did not cite.
+- The verifier source_ids MUST be a subset of the scene's
+  source_ids.
 
-If a scene cites:
+Example:
+
+Scene cites:
 
 ["source_1", "source_2"]
 
-and only source_1 supports the claim:
+If source_1 supports the claim:
 
-Return:
-
+source_ids:
 ["source_1"]
 
-If neither cited source supports the claim:
+If neither supports it:
 
-Return:
-
-"status": "unsupported"
-
-If the cited evidence is related but insufficient:
-
-Return:
-
-"status": "uncertain"
+status:
+"unsupported"
 
 ============================================================
 STATUS DEFINITIONS
 ============================================================
 
 supported:
-The Evidence Text directly supports the claim.
+The supplied Evidence Text directly supports the claim.
 
 uncertain:
-The Evidence Text is related but does not provide enough evidence
-to confidently support the claim.
+The supplied Evidence Text is related but insufficient to establish
+the claim confidently.
 
 unsupported:
-The Evidence Text does not support the claim.
+The supplied Evidence Text does not support the claim.
 
 contradicted:
-The Evidence Text conflicts with the claim.
+The supplied Evidence Text conflicts with the claim.
 
 ============================================================
-EVIDENCE STANDARD
+DO NOT STRENGTHEN SCIENTIFIC LANGUAGE
 ============================================================
-
-Do not assume information that is not explicitly supported.
-
-Do not strengthen cautious scientific language.
-
-Example:
 
 Research:
+
 "may contribute"
 
 Claim:
+
 "causes"
 
 Result:
+
 NOT SUPPORTED.
 
 Research:
+
 "associated with"
 
 Claim:
+
 "causes"
 
 Result:
+
 NOT SUPPORTED.
 
 Research:
+
 "hypothesis"
 
 Claim:
+
 "proven fact"
 
 Result:
+
 NOT SUPPORTED.
 
 Research:
+
 "was observed"
 
 Claim:
+
 "always occurs"
 
 Result:
+
 NOT SUPPORTED.
 
 Research:
+
 "could potentially explain"
 
 Claim:
+
 "explains"
 
 Result:
-NOT SUPPORTED unless the supplied Evidence Text explicitly
-supports the stronger statement.
+
+NOT SUPPORTED unless the Evidence Text explicitly supports
+the stronger statement.
+
+============================================================
+NUMBERS
+============================================================
+
+Every number, percentage, measurement, date, quantity, or statistic
+must be supported by the supplied Evidence Text.
+
+Do not infer or calculate additional numbers unless the calculation
+is directly and unambiguously supported by the supplied evidence.
+
+============================================================
+CAUSATION
+============================================================
+
+Do not convert:
+
+- correlation → causation
+- association → causation
+- possibility → certainty
+- hypothesis → established fact
+- observation → universal rule
 
 ============================================================
 CLAIM CITATION REQUIREMENT
 ============================================================
 
-Every IMPORTANT FACTUAL CLAIM MUST have at least one source ID.
+Every important factual claim MUST have at least one source ID.
 
 If a factual claim has zero source IDs:
 
@@ -743,27 +803,38 @@ FAIL it.
 STYLISTIC STATEMENTS
 ============================================================
 
-Minor non-factual statements such as:
-
-"That changes how we see it."
+Statements such as:
 
 "Here's where it gets interesting."
 
+"This is where things change."
+
 "Nature has another surprise."
 
-"This is where the story gets strange."
+"That makes the story even stranger."
 
-do NOT require research evidence.
+do NOT require scientific evidence.
 
-A scene may therefore contain ZERO factual claims.
+A scene may contain ZERO factual claims.
 
 A scene with zero factual claims is NOT automatically a failure.
+
+============================================================
+EVIDENCE FIELD
+============================================================
+
+For every supported claim, provide a concise explanation of the
+specific supplied Evidence Text that supports it.
+
+Do NOT invent quotations.
+
+Do NOT claim that evidence says something it does not say.
 
 ============================================================
 PASS CONDITION
 ============================================================
 
-The overall result may be PASS only when:
+PASS is allowed only when:
 
 1. Every important factual claim was extracted.
 2. Every important factual claim is supported.
@@ -771,12 +842,11 @@ The overall result may be PASS only when:
 4. No important claim is unsupported.
 5. No important claim is uncertain.
 6. Every factual claim has valid source IDs.
-7. Every factual claim's source IDs belong to that scene's citations.
-8. The narration does not exaggerate the supplied Evidence Text.
-
-IMPORTANT:
-
-Do NOT fail a scene merely because it contains no factual claim.
+7. Every factual claim's source IDs belong to that scene.
+8. The narration does not exaggerate the Evidence Text.
+9. Numbers and quantitative claims are supported.
+10. Causal language is supported.
+11. No outside knowledge was required.
 
 Return ONLY valid JSON.
 """
@@ -811,7 +881,7 @@ def _verify_with_gemini(
 VERIFY THIS SCRIPT.
 
 ============================================================
-VERIFIED RESEARCH EVIDENCE
+VERIFIED SCIENTIFIC EVIDENCE
 ============================================================
 
 {research_evidence}
@@ -835,14 +905,14 @@ Do NOT turn stylistic sentences into factual claims.
 For each important factual claim:
 
 1. State the claim.
-2. Identify the scene.
-3. Look ONLY at the Evidence Text belonging to source IDs cited
-   by THAT scene.
+2. Identify its scene.
+3. Look ONLY at Evidence Text belonging to sources cited by
+   that scene.
 4. Do NOT use metadata as evidence.
-5. Return source_ids that are a subset of that scene's cited sources.
-6. Decide whether the supplied Evidence Text supports the claim.
+5. Return source_ids that are a SUBSET of the scene's cited sources.
+6. Determine whether the evidence directly supports the claim.
 7. Explain why.
-8. Quote or summarize only the relevant supplied Evidence Text.
+8. Provide a concise evidence-based explanation.
 
 IMPORTANT:
 
@@ -854,21 +924,14 @@ Do NOT invent evidence.
 
 Do NOT upgrade uncertainty into certainty.
 
+Do NOT convert correlation into causation.
+
+Do NOT convert possibility into certainty.
+
+Do NOT accept unsupported numbers.
+
 If a scene contains only stylistic narration and no factual claim,
-do NOT create an artificial claim for that scene.
-
-If the scene cites source_1 and source_2, but only source_1 supports
-the claim, return:
-
-"source_ids": ["source_1"]
-
-If neither cited source supports the claim:
-
-"status": "unsupported"
-
-If the evidence is insufficient:
-
-"status": "uncertain"
+do not create an artificial claim.
 
 Return ONLY JSON.
 """
@@ -907,7 +970,7 @@ Return ONLY JSON.
     except json.JSONDecodeError as error:
 
         raise RuntimeError(
-            f"Claim verifier returned invalid JSON: "
+            "Claim verifier returned invalid JSON: "
             f"{error}"
         )
 
@@ -921,6 +984,24 @@ def _local_validate(
     script,
     research,
 ):
+    """
+    Local safety layer.
+
+    Gemini decides whether the evidence supports the claim.
+
+    This function verifies that Gemini obeyed the structural rules.
+
+    Gemini cannot bypass:
+
+    - invalid source IDs
+    - cross-scene citations
+    - missing citations
+    - unverified evidence
+    - missing evidence text
+    - uncertain status
+    - unsupported status
+    - contradicted status
+    """
 
     if not isinstance(
         result,
@@ -933,21 +1014,60 @@ def _local_validate(
         )
 
     # ----------------------------------------------------------------------
-    # VALID RESEARCH SOURCE IDS
+    # AUTHORITATIVE SOURCE MAP
     # ----------------------------------------------------------------------
 
-    valid_source_ids = {
+    source_map = _build_source_map(
+        research
+    )
 
-        f"source_{index}"
+    valid_source_ids = set(
+        source_map.keys()
+    )
 
-        for index, source in enumerate(
-            research.get(
-                "sources",
-                [],
-            ),
-            start=1,
+    # ----------------------------------------------------------------------
+    # VERIFY EVERY RESEARCH SOURCE IS ACTUALLY USABLE
+    # ----------------------------------------------------------------------
+
+    usable_source_ids = set()
+
+    for source_id, source in source_map.items():
+
+        if not isinstance(
+            source,
+            dict,
+        ):
+
+            continue
+
+        if source.get(
+            "evidence_verified"
+        ) is not True:
+
+            continue
+
+        if source.get(
+            "evidence_available"
+        ) is not True:
+
+            continue
+
+        evidence_text = _clean(
+            source.get(
+                "evidence_text",
+                "",
+            )
         )
-    }
+
+        if len(
+            evidence_text
+        ) < MIN_EVIDENCE_CHARACTERS:
+
+            continue
+
+        usable_source_ids.add(
+            source_id
+        )
 
     # ----------------------------------------------------------------------
     # BUILD SCENE → CITED SOURCES MAP
@@ -964,6 +1084,7 @@ def _local_validate(
             scene,
             dict,
         ):
+
             continue
 
         scene_number = scene.get(
@@ -982,13 +1103,18 @@ def _local_validate(
 
             source_ids = []
 
-        scene_source_map[
-            scene_number
-        ] = set(
+        normalized_ids = set(
+
             str(source_id).strip()
+
             for source_id in source_ids
+
             if str(source_id).strip()
         )
+
+        scene_source_map[
+            scene_number
+        ] = normalized_ids
 
     # ----------------------------------------------------------------------
     # RESULT ARRAYS
@@ -1076,6 +1202,20 @@ def _local_validate(
             )
         ).lower()
 
+        reason = _clean(
+            claim.get(
+                "reason",
+                "",
+            )
+        )
+
+        evidence = _clean(
+            claim.get(
+                "evidence",
+                "",
+            )
+        )
+
         source_ids = claim.get(
             "source_ids",
             [],
@@ -1089,13 +1229,16 @@ def _local_validate(
             source_ids = []
 
         source_ids = [
+
             str(source_id).strip()
+
             for source_id in source_ids
+
             if str(source_id).strip()
         ]
 
         # --------------------------------------------------------------
-        # CLAIM COUNT LIMIT
+        # CLAIM COUNT
         # --------------------------------------------------------------
 
         claims_per_scene[
@@ -1142,7 +1285,7 @@ def _local_validate(
         ]
 
         # --------------------------------------------------------------
-        # EVERY FACTUAL CLAIM NEEDS CITATION
+        # CLAIM MUST HAVE CITATION
         # --------------------------------------------------------------
 
         if not source_ids:
@@ -1159,8 +1302,11 @@ def _local_validate(
         # --------------------------------------------------------------
 
         invalid_ids = [
+
             source_id
+
             for source_id in source_ids
+
             if source_id not in valid_source_ids
         ]
 
@@ -1175,12 +1321,39 @@ def _local_validate(
             )
 
         # --------------------------------------------------------------
+        # SOURCES MUST BE USABLE EVIDENCE SOURCES
+        # --------------------------------------------------------------
+
+        unusable_ids = [
+
+            source_id
+
+            for source_id in source_ids
+
+            if source_id not in usable_source_ids
+        ]
+
+        if unusable_ids:
+
+            unsupported.append(
+                (
+                    f"Claim uses source(s) without verified "
+                    f"evidence: "
+                    f"{', '.join(unusable_ids)}. "
+                    f"Claim: {claim_text}"
+                )
+            )
+
+        # --------------------------------------------------------------
         # SOURCE IDS MUST BELONG TO THAT SCENE
         # --------------------------------------------------------------
 
         wrong_scene_sources = [
+
             source_id
+
             for source_id in source_ids
+
             if source_id not in scene_sources
         ]
 
@@ -1196,7 +1369,7 @@ def _local_validate(
             )
 
         # --------------------------------------------------------------
-        # CLAIM STATUS
+        # STATUS
         # --------------------------------------------------------------
 
         if status in {
@@ -1224,43 +1397,79 @@ def _local_validate(
             )
 
         # --------------------------------------------------------------
-        # SUPPORTED CLAIM SAFETY
+        # SUPPORTED CLAIM MUST HAVE REASON + EVIDENCE
         # --------------------------------------------------------------
 
         if status == "supported":
+
+            if not reason:
+
+                unsupported.append(
+                    (
+                        f"Supported claim has no verification "
+                        f"reason: {claim_text}"
+                    )
+                )
+
+            if not evidence:
+
+                unsupported.append(
+                    (
+                        f"Supported claim has no evidence "
+                        f"explanation: {claim_text}"
+                    )
+                )
 
             if not source_ids:
 
                 unsupported.append(
                     (
-                        f"Supported claim has no evidence source: "
+                        f"Supported claim has no source: "
                         f"{claim_text}"
                     )
                 )
 
-            elif invalid_ids:
+            if invalid_ids:
 
                 unsupported.append(
                     (
-                        f"Supported claim uses invalid evidence "
-                        f"source: {claim_text}"
+                        f"Supported claim uses invalid source: "
+                        f"{claim_text}"
                     )
                 )
 
-            elif wrong_scene_sources:
+            if unusable_ids:
 
                 unsupported.append(
                     (
-                        f"Supported claim uses evidence from "
+                        f"Supported claim uses source without "
+                        f"verified evidence: {claim_text}"
+                    )
+                )
+
+            if wrong_scene_sources:
+
+                unsupported.append(
+                    (
+                        f"Supported claim uses source from "
                         f"another scene: {claim_text}"
                     )
                 )
 
     # ----------------------------------------------------------------------
-    # NO PER-SCENE CLAIM REQUIREMENT
-    #
-    # A scene can contain purely stylistic narration.
+    # RESEARCH ITSELF MUST HAVE MULTIPLE VERIFIED SOURCES
     # ----------------------------------------------------------------------
+
+    if len(
+        usable_source_ids
+    ) < 2:
+
+        unsupported.append(
+            (
+                "Research package contains fewer than "
+                "2 usable evidence-verified sources."
+            )
+        )
 
     # ----------------------------------------------------------------------
     # DEDUPLICATE
@@ -1268,16 +1477,22 @@ def _local_validate(
 
     unsupported = list(
         dict.fromkeys(
+
             _clean(x)
+
             for x in unsupported
+
             if _clean(x)
         )
     )
 
     warnings = list(
         dict.fromkeys(
+
             _clean(x)
+
             for x in warnings
+
             if _clean(x)
         )
     )
@@ -1285,6 +1500,13 @@ def _local_validate(
     # ----------------------------------------------------------------------
     # FINAL STATUS
     # ----------------------------------------------------------------------
+
+    # IMPORTANT:
+    #
+    # Warnings are failures.
+    #
+    # The pipeline requires zero uncertainty.
+    #
 
     if unsupported:
 
@@ -1344,6 +1566,10 @@ def verify_script_claims(
             "invalid research."
         )
 
+    # ----------------------------------------------------------------------
+    # RESEARCH MUST BE VERIFIED
+    # ----------------------------------------------------------------------
+
     if research.get(
         "verified"
     ) is not True:
@@ -1353,20 +1579,80 @@ def verify_script_claims(
             "verified research."
         )
 
+    if research.get(
+        "status"
+    ) != "VERIFIED":
+
+        raise RuntimeError(
+            "Claim verification requires "
+            "research status VERIFIED."
+        )
+
+    # ----------------------------------------------------------------------
+    # RESEARCH MUST HAVE MULTIPLE SOURCES
+    # ----------------------------------------------------------------------
+
+    sources = research.get(
+        "sources",
+        [],
+    )
+
+    if not isinstance(
+        sources,
+        list,
+    ):
+
+        raise RuntimeError(
+            "Research sources are invalid."
+        )
+
+    if len(
+        sources
+    ) < 2:
+
+        raise RuntimeError(
+            "Claim verification requires "
+            "at least 2 research sources."
+        )
+
     print("=" * 80)
     print("🧪 SCIENTIFIC CLAIM VERIFICATION")
     print("=" * 80)
+
+    print(
+        f"Research sources: {len(sources)}"
+    )
+
+    print(
+        "Evidence policy: VERIFIED EVIDENCE TEXT ONLY"
+    )
+
+    print(
+        "Citation policy: SCENE-LOCAL SOURCES ONLY"
+    )
+
+    # ----------------------------------------------------------------------
+    # GEMINI
+    # ----------------------------------------------------------------------
 
     result = _verify_with_gemini(
         script,
         research,
     )
 
+    # ----------------------------------------------------------------------
+    # LOCAL SAFETY VALIDATION
+    # ----------------------------------------------------------------------
+
     result = _local_validate(
         result,
         script,
         research,
     )
+
+    # ----------------------------------------------------------------------
+    # SAVE RESULT INTO SCRIPT
+    # ----------------------------------------------------------------------
 
     script[
         "claim_verification"
@@ -1397,10 +1683,17 @@ def verify_script_claims(
             ),
 
         "verified":
-            result.get(
-                "overall_status"
-            ) == "PASS",
+            (
+                result.get(
+                    "overall_status"
+                )
+                == "PASS"
+            ),
     }
+
+    # ----------------------------------------------------------------------
+    # OUTPUT
+    # ----------------------------------------------------------------------
 
     if result.get(
         "overall_status"
@@ -1469,13 +1762,18 @@ def claims_are_verified(
     )
 
     return (
+
         verification.get(
             "verified"
-        ) is True
+        )
+        is True
+
         and
+
         verification.get(
             "overall_status"
-        ) == "PASS"
+        )
+        == "PASS"
     )
 
 

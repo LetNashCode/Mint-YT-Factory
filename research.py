@@ -2,7 +2,7 @@
 research.py
 Mint-YT-Factory
 
-Version 3.0
+Version 4.0
 
 Research-first scientific evidence layer.
 
@@ -26,6 +26,8 @@ Evidence-quality filter
   ↓
 Minimum 2 evidence-backed sources
   ↓
+Assign deterministic source IDs
+  ↓
 Verified research package
 
 IMPORTANT:
@@ -43,8 +45,9 @@ IMPORTANT:
 - Gemini is NOT used to create or summarize evidence here.
 - Research sources are never fabricated.
 - A DOI alone does not make a source evidence-backed.
+- Every final source receives a deterministic source_id.
+- source_1, source_2, etc. always match the final research source order.
 """
-
 
 import json
 import os
@@ -93,6 +96,7 @@ SEMANTIC_RETRIES = 3
 
 SEMANTIC_BACKOFF_SECONDS = 3
 
+
 # ==========================================================================
 # EVIDENCE REQUIREMENTS
 # ==========================================================================
@@ -113,7 +117,7 @@ EVIDENCE_QUALITY_NONE = "none"
 # ==========================================================================
 
 USER_AGENT = (
-    "Mint-YT-Factory/3.0 "
+    "Mint-YT-Factory/4.0 "
     "(educational research verification)"
 )
 
@@ -303,8 +307,6 @@ def _clean_abstract(
 
         return ""
 
-    # Remove HTML tags sometimes returned by Crossref.
-
     text = re.sub(
         r"<[^>]+>",
         " ",
@@ -323,21 +325,6 @@ def _clean_abstract(
 def _normalize_doi(
     doi
 ):
-    """
-    Normalize DOI values.
-
-    Examples:
-
-        10.1234/example
-
-        https://doi.org/10.1234/example
-
-        doi:10.1234/example
-
-    become:
-
-        10.1234/example
-    """
 
     doi = _clean(
         doi
@@ -528,11 +515,6 @@ def _extract_year(
 def _openalex_abstract_text(
     inverted_index
 ):
-    """
-    OpenAlex stores abstracts as an inverted index.
-
-    Convert it back into normal text.
-    """
 
     if not isinstance(
         inverted_index,
@@ -586,16 +568,6 @@ def _openalex_abstract_text(
 def _build_evidence_package(
     source
 ):
-    """
-    Build a structured evidence package.
-
-    IMPORTANT:
-
-    This function NEVER creates scientific findings.
-
-    It only packages evidence that was actually retrieved from
-    scholarly databases.
-    """
 
     abstract = _clean_abstract(
         source.get(
@@ -608,11 +580,8 @@ def _build_evidence_package(
 
         evidence_available = True
 
-        evidence_type = (
-            "abstract"
-        )
+        evidence_type = "abstract"
 
-        # An abstract is evidence text, but not a full paper.
         evidence_quality = (
             EVIDENCE_QUALITY_MODERATE
         )
@@ -630,9 +599,7 @@ def _build_evidence_package(
 
         evidence_available = False
 
-        evidence_type = (
-            "metadata_only"
-        )
+        evidence_type = "metadata_only"
 
         evidence_quality = (
             EVIDENCE_QUALITY_NONE
@@ -809,15 +776,6 @@ def _relevance_score(
     topic,
     source
 ):
-    """
-    Relevance scoring.
-
-    Title matches are weighted more heavily than abstract matches.
-
-    Two-word phrase matches receive additional weight.
-
-    This is a ranking mechanism, not scientific claim verification.
-    """
 
     terms = _topic_terms(
         topic
@@ -841,7 +799,7 @@ def _relevance_score(
     abstract = _clean(
         source.get(
             "evidence_text",
-            ""
+            "",
         )
         or source.get(
             "abstract",
@@ -883,10 +841,6 @@ def _relevance_score(
 
     phrase_matches = 0
 
-    # ----------------------------------------------------------------------
-    # Individual term matches
-    # ----------------------------------------------------------------------
-
     for term in terms:
 
         pattern = (
@@ -927,10 +881,6 @@ def _relevance_score(
                 term
             )
 
-    # ----------------------------------------------------------------------
-    # Phrase matches
-    # ----------------------------------------------------------------------
-
     for phrase in phrases:
 
         pattern = (
@@ -954,10 +904,6 @@ def _relevance_score(
             score += 2
 
             phrase_matches += 1
-
-    # ----------------------------------------------------------------------
-    # Coverage
-    # ----------------------------------------------------------------------
 
     matched_count = len(
         set(
@@ -1874,17 +1820,11 @@ def verify_crossref_source(
             "verified_title"
         ] = returned_title
 
-        # --------------------------------------------------------------
-        # Crossref is authoritative for DOI metadata here.
-        # --------------------------------------------------------------
-
         source[
             "doi"
         ] = returned_doi
 
-        # --------------------------------------------------------------
-        # Use Crossref abstract when available.
-        # --------------------------------------------------------------
+        # Crossref abstract can improve evidence availability.
 
         abstract = _clean_abstract(
             item.get(
@@ -2096,12 +2036,6 @@ def enrich_from_openalex(
     source
 ):
 
-    """
-    Retrieve an abstract from OpenAlex using DOI.
-
-    Used as a free evidence fallback.
-    """
-
     doi = _normalize_doi(
         source.get(
             "doi",
@@ -2287,10 +2221,11 @@ def enrich_from_semantic(
 def enrich_source(
     source
 ):
+
     """
     Evidence priority:
 
-    1. Existing verified abstract
+    1. Existing abstract
     2. Semantic Scholar abstract
     3. OpenAlex abstract
 
@@ -2400,18 +2335,18 @@ def enrich_sources(
 def mark_evidence_verified(
     sources
 ):
+
     """
     A source becomes evidence-backed ONLY when:
 
     - DOI metadata is verified
+    - title exists
     - authors exist
     - year exists
     - DOI exists
     - URL exists
     - actual evidence text exists
     - evidence text is sufficiently substantial
-
-    IMPORTANT:
 
     DOI verification alone is NEVER evidence verification.
     """
@@ -2428,13 +2363,13 @@ def mark_evidence_verified(
         )
 
         # ------------------------------------------------------------------
-        # Metadata verification
+        # METADATA VERIFICATION
         # ------------------------------------------------------------------
 
-        if not source.get(
+        if source.get(
             "metadata_verified",
             False,
-        ):
+        ) is not True:
 
             print(
                 f"❌ Rejected unverified source: "
@@ -2444,10 +2379,23 @@ def mark_evidence_verified(
             continue
 
         # ------------------------------------------------------------------
-        # Evidence text
+        # TITLE
         # ------------------------------------------------------------------
 
-        abstract = _clean_abstract(
+        if not title:
+
+            print(
+                f"❌ Rejected source without title: "
+                f"{title}"
+            )
+
+            continue
+
+        # ------------------------------------------------------------------
+        # EVIDENCE TEXT
+        # ------------------------------------------------------------------
+
+        evidence_text = _clean_abstract(
             source.get(
                 "evidence_text",
                 ""
@@ -2458,7 +2406,7 @@ def mark_evidence_verified(
             )
         )
 
-        if not abstract:
+        if not evidence_text:
 
             print(
                 f"❌ Rejected metadata-only source: "
@@ -2468,7 +2416,7 @@ def mark_evidence_verified(
             continue
 
         if len(
-            abstract
+            evidence_text
         ) < MIN_ABSTRACT_CHARACTERS:
 
             print(
@@ -2478,13 +2426,13 @@ def mark_evidence_verified(
 
             print(
                 f"   Evidence characters: "
-                f"{len(abstract)}"
+                f"{len(evidence_text)}"
             )
 
             continue
 
         # ------------------------------------------------------------------
-        # Required metadata
+        # REQUIRED METADATA
         # ------------------------------------------------------------------
 
         authors = _clean(
@@ -2549,7 +2497,7 @@ def mark_evidence_verified(
             continue
 
         # ------------------------------------------------------------------
-        # Final evidence package
+        # FINAL EVIDENCE PACKAGE
         # ------------------------------------------------------------------
 
         source[
@@ -2558,11 +2506,11 @@ def mark_evidence_verified(
 
         source[
             "abstract"
-        ] = abstract
+        ] = evidence_text
 
         source[
             "evidence_text"
-        ] = abstract
+        ] = evidence_text
 
         source[
             "evidence_available"
@@ -2613,17 +2561,6 @@ def mark_evidence_verified(
 def limit_sources(
     sources
 ):
-    """
-    Keep the strongest evidence-backed sources.
-
-    Priority:
-
-    1. relevance score
-    2. topic coverage
-    3. evidence quality
-    4. evidence length
-    5. citation count
-    """
 
     def sort_key(
         source
@@ -2643,6 +2580,7 @@ def limit_sources(
 
             EVIDENCE_QUALITY_NONE:
                 0,
+
         }.get(
             quality,
             0,
@@ -2696,6 +2634,245 @@ def limit_sources(
     return sources[
         :MAX_EVIDENCE_SOURCES
     ]
+
+
+# ==========================================================================
+# ASSIGN DETERMINISTIC SOURCE IDS
+# ==========================================================================
+
+def assign_source_ids(
+    sources
+):
+
+    """
+    Assign deterministic source IDs AFTER all filtering is complete.
+
+    IMPORTANT:
+
+    source_1 corresponds to sources[0]
+    source_2 corresponds to sources[1]
+    etc.
+
+    verify_claims.py relies on this exact ordering.
+    """
+
+    for index, source in enumerate(
+        sources,
+        start=1,
+    ):
+
+        source[
+            "source_id"
+        ] = (
+            f"source_{index}"
+        )
+
+    return sources
+
+
+# ==========================================================================
+# FINAL SOURCE SAFETY VALIDATION
+# ==========================================================================
+
+def validate_final_sources(
+    sources
+):
+
+    """
+    Final local safety gate.
+
+    Every source entering the research package must contain:
+
+    - source_id
+    - verified=True
+    - metadata_verified=True
+    - evidence_verified=True
+    - evidence_available=True
+    - evidence_text
+    - DOI
+    - URL
+    - authors
+    - year
+    """
+
+    if len(
+        sources
+    ) < MIN_ACCEPTED_SOURCES:
+
+        raise RuntimeError(
+            "Final research package contains fewer than "
+            f"{MIN_ACCEPTED_SOURCES} evidence-backed sources."
+        )
+
+    seen_ids = set()
+
+    seen_dois = set()
+
+    for source in sources:
+
+        if not isinstance(
+            source,
+            dict,
+        ):
+
+            raise RuntimeError(
+                "Final research source is invalid."
+            )
+
+        source_id = _clean(
+            source.get(
+                "source_id",
+                "",
+            )
+        )
+
+        if not source_id:
+
+            raise RuntimeError(
+                "Final research source has no source_id."
+            )
+
+        if source_id in seen_ids:
+
+            raise RuntimeError(
+                f"Duplicate source_id: {source_id}"
+            )
+
+        seen_ids.add(
+            source_id
+        )
+
+        if source.get(
+            "verified"
+        ) is not True:
+
+            raise RuntimeError(
+                f"{source_id} is not verified."
+            )
+
+        if source.get(
+            "metadata_verified"
+        ) is not True:
+
+            raise RuntimeError(
+                f"{source_id} metadata is not verified."
+            )
+
+        if source.get(
+            "evidence_verified"
+        ) is not True:
+
+            raise RuntimeError(
+                f"{source_id} evidence is not verified."
+            )
+
+        if source.get(
+            "evidence_available"
+        ) is not True:
+
+            raise RuntimeError(
+                f"{source_id} has no available evidence."
+            )
+
+        evidence_text = _clean(
+            source.get(
+                "evidence_text",
+                "",
+            )
+        )
+
+        if len(
+            evidence_text
+        ) < MIN_ABSTRACT_CHARACTERS:
+
+            raise RuntimeError(
+                f"{source_id} has insufficient evidence text."
+            )
+
+        doi = _normalize_doi(
+            source.get(
+                "doi",
+                "",
+            )
+        )
+
+        if not doi:
+
+            raise RuntimeError(
+                f"{source_id} has no DOI."
+            )
+
+        if doi in seen_dois:
+
+            raise RuntimeError(
+                f"Duplicate DOI in final research package: "
+                f"{doi}"
+            )
+
+        seen_dois.add(
+            doi
+        )
+
+        if not _clean(
+            source.get(
+                "url",
+                "",
+            )
+        ):
+
+            raise RuntimeError(
+                f"{source_id} has no URL."
+            )
+
+        if not _clean(
+            source.get(
+                "authors",
+                "",
+            )
+        ):
+
+            raise RuntimeError(
+                f"{source_id} has no authors."
+            )
+
+        if not source.get(
+            "year"
+        ):
+
+            raise RuntimeError(
+                f"{source_id} has no publication year."
+            )
+
+    # ----------------------------------------------------------------------
+    # Verify exact sequential source IDs.
+    # ----------------------------------------------------------------------
+
+    expected_ids = [
+
+        f"source_{index}"
+
+        for index in range(
+            1,
+            len(sources) + 1,
+        )
+    ]
+
+    actual_ids = [
+
+        source.get(
+            "source_id"
+        )
+
+        for source in sources
+    ]
+
+    if actual_ids != expected_ids:
+
+        raise RuntimeError(
+            "Final research source IDs are not sequential."
+        )
+
+    return True
 
 
 # ==========================================================================
@@ -2787,6 +2964,10 @@ def research_topic(
             error
         )
 
+    # ----------------------------------------------------------------------
+    # DEDUPLICATE
+    # ----------------------------------------------------------------------
+
     candidates = deduplicate_sources(
         crossref
         + semantic
@@ -2871,10 +3052,6 @@ def research_topic(
             )
 
         elif database == "OpenAlex":
-
-            # --------------------------------------------------------------
-            # OpenAlex DOI identity is cross-checked against Crossref.
-            # --------------------------------------------------------------
 
             verified_ok = (
                 verify_crossref_source(
@@ -2967,6 +3144,24 @@ def research_topic(
         )
 
     # ----------------------------------------------------------------------
+    # ASSIGN DETERMINISTIC SOURCE IDS
+    #
+    # THIS IS IMPORTANT FOR verify_claims.py
+    # ----------------------------------------------------------------------
+
+    evidence_sources = assign_source_ids(
+        evidence_sources
+    )
+
+    # ----------------------------------------------------------------------
+    # FINAL SOURCE SAFETY VALIDATION
+    # ----------------------------------------------------------------------
+
+    validate_final_sources(
+        evidence_sources
+    )
+
+    # ----------------------------------------------------------------------
     # FINAL RESEARCH PACKAGE
     # ----------------------------------------------------------------------
 
@@ -2991,6 +3186,9 @@ def research_topic(
             "minimum_sources":
                 MIN_ACCEPTED_SOURCES,
 
+            "maximum_sources":
+                MAX_EVIDENCE_SOURCES,
+
             "metadata_required":
                 True,
 
@@ -3014,6 +3212,12 @@ def research_topic(
 
             "abstract_is_full_text":
                 False,
+
+            "deterministic_source_ids":
+                True,
+
+            "source_id_format":
+                "source_N",
         },
 
         "source_count":
@@ -3049,7 +3253,7 @@ def research_topic(
     ):
 
         print(
-            f"{index}. "
+            f"{source['source_id']}. "
             f"{source['title']}"
         )
 

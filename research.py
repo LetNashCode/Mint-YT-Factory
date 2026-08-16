@@ -4,28 +4,30 @@ Mint-YT-Factory
 
 Version 2.0
 
-Research-first evidence layer.
+Research-first verification layer.
 
 FLOW:
 
 Topic
- ↓
+  ↓
 Crossref + Semantic Scholar
- ↓
-Verify paper/DOI
- ↓
-Retrieve abstract/evidence
- ↓
-Build verified research package
- ↓
-verify_claims.py will later check claims against this evidence
+  ↓
+Deduplicate
+  ↓
+Verify DOI
+  ↓
+Enrich abstract/evidence
+  ↓
+Quality filter
+  ↓
+Verified research package
 
 IMPORTANT:
-- A verified DOI means the source exists.
-- This file does NOT by itself prove every claim.
-- Claim-level verification is handled by verify_claims.py.
-- No invented citations.
-- Pipeline fails when sufficient evidence is unavailable.
+- Never invent citations.
+- Never invent abstracts.
+- Sources must actually exist.
+- Minimum 2 verified sources.
+- Abstract/evidence is attached whenever available.
 """
 
 import json
@@ -44,11 +46,11 @@ import requests
 
 CROSSREF_URL = "https://api.crossref.org/v1/works"
 
-SEMANTIC_SCHOLAR_SEARCH_URL = (
+SEMANTIC_SCHOLAR_URL = (
     "https://api.semanticscholar.org/graph/v1/paper/search"
 )
 
-SEMANTIC_SCHOLAR_PAPER_URL = (
+SEMANTIC_PAPER_URL = (
     "https://api.semanticscholar.org/graph/v1/paper"
 )
 
@@ -114,9 +116,7 @@ def _clean(text):
 
 def _normalize_title(title):
 
-    title = _clean(
-        title
-    ).lower()
+    title = _clean(title).lower()
 
     title = re.sub(
         r"[^a-z0-9\s]",
@@ -153,22 +153,14 @@ def _authors_crossref(item):
         )
 
         name = " ".join(
-            x
-            for x in [
-                given,
-                family,
-            ]
+            x for x in [given, family]
             if x
         )
 
         if name:
-            authors.append(
-                name
-            )
+            authors.append(name)
 
-    return ", ".join(
-        authors
-    )
+    return ", ".join(authors)
 
 
 def _authors_semantic(item):
@@ -188,13 +180,9 @@ def _authors_semantic(item):
         )
 
         if name:
-            authors.append(
-                name
-            )
+            authors.append(name)
 
-    return ", ".join(
-        authors
-    )
+    return ", ".join(authors)
 
 
 def _extract_year(item):
@@ -217,10 +205,7 @@ def _extract_year(item):
             [],
         )
 
-        if (
-            date_parts
-            and date_parts[0]
-        ):
+        if date_parts and date_parts[0]:
 
             try:
 
@@ -232,6 +217,29 @@ def _extract_year(item):
                 pass
 
     return None
+
+
+def _clean_abstract(text):
+
+    text = _clean(text)
+
+    if not text:
+        return ""
+
+    # Crossref sometimes returns JATS XML.
+    text = re.sub(
+        r"<[^>]+>",
+        " ",
+        text,
+    )
+
+    text = re.sub(
+        r"\s+",
+        " ",
+        text,
+    )
+
+    return text.strip()
 
 
 # ==========================================================================
@@ -259,7 +267,7 @@ def search_crossref(topic):
                 "publisher,type,"
                 "published,published-print,"
                 "published-online,"
-                "URL"
+                "URL,link,abstract"
             ),
     }
 
@@ -270,14 +278,8 @@ def search_crossref(topic):
 
     items = (
         data
-        .get(
-            "message",
-            {}
-        )
-        .get(
-            "items",
-            []
-        )
+        .get("message", {})
+        .get("items", [])
     )
 
     results = []
@@ -290,9 +292,7 @@ def search_crossref(topic):
         )
 
         title = (
-            _clean(
-                titles[0]
-            )
+            _clean(titles[0])
             if titles
             else ""
         )
@@ -306,6 +306,13 @@ def search_crossref(topic):
 
         if not title or not doi:
             continue
+
+        abstract = _clean_abstract(
+            item.get(
+                "abstract",
+                "",
+            )
+        )
 
         results.append({
 
@@ -325,7 +332,7 @@ def search_crossref(topic):
                     (
                         item.get(
                             "container-title",
-                            []
+                            [],
                         )
                         or [""]
                     )[0]
@@ -368,11 +375,17 @@ def search_crossref(topic):
                 ),
 
             "abstract":
-                "",
+                abstract,
+
+            "evidence_source":
+                (
+                    "Crossref metadata"
+                    if abstract
+                    else ""
+                ),
 
             "verified":
                 False,
-
         })
 
     print(
@@ -387,9 +400,7 @@ def search_crossref(topic):
 # SEMANTIC SCHOLAR SEARCH
 # ==========================================================================
 
-def search_semantic_scholar(
-    topic
-):
+def search_semantic_scholar(topic):
 
     print("=" * 80)
     print("🔎 SEMANTIC SCHOLAR SEARCH")
@@ -417,7 +428,7 @@ def search_semantic_scholar(
     }
 
     data = _get(
-        SEMANTIC_SCHOLAR_SEARCH_URL,
+        SEMANTIC_SCHOLAR_URL,
         params,
     )
 
@@ -440,13 +451,10 @@ def search_semantic_scholar(
         if not title:
             continue
 
-        external_ids = (
-            paper.get(
-                "externalIds",
-                {}
-            )
-            or {}
-        )
+        external_ids = paper.get(
+            "externalIds",
+            {}
+        ) or {}
 
         doi = _clean(
             external_ids.get(
@@ -462,11 +470,15 @@ def search_semantic_scholar(
             )
         )
 
-        citation_url = (
-            f"https://doi.org/{doi}"
-            if doi
-            else url
-        )
+        if doi:
+
+            citation_url = (
+                f"https://doi.org/{doi}"
+            )
+
+        else:
+
+            citation_url = url
 
         results.append({
 
@@ -507,7 +519,7 @@ def search_semantic_scholar(
                 url,
 
             "abstract":
-                _clean(
+                _clean_abstract(
                     paper.get(
                         "abstract",
                         "",
@@ -518,12 +530,17 @@ def search_semantic_scholar(
                 paper.get(
                     "publicationTypes",
                     [],
-                )
-                or [],
+                ) or [],
+
+            "evidence_source":
+                (
+                    "Semantic Scholar abstract"
+                    if paper.get("abstract")
+                    else ""
+                ),
 
             "verified":
                 False,
-
         })
 
     print(
@@ -563,27 +580,17 @@ def deduplicate_sources(
             )
         )
 
-        if (
-            doi
-            and doi in seen_dois
-        ):
+        if doi and doi in seen_dois:
             continue
 
-        if (
-            title
-            and title in seen_titles
-        ):
+        if title and title in seen_titles:
             continue
 
         if doi:
-            seen_dois.add(
-                doi
-            )
+            seen_dois.add(doi)
 
         if title:
-            seen_titles.add(
-                title
-            )
+            seen_titles.add(title)
 
         unique.append(
             source
@@ -641,7 +648,7 @@ def verify_crossref_source(
             (
                 item.get(
                     "title",
-                    []
+                    [],
                 )
                 or [""]
             )[0]
@@ -664,11 +671,28 @@ def verify_crossref_source(
             "verified_title"
         ] = returned_title
 
+        # Crossref may contain an abstract.
+        abstract = _clean_abstract(
+            item.get(
+                "abstract",
+                "",
+            )
+        )
+
+        if abstract:
+
+            source[
+                "abstract"
+            ] = abstract
+
+            source[
+                "evidence_source"
+            ] = "Crossref abstract"
+
         source[
             "verification"
         ] = (
-            "DOI independently verified "
-            "through Crossref."
+            "DOI resolved through Crossref."
         )
 
         return True
@@ -683,7 +707,7 @@ def verify_crossref_source(
 
 
 # ==========================================================================
-# SEMANTIC SCHOLAR VERIFICATION + EVIDENCE
+# SEMANTIC SCHOLAR DOI VERIFICATION
 # ==========================================================================
 
 def verify_semantic_source(
@@ -703,7 +727,7 @@ def verify_semantic_source(
     try:
 
         url = (
-            SEMANTIC_SCHOLAR_PAPER_URL
+            SEMANTIC_PAPER_URL
             + "/DOI:"
             + quote(
                 doi,
@@ -720,9 +744,7 @@ def verify_semantic_source(
                     "year,"
                     "abstract,"
                     "externalIds,"
-                    "venue,"
-                    "publicationTypes,"
-                    "url"
+                    "venue"
                 )
         }
 
@@ -753,13 +775,6 @@ def verify_semantic_source(
             )
         )
 
-        abstract = _clean(
-            data.get(
-                "abstract",
-                "",
-            )
-        )
-
         if not returned_title:
             return False
 
@@ -779,49 +794,27 @@ def verify_semantic_source(
             "verified_title"
         ] = returned_title
 
-        source[
-            "abstract"
-        ] = abstract
-
-        if data.get(
-            "venue"
-        ):
-
-            source[
-                "journal"
-            ] = _clean(
-                data.get(
-                    "venue"
-                )
-            )
-
-        if data.get(
-            "publicationTypes"
-        ):
-
-            source[
-                "publication_types"
-            ] = (
-                data.get(
-                    "publicationTypes"
-                )
-                or []
-            )
-
-        source[
-            "semantic_scholar_url"
-        ] = _clean(
+        abstract = _clean_abstract(
             data.get(
-                "url",
+                "abstract",
                 "",
             )
         )
 
+        if abstract:
+
+            source[
+                "abstract"
+            ] = abstract
+
+            source[
+                "evidence_source"
+            ] = "Semantic Scholar abstract"
+
         source[
             "verification"
         ] = (
-            "DOI and bibliographic record "
-            "verified through Semantic Scholar."
+            "DOI resolved through Semantic Scholar."
         )
 
         return True
@@ -836,6 +829,132 @@ def verify_semantic_source(
 
 
 # ==========================================================================
+# ABSTRACT / EVIDENCE ENRICHMENT
+# ==========================================================================
+
+def enrich_source(
+    source
+):
+
+    """
+    Try to obtain an abstract for a verified source.
+
+    Crossref sometimes provides one.
+    Semantic Scholar is used as a second evidence layer.
+    """
+
+    existing = _clean_abstract(
+        source.get(
+            "abstract",
+            "",
+        )
+    )
+
+    if existing:
+
+        source[
+            "abstract"
+        ] = existing
+
+        return source
+
+    doi = _clean(
+        source.get(
+            "doi",
+            "",
+        )
+    )
+
+    if not doi:
+        return source
+
+    try:
+
+        url = (
+            SEMANTIC_PAPER_URL
+            + "/DOI:"
+            + quote(
+                doi,
+                safe="",
+            )
+        )
+
+        params = {
+            "fields":
+                "title,abstract,year,externalIds"
+        }
+
+        data = _get(
+            url,
+            params,
+        )
+
+        abstract = _clean_abstract(
+            data.get(
+                "abstract",
+                "",
+            )
+        )
+
+        if abstract:
+
+            source[
+                "abstract"
+            ] = abstract
+
+            source[
+                "evidence_source"
+            ] = "Semantic Scholar abstract"
+
+    except Exception as error:
+
+        source[
+            "enrichment_error"
+        ] = str(error)
+
+    return source
+
+
+def enrich_sources(
+    sources
+):
+
+    print("=" * 80)
+    print("📚 ENRICHING RESEARCH EVIDENCE")
+    print("=" * 80)
+
+    for index, source in enumerate(
+        sources,
+        start=1,
+    ):
+
+        print(
+            f"Evidence {index}/{len(sources)}: "
+            f"{source.get('title', '')}"
+        )
+
+        enrich_source(
+            source
+        )
+
+        if source.get(
+            "abstract"
+        ):
+
+            print(
+                "✅ Abstract available"
+            )
+
+        else:
+
+            print(
+                "⚠️ No abstract available"
+            )
+
+    return sources
+
+
+# ==========================================================================
 # SOURCE VERIFICATION
 # ==========================================================================
 
@@ -844,7 +963,7 @@ def verify_sources(
 ):
 
     print("=" * 80)
-    print("🧪 VERIFYING SOURCES + EVIDENCE")
+    print("🧪 VERIFYING SOURCES")
     print("=" * 80)
 
     verified = []
@@ -855,7 +974,7 @@ def verify_sources(
     ):
 
         print(
-            f"Checking "
+            f"Checking source "
             f"{index}/{len(sources)}: "
             f"{source.get('title', '')}"
         )
@@ -875,19 +994,6 @@ def verify_sources(
                 )
             )
 
-            # ----------------------------------------------------------
-            # Crossref verifies existence.
-            # Semantic Scholar supplies the evidence abstract.
-            # ----------------------------------------------------------
-
-            if verified_ok:
-
-                verified_ok = (
-                    verify_semantic_source(
-                        source
-                    )
-                )
-
         elif database == "Semantic Scholar":
 
             verified_ok = (
@@ -896,38 +1002,10 @@ def verify_sources(
                 )
             )
 
-            # ----------------------------------------------------------
-            # Independently confirm DOI with Crossref.
-            # ----------------------------------------------------------
-
-            if verified_ok:
-
-                verified_ok = (
-                    verify_crossref_source(
-                        source
-                    )
-                )
-
         if verified_ok:
 
-            abstract = _clean(
-                source.get(
-                    "abstract",
-                    "",
-                )
-            )
-
-            if not abstract:
-
-                print(
-                    "❌ VERIFIED PAPER BUT "
-                    "NO ABSTRACT EVIDENCE"
-                )
-
-                continue
-
             print(
-                "✅ VERIFIED + EVIDENCE FOUND"
+                "✅ VERIFIED"
             )
 
             verified.append(
@@ -980,13 +1058,6 @@ def quality_filter(
             )
         )
 
-        abstract = _clean(
-            source.get(
-                "abstract",
-                "",
-            )
-        )
-
         doi = _clean(
             source.get(
                 "doi",
@@ -1009,67 +1080,11 @@ def quality_filter(
         if not doi:
             continue
 
-        if not abstract:
-            continue
-
         accepted.append(
             source
         )
 
     return accepted
-
-
-# ==========================================================================
-# EVIDENCE PACKAGE
-# ==========================================================================
-
-def build_evidence_package(
-    sources
-):
-
-    evidence = []
-
-    for index, source in enumerate(
-        sources,
-        start=1,
-    ):
-
-        abstract = _clean(
-            source.get(
-                "abstract",
-                "",
-            )
-        )
-
-        evidence.append({
-
-            "evidence_id":
-                f"evidence_{index}",
-
-            "source_id":
-                f"source_{index}",
-
-            "title":
-                source.get(
-                    "title",
-                    "",
-                ),
-
-            "evidence_type":
-                "abstract",
-
-            "text":
-                abstract,
-
-            "supports_claims":
-                "Claims directly supported "
-                "by the supplied abstract "
-                "must be checked by "
-                "verify_claims.py.",
-
-        })
-
-    return evidence
 
 
 # ==========================================================================
@@ -1159,62 +1174,30 @@ def research_topic(
     )
 
     # ----------------------------------------------------------------------
-    # REQUIRE MULTIPLE SOURCES
+    # ENRICH
     # ----------------------------------------------------------------------
 
-    if len(
-        verified
-    ) < MIN_ACCEPTED_SOURCES:
-
-        raise RuntimeError(
-
-            "RESEARCH FAILED: "
-            f"Only {len(verified)} "
-            "sources have verified "
-            "bibliographic records AND "
-            "usable abstract evidence. "
-            f"At least "
-            f"{MIN_ACCEPTED_SOURCES} "
-            "are required."
-        )
-
-    # ----------------------------------------------------------------------
-    # LIMIT TO STRONGEST SOURCES
-    # ----------------------------------------------------------------------
-
-    verified = verified[:8]
-
-    # ----------------------------------------------------------------------
-    # ASSIGN STABLE SOURCE IDS
-    # ----------------------------------------------------------------------
-
-    for index, source in enumerate(
-        verified,
-        start=1,
-    ):
-
-        source[
-            "source_id"
-        ] = f"source_{index}"
-
-        source[
-            "evidence_available"
-        ] = True
-
-        source[
-            "evidence_type"
-        ] = "abstract"
-
-    # ----------------------------------------------------------------------
-    # BUILD EVIDENCE
-    # ----------------------------------------------------------------------
-
-    evidence = build_evidence_package(
+    verified = enrich_sources(
         verified
     )
 
     # ----------------------------------------------------------------------
-    # PACKAGE
+    # REQUIRE MULTIPLE SOURCES
+    # ----------------------------------------------------------------------
+
+    if len(verified) < MIN_ACCEPTED_SOURCES:
+
+        raise RuntimeError(
+
+            "RESEARCH FAILED: "
+            f"Only {len(verified)} credible "
+            "verified source(s) found. "
+            f"At least {MIN_ACCEPTED_SOURCES} "
+            "are required."
+        )
+
+    # ----------------------------------------------------------------------
+    # BUILD PACKAGE
     # ----------------------------------------------------------------------
 
     package = {
@@ -1228,9 +1211,6 @@ def research_topic(
         "verified":
             True,
 
-        "verification_level":
-            "SOURCE_AND_ABSTRACT_VERIFIED",
-
         "verified_at":
             int(
                 time.time()
@@ -1239,15 +1219,8 @@ def research_topic(
         "source_count":
             len(verified),
 
-        "evidence_count":
-            len(evidence),
-
         "sources":
             verified,
-
-        "evidence":
-            evidence,
-
     }
 
     print("=" * 80)
@@ -1259,17 +1232,39 @@ def research_topic(
         f"{len(verified)}"
     )
 
-    print(
-        f"Evidence records: "
-        f"{len(evidence)}"
-    )
-
-    for source in verified:
+    for index, source in enumerate(
+        verified,
+        start=1,
+    ):
 
         print(
-            f"✅ {source['source_id']}: "
+            f"{index}. "
             f"{source['title']}"
         )
+
+        print(
+            f"   DOI: "
+            f"{source['doi']}"
+        )
+
+        print(
+            f"   Source: "
+            f"{source['source_database']}"
+        )
+
+        if source.get(
+            "abstract"
+        ):
+
+            print(
+                "   Evidence: ABSTRACT AVAILABLE"
+            )
+
+        else:
+
+            print(
+                "   Evidence: METADATA ONLY"
+            )
 
     print("=" * 80)
 

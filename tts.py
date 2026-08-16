@@ -2,20 +2,19 @@
 tts.py
 Mint-YT-Factory
 
-Version 7.3
+Version 7.4
 
 TikTok TTS narration engine.
 
-Fixes:
+Features:
 - Sentence-aware TTS chunking
 - 300-byte TikTok TTS safety limit
 - Prevents awkward sentence/word cuts between TTS chunks
 - Short crossfade between TTS chunks
-- Small final audio tail to prevent abrupt ending
+- Small final audio tail added ONLY to final narration
 - Scene-by-scene narration
 - Preserves scene pauses
-- Correct scene pause indexing
-- Fixed pause duration conversion
+- Correct pause duration conversion
 - Cleans temporary files
 - Compatible with main.py
 - Compatible with assemble.py
@@ -46,8 +45,10 @@ SAMPLE_RATE = 44100
 
 DEFAULT_PAUSE_MS = 0
 
+# Small overlap between independently generated TTS chunks.
 CHUNK_CROSSFADE_MS = 60
 
+# Small silence after the FINAL spoken word only.
 FINAL_TAIL_MS = 250
 
 
@@ -118,6 +119,7 @@ def split_sentences(text):
         part = part.strip()
 
         if part:
+
             sentences.append(
                 part
             )
@@ -268,6 +270,10 @@ def split_text(
             )
         )
 
+        # --------------------------------------------------------------
+        # Entire sentence fits.
+        # --------------------------------------------------------------
+
         if sentence_bytes <= limit:
 
             chunks.append(
@@ -276,12 +282,21 @@ def split_text(
 
             continue
 
+        # --------------------------------------------------------------
+        # Sentence is too long.
+        # Split only at word boundaries.
+        # --------------------------------------------------------------
+
         chunks.extend(
             _split_sentence_by_words(
                 sentence,
                 limit,
             )
         )
+
+    # --------------------------------------------------------------
+    # Final safety validation.
+    # --------------------------------------------------------------
 
     for index, chunk in enumerate(
         chunks
@@ -385,6 +400,10 @@ def join_tts_clips(
 
         processed = clip
 
+        # --------------------------------------------------------------
+        # Fade in.
+        # --------------------------------------------------------------
+
         if actual_overlap > 0:
 
             try:
@@ -399,6 +418,10 @@ def join_tts_clips(
             except Exception:
 
                 pass
+
+        # --------------------------------------------------------------
+        # Fade out.
+        # --------------------------------------------------------------
 
         if actual_overlap > 0:
 
@@ -448,6 +471,13 @@ def add_final_tail(
     clip,
     milliseconds=FINAL_TAIL_MS,
 ):
+    """
+    Add a small silence after the FINAL spoken word.
+
+    IMPORTANT:
+    This function is called only once on the final combined
+    narration, NOT once per scene.
+    """
 
     tail_seconds = (
         max(
@@ -469,12 +499,14 @@ def add_final_tail(
 
         return clip
 
-    return concatenate_audioclips(
+    final = concatenate_audioclips(
         [
             clip,
             silence,
         ]
     )
+
+    return final
 
 
 # ==========================================================================
@@ -486,6 +518,14 @@ def synthesize_narration(
     config,
     out_path,
 ):
+    """
+    Convert one scene/block of narration into audio.
+
+    The final tail is NOT added here.
+
+    This function is used for individual scenes, so adding the
+    final tail here would incorrectly add silence after every scene.
+    """
 
     text = clean_text(
         text
@@ -569,9 +609,11 @@ def synthesize_narration(
 
     joined = None
 
-    final = None
-
     try:
+
+        # --------------------------------------------------------------
+        # Generate every TTS chunk.
+        # --------------------------------------------------------------
 
         for index, chunk in enumerate(
             chunks
@@ -585,6 +627,10 @@ def synthesize_narration(
             print(
                 f"   {chunk}"
             )
+
+            # ----------------------------------------------------------
+            # Prevent stale output.mp3 reuse.
+            # ----------------------------------------------------------
 
             if os.path.exists(
                 "output.mp3"
@@ -629,6 +675,10 @@ def synthesize_narration(
                 filename
             )
 
+        # --------------------------------------------------------------
+        # Load generated audio.
+        # --------------------------------------------------------------
+
         for filename in temp_files:
 
             clip = AudioFileClip(
@@ -645,19 +695,18 @@ def synthesize_narration(
                 "No TTS audio clips were generated."
             )
 
+        # --------------------------------------------------------------
+        # Join chunks.
+        # --------------------------------------------------------------
+
         joined = join_tts_clips(
             clips,
             CHUNK_CROSSFADE_MS,
         )
 
         print(
-            f"Joined audio duration: "
+            f"Scene audio duration: "
             f"{joined.duration:.2f}s"
-        )
-
-        final = add_final_tail(
-            joined,
-            FINAL_TAIL_MS,
         )
 
         output_dir = os.path.dirname(
@@ -671,12 +720,13 @@ def synthesize_narration(
                 exist_ok=True,
             )
 
-        print(
-            f"Final audio duration: "
-            f"{final.duration:.2f}s"
-        )
+        # --------------------------------------------------------------
+        # Write scene audio.
+        #
+        # NO FINAL TAIL HERE.
+        # --------------------------------------------------------------
 
-        final.write_audiofile(
+        joined.write_audiofile(
             out_path,
             codec="mp3",
             fps=SAMPLE_RATE,
@@ -684,7 +734,7 @@ def synthesize_narration(
         )
 
         print(
-            f"✅ Narration saved: "
+            f"✅ Scene narration saved: "
             f"{out_path}"
         )
 
@@ -692,23 +742,23 @@ def synthesize_narration(
 
     finally:
 
-        try:
-
-            if final is not None:
-                final.close()
-
-        except Exception:
-
-            pass
+        # --------------------------------------------------------------
+        # Close joined clip.
+        # --------------------------------------------------------------
 
         try:
 
             if joined is not None:
+
                 joined.close()
 
         except Exception:
 
             pass
+
+        # --------------------------------------------------------------
+        # Close source clips.
+        # --------------------------------------------------------------
 
         for clip in clips:
 
@@ -719,6 +769,10 @@ def synthesize_narration(
             except Exception:
 
                 pass
+
+        # --------------------------------------------------------------
+        # Remove temporary files.
+        # --------------------------------------------------------------
 
         for filename in temp_files:
 
@@ -757,6 +811,16 @@ def synthesize_script(
     config,
     workdir,
 ):
+    """
+    Generate narration from the storyboard.
+
+    Each scene is synthesized separately.
+
+    Scene pauses are preserved.
+
+    The final 250 ms tail is added ONLY after the complete
+    narration has been assembled.
+    """
 
     os.makedirs(
         workdir,
@@ -799,9 +863,15 @@ def synthesize_script(
 
     scene_clips = []
 
+    combined = None
+
     final = None
 
     try:
+
+        # --------------------------------------------------------------
+        # Generate each scene.
+        # --------------------------------------------------------------
 
         for scene_index, scene in enumerate(
             scenes,
@@ -861,6 +931,10 @@ def synthesize_script(
                 "No scene narration was generated."
             )
 
+        # --------------------------------------------------------------
+        # Load scene audio and add scene pauses.
+        # --------------------------------------------------------------
+
         for file_index, path in enumerate(
             scene_audio_files
         ):
@@ -884,10 +958,7 @@ def synthesize_script(
             ]
 
             # ----------------------------------------------------------
-            # Add pause AFTER this actual scene.
-            #
             # scene_indexed_pause() already returns seconds.
-            # Do NOT divide by 1000 again.
             # ----------------------------------------------------------
 
             pause_seconds = scene_indexed_pause(
@@ -910,22 +981,40 @@ def synthesize_script(
                         silence
                     )
 
-        final = concatenate_audioclips(
+        # --------------------------------------------------------------
+        # Combine all scenes.
+        # --------------------------------------------------------------
+
+        combined = concatenate_audioclips(
             scene_clips
+        )
+
+        print("=" * 80)
+        print("🎧 COMBINED NARRATION")
+        print("=" * 80)
+
+        print(
+            f"Before final tail: "
+            f"{combined.duration:.2f}s"
+        )
+
+        # --------------------------------------------------------------
+        # Add final tail ONCE.
+        # --------------------------------------------------------------
+
+        final = add_final_tail(
+            combined,
+            FINAL_TAIL_MS,
+        )
+
+        print(
+            f"After final tail: "
+            f"{final.duration:.2f}s"
         )
 
         output_path = os.path.join(
             workdir,
             "story.mp3",
-        )
-
-        print("=" * 80)
-        print("🎧 FINAL NARRATION")
-        print("=" * 80)
-
-        print(
-            f"Duration: "
-            f"{final.duration:.2f}s"
         )
 
         final.write_audiofile(
@@ -944,14 +1033,37 @@ def synthesize_script(
 
     finally:
 
+        # --------------------------------------------------------------
+        # Close final clip.
+        # --------------------------------------------------------------
+
         try:
 
             if final is not None:
+
                 final.close()
 
         except Exception:
 
             pass
+
+        # --------------------------------------------------------------
+        # Close combined clip.
+        # --------------------------------------------------------------
+
+        try:
+
+            if combined is not None:
+
+                combined.close()
+
+        except Exception:
+
+            pass
+
+        # --------------------------------------------------------------
+        # Close scene clips.
+        # --------------------------------------------------------------
 
         for clip in scene_clips:
 
@@ -963,6 +1075,10 @@ def synthesize_script(
 
                 pass
 
+        # --------------------------------------------------------------
+        # Close silence clips.
+        # --------------------------------------------------------------
+
         for silence in pause_clips:
 
             try:
@@ -972,6 +1088,10 @@ def synthesize_script(
             except Exception:
 
                 pass
+
+        # --------------------------------------------------------------
+        # Remove temporary scene audio.
+        # --------------------------------------------------------------
 
         if os.path.exists(
             temp_dir
@@ -990,7 +1110,6 @@ def synthesize_script(
 def scene_indexed_pause(
     scene,
 ):
-
     """
     Return scene pause in seconds.
 

@@ -2,7 +2,7 @@
 generate_script.py
 Mint-YT-Factory
 
-Version 10.0
+Version 10.1
 
 Research-first production script generator.
 
@@ -38,6 +38,8 @@ IMPORTANT:
 - evidence_text is the authoritative evidence field.
 - Evidence must already be verified by research.py.
 - Gemini may only choose source IDs from verified research.
+- source_id is authoritative and comes from research.py.
+- source IDs are NEVER generated from array position.
 - research_sources are copied from research.py.
 - Gemini does NOT generate research metadata.
 - Factual claims require citations.
@@ -397,6 +399,8 @@ def validate_research_package(
 
     - research package is VERIFIED
     - source is verified
+    - source_id exists
+    - source_id is unique
     - evidence_verified is True
     - evidence_available is True
     - evidence_text exists
@@ -453,6 +457,8 @@ def validate_research_package(
 
     verified_sources = []
 
+    seen_source_ids = set()
+
     for index, source in enumerate(
         sources,
         start=1,
@@ -481,6 +487,35 @@ def validate_research_package(
         ) is not True:
 
             continue
+
+        # --------------------------------------------------------------
+        # AUTHORITATIVE SOURCE ID
+        #
+        # This MUST come from research.py.
+        #
+        # Never create source_1/source_2 based on position.
+        # --------------------------------------------------------------
+
+        source_id = _clean(
+            source.get(
+                "source_id",
+                "",
+            )
+        )
+
+        if not source_id:
+
+            raise RuntimeError(
+                "RESEARCH GATE FAILED: "
+                f"source at position {index} has no source_id."
+            )
+
+        if source_id in seen_source_ids:
+
+            raise RuntimeError(
+                "RESEARCH GATE FAILED: "
+                f"duplicate source_id '{source_id}'."
+            )
 
         title = _clean(
             source.get(
@@ -528,6 +563,10 @@ def validate_research_package(
 
         if not evidence:
             continue
+
+        seen_source_ids.add(
+            source_id
+        )
 
         verified_sources.append(
             source
@@ -643,6 +682,13 @@ def build_research_context(
     """
     Build a strict evidence package for Gemini.
 
+    IMPORTANT:
+
+    source_id is supplied by research.py and is authoritative.
+
+    generate_script.py MUST NOT create source IDs based on array
+    position.
+
     Metadata is provided only for source identification.
 
     Scientific evidence is provided separately.
@@ -657,13 +703,44 @@ def build_research_context(
 
     blocks = []
 
+    seen_ids = set()
+
     for index, source in enumerate(
         sources,
         start=1,
     ):
 
-        source_id = (
-            f"source_{index}"
+        if not isinstance(
+            source,
+            dict,
+        ):
+
+            raise RuntimeError(
+                f"Research source {index} is invalid."
+            )
+
+        source_id = _clean(
+            source.get(
+                "source_id",
+                "",
+            )
+        )
+
+        if not source_id:
+
+            raise RuntimeError(
+                f"Research source {index} has no source_id."
+            )
+
+        if source_id in seen_ids:
+
+            raise RuntimeError(
+                f"Duplicate research source_id detected: "
+                f"{source_id}"
+            )
+
+        seen_ids.add(
+            source_id
         )
 
         title = _clean(
@@ -746,6 +823,9 @@ VERIFIED SOURCE ID: {source_id}
 IDENTITY / METADATA
 -------------------
 
+Source ID:
+{source_id}
+
 Title:
 {title}
 
@@ -800,6 +880,12 @@ END SOURCE {source_id}
 
         blocks.append(
             block.strip()
+        )
+
+    if not blocks:
+
+        raise RuntimeError(
+            "No verified research sources are available."
         )
 
     return "\n\n".join(
@@ -909,15 +995,33 @@ If evidence is observational, do not turn it into a causal claim.
 SOURCE IDs
 ============================================================
 
-Available source IDs are explicitly supplied.
+The available source IDs are supplied directly by research.py.
 
-A source ID looks like:
+They are authoritative.
 
-source_1
-source_2
-source_3
+IMPORTANT:
 
-Never invent a source ID.
+You MUST use the exact source IDs provided in the research
+evidence package.
+
+Do NOT:
+
+- create source_1/source_2 yourself
+- renumber source IDs
+- rename source IDs
+- invent source IDs
+- replace authoritative IDs with positional IDs
+- assume the first source is source_1
+- assume the second source is source_2
+
+A source ID may look like:
+
+ABC123
+paper_7f91
+research_4d82
+or another identifier.
+
+Use exactly what is supplied.
 
 For every scene containing factual scientific claims:
 
@@ -978,15 +1082,18 @@ CITATION PRECISION
 
 Use the smallest set of sources necessary.
 
-If source_1 supports a claim:
+If one supplied source supports a claim:
 
-["source_1"]
+["ACTUAL_SOURCE_ID"]
 
 Do not automatically cite all sources.
 
-If source_1 and source_2 are both necessary:
+If two supplied sources are necessary:
 
-["source_1", "source_2"]
+[
+    "ACTUAL_SOURCE_ID_1",
+    "ACTUAL_SOURCE_ID_2"
+]
 
 Do not cite a source that does not actually support the claim.
 
@@ -1000,6 +1107,8 @@ The pipeline will overwrite it with the exact verified metadata from
 research.py.
 
 Do not invent research source metadata.
+
+Do not modify source IDs.
 
 ============================================================
 FORMAT
@@ -1114,13 +1223,39 @@ def build_user_prompt(
         research
     )
 
-    source_ids = [
-        f"source_{index}"
-        for index, source in enumerate(
-            research["sources"],
-            start=1,
+    source_ids = []
+
+    for index, source in enumerate(
+        research["sources"],
+        start=1,
+    ):
+
+        if not isinstance(
+            source,
+            dict,
+        ):
+
+            raise RuntimeError(
+                f"Research source {index} is invalid."
+            )
+
+        source_id = _clean(
+            source.get(
+                "source_id",
+                "",
+            )
         )
-    ]
+
+        if not source_id:
+
+            raise RuntimeError(
+                f"Research source {index} "
+                "does not have a source_id."
+            )
+
+        source_ids.append(
+            source_id
+        )
 
     audience = (
         config.get(
@@ -1177,6 +1312,19 @@ Available source IDs:
 
 IMPORTANT:
 
+These source IDs come directly from research.py.
+
+You MUST use these exact source IDs when citing evidence.
+
+Do NOT:
+
+- rename them
+- create new source IDs
+- replace them with source_1/source_2 unless those are the actual
+  IDs supplied by research.py
+- invent citations
+- infer source IDs from their order
+
 The source metadata identifies each source.
 
 Only the supplied scientific evidence sections may be used to
@@ -1222,11 +1370,14 @@ Examples:
 
 Factual scene:
 
-"source_ids": ["source_1"]
+"source_ids": ["ACTUAL_SOURCE_ID"]
 
 Two-source claim:
 
-"source_ids": ["source_1", "source_2"]
+"source_ids": [
+    "ACTUAL_SOURCE_ID_1",
+    "ACTUAL_SOURCE_ID_2"
+]
 
 Purely stylistic scene:
 
@@ -2524,6 +2675,8 @@ def _normalize_research_sources(
 
     We copy the exact verified source metadata from research.py.
 
+    The authoritative source_id is preserved exactly.
+
     This prevents Gemini from inventing:
 
     - papers
@@ -2531,6 +2684,7 @@ def _normalize_research_sources(
     - DOIs
     - URLs
     - journals
+    - source IDs
     - verification information
     """
 
@@ -2542,10 +2696,46 @@ def _normalize_research_sources(
         ]
     )
 
+    seen_ids = set()
+
     for index, source in enumerate(
         supplied_sources,
         start=1,
     ):
+
+        if not isinstance(
+            source,
+            dict,
+        ):
+
+            raise RuntimeError(
+                f"Verified research source {index} is invalid."
+            )
+
+        source_id = _clean(
+            source.get(
+                "source_id",
+                "",
+            )
+        )
+
+        if not source_id:
+
+            raise RuntimeError(
+                f"Verified research source {index} "
+                "has no source_id."
+            )
+
+        if source_id in seen_ids:
+
+            raise RuntimeError(
+                f"Duplicate verified research source_id: "
+                f"{source_id}"
+            )
+
+        seen_ids.add(
+            source_id
+        )
 
         evidence = _extract_source_evidence(
             source
@@ -2554,7 +2744,8 @@ def _normalize_research_sources(
         if not evidence:
 
             raise RuntimeError(
-                f"Verified source_{index} has no evidence_text."
+                f"Verified source {source_id} "
+                "has no evidence_text."
             )
 
         try:
@@ -2574,7 +2765,7 @@ def _normalize_research_sources(
         normalized.append({
 
             "source_id":
-                f"source_{index}",
+                source_id,
 
             "title":
                 _clean(
@@ -2667,6 +2858,12 @@ def _normalize_research_sources(
                 ),
         })
 
+    if not normalized:
+
+        raise RuntimeError(
+            "No verified research sources could be normalized."
+        )
+
     script[
         "research_sources"
     ] = normalized
@@ -2679,37 +2876,76 @@ def _normalize_research_sources(
 def _validate_source_ids(
     script,
 ):
+    """
+    Validate that every scene citation refers to an actual
+    authoritative research source ID.
 
-    valid_ids = {
+    Source IDs are NOT positional.
 
-        source.get(
-            "source_id"
-        )
+    They come directly from research.py and are preserved
+    throughout the pipeline.
+    """
 
-        for source in script.get(
-            "research_sources",
-            [],
-        )
+    valid_ids = set()
 
-        if isinstance(
+    for source in script.get(
+        "research_sources",
+        [],
+    ):
+
+        if not isinstance(
             source,
             dict,
+        ):
+
+            continue
+
+        source_id = _clean(
+            source.get(
+                "source_id",
+                "",
+            )
         )
-    }
+
+        if source_id:
+
+            valid_ids.add(
+                source_id
+            )
 
     if not valid_ids:
 
         raise RuntimeError(
-            "No verified research sources are attached to script."
+            "No verified research source IDs are attached to script."
+        )
+
+    scenes = script.get(
+        "scene_plan",
+        [],
+    )
+
+    if not isinstance(
+        scenes,
+        list,
+    ):
+
+        raise RuntimeError(
+            "scene_plan must be a list."
         )
 
     for index, scene in enumerate(
-        script.get(
-            "scene_plan",
-            [],
-        ),
+        scenes,
         start=1,
     ):
+
+        if not isinstance(
+            scene,
+            dict,
+        ):
+
+            raise RuntimeError(
+                f"Scene {index} is invalid."
+            )
 
         source_ids = scene.get(
             "source_ids",
@@ -2734,13 +2970,14 @@ def _validate_source_ids(
             )
 
             if not source_id:
+
                 continue
 
             if source_id not in valid_ids:
 
                 raise RuntimeError(
-                    f"Scene {index} references invalid source ID: "
-                    f"{source_id}"
+                    f"Scene {index} references invalid "
+                    f"source ID: {source_id}"
                 )
 
             if source_id not in cleaned_ids:
@@ -3373,6 +3610,10 @@ def validate_script(
         verified_research,
     )
 
+    # ----------------------------------------------------------------------
+    # VALIDATE GEMINI'S CITATIONS AGAINST AUTHORITATIVE SOURCE IDs
+    # ----------------------------------------------------------------------
+
     _validate_source_ids(
         script
     )
@@ -3545,12 +3786,19 @@ def generate_script(
         start=1,
     ):
 
+        source_id = _clean(
+            source.get(
+                "source_id",
+                "",
+            )
+        )
+
         evidence = _extract_source_evidence(
             source
         )
 
         print(
-            f"✅ source_{index}: "
+            f"✅ {source_id}: "
             f"{source.get('title', '')}"
         )
 
@@ -3655,6 +3903,8 @@ Remember:
 - Do NOT use outside knowledge.
 - Do NOT invent research.
 - Do NOT invent citations.
+- Do NOT invent or rename source IDs.
+- Use the exact source IDs supplied by research.py.
 - Metadata is not evidence.
 - Factual claims need supporting source_ids.
 - Purely stylistic scenes may use source_ids: [].

@@ -14,6 +14,7 @@ jobs:
     timeout-minutes: 30
 
     steps:
+
       # --------------------------------------------------------
       # CHECKOUT
       # --------------------------------------------------------
@@ -33,34 +34,15 @@ jobs:
           python-version: "3.11"
 
       # --------------------------------------------------------
-      # NODE.JS / PUTER.JS
-      # --------------------------------------------------------
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Install Puter.js
-        run: |
-          echo "=========================================="
-          echo "🔧 Setting up Node.js / Puter.js"
-          echo "=========================================="
-
-          node --version
-          npm --version
-
-          npm init -y
-          npm install @heyputer/puter.js@2.6.0
-
-          npm list @heyputer/puter.js
-
-      # --------------------------------------------------------
       # FFMPEG
       # --------------------------------------------------------
 
       - name: Install FFmpeg
         run: |
+          echo "=========================================="
+          echo "🎬 Installing FFmpeg"
+          echo "=========================================="
+
           sudo apt-get update
           sudo apt-get install -y ffmpeg
 
@@ -72,6 +54,10 @@ jobs:
 
       - name: Install ImageMagick
         run: |
+          echo "=========================================="
+          echo "🖼️ Installing ImageMagick"
+          echo "=========================================="
+
           sudo apt-get install -y imagemagick
 
           sudo sed -i \
@@ -93,8 +79,14 @@ jobs:
           echo "=========================================="
 
           python --version
+
           python -m pip install --upgrade pip
+
           python -m pip install -r requirements.txt
+
+          echo "=========================================="
+          echo "✅ Python dependencies installed"
+          echo "=========================================="
 
       # --------------------------------------------------------
       # YOUTUBE CREDENTIALS
@@ -104,6 +96,13 @@ jobs:
         run: |
           echo '${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}' > client_secret.json
 
+          test -s client_secret.json || {
+            echo "❌ YouTube client_secret.json is empty."
+            exit 1
+          }
+
+          echo "✅ YouTube client credentials created."
+
       # --------------------------------------------------------
       # RUN PIPELINE
       # --------------------------------------------------------
@@ -111,18 +110,7 @@ jobs:
       - name: Run Mint-YT-Factory
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-
           YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
-
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-
-          PUTER_AUTH_TOKEN: ${{ secrets.PUTER_AUTH_TOKEN }}
-
-          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
-
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-
-          FREESOUND_API_KEY: ${{ secrets.FREESOUND_API_KEY }}
 
         run: |
           echo "=========================================="
@@ -138,11 +126,8 @@ jobs:
           echo "Python:"
           python --version
 
-          echo "Node:"
-          node --version
-
-          echo "NPM:"
-          npm --version
+          echo "FFmpeg:"
+          ffmpeg -version | head -n 1
 
           echo "Memory:"
           free -h
@@ -151,7 +136,7 @@ jobs:
           df -h
 
           echo "=========================================="
-          echo "🧠 Starting main.py"
+          echo "🔬 Starting research → script → visuals → video → YouTube"
           echo "=========================================="
 
           python -u main.py

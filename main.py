@@ -2,13 +2,14 @@
 main.py
 Mint-YT-Factory
 
-Version 9.0
+Version 10.0
 
 Research-first production pipeline.
 
 FLOW:
 
-Topic
+Previous video's next_short
+→ Topic
 → Verified research
 → Research-backed script
 → Claim verification
@@ -18,6 +19,18 @@ Topic
 → Video
 → Verified citations
 → YouTube upload
+→ Save NEW next_short
+→ Commit current topic
+
+IMPORTANT:
+
+The current topic is NOT committed until the complete pipeline
+successfully uploads the video.
+
+If anything fails before upload:
+- Current topic remains pending.
+- The next_short remains available.
+- The next GitHub Actions run can retry safely.
 """
 
 import argparse
@@ -27,17 +40,29 @@ import time
 
 import yaml
 
-from topics import get_next_topic
+from topics import (
+    get_next_topic,
+    save_next_short,
+    commit_topic,
+)
+
 from research import research_topic
+
 from generate_script import generate_script
+
 from verify_claims import (
     verify_script_claims,
     claims_are_verified,
 )
+
 from tts import synthesize_script
+
 from generate_images import generate_images
+
 from music import download_music
+
 from assemble import assemble_video
+
 from upload_youtube import upload_video
 
 
@@ -446,6 +471,48 @@ def build_title_description(
 
 
 # ==========================================================================
+# NEXT SHORT EXTRACTION
+# ==========================================================================
+
+def get_next_short_topic(
+    script
+):
+
+    """
+    Extract the topic for the next Short.
+
+    Expected format:
+
+    "next_short": {
+        "topic": "...",
+        "teaser": "...",
+        ...
+    }
+    """
+
+    next_short = script.get(
+        "next_short",
+        {},
+    )
+
+    if not isinstance(
+        next_short,
+        dict,
+    ):
+
+        return ""
+
+    topic = str(
+        next_short.get(
+            "topic",
+            "",
+        )
+    ).strip()
+
+    return topic
+
+
+# ==========================================================================
 # PIPELINE
 # ==========================================================================
 
@@ -460,12 +527,14 @@ def run(
     # ----------------------------------------------------------------------
 
     print("=" * 80)
-    print("🧠 GENERATING TOPIC")
+    print("🧠 SELECTING TOPIC")
     print("=" * 80)
 
     topic = get_next_topic()
 
-    print(topic)
+    print(
+        f"🎯 CURRENT TOPIC: {topic}"
+    )
 
     # ----------------------------------------------------------------------
     # VERIFIED RESEARCH
@@ -550,15 +619,30 @@ def run(
         f"{script.get('image_generation', {}).get('total_images', 14)}"
     )
 
+    next_short_topic = get_next_short_topic(
+        script
+    )
+
     print(
         "Next Short: "
-        f"{script.get('next_short', {}).get('topic', 'Not specified')}"
+        f"{next_short_topic or 'Not specified'}"
     )
 
     print(
         "Verified research sources: "
         f"{len(script.get('research_sources', []))}"
     )
+
+    # ----------------------------------------------------------------------
+    # REQUIRE NEXT SHORT
+    # ----------------------------------------------------------------------
+
+    if not next_short_topic:
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "script did not provide a next_short.topic."
+        )
 
     # ----------------------------------------------------------------------
     # CLAIM VERIFICATION
@@ -821,6 +905,20 @@ def run(
         final_video,
     )
 
+    if not os.path.exists(
+        final_video
+    ):
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "final video was not created."
+        )
+
+    print(
+        f"✅ Video created: "
+        f"{final_video}"
+    )
+
     # ----------------------------------------------------------------------
     # DRY RUN
     # ----------------------------------------------------------------------
@@ -833,6 +931,11 @@ def run(
 
         print(
             f"Video: {final_video}"
+        )
+
+        print(
+            f"Next Short remains pending: "
+            f"{next_short_topic}"
         )
 
         print(
@@ -854,7 +957,16 @@ def run(
     ]:
 
         print(
-            "Auto upload disabled."
+            "⚠️ Auto upload disabled."
+        )
+
+        print(
+            "Current topic will NOT be committed."
+        )
+
+        print(
+            f"Next Short remains: "
+            f"{next_short_topic}"
         )
 
         return
@@ -907,12 +1019,64 @@ def run(
         config,
     )
 
+    print(
+        "✅ YouTube upload completed."
+    )
+
+    # ----------------------------------------------------------------------
+    # SAVE NEXT SHORT
+    # ----------------------------------------------------------------------
+
+    print("=" * 80)
+    print("🔗 SAVING NEXT SHORT")
+    print("=" * 80)
+
+    saved_next = save_next_short(
+        next_short_topic
+    )
+
+    if not saved_next:
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "YouTube upload succeeded, but the "
+            "next_short topic could not be saved."
+        )
+
+    print(
+        f"✅ Next Short queued: "
+        f"{next_short_topic}"
+    )
+
+    # ----------------------------------------------------------------------
+    # COMMIT CURRENT TOPIC
+    # ----------------------------------------------------------------------
+
+    print("=" * 80)
+    print("📌 COMMITTING CURRENT TOPIC")
+    print("=" * 80)
+
+    commit_topic(
+        topic
+    )
+
     # ----------------------------------------------------------------------
     # COMPLETE
     # ----------------------------------------------------------------------
 
     print("=" * 80)
     print("🎉 VERIFIED PIPELINE COMPLETE")
+    print("=" * 80)
+
+    print(
+        f"Published: {topic}"
+    )
+
+    print(
+        f"Next run will start with: "
+        f"{next_short_topic}"
+    )
+
     print("=" * 80)
 
 

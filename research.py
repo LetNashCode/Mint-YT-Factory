@@ -2,7 +2,7 @@
 research.py
 Mint-YT-Factory
 
-Version 4.0
+Version 4.1
 
 Research-first scientific evidence layer.
 
@@ -26,6 +26,8 @@ STRICT RELEVANCE RECHECK
   ↓
 Minimum 2 evidence-backed sources
   ↓
+Authoritative source_id assignment
+  ↓
 Verified research package
 
 IMPORTANT:
@@ -44,8 +46,12 @@ IMPORTANT:
 - A DOI alone does not make a source evidence-backed.
 - Relevance is evaluated using topic concepts, not generic word matches.
 - Irrelevant domain matches are rejected.
+- Every final source receives a stable authoritative source_id.
+- source_id is derived from the normalized DOI and is never position-based.
 """
 
+
+import hashlib
 import json
 import os
 import re
@@ -107,7 +113,7 @@ EVIDENCE_QUALITY_NONE = "none"
 # ==========================================================================
 
 USER_AGENT = (
-    "Mint-YT-Factory/4.0 "
+    "Mint-YT-Factory/4.1 "
     "(educational research verification)"
 )
 
@@ -314,6 +320,35 @@ def _normalize_doi(doi):
     return doi.strip().rstrip(".").lower()
 
 
+def _generate_source_id(doi):
+    """
+    Generate a stable authoritative source ID from the DOI.
+
+    IMPORTANT:
+
+    - Never based on array position.
+    - Same DOI always produces the same source_id.
+    - research.py is the authoritative owner of this ID.
+    - The ID is deterministic across research runs.
+    """
+
+    doi = _normalize_doi(
+        doi
+    )
+
+    if not doi:
+
+        raise RuntimeError(
+            "Cannot generate source_id without a DOI."
+        )
+
+    digest = hashlib.sha256(
+        doi.encode("utf-8")
+    ).hexdigest()[:12]
+
+    return f"doi_{digest}"
+
+
 def _normalize_title(title):
 
     title = _clean(title).lower()
@@ -390,7 +425,6 @@ STOPWORDS = {
     "long",
     "way",
     "ways",
-    "using",
 }
 
 
@@ -483,7 +517,6 @@ CONCEPT_GROUPS = {
         "magnetism",
         "magnetoreception",
         "geomagnetic",
-        "magnetoreception",
         "magneticfield",
     },
 
@@ -894,20 +927,6 @@ def _relevance_score(
 
     # ------------------------------------------------------------------
     # Critical relevance rule
-    #
-    # A paper cannot pass merely because it shares generic words.
-    #
-    # For topics with 2+ concepts:
-    #
-    #   at least 2 concepts must appear in the title
-    #
-    # OR:
-    #
-    #   1 concept in title + 1 concept in abstract
-    #
-    # For topics with only 1 concept:
-    #
-    #   require strong title term overlap.
     # ------------------------------------------------------------------
 
     concept_count = len(
@@ -943,7 +962,7 @@ def _relevance_score(
 
         elif (
             title_concept_count >= 1
-            and abstract_concept_count >= 2
+            and abstract_concept_count >= 1
         ):
 
             relevance_class = (
@@ -975,18 +994,6 @@ def _relevance_score(
 
     # ------------------------------------------------------------------
     # Domain mismatch protection
-    #
-    # Example:
-    #
-    # Topic:
-    # birds navigate migration
-    #
-    # Source:
-    # medical students navigate...
-    #
-    # "navigation" may match, but "bird" does not.
-    #
-    # Reject.
     # ------------------------------------------------------------------
 
     obvious_domain_mismatch = False
@@ -999,12 +1006,12 @@ def _relevance_score(
 
                 obvious_domain_mismatch = True
 
-    if "plant" in topic_concepts:
+    if "plants" in topic_concepts:
 
         if (
-            "plant" not in title_concept_matches
+            "plants" not in title_concept_matches
             and
-            "plant" not in abstract_concept_matches
+            "plants" not in abstract_concept_matches
         ):
 
             obvious_domain_mismatch = True
@@ -2742,6 +2749,41 @@ def mark_evidence_verified(
         if not url:
             continue
 
+        # --------------------------------------------------------------
+        # AUTHORITATIVE SOURCE ID
+        #
+        # Generated from DOI.
+        # Never generated from source position.
+        # --------------------------------------------------------------
+
+        if not source.get(
+            "source_id",
+            "",
+        ):
+
+            source[
+                "source_id"
+            ] = _generate_source_id(
+                doi
+            )
+
+        source[
+            "source_id"
+        ] = _clean(
+            source[
+                "source_id"
+            ]
+        )
+
+        if not source[
+            "source_id"
+        ]:
+
+            raise RuntimeError(
+                f"Source '{title}' "
+                "could not receive an authoritative source_id."
+            )
+
         source[
             "doi"
         ] = doi
@@ -2851,6 +2893,99 @@ def limit_sources(
 
 
 # ==========================================================================
+# FINAL SOURCE ID VALIDATION
+# ==========================================================================
+
+def validate_source_ids(
+    sources,
+):
+
+    """
+    Final hard gate.
+
+    Every accepted research source MUST have:
+
+    - source_id
+    - DOI
+    - evidence_verified
+
+    source_id must correspond to the source DOI.
+    """
+
+    seen_ids = set()
+
+    for source in sources:
+
+        source_id = _clean(
+            source.get(
+                "source_id",
+                "",
+            )
+        )
+
+        doi = _normalize_doi(
+            source.get(
+                "doi",
+                "",
+            )
+        )
+
+        if not source_id:
+
+            raise RuntimeError(
+                "RESEARCH FAILED: "
+                "Final source is missing source_id."
+            )
+
+        if not doi:
+
+            raise RuntimeError(
+                f"RESEARCH FAILED: "
+                f"Source '{source.get('title', '')}' "
+                "has no DOI."
+            )
+
+        expected_id = _generate_source_id(
+            doi
+        )
+
+        if source_id != expected_id:
+
+            raise RuntimeError(
+                f"RESEARCH FAILED: "
+                f"Source ID mismatch for "
+                f"'{source.get('title', '')}'. "
+                f"Expected '{expected_id}', "
+                f"received '{source_id}'."
+            )
+
+        if source_id in seen_ids:
+
+            raise RuntimeError(
+                f"RESEARCH FAILED: "
+                f"Duplicate source_id detected: "
+                f"{source_id}"
+            )
+
+        seen_ids.add(
+            source_id
+        )
+
+        if not source.get(
+            "evidence_verified",
+            False,
+        ):
+
+            raise RuntimeError(
+                f"RESEARCH FAILED: "
+                f"Source '{source.get('title', '')}' "
+                "is not evidence verified."
+            )
+
+    return True
+
+
+# ==========================================================================
 # RESEARCH
 # ==========================================================================
 
@@ -2945,6 +3080,37 @@ def research_topic(
         raise RuntimeError(
             "RESEARCH FAILED: "
             "No research candidates were found."
+        )
+
+    # ------------------------------------------------------------------
+    # AUTHORITATIVE SOURCE IDs
+    #
+    # Assign IDs immediately after deduplication.
+    #
+    # This means every surviving paper has a stable identity before
+    # relevance filtering, metadata verification and enrichment.
+    # ------------------------------------------------------------------
+
+    for source in candidates:
+
+        doi = _normalize_doi(
+            source.get(
+                "doi",
+                "",
+            )
+        )
+
+        if not doi:
+
+            raise RuntimeError(
+                "RESEARCH FAILED: "
+                "A candidate source has no DOI."
+            )
+
+        source[
+            "source_id"
+        ] = _generate_source_id(
+            doi
         )
 
     # ------------------------------------------------------------------
@@ -3065,12 +3231,7 @@ def research_topic(
         )
 
     # ------------------------------------------------------------------
-    # CRITICAL:
-    #
-    # RECHECK RELEVANCE AFTER ABSTRACT ENRICHMENT.
-    #
-    # This prevents metadata/title matches from surviving when the
-    # actual evidence belongs to another domain.
+    # FINAL EVIDENCE RELEVANCE CHECK
     # ------------------------------------------------------------------
 
     print("=" * 80)
@@ -3093,6 +3254,22 @@ def research_topic(
 
     evidence_sources = limit_sources(
         evidence_sources
+    )
+
+    # ------------------------------------------------------------------
+    # FINAL SOURCE ID VALIDATION
+    # ------------------------------------------------------------------
+
+    print("=" * 80)
+    print("🆔 VALIDATING AUTHORITATIVE SOURCE IDs")
+    print("=" * 80)
+
+    validate_source_ids(
+        evidence_sources
+    )
+
+    print(
+        "✅ All final sources have valid stable source_id values."
     )
 
     # ------------------------------------------------------------------
@@ -3176,6 +3353,12 @@ def research_topic(
 
             "abstract_is_full_text":
                 False,
+
+            "authoritative_source_id_required":
+                True,
+
+            "source_id_algorithm":
+                "sha256(normalized_doi)[:12]",
         },
 
         "source_count":
@@ -3213,6 +3396,11 @@ def research_topic(
         print(
             f"{index}. "
             f"{source['title']}"
+        )
+
+        print(
+            f"   Source ID: "
+            f"{source['source_id']}"
         )
 
         print(

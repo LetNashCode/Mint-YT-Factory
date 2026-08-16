@@ -2,7 +2,7 @@
 research.py
 Mint-YT-Factory
 
-Version 2.1
+Version 2.2
 
 Research-first scientific evidence layer.
 
@@ -10,15 +10,13 @@ FLOW:
 
 Topic
   ↓
-Crossref + Semantic Scholar
+Crossref + Semantic Scholar + OpenAlex
   ↓
 Deduplicate
   ↓
 Verify DOI / identity
   ↓
 Enrich abstract/evidence
-  ↓
-OpenAlex fallback
   ↓
 Relevance filter
   ↓
@@ -37,6 +35,8 @@ IMPORTANT:
 - Minimum 2 evidence-backed sources are required.
 - Semantic Scholar rate limits are handled gracefully.
 - OpenAlex is used as a free evidence fallback.
+- Long research topics are fully supported.
+- next_short.topic is treated as the complete research topic.
 """
 
 import json
@@ -82,7 +82,7 @@ SEMANTIC_RETRIES = 3
 SEMANTIC_BACKOFF_SECONDS = 3
 
 USER_AGENT = (
-    "Mint-YT-Factory/2.1 "
+    "Mint-YT-Factory/2.2 "
     "(educational research verification)"
 )
 
@@ -112,7 +112,7 @@ def _get(
     backoff=2,
 ):
     """
-    GET JSON with small retry support.
+    GET JSON with retry support.
 
     Handles:
     - transient failures
@@ -492,6 +492,26 @@ STOPWORDS = {
     "those",
     "this",
     "that",
+    "about",
+    "into",
+    "through",
+    "does",
+    "will",
+    "your",
+    "our",
+    "its",
+    "it",
+    "as",
+    "by",
+    "at",
+    "over",
+    "under",
+    "than",
+    "then",
+    "when",
+    "where",
+    "which",
+    "who",
     "survive",
 }
 
@@ -511,20 +531,79 @@ def _topic_terms(topic):
     }
 
 
+def _topic_phrases(topic):
+
+    """
+    Extract useful adjacent 2-word phrases.
+
+    This helps longer continuation topics.
+
+    Example:
+
+    "deep ocean trenches drive massive cyclonic
+    water circulation"
+
+    Useful phrases can include:
+
+    "ocean trenches"
+    "cyclonic water"
+    "water circulation"
+    """
+
+    words = re.findall(
+        r"[a-zA-Z0-9]+",
+        _clean(topic).lower(),
+    )
+
+    words = [
+        word
+        for word in words
+        if len(word) >= 3
+        and word not in STOPWORDS
+    ]
+
+    phrases = set()
+
+    for index in range(
+        len(words) - 1
+    ):
+
+        first = words[index]
+
+        second = words[index + 1]
+
+        phrases.add(
+            f"{first} {second}"
+        )
+
+    return phrases
+
+
 def _relevance_score(
     topic,
     source,
 ):
     """
-    Lightweight local relevance check.
+    Relevance scoring for both short and long topics.
 
-    This is deliberately conservative.
+    Long continuation topics are NOT expected to have every
+    word matched by the paper.
 
-    It prevents obviously unrelated papers from being
-    accepted simply because Crossref returned them.
+    Scoring:
+
+    - title matches are weighted more heavily
+    - abstract matches provide supporting evidence
+    - meaningful two-word phrases receive extra weight
+
+    This prevents long natural-language topics from being
+    incorrectly rejected.
     """
 
     terms = _topic_terms(
+        topic
+    )
+
+    phrases = _topic_phrases(
         topic
     )
 
@@ -546,24 +625,215 @@ def _relevance_score(
         )
     ).lower()
 
-    combined = (
-        title
-        + " "
-        + abstract
+    # --------------------------------------------------------------
+    # Normalize punctuation
+    # --------------------------------------------------------------
+
+    title = re.sub(
+        r"[^a-z0-9\s]",
+        " ",
+        title,
     )
 
-    matched = 0
+    abstract = re.sub(
+        r"[^a-z0-9\s]",
+        " ",
+        abstract,
+    )
+
+    title = re.sub(
+        r"\s+",
+        " ",
+        title,
+    ).strip()
+
+    abstract = re.sub(
+        r"\s+",
+        " ",
+        abstract,
+    ).strip()
+
+    score = 0
+
+    matched_terms = []
+
+    title_matches = 0
+
+    abstract_matches = 0
+
+    # --------------------------------------------------------------
+    # Individual term matches
+    # --------------------------------------------------------------
 
     for term in terms:
 
+        pattern = (
+            rf"\b{re.escape(term)}\b"
+        )
+
+        in_title = bool(
+            re.search(
+                pattern,
+                title,
+            )
+        )
+
+        in_abstract = bool(
+            re.search(
+                pattern,
+                abstract,
+            )
+        )
+
+        if in_title:
+
+            title_matches += 1
+
+            score += 3
+
+            matched_terms.append(
+                term
+            )
+
+        elif in_abstract:
+
+            abstract_matches += 1
+
+            score += 1
+
+            matched_terms.append(
+                term
+            )
+
+    # --------------------------------------------------------------
+    # Phrase matches
+    # --------------------------------------------------------------
+
+    phrase_matches = 0
+
+    for phrase in phrases:
+
+        pattern = (
+            rf"\b{re.escape(phrase)}\b"
+        )
+
         if re.search(
-            rf"\b{re.escape(term)}\b",
-            combined,
+            pattern,
+            title,
         ):
 
-            matched += 1
+            score += 4
 
-    return matched
+            phrase_matches += 1
+
+        elif re.search(
+            pattern,
+            abstract,
+        ):
+
+            score += 2
+
+            phrase_matches += 1
+
+    # --------------------------------------------------------------
+    # Coverage
+    # --------------------------------------------------------------
+
+    matched_count = len(
+        set(
+            matched_terms
+        )
+    )
+
+    coverage = (
+        matched_count
+        / max(
+            len(terms),
+            1,
+        )
+    )
+
+    # --------------------------------------------------------------
+    # Bonus for strong title relevance
+    # --------------------------------------------------------------
+
+    if title_matches >= 2:
+
+        score += 3
+
+    if phrase_matches >= 1:
+
+        score += 2
+
+    source[
+        "matched_terms"
+    ] = sorted(
+        set(
+            matched_terms
+        )
+    )
+
+    source[
+        "title_match_count"
+    ] = title_matches
+
+    source[
+        "abstract_match_count"
+    ] = abstract_matches
+
+    source[
+        "phrase_match_count"
+    ] = phrase_matches
+
+    source[
+        "topic_term_coverage"
+    ] = round(
+        coverage,
+        3,
+    )
+
+    return score
+
+
+def _minimum_relevance_score(
+    topic
+):
+
+    """
+    Determine the minimum relevance score.
+
+    Short topics need a stronger match.
+
+    Long natural-language topics receive a more flexible
+    threshold because they contain connective words and
+    multiple concepts.
+    """
+
+    terms = _topic_terms(
+        topic
+    )
+
+    term_count = len(
+        terms
+    )
+
+    if term_count <= 2:
+
+        return 3
+
+    if term_count <= 4:
+
+        return 5
+
+    if term_count <= 7:
+
+        return 6
+
+    if term_count <= 10:
+
+        return 7
+
+    return 8
 
 
 def relevance_filter(
@@ -573,15 +843,11 @@ def relevance_filter(
 
     accepted = []
 
-    terms = _topic_terms(
-        topic
+    minimum_score = (
+        _minimum_relevance_score(
+            topic
+        )
     )
-
-    minimum_matches = 1
-
-    if len(terms) >= 4:
-
-        minimum_matches = 2
 
     for source in sources:
 
@@ -594,7 +860,7 @@ def relevance_filter(
             "relevance_score"
         ] = score
 
-        if score >= minimum_matches:
+        if score >= minimum_score:
 
             accepted.append(
                 source
@@ -605,6 +871,11 @@ def relevance_filter(
             print(
                 f"⚠️ Rejected low-relevance source: "
                 f"{source.get('title', '')}"
+            )
+
+            print(
+                f"   Score: {score} "
+                f"/ Required: {minimum_score}"
             )
 
     return accepted
@@ -1879,6 +2150,10 @@ def limit_sources(
                 "relevance_score",
                 0,
             ),
+            source.get(
+                "topic_term_coverage",
+                0,
+            ),
             len(
                 source.get(
                     "abstract",
@@ -1918,6 +2193,11 @@ def research_topic(
 
     print(
         f"Topic: {topic}"
+    )
+
+    print(
+        f"Topic words: "
+        f"{len(topic.split())}"
     )
 
     # ----------------------------------------------------------------------
@@ -1962,9 +2242,6 @@ def research_topic(
             error
         )
 
-    # OpenAlex is intentionally searched as an additional
-    # independent evidence source.
-
     try:
 
         openalex = search_openalex(
@@ -1993,7 +2270,7 @@ def research_topic(
     )
 
     # ----------------------------------------------------------------------
-    # RELEVANCE FILTER
+    # FIRST RELEVANCE FILTER
     # ----------------------------------------------------------------------
 
     relevant = relevance_filter(
@@ -2059,10 +2336,6 @@ def research_topic(
 
         elif database == "OpenAlex":
 
-            # OpenAlex records already contain
-            # DOI-backed metadata. We still verify
-            # identity through Crossref when possible.
-
             verified_ok = (
                 verify_crossref_source(
                     source
@@ -2070,9 +2343,6 @@ def research_topic(
             )
 
             if not verified_ok:
-
-                # OpenAlex itself is still a valid
-                # bibliographic source.
 
                 verified_ok = bool(
                     source.get(
@@ -2247,6 +2517,11 @@ def research_topic(
         print(
             f"   Relevance score: "
             f"{source.get('relevance_score', 0)}"
+        )
+
+        print(
+            f"   Topic coverage: "
+            f"{source.get('topic_term_coverage', 0):.1%}"
         )
 
         print(

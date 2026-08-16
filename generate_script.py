@@ -1,7 +1,7 @@
 """
 generate_script.py
 Mint-YT-Factory
-Version 8.0
+Version 8.1
 
 Research-first production script generator.
 
@@ -31,6 +31,9 @@ IMPORTANT:
 - Every research source must already be verified.
 - Script generation FAILS if verified research is missing.
 - Research references remain attached to the final script.
+- next_short.topic has NO word-count limit.
+- next_short.topic is the actual subject of the next video.
+- New standalone topics are handled separately by topics.py.
 """
 
 import json
@@ -62,6 +65,17 @@ SCENE_DURATIONS = [
 ]
 
 MIN_VERIFIED_SOURCES = 2
+
+# --------------------------------------------------------------------------
+# NEXT SHORT
+#
+# This is NOT a word limit.
+#
+# It is only a safety limit to prevent Gemini from returning an enormous
+# paragraph instead of a usable topic.
+# --------------------------------------------------------------------------
+
+MAX_NEXT_SHORT_CHARACTERS = 300
 
 
 # ==========================================================================
@@ -678,13 +692,56 @@ No viewers.
 No AI.
 
 ============================================================
-FINAL SCENE
+FINAL SCENE + NEXT SHORT
 ============================================================
 
-- purpose = "ending"
-- transition = "none"
-- narration contains the next-Short teaser.
-- The teaser must be related to the current subject.
+Scene 7 is the bridge to the next Short.
+
+The ending must:
+
+1. Deliver a satisfying insight about the CURRENT topic.
+2. Leave one natural curiosity gap.
+3. Introduce a NEXT SHORT that logically continues from
+   that curiosity gap.
+4. Make the next topic feel like the next chapter of the story,
+   not a random related subject.
+
+The next Short topic MUST:
+
+- Be based on the current video's final unresolved curiosity.
+- Be specific enough for research.py to investigate.
+- Describe the actual subject the NEXT video will research.
+- Continue naturally from the current phenomenon.
+- NOT simply repeat the current topic.
+- NOT be a generic related topic.
+- NOT be a list.
+- NOT use "Top 5", "Top 10", or "Did you know".
+- NOT have an 8-word limit.
+- May be a full descriptive phrase or question if that makes
+  the continuation clearer.
+
+IMPORTANT:
+
+There is NO 8-word limit for next_short.topic.
+
+The 8-word restriction applies ONLY to independently generated
+new topics by topics.py.
+
+Example:
+
+Current topic:
+How do deep sea fish survive immense pressure
+
+Next Short topic:
+discover how deep ocean trenches drive massive cyclonic water circulation
+
+The next_short.topic describes the actual subject that the NEXT
+video will research and explain.
+
+Do NOT shorten, paraphrase, or truncate next_short.topic merely
+to make it shorter.
+
+The next_short.topic should be research-ready.
 
 Return ONLY valid JSON.
 """
@@ -777,7 +834,23 @@ If a statement is not supported by the supplied sources, remove it.
 The research_sources field in the final JSON MUST contain the supplied
 verified sources exactly.
 
-The final Short must be publishable with citations immediately.
+============================================================
+NEXT SHORT REQUIREMENT
+============================================================
+
+The next_short.topic is NOT constrained to 8 words.
+
+It must represent the actual subject of the NEXT video.
+
+It must naturally continue the curiosity created by this video's ending.
+
+The next_short.topic may be longer than 8 words when necessary.
+
+Do NOT shorten it just to satisfy an arbitrary word limit.
+
+Example:
+
+discover how deep ocean trenches drive massive cyclonic water circulation
 
 Return ONLY JSON.
 """
@@ -2038,6 +2111,19 @@ def _normalize_next_short(
     script,
 ):
 
+    """
+    Normalize the next Short information.
+
+    IMPORTANT:
+
+    next_short.topic has NO word-count limit.
+
+    It is the actual research topic for the next video.
+
+    A safety limit of 300 characters prevents malformed output,
+    but legitimate long continuation topics are preserved exactly.
+    """
+
     item = script.get(
         "next_short",
         {},
@@ -2083,6 +2169,18 @@ def _normalize_next_short(
             "next_short.topic is empty."
         )
 
+    # ----------------------------------------------------------------------
+    # NO WORD LIMIT
+    # ----------------------------------------------------------------------
+
+    if len(topic) > MAX_NEXT_SHORT_CHARACTERS:
+
+        raise RuntimeError(
+            "next_short.topic is too long. "
+            f"Maximum allowed is "
+            f"{MAX_NEXT_SHORT_CHARACTERS} characters."
+        )
+
     if not teaser:
 
         raise RuntimeError(
@@ -2093,8 +2191,10 @@ def _normalize_next_short(
         "next_short"
     ] = {
 
+        # IMPORTANT:
+        # Do NOT truncate the topic.
         "topic":
-            topic[:150],
+            topic,
 
         "teaser":
             teaser[:220],
@@ -2506,6 +2606,14 @@ def validate_script(
         )
 
     _normalize_visual_continuity(
+        script
+    )
+
+    # ----------------------------------------------------------------------
+    # NEXT SHORT NORMALIZATION
+    # ----------------------------------------------------------------------
+
+    _normalize_next_short(
         script
     )
 
@@ -3187,6 +3295,11 @@ Remember:
 - Exactly 7 scenes.
 - Exactly 14 visuals.
 - Exactly 45 seconds.
+- next_short.topic has NO 8-word limit.
+- Preserve the full next_short.topic.
+- Make next_short.topic the actual subject of the next video.
+- Make the next topic naturally continue the current video's
+  unresolved curiosity.
 
 Return ONLY JSON.
 """
@@ -3250,6 +3363,16 @@ Return ONLY JSON.
             print(
                 f"Research sources: "
                 f"{len(script['research_sources'])}"
+            )
+
+            print(
+                f"Next Short topic: "
+                f"{script['next_short']['topic']}"
+            )
+
+            print(
+                f"Next Short topic words: "
+                f"{len(script['next_short']['topic'].split())}"
             )
 
             print(

@@ -2,7 +2,7 @@
 generate_script.py
 Mint-YT-Factory
 
-Version 10.1
+Version 10.2
 
 Research-first production script generator.
 
@@ -34,14 +34,13 @@ IMPORTANT:
 - Gemini may NOT use outside knowledge.
 - Gemini may NOT invent sources.
 - Gemini may NOT invent evidence.
-- Metadata is NOT treated as evidence.
-- evidence_text is the authoritative evidence field.
+- Metadata is NOT evidence.
+- evidence_text is authoritative.
 - Evidence must already be verified by research.py.
-- Gemini may only choose source IDs from verified research.
-- source_id is authoritative and comes from research.py.
-- source IDs are NEVER generated from array position.
+- source_id comes only from research.py.
+- source IDs are never generated from array position.
 - research_sources are copied from research.py.
-- Gemini does NOT generate research metadata.
+- Gemini does NOT control research metadata.
 - Factual claims require citations.
 - Purely stylistic scenes may contain zero citations.
 - verify_claims.py remains the final claim-verification gate.
@@ -68,11 +67,9 @@ MODEL_NAME = "gemini-flash-lite-latest"
 MAX_GENERATION_ATTEMPTS = 4
 
 SCENE_COUNT = 7
-
 TARGET_SECONDS = 45
 
 VISUALS_PER_SCENE = 2
-
 TOTAL_VISUALS = 14
 
 SCENE_DURATIONS = [
@@ -86,7 +83,6 @@ SCENE_DURATIONS = [
 ]
 
 MIN_VERIFIED_SOURCES = 2
-
 MAX_NEXT_SHORT_CHARACTERS = 300
 
 
@@ -278,7 +274,6 @@ BEAT_TABLE = """
 # ==========================================================================
 
 def _clean(text):
-
     if text is None:
         return ""
 
@@ -290,13 +285,9 @@ def _clean(text):
 
 
 def _get_api_key():
-
-    api_key = os.environ.get(
-        "GEMINI_API_KEY"
-    )
+    api_key = os.environ.get("GEMINI_API_KEY")
 
     if not api_key:
-
         raise RuntimeError(
             "GEMINI_API_KEY environment variable is missing."
         )
@@ -305,15 +296,13 @@ def _get_api_key():
 
 
 def _enum(values):
-
     return {
         "type": "string",
-        "enum": list(values),
+        "enum": sorted(list(values)),
     }
 
 
 def _slugify(text):
-
     slug = re.sub(
         r"[^a-z0-9]+",
         "-",
@@ -323,73 +312,44 @@ def _slugify(text):
     return slug[:40] or "video"
 
 
-def _check_enum(
-    value,
-    allowed,
-    label,
-):
-
+def _check_enum(value, allowed, label):
     if value not in allowed:
-
         raise RuntimeError(
-            f"{label}: invalid value '{value}'."
+            f"{label}: invalid value '{value}'. "
+            f"Allowed values: {sorted(allowed)}"
         )
 
 
-def _build_style_lock(identity):
+def _safe_int(value, default=0):
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return default
 
-    if not isinstance(
-        identity,
-        dict,
-    ):
+
+def _build_style_lock(identity):
+    if not isinstance(identity, dict):
         return ""
 
     parts = [
-        str(
-            identity.get(
-                "style",
-                "",
-            )
-        ).strip(),
-
-        str(
-            identity.get(
-                "palette",
-                "",
-            )
-        ).strip(),
-
-        str(
-            identity.get(
-                "mood_arc",
-                "",
-            )
-        ).strip(),
+        _clean(identity.get("style", "")),
+        _clean(identity.get("palette", "")),
+        _clean(identity.get("mood_arc", "")),
     ]
 
-    parts = [
-        part
-        for part in parts
-        if part
-    ]
+    parts = [part for part in parts if part]
 
     if not parts:
         return ""
 
-    return (
-        "Consistent visual identity: "
-        + ", ".join(parts)
-    )
+    return "Consistent visual identity: " + ", ".join(parts)
 
 
 # ==========================================================================
 # RESEARCH VALIDATION
 # ==========================================================================
 
-def validate_research_package(
-    research,
-    topic,
-):
+def validate_research_package(research, topic):
     """
     HARD RESEARCH GATE.
 
@@ -409,145 +369,81 @@ def validate_research_package(
     - DOI exists
     - URL exists
 
-    IMPORTANT:
-
-    evidence_text is authoritative.
-
-    We intentionally DO NOT fall back to abstract here.
+    No fallback to abstract or metadata is allowed.
     """
 
-    if not isinstance(
-        research,
-        dict,
-    ):
-
+    if not isinstance(research, dict):
         raise RuntimeError(
             "RESEARCH GATE FAILED: research package is missing."
         )
 
-    if research.get(
-        "verified"
-    ) is not True:
-
+    if research.get("verified") is not True:
         raise RuntimeError(
             "RESEARCH GATE FAILED: research package is not VERIFIED."
         )
 
-    if research.get(
-        "status"
-    ) != "VERIFIED":
-
+    if research.get("status") != "VERIFIED":
         raise RuntimeError(
             "RESEARCH GATE FAILED: research status is not VERIFIED."
         )
 
-    sources = research.get(
-        "sources",
-        [],
-    )
+    sources = research.get("sources", [])
 
-    if not isinstance(
-        sources,
-        list,
-    ):
-
+    if not isinstance(sources, list):
         raise RuntimeError(
             "RESEARCH GATE FAILED: sources must be a list."
         )
 
     verified_sources = []
-
     seen_source_ids = set()
 
-    for index, source in enumerate(
-        sources,
-        start=1,
-    ):
+    for index, source in enumerate(sources, start=1):
 
-        if not isinstance(
-            source,
-            dict,
-        ):
+        if not isinstance(source, dict):
             continue
 
-        if source.get(
-            "verified"
-        ) is not True:
-
+        if source.get("verified") is not True:
             continue
 
-        if source.get(
-            "evidence_verified"
-        ) is not True:
-
+        if source.get("evidence_verified") is not True:
             continue
 
-        if source.get(
-            "evidence_available"
-        ) is not True:
-
+        if source.get("evidence_available") is not True:
             continue
-
-        # --------------------------------------------------------------
-        # AUTHORITATIVE SOURCE ID
-        #
-        # This MUST come from research.py.
-        #
-        # Never create source_1/source_2 based on position.
-        # --------------------------------------------------------------
 
         source_id = _clean(
-            source.get(
-                "source_id",
-                "",
-            )
+            source.get("source_id", "")
         )
 
         if not source_id:
-
             raise RuntimeError(
                 "RESEARCH GATE FAILED: "
                 f"source at position {index} has no source_id."
             )
 
         if source_id in seen_source_ids:
-
             raise RuntimeError(
                 "RESEARCH GATE FAILED: "
                 f"duplicate source_id '{source_id}'."
             )
 
         title = _clean(
-            source.get(
-                "title",
-                "",
-            )
+            source.get("title", "")
         )
 
         authors = _clean(
-            source.get(
-                "authors",
-                "",
-            )
+            source.get("authors", "")
         )
 
         url = _clean(
-            source.get(
-                "url",
-                "",
-            )
+            source.get("url", "")
         )
 
         doi = _clean(
-            source.get(
-                "doi",
-                "",
-            )
+            source.get("doi", "")
         )
 
-        evidence = _extract_source_evidence(
-            source
-        )
+        evidence = _extract_source_evidence(source)
 
         if not title:
             continue
@@ -564,18 +460,10 @@ def validate_research_package(
         if not evidence:
             continue
 
-        seen_source_ids.add(
-            source_id
-        )
+        seen_source_ids.add(source_id)
+        verified_sources.append(source)
 
-        verified_sources.append(
-            source
-        )
-
-    if len(
-        verified_sources
-    ) < MIN_VERIFIED_SOURCES:
-
+    if len(verified_sources) < MIN_VERIFIED_SOURCES:
         raise RuntimeError(
             "RESEARCH GATE FAILED: "
             f"Only {len(verified_sources)} "
@@ -584,38 +472,18 @@ def validate_research_package(
         )
 
     research_topic = _clean(
-        research.get(
-            "topic",
-            "",
-        )
+        research.get("topic", "")
     )
 
     if research_topic:
-
-        if (
-            research_topic.lower()
-            != topic.strip().lower()
-        ):
-
+        if research_topic.lower() != topic.strip().lower():
             print(
                 "⚠️ Research topic differs slightly from generated topic."
             )
 
-    research[
-        "sources"
-    ] = verified_sources
-
-    research[
-        "source_count"
-    ] = len(
-        verified_sources
-    )
-
-    research[
-        "evidence_source_count"
-    ] = len(
-        verified_sources
-    )
+    research["sources"] = verified_sources
+    research["source_count"] = len(verified_sources)
+    research["evidence_source_count"] = len(verified_sources)
 
     return research
 
@@ -624,35 +492,20 @@ def validate_research_package(
 # EVIDENCE EXTRACTION
 # ==========================================================================
 
-def _extract_source_evidence(
-    source,
-):
+def _extract_source_evidence(source):
     """
-    Extract ONLY the authoritative evidence_text.
+    ONLY evidence_text is authoritative.
 
-    IMPORTANT:
-
-    research.py is responsible for creating and verifying evidence_text.
-
-    generate_script.py must not create, summarize, combine, or invent
-    evidence.
-
-    We deliberately do NOT fall back to:
+    Never fall back to:
 
     - abstract
     - title
     - metadata
     - evidence_summary
     - evidence_chunks
-
-    This keeps research.py as the single source of truth.
     """
 
-    if not isinstance(
-        source,
-        dict,
-    ):
-
+    if not isinstance(source, dict):
         return ""
 
     evidence = source.get(
@@ -660,49 +513,21 @@ def _extract_source_evidence(
         "",
     )
 
-    if not isinstance(
-        evidence,
-        str,
-    ):
-
+    if not isinstance(evidence, str):
         return ""
 
-    return _clean(
-        evidence
-    )
+    return _clean(evidence)
 
 
 # ==========================================================================
 # BUILD RESEARCH CONTEXT
 # ==========================================================================
 
-def build_research_context(
-    research,
-):
-    """
-    Build a strict evidence package for Gemini.
+def build_research_context(research):
 
-    IMPORTANT:
-
-    source_id is supplied by research.py and is authoritative.
-
-    generate_script.py MUST NOT create source IDs based on array
-    position.
-
-    Metadata is provided only for source identification.
-
-    Scientific evidence is provided separately.
-
-    Gemini must never treat title, DOI, journal, authors or URL
-    as evidence.
-    """
-
-    sources = research[
-        "sources"
-    ]
+    sources = research["sources"]
 
     blocks = []
-
     seen_ids = set()
 
     for index, source in enumerate(
@@ -710,11 +535,7 @@ def build_research_context(
         start=1,
     ):
 
-        if not isinstance(
-            source,
-            dict,
-        ):
-
+        if not isinstance(source, dict):
             raise RuntimeError(
                 f"Research source {index} is invalid."
             )
@@ -727,41 +548,36 @@ def build_research_context(
         )
 
         if not source_id:
-
             raise RuntimeError(
                 f"Research source {index} has no source_id."
             )
 
         if source_id in seen_ids:
-
             raise RuntimeError(
-                f"Duplicate research source_id detected: "
+                "Duplicate research source_id detected: "
                 f"{source_id}"
             )
 
-        seen_ids.add(
-            source_id
-        )
+        seen_ids.add(source_id)
+
+        evidence = _extract_source_evidence(source)
+
+        if not evidence:
+            raise RuntimeError(
+                f"Research source {source_id} "
+                "has no authoritative evidence_text."
+            )
 
         title = _clean(
-            source.get(
-                "title",
-                "",
-            )
+            source.get("title", "")
         )
 
         authors = _clean(
-            source.get(
-                "authors",
-                "",
-            )
+            source.get("authors", "")
         )
 
         journal = _clean(
-            source.get(
-                "journal",
-                "",
-            )
+            source.get("journal", "")
         )
 
         year = source.get(
@@ -770,36 +586,23 @@ def build_research_context(
         )
 
         doi = _clean(
-            source.get(
-                "doi",
-                "",
-            )
+            source.get("doi", "")
         )
 
         url = _clean(
-            source.get(
-                "url",
-                "",
-            )
+            source.get("url", "")
         )
 
         database = _clean(
+            source.get("source_database", "")
+        )
+
+        verification_level = _clean(
             source.get(
-                "source_database",
+                "verification_level",
                 "",
             )
         )
-
-        evidence = _extract_source_evidence(
-            source
-        )
-
-        if not evidence:
-
-            raise RuntimeError(
-                f"Research source {source_id} "
-                "has no authoritative evidence_text."
-            )
 
         evidence_type = _clean(
             source.get(
@@ -848,7 +651,7 @@ Database:
 {database}
 
 Verification Level:
-{_clean(source.get("verification_level", ""))}
+{verification_level}
 
 Evidence Verified:
 {source.get("evidence_verified", False)}
@@ -878,19 +681,14 @@ END SOURCE {source_id}
 ============================================================
 """
 
-        blocks.append(
-            block.strip()
-        )
+        blocks.append(block.strip())
 
     if not blocks:
-
         raise RuntimeError(
             "No verified research sources are available."
         )
 
-    return "\n\n".join(
-        blocks
-    )
+    return "\n\n".join(blocks)
 
 
 # ==========================================================================
@@ -905,8 +703,8 @@ def build_system_prompt(
     return f"""
 You are an expert educational YouTube Shorts writer and visual director.
 
-Your job is to create a scientifically responsible Short using ONLY
-the VERIFIED RESEARCH EVIDENCE supplied by the user.
+Create a scientifically responsible YouTube Short using ONLY the
+VERIFIED RESEARCH EVIDENCE supplied by the user.
 
 ============================================================
 ABSOLUTE RESEARCH RULE
@@ -928,8 +726,10 @@ You MUST NOT use:
 - invented citations
 - unsupported assumptions
 
-You may use normal storytelling language, but any factual scientific
-statement must be supported by the supplied evidence.
+You may use normal storytelling language.
+
+However, every factual scientific statement must be supported by the
+supplied evidence.
 
 If the evidence does not support a fact:
 
@@ -941,53 +741,29 @@ METADATA VS EVIDENCE
 
 Source title, authors, journal, year, DOI and URL identify a source.
 
-They are NOT evidence by themselves.
+They are NOT evidence.
 
-Only the section marked:
+ONLY the section:
 
 SUPPLIED SCIENTIFIC EVIDENCE
 
 may be used as evidence for factual claims.
 
-Do not infer scientific findings merely from a paper title.
+Do not infer scientific findings from a paper title.
 
 ============================================================
 CLAIM STRENGTH
 ============================================================
 
-Preserve the strength of the research.
+Preserve the exact strength of the research.
 
-If evidence says:
+If evidence says "may", do not write "does".
 
-"may"
+If evidence says "associated with", do not write "causes".
 
-do not write:
+If evidence says "possible", do not write "proven".
 
-"does."
-
-If evidence says:
-
-"associated with"
-
-do not write:
-
-"causes."
-
-If evidence says:
-
-"possible"
-
-do not write:
-
-"proven."
-
-If evidence says:
-
-"hypothesis"
-
-do not write:
-
-"fact."
+If evidence says "hypothesis", do not write "fact".
 
 If evidence is observational, do not turn it into a causal claim.
 
@@ -995,51 +771,36 @@ If evidence is observational, do not turn it into a causal claim.
 SOURCE IDs
 ============================================================
 
-The available source IDs are supplied directly by research.py.
+Source IDs are supplied directly by research.py.
 
 They are authoritative.
 
-IMPORTANT:
+Use EXACTLY the supplied source IDs.
 
-You MUST use the exact source IDs provided in the research
-evidence package.
+NEVER:
 
-Do NOT:
-
-- create source_1/source_2 yourself
-- renumber source IDs
-- rename source IDs
-- invent source IDs
-- replace authoritative IDs with positional IDs
+- create source_1/source_2
+- renumber IDs
+- rename IDs
+- invent IDs
+- replace IDs with positional IDs
 - assume the first source is source_1
 - assume the second source is source_2
 
-A source ID may look like:
+For factual scenes:
 
-ABC123
-paper_7f91
-research_4d82
-or another identifier.
+source_ids MUST contain the exact source IDs supporting
+the factual claims.
 
-Use exactly what is supplied.
+For purely stylistic/storytelling scenes:
 
-For every scene containing factual scientific claims:
-
-"source_ids" MUST contain the source IDs supporting those claims.
-
-The source IDs must come ONLY from the supplied source list.
-
-A scene containing only stylistic/storytelling language may use:
-
-"source_ids": []
-
-Do NOT add citations simply because a scene exists.
+source_ids may be [].
 
 ============================================================
-IMPORTANT FACTUAL CLAIMS
+FACTUAL CLAIMS
 ============================================================
 
-Important factual claims include statements about:
+Factual claims include:
 
 - mechanisms
 - causes
@@ -1054,27 +815,21 @@ Important factual claims include statements about:
 - dates
 - numbers
 - percentages
-- historical facts
 - scientific conclusions
 
-Purely stylistic sentences do not require citations.
+Pure storytelling language does not automatically require a citation.
 
-Examples:
+Example:
 
 "Here's where it gets strange."
 
-Not a factual claim.
+This is stylistic.
 
-"But the deeper you go, the story changes."
-
-This may be storytelling language and does not automatically require
-a citation.
-
-However:
+Example:
 
 "Pressure increases rapidly with depth."
 
-This is factual and requires supporting evidence.
+This is factual and requires evidence.
 
 ============================================================
 CITATION PRECISION
@@ -1082,42 +837,38 @@ CITATION PRECISION
 
 Use the smallest set of sources necessary.
 
-If one supplied source supports a claim:
+One-source claim:
 
 ["ACTUAL_SOURCE_ID"]
 
-Do not automatically cite all sources.
+Two-source claim:
 
-If two supplied sources are necessary:
+["ACTUAL_SOURCE_ID_1", "ACTUAL_SOURCE_ID_2"]
 
-[
-    "ACTUAL_SOURCE_ID_1",
-    "ACTUAL_SOURCE_ID_2"
-]
-
-Do not cite a source that does not actually support the claim.
+Do not cite sources that do not support the claim.
 
 ============================================================
-SOURCE METADATA
+RESEARCH SOURCES
 ============================================================
 
-The "research_sources" field is NOT generated from your own knowledge.
+The pipeline will overwrite research_sources with exact metadata
+from research.py.
 
-The pipeline will overwrite it with the exact verified metadata from
-research.py.
+Do NOT invent research metadata.
 
-Do not invent research source metadata.
-
-Do not modify source IDs.
+Do NOT modify source IDs.
 
 ============================================================
 FORMAT
 ============================================================
 
-- Exactly {scene_count} scenes.
-- Exactly {VISUALS_PER_SCENE} visuals per scene.
-- Exactly {TOTAL_VISUALS} visuals total.
-- Exactly {target_seconds} seconds.
+Exactly {scene_count} scenes.
+
+Exactly {VISUALS_PER_SCENE} visuals per scene.
+
+Exactly {TOTAL_VISUALS} visuals total.
+
+Exactly {target_seconds} seconds.
 
 Scene durations:
 
@@ -1142,7 +893,9 @@ WRITING
 - No Top 5.
 - One connected story.
 - Teach one phenomenon.
-- Do not pad the script with unsupported facts.
+- Do not pad with unsupported facts.
+- Keep the narration natural for spoken voice.
+- Avoid overly technical wording unless the evidence requires it.
 
 ============================================================
 VISUALS
@@ -1184,7 +937,7 @@ Do NOT include:
 NEXT SHORT
 ============================================================
 
-Scene 7 should create a natural continuation.
+Scene 7 must create a natural continuation.
 
 The ending must:
 
@@ -1219,9 +972,7 @@ def build_user_prompt(
     research,
 ):
 
-    research_context = build_research_context(
-        research
-    )
+    research_context = build_research_context(research)
 
     source_ids = []
 
@@ -1230,11 +981,7 @@ def build_user_prompt(
         start=1,
     ):
 
-        if not isinstance(
-            source,
-            dict,
-        ):
-
+        if not isinstance(source, dict):
             raise RuntimeError(
                 f"Research source {index} is invalid."
             )
@@ -1247,44 +994,36 @@ def build_user_prompt(
         )
 
         if not source_id:
-
             raise RuntimeError(
                 f"Research source {index} "
                 "does not have a source_id."
             )
 
-        source_ids.append(
-            source_id
-        )
+        source_ids.append(source_id)
 
-    audience = (
-        config.get(
-            "channel",
-            {},
-        ).get(
-            "audience",
-            "",
-        )
+    channel_config = config.get(
+        "channel",
+        {},
     )
 
-    tone = (
-        config.get(
-            "channel",
-            {},
-        ).get(
-            "tone",
-            "",
-        )
+    script_config = config.get(
+        "script",
+        {},
     )
 
-    language = (
-        config.get(
-            "script",
-            {},
-        ).get(
-            "language",
-            "English",
-        )
+    audience = channel_config.get(
+        "audience",
+        "",
+    )
+
+    tone = channel_config.get(
+        "tone",
+        "",
+    )
+
+    language = script_config.get(
+        "language",
+        "English",
     )
 
     return f"""
@@ -1304,35 +1043,30 @@ LANGUAGE:
 VERIFIED RESEARCH EVIDENCE
 ============================================================
 
-The following sources have passed the research verification gate.
+The following sources passed the research verification gate.
 
 Available source IDs:
 
 {", ".join(source_ids)}
 
-IMPORTANT:
+These IDs come directly from research.py.
 
-These source IDs come directly from research.py.
-
-You MUST use these exact source IDs when citing evidence.
+Use these EXACT IDs when citing evidence.
 
 Do NOT:
 
 - rename them
 - create new source IDs
-- replace them with source_1/source_2 unless those are the actual
-  IDs supplied by research.py
+- replace them with source_1/source_2
 - invent citations
-- infer source IDs from their order
+- infer IDs from source order
 
-The source metadata identifies each source.
-
-Only the supplied scientific evidence sections may be used to
-support factual claims.
+Only the supplied scientific evidence sections may support factual
+claims.
 
 Do not use outside knowledge.
 
-Do not infer facts from titles.
+Do not infer facts from titles or metadata.
 
 ============================================================
 
@@ -1359,29 +1093,11 @@ CITATION RULE
 
 For each scene:
 
-- If narration contains factual scientific claims, provide the
-  supporting source IDs.
-- If narration is purely stylistic, source_ids may be [].
+- Factual scientific claims require supporting source IDs.
+- Purely stylistic scenes may use [].
 - Never invent source IDs.
-- Never cite a source that does not support the claim.
-- Use the minimum necessary supporting sources.
-
-Examples:
-
-Factual scene:
-
-"source_ids": ["ACTUAL_SOURCE_ID"]
-
-Two-source claim:
-
-"source_ids": [
-    "ACTUAL_SOURCE_ID_1",
-    "ACTUAL_SOURCE_ID_2"
-]
-
-Purely stylistic scene:
-
-"source_ids": []
+- Never cite unsupported sources.
+- Use the minimum necessary sources.
 
 ============================================================
 RESEARCH FIDELITY
@@ -1396,7 +1112,7 @@ Do NOT:
 - convert correlation into causation
 - convert hypotheses into facts
 - use general knowledge
-- use knowledge not present in the supplied evidence
+- use knowledge not present in supplied evidence
 
 ============================================================
 NEXT SHORT
@@ -1422,81 +1138,46 @@ Return ONLY JSON.
 def build_response_schema():
 
     visual = {
-
         "type": "object",
-
         "properties": {
-
             "segment": {
                 "type": "integer",
             },
-
             "duration": {
                 "type": "integer",
             },
-
-            "camera": _enum(
-                VALID_CAMERA
-            ),
-
-            "animation": _enum(
-                VALID_ANIMATION
-            ),
-
-            "zoom_strength": _enum(
-                VALID_ZOOM_STRENGTH
-            ),
-
-            "motion_intensity": _enum(
-                VALID_MOTION_INTENSITY
-            ),
-
-            "visual_complexity": _enum(
-                VALID_VISUAL_COMPLEXITY
-            ),
-
-            "image_style": _enum(
-                VALID_IMAGE_STYLE
-            ),
-
+            "camera": _enum(VALID_CAMERA),
+            "animation": _enum(VALID_ANIMATION),
+            "zoom_strength": _enum(VALID_ZOOM_STRENGTH),
+            "motion_intensity": _enum(VALID_MOTION_INTENSITY),
+            "visual_complexity": _enum(VALID_VISUAL_COMPLEXITY),
+            "image_style": _enum(VALID_IMAGE_STYLE),
             "lighting": {
                 "type": "string",
             },
-
             "color_palette": {
                 "type": "string",
             },
-
             "overlay": {
-
                 "type": "object",
-
                 "properties": {
-
-                    "type": _enum(
-                        VALID_OVERLAY_TYPE
-                    ),
-
+                    "type": _enum(VALID_OVERLAY_TYPE),
                     "description": {
                         "type": "string",
                     },
                 },
-
                 "required": [
                     "type",
                     "description",
                 ],
             },
-
             "image_prompt": {
                 "type": "string",
             },
-
             "visual_impact": {
                 "type": "integer",
             },
         },
-
         "required": [
             "segment",
             "duration",
@@ -1515,131 +1196,92 @@ def build_response_schema():
     }
 
     scene = {
-
         "type": "object",
-
         "properties": {
-
             "scene": {
                 "type": "integer",
             },
-
-            "purpose": _enum(
-                VALID_PURPOSE
-            ),
-
+            "purpose": _enum(VALID_PURPOSE),
             "retention_purpose": _enum(
                 VALID_RETENTION_PURPOSE
             ),
-
             "narration": {
                 "type": "string",
             },
-
             "source_ids": {
-
                 "type": "array",
-
                 "items": {
                     "type": "string",
                 },
             },
-
             "subtitle_text": {
                 "type": "string",
             },
-
             "caption_highlights": {
-
                 "type": "array",
-
                 "items": {
-
                     "type": "object",
-
                     "properties": {
-
                         "word": {
                             "type": "string",
                         },
-
                         "emphasis": _enum(
                             VALID_EMPHASIS
                         ),
                     },
-
                     "required": [
                         "word",
                         "emphasis",
                     ],
                 },
             },
-
             "subtitle_style": _enum(
                 VALID_SUBTITLE_STYLE
             ),
-
             "emphasis_word": {
                 "type": "string",
             },
-
             "duration": {
                 "type": "integer",
             },
-
             "pause_after_ms": {
                 "type": "integer",
             },
-
             "emotional_tone": _enum(
                 VALID_EMOTIONAL_TONE
             ),
-
             "visual_priority": _enum(
                 VALID_VISUAL_PRIORITY
             ),
-
             "transition": _enum(
                 VALID_TRANSITION
             ),
-
             "sfx_cue": {
-
                 "type": "object",
-
                 "properties": {
-
                     "term": {
                         "type": "string",
                     },
-
                     "at_ms": {
                         "type": "integer",
                     },
                 },
-
                 "required": [
                     "term",
                     "at_ms",
                 ],
             },
-
             "music_cue": _enum(
                 VALID_MUSIC_CUE
             ),
-
             "confidence": _enum(
                 VALID_CONFIDENCE
             ),
-
             "visuals": {
-
                 "type": "array",
-
                 "items": visual,
             },
         },
-
         "required": [
             "scene",
             "purpose",
@@ -1663,64 +1305,48 @@ def build_response_schema():
     }
 
     source = {
-
         "type": "object",
-
         "properties": {
-
             "source_id": {
                 "type": "string",
             },
-
             "title": {
                 "type": "string",
             },
-
             "authors": {
                 "type": "string",
             },
-
             "organization": {
                 "type": "string",
             },
-
             "journal": {
                 "type": "string",
             },
-
             "year": {
                 "type": "integer",
             },
-
             "doi": {
                 "type": "string",
             },
-
             "url": {
                 "type": "string",
             },
-
             "source_database": {
                 "type": "string",
             },
-
             "source_type": {
                 "type": "string",
             },
-
             "priority": {
                 "type": "string",
             },
-
             "verified": {
                 "type": "boolean",
             },
-
             "verification": {
                 "type": "string",
             },
         },
-
         "required": [
             "source_id",
             "title",
@@ -1739,28 +1365,21 @@ def build_response_schema():
     }
 
     recurring_subject = {
-
         "type": "object",
-
         "properties": {
-
             "name": {
                 "type": "string",
             },
-
             "type": {
                 "type": "string",
             },
-
             "appearance": {
                 "type": "string",
             },
-
             "continuity": {
                 "type": "string",
             },
         },
-
         "required": [
             "name",
             "type",
@@ -1770,43 +1389,28 @@ def build_response_schema():
     }
 
     visual_continuity = {
-
         "type": "object",
-
         "properties": {
-
             "recurring_subjects": {
-
                 "type": "array",
-
-                "items":
-                    recurring_subject,
+                "items": recurring_subject,
             },
-
             "recurring_objects": {
-
                 "type": "array",
-
                 "items": {
                     "type": "string",
                 },
             },
-
             "recurring_environment": {
-
                 "type": "string",
             },
-
             "continuity_rules": {
-
                 "type": "array",
-
                 "items": {
                     "type": "string",
                 },
             },
         },
-
         "required": [
             "recurring_subjects",
             "recurring_objects",
@@ -1816,160 +1420,115 @@ def build_response_schema():
     }
 
     return {
-
         "type": "object",
-
         "properties": {
-
             "title": {
                 "type": "string",
             },
-
             "description": {
                 "type": "string",
             },
-
             "tags": {
-
                 "type": "array",
-
                 "items": {
                     "type": "string",
                 },
             },
-
             "category": _enum(
                 VALID_CATEGORY
             ),
-
             "thumbnail_prompt": {
                 "type": "string",
             },
-
             "voice_style": {
-
                 "type": "object",
-
                 "properties": {
-
                     "tone": {
                         "type": "string",
                     },
-
-                    "pace": _enum([
+                    "pace": _enum({
                         "slow",
                         "medium",
                         "fast",
-                    ]),
-
-                    "pitch": _enum([
+                    }),
+                    "pitch": _enum({
                         "low",
                         "medium",
                         "high",
-                    ]),
+                    }),
                 },
-
                 "required": [
                     "tone",
                     "pace",
                     "pitch",
                 ],
             },
-
             "music": {
-
                 "type": "object",
-
                 "properties": {
-
                     "search": {
                         "type": "string",
                     },
-
                     "arc": {
                         "type": "string",
                     },
                 },
-
                 "required": [
                     "search",
                     "arc",
                 ],
             },
-
             "visual_identity": {
-
                 "type": "object",
-
                 "properties": {
-
                     "style": {
                         "type": "string",
                     },
-
                     "palette": {
                         "type": "string",
                     },
-
                     "mood_arc": {
                         "type": "string",
                     },
                 },
-
                 "required": [
                     "style",
                     "palette",
                     "mood_arc",
                 ],
             },
-
-            "visual_continuity":
-                visual_continuity,
-
+            "visual_continuity": visual_continuity,
             "retention_self_check": {
-
                 "type": "object",
-
                 "properties": {
-
                     "weakest_scene": {
                         "type": "integer",
                     },
-
                     "reason": {
                         "type": "string",
                     },
                 },
-
                 "required": [
                     "weakest_scene",
                     "reason",
                 ],
             },
-
             "next_short": {
-
                 "type": "object",
-
                 "properties": {
-
                     "topic": {
                         "type": "string",
                     },
-
                     "teaser": {
                         "type": "string",
                     },
-
                     "why_viewers_should_return": {
                         "type": "string",
                     },
-
                     "subscription_cta": {
                         "type": "string",
                     },
                 },
-
                 "required": [
                     "topic",
                     "teaser",
@@ -1977,22 +1536,15 @@ def build_response_schema():
                     "subscription_cta",
                 ],
             },
-
             "research_sources": {
-
                 "type": "array",
-
                 "items": source,
             },
-
             "scene_plan": {
-
                 "type": "array",
-
                 "items": scene,
             },
         },
-
         "required": [
             "title",
             "description",
@@ -2015,33 +1567,26 @@ def build_response_schema():
 # JSON PARSER
 # ==========================================================================
 
-def parse_gemini_json(
-    text,
-):
+def parse_gemini_json(text):
 
     if not text:
-
         raise RuntimeError(
             "Gemini returned an empty response."
         )
 
     text = text.strip()
 
+    # Direct JSON.
     try:
+        data = json.loads(text)
 
-        data = json.loads(
-            text
-        )
-
-        if isinstance(
-            data,
-            dict,
-        ):
+        if isinstance(data, dict):
             return data
 
     except json.JSONDecodeError:
         pass
 
+    # Markdown JSON block.
     cleaned = re.sub(
         r"^```(?:json)?\s*",
         "",
@@ -2056,27 +1601,17 @@ def parse_gemini_json(
     ).strip()
 
     try:
+        data = json.loads(cleaned)
 
-        data = json.loads(
-            cleaned
-        )
-
-        if isinstance(
-            data,
-            dict,
-        ):
+        if isinstance(data, dict):
             return data
 
     except json.JSONDecodeError:
         pass
 
-    start = cleaned.find(
-        "{"
-    )
-
-    end = cleaned.rfind(
-        "}"
-    )
+    # Extract outer JSON object.
+    start = cleaned.find("{")
+    end = cleaned.rfind("}")
 
     if start >= 0 and end > start:
 
@@ -2084,6 +1619,7 @@ def parse_gemini_json(
             start:end + 1
         ]
 
+        # Remove trailing commas.
         candidate = re.sub(
             r",(\s*[}\]])",
             r"\1",
@@ -2091,19 +1627,12 @@ def parse_gemini_json(
         )
 
         try:
+            data = json.loads(candidate)
 
-            data = json.loads(
-                candidate
-            )
-
-            if isinstance(
-                data,
-                dict,
-            ):
+            if isinstance(data, dict):
                 return data
 
         except json.JSONDecodeError as error:
-
             raise RuntimeError(
                 f"Failed to parse Gemini JSON: {error}"
             )
@@ -2117,10 +1646,7 @@ def parse_gemini_json(
 # CAPTIONS
 # ==========================================================================
 
-def _repair_caption_highlights(
-    scene,
-    index,
-):
+def _repair_caption_highlights(scene, index):
 
     subtitle = _clean(
         scene.get(
@@ -2135,7 +1661,6 @@ def _repair_caption_highlights(
     )
 
     if not tokens:
-
         raise RuntimeError(
             f"Scene {index} subtitle_text contains no usable words."
         )
@@ -2152,19 +1677,14 @@ def _repair_caption_highlights(
         [],
     )
 
-    if not isinstance(
-        existing,
-        list,
-    ):
-
+    if not isinstance(existing, list):
         existing = []
+
+    used = set()
 
     for item in existing:
 
-        if not isinstance(
-            item,
-            dict,
-        ):
+        if not isinstance(item, dict):
             continue
 
         word = _clean(
@@ -2181,55 +1701,42 @@ def _repair_caption_highlights(
             )
         )
 
+        key = word.lower()
+
         if (
-            word.lower() in lookup
+            key in lookup
             and emphasis in VALID_EMPHASIS
+            and key not in used
         ):
 
-            if word.lower() not in {
-                x["word"].lower()
-                for x in result
-            }:
+            result.append({
+                "word": lookup[key],
+                "emphasis": emphasis,
+            })
 
-                result.append({
-
-                    "word":
-                        lookup[
-                            word.lower()
-                        ],
-
-                    "emphasis":
-                        emphasis,
-                })
+            used.add(key)
 
     if not result:
 
+        # Prefer a meaningful longer word.
         word = max(
             tokens,
             key=len,
         )
 
         result = [{
-
-            "word":
-                word,
-
-            "emphasis":
-                "strong",
+            "word": word,
+            "emphasis": "strong",
         }]
 
-    scene[
-        "caption_highlights"
-    ] = result[:3]
+    scene["caption_highlights"] = result[:3]
 
 
 # ==========================================================================
 # IMAGE PROMPT
 # ==========================================================================
 
-def _clean_image_prompt(
-    visual,
-):
+def _clean_image_prompt(visual):
 
     prompt = _clean(
         visual.get(
@@ -2244,7 +1751,6 @@ def _clean_image_prompt(
     )
 
     forbidden_patterns = [
-
         r"\baspect ratio\b",
         r"\b16:9\b",
         r"\b9:16\b",
@@ -2252,10 +1758,12 @@ def _clean_image_prompt(
         r"\btext overlay\b",
         r"\bwatermark\b",
         r"\blogo\b",
+        r"\bsubtitles?\b",
+        r"\bnarration\b",
+        r"\byoutube\b",
     ]
 
     for pattern in forbidden_patterns:
-
         prompt = re.sub(
             pattern,
             "",
@@ -2263,9 +1771,7 @@ def _clean_image_prompt(
             flags=re.IGNORECASE,
         )
 
-    return _clean(
-        prompt
-    )
+    return _clean(prompt)
 
 
 # ==========================================================================
@@ -2278,174 +1784,89 @@ def _repair_visual(
     visual_index,
 ):
 
-    visual[
-        "segment"
-    ] = visual_index
+    visual["segment"] = visual_index
 
     defaults = {
-
-        "camera":
-            "medium",
-
-        "animation":
-            "zoom_in",
-
-        "zoom_strength":
-            "subtle",
-
-        "motion_intensity":
-            "medium",
-
-        "visual_complexity":
-            "moderate",
-
-        "image_style":
-            "realistic_3d_render",
-
-        "lighting":
-            "soft cinematic directional lighting",
-
-        "color_palette":
-            "cinematic natural tones",
-
+        "camera": "medium",
+        "animation": "zoom_in",
+        "zoom_strength": "subtle",
+        "motion_intensity": "medium",
+        "visual_complexity": "moderate",
+        "image_style": "realistic_3d_render",
+        "lighting": "soft cinematic directional lighting",
+        "color_palette": "cinematic natural tones",
         "overlay": {
-            "type":
-                "none",
-
-            "description":
-                "",
+            "type": "none",
+            "description": "",
         },
-
-        "visual_impact":
-            7,
+        "visual_impact": 7,
     }
 
     for key, value in defaults.items():
-
         if key not in visual:
-
-            visual[
-                key
-            ] = value
+            visual[key] = value
 
     if not isinstance(
-        visual.get(
-            "overlay"
-        ),
+        visual.get("overlay"),
         dict,
     ):
-
-        visual[
-            "overlay"
-        ] = {
-
-            "type":
-                "none",
-
-            "description":
-                "",
+        visual["overlay"] = {
+            "type": "none",
+            "description": "",
         }
 
-    visual[
-        "overlay"
-    ].setdefault(
+    visual["overlay"].setdefault(
         "description",
         "",
     )
 
-    if visual[
-        "overlay"
-    ].get(
-        "type"
-    ) not in VALID_OVERLAY_TYPE:
+    if (
+        visual["overlay"].get("type")
+        not in VALID_OVERLAY_TYPE
+    ):
+        visual["overlay"]["type"] = "none"
 
-        visual[
-            "overlay"
-        ][
-            "type"
-        ] = "none"
+    if visual["camera"] not in VALID_CAMERA:
+        visual["camera"] = "medium"
 
-    if visual[
-        "camera"
-    ] not in VALID_CAMERA:
+    if visual["animation"] not in VALID_ANIMATION:
+        visual["animation"] = "zoom_in"
 
-        visual[
-            "camera"
-        ] = "medium"
+    if visual["zoom_strength"] not in VALID_ZOOM_STRENGTH:
+        visual["zoom_strength"] = "subtle"
 
-    if visual[
-        "animation"
-    ] not in VALID_ANIMATION:
+    if visual["motion_intensity"] not in VALID_MOTION_INTENSITY:
+        visual["motion_intensity"] = "medium"
 
-        visual[
-            "animation"
-        ] = "zoom_in"
+    if visual["visual_complexity"] not in VALID_VISUAL_COMPLEXITY:
+        visual["visual_complexity"] = "moderate"
 
-    if visual[
-        "zoom_strength"
-    ] not in VALID_ZOOM_STRENGTH:
+    if visual["image_style"] not in VALID_IMAGE_STYLE:
+        visual["image_style"] = "realistic_3d_render"
 
-        visual[
-            "zoom_strength"
-        ] = "subtle"
-
-    if visual[
-        "motion_intensity"
-    ] not in VALID_MOTION_INTENSITY:
-
-        visual[
-            "motion_intensity"
-        ] = "medium"
-
-    if visual[
-        "visual_complexity"
-    ] not in VALID_VISUAL_COMPLEXITY:
-
-        visual[
-            "visual_complexity"
-        ] = "moderate"
-
-    if visual[
-        "image_style"
-    ] not in VALID_IMAGE_STYLE:
-
-        visual[
-            "image_style"
-        ] = "realistic_3d_render"
-
-    try:
-
-        impact = int(
-            visual.get(
-                "visual_impact",
-                7,
-            )
-        )
-
-    except Exception:
-
-        impact = 7
-
-    visual[
-        "visual_impact"
-    ] = max(
-        1,
-        min(
-            10,
-            impact,
-        ),
+    impact = _safe_int(
+        visual.get("visual_impact", 7),
+        7,
     )
 
-    visual[
-        "image_prompt"
-    ] = _clean_image_prompt(
+    visual["visual_impact"] = max(
+        1,
+        min(10, impact),
+    )
+
+    visual["lighting"] = _clean(
+        visual.get("lighting", "")
+    )
+
+    visual["color_palette"] = _clean(
+        visual.get("color_palette", "")
+    )
+
+    visual["image_prompt"] = _clean_image_prompt(
         visual
     )
 
-    if not visual[
-        "image_prompt"
-    ]:
-
+    if not visual["image_prompt"]:
         raise RuntimeError(
             f"Scene {scene_index} visual {visual_index} "
             "has an empty image_prompt."
@@ -2456,31 +1877,15 @@ def _repair_visual(
 # VISUAL DURATIONS
 # ==========================================================================
 
-def _allocate_visual_durations(
-    scene_duration,
-):
+def _allocate_visual_durations(scene_duration):
 
-    base = (
-        scene_duration
-        // VISUALS_PER_SCENE
-    )
+    base = scene_duration // VISUALS_PER_SCENE
+    remainder = scene_duration % VISUALS_PER_SCENE
 
-    remainder = (
-        scene_duration
-        % VISUALS_PER_SCENE
-    )
+    durations = [base] * VISUALS_PER_SCENE
 
-    durations = [
-        base
-    ] * VISUALS_PER_SCENE
-
-    for index in range(
-        remainder
-    ):
-
-        durations[
-            index
-        ] += 1
+    for index in range(remainder):
+        durations[index] += 1
 
     return durations
 
@@ -2504,65 +1909,45 @@ def _add_scene_visual_compatibility(
 
     primary = visuals[0]
 
-    scene[
-        "image_prompt"
-    ] = primary.get(
+    scene["image_prompt"] = primary.get(
         "image_prompt",
         "",
     )
 
-    scene[
-        "image_style"
-    ] = primary.get(
+    scene["image_style"] = primary.get(
         "image_style",
         "realistic_3d_render",
     )
 
-    scene[
-        "lighting"
-    ] = primary.get(
+    scene["lighting"] = primary.get(
         "lighting",
         "",
     )
 
-    scene[
-        "color_palette"
-    ] = primary.get(
+    scene["color_palette"] = primary.get(
         "color_palette",
         "",
     )
 
-    scene[
-        "camera"
-    ] = primary.get(
+    scene["camera"] = primary.get(
         "camera",
         "medium",
     )
 
-    scene[
-        "visual_role"
-    ] = scene.get(
+    scene["visual_role"] = scene.get(
         "visual_priority",
         "supporting",
     )
 
-    scene[
-        "mood"
-    ] = scene.get(
+    scene["mood"] = scene.get(
         "emotional_tone",
         "curious",
     )
 
-    if not isinstance(
-        identity,
-        dict,
-    ):
-
+    if not isinstance(identity, dict):
         identity = {}
 
-    scene[
-        "visual_identity"
-    ] = (
+    scene["visual_identity"] = (
         f"{identity.get('style', '')}. "
         f"{identity.get('palette', '')}. "
         f"{identity.get('mood_arc', '')}"
@@ -2573,20 +1958,14 @@ def _add_scene_visual_compatibility(
 # NEXT SHORT
 # ==========================================================================
 
-def _normalize_next_short(
-    script,
-):
+def _normalize_next_short(script):
 
     item = script.get(
         "next_short",
         {},
     )
 
-    if not isinstance(
-        item,
-        dict,
-    ):
-
+    if not isinstance(item, dict):
         item = {}
 
     topic = _clean(
@@ -2618,45 +1997,32 @@ def _normalize_next_short(
     )
 
     if not topic:
-
         raise RuntimeError(
             "next_short.topic is empty."
         )
 
     if len(topic) > MAX_NEXT_SHORT_CHARACTERS:
-
         raise RuntimeError(
             "next_short.topic is too long. "
             f"Maximum allowed is {MAX_NEXT_SHORT_CHARACTERS} characters."
         )
 
     if not teaser:
-
         raise RuntimeError(
             "next_short.teaser is empty."
         )
 
-    script[
-        "next_short"
-    ] = {
-
-        "topic":
-            topic,
-
-        "teaser":
-            teaser[:220],
-
-        "why_viewers_should_return":
-            (
-                reason or teaser
-            )[:220],
-
-        "subscription_cta":
-            (
-                cta
-                or
-                "Follow the channel so you don't miss the next part."
-            )[:160],
+    script["next_short"] = {
+        "topic": topic,
+        "teaser": teaser[:220],
+        "why_viewers_should_return": (
+            reason or teaser
+        )[:220],
+        "subscription_cta": (
+            cta
+            or
+            "Follow the channel so you don't miss the next part."
+        )[:160],
     }
 
 
@@ -2668,33 +2034,10 @@ def _normalize_research_sources(
     script,
     verified_research,
 ):
-    """
-    IMPORTANT:
-
-    Gemini does not control research_sources.
-
-    We copy the exact verified source metadata from research.py.
-
-    The authoritative source_id is preserved exactly.
-
-    This prevents Gemini from inventing:
-
-    - papers
-    - authors
-    - DOIs
-    - URLs
-    - journals
-    - source IDs
-    - verification information
-    """
 
     normalized = []
 
-    supplied_sources = (
-        verified_research[
-            "sources"
-        ]
-    )
+    supplied_sources = verified_research["sources"]
 
     seen_ids = set()
 
@@ -2703,11 +2046,7 @@ def _normalize_research_sources(
         start=1,
     ):
 
-        if not isinstance(
-            source,
-            dict,
-        ):
-
+        if not isinstance(source, dict):
             raise RuntimeError(
                 f"Verified research source {index} is invalid."
             )
@@ -2720,171 +2059,130 @@ def _normalize_research_sources(
         )
 
         if not source_id:
-
             raise RuntimeError(
                 f"Verified research source {index} "
                 "has no source_id."
             )
 
         if source_id in seen_ids:
-
             raise RuntimeError(
-                f"Duplicate verified research source_id: "
+                "Duplicate verified research source_id: "
                 f"{source_id}"
             )
 
-        seen_ids.add(
-            source_id
-        )
+        seen_ids.add(source_id)
 
-        evidence = _extract_source_evidence(
-            source
-        )
+        evidence = _extract_source_evidence(source)
 
         if not evidence:
-
             raise RuntimeError(
                 f"Verified source {source_id} "
                 "has no evidence_text."
             )
 
-        try:
-
-            year = int(
-                source.get(
-                    "year",
-                    0,
-                )
-                or 0
-            )
-
-        except Exception:
-
-            year = 0
+        year = _safe_int(
+            source.get(
+                "year",
+                0,
+            ),
+            0,
+        )
 
         normalized.append({
+            "source_id": source_id,
 
-            "source_id":
-                source_id,
+            "title": _clean(
+                source.get(
+                    "title",
+                    "",
+                )
+            )[:300],
 
-            "title":
+            "authors": _clean(
+                source.get(
+                    "authors",
+                    "",
+                )
+            )[:500],
+
+            "organization": _clean(
+                source.get(
+                    "organization",
+                    "",
+                )
+            )[:250],
+
+            "journal": _clean(
+                source.get(
+                    "journal",
+                    "",
+                )
+            )[:250],
+
+            "year": year,
+
+            "doi": _clean(
+                source.get(
+                    "doi",
+                    "",
+                )
+            ),
+
+            "url": _clean(
+                source.get(
+                    "url",
+                    "",
+                )
+            ),
+
+            "source_database": _clean(
+                source.get(
+                    "source_database",
+                    "",
+                )
+            ),
+
+            "source_type": _clean(
+                source.get(
+                    "source_type",
+                    "paper",
+                )
+            ),
+
+            "priority": _clean(
+                source.get(
+                    "priority",
+                    "secondary",
+                )
+            ),
+
+            "verified": True,
+
+            "verification": (
                 _clean(
                     source.get(
-                        "title",
+                        "verification",
                         "",
                     )
-                )[:300],
-
-            "authors":
-                _clean(
-                    source.get(
-                        "authors",
-                        "",
-                    )
-                )[:500],
-
-            "organization":
-                _clean(
-                    source.get(
-                        "organization",
-                        "",
-                    )
-                )[:250],
-
-            "journal":
-                _clean(
-                    source.get(
-                        "journal",
-                        "",
-                    )
-                )[:250],
-
-            "year":
-                year,
-
-            "doi":
-                _clean(
-                    source.get(
-                        "doi",
-                        "",
-                    )
-                ),
-
-            "url":
-                _clean(
-                    source.get(
-                        "url",
-                        "",
-                    )
-                ),
-
-            "source_database":
-                _clean(
-                    source.get(
-                        "source_database",
-                        "",
-                    )
-                ),
-
-            "source_type":
-                _clean(
-                    source.get(
-                        "source_type",
-                        "paper",
-                    )
-                ),
-
-            "priority":
-                _clean(
-                    source.get(
-                        "priority",
-                        "secondary",
-                    )
-                ),
-
-            "verified":
-                True,
-
-            "verification":
-                (
-                    _clean(
-                        source.get(
-                            "verification",
-                            "",
-                        )
-                    )
-                    or
-                    "Verified by research.py"
-                ),
+                )
+                or
+                "Verified by research.py"
+            ),
         })
 
     if not normalized:
-
         raise RuntimeError(
             "No verified research sources could be normalized."
         )
 
-    script[
-        "research_sources"
-    ] = normalized
+    script["research_sources"] = normalized
 
 
 # ==========================================================================
 # SOURCE ID VALIDATION
 # ==========================================================================
 
-def _validate_source_ids(
-    script,
-):
-    """
-    Validate that every scene citation refers to an actual
-    authoritative research source ID.
-
-    Source IDs are NOT positional.
-
-    They come directly from research.py and are preserved
-    throughout the pipeline.
-    """
+def _validate_source_ids(script):
 
     valid_ids = set()
 
@@ -2893,11 +2191,7 @@ def _validate_source_ids(
         [],
     ):
 
-        if not isinstance(
-            source,
-            dict,
-        ):
-
+        if not isinstance(source, dict):
             continue
 
         source_id = _clean(
@@ -2908,13 +2202,9 @@ def _validate_source_ids(
         )
 
         if source_id:
-
-            valid_ids.add(
-                source_id
-            )
+            valid_ids.add(source_id)
 
     if not valid_ids:
-
         raise RuntimeError(
             "No verified research source IDs are attached to script."
         )
@@ -2924,11 +2214,7 @@ def _validate_source_ids(
         [],
     )
 
-    if not isinstance(
-        scenes,
-        list,
-    ):
-
+    if not isinstance(scenes, list):
         raise RuntimeError(
             "scene_plan must be a list."
         )
@@ -2938,11 +2224,7 @@ def _validate_source_ids(
         start=1,
     ):
 
-        if not isinstance(
-            scene,
-            dict,
-        ):
-
+        if not isinstance(scene, dict):
             raise RuntimeError(
                 f"Scene {index} is invalid."
             )
@@ -2952,11 +2234,7 @@ def _validate_source_ids(
             [],
         )
 
-        if not isinstance(
-            source_ids,
-            list,
-        ):
-
+        if not isinstance(source_ids, list):
             raise RuntimeError(
                 f"Scene {index} source_ids must be a list."
             )
@@ -2965,50 +2243,35 @@ def _validate_source_ids(
 
         for source_id in source_ids:
 
-            source_id = _clean(
-                source_id
-            )
+            source_id = _clean(source_id)
 
             if not source_id:
-
                 continue
 
             if source_id not in valid_ids:
-
                 raise RuntimeError(
                     f"Scene {index} references invalid "
                     f"source ID: {source_id}"
                 )
 
             if source_id not in cleaned_ids:
+                cleaned_ids.append(source_id)
 
-                cleaned_ids.append(
-                    source_id
-                )
-
-        scene[
-            "source_ids"
-        ] = cleaned_ids
+        scene["source_ids"] = cleaned_ids
 
 
 # ==========================================================================
 # VISUAL CONTINUITY
 # ==========================================================================
 
-def _normalize_visual_continuity(
-    script,
-):
+def _normalize_visual_continuity(script):
 
     continuity = script.get(
         "visual_continuity",
         {},
     )
 
-    if not isinstance(
-        continuity,
-        dict,
-    ):
-
+    if not isinstance(continuity, dict):
         continuity = {}
 
     subjects = continuity.get(
@@ -3016,21 +2279,14 @@ def _normalize_visual_continuity(
         [],
     )
 
-    if not isinstance(
-        subjects,
-        list,
-    ):
-
+    if not isinstance(subjects, list):
         subjects = []
 
     normalized_subjects = []
 
     for subject in subjects:
 
-        if not isinstance(
-            subject,
-            dict,
-        ):
+        if not isinstance(subject, dict):
             continue
 
         name = _clean(
@@ -3051,32 +2307,27 @@ def _normalize_visual_continuity(
             continue
 
         normalized_subjects.append({
+            "name": name[:100],
 
-            "name":
-                name[:100],
+            "type": _clean(
+                subject.get(
+                    "type",
+                    "",
+                )
+            )[:80],
 
-            "type":
+            "appearance": appearance[:500],
+
+            "continuity": (
                 _clean(
                     subject.get(
-                        "type",
-                        "",
+                        "continuity",
+                        "same appearance throughout",
                     )
-                )[:80],
-
-            "appearance":
-                appearance[:500],
-
-            "continuity":
-                (
-                    _clean(
-                        subject.get(
-                            "continuity",
-                            "same appearance throughout",
-                        )
-                    )
-                    or
-                    "same appearance throughout"
-                )[:300],
+                )
+                or
+                "same appearance throughout"
+            )[:300],
         })
 
     objects = continuity.get(
@@ -3084,11 +2335,7 @@ def _normalize_visual_continuity(
         [],
     )
 
-    if not isinstance(
-        objects,
-        list,
-    ):
-
+    if not isinstance(objects, list):
         objects = []
 
     rules = continuity.get(
@@ -3096,26 +2343,18 @@ def _normalize_visual_continuity(
         [],
     )
 
-    if not isinstance(
-        rules,
-        list,
-    ):
-
+    if not isinstance(rules, list):
         rules = []
 
-    script[
-        "visual_continuity"
-    ] = {
-
+    script["visual_continuity"] = {
         "recurring_subjects":
             normalized_subjects,
 
-        "recurring_objects":
-            [
-                _clean(x)[:200]
-                for x in objects
-                if _clean(x)
-            ][:20],
+        "recurring_objects": [
+            _clean(x)[:200]
+            for x in objects
+            if _clean(x)
+        ][:20],
 
         "recurring_environment":
             _clean(
@@ -3125,26 +2364,21 @@ def _normalize_visual_continuity(
                 )
             )[:500],
 
-        "continuity_rules":
-            [
-                _clean(x)[:300]
-                for x in rules
-                if _clean(x)
-            ][:20],
+        "continuity_rules": [
+            _clean(x)[:300]
+            for x in rules
+            if _clean(x)
+        ][:20],
     }
 
 
 # ==========================================================================
-# VALIDATION
+# TOP-LEVEL STRUCTURE VALIDATION
 # ==========================================================================
 
-def validate_script(
-    script,
-    verified_research,
-):
+def _validate_top_level(script):
 
     required_top = [
-
         "title",
         "description",
         "tags",
@@ -3161,53 +2395,22 @@ def validate_script(
     ]
 
     for key in required_top:
-
         if key not in script:
-
             raise RuntimeError(
                 f"Missing required key: {key}"
             )
 
-    scenes = script[
-        "scene_plan"
-    ]
 
-    if not isinstance(
-        scenes,
-        list,
-    ):
+# ==========================================================================
+# SCENE VALIDATION
+# ==========================================================================
 
-        raise RuntimeError(
-            "scene_plan must be a list."
-        )
-
-    if len(scenes) != SCENE_COUNT:
-
-        raise RuntimeError(
-            f"Expected {SCENE_COUNT} scenes but got {len(scenes)}."
-        )
-
-    _normalize_visual_continuity(
-        script
-    )
-
-    _normalize_next_short(
-        script
-    )
-
-    total_duration = 0
-
-    total_visuals = 0
-
-    hold_count = 0
-
-    seed = random.randint(
-        1,
-        2_147_483_647,
-    )
+def _validate_scene(
+    scene,
+    index,
+):
 
     required_scene = [
-
         "scene",
         "purpose",
         "retention_purpose",
@@ -3228,530 +2431,415 @@ def validate_script(
         "visuals",
     ]
 
+    for key in required_scene:
+        if key not in scene:
+            raise RuntimeError(
+                f"Scene {index} missing '{key}'."
+            )
+
+    if _safe_int(scene["scene"]) != index:
+        raise RuntimeError(
+            f"Scene {index} has invalid scene number."
+        )
+
+    _check_enum(
+        scene["purpose"],
+        VALID_PURPOSE,
+        f"Scene {index} purpose",
+    )
+
+    _check_enum(
+        scene["retention_purpose"],
+        VALID_RETENTION_PURPOSE,
+        f"Scene {index} retention_purpose",
+    )
+
+    _check_enum(
+        scene["subtitle_style"],
+        VALID_SUBTITLE_STYLE,
+        f"Scene {index} subtitle_style",
+    )
+
+    _check_enum(
+        scene["emotional_tone"],
+        VALID_EMOTIONAL_TONE,
+        f"Scene {index} emotional_tone",
+    )
+
+    _check_enum(
+        scene["visual_priority"],
+        VALID_VISUAL_PRIORITY,
+        f"Scene {index} visual_priority",
+    )
+
+    _check_enum(
+        scene["transition"],
+        VALID_TRANSITION,
+        f"Scene {index} transition",
+    )
+
+    _check_enum(
+        scene["music_cue"],
+        VALID_MUSIC_CUE,
+        f"Scene {index} music_cue",
+    )
+
+    _check_enum(
+        scene["confidence"],
+        VALID_CONFIDENCE,
+        f"Scene {index} confidence",
+    )
+
+    narration = _clean(
+        scene["narration"]
+    )
+
+    subtitle = _clean(
+        scene["subtitle_text"]
+    )
+
+    if not narration:
+        raise RuntimeError(
+            f"Scene {index} narration is empty."
+        )
+
+    if not subtitle:
+        raise RuntimeError(
+            f"Scene {index} subtitle is empty."
+        )
+
+    scene["narration"] = narration
+    scene["subtitle_text"] = subtitle
+
+    _repair_caption_highlights(
+        scene,
+        index,
+    )
+
+    source_ids = scene.get(
+        "source_ids",
+        [],
+    )
+
+    if not isinstance(source_ids, list):
+        raise RuntimeError(
+            f"Scene {index} source_ids must be a list."
+        )
+
+    scene["source_ids"] = list(
+        dict.fromkeys(
+            _clean(source_id)
+            for source_id in source_ids
+            if _clean(source_id)
+        )
+    )
+
+    duration = _safe_int(
+        scene["duration"],
+        -1,
+    )
+
+    expected_duration = SCENE_DURATIONS[
+        index - 1
+    ]
+
+    if duration != expected_duration:
+        raise RuntimeError(
+            f"Scene {index} duration must be "
+            f"{expected_duration}s."
+        )
+
+    scene["duration"] = duration
+
+    pause = _safe_int(
+        scene.get(
+            "pause_after_ms",
+            0,
+        ),
+        0,
+    )
+
+    scene["pause_after_ms"] = max(
+        0,
+        min(600, pause),
+    )
+
+    if not isinstance(
+        scene.get("sfx_cue"),
+        dict,
+    ):
+        scene["sfx_cue"] = {
+            "term": "",
+            "at_ms": 0,
+        }
+
+    visuals = scene.get(
+        "visuals",
+        [],
+    )
+
+    if not isinstance(visuals, list):
+        raise RuntimeError(
+            f"Scene {index} visuals must be a list."
+        )
+
+    if len(visuals) != VISUALS_PER_SCENE:
+        raise RuntimeError(
+            f"Scene {index} must contain "
+            f"{VISUALS_PER_SCENE} visuals."
+        )
+
+    durations = _allocate_visual_durations(
+        duration
+    )
+
+    visual_sum = 0
+    prompts = []
+
+    for visual_index, visual in enumerate(
+        visuals,
+        start=1,
+    ):
+
+        if not isinstance(visual, dict):
+            raise RuntimeError(
+                f"Scene {index} visual "
+                f"{visual_index} is invalid."
+            )
+
+        _repair_visual(
+            visual,
+            index,
+            visual_index,
+        )
+
+        visual["duration"] = durations[
+            visual_index - 1
+        ]
+
+        visual_sum += visual["duration"]
+
+        visual["zoom_factor"] = ZOOM_FACTORS[
+            visual["zoom_strength"]
+        ]
+
+        visual["motion_speed"] = MOTION_SPEEDS[
+            visual["motion_intensity"]
+        ]
+
+        visual["needs_regeneration"] = (
+            visual["visual_impact"] < 5
+        )
+
+        prompts.append(
+            visual["image_prompt"]
+            .lower()
+            .strip()
+        )
+
+    if len(set(prompts)) != VISUALS_PER_SCENE:
+        raise RuntimeError(
+            f"Scene {index} contains duplicate visual prompts."
+        )
+
+    if visual_sum != duration:
+        raise RuntimeError(
+            f"Scene {index} visual durations do not match."
+        )
+
+    return scene
+
+
+# ==========================================================================
+# COMPLETE VALIDATION
+# ==========================================================================
+
+def validate_script(
+    script,
+    verified_research,
+):
+
+    if not isinstance(script, dict):
+        raise RuntimeError(
+            "Generated script must be a JSON object."
+        )
+
+    _validate_top_level(script)
+
+    scenes = script["scene_plan"]
+
+    if not isinstance(scenes, list):
+        raise RuntimeError(
+            "scene_plan must be a list."
+        )
+
+    if len(scenes) != SCENE_COUNT:
+        raise RuntimeError(
+            f"Expected {SCENE_COUNT} scenes but got "
+            f"{len(scenes)}."
+        )
+
+    _normalize_visual_continuity(script)
+    _normalize_next_short(script)
+
+    total_duration = 0
+    total_visuals = 0
+    hold_count = 0
+
+    seed = random.randint(
+        1,
+        2_147_483_647,
+    )
+
     for index, scene in enumerate(
         scenes,
         start=1,
     ):
 
-        if not isinstance(
-            scene,
-            dict,
-        ):
-
-            raise RuntimeError(
-                f"Scene {index} is invalid."
-            )
-
-        for key in required_scene:
-
-            if key not in scene:
-
-                raise RuntimeError(
-                    f"Scene {index} missing '{key}'."
-                )
-
-        if int(
-            scene["scene"]
-        ) != index:
-
-            raise RuntimeError(
-                f"Scene {index} has invalid scene number."
-            )
-
-        _check_enum(
-            scene["purpose"],
-            VALID_PURPOSE,
-            f"Scene {index} purpose",
-        )
-
-        _check_enum(
-            scene["retention_purpose"],
-            VALID_RETENTION_PURPOSE,
-            f"Scene {index} retention_purpose",
-        )
-
-        _check_enum(
-            scene["subtitle_style"],
-            VALID_SUBTITLE_STYLE,
-            f"Scene {index} subtitle_style",
-        )
-
-        _check_enum(
-            scene["emotional_tone"],
-            VALID_EMOTIONAL_TONE,
-            f"Scene {index} emotional_tone",
-        )
-
-        _check_enum(
-            scene["visual_priority"],
-            VALID_VISUAL_PRIORITY,
-            f"Scene {index} visual_priority",
-        )
-
-        _check_enum(
-            scene["transition"],
-            VALID_TRANSITION,
-            f"Scene {index} transition",
-        )
-
-        _check_enum(
-            scene["music_cue"],
-            VALID_MUSIC_CUE,
-            f"Scene {index} music_cue",
-        )
-
-        _check_enum(
-            scene["confidence"],
-            VALID_CONFIDENCE,
-            f"Scene {index} confidence",
-        )
-
-        if index == SCENE_COUNT:
-
-            scene[
-                "purpose"
-            ] = "ending"
-
-            scene[
-                "transition"
-            ] = "none"
-
-        narration = _clean(
-            scene["narration"]
-        )
-
-        subtitle = _clean(
-            scene["subtitle_text"]
-        )
-
-        if not narration:
-
-            raise RuntimeError(
-                f"Scene {index} narration is empty."
-            )
-
-        if not subtitle:
-
-            raise RuntimeError(
-                f"Scene {index} subtitle is empty."
-            )
-
-        scene[
-            "narration"
-        ] = narration
-
-        scene[
-            "subtitle_text"
-        ] = subtitle
-
-        _repair_caption_highlights(
+        _validate_scene(
             scene,
             index,
         )
 
-        # ------------------------------------------------------------------
-        # SOURCE CITATIONS
-        #
-        # A scene may legitimately contain no citation if it contains
-        # only stylistic/storytelling language.
-        #
-        # verify_claims.py is responsible for determining whether actual
-        # factual claims require citations.
-        # ------------------------------------------------------------------
+        if index == SCENE_COUNT:
+            scene["purpose"] = "ending"
+            scene["transition"] = "none"
 
-        source_ids = scene.get(
-            "source_ids",
-            [],
+        total_duration += scene["duration"]
+        total_visuals += len(
+            scene["visuals"]
         )
 
-        if not isinstance(
-            source_ids,
-            list,
-        ):
+        for visual in scene["visuals"]:
 
-            raise RuntimeError(
-                f"Scene {index} source_ids must be a list."
-            )
-
-        cleaned_source_ids = []
-
-        for source_id in source_ids:
-
-            source_id = _clean(
-                source_id
-            )
-
-            if source_id:
-
-                if source_id not in cleaned_source_ids:
-
-                    cleaned_source_ids.append(
-                        source_id
-                    )
-
-        scene[
-            "source_ids"
-        ] = cleaned_source_ids
-
-        # ------------------------------------------------------------------
-        # DURATION
-        # ------------------------------------------------------------------
-
-        duration = int(
-            scene["duration"]
-        )
-
-        expected_duration = (
-            SCENE_DURATIONS[
-                index - 1
-            ]
-        )
-
-        if duration != expected_duration:
-
-            raise RuntimeError(
-                f"Scene {index} duration must be "
-                f"{expected_duration}s."
-            )
-
-        total_duration += duration
-
-        # ------------------------------------------------------------------
-        # PAUSE
-        # ------------------------------------------------------------------
-
-        try:
-
-            pause = int(
-                scene.get(
-                    "pause_after_ms",
-                    0,
-                )
-            )
-
-        except Exception:
-
-            pause = 0
-
-        scene[
-            "pause_after_ms"
-        ] = max(
-            0,
-            min(
-                600,
-                pause,
-            ),
-        )
-
-        # ------------------------------------------------------------------
-        # SFX
-        # ------------------------------------------------------------------
-
-        if not isinstance(
-            scene.get(
-                "sfx_cue"
-            ),
-            dict,
-        ):
-
-            scene[
-                "sfx_cue"
-            ] = {
-                "term": "",
-                "at_ms": 0,
-            }
-
-        # ------------------------------------------------------------------
-        # VISUALS
-        # ------------------------------------------------------------------
-
-        visuals = scene[
-            "visuals"
-        ]
-
-        if not isinstance(
-            visuals,
-            list,
-        ):
-
-            raise RuntimeError(
-                f"Scene {index} visuals must be a list."
-            )
-
-        if len(visuals) != VISUALS_PER_SCENE:
-
-            raise RuntimeError(
-                f"Scene {index} must contain "
-                f"{VISUALS_PER_SCENE} visuals."
-            )
-
-        durations = _allocate_visual_durations(
-            duration
-        )
-
-        visual_sum = 0
-
-        prompts = []
-
-        for visual_index, visual in enumerate(
-            visuals,
-            start=1,
-        ):
-
-            if not isinstance(
-                visual,
-                dict,
-            ):
-
-                raise RuntimeError(
-                    f"Scene {index} visual "
-                    f"{visual_index} invalid."
-                )
-
-            _repair_visual(
-                visual,
-                index,
-                visual_index,
-            )
-
-            visual[
-                "duration"
-            ] = durations[
-                visual_index - 1
-            ]
-
-            visual_sum += visual[
-                "duration"
-            ]
-
-            visual[
-                "zoom_factor"
-            ] = ZOOM_FACTORS[
-                visual[
-                    "zoom_strength"
-                ]
-            ]
-
-            visual[
-                "motion_speed"
-            ] = MOTION_SPEEDS[
-                visual[
-                    "motion_intensity"
-                ]
-            ]
-
-            visual[
-                "needs_regeneration"
-            ] = (
-                visual[
-                    "visual_impact"
-                ] < 5
-            )
-
-            if visual[
-                "animation"
-            ] == "hold":
-
+            if visual["animation"] == "hold":
                 hold_count += 1
-
-            prompts.append(
-                visual[
-                    "image_prompt"
-                ].lower().strip()
-            )
-
-        if len(
-            set(prompts)
-        ) < VISUALS_PER_SCENE:
-
-            raise RuntimeError(
-                f"Scene {index} contains duplicate visual prompts."
-            )
-
-        if visual_sum != duration:
-
-            raise RuntimeError(
-                f"Scene {index} visual durations do not match."
-            )
-
-        total_visuals += VISUALS_PER_SCENE
 
         _add_scene_visual_compatibility(
             scene,
-            script[
-                "visual_identity"
-            ],
+            script["visual_identity"],
         )
 
     if hold_count > 1:
-
         raise RuntimeError(
             "'hold' animation used more than once."
         )
 
     if total_duration != TARGET_SECONDS:
-
         raise RuntimeError(
-            f"Total duration must be {TARGET_SECONDS}s."
+            f"Total duration must be "
+            f"{TARGET_SECONDS}s, got "
+            f"{total_duration}s."
         )
 
     if total_visuals != TOTAL_VISUALS:
-
         raise RuntimeError(
-            f"Total visuals must be {TOTAL_VISUALS}."
+            f"Total visuals must be "
+            f"{TOTAL_VISUALS}, got "
+            f"{total_visuals}."
         )
 
-    # ----------------------------------------------------------------------
-    # COPY VERIFIED RESEARCH
-    # ----------------------------------------------------------------------
+    # ------------------------------------------------------------------
+    # Replace Gemini research metadata with authoritative research.py
+    # metadata.
+    # ------------------------------------------------------------------
 
     _normalize_research_sources(
         script,
         verified_research,
     )
 
-    # ----------------------------------------------------------------------
-    # VALIDATE GEMINI'S CITATIONS AGAINST AUTHORITATIVE SOURCE IDs
-    # ----------------------------------------------------------------------
+    # ------------------------------------------------------------------
+    # Validate every citation against authoritative IDs.
+    # ------------------------------------------------------------------
 
-    _validate_source_ids(
-        script
-    )
+    _validate_source_ids(script)
 
-    # ----------------------------------------------------------------------
-    # TOP LEVEL
-    # ----------------------------------------------------------------------
+    # ------------------------------------------------------------------
+    # Normalize top-level metadata.
+    # ------------------------------------------------------------------
 
-    script[
-        "title"
-    ] = _clean(
+    script["title"] = _clean(
         script["title"]
     )[:60]
 
-    script[
-        "description"
-    ] = _clean(
+    script["description"] = _clean(
         script["description"]
     )
 
-    script[
-        "tags"
-    ] = list(
+    tags = script.get(
+        "tags",
+        [],
+    )
+
+    if not isinstance(tags, list):
+        tags = []
+
+    script["tags"] = list(
         dict.fromkeys(
             _clean(tag).lower()
-            for tag in script["tags"]
+            for tag in tags
             if _clean(tag)
         )
     )[:12]
 
     category = _clean(
-        script[
-            "category"
-        ]
+        script.get(
+            "category",
+            "",
+        )
     ).lower()
 
-    script[
-        "category"
-    ] = (
-        category
-        if category in VALID_CATEGORY
-        else "biology"
-    )
+    if category not in VALID_CATEGORY:
+        category = "biology"
 
-    script[
-        "thumbnail_prompt"
-    ] = _clean(
-        script[
-            "thumbnail_prompt"
-        ]
+    script["category"] = category
+
+    script["thumbnail_prompt"] = _clean(
+        script.get(
+            "thumbnail_prompt",
+            "",
+        )
     )
 
     style_lock = _build_style_lock(
-        script[
-            "visual_identity"
-        ]
+        script["visual_identity"]
     )
 
-    script[
-        "image_generation"
-    ] = {
-
-        "seed":
-            seed,
-
-        "style_lock":
-            style_lock,
-
-        "images_per_scene":
-            VISUALS_PER_SCENE,
-
-        "total_images":
-            TOTAL_VISUALS,
-
-        "visual_continuity_enabled":
-            True,
+    script["image_generation"] = {
+        "seed": seed,
+        "style_lock": style_lock,
+        "images_per_scene": VISUALS_PER_SCENE,
+        "total_images": TOTAL_VISUALS,
+        "visual_continuity_enabled": True,
     }
 
-    script[
-        "video_id"
-    ] = (
+    script["video_id"] = (
         f"{_slugify(script['title'])}-"
         f"{uuid.uuid4().hex[:8]}"
     )
 
-    script[
-        "generated_at"
-    ] = int(
+    script["generated_at"] = int(
         time.time()
     )
 
-    script[
-        "video_structure"
-    ] = {
-
-        "format":
-            "short_form",
-
-        "scene_count":
-            SCENE_COUNT,
-
-        "target_duration_seconds":
-            TARGET_SECONDS,
-
-        "actual_duration_seconds":
-            TARGET_SECONDS,
-
-        "visuals_per_scene":
-            VISUALS_PER_SCENE,
-
-        "total_visuals":
-            TOTAL_VISUALS,
+    script["video_structure"] = {
+        "format": "short_form",
+        "scene_count": SCENE_COUNT,
+        "target_duration_seconds": TARGET_SECONDS,
+        "actual_duration_seconds": TARGET_SECONDS,
+        "visuals_per_scene": VISUALS_PER_SCENE,
+        "total_visuals": TOTAL_VISUALS,
     }
 
-    script[
-        "publishing"
-    ] = {
-
-        "research_verified":
-            True,
-
-        "research_sources_require_verification":
-            False,
-
-        "citations_ready":
-            True,
-
-        "next_short_teaser_ready":
-            True,
-
-        "subscription_strategy":
-            "next_short_continuation",
-
-        "visual_continuity_enabled":
-            True,
-
-        "claim_verification_required":
-            True,
+    script["publishing"] = {
+        "research_verified": True,
+        "research_sources_require_verification": False,
+        "citations_ready": True,
+        "next_short_teaser_ready": True,
+        "subscription_strategy": "next_short_continuation",
+        "visual_continuity_enabled": True,
+        "claim_verification_required": True,
     }
 
     return script
@@ -3767,6 +2855,10 @@ def generate_script(
     research,
 ):
 
+    # ----------------------------------------------------------------------
+    # HARD RESEARCH GATE
+    # ----------------------------------------------------------------------
+
     research = validate_research_package(
         research,
         topic,
@@ -3777,14 +2869,11 @@ def generate_script(
     print("=" * 80)
 
     print(
-        f"Verified evidence sources: "
+        "Verified evidence sources: "
         f"{len(research['sources'])}"
     )
 
-    for index, source in enumerate(
-        research["sources"],
-        start=1,
-    ):
+    for source in research["sources"]:
 
         source_id = _clean(
             source.get(
@@ -3814,6 +2903,10 @@ def generate_script(
 
     print("=" * 80)
 
+    # ----------------------------------------------------------------------
+    # GEMINI CLIENT
+    # ----------------------------------------------------------------------
+
     api_key = _get_api_key()
 
     client = genai.Client(
@@ -3828,9 +2921,7 @@ def generate_script(
 
     system_prompt = build_system_prompt()
 
-    response_schema = (
-        build_response_schema()
-    )
+    response_schema = build_response_schema()
 
     print("=" * 80)
     print("✍️ GENERATING RESEARCHED SCRIPT")
@@ -3841,7 +2932,7 @@ def generate_script(
     )
 
     print(
-        f"Verified evidence sources: "
+        "Verified evidence sources: "
         f"{len(research['sources'])}"
     )
 
@@ -3872,24 +2963,22 @@ def generate_script(
 
         print(
             f"🧠 Gemini attempt "
-            f"{attempt}/"
-            f"{MAX_GENERATION_ATTEMPTS}"
+            f"{attempt}/{MAX_GENERATION_ATTEMPTS}"
         )
 
         try:
 
             attempt_prompt = prompt
 
-            if (
-                attempt > 1
-                and last_error
-            ):
+            if attempt > 1 and last_error:
 
                 attempt_prompt += f"""
 
 ============================================================
 RETRY NOTICE
 ============================================================
+
+The previous generated storyboard failed validation.
 
 Previous validation error:
 
@@ -3903,14 +2992,16 @@ Remember:
 - Do NOT use outside knowledge.
 - Do NOT invent research.
 - Do NOT invent citations.
-- Do NOT invent or rename source IDs.
-- Use the exact source IDs supplied by research.py.
+- Do NOT invent source IDs.
+- Do NOT rename source IDs.
+- Use exact source IDs supplied by research.py.
 - Metadata is not evidence.
 - Factual claims need supporting source_ids.
 - Purely stylistic scenes may use source_ids: [].
 - Exactly 7 scenes.
 - Exactly 14 visuals.
 - Exactly 45 seconds.
+- Durations must be 3, 5, 7, 7, 8, 8, 7.
 - next_short.topic has no 8-word limit.
 - Preserve the complete next_short.topic.
 - Make the next topic research-ready.
@@ -3919,48 +3010,40 @@ Remember:
 Return ONLY JSON.
 """
 
-            response = (
-                client.models.generate_content(
-
-                    model=MODEL_NAME,
-
-                    contents=attempt_prompt,
-
-                    config=types.GenerateContentConfig(
-
-                        system_instruction=
-                            system_prompt,
-
-                        response_mime_type=
-                            "application/json",
-
-                        response_json_schema=
-                            response_schema,
-                    ),
-                )
+            response = client.models.generate_content(
+                model=MODEL_NAME,
+                contents=attempt_prompt,
+                config=types.GenerateContentConfig(
+                    system_instruction=system_prompt,
+                    response_mime_type="application/json",
+                    response_json_schema=response_schema,
+                ),
             )
 
-            if not response.text:
+            response_text = getattr(
+                response,
+                "text",
+                None,
+            )
 
+            if not response_text:
                 raise RuntimeError(
                     "Gemini returned an empty response."
                 )
 
             script = parse_gemini_json(
-                response.text
+                response_text
             )
 
-            # --------------------------------------------------------------
-            # The topic is controlled by the pipeline, not Gemini.
-            # --------------------------------------------------------------
+            # ------------------------------------------------------------------
+            # Topic is controlled by pipeline.
+            # ------------------------------------------------------------------
 
-            script[
-                "topic"
-            ] = topic
+            script["topic"] = topic
 
-            # --------------------------------------------------------------
-            # Validate the generated storyboard.
-            # --------------------------------------------------------------
+            # ------------------------------------------------------------------
+            # Validate and normalize.
+            # ------------------------------------------------------------------
 
             script = validate_script(
                 script,
@@ -3984,7 +3067,7 @@ Return ONLY JSON.
             )
 
             print(
-                f"Research sources: "
+                "Research sources: "
                 f"{len(script['research_sources'])}"
             )
 
@@ -3995,17 +3078,17 @@ Return ONLY JSON.
             )
 
             print(
-                f"Scenes with citations: "
+                "Scenes with citations: "
                 f"{cited_scenes}/{SCENE_COUNT}"
             )
 
             print(
-                f"Next Short topic: "
+                "Next Short topic: "
                 f"{script['next_short']['topic']}"
             )
 
             print(
-                f"Next Short topic words: "
+                "Next Short topic words: "
                 f"{len(script['next_short']['topic'].split())}"
             )
 
@@ -4026,7 +3109,6 @@ Return ONLY JSON.
             last_error = error
 
             print("=" * 80)
-
             print(
                 f"❌ ATTEMPT {attempt} FAILED"
             )
@@ -4038,25 +3120,17 @@ Return ONLY JSON.
 
             print("=" * 80)
 
-            if (
-                attempt
-                < MAX_GENERATION_ATTEMPTS
-            ):
+            if attempt < MAX_GENERATION_ATTEMPTS:
 
-                delay = (
-                    5 * attempt
-                )
+                delay = 5 * attempt
 
                 print(
                     f"⏳ Retrying in {delay}s..."
                 )
 
-                time.sleep(
-                    delay
-                )
+                time.sleep(delay)
 
     raise RuntimeError(
-
         "SCRIPT GENERATION FAILED.\n"
         "The pipeline refused to create a Short from "
         "unverified or insufficient research.\n\n"

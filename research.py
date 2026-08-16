@@ -2,7 +2,7 @@
 research.py
 Mint-YT-Factory
 
-Version 4.1
+Version 4.2
 
 Research-first scientific evidence layer.
 
@@ -13,6 +13,8 @@ Topic
 Crossref + Semantic Scholar + OpenAlex
   ↓
 Deduplicate
+  ↓
+Remove candidates without DOI
   ↓
 STRICT TOPIC RELEVANCE FILTER
   ↓
@@ -48,6 +50,7 @@ IMPORTANT:
 - Irrelevant domain matches are rejected.
 - Every final source receives a stable authoritative source_id.
 - source_id is derived from the normalized DOI and is never position-based.
+- Candidates without DOI are rejected safely before source_id generation.
 """
 
 
@@ -113,7 +116,7 @@ EVIDENCE_QUALITY_NONE = "none"
 # ==========================================================================
 
 USER_AGENT = (
-    "Mint-YT-Factory/4.1 "
+    "Mint-YT-Factory/4.2 "
     "(educational research verification)"
 )
 
@@ -432,26 +435,6 @@ STOPWORDS = {
 # CONCEPT GROUPS
 # ==========================================================================
 
-"""
-Words that represent the same scientific concept.
-
-This is intentionally conservative.
-
-For example:
-
-bird / birds / avian
-
-are treated as one concept.
-
-navigate / navigation / navigational
-
-are treated as one concept.
-
-migration / migratory / migrating
-
-are treated as one concept.
-"""
-
 CONCEPT_GROUPS = {
 
     "bird": {
@@ -717,9 +700,6 @@ def _stem_like_match(
 
     """
     Conservative morphological matching.
-
-    This intentionally handles common scientific forms without
-    implementing a full NLP stemmer.
     """
 
     if not term:
@@ -836,7 +816,7 @@ def _relevance_score(
     abstract_term_matches = 0
 
     # ------------------------------------------------------------------
-    # Exact meaningful term matches
+    # EXACT MEANINGFUL TERM MATCHES
     # ------------------------------------------------------------------
 
     for term in topic_terms:
@@ -868,7 +848,7 @@ def _relevance_score(
             score += 1
 
     # ------------------------------------------------------------------
-    # Concept matches
+    # CONCEPT MATCHES
     # ------------------------------------------------------------------
 
     score += (
@@ -883,7 +863,7 @@ def _relevance_score(
     )
 
     # ------------------------------------------------------------------
-    # Exact phrase match
+    # EXACT PHRASE MATCH
     # ------------------------------------------------------------------
 
     normalized_topic = _normalize_title(
@@ -903,7 +883,7 @@ def _relevance_score(
         score += 12
 
     # ------------------------------------------------------------------
-    # Adjacent meaningful phrase matches
+    # ADJACENT MEANINGFUL PHRASE MATCHES
     # ------------------------------------------------------------------
 
     topic_tokens = [
@@ -926,7 +906,7 @@ def _relevance_score(
             score += 5
 
     # ------------------------------------------------------------------
-    # Critical relevance rule
+    # CRITICAL RELEVANCE RULE
     # ------------------------------------------------------------------
 
     concept_count = len(
@@ -993,7 +973,7 @@ def _relevance_score(
             )
 
     # ------------------------------------------------------------------
-    # Domain mismatch protection
+    # DOMAIN MISMATCH PROTECTION
     # ------------------------------------------------------------------
 
     obvious_domain_mismatch = False
@@ -2738,15 +2718,39 @@ def mark_evidence_verified(
         )
 
         if not authors:
+
+            print(
+                f"❌ Rejected source without authors: "
+                f"{title}"
+            )
+
             continue
 
         if not year:
+
+            print(
+                f"❌ Rejected source without publication year: "
+                f"{title}"
+            )
+
             continue
 
         if not doi:
+
+            print(
+                f"❌ Rejected source without DOI: "
+                f"{title}"
+            )
+
             continue
 
         if not url:
+
+            print(
+                f"❌ Rejected source without URL: "
+                f"{title}"
+            )
+
             continue
 
         # --------------------------------------------------------------
@@ -2756,33 +2760,34 @@ def mark_evidence_verified(
         # Never generated from source position.
         # --------------------------------------------------------------
 
-        if not source.get(
-            "source_id",
-            "",
+        expected_source_id = _generate_source_id(
+            doi
+        )
+
+        existing_source_id = _clean(
+            source.get(
+                "source_id",
+                "",
+            )
+        )
+
+        if (
+            existing_source_id
+            and
+            existing_source_id
+            != expected_source_id
         ):
 
-            source[
-                "source_id"
-            ] = _generate_source_id(
-                doi
+            print(
+                f"❌ Rejected source with invalid source_id: "
+                f"{title}"
             )
+
+            continue
 
         source[
             "source_id"
-        ] = _clean(
-            source[
-                "source_id"
-            ]
-        )
-
-        if not source[
-            "source_id"
-        ]:
-
-            raise RuntimeError(
-                f"Source '{title}' "
-                "could not receive an authoritative source_id."
-            )
+        ] = expected_source_id
 
         source[
             "doi"
@@ -3064,6 +3069,10 @@ def research_topic(
 
         print(error)
 
+    # ------------------------------------------------------------------
+    # DEDUPLICATE
+    # ------------------------------------------------------------------
+
     candidates = deduplicate_sources(
         crossref
         + semantic
@@ -3083,13 +3092,23 @@ def research_topic(
         )
 
     # ------------------------------------------------------------------
-    # AUTHORITATIVE SOURCE IDs
+    # DOI ELIGIBILITY FILTER
     #
-    # Assign IDs immediately after deduplication.
+    # Some scholarly search results do not have DOI identifiers.
     #
-    # This means every surviving paper has a stable identity before
-    # relevance filtering, metadata verification and enrichment.
+    # This is normal and must NOT crash the research pipeline.
+    #
+    # Our final evidence policy requires DOI-backed sources, so these
+    # candidates are rejected safely at this stage.
     # ------------------------------------------------------------------
+
+    print("=" * 80)
+    print("🆔 FILTERING DOI-ELIGIBLE CANDIDATES")
+    print("=" * 80)
+
+    doi_candidates = []
+
+    rejected_no_doi = 0
 
     for source in candidates:
 
@@ -3100,17 +3119,65 @@ def research_topic(
             )
         )
 
+        title = _clean(
+            source.get(
+                "title",
+                "",
+            )
+        )
+
         if not doi:
 
-            raise RuntimeError(
-                "RESEARCH FAILED: "
-                "A candidate source has no DOI."
+            rejected_no_doi += 1
+
+            print(
+                f"⚠️ REJECTED — NO DOI: "
+                f"{title}"
             )
+
+            continue
+
+        source[
+            "doi"
+        ] = doi
+
+        doi_candidates.append(
+            source
+        )
+
+    print(
+        f"DOI-eligible candidates: "
+        f"{len(doi_candidates)}"
+    )
+
+    print(
+        f"Candidates rejected without DOI: "
+        f"{rejected_no_doi}"
+    )
+
+    if not doi_candidates:
+
+        raise RuntimeError(
+            "RESEARCH FAILED: "
+            "No candidates with DOI identifiers were found."
+        )
+
+    candidates = doi_candidates
+
+    # ------------------------------------------------------------------
+    # AUTHORITATIVE SOURCE IDs
+    #
+    # IDs are generated only after DOI eligibility.
+    # ------------------------------------------------------------------
+
+    for source in candidates:
 
         source[
             "source_id"
         ] = _generate_source_id(
-            doi
+            source[
+                "doi"
+            ]
         )
 
     # ------------------------------------------------------------------
@@ -3129,8 +3196,15 @@ def research_topic(
             "No sufficiently relevant sources found."
         )
 
+    print("=" * 80)
+    print(
+        f"🎯 RELEVANT DOI SOURCES: "
+        f"{len(relevant)}"
+    )
+    print("=" * 80)
+
     # ------------------------------------------------------------------
-    # DOI VERIFICATION
+    # DOI / METADATA VERIFICATION
     # ------------------------------------------------------------------
 
     print("=" * 80)
@@ -3149,10 +3223,21 @@ def research_topic(
             "",
         )
 
+        doi = _normalize_doi(
+            source.get(
+                "doi",
+                "",
+            )
+        )
+
         print(
             f"Checking source "
             f"{index}/{len(relevant)}: "
             f"{title}"
+        )
+
+        print(
+            f"   DOI: {doi}"
         )
 
         database = source.get(
@@ -3186,6 +3271,13 @@ def research_topic(
                 )
             )
 
+        else:
+
+            print(
+                f"⚠️ Unknown source database: "
+                f"{database}"
+            )
+
         if verified_ok:
 
             print(
@@ -3209,13 +3301,22 @@ def research_topic(
             "No DOI-verified sources remained."
         )
 
+    print(
+        f"DOI-verified sources: "
+        f"{len(verified_metadata)}"
+    )
+
     # ------------------------------------------------------------------
-    # EVIDENCE
+    # EVIDENCE ENRICHMENT
     # ------------------------------------------------------------------
 
     verified_metadata = enrich_sources(
         verified_metadata
     )
+
+    # ------------------------------------------------------------------
+    # EVIDENCE VERIFICATION
+    # ------------------------------------------------------------------
 
     evidence_sources = (
         mark_evidence_verified(
@@ -3229,6 +3330,11 @@ def research_topic(
             "RESEARCH FAILED: "
             "No evidence-backed sources remained."
         )
+
+    print(
+        f"Evidence-backed sources: "
+        f"{len(evidence_sources)}"
+    )
 
     # ------------------------------------------------------------------
     # FINAL EVIDENCE RELEVANCE CHECK
@@ -3252,28 +3358,29 @@ def research_topic(
         )
     ]
 
+    print(
+        f"Final relevant evidence sources: "
+        f"{len(evidence_sources)}"
+    )
+
+    # ------------------------------------------------------------------
+    # LIMIT SOURCES
+    # ------------------------------------------------------------------
+
     evidence_sources = limit_sources(
         evidence_sources
     )
 
-    # ------------------------------------------------------------------
-    # FINAL SOURCE ID VALIDATION
-    # ------------------------------------------------------------------
-
-    print("=" * 80)
-    print("🆔 VALIDATING AUTHORITATIVE SOURCE IDs")
-    print("=" * 80)
-
-    validate_source_ids(
-        evidence_sources
-    )
-
     print(
-        "✅ All final sources have valid stable source_id values."
+        f"Sources selected for final package: "
+        f"{len(evidence_sources)}"
     )
 
     # ------------------------------------------------------------------
     # MULTI-SOURCE HARD GATE
+    #
+    # Check the minimum source count BEFORE final ID validation so
+    # that an empty/insufficient result produces the most useful error.
     # ------------------------------------------------------------------
 
     if len(
@@ -3301,6 +3408,22 @@ def research_topic(
             f"Only {len(evidence_sources)} "
             "evidence-backed relevant source(s) found."
         )
+
+    # ------------------------------------------------------------------
+    # FINAL SOURCE ID VALIDATION
+    # ------------------------------------------------------------------
+
+    print("=" * 80)
+    print("🆔 VALIDATING AUTHORITATIVE SOURCE IDs")
+    print("=" * 80)
+
+    validate_source_ids(
+        evidence_sources
+    )
+
+    print(
+        "✅ All final sources have valid stable source_id values."
+    )
 
     # ------------------------------------------------------------------
     # FINAL PACKAGE
@@ -3346,6 +3469,9 @@ def research_topic(
                 True,
 
             "strict_topic_relevance":
+                True,
+
+            "final_relevance_recheck":
                 True,
 
             "full_text_required":

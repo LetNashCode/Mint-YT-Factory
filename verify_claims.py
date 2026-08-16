@@ -2,7 +2,7 @@
 verify_claims.py
 Mint-YT-Factory
 
-Version 1.0
+Version 1.1
 
 Scientific claim verification layer.
 
@@ -12,13 +12,27 @@ Generated Script
       ↓
 Extract scene claims
       ↓
-Compare against verified research
+Compare against VERIFIED research
       ↓
 Gemini evaluates support
+      ↓
+Local citation validation
       ↓
 PASS / FAIL
       ↓
 Only verified scripts continue
+
+IMPORTANT:
+
+- Gemini may ONLY use supplied research.
+- Claims must use the source IDs cited by their scene.
+- Claims cannot switch to an unrelated source during verification.
+- Every important factual claim must have a valid citation.
+- Uncertain claims FAIL.
+- Unsupported claims FAIL.
+- Contradicted claims FAIL.
+- Invalid source IDs FAIL.
+- Claims with zero source IDs FAIL.
 """
 
 import json
@@ -138,8 +152,8 @@ def _build_research_evidence(
 
             abstract = (
                 "NO ABSTRACT AVAILABLE. "
-                "Do not treat metadata alone as "
-                "evidence for detailed scientific claims."
+                "Metadata alone is NOT evidence "
+                "for detailed scientific claims."
             )
 
         blocks.append(
@@ -211,7 +225,7 @@ SCENE {scene_number}
 Narration:
 {narration}
 
-Cited source IDs:
+CITED SOURCE IDS FOR THIS SCENE:
 {json.dumps(source_ids)}
 """.strip()
         )
@@ -309,6 +323,7 @@ def build_response_schema():
                 "type": "array",
 
                 "items": {
+
                     "type": "string",
                 },
             },
@@ -318,6 +333,7 @@ def build_response_schema():
                 "type": "array",
 
                 "items": {
+
                     "type": "string",
                 },
             },
@@ -343,12 +359,12 @@ You are a strict scientific fact checker.
 
 Your job is NOT to rewrite the script.
 
-Your job is to determine whether the factual claims made in the
-generated YouTube Short are actually supported by the supplied
-verified research.
+Your job is to determine whether factual claims in the generated
+YouTube Short are actually supported by the supplied verified
+research.
 
 ============================================================
-ABSOLUTE RULE
+ABSOLUTE RESEARCH RULE
 ============================================================
 
 You may ONLY use the supplied research evidence.
@@ -358,44 +374,64 @@ Do NOT use:
 - general knowledge
 - memory
 - internet knowledge
+- outside scientific knowledge
 - invented evidence
 - invented studies
 - invented statistics
+- information not contained in the supplied evidence
 
-A claim is SUPPORTED only when the supplied research provides reasonable
-evidence for that specific claim.
+============================================================
+SOURCE CITATION RULE
+============================================================
+
+Each scene contains its own CITED SOURCE IDS.
+
+For every claim from a scene:
+
+- You MUST use only source IDs cited by that scene.
+- You MUST NOT substitute another source merely because it supports
+  the claim better.
+- You MUST NOT add a source ID that the scene did not cite.
+- You MUST NOT remove the scene's relevant source citation.
+- If the scene's cited sources do not support the claim, mark it
+  unsupported or uncertain.
+
+The verifier's source_ids for a claim must be a SUBSET of the source
+IDs cited by that scene.
 
 ============================================================
 STATUS DEFINITIONS
 ============================================================
 
 supported:
-The supplied research directly supports the claim.
+The supplied evidence directly supports the claim.
 
 uncertain:
-The research is related but does not provide enough evidence to make
-the claim confidently.
+The supplied evidence is related but does not provide enough
+evidence to confidently support the claim.
 
 unsupported:
-The supplied research does not support the claim.
+The supplied evidence does not support the claim.
 
 contradicted:
-The supplied research conflicts with the claim.
+The supplied evidence conflicts with the claim.
 
 ============================================================
-IMPORTANT
+EVIDENCE STANDARD
 ============================================================
 
-A source title alone is NOT enough evidence for a detailed claim.
+A source title alone is NOT evidence.
+
+Metadata alone is NOT evidence.
 
 An abstract may support a claim when the abstract clearly contains
 the relevant finding.
 
-Do not assume information that is not present.
+Do not assume information that is not explicitly supported.
 
-Do not strengthen cautious research language.
+Do not strengthen cautious scientific language.
 
-For example:
+Example:
 
 Research:
 "may contribute"
@@ -403,7 +439,8 @@ Research:
 Claim:
 "causes"
 
-This should NOT be considered supported.
+Result:
+NOT SUPPORTED.
 
 Research:
 "associated with"
@@ -411,7 +448,8 @@ Research:
 Claim:
 "causes"
 
-This should NOT be considered supported.
+Result:
+NOT SUPPORTED.
 
 Research:
 "hypothesis"
@@ -419,27 +457,66 @@ Research:
 Claim:
 "proven fact"
 
-This should NOT be considered supported.
+Result:
+NOT SUPPORTED.
+
+Research:
+"was observed"
+
+Claim:
+"always occurs"
+
+Result:
+NOT SUPPORTED.
+
+============================================================
+CLAIM CITATION REQUIREMENT
+============================================================
+
+Every important factual claim MUST have at least one source ID.
+
+If a factual claim has zero source IDs:
+
+FAIL it.
+
+If a claim uses an invalid source ID:
+
+FAIL it.
+
+If a claim uses a source ID that was not cited by its scene:
+
+FAIL it.
+
+============================================================
+STYLISTIC STATEMENTS
+============================================================
+
+Minor non-factual statements such as:
+
+"That changes how we see it."
+
+"Here's where it gets interesting."
+
+"Nature has another surprise."
+
+do not require research evidence.
+
+However, if a sentence contains a factual scientific statement,
+treat it as a claim that requires evidence.
 
 ============================================================
 PASS CONDITION
 ============================================================
 
-The overall result is PASS only when:
+The overall result may be PASS only when:
 
 1. Every important factual claim is supported.
 2. No important claim is contradicted.
 3. No important claim is unsupported.
-4. Every claim uses only its cited source IDs.
-5. The narration does not exaggerate the research.
-
-Minor stylistic statements such as:
-
-"That changes how we see it."
-
-do not need research evidence.
-
-============================================================
+4. No important claim is uncertain.
+5. Every claim has valid source IDs.
+6. Every claim's source IDs belong to that scene's citations.
+7. The narration does not exaggerate the research.
 
 Return ONLY valid JSON.
 """
@@ -489,18 +566,37 @@ SCRIPT
 TASK
 ============================================================
 
-Extract the important factual claims from the narration.
+Extract every important factual claim from the narration.
 
 For each important factual claim:
 
 1. State the claim.
 2. Identify the scene.
-3. Identify the source IDs cited by that scene.
-4. Decide whether the supplied evidence supports it.
-5. Explain why.
-6. Quote or summarize the relevant evidence.
+3. Look at the source IDs cited by THAT scene.
+4. You may ONLY evaluate the claim using those cited source IDs.
+5. Return source_ids that are a subset of the scene's cited source IDs.
+6. Decide whether the supplied evidence supports the claim.
+7. Explain why.
+8. Quote or summarize the relevant evidence.
+
+IMPORTANT:
+
+Do NOT use a source from another scene.
 
 Do NOT introduce outside information.
+
+Do NOT invent evidence.
+
+Do NOT upgrade uncertainty into certainty.
+
+If the scene cites source_1 and source_2, but only source_1
+supports the claim, return:
+
+"source_ids": ["source_1"]
+
+If neither cited source supports the claim, mark it unsupported.
+
+If the evidence is insufficient, mark it uncertain.
 
 Return ONLY JSON.
 """
@@ -545,6 +641,20 @@ def _local_validate(
     research,
 ):
 
+    if not isinstance(
+        result,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "Claim verifier returned "
+            "an invalid result."
+        )
+
+    # ----------------------------------------------------------------------
+    # VALID RESEARCH SOURCE IDS
+    # ----------------------------------------------------------------------
+
     valid_source_ids = {
 
         f"source_{index}"
@@ -558,16 +668,69 @@ def _local_validate(
         )
     }
 
+    # ----------------------------------------------------------------------
+    # BUILD SCENE → CITED SOURCES MAP
+    # ----------------------------------------------------------------------
+
+    scene_source_map = {}
+
+    for scene in script.get(
+        "scene_plan",
+        [],
+    ):
+
+        if not isinstance(
+            scene,
+            dict,
+        ):
+            continue
+
+        scene_number = scene.get(
+            "scene"
+        )
+
+        source_ids = scene.get(
+            "source_ids",
+            [],
+        )
+
+        if not isinstance(
+            source_ids,
+            list,
+        ):
+
+            source_ids = []
+
+        scene_source_map[
+            scene_number
+        ] = set(
+            str(source_id).strip()
+            for source_id in source_ids
+            if str(source_id).strip()
+        )
+
+    # ----------------------------------------------------------------------
+    # RESULT ARRAYS
+    # ----------------------------------------------------------------------
+
     claims = result.get(
         "claims",
         [],
     )
+
+    if not isinstance(
+        claims,
+        list,
+    ):
+
+        claims = []
 
     unsupported = list(
         result.get(
             "unsupported_claims",
             [],
         )
+        or []
     )
 
     warnings = list(
@@ -575,7 +738,14 @@ def _local_validate(
             "warnings",
             [],
         )
+        or []
     )
+
+    # ----------------------------------------------------------------------
+    # CLAIM VALIDATION
+    # ----------------------------------------------------------------------
+
+    claims_per_scene = {}
 
     for claim in claims:
 
@@ -583,7 +753,40 @@ def _local_validate(
             claim,
             dict,
         ):
+
+            unsupported.append(
+                "Verifier returned an invalid claim object."
+            )
+
             continue
+
+        claim_text = _clean(
+            claim.get(
+                "claim",
+                "",
+            )
+        )
+
+        if not claim_text:
+
+            unsupported.append(
+                "Verifier returned an empty claim."
+            )
+
+            continue
+
+        try:
+
+            scene_number = int(
+                claim.get(
+                    "scene",
+                    0,
+                )
+            )
+
+        except Exception:
+
+            scene_number = 0
 
         status = _clean(
             claim.get(
@@ -602,26 +805,118 @@ def _local_validate(
             list,
         ):
 
+            source_ids = []
+
+        source_ids = [
+            str(source_id).strip()
+            for source_id in source_ids
+            if str(source_id).strip()
+        ]
+
+        # --------------------------------------------------------------
+        # CLAIM COUNT LIMIT
+        # --------------------------------------------------------------
+
+        claims_per_scene[
+            scene_number
+        ] = (
+            claims_per_scene.get(
+                scene_number,
+                0,
+            )
+            + 1
+        )
+
+        if (
+            claims_per_scene[
+                scene_number
+            ]
+            > MAX_CLAIMS_PER_SCENE
+        ):
+
             unsupported.append(
-                claim.get(
-                    "claim",
-                    "Unknown claim",
+                (
+                    f"Scene {scene_number} has more than "
+                    f"{MAX_CLAIMS_PER_SCENE} claims."
+                )
+            )
+
+        # --------------------------------------------------------------
+        # SCENE MUST EXIST
+        # --------------------------------------------------------------
+
+        if scene_number not in scene_source_map:
+
+            unsupported.append(
+                (
+                    f"Claim references invalid scene "
+                    f"{scene_number}: {claim_text}"
                 )
             )
 
             continue
 
-        for source_id in source_ids:
+        scene_sources = scene_source_map[
+            scene_number
+        ]
 
-            if source_id not in valid_source_ids:
+        # --------------------------------------------------------------
+        # EVERY FACTUAL CLAIM NEEDS CITATION
+        # --------------------------------------------------------------
 
-                unsupported.append(
-                    (
-                        f"Invalid source citation "
-                        f"{source_id}: "
-                        f"{claim.get('claim', '')}"
-                    )
+        if not source_ids:
+
+            unsupported.append(
+                (
+                    f"Claim has no source citation: "
+                    f"{claim_text}"
                 )
+            )
+
+        # --------------------------------------------------------------
+        # SOURCE IDS MUST EXIST
+        # --------------------------------------------------------------
+
+        invalid_ids = [
+            source_id
+            for source_id in source_ids
+            if source_id not in valid_source_ids
+        ]
+
+        if invalid_ids:
+
+            unsupported.append(
+                (
+                    f"Invalid source citation "
+                    f"{', '.join(invalid_ids)}: "
+                    f"{claim_text}"
+                )
+            )
+
+        # --------------------------------------------------------------
+        # SOURCE IDS MUST BELONG TO THAT SCENE
+        # --------------------------------------------------------------
+
+        wrong_scene_sources = [
+            source_id
+            for source_id in source_ids
+            if source_id not in scene_sources
+        ]
+
+        if wrong_scene_sources:
+
+            unsupported.append(
+                (
+                    f"Claim uses source(s) not cited by "
+                    f"scene {scene_number}: "
+                    f"{', '.join(wrong_scene_sources)}. "
+                    f"Claim: {claim_text}"
+                )
+            )
+
+        # --------------------------------------------------------------
+        # CLAIM STATUS
+        # --------------------------------------------------------------
 
         if status in {
             "unsupported",
@@ -629,22 +924,129 @@ def _local_validate(
         }:
 
             unsupported.append(
-                claim.get(
-                    "claim",
-                    "Unknown claim",
-                )
+                claim_text
             )
 
         elif status == "uncertain":
 
             warnings.append(
-                claim.get(
-                    "claim",
-                    "Uncertain claim",
+                claim_text
+            )
+
+        elif status != "supported":
+
+            unsupported.append(
+                (
+                    f"Claim has invalid verification status "
+                    f"'{status}': {claim_text}"
                 )
             )
 
-    # Deduplicate while preserving order.
+        # --------------------------------------------------------------
+        # CRITICAL:
+        #
+        # A supported claim is only acceptable if its source IDs are
+        # valid and belong to that scene.
+        # --------------------------------------------------------------
+
+        if status == "supported":
+
+            if not source_ids:
+
+                unsupported.append(
+                    (
+                        f"Supported claim has no evidence source: "
+                        f"{claim_text}"
+                    )
+                )
+
+            elif invalid_ids:
+
+                unsupported.append(
+                    (
+                        f"Supported claim uses invalid evidence "
+                        f"source: {claim_text}"
+                    )
+                )
+
+            elif wrong_scene_sources:
+
+                unsupported.append(
+                    (
+                        f"Supported claim uses evidence from "
+                        f"another scene: {claim_text}"
+                    )
+                )
+
+    # ----------------------------------------------------------------------
+    # IMPORTANT:
+    #
+    # Every scene must have at least one verified supported claim if
+    # its narration contains factual content.
+    #
+    # We do not blindly require a claim for purely stylistic scenes.
+    # ----------------------------------------------------------------------
+
+    for scene in script.get(
+        "scene_plan",
+        [],
+    ):
+
+        if not isinstance(
+            scene,
+            dict,
+        ):
+            continue
+
+        scene_number = scene.get(
+            "scene"
+        )
+
+        narration = _clean(
+            scene.get(
+                "narration",
+                "",
+            )
+        )
+
+        if not narration:
+            continue
+
+        scene_claims = [
+
+            claim
+
+            for claim in claims
+
+            if isinstance(
+                claim,
+                dict,
+            )
+
+            and claim.get(
+                "scene"
+            ) == scene_number
+        ]
+
+        # --------------------------------------------------------------
+        # No claims at all.
+        #
+        # Because the pipeline is scientific, treat a scene without
+        # any verified claim as a failure.
+        # --------------------------------------------------------------
+
+        if not scene_claims:
+
+            unsupported.append(
+                (
+                    f"Scene {scene_number} has no "
+                    "verified factual claim."
+                )
+            )
+
+    # ----------------------------------------------------------------------
+    # DEDUPLICATE
+    # ----------------------------------------------------------------------
 
     unsupported = list(
         dict.fromkeys(
@@ -662,6 +1064,10 @@ def _local_validate(
         )
     )
 
+    # ----------------------------------------------------------------------
+    # FINAL STATUS
+    # ----------------------------------------------------------------------
+
     if unsupported:
 
         result[
@@ -670,9 +1076,7 @@ def _local_validate(
 
     elif warnings:
 
-        # We treat uncertain scientific claims as a failure.
-        # This prevents exaggerated research from being published.
-
+        # Uncertain claims are not publishable.
         result[
             "overall_status"
         ] = "FAIL"
@@ -805,22 +1209,38 @@ def verify_script_claims(
             [],
         )
 
-        for claim in unsupported:
+        if unsupported:
 
             print(
-                f"❌ {claim}"
+                "\n❌ Unsupported / invalid claims:"
             )
 
-        for warning in warnings:
+            for claim in unsupported:
+
+                print(
+                    f"  ❌ {claim}"
+                )
+
+        if warnings:
 
             print(
-                f"⚠️ {warning}"
+                "\n⚠️ Uncertain claims:"
             )
+
+            for claim in warnings:
+
+                print(
+                    f"  ⚠️ {claim}"
+                )
 
     print("=" * 80)
 
     return script
 
+
+# ==========================================================================
+# CLAIM VERIFICATION STATUS
+# ==========================================================================
 
 def claims_are_verified(
     script,

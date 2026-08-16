@@ -2,14 +2,17 @@
 main.py
 Educational YouTube Shorts Pipeline
 
-Version 7.0
+Version 7.1
 
-Updates:
-- Supports 14-image storyboard
-- Adds next-Short teaser to YouTube description
-- Adds subscription CTA
-- Adds research references to description
-- Keeps existing pipeline compatible
+Production:
+- 7 scenes
+- 2 visuals per scene
+- 14 images total
+- 45 seconds
+- Next-Short teaser
+- Subscription/return strategy
+- Research references in description
+- Research sources clearly marked as unverified
 """
 
 import argparse
@@ -42,7 +45,7 @@ def load_config():
 
 
 # ==========================================================================
-# DESCRIPTION BUILDER
+# YOUTUBE METADATA
 # ==========================================================================
 
 def build_title_description(script):
@@ -55,7 +58,7 @@ def build_title_description(script):
     description_parts = []
 
     # ----------------------------------------------------------------------
-    # INTRO DESCRIPTION
+    # MAIN DESCRIPTION
     # ----------------------------------------------------------------------
 
     description = str(
@@ -69,38 +72,6 @@ def build_title_description(script):
 
         description_parts.append(
             description
-        )
-
-    # ----------------------------------------------------------------------
-    # NARRATION
-    # ----------------------------------------------------------------------
-
-    narration_lines = []
-
-    for scene in script.get(
-        "scene_plan",
-        [],
-    ):
-
-        narration = str(
-            scene.get(
-                "narration",
-                "",
-            )
-        ).strip()
-
-        if narration:
-
-            narration_lines.append(
-                narration
-            )
-
-    if narration_lines:
-
-        description_parts.append(
-            "\n".join(
-                narration_lines
-            )
         )
 
     # ----------------------------------------------------------------------
@@ -175,7 +146,7 @@ def build_title_description(script):
             )
 
     # ----------------------------------------------------------------------
-    # RESEARCH
+    # RESEARCH REFERENCES
     # ----------------------------------------------------------------------
 
     research_sources = script.get(
@@ -183,13 +154,19 @@ def build_title_description(script):
         [],
     )
 
-    if research_sources:
+    if isinstance(
+        research_sources,
+        list,
+    ) and research_sources:
 
         research_lines = [
-            "📚 RESEARCH & SOURCES",
+
+            "📚 RESEARCH & FURTHER READING",
+
             "",
-            "The scientific information in this Short "
-            "is based on the following research references:"
+
+            "References related to the scientific topics "
+            "discussed in this Short:"
         ]
 
         valid_source_count = 0
@@ -230,6 +207,20 @@ def build_title_description(script):
                 )
             ).strip()
 
+            claim = str(
+                source.get(
+                    "claim_supported",
+                    "",
+                )
+            ).strip()
+
+            verified = bool(
+                source.get(
+                    "verified",
+                    False,
+                )
+            )
+
             if not source_title:
 
                 continue
@@ -259,6 +250,18 @@ def build_title_description(script):
                     f"\n{url}"
                 )
 
+            if claim:
+
+                line += (
+                    f"\nRelated claim: {claim}"
+                )
+
+            if not verified:
+
+                line += (
+                    "\nReference pending verification."
+                )
+
             research_lines.append(
                 line
             )
@@ -280,13 +283,20 @@ def build_title_description(script):
         [],
     )
 
-    if tags:
+    if isinstance(
+        tags,
+        list,
+    ):
 
         hashtags = " ".join(
+
             "#" + str(tag)
+            .strip()
             .replace(" ", "")
             .replace("#", "")
+
             for tag in tags
+
             if str(tag).strip()
         )
 
@@ -361,7 +371,7 @@ def run(
     )
 
     print(
-        "Research sources: "
+        "Research candidates: "
         f"{len(script.get('research_sources', []))}"
     )
 

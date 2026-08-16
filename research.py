@@ -2,9 +2,9 @@
 research.py
 Mint-YT-Factory
 
-Version 2.0
+Version 2.1
 
-Research-first verification layer.
+Research-first scientific evidence layer.
 
 FLOW:
 
@@ -14,20 +14,29 @@ Crossref + Semantic Scholar
   ↓
 Deduplicate
   ↓
-Verify DOI
+Verify DOI / identity
   ↓
 Enrich abstract/evidence
   ↓
-Quality filter
+OpenAlex fallback
+  ↓
+Relevance filter
+  ↓
+Evidence-quality filter
+  ↓
+Minimum 2 evidence-backed sources
   ↓
 Verified research package
 
 IMPORTANT:
-- Never invent citations.
-- Never invent abstracts.
+
+- DOI verification is NOT the same as evidence verification.
+- Metadata-only sources are NEVER accepted as verified evidence.
+- Abstracts are NEVER invented.
 - Sources must actually exist.
-- Minimum 2 verified sources.
-- Abstract/evidence is attached whenever available.
+- Minimum 2 evidence-backed sources are required.
+- Semantic Scholar rate limits are handled gracefully.
+- OpenAlex is used as a free evidence fallback.
 """
 
 import json
@@ -54,21 +63,32 @@ SEMANTIC_PAPER_URL = (
     "https://api.semanticscholar.org/graph/v1/paper"
 )
 
+OPENALEX_URL = "https://api.openalex.org/works"
+
 TIMEOUT = 30
 
-MAX_CROSSREF_RESULTS = 8
+MAX_CROSSREF_RESULTS = 10
+
 MAX_SEMANTIC_RESULTS = 8
+
+MAX_OPENALEX_RESULTS = 8
 
 MIN_ACCEPTED_SOURCES = 2
 
+MAX_EVIDENCE_SOURCES = 5
+
+SEMANTIC_RETRIES = 3
+
+SEMANTIC_BACKOFF_SECONDS = 3
+
 USER_AGENT = (
-    "Mint-YT-Factory/2.0 "
+    "Mint-YT-Factory/2.1 "
     "(educational research verification)"
 )
 
 
 # ==========================================================================
-# HTTP
+# SESSION
 # ==========================================================================
 
 SESSION = requests.Session()
@@ -81,17 +101,120 @@ SESSION.headers.update(
 )
 
 
-def _get(url, params=None):
+# ==========================================================================
+# HTTP
+# ==========================================================================
 
-    response = SESSION.get(
-        url,
-        params=params,
-        timeout=TIMEOUT,
-    )
+def _get(
+    url,
+    params=None,
+    retries=2,
+    backoff=2,
+):
+    """
+    GET JSON with small retry support.
 
-    response.raise_for_status()
+    Handles:
+    - transient failures
+    - 429 rate limits
+    - temporary 5xx errors
+    """
 
-    return response.json()
+    last_error = None
+
+    for attempt in range(
+        retries + 1
+    ):
+
+        try:
+
+            response = SESSION.get(
+                url,
+                params=params,
+                timeout=TIMEOUT,
+            )
+
+            if response.status_code == 429:
+
+                retry_after = response.headers.get(
+                    "Retry-After"
+                )
+
+                if retry_after:
+
+                    try:
+
+                        delay = float(
+                            retry_after
+                        )
+
+                    except Exception:
+
+                        delay = backoff * (
+                            attempt + 1
+                        )
+
+                else:
+
+                    delay = backoff * (
+                        attempt + 1
+                    )
+
+                if attempt < retries:
+
+                    print(
+                        f"⚠️ HTTP 429. "
+                        f"Retrying in {delay:.1f}s..."
+                    )
+
+                    time.sleep(
+                        delay
+                    )
+
+                    continue
+
+            if (
+                response.status_code >= 500
+                and attempt < retries
+            ):
+
+                delay = backoff * (
+                    attempt + 1
+                )
+
+                print(
+                    f"⚠️ HTTP "
+                    f"{response.status_code}. "
+                    f"Retrying in {delay:.1f}s..."
+                )
+
+                time.sleep(
+                    delay
+                )
+
+                continue
+
+            response.raise_for_status()
+
+            return response.json()
+
+        except Exception as error:
+
+            last_error = error
+
+            if attempt < retries:
+
+                delay = backoff * (
+                    attempt + 1
+                )
+
+                time.sleep(
+                    delay
+                )
+
+                continue
+
+            raise last_error
 
 
 # ==========================================================================
@@ -101,9 +224,12 @@ def _get(url, params=None):
 def _clean(text):
 
     if text is None:
+
         return ""
 
-    text = str(text)
+    text = str(
+        text
+    )
 
     text = re.sub(
         r"\s+",
@@ -116,7 +242,9 @@ def _clean(text):
 
 def _normalize_title(title):
 
-    title = _clean(title).lower()
+    title = _clean(
+        title
+    ).lower()
 
     title = re.sub(
         r"[^a-z0-9\s]",
@@ -153,14 +281,23 @@ def _authors_crossref(item):
         )
 
         name = " ".join(
-            x for x in [given, family]
+            x
+            for x in [
+                given,
+                family,
+            ]
             if x
         )
 
         if name:
-            authors.append(name)
 
-    return ", ".join(authors)
+            authors.append(
+                name
+            )
+
+    return ", ".join(
+        authors
+    )
 
 
 def _authors_semantic(item):
@@ -180,9 +317,14 @@ def _authors_semantic(item):
         )
 
         if name:
-            authors.append(name)
 
-    return ", ".join(authors)
+            authors.append(
+                name
+            )
+
+    return ", ".join(
+        authors
+    )
 
 
 def _extract_year(item):
@@ -200,12 +342,22 @@ def _extract_year(item):
             {},
         )
 
+        if not isinstance(
+            date_info,
+            dict,
+        ):
+
+            continue
+
         date_parts = date_info.get(
             "date-parts",
             [],
         )
 
-        if date_parts and date_parts[0]:
+        if (
+            date_parts
+            and date_parts[0]
+        ):
 
             try:
 
@@ -214,6 +366,7 @@ def _extract_year(item):
                 )
 
             except Exception:
+
                 pass
 
     return None
@@ -221,12 +374,14 @@ def _extract_year(item):
 
 def _clean_abstract(text):
 
-    text = _clean(text)
+    text = _clean(
+        text
+    )
 
     if not text:
+
         return ""
 
-    # Crossref sometimes returns JATS XML.
     text = re.sub(
         r"<[^>]+>",
         " ",
@@ -243,10 +398,225 @@ def _clean_abstract(text):
 
 
 # ==========================================================================
+# OPENALEX ABSTRACT
+# ==========================================================================
+
+def _openalex_abstract_text(
+    inverted_index
+):
+    """
+    OpenAlex stores abstracts as an inverted index.
+
+    Convert it back into normal text.
+    """
+
+    if not isinstance(
+        inverted_index,
+        dict,
+    ):
+
+        return ""
+
+    words = []
+
+    for word, positions in inverted_index.items():
+
+        if not isinstance(
+            positions,
+            list,
+        ):
+
+            continue
+
+        for position in positions:
+
+            try:
+
+                words.append(
+                    (
+                        int(position),
+                        word,
+                    )
+                )
+
+            except Exception:
+
+                continue
+
+    words.sort(
+        key=lambda x: x[0]
+    )
+
+    return _clean_abstract(
+        " ".join(
+            word
+            for _, word in words
+        )
+    )
+
+
+# ==========================================================================
+# TOPIC RELEVANCE
+# ==========================================================================
+
+STOPWORDS = {
+    "how",
+    "do",
+    "does",
+    "did",
+    "can",
+    "could",
+    "would",
+    "should",
+    "the",
+    "a",
+    "an",
+    "and",
+    "or",
+    "to",
+    "of",
+    "in",
+    "on",
+    "for",
+    "with",
+    "from",
+    "why",
+    "what",
+    "is",
+    "are",
+    "be",
+    "their",
+    "they",
+    "them",
+    "these",
+    "those",
+    "this",
+    "that",
+    "survive",
+}
+
+
+def _topic_terms(topic):
+
+    words = re.findall(
+        r"[a-zA-Z0-9]+",
+        _clean(topic).lower(),
+    )
+
+    return {
+        word
+        for word in words
+        if len(word) >= 3
+        and word not in STOPWORDS
+    }
+
+
+def _relevance_score(
+    topic,
+    source,
+):
+    """
+    Lightweight local relevance check.
+
+    This is deliberately conservative.
+
+    It prevents obviously unrelated papers from being
+    accepted simply because Crossref returned them.
+    """
+
+    terms = _topic_terms(
+        topic
+    )
+
+    if not terms:
+
+        return 0
+
+    title = _clean(
+        source.get(
+            "title",
+            "",
+        )
+    ).lower()
+
+    abstract = _clean(
+        source.get(
+            "abstract",
+            "",
+        )
+    ).lower()
+
+    combined = (
+        title
+        + " "
+        + abstract
+    )
+
+    matched = 0
+
+    for term in terms:
+
+        if re.search(
+            rf"\b{re.escape(term)}\b",
+            combined,
+        ):
+
+            matched += 1
+
+    return matched
+
+
+def relevance_filter(
+    topic,
+    sources,
+):
+
+    accepted = []
+
+    terms = _topic_terms(
+        topic
+    )
+
+    minimum_matches = 1
+
+    if len(terms) >= 4:
+
+        minimum_matches = 2
+
+    for source in sources:
+
+        score = _relevance_score(
+            topic,
+            source,
+        )
+
+        source[
+            "relevance_score"
+        ] = score
+
+        if score >= minimum_matches:
+
+            accepted.append(
+                source
+            )
+
+        else:
+
+            print(
+                f"⚠️ Rejected low-relevance source: "
+                f"{source.get('title', '')}"
+            )
+
+    return accepted
+
+
+# ==========================================================================
 # CROSSREF SEARCH
 # ==========================================================================
 
-def search_crossref(topic):
+def search_crossref(
+    topic
+):
 
     print("=" * 80)
     print("🔎 CROSSREF SEARCH")
@@ -274,12 +644,20 @@ def search_crossref(topic):
     data = _get(
         CROSSREF_URL,
         params,
+        retries=2,
+        backoff=2,
     )
 
     items = (
         data
-        .get("message", {})
-        .get("items", [])
+        .get(
+            "message",
+            {}
+        )
+        .get(
+            "items",
+            []
+        )
     )
 
     results = []
@@ -292,7 +670,9 @@ def search_crossref(topic):
         )
 
         title = (
-            _clean(titles[0])
+            _clean(
+                titles[0]
+            )
             if titles
             else ""
         )
@@ -305,6 +685,7 @@ def search_crossref(topic):
         )
 
         if not title or not doi:
+
             continue
 
         abstract = _clean_abstract(
@@ -379,10 +760,16 @@ def search_crossref(topic):
 
             "evidence_source":
                 (
-                    "Crossref metadata"
+                    "Crossref abstract"
                     if abstract
                     else ""
                 ),
+
+            "metadata_verified":
+                False,
+
+            "evidence_verified":
+                False,
 
             "verified":
                 False,
@@ -400,7 +787,9 @@ def search_crossref(topic):
 # SEMANTIC SCHOLAR SEARCH
 # ==========================================================================
 
-def search_semantic_scholar(topic):
+def search_semantic_scholar(
+    topic
+):
 
     print("=" * 80)
     print("🔎 SEMANTIC SCHOLAR SEARCH")
@@ -427,10 +816,26 @@ def search_semantic_scholar(topic):
             ),
     }
 
-    data = _get(
-        SEMANTIC_SCHOLAR_URL,
-        params,
-    )
+    try:
+
+        data = _get(
+            SEMANTIC_SCHOLAR_URL,
+            params,
+            retries=SEMANTIC_RETRIES,
+            backoff=SEMANTIC_BACKOFF_SECONDS,
+        )
+
+    except Exception as error:
+
+        print(
+            "⚠️ Semantic Scholar search failed:"
+        )
+
+        print(
+            error
+        )
+
+        return []
 
     papers = data.get(
         "data",
@@ -449,12 +854,16 @@ def search_semantic_scholar(topic):
         )
 
         if not title:
+
             continue
 
-        external_ids = paper.get(
-            "externalIds",
-            {}
-        ) or {}
+        external_ids = (
+            paper.get(
+                "externalIds",
+                {}
+            )
+            or {}
+        )
 
         doi = _clean(
             external_ids.get(
@@ -470,15 +879,18 @@ def search_semantic_scholar(topic):
             )
         )
 
-        if doi:
+        citation_url = (
+            f"https://doi.org/{doi}"
+            if doi
+            else url
+        )
 
-            citation_url = (
-                f"https://doi.org/{doi}"
+        abstract = _clean_abstract(
+            paper.get(
+                "abstract",
+                "",
             )
-
-        else:
-
-            citation_url = url
+        )
 
         results.append({
 
@@ -519,25 +931,27 @@ def search_semantic_scholar(topic):
                 url,
 
             "abstract":
-                _clean_abstract(
-                    paper.get(
-                        "abstract",
-                        "",
-                    )
-                ),
+                abstract,
 
             "publication_types":
                 paper.get(
                     "publicationTypes",
                     [],
-                ) or [],
+                )
+                or [],
 
             "evidence_source":
                 (
                     "Semantic Scholar abstract"
-                    if paper.get("abstract")
+                    if abstract
                     else ""
                 ),
+
+            "metadata_verified":
+                False,
+
+            "evidence_verified":
+                False,
 
             "verified":
                 False,
@@ -545,6 +959,235 @@ def search_semantic_scholar(topic):
 
     print(
         f"Semantic Scholar results: "
+        f"{len(results)}"
+    )
+
+    return results
+
+
+# ==========================================================================
+# OPENALEX SEARCH
+# ==========================================================================
+
+def search_openalex(
+    topic
+):
+
+    print("=" * 80)
+    print("🔎 OPENALEX SEARCH")
+    print("=" * 80)
+
+    params = {
+
+        "search":
+            topic,
+
+        "per-page":
+            MAX_OPENALEX_RESULTS,
+
+        "mailto":
+            "mint-yt-factory@example.com",
+    }
+
+    try:
+
+        data = _get(
+            OPENALEX_URL,
+            params,
+            retries=2,
+            backoff=2,
+        )
+
+    except Exception as error:
+
+        print(
+            "⚠️ OpenAlex search failed:"
+        )
+
+        print(
+            error
+        )
+
+        return []
+
+    results = []
+
+    for item in data.get(
+        "results",
+        [],
+    ):
+
+        title = _clean(
+            item.get(
+                "display_name",
+                "",
+            )
+        )
+
+        if not title:
+
+            continue
+
+        ids = (
+            item.get(
+                "ids",
+                {}
+            )
+            or {}
+        )
+
+        doi = _clean(
+            ids.get(
+                "doi",
+                "",
+            )
+        )
+
+        if doi.startswith(
+            "https://doi.org/"
+        ):
+
+            doi = doi[
+                len(
+                    "https://doi.org/"
+                ):
+            ]
+
+        abstract = _openalex_abstract_text(
+            item.get(
+                "abstract_inverted_index"
+            )
+        )
+
+        authors = []
+
+        for authorship in item.get(
+            "authorships",
+            [],
+        ):
+
+            author = (
+                authorship
+                .get(
+                    "author",
+                    {}
+                )
+                or {}
+            )
+
+            name = _clean(
+                author.get(
+                    "display_name",
+                    "",
+                )
+            )
+
+            if name:
+
+                authors.append(
+                    name
+                )
+
+        journal = ""
+
+        primary_location = (
+            item.get(
+                "primary_location",
+                {}
+            )
+            or {}
+        )
+
+        source = (
+            primary_location.get(
+                "source",
+                {}
+            )
+            or {}
+        )
+
+        journal = _clean(
+            source.get(
+                "display_name",
+                "",
+            )
+        )
+
+        publication_year = item.get(
+            "publication_year"
+        )
+
+        url = _clean(
+            ids.get(
+                "openalex",
+                "",
+            )
+        )
+
+        if not url:
+
+            url = (
+                f"https://openalex.org/"
+                f"{item.get('id', '').split('/')[-1]}"
+            )
+
+        if not doi:
+
+            continue
+
+        results.append({
+
+            "source_database":
+                "OpenAlex",
+
+            "title":
+                title,
+
+            "authors":
+                ", ".join(
+                    authors
+                ),
+
+            "journal":
+                journal,
+
+            "publisher":
+                "",
+
+            "year":
+                publication_year,
+
+            "doi":
+                doi,
+
+            "url":
+                f"https://doi.org/{doi}",
+
+            "openalex_url":
+                url,
+
+            "abstract":
+                abstract,
+
+            "evidence_source":
+                (
+                    "OpenAlex abstract"
+                    if abstract
+                    else ""
+                ),
+
+            "metadata_verified":
+                False,
+
+            "evidence_verified":
+                False,
+
+            "verified":
+                False,
+        })
+
+    print(
+        f"OpenAlex results: "
         f"{len(results)}"
     )
 
@@ -560,6 +1203,7 @@ def deduplicate_sources(
 ):
 
     seen_dois = set()
+
     seen_titles = set()
 
     unique = []
@@ -580,17 +1224,31 @@ def deduplicate_sources(
             )
         )
 
-        if doi and doi in seen_dois:
+        if (
+            doi
+            and doi in seen_dois
+        ):
+
             continue
 
-        if title and title in seen_titles:
+        if (
+            title
+            and title in seen_titles
+        ):
+
             continue
 
         if doi:
-            seen_dois.add(doi)
+
+            seen_dois.add(
+                doi
+            )
 
         if title:
-            seen_titles.add(title)
+
+            seen_titles.add(
+                title
+            )
 
         unique.append(
             source
@@ -600,7 +1258,7 @@ def deduplicate_sources(
 
 
 # ==========================================================================
-# CROSSREF VERIFICATION
+# CROSSREF DOI VERIFICATION
 # ==========================================================================
 
 def verify_crossref_source(
@@ -615,6 +1273,7 @@ def verify_crossref_source(
     )
 
     if not doi:
+
         return False
 
     try:
@@ -629,7 +1288,9 @@ def verify_crossref_source(
         )
 
         data = _get(
-            url
+            url,
+            retries=2,
+            backoff=2,
         )
 
         item = data.get(
@@ -658,20 +1319,21 @@ def verify_crossref_source(
             returned_doi.lower()
             != doi.lower()
         ):
+
             return False
 
         if not returned_title:
+
             return False
 
         source[
-            "verified"
+            "metadata_verified"
         ] = True
 
         source[
             "verified_title"
         ] = returned_title
 
-        # Crossref may contain an abstract.
         abstract = _clean_abstract(
             item.get(
                 "abstract",
@@ -722,6 +1384,7 @@ def verify_semantic_source(
     )
 
     if not doi:
+
         return False
 
     try:
@@ -751,6 +1414,8 @@ def verify_semantic_source(
         data = _get(
             url,
             params,
+            retries=SEMANTIC_RETRIES,
+            backoff=SEMANTIC_BACKOFF_SECONDS,
         )
 
         returned_title = _clean(
@@ -776,6 +1441,7 @@ def verify_semantic_source(
         )
 
         if not returned_title:
+
             return False
 
         if (
@@ -784,10 +1450,11 @@ def verify_semantic_source(
             returned_doi.lower()
             != doi.lower()
         ):
+
             return False
 
         source[
-            "verified"
+            "metadata_verified"
         ] = True
 
         source[
@@ -829,7 +1496,85 @@ def verify_semantic_source(
 
 
 # ==========================================================================
-# ABSTRACT / EVIDENCE ENRICHMENT
+# OPENALEX DOI ENRICHMENT
+# ==========================================================================
+
+def enrich_from_openalex(
+    source
+):
+
+    """
+    Retrieve an abstract from OpenAlex using DOI.
+
+    This is the important fallback for sources where
+    Crossref and Semantic Scholar do not provide an abstract.
+    """
+
+    doi = _clean(
+        source.get(
+            "doi",
+            "",
+        )
+    )
+
+    if not doi:
+
+        return source
+
+    try:
+
+        url = (
+            OPENALEX_URL
+            + "/https://doi.org/"
+            + quote(
+                doi,
+                safe="",
+            )
+        )
+
+        params = {
+            "mailto":
+                "mint-yt-factory@example.com"
+        }
+
+        data = _get(
+            url,
+            params,
+            retries=2,
+            backoff=2,
+        )
+
+        abstract = _openalex_abstract_text(
+            data.get(
+                "abstract_inverted_index"
+            )
+        )
+
+        if abstract:
+
+            source[
+                "abstract"
+            ] = abstract
+
+            source[
+                "evidence_source"
+            ] = "OpenAlex abstract"
+
+            source[
+                "openalex_enriched"
+            ] = True
+
+    except Exception as error:
+
+        source[
+            "openalex_enrichment_error"
+        ] = str(error)
+
+    return source
+
+
+# ==========================================================================
+# EVIDENCE ENRICHMENT
 # ==========================================================================
 
 def enrich_source(
@@ -837,10 +1582,11 @@ def enrich_source(
 ):
 
     """
-    Try to obtain an abstract for a verified source.
+    Evidence priority:
 
-    Crossref sometimes provides one.
-    Semantic Scholar is used as a second evidence layer.
+    1. Existing Crossref abstract
+    2. Semantic Scholar abstract
+    3. OpenAlex abstract
     """
 
     existing = _clean_abstract(
@@ -866,51 +1612,75 @@ def enrich_source(
     )
 
     if not doi:
+
         return source
 
-    try:
+    database = source.get(
+        "source_database",
+        "",
+    )
 
-        url = (
-            SEMANTIC_PAPER_URL
-            + "/DOI:"
-            + quote(
-                doi,
-                safe="",
+    # --------------------------------------------------------------
+    # Semantic Scholar
+    # --------------------------------------------------------------
+
+    if database != "Semantic Scholar":
+
+        try:
+
+            url = (
+                SEMANTIC_PAPER_URL
+                + "/DOI:"
+                + quote(
+                    doi,
+                    safe="",
+                )
             )
-        )
 
-        params = {
-            "fields":
-                "title,abstract,year,externalIds"
-        }
+            params = {
+                "fields":
+                    "title,abstract,year,externalIds"
+            }
 
-        data = _get(
-            url,
-            params,
-        )
-
-        abstract = _clean_abstract(
-            data.get(
-                "abstract",
-                "",
+            data = _get(
+                url,
+                params,
+                retries=SEMANTIC_RETRIES,
+                backoff=SEMANTIC_BACKOFF_SECONDS,
             )
-        )
 
-        if abstract:
+            abstract = _clean_abstract(
+                data.get(
+                    "abstract",
+                    "",
+                )
+            )
+
+            if abstract:
+
+                source[
+                    "abstract"
+                ] = abstract
+
+                source[
+                    "evidence_source"
+                ] = "Semantic Scholar abstract"
+
+                return source
+
+        except Exception as error:
 
             source[
-                "abstract"
-            ] = abstract
+                "semantic_enrichment_error"
+            ] = str(error)
 
-            source[
-                "evidence_source"
-            ] = "Semantic Scholar abstract"
+    # --------------------------------------------------------------
+    # OpenAlex fallback
+    # --------------------------------------------------------------
 
-    except Exception as error:
-
-        source[
-            "enrichment_error"
-        ] = str(error)
+    enrich_from_openalex(
+        source
+    )
 
     return source
 
@@ -948,97 +1718,61 @@ def enrich_sources(
         else:
 
             print(
-                "⚠️ No abstract available"
+                "❌ No evidence available"
             )
 
     return sources
 
 
 # ==========================================================================
-# SOURCE VERIFICATION
+# EVIDENCE VERIFICATION
 # ==========================================================================
 
-def verify_sources(
+def mark_evidence_verified(
     sources
 ):
 
-    print("=" * 80)
-    print("🧪 VERIFYING SOURCES")
-    print("=" * 80)
+    """
+    A source becomes evidence-verified ONLY when:
 
-    verified = []
-
-    for index, source in enumerate(
-        sources,
-        start=1,
-    ):
-
-        print(
-            f"Checking source "
-            f"{index}/{len(sources)}: "
-            f"{source.get('title', '')}"
-        )
-
-        verified_ok = False
-
-        database = source.get(
-            "source_database",
-            "",
-        )
-
-        if database == "Crossref":
-
-            verified_ok = (
-                verify_crossref_source(
-                    source
-                )
-            )
-
-        elif database == "Semantic Scholar":
-
-            verified_ok = (
-                verify_semantic_source(
-                    source
-                )
-            )
-
-        if verified_ok:
-
-            print(
-                "✅ VERIFIED"
-            )
-
-            verified.append(
-                source
-            )
-
-        else:
-
-            print(
-                "❌ NOT VERIFIED"
-            )
-
-    return verified
-
-
-# ==========================================================================
-# QUALITY FILTER
-# ==========================================================================
-
-def quality_filter(
-    sources
-):
+    - DOI metadata is verified
+    - authors exist
+    - year exists
+    - URL exists
+    - abstract/evidence exists
+    """
 
     accepted = []
 
     for source in sources:
 
-        title = _clean(
+        abstract = _clean_abstract(
             source.get(
-                "title",
+                "abstract",
                 "",
             )
         )
+
+        if not abstract:
+
+            print(
+                f"❌ Rejected metadata-only source: "
+                f"{source.get('title', '')}"
+            )
+
+            continue
+
+        if not source.get(
+            "metadata_verified",
+            False,
+        ):
+
+            print(
+                f"❌ Rejected unverified source: "
+                f"{source.get('title', '')}"
+            )
+
+            continue
 
         authors = _clean(
             source.get(
@@ -1051,13 +1785,6 @@ def quality_filter(
             "year"
         )
 
-        url = _clean(
-            source.get(
-                "url",
-                "",
-            )
-        )
-
         doi = _clean(
             source.get(
                 "doi",
@@ -1065,26 +1792,106 @@ def quality_filter(
             )
         )
 
-        if not title:
-            continue
+        url = _clean(
+            source.get(
+                "url",
+                "",
+            )
+        )
 
         if not authors:
+
+            print(
+                f"❌ Rejected source without authors: "
+                f"{source.get('title', '')}"
+            )
+
             continue
 
         if not year:
-            continue
 
-        if not url:
+            print(
+                f"❌ Rejected source without year: "
+                f"{source.get('title', '')}"
+            )
+
             continue
 
         if not doi:
+
+            print(
+                f"❌ Rejected source without DOI: "
+                f"{source.get('title', '')}"
+            )
+
             continue
+
+        if not url:
+
+            print(
+                f"❌ Rejected source without URL: "
+                f"{source.get('title', '')}"
+            )
+
+            continue
+
+        source[
+            "abstract"
+        ] = abstract
+
+        source[
+            "evidence_verified"
+        ] = True
+
+        source[
+            "verified"
+        ] = True
+
+        source[
+            "verification_level"
+        ] = "ABSTRACT_EVIDENCE"
 
         accepted.append(
             source
         )
 
     return accepted
+
+
+# ==========================================================================
+# LIMIT EVIDENCE SOURCES
+# ==========================================================================
+
+def limit_sources(
+    sources
+):
+
+    """
+    Keep the strongest evidence-backed sources.
+
+    Relevance score is preferred.
+    """
+
+    sources = sorted(
+        sources,
+        key=lambda source: (
+            source.get(
+                "relevance_score",
+                0,
+            ),
+            len(
+                source.get(
+                    "abstract",
+                    "",
+                )
+            ),
+        ),
+        reverse=True,
+    )
+
+    return sources[
+        :MAX_EVIDENCE_SOURCES
+    ]
 
 
 # ==========================================================================
@@ -1118,7 +1925,10 @@ def research_topic(
     # ----------------------------------------------------------------------
 
     crossref = []
+
     semantic = []
+
+    openalex = []
 
     try:
 
@@ -1152,8 +1962,29 @@ def research_topic(
             error
         )
 
+    # OpenAlex is intentionally searched as an additional
+    # independent evidence source.
+
+    try:
+
+        openalex = search_openalex(
+            topic
+        )
+
+    except Exception as error:
+
+        print(
+            "⚠️ OpenAlex search failed:"
+        )
+
+        print(
+            error
+        )
+
     candidates = deduplicate_sources(
-        crossref + semantic
+        crossref
+        + semantic
+        + openalex
     )
 
     print(
@@ -1162,36 +1993,190 @@ def research_topic(
     )
 
     # ----------------------------------------------------------------------
-    # VERIFY
+    # RELEVANCE FILTER
     # ----------------------------------------------------------------------
 
-    verified = verify_sources(
-        candidates
+    relevant = relevance_filter(
+        topic,
+        candidates,
     )
 
-    verified = quality_filter(
-        verified
+    print(
+        f"Relevant candidates: "
+        f"{len(relevant)}"
+    )
+
+    if not relevant:
+
+        raise RuntimeError(
+            "RESEARCH FAILED: "
+            "No sufficiently relevant sources found."
+        )
+
+    # ----------------------------------------------------------------------
+    # VERIFY DOI / SOURCE IDENTITY
+    # ----------------------------------------------------------------------
+
+    print("=" * 80)
+    print("🧪 VERIFYING SOURCES")
+    print("=" * 80)
+
+    verified_metadata = []
+
+    for index, source in enumerate(
+        relevant,
+        start=1,
+    ):
+
+        print(
+            f"Checking source "
+            f"{index}/{len(relevant)}: "
+            f"{source.get('title', '')}"
+        )
+
+        database = source.get(
+            "source_database",
+            "",
+        )
+
+        verified_ok = False
+
+        if database == "Crossref":
+
+            verified_ok = (
+                verify_crossref_source(
+                    source
+                )
+            )
+
+        elif database == "Semantic Scholar":
+
+            verified_ok = (
+                verify_semantic_source(
+                    source
+                )
+            )
+
+        elif database == "OpenAlex":
+
+            # OpenAlex records already contain
+            # DOI-backed metadata. We still verify
+            # identity through Crossref when possible.
+
+            verified_ok = (
+                verify_crossref_source(
+                    source
+                )
+            )
+
+            if not verified_ok:
+
+                # OpenAlex itself is still a valid
+                # bibliographic source.
+
+                verified_ok = bool(
+                    source.get(
+                        "doi"
+                    )
+                    and source.get(
+                        "title"
+                    )
+                )
+
+                if verified_ok:
+
+                    source[
+                        "metadata_verified"
+                    ] = True
+
+                    source[
+                        "verification"
+                    ] = (
+                        "OpenAlex DOI metadata "
+                        "accepted after Crossref "
+                        "verification was unavailable."
+                    )
+
+        if verified_ok:
+
+            print(
+                "✅ METADATA VERIFIED"
+            )
+
+            verified_metadata.append(
+                source
+            )
+
+        else:
+
+            print(
+                "❌ NOT VERIFIED"
+            )
+
+    # ----------------------------------------------------------------------
+    # ENRICH ABSTRACTS
+    # ----------------------------------------------------------------------
+
+    verified_metadata = enrich_sources(
+        verified_metadata
     )
 
     # ----------------------------------------------------------------------
-    # ENRICH
+    # EVIDENCE GATE
     # ----------------------------------------------------------------------
 
-    verified = enrich_sources(
-        verified
+    evidence_sources = (
+        mark_evidence_verified(
+            verified_metadata
+        )
     )
 
     # ----------------------------------------------------------------------
-    # REQUIRE MULTIPLE SOURCES
+    # RELEVANCE AGAIN AFTER ENRICHMENT
     # ----------------------------------------------------------------------
 
-    if len(verified) < MIN_ACCEPTED_SOURCES:
+    evidence_sources = relevance_filter(
+        topic,
+        evidence_sources,
+    )
+
+    # ----------------------------------------------------------------------
+    # LIMIT
+    # ----------------------------------------------------------------------
+
+    evidence_sources = limit_sources(
+        evidence_sources
+    )
+
+    # ----------------------------------------------------------------------
+    # REQUIRE MULTIPLE EVIDENCE SOURCES
+    # ----------------------------------------------------------------------
+
+    if len(
+        evidence_sources
+    ) < MIN_ACCEPTED_SOURCES:
+
+        print("=" * 80)
+        print("❌ RESEARCH FAILED")
+        print("=" * 80)
+
+        print(
+            f"Only "
+            f"{len(evidence_sources)} "
+            "evidence-backed source(s) found."
+        )
+
+        print(
+            f"At least "
+            f"{MIN_ACCEPTED_SOURCES} "
+            "are required."
+        )
 
         raise RuntimeError(
 
             "RESEARCH FAILED: "
-            f"Only {len(verified)} credible "
-            "verified source(s) found. "
+            f"Only {len(evidence_sources)} "
+            "evidence-backed source(s) found. "
             f"At least {MIN_ACCEPTED_SOURCES} "
             "are required."
         )
@@ -1217,10 +2202,17 @@ def research_topic(
             ),
 
         "source_count":
-            len(verified),
+            len(
+                evidence_sources
+            ),
+
+        "evidence_source_count":
+            len(
+                evidence_sources
+            ),
 
         "sources":
-            verified,
+            evidence_sources,
     }
 
     print("=" * 80)
@@ -1228,12 +2220,12 @@ def research_topic(
     print("=" * 80)
 
     print(
-        f"Verified sources: "
-        f"{len(verified)}"
+        f"Evidence-backed sources: "
+        f"{len(evidence_sources)}"
     )
 
     for index, source in enumerate(
-        verified,
+        evidence_sources,
         start=1,
     ):
 
@@ -1252,19 +2244,20 @@ def research_topic(
             f"{source['source_database']}"
         )
 
-        if source.get(
-            "abstract"
-        ):
+        print(
+            f"   Relevance score: "
+            f"{source.get('relevance_score', 0)}"
+        )
 
-            print(
-                "   Evidence: ABSTRACT AVAILABLE"
-            )
+        print(
+            f"   Evidence: "
+            f"{source.get('evidence_source', 'UNKNOWN')}"
+        )
 
-        else:
-
-            print(
-                "   Evidence: METADATA ONLY"
-            )
+        print(
+            "   Verification: "
+            "ABSTRACT EVIDENCE"
+        )
 
     print("=" * 80)
 

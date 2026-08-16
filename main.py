@@ -2,7 +2,7 @@
 main.py
 Mint-YT-Factory
 
-Version 10.0
+Version 10.1
 
 Research-first production pipeline.
 
@@ -13,6 +13,8 @@ Previous video's next_short
 → Verified research
 → Research-backed script
 → Claim verification
+→ HARD VERIFICATION GATE
+→ Save verified artifacts
 → TTS
 → Images
 → Music
@@ -30,7 +32,26 @@ successfully uploads the video.
 If anything fails before upload:
 - Current topic remains pending.
 - The next_short remains available.
-- The next GitHub Actions run can retry safely.
+- The current topic can be retried safely.
+
+SCIENTIFIC SAFETY:
+
+Research verification and claim verification are independent gates.
+
+Research must be VERIFIED before script generation.
+
+The generated script must PASS claim verification before
+any production asset is generated.
+
+A failed claim verification ALWAYS stops the pipeline.
+
+No TTS.
+No images.
+No music.
+No video.
+No upload.
+
+until claim verification passes.
 """
 
 import argparse
@@ -79,6 +100,40 @@ def load_config():
     ) as f:
 
         return yaml.safe_load(f)
+
+
+# ==========================================================================
+# SAVE JSON
+# ==========================================================================
+
+def save_json(
+    data,
+    path,
+):
+
+    directory = os.path.dirname(
+        path
+    )
+
+    if directory:
+
+        os.makedirs(
+            directory,
+            exist_ok=True,
+        )
+
+    with open(
+        path,
+        "w",
+        encoding="utf-8",
+    ) as f:
+
+        json.dump(
+            data,
+            f,
+            indent=2,
+            ensure_ascii=False,
+        )
 
 
 # ==========================================================================
@@ -411,6 +466,16 @@ def build_title_description(
         {},
     )
 
+    if not isinstance(
+        verification,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "Cannot publish: "
+            "claim verification record is missing."
+        )
+
     if verification.get(
         "verified"
     ) is not True:
@@ -418,6 +483,15 @@ def build_title_description(
         raise RuntimeError(
             "Cannot publish: "
             "claim verification failed."
+        )
+
+    if verification.get(
+        "overall_status"
+    ) != "PASS":
+
+        raise RuntimeError(
+            "Cannot publish: "
+            "claim verification status is not PASS."
         )
 
     description_parts.append(
@@ -478,18 +552,6 @@ def get_next_short_topic(
     script
 ):
 
-    """
-    Extract the topic for the next Short.
-
-    Expected format:
-
-    "next_short": {
-        "topic": "...",
-        "teaser": "...",
-        ...
-    }
-    """
-
     next_short = script.get(
         "next_short",
         {},
@@ -513,6 +575,321 @@ def get_next_short_topic(
 
 
 # ==========================================================================
+# HARD RESEARCH GATE
+# ==========================================================================
+
+def enforce_research_gate(
+    research,
+):
+
+    if not isinstance(
+        research,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "research package is invalid."
+        )
+
+    if research.get(
+        "verified"
+    ) is not True:
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "research package is not VERIFIED."
+        )
+
+    if research.get(
+        "status"
+    ) != "VERIFIED":
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "research status is not VERIFIED."
+        )
+
+    sources = research.get(
+        "sources",
+        [],
+    )
+
+    if not isinstance(
+        sources,
+        list,
+    ):
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "research sources are invalid."
+        )
+
+    if len(sources) < 2:
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "fewer than 2 verified research sources."
+        )
+
+    for index, source in enumerate(
+        sources,
+        start=1,
+    ):
+
+        if not isinstance(
+            source,
+            dict,
+        ):
+
+            raise RuntimeError(
+                f"PIPELINE STOPPED: "
+                f"research source {index} is invalid."
+            )
+
+        if source.get(
+            "verified"
+        ) is not True:
+
+            raise RuntimeError(
+                f"PIPELINE STOPPED: "
+                f"research source {index} is not verified."
+            )
+
+        if source.get(
+            "evidence_verified"
+        ) is not True:
+
+            raise RuntimeError(
+                f"PIPELINE STOPPED: "
+                f"research source {index} is not evidence verified."
+            )
+
+        abstract = str(
+            source.get(
+                "abstract",
+                "",
+            )
+        ).strip()
+
+        if not abstract:
+
+            raise RuntimeError(
+                f"PIPELINE STOPPED: "
+                f"research source {index} has no evidence abstract."
+            )
+
+    print(
+        "✅ RESEARCH HARD GATE PASSED"
+    )
+
+    return True
+
+
+# ==========================================================================
+# HARD CLAIM VERIFICATION GATE
+# ==========================================================================
+
+def enforce_claim_verification_gate(
+    script,
+):
+
+    verification = script.get(
+        "claim_verification",
+        {},
+    )
+
+    if not isinstance(
+        verification,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "claim verification result is missing."
+        )
+
+    status = verification.get(
+        "overall_status"
+    )
+
+    verified = (
+        verification.get(
+            "verified"
+        )
+        is True
+    )
+
+    if status != "PASS":
+
+        print("=" * 80)
+        print("❌ CLAIM VERIFICATION HARD GATE FAILED")
+        print("=" * 80)
+
+        print(
+            f"Verification status: {status}"
+        )
+
+        unsupported = verification.get(
+            "unsupported_claims",
+            [],
+        )
+
+        warnings = verification.get(
+            "warnings",
+            [],
+        )
+
+        if unsupported:
+
+            print(
+                "\n❌ Unsupported / invalid claims:"
+            )
+
+            for item in unsupported:
+
+                print(
+                    f"  ❌ {item}"
+                )
+
+        if warnings:
+
+            print(
+                "\n⚠️ Uncertain claims:"
+            )
+
+            for item in warnings:
+
+                print(
+                    f"  ⚠️ {item}"
+                )
+
+        print("=" * 80)
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "scientific claim verification did not PASS."
+        )
+
+    if not verified:
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "claim verification status is PASS but "
+            "verified flag is not True."
+        )
+
+    claims = verification.get(
+        "claims",
+        [],
+    )
+
+    if not isinstance(
+        claims,
+        list,
+    ):
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "claim verification claims are invalid."
+        )
+
+    # Every returned claim must be supported.
+    for claim in claims:
+
+        if not isinstance(
+            claim,
+            dict,
+        ):
+
+            raise RuntimeError(
+                "PIPELINE STOPPED: "
+                "claim verification contains an invalid claim."
+            )
+
+        claim_status = str(
+            claim.get(
+                "status",
+                "",
+            )
+        ).strip().lower()
+
+        if claim_status != "supported":
+
+            raise RuntimeError(
+                "PIPELINE STOPPED: "
+                "claim verification contains a non-supported claim."
+            )
+
+    print("=" * 80)
+    print("✅ CLAIM VERIFICATION HARD GATE PASSED")
+    print("=" * 80)
+
+    print(
+        f"Verified claims: {len(claims)}"
+    )
+
+    return True
+
+
+# ==========================================================================
+# FINAL PUBLISHING SAFETY GATE
+# ==========================================================================
+
+def enforce_publishing_gate(
+    script,
+):
+
+    publishing = script.get(
+        "publishing",
+        {},
+    )
+
+    if not isinstance(
+        publishing,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "publishing metadata is missing."
+        )
+
+    if publishing.get(
+        "research_verified"
+    ) is not True:
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "script is not marked research verified."
+        )
+
+    if publishing.get(
+        "citations_ready"
+    ) is not True:
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "citations are not ready."
+        )
+
+    if not claims_are_verified(
+        script
+    ):
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "claims are not verified."
+        )
+
+    print(
+        "✅ FINAL SCIENTIFIC PUBLISHING GATE PASSED"
+    )
+
+    return True
+
+
+# ==========================================================================
 # PIPELINE
 # ==========================================================================
 
@@ -532,6 +909,13 @@ def run(
 
     topic = get_next_topic()
 
+    if not topic:
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "no topic available."
+        )
+
     print(
         f"🎯 CURRENT TOPIC: {topic}"
     )
@@ -548,37 +932,14 @@ def run(
         topic
     )
 
-    if research.get(
-        "verified"
-    ) is not True:
-
-        raise RuntimeError(
-            "PIPELINE STOPPED: "
-            "research was not verified."
-        )
-
-    if research.get(
-        "status"
-    ) != "VERIFIED":
-
-        raise RuntimeError(
-            "PIPELINE STOPPED: "
-            "research status is not VERIFIED."
-        )
+    enforce_research_gate(
+        research
+    )
 
     verified_sources = research.get(
         "sources",
         [],
     )
-
-    if len(
-        verified_sources
-    ) < 2:
-
-        raise RuntimeError(
-            "PIPELINE STOPPED: "
-            "fewer than 2 verified sources."
-        )
 
     print(
         f"✅ VERIFIED SOURCES: "
@@ -591,7 +952,7 @@ def run(
     ):
 
         print(
-            f"  {index}. "
+            f"  source_{index}: "
             f"{source.get('title', '')}"
         )
 
@@ -600,7 +961,7 @@ def run(
     # ----------------------------------------------------------------------
 
     print("=" * 80)
-    print("✍️ GENERATING VERIFIED SCRIPT")
+    print("✍️ GENERATING RESEARCH-BACKED SCRIPT")
     print("=" * 80)
 
     script = generate_script(
@@ -619,6 +980,11 @@ def run(
         f"{script.get('image_generation', {}).get('total_images', 14)}"
     )
 
+    print(
+        "Verified research sources: "
+        f"{len(script.get('research_sources', []))}"
+    )
+
     next_short_topic = get_next_short_topic(
         script
     )
@@ -626,11 +992,6 @@ def run(
     print(
         "Next Short: "
         f"{next_short_topic or 'Not specified'}"
-    )
-
-    print(
-        "Verified research sources: "
-        f"{len(script.get('research_sources', []))}"
     )
 
     # ----------------------------------------------------------------------
@@ -641,7 +1002,7 @@ def run(
 
         raise RuntimeError(
             "PIPELINE STOPPED: "
-            "script did not provide a next_short.topic."
+            "script did not provide next_short.topic."
         )
 
     # ----------------------------------------------------------------------
@@ -649,7 +1010,7 @@ def run(
     # ----------------------------------------------------------------------
 
     print("=" * 80)
-    print("🧪 VERIFYING SCRIPT CLAIMS")
+    print("🧪 VERIFYING IMPORTANT FACTUAL CLAIMS")
     print("=" * 80)
 
     script = verify_script_claims(
@@ -657,96 +1018,23 @@ def run(
         research,
     )
 
-    if not claims_are_verified(
+    # ----------------------------------------------------------------------
+    # HARD CLAIM GATE
+    #
+    # NOTHING BELOW THIS POINT MAY RUN IF CLAIM VERIFICATION FAILS.
+    # ----------------------------------------------------------------------
+
+    enforce_claim_verification_gate(
         script
-    ):
-
-        verification = script.get(
-            "claim_verification",
-            {},
-        )
-
-        print("=" * 80)
-        print("❌ PIPELINE STOPPED")
-        print("=" * 80)
-
-        print(
-            "Scientific claim verification failed."
-        )
-
-        unsupported = verification.get(
-            "unsupported_claims",
-            [],
-        )
-
-        warnings = verification.get(
-            "warnings",
-            [],
-        )
-
-        if unsupported:
-
-            print(
-                "\nUnsupported / contradicted claims:"
-            )
-
-            for claim in unsupported:
-
-                print(
-                    f"  ❌ {claim}"
-                )
-
-        if warnings:
-
-            print(
-                "\nUncertain claims:"
-            )
-
-            for claim in warnings:
-
-                print(
-                    f"  ⚠️ {claim}"
-                )
-
-        print("=" * 80)
-
-        raise RuntimeError(
-            "PIPELINE STOPPED: "
-            "generated script failed scientific "
-            "claim verification."
-        )
-
-    print(
-        "✅ Scientific claim verification PASSED"
     )
 
     # ----------------------------------------------------------------------
-    # FINAL RESEARCH SAFETY CHECK
+    # FINAL SCIENTIFIC SAFETY GATE
     # ----------------------------------------------------------------------
 
-    if script.get(
-        "publishing",
-        {}
-    ).get(
-        "research_verified"
-    ) is not True:
-
-        raise RuntimeError(
-            "PIPELINE STOPPED: "
-            "script is not marked research verified."
-        )
-
-    if script.get(
-        "publishing",
-        {}
-    ).get(
-        "citations_ready"
-    ) is not True:
-
-        raise RuntimeError(
-            "PIPELINE STOPPED: "
-            "citations are not ready."
-        )
+    enforce_publishing_gate(
+        script
+    )
 
     # ----------------------------------------------------------------------
     # WORK DIRECTORY
@@ -768,6 +1056,10 @@ def run(
         exist_ok=True,
     )
 
+    print("=" * 80)
+    print("💾 SAVING VERIFIED PIPELINE ARTIFACTS")
+    print("=" * 80)
+
     # ----------------------------------------------------------------------
     # SAVE RESEARCH
     # ----------------------------------------------------------------------
@@ -777,26 +1069,17 @@ def run(
         "research.json",
     )
 
-    with open(
+    save_json(
+        research,
         research_path,
-        "w",
-        encoding="utf-8",
-    ) as f:
-
-        json.dump(
-            research,
-            f,
-            indent=2,
-            ensure_ascii=False,
-        )
+    )
 
     print(
-        f"Research saved: "
-        f"{research_path}"
+        f"Research saved: {research_path}"
     )
 
     # ----------------------------------------------------------------------
-    # SAVE SCRIPT
+    # SAVE VERIFIED SCRIPT
     # ----------------------------------------------------------------------
 
     script_path = os.path.join(
@@ -804,23 +1087,73 @@ def run(
         "script.json",
     )
 
-    with open(
+    save_json(
+        script,
         script_path,
-        "w",
-        encoding="utf-8",
-    ) as f:
-
-        json.dump(
-            script,
-            f,
-            indent=2,
-            ensure_ascii=False,
-        )
+    )
 
     print(
-        f"Script saved: "
-        f"{script_path}"
+        f"Verified script saved: {script_path}"
     )
+
+    # ----------------------------------------------------------------------
+    # SAVE CLAIM VERIFICATION
+    # ----------------------------------------------------------------------
+
+    verification_path = os.path.join(
+        workdir,
+        "claim_verification.json",
+    )
+
+    save_json(
+        script.get(
+            "claim_verification",
+            {},
+        ),
+        verification_path,
+    )
+
+    print(
+        f"Claim verification saved: "
+        f"{verification_path}"
+    )
+
+    # ----------------------------------------------------------------------
+    # PRODUCTION START
+    #
+    # IMPORTANT:
+    #
+    # From this point onward the script has already passed:
+    #
+    # 1. Research verification
+    # 2. Evidence verification
+    # 3. Script generation validation
+    # 4. Claim verification
+    # 5. Citation validation
+    #
+    # ----------------------------------------------------------------------
+
+    print("=" * 80)
+    print("🎬 SCIENTIFIC VERIFICATION COMPLETE")
+    print("=" * 80)
+
+    print(
+        "Research: VERIFIED"
+    )
+
+    print(
+        "Claims: VERIFIED"
+    )
+
+    print(
+        "Citations: READY"
+    )
+
+    print(
+        "Production may proceed."
+    )
+
+    print("=" * 80)
 
     # ----------------------------------------------------------------------
     # TTS
@@ -970,6 +1303,30 @@ def run(
         )
 
         return
+
+    # ----------------------------------------------------------------------
+    # FINAL PRE-UPLOAD GATE
+    # ----------------------------------------------------------------------
+
+    print("=" * 80)
+    print("🔐 FINAL PRE-UPLOAD SCIENTIFIC SAFETY CHECK")
+    print("=" * 80)
+
+    enforce_research_gate(
+        research
+    )
+
+    enforce_claim_verification_gate(
+        script
+    )
+
+    enforce_publishing_gate(
+        script
+    )
+
+    print(
+        "✅ PRE-UPLOAD SAFETY CHECK PASSED"
+    )
 
     # ----------------------------------------------------------------------
     # BUILD YOUTUBE METADATA

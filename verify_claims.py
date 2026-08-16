@@ -2,9 +2,9 @@
 verify_claims.py
 Mint-YT-Factory
 
-Version 2.1
+Version 2.2
 
-Scientific claim verification layer.
+Hardened scientific claim verification layer.
 
 FLOW:
 
@@ -18,7 +18,7 @@ Compare against verified Evidence Text
       ↓
 Gemini evaluates support
       ↓
-Local citation + evidence validation
+Local structural + citation + completeness validation
       ↓
 PASS / FAIL
       ↓
@@ -43,11 +43,16 @@ IMPORTANT:
   research evidence package.
 - Gemini cannot introduce outside knowledge.
 - Original research source IDs are preserved exactly.
+- Numeric claims are explicitly checked.
+- Scene coverage is explicitly checked.
+- Gemini verification may be retried when the returned result is
+  structurally incomplete.
 """
 
 import json
 import os
 import re
+import time
 
 from google import genai
 from google.genai import types
@@ -63,17 +68,18 @@ MAX_CLAIMS_PER_SCENE = 8
 
 MIN_EVIDENCE_CHARACTERS = 120
 
+MAX_VERIFICATION_ATTEMPTS = 3
+
+RETRY_DELAY_SECONDS = 3
+
 
 # ==========================================================================
 # HELPERS
 # ==========================================================================
 
-def _clean(
-    text
-):
+def _clean(text):
 
     if text is None:
-
         return ""
 
     return re.sub(
@@ -99,6 +105,238 @@ def _get_api_key():
     return api_key
 
 
+def _unique_clean_list(values):
+
+    if not isinstance(
+        values,
+        list,
+    ):
+        return []
+
+    result = []
+    seen = set()
+
+    for value in values:
+
+        value = _clean(value)
+
+        if not value:
+            continue
+
+        key = value.lower()
+
+        if key in seen:
+            continue
+
+        seen.add(key)
+        result.append(value)
+
+    return result
+
+
+# ==========================================================================
+# NUMERIC / FACTUAL SIGNAL DETECTION
+# ==========================================================================
+
+def _contains_numeric_claim_signal(
+    narration
+):
+    """
+    Detect whether narration contains obvious quantitative content.
+
+    This is intentionally conservative.
+
+    It does NOT decide whether something is scientifically factual.
+
+    It only tells the local verifier:
+
+        "Gemini must not silently ignore this sentence."
+
+    Examples:
+
+        80%
+        10 meters
+        37 degrees
+        3 times
+        2024
+        1.5 million
+        2x
+    """
+
+    text = _clean(
+        narration
+    )
+
+    if not text:
+        return False
+
+    numeric_patterns = [
+
+        # Percentages
+        r"\b\d+(?:\.\d+)?\s*%",
+
+        # Numbers with common scientific units
+        r"\b\d+(?:\.\d+)?\s*"
+        r"(?:"
+        r"seconds?|minutes?|hours?|days?|weeks?|months?|years?|"
+        r"meters?|metres?|kilometers?|kilometres?|"
+        r"centimeters?|centimetres?|millimeters?|millimetres?|"
+        r"grams?|kilograms?|milligrams?|"
+        r"degrees?|°|"
+        r"celsius|fahrenheit|kelvin|"
+        r"hz|khz|mhz|ghz|"
+        r"watts?|kw|mw|"
+        r"volts?|amps?|"
+        r"times?"
+        r")\b",
+
+        # Multipliers
+        r"\b\d+(?:\.\d+)?\s*x\b",
+
+        # Large quantities
+        r"\b\d+(?:\.\d+)?\s*"
+        r"(?:thousand|million|billion|trillion)\b",
+
+        # Decimal / standalone quantitative numbers
+        r"\b\d+\.\d+\b",
+
+        # Years
+        r"\b(?:1[5-9]\d{2}|20\d{2}|21\d{2})\b",
+    ]
+
+    for pattern in numeric_patterns:
+
+        if re.search(
+            pattern,
+            text,
+            flags=re.IGNORECASE,
+        ):
+
+            return True
+
+    return False
+
+
+def _contains_factual_language_signal(
+    narration
+):
+    """
+    Conservative heuristic for detecting sentences that may contain
+    factual/scientific claims.
+
+    This is NOT a scientific classifier.
+
+    It exists only as a second completeness safeguard so that Gemini
+    cannot silently return zero claims for obviously factual narration.
+    """
+
+    text = _clean(
+        narration
+    )
+
+    if not text:
+        return False
+
+    lowered = text.lower()
+
+    factual_patterns = [
+
+        # Research language
+        r"\bresearchers?\b",
+        r"\bscientists?\b",
+        r"\bstudy\b",
+        r"\bstudies\b",
+        r"\bexperiment\b",
+        r"\bexperiments\b",
+        r"\bobserved\b",
+        r"\bfound\b",
+        r"\bfindings?\b",
+        r"\bdata\b",
+        r"\bevidence\b",
+
+        # Causal / mechanistic language
+        r"\bcauses?\b",
+        r"\bcaused\b",
+        r"\bcausing\b",
+        r"\bleads? to\b",
+        r"\bresults? in\b",
+        r"\bproduces?\b",
+        r"\bcreates?\b",
+        r"\bprevents?\b",
+        r"\bcontrols?\b",
+        r"\btriggers?\b",
+        r"\bdrives?\b",
+        r"\baffects?\b",
+        r"\bincreases?\b",
+        r"\bdecreases?\b",
+        r"\breduces?\b",
+        r"\bimproves?\b",
+        r"\bchanges?\b",
+
+        # Scientific observation language
+        r"\bcontains?\b",
+        r"\bconsists? of\b",
+        r"\bhas\b",
+        r"\bhave\b",
+        r"\buses?\b",
+        r"\buses\b",
+        r"\bproduces?\b",
+        r"\babsorbs?\b",
+        r"\breflects?\b",
+        r"\bemits?\b",
+        r"\bdetects?\b",
+        r"\bmeasures?\b",
+
+        # Biological / physical mechanism signals
+        r"\bcell\b",
+        r"\bcells\b",
+        r"\bbrain\b",
+        r"\bneuron\b",
+        r"\bneurons\b",
+        r"\bhormone\b",
+        r"\bhormones\b",
+        r"\bdna\b",
+        r"\bprotein\b",
+        r"\bproteins\b",
+        r"\batom\b",
+        r"\batoms\b",
+        r"\bmolecule\b",
+        r"\bmolecules\b",
+        r"\benergy\b",
+        r"\bpressure\b",
+        r"\btemperature\b",
+        r"\bgravity\b",
+        r"\bvelocity\b",
+        r"\bfrequency\b",
+        r"\bradiation\b",
+        r"\bmagnetic\b",
+        r"\belectric\b",
+
+        # Strong factual verbs
+        r"\bis known to\b",
+        r"\bare known to\b",
+        r"\bis caused by\b",
+        r"\bare caused by\b",
+        r"\bis associated with\b",
+        r"\bare associated with\b",
+        r"\bhas been shown\b",
+        r"\bhave been shown\b",
+        r"\bwas discovered\b",
+        r"\bwere discovered\b",
+    ]
+
+    for pattern in factual_patterns:
+
+        if re.search(
+            pattern,
+            lowered,
+        ):
+
+            return True
+
+    return False
+
+
 # ==========================================================================
 # BUILD VERIFIED SOURCE MAP
 # ==========================================================================
@@ -109,36 +347,9 @@ def _build_source_map(
     """
     Build the authoritative source map.
 
-    IMPORTANT:
+    The source_id generated by research.py is authoritative.
 
-    The source_id generated by the research layer is authoritative.
-
-    Examples:
-
-        doi_a0e748e41dd1
-        doi_ad9aa1dac2e2
-        doi_7566a56dbcf2
-        doi_e5061afccac8
-        doi_0b195db04e43
-
-    DO NOT create artificial IDs such as:
-
-        source_1
-        source_2
-        source_3
-
-    The exact same source_id must travel through:
-
-        research
-            ↓
-        script
-            ↓
-        scene source_ids
-            ↓
-        claim verification
-
-    This prevents citation mismatches between the generated script
-    and the research package.
+    NEVER create artificial source IDs.
     """
 
     sources = research.get(
@@ -154,12 +365,7 @@ def _build_source_map(
             source,
             dict,
         ):
-
             continue
-
-        # --------------------------------------------------------------
-        # USE THE ORIGINAL RESEARCH SOURCE ID
-        # --------------------------------------------------------------
 
         source_id = _clean(
             source.get(
@@ -169,7 +375,6 @@ def _build_source_map(
         )
 
         if not source_id:
-
             continue
 
         source_map[
@@ -190,8 +395,6 @@ def _build_research_evidence(
     Build the evidence package Gemini is allowed to use.
 
     ONLY evidence-verified sources are presented as usable evidence.
-
-    Metadata is explicitly separated from Evidence Text.
     """
 
     source_map = _build_source_map(
@@ -277,26 +480,18 @@ def _build_research_evidence(
             )
         )
 
-        # --------------------------------------------------------------
-        # SAFETY GATE
-        # --------------------------------------------------------------
-
         if evidence_verified is not True:
-
             continue
 
         if evidence_available is not True:
-
             continue
 
         if not evidence_text:
-
             continue
 
         if len(
             evidence_text
         ) < MIN_EVIDENCE_CHARACTERS:
-
             continue
 
         blocks.append(
@@ -351,8 +546,7 @@ IMPORTANT
 Only the Evidence Text above may be used to support factual
 claims.
 
-The title, authors, journal, year, DOI, URL, verification level,
-and evidence metadata are NOT scientific evidence.
+Metadata is NOT scientific evidence.
 """.strip()
         )
 
@@ -388,7 +582,6 @@ def _build_claim_context(
             scene,
             dict,
         ):
-
             continue
 
         scene_number = scene.get(
@@ -411,7 +604,6 @@ def _build_claim_context(
             source_ids,
             list,
         ):
-
             source_ids = []
 
         source_ids = [
@@ -451,72 +643,78 @@ def build_response_schema():
         "properties": {
 
             "claim": {
-
-                "type":
-                    "string",
+                "type": "string",
             },
 
             "scene": {
-
-                "type":
-                    "integer",
+                "type": "integer",
             },
 
             "source_ids": {
-
-                "type":
-                    "array",
-
+                "type": "array",
                 "items": {
-
-                    "type":
-                        "string",
+                    "type": "string",
                 },
             },
 
             "status": {
-
-                "type":
-                    "string",
-
+                "type": "string",
                 "enum": [
-
                     "supported",
-
                     "unsupported",
-
                     "uncertain",
-
                     "contradicted",
                 ],
             },
 
             "reason": {
-
-                "type":
-                    "string",
+                "type": "string",
             },
 
             "evidence": {
-
-                "type":
-                    "string",
+                "type": "string",
             },
         },
 
         "required": [
-
             "claim",
-
             "scene",
-
             "source_ids",
-
             "status",
-
             "reason",
-
             "evidence",
+        ],
+    }
+
+    scene_review = {
+
+        "type":
+            "object",
+
+        "properties": {
+
+            "scene": {
+                "type": "integer",
+            },
+
+            "factual_claims_found": {
+                "type": "boolean",
+            },
+
+            "claim_count": {
+                "type": "integer",
+            },
+
+            "review_note": {
+                "type": "string",
+            },
+        },
+
+        "required": [
+            "scene",
+            "factual_claims_found",
+            "claim_count",
+            "review_note",
         ],
     }
 
@@ -533,9 +731,7 @@ def build_response_schema():
                     "string",
 
                 "enum": [
-
                     "PASS",
-
                     "FAIL",
                 ],
             },
@@ -549,15 +745,22 @@ def build_response_schema():
                     claim,
             },
 
+            "scene_reviews": {
+
+                "type":
+                    "array",
+
+                "items":
+                    scene_review,
+            },
+
             "unsupported_claims": {
 
                 "type":
                     "array",
 
                 "items": {
-
-                    "type":
-                        "string",
+                    "type": "string",
                 },
             },
 
@@ -567,9 +770,7 @@ def build_response_schema():
                     "array",
 
                 "items": {
-
-                    "type":
-                        "string",
+                    "type": "string",
                 },
             },
         },
@@ -577,11 +778,9 @@ def build_response_schema():
         "required": [
 
             "overall_status",
-
             "claims",
-
+            "scene_reviews",
             "unsupported_claims",
-
             "warnings",
         ],
     }
@@ -594,12 +793,12 @@ def build_response_schema():
 def _system_prompt():
 
     return """
-You are a strict scientific fact checker.
+You are a STRICT scientific fact checker.
 
 Your job is NOT to rewrite the script.
 
-Your job is to determine whether IMPORTANT FACTUAL CLAIMS in the
-generated YouTube Short are actually supported by the supplied
+Your job is to determine whether EVERY IMPORTANT FACTUAL CLAIM in
+the generated YouTube Short is actually supported by the supplied
 verified scientific evidence.
 
 ============================================================
@@ -611,7 +810,7 @@ You may ONLY use the supplied SCIENTIFIC EVIDENCE text.
 Do NOT use:
 
 - general knowledge
-- memory
+- model memory
 - internet knowledge
 - outside scientific knowledge
 - invented evidence
@@ -643,7 +842,12 @@ Only Evidence Text can support a scientific claim.
 IMPORTANT CLAIM EXTRACTION
 ============================================================
 
-Extract EVERY IMPORTANT FACTUAL CLAIM from the narration.
+For EVERY scene:
+
+1. Read the COMPLETE narration.
+2. Identify EVERY IMPORTANT FACTUAL CLAIM.
+3. Do NOT skip claims because they appear in storytelling language.
+4. Do NOT create artificial claims from purely stylistic language.
 
 Examples of factual claims:
 
@@ -662,54 +866,54 @@ Examples of factual claims:
 - relationships between variables
 - scientific conclusions
 
-Do NOT create artificial claims from storytelling language.
-
-For example:
+Stylistic examples that are NOT claims:
 
 "Here's where it gets interesting."
 
-is NOT a factual claim.
+"This changes everything."
 
 "Nature has another surprise."
 
-is NOT a factual claim.
+"That makes the story even stranger."
 
-But:
+============================================================
+SCENE COVERAGE
+============================================================
 
-"Pressure increases by about one atmosphere every ten meters."
+You MUST return one scene_reviews object for EVERY scene.
 
-IS a factual claim.
+If a scene contains factual claims:
+
+factual_claims_found:
+true
+
+and claim_count must equal the number of factual claims extracted.
+
+If a scene contains only stylistic language:
+
+factual_claims_found:
+false
+
+claim_count:
+0
+
+Do NOT omit scene reviews.
 
 ============================================================
 SCENE CITATION RULE
 ============================================================
 
-Every scene has its own cited source IDs.
+Every factual claim must use ONLY source IDs cited by THAT scene.
 
-For every factual claim:
+Never substitute a source from another scene.
 
-- Use ONLY source IDs cited by THAT scene.
-- Never substitute a source from another scene.
-- Never add a source that the scene did not cite.
-- The verifier source_ids MUST be a subset of the scene's
-  source_ids.
-- Preserve source IDs EXACTLY as provided.
+Never invent a source ID.
 
-Example:
+Never add a source that the scene did not cite.
 
-Scene cites:
+Verifier source_ids MUST be a subset of the scene's source_ids.
 
-["doi_a0e748e41dd1", "doi_ad9aa1dac2e2"]
-
-If the first source supports the claim:
-
-source_ids:
-["doi_a0e748e41dd1"]
-
-If neither supports it:
-
-status:
-"unsupported"
+Preserve source IDs EXACTLY.
 
 ============================================================
 STATUS DEFINITIONS
@@ -719,8 +923,7 @@ supported:
 The supplied Evidence Text directly supports the claim.
 
 uncertain:
-The supplied Evidence Text is related but insufficient to establish
-the claim confidently.
+The supplied Evidence Text is related but insufficient.
 
 unsupported:
 The supplied Evidence Text does not support the claim.
@@ -732,66 +935,17 @@ The supplied Evidence Text conflicts with the claim.
 DO NOT STRENGTHEN SCIENTIFIC LANGUAGE
 ============================================================
 
-Research:
+"may contribute" ≠ "causes"
 
-"may contribute"
+"associated with" ≠ "causes"
 
-Claim:
+"possible" ≠ "certain"
 
-"causes"
+"hypothesis" ≠ "proven"
 
-Result:
+"observed" ≠ "always occurs"
 
-NOT SUPPORTED.
-
-Research:
-
-"associated with"
-
-Claim:
-
-"causes"
-
-Result:
-
-NOT SUPPORTED.
-
-Research:
-
-"hypothesis"
-
-Claim:
-
-"proven fact"
-
-Result:
-
-NOT SUPPORTED.
-
-Research:
-
-"was observed"
-
-Claim:
-
-"always occurs"
-
-Result:
-
-NOT SUPPORTED.
-
-Research:
-
-"could potentially explain"
-
-Claim:
-
-"explains"
-
-Result:
-
-NOT SUPPORTED unless the Evidence Text explicitly supports
-the stronger statement.
+"could explain" ≠ "explains"
 
 ============================================================
 NUMBERS
@@ -800,8 +954,7 @@ NUMBERS
 Every number, percentage, measurement, date, quantity, or statistic
 must be supported by the supplied Evidence Text.
 
-Do not infer or calculate additional numbers unless the calculation
-is directly and unambiguously supported by the supplied evidence.
+Do not invent or infer numbers.
 
 ============================================================
 CAUSATION
@@ -809,11 +962,15 @@ CAUSATION
 
 Do not convert:
 
-- correlation → causation
-- association → causation
-- possibility → certainty
-- hypothesis → established fact
-- observation → universal rule
+correlation → causation
+
+association → causation
+
+possibility → certainty
+
+hypothesis → established fact
+
+observation → universal rule
 
 ============================================================
 CLAIM CITATION REQUIREMENT
@@ -834,35 +991,16 @@ If a claim uses a source ID that was not cited by its scene:
 FAIL it.
 
 ============================================================
-STYLISTIC STATEMENTS
-============================================================
-
-Statements such as:
-
-"Here's where it gets interesting."
-
-"This is where things change."
-
-"Nature has another surprise."
-
-"That makes the story even stranger."
-
-do NOT require scientific evidence.
-
-A scene may contain ZERO factual claims.
-
-A scene with zero factual claims is NOT automatically a failure.
-
-============================================================
 EVIDENCE FIELD
 ============================================================
 
-For every supported claim, provide a concise explanation of the
-specific supplied Evidence Text that supports it.
+For every supported claim:
 
-Do NOT invent quotations.
-
-Do NOT claim that evidence says something it does not say.
+- provide a concise reason
+- provide a concise evidence explanation
+- use ONLY supplied Evidence Text
+- do not invent quotations
+- do not claim evidence says something it does not say
 
 ============================================================
 PASS CONDITION
@@ -877,10 +1015,10 @@ PASS is allowed only when:
 5. No important claim is uncertain.
 6. Every factual claim has valid source IDs.
 7. Every factual claim's source IDs belong to that scene.
-8. The narration does not exaggerate the Evidence Text.
-9. Numbers and quantitative claims are supported.
-10. Causal language is supported.
-11. No outside knowledge was required.
+8. Numbers are supported.
+9. Causal language is supported.
+10. No outside knowledge was required.
+11. Every scene has been explicitly reviewed.
 
 Return ONLY valid JSON.
 """
@@ -930,28 +1068,33 @@ SCRIPT
 TASK
 ============================================================
 
-Extract EVERY IMPORTANT FACTUAL CLAIM from the narration.
+Review EVERY scene.
 
-Do NOT invent claims.
+For each scene:
 
-Do NOT turn stylistic sentences into factual claims.
+1. Read the entire narration.
+2. Identify every important factual claim.
+3. Do not skip quantitative claims.
+4. Do not skip causal/mechanistic claims.
+5. Do not turn stylistic sentences into claims.
+6. Create exactly one scene_reviews entry.
 
-For each important factual claim:
+For every factual claim:
 
 1. State the claim.
 2. Identify its scene.
 3. Look ONLY at Evidence Text belonging to sources cited by
    that scene.
 4. Do NOT use metadata as evidence.
-5. Return source_ids that are a SUBSET of the scene's cited sources.
-6. Preserve the exact source IDs supplied by the research package.
-7. Determine whether the evidence directly supports the claim.
+5. Return source_ids that are a SUBSET of that scene's cited IDs.
+6. Preserve exact source IDs.
+7. Determine whether the supplied evidence directly supports it.
 8. Explain why.
-9. Provide a concise evidence-based explanation.
+9. Provide a concise evidence explanation.
 
 IMPORTANT:
 
-Do NOT use a source from another scene.
+Do NOT use sources from another scene.
 
 Do NOT introduce outside information.
 
@@ -961,12 +1104,14 @@ Do NOT upgrade uncertainty into certainty.
 
 Do NOT convert correlation into causation.
 
-Do NOT convert possibility into certainty.
-
 Do NOT accept unsupported numbers.
 
-If a scene contains only stylistic narration and no factual claim,
-do not create an artificial claim.
+A scene with only stylistic narration may have:
+
+factual_claims_found = false
+claim_count = 0
+
+But EVERY scene must still appear in scene_reviews.
 
 Return ONLY JSON.
 """
@@ -990,7 +1135,13 @@ Return ONLY JSON.
         ),
     )
 
-    if not response.text:
+    response_text = getattr(
+        response,
+        "text",
+        None,
+    )
+
+    if not response_text:
 
         raise RuntimeError(
             "Claim verifier returned an empty response."
@@ -999,7 +1150,7 @@ Return ONLY JSON.
     try:
 
         return json.loads(
-            response.text
+            response_text
         )
 
     except json.JSONDecodeError as error:
@@ -1022,20 +1173,20 @@ def _local_validate(
     """
     Local safety layer.
 
-    Gemini decides whether the evidence supports the claim.
+    Gemini evaluates scientific support.
 
-    This function verifies that Gemini obeyed the structural rules.
+    Local validation enforces:
 
-    Gemini cannot bypass:
-
-    - invalid source IDs
-    - cross-scene citations
-    - missing citations
-    - unverified evidence
-    - missing evidence text
-    - uncertain status
-    - unsupported status
-    - contradicted status
+    - valid source IDs
+    - scene-local citations
+    - usable evidence
+    - supported-only PASS
+    - no uncertainty
+    - no unsupported claims
+    - no contradicted claims
+    - scene coverage
+    - numeric claim coverage
+    - claim limits
     """
 
     if not isinstance(
@@ -1048,10 +1199,6 @@ def _local_validate(
             "an invalid result."
         )
 
-    # ----------------------------------------------------------------------
-    # AUTHORITATIVE SOURCE MAP
-    # ----------------------------------------------------------------------
-
     source_map = _build_source_map(
         research
     )
@@ -1061,7 +1208,7 @@ def _local_validate(
     )
 
     # ----------------------------------------------------------------------
-    # VERIFY EVERY RESEARCH SOURCE IS ACTUALLY USABLE
+    # USABLE SOURCE IDS
     # ----------------------------------------------------------------------
 
     usable_source_ids = set()
@@ -1072,7 +1219,14 @@ def _local_validate(
             source,
             dict,
         ):
+            continue
 
+        if source.get(
+            "verified"
+        ) is not True:
+
+            # Some research packages may not include this field,
+            # but the upstream research gate requires it.
             continue
 
         if source.get(
@@ -1105,26 +1259,47 @@ def _local_validate(
         )
 
     # ----------------------------------------------------------------------
-    # BUILD SCENE → CITED SOURCES MAP
+    # SCENE MAP
     # ----------------------------------------------------------------------
 
     scene_source_map = {}
 
-    for scene in script.get(
+    scene_narration_map = {}
+
+    scenes = script.get(
         "scene_plan",
         [],
+    )
+
+    if not isinstance(
+        scenes,
+        list,
     ):
+
+        raise RuntimeError(
+            "Script scene_plan is invalid."
+        )
+
+    for scene in scenes:
 
         if not isinstance(
             scene,
             dict,
         ):
-
             continue
 
-        scene_number = scene.get(
-            "scene"
-        )
+        try:
+
+            scene_number = int(
+                scene.get(
+                    "scene",
+                    0,
+                )
+            )
+
+        except Exception:
+
+            scene_number = 0
 
         source_ids = scene.get(
             "source_ids",
@@ -1151,6 +1326,19 @@ def _local_validate(
             scene_number
         ] = normalized_ids
 
+        scene_narration_map[
+            scene_number
+        ] = _clean(
+            scene.get(
+                "narration",
+                "",
+            )
+        )
+
+    expected_scene_numbers = set(
+        scene_source_map.keys()
+    )
+
     # ----------------------------------------------------------------------
     # RESULT ARRAYS
     # ----------------------------------------------------------------------
@@ -1166,6 +1354,18 @@ def _local_validate(
     ):
 
         claims = []
+
+    scene_reviews = result.get(
+        "scene_reviews",
+        [],
+    )
+
+    if not isinstance(
+        scene_reviews,
+        list,
+    ):
+
+        scene_reviews = []
 
     unsupported = list(
         result.get(
@@ -1188,6 +1388,8 @@ def _local_validate(
     # ----------------------------------------------------------------------
 
     claims_per_scene = {}
+
+    supported_claims = []
 
     for claim in claims:
 
@@ -1264,17 +1466,16 @@ def _local_validate(
             source_ids = []
 
         source_ids = [
-
             str(source_id).strip()
-
             for source_id in source_ids
-
             if str(source_id).strip()
         ]
 
-        # --------------------------------------------------------------
-        # CLAIM COUNT
-        # --------------------------------------------------------------
+        source_ids = list(
+            dict.fromkeys(
+                source_ids
+            )
+        )
 
         claims_per_scene[
             scene_number
@@ -1356,7 +1557,7 @@ def _local_validate(
             )
 
         # --------------------------------------------------------------
-        # SOURCES MUST BE USABLE EVIDENCE SOURCES
+        # SOURCES MUST BE USABLE
         # --------------------------------------------------------------
 
         unusable_ids = [
@@ -1380,7 +1581,7 @@ def _local_validate(
             )
 
         # --------------------------------------------------------------
-        # SOURCE IDS MUST BELONG TO THAT SCENE
+        # SCENE-LOCAL CITATION
         # --------------------------------------------------------------
 
         wrong_scene_sources = [
@@ -1432,7 +1633,7 @@ def _local_validate(
             )
 
         # --------------------------------------------------------------
-        # SUPPORTED CLAIM MUST HAVE REASON + EVIDENCE
+        # SUPPORTED CLAIM REQUIREMENTS
         # --------------------------------------------------------------
 
         if status == "supported":
@@ -1491,8 +1692,272 @@ def _local_validate(
                     )
                 )
 
+            if (
+                not invalid_ids
+                and not unusable_ids
+                and not wrong_scene_sources
+                and source_ids
+                and reason
+                and evidence
+            ):
+
+                supported_claims.append(
+                    claim
+                )
+
     # ----------------------------------------------------------------------
-    # RESEARCH ITSELF MUST HAVE MULTIPLE VERIFIED SOURCES
+    # SCENE REVIEW VALIDATION
+    # ----------------------------------------------------------------------
+
+    reviewed_scenes = set()
+
+    for review in scene_reviews:
+
+        if not isinstance(
+            review,
+            dict,
+        ):
+
+            unsupported.append(
+                "Verifier returned an invalid scene review."
+            )
+
+            continue
+
+        try:
+
+            scene_number = int(
+                review.get(
+                    "scene",
+                    0,
+                )
+            )
+
+        except Exception:
+
+            scene_number = 0
+
+        if scene_number not in expected_scene_numbers:
+
+            unsupported.append(
+                (
+                    f"Scene review references invalid "
+                    f"scene {scene_number}."
+                )
+            )
+
+            continue
+
+        if scene_number in reviewed_scenes:
+
+            unsupported.append(
+                (
+                    f"Scene {scene_number} was reviewed "
+                    f"more than once."
+                )
+            )
+
+            continue
+
+        reviewed_scenes.add(
+            scene_number
+        )
+
+        factual_claims_found = (
+            review.get(
+                "factual_claims_found",
+                False,
+            )
+            is True
+        )
+
+        try:
+
+            reported_count = int(
+                review.get(
+                    "claim_count",
+                    0,
+                )
+            )
+
+        except Exception:
+
+            reported_count = -1
+
+        actual_count = claims_per_scene.get(
+            scene_number,
+            0,
+        )
+
+        # --------------------------------------------------------------
+        # CLAIM COUNT MUST MATCH
+        # --------------------------------------------------------------
+
+        if reported_count != actual_count:
+
+            unsupported.append(
+                (
+                    f"Scene {scene_number} review reports "
+                    f"{reported_count} claims but verifier "
+                    f"returned {actual_count}."
+                )
+            )
+
+        # --------------------------------------------------------------
+        # FACTUAL FLAG MUST MATCH
+        # --------------------------------------------------------------
+
+        if (
+            factual_claims_found
+            and actual_count == 0
+        ):
+
+            unsupported.append(
+                (
+                    f"Scene {scene_number} was marked as containing "
+                    f"factual claims but no claims were returned."
+                )
+            )
+
+        if (
+            not factual_claims_found
+            and actual_count > 0
+        ):
+
+            unsupported.append(
+                (
+                    f"Scene {scene_number} returned factual claims "
+                    f"but factual_claims_found was false."
+                )
+            )
+
+    # ----------------------------------------------------------------------
+    # EVERY SCENE MUST BE REVIEWED
+    # ----------------------------------------------------------------------
+
+    missing_scene_reviews = (
+        expected_scene_numbers
+        - reviewed_scenes
+    )
+
+    if missing_scene_reviews:
+
+        unsupported.append(
+            (
+                "Missing scene reviews for scene(s): "
+                +
+                ", ".join(
+                    str(x)
+                    for x in sorted(
+                        missing_scene_reviews
+                    )
+                )
+            )
+        )
+
+    # ----------------------------------------------------------------------
+    # LOCAL COMPLETENESS CHECK
+    #
+    # We intentionally use conservative heuristics here.
+    #
+    # A numeric/factual signal means Gemini must have returned at least
+    # one claim for that scene.
+    # ----------------------------------------------------------------------
+
+    for scene_number, narration in scene_narration_map.items():
+
+        if not narration:
+            continue
+
+        numeric_signal = (
+            _contains_numeric_claim_signal(
+                narration
+            )
+        )
+
+        factual_signal = (
+            _contains_factual_language_signal(
+                narration
+            )
+        )
+
+        returned_claim_count = claims_per_scene.get(
+            scene_number,
+            0,
+        )
+
+        if (
+            numeric_signal
+            and returned_claim_count == 0
+        ):
+
+            unsupported.append(
+                (
+                    f"Scene {scene_number} contains quantitative "
+                    f"language but Gemini returned zero factual "
+                    f"claims."
+                )
+            )
+
+        elif (
+            factual_signal
+            and returned_claim_count == 0
+        ):
+
+            # We do not automatically fail every factual-looking
+            # sentence because some can still be stylistic.
+            #
+            # However, if Gemini explicitly marked the scene as
+            # non-factual, the combination is suspicious enough
+            # to require a retry/failure.
+            review = None
+
+            for candidate in scene_reviews:
+
+                if not isinstance(
+                    candidate,
+                    dict,
+                ):
+                    continue
+
+                try:
+
+                    candidate_scene = int(
+                        candidate.get(
+                            "scene",
+                            0,
+                        )
+                    )
+
+                except Exception:
+
+                    candidate_scene = 0
+
+                if candidate_scene == scene_number:
+
+                    review = candidate
+                    break
+
+            if (
+                review
+                and
+                review.get(
+                    "factual_claims_found",
+                    False,
+                )
+                is False
+            ):
+
+                unsupported.append(
+                    (
+                        f"Scene {scene_number} contains language "
+                        f"that appears factual but was explicitly "
+                        f"reviewed as having zero factual claims."
+                    )
+                )
+
+    # ----------------------------------------------------------------------
+    # RESEARCH PACKAGE MUST HAVE MULTIPLE USABLE SOURCES
     # ----------------------------------------------------------------------
 
     if len(
@@ -1503,6 +1968,39 @@ def _local_validate(
             (
                 "Research package contains fewer than "
                 "2 usable evidence-verified sources."
+            )
+        )
+
+    # ----------------------------------------------------------------------
+    # RESULT CLAIMS MUST NOT BE EMPTY WHEN FACTUAL CLAIMS EXIST
+    # ----------------------------------------------------------------------
+
+    factual_scene_exists = False
+
+    for scene_number, narration in scene_narration_map.items():
+
+        if (
+            _contains_numeric_claim_signal(
+                narration
+            )
+            or
+            _contains_factual_language_signal(
+                narration
+            )
+        ):
+
+            factual_scene_exists = True
+            break
+
+    if (
+        factual_scene_exists
+        and not claims
+    ):
+
+        unsupported.append(
+            (
+                "Narration contains factual signals but "
+                "the verifier returned zero claims."
             )
         )
 
@@ -1534,11 +2032,9 @@ def _local_validate(
 
     # ----------------------------------------------------------------------
     # FINAL STATUS
-    # ----------------------------------------------------------------------
-
-    # Warnings are failures.
     #
-    # The pipeline requires zero uncertainty.
+    # Warnings are failures.
+    # ----------------------------------------------------------------------
 
     if unsupported:
 
@@ -1566,7 +2062,139 @@ def _local_validate(
         "warnings"
     ] = warnings
 
+    # Normalize scene reviews.
+    result[
+        "scene_reviews"
+    ] = scene_reviews
+
     return result
+
+
+# ==========================================================================
+# VERIFICATION RETRY DECISION
+# ==========================================================================
+
+def _result_requires_retry(
+    result
+):
+    """
+    Determine whether another Gemini verification attempt may fix a
+    structural extraction problem.
+
+    A retry is useful for:
+
+    - missing scene reviews
+    - claim-count mismatch
+    - suspicious zero-claim result
+    - invalid JSON/structure handled by caller
+
+    A retry is NOT used to override genuine unsupported/uncertain/
+    contradicted claims.
+    """
+
+    if not isinstance(
+        result,
+        dict,
+    ):
+
+        return True
+
+    scene_reviews = result.get(
+        "scene_reviews",
+        [],
+    )
+
+    if not isinstance(
+        scene_reviews,
+        list,
+    ):
+
+        return True
+
+    claims = result.get(
+        "claims",
+        [],
+    )
+
+    if not isinstance(
+        claims,
+        list,
+    ):
+
+        return True
+
+    return False
+
+
+# ==========================================================================
+# RETRY PROMPT
+# ==========================================================================
+
+def _build_retry_instruction(
+    attempt,
+    previous_result,
+):
+
+    scene_reviews = (
+        previous_result.get(
+            "scene_reviews",
+            [],
+        )
+        if isinstance(
+            previous_result,
+            dict,
+        )
+        else []
+    )
+
+    claims = (
+        previous_result.get(
+            "claims",
+            [],
+        )
+        if isinstance(
+            previous_result,
+            dict,
+        )
+        else []
+    )
+
+    return f"""
+============================================================
+VERIFICATION RETRY
+============================================================
+
+This is verification attempt {attempt}.
+
+The previous verification result was structurally incomplete
+or suspicious.
+
+You MUST re-read the COMPLETE narration.
+
+Previous result summary:
+
+Scene reviews returned:
+{len(scene_reviews)}
+
+Claims returned:
+{len(claims)}
+
+CRITICAL:
+
+- Review EVERY scene.
+- Return exactly one scene_reviews entry for every scene.
+- Do not silently omit factual claims.
+- Check every number and quantitative statement.
+- Check every causal or mechanistic statement.
+- Every factual claim needs a source ID.
+- Source IDs must belong to the scene.
+- Use ONLY supplied Evidence Text.
+- Do NOT use metadata.
+- Do NOT use outside knowledge.
+- Do NOT invent evidence.
+
+Return the COMPLETE JSON result again.
+"""
 
 
 # ==========================================================================
@@ -1648,7 +2276,7 @@ def verify_script_claims(
         )
 
     print("=" * 80)
-    print("🧪 SCIENTIFIC CLAIM VERIFICATION")
+    print("🧪 SCIENTIFIC CLAIM VERIFICATION v2.2")
     print("=" * 80)
 
     print(
@@ -1663,6 +2291,14 @@ def verify_script_claims(
         "Citation policy: SCENE-LOCAL SOURCES ONLY"
     )
 
+    print(
+        "Completeness policy: EVERY SCENE REVIEWED"
+    )
+
+    print(
+        "Numeric claim policy: EXPLICITLY CHECKED"
+    )
+
     # ----------------------------------------------------------------------
     # PRINT AUTHORITATIVE SOURCE IDS
     # ----------------------------------------------------------------------
@@ -1672,7 +2308,8 @@ def verify_script_claims(
     )
 
     print(
-        f"Authoritative source IDs: {len(source_map)}"
+        f"Authoritative source IDs: "
+        f"{len(source_map)}"
     )
 
     for source_id in source_map:
@@ -1682,16 +2319,169 @@ def verify_script_claims(
         )
 
     # ----------------------------------------------------------------------
-    # GEMINI
+    # GEMINI VERIFICATION WITH RETRIES
     # ----------------------------------------------------------------------
 
-    result = _verify_with_gemini(
-        script,
-        research,
-    )
+    result = None
+    last_error = None
+
+    for attempt in range(
+        1,
+        MAX_VERIFICATION_ATTEMPTS + 1,
+    ):
+
+        print(
+            "=" * 80
+        )
+
+        print(
+            f"🧠 CLAIM VERIFICATION ATTEMPT "
+            f"{attempt}/{MAX_VERIFICATION_ATTEMPTS}"
+        )
+
+        try:
+
+            raw_result = _verify_with_gemini(
+                script,
+                research,
+            )
+
+            # --------------------------------------------------------------
+            # LOCAL VALIDATION
+            # --------------------------------------------------------------
+
+            validated_result = _local_validate(
+                raw_result,
+                script,
+                research,
+            )
+
+            result = validated_result
+
+            # --------------------------------------------------------------
+            # If the result passes, we're done.
+            # --------------------------------------------------------------
+
+            if (
+                result.get(
+                    "overall_status"
+                )
+                == "PASS"
+            ):
+
+                break
+
+            # --------------------------------------------------------------
+            # If it fails because of a structural completeness problem,
+            # retry.
+            # --------------------------------------------------------------
+
+            unsupported = result.get(
+                "unsupported_claims",
+                [],
+            )
+
+            structural_failure = any(
+                (
+                    "scene review"
+                    in str(item).lower()
+                    or
+                    "scene reviews"
+                    in str(item).lower()
+                    or
+                    "returned zero factual claims"
+                    in str(item).lower()
+                    or
+                    "quantitative language"
+                    in str(item).lower()
+                    or
+                    "claim count"
+                    in str(item).lower()
+                )
+                for item in unsupported
+            )
+
+            if (
+                structural_failure
+                and attempt
+                <
+                MAX_VERIFICATION_ATTEMPTS
+            ):
+
+                print(
+                    "⚠️ Verification result appears "
+                    "structurally incomplete."
+                )
+
+                print(
+                    f"⏳ Retrying in "
+                    f"{RETRY_DELAY_SECONDS}s..."
+                )
+
+                time.sleep(
+                    RETRY_DELAY_SECONDS
+                )
+
+                continue
+
+            # --------------------------------------------------------------
+            # Genuine scientific failure.
+            # --------------------------------------------------------------
+
+            break
+
+        except Exception as error:
+
+            last_error = error
+
+            print(
+                f"❌ Verification attempt "
+                f"{attempt} failed:"
+            )
+
+            print(
+                f"{type(error).__name__}: "
+                f"{error}"
+            )
+
+            if attempt < MAX_VERIFICATION_ATTEMPTS:
+
+                print(
+                    f"⏳ Retrying in "
+                    f"{RETRY_DELAY_SECONDS}s..."
+                )
+
+                time.sleep(
+                    RETRY_DELAY_SECONDS
+                )
+
+            else:
+
+                raise RuntimeError(
+                    "Scientific claim verification failed "
+                    f"after {MAX_VERIFICATION_ATTEMPTS} attempts: "
+                    f"{error}"
+                ) from error
+
+    if result is None:
+
+        if last_error:
+
+            raise RuntimeError(
+                "Scientific claim verification failed: "
+                f"{last_error}"
+            ) from last_error
+
+        raise RuntimeError(
+            "Scientific claim verification produced "
+            "no result."
+        )
 
     # ----------------------------------------------------------------------
-    # LOCAL SAFETY VALIDATION
+    # FINAL LOCAL VALIDATION
+    #
+    # Run once more after retries so the final object stored in the
+    # script is always normalized.
     # ----------------------------------------------------------------------
 
     result = _local_validate(
@@ -1717,6 +2507,12 @@ def verify_script_claims(
         "claims":
             result.get(
                 "claims",
+                [],
+            ),
+
+        "scene_reviews":
+            result.get(
+                "scene_reviews",
                 [],
             ),
 
@@ -1749,15 +2545,37 @@ def verify_script_claims(
         "overall_status"
     ) == "PASS":
 
+        print("=" * 80)
+        print("✅ ALL IMPORTANT CLAIMS VERIFIED")
+        print("=" * 80)
+
         print(
-            "✅ ALL IMPORTANT CLAIMS VERIFIED"
+            f"Verified claims: "
+            f"{len(result.get('claims', []))}"
+        )
+
+        print(
+            f"Scenes reviewed: "
+            f"{len(result.get('scene_reviews', []))}"
+        )
+
+        print(
+            "Numeric claim checks: ENABLED"
+        )
+
+        print(
+            "Scene-local citations: VERIFIED"
+        )
+
+        print(
+            "Evidence-only verification: VERIFIED"
         )
 
     else:
 
-        print(
-            "❌ CLAIM VERIFICATION FAILED"
-        )
+        print("=" * 80)
+        print("❌ CLAIM VERIFICATION FAILED")
+        print("=" * 80)
 
         unsupported = result.get(
             "unsupported_claims",
@@ -1806,10 +2624,24 @@ def claims_are_verified(
     script,
 ):
 
+    if not isinstance(
+        script,
+        dict,
+    ):
+
+        return False
+
     verification = script.get(
         "claim_verification",
         {},
     )
+
+    if not isinstance(
+        verification,
+        dict,
+    ):
+
+        return False
 
     return (
 
@@ -1824,6 +2656,40 @@ def claims_are_verified(
             "overall_status"
         )
         == "PASS"
+
+        and
+
+        isinstance(
+            verification.get(
+                "claims",
+                [],
+            ),
+            list,
+        )
+
+        and
+
+        isinstance(
+            verification.get(
+                "scene_reviews",
+                [],
+            ),
+            list,
+        )
+
+        and
+
+        not verification.get(
+            "unsupported_claims",
+            [],
+        )
+
+        and
+
+        not verification.get(
+            "warnings",
+            [],
+        )
     )
 
 
@@ -1834,7 +2700,7 @@ def claims_are_verified(
 if __name__ == "__main__":
 
     print(
-        "verify_claims.py is a pipeline module."
+        "verify_claims.py v2.2 is a pipeline module."
     )
 
     print(

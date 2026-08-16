@@ -2,7 +2,7 @@
 assemble.py
 Mint-YT-Factory
 
-Version 7.1
+Version 7.2
 
 Production:
 - 7 scenes
@@ -31,11 +31,9 @@ _im = (
 )
 
 if _im:
-    change_settings(
-        {
-            "IMAGEMAGICK_BINARY": _im
-        }
-    )
+    change_settings({
+        "IMAGEMAGICK_BINARY": _im
+    })
 
 from moviepy.editor import (
     AudioFileClip,
@@ -53,6 +51,11 @@ from moviepy.editor import (
 # CONSTANTS
 # ==========================================================================
 
+EXPECTED_SCENES = 7
+VISUALS_PER_SCENE = 2
+EXPECTED_TOTAL_VISUALS = 14
+TARGET_DURATION = 45.0
+
 FONT = os.path.join(
     "assets",
     "fonts",
@@ -67,17 +70,16 @@ CAPTION_HIGHLIGHT_COLOR = "#FFD54A"
 
 CAPTION_SHADOW_COLOR = "black"
 
-CAPTION_SHADOW_OPACITY = 0.60
+CAPTION_SHADOW_OPACITY = 0.65
 
-CAPTION_SHADOW_OFFSET = 3
+CAPTION_SHADOW_OFFSET = 4
 
-CAPTION_STROKE = "#222222"
+CAPTION_STROKE = "#111111"
 
-CAPTION_STROKE_WIDTH = 1
+CAPTION_STROKE_WIDTH = 2
 
-CAPTION_VERTICAL_POSITION = 0.68
-
-DEFAULT_SCENE_DURATION = 5.0
+# Slightly above the previous 0.68 position.
+CAPTION_VERTICAL_POSITION = 0.64
 
 DEFAULT_CAMERA = "medium"
 
@@ -85,13 +87,28 @@ DEFAULT_ANIMATION = "hold"
 
 DEFAULT_TRANSITION = "hard_cut"
 
-DEFAULT_ZOOM_FACTOR = 1.08
-
-DEFAULT_MOTION_SPEED = "medium"
+DEFAULT_ZOOM_FACTOR = 1.06
 
 DEFAULT_MUSIC_VOLUME = 0.12
 
 DEFAULT_SFX_VOLUME = 0.80
+
+MIN_CLIP_DURATION = 0.05
+
+
+# ==========================================================================
+# EXACT STORYBOARD DURATIONS
+# ==========================================================================
+
+SCENE_DURATIONS = [
+    3.0,
+    5.0,
+    7.0,
+    7.0,
+    8.0,
+    8.0,
+    7.0,
+]
 
 
 # ==========================================================================
@@ -100,21 +117,21 @@ DEFAULT_SFX_VOLUME = 0.80
 
 CAMERA_SCALES = {
 
-    "macro": 1.18,
+    "macro": 1.08,
 
-    "close_up": 1.12,
+    "close_up": 1.06,
 
-    "medium": 1.08,
+    "medium": 1.04,
 
     "wide": 1.02,
 
-    "top_down": 1.06,
+    "top_down": 1.04,
 
-    "side": 1.08,
+    "side": 1.04,
 
     "aerial": 1.02,
 
-    "orbit": 1.08,
+    "orbit": 1.04,
 }
 
 
@@ -128,11 +145,8 @@ MOTION_MULTIPLIERS = {
 
     "medium": 1.0,
 
-    "high": 1.5,
+    "high": 1.4,
 
-    "slow": 0.5,
-
-    "fast": 1.5,
 }
 
 
@@ -142,29 +156,41 @@ MOTION_MULTIPLIERS = {
 
 TRANSITION_ALIASES = {
 
-    "cut": "hard_cut",
+    "cut":
+        "hard_cut",
 
-    "hard_cut": "hard_cut",
+    "hard_cut":
+        "hard_cut",
 
-    "crossfade": "crossfade",
+    "crossfade":
+        "crossfade",
 
-    "fade": "fade",
+    "fade":
+        "fade",
 
-    "dissolve": "dissolve",
+    "dissolve":
+        "dissolve",
 
-    "none": "hard_cut",
+    "none":
+        "hard_cut",
+
 }
 
 
 TRANSITION_DURATIONS = {
 
-    "hard_cut": 0.0,
+    "hard_cut":
+        0.0,
 
-    "crossfade": 0.20,
+    "crossfade":
+        0.18,
 
-    "fade": 0.35,
+    "fade":
+        0.25,
 
-    "dissolve": 0.30,
+    "dissolve":
+        0.22,
+
 }
 
 
@@ -206,11 +232,9 @@ def _safe_float(
         return default
 
     if math.isnan(result):
-
         return default
 
     if math.isinf(result):
-
         return default
 
     if min_value is not None:
@@ -262,18 +286,34 @@ def _safe_int(
 
 def get_scene_duration(
     scene,
+    index,
 ):
 
-    return _safe_float(
+    try:
 
-        scene.get(
-            "duration",
-            DEFAULT_SCENE_DURATION,
-        ),
+        duration = float(
+            scene.get(
+                "duration",
+                SCENE_DURATIONS[index],
+            )
+        )
 
-        DEFAULT_SCENE_DURATION,
+    except Exception:
 
-        min_value=0.1,
+        duration = SCENE_DURATIONS[index]
+
+    expected = SCENE_DURATIONS[index]
+
+    # The storyboard is authoritative.
+    if abs(
+        duration - expected
+    ) > 0.01:
+
+        duration = expected
+
+    return max(
+        duration,
+        MIN_CLIP_DURATION,
     )
 
 
@@ -291,6 +331,8 @@ def get_pause_after(
         0,
 
         min_value=0,
+
+        max_value=600,
     )
 
     return milliseconds / 1000.0
@@ -312,7 +354,7 @@ def get_camera(
 
     if camera not in CAMERA_SCALES:
 
-        return DEFAULT_CAMERA
+        camera = DEFAULT_CAMERA
 
     return camera
 
@@ -333,10 +375,27 @@ def get_animation(
             DEFAULT_ANIMATION,
         )
 
-    return _safe_lower(
+    animation = _safe_lower(
         animation,
         DEFAULT_ANIMATION,
     )
+
+    valid = {
+        "zoom_in",
+        "zoom_out",
+        "pan_left",
+        "pan_right",
+        "rotate",
+        "parallax",
+        "highlight",
+        "hold",
+    }
+
+    if animation not in valid:
+
+        animation = DEFAULT_ANIMATION
+
+    return animation
 
 
 def get_zoom_factor(
@@ -354,7 +413,7 @@ def get_zoom_factor(
 
         min_value=1.0,
 
-        max_value=1.40,
+        max_value=1.18,
     )
 
 
@@ -515,15 +574,11 @@ def _normalize_visual_paths(
                     "path"
                 )
 
-                or
-
-                item.get(
+                or item.get(
                     "image"
                 )
 
-                or
-
-                item.get(
+                or item.get(
                     "src"
                 )
             )
@@ -611,7 +666,7 @@ def get_visuals(
     paths = []
 
     # ----------------------------------------------------------------------
-    # Explicit paths
+    # Explicit visual paths
     # ----------------------------------------------------------------------
 
     raw = scene.get(
@@ -636,15 +691,11 @@ def get_visuals(
                         "path"
                     )
 
-                    or
-
-                    item.get(
+                    or item.get(
                         "image"
                     )
 
-                    or
-
-                    item.get(
+                    or item.get(
                         "src"
                     )
                 )
@@ -692,7 +743,7 @@ def get_visuals(
         )
 
     # ----------------------------------------------------------------------
-    # Fallback
+    # Legacy fallback
     # ----------------------------------------------------------------------
 
     if (
@@ -705,7 +756,7 @@ def get_visuals(
         )
 
     # ----------------------------------------------------------------------
-    # Existing files only
+    # Existing files
     # ----------------------------------------------------------------------
 
     existing = []
@@ -790,58 +841,22 @@ def build_master_timeline(
 
     if not scene_plan:
 
-        return [
+        return []
 
-            SceneTiming(
+    if len(scene_plan) != EXPECTED_SCENES:
 
-                {},
-
-                0,
-
-                0.0,
-
-                total_duration,
-
-                total_duration,
-
-                0.0,
-            )
-        ]
-
-    durations = [
-
-        get_scene_duration(
-            scene
+        raise RuntimeError(
+            f"Expected {EXPECTED_SCENES} scenes, "
+            f"found {len(scene_plan)}."
         )
 
-        for scene in scene_plan
-    ]
-
-    pauses = [
-
-        get_pause_after(
-            scene
-        )
-
-        for scene in scene_plan
-    ]
-
-    raw_total = (
-
-        sum(durations)
-
-        + sum(pauses)
-    )
-
-    if raw_total <= 0:
-
-        raw_total = total_duration
-
-    scale = (
-
-        total_duration
-        / raw_total
-    )
+    # ----------------------------------------------------------------------
+    # The generated storyboard is exactly 45 seconds.
+    #
+    # We preserve those durations rather than proportionally scaling them.
+    # If narration differs slightly, the final video is still trimmed to
+    # narration duration.
+    # ----------------------------------------------------------------------
 
     timeline = []
 
@@ -851,14 +866,9 @@ def build_master_timeline(
         scene_plan
     ):
 
-        duration = (
-            durations[index]
-            * scale
-        )
-
-        pause = (
-            pauses[index]
-            * scale
+        duration = get_scene_duration(
+            scene,
+            index,
         )
 
         start = current
@@ -866,6 +876,10 @@ def build_master_timeline(
         end = (
             start
             + duration
+        )
+
+        pause = get_pause_after(
+            scene
         )
 
         timeline.append(
@@ -886,9 +900,23 @@ def build_master_timeline(
             )
         )
 
-        current = (
-            end
-            + pause
+        current = end
+
+    # ----------------------------------------------------------------------
+    # If narration is shorter than storyboard, don't create a timeline
+    # beyond the audio.
+    # ----------------------------------------------------------------------
+
+    if total_duration < current:
+
+        print(
+            f"⚠️ Narration is "
+            f"{total_duration:.2f}s while storyboard is "
+            f"{current:.2f}s."
+        )
+
+        print(
+            "⚠️ Final video will follow narration duration."
         )
 
     return timeline
@@ -922,6 +950,46 @@ def scene_at_time(
 # VISUAL FIT
 # ==========================================================================
 
+def _fit_image_to_frame(
+    image_path,
+    size,
+):
+
+    clip = ImageClip(
+        image_path
+    )
+
+    frame_width, frame_height = size
+
+    scale = max(
+
+        frame_width / clip.w,
+
+        frame_height / clip.h,
+    )
+
+    clip = clip.resize(
+        scale
+    )
+
+    # --------------------------------------------------------------
+    # Crop from center to exact 9:16 frame.
+    # --------------------------------------------------------------
+
+    clip = CompositeVideoClip(
+
+        [
+            clip.set_position(
+                "center"
+            )
+        ],
+
+        size=size,
+    )
+
+    return clip
+
+
 def build_visual_clip_for_image(
     image_path,
     duration,
@@ -930,6 +998,11 @@ def build_visual_clip_for_image(
     visual,
 ):
 
+    duration = max(
+        duration,
+        MIN_CLIP_DURATION,
+    )
+
     if (
         image_path
         and os.path.exists(
@@ -937,44 +1010,9 @@ def build_visual_clip_for_image(
         )
     ):
 
-        clip = ImageClip(
-            image_path
-        )
-
-        # --------------------------------------------------------------
-        # Fill the 9:16 frame.
-        # --------------------------------------------------------------
-
-        scale = max(
-
-            size[0] / clip.w,
-
-            size[1] / clip.h,
-        )
-
-        clip = clip.resize(
-            scale
-        )
-
-        # --------------------------------------------------------------
-        # Center crop.
-        # --------------------------------------------------------------
-
-        clip = CompositeVideoClip(
-
-            [
-
-                clip.set_position(
-                    "center"
-                )
-
-            ],
-
-            size=size,
-        )
-
-        clip = clip.set_duration(
-            duration
+        clip = _fit_image_to_frame(
+            image_path,
+            size,
         )
 
     else:
@@ -988,12 +1026,14 @@ def build_visual_clip_for_image(
                 18,
                 18,
             ),
-        ).set_duration(
-            duration
         )
 
+    clip = clip.set_duration(
+        duration
+    )
+
     # ----------------------------------------------------------------------
-    # Camera
+    # Camera scale
     # ----------------------------------------------------------------------
 
     camera = get_camera(
@@ -1007,7 +1047,7 @@ def build_visual_clip_for_image(
         ],
     )
 
-    if camera_scale != 1.0:
+    if camera_scale > 1.0:
 
         clip = clip.resize(
             camera_scale
@@ -1048,9 +1088,9 @@ def build_visual_clip_for_image(
                     zoom_factor
                     - 1.0
                 )
-                * (
-                    t
-                    / safe_duration
+                * min(
+                    t / safe_duration,
+                    1.0,
                 ),
         )
 
@@ -1067,9 +1107,9 @@ def build_visual_clip_for_image(
                     zoom_factor
                     - 1.0
                 )
-                * (
-                    t
-                    / safe_duration
+                * min(
+                    t / safe_duration,
+                    1.0,
                 ),
         )
 
@@ -1081,11 +1121,11 @@ def build_visual_clip_for_image(
 
                 (
 
-                    -50
+                    -40
                     * motion
-                    * (
-                        t
-                        / safe_duration
+                    * min(
+                        t / safe_duration,
+                        1.0,
                     ),
 
                     "center",
@@ -1100,11 +1140,11 @@ def build_visual_clip_for_image(
 
                 (
 
-                    50
+                    40
                     * motion
-                    * (
-                        t
-                        / safe_duration
+                    * min(
+                        t / safe_duration,
+                        1.0,
                     ),
 
                     "center",
@@ -1117,11 +1157,11 @@ def build_visual_clip_for_image(
 
             lambda t:
 
-                2.0
+                1.5
                 * motion
-                * (
-                    t
-                    / safe_duration
+                * min(
+                    t / safe_duration,
+                    1.0,
                 )
         )
 
@@ -1135,16 +1175,25 @@ def build_visual_clip_for_image(
 
                 1.0
                 + (
-                    0.04
+                    0.025
                     * motion
-                    * (
-                        t
-                        / safe_duration
+                    * min(
+                        t / safe_duration,
+                        1.0,
                     )
                 ),
         )
 
-    # "hold" = no animation
+    elif animation == "highlight":
+
+        # Keep the image stable.
+        # Any actual overlay/diagram remains the responsibility
+        # of a future dedicated overlay layer.
+        pass
+
+    elif animation == "hold":
+
+        pass
 
     return clip
 
@@ -1172,8 +1221,7 @@ def build_scene_visual_clips(
 
     fallback_image = None
 
-    # Legacy flat list support.
-
+    # Legacy flat-list support.
     if (
 
         entry.index
@@ -1202,6 +1250,34 @@ def build_scene_visual_clips(
         generated_paths,
     )
 
+    # ----------------------------------------------------------------------
+    # Production requirement
+    # ----------------------------------------------------------------------
+
+    if len(visuals) != VISUALS_PER_SCENE:
+
+        print(
+            f"⚠️ Scene {entry.index + 1} "
+            f"has {len(visuals)} visuals."
+        )
+
+        if len(visuals) == 0:
+
+            visuals = [None, None]
+
+        elif len(visuals) == 1:
+
+            visuals = [
+                visuals[0],
+                visuals[0],
+            ]
+
+        else:
+
+            visuals = visuals[
+                :VISUALS_PER_SCENE
+            ]
+
     print(
         f"🎬 Scene {entry.index + 1}: "
         f"{len(visuals)} visual(s)"
@@ -1213,18 +1289,14 @@ def build_scene_visual_clips(
     ):
 
         print(
-            f"   Visual {i}: {path}"
+            f"   Visual {i}: "
+            f"{path}"
         )
-
-    count = max(
-        len(visuals),
-        1,
-    )
 
     visual_duration = (
 
         entry.duration
-        / count
+        / VISUALS_PER_SCENE
     )
 
     clips = []
@@ -1376,6 +1448,46 @@ def get_caption_position(
     )
 
 
+def _caption_text_clip(
+    text,
+    color,
+    start,
+    duration,
+    position,
+):
+
+    return (
+
+        TextClip(
+
+            text,
+
+            font=FONT,
+
+            fontsize=CAPTION_FONT_SIZE,
+
+            color=color,
+
+            stroke_color=CAPTION_STROKE,
+
+            stroke_width=CAPTION_STROKE_WIDTH,
+
+        )
+
+        .set_start(
+            start
+        )
+
+        .set_duration(
+            duration
+        )
+
+        .set_position(
+            position
+        )
+    )
+
+
 def build_captions(
     audio_path,
     script,
@@ -1464,7 +1576,7 @@ def build_captions(
 
         duration = max(
 
-            0.05,
+            MIN_CLIP_DURATION,
 
             end - start,
         )
@@ -1494,9 +1606,17 @@ def build_captions(
             )
         )
 
+        normalized_word = (
+            text
+            .lower()
+            .strip(
+                ".,!?;:\"'()[]{}"
+            )
+        )
+
         highlighted = (
 
-            text.lower()
+            normalized_word
             in highlights
         )
 
@@ -1513,75 +1633,43 @@ def build_captions(
         # Shadow
         # --------------------------------------------------------------
 
-        shadow = (
+        shadow = _caption_text_clip(
 
-            TextClip(
+            text,
 
-                text,
+            CAPTION_SHADOW_COLOR,
 
-                font=FONT,
+            start,
 
-                fontsize=CAPTION_FONT_SIZE,
+            duration,
 
-                color=CAPTION_SHADOW_COLOR,
-            )
+            (
+                position[0],
 
-            .set_start(
-                start
-            )
+                position[1]
+                + CAPTION_SHADOW_OFFSET,
+            ),
+        )
 
-            .set_duration(
-                duration
-            )
-
-            .set_position(
-
-                (
-
-                    position[0],
-
-                    position[1]
-                    + CAPTION_SHADOW_OFFSET,
-                )
-            )
-
-            .set_opacity(
-                CAPTION_SHADOW_OPACITY
-            )
+        shadow = shadow.set_opacity(
+            CAPTION_SHADOW_OPACITY
         )
 
         # --------------------------------------------------------------
         # Main caption
         # --------------------------------------------------------------
 
-        caption = (
+        caption = _caption_text_clip(
 
-            TextClip(
+            text,
 
-                text,
+            text_color,
 
-                font=FONT,
+            start,
 
-                fontsize=CAPTION_FONT_SIZE,
+            duration,
 
-                color=text_color,
-
-                stroke_color=CAPTION_STROKE,
-
-                stroke_width=CAPTION_STROKE_WIDTH,
-            )
-
-            .set_start(
-                start
-            )
-
-            .set_duration(
-                duration
-            )
-
-            .set_position(
-                position
-            )
+            position,
         )
 
         clips.append(
@@ -1593,7 +1681,7 @@ def build_captions(
         )
 
     print(
-        f"✅ Caption layers: "
+        f"Caption layers: "
         f"{len(clips)}"
     )
 
@@ -1645,6 +1733,10 @@ def build_audio(
                 video_cfg[
                     "music_volume"
                 ]
+            )
+
+            .set_duration(
+                total_duration
             )
         )
 
@@ -1713,6 +1805,16 @@ def build_audio(
                 / 1000.0
             )
 
+            start_time = (
+
+                entry.start
+                + offset
+            )
+
+            if start_time >= total_duration:
+
+                continue
+
             effect = (
 
                 AudioFileClip(
@@ -1720,13 +1822,10 @@ def build_audio(
                 )
 
                 .set_start(
-
-                    entry.start
-                    + offset
+                    start_time
                 )
 
                 .volumex(
-
                     video_cfg[
                         "sfx_volume"
                     ]
@@ -1792,6 +1891,17 @@ def get_video_config(
             1920,
         )
 
+    # ----------------------------------------------------------------------
+    # Force portrait.
+    # ----------------------------------------------------------------------
+
+    if size[0] >= size[1]:
+
+        size = (
+            size[1],
+            size[0],
+        )
+
     fps = _safe_int(
 
         video_cfg.get(
@@ -1814,6 +1924,8 @@ def get_video_config(
         DEFAULT_MUSIC_VOLUME,
 
         min_value=0.0,
+
+        max_value=1.0,
     )
 
     sfx_volume = _safe_float(
@@ -1826,13 +1938,17 @@ def get_video_config(
         DEFAULT_SFX_VOLUME,
 
         min_value=0.0,
+
+        max_value=2.0,
     )
 
     return {
 
-        "size": size,
+        "size":
+            size,
 
-        "fps": fps,
+        "fps":
+            fps,
 
         "music_volume":
             music_volume,
@@ -1873,9 +1989,67 @@ def assemble_video(
         f"{size[0]}x{size[1]}"
     )
 
-    # ----------------------------------------------------------------------
-    # Narration
-    # ----------------------------------------------------------------------
+    print(
+        f"FPS: "
+        f"{video_cfg['fps']}"
+    )
+
+    # ==========================================================================
+    # VALIDATE IMAGES
+    # ==========================================================================
+
+    if not isinstance(
+        image_paths,
+        list,
+    ):
+
+        raise RuntimeError(
+            "image_paths must be a list."
+        )
+
+    total_images = sum(
+
+        len(
+            _normalize_visual_paths(
+                scene
+            )
+        )
+
+        for scene in image_paths
+        if isinstance(
+            scene,
+            list,
+        )
+    )
+
+    print(
+        f"Generated image groups: "
+        f"{len(image_paths)}"
+    )
+
+    print(
+        f"Generated images: "
+        f"{total_images}"
+    )
+
+    if len(image_paths) != EXPECTED_SCENES:
+
+        raise RuntimeError(
+            f"Expected {EXPECTED_SCENES} "
+            f"image groups, got "
+            f"{len(image_paths)}."
+        )
+
+    if total_images != EXPECTED_TOTAL_VISUALS:
+
+        raise RuntimeError(
+            f"Expected {EXPECTED_TOTAL_VISUALS} "
+            f"images, got {total_images}."
+        )
+
+    # ==========================================================================
+    # NARRATION
+    # ==========================================================================
 
     if not audio_paths:
 
@@ -1907,9 +2081,17 @@ def assemble_video(
         f"{total_duration:.2f}s"
     )
 
-    # ----------------------------------------------------------------------
-    # Timeline
-    # ----------------------------------------------------------------------
+    if total_duration < 1:
+
+        narration.close()
+
+        raise RuntimeError(
+            "Narration is too short."
+        )
+
+    # ==========================================================================
+    # TIMELINE
+    # ==========================================================================
 
     timeline = build_master_timeline(
 
@@ -1917,6 +2099,14 @@ def assemble_video(
 
         total_duration,
     )
+
+    if not timeline:
+
+        narration.close()
+
+        raise RuntimeError(
+            "Could not build scene timeline."
+        )
 
     print(
         f"Scenes: "
@@ -1936,9 +2126,9 @@ def assemble_video(
             f"({entry.duration:.2f}s)"
         )
 
-    # ----------------------------------------------------------------------
-    # Visuals
-    # ----------------------------------------------------------------------
+    # ==========================================================================
+    # VISUALS
+    # ==========================================================================
 
     print("=" * 80)
     print("🖼️ BUILDING VISUAL TIMELINE")
@@ -1958,9 +2148,9 @@ def assemble_video(
         f"{len(visual_clips)}"
     )
 
-    # ----------------------------------------------------------------------
-    # Captions
-    # ----------------------------------------------------------------------
+    # ==========================================================================
+    # CAPTIONS
+    # ==========================================================================
 
     caption_clips = build_captions(
 
@@ -1973,9 +2163,14 @@ def assemble_video(
         size,
     )
 
-    # ----------------------------------------------------------------------
-    # Composite
-    # ----------------------------------------------------------------------
+    print(
+        f"Caption layers: "
+        f"{len(caption_clips)}"
+    )
+
+    # ==========================================================================
+    # VIDEO COMPOSITE
+    # ==========================================================================
 
     all_video_clips = (
 
@@ -1994,9 +2189,9 @@ def assemble_video(
         total_duration
     )
 
-    # ----------------------------------------------------------------------
-    # Audio
-    # ----------------------------------------------------------------------
+    # ==========================================================================
+    # AUDIO
+    # ==========================================================================
 
     audio = build_audio(
 
@@ -2017,9 +2212,9 @@ def assemble_video(
         audio
     )
 
-    # ----------------------------------------------------------------------
-    # Output directory
-    # ----------------------------------------------------------------------
+    # ==========================================================================
+    # OUTPUT
+    # ==========================================================================
 
     output_dir = os.path.dirname(
         out_path
@@ -2032,13 +2227,29 @@ def assemble_video(
             exist_ok=True,
         )
 
-    # ----------------------------------------------------------------------
-    # Render
-    # ----------------------------------------------------------------------
-
     print("=" * 80)
     print("🎥 RENDERING FINAL VIDEO")
     print("=" * 80)
+
+    print(
+        f"Output: "
+        f"{out_path}"
+    )
+
+    print(
+        f"Duration: "
+        f"{total_duration:.2f}s"
+    )
+
+    print(
+        f"Resolution: "
+        f"{size[0]}x{size[1]}"
+    )
+
+    print(
+        f"FPS: "
+        f"{video_cfg['fps']}"
+    )
 
     final.write_videofile(
 
@@ -2055,12 +2266,18 @@ def assemble_video(
         preset="medium",
 
         threads=4,
+
+        temp_audiofile=(
+            out_path
+            + ".temp_audio.m4a"
+        ),
+
+        remove_temp=True,
     )
 
     print("=" * 80)
-    print(
-        f"✅ VIDEO COMPLETE:"
-    )
+    print("✅ VIDEO COMPLETE")
+    print("=" * 80)
 
     print(
         out_path
@@ -2068,13 +2285,21 @@ def assemble_video(
 
     print("=" * 80)
 
-    # ----------------------------------------------------------------------
-    # Cleanup
-    # ----------------------------------------------------------------------
+    # ==========================================================================
+    # CLEANUP
+    # ==========================================================================
 
     try:
 
         narration.close()
+
+    except Exception:
+
+        pass
+
+    try:
+
+        audio.close()
 
     except Exception:
 
@@ -2087,5 +2312,25 @@ def assemble_video(
     except Exception:
 
         pass
+
+    for clip in visual_clips:
+
+        try:
+
+            clip.close()
+
+        except Exception:
+
+            pass
+
+    for clip in caption_clips:
+
+        try:
+
+            clip.close()
+
+        except Exception:
+
+            pass
 
     return out_path

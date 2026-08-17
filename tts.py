@@ -2,7 +2,7 @@
 tts.py
 Mint-YT-Factory
 
-Version 7.5
+Version 7.6
 
 TikTok TTS narration engine.
 
@@ -10,7 +10,7 @@ Features:
 - Sentence-aware TTS chunking
 - 300-byte TikTok TTS safety limit
 - Prevents awkward sentence/word cuts between TTS chunks
-- Short crossfade between TTS chunks
+- No crossfade between TTS chunks
 - Adjustable narration speed
 - Scene-by-scene narration
 - Preserves scene pauses
@@ -28,7 +28,6 @@ import tempfile
 from moviepy.editor import (
     AudioFileClip,
     AudioClip,
-    CompositeAudioClip,
     concatenate_audioclips,
 )
 
@@ -45,27 +44,34 @@ SAMPLE_RATE = 44100
 
 DEFAULT_PAUSE_MS = 0
 
+
 # --------------------------------------------------------------------------
 # NARRATION SPEED
 # --------------------------------------------------------------------------
 #
 # 1.00 = normal speed
 # 0.95 = 5% slower
-# 0.92 = 8% slower  ← recommended
+# 0.92 = 8% slower
 # 0.90 = 10% slower
 # 0.85 = 15% slower
 #
-# We are slowing the generated audio itself rather than inserting
-# artificial pauses, so the narration remains natural.
+# Current setting:
+# 0.92 = approximately 8% slower
 # --------------------------------------------------------------------------
 
 NARRATION_SPEED = 0.92
 
 
-# Small overlap between independently generated TTS chunks.
-CHUNK_CROSSFADE_MS = 60
-
+# --------------------------------------------------------------------------
+# FINAL AUDIO TAIL
+# --------------------------------------------------------------------------
+#
 # Small silence after the FINAL spoken word only.
+#
+# IMPORTANT:
+# This is NOT added after every scene.
+# --------------------------------------------------------------------------
+
 FINAL_TAIL_MS = 250
 
 
@@ -394,8 +400,6 @@ def apply_narration_speed(
 
     # ----------------------------------------------------------------------
     # Safety range.
-    #
-    # Prevent accidentally creating extremely slow or fast narration.
     # ----------------------------------------------------------------------
 
     speed = max(
@@ -414,8 +418,6 @@ def apply_narration_speed(
 
     try:
 
-        # MoviePy's speedx changes duration while preserving pitch
-        # through the underlying audio transformation.
         from moviepy.audio.fx.all import speedx
 
         slowed = speedx(
@@ -445,8 +447,19 @@ def apply_narration_speed(
 
 def join_tts_clips(
     clips,
-    crossfade_ms=CHUNK_CROSSFADE_MS,
 ):
+    """
+    Join TTS chunks sequentially.
+
+    IMPORTANT:
+    There is NO crossfade.
+
+    Chunk 2 begins exactly when Chunk 1 ends.
+    No overlap.
+    No fade-in.
+    No fade-out.
+    No artificial gap.
+    """
 
     if not clips:
 
@@ -458,103 +471,14 @@ def join_tts_clips(
 
         return clips[0]
 
-    overlap = (
-        max(
-            0,
-            float(crossfade_ms),
-        )
-        / 1000.0
-    )
+    # ----------------------------------------------------------------------
+    # Direct sequential concatenation.
+    #
+    # Each chunk plays immediately after the previous chunk.
+    # ----------------------------------------------------------------------
 
-    positioned = []
-
-    current_start = 0.0
-
-    for index, clip in enumerate(
+    return concatenate_audioclips(
         clips
-    ):
-
-        actual_overlap = min(
-            overlap,
-            max(
-                0.0,
-                clip.duration / 2.0,
-            ),
-        )
-
-        if index == 0:
-
-            start = 0.0
-
-        else:
-
-            start = (
-                current_start
-                - actual_overlap
-            )
-
-        processed = clip
-
-        # --------------------------------------------------------------
-        # Fade in.
-        # --------------------------------------------------------------
-
-        if actual_overlap > 0:
-
-            try:
-
-                processed = (
-                    processed
-                    .audio_fadein(
-                        actual_overlap
-                    )
-                )
-
-            except Exception:
-
-                pass
-
-        # --------------------------------------------------------------
-        # Fade out.
-        # --------------------------------------------------------------
-
-        if actual_overlap > 0:
-
-            try:
-
-                processed = (
-                    processed
-                    .audio_fadeout(
-                        actual_overlap
-                    )
-                )
-
-            except Exception:
-
-                pass
-
-        processed = processed.set_start(
-            start
-        )
-
-        positioned.append(
-            processed
-        )
-
-        current_start = (
-            start
-            + clip.duration
-        )
-
-    total_duration = max(
-        clip.start + clip.duration
-        for clip in positioned
-    )
-
-    return CompositeAudioClip(
-        positioned
-    ).set_duration(
-        total_duration
     )
 
 
@@ -620,6 +544,8 @@ def synthesize_narration(
 
     This function is used for individual scenes, so adding the
     final tail here would incorrectly add silence after every scene.
+
+    TTS chunks are joined directly with NO crossfade.
     """
 
     text = clean_text(
@@ -671,6 +597,10 @@ def synthesize_narration(
     print(
         f"Approximate slowdown: "
         f"{(1 - NARRATION_SPEED) * 100:.0f}%"
+    )
+
+    print(
+        "Chunk crossfade: DISABLED"
     )
 
     chunks = split_text(
@@ -816,12 +746,13 @@ def synthesize_narration(
             )
 
         # --------------------------------------------------------------
-        # Join chunks.
+        # Join chunks DIRECTLY.
+        #
+        # NO CROSSFADE.
         # --------------------------------------------------------------
 
         joined = join_tts_clips(
-            processed_clips,
-            CHUNK_CROSSFADE_MS,
+            processed_clips
         )
 
         print(
@@ -954,6 +885,8 @@ def synthesize_script(
 
     Narration is slowed to NARRATION_SPEED.
 
+    TTS chunks have NO crossfade.
+
     The final 250 ms tail is added ONLY after the complete
     narration has been assembled.
     """
@@ -989,6 +922,10 @@ def synthesize_script(
     print(
         f"Approximate slowdown: "
         f"{(1 - NARRATION_SPEED) * 100:.0f}%"
+    )
+
+    print(
+        "Chunk crossfade: DISABLED"
     )
 
     temp_dir = os.path.join(

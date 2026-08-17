@@ -2,7 +2,7 @@
 tts.py
 Mint-YT-Factory
 
-Version 7.6
+Version 7.7
 
 TikTok TTS narration engine.
 
@@ -11,9 +11,12 @@ Features:
 - 300-byte TikTok TTS safety limit
 - Prevents awkward sentence/word cuts between TTS chunks
 - Direct chunk joining — NO crossfade
-- Adjustable narration speed
+- Very short natural gap ONLY between forced TTS chunks
+- Slower narration for improved clarity
+- TTS-only pronunciation correction
 - Scene-by-scene narration
-- Continuous narration — NO scene silences
+- Continuous scene narration
+- NO scene silences
 - NO artificial final audio tail
 - Cleans temporary files
 - Compatible with main.py
@@ -21,12 +24,31 @@ Features:
 
 IMPORTANT:
 
-There are NO intentionally generated silences in this version.
+The pronunciation correction is applied ONLY to the text sent
+to TikTok TTS.
 
-Narration is continuous:
-    Scene 1 → Scene 2 → Scene 3 → ...
+The original narration remains unchanged.
 
-There is also no crossfade between TikTok TTS chunks.
+Example:
+
+Actual narration:
+    "The insects create noise."
+
+TTS pronunciation text:
+    "The in-sects create noyz."
+
+Captions can therefore still display:
+
+    "The insects create noise."
+
+There is NO crossfade.
+
+There are NO scene pauses.
+
+There is NO final silence tail.
+
+A tiny gap is inserted ONLY when one narration block has to be
+split into multiple TikTok TTS chunks because of the byte limit.
 """
 
 
@@ -36,6 +58,7 @@ import shutil
 import tempfile
 
 from moviepy.editor import (
+    AudioClip,
     AudioFileClip,
     concatenate_audioclips,
 )
@@ -56,16 +79,90 @@ SAMPLE_RATE = 44100
 # NARRATION SPEED
 # ==========================================================================
 #
-# 1.00 = normal speed
+# 1.00 = normal
 # 0.95 = 5% slower
-# 0.92 = 8% slower  ← recommended
-# 0.90 = 10% slower
+# 0.92 = 8% slower
+# 0.90 = 10% slower  ← recommended
 # 0.85 = 15% slower
 #
-# The generated audio is slowed down rather than adding artificial pauses.
+# 0.90 gives the voice slightly more time to pronounce each word clearly.
 # ==========================================================================
 
-NARRATION_SPEED = 0.92
+NARRATION_SPEED = 0.90
+
+
+# ==========================================================================
+# TTS CHUNK GAP
+# ==========================================================================
+#
+# This is NOT a scene pause.
+#
+# It is used ONLY when one narration block has been split into multiple
+# TikTok TTS requests because of the 300-byte limit.
+#
+# Without this gap:
+#
+#     Chunk 1: "...the insects"
+#     Chunk 2: "create..."
+#
+# can sometimes sound like:
+#
+#     "...theinsectscreate..."
+#
+# A very short gap makes the boundary clearer without making the narration
+# sound artificially slow.
+# ==========================================================================
+
+TTS_CHUNK_GAP_MS = 90
+
+
+# ==========================================================================
+# PRONUNCIATION CORRECTIONS
+# ==========================================================================
+#
+# IMPORTANT:
+#
+# These replacements are ONLY sent to TikTok TTS.
+#
+# They do NOT modify:
+# - script narration
+# - captions
+# - subtitles
+# - descriptions
+# - YouTube metadata
+#
+# Add new words here if TikTok consistently mispronounces them.
+#
+# The replacement is deliberately phonetic rather than a dictionary
+# spelling.
+# ==========================================================================
+
+PRONUNCIATION_REPLACEMENTS = {
+
+    # Common problem observed in testing.
+    "insects": "in-sects",
+    "insect": "in-sect",
+
+    # Common TikTok TTS pronunciation issue.
+    "noise": "noyz",
+
+    # Useful variations.
+    "noises": "noy-ziz",
+
+    # Common science words that can occasionally be unclear.
+    "species": "spee-sheez",
+    "scientific": "sigh-en-TIF-ik",
+    "scientifically": "sigh-en-TIF-ik-lee",
+
+    # Often pronounced too quickly.
+    "environment": "en-vy-run-ment",
+    "environments": "en-vy-run-ments",
+
+    # Useful for educational/science content.
+    "organism": "OR-guh-niz-um",
+    "organisms": "OR-guh-niz-ums",
+
+}
 
 
 # ==========================================================================
@@ -108,6 +205,59 @@ def clean_text(text):
     )
 
     return text.strip()
+
+
+# ==========================================================================
+# TTS PRONUNCIATION TEXT
+# ==========================================================================
+
+def build_tts_pronunciation_text(
+    text,
+):
+    """
+    Create the version of the narration that is sent to TikTok TTS.
+
+    IMPORTANT:
+
+    This function does NOT modify the original narration.
+
+    It only changes words that are known to be pronounced poorly
+    by the selected TikTok voice.
+    """
+
+    text = clean_text(
+        text
+    )
+
+    if not text:
+        return ""
+
+    result = text
+
+    # ----------------------------------------------------------------------
+    # Replace words while preserving normal word boundaries.
+    # ----------------------------------------------------------------------
+
+    for original, replacement in (
+        PRONUNCIATION_REPLACEMENTS.items()
+    ):
+
+        pattern = (
+            r"(?<![\w'-])"
+            + re.escape(original)
+            + r"(?![\w'-])"
+        )
+
+        result = re.sub(
+            pattern,
+            replacement,
+            result,
+            flags=re.IGNORECASE,
+        )
+
+    return clean_text(
+        result
+    )
 
 
 # ==========================================================================
@@ -336,6 +486,41 @@ def split_text(
 
 
 # ==========================================================================
+# SILENCE BETWEEN FORCED TTS CHUNKS
+# ==========================================================================
+
+def create_tts_chunk_gap():
+    """
+    Create a very short silence used ONLY between separately generated
+    TTS chunks.
+
+    This is NOT used between scenes.
+
+    This is NOT used after the final narration.
+
+    This is NOT used between normal words.
+    """
+
+    duration = (
+        max(
+            0,
+            float(TTS_CHUNK_GAP_MS),
+        )
+        / 1000.0
+    )
+
+    if duration <= 0:
+
+        return None
+
+    return AudioClip(
+        lambda t: 0,
+        duration=duration,
+        fps=SAMPLE_RATE,
+    )
+
+
+# ==========================================================================
 # NARRATION SPEED
 # ==========================================================================
 
@@ -353,7 +538,7 @@ def apply_narration_speed(
         0.90 = 10% slower
         0.85 = 15% slower
 
-    No silence is added.
+    No crossfade is added.
     """
 
     try:
@@ -417,20 +602,26 @@ def join_tts_clips(
     clips,
 ):
     """
-    Join TTS chunks directly.
+    Join TTS chunks without crossfade.
 
-    IMPORTANT:
-    - No crossfade
-    - No overlap
-    - No fade-in
-    - No fade-out
-    - No silence
+    A tiny gap is inserted ONLY between forced chunks.
 
-    Chunk 1 ends.
-    Chunk 2 starts immediately.
+    There is:
 
-    This preserves the natural pauses that TikTok TTS itself
-    produces from punctuation.
+    - NO crossfade
+    - NO overlap
+    - NO fade-in
+    - NO fade-out
+    - NO scene pause
+    - NO final silence
+
+    Example:
+
+        Chunk 1
+        90 ms gap
+        Chunk 2
+        90 ms gap
+        Chunk 3
     """
 
     if not clips:
@@ -443,8 +634,32 @@ def join_tts_clips(
 
         return clips[0]
 
-    return concatenate_audioclips(
+    parts = []
+
+    for index, clip in enumerate(
         clips
+    ):
+
+        parts.append(
+            clip
+        )
+
+        # --------------------------------------------------------------
+        # Add tiny gap only between chunks.
+        # --------------------------------------------------------------
+
+        if index < len(clips) - 1:
+
+            gap = create_tts_chunk_gap()
+
+            if gap is not None:
+
+                parts.append(
+                    gap
+                )
+
+    return concatenate_audioclips(
+        parts
     )
 
 
@@ -460,27 +675,48 @@ def synthesize_narration(
     """
     Convert one scene/block of narration into audio.
 
-    The audio contains:
+    The ORIGINAL text is preserved.
 
-    TTS chunk 1
-    → TTS chunk 2
-    → TTS chunk 3
-    → ...
+    A separate pronunciation-adjusted copy is sent to TikTok TTS.
 
-    No artificial silence is inserted.
-    No crossfade is used.
-    No final tail is added.
+    Example:
+
+        Original:
+        "The insects create noise."
+
+        TTS:
+        "The in-sects create noyz."
+
+    The final audio contains:
+
+        TTS chunk 1
+        → tiny boundary gap
+        → TTS chunk 2
+        → tiny boundary gap
+        → TTS chunk 3
+
+    No crossfade.
+    No scene pause.
+    No final tail.
     """
 
-    text = clean_text(
+    original_text = clean_text(
         text
     )
 
-    if not text:
+    if not original_text:
 
         raise RuntimeError(
             "Cannot synthesize empty narration."
         )
+
+    # ----------------------------------------------------------------------
+    # Create TTS-only pronunciation version.
+    # ----------------------------------------------------------------------
+
+    tts_text = build_tts_pronunciation_text(
+        original_text
+    )
 
     voice_config = config.get(
         "voice",
@@ -528,11 +764,43 @@ def synthesize_narration(
     )
 
     print(
-        "Artificial silence: DISABLED"
+        "Scene silence: DISABLED"
     )
 
+    print(
+        "Final silence tail: DISABLED"
+    )
+
+    print(
+        f"Forced chunk gap: "
+        f"{TTS_CHUNK_GAP_MS}ms"
+    )
+
+    if (
+        original_text
+        != tts_text
+    ):
+
+        print(
+            "🔊 TTS pronunciation correction applied."
+        )
+
+        print(
+            f"Original: {original_text}"
+        )
+
+        print(
+            f"TTS text: {tts_text}"
+        )
+
+    # ----------------------------------------------------------------------
+    # Split the pronunciation-adjusted text.
+    #
+    # This is important because replacements can change the byte count.
+    # ----------------------------------------------------------------------
+
     chunks = split_text(
-        text
+        tts_text
     )
 
     print(
@@ -574,6 +842,8 @@ def synthesize_narration(
 
     joined = None
 
+    gap_clips = []
+
     try:
 
         # --------------------------------------------------------------
@@ -610,6 +880,10 @@ def synthesize_narration(
                 except Exception:
 
                     pass
+
+            # ----------------------------------------------------------
+            # Generate TikTok TTS.
+            # ----------------------------------------------------------
 
             tts.New(
                 chunk
@@ -674,7 +948,7 @@ def synthesize_narration(
             )
 
         # --------------------------------------------------------------
-        # Directly join chunks.
+        # Join chunks.
         # --------------------------------------------------------------
 
         joined = join_tts_clips(
@@ -699,6 +973,8 @@ def synthesize_narration(
 
         # --------------------------------------------------------------
         # Write scene audio.
+        #
+        # NO final tail.
         # --------------------------------------------------------------
 
         joined.write_audiofile(
@@ -730,6 +1006,20 @@ def synthesize_narration(
         except Exception:
 
             pass
+
+        # --------------------------------------------------------------
+        # Close generated gap clips if any.
+        # --------------------------------------------------------------
+
+        for gap in gap_clips:
+
+            try:
+
+                gap.close()
+
+            except Exception:
+
+                pass
 
         # --------------------------------------------------------------
         # Close processed clips.
@@ -805,18 +1095,22 @@ def synthesize_script(
 
     Each scene is synthesized separately.
 
-    Scenes are joined directly with NO artificial silence.
+    Scenes are joined directly with NO artificial scene silence.
 
-    The narration is continuous:
+    The narration is:
 
         Scene 1 → Scene 2 → Scene 3 → ...
 
-    There is no:
-    - crossfade
-    - fade-in
-    - fade-out
-    - scene pause
-    - final silence tail
+    There is:
+
+    - NO crossfade
+    - NO fade-in
+    - NO fade-out
+    - NO scene pause
+    - NO final silence tail
+
+    Only forced TTS chunk boundaries may contain the tiny
+    TTS_CHUNK_GAP_MS gap.
     """
 
     os.makedirs(
@@ -862,6 +1156,11 @@ def synthesize_script(
 
     print(
         "Final silence tail: DISABLED"
+    )
+
+    print(
+        f"TTS chunk gap: "
+        f"{TTS_CHUNK_GAP_MS}ms"
     )
 
     temp_dir = os.path.join(
@@ -944,8 +1243,10 @@ def synthesize_script(
         # Load scene audio.
         #
         # IMPORTANT:
-        # No pause_after_ms is read here.
-        # No silence clips are created.
+        #
+        # pause_after_ms is intentionally ignored.
+        #
+        # No scene silence is created.
         # --------------------------------------------------------------
 
         for path in scene_audio_files:
@@ -959,7 +1260,11 @@ def synthesize_script(
             )
 
         # --------------------------------------------------------------
-        # Combine all scenes directly.
+        # Combine scenes directly.
+        #
+        # Scene 1 → Scene 2 → Scene 3
+        #
+        # No pause.
         # --------------------------------------------------------------
 
         combined = concatenate_audioclips(
@@ -985,6 +1290,11 @@ def synthesize_script(
 
         print(
             "Final silence tail: NONE"
+        )
+
+        print(
+            f"Forced TTS chunk gap: "
+            f"{TTS_CHUNK_GAP_MS}ms"
         )
 
         output_path = os.path.join(
@@ -1060,10 +1370,10 @@ def scene_indexed_pause(
     """
     Legacy compatibility function.
 
-    Silences are now completely disabled.
+    Scene silences are completely disabled.
 
-    Always returns 0 seconds so that any older code calling
-    this function does not break the pipeline.
+    Always returns 0 seconds so older code calling this function
+    does not break the pipeline.
     """
 
     return 0.0

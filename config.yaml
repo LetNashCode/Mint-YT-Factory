@@ -23,7 +23,7 @@ script:
 
 voice:
   provider: "tiktok"
-  voice_name: "en_male_narration"
+  voice_name: "en_us_ghostface"
   speed: 1.0
 
 visuals:

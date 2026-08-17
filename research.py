@@ -2,60 +2,39 @@
 research.py
 Mint-YT-Factory
 
-Version 4.3
+Version 5.0
 
 Research-first scientific evidence layer.
 
-FLOW:
+Pipeline:
 
 Topic
-  ↓
-Crossref + Semantic Scholar + OpenAlex
-  ↓
-Deduplicate / merge duplicate records
-  ↓
-Remove candidates without DOI
-  ↓
-STRICT TOPIC RELEVANCE FILTER
-  ↓
-Verify DOI / identity
-  ↓
-Enrich abstract/evidence
-  ↓
-Evidence-quality filter
-  ↓
-STRICT RELEVANCE RECHECK
-  ↓
-Minimum 2 evidence-backed sources
-  ↓
-Authoritative source_id assignment
-  ↓
-Final validation
-  ↓
-Verified research package
+  -> Crossref + Semantic Scholar + OpenAlex
+  -> DOI filtering
+  -> Deduplication / merge
+  -> Strict relevance scoring
+  -> DOI / identity verification
+  -> Evidence enrichment
+  -> Evidence quality + study-design classification
+  -> Final relevance recheck
+  -> Independent-source validation
+  -> Stable authoritative source_id
+  -> Final validation
+  -> VERIFIED research package
 
-IMPORTANT:
-
-- DOI verification is NOT evidence verification.
-- Metadata-only sources are NEVER accepted as evidence.
-- Abstracts are NEVER invented.
-- Sources must actually exist.
-- Minimum 2 evidence-backed sources are required.
-- Semantic Scholar rate limits are handled gracefully.
-- OpenAlex is used as a free evidence fallback.
-- Long research topics are supported.
-- Evidence text is explicitly separated from metadata.
-- Gemini is NOT used to create or summarize evidence.
-- Research sources are never fabricated.
-- A DOI alone does not make a source evidence-backed.
-- Relevance uses topic terms AND topic concepts.
-- Irrelevant domain matches are rejected.
-- Duplicate records are merged instead of blindly discarded.
-- Every final source receives a stable authoritative source_id.
-- source_id is derived from normalized DOI.
-- Candidates without DOI are rejected before source_id generation.
+Design goals:
+- DOI verification is separate from evidence verification.
+- Metadata is never treated as scientific evidence.
+- Abstracts are accepted only when actually retrieved from a source.
+- No evidence is invented or summarized by Gemini.
+- Stable source_id is derived from normalized DOI.
+- Scene/claim verification remains compatible with verify_claims.py.
+- At least two relevant, evidence-backed sources are required.
+- Crossref failure falls back through Semantic Scholar and OpenAlex.
+- Source identity is checked against authoritative metadata.
+- Relevance is recalculated after evidence enrichment.
+- Weak or unrelated sources are rejected.
 """
-
 
 import hashlib
 import json
@@ -73,9 +52,7 @@ import requests
 # CONFIG
 # ==========================================================================
 
-CROSSREF_URL = (
-    "https://api.crossref.org/v1/works"
-)
+CROSSREF_URL = "https://api.crossref.org/v1/works"
 
 SEMANTIC_SCHOLAR_URL = (
     "https://api.semanticscholar.org/graph/v1/paper/search"
@@ -85,24 +62,24 @@ SEMANTIC_PAPER_URL = (
     "https://api.semanticscholar.org/graph/v1/paper"
 )
 
-OPENALEX_URL = (
-    "https://api.openalex.org/works"
-)
+OPENALEX_URL = "https://api.openalex.org/works"
 
 TIMEOUT = 30
 
-MAX_CROSSREF_RESULTS = 12
-MAX_SEMANTIC_RESULTS = 8
-MAX_OPENALEX_RESULTS = 10
+MAX_CROSSREF_RESULTS = 15
+MAX_SEMANTIC_RESULTS = 10
+MAX_OPENALEX_RESULTS = 12
 
 MIN_ACCEPTED_SOURCES = 2
 MAX_EVIDENCE_SOURCES = 5
 
+MIN_ABSTRACT_CHARACTERS = 120
+MAX_EVIDENCE_TEXT_CHARACTERS = 12000
+
 SEMANTIC_RETRIES = 2
 SEMANTIC_BACKOFF_SECONDS = 4
 
-MIN_ABSTRACT_CHARACTERS = 120
-MAX_EVIDENCE_TEXT_CHARACTERS = 12000
+TITLE_SIMILARITY_MINIMUM = 0.55
 
 
 # ==========================================================================
@@ -119,7 +96,7 @@ EVIDENCE_QUALITY_NONE = "none"
 # ==========================================================================
 
 USER_AGENT = (
-    "Mint-YT-Factory/4.3 "
+    "Mint-YT-Factory/5.0 "
     "(educational research verification)"
 )
 
@@ -378,11 +355,60 @@ def _normalize_title(title):
     )
 
 
+def _title_tokens(title):
+
+    return set(
+        token
+        for token in re.findall(
+            r"[a-z0-9]+",
+            _normalize_title(title),
+        )
+        if len(token) >= 3
+    )
+
+
+def _title_similarity(
+    title_a,
+    title_b,
+):
+
+    tokens_a = _title_tokens(
+        title_a
+    )
+
+    tokens_b = _title_tokens(
+        title_b
+    )
+
+    if not tokens_a or not tokens_b:
+        return 0.0
+
+    intersection = len(
+        tokens_a.intersection(
+            tokens_b
+        )
+    )
+
+    union = len(
+        tokens_a.union(
+            tokens_b
+        )
+    )
+
+    if not union:
+        return 0.0
+
+    return (
+        intersection / union
+    )
+
+
 # ==========================================================================
 # STOPWORDS
 # ==========================================================================
 
 STOPWORDS = {
+
     "how",
     "do",
     "does",
@@ -391,11 +417,14 @@ STOPWORDS = {
     "could",
     "would",
     "should",
+
     "the",
     "a",
     "an",
+
     "and",
     "or",
+
     "to",
     "of",
     "in",
@@ -403,42 +432,60 @@ STOPWORDS = {
     "for",
     "with",
     "from",
+
     "why",
     "what",
+
     "is",
     "are",
     "be",
+
     "their",
     "they",
     "them",
+
     "these",
     "those",
+
     "this",
     "that",
+
     "about",
     "into",
     "through",
+
     "will",
     "your",
     "our",
+
     "its",
     "it",
+
     "as",
     "by",
     "at",
+
     "over",
     "under",
+
     "than",
     "then",
+
     "when",
     "where",
     "which",
     "who",
+
     "during",
     "using",
+
     "long",
     "way",
     "ways",
+
+    "happen",
+    "happens",
+    "really",
 }
 
 
@@ -622,6 +669,52 @@ CONCEPT_GROUPS = {
         "machine",
         "machines",
     },
+
+    "memory": {
+        "memory",
+        "memories",
+        "remember",
+        "remembering",
+        "recall",
+        "learning",
+        "learned",
+    },
+
+    "sleep": {
+        "sleep",
+        "sleeping",
+        "dream",
+        "dreaming",
+        "circadian",
+        "insomnia",
+    },
+
+    "sound": {
+        "sound",
+        "sounds",
+        "hearing",
+        "auditory",
+        "acoustic",
+        "frequency",
+        "frequencies",
+    },
+
+    "light": {
+        "light",
+        "visual",
+        "vision",
+        "photoreceptor",
+        "photoreceptors",
+        "wavelength",
+        "wavelengths",
+    },
+
+    "gravity": {
+        "gravity",
+        "gravitational",
+        "gravitation",
+        "weight",
+    },
 }
 
 
@@ -742,10 +835,9 @@ def _relevance_score(
         )
     ).lower()
 
-    abstract = _clean(
+    evidence = _clean(
         source.get(
-            "evidence_text",
-            ""
+            "evidence_text"
         )
         or source.get(
             "abstract",
@@ -759,10 +851,10 @@ def _relevance_score(
         title,
     )
 
-    abstract_clean = re.sub(
+    evidence_clean = re.sub(
         r"[^a-z0-9\s]",
         " ",
-        abstract,
+        evidence,
     )
 
     title_clean = re.sub(
@@ -771,10 +863,10 @@ def _relevance_score(
         title_clean,
     ).strip()
 
-    abstract_clean = re.sub(
+    evidence_clean = re.sub(
         r"\s+",
         " ",
-        abstract_clean,
+        evidence_clean,
     ).strip()
 
     topic_terms = _topic_terms(
@@ -789,8 +881,8 @@ def _relevance_score(
         title_clean
     )
 
-    abstract_concepts = _concepts_from_text(
-        abstract_clean
+    evidence_concepts = _concepts_from_text(
+        evidence_clean
     )
 
     title_concept_matches = (
@@ -800,10 +892,10 @@ def _relevance_score(
         )
     )
 
-    abstract_concept_matches = (
+    evidence_concept_matches = (
         topic_concepts
         .intersection(
-            abstract_concepts
+            evidence_concepts
         )
     )
 
@@ -813,7 +905,7 @@ def _relevance_score(
 
     title_term_matches = 0
 
-    abstract_term_matches = 0
+    evidence_term_matches = 0
 
     # ------------------------------------------------------------------
     # TERM MATCHES
@@ -832,14 +924,14 @@ def _relevance_score(
                 term
             )
 
-            score += 3
+            score += 4
 
         elif _stem_like_match(
             term,
-            abstract_clean,
+            evidence_clean,
         ):
 
-            abstract_term_matches += 1
+            evidence_term_matches += 1
 
             matched_terms.append(
                 term
@@ -852,12 +944,12 @@ def _relevance_score(
     # ------------------------------------------------------------------
 
     score += (
-        len(title_concept_matches) * 5
+        len(title_concept_matches) * 6
     )
 
     score += (
         len(
-            abstract_concept_matches
+            evidence_concept_matches
             - title_concept_matches
         ) * 2
     )
@@ -916,8 +1008,8 @@ def _relevance_score(
         title_concept_matches
     )
 
-    abstract_concept_count = len(
-        abstract_concept_matches
+    evidence_concept_count = len(
+        evidence_concept_matches
     )
 
     if concept_count >= 2:
@@ -928,14 +1020,14 @@ def _relevance_score(
 
         elif (
             title_concept_count >= 1
-            and abstract_concept_count >= 2
+            and evidence_concept_count >= 2
         ):
 
             relevance_class = "strong"
 
         elif (
             title_concept_count >= 1
-            and abstract_concept_count >= 1
+            and evidence_concept_count >= 1
         ):
 
             relevance_class = "moderate"
@@ -959,7 +1051,7 @@ def _relevance_score(
 
         elif (
             title_term_matches >= 1
-            and abstract_term_matches >= 2
+            and evidence_term_matches >= 2
         ):
 
             relevance_class = "moderate"
@@ -977,6 +1069,9 @@ def _relevance_score(
         "plants",
         "space",
         "ocean",
+        "human",
+        "technology",
+        "quantum",
     }
 
     topic_domains = (
@@ -991,7 +1086,7 @@ def _relevance_score(
         matched_domains = (
             title_concept_matches
             .union(
-                abstract_concept_matches
+                evidence_concept_matches
             )
             .intersection(
                 topic_domains
@@ -1030,7 +1125,7 @@ def _relevance_score(
     source[
         "abstract_concepts"
     ] = sorted(
-        abstract_concept_matches
+        evidence_concept_matches
     )
 
     source[
@@ -1039,7 +1134,7 @@ def _relevance_score(
 
     source[
         "abstract_match_count"
-    ] = abstract_term_matches
+    ] = evidence_term_matches
 
     source[
         "topic_concept_coverage"
@@ -1048,7 +1143,7 @@ def _relevance_score(
             len(
                 title_concept_matches
                 .union(
-                    abstract_concept_matches
+                    evidence_concept_matches
                 )
             )
             /
@@ -1063,6 +1158,10 @@ def _relevance_score(
     source[
         "relevance_class"
     ] = relevance_class
+
+    source[
+        "relevance_score"
+    ] = score
 
     return score
 
@@ -1080,12 +1179,15 @@ def _is_relevant(source):
 def relevance_filter(
     topic,
     sources,
+    label="STRICT RELEVANCE FILTER",
 ):
 
     accepted = []
 
     print("=" * 80)
-    print("🎯 STRICT TOPIC RELEVANCE FILTER")
+    print(
+        f"🎯 {label}"
+    )
     print("=" * 80)
 
     topic_concepts = _topic_concepts(
@@ -1093,8 +1195,15 @@ def relevance_filter(
     )
 
     print(
-        f"Topic concepts: "
-        f"{', '.join(sorted(topic_concepts)) or 'none'}"
+        "Topic concepts: "
+        + (
+            ", ".join(
+                sorted(
+                    topic_concepts
+                )
+            )
+            or "none"
+        )
     )
 
     for source in sources:
@@ -1103,10 +1212,6 @@ def relevance_filter(
             topic,
             source,
         )
-
-        source[
-            "relevance_score"
-        ] = score
 
         title = source.get(
             "title",
@@ -1144,7 +1249,7 @@ def relevance_filter(
             )
 
             print(
-                f"   Abstract concepts: "
+                f"   Evidence concepts: "
                 f"{source.get('abstract_concepts', [])}"
             )
 
@@ -1198,16 +1303,18 @@ def _authors_crossref(item):
         )
 
         name = " ".join(
-            x
-            for x in (
+            part
+            for part in (
                 given,
                 family,
             )
-            if x
+            if part
         )
 
         if name:
-            authors.append(name)
+            authors.append(
+                name
+            )
 
     return ", ".join(
         authors
@@ -1231,7 +1338,9 @@ def _authors_semantic(item):
         )
 
         if name:
-            authors.append(name)
+            authors.append(
+                name
+            )
 
     return ", ".join(
         authors
@@ -1353,32 +1462,35 @@ def _build_evidence_package(
     if abstract:
 
         evidence_available = True
+
         evidence_type = "abstract"
+
         evidence_quality = (
             EVIDENCE_QUALITY_MODERATE
         )
+
         evidence_text = abstract
 
         evidence_notes = (
-            "Evidence text is the scholarly "
-            "abstract retrieved from a research "
-            "metadata database. It is not the "
-            "full paper."
+            "Evidence text is a retrieved scholarly "
+            "abstract. It is not the full paper."
         )
 
     else:
 
         evidence_available = False
+
         evidence_type = "metadata_only"
+
         evidence_quality = (
             EVIDENCE_QUALITY_NONE
         )
+
         evidence_text = ""
 
         evidence_notes = (
-            "No abstract or evidence text was "
-            "available. Metadata alone must not "
-            "be used to support detailed claims."
+            "No abstract/evidence text was retrieved. "
+            "Metadata alone is not evidence."
         )
 
     if len(
@@ -1416,13 +1528,6 @@ def _build_evidence_package(
     source[
         "abstract"
     ] = abstract
-
-    source[
-        "abstract_source"
-    ] = source.get(
-        "evidence_source",
-        "",
-    )
 
     return source
 
@@ -1697,17 +1802,14 @@ def search_semantic_scholar(
             )
         )
 
+        if not doi:
+            continue
+
         url = _clean(
             paper.get(
                 "url",
                 "",
             )
-        )
-
-        citation_url = (
-            f"https://doi.org/{doi}"
-            if doi
-            else url
         )
 
         abstract = _clean_abstract(
@@ -1758,7 +1860,7 @@ def search_semantic_scholar(
                 doi,
 
             "url":
-                citation_url,
+                f"https://doi.org/{doi}",
 
             "semantic_scholar_url":
                 url,
@@ -1919,7 +2021,9 @@ def search_openalex(
             )
 
             if name:
-                authors.append(name)
+                authors.append(
+                    name
+                )
 
         primary_location = (
             item.get(
@@ -1940,7 +2044,7 @@ def search_openalex(
         journal = _clean(
             source_info.get(
                 "display_name",
-                "",
+                ""
             )
         )
 
@@ -1961,7 +2065,9 @@ def search_openalex(
                 title,
 
             "authors":
-                ", ".join(authors),
+                ", ".join(
+                    authors
+                ),
 
             "journal":
                 journal,
@@ -2054,11 +2160,6 @@ def _merge_sources(
     secondary,
 ):
 
-    # Keep better title.
-    if not primary.get("title") and secondary.get("title"):
-        primary["title"] = secondary["title"]
-
-    # Keep metadata fields when missing.
     for field in (
         "authors",
         "journal",
@@ -2071,11 +2172,13 @@ def _merge_sources(
         "openalex_url",
     ):
 
-        if not primary.get(field) and secondary.get(field):
+        if (
+            not primary.get(field)
+            and secondary.get(field)
+        ):
 
             primary[field] = secondary[field]
 
-    # Keep longest abstract.
     primary_abstract = _clean_abstract(
         primary.get(
             "abstract",
@@ -2090,7 +2193,11 @@ def _merge_sources(
         )
     )
 
-    if len(secondary_abstract) > len(primary_abstract):
+    if len(
+        secondary_abstract
+    ) > len(
+        primary_abstract
+    ):
 
         primary[
             "abstract"
@@ -2103,8 +2210,9 @@ def _merge_sources(
             "",
         )
 
-    # Keep highest citation count.
-    primary["citation_count"] = max(
+    primary[
+        "citation_count"
+    ] = max(
         primary.get(
             "citation_count",
             0,
@@ -2117,20 +2225,6 @@ def _merge_sources(
         or 0,
     )
 
-    primary["openalex_citation_count"] = max(
-        primary.get(
-            "openalex_citation_count",
-            0,
-        )
-        or 0,
-        secondary.get(
-            "openalex_citation_count",
-            0,
-        )
-        or 0,
-    )
-
-    # Track databases.
     databases = set(
         primary.get(
             "source_databases",
@@ -2138,14 +2232,24 @@ def _merge_sources(
         )
     )
 
-    if primary.get("source_database"):
+    if primary.get(
+        "source_database"
+    ):
+
         databases.add(
-            primary["source_database"]
+            primary[
+                "source_database"
+            ]
         )
 
-    if secondary.get("source_database"):
+    if secondary.get(
+        "source_database"
+    ):
+
         databases.add(
-            secondary["source_database"]
+            secondary[
+                "source_database"
+            ]
         )
 
     primary[
@@ -2164,6 +2268,7 @@ def deduplicate_sources(
 ):
 
     by_doi = {}
+
     by_title = {}
 
     unique = []
@@ -2188,11 +2293,15 @@ def deduplicate_sources(
 
         if doi and doi in by_doi:
 
-            existing = by_doi[doi]
+            existing = by_doi[
+                doi
+            ]
 
         elif title and title in by_title:
 
-            existing = by_title[title]
+            existing = by_title[
+                title
+            ]
 
         if existing is not None:
 
@@ -2221,12 +2330,102 @@ def deduplicate_sources(
         )
 
         if doi:
-            by_doi[doi] = source
+            by_doi[
+                doi
+            ] = source
 
         if title:
-            by_title[title] = source
+            by_title[
+                title
+            ] = source
 
     return unique
+
+
+# ==========================================================================
+# DOI / IDENTITY VERIFICATION
+# ==========================================================================
+
+def _identity_matches(
+    source,
+    returned_title,
+    returned_doi,
+    provider,
+):
+
+    expected_doi = _normalize_doi(
+        source.get(
+            "doi",
+            "",
+        )
+    )
+
+    returned_doi = _normalize_doi(
+        returned_doi
+    )
+
+    if not expected_doi or not returned_doi:
+
+        source[
+            "identity_error"
+        ] = (
+            f"{provider}: missing DOI "
+            "in verification response."
+        )
+
+        return False
+
+    if expected_doi != returned_doi:
+
+        source[
+            "identity_error"
+        ] = (
+            f"{provider}: DOI mismatch. "
+            f"Expected {expected_doi}, "
+            f"got {returned_doi}."
+        )
+
+        return False
+
+    original_title = _clean(
+        source.get(
+            "title",
+            "",
+        )
+    )
+
+    returned_title = _clean(
+        returned_title
+    )
+
+    similarity = _title_similarity(
+        original_title,
+        returned_title,
+    )
+
+    source[
+        "verified_title_similarity"
+    ] = round(
+        similarity,
+        3,
+    )
+
+    if (
+        similarity
+        < TITLE_SIMILARITY_MINIMUM
+    ):
+
+        source[
+            "identity_error"
+        ] = (
+            f"{provider}: title mismatch. "
+            f"Similarity {similarity:.3f} < "
+            f"{TITLE_SIMILARITY_MINIMUM:.2f}."
+        )
+
+        return False
+
+    return True
 
 
 # ==========================================================================
@@ -2286,10 +2485,13 @@ def verify_crossref_source(
             )[0]
         )
 
-        if returned_doi != doi:
-            return False
+        if not _identity_matches(
+            source,
+            returned_title,
+            returned_doi,
+            "Crossref",
+        ):
 
-        if not returned_title:
             return False
 
         source[
@@ -2304,17 +2506,16 @@ def verify_crossref_source(
             "doi"
         ] = returned_doi
 
-        # Refresh metadata from authoritative Crossref record.
-        crossref_authors = _authors_crossref(
+        authors = _authors_crossref(
             item
         )
 
-        if crossref_authors:
+        if authors:
             source[
                 "authors"
-            ] = crossref_authors
+            ] = authors
 
-        crossref_journal = _clean(
+        journal = _clean(
             (
                 item.get(
                     "container-title",
@@ -2324,31 +2525,31 @@ def verify_crossref_source(
             )[0]
         )
 
-        if crossref_journal:
+        if journal:
             source[
                 "journal"
-            ] = crossref_journal
+            ] = journal
 
-        crossref_publisher = _clean(
+        publisher = _clean(
             item.get(
                 "publisher",
                 "",
             )
         )
 
-        if crossref_publisher:
+        if publisher:
             source[
                 "publisher"
-            ] = crossref_publisher
+            ] = publisher
 
-        crossref_year = _extract_year(
+        year = _extract_year(
             item
         )
 
-        if crossref_year:
+        if year:
             source[
                 "year"
-            ] = crossref_year
+            ] = year
 
         abstract = _clean_abstract(
             item.get(
@@ -2369,7 +2570,10 @@ def verify_crossref_source(
 
         source[
             "verification"
-        ] = "DOI resolved through Crossref."
+        ] = (
+            "DOI and publication identity "
+            "verified through Crossref."
+        )
 
         return _build_evidence_package(
             source
@@ -2456,13 +2660,16 @@ def verify_semantic_source(
             )
         )
 
-        if not returned_title:
-            return False
+        if not returned_doi:
+            returned_doi = doi
 
-        if (
-            returned_doi
-            and returned_doi != doi
+        if not _identity_matches(
+            source,
+            returned_title,
+            returned_doi,
+            "Semantic Scholar",
         ):
+
             return False
 
         source[
@@ -2498,7 +2705,10 @@ def verify_semantic_source(
                 "journal"
             ] = venue
 
-        if data.get("year"):
+        if data.get(
+            "year"
+        ):
+
             source[
                 "year"
             ] = data.get(
@@ -2520,7 +2730,9 @@ def verify_semantic_source(
 
             source[
                 "evidence_source"
-            ] = "Semantic Scholar abstract"
+            ] = (
+                "Semantic Scholar abstract"
+            )
 
         source[
             "citation_count"
@@ -2535,7 +2747,8 @@ def verify_semantic_source(
         source[
             "verification"
         ] = (
-            "DOI resolved through Semantic Scholar."
+            "DOI and publication identity "
+            "verified through Semantic Scholar."
         )
 
         return _build_evidence_package(
@@ -2608,13 +2821,16 @@ def verify_openalex_source(
             )
         )
 
-        if not returned_title:
-            return False
+        if not returned_doi:
+            returned_doi = doi
 
-        if (
-            returned_doi
-            and returned_doi != doi
+        if not _identity_matches(
+            source,
+            returned_title,
+            returned_doi,
+            "OpenAlex",
         ):
+
             return False
 
         source[
@@ -2673,7 +2889,10 @@ def verify_openalex_source(
 
         source[
             "verification"
-        ] = "DOI resolved through OpenAlex."
+        ] = (
+            "DOI and publication identity "
+            "verified through OpenAlex."
+        )
 
         return _build_evidence_package(
             source
@@ -2955,6 +3174,149 @@ def enrich_sources(
 
 
 # ==========================================================================
+# STUDY DESIGN
+# ==========================================================================
+
+def _classify_study_design(
+    source,
+):
+
+    title = _clean(
+        source.get(
+            "title",
+            "",
+        )
+    ).lower()
+
+    publication_types = source.get(
+        "publication_types",
+        [],
+    ) or []
+
+    publication_types_text = " ".join(
+        _clean(item).lower()
+        for item in publication_types
+    )
+
+    text = (
+        f"{title} "
+        f"{publication_types_text}"
+    )
+
+    if any(
+        phrase in text
+        for phrase in (
+            "systematic review",
+            "meta-analysis",
+            "meta analysis",
+        )
+    ):
+
+        design = (
+            "systematic_review_or_meta_analysis"
+        )
+
+    elif "review" in text:
+
+        design = "review"
+
+    elif any(
+        phrase in text
+        for phrase in (
+            "randomized controlled trial",
+            "randomised controlled trial",
+            "randomized trial",
+            "randomised trial",
+        )
+    ):
+
+        design = "randomized_trial"
+
+    elif any(
+        phrase in text
+        for phrase in (
+            "clinical trial",
+            "controlled trial",
+        )
+    ):
+
+        design = (
+            "clinical_or_controlled_trial"
+        )
+
+    elif any(
+        phrase in text
+        for phrase in (
+            "longitudinal",
+            "cohort",
+        )
+    ):
+
+        design = "observational_cohort"
+
+    elif any(
+        phrase in text
+        for phrase in (
+            "cross-sectional",
+            "cross sectional",
+        )
+    ):
+
+        design = "cross_sectional"
+
+    elif any(
+        phrase in text
+        for phrase in (
+            "case report",
+            "case study",
+        )
+    ):
+
+        design = (
+            "case_report_or_case_study"
+        )
+
+    else:
+
+        design = (
+            "research_article_or_unspecified"
+        )
+
+    source[
+        "study_design"
+    ] = design
+
+    return source
+
+
+def _assign_evidence_quality(
+    source,
+):
+
+    evidence = _clean(
+        source.get(
+            "evidence_text",
+            "",
+        )
+    )
+
+    if not evidence:
+
+        source[
+            "evidence_quality"
+        ] = EVIDENCE_QUALITY_NONE
+
+        return source
+
+    # Abstract-only evidence remains moderate.
+    source[
+        "evidence_quality"
+    ] = EVIDENCE_QUALITY_MODERATE
+
+    return source
+
+
+# ==========================================================================
 # EVIDENCE VERIFICATION
 # ==========================================================================
 
@@ -2973,10 +3335,9 @@ def mark_evidence_verified(
             )
         )
 
-        if not source.get(
-            "metadata_verified",
-            False,
-        ):
+        if source.get(
+            "metadata_verified"
+        ) is not True:
 
             print(
                 f"❌ Rejected unverified source: "
@@ -2988,7 +3349,7 @@ def mark_evidence_verified(
         evidence = _clean_abstract(
             source.get(
                 "evidence_text",
-                ""
+                "",
             )
         )
 
@@ -3001,7 +3362,9 @@ def mark_evidence_verified(
 
             continue
 
-        if len(evidence) < MIN_ABSTRACT_CHARACTERS:
+        if len(
+            evidence
+        ) < MIN_ABSTRACT_CHARACTERS:
 
             print(
                 f"❌ Rejected insufficient evidence text: "
@@ -3121,10 +3484,6 @@ def mark_evidence_verified(
         ] = "abstract"
 
         source[
-            "evidence_quality"
-        ] = EVIDENCE_QUALITY_MODERATE
-
-        source[
             "evidence_verified"
         ] = True
 
@@ -3141,8 +3500,16 @@ def mark_evidence_verified(
         source[
             "evidence_verification"
         ] = (
-            "DOI metadata was verified and "
-            "a scholarly abstract was retrieved."
+            "DOI/publication identity was verified "
+            "and a scholarly abstract was retrieved."
+        )
+
+        _classify_study_design(
+            source
+        )
+
+        _assign_evidence_quality(
+            source
         )
 
         accepted.append(
@@ -3153,6 +3520,83 @@ def mark_evidence_verified(
 
 
 # ==========================================================================
+# SOURCE DIVERSITY
+# ==========================================================================
+
+def _source_family_key(
+    source,
+):
+
+    publisher = _clean(
+        source.get(
+            "publisher",
+            "",
+        )
+    ).lower()
+
+    journal = _clean(
+        source.get(
+            "journal",
+            "",
+        )
+    ).lower()
+
+    return (
+        publisher,
+        journal,
+    )
+
+
+def validate_independent_sources(
+    sources,
+):
+
+    unique_dois = {
+        _normalize_doi(
+            source.get(
+                "doi",
+                "",
+            )
+        )
+        for source in sources
+        if _normalize_doi(
+            source.get(
+                "doi",
+                "",
+            )
+        )
+    }
+
+    if len(
+        unique_dois
+    ) < MIN_ACCEPTED_SOURCES:
+
+        raise RuntimeError(
+            "RESEARCH FAILED: fewer than two "
+            "distinct DOI-backed sources remain."
+        )
+
+    families = {
+        _source_family_key(
+            source
+        )
+        for source in sources
+    }
+
+    return {
+        "distinct_doi_count":
+            len(
+                unique_dois
+            ),
+
+        "distinct_publisher_journal_pairs":
+            len(
+                families
+            ),
+    }
+
+
+# ==========================================================================
 # LIMIT SOURCES
 # ==========================================================================
 
@@ -3160,7 +3604,9 @@ def limit_sources(
     sources,
 ):
 
-    def sort_key(source):
+    def sort_key(
+        source
+    ):
 
         citation_count = max(
 
@@ -3177,6 +3623,24 @@ def limit_sources(
             or 0,
         )
 
+        quality_rank = {
+
+            EVIDENCE_QUALITY_HIGH:
+                2,
+
+            EVIDENCE_QUALITY_MODERATE:
+                1,
+
+            EVIDENCE_QUALITY_NONE:
+                0,
+
+        }.get(
+            source.get(
+                "evidence_quality"
+            ),
+            0,
+        )
+
         return (
 
             source.get(
@@ -3189,12 +3653,7 @@ def limit_sources(
                 0,
             ),
 
-            len(
-                source.get(
-                    "evidence_text",
-                    "",
-                )
-            ),
+            quality_rank,
 
             citation_count,
         )
@@ -3238,14 +3697,14 @@ def validate_source_ids(
 
             raise RuntimeError(
                 "RESEARCH FAILED: "
-                "Final source is missing source_id."
+                "final source is missing source_id."
             )
 
         if not doi:
 
             raise RuntimeError(
                 f"RESEARCH FAILED: "
-                f"Source '{source.get('title', '')}' "
+                f"source '{source.get('title', '')}' "
                 "has no DOI."
             )
 
@@ -3257,7 +3716,7 @@ def validate_source_ids(
 
             raise RuntimeError(
                 f"RESEARCH FAILED: "
-                f"Source ID mismatch for "
+                f"source ID mismatch for "
                 f"'{source.get('title', '')}'. "
                 f"Expected '{expected_id}', "
                 f"received '{source_id}'."
@@ -3267,7 +3726,7 @@ def validate_source_ids(
 
             raise RuntimeError(
                 f"RESEARCH FAILED: "
-                f"Duplicate source_id detected: "
+                f"duplicate source_id detected: "
                 f"{source_id}"
             )
 
@@ -3275,15 +3734,143 @@ def validate_source_ids(
             source_id
         )
 
+        if source.get(
+            "metadata_verified"
+        ) is not True:
+
+            raise RuntimeError(
+                f"RESEARCH FAILED: "
+                f"source '{source.get('title', '')}' "
+                "is not metadata verified."
+            )
+
+        if source.get(
+            "evidence_verified"
+        ) is not True:
+
+            raise RuntimeError(
+                f"RESEARCH FAILED: "
+                f"source '{source.get('title', '')}' "
+                "is not evidence verified."
+            )
+
+        if source.get(
+            "evidence_available"
+        ) is not True:
+
+            raise RuntimeError(
+                f"RESEARCH FAILED: "
+                f"source '{source.get('title', '')}' "
+                "does not have evidence_available=True."
+            )
+
+        evidence = _clean(
+            source.get(
+                "evidence_text",
+                "",
+            )
+        )
+
+        if len(
+            evidence
+        ) < MIN_ABSTRACT_CHARACTERS:
+
+            raise RuntimeError(
+                f"RESEARCH FAILED: "
+                f"source '{source.get('title', '')}' "
+                "has insufficient evidence text."
+            )
+
         if not source.get(
-            "evidence_verified",
-            False,
+            "verified"
         ):
 
             raise RuntimeError(
                 f"RESEARCH FAILED: "
-                f"Source '{source.get('title', '')}' "
-                "is not evidence verified."
+                f"source '{source.get('title', '')}' "
+                "does not have verified=True."
+            )
+
+    return True
+
+
+# ==========================================================================
+# FINAL PACKAGE VALIDATION
+# ==========================================================================
+
+def validate_research_package(
+    package,
+):
+
+    if not isinstance(
+        package,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "RESEARCH FAILED: "
+            "package is not a dictionary."
+        )
+
+    if package.get(
+        "status"
+    ) != "VERIFIED":
+
+        raise RuntimeError(
+            "RESEARCH FAILED: "
+            "package status is not VERIFIED."
+        )
+
+    if package.get(
+        "verified"
+    ) is not True:
+
+        raise RuntimeError(
+            "RESEARCH FAILED: "
+            "package verified flag is not True."
+        )
+
+    sources = package.get(
+        "sources",
+        []
+    )
+
+    if not isinstance(
+        sources,
+        list,
+    ):
+
+        raise RuntimeError(
+            "RESEARCH FAILED: "
+            "package sources are invalid."
+        )
+
+    if len(
+        sources
+    ) < MIN_ACCEPTED_SOURCES:
+
+        raise RuntimeError(
+            "RESEARCH FAILED: "
+            "package has fewer than two sources."
+        )
+
+    validate_source_ids(
+        sources
+    )
+
+    for source in sources:
+
+        if source.get(
+            "relevance_class"
+        ) not in {
+            "strong",
+            "moderate",
+        }:
+
+            raise RuntimeError(
+                f"RESEARCH FAILED: "
+                f"final source is not relevant: "
+                f"{source.get('title', '')}"
             )
 
     return True
@@ -3297,7 +3884,9 @@ def research_topic(
     topic,
 ):
 
-    topic = _clean(topic)
+    topic = _clean(
+        topic
+    )
 
     if not topic:
 
@@ -3306,7 +3895,7 @@ def research_topic(
         )
 
     print("=" * 80)
-    print("🔬 MINT-YT-FACTORY RESEARCH v4.3")
+    print("🔬 MINT-YT-FACTORY RESEARCH v5.0")
     print("=" * 80)
 
     print(
@@ -3387,7 +3976,7 @@ def research_topic(
 
         raise RuntimeError(
             "RESEARCH FAILED: "
-            "No research candidates were found."
+            "no research candidates were found."
         )
 
     # ------------------------------------------------------------------
@@ -3399,8 +3988,6 @@ def research_topic(
     print("=" * 80)
 
     doi_candidates = []
-
-    rejected_no_doi = 0
 
     for source in candidates:
 
@@ -3420,8 +4007,6 @@ def research_topic(
 
         if not doi:
 
-            rejected_no_doi += 1
-
             print(
                 f"⚠️ REJECTED — NO DOI: "
                 f"{title}"
@@ -3433,6 +4018,12 @@ def research_topic(
             "doi"
         ] = doi
 
+        source[
+            "source_id"
+        ] = _generate_source_id(
+            doi
+        )
+
         doi_candidates.append(
             source
         )
@@ -3442,32 +4033,11 @@ def research_topic(
         f"{len(doi_candidates)}"
     )
 
-    print(
-        f"Candidates rejected without DOI: "
-        f"{rejected_no_doi}"
-    )
-
     if not doi_candidates:
 
         raise RuntimeError(
             "RESEARCH FAILED: "
-            "No candidates with DOI identifiers were found."
-        )
-
-    candidates = doi_candidates
-
-    # ------------------------------------------------------------------
-    # SOURCE IDS
-    # ------------------------------------------------------------------
-
-    for source in candidates:
-
-        source[
-            "source_id"
-        ] = _generate_source_id(
-            source[
-                "doi"
-            ]
+            "no candidates with DOI identifiers."
         )
 
     # ------------------------------------------------------------------
@@ -3476,29 +4046,23 @@ def research_topic(
 
     relevant = relevance_filter(
         topic,
-        candidates,
+        doi_candidates,
+        label="STRICT TOPIC RELEVANCE FILTER",
     )
 
     if not relevant:
 
         raise RuntimeError(
             "RESEARCH FAILED: "
-            "No sufficiently relevant sources found."
+            "no sufficiently relevant sources found."
         )
 
-    print("=" * 80)
-    print(
-        f"🎯 RELEVANT DOI SOURCES: "
-        f"{len(relevant)}"
-    )
-    print("=" * 80)
-
     # ------------------------------------------------------------------
-    # DOI / METADATA VERIFICATION
+    # DOI / IDENTITY VERIFICATION
     # ------------------------------------------------------------------
 
     print("=" * 80)
-    print("🧪 VERIFYING SOURCES")
+    print("🧪 VERIFYING DOI + PUBLICATION IDENTITY")
     print("=" * 80)
 
     verified_metadata = []
@@ -3550,7 +4114,7 @@ def research_topic(
         verified_ok = False
 
         # --------------------------------------------------------------
-        # Prefer Crossref as DOI registry verification when available.
+        # CROSSREF FIRST
         # --------------------------------------------------------------
 
         verified_ok = (
@@ -3560,12 +4124,19 @@ def research_topic(
         )
 
         # --------------------------------------------------------------
-        # If Crossref fails, verify using originating database.
+        # SEMANTIC FALLBACK
         # --------------------------------------------------------------
 
         if not verified_ok:
 
-            if "Semantic Scholar" in databases:
+            if (
+                "Semantic Scholar"
+                in databases
+            ):
+
+                print(
+                    "   ↪ Trying Semantic Scholar fallback..."
+                )
 
                 verified_ok = (
                     verify_semantic_source(
@@ -3573,7 +4144,20 @@ def research_topic(
                     )
                 )
 
-            elif "OpenAlex" in databases:
+        # --------------------------------------------------------------
+        # OPENALEX FALLBACK
+        # --------------------------------------------------------------
+
+        if not verified_ok:
+
+            if (
+                "OpenAlex"
+                in databases
+            ):
+
+                print(
+                    "   ↪ Trying OpenAlex fallback..."
+                )
 
                 verified_ok = (
                     verify_openalex_source(
@@ -3584,7 +4168,7 @@ def research_topic(
         if verified_ok:
 
             print(
-                "✅ METADATA VERIFIED"
+                "✅ DOI + IDENTITY VERIFIED"
             )
 
             verified_metadata.append(
@@ -3594,20 +4178,20 @@ def research_topic(
         else:
 
             print(
-                "❌ NOT VERIFIED"
+                "❌ IDENTITY NOT VERIFIED"
             )
+
+    print(
+        f"DOI/identity-verified sources: "
+        f"{len(verified_metadata)}"
+    )
 
     if not verified_metadata:
 
         raise RuntimeError(
             "RESEARCH FAILED: "
-            "No DOI-verified sources remained."
+            "no DOI-verified sources remained."
         )
-
-    print(
-        f"DOI-verified sources: "
-        f"{len(verified_metadata)}"
-    )
 
     # ------------------------------------------------------------------
     # EVIDENCE ENRICHMENT
@@ -3627,17 +4211,17 @@ def research_topic(
         )
     )
 
-    if not evidence_sources:
-
-        raise RuntimeError(
-            "RESEARCH FAILED: "
-            "No evidence-backed sources remained."
-        )
-
     print(
         f"Evidence-backed sources: "
         f"{len(evidence_sources)}"
     )
+
+    if not evidence_sources:
+
+        raise RuntimeError(
+            "RESEARCH FAILED: "
+            "no evidence-backed sources remained."
+        )
 
     # ------------------------------------------------------------------
     # FINAL RELEVANCE RECHECK
@@ -3650,15 +4234,18 @@ def research_topic(
     evidence_sources = relevance_filter(
         topic,
         evidence_sources,
+        label="FINAL EVIDENCE RELEVANCE CHECK",
     )
 
     evidence_sources = [
         source
         for source in evidence_sources
         if source.get(
-            "evidence_verified",
-            False,
-        )
+            "evidence_verified"
+        ) is True
+        and source.get(
+            "metadata_verified"
+        ) is True
     ]
 
     print(
@@ -3687,27 +4274,20 @@ def research_topic(
         evidence_sources
     ) < MIN_ACCEPTED_SOURCES:
 
-        print("=" * 80)
-        print("❌ RESEARCH FAILED")
-        print("=" * 80)
-
-        print(
-            f"Only "
-            f"{len(evidence_sources)} "
-            "evidence-backed relevant source(s) found."
-        )
-
-        print(
-            f"At least "
-            f"{MIN_ACCEPTED_SOURCES} "
-            "are required."
-        )
-
         raise RuntimeError(
             "RESEARCH FAILED: "
-            f"Only {len(evidence_sources)} "
-            "evidence-backed relevant source(s) found."
+            f"fewer than {MIN_ACCEPTED_SOURCES} "
+            "evidence-backed relevant "
+            "sources remained."
         )
+
+    # ------------------------------------------------------------------
+    # SOURCE DIVERSITY
+    # ------------------------------------------------------------------
+
+    diversity = validate_independent_sources(
+        evidence_sources
+    )
 
     # ------------------------------------------------------------------
     # SOURCE ID VALIDATION
@@ -3780,11 +4360,20 @@ def research_topic(
             "abstract_is_full_text":
                 False,
 
+            "identity_verification_required":
+                True,
+
+            "title_identity_similarity_minimum":
+                TITLE_SIMILARITY_MINIMUM,
+
             "authoritative_source_id_required":
                 True,
 
             "source_id_algorithm":
                 "sha256(normalized_doi)[:12]",
+
+            "gemini_used_for_evidence":
+                False,
         },
 
         "source_count":
@@ -3797,9 +4386,20 @@ def research_topic(
                 evidence_sources
             ),
 
+        "source_diversity":
+            diversity,
+
         "sources":
             evidence_sources,
     }
+
+    # ------------------------------------------------------------------
+    # FINAL PACKAGE VALIDATION
+    # ------------------------------------------------------------------
+
+    validate_research_package(
+        package
+    )
 
     # ------------------------------------------------------------------
     # OUTPUT
@@ -3857,6 +4457,16 @@ def research_topic(
         print(
             f"   Evidence: "
             f"{source.get('evidence_source', '')}"
+        )
+
+        print(
+            f"   Evidence quality: "
+            f"{source.get('evidence_quality', '')}"
+        )
+
+        print(
+            f"   Study design: "
+            f"{source.get('study_design', '')}"
         )
 
         print(

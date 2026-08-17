@@ -10,15 +10,25 @@ Features:
 - Sentence-aware TTS chunking
 - 300-byte TikTok TTS safety limit
 - Prevents awkward sentence/word cuts between TTS chunks
-- No crossfade between TTS chunks
+- Direct chunk joining — NO crossfade
 - Adjustable narration speed
 - Scene-by-scene narration
-- Preserves scene pauses
-- Small final audio tail added ONLY to final narration
+- Continuous narration — NO scene silences
+- NO artificial final audio tail
 - Cleans temporary files
 - Compatible with main.py
 - Compatible with assemble.py
+
+IMPORTANT:
+
+There are NO intentionally generated silences in this version.
+
+Narration is continuous:
+    Scene 1 → Scene 2 → Scene 3 → ...
+
+There is also no crossfade between TikTok TTS chunks.
 """
+
 
 import os
 import re
@@ -27,7 +37,6 @@ import tempfile
 
 from moviepy.editor import (
     AudioFileClip,
-    AudioClip,
     concatenate_audioclips,
 )
 
@@ -42,37 +51,21 @@ MAX_BYTES = 300
 
 SAMPLE_RATE = 44100
 
-DEFAULT_PAUSE_MS = 0
 
-
-# --------------------------------------------------------------------------
+# ==========================================================================
 # NARRATION SPEED
-# --------------------------------------------------------------------------
+# ==========================================================================
 #
 # 1.00 = normal speed
 # 0.95 = 5% slower
-# 0.92 = 8% slower
+# 0.92 = 8% slower  ← recommended
 # 0.90 = 10% slower
 # 0.85 = 15% slower
 #
-# Current setting:
-# 0.92 = approximately 8% slower
-# --------------------------------------------------------------------------
+# The generated audio is slowed down rather than adding artificial pauses.
+# ==========================================================================
 
 NARRATION_SPEED = 0.92
-
-
-# --------------------------------------------------------------------------
-# FINAL AUDIO TAIL
-# --------------------------------------------------------------------------
-#
-# Small silence after the FINAL spoken word only.
-#
-# IMPORTANT:
-# This is NOT added after every scene.
-# --------------------------------------------------------------------------
-
-FINAL_TAIL_MS = 250
 
 
 # ==========================================================================
@@ -343,31 +336,6 @@ def split_text(
 
 
 # ==========================================================================
-# PAUSE AUDIO
-# ==========================================================================
-
-def create_silence(
-    duration,
-):
-
-    duration = float(
-        duration
-    )
-
-    if duration <= 0:
-
-        return None
-
-    silence = AudioClip(
-        lambda t: 0,
-        duration=duration,
-        fps=SAMPLE_RATE,
-    )
-
-    return silence
-
-
-# ==========================================================================
 # NARRATION SPEED
 # ==========================================================================
 
@@ -385,7 +353,7 @@ def apply_narration_speed(
         0.90 = 10% slower
         0.85 = 15% slower
 
-    This changes playback speed without changing pitch.
+    No silence is added.
     """
 
     try:
@@ -442,23 +410,27 @@ def apply_narration_speed(
 
 
 # ==========================================================================
-# CHUNK AUDIO JOIN
+# DIRECT TTS CHUNK JOIN
 # ==========================================================================
 
 def join_tts_clips(
     clips,
 ):
     """
-    Join TTS chunks sequentially.
+    Join TTS chunks directly.
 
     IMPORTANT:
-    There is NO crossfade.
+    - No crossfade
+    - No overlap
+    - No fade-in
+    - No fade-out
+    - No silence
 
-    Chunk 2 begins exactly when Chunk 1 ends.
-    No overlap.
-    No fade-in.
-    No fade-out.
-    No artificial gap.
+    Chunk 1 ends.
+    Chunk 2 starts immediately.
+
+    This preserves the natural pauses that TikTok TTS itself
+    produces from punctuation.
     """
 
     if not clips:
@@ -471,61 +443,9 @@ def join_tts_clips(
 
         return clips[0]
 
-    # ----------------------------------------------------------------------
-    # Direct sequential concatenation.
-    #
-    # Each chunk plays immediately after the previous chunk.
-    # ----------------------------------------------------------------------
-
     return concatenate_audioclips(
         clips
     )
-
-
-# ==========================================================================
-# FINAL AUDIO TAIL
-# ==========================================================================
-
-def add_final_tail(
-    clip,
-    milliseconds=FINAL_TAIL_MS,
-):
-    """
-    Add a small silence after the FINAL spoken word.
-
-    IMPORTANT:
-    This function is called only once on the final combined
-    narration, NOT once per scene.
-    """
-
-    tail_seconds = (
-        max(
-            0,
-            float(milliseconds),
-        )
-        / 1000.0
-    )
-
-    if tail_seconds <= 0:
-
-        return clip
-
-    silence = create_silence(
-        tail_seconds
-    )
-
-    if silence is None:
-
-        return clip
-
-    final = concatenate_audioclips(
-        [
-            clip,
-            silence,
-        ]
-    )
-
-    return final
 
 
 # ==========================================================================
@@ -540,12 +460,16 @@ def synthesize_narration(
     """
     Convert one scene/block of narration into audio.
 
-    The final tail is NOT added here.
+    The audio contains:
 
-    This function is used for individual scenes, so adding the
-    final tail here would incorrectly add silence after every scene.
+    TTS chunk 1
+    → TTS chunk 2
+    → TTS chunk 3
+    → ...
 
-    TTS chunks are joined directly with NO crossfade.
+    No artificial silence is inserted.
+    No crossfade is used.
+    No final tail is added.
     """
 
     text = clean_text(
@@ -600,7 +524,11 @@ def synthesize_narration(
     )
 
     print(
-        "Chunk crossfade: DISABLED"
+        "Crossfade: DISABLED"
+    )
+
+    print(
+        "Artificial silence: DISABLED"
     )
 
     chunks = split_text(
@@ -746,9 +674,7 @@ def synthesize_narration(
             )
 
         # --------------------------------------------------------------
-        # Join chunks DIRECTLY.
-        #
-        # NO CROSSFADE.
+        # Directly join chunks.
         # --------------------------------------------------------------
 
         joined = join_tts_clips(
@@ -773,8 +699,6 @@ def synthesize_narration(
 
         # --------------------------------------------------------------
         # Write scene audio.
-        #
-        # NO FINAL TAIL HERE.
         # --------------------------------------------------------------
 
         joined.write_audiofile(
@@ -881,14 +805,18 @@ def synthesize_script(
 
     Each scene is synthesized separately.
 
-    Scene pauses are preserved.
+    Scenes are joined directly with NO artificial silence.
 
-    Narration is slowed to NARRATION_SPEED.
+    The narration is continuous:
 
-    TTS chunks have NO crossfade.
+        Scene 1 → Scene 2 → Scene 3 → ...
 
-    The final 250 ms tail is added ONLY after the complete
-    narration has been assembled.
+    There is no:
+    - crossfade
+    - fade-in
+    - fade-out
+    - scene pause
+    - final silence tail
     """
 
     os.makedirs(
@@ -925,7 +853,15 @@ def synthesize_script(
     )
 
     print(
-        "Chunk crossfade: DISABLED"
+        "Crossfade: DISABLED"
+    )
+
+    print(
+        "Scene silences: DISABLED"
+    )
+
+    print(
+        "Final silence tail: DISABLED"
     )
 
     temp_dir = os.path.join(
@@ -940,15 +876,9 @@ def synthesize_script(
 
     scene_audio_files = []
 
-    generated_scene_indices = []
-
-    pause_clips = []
-
     scene_clips = []
 
     combined = None
-
-    final = None
 
     try:
 
@@ -1004,10 +934,6 @@ def synthesize_script(
                 scene_path
             )
 
-            generated_scene_indices.append(
-                scene_index - 1
-            )
-
         if not scene_audio_files:
 
             raise RuntimeError(
@@ -1015,12 +941,14 @@ def synthesize_script(
             )
 
         # --------------------------------------------------------------
-        # Load scene audio and add scene pauses.
+        # Load scene audio.
+        #
+        # IMPORTANT:
+        # No pause_after_ms is read here.
+        # No silence clips are created.
         # --------------------------------------------------------------
 
-        for file_index, path in enumerate(
-            scene_audio_files
-        ):
+        for path in scene_audio_files:
 
             clip = AudioFileClip(
                 path
@@ -1030,42 +958,8 @@ def synthesize_script(
                 clip
             )
 
-            actual_scene_index = (
-                generated_scene_indices[
-                    file_index
-                ]
-            )
-
-            scene = scenes[
-                actual_scene_index
-            ]
-
-            # ----------------------------------------------------------
-            # scene_indexed_pause() already returns seconds.
-            # ----------------------------------------------------------
-
-            pause_seconds = scene_indexed_pause(
-                scene
-            )
-
-            if pause_seconds > 0:
-
-                silence = create_silence(
-                    pause_seconds
-                )
-
-                if silence:
-
-                    scene_clips.append(
-                        silence
-                    )
-
-                    pause_clips.append(
-                        silence
-                    )
-
         # --------------------------------------------------------------
-        # Combine all scenes.
+        # Combine all scenes directly.
         # --------------------------------------------------------------
 
         combined = concatenate_audioclips(
@@ -1077,22 +971,20 @@ def synthesize_script(
         print("=" * 80)
 
         print(
-            f"Before final tail: "
+            f"Final narration duration: "
             f"{combined.duration:.2f}s"
         )
 
-        # --------------------------------------------------------------
-        # Add final tail ONCE.
-        # --------------------------------------------------------------
-
-        final = add_final_tail(
-            combined,
-            FINAL_TAIL_MS,
+        print(
+            "Crossfade: NONE"
         )
 
         print(
-            f"After final tail: "
-            f"{final.duration:.2f}s"
+            "Scene silence: NONE"
+        )
+
+        print(
+            "Final silence tail: NONE"
         )
 
         output_path = os.path.join(
@@ -1100,7 +992,7 @@ def synthesize_script(
             "story.mp3",
         )
 
-        final.write_audiofile(
+        combined.write_audiofile(
             output_path,
             codec="mp3",
             fps=SAMPLE_RATE,
@@ -1115,20 +1007,6 @@ def synthesize_script(
         return [output_path]
 
     finally:
-
-        # --------------------------------------------------------------
-        # Close final clip.
-        # --------------------------------------------------------------
-
-        try:
-
-            if final is not None:
-
-                final.close()
-
-        except Exception:
-
-            pass
 
         # --------------------------------------------------------------
         # Close combined clip.
@@ -1159,20 +1037,6 @@ def synthesize_script(
                 pass
 
         # --------------------------------------------------------------
-        # Close silence clips.
-        # --------------------------------------------------------------
-
-        for silence in pause_clips:
-
-            try:
-
-                silence.close()
-
-            except Exception:
-
-                pass
-
-        # --------------------------------------------------------------
         # Remove temporary scene audio.
         # --------------------------------------------------------------
 
@@ -1187,45 +1051,19 @@ def synthesize_script(
 
 
 # ==========================================================================
-# PAUSE HELPER
+# LEGACY PAUSE HELPER
 # ==========================================================================
 
 def scene_indexed_pause(
     scene,
 ):
     """
-    Return scene pause in seconds.
+    Legacy compatibility function.
 
-    Input:
-        pause_after_ms = milliseconds
+    Silences are now completely disabled.
 
-    Output:
-        seconds
-
-    Maximum pause is capped at 600 ms.
+    Always returns 0 seconds so that any older code calling
+    this function does not break the pipeline.
     """
 
-    try:
-
-        pause_ms = float(
-            scene.get(
-                "pause_after_ms",
-                DEFAULT_PAUSE_MS,
-            )
-        )
-
-    except Exception:
-
-        pause_ms = 0
-
-    pause_ms = max(
-        0,
-        pause_ms,
-    )
-
-    pause_ms = min(
-        pause_ms,
-        600,
-    )
-
-    return pause_ms / 1000.0
+    return 0.0

@@ -2,7 +2,7 @@
 generate_script.py
 Mint-YT-Factory
 
-Version 10.5
+Version 10.6
 
 Research-first production script generator.
 
@@ -14,7 +14,12 @@ Key corrections:
 - Research evidence remains authoritative.
 - Exact research source IDs are preserved.
 - 7 scenes / 14 visuals / 45 seconds remain enforced.
+- subtitle_text is ALWAYS derived from narration.
+- Gemini can no longer create separate/mismatched caption text.
+- Caption highlights are ALWAYS based on narration.
+- TTS pronunciation corrections remain isolated inside tts.py.
 """
+
 
 import json
 import os
@@ -246,6 +251,7 @@ BEAT_TABLE = """
 # ==========================================================================
 
 def _clean(text):
+
     if text is None:
         return ""
 
@@ -257,9 +263,13 @@ def _clean(text):
 
 
 def _get_api_key():
-    api_key = os.environ.get("GEMINI_API_KEY")
+
+    api_key = os.environ.get(
+        "GEMINI_API_KEY"
+    )
 
     if not api_key:
+
         raise RuntimeError(
             "GEMINI_API_KEY environment variable is missing."
         )
@@ -268,13 +278,17 @@ def _get_api_key():
 
 
 def _enum(values):
+
     return {
         "type": "string",
-        "enum": sorted(list(values)),
+        "enum": sorted(
+            list(values)
+        ),
     }
 
 
 def _slugify(text):
+
     slug = re.sub(
         r"[^a-z0-9]+",
         "-",
@@ -284,30 +298,71 @@ def _slugify(text):
     return slug[:40] or "video"
 
 
-def _check_enum(value, allowed, label):
+def _check_enum(
+    value,
+    allowed,
+    label,
+):
+
     if value not in allowed:
+
         raise RuntimeError(
             f"{label}: invalid value '{value}'. "
             f"Allowed values: {sorted(allowed)}"
         )
 
 
-def _safe_int(value, default=0):
-    try:
-        return int(value)
+def _safe_int(
+    value,
+    default=0,
+):
 
-    except (TypeError, ValueError):
+    try:
+
+        return int(
+            value
+        )
+
+    except (
+        TypeError,
+        ValueError,
+    ):
+
         return default
 
 
-def _build_style_lock(identity):
-    if not isinstance(identity, dict):
+def _build_style_lock(
+    identity,
+):
+
+    if not isinstance(
+        identity,
+        dict,
+    ):
+
         return ""
 
     parts = [
-        _clean(identity.get("style", "")),
-        _clean(identity.get("palette", "")),
-        _clean(identity.get("mood_arc", "")),
+        _clean(
+            identity.get(
+                "style",
+                "",
+            )
+        ),
+
+        _clean(
+            identity.get(
+                "palette",
+                "",
+            )
+        ),
+
+        _clean(
+            identity.get(
+                "mood_arc",
+                "",
+            )
+        ),
     ]
 
     parts = [
@@ -317,6 +372,7 @@ def _build_style_lock(identity):
     ]
 
     if not parts:
+
         return ""
 
     return (
@@ -329,9 +385,15 @@ def _build_style_lock(identity):
 # RESEARCH VALIDATION
 # ==========================================================================
 
-def _extract_source_evidence(source):
+def _extract_source_evidence(
+    source,
+):
 
-    if not isinstance(source, dict):
+    if not isinstance(
+        source,
+        dict,
+    ):
+
         return ""
 
     evidence = source.get(
@@ -339,10 +401,16 @@ def _extract_source_evidence(source):
         "",
     )
 
-    if not isinstance(evidence, str):
+    if not isinstance(
+        evidence,
+        str,
+    ):
+
         return ""
 
-    return _clean(evidence)
+    return _clean(
+        evidence
+    )
 
 
 def validate_research_package(
@@ -350,17 +418,27 @@ def validate_research_package(
     topic,
 ):
 
-    if not isinstance(research, dict):
+    if not isinstance(
+        research,
+        dict,
+    ):
+
         raise RuntimeError(
             "RESEARCH GATE FAILED: research package is missing."
         )
 
-    if research.get("verified") is not True:
+    if research.get(
+        "verified"
+    ) is not True:
+
         raise RuntimeError(
             "RESEARCH GATE FAILED: research package is not VERIFIED."
         )
 
-    if research.get("status") != "VERIFIED":
+    if research.get(
+        "status"
+    ) != "VERIFIED":
+
         raise RuntimeError(
             "RESEARCH GATE FAILED: research status is not VERIFIED."
         )
@@ -370,12 +448,17 @@ def validate_research_package(
         [],
     )
 
-    if not isinstance(sources, list):
+    if not isinstance(
+        sources,
+        list,
+    ):
+
         raise RuntimeError(
             "RESEARCH GATE FAILED: sources must be a list."
         )
 
     verified_sources = []
+
     seen_source_ids = set()
 
     for index, source in enumerate(
@@ -383,16 +466,29 @@ def validate_research_package(
         start=1,
     ):
 
-        if not isinstance(source, dict):
+        if not isinstance(
+            source,
+            dict,
+        ):
+
             continue
 
-        if source.get("verified") is not True:
+        if source.get(
+            "verified"
+        ) is not True:
+
             continue
 
-        if source.get("evidence_verified") is not True:
+        if source.get(
+            "evidence_verified"
+        ) is not True:
+
             continue
 
-        if source.get("evidence_available") is not True:
+        if source.get(
+            "evidence_available"
+        ) is not True:
+
             continue
 
         source_id = _clean(
@@ -403,12 +499,14 @@ def validate_research_package(
         )
 
         if not source_id:
+
             raise RuntimeError(
                 "RESEARCH GATE FAILED: "
                 f"source at position {index} has no source_id."
             )
 
         if source_id in seen_source_ids:
+
             raise RuntimeError(
                 "RESEARCH GATE FAILED: "
                 f"duplicate source_id '{source_id}'."
@@ -469,7 +567,10 @@ def validate_research_package(
             source
         )
 
-    if len(verified_sources) < MIN_VERIFIED_SOURCES:
+    if len(
+        verified_sources
+    ) < MIN_VERIFIED_SOURCES:
+
         raise RuntimeError(
             "RESEARCH GATE FAILED: "
             f"Only {len(verified_sources)} "
@@ -485,12 +586,20 @@ def validate_research_package(
     )
 
     if research_topic:
-        if research_topic.lower() != topic.strip().lower():
+
+        if (
+            research_topic.lower()
+            !=
+            topic.strip().lower()
+        ):
+
             print(
                 "⚠️ Research topic differs slightly from generated topic."
             )
 
-    research["sources"] = verified_sources
+    research["sources"] = (
+        verified_sources
+    )
 
     research["source_count"] = len(
         verified_sources
@@ -512,6 +621,7 @@ def build_research_context(
 ):
 
     blocks = []
+
     seen_ids = set()
 
     for index, source in enumerate(
@@ -519,7 +629,11 @@ def build_research_context(
         start=1,
     ):
 
-        if not isinstance(source, dict):
+        if not isinstance(
+            source,
+            dict,
+        ):
+
             raise RuntimeError(
                 f"Research source {index} is invalid."
             )
@@ -532,23 +646,28 @@ def build_research_context(
         )
 
         if not source_id:
+
             raise RuntimeError(
                 f"Research source {index} has no source_id."
             )
 
         if source_id in seen_ids:
+
             raise RuntimeError(
                 f"Duplicate research source_id detected: "
                 f"{source_id}"
             )
 
-        seen_ids.add(source_id)
+        seen_ids.add(
+            source_id
+        )
 
         evidence = _extract_source_evidence(
             source
         )
 
         if not evidence:
+
             raise RuntimeError(
                 f"Research source {source_id} "
                 "has no authoritative evidence_text."
@@ -618,6 +737,7 @@ END SOURCE {source_id}
         )
 
     if not blocks:
+
         raise RuntimeError(
             "No verified research sources are available."
         )
@@ -733,6 +853,47 @@ WRITING
 - Do not pad with unsupported facts.
 
 ============================================================
+CAPTION RULE
+============================================================
+
+IMPORTANT:
+
+"narration" is the ONLY source of truth for captions.
+
+Generate natural spoken narration.
+
+The separate "subtitle_text" field is REQUIRED by the schema,
+but it MUST contain EXACTLY the same text as narration.
+
+DO NOT paraphrase narration into subtitle_text.
+
+DO NOT shorten narration into subtitle_text.
+
+DO NOT change words in subtitle_text.
+
+DO NOT use phonetic spellings in subtitle_text.
+
+Examples:
+
+Correct:
+
+narration:
+"The insects make a strange noise."
+
+subtitle_text:
+"The insects make a strange noise."
+
+Incorrect:
+
+narration:
+"The insects make a strange noise."
+
+subtitle_text:
+"The in sex make a strange nose."
+
+The pipeline will enforce this rule after generation.
+
+============================================================
 FORMAT
 ============================================================
 
@@ -846,6 +1007,7 @@ def build_user_prompt(
         )
 
         if not source_id:
+
             raise RuntimeError(
                 f"Research source {index} has no source_id."
             )
@@ -913,6 +1075,24 @@ Durations:
 3, 5, 7, 7, 8, 8, 7
 
 ============================================================
+CAPTIONS
+============================================================
+
+For every scene:
+
+subtitle_text MUST be an exact copy of narration.
+
+Do NOT paraphrase it.
+
+Do NOT rewrite it.
+
+Do NOT use phonetic spelling.
+
+Do NOT independently generate caption wording.
+
+The pipeline will enforce this after Gemini responds.
+
+============================================================
 NEXT SHORT REQUIREMENT
 ============================================================
 
@@ -952,8 +1132,6 @@ Purely stylistic language may use [].
 
 Never invent source IDs.
 
-Use the minimum necessary sources.
-
 ============================================================
 RESEARCH FIDELITY
 ============================================================
@@ -981,6 +1159,7 @@ def build_response_schema():
 
     visual = {
         "type": "object",
+
         "properties": {
             "segment": {
                 "type": "integer"
@@ -1089,6 +1268,7 @@ def build_response_schema():
 
             "source_ids": {
                 "type": "array",
+
                 "items": {
                     "type": "string"
                 },
@@ -1178,6 +1358,7 @@ def build_response_schema():
 
             "visuals": {
                 "type": "array",
+
                 "items": visual,
             },
         },
@@ -1313,11 +1494,13 @@ def build_response_schema():
         "properties": {
             "recurring_subjects": {
                 "type": "array",
+
                 "items": recurring_subject,
             },
 
             "recurring_objects": {
                 "type": "array",
+
                 "items": {
                     "type": "string"
                 },
@@ -1329,6 +1512,7 @@ def build_response_schema():
 
             "continuity_rules": {
                 "type": "array",
+
                 "items": {
                     "type": "string"
                 },
@@ -1357,6 +1541,7 @@ def build_response_schema():
 
             "tags": {
                 "type": "array",
+
                 "items": {
                     "type": "string"
                 },
@@ -1493,11 +1678,13 @@ def build_response_schema():
 
             "research_sources": {
                 "type": "array",
+
                 "items": source,
             },
 
             "scene_plan": {
                 "type": "array",
+
                 "items": scene,
             },
         },
@@ -1524,9 +1711,12 @@ def build_response_schema():
 # JSON PARSER
 # ==========================================================================
 
-def parse_gemini_json(text):
+def parse_gemini_json(
+    text,
+):
 
     if not text:
+
         raise RuntimeError(
             "Gemini returned an empty response."
         )
@@ -1534,14 +1724,20 @@ def parse_gemini_json(text):
     text = text.strip()
 
     try:
+
         data = json.loads(
             text
         )
 
-        if isinstance(data, dict):
+        if isinstance(
+            data,
+            dict,
+        ):
+
             return data
 
     except json.JSONDecodeError:
+
         pass
 
     cleaned = re.sub(
@@ -1558,20 +1754,35 @@ def parse_gemini_json(text):
     ).strip()
 
     try:
+
         data = json.loads(
             cleaned
         )
 
-        if isinstance(data, dict):
+        if isinstance(
+            data,
+            dict,
+        ):
+
             return data
 
     except json.JSONDecodeError:
+
         pass
 
-    start = cleaned.find("{")
-    end = cleaned.rfind("}")
+    start = cleaned.find(
+        "{"
+    )
 
-    if start >= 0 and end > start:
+    end = cleaned.rfind(
+        "}"
+    )
+
+    if (
+        start >= 0
+        and
+        end > start
+    ):
 
         candidate = cleaned[
             start:end + 1
@@ -1584,14 +1795,20 @@ def parse_gemini_json(text):
         )
 
         try:
+
             data = json.loads(
                 candidate
             )
 
-            if isinstance(data, dict):
+            if isinstance(
+                data,
+                dict,
+            ):
+
                 return data
 
         except json.JSONDecodeError as error:
+
             raise RuntimeError(
                 f"Failed to parse Gemini JSON: {error}"
             )
@@ -1602,38 +1819,83 @@ def parse_gemini_json(text):
 
 
 # ==========================================================================
-# CAPTIONS
+# CAPTIONS — SINGLE SOURCE OF TRUTH
 # ==========================================================================
 
-def _repair_caption_highlights(
+def _sync_captions_to_narration(
     scene,
     index,
 ):
+    """
+    CRITICAL CAPTION FIX.
 
-    subtitle = _clean(
+    narration is the ONLY source of truth.
+
+    subtitle_text is forcibly replaced with narration.
+
+    This prevents Gemini from independently rewriting words and causing
+    caption errors such as:
+
+        insects → in sex
+        noise   → nose
+
+    The TTS engine can separately apply pronunciation corrections.
+
+    Example:
+
+        narration:
+        "The insects create noise."
+
+        subtitle_text:
+        "The insects create noise."
+
+        TTS:
+        "The in-sects create noyz."
+
+    Therefore:
+
+        AUDIO = understandable pronunciation
+        CAPTIONS = exact original narration
+    """
+
+    narration = _clean(
         scene.get(
-            "subtitle_text",
+            "narration",
             "",
         )
     )
 
+    if not narration:
+
+        raise RuntimeError(
+            f"Scene {index} narration is empty."
+        )
+
+    # ----------------------------------------------------------------------
+    # FORCE captions to exactly match narration.
+    # ----------------------------------------------------------------------
+
+    scene["subtitle_text"] = narration
+
+    # ----------------------------------------------------------------------
+    # Generate caption highlights from narration itself.
+    # ----------------------------------------------------------------------
+
     tokens = re.findall(
         r"\b[\w'-]+\b",
-        subtitle,
+        narration,
     )
 
     if not tokens:
+
         raise RuntimeError(
-            f"Scene {index} subtitle_text contains no usable words."
+            f"Scene {index} narration contains no usable words."
         )
 
-    lookup = {
-        token.lower(): token
-        for token in tokens
-    }
-
-    result = []
-    used = set()
+    # ----------------------------------------------------------------------
+    # Preserve Gemini's emphasis choices only when the selected word
+    # actually exists in the narration.
+    # ----------------------------------------------------------------------
 
     existing = scene.get(
         "caption_highlights",
@@ -1644,7 +1906,17 @@ def _repair_caption_highlights(
         existing,
         list,
     ):
+
         existing = []
+
+    lookup = {
+        token.lower(): token
+        for token in tokens
+    }
+
+    result = []
+
+    used = set()
 
     for item in existing:
 
@@ -1652,6 +1924,7 @@ def _repair_caption_highlights(
             item,
             dict,
         ):
+
             continue
 
         word = _clean(
@@ -1672,8 +1945,10 @@ def _repair_caption_highlights(
 
         if (
             key in lookup
-            and emphasis in VALID_EMPHASIS
-            and key not in used
+            and
+            emphasis in VALID_EMPHASIS
+            and
+            key not in used
         ):
 
             result.append({
@@ -1681,12 +1956,29 @@ def _repair_caption_highlights(
                 "emphasis": emphasis,
             })
 
-            used.add(key)
+            used.add(
+                key
+            )
+
+    # ----------------------------------------------------------------------
+    # If Gemini did not provide a valid highlight, choose the longest
+    # meaningful word from the actual narration.
+    # ----------------------------------------------------------------------
 
     if not result:
 
+        candidates = [
+            token
+            for token in tokens
+            if len(token) >= 4
+        ]
+
+        if not candidates:
+
+            candidates = tokens
+
         word = max(
-            tokens,
+            candidates,
             key=len,
         )
 
@@ -1695,7 +1987,13 @@ def _repair_caption_highlights(
             "emphasis": "strong",
         }]
 
-    scene["caption_highlights"] = result[:3]
+    # ----------------------------------------------------------------------
+    # Maximum three highlighted words.
+    # ----------------------------------------------------------------------
+
+    scene["caption_highlights"] = (
+        result[:3]
+    )
 
 
 # ==========================================================================
@@ -1776,6 +2074,7 @@ def _repair_visual(
     for key, value in defaults.items():
 
         if key not in visual:
+
             visual[key] = value
 
     if not isinstance(
@@ -1793,29 +2092,57 @@ def _repair_visual(
         "",
     )
 
-    if visual["overlay"].get(
-        "type"
-    ) not in VALID_OVERLAY_TYPE:
+    if (
+        visual["overlay"].get(
+            "type"
+        )
+        not in
+        VALID_OVERLAY_TYPE
+    ):
 
         visual["overlay"]["type"] = "none"
 
     if visual["camera"] not in VALID_CAMERA:
+
         visual["camera"] = "medium"
 
     if visual["animation"] not in VALID_ANIMATION:
+
         visual["animation"] = "zoom_in"
 
-    if visual["zoom_strength"] not in VALID_ZOOM_STRENGTH:
+    if (
+        visual["zoom_strength"]
+        not in
+        VALID_ZOOM_STRENGTH
+    ):
+
         visual["zoom_strength"] = "subtle"
 
-    if visual["motion_intensity"] not in VALID_MOTION_INTENSITY:
+    if (
+        visual["motion_intensity"]
+        not in
+        VALID_MOTION_INTENSITY
+    ):
+
         visual["motion_intensity"] = "medium"
 
-    if visual["visual_complexity"] not in VALID_VISUAL_COMPLEXITY:
+    if (
+        visual["visual_complexity"]
+        not in
+        VALID_VISUAL_COMPLEXITY
+    ):
+
         visual["visual_complexity"] = "moderate"
 
-    if visual["image_style"] not in VALID_IMAGE_STYLE:
-        visual["image_style"] = "realistic_3d_render"
+    if (
+        visual["image_style"]
+        not in
+        VALID_IMAGE_STYLE
+    ):
+
+        visual["image_style"] = (
+            "realistic_3d_render"
+        )
 
     impact = _safe_int(
         visual.get(
@@ -1827,7 +2154,10 @@ def _repair_visual(
 
     visual["visual_impact"] = max(
         1,
-        min(10, impact),
+        min(
+            10,
+            impact,
+        ),
     )
 
     visual["lighting"] = _clean(
@@ -1904,6 +2234,7 @@ def _add_scene_visual_compatibility(
     )
 
     if not visuals:
+
         return
 
     primary = visuals[0]
@@ -2006,6 +2337,7 @@ def _normalize_next_short(
     )
 
     if not topic:
+
         raise RuntimeError(
             "next_short.topic is empty."
         )
@@ -2019,16 +2351,22 @@ def _normalize_next_short(
         )
 
     if not teaser:
+
         raise RuntimeError(
             "next_short.teaser is empty."
         )
 
     script["next_short"] = {
         "topic": topic,
+
         "teaser": teaser[:220],
+
         "why_viewers_should_return": (
-            reason or teaser
+            reason
+            or
+            teaser
         )[:220],
+
         "subscription_cta": (
             cta
             or
@@ -2063,6 +2401,7 @@ def _validate_description_does_not_contain_next_topic(
     ).lower()
 
     if not description or not topic:
+
         return
 
     stop_words = {
@@ -2113,7 +2452,8 @@ def _validate_description_does_not_contain_next_topic(
         )
         if (
             len(word) >= 5
-            and word not in stop_words
+            and
+            word not in stop_words
         )
     ]
 
@@ -2127,11 +2467,13 @@ def _validate_description_does_not_contain_next_topic(
             )
             if (
                 len(word) >= 4
-                and word not in stop_words
+                and
+                word not in stop_words
             )
         ]
 
     if not topic_words:
+
         return
 
     description_words = set(
@@ -2194,6 +2536,7 @@ def _normalize_research_sources(
 ):
 
     normalized = []
+
     seen_ids = set()
 
     for index, source in enumerate(
@@ -2362,6 +2705,7 @@ def _validate_source_ids(
             source,
             dict,
         ):
+
             continue
 
         source_id = _clean(
@@ -2372,6 +2716,7 @@ def _validate_source_ids(
         )
 
         if source_id:
+
             valid_ids.add(
                 source_id
             )
@@ -2424,6 +2769,7 @@ def _validate_source_ids(
             )
 
             if not source_id:
+
                 continue
 
             if source_id not in valid_ids:
@@ -2482,6 +2828,7 @@ def _normalize_visual_continuity(
             subject,
             dict,
         ):
+
             continue
 
         name = _clean(
@@ -2499,6 +2846,7 @@ def _normalize_visual_continuity(
         )
 
         if not name or not appearance:
+
             continue
 
         normalized_subjects.append({
@@ -2706,26 +3054,23 @@ def _validate_scene(
         scene["narration"]
     )
 
-    subtitle = _clean(
-        scene["subtitle_text"]
-    )
-
     if not narration:
 
         raise RuntimeError(
             f"Scene {index} narration is empty."
         )
 
-    if not subtitle:
-
-        raise RuntimeError(
-            f"Scene {index} subtitle is empty."
-        )
-
     scene["narration"] = narration
-    scene["subtitle_text"] = subtitle
 
-    _repair_caption_highlights(
+    # ======================================================================
+    # CRITICAL FIX
+    #
+    # DO NOT TRUST GEMINI'S subtitle_text.
+    #
+    # Always rebuild captions from narration.
+    # ======================================================================
+
+    _sync_captions_to_narration(
         scene,
         index,
     )
@@ -2810,7 +3155,9 @@ def _validate_scene(
             f"Scene {index} visuals must be a list."
         )
 
-    if len(visuals) != VISUALS_PER_SCENE:
+    if len(
+        visuals
+    ) != VISUALS_PER_SCENE:
 
         raise RuntimeError(
             f"Scene {index} must contain "
@@ -2822,6 +3169,7 @@ def _validate_scene(
     )
 
     visual_sum = 0
+
     prompts = []
 
     for visual_index, visual in enumerate(
@@ -2871,7 +3219,9 @@ def _validate_scene(
             .strip()
         )
 
-    if len(set(prompts)) != VISUALS_PER_SCENE:
+    if len(
+        set(prompts)
+    ) != VISUALS_PER_SCENE:
 
         raise RuntimeError(
             f"Scene {index} contains duplicate visual prompts."
@@ -2921,7 +3271,9 @@ def validate_script(
             "scene_plan must be a list."
         )
 
-    if len(scenes) != SCENE_COUNT:
+    if len(
+        scenes
+    ) != SCENE_COUNT:
 
         raise RuntimeError(
             f"Expected {SCENE_COUNT} scenes but got "
@@ -2937,6 +3289,7 @@ def validate_script(
     )
 
     total_duration = 0
+
     total_visuals = 0
 
     seed = random.randint(
@@ -3007,12 +3360,7 @@ def validate_script(
     )
 
     # ----------------------------------------------------------------------
-    # IMPORTANT:
-    #
     # Scene 7 is intentionally NOT forced to mention next_short.topic.
-    #
-    # This prevents unnatural endings and avoids requiring future-topic
-    # material inside the current video's narration.
     # ----------------------------------------------------------------------
 
     # ----------------------------------------------------------------------
@@ -3121,6 +3469,12 @@ def validate_script(
         "visual_continuity_enabled": True,
 
         "claim_verification_required": True,
+
+        # ------------------------------------------------------------------
+        # Caption safety flag.
+        # ------------------------------------------------------------------
+        "captions_match_narration": True,
+        "caption_source": "scene.narration",
     }
 
     return script
@@ -3251,7 +3605,11 @@ def generate_script(
 
             attempt_prompt = prompt
 
-            if attempt > 1 and last_error:
+            if (
+                attempt > 1
+                and
+                last_error
+            ):
 
                 attempt_prompt += f"""
 
@@ -3277,6 +3635,9 @@ CRITICAL:
 - Exactly 7 scenes.
 - Exactly 14 visuals.
 - Exactly 45 seconds.
+- subtitle_text must exactly match narration.
+- Do not rewrite caption wording.
+- Do not use phonetic spellings in captions.
 
 Durations:
 
@@ -3315,8 +3676,57 @@ Return ONLY JSON.
                 response_text
             )
 
+            # ------------------------------------------------------------------
             # Topic is controlled by the pipeline.
+            # ------------------------------------------------------------------
+
             script["topic"] = topic
+
+            # ------------------------------------------------------------------
+            # IMPORTANT:
+            #
+            # Before validation, captions are synchronized from narration.
+            #
+            # This means even if Gemini returns:
+            #
+            # narration     = "The insects make noise."
+            # subtitle_text = "The in sex make nose."
+            #
+            # the final script becomes:
+            #
+            # narration     = "The insects make noise."
+            # subtitle_text = "The insects make noise."
+            # ------------------------------------------------------------------
+
+            scenes = script.get(
+                "scene_plan",
+                [],
+            )
+
+            if isinstance(
+                scenes,
+                list,
+            ):
+
+                for scene in scenes:
+
+                    if isinstance(
+                        scene,
+                        dict,
+                    ):
+
+                        narration = _clean(
+                            scene.get(
+                                "narration",
+                                "",
+                            )
+                        )
+
+                        if narration:
+
+                            scene[
+                                "subtitle_text"
+                            ] = narration
 
             script = validate_script(
                 script,
@@ -3351,7 +3761,9 @@ Return ONLY JSON.
             cited_scenes = sum(
                 1
                 for scene in script["scene_plan"]
-                if scene.get("source_ids")
+                if scene.get(
+                    "source_ids"
+                )
             )
 
             print(
@@ -3370,6 +3782,14 @@ Return ONLY JSON.
 
             print(
                 "Description does not reveal next topic: YES"
+            )
+
+            print(
+                "Captions generated from narration: YES"
+            )
+
+            print(
+                "Caption/narration mismatch: IMPOSSIBLE"
             )
 
             print(
@@ -3401,7 +3821,11 @@ Return ONLY JSON.
 
             print("=" * 80)
 
-            if attempt < MAX_GENERATION_ATTEMPTS:
+            if (
+                attempt
+                <
+                MAX_GENERATION_ATTEMPTS
+            ):
 
                 delay = 5 * attempt
 

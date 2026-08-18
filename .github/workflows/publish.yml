@@ -8,7 +8,6 @@ on:
 
   workflow_dispatch: {}
 
-# Prevent multiple publishing jobs from running at the same time.
 concurrency:
   group: mint-yt-factory-publish
   cancel-in-progress: false
@@ -17,6 +16,9 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+
+    env:
+      IMAGEMAGICK_BINARY: /usr/bin/convert
 
     steps:
 
@@ -42,13 +44,6 @@ jobs:
 
       # ============================================================
       # WHISPER MODEL CACHE
-      #
-      # whisper.load_model("base") stores the model in:
-      #
-      # ~/.cache/whisper
-      #
-      # GitHub runners are temporary, so caching prevents the model
-      # from being downloaded on every run.
       # ============================================================
 
       - name: Cache Whisper model
@@ -59,13 +54,6 @@ jobs:
 
       # ============================================================
       # SYSTEM TOOLS
-      #
-      # IMPORTANT:
-      # We intentionally DO NOT run:
-      #
-      # sudo apt-get update
-      #
-      # The previous run spent many minutes downloading apt packages.
       # ============================================================
 
       - name: Install system tools
@@ -95,11 +83,8 @@ jobs:
           echo "=========================================="
 
           if command -v ffmpeg >/dev/null 2>&1; then
-
             echo "✅ FFmpeg already available."
-
           else
-
             echo "⚠️ FFmpeg not found."
             echo "Installing FFmpeg..."
 
@@ -109,7 +94,6 @@ jobs:
               ffmpeg
 
             echo "✅ FFmpeg installed."
-
           fi
 
           echo ""
@@ -130,15 +114,16 @@ jobs:
           echo "=========================================="
 
           if command -v magick >/dev/null 2>&1; then
-
             echo "✅ ImageMagick 'magick' already available."
 
-          elif command -v convert >/dev/null 2>&1; then
+            IM_PATH="$(command -v magick)"
 
+          elif command -v convert >/dev/null 2>&1; then
             echo "✅ ImageMagick 'convert' already available."
 
-          else
+            IM_PATH="$(command -v convert)"
 
+          else
             echo "⚠️ ImageMagick not found."
             echo "Installing ImageMagick..."
 
@@ -149,42 +134,44 @@ jobs:
 
             echo "✅ ImageMagick installed."
 
+            if command -v magick >/dev/null 2>&1; then
+              IM_PATH="$(command -v magick)"
+            else
+              IM_PATH="$(command -v convert)"
+            fi
           fi
 
-          # ========================================================
-          # IMAGE MAGICK LOCATION
-          # ========================================================
+          echo ""
+          echo "Detected ImageMagick:"
+          echo "$IM_PATH"
 
           echo ""
-          echo "ImageMagick location:"
+          echo "Configured MoviePy ImageMagick binary:"
+          echo "$IMAGEMAGICK_BINARY"
 
-          if command -v magick >/dev/null 2>&1; then
+          # ========================================================
+          # VERIFY THE EXPECTED BINARY
+          # ========================================================
 
-            command -v magick
+          if [ ! -x "$IMAGEMAGICK_BINARY" ]; then
+            echo ""
+            echo "❌ Configured ImageMagick binary does not exist:"
+            echo "$IMAGEMAGICK_BINARY"
 
-          else
+            echo ""
+            echo "Available binaries:"
+            command -v magick || true
+            command -v convert || true
 
-            command -v convert
-
+            exit 1
           fi
 
           echo ""
           echo "ImageMagick version:"
-
-          if command -v magick >/dev/null 2>&1; then
-
-            magick --version | head -n 3
-
-          else
-
-            convert --version | head -n 3
-
-          fi
+          "$IMAGEMAGICK_BINARY" --version | head -n 3
 
           # ========================================================
           # IMAGEMAGICK POLICY
-          #
-          # MoviePy TextClip may use ImageMagick.
           # ========================================================
 
           echo ""
@@ -214,6 +201,10 @@ jobs:
 
           fi
 
+          # ========================================================
+          # TEST FFMPEG
+          # ========================================================
+
           echo ""
           echo "=========================================="
           echo "🧪 TESTING FFMPEG"
@@ -228,6 +219,10 @@ jobs:
 
           echo "✅ FFmpeg test passed."
 
+          # ========================================================
+          # TEST IMAGEMAGICK
+          # ========================================================
+
           echo ""
           echo "=========================================="
           echo "🧪 TESTING IMAGEMAGICK"
@@ -235,27 +230,36 @@ jobs:
 
           TEMP_IMAGE="$(mktemp --suffix=.png)"
 
-          if command -v magick >/dev/null 2>&1; then
-
-            magick \
-              -size 100x100 \
-              xc:white \
-              "$TEMP_IMAGE"
-
-          else
-
-            convert \
-              -size 100x100 \
-              xc:white \
-              "$TEMP_IMAGE"
-
-          fi
+          "$IMAGEMAGICK_BINARY" \
+            -size 100x100 \
+            xc:white \
+            "$TEMP_IMAGE"
 
           test -s "$TEMP_IMAGE"
 
           rm -f "$TEMP_IMAGE"
 
           echo "✅ ImageMagick test passed."
+
+          # ========================================================
+          # FINAL ENVIRONMENT CHECK
+          # ========================================================
+
+          echo ""
+          echo "=========================================="
+          echo "🔍 FINAL ENVIRONMENT"
+          echo "=========================================="
+
+          echo "IMAGEMAGICK_BINARY=$IMAGEMAGICK_BINARY"
+
+          echo ""
+          echo "FFmpeg:"
+          command -v ffmpeg
+
+          echo ""
+          echo "ImageMagick:"
+          command -v convert || true
+          command -v magick || true
 
           echo ""
           echo "=========================================="
@@ -275,12 +279,7 @@ jobs:
           echo "🐍 PYTHON DEPENDENCIES"
           echo "=========================================="
 
-          echo ""
-          echo "Python:"
           python --version
-
-          echo ""
-          echo "Pip:"
           python -m pip --version
 
           echo ""
@@ -334,9 +333,7 @@ jobs:
           failed = []
 
           for module_name, display_name in checks:
-
               try:
-
                   module = __import__(module_name)
 
                   version = getattr(
@@ -350,7 +347,6 @@ jobs:
                   )
 
               except Exception as e:
-
                   print(
                       f"❌ {display_name}: {e}"
                   )
@@ -360,7 +356,6 @@ jobs:
                   )
 
           if failed:
-
               print("")
               print("FAILED IMPORTS:")
 
@@ -376,7 +371,56 @@ jobs:
           PY
 
       # ============================================================
-      # VERIFY LOCAL PROJECT FILES
+      # VERIFY IMAGEMAGICK FROM PYTHON
+      # ============================================================
+
+      - name: Verify MoviePy ImageMagick configuration
+        shell: bash
+        run: |
+          set -e
+
+          echo "=========================================="
+          echo "🖼️ VERIFYING MOVIEPY IMAGEMAGICK"
+          echo "=========================================="
+
+          echo "Environment:"
+          echo "IMAGEMAGICK_BINARY=$IMAGEMAGICK_BINARY"
+
+          python - <<'PY'
+          import os
+
+          expected = "/usr/bin/convert"
+
+          print(
+              "IMAGEMAGICK_BINARY:",
+              os.environ.get("IMAGEMAGICK_BINARY")
+          )
+
+          if os.environ.get("IMAGEMAGICK_BINARY") != expected:
+              raise SystemExit(
+                  "❌ IMAGEMAGICK_BINARY is incorrect."
+              )
+
+          from moviepy.config import get_setting
+
+          actual = get_setting("IMAGEMAGICK_BINARY")
+
+          print(
+              "MoviePy ImageMagick:",
+              actual
+          )
+
+          if actual != expected:
+              raise SystemExit(
+                  "❌ MoviePy is not using /usr/bin/convert."
+              )
+
+          print("")
+          print("✅ MoviePy ImageMagick configuration is correct.")
+          PY
+
+      # ============================================================
+      # VERIFY PROJECT FILES
       # ============================================================
 
       - name: Verify project files
@@ -392,19 +436,16 @@ jobs:
             "main.py"
             "assemble.py"
             "whisper_align.py"
+            "tts.py"
           )
 
           for FILE in "${REQUIRED_FILES[@]}"; do
 
             if [ -f "$FILE" ]; then
-
               echo "✅ $FILE"
-
             else
-
               echo "❌ Missing: $FILE"
               exit 1
-
             fi
 
           done
@@ -417,6 +458,9 @@ jobs:
           python - <<'PY'
           import whisper_align
           print("✅ whisper_align.py imported successfully.")
+
+          import tts
+          print("✅ tts.py imported successfully.")
 
           import assemble
           print("✅ assemble.py imported successfully.")
@@ -443,6 +487,7 @@ jobs:
           python - <<'PY'
           import whisper
           import torch
+          import os
 
           print("Whisper imported successfully.")
           print("Torch version:", torch.__version__)
@@ -450,11 +495,9 @@ jobs:
 
           print("")
           print("Whisper model directory:")
-          import os
           print(os.path.expanduser("~/.cache/whisper"))
 
           print("")
-          print("The pipeline will use:")
           print("Model: base")
           print("FP16: false")
           print("Device: CPU on GitHub runner")
@@ -501,7 +544,6 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
-          IMAGEMAGICK_BINARY: ${{ env.IMAGEMAGICK_BINARY }}
 
         shell: bash
         run: |
@@ -529,12 +571,11 @@ jobs:
 
           echo ""
           echo "ImageMagick:"
+          "$IMAGEMAGICK_BINARY" --version | head -n 1
 
-          if command -v magick >/dev/null 2>&1; then
-            magick --version | head -n 1
-          else
-            convert --version | head -n 1
-          fi
+          echo ""
+          echo "ImageMagick binary:"
+          echo "$IMAGEMAGICK_BINARY"
 
           echo ""
           echo "Memory:"
@@ -573,12 +614,7 @@ jobs:
 
           END_TIME=$(date +%s)
 
-          ELAPSED=$(
-            (
-              END_TIME
-              - START_TIME
-            )
-          )
+          ELAPSED=$((END_TIME - START_TIME))
 
           echo ""
           echo "=========================================="
@@ -663,11 +699,8 @@ jobs:
           git add used_topics.json
 
           if git diff --cached --quiet; then
-
             echo "No topic changes to commit."
-
             exit 0
-
           fi
 
           git commit \

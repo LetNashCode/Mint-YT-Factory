@@ -8,25 +8,30 @@ on:
 
   workflow_dispatch: {}
 
+# Prevent two publishing jobs from running simultaneously.
+concurrency:
+  group: mint-yt-factory-publish
+  cancel-in-progress: false
+
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
 
-      # --------------------------------------------------------
+      # ============================================================
       # CHECKOUT
-      # --------------------------------------------------------
+      # ============================================================
 
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # --------------------------------------------------------
+      # ============================================================
       # PYTHON
-      # --------------------------------------------------------
+      # ============================================================
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -35,145 +40,28 @@ jobs:
           cache: "pip"
           cache-dependency-path: requirements.txt
 
-      # --------------------------------------------------------
-      # FFMPEG
-      # --------------------------------------------------------
+      # ============================================================
+      # CHECK SYSTEM TOOLS
+      #
+      # IMPORTANT:
+      # Do NOT run apt-get update/install here.
+      #
+      # The previous workflow spent ~10 minutes downloading FFmpeg
+      # and its 99 dependencies before the runner cancelled it.
+      # ============================================================
 
-      - name: Setup FFmpeg
+      - name: Check system tools
         shell: bash
         run: |
-          echo "=========================================="
-          echo "🎬 Setting up FFmpeg"
-          echo "=========================================="
-
-          if command -v ffmpeg >/dev/null 2>&1; then
-            echo "✅ FFmpeg already available"
-            which ffmpeg
-            ffmpeg -version | head -n 1
-
-          else
-            echo "⚠️ FFmpeg not found."
-            echo "⬇️ Downloading static FFmpeg..."
-
-            mkdir -p "$HOME/ffmpeg"
-            cd "$HOME/ffmpeg"
-
-            wget -q --show-progress \
-              https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
-
-            echo "📦 Extracting FFmpeg..."
-
-            tar -xf ffmpeg-release-amd64-static.tar.xz
-
-            FFMPEG_DIR=$(find "$HOME/ffmpeg" \
-              -maxdepth 1 \
-              -type d \
-              -name "ffmpeg-*-amd64-static" \
-              | head -n 1)
-
-            if [ -z "$FFMPEG_DIR" ]; then
-              echo "❌ Could not locate extracted FFmpeg directory."
-              exit 1
-            fi
-
-            echo "$FFMPEG_DIR" >> "$GITHUB_PATH"
-
-            echo "✅ Static FFmpeg installed"
-          fi
+          set -e
 
           echo "=========================================="
-          echo "🎬 FFmpeg version"
+          echo "🔧 CHECKING SYSTEM TOOLS"
           echo "=========================================="
 
-          ffmpeg -version | head -n 1
-
-      # --------------------------------------------------------
-      # IMAGEMAGICK
-      # --------------------------------------------------------
-
-      - name: Check ImageMagick
-        shell: bash
-        run: |
-          echo "=========================================="
-          echo "🖼️ Checking ImageMagick"
-          echo "=========================================="
-
-          if command -v convert >/dev/null 2>&1; then
-
-            echo "✅ ImageMagick already available"
-            which convert
-            convert --version | head -n 1
-
-            # Allow @ file access if policy exists
-            if [ -f /etc/ImageMagick-6/policy.xml ]; then
-              sudo sed -i \
-                's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
-                /etc/ImageMagick-6/policy.xml
-            fi
-
-            if [ -f /etc/ImageMagick-7/policy.xml ]; then
-              sudo sed -i \
-                's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
-                /etc/ImageMagick-7/policy.xml
-            fi
-
-          else
-
-            echo "⚠️ ImageMagick not available."
-            echo "Installing ImageMagick..."
-
-            sudo apt-get update -qq
-            sudo apt-get install -y imagemagick
-
-            echo "✅ ImageMagick installed"
-
-            which convert
-            convert --version | head -n 1
-
-            # Allow @ file access if policy exists
-            if [ -f /etc/ImageMagick-6/policy.xml ]; then
-              sudo sed -i \
-                's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
-                /etc/ImageMagick-6/policy.xml
-            fi
-
-            if [ -f /etc/ImageMagick-7/policy.xml ]; then
-              sudo sed -i \
-                's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
-                /etc/ImageMagick-7/policy.xml
-            fi
-
-          fi
-
-      # --------------------------------------------------------
-      # PYTHON DEPENDENCIES
-      # --------------------------------------------------------
-
-      - name: Install Python dependencies
-        run: |
-          echo "=========================================="
-          echo "🐍 Installing Python dependencies"
-          echo "=========================================="
-
-          python --version
-
-          python -m pip install --upgrade pip
-
-          python -m pip install -r requirements.txt
-
-          echo "=========================================="
-          echo "✅ Python dependencies installed"
-          echo "=========================================="
-
-      # --------------------------------------------------------
-      # VERIFY ENVIRONMENT
-      # --------------------------------------------------------
-
-      - name: Verify environment
-        run: |
-          echo "=========================================="
-          echo "🔍 ENVIRONMENT CHECK"
-          echo "=========================================="
+          echo ""
+          echo "OS:"
+          cat /etc/os-release | head -n 5
 
           echo ""
           echo "Python:"
@@ -181,62 +69,268 @@ jobs:
 
           echo ""
           echo "FFmpeg:"
-          ffmpeg -version | head -n 1
+          if command -v ffmpeg >/dev/null 2>&1; then
+            echo "✅ FFmpeg found"
+            command -v ffmpeg
+            ffmpeg -version | head -n 1
+          else
+            echo "❌ FFmpeg is NOT available on this runner."
+            echo ""
+            echo "PATH:"
+            echo "$PATH"
+            echo ""
+            echo "Available FFmpeg locations:"
+            find /usr /opt -type f -name ffmpeg 2>/dev/null | head -n 20 || true
+            exit 1
+          fi
 
           echo ""
           echo "ImageMagick:"
-          convert --version | head -n 1
+          if command -v magick >/dev/null 2>&1; then
+            echo "✅ ImageMagick 'magick' found"
+            command -v magick
+            magick --version | head -n 3
 
-          echo ""
-          echo "Memory:"
-          free -h
+          elif command -v convert >/dev/null 2>&1; then
+            echo "✅ ImageMagick 'convert' found"
+            command -v convert
+            convert --version | head -n 3
 
-          echo ""
-          echo "Disk:"
-          df -h
-
-          echo ""
-          echo "Working directory:"
-          pwd
-
-          echo ""
-          echo "Files:"
-          ls -lah
+          else
+            echo "❌ ImageMagick is NOT available on this runner."
+            exit 1
+          fi
 
           echo ""
           echo "=========================================="
-          echo "✅ ENVIRONMENT READY"
+          echo "✅ SYSTEM TOOL CHECK COMPLETE"
           echo "=========================================="
 
-      # --------------------------------------------------------
+      # ============================================================
+      # CONFIGURE IMAGEMAGICK
+      #
+      # assemble.py uses MoviePy TextClip.
+      # ============================================================
+
+      - name: Configure ImageMagick
+        shell: bash
+        run: |
+          set -e
+
+          echo "=========================================="
+          echo "🖼️ CONFIGURING IMAGEMAGICK"
+          echo "=========================================="
+
+          IMAGEMAGICK_BINARY=""
+
+          if command -v magick >/dev/null 2>&1; then
+            IMAGEMAGICK_BINARY="$(command -v magick)"
+          elif command -v convert >/dev/null 2>&1; then
+            IMAGEMAGICK_BINARY="$(command -v convert)"
+          fi
+
+          if [ -z "$IMAGEMAGICK_BINARY" ]; then
+            echo "❌ Could not locate ImageMagick."
+            exit 1
+          fi
+
+          echo "Using:"
+          echo "$IMAGEMAGICK_BINARY"
+
+          echo "IMAGEMAGICK_BINARY=$IMAGEMAGICK_BINARY" >> "$GITHUB_ENV"
+
+          # ----------------------------------------------------------
+          # ImageMagick 6
+          # ----------------------------------------------------------
+
+          if [ -f /etc/ImageMagick-6/policy.xml ]; then
+            echo "Found ImageMagick 6 policy."
+
+            sudo sed -i \
+              's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
+              /etc/ImageMagick-6/policy.xml \
+              || true
+          fi
+
+          # ----------------------------------------------------------
+          # ImageMagick 7
+          # ----------------------------------------------------------
+
+          if [ -f /etc/ImageMagick-7/policy.xml ]; then
+            echo "Found ImageMagick 7 policy."
+
+            sudo sed -i \
+              's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
+              /etc/ImageMagick-7/policy.xml \
+              || true
+          fi
+
+          echo ""
+          echo "Testing ImageMagick..."
+
+          TMP_IMAGE="$(mktemp --suffix=.png)"
+
+          "$IMAGEMAGICK_BINARY" \
+            -size 200x100 \
+            xc:white \
+            "$TMP_IMAGE"
+
+          test -s "$TMP_IMAGE"
+
+          rm -f "$TMP_IMAGE"
+
+          echo "✅ ImageMagick test passed."
+
+          echo "=========================================="
+          echo "✅ IMAGEMAGICK READY"
+          echo "=========================================="
+
+      # ============================================================
+      # PYTHON DEPENDENCIES
+      # ============================================================
+
+      - name: Install Python dependencies
+        shell: bash
+        run: |
+          set -e
+
+          echo "=========================================="
+          echo "🐍 INSTALLING PYTHON DEPENDENCIES"
+          echo "=========================================="
+
+          python --version
+          python -m pip --version
+
+          python -m pip install --upgrade pip
+
+          echo ""
+          echo "Installing requirements.txt..."
+
+          python -m pip install \
+            --prefer-binary \
+            -r requirements.txt
+
+          echo ""
+          echo "=========================================="
+          echo "🔍 VERIFYING PYTHON PACKAGES"
+          echo "=========================================="
+
+          python - <<'PY'
+          import sys
+
+          print("Python:", sys.version)
+
+          packages = [
+              "google.genai",
+              "requests",
+              "moviepy",
+              "PIL",
+              "yaml",
+              "google.auth",
+              "googleapiclient",
+              "torch",
+              "whisper",
+              "ffmpeg",
+          ]
+
+          failed = []
+
+          for package in packages:
+              try:
+                  module = __import__(package)
+                  version = getattr(module, "__version__", "unknown")
+                  print(f"✅ {package}: {version}")
+              except Exception as e:
+                  print(f"❌ {package}: {e}")
+                  failed.append(package)
+
+          if failed:
+              print("")
+              print("Missing/broken packages:")
+              for package in failed:
+                  print(" -", package)
+
+              # Do not fail yet for whisper_align because it may be
+              # supplied by the repository itself.
+              if failed != ["whisper_align"]:
+                  sys.exit(1)
+          PY
+
+          echo ""
+          echo "=========================================="
+          echo "✅ PYTHON DEPENDENCIES READY"
+          echo "=========================================="
+
+      # ============================================================
+      # VERIFY PROJECT IMPORTS
+      #
+      # This catches missing whisper_align BEFORE main.py starts.
+      # ============================================================
+
+      - name: Verify project modules
+        shell: bash
+        run: |
+          set -e
+
+          echo "=========================================="
+          echo "🔬 VERIFYING PROJECT MODULES"
+          echo "=========================================="
+
+          python - <<'PY'
+          import importlib
+
+          modules = [
+              "whisper_align",
+              "assemble",
+          ]
+
+          for name in modules:
+              try:
+                  module = importlib.import_module(name)
+                  print(f"✅ {name}: {module.__file__}")
+              except Exception as e:
+                  print(f"❌ {name}: {e}")
+                  raise
+
+          print("")
+          print("✅ Project imports successful.")
+          PY
+
+      # ============================================================
       # YOUTUBE CREDENTIALS
-      # --------------------------------------------------------
+      # ============================================================
 
       - name: Write YouTube client credentials
+        shell: bash
+        env:
+          YOUTUBE_CLIENT_SECRET_JSON: ${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}
         run: |
+          set -e
+
           echo "=========================================="
-          echo "🔐 Setting up YouTube credentials"
+          echo "🔐 PREPARING YOUTUBE CREDENTIALS"
           echo "=========================================="
 
-          echo '${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}' > client_secret.json
+          printf '%s' "$YOUTUBE_CLIENT_SECRET_JSON" > client_secret.json
 
-          test -s client_secret.json || {
-            echo "❌ YouTube client_secret.json is empty."
-            exit 1
-          }
+          test -s client_secret.json
 
           echo "✅ YouTube client credentials created."
 
-      # --------------------------------------------------------
-      # RUN PIPELINE
-      # --------------------------------------------------------
+      # ============================================================
+      # PIPELINE
+      # ============================================================
 
       - name: Run Mint-YT-Factory
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
+          IMAGEMAGICK_BINARY: ${{ env.IMAGEMAGICK_BINARY }}
 
+        shell: bash
         run: |
+          set -e
+
           echo "=========================================="
           echo "🚀 MINT-YT-FACTORY STARTED"
           echo "=========================================="
@@ -258,6 +352,14 @@ jobs:
           ffmpeg -version | head -n 1
 
           echo ""
+          echo "ImageMagick:"
+          if command -v magick >/dev/null 2>&1; then
+            magick --version | head -n 1
+          else
+            convert --version | head -n 1
+          fi
+
+          echo ""
           echo "Memory:"
           free -h
 
@@ -267,25 +369,26 @@ jobs:
 
           echo ""
           echo "=========================================="
-          echo "🔬 Starting:"
-          echo "   Research"
-          echo "      ↓"
-          echo "   Script"
-          echo "      ↓"
-          echo "   Visuals"
-          echo "      ↓"
-          echo "   TTS"
-          echo "      ↓"
-          echo "   Video"
-          echo "      ↓"
-          echo "   YouTube"
+          echo "🔬 RESEARCH → SCRIPT → VISUALS →"
+          echo "   TTS → CAPTIONS → VIDEO → YOUTUBE"
           echo "=========================================="
+
+          START=$(date +%s)
 
           python -u main.py
 
-      # --------------------------------------------------------
+          END=$(date +%s)
+          ELAPSED=$((END - START))
+
+          echo ""
+          echo "=========================================="
+          echo "⏱️ PIPELINE TIME"
+          echo "${ELAPSED} seconds"
+          echo "=========================================="
+
+      # ============================================================
       # UPLOAD FINAL VIDEO
-      # --------------------------------------------------------
+      # ============================================================
 
       - name: Upload Final Video
         if: always()
@@ -296,9 +399,9 @@ jobs:
           if-no-files-found: warn
           retention-days: 7
 
-      # --------------------------------------------------------
+      # ============================================================
       # UPLOAD GENERATED IMAGES
-      # --------------------------------------------------------
+      # ============================================================
 
       - name: Upload Generated Images
         if: always()
@@ -309,9 +412,9 @@ jobs:
           if-no-files-found: warn
           retention-days: 7
 
-      # --------------------------------------------------------
+      # ============================================================
       # UPLOAD RESEARCH
-      # --------------------------------------------------------
+      # ============================================================
 
       - name: Upload Research Package
         if: always()
@@ -322,9 +425,9 @@ jobs:
           if-no-files-found: warn
           retention-days: 7
 
-      # --------------------------------------------------------
+      # ============================================================
       # UPLOAD SCRIPT
-      # --------------------------------------------------------
+      # ============================================================
 
       - name: Upload Generated Script
         if: always()
@@ -335,15 +438,18 @@ jobs:
           if-no-files-found: warn
           retention-days: 7
 
-      # --------------------------------------------------------
+      # ============================================================
       # UPDATE USED TOPICS
-      # --------------------------------------------------------
+      # ============================================================
 
       - name: Commit updated used_topics.json
         if: success()
+        shell: bash
         run: |
+          set -e
+
           echo "=========================================="
-          echo "📝 Updating used topics"
+          echo "📝 UPDATING USED TOPICS"
           echo "=========================================="
 
           git config user.name "auto-publish-bot"
@@ -359,12 +465,13 @@ jobs:
           git commit -m "Update used topics [skip ci]"
           git push
 
-      # --------------------------------------------------------
+      # ============================================================
       # COMPLETE
-      # --------------------------------------------------------
+      # ============================================================
 
       - name: Pipeline complete
         if: success()
+        shell: bash
         run: |
           echo "=========================================="
           echo "🎉 MINT-YT-FACTORY COMPLETE"
@@ -375,7 +482,4 @@ jobs:
           date
 
           echo ""
-          echo "✅ Video generated"
-          echo "✅ Video uploaded"
-          echo "✅ Artifacts saved"
-          echo "✅ Used topics updated"
+          echo "Short successfully generated and published."

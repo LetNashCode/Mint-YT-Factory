@@ -2,58 +2,21 @@
 generate_images.py
 Mint-YT-Factory
 
-Version 8.0
+Version 8.1
 
 AI Visual Generation Engine
 
-Pipeline:
-
-generate_script.py
-        ↓
-Gemini research-backed storyboard
-        ↓
-Visual identity + continuity locks
-        ↓
-Semantic image prompts
-        ↓
-Pollinations AI
-        ↓
-Validated PNG visuals
-        ↓
-assemble.py
-
-CORE GOAL
----------
-Create 14 visually coherent AI-generated images for one
-45-second YouTube Short.
-
-The images must feel like they belong to ONE story,
-not 14 unrelated AI generations.
-
-FEATURES
---------
-- Exactly 7 scenes
-- Exactly 2 visuals per scene
-- Exactly 14 images
-- 9:16 portrait output
-- Deterministic base seed
-- Unique shot seeds
-- Visual identity lock
-- Recurring subject continuity
-- Recurring object continuity
-- Environment continuity
-- Scene-to-scene visual continuity
-- Shot progression
-- Automatic retries
-- HTTP/image validation
-- PIL integrity validation
-- PNG normalization
-- Compatible with main.py
-- Compatible with assemble.py
-- No stock footage
-- No text/captions/logos requested in image prompts
+Fixes in 8.1:
+- Applies image_style, lighting and color_palette from each visual.
+- Applies the script-level style_lock consistently.
+- Uses continuity as a consistency constraint instead of forcing every
+  recurring subject into every image.
+- Gives Shot 2 a clearer visual progression without copying Shot 1.
+- Adds explicit visible-content guidance so metadata is not rendered as text.
+- Uses deterministic shot seeds and deterministic retry seeds.
+- Validates the complete 14-image production contract before generation.
+- Preserves existing generate_images() and generate_single_image() APIs.
 """
-
 
 import os
 import time
@@ -74,7 +37,6 @@ except ImportError:
 # ==========================================================================
 
 BASE_URL = "https://image.pollinations.ai/prompt/"
-
 MODEL_NAME = "flux"
 
 HEADERS = {
@@ -85,27 +47,13 @@ HEADERS = {
         "(KHTML, like Gecko) "
         "Chrome/140.0 Safari/537.36"
     ),
-    "Accept": (
-        "image/png,"
-        "image/jpeg,"
-        "image/webp,"
-        "*/*"
-    ),
+    "Accept": "image/png,image/jpeg,image/webp,*/*",
 }
-
-# --------------------------------------------------------------------------
-# Generation
-# --------------------------------------------------------------------------
 
 MAX_RETRIES = 5
 RETRY_DELAY = 5
-
 REQUEST_TIMEOUT = 180
 BETWEEN_IMAGE_DELAY = 2
-
-# --------------------------------------------------------------------------
-# Production contract
-# --------------------------------------------------------------------------
 
 DEFAULT_WIDTH = 768
 DEFAULT_HEIGHT = 1365
@@ -114,21 +62,8 @@ EXPECTED_SCENES = 7
 VISUALS_PER_SCENE = 2
 EXPECTED_TOTAL_IMAGES = 14
 
-# --------------------------------------------------------------------------
-# Image validation
-# --------------------------------------------------------------------------
-
 MIN_IMAGE_BYTES = 10_000
-
-# Images are ultimately normalized to PNG.
 EXPECTED_FORMAT = "PNG"
-
-# --------------------------------------------------------------------------
-# Prompt limits
-#
-# These are not hard limits on Pollinations.
-# They prevent continuity metadata from becoming absurdly large.
-# --------------------------------------------------------------------------
 
 MAX_RECURRING_SUBJECTS = 4
 MAX_RECURRING_OBJECTS = 5
@@ -138,7 +73,6 @@ MAX_STYLE_LENGTH = 500
 MAX_PALETTE_LENGTH = 300
 MAX_MOOD_LENGTH = 300
 MAX_ENVIRONMENT_LENGTH = 500
-
 MAX_PROMPT_LENGTH = 1800
 
 
@@ -147,46 +81,21 @@ MAX_PROMPT_LENGTH = 1800
 # ==========================================================================
 
 def _clean_prompt(text):
-    """
-    Normalize prompt whitespace without changing its meaning.
-    """
-
     if not text:
         return ""
 
     text = str(text)
+    text = text.replace("\n", " ")
+    text = text.replace("```", "")
 
-    text = text.replace(
-        "\n",
-        " ",
-    )
-
-    text = text.replace(
-        "```",
-        "",
-    )
-
-    text = " ".join(
-        text.split()
-    )
-
-    return text.strip()
+    return " ".join(text.split()).strip()
 
 
-def _clean_text(
-    value,
-    maximum=None,
-):
-    """
-    Clean ordinary metadata text.
-    """
-
+def _clean_text(value, maximum=None):
     if value is None:
         return ""
 
-    value = " ".join(
-        str(value).split()
-    ).strip()
+    value = " ".join(str(value).split()).strip()
 
     if maximum:
         value = value[:maximum]
@@ -194,16 +103,10 @@ def _clean_text(
     return value
 
 
-def _safe_int(
-    value,
-    default,
-):
+def _safe_int(value, default):
     try:
         return int(value)
-    except (
-        TypeError,
-        ValueError,
-    ):
+    except (TypeError, ValueError):
         return default
 
 
@@ -211,93 +114,62 @@ def _safe_int(
 # VISUAL IDENTITY
 # ==========================================================================
 
-def _get_visual_identity(
-    script,
-):
-    """
-    Extract the global visual identity generated by Gemini.
-
-    This is now ACTUALLY used during image generation.
-
-    Expected structure:
-
-    visual_identity:
-        style
-        palette
-        mood_arc
-    """
-
+def _get_visual_identity(script):
     identity = script.get(
         "visual_identity",
         {},
     )
 
-    if not isinstance(
-        identity,
-        dict,
-    ):
+    if not isinstance(identity, dict):
         identity = {}
 
-    style = _clean_text(
-        identity.get(
-            "style",
-            "",
-        ),
-        MAX_STYLE_LENGTH,
-    )
-
-    palette = _clean_text(
-        identity.get(
-            "palette",
-            "",
-        ),
-        MAX_PALETTE_LENGTH,
-    )
-
-    mood_arc = _clean_text(
-        identity.get(
-            "mood_arc",
-            "",
-        ),
-        MAX_MOOD_LENGTH,
-    )
-
     return {
-        "style": style,
-        "palette": palette,
-        "mood_arc": mood_arc,
+        "style": _clean_text(
+            identity.get("style", ""),
+            MAX_STYLE_LENGTH,
+        ),
+
+        "palette": _clean_text(
+            identity.get("palette", ""),
+            MAX_PALETTE_LENGTH,
+        ),
+
+        "mood_arc": _clean_text(
+            identity.get("mood_arc", ""),
+            MAX_MOOD_LENGTH,
+        ),
     }
+
+
+def _get_style_lock(script):
+    generation = script.get(
+        "image_generation",
+        {},
+    )
+
+    if not isinstance(generation, dict):
+        generation = {}
+
+    return _clean_text(
+        generation.get(
+            "style_lock",
+            "",
+        ),
+        1000,
+    )
 
 
 # ==========================================================================
 # VISUAL CONTINUITY
 # ==========================================================================
 
-def _get_visual_continuity(
-    script,
-):
-    """
-    Extract recurring visual subjects, objects,
-    environment and continuity rules.
-
-    This is the major continuity layer.
-
-    The image provider itself does not know what appeared
-    in previous scenes.
-
-    Therefore we explicitly carry the visual identity forward
-    in every relevant prompt.
-    """
-
+def _get_visual_continuity(script):
     continuity = script.get(
         "visual_continuity",
         {},
     )
 
-    if not isinstance(
-        continuity,
-        dict,
-    ):
+    if not isinstance(continuity, dict):
         continuity = {}
 
     subjects = continuity.get(
@@ -305,10 +177,7 @@ def _get_visual_continuity(
         [],
     )
 
-    if not isinstance(
-        subjects,
-        list,
-    ):
+    if not isinstance(subjects, list):
         subjects = []
 
     normalized_subjects = []
@@ -356,7 +225,7 @@ def _get_visual_continuity(
             "continuity": (
                 continuity_rule
                 or
-                "keep the same appearance throughout the story"
+                "keep the same appearance whenever this subject is visible"
             ),
         })
 
@@ -371,21 +240,16 @@ def _get_visual_continuity(
     ):
         objects = []
 
-    normalized_objects = []
-
-    for item in objects[
-        :MAX_RECURRING_OBJECTS
-    ]:
-
-        item = _clean_text(
+    normalized_objects = [
+        _clean_text(
             item,
             200,
         )
-
-        if item:
-            normalized_objects.append(
-                item
-            )
+        for item in objects[
+            :MAX_RECURRING_OBJECTS
+        ]
+        if _clean_text(item)
+    ]
 
     environment = _clean_text(
         continuity.get(
@@ -406,21 +270,16 @@ def _get_visual_continuity(
     ):
         rules = []
 
-    normalized_rules = []
-
-    for rule in rules[
-        :MAX_CONTINUITY_RULES
-    ]:
-
-        rule = _clean_text(
+    normalized_rules = [
+        _clean_text(
             rule,
             300,
         )
-
-        if rule:
-            normalized_rules.append(
-                rule
-            )
+        for rule in rules[
+            :MAX_CONTINUITY_RULES
+        ]
+        if _clean_text(rule)
+    ]
 
     return {
         "subjects": normalized_subjects,
@@ -434,13 +293,7 @@ def _get_visual_continuity(
 # IMAGE GENERATION METADATA
 # ==========================================================================
 
-def _get_image_generation_config(
-    script,
-):
-    """
-    Read deterministic generation metadata from generate_script.py.
-    """
-
+def _get_image_generation_config(script):
     generation = script.get(
         "image_generation",
         {},
@@ -452,86 +305,63 @@ def _get_image_generation_config(
     ):
         generation = {}
 
-    try:
-        seed = int(
-            generation.get(
-                "seed",
-                int(time.time()),
-            )
-        )
-    except Exception:
-        seed = int(time.time())
-
-    style_lock = _clean_text(
-        generation.get(
-            "style_lock",
-            "",
-        ),
-        1000,
+    seed = _safe_int(
+        generation.get("seed"),
+        int(time.time()),
     )
 
     return {
         "seed": seed,
-        "style_lock": style_lock,
+        "style_lock": _get_style_lock(script),
     }
 
 
-# ==========================================================================
-# SEED MANAGEMENT
-# ==========================================================================
-
-def _get_base_seed(
-    script,
-):
-    """
-    Get the deterministic seed generated by generate_script.py.
-    """
-
-    generation = _get_image_generation_config(
+def _get_base_seed(script):
+    return _get_image_generation_config(
         script
-    )
-
-    return generation["seed"]
+    )["seed"]
 
 
 def _get_shot_seed(
     base_seed,
     scene_index,
     visual_index,
-    attempt=0,
 ):
     """
-    Generate a deterministic seed for each shot.
+    Stable seed for every shot.
 
-    Normal generation:
-
-        same script
-        same base seed
-        same scene
-        same shot
-        → same seed
-
-    Retry:
-
-        attempt > 0
-        → deterministic alternate seed
-
-    This prevents repeated retries from repeatedly requesting
-    exactly the same failed generation.
+    Same script + same base seed + same scene/shot
+    always produces the same requested seed.
     """
 
-    base = (
-        base_seed
+    return (
+        int(base_seed)
         + (scene_index * 100)
         + visual_index
     )
 
+
+def _get_retry_seed(
+    original_seed,
+    attempt,
+):
+    """
+    Attempt 0 uses the normal shot seed.
+
+    Later attempts use deterministic alternate seeds.
+    """
+
     if attempt <= 0:
-        return base
+        return int(
+            original_seed
+        )
 
     return (
-        base
-        + (attempt * 10_000)
+        int(original_seed)
+        + (
+            attempt
+            * 10_000
+        )
     )
 
 
@@ -539,13 +369,7 @@ def _get_shot_seed(
 # SHOT CONTEXT
 # ==========================================================================
 
-def _get_scene_context(
-    scene,
-):
-    """
-    Extract scene-level information useful for continuity.
-    """
-
+def _get_scene_context(scene):
     if not isinstance(
         scene,
         dict,
@@ -583,14 +407,12 @@ def _get_scene_context(
 # PROMPT COMPONENTS
 # ==========================================================================
 
-def _build_identity_block(
-    script,
-):
-    """
-    Build a concise global visual identity block.
-    """
-
+def _build_identity_block(script):
     identity = _get_visual_identity(
+        script
+    )
+
+    style_lock = _get_style_lock(
         script
     )
 
@@ -598,17 +420,26 @@ def _build_identity_block(
 
     if identity["style"]:
         parts.append(
-            f"Visual style: {identity['style']}."
+            f"Consistent production style: "
+            f"{identity['style']}."
         )
 
     if identity["palette"]:
         parts.append(
-            f"Color palette: {identity['palette']}."
+            f"Consistent color palette: "
+            f"{identity['palette']}."
         )
 
     if identity["mood_arc"]:
         parts.append(
-            f"Overall mood: {identity['mood_arc']}."
+            f"Overall mood progression: "
+            f"{identity['mood_arc']}."
+        )
+
+    if style_lock:
+        parts.append(
+            f"Global style lock: "
+            f"{style_lock}."
         )
 
     return " ".join(
@@ -618,9 +449,14 @@ def _build_identity_block(
 
 def _build_subject_block(
     script,
+    semantic_prompt,
 ):
     """
-    Build recurring-subject continuity instructions.
+    Continuity subjects are only constraints when they are
+    relevant to the current semantic shot.
+
+    This prevents Gemini from accidentally creating the
+    same person in every scene.
     """
 
     continuity = _get_visual_continuity(
@@ -634,11 +470,60 @@ def _build_subject_block(
     if not subjects:
         return ""
 
-    parts = [
-        "Continuity characters and subjects:"
-    ]
+    semantic_lower = semantic_prompt.lower()
+
+    relevant = []
 
     for subject in subjects:
+
+        name = subject[
+            "name"
+        ].lower()
+
+        appearance = subject.get(
+            "appearance",
+            "",
+        ).lower()
+
+        name_tokens = [
+            token
+            for token in name.split()
+            if len(token) >= 4
+        ]
+
+        appearance_tokens = [
+            token
+            for token in appearance.split()
+            if len(token) >= 6
+        ]
+
+        if (
+            name in semantic_lower
+            or any(
+                token in semantic_lower
+                for token in name_tokens
+            )
+            or any(
+                token in semantic_lower
+                for token in appearance_tokens
+            )
+        ):
+            relevant.append(
+                subject
+            )
+
+    if not relevant:
+        return (
+            "Recurring subjects exist in the story, "
+            "but do not add them unless the main visual "
+            "description requires them."
+        )
+
+    parts = [
+        "Continuity for subjects visible in this shot:"
+    ]
+
+    for subject in relevant:
 
         parts.append(
             (
@@ -655,11 +540,8 @@ def _build_subject_block(
 
 def _build_object_block(
     script,
+    semantic_prompt,
 ):
-    """
-    Build recurring-object continuity instructions.
-    """
-
     continuity = _get_visual_continuity(
         script
     )
@@ -671,20 +553,46 @@ def _build_object_block(
     if not objects:
         return ""
 
+    semantic_lower = semantic_prompt.lower()
+
+    relevant = []
+
+    for item in objects:
+
+        tokens = [
+            token
+            for token in item.lower().split()
+            if len(token) >= 4
+        ]
+
+        if (
+            item.lower()
+            in semantic_lower
+            or any(
+                token in semantic_lower
+                for token in tokens
+            )
+        ):
+            relevant.append(
+                item
+            )
+
+    if not relevant:
+        return (
+            "Keep recurring objects consistent "
+            "whenever they are visible; do not introduce "
+            "them unless the visual description calls for them."
+        )
+
     return (
-        "Recurring objects: "
-        + "; ".join(objects)
-        + ". Keep their appearance consistent."
+        "Recurring object continuity: "
+        + "; ".join(relevant)
+        + ". Keep their shape, proportions "
+        "and appearance consistent."
     )
 
 
-def _build_environment_block(
-    script,
-):
-    """
-    Build recurring-environment continuity instructions.
-    """
-
+def _build_environment_block(script):
     continuity = _get_visual_continuity(
         script
     )
@@ -699,17 +607,12 @@ def _build_environment_block(
     return (
         "Recurring environment: "
         + environment
-        + ". Maintain its visual identity."
+        + ". Maintain the same environmental "
+        "identity whenever visible."
     )
 
 
-def _build_rules_block(
-    script,
-):
-    """
-    Build explicit continuity rules.
-    """
-
+def _build_rules_block(script):
     continuity = _get_visual_continuity(
         script
     )
@@ -728,21 +631,72 @@ def _build_rules_block(
     )
 
 
-# ==========================================================================
-# PREVIOUS SHOT CONTEXT
-# ==========================================================================
+def _build_visual_metadata_block(
+    visual,
+):
+    """
+    These fields were present in generate_script.py
+    but were previously ignored by the image generator.
+
+    They now influence image generation.
+    """
+
+    parts = []
+
+    image_style = _clean_text(
+        visual.get(
+            "image_style",
+            "",
+        ),
+        120,
+    )
+
+    lighting = _clean_text(
+        visual.get(
+            "lighting",
+            "",
+        ),
+        250,
+    )
+
+    palette = _clean_text(
+        visual.get(
+            "color_palette",
+            "",
+        ),
+        250,
+    )
+
+    if image_style:
+        parts.append(
+            f"Rendering approach: "
+            f"{image_style}."
+        )
+
+    if lighting:
+        parts.append(
+            f"Lighting: "
+            f"{lighting}."
+        )
+
+    if palette:
+        parts.append(
+            f"Shot color treatment: "
+            f"{palette}."
+        )
+
+    return " ".join(
+        parts
+    )
+
 
 def _build_previous_shot_context(
     scene,
     visual_index,
 ):
     """
-    Give Shot 2 a conceptual relationship to Shot 1.
-
-    We deliberately do NOT copy Shot 1's prompt wholesale.
-
-    Shot 2 must remain visually distinct while belonging
-    to the same moment.
+    Shot 2 should belong to the same moment but
+    should not simply duplicate Shot 1.
     """
 
     if visual_index <= 1:
@@ -759,7 +713,7 @@ def _build_previous_shot_context(
     ):
         return ""
 
-    if len(visuals) < 1:
+    if not visuals:
         return ""
 
     previous = visuals[0]
@@ -780,16 +734,16 @@ def _build_previous_shot_context(
     if not previous_prompt:
         return ""
 
-    # Keep this compact.
     previous_prompt = previous_prompt[
         :500
     ]
 
     return (
-        "This is the second shot of the same scene. "
-        "Keep the same subjects, environment and visual identity "
-        "while advancing the moment rather than repeating the first shot. "
-        f"First-shot visual context: {previous_prompt}"
+        "This is shot 2 of the same scene. "
+        "Preserve continuity with shot 1, but do not "
+        "duplicate its composition. Change the viewpoint, "
+        "framing, visible detail, action or revealed information. "
+        f"Shot 1 context: {previous_prompt}"
     )
 
 
@@ -807,21 +761,10 @@ def build_prompt(
     """
     Build the final Pollinations prompt.
 
-    IMPORTANT:
+    Gemini's image_prompt remains the primary semantic
+    description.
 
-    Gemini's image_prompt remains the PRIMARY semantic description.
-
-    We add only production continuity information around it.
-
-    We do NOT add:
-    - narration
-    - subtitles
-    - captions
-    - YouTube instructions
-    - aspect ratio
-    - negative prompts
-    - camera commands
-    - artificial prompt spam
+    Production metadata is added around it.
     """
 
     if not isinstance(
@@ -829,8 +772,8 @@ def build_prompt(
         dict,
     ):
         raise RuntimeError(
-            f"Scene {scene_index} visual "
-            f"{visual_index} is invalid."
+            f"Scene {scene_index} "
+            f"visual {visual_index} is invalid."
         )
 
     semantic_prompt = _clean_prompt(
@@ -841,9 +784,11 @@ def build_prompt(
     )
 
     if not semantic_prompt:
+
         raise RuntimeError(
-            f"Scene {scene_index} visual "
-            f"{visual_index} has an empty image_prompt."
+            f"Scene {scene_index} "
+            f"visual {visual_index} "
+            "has an empty image_prompt."
         )
 
     if not isinstance(
@@ -852,108 +797,79 @@ def build_prompt(
     ):
         script = {}
 
+    parts = [
+        semantic_prompt
+    ]
+
     identity_block = _build_identity_block(
         script
     )
 
+    if identity_block:
+        parts.append(
+            identity_block
+        )
+
     subject_block = _build_subject_block(
-        script
+        script,
+        semantic_prompt,
     )
 
+    if subject_block:
+        parts.append(
+            subject_block
+        )
+
     object_block = _build_object_block(
-        script
+        script,
+        semantic_prompt,
     )
+
+    if object_block:
+        parts.append(
+            object_block
+        )
 
     environment_block = _build_environment_block(
         script
     )
 
+    if environment_block:
+        parts.append(
+            environment_block
+        )
+
     rules_block = _build_rules_block(
         script
     )
+
+    if rules_block:
+        parts.append(
+            rules_block
+        )
+
+    metadata_block = _build_visual_metadata_block(
+        visual
+    )
+
+    if metadata_block:
+        parts.append(
+            metadata_block
+        )
 
     previous_shot_block = _build_previous_shot_context(
         scene,
         visual_index,
     )
 
-    scene_context = _get_scene_context(
-        scene
-    )
-
-    parts = []
-
-    # ----------------------------------------------------------------------
-    # PRIMARY VISUAL DESCRIPTION
-    # ----------------------------------------------------------------------
-
-    parts.append(
-        semantic_prompt
-    )
-
-    # ----------------------------------------------------------------------
-    # GLOBAL VISUAL IDENTITY
-    # ----------------------------------------------------------------------
-
-    if identity_block:
-
-        parts.append(
-            identity_block
-        )
-
-    # ----------------------------------------------------------------------
-    # RECURRING SUBJECTS
-    # ----------------------------------------------------------------------
-
-    if subject_block:
-
-        parts.append(
-            subject_block
-        )
-
-    # ----------------------------------------------------------------------
-    # RECURRING OBJECTS
-    # ----------------------------------------------------------------------
-
-    if object_block:
-
-        parts.append(
-            object_block
-        )
-
-    # ----------------------------------------------------------------------
-    # ENVIRONMENT
-    # ----------------------------------------------------------------------
-
-    if environment_block:
-
-        parts.append(
-            environment_block
-        )
-
-    # ----------------------------------------------------------------------
-    # CONTINUITY RULES
-    # ----------------------------------------------------------------------
-
-    if rules_block:
-
-        parts.append(
-            rules_block
-        )
-
-    # ----------------------------------------------------------------------
-    # SECOND-SHOT RELATIONSHIP
-    # ----------------------------------------------------------------------
-
     if previous_shot_block:
-
         parts.append(
             previous_shot_block
         )
 
-    # ----------------------------------------------------------------------
-    # Scene-level emotional context
-    # ----------------------------------------------------------------------
+    scene_context = _get_scene_context(
+        scene
+    )
 
     if scene_context.get(
         "emotional_tone"
@@ -966,21 +882,36 @@ def build_prompt(
             )
         )
 
-    # ----------------------------------------------------------------------
-    # Visual distinction
-    # ----------------------------------------------------------------------
+    if scene_context.get(
+        "visual_priority"
+    ):
+
+        parts.append(
+            (
+                "Visual priority: "
+                f"{scene_context['visual_priority']}."
+            )
+        )
 
     if visual_index == 1:
 
         parts.append(
-            "This shot establishes the scene."
+            "Establish the visual moment clearly."
         )
 
     else:
 
         parts.append(
-            "This shot advances or reveals the next visual beat."
+            "Advance the visual story with a clearly "
+            "different shot that reveals or demonstrates "
+            "something new."
         )
+
+    parts.append(
+        "Visible content only. No written words, labels, "
+        "captions, subtitles, logos, watermarks or "
+        "interface elements."
+    )
 
     final_prompt = _clean_prompt(
         " ".join(parts)
@@ -994,7 +925,6 @@ def build_prompt(
             :MAX_PROMPT_LENGTH
         ]
 
-        # Avoid ending in a broken word where possible.
         final_prompt = final_prompt.rsplit(
             " ",
             1,
@@ -1013,16 +943,12 @@ def _build_image_url(
     height,
     seed,
 ):
-    """
-    Build Pollinations image URL.
-    """
-
     encoded_prompt = urllib.parse.quote(
         prompt,
         safe="",
     )
 
-    url = (
+    return (
         BASE_URL
         + encoded_prompt
         + f"?model={MODEL_NAME}"
@@ -1033,8 +959,6 @@ def _build_image_url(
         + "&nologo=true"
     )
 
-    return url
-
 
 # ==========================================================================
 # HTTP RESPONSE VALIDATION
@@ -1043,10 +967,6 @@ def _build_image_url(
 def _validate_image_response(
     response,
 ):
-    """
-    Validate that the provider returned actual image data.
-    """
-
     if response is None:
 
         raise RuntimeError(
@@ -1055,9 +975,11 @@ def _validate_image_response(
 
     if response.status_code != 200:
 
-        preview = response.text[
-            :300
-        ] if response.text else ""
+        preview = (
+            response.text[:300]
+            if response.text
+            else ""
+        )
 
         raise RuntimeError(
             f"HTTP {response.status_code}: "
@@ -1093,7 +1015,8 @@ def _validate_image_response(
     )
 
     has_image_content_type = (
-        "image" in content_type
+        "image"
+        in content_type
     )
 
     has_image_signature = any(
@@ -1109,9 +1032,7 @@ def _validate_image_response(
         not has_image_signature
     ):
 
-        preview = content[
-            :300
-        ]
+        preview = content[:300]
 
         try:
 
@@ -1141,20 +1062,7 @@ def _validate_with_pillow(
     expected_width,
     expected_height,
 ):
-    """
-    Open the generated image with Pillow.
-
-    This catches:
-    - corrupted image files
-    - fake image responses
-    - unreadable image data
-    - invalid dimensions
-    """
-
     if Image is None:
-
-        # Pillow is useful but not allowed to prevent
-        # the pipeline from working if it is absent.
         return content
 
     try:
@@ -1165,7 +1073,6 @@ def _validate_with_pillow(
 
         image.verify()
 
-        # Reopen because verify() invalidates the image object.
         image = Image.open(
             BytesIO(content)
         )
@@ -1174,24 +1081,22 @@ def _validate_with_pillow(
             image.size
         )
 
-        if actual_width <= 0 or actual_height <= 0:
+        if (
+            actual_width <= 0
+            or
+            actual_height <= 0
+        ):
 
             raise RuntimeError(
                 "Generated image has invalid dimensions."
             )
-
-        # We do not reject provider dimensions here because
-        # some providers may return slightly different dimensions.
-        #
-        # The final saved image will be normalized to the requested
-        # portrait dimensions.
 
         return content
 
     except Exception as error:
 
         raise RuntimeError(
-            f"Pillow could not validate generated image: "
+            "Pillow could not validate generated image: "
             f"{error}"
         )
 
@@ -1206,15 +1111,6 @@ def generate_image(
     height,
     seed,
 ):
-    """
-    Generate one image through Pollinations.
-
-    Retry behavior:
-    - transient HTTP/provider failure → retry
-    - invalid image → retry
-    - retry receives a deterministic alternate seed
-    """
-
     prompt = _clean_prompt(
         prompt
     )
@@ -1237,11 +1133,10 @@ def generate_image(
     try:
 
         for attempt in range(
-            0,
-            MAX_RETRIES,
+            MAX_RETRIES
         ):
 
-            attempt_seed = _get_retry_seed_from_original(
+            attempt_seed = _get_retry_seed(
                 seed,
                 attempt,
             )
@@ -1254,27 +1149,34 @@ def generate_image(
             )
 
             print("=" * 80)
-            print("IMAGE GENERATION REQUEST")
+            print(
+                "IMAGE GENERATION REQUEST"
+            )
             print("=" * 80)
 
             print(
-                f"Attempt: {attempt + 1}/{MAX_RETRIES}"
+                f"Attempt: "
+                f"{attempt + 1}/{MAX_RETRIES}"
             )
 
             print(
-                f"Seed: {attempt_seed}"
+                f"Seed: "
+                f"{attempt_seed}"
             )
 
             print(
-                f"Size: {width}x{height}"
+                f"Size: "
+                f"{width}x{height}"
             )
 
             print(
-                f"Prompt length: {len(prompt)}"
+                f"Prompt length: "
+                f"{len(prompt)}"
             )
 
             print(
-                f"Prompt: {prompt}"
+                f"Prompt: "
+                f"{prompt}"
             )
 
             print("=" * 80)
@@ -1357,40 +1259,6 @@ def generate_image(
     )
 
 
-def _get_retry_seed_from_original(
-    original_seed,
-    attempt,
-):
-    """
-    Generate deterministic alternate seeds for retries.
-
-    Attempt 0:
-        original seed
-
-    Attempt 1:
-        original + 10000
-
-    Attempt 2:
-        original + 20000
-
-    etc.
-    """
-
-    if attempt <= 0:
-
-        return int(
-            original_seed
-        )
-
-    return (
-        int(original_seed)
-        + (
-            attempt
-            * 10_000
-        )
-    )
-
-
 # ==========================================================================
 # SAVE / NORMALIZE IMAGE
 # ==========================================================================
@@ -1401,17 +1269,6 @@ def _save_image(
     width,
     height,
 ):
-    """
-    Save generated content as a genuine PNG.
-
-    If Pollinations returns JPEG/WebP/etc.,
-    Pillow converts it to PNG.
-
-    The rest of the pipeline therefore always receives:
-
-        .png
-    """
-
     if not content:
 
         raise RuntimeError(
@@ -1429,10 +1286,6 @@ def _save_image(
             exist_ok=True,
         )
 
-    # ----------------------------------------------------------------------
-    # Pillow normalization
-    # ----------------------------------------------------------------------
-
     if Image is not None:
 
         try:
@@ -1443,10 +1296,6 @@ def _save_image(
 
             image.load()
 
-            # --------------------------------------------------------------
-            # Normalize color mode.
-            # --------------------------------------------------------------
-
             if image.mode not in (
                 "RGB",
                 "RGBA",
@@ -1455,13 +1304,6 @@ def _save_image(
                 image = image.convert(
                     "RGB"
                 )
-
-            # --------------------------------------------------------------
-            # Resize to requested dimensions.
-            #
-            # This ensures all downstream images have the exact
-            # same canvas size.
-            # --------------------------------------------------------------
 
             if image.size != (
                 int(width),
@@ -1485,15 +1327,11 @@ def _save_image(
         except Exception as error:
 
             raise RuntimeError(
-                f"Failed to normalize image to PNG: "
+                "Failed to normalize image to PNG: "
                 f"{error}"
             )
 
     else:
-
-        # ------------------------------------------------------------------
-        # Fallback when Pillow is unavailable.
-        # ------------------------------------------------------------------
 
         with open(
             path,
@@ -1503,10 +1341,6 @@ def _save_image(
             file.write(
                 content
             )
-
-    # ----------------------------------------------------------------------
-    # Final filesystem validation.
-    # ----------------------------------------------------------------------
 
     if not os.path.exists(
         path
@@ -1536,10 +1370,6 @@ def _save_image(
             f"Generated image appears invalid: "
             f"{path}"
         )
-
-    # ----------------------------------------------------------------------
-    # Final PNG validation.
-    # ----------------------------------------------------------------------
 
     if Image is not None:
 
@@ -1586,12 +1416,6 @@ def _save_image(
 def _get_image_dimensions(
     config,
 ):
-    """
-    Read image dimensions from config.yaml.
-
-    Portrait orientation is always enforced.
-    """
-
     image_config = (
         config.get(
             "image",
@@ -1633,10 +1457,6 @@ def _get_image_dimensions(
     if height <= 0:
         height = DEFAULT_HEIGHT
 
-    # ----------------------------------------------------------------------
-    # Force portrait.
-    # ----------------------------------------------------------------------
-
     if width >= height:
 
         width, height = (
@@ -1654,10 +1474,6 @@ def _get_image_dimensions(
 def _validate_script_structure(
     script,
 ):
-    """
-    Validate the production contract before any image generation begins.
-    """
-
     if not isinstance(
         script,
         dict,
@@ -1799,18 +1615,15 @@ def _validate_script_structure(
 def _validate_continuity_metadata(
     script,
 ):
-    """
-    Validate the visual continuity package.
-
-    Continuity is strongly recommended but the script can still
-    function for stories that do not have recurring characters.
-    """
-
     identity = _get_visual_identity(
         script
     )
 
     continuity = _get_visual_continuity(
+        script
+    )
+
+    style_lock = _get_style_lock(
         script
     )
 
@@ -1831,6 +1644,11 @@ def _validate_continuity_metadata(
     print(
         f"  Mood: "
         f"{identity['mood_arc'] or 'not specified'}"
+    )
+
+    print(
+        f"  Style lock: "
+        f"{style_lock or 'not specified'}"
     )
 
     print(
@@ -1872,21 +1690,19 @@ def generate_images(
     """
     Generate exactly 14 AI images.
 
-    Return format:
+    Return structure:
 
     [
         [
             scene_01_shot_01.png,
             scene_01_shot_02.png
         ],
-        [
-            scene_02_shot_01.png,
-            scene_02_shot_02.png
-        ],
         ...
+        [
+            scene_07_shot_01.png,
+            scene_07_shot_02.png
+        ]
     ]
-
-    This structure is intentionally preserved for assemble.py.
     """
 
     os.makedirs(
@@ -1895,7 +1711,7 @@ def generate_images(
     )
 
     # ----------------------------------------------------------------------
-    # Validate script BEFORE contacting image provider.
+    # Validate before contacting provider.
     # ----------------------------------------------------------------------
 
     scenes = _validate_script_structure(
@@ -1925,7 +1741,9 @@ def generate_images(
     image_paths = []
 
     print("=" * 80)
-    print("🎨 GENERATING AI VISUALS")
+    print(
+        "🎨 GENERATING AI VISUALS"
+    )
     print("=" * 80)
 
     print(
@@ -1954,8 +1772,8 @@ def generate_images(
     )
 
     print(
-        f"Provider: "
-        f"Pollinations AI"
+        "Provider: "
+        "Pollinations AI"
     )
 
     print(
@@ -1965,6 +1783,14 @@ def generate_images(
 
     print(
         "Continuity system: ENABLED"
+    )
+
+    print(
+        "Style lock: ENABLED"
+    )
+
+    print(
+        "Per-shot visual metadata: ENABLED"
     )
 
     print(
@@ -1993,15 +1819,13 @@ def generate_images(
         scene_paths = []
 
         print("=" * 80)
+
         print(
             f"🎬 SCENE "
             f"{scene_index}/{EXPECTED_SCENES}"
         )
-        print("=" * 80)
 
-        # ------------------------------------------------------------------
-        # Two shots per scene
-        # ------------------------------------------------------------------
+        print("=" * 80)
 
         for visual_index, visual in enumerate(
             visuals,
@@ -2042,6 +1866,16 @@ def generate_images(
             print(
                 f"Style: "
                 f"{visual.get('image_style', '')}"
+            )
+
+            print(
+                f"Lighting: "
+                f"{visual.get('lighting', '')}"
+            )
+
+            print(
+                f"Color palette: "
+                f"{visual.get('color_palette', '')}"
             )
 
             print(
@@ -2131,10 +1965,6 @@ def generate_images(
             f"{total_images}."
         )
 
-    # ----------------------------------------------------------------------
-    # Verify every scene.
-    # ----------------------------------------------------------------------
-
     for scene_index, scene_paths in enumerate(
         image_paths,
         start=1,
@@ -2175,10 +2005,6 @@ def generate_images(
                     f"Generated image is too small: "
                     f"{path}"
                 )
-
-            # --------------------------------------------------------------
-            # Final image validation.
-            # --------------------------------------------------------------
 
             if Image is not None:
 
@@ -2227,7 +2053,11 @@ def generate_images(
     # ==========================================================================
 
     print("=" * 80)
-    print("✅ VISUAL GENERATION COMPLETE")
+
+    print(
+        "✅ VISUAL GENERATION COMPLETE"
+    )
+
     print("=" * 80)
 
     print(
@@ -2259,7 +2089,11 @@ def generate_images(
     )
 
     print(
-        "Recurring subjects: APPLIED"
+        "Per-shot visual metadata: APPLIED"
+    )
+
+    print(
+        "Recurring subject continuity: APPLIED"
     )
 
     print(
@@ -2293,9 +2127,6 @@ def generate_single_image(
 ):
     """
     Generate one standalone image.
-
-    This helper remains compatible with any existing scripts
-    that use it independently from the main pipeline.
     """
 
     os.makedirs(

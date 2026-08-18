@@ -2,7 +2,7 @@
 main.py
 Mint-YT-Factory
 
-Version 10.4
+Version 10.5
 
 Research-first production pipeline.
 
@@ -11,8 +11,7 @@ FLOW:
 Previous video's next_short
 → Topic
 → Verified research
-→ Research-backed script
-→ Claim verification
+→ Research-backed script  <-> Claim verification  (retried as a cycle)
 → HARD VERIFICATION GATE
 → Save verified artifacts
 → TTS
@@ -38,7 +37,13 @@ Research must be VERIFIED before script generation.
 The generated script must PASS claim verification before
 production assets are generated.
 
-A failed claim verification ALWAYS stops the pipeline.
+If claim verification fails on a genuine (non-structural) scientific
+ground, the script is regenerated with specific feedback about which
+claims failed, up to MAX_SCRIPT_CLAIM_ATTEMPTS times, before the
+pipeline gives up.
+
+A failed claim verification after all cycles ALWAYS stops the
+pipeline.
 
 No TTS.
 No images.
@@ -120,6 +125,15 @@ MIN_EVIDENCE_CHARACTERS = 120
 
 # Keep the public research section useful but concise.
 MAX_PUBLIC_RESEARCH_SOURCES = 3
+
+# How many times to cycle (regenerate script -> reverify claims) when
+# claim verification fails on genuine scientific grounds, not just
+# structural issues already retried inside verify_script_claims().
+MAX_SCRIPT_CLAIM_ATTEMPTS = 3
+
+# How many unsupported/uncertain claim strings to feed back into the
+# next script-generation attempt.
+MAX_FEEDBACK_ITEMS = 30
 
 
 # ==========================================================================
@@ -987,6 +1001,305 @@ def enforce_claim_verification_gate(
 
 
 # ==========================================================================
+# CLAIM VERIFICATION FAILURE CLASSIFICATION
+# ==========================================================================
+
+def _claim_failure_is_structural_only(
+    verification,
+):
+    """
+    True when every unsupported/warning item in the FINAL claim
+    verification result looks like a structural problem
+    (missing scene review, count mismatch, malformed claim object,
+    etc.) rather than a genuine "the evidence does not support this"
+    scientific rejection.
+
+    verify_script_claims() already retries pure structural failures
+    internally (up to its own MAX_VERIFICATION_ATTEMPTS). If, after
+    those internal retries, the final result STILL only contains
+    structural markers, regenerating the script is unlikely to help
+    much faster than simply calling verify_script_claims() again on
+    the same script — but we still route it through the outer retry
+    loop below so it gets a fresh attempt rather than silently
+    passing.
+    """
+
+    if not isinstance(
+        verification,
+        dict,
+    ):
+        return False
+
+    problems = []
+
+    problems.extend(
+        verification.get(
+            "unsupported_claims",
+            [],
+        )
+        or []
+    )
+
+    problems.extend(
+        verification.get(
+            "warnings",
+            [],
+        )
+        or []
+    )
+
+    if not problems:
+        return False
+
+    problems_text = "\n".join(
+        str(problem).lower()
+        for problem in problems
+    )
+
+    structural_markers = (
+        "scene review",
+        "scene reviews",
+        "claim count",
+        "quantitative language but gemini returned zero",
+        "factual claims but returned zero",
+        "returned claims but factual_claims_found",
+        "verifier returned an invalid",
+        "missing scene reviews",
+        "returned an empty claim",
+    )
+
+    return all(
+        any(
+            marker in str(problem).lower()
+            for marker in structural_markers
+        )
+        for problem in problems
+    )
+
+
+def _build_claim_feedback_text(
+    verification,
+):
+    """
+    Build a human-readable feedback block from a FAILED claim
+    verification result, to feed back into the next script-generation
+    attempt via generate_script(..., extra_feedback=...).
+    """
+
+    if not isinstance(
+        verification,
+        dict,
+    ):
+        return ""
+
+    lines = []
+
+    unsupported = verification.get(
+        "unsupported_claims",
+        [],
+    )
+
+    warnings = verification.get(
+        "warnings",
+        [],
+    )
+
+    if unsupported:
+
+        lines.append(
+            "REJECTED AS UNSUPPORTED / CONTRADICTED:"
+        )
+
+        for item in list(
+            unsupported
+        )[:MAX_FEEDBACK_ITEMS]:
+
+            lines.append(
+                f"- {item}"
+            )
+
+    if warnings:
+
+        lines.append(
+            ""
+        )
+
+        lines.append(
+            "REJECTED AS UNCERTAIN (evidence related but insufficient):"
+        )
+
+        for item in list(
+            warnings
+        )[:MAX_FEEDBACK_ITEMS]:
+
+            lines.append(
+                f"- {item}"
+            )
+
+    return "\n".join(
+        lines
+    ).strip()
+
+
+# ==========================================================================
+# SCRIPT + CLAIM VERIFICATION CYCLE
+# ==========================================================================
+
+def generate_verified_script(
+    topic,
+    config,
+    research,
+):
+    """
+    Runs the script-generation -> claim-verification cycle as a unit.
+
+    generate_script() already retries internally on its own validation
+    errors (schema, duration, source IDs, claim-strength patterns,
+    etc.) up to MAX_GENERATION_ATTEMPTS.
+
+    verify_script_claims() already retries internally on pure
+    structural verification problems up to its own
+    MAX_VERIFICATION_ATTEMPTS, but a retry never overrides a genuine
+    scientific failure by design.
+
+    This function adds an OUTER cycle: if the final claim verification
+    result is a genuine scientific failure (specific claims rejected
+    as unsupported / uncertain / contradicted, not just structural
+    noise), the script itself is regenerated from scratch with that
+    feedback included, up to MAX_SCRIPT_CLAIM_ATTEMPTS times, before
+    the pipeline gives up.
+    """
+
+    extra_feedback = ""
+
+    last_script = None
+
+    for cycle in range(
+        1,
+        MAX_SCRIPT_CLAIM_ATTEMPTS + 1,
+    ):
+
+        print("=" * 80)
+        print(
+            f"🔁 SCRIPT/CLAIM VERIFICATION CYCLE "
+            f"{cycle}/{MAX_SCRIPT_CLAIM_ATTEMPTS}"
+        )
+        print("=" * 80)
+
+        script = generate_script(
+            topic,
+            config,
+            research,
+            extra_feedback=extra_feedback,
+        )
+
+        print(
+            f"Scenes: "
+            f"{len(script.get('scene_plan', []))}"
+        )
+
+        print(
+            "Images: "
+            f"{script.get('image_generation', {}).get('total_images', 14)}"
+        )
+
+        print(
+            "Verified research sources: "
+            f"{len(script.get('research_sources', []))}"
+        )
+
+        next_short_topic = get_next_short_topic(
+            script
+        )
+
+        print(
+            "Next Short: "
+            f"{next_short_topic or 'Not specified'}"
+        )
+
+        if not next_short_topic:
+
+            raise RuntimeError(
+                "PIPELINE STOPPED: "
+                "script did not provide next_short.topic."
+            )
+
+        print("=" * 80)
+        print("🧪 VERIFYING IMPORTANT FACTUAL CLAIMS")
+        print("=" * 80)
+
+        script = verify_script_claims(
+            script,
+            research,
+        )
+
+        verification = script.get(
+            "claim_verification",
+            {},
+        )
+
+        last_script = script
+
+        if (
+            verification.get(
+                "overall_status"
+            )
+            == "PASS"
+        ):
+
+            print(
+                f"✅ Claims verified on cycle "
+                f"{cycle}/{MAX_SCRIPT_CLAIM_ATTEMPTS}."
+            )
+
+            return script
+
+        # --------------------------------------------------------------
+        # FAILED. Decide whether to retry the whole cycle.
+        # --------------------------------------------------------------
+
+        print(
+            f"❌ Claim verification failed on cycle "
+            f"{cycle}/{MAX_SCRIPT_CLAIM_ATTEMPTS}."
+        )
+
+        if cycle >= MAX_SCRIPT_CLAIM_ATTEMPTS:
+
+            print(
+                "⛔ No script/claim cycles remaining. "
+                "Stopping with the last result."
+            )
+
+            break
+
+        feedback_text = _build_claim_feedback_text(
+            verification
+        )
+
+        if not feedback_text:
+
+            print(
+                "⚠️ No specific claim feedback available; "
+                "retrying with the same prompt."
+            )
+
+        else:
+
+            print(
+                "📋 Feeding rejected claims back into "
+                "the next script-generation attempt:"
+            )
+
+            print(
+                feedback_text
+            )
+
+        extra_feedback = feedback_text
+
+    return last_script
+
+
+# ==========================================================================
 # FINAL PUBLISHING SAFETY GATE
 # ==========================================================================
 
@@ -1173,69 +1486,27 @@ def run(
         )
 
     # ----------------------------------------------------------------------
-    # SCRIPT
+    # SCRIPT + CLAIM VERIFICATION CYCLE
     # ----------------------------------------------------------------------
 
     print("=" * 80)
     print("✍️ GENERATING RESEARCH-BACKED SCRIPT")
     print("=" * 80)
 
-    script = generate_script(
+    script = generate_verified_script(
         topic,
         config,
         research,
-    )
-
-    print(
-        f"Scenes: "
-        f"{len(script.get('scene_plan', []))}"
-    )
-
-    print(
-        "Images: "
-        f"{script.get('image_generation', {}).get('total_images', 14)}"
-    )
-
-    print(
-        "Verified research sources: "
-        f"{len(script.get('research_sources', []))}"
     )
 
     next_short_topic = get_next_short_topic(
         script
     )
 
-    print(
-        "Next Short: "
-        f"{next_short_topic or 'Not specified'}"
-    )
-
-    # ----------------------------------------------------------------------
-    # REQUIRE NEXT SHORT
-    # ----------------------------------------------------------------------
-
-    if not next_short_topic:
-
-        raise RuntimeError(
-            "PIPELINE STOPPED: "
-            "script did not provide next_short.topic."
-        )
-
-    # ----------------------------------------------------------------------
-    # CLAIM VERIFICATION
-    # ----------------------------------------------------------------------
-
-    print("=" * 80)
-    print("🧪 VERIFYING IMPORTANT FACTUAL CLAIMS")
-    print("=" * 80)
-
-    script = verify_script_claims(
-        script,
-        research,
-    )
-
     # ----------------------------------------------------------------------
     # HARD CLAIM GATE
+    #
+    # This raises with full detail if every cycle above still failed.
     # ----------------------------------------------------------------------
 
     enforce_claim_verification_gate(

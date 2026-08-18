@@ -1,7 +1,7 @@
 """
 verify_claims.py
 Mint-YT-Factory
-Version 3.1
+Version 3.2
 
 Hardened scientific claim verification layer.
 
@@ -18,6 +18,9 @@ Key hardening:
 - Final PASS is determined locally, never by Gemini.
 - Research source IDs are preserved exactly.
 - No artificial source IDs are created.
+- The Scene 7 "next Short" curiosity bridge is stripped before
+  verification, since it is a continuation hook, not a claim about
+  the current topic.
 """
 
 import json
@@ -33,7 +36,7 @@ from google.genai import types
 # CONFIG
 # ==========================================================================
 
-VERSION = "3.1"
+VERSION = "3.2"
 
 MODEL_NAME = "gemini-flash-lite-latest"
 
@@ -101,6 +104,153 @@ def _unique_clean_list(values):
         result.append(value)
 
     return result
+
+
+# ==========================================================================
+# NEXT-TOPIC BRIDGE DETECTION
+#
+# Scene 7 ends with a short "next Short" curiosity bridge that is NOT a
+# factual claim about the current topic (see generate_script.py's Scene 7
+# rules). The claim verifier must never see that sentence, or it will
+# (correctly, by its own strict rules) flag it as an unsupported claim.
+#
+# This mirrors the detection logic in generate_script.py's
+# _contains_next_topic(), kept local here so verify_claims.py has no
+# dependency on that module.
+# ==========================================================================
+
+_BRIDGE_STOPWORDS = {
+    "what", "why", "how", "when", "where", "which", "does", "this", "that",
+    "these", "those", "the", "and", "for", "with", "from", "into", "about",
+    "your", "our", "their", "will", "can", "could", "would", "should",
+    "did", "are", "was", "were", "is", "its", "it's", "they", "them",
+    "than", "then", "really", "actually", "just", "very", "most", "more",
+    "some", "one", "thing", "things", "part", "next", "story", "question",
+    "mystery", "science", "scientific",
+}
+
+
+def _bridge_topic_words(topic):
+
+    words = re.findall(
+        r"[A-Za-z0-9'-]+",
+        _clean(topic).lower(),
+    )
+
+    return [
+        word
+        for word in words
+        if len(word) >= 4
+        and word not in _BRIDGE_STOPWORDS
+    ]
+
+
+def _contains_next_topic(
+    text,
+    next_topic,
+):
+
+    text_clean = _clean(text).lower()
+    topic_clean = _clean(next_topic).lower()
+
+    if not text_clean or not topic_clean:
+        return False
+
+    if topic_clean in text_clean:
+        return True
+
+    topic_words = _bridge_topic_words(
+        topic_clean
+    )
+
+    if len(topic_words) < 2:
+        return False
+
+    text_words = set(
+        re.findall(
+            r"[A-Za-z0-9'-]+",
+            text_clean,
+        )
+    )
+
+    overlap = {
+        word
+        for word in set(topic_words)
+        if word in text_words
+    }
+
+    if len(topic_words) <= 3:
+        return len(overlap) >= len(topic_words)
+
+    return (
+        len(overlap) >= 3
+        and
+        len(overlap) / len(set(topic_words)) >= 0.70
+    )
+
+
+def _split_sentences(text):
+
+    text = _clean(text)
+
+    if not text:
+        return []
+
+    parts = re.split(
+        r"(?<=[.!?])\s+",
+        text,
+    )
+
+    return [
+        part.strip()
+        for part in parts
+        if part.strip()
+    ]
+
+
+def _strip_next_topic_bridge(
+    narration,
+    next_topic,
+):
+    """
+    Remove the next-Short curiosity-bridge sentence(s) from narration
+    before it is sent to the claim verifier or scanned for factual
+    language signals.
+
+    generate_script.py guarantees the bridge only ever appears in Scene 7,
+    as the final sentence(s), and never in Scenes 1-6 or the description.
+    Stripping any matching sentence from any scene's narration is
+    therefore safe and has no effect on scenes that don't contain it.
+    """
+
+    next_topic = _clean(
+        next_topic
+    )
+
+    if not next_topic:
+        return narration
+
+    sentences = _split_sentences(
+        narration
+    )
+
+    if not sentences:
+        return narration
+
+    kept = [
+        sentence
+        for sentence in sentences
+        if not _contains_next_topic(
+            sentence,
+            next_topic,
+        )
+    ]
+
+    stripped = " ".join(
+        kept
+    ).strip()
+
+    return stripped if stripped else narration
 
 
 # ==========================================================================
@@ -407,7 +557,14 @@ Source metadata is NOT scientific evidence.
 # SCRIPT CLAIM CONTEXT
 # ==========================================================================
 
-def _build_claim_context(script):
+def _build_claim_context(script, next_topic=""):
+    """
+    Build the per-scene narration/citation context sent to Gemini.
+
+    The Scene 7 next-topic bridge sentence is stripped out here so the
+    verifier never sees it and cannot flag it as an unsupported claim.
+    """
+
     blocks = []
 
     scenes = script.get(
@@ -446,12 +603,24 @@ def _build_claim_context(script):
             if str(source_id).strip()
         ]
 
+        narration = _clean(
+            scene.get(
+                "narration",
+                "",
+            )
+        )
+
+        reviewable_narration = _strip_next_topic_bridge(
+            narration,
+            next_topic,
+        )
+
         blocks.append(
             f"""
 SCENE {scene.get("scene")}
 
 NARRATION:
-{_clean(scene.get("narration", ""))}
+{reviewable_narration}
 
 CITED SOURCE IDS:
 {json.dumps(source_ids, ensure_ascii=False)}
@@ -623,6 +792,22 @@ Never use the following as scientific evidence:
 Only the actual Evidence Text can support a factual claim.
 
 ============================================================
+NEXT-SHORT BRIDGE SENTENCES
+============================================================
+
+Some scripts originally end with a short forward-looking sentence
+that introduces the topic of the NEXT Short (for example: "But that
+leaves one bigger question: ...").
+
+These bridge sentences are curiosity hooks about a DIFFERENT,
+future video. They are NOT factual claims about the current topic.
+
+The narration you are given has already had this bridge sentence
+removed. If any trace of it still appears, do NOT extract it as a
+claim and do NOT count it against scene completeness. Treat it as
+stylistic, not factual.
+
+============================================================
 EVERY SCENE MUST BE REVIEWED
 ============================================================
 
@@ -786,6 +971,7 @@ def _verify_with_gemini(
     script,
     research,
     retry_feedback="",
+    next_topic="",
 ):
 
     client = genai.Client(
@@ -800,7 +986,8 @@ def _verify_with_gemini(
 
     claim_context = (
         _build_claim_context(
-            script
+            script,
+            next_topic,
         )
     )
 
@@ -900,7 +1087,14 @@ Return the COMPLETE JSON result.
 # SCENE MAPS
 # ==========================================================================
 
-def _scene_maps(script):
+def _scene_maps(script, next_topic=""):
+    """
+    Build per-scene source-ID and narration lookups.
+
+    scene_narration uses the bridge-stripped narration so the
+    conservative numeric/factual-language completeness checks below
+    don't misfire on the Scene 7 curiosity bridge.
+    """
 
     scene_sources = {}
     scene_narration = {}
@@ -950,13 +1144,18 @@ def _scene_maps(script):
             if str(source_id).strip()
         }
 
-        scene_narration[
-            scene_number
-        ] = _clean(
+        narration = _clean(
             scene.get(
                 "narration",
                 "",
             )
+        )
+
+        scene_narration[
+            scene_number
+        ] = _strip_next_topic_bridge(
+            narration,
+            next_topic,
         )
 
     return scene_sources, scene_narration
@@ -970,6 +1169,7 @@ def _local_validate(
     result,
     script,
     research,
+    next_topic="",
 ):
 
     if not isinstance(
@@ -1027,7 +1227,7 @@ def _local_validate(
             )
 
     scene_sources, scene_narration = (
-        _scene_maps(script)
+        _scene_maps(script, next_topic)
     )
 
     expected_scenes = set(
@@ -1777,6 +1977,29 @@ def verify_script_claims(
             "Claim verification requires at least 2 research sources."
         )
 
+    # ----------------------------------------------------------------------
+    # NEXT-TOPIC BRIDGE (excluded from verification below)
+    # ----------------------------------------------------------------------
+
+    next_short = script.get(
+        "next_short",
+        {},
+    )
+
+    next_topic = ""
+
+    if isinstance(
+        next_short,
+        dict,
+    ):
+
+        next_topic = _clean(
+            next_short.get(
+                "topic",
+                "",
+            )
+        )
+
     print("=" * 80)
     print(
         f"🧪 SCIENTIFIC CLAIM VERIFICATION v{VERSION}"
@@ -1801,6 +2024,10 @@ def verify_script_claims(
 
     print(
         "Numeric claim policy: EXPLICITLY CHECKED"
+    )
+
+    print(
+        "Next-topic bridge policy: EXCLUDED FROM VERIFICATION"
     )
 
     # ----------------------------------------------------------------------
@@ -1848,12 +2075,14 @@ def verify_script_claims(
                 script,
                 research,
                 retry_feedback,
+                next_topic,
             )
 
             result = _local_validate(
                 raw_result,
                 script,
                 research,
+                next_topic,
             )
 
             last_result = result
@@ -1964,6 +2193,7 @@ def verify_script_claims(
         last_result,
         script,
         research,
+        next_topic,
     )
 
     # ----------------------------------------------------------------------

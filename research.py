@@ -1,24 +1,74 @@
 """
-research.py - Mint-YT-Factory v10.0
+research.py - Mint-YT-Factory v10.1
 
 Dynamic research-first evidence layer.
 
-Research is driven entirely by the generated question.
+v10.1 focuses on QUESTION CONCEPT COVERAGE.
 
 Pipeline:
+
     topics.py
         ↓
     research.py
         ↓
-    concept-aware scholarly discovery
+    Question structure extraction
+        ↓
+    Concept-aware scholarly discovery
+        ↓
+    Concept coverage filtering
         ↓
     DOI identity verification
         ↓
-    abstract evidence verification
+    Abstract evidence verification
         ↓
-    strict relevance validation
+    Final concept coverage verification
         ↓
-    verified research package
+    Verified research package
+
+IMPORTANT:
+
+This module does NOT use Gemini/LLM-generated evidence.
+
+Research relevance is determined deterministically from the
+actual question.
+
+The system separates:
+
+    SUBJECT
+    PHENOMENON
+    CONDITION
+    CAUSAL INTENT
+
+This prevents simple word overlap from being treated as proof
+that a paper explains the question.
+
+Example:
+
+    "why do ceiling fans make ticking sounds as they slow down"
+
+is represented approximately as:
+
+    subject:
+        ceiling fan
+
+    phenomenon:
+        ticking sound
+
+    condition:
+        slow down
+
+    intent:
+        cause
+
+A paper about "ceiling" and "ticking" in an unrelated context
+must not pass merely because individual words overlap.
+
+DOI identity verification remains independent from relevance.
+
+Abstract evidence verification remains independent from identity.
+
+A source must pass all required gates before becoming part of
+the verified research package.
 """
 
 import hashlib
@@ -36,7 +86,7 @@ import requests
 # CONFIG
 # ============================================================================
 
-VERSION = "10.0"
+VERSION = "10.1"
 
 CROSSREF_URL = "https://api.crossref.org/v1/works"
 
@@ -68,6 +118,25 @@ MIN_ABSTRACT_CHARACTERS = 120
 MAX_EVIDENCE_TEXT_CHARACTERS = 12000
 
 TITLE_SIMILARITY_MINIMUM = 0.55
+
+# ---------------------------------------------------------------------------
+# Concept coverage thresholds
+# ---------------------------------------------------------------------------
+
+MIN_CONCEPT_SCORE = 8
+
+# For questions containing a recognizable condition, require it.
+REQUIRE_CONDITION_FOR_CAUSAL_QUESTIONS = True
+
+# Require the phenomenon to be represented in title/evidence.
+REQUIRE_PHENOMENON = True
+
+# Require subject representation.
+REQUIRE_SUBJECT = True
+
+# ---------------------------------------------------------------------------
+# Semantic Scholar circuit breaker
+# ---------------------------------------------------------------------------
 
 SEMANTIC_RETRIES = 0
 SEMANTIC_BACKOFF_SECONDS = 4
@@ -411,7 +480,7 @@ def _text_clean_for_matching(
 
 
 # ============================================================================
-# QUESTION TERMS
+# STOPWORDS
 # ============================================================================
 
 STOPWORDS = {
@@ -475,8 +544,18 @@ STOPWORDS = {
     "ones",
     "thing",
     "things",
+    "make",
+    "makes",
+    "made",
+    "cause",
+    "causes",
+    "causing",
 }
 
+
+# ============================================================================
+# TOKENIZATION
+# ============================================================================
 
 def _tokenize(text):
 
@@ -536,6 +615,15 @@ def _stem_variants(term):
         )
 
     if (
+        term.endswith("es")
+        and len(term) > 4
+    ):
+
+        variants.add(
+            term[:-2]
+        )
+
+    if (
         term.endswith("s")
         and len(term) > 4
     ):
@@ -585,6 +673,7 @@ def _stem_like_match(
     text = text.lower()
 
     if " " in term:
+
         return term in text
 
     for candidate in _stem_variants(
@@ -598,6 +687,7 @@ def _stem_like_match(
             rf"\b{re.escape(candidate)}\w*\b",
             text,
         ):
+
             return True
 
     return False
@@ -625,60 +715,54 @@ def _matched_terms(
 
 
 # ============================================================================
-# CONCEPT EXTRACTION
+# QUESTION STRUCTURE
 # ============================================================================
 
-def _question_concepts(
-    topic
+def _phrase_exists(
+    phrase,
+    text,
 ):
-    """
-    Build a small, deterministic concept representation
-    from the actual question.
 
-    This does NOT hardcode subject vocabulary.
-
-    It separates:
-        - observable subject terms
-        - action/effect terms
-        - query phrases
-
-    Research discovery can therefore search multiple
-    representations of the same phenomenon instead of
-    relying on the exact wording of the question.
-    """
-
-    topic = _clean(
-        topic
+    phrase = _text_clean_for_matching(
+        phrase
     )
 
-    terms = list(
-        _topic_terms(
-            topic
-        )
+    text = _text_clean_for_matching(
+        text
     )
 
-    expanded = list(
-        _expanded_topic_terms(
-            topic
-        )
-    )
+    if not phrase:
+        return False
 
-    words = [
-        word
-        for word in re.findall(
-            r"[a-z0-9]+",
-            topic.lower(),
+    return phrase in text
+
+
+def _phrase_matches(
+    phrases,
+    text,
+):
+
+    return [
+        phrase
+        for phrase in phrases
+        if _phrase_exists(
+            phrase,
+            text,
         )
-        if word not in STOPWORDS
-        and len(word) >= 3
     ]
+
+
+def _build_adjacent_phrases(
+    words,
+    max_size=3,
+):
 
     phrases = []
 
-    # Preserve useful adjacent phrases from the question.
-    for size in (
-        3,
-        2,
+    for size in range(
+        max_size,
+        1,
+        -1,
     ):
 
         for index in range(
@@ -692,41 +776,572 @@ def _question_concepts(
             )
 
             if phrase not in phrases:
+
                 phrases.append(
                     phrase
                 )
 
-    # Question wording itself is valuable.
-    query_phrases = [
+    return phrases
+
+
+def _question_structure(
+    topic
+):
+    """
+    Deterministically identify the important semantic pieces
+    of the question.
+
+    This is intentionally conservative.
+
+    It does not pretend to understand arbitrary language like
+    an LLM. Instead, it extracts useful phrase relationships
+    from the actual wording.
+
+    The output is then used as a hard relevance signal.
+    """
+
+    topic = _clean(
         topic
+    )
+
+    lowered = topic.lower()
+
+    words = [
+        word
+        for word in re.findall(
+            r"[a-z0-9]+",
+            lowered,
+        )
+        if word not in STOPWORDS
+        and len(word) >= 3
     ]
 
-    if words:
-        query_phrases.append(
-            " ".join(
-                words[:10]
+    subject = []
+    phenomenon = []
+    condition = []
+
+    # ----------------------------------------------------------------------
+    # CAUSAL QUESTION DETECTION
+    # ----------------------------------------------------------------------
+
+    causal_patterns = [
+        r"\bwhy\b",
+        r"\bhow\b.*\bcaus",
+        r"\bwhat causes\b",
+        r"\bwhat makes\b",
+        r"\bwhat is causing\b",
+        r"\bwhat makes\b",
+    ]
+
+    causal_intent = any(
+        re.search(
+            pattern,
+            lowered,
+        )
+        for pattern in causal_patterns
+    )
+
+    # ----------------------------------------------------------------------
+    # CONDITION PHRASES
+    # ----------------------------------------------------------------------
+
+    condition_patterns = [
+        r"\bas\s+(.+?)\s+slow(?:s|ing)?\b",
+        r"\bwhile\s+(.+?)\s+slow(?:s|ing)?\b",
+        r"\bwhen\s+(.+?)\s+slow(?:s|ing)?\b",
+        r"\bduring\s+(.+?)\s+slow(?:s|ing)?\b",
+        r"\bas\s+(.+?)\s+stop(?:s|ping)?\b",
+        r"\bwhile\s+(.+?)\s+stop(?:s|ping)?\b",
+        r"\bwhen\s+(.+?)\s+stop(?:s|ping)?\b",
+    ]
+
+    for pattern in condition_patterns:
+
+        match = re.search(
+            pattern,
+            lowered,
+        )
+
+        if not match:
+            continue
+
+        captured = _clean(
+            match.group(0)
+        )
+
+        if captured:
+
+            condition.append(
+                captured
+            )
+
+    # Generic transition conditions.
+    transition_patterns = [
+        r"\bslow down\b",
+        r"\bslowing down\b",
+        r"\bslows down\b",
+        r"\bspeeding up\b",
+        r"\bspeeds up\b",
+        r"\baccelerating\b",
+        r"\bdecelerating\b",
+        r"\bstarting\b",
+        r"\bturning on\b",
+        r"\bturning off\b",
+        r"\bstopping\b",
+        r"\bstopped\b",
+        r"\bstarting up\b",
+    ]
+
+    for pattern in transition_patterns:
+
+        match = re.search(
+            pattern,
+            lowered,
+        )
+
+        if match:
+
+            phrase = _clean(
+                match.group(0)
+            )
+
+            if phrase not in condition:
+
+                condition.append(
+                    phrase
+                )
+
+    # ----------------------------------------------------------------------
+    # PHENOMENON PHRASES
+    # ----------------------------------------------------------------------
+
+    phenomenon_patterns = [
+        r"\b(.+?)\s+(ticking\s+sounds?)\b",
+        r"\b(.+?)\s+(ticking\s+noises?)\b",
+        r"\b(.+?)\s+(clicking\s+sounds?)\b",
+        r"\b(.+?)\s+(clicking\s+noises?)\b",
+        r"\b(.+?)\s+(buzzing\s+sounds?)\b",
+        r"\b(.+?)\s+(buzzing\s+noises?)\b",
+        r"\b(.+?)\s+(humming\s+sounds?)\b",
+        r"\b(.+?)\s+(humming\s+noises?)\b",
+        r"\b(.+?)\s+(rattling\s+sounds?)\b",
+        r"\b(.+?)\s+(rattling\s+noises?)\b",
+        r"\b(.+?)\s+(vibrations?)\b",
+        r"\b(.+?)\s+(noise)\b",
+        r"\b(.+?)\s+(sound)\b",
+        r"\b(.+?)\s+(sounds)\b",
+        r"\b(.+?)\s+(noise)\b",
+        r"\b(.+?)\s+(noises)\b",
+    ]
+
+    for pattern in phenomenon_patterns:
+
+        match = re.search(
+            pattern,
+            lowered,
+        )
+
+        if not match:
+            continue
+
+        phenomenon_phrase = _clean(
+            match.group(
+                match.lastindex
             )
         )
 
-    if phrases:
-        query_phrases.extend(
-            phrases[:5]
+        if phenomenon_phrase:
+
+            phenomenon.append(
+                phenomenon_phrase
+            )
+
+    # ----------------------------------------------------------------------
+    # FALLBACK PHENOMENON VOCABULARY
+    #
+    # This is generic phenomenon vocabulary, not subject-specific.
+    # ----------------------------------------------------------------------
+
+    phenomenon_words = {
+        "sound",
+        "sounds",
+        "noise",
+        "noises",
+        "click",
+        "clicking",
+        "tick",
+        "ticking",
+        "buzz",
+        "buzzing",
+        "hum",
+        "humming",
+        "rattle",
+        "rattling",
+        "vibration",
+        "vibrations",
+        "heat",
+        "heating",
+        "cooling",
+        "smell",
+        "odor",
+        "odour",
+        "color",
+        "colour",
+        "light",
+        "glow",
+        "flicker",
+        "flickering",
+        "spark",
+        "sparking",
+        "pressure",
+        "motion",
+        "movement",
+        "rust",
+        "rusting",
+        "corrosion",
+        "crack",
+        "cracking",
+        "leak",
+        "leaking",
+        "shake",
+        "shaking",
+        "squeak",
+        "squeaking",
+        "whistle",
+        "whistling",
+    }
+
+    for word in words:
+
+        if word in phenomenon_words:
+
+            if word not in phenomenon:
+
+                phenomenon.append(
+                    word
+                )
+
+    # ----------------------------------------------------------------------
+    # SUBJECT
+    #
+    # Remove obvious phenomenon/condition/question words from the
+    # question and preserve the remaining meaningful terms.
+    # ----------------------------------------------------------------------
+
+    excluded_subject_terms = set(
+        STOPWORDS
+    )
+
+    excluded_subject_terms.update(
+        phenomenon_words
+    )
+
+    excluded_subject_terms.update(
+        {
+            "slow",
+            "slows",
+            "slowing",
+            "speeding",
+            "accelerating",
+            "decelerating",
+            "starting",
+            "stopping",
+            "stopped",
+            "turning",
+            "down",
+            "up",
+        }
+    )
+
+    subject_words = [
+        word
+        for word in words
+        if word not in excluded_subject_terms
+    ]
+
+    # Preserve the most likely noun phrase(s).
+    subject_phrases = _build_adjacent_phrases(
+        subject_words,
+        max_size=3,
+    )
+
+    if subject_phrases:
+
+        # Prefer longer phrases.
+        subject.extend(
+            subject_phrases[:3]
         )
+
+    subject.extend(
+        subject_words[:8]
+    )
+
+    # ----------------------------------------------------------------------
+    # Special handling for "X makes Y"
+    # ----------------------------------------------------------------------
+
+    makes_match = re.search(
+        r"\b(.+?)\s+makes?\s+(.+)$",
+        lowered,
+    )
+
+    if makes_match:
+
+        left = _clean(
+            makes_match.group(1)
+        )
+
+        right = _clean(
+            makes_match.group(2)
+        )
+
+        left_words = [
+            word
+            for word in re.findall(
+                r"[a-z0-9]+",
+                left,
+            )
+            if word not in STOPWORDS
+        ]
+
+        right_words = [
+            word
+            for word in re.findall(
+                r"[a-z0-9]+",
+                right,
+            )
+            if word not in STOPWORDS
+        ]
+
+        if left_words:
+
+            subject.insert(
+                0,
+                " ".join(
+                    left_words
+                ),
+            )
+
+        if right_words:
+
+            phenomenon.insert(
+                0,
+                " ".join(
+                    right_words
+                ),
+            )
+
+    # ----------------------------------------------------------------------
+    # Deduplicate and clean
+    # ----------------------------------------------------------------------
+
+    def unique_clean(values):
+
+        result = []
+
+        seen = set()
+
+        for value in values:
+
+            value = _clean(
+                value
+            )
+
+            if not value:
+                continue
+
+            key = value.lower()
+
+            if key in seen:
+                continue
+
+            seen.add(
+                key
+            )
+
+            result.append(
+                value
+            )
+
+        return result
+
+    subject = unique_clean(
+        subject
+    )
+
+    phenomenon = unique_clean(
+        phenomenon
+    )
+
+    condition = unique_clean(
+        condition
+    )
+
+    # ----------------------------------------------------------------------
+    # If subject extraction accidentally captured phenomenon words,
+    # remove them when possible.
+    # ----------------------------------------------------------------------
+
+    cleaned_subject = []
+
+    phenomenon_tokens = set()
+
+    for phrase in phenomenon:
+
+        phenomenon_tokens.update(
+            re.findall(
+                r"[a-z0-9]+",
+                phrase.lower(),
+            )
+        )
+
+    for phrase in subject:
+
+        tokens = set(
+            re.findall(
+                r"[a-z0-9]+",
+                phrase.lower(),
+            )
+        )
+
+        if (
+            tokens
+            and tokens.issubset(
+                phenomenon_tokens
+            )
+        ):
+            continue
+
+        cleaned_subject.append(
+            phrase
+        )
+
+    subject = cleaned_subject
+
+    # ----------------------------------------------------------------------
+    # Query phrases
+    # ----------------------------------------------------------------------
+
+    query_phrases = []
+
+    query_phrases.append(
+        topic
+    )
+
+    if subject:
+
+        query_phrases.extend(
+            subject[:3]
+        )
+
+    if phenomenon:
+
+        query_phrases.extend(
+            phenomenon[:3]
+        )
+
+    if subject and phenomenon:
+
+        for s in subject[:2]:
+
+            for p in phenomenon[:2]:
+
+                query_phrases.append(
+                    f"{s} {p}"
+                )
+
+    if subject and phenomenon and condition:
+
+        for s in subject[:2]:
+
+            for p in phenomenon[:2]:
+
+                for c in condition[:2]:
+
+                    query_phrases.append(
+                        f"{s} {p} {c}"
+                    )
+
+    query_phrases = unique_clean(
+        query_phrases
+    )
+
+    # ----------------------------------------------------------------------
+    # All useful terms
+    # ----------------------------------------------------------------------
+
+    topic_terms = sorted(
+        _topic_terms(
+            topic
+        )
+    )
+
+    expanded_terms = sorted(
+        _expanded_topic_terms(
+            topic
+        )
+    )
 
     return {
-        "topic_terms": sorted(
-            set(terms)
+        "topic_terms": topic_terms,
+        "expanded_terms": expanded_terms,
+        "subject": subject,
+        "phenomenon": phenomenon,
+        "condition": condition,
+        "causal_intent": bool(
+            causal_intent
         ),
-        "expanded_terms": sorted(
-            set(expanded)
-        ),
-        "question_phrases": query_phrases,
+        "query_phrases": query_phrases,
         "concept_terms": sorted(
             set(
-                terms
-                + expanded
+                topic_terms
+                + expanded_terms
+                + subject
+                + phenomenon
+                + condition
             )
         ),
+    }
+
+
+# ============================================================================
+# QUESTION CONCEPTS
+# ============================================================================
+
+def _question_concepts(
+    topic
+):
+
+    structure = _question_structure(
+        topic
+    )
+
+    # Backwards-compatible field names.
+    return {
+        "topic_terms": structure[
+            "topic_terms"
+        ],
+        "expanded_terms": structure[
+            "expanded_terms"
+        ],
+        "question_phrases": structure[
+            "query_phrases"
+        ],
+        "concept_terms": structure[
+            "concept_terms"
+        ],
+        "subject": structure[
+            "subject"
+        ],
+        "phenomenon": structure[
+            "phenomenon"
+        ],
+        "condition": structure[
+            "condition"
+        ],
+        "causal_intent": structure[
+            "causal_intent"
+        ],
     }
 
 
@@ -740,11 +1355,16 @@ def build_scholarly_queries(
     """
     Generate several research queries from the actual question.
 
-    No fixed subject vocabulary is used.
+    Query families:
 
-    The important improvement over v9 is that the query set
-    includes several representations of the phenomenon instead
-    of only appending generic words such as "mechanism" or "cause".
+        1. exact natural-language question
+        2. subject
+        3. subject + phenomenon
+        4. subject + phenomenon + condition
+        5. subject + phenomenon + cause
+        6. original concept terms
+
+    No subject-specific vocabulary is hardcoded.
     """
 
     topic = _clean(
@@ -758,83 +1378,111 @@ def build_scholarly_queries(
         topic
     )
 
-    terms = concepts[
+    subject = concepts[
+        "subject"
+    ]
+
+    phenomenon = concepts[
+        "phenomenon"
+    ]
+
+    condition = concepts[
+        "condition"
+    ]
+
+    topic_terms = concepts[
         "topic_terms"
-    ]
-
-    expanded = [
-        term
-        for term in concepts[
-            "expanded_terms"
-        ]
-        if term not in terms
-    ]
-
-    phrases = concepts[
-        "question_phrases"
     ]
 
     queries = []
 
-    # 1. Exact natural-language question.
+    # ----------------------------------------------------------------------
+    # 1. Exact question
+    # ----------------------------------------------------------------------
+
     queries.append(
         topic
     )
 
-    # 2. Main content terms.
-    if terms:
-        queries.append(
-            " ".join(
-                terms[:10]
-            )
-        )
+    # ----------------------------------------------------------------------
+    # 2. Subject
+    # ----------------------------------------------------------------------
 
-    # 3. Main terms + useful morphological variants.
-    if terms and expanded:
+    for value in subject[:2]:
 
         queries.append(
-            " ".join(
-                terms[:7]
-                + expanded[:7]
-            )
+            value
         )
 
-    # 4. Phrase-oriented scholarly search.
-    if phrases:
+    # ----------------------------------------------------------------------
+    # 3. Subject + phenomenon
+    # ----------------------------------------------------------------------
 
-        for phrase in phrases[:3]:
+    for s in subject[:3]:
+
+        for p in phenomenon[:3]:
 
             queries.append(
-                phrase
+                f"{s} {p}"
             )
 
-    # 5. Cause/mechanism search.
-    #
-    # These are generic research operators, not subject rules.
-    if terms:
+    # ----------------------------------------------------------------------
+    # 4. Subject + phenomenon + condition
+    # ----------------------------------------------------------------------
+
+    if condition:
+
+        for s in subject[:2]:
+
+            for p in phenomenon[:2]:
+
+                for c in condition[:2]:
+
+                    queries.append(
+                        f"{s} {p} {c}"
+                    )
+
+    # ----------------------------------------------------------------------
+    # 5. Causal research query
+    # ----------------------------------------------------------------------
+
+    if subject and phenomenon:
 
         queries.append(
             " ".join(
-                terms[:8]
-                + [
+                [
+                    subject[0],
+                    phenomenon[0],
                     "mechanism",
+                ]
+            )
+        )
+
+        queries.append(
+            " ".join(
+                [
+                    subject[0],
+                    phenomenon[0],
                     "cause",
                 ]
             )
         )
 
-    # 6. Effect/process search.
-    if terms:
+    # ----------------------------------------------------------------------
+    # 6. Topic terms
+    # ----------------------------------------------------------------------
+
+    if topic_terms:
 
         queries.append(
             " ".join(
-                terms[:8]
-                + [
-                    "process",
-                    "effect",
-                ]
+                topic_terms[:10]
             )
         )
+
+    # ----------------------------------------------------------------------
+    # Deduplicate
+    # ----------------------------------------------------------------------
 
     final = []
 
@@ -862,14 +1510,155 @@ def build_scholarly_queries(
             query
         )
 
-    return final[:8]
+    return final[:12]
 
 
 # ============================================================================
-# DYNAMIC RELEVANCE
+# CONCEPT COVERAGE
 # ============================================================================
 
-def _relevance_score(
+def _concept_phrase_variants(
+    phrase
+):
+
+    phrase = _clean(
+        phrase
+    ).lower()
+
+    if not phrase:
+        return []
+
+    variants = [
+        phrase
+    ]
+
+    tokens = phrase.split()
+
+    # Simple singular/plural variants.
+    if len(tokens) > 1:
+
+        last = tokens[-1]
+
+        if last.endswith("s"):
+
+            variants.append(
+                " ".join(
+                    tokens[:-1]
+                    + [last[:-1]]
+                )
+            )
+
+        else:
+
+            variants.append(
+                " ".join(
+                    tokens[:-1]
+                    + [last + "s"]
+                )
+            )
+
+    return list(
+        dict.fromkeys(
+            variants
+        )
+    )
+
+
+def _concept_phrase_match(
+    phrase,
+    title,
+    evidence,
+):
+
+    title_clean = (
+        _text_clean_for_matching(
+            title
+        )
+    )
+
+    evidence_clean = (
+        _text_clean_for_matching(
+            evidence
+        )
+    )
+
+    variants = _concept_phrase_variants(
+        phrase
+    )
+
+    title_match = False
+    evidence_match = False
+
+    for variant in variants:
+
+        if _phrase_exists(
+            variant,
+            title_clean,
+        ):
+
+            title_match = True
+
+        if _phrase_exists(
+            variant,
+            evidence_clean,
+        ):
+
+            evidence_match = True
+
+    # ----------------------------------------------------------------------
+    # If the phrase does not occur literally, allow token-level
+    # matching, but require every meaningful token.
+    # ----------------------------------------------------------------------
+
+    if not title_match:
+
+        tokens = [
+            token
+            for token in re.findall(
+                r"[a-z0-9]+",
+                phrase.lower(),
+            )
+            if len(token) >= 3
+        ]
+
+        if len(tokens) >= 2:
+
+            title_match = all(
+                _stem_like_match(
+                    token,
+                    title_clean,
+                )
+                for token in tokens
+            )
+
+    if not evidence_match:
+
+        tokens = [
+            token
+            for token in re.findall(
+                r"[a-z0-9]+",
+                phrase.lower(),
+            )
+            if len(token) >= 3
+        ]
+
+        if len(tokens) >= 2:
+
+            evidence_match = all(
+                _stem_like_match(
+                    token,
+                    evidence_clean,
+                )
+                for token in tokens
+            )
+
+    return (
+        title_match,
+        evidence_match,
+    )
+
+
+def _concept_coverage(
     topic,
     source,
 ):
@@ -892,230 +1681,356 @@ def _relevance_score(
         )
     )
 
-    title_clean = (
-        _text_clean_for_matching(
-            title
-        )
-    )
-
-    evidence_clean = (
-        _text_clean_for_matching(
-            evidence
-        )
-    )
-
     concepts = _question_concepts(
         topic
     )
 
-    terms = set(
+    subject = concepts[
+        "subject"
+    ]
+
+    phenomenon = concepts[
+        "phenomenon"
+    ]
+
+    condition = concepts[
+        "condition"
+    ]
+
+    causal_intent = concepts[
+        "causal_intent"
+    ]
+
+    # ----------------------------------------------------------------------
+    # SUBJECT COVERAGE
+    # ----------------------------------------------------------------------
+
+    subject_title = []
+    subject_evidence = []
+
+    for phrase in subject:
+
+        title_match, evidence_match = (
+            _concept_phrase_match(
+                phrase,
+                title,
+                evidence,
+            )
+        )
+
+        if title_match:
+            subject_title.append(
+                phrase
+            )
+
+        if evidence_match:
+            subject_evidence.append(
+                phrase
+            )
+
+    # ----------------------------------------------------------------------
+    # PHENOMENON COVERAGE
+    # ----------------------------------------------------------------------
+
+    phenomenon_title = []
+    phenomenon_evidence = []
+
+    for phrase in phenomenon:
+
+        title_match, evidence_match = (
+            _concept_phrase_match(
+                phrase,
+                title,
+                evidence,
+            )
+        )
+
+        if title_match:
+            phenomenon_title.append(
+                phrase
+            )
+
+        if evidence_match:
+            phenomenon_evidence.append(
+                phrase
+            )
+
+    # ----------------------------------------------------------------------
+    # CONDITION COVERAGE
+    # ----------------------------------------------------------------------
+
+    condition_title = []
+    condition_evidence = []
+
+    for phrase in condition:
+
+        title_match, evidence_match = (
+            _concept_phrase_match(
+                phrase,
+                title,
+                evidence,
+            )
+        )
+
+        if title_match:
+            condition_title.append(
+                phrase
+            )
+
+        if evidence_match:
+            condition_evidence.append(
+                phrase
+            )
+
+    # ----------------------------------------------------------------------
+    # Generic topic-term coverage
+    # ----------------------------------------------------------------------
+
+    topic_terms = set(
         concepts[
             "topic_terms"
         ]
     )
 
-    expanded = set(
-        concepts[
-            "expanded_terms"
-        ]
+    title_term_matches = _matched_terms(
+        topic_terms,
+        _text_clean_for_matching(
+            title
+        ),
     )
 
-    phrases = concepts[
-        "question_phrases"
-    ]
-
-    title_matches = _matched_terms(
-        terms,
-        title_clean,
+    evidence_term_matches = _matched_terms(
+        topic_terms,
+        _text_clean_for_matching(
+            evidence
+        ),
     )
 
-    evidence_matches = _matched_terms(
-        terms,
-        evidence_clean,
-    )
+    # ----------------------------------------------------------------------
+    # Causal relevance
+    #
+    # We don't require literal words such as "cause".
+    #
+    # Instead, if the question is causal, the source must contain
+    # enough subject + phenomenon evidence to plausibly address
+    # the causal relationship.
+    # ----------------------------------------------------------------------
 
-    expanded_title_matches = _matched_terms(
-        expanded - terms,
-        title_clean,
-    )
+    causal_relevance = False
 
-    expanded_evidence_matches = _matched_terms(
-        expanded - terms,
-        evidence_clean,
-    )
+    if causal_intent:
 
-    phrase_title_matches = []
+        if (
+            subject_evidence
+            and phenomenon_evidence
+        ):
 
-    phrase_evidence_matches = []
+            causal_relevance = True
 
-    for phrase in phrases:
+        elif (
+            subject_title
+            and phenomenon_evidence
+        ):
 
-        phrase_clean = (
-            _text_clean_for_matching(
-                phrase
+            causal_relevance = True
+
+        elif (
+            phenomenon_title
+            and subject_evidence
+        ):
+
+            causal_relevance = True
+
+    else:
+
+        causal_relevance = True
+
+    # ----------------------------------------------------------------------
+    # SUBJECT PASS
+    # ----------------------------------------------------------------------
+
+    if subject:
+
+        subject_pass = bool(
+            subject_evidence
+            or (
+                subject_title
+                and len(
+                    subject_title
+                ) >= 1
             )
         )
 
-        if (
-            phrase_clean
-            and phrase_clean in title_clean
-        ):
-            phrase_title_matches.append(
-                phrase
-            )
+    else:
 
-        if (
-            phrase_clean
-            and phrase_clean in evidence_clean
-        ):
-            phrase_evidence_matches.append(
-                phrase
+        subject_pass = (
+            len(
+                title_term_matches
+                | evidence_term_matches
             )
+            >= 1
+        )
+
+    # ----------------------------------------------------------------------
+    # PHENOMENON PASS
+    # ----------------------------------------------------------------------
+
+    if phenomenon:
+
+        phenomenon_pass = bool(
+            phenomenon_evidence
+            or (
+                phenomenon_title
+                and len(
+                    phenomenon_title
+                ) >= 1
+            )
+        )
+
+    else:
+
+        phenomenon_pass = True
+
+    # ----------------------------------------------------------------------
+    # CONDITION PASS
+    # ----------------------------------------------------------------------
+
+    if condition:
+
+        condition_pass = bool(
+            condition_evidence
+            or condition_title
+        )
+
+    else:
+
+        condition_pass = True
+
+    # ----------------------------------------------------------------------
+    # Condition strictness
+    #
+    # A causal question containing a specific transition such as
+    # "as they slow down" should not be satisfied by a paper that
+    # only discusses the object and sound in a completely different
+    # operating state.
+    # ----------------------------------------------------------------------
+
+    condition_required = (
+        bool(condition)
+        and causal_intent
+        and REQUIRE_CONDITION_FOR_CAUSAL_QUESTIONS
+    )
+
+    # ----------------------------------------------------------------------
+    # Score
+    # ----------------------------------------------------------------------
 
     score = 0
 
-    # Exact/near-exact question language is useful,
-    # but is deliberately not the only signal.
-    score += (
-        len(title_matches)
-        * 7
+    if subject_evidence:
+        score += 5
+
+    elif subject_title:
+        score += 3
+
+    if phenomenon_evidence:
+        score += 5
+
+    elif phenomenon_title:
+        score += 3
+
+    if condition_evidence:
+        score += 4
+
+    elif condition_title:
+        score += 2
+
+    if causal_relevance:
+        score += 3
+
+    score += min(
+        len(title_term_matches),
+        3,
     )
 
-    score += (
-        len(evidence_matches)
-        * 2
+    score += min(
+        len(evidence_term_matches),
+        4,
     )
 
-    score += (
-        len(expanded_title_matches)
-        * 4
-    )
+    # ----------------------------------------------------------------------
+    # Hard requirements
+    # ----------------------------------------------------------------------
 
-    score += (
-        len(expanded_evidence_matches)
-    )
+    overall = True
 
-    score += (
-        len(phrase_title_matches)
-        * 6
-    )
-
-    score += (
-        len(phrase_evidence_matches)
-        * 3
-    )
-
-    normalized_topic = (
-        _normalize_title(
-            topic
-        )
-    )
-
-    normalized_title = (
-        _normalize_title(
-            title
-        )
-    )
+    rejection_reasons = []
 
     if (
-        normalized_topic
-        and normalized_topic
-        in normalized_title
+        REQUIRE_SUBJECT
+        and not subject_pass
     ):
-        score += 20
 
-    # Strong evidence requires more than one signal.
-    matched_total = (
-        title_matches
-        | evidence_matches
-        | expanded_title_matches
-        | expanded_evidence_matches
-    )
+        overall = False
 
-    total_concept_hits = (
-        len(
-            matched_total
+        rejection_reasons.append(
+            "subject_not_covered"
         )
-        + len(
-            phrase_title_matches
-        )
-        + len(
-            phrase_evidence_matches
-        )
-    )
 
-    term_count = len(
-        terms
-    )
+    if (
+        REQUIRE_PHENOMENON
+        and not phenomenon_pass
+    ):
+
+        overall = False
+
+        rejection_reasons.append(
+            "phenomenon_not_covered"
+        )
+
+    if (
+        condition_required
+        and not condition_pass
+    ):
+
+        overall = False
+
+        rejection_reasons.append(
+            "required_condition_not_covered"
+        )
+
+    if (
+        causal_intent
+        and not causal_relevance
+    ):
+
+        overall = False
+
+        rejection_reasons.append(
+            "causal_relationship_not_supported"
+        )
+
+    if score < MIN_CONCEPT_SCORE:
+
+        overall = False
+
+        rejection_reasons.append(
+            "concept_score_below_threshold"
+        )
 
     # ----------------------------------------------------------------------
-    # Relevance classification
+    # Class
     # ----------------------------------------------------------------------
 
-    if term_count >= 5:
+    if overall:
 
-        if (
-            len(title_matches) >= 2
-            and len(evidence_matches) >= 2
-        ):
+        if score >= 18:
 
             relevance_class = "strong"
 
-        elif (
-            len(title_matches) >= 1
-            and total_concept_hits >= 4
-        ):
-
-            relevance_class = "strong"
-
-        elif (
-            len(evidence_matches) >= 2
-            and total_concept_hits >= 4
-        ):
-
-            relevance_class = "strong"
-
-        elif total_concept_hits >= 3:
+        elif score >= MIN_CONCEPT_SCORE:
 
             relevance_class = "moderate"
-
-        else:
-
-            relevance_class = "weak"
-
-    elif term_count >= 3:
-
-        if (
-            (
-                len(title_matches) >= 1
-                and len(evidence_matches) >= 1
-            )
-            or
-            (
-                len(phrase_title_matches) >= 1
-                and len(phrase_evidence_matches) >= 1
-            )
-        ):
-
-            relevance_class = "strong"
-
-        elif total_concept_hits >= 2:
-
-            relevance_class = "moderate"
-
-        else:
-
-            relevance_class = "weak"
-
-    elif term_count >= 1:
-
-        if total_concept_hits >= 2:
-
-            relevance_class = "moderate"
-
-        elif total_concept_hits >= 1:
-
-            relevance_class = "weak"
 
         else:
 
@@ -1125,82 +2040,228 @@ def _relevance_score(
 
         relevance_class = "weak"
 
+    result = {
+        "subject_required": bool(
+            subject
+        ),
+
+        "subject_pass": bool(
+            subject_pass
+        ),
+
+        "subject_title_matches": sorted(
+            subject_title
+        ),
+
+        "subject_evidence_matches": sorted(
+            subject_evidence
+        ),
+
+        "phenomenon_required": bool(
+            phenomenon
+        ),
+
+        "phenomenon_pass": bool(
+            phenomenon_pass
+        ),
+
+        "phenomenon_title_matches": sorted(
+            phenomenon_title
+        ),
+
+        "phenomenon_evidence_matches": sorted(
+            phenomenon_evidence
+        ),
+
+        "condition_required": bool(
+            condition_required
+        ),
+
+        "condition_pass": bool(
+            condition_pass
+        ),
+
+        "condition_title_matches": sorted(
+            condition_title
+        ),
+
+        "condition_evidence_matches": sorted(
+            condition_evidence
+        ),
+
+        "causal_intent": bool(
+            causal_intent
+        ),
+
+        "causal_relevance": bool(
+            causal_relevance
+        ),
+
+        "topic_title_matches": sorted(
+            title_term_matches
+        ),
+
+        "topic_evidence_matches": sorted(
+            evidence_term_matches
+        ),
+
+        "concept_score": score,
+
+        "relevance_score": score,
+
+        "relevance_class": relevance_class,
+
+        "concept_coverage_pass": overall,
+
+        "intent_pass": overall,
+
+        "intent_class": (
+            "causal_concept"
+            if causal_intent
+            else "concept"
+        ),
+
+        "rejection_reasons": rejection_reasons,
+    }
+
+    source[
+        "concept_coverage"
+    ] = result
+
     # ----------------------------------------------------------------------
-    # Topic drift protection
+    # Backwards-compatible fields expected elsewhere in the project.
     # ----------------------------------------------------------------------
 
-    if (
-        term_count >= 4
-        and total_concept_hits < 2
-    ):
-
-        relevance_class = "weak"
-
-    source.update(
-        {
-            "matched_terms": sorted(
-                matched_total
-            ),
-
-            "topic_terms": sorted(
-                terms
-            ),
-
-            "expanded_topic_terms": sorted(
-                expanded
-            ),
-
-            "question_phrases": phrases,
-
-            "title_match_count": len(
-                title_matches
-            ),
-
-            "abstract_match_count": len(
-                evidence_matches
-            ),
-
-            "expanded_title_match_count": len(
-                expanded_title_matches
-            ),
-
-            "expanded_abstract_match_count": len(
-                expanded_evidence_matches
-            ),
-
-            "phrase_title_match_count": len(
-                phrase_title_matches
-            ),
-
-            "phrase_evidence_match_count": len(
-                phrase_evidence_matches
-            ),
-
-            "relevance_class": relevance_class,
-
-            "relevance_score": score,
-
-            "intent_pass": True,
-
-            "intent_class": "dynamic_concept",
-
-            "question_intents": [],
-
-            "intent_score": score,
-
-            "intent_mechanism_matches": sorted(
-                matched_total
-            ),
-
-            "intent_event_matches": [],
-
-            "intent_target_matches": [],
-
-            "intent_negative_matches": [],
-        }
+    source[
+        "matched_terms"
+    ] = sorted(
+        set(
+            title_term_matches
+            | evidence_term_matches
+        )
     )
 
-    return score
+    source[
+        "topic_terms"
+    ] = sorted(
+        topic_terms
+    )
+
+    source[
+        "expanded_topic_terms"
+    ] = concepts[
+        "expanded_terms"
+    ]
+
+    source[
+        "question_phrases"
+    ] = concepts[
+        "question_phrases"
+    ]
+
+    source[
+        "title_match_count"
+    ] = len(
+        title_term_matches
+    )
+
+    source[
+        "abstract_match_count"
+    ] = len(
+        evidence_term_matches
+    )
+
+    source[
+        "expanded_title_match_count"
+    ] = 0
+
+    source[
+        "expanded_abstract_match_count"
+    ] = 0
+
+    source[
+        "phrase_title_match_count"
+    ] = 0
+
+    source[
+        "phrase_evidence_match_count"
+    ] = 0
+
+    source[
+        "relevance_class"
+    ] = relevance_class
+
+    source[
+        "relevance_score"
+    ] = score
+
+    source[
+        "intent_pass"
+    ] = overall
+
+    source[
+        "intent_class"
+    ] = result[
+        "intent_class"
+    ]
+
+    source[
+        "question_intents"
+    ] = (
+        ["cause"]
+        if causal_intent
+        else []
+    )
+
+    source[
+        "intent_score"
+    ] = score
+
+    source[
+        "intent_mechanism_matches"
+    ] = sorted(
+        set(
+            phenomenon_evidence
+            + subject_evidence
+        )
+    )
+
+    source[
+        "intent_event_matches"
+    ] = sorted(
+        condition_evidence
+    )
+
+    source[
+        "intent_target_matches"
+    ] = sorted(
+        subject_evidence
+    )
+
+    source[
+        "intent_negative_matches"
+    ] = []
+
+    return result
+
+
+# ============================================================================
+# RELEVANCE FILTER
+# ============================================================================
+
+def _relevance_score(
+    topic,
+    source,
+):
+
+    result = _concept_coverage(
+        topic,
+        source,
+    )
+
+    return result[
+        "concept_score"
+    ]
 
 
 def relevance_filter(
@@ -1227,14 +2288,47 @@ def relevance_filter(
     )
 
     print(
-        "Concept terms: "
+        "Subject concepts: "
         + (
             ", ".join(
                 concepts[
-                    "concept_terms"
+                    "subject"
                 ]
             )
             or "none"
+        )
+    )
+
+    print(
+        "Phenomenon concepts: "
+        + (
+            ", ".join(
+                concepts[
+                    "phenomenon"
+                ]
+            )
+            or "none"
+        )
+    )
+
+    print(
+        "Condition concepts: "
+        + (
+            ", ".join(
+                concepts[
+                    "condition"
+                ]
+            )
+            or "none"
+        )
+    )
+
+    print(
+        "Causal question: "
+        + str(
+            concepts[
+                "causal_intent"
+            ]
         )
     )
 
@@ -1242,25 +2336,33 @@ def relevance_filter(
 
     for source in sources:
 
-        score = _relevance_score(
+        result = _concept_coverage(
             topic,
             source,
         )
+
+        score = result[
+            "concept_score"
+        ]
 
         title = source.get(
             "title",
             "",
         )
 
-        classification = source.get(
-            "relevance_class",
-            "weak",
-        )
+        classification = result[
+            "relevance_class"
+        ]
 
-        if classification in {
-            "strong",
-            "moderate",
-        }:
+        if (
+            result[
+                "concept_coverage_pass"
+            ]
+            and classification in {
+                "strong",
+                "moderate",
+            }
+        ):
 
             accepted.append(
                 source
@@ -1278,6 +2380,26 @@ def relevance_filter(
                 f"   Class: {classification}"
             )
 
+            print(
+                "   Subject: "
+                f"{result['subject_pass']}"
+            )
+
+            print(
+                "   Phenomenon: "
+                f"{result['phenomenon_pass']}"
+            )
+
+            print(
+                "   Condition: "
+                f"{result['condition_pass']}"
+            )
+
+            print(
+                "   Causal relevance: "
+                f"{result['causal_relevance']}"
+            )
+
         else:
 
             print(
@@ -1286,6 +2408,18 @@ def relevance_filter(
 
             print(
                 f"   Score: {score}"
+            )
+
+            print(
+                "   Reasons: "
+                + (
+                    ", ".join(
+                        result[
+                            "rejection_reasons"
+                        ]
+                    )
+                    or "insufficient concept coverage"
+                )
             )
 
     print(
@@ -2507,11 +3641,13 @@ def deduplicate_sources(
         )
 
         if doi:
+
             by_doi[
                 doi
             ] = source
 
         if title:
+
             by_title[
                 title
             ] = source
@@ -2889,6 +4025,7 @@ def verify_semantic_source(
         if data.get(
             "year"
         ):
+
             source[
                 "year"
             ] = data[
@@ -3128,6 +4265,7 @@ def verify_source_identity(
     ):
 
         if provider not in providers:
+
             providers.append(
                 provider
             )
@@ -3762,8 +4900,20 @@ def limit_sources(
             or []
         )
 
+        concept_score = (
+            source.get(
+                "concept_coverage",
+                {},
+            )
+            or {}
+        ).get(
+            "concept_score",
+            0,
+        )
+
         return (
             relevance_rank,
+            concept_score,
             source.get(
                 "relevance_score",
                 0,
@@ -3780,6 +4930,10 @@ def limit_sources(
         :MAX_EVIDENCE_SOURCES
     ]
 
+
+# ============================================================================
+# SOURCE INDEPENDENCE
+# ============================================================================
 
 def validate_independent_sources(
     sources
@@ -3836,17 +4990,24 @@ def validate_independent_sources(
         "distinct_doi_count": len(
             dois
         ),
+
         "independence_basis": (
             "distinct_normalized_dois"
         ),
+
         "independent_source_count": len(
             dois
         ),
+
         "discovery_provider_families": len(
             provider_families
         ),
     }
 
+
+# ============================================================================
+# SOURCE ID VALIDATION
+# ============================================================================
 
 def validate_source_ids(
     sources
@@ -4002,8 +5163,49 @@ def validate_source_ids(
                 f"https://doi.org/{doi}"
             )
 
+        # ------------------------------------------------------------------
+        # NEW v10.1 HARD CONCEPT CHECK
+        # ------------------------------------------------------------------
+
+        coverage = source.get(
+            "concept_coverage",
+            {},
+        )
+
+        if not isinstance(
+            coverage,
+            dict,
+        ):
+
+            raise RuntimeError(
+                f"RESEARCH FAILED: source "
+                f"'{title}' has no concept coverage."
+            )
+
+        if coverage.get(
+            "concept_coverage_pass"
+        ) is not True:
+
+            raise RuntimeError(
+                f"RESEARCH FAILED: source "
+                f"'{title}' failed concept coverage."
+            )
+
+        if source.get(
+            "intent_pass"
+        ) is not True:
+
+            raise RuntimeError(
+                f"RESEARCH FAILED: source "
+                f"'{title}' failed question relevance."
+            )
+
     return True
 
+
+# ============================================================================
+# FINAL RESEARCH PACKAGE VALIDATION
+# ============================================================================
 
 def validate_research_package(
     package
@@ -4108,6 +5310,20 @@ def validate_research_package(
                 "question relevance."
             )
 
+        coverage = source.get(
+            "concept_coverage",
+            {},
+        )
+
+        if coverage.get(
+            "concept_coverage_pass"
+        ) is not True:
+
+            raise RuntimeError(
+                "RESEARCH FAILED: source failed "
+                "final concept coverage."
+            )
+
     return True
 
 
@@ -4136,7 +5352,7 @@ def _research_failure(
 
 
 # ============================================================================
-# MAIN PIPELINE
+# MAIN RESEARCH PIPELINE
 # ============================================================================
 
 def research_topic(
@@ -4177,26 +5393,57 @@ def research_topic(
         topic
     )
 
+    # ----------------------------------------------------------------------
+    # QUESTION STRUCTURE
+    # ----------------------------------------------------------------------
+
     print("=" * 80)
     print(
-        "🧠 DYNAMIC RESEARCH CONCEPTS"
+        "🧠 QUESTION CONCEPT STRUCTURE"
     )
     print("=" * 80)
 
     print(
-        "Topic terms: "
-        + ", ".join(
-            concepts[
-                "topic_terms"
-            ]
+        "Subject: "
+        + (
+            ", ".join(
+                concepts[
+                    "subject"
+                ]
+            )
+            or "none"
         )
     )
 
     print(
-        "Expanded terms: "
-        + ", ".join(
+        "Phenomenon: "
+        + (
+            ", ".join(
+                concepts[
+                    "phenomenon"
+                ]
+            )
+            or "none"
+        )
+    )
+
+    print(
+        "Condition: "
+        + (
+            ", ".join(
+                concepts[
+                    "condition"
+                ]
+            )
+            or "none"
+        )
+    )
+
+    print(
+        "Causal intent: "
+        + str(
             concepts[
-                "expanded_terms"
+                "causal_intent"
             ]
         )
     )
@@ -4300,14 +5547,14 @@ def research_topic(
         )
 
     # ----------------------------------------------------------------------
-    # FIRST RELEVANCE PASS
+    # FIRST CONCEPT RELEVANCE PASS
     # ----------------------------------------------------------------------
 
     relevant = relevance_filter(
         topic,
         doi_candidates,
         label=(
-            "STRICT QUESTION RELEVANCE FILTER"
+            "STRICT QUESTION CONCEPT COVERAGE FILTER"
         ),
     )
 
@@ -4315,22 +5562,32 @@ def research_topic(
 
         raise RuntimeError(
             "RESEARCH FAILED: no sufficiently "
-            "relevant sources found."
+            "relevant concept-covered sources found."
         )
 
     relevant = sorted(
         relevant,
         key=lambda source: (
             source.get(
+                "concept_coverage",
+                {},
+            ).get(
+                "concept_score",
+                0,
+            ),
+
+            source.get(
                 "relevance_score",
                 0,
             ),
+
             len(
                 source.get(
                     "abstract",
                     "",
                 )
             ),
+
             source.get(
                 "citation_count",
                 0,
@@ -4424,14 +5681,21 @@ def research_topic(
         )
 
     # ----------------------------------------------------------------------
-    # FINAL RELEVANCE PASS
+    # FINAL CONCEPT RELEVANCE PASS
+    #
+    # IMPORTANT:
+    #
+    # This pass happens AFTER the abstract is available.
+    #
+    # Therefore the system can determine whether the actual
+    # evidence text covers the subject / phenomenon / condition.
     # ----------------------------------------------------------------------
 
     evidence_sources = relevance_filter(
         topic,
         evidence_sources,
         label=(
-            "FINAL EVIDENCE RELEVANCE CHECK"
+            "FINAL EVIDENCE CONCEPT COVERAGE CHECK"
         ),
     )
 
@@ -4442,11 +5706,20 @@ def research_topic(
             source.get(
                 "metadata_verified"
             ) is True
+
             and source.get(
                 "evidence_verified"
             ) is True
+
             and source.get(
                 "verified"
+            ) is True
+
+            and source.get(
+                "concept_coverage",
+                {},
+            ).get(
+                "concept_coverage_pass"
             ) is True
         )
     ]
@@ -4456,7 +5729,7 @@ def research_topic(
     )
 
     print(
-        f"Final sources: "
+        f"Final concept-covered sources: "
         f"{len(evidence_sources)}"
     )
 
@@ -4467,8 +5740,13 @@ def research_topic(
 
         raise RuntimeError(
             "RESEARCH FAILED: fewer than two "
-            "evidence-backed relevant sources remained."
+            "evidence-backed concept-relevant "
+            "sources remained."
         )
+
+    # ----------------------------------------------------------------------
+    # INDEPENDENCE
+    # ----------------------------------------------------------------------
 
     diversity = (
         validate_independent_sources(
@@ -4498,6 +5776,7 @@ def research_topic(
         ),
 
         "research_vocabulary": {
+
             "topic_terms": sorted(
                 concepts[
                     "topic_terms"
@@ -4520,20 +5799,47 @@ def research_topic(
                 "question_phrases"
             ],
 
+            "subject": concepts[
+                "subject"
+            ],
+
+            "phenomenon": concepts[
+                "phenomenon"
+            ],
+
+            "condition": concepts[
+                "condition"
+            ],
+
+            "causal_intent": concepts[
+                "causal_intent"
+            ],
+
             "scholarly_queries": scholarly_queries,
 
-            "question_intents": [],
+            "question_intents": (
+                ["cause"]
+                if concepts[
+                    "causal_intent"
+                ]
+                else []
+            ),
 
             "mechanism_terms": [],
 
-            "event_terms": [],
+            "event_terms": concepts[
+                "condition"
+            ],
 
-            "target_terms": [],
+            "target_terms": concepts[
+                "subject"
+            ],
 
             "negative_topic_drift_terms": [],
         },
 
         "verification_policy": {
+
             "minimum_sources": (
                 MIN_ACCEPTED_SOURCES
             ),
@@ -4613,6 +5919,38 @@ def research_topic(
             "concept_aware_query_generation": True,
 
             "surface_word_overlap_is_not_sole_signal": True,
+
+            # --------------------------------------------------------------
+            # v10.1
+            # --------------------------------------------------------------
+
+            "question_concept_structure": True,
+
+            "subject_concept_required": (
+                REQUIRE_SUBJECT
+            ),
+
+            "phenomenon_concept_required": (
+                REQUIRE_PHENOMENON
+            ),
+
+            "condition_concept_required_for_causal_questions": (
+                REQUIRE_CONDITION_FOR_CAUSAL_QUESTIONS
+            ),
+
+            "concept_coverage_required": True,
+
+            "minimum_concept_score": (
+                MIN_CONCEPT_SCORE
+            ),
+
+            "final_evidence_concept_recheck": True,
+
+            "causal_concept_validation": True,
+
+            "phrase_level_matching": True,
+
+            "multiword_concepts_are_atomic": True,
         },
 
         "source_count": len(
@@ -4628,9 +5966,17 @@ def research_topic(
         "sources": evidence_sources,
     }
 
+    # ----------------------------------------------------------------------
+    # FINAL PACKAGE VALIDATION
+    # ----------------------------------------------------------------------
+
     validate_research_package(
         package
     )
+
+    # ----------------------------------------------------------------------
+    # LOG
+    # ----------------------------------------------------------------------
 
     print("=" * 80)
 
@@ -4644,6 +5990,11 @@ def research_topic(
         evidence_sources,
         start=1,
     ):
+
+        coverage = source.get(
+            "concept_coverage",
+            {},
+        )
 
         print(
             f"{index}. "
@@ -4664,6 +6015,31 @@ def research_topic(
             "   Relevance: "
             f"{source.get('relevance_class', '')} "
             f"({source.get('relevance_score', 0)})"
+        )
+
+        print(
+            "   Concept score: "
+            f"{coverage.get('concept_score', 0)}"
+        )
+
+        print(
+            "   Subject: "
+            f"{coverage.get('subject_pass', False)}"
+        )
+
+        print(
+            "   Phenomenon: "
+            f"{coverage.get('phenomenon_pass', False)}"
+        )
+
+        print(
+            "   Condition: "
+            f"{coverage.get('condition_pass', False)}"
+        )
+
+        print(
+            "   Causal relevance: "
+            f"{coverage.get('causal_relevance', False)}"
         )
 
         print(

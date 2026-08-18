@@ -1,9 +1,55 @@
+# ============================================================================
+# Mint-YT-Factory
+# config.yaml
+#
+# Wonder Minute
+#
+# RESEARCH-FIRST
+# STORY-FIRST
+# AI-VISUAL-FIRST
+# FULLY AUTOMATED YOUTUBE SHORTS
+# PUBLIC AUTO-PUBLISHING
+# ============================================================================
+
+
+# ============================================================================
+# CHANNEL
+# ============================================================================
+
 channel:
-  niche: "Educational"
-  tone: "Curious, engaging, educational, cinematic"
+
+  name: "Wonder Minute"
+
+  niche: "Educational Science Storytelling"
+
+  tone:
+    - curious
+    - engaging
+    - intelligent
+    - cinematic
+    - emotionally intriguing
+
   audience: "Global"
 
+  language: "English"
+
+  reading_level: "Grade 6-8"
+
+  content_goal:
+    - stop the scroll
+    - create curiosity
+    - explain one idea clearly
+    - create a memorable visual moment
+    - deliver a satisfying payoff
+    - encourage viewers to return
+
+
+# ============================================================================
+# CONTENT
+# ============================================================================
+
 content:
+
   pillars:
     - Human Body
     - Psychology
@@ -14,60 +60,583 @@ content:
     - History
     - Animals
 
+  format:
+
+    type: "single_story"
+
+    one_topic_per_video: true
+
+    one_connected_story: true
+
+    no_lists: true
+
+    no_countdowns: true
+
+    no_top_5: true
+
+    no_generic_facts: true
+
+    no_unrelated_facts: true
+
+
+# ============================================================================
+# RESEARCH
+# ============================================================================
+
+research:
+
+  enabled: true
+
+  required: true
+
+  authoritative: true
+
+  minimum_verified_sources: 2
+
+  require_evidence_text: true
+
+  require_verified_sources: true
+
+  require_source_ids: true
+
+  require_doi: true
+
+  require_url: true
+
+  allow_model_general_knowledge: false
+
+  allow_outside_facts: false
+
+  allow_invented_statistics: false
+
+  allow_invented_mechanisms: false
+
+  allow_invented_study_details: false
+
+  allow_invented_citations: false
+
+
+# ============================================================================
+# SCIENTIFIC SAFETY
+# ============================================================================
+
+scientific_safety:
+
+  enabled: true
+
+  preserve_evidence_strength: true
+
+  association_is_not_causation: true
+
+  correlation_is_not_causation: true
+
+  possibility_is_not_certainty: true
+
+  hypothesis_is_not_fact: true
+
+  observation_is_not_universal_rule: true
+
+  prohibited_overclaims:
+
+    - proves
+    - proven
+    - proof
+    - scientifically proven
+    - definitively
+    - definitive proof
+    - confirms
+    - confirmed
+    - causes
+    - caused
+    - causing
+    - results in
+    - resulting in
+    - guarantees
+    - guaranteed
+    - essential
+    - must
+    - definitely
+    - certainly
+    - always
+    - never
+    - completely
+    - perfectly
+    - without doubt
+    - no doubt
+
+  preferred_uncertainty_language:
+
+    - may
+    - might
+    - appears to
+    - suggests
+    - indicates
+    - is associated with
+    - researchers observed
+
+
+# ============================================================================
+# SCRIPT
+# ============================================================================
+
 script:
+
   language: "English"
+
   target_narration_seconds: 45
-  reading_level: "Grade 6"
-  style: "Question → Explanation → Example → Mind-Blowing Fact"
+
+  target_duration_seconds: 45
+
+  minimum_duration_seconds: 35
+
+  maximum_duration_seconds: 45
+
+  reading_level: "Grade 6-8"
+
   scenes: 7
 
+  visuals_per_scene: 2
+
+  total_visuals: 14
+
+
+  # --------------------------------------------------------------------------
+  # STORY STRUCTURE
+  # --------------------------------------------------------------------------
+
+  structure:
+
+    scene_1:
+      name: "Hook"
+      duration: 3
+      purpose: "Immediate curiosity"
+      must_start_immediately: true
+      start_with_question: false
+
+    scene_2:
+      name: "Curiosity Gap"
+      duration: 5
+      purpose: "Reveal the mystery or contradiction"
+
+    scene_3:
+      name: "Explanation"
+      duration: 7
+      purpose: "Explain the verified mechanism simply"
+
+    scene_4:
+      name: "Example"
+      duration: 7
+      purpose: "Make the mechanism concrete and visual"
+
+    scene_5:
+      name: "Reframe"
+      duration: 8
+      purpose: "Change how the viewer understands what happened"
+
+    scene_6:
+      name: "Escalation"
+      duration: 8
+      purpose: "Reveal the strongest remaining verified consequence"
+
+    scene_7:
+      name: "Payoff"
+      duration: 7
+      purpose: "Finish the current story"
+
+
+  # --------------------------------------------------------------------------
+  # STORY RULES
+  # --------------------------------------------------------------------------
+
+  rules:
+
+    one_connected_story: true
+
+    start_with_question: false
+
+    start_with_generic_intro: false
+
+    use_did_you_know: false
+
+    use_in_this_video: false
+
+    use_today_we_are_going_to: false
+
+    use_lists: false
+
+    use_countdowns: false
+
+    use_top_5: false
+
+    use_unrelated_facts: false
+
+    repeat_ideas: false
+
+    lecture_style: false
+
+    textbook_style: false
+
+    ai_assistant_style: false
+
+
+  # --------------------------------------------------------------------------
+  # ENDING
+  # --------------------------------------------------------------------------
+
+  ending:
+
+    scene_7_must_resolve_current_story: true
+
+    satisfying_payoff: true
+
+    open_broader_curiosity: true
+
+    mention_next_video: false
+
+    mention_next_short: false
+
+    say_coming_next: false
+
+    say_in_the_next_video: false
+
+    say_stay_tuned: false
+
+    subscription_cta_in_narration: false
+
+
+# ============================================================================
+# NEXT SHORT
+# ============================================================================
+
+next_short:
+
+  enabled: true
+
+  generate_researchable_topic: true
+
+  spoken_in_current_video: false
+
+  reveal_in_current_description: false
+
+  must_follow_current_story: true
+
+  maximum_topic_characters: 300
+
+  avoid_vague_topics: true
+
+
+# ============================================================================
+# VOICE
+# ============================================================================
+
 voice:
+
   provider: "tiktok"
+
   voice_name: "en_us_010"
+
   speed: 1.0
 
+  tone: "curious, confident, cinematic storyteller"
+
+  target_delivery:
+
+    energetic_hook: true
+
+    natural_pacing: true
+
+    conversational: true
+
+    dramatic_pauses: true
+
+    avoid_robotic_delivery: true
+
+    avoid_newsreader_delivery: true
+
+
+# ============================================================================
+# VISUAL GENERATION
+# ============================================================================
+
 visuals:
+
   provider: "pollinations"
-  style: "educational"
+
+  model: "flux"
+
+  style: "cinematic educational realism"
+
   orientation: "portrait"
 
-image:
-  provider: "pollinations"
-  model: "flux"
   width: 1080
+
   height: 1920
+
   enhance: false
+
   nologo: true
 
+  images_per_scene: 2
+
+  total_images: 14
+
+
+  # --------------------------------------------------------------------------
+  # VISUAL STORYTELLING
+  # --------------------------------------------------------------------------
+
+  rules:
+
+    visuals_must_advance_story: true
+
+    visuals_must_support_narration: true
+
+    visuals_should_work_without_audio: true
+
+    no_random_stock_visuals: true
+
+    no_generic_backgrounds: true
+
+    no_duplicate_visuals_within_scene: true
+
+    visual_1_establishes: true
+
+    visual_2_advances_story: true
+
+
+  # --------------------------------------------------------------------------
+  # CONTINUITY
+  # --------------------------------------------------------------------------
+
+  continuity:
+
+    enabled: true
+
+    preserve_recurring_subjects: true
+
+    preserve_recurring_objects: true
+
+    preserve_environment: true
+
+    preserve_colors: true
+
+    preserve_character_appearance: true
+
+    preserve_scale_when_required: true
+
+    preserve_design_when_required: true
+
+
+# ============================================================================
+# IMAGE GENERATION
+# ============================================================================
+
+image:
+
+  provider: "pollinations"
+
+  model: "flux"
+
+  width: 1080
+
+  height: 1920
+
+  orientation: "portrait"
+
+  enhance: false
+
+  nologo: true
+
+  images_per_scene: 2
+
+  total_images: 14
+
+  generation_mode: "storyboard_driven"
+
+  use_visual_continuity: true
+
+  use_style_lock: true
+
+
+# ============================================================================
+# VIDEO
+# ============================================================================
+
 video:
-  resolution: [1080, 1920]
+
+  resolution:
+    - 1080
+    - 1920
+
+  orientation: "portrait"
+
   fps: 30
 
-  transitions: true
-  zoom: true
-  pan: true
-  motion_strength: 0.30
+  target_duration_seconds: 45
 
-  background_music: "assets/music/background.mp3"
+
+  # --------------------------------------------------------------------------
+  # MOTION
+  # --------------------------------------------------------------------------
+
+  motion:
+
+    enabled: true
+
+    storyboard_controlled: true
+
+    allow_zoom: true
+
+    allow_pan: true
+
+    allow_parallax: true
+
+    allow_rotate: true
+
+    allow_hold: true
+
+    default_intensity: "medium"
+
+
+  # --------------------------------------------------------------------------
+  # CAMERA
+  # --------------------------------------------------------------------------
+
+  camera:
+
+    storyboard_controlled: true
+
+    default: "medium"
+
+
+  # --------------------------------------------------------------------------
+  # TRANSITIONS
+  # --------------------------------------------------------------------------
+
+  transitions:
+
+    enabled: true
+
+    storyboard_controlled: true
+
+    default: "hard_cut"
+
+    allow_crossfade: true
+
+    allow_dissolve: true
+
+    allow_whip_pan: true
+
+
+  # --------------------------------------------------------------------------
+  # MUSIC
+  # --------------------------------------------------------------------------
+
+  background_music:
+
+    enabled: true
+
+    path: "assets/music/background.mp3"
+
+    volume: 0.08
+
+    storyboard_cues: true
+
+
+  # --------------------------------------------------------------------------
+  # SFX
+  # --------------------------------------------------------------------------
+
+  sound_effects:
+
+    enabled: true
+
+    volume: 0.55
+
+    storyboard_cues: true
+
+
+  # --------------------------------------------------------------------------
+  # COMPATIBILITY WITH assemble.py
+  # --------------------------------------------------------------------------
+
   music_volume: 0.08
+
   sfx_volume: 0.55
 
-  captions:
-    enabled: true
-    font_size: 72
-    highlight: true
 
-upload:
-  auto_upload: true
-  privacy_status: "public"
-  category_id: "27"
+# ============================================================================
+# CAPTIONS
+# ============================================================================
+
+captions:
+
+  enabled: true
+
+  source: "narration"
+
+  narration_is_source_of_truth: true
+
+  word_by_word: true
+
+  scene_aware: true
+
+  highlight: true
+
+  maximum_words_per_caption: 1
+
+  font_size: 72
+
+  font:
+
+    family: "Poppins ExtraBold"
+
+    path: "assets/fonts/Poppins-ExtraBold.ttf"
+
+  color: "white"
+
+  highlight_color: "#FFD54A"
+
+  stroke_color: "#111111"
+
+  stroke_width: 2
+
+  shadow: true
+
+  shadow_opacity: 0.65
+
+  vertical_position: 0.64
+
+
+# ============================================================================
+# BRANDING
+# ============================================================================
 
 branding:
+
   channel_name: "Wonder Minute"
+
   ending_text: "Follow for more."
 
+  ending_text_enabled: true
+
+  ending_text_in_narration: false
+
+  ending_text_in_scene_7: false
+
+  overlay_branding: false
+
+  watermark: false
+
+
+# ============================================================================
+# SEO
+# ============================================================================
+
 seo:
+
   hashtags:
+
     - shorts
     - science
     - education
@@ -75,3 +644,195 @@ seo:
     - learn
     - curiosity
     - knowledge
+
+  max_tags: 12
+
+  title:
+
+    maximum_characters: 70
+
+    avoid_clickbait: true
+
+    curiosity_driven: true
+
+    factual: true
+
+
+  description:
+
+    maximum_characters: 2000
+
+    describe_current_video_only: true
+
+    reveal_next_short: false
+
+
+# ============================================================================
+# RETENTION
+# ============================================================================
+
+retention:
+
+  enabled: true
+
+  prioritize_first_3_seconds: true
+
+  hook_must_create_curiosity: true
+
+  no_generic_opening: true
+
+  curiosity_gap: true
+
+  escalation: true
+
+  reframe: true
+
+  payoff: true
+
+  avoid_repetition: true
+
+  every_scene_must_advance_story: true
+
+
+# ============================================================================
+# VALIDATION
+# ============================================================================
+
+validation:
+
+  enabled: true
+
+  before_generation:
+
+    research_verified: true
+
+    minimum_sources: 2
+
+
+  script:
+
+    scene_count: 7
+
+    duration_seconds: 45
+
+    visuals_per_scene: 2
+
+    total_visuals: 14
+
+    captions_match_narration: true
+
+    source_ids_valid: true
+
+    every_factual_scene_cited: true
+
+    scene_7_resolves_story: true
+
+    next_short_not_spoken: true
+
+
+  visuals:
+
+    exactly_14_images: true
+
+    exactly_2_per_scene: true
+
+    all_files_exist: true
+
+    no_missing_images: true
+
+
+  scientific:
+
+    claim_strength_guard: true
+
+    association_causation_guard: true
+
+    uncertainty_guard: true
+
+
+# ============================================================================
+# PUBLIC YOUTUBE PUBLISHING
+# ============================================================================
+
+upload:
+
+  auto_upload: true
+
+  privacy_status: "public"
+
+  category_id: "27"
+
+  publish_only_after_validation: true
+
+  require_render_success: true
+
+  require_visual_validation: true
+
+  require_research_validation: true
+
+  require_script_validation: true
+
+  never_publish_failed_video: true
+
+  never_publish_partial_video: true
+
+
+# ============================================================================
+# PIPELINE
+# ============================================================================
+
+pipeline:
+
+  research_first: true
+
+  script_after_research: true
+
+  visuals_after_script: true
+
+  narration_after_script: true
+
+  assembly_after_visuals: true
+
+  validation_before_upload: true
+
+  upload_after_validation: true
+
+
+  stages:
+
+    - research
+    - script
+    - visual_generation
+    - narration
+    - assembly
+    - validation
+    - upload
+
+
+# ============================================================================
+# PRODUCTION SAFETY
+# ============================================================================
+
+production:
+
+  fail_if_research_not_verified: true
+
+  fail_if_sources_missing: true
+
+  fail_if_visuals_missing: true
+
+  fail_if_scene_count_wrong: true
+
+  fail_if_visual_count_wrong: true
+
+  fail_if_caption_sync_fails: true
+
+  fail_if_claim_safety_fails: true
+
+  fail_if_storyboard_invalid: true
+
+  fail_if_next_short_leaks: true
+
+  fail_if_render_fails: true
+
+  never_publish_partial_video: true

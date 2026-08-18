@@ -2,7 +2,7 @@
 main.py
 Mint-YT-Factory
 
-Version 10.3
+Version 10.4
 
 Research-first production pipeline.
 
@@ -66,6 +66,15 @@ A small Research & Further Reading section is included for
 credibility and transparency.
 
 Maximum research sources shown publicly: 3.
+
+PUBLIC RESEARCH REFERENCES:
+
+For every included research source, when available, both are shown:
+
+- DOI
+- Source URL
+
+The DOI and URL come directly from the verified research package.
 """
 
 
@@ -304,9 +313,6 @@ def build_research_section(
     """
     Build a concise public research section.
 
-    This is intentionally different from the internal research
-    verification artifact.
-
     Public description contains:
 
     - paper title
@@ -314,6 +320,10 @@ def build_research_section(
     - journal / venue
     - year
     - DOI
+    - SOURCE URL
+
+    The DOI and URL are taken directly from the verified
+    research_sources stored in the script.
 
     It does NOT expose:
 
@@ -361,6 +371,10 @@ def build_research_section(
 
             continue
 
+        # ------------------------------------------------------------------
+        # Only verified sources can appear publicly.
+        # ------------------------------------------------------------------
+
         if source.get(
             "verified"
         ) is not True:
@@ -369,6 +383,10 @@ def build_research_section(
                 "Cannot publish: "
                 "an included research source is not verified."
             )
+
+        # ------------------------------------------------------------------
+        # SOURCE METADATA
+        # ------------------------------------------------------------------
 
         title = str(
             source.get(
@@ -403,6 +421,15 @@ def build_research_section(
             )
         ).strip()
 
+        # ------------------------------------------------------------------
+        # IMPORTANT:
+        #
+        # URL is already preserved by generate_script.py from the
+        # authoritative research package.
+        #
+        # We now explicitly publish it alongside the DOI.
+        # ------------------------------------------------------------------
+
         url = str(
             source.get(
                 "url",
@@ -428,13 +455,34 @@ def build_research_section(
 
             line += f" ({year})"
 
+        # ------------------------------------------------------------------
+        # DOI
+        # ------------------------------------------------------------------
+
         if doi:
 
             line += f"\nDOI: {doi}"
 
-        elif url:
+        # ------------------------------------------------------------------
+        # SOURCE URL
+        #
+        # This is intentionally independent of DOI.
+        #
+        # Therefore:
+        #
+        # DOI exists + URL exists
+        #     → both are shown
+        #
+        # DOI exists + URL missing
+        #     → DOI is shown
+        #
+        # DOI missing + URL exists
+        #     → URL is shown
+        # ------------------------------------------------------------------
 
-            line += f"\n{url}"
+        if url:
+
+            line += f"\nSource: {url}"
 
         lines.append(
             line
@@ -473,6 +521,9 @@ def build_title_description(
     included.
 
     A concise research section is included for credibility.
+
+    Each public research reference includes both DOI and Source URL
+    whenever those fields are available.
     """
 
     title = str(
@@ -1503,6 +1554,14 @@ def run(
 
     print(
         "Research references: INCLUDED"
+    )
+
+    print(
+        "DOI: INCLUDED WHEN AVAILABLE"
+    )
+
+    print(
+        "Source URL: INCLUDED WHEN AVAILABLE"
     )
 
     print(

@@ -1,19 +1,20 @@
 """
 research.py
 Mint-YT-Factory
-Version 6.1
+Version 7.0
 
-Research-first scientific evidence layer.
+Hardened research/evidence layer.
 
-Key fixes over v6.0:
-- Expanded concept groups for natural-language science topics.
-- Provider-aware verification order.
-- Semantic Scholar 429 circuit breaker.
+Guarantees:
+- DOI is the authoritative paper identity key.
+- At least two distinct DOI-backed papers are required.
+- Identity verification never substitutes an expected DOI for a missing one.
+- Abstract evidence is mandatory.
+- Crossref/OpenAlex/Semantic Scholar are used as independent providers.
+- Semantic Scholar 429s trip a per-run circuit breaker.
 - Evidence enrichment continues across providers.
-- Crossref/OpenAlex are not blocked by Semantic Scholar failure.
-- DOI remains the authoritative paper-level independence key.
-- Abstract evidence is still mandatory.
-- Minimum 2 distinct DOI-backed sources is still mandatory.
+- Relevance is checked before and after verification/enrichment.
+- Final source IDs are deterministic: sha256(normalized_doi)[:12].
 """
 
 import hashlib
@@ -31,11 +32,15 @@ import requests
 # CONFIG
 # ==========================================================================
 
-VERSION = "6.1"
+VERSION = "7.0"
 
 CROSSREF_URL = "https://api.crossref.org/v1/works"
-SEMANTIC_SCHOLAR_URL = "https://api.semanticscholar.org/graph/v1/paper/search"
-SEMANTIC_PAPER_URL = "https://api.semanticscholar.org/graph/v1/paper"
+SEMANTIC_SEARCH_URL = (
+    "https://api.semanticscholar.org/graph/v1/paper/search"
+)
+SEMANTIC_PAPER_URL = (
+    "https://api.semanticscholar.org/graph/v1/paper"
+)
 OPENALEX_URL = "https://api.openalex.org/works"
 
 TIMEOUT = 30
@@ -44,23 +49,23 @@ MAX_CROSSREF_RESULTS = 15
 MAX_SEMANTIC_RESULTS = 10
 MAX_OPENALEX_RESULTS = 12
 
-MIN_ACCEPTED_SOURCES = 2
+MAX_VERIFICATION_CANDIDATES = 12
 MAX_EVIDENCE_SOURCES = 5
+
+MIN_ACCEPTED_SOURCES = 2
 
 MIN_ABSTRACT_CHARACTERS = 120
 MAX_EVIDENCE_TEXT_CHARACTERS = 12000
 
+TITLE_SIMILARITY_MINIMUM = 0.55
+
 SEMANTIC_RETRIES = 0
 SEMANTIC_BACKOFF_SECONDS = 4
 
-TITLE_SIMILARITY_MINIMUM = 0.55
-MAX_VERIFICATION_CANDIDATES = 12
-
-SEMANTIC_RATE_LIMITED = False
-
-EVIDENCE_QUALITY_HIGH = "high"
 EVIDENCE_QUALITY_MODERATE = "moderate"
 EVIDENCE_QUALITY_NONE = "none"
+
+SEMANTIC_RATE_LIMITED = False
 
 USER_AGENT = (
     f"Mint-YT-Factory/{VERSION} "
@@ -68,6 +73,7 @@ USER_AGENT = (
 )
 
 SESSION = requests.Session()
+
 SESSION.headers.update(
     {
         "User-Agent": USER_AGENT,
@@ -80,18 +86,30 @@ SESSION.headers.update(
 # HTTP
 # ==========================================================================
 
-def _get(url, params=None, retries=1, backoff=2, provider=None):
+def _get(
+    url,
+    params=None,
+    retries=1,
+    backoff=2,
+    provider=None,
+):
     global SEMANTIC_RATE_LIMITED
 
-    if provider == "Semantic Scholar" and SEMANTIC_RATE_LIMITED:
+    if (
+        provider == "Semantic Scholar"
+        and SEMANTIC_RATE_LIMITED
+    ):
         raise RuntimeError(
-            "Semantic Scholar skipped: rate limited earlier in this run."
+            "Semantic Scholar skipped: "
+            "rate limited earlier in this run."
         )
 
     last_error = None
 
     for attempt in range(retries + 1):
+
         try:
+
             response = SESSION.get(
                 url,
                 params=params,
@@ -99,64 +117,108 @@ def _get(url, params=None, retries=1, backoff=2, provider=None):
             )
 
             if response.status_code == 429:
-                retry_after = response.headers.get("Retry-After")
+
+                retry_after = response.headers.get(
+                    "Retry-After"
+                )
 
                 if provider == "Semantic Scholar":
+
                     SEMANTIC_RATE_LIMITED = True
+
                     raise RuntimeError(
-                        "Semantic Scholar HTTP 429 rate limit exceeded."
+                        "Semantic Scholar HTTP 429 "
+                        "rate limit exceeded."
                     )
 
                 if retry_after:
+
                     try:
-                        delay = float(retry_after)
+                        delay = float(
+                            retry_after
+                        )
                     except Exception:
-                        delay = backoff * (attempt + 1)
+                        delay = (
+                            backoff
+                            * (attempt + 1)
+                        )
+
                 else:
-                    delay = backoff * (attempt + 1)
+
+                    delay = (
+                        backoff
+                        * (attempt + 1)
+                    )
 
                 if attempt < retries:
+
                     print(
-                        f"⚠️ HTTP 429. Retrying in {delay:.1f}s..."
+                        f"⚠️ HTTP 429. "
+                        f"Retrying in {delay:.1f}s..."
                     )
+
                     time.sleep(delay)
                     continue
 
-                raise RuntimeError("HTTP 429 rate limit exceeded.")
+                raise RuntimeError(
+                    "HTTP 429 rate limit exceeded."
+                )
 
-            if response.status_code >= 500 and attempt < retries:
-                delay = backoff * (attempt + 1)
+            if (
+                response.status_code >= 500
+                and attempt < retries
+            ):
+
+                delay = (
+                    backoff
+                    * (attempt + 1)
+                )
+
                 print(
-                    f"⚠️ HTTP {response.status_code}. "
+                    f"⚠️ HTTP "
+                    f"{response.status_code}. "
                     f"Retrying in {delay:.1f}s..."
                 )
+
                 time.sleep(delay)
                 continue
 
             response.raise_for_status()
+
             return response.json()
 
         except Exception as error:
+
             last_error = error
 
             if (
                 provider == "Semantic Scholar"
                 and "429" in str(error)
             ):
+
                 SEMANTIC_RATE_LIMITED = True
                 raise
 
             if attempt < retries:
-                delay = backoff * (attempt + 1)
-                print(
-                    f"⚠️ Request failed. Retrying in {delay:.1f}s..."
+
+                delay = (
+                    backoff
+                    * (attempt + 1)
                 )
+
+                print(
+                    f"⚠️ Request failed. "
+                    f"Retrying in {delay:.1f}s..."
+                )
+
                 time.sleep(delay)
                 continue
 
             raise last_error
 
-    raise RuntimeError("HTTP request failed.")
+    raise RuntimeError(
+        "HTTP request failed."
+    )
 
 
 # ==========================================================================
@@ -164,22 +226,39 @@ def _get(url, params=None, retries=1, backoff=2, provider=None):
 # ==========================================================================
 
 def _clean(text):
+
     if text is None:
         return ""
-    return re.sub(r"\s+", " ", str(text)).strip()
+
+    return re.sub(
+        r"\s+",
+        " ",
+        str(text),
+    ).strip()
 
 
 def _clean_abstract(text):
+
     text = _clean(text)
 
     if not text:
         return ""
 
-    text = re.sub(r"<[^>]+>", " ", text)
-    return re.sub(r"\s+", " ", text).strip()
+    text = re.sub(
+        r"<[^>]+>",
+        " ",
+        text,
+    )
+
+    return re.sub(
+        r"\s+",
+        " ",
+        text,
+    ).strip()
 
 
 def _normalize_doi(doi):
+
     doi = _clean(doi)
 
     if not doi:
@@ -206,15 +285,20 @@ def _normalize_doi(doi):
         flags=re.IGNORECASE,
     )
 
-    return doi.strip().rstrip(".,;:)").lower()
+    return doi.strip().rstrip(
+        ".,;:)"
+    ).lower()
 
 
 def _generate_source_id(doi):
+
     doi = _normalize_doi(doi)
 
     if not doi:
+
         raise RuntimeError(
-            "Cannot generate source_id without a DOI."
+            "Cannot generate source_id "
+            "without a DOI."
         )
 
     digest = hashlib.sha256(
@@ -225,12 +309,22 @@ def _generate_source_id(doi):
 
 
 def _normalize_title(title):
+
     title = _clean(title).lower()
-    title = re.sub(r"[^a-z0-9\s]", "", title)
-    return " ".join(title.split())
+
+    title = re.sub(
+        r"[^a-z0-9\s]",
+        "",
+        title,
+    )
+
+    return " ".join(
+        title.split()
+    )
 
 
 def _title_tokens(title):
+
     return {
         token
         for token in re.findall(
@@ -241,14 +335,22 @@ def _title_tokens(title):
     }
 
 
-def _title_similarity(title_a, title_b):
+def _title_similarity(
+    title_a,
+    title_b,
+):
+
     a = _title_tokens(title_a)
     b = _title_tokens(title_b)
 
     if not a or not b:
         return 0.0
 
-    return len(a & b) / len(a | b)
+    return len(
+        a & b
+    ) / len(
+        a | b
+    )
 
 
 # ==========================================================================
@@ -256,148 +358,403 @@ def _title_similarity(title_a, title_b):
 # ==========================================================================
 
 STOPWORDS = {
-    "how", "do", "does", "did", "can", "could", "would", "should",
-    "the", "a", "an", "and", "or", "to", "of", "in", "on", "for",
-    "with", "from", "why", "what", "is", "are", "be", "their",
-    "they", "them", "these", "those", "this", "that", "about",
-    "into", "through", "will", "your", "our", "its", "it", "as",
-    "by", "at", "over", "under", "than", "then", "when", "where",
-    "which", "who", "during", "using", "long", "way", "ways",
-    "happen", "happens", "really", "not", "doesnt", "don't",
+    "how",
+    "do",
+    "does",
+    "did",
+    "can",
+    "could",
+    "would",
+    "should",
+    "the",
+    "a",
+    "an",
+    "and",
+    "or",
+    "to",
+    "of",
+    "in",
+    "on",
+    "for",
+    "with",
+    "from",
+    "why",
+    "what",
+    "is",
+    "are",
+    "be",
+    "their",
+    "they",
+    "them",
+    "these",
+    "those",
+    "this",
+    "that",
+    "about",
+    "into",
+    "through",
+    "will",
+    "your",
+    "our",
+    "its",
+    "it",
+    "as",
+    "by",
+    "at",
+    "over",
+    "under",
+    "than",
+    "then",
+    "when",
+    "where",
+    "which",
+    "who",
+    "during",
+    "using",
+    "long",
+    "way",
+    "ways",
+    "happen",
+    "happens",
+    "really",
+    "not",
+    "doesnt",
+    "don't",
 }
+
 
 CONCEPT_GROUPS = {
+
     "trees": {
-        "tree", "trees", "woody", "wood", "forest", "forests",
-        "woodland", "woodlands", "canopy", "canopies",
+        "tree",
+        "trees",
+        "woody",
+        "wood",
+        "forest",
+        "forests",
+        "woodland",
+        "woodlands",
+        "canopy",
+        "canopies",
     },
+
     "plants": {
-        "plant", "plants", "vegetation", "seedling", "seedlings",
-        "botanical", "botany", "flora",
+        "plant",
+        "plants",
+        "vegetation",
+        "seedling",
+        "seedlings",
+        "botanical",
+        "botany",
+        "flora",
     },
+
     "communication": {
-        "communicate", "communicates", "communicated",
-        "communicating", "communication", "communications",
-        "signal", "signals", "signaling", "signalling",
-        "chemical", "chemicals", "cue", "cues",
+        "communicate",
+        "communicates",
+        "communicated",
+        "communicating",
+        "communication",
+        "communications",
+        "signal",
+        "signals",
+        "signaling",
+        "signalling",
+        "chemical",
+        "chemicals",
+        "cue",
+        "cues",
     },
+
     "mycorrhiza": {
-        "mycorrhiza", "mycorrhizae", "mycorrhizal",
-        "fungus", "fungi", "fungal", "symbiosis", "symbiotic",
+        "mycorrhiza",
+        "mycorrhizae",
+        "mycorrhizal",
+        "fungus",
+        "fungi",
+        "fungal",
+        "symbiosis",
+        "symbiotic",
     },
+
     "fungal_network": {
-        "fungal", "fungus", "fungi", "hyphae", "hyphal",
-        "mycelium", "mycelial", "network", "networks",
+        "fungal",
+        "fungus",
+        "fungi",
+        "hyphae",
+        "hyphal",
+        "mycelium",
+        "mycelial",
+        "network",
+        "networks",
     },
+
     "underground": {
-        "underground", "belowground", "subterranean",
-        "soil", "soils", "rhizosphere",
+        "underground",
+        "belowground",
+        "subterranean",
+        "soil",
+        "soils",
+        "rhizosphere",
     },
+
     "wood_wide_web": {
-        "wood", "wide", "web", "mycorrhizal", "network",
-        "networks", "fungal", "mycelial",
+        "wood",
+        "wide",
+        "web",
+        "mycorrhizal",
+        "network",
+        "networks",
+        "fungal",
+        "mycelial",
     },
+
     "roots": {
-        "root", "roots", "rooting", "gravitropism",
-        "gravitropic", "gravity",
+        "root",
+        "roots",
+        "rooting",
+        "gravitropism",
+        "gravitropic",
+        "gravity",
     },
+
     "bird": {
-        "bird", "birds", "avian", "passerine", "songbird",
-        "songbirds", "waterfowl", "shorebird", "shorebirds",
-        "raptor", "raptors", "pigeon", "pigeons",
+        "bird",
+        "birds",
+        "avian",
+        "passerine",
+        "songbird",
+        "songbirds",
+        "waterfowl",
+        "shorebird",
+        "shorebirds",
+        "raptor",
+        "raptors",
+        "pigeon",
+        "pigeons",
     },
+
     "navigation": {
-        "navigate", "navigates", "navigated", "navigating",
-        "navigation", "navigational", "orientation", "orient",
-        "orients", "oriented", "compass", "directional",
-        "direction", "directions",
+        "navigate",
+        "navigates",
+        "navigated",
+        "navigating",
+        "navigation",
+        "navigational",
+        "orientation",
+        "orient",
+        "orients",
+        "oriented",
+        "compass",
+        "directional",
+        "direction",
+        "directions",
     },
+
     "migration": {
-        "migration", "migrations", "migratory", "migrate",
-        "migrates", "migrated", "migrating", "migrant", "migrants",
+        "migration",
+        "migrations",
+        "migratory",
+        "migrate",
+        "migrates",
+        "migrated",
+        "migrating",
+        "migrant",
+        "migrants",
     },
+
     "flight": {
-        "flight", "flights", "flying", "fly", "flies", "flew",
-        "aerial", "transoceanic",
+        "flight",
+        "flights",
+        "flying",
+        "fly",
+        "flies",
+        "flew",
+        "aerial",
+        "transoceanic",
     },
+
     "magnetic": {
-        "magnetic", "magnetism", "magnetoreception",
-        "geomagnetic", "magneticfield",
+        "magnetic",
+        "magnetism",
+        "magnetoreception",
+        "geomagnetic",
+        "magneticfield",
     },
+
     "brain": {
-        "brain", "brains", "neural", "neuronal", "neuroscience",
-        "hippocampus", "nidopallium", "neuron", "neurons",
+        "brain",
+        "brains",
+        "neural",
+        "neuronal",
+        "neuroscience",
+        "hippocampus",
+        "nidopallium",
+        "neuron",
+        "neurons",
     },
+
     "climate": {
-        "climate", "climatic", "warming", "temperature",
-        "temperatures", "environmental",
+        "climate",
+        "climatic",
+        "warming",
+        "temperature",
+        "temperatures",
+        "environmental",
     },
+
     "pressure": {
-        "pressure", "pressures", "depth", "deep", "deepsea",
+        "pressure",
+        "pressures",
+        "depth",
+        "deep",
+        "deepsea",
     },
+
     "ocean": {
-        "ocean", "oceans", "marine", "underwater", "sea", "seas",
+        "ocean",
+        "oceans",
+        "marine",
+        "underwater",
+        "sea",
+        "seas",
     },
+
     "space": {
-        "space", "planet", "planets", "star", "stars", "galaxy",
-        "galaxies", "cosmic", "astronomy", "astronomical",
+        "space",
+        "planet",
+        "planets",
+        "star",
+        "stars",
+        "galaxy",
+        "galaxies",
+        "cosmic",
+        "astronomy",
+        "astronomical",
     },
+
     "quantum": {
-        "quantum", "photons", "photon", "entanglement",
+        "quantum",
+        "photons",
+        "photon",
+        "entanglement",
         "superposition",
     },
+
     "human": {
-        "human", "humans", "people", "person", "persons",
+        "human",
+        "humans",
+        "people",
+        "person",
+        "persons",
     },
+
     "medical": {
-        "medical", "medicine", "clinical", "patient", "patients",
-        "health", "disease", "diseases", "treatment",
+        "medical",
+        "medicine",
+        "clinical",
+        "patient",
+        "patients",
+        "health",
+        "disease",
+        "diseases",
+        "treatment",
     },
+
     "technology": {
-        "technology", "technological", "computer", "computers",
-        "software", "hardware", "algorithm", "algorithms",
-        "machine", "machines",
+        "technology",
+        "technological",
+        "computer",
+        "computers",
+        "software",
+        "hardware",
+        "algorithm",
+        "algorithms",
+        "machine",
+        "machines",
     },
+
     "memory": {
-        "memory", "memories", "remember", "remembering", "recall",
-        "learning", "learned",
+        "memory",
+        "memories",
+        "remember",
+        "remembering",
+        "recall",
+        "learning",
+        "learned",
     },
+
     "sleep": {
-        "sleep", "sleeping", "dream", "dreaming", "circadian",
+        "sleep",
+        "sleeping",
+        "dream",
+        "dreaming",
+        "circadian",
         "insomnia",
     },
+
     "sound": {
-        "sound", "sounds", "hearing", "auditory", "acoustic",
-        "frequency", "frequencies",
+        "sound",
+        "sounds",
+        "hearing",
+        "auditory",
+        "acoustic",
+        "frequency",
+        "frequencies",
     },
+
     "light": {
-        "light", "visual", "vision", "photoreceptor",
-        "photoreceptors", "wavelength", "wavelengths",
+        "light",
+        "visual",
+        "vision",
+        "photoreceptor",
+        "photoreceptors",
+        "wavelength",
+        "wavelengths",
     },
+
     "gravity": {
-        "gravity", "gravitational", "gravitation", "weight",
+        "gravity",
+        "gravitational",
+        "gravitation",
+        "weight",
     },
 }
 
+
 DOMAIN_CONCEPTS = {
-    "bird", "trees", "plants", "space", "ocean", "human",
-    "technology", "quantum", "medical",
+    "bird",
+    "trees",
+    "plants",
+    "space",
+    "ocean",
+    "human",
+    "technology",
+    "quantum",
+    "medical",
 }
 
 
 def _tokenize(text):
+
     return [
         token
         for token in re.findall(
             r"[a-z0-9]+",
             _clean(text).lower(),
         )
-        if token not in STOPWORDS and len(token) >= 3
+        if (
+            token not in STOPWORDS
+            and len(token) >= 3
+        )
     ]
 
 
 def _concepts_from_text(text):
-    tokens = set(_tokenize(text))
+
+    tokens = set(
+        _tokenize(text)
+    )
 
     return {
         concept
@@ -407,32 +764,69 @@ def _concepts_from_text(text):
 
 
 def _topic_terms(topic):
-    return set(_tokenize(topic))
+
+    return set(
+        _tokenize(topic)
+    )
 
 
 def _topic_concepts(topic):
-    return _concepts_from_text(topic)
+
+    return _concepts_from_text(
+        topic
+    )
 
 
-def _stem_like_match(term, text):
+def _stem_like_match(
+    term,
+    text,
+):
+
     if not term:
         return False
 
-    candidates = {term}
+    candidates = {
+        term
+    }
 
-    if term.endswith("ies") and len(term) > 4:
-        candidates.add(term[:-3] + "y")
+    if (
+        term.endswith("ies")
+        and len(term) > 4
+    ):
 
-    if term.endswith("ing") and len(term) > 5:
-        candidates.add(term[:-3])
+        candidates.add(
+            term[:-3] + "y"
+        )
 
-    if term.endswith("ed") and len(term) > 4:
-        candidates.add(term[:-2])
+    if (
+        term.endswith("ing")
+        and len(term) > 5
+    ):
 
-    if term.endswith("s") and len(term) > 4:
-        candidates.add(term[:-1])
+        candidates.add(
+            term[:-3]
+        )
+
+    if (
+        term.endswith("ed")
+        and len(term) > 4
+    ):
+
+        candidates.add(
+            term[:-2]
+        )
+
+    if (
+        term.endswith("s")
+        and len(term) > 4
+    ):
+
+        candidates.add(
+            term[:-1]
+        )
 
     for candidate in candidates:
+
         if len(candidate) < 4:
             continue
 
@@ -440,6 +834,7 @@ def _stem_like_match(term, text):
             rf"\b{re.escape(candidate)}\w*\b",
             text,
         ):
+
             return True
 
     return False
@@ -449,14 +844,26 @@ def _stem_like_match(term, text):
 # RELEVANCE
 # ==========================================================================
 
-def _relevance_score(topic, source):
+def _relevance_score(
+    topic,
+    source,
+):
+
     title = _clean(
-        source.get("title", "")
+        source.get(
+            "title",
+            "",
+        )
     ).lower()
 
     evidence = _clean(
-        source.get("evidence_text")
-        or source.get("abstract", "")
+        source.get(
+            "evidence_text"
+            or source.get(
+                "abstract",
+                "",
+            ),
+        )
     ).lower()
 
     title_clean = re.sub(
@@ -471,8 +878,13 @@ def _relevance_score(topic, source):
         evidence,
     )
 
-    topic_terms = _topic_terms(topic)
-    topic_concepts = _topic_concepts(topic)
+    topic_terms = _topic_terms(
+        topic
+    )
+
+    topic_concepts = _topic_concepts(
+        topic
+    )
 
     title_concepts = _concepts_from_text(
         title_clean
@@ -483,15 +895,19 @@ def _relevance_score(topic, source):
     )
 
     title_concept_matches = (
-        topic_concepts & title_concepts
+        topic_concepts
+        & title_concepts
     )
 
     evidence_concept_matches = (
-        topic_concepts & evidence_concepts
+        topic_concepts
+        & evidence_concepts
     )
 
     score = 0
+
     matched_terms = []
+
     title_term_matches = 0
     evidence_term_matches = 0
 
@@ -501,6 +917,7 @@ def _relevance_score(topic, source):
             term,
             title_clean,
         ):
+
             title_term_matches += 1
             matched_terms.append(term)
             score += 4
@@ -509,26 +926,38 @@ def _relevance_score(topic, source):
             term,
             evidence_clean,
         ):
+
             evidence_term_matches += 1
             matched_terms.append(term)
             score += 1
 
-    score += len(
-        title_concept_matches
-    ) * 7
+    score += (
+        len(title_concept_matches)
+        * 7
+    )
 
-    score += len(
-        evidence_concept_matches
-        - title_concept_matches
-    ) * 2
+    score += (
+        len(
+            evidence_concept_matches
+            - title_concept_matches
+        )
+        * 2
+    )
 
-    normalized_topic = _normalize_title(topic)
-    normalized_title = _normalize_title(title)
+    normalized_topic = _normalize_title(
+        topic
+    )
+
+    normalized_title = _normalize_title(
+        title
+    )
 
     if (
         normalized_topic
-        and normalized_topic in normalized_title
+        and normalized_topic
+        in normalized_title
     ):
+
         score += 12
 
     topic_tokens = list(
@@ -538,6 +967,7 @@ def _relevance_score(topic, source):
     for i in range(
         len(topic_tokens) - 1
     ):
+
         phrase = (
             f"{topic_tokens[i]} "
             f"{topic_tokens[i + 1]}"
@@ -561,27 +991,33 @@ def _relevance_score(topic, source):
     if concept_count >= 2:
 
         if title_concept_count >= 2:
+
             relevance_class = "strong"
 
         elif (
             title_concept_count >= 1
             and evidence_concept_count >= 2
         ):
+
             relevance_class = "strong"
 
         elif (
             title_concept_count >= 1
             and evidence_concept_count >= 1
         ):
+
             relevance_class = "moderate"
 
         elif title_term_matches >= 2:
+
             relevance_class = "moderate"
 
         elif evidence_term_matches >= 2:
+
             relevance_class = "moderate"
 
         else:
+
             relevance_class = "weak"
 
     else:
@@ -590,19 +1026,23 @@ def _relevance_score(topic, source):
             title_term_matches >= 2
             or title_concept_count >= 1
         ):
+
             relevance_class = "moderate"
 
         elif (
             title_term_matches >= 1
             and evidence_term_matches >= 2
         ):
+
             relevance_class = "moderate"
 
         else:
+
             relevance_class = "weak"
 
     topic_domains = (
-        topic_concepts & DOMAIN_CONCEPTS
+        topic_concepts
+        & DOMAIN_CONCEPTS
     )
 
     if topic_domains:
@@ -613,6 +1053,7 @@ def _relevance_score(topic, source):
         ) & topic_domains
 
         if not matched_domains:
+
             relevance_class = "mismatch"
             score = 0
 
@@ -645,7 +1086,10 @@ def _relevance_score(topic, source):
             title_concept_matches
             | evidence_concept_matches
         )
-        / max(len(topic_concepts), 1),
+        / max(
+            len(topic_concepts),
+            1,
+        ),
         3,
     )
 
@@ -659,6 +1103,7 @@ def _relevance_score(topic, source):
 
 
 def _is_relevant(source):
+
     return source.get(
         "relevance_class"
     ) in {
@@ -672,10 +1117,13 @@ def relevance_filter(
     sources,
     label="STRICT RELEVANCE FILTER",
 ):
+
     accepted = []
 
     print("=" * 80)
-    print(f"🎯 {label}")
+    print(
+        f"🎯 {label}"
+    )
     print("=" * 80)
 
     topic_concepts = _topic_concepts(
@@ -686,7 +1134,9 @@ def relevance_filter(
         "Topic concepts: "
         + (
             ", ".join(
-                sorted(topic_concepts)
+                sorted(
+                    topic_concepts
+                )
             )
             or "none"
         )
@@ -711,7 +1161,9 @@ def relevance_filter(
 
         if _is_relevant(source):
 
-            accepted.append(source)
+            accepted.append(
+                source
+            )
 
             print(
                 f"✅ RELEVANT: {title}"
@@ -750,7 +1202,8 @@ def relevance_filter(
             )
 
     print(
-        f"Relevant candidates: {len(accepted)}"
+        f"Relevant candidates: "
+        f"{len(accepted)}"
     )
 
     return accepted
@@ -761,6 +1214,7 @@ def relevance_filter(
 # ==========================================================================
 
 def _authors_crossref(item):
+
     authors = []
 
     for author in item.get(
@@ -783,21 +1237,24 @@ def _authors_crossref(item):
         )
 
         name = " ".join(
-            p
-            for p in (
+            part
+            for part in (
                 given,
                 family,
             )
-            if p
+            if part
         )
 
         if name:
             authors.append(name)
 
-    return ", ".join(authors)
+    return ", ".join(
+        authors
+    )
 
 
 def _authors_semantic(item):
+
     authors = []
 
     for author in item.get(
@@ -815,7 +1272,9 @@ def _authors_semantic(item):
         if name:
             authors.append(name)
 
-    return ", ".join(authors)
+    return ", ".join(
+        authors
+    )
 
 
 def _extract_year(item):
@@ -850,9 +1309,11 @@ def _extract_year(item):
         ):
 
             try:
+
                 return int(
                     date_parts[0][0]
                 )
+
             except Exception:
                 pass
 
@@ -867,6 +1328,7 @@ def _openalex_abstract_text(
         inverted_index,
         dict,
     ):
+
         return ""
 
     words = []
@@ -879,17 +1341,20 @@ def _openalex_abstract_text(
             positions,
             list,
         ):
+
             continue
 
         for position in positions:
 
             try:
+
                 words.append(
                     (
                         int(position),
                         word,
                     )
                 )
+
             except Exception:
                 continue
 
@@ -920,6 +1385,7 @@ def _build_evidence_package(
 
         evidence_available = True
         evidence_type = "abstract"
+
         evidence_quality = (
             EVIDENCE_QUALITY_MODERATE
         )
@@ -935,6 +1401,7 @@ def _build_evidence_package(
 
         evidence_available = False
         evidence_type = "metadata_only"
+
         evidence_quality = (
             EVIDENCE_QUALITY_NONE
         )
@@ -981,9 +1448,7 @@ def _build_evidence_package(
         evidence_notes
     )
 
-    source["abstract"] = (
-        abstract
-    )
+    source["abstract"] = abstract
 
     return source
 
@@ -1010,8 +1475,8 @@ def _record_evidence_provider(
 
     providers.add(provider)
 
-    source["evidence_providers"] = (
-        sorted(providers)
+    source["evidence_providers"] = sorted(
+        providers
     )
 
     records = source.get(
@@ -1023,11 +1488,17 @@ def _record_evidence_provider(
         records,
         list,
     ):
+
         records = []
 
     if not any(
-        r.get("provider") == provider
-        for r in records
+        record.get("provider")
+        == provider
+        for record in records
+        if isinstance(
+            record,
+            dict,
+        )
     ):
 
         records.append(
@@ -1039,9 +1510,7 @@ def _record_evidence_provider(
             }
         )
 
-    source["evidence_records"] = (
-        records
-    )
+    source["evidence_records"] = records
 
 
 # ==========================================================================
@@ -1072,12 +1541,15 @@ def search_crossref(topic):
         provider="Crossref",
     )
 
-    items = data.get(
-        "message",
-        {},
-    ).get(
-        "items",
-        [],
+    items = (
+        data.get(
+            "message",
+            {},
+        )
+        .get(
+            "items",
+            [],
+        )
     )
 
     results = []
@@ -1090,7 +1562,9 @@ def search_crossref(topic):
         )
 
         title = (
-            _clean(titles[0])
+            _clean(
+                titles[0]
+            )
             if titles
             else ""
         )
@@ -1179,6 +1653,7 @@ def search_crossref(topic):
         }
 
         if abstract:
+
             _record_evidence_provider(
                 source,
                 "Crossref",
@@ -1192,7 +1667,8 @@ def search_crossref(topic):
         )
 
     print(
-        f"Crossref results: {len(results)}"
+        f"Crossref results: "
+        f"{len(results)}"
     )
 
     return results
@@ -1228,7 +1704,7 @@ def search_semantic_scholar(topic):
     try:
 
         data = _get(
-            SEMANTIC_SCHOLAR_URL,
+            SEMANTIC_SEARCH_URL,
             params,
             retries=SEMANTIC_RETRIES,
             backoff=SEMANTIC_BACKOFF_SECONDS,
@@ -1315,7 +1791,9 @@ def search_semantic_scholar(topic):
                 "year"
             ),
             "doi": doi,
-            "url": f"https://doi.org/{doi}",
+            "url": (
+                f"https://doi.org/{doi}"
+            ),
             "semantic_scholar_url": _clean(
                 paper.get(
                     "url",
@@ -1371,7 +1849,7 @@ def search_semantic_scholar(topic):
         )
 
     print(
-        f"Semantic Scholar results: "
+        "Semantic Scholar results: "
         f"{len(results)}"
     )
 
@@ -1473,7 +1951,9 @@ def search_openalex(topic):
             )
 
             if name:
-                authors.append(name)
+                authors.append(
+                    name
+                )
 
         primary_location = (
             item.get(
@@ -1519,7 +1999,9 @@ def search_openalex(topic):
                 "publication_year"
             ),
             "doi": doi,
-            "url": f"https://doi.org/{doi}",
+            "url": (
+                f"https://doi.org/{doi}"
+            ),
             "openalex_url": _clean(
                 ids.get(
                     "openalex",
@@ -1577,7 +2059,8 @@ def search_openalex(topic):
         )
 
     print(
-        f"OpenAlex results: {len(results)}"
+        f"OpenAlex results: "
+        f"{len(results)}"
     )
 
     return results
@@ -1609,6 +2092,7 @@ def _merge_sources(
     if primary.get(
         "source_database"
     ):
+
         databases.add(
             primary[
                 "source_database"
@@ -1618,6 +2102,7 @@ def _merge_sources(
     if secondary.get(
         "source_database"
     ):
+
         databases.add(
             secondary[
                 "source_database"
@@ -1648,6 +2133,7 @@ def _merge_sources(
             not primary.get(field)
             and secondary.get(field)
         ):
+
             primary[field] = (
                 secondary[field]
             )
@@ -1809,22 +2295,27 @@ def deduplicate_sources(
 
             continue
 
+        databases = set(
+            source.get(
+                "source_databases",
+                [],
+            )
+        )
+
+        source_database = source.get(
+            "source_database",
+            "",
+        )
+
+        if source_database:
+            databases.add(
+                source_database
+            )
+
         source[
             "source_databases"
         ] = sorted(
-            set(
-                source.get(
-                    "source_databases",
-                    [],
-                )
-            )
-            | {
-                source.get(
-                    "source_database",
-                    "",
-                )
-            }
-            - {""}
+            databases
         )
 
         source.setdefault(
@@ -1847,14 +2338,10 @@ def deduplicate_sources(
         )
 
         if doi:
-            by_doi[doi] = (
-                source
-            )
+            by_doi[doi] = source
 
         if title:
-            by_title[title] = (
-                source
-            )
+            by_title[title] = source
 
     return unique
 
@@ -1881,14 +2368,19 @@ def _identity_matches(
         returned_doi
     )
 
-    if (
-        not expected_doi
-        or not returned_doi
-    ):
+    if not expected_doi:
 
         source["identity_error"] = (
-            f"{provider}: missing DOI "
-            "in verification response."
+            f"{provider}: source has no DOI."
+        )
+
+        return False
+
+    if not returned_doi:
+
+        source["identity_error"] = (
+            f"{provider}: verification response "
+            "did not contain a DOI."
         )
 
         return False
@@ -2011,6 +2503,7 @@ def verify_crossref_source(
             returned_doi,
             "Crossref",
         ):
+
             return False
 
         source[
@@ -2025,18 +2518,14 @@ def verify_crossref_source(
             "verified_title"
         ] = returned_title
 
-        source["doi"] = (
-            returned_doi
-        )
+        source["doi"] = returned_doi
 
         authors = _authors_crossref(
             item
         )
 
         if authors:
-            source["authors"] = (
-                authors
-            )
+            source["authors"] = authors
 
         journal = _clean(
             (
@@ -2049,9 +2538,7 @@ def verify_crossref_source(
         )
 
         if journal:
-            source["journal"] = (
-                journal
-            )
+            source["journal"] = journal
 
         publisher = _clean(
             item.get(
@@ -2061,18 +2548,14 @@ def verify_crossref_source(
         )
 
         if publisher:
-            source["publisher"] = (
-                publisher
-            )
+            source["publisher"] = publisher
 
         year = _extract_year(
             item
         )
 
         if year:
-            source["year"] = (
-                year
-            )
+            source["year"] = year
 
         abstract = _clean_abstract(
             item.get(
@@ -2083,9 +2566,7 @@ def verify_crossref_source(
 
         if abstract:
 
-            source["abstract"] = (
-                abstract
-            )
+            source["abstract"] = abstract
 
             source[
                 "evidence_source"
@@ -2183,15 +2664,18 @@ def verify_semantic_source(
             )
         )
 
-        if not returned_doi:
-            returned_doi = doi
-
+        # IMPORTANT:
+        #
+        # Do NOT substitute the expected DOI if the provider
+        # omitted it. A missing returned DOI is a failed
+        # identity verification.
         if not _identity_matches(
             source,
             returned_title,
             returned_doi,
             "Semantic Scholar",
         ):
+
             return False
 
         source[
@@ -2206,16 +2690,14 @@ def verify_semantic_source(
             "verified_title"
         ] = returned_title
 
-        source["doi"] = doi
+        source["doi"] = returned_doi
 
         authors = _authors_semantic(
             data
         )
 
         if authors:
-            source["authors"] = (
-                authors
-            )
+            source["authors"] = authors
 
         venue = _clean(
             data.get(
@@ -2225,14 +2707,10 @@ def verify_semantic_source(
         )
 
         if venue:
-            source["journal"] = (
-                venue
-            )
+            source["journal"] = venue
 
         if data.get("year"):
-            source["year"] = (
-                data["year"]
-            )
+            source["year"] = data["year"]
 
         abstract = _clean_abstract(
             data.get(
@@ -2243,9 +2721,7 @@ def verify_semantic_source(
 
         if abstract:
 
-            source["abstract"] = (
-                abstract
-            )
+            source["abstract"] = abstract
 
             source[
                 "evidence_source"
@@ -2343,15 +2819,16 @@ def verify_openalex_source(
             )
         )
 
-        if not returned_doi:
-            returned_doi = doi
-
+        # OpenAlex may sometimes omit DOI from the returned object.
+        # For identity verification we still require the returned
+        # DOI to be present and matching.
         if not _identity_matches(
             source,
             returned_title,
             returned_doi,
             "OpenAlex",
         ):
+
             return False
 
         source[
@@ -2366,11 +2843,12 @@ def verify_openalex_source(
             "verified_title"
         ] = returned_title
 
-        source["doi"] = doi
+        source["doi"] = returned_doi
 
         if data.get(
             "publication_year"
         ):
+
             source["year"] = (
                 data[
                     "publication_year"
@@ -2385,9 +2863,7 @@ def verify_openalex_source(
 
         if abstract:
 
-            source["abstract"] = (
-                abstract
-            )
+            source["abstract"] = abstract
 
             source[
                 "evidence_source"
@@ -2409,12 +2885,10 @@ def verify_openalex_source(
             or 0
         )
 
-        source["openalex_id"] = (
-            _clean(
-                data.get(
-                    "id",
-                    "",
-                )
+        source["openalex_id"] = _clean(
+            data.get(
+                "id",
+                "",
             )
         )
 
@@ -2515,6 +2989,7 @@ def verify_source_identity(
         ):
 
             if source.get(key):
+
                 verification_errors.append(
                     source[key]
                 )
@@ -2595,9 +3070,7 @@ def enrich_from_crossref(
                 current
             ):
 
-                source["abstract"] = (
-                    abstract
-                )
+                source["abstract"] = abstract
 
                 source[
                     "evidence_source"
@@ -2669,9 +3142,7 @@ def enrich_from_openalex(
                 current
             ):
 
-                source["abstract"] = (
-                    abstract
-                )
+                source["abstract"] = abstract
 
                 source[
                     "evidence_source"
@@ -2697,12 +3168,10 @@ def enrich_from_openalex(
             or 0
         )
 
-        source["openalex_id"] = (
-            _clean(
-                data.get(
-                    "id",
-                    "",
-                )
+        source["openalex_id"] = _clean(
+            data.get(
+                "id",
+                "",
             )
         )
 
@@ -2781,9 +3250,7 @@ def enrich_from_semantic(
                 current
             ):
 
-                source["abstract"] = (
-                    abstract
-                )
+                source["abstract"] = abstract
 
                 source[
                     "evidence_source"
@@ -2907,7 +3374,9 @@ def enrich_sources(
 ):
 
     print("=" * 80)
-    print("📚 ENRICHING RESEARCH EVIDENCE")
+    print(
+        "📚 ENRICHING RESEARCH EVIDENCE"
+    )
     print("=" * 80)
 
     enriched = []
@@ -2935,17 +3404,22 @@ def enrich_sources(
             )
 
             print(
-                f"   Source: "
+                "   Source: "
                 f"{source.get('evidence_source', '')}"
             )
 
             print(
-                f"   Providers: "
-                f"{', '.join(source.get('evidence_providers', []))}"
+                "   Providers: "
+                + ", ".join(
+                    source.get(
+                        "evidence_providers",
+                        [],
+                    )
+                )
             )
 
             print(
-                f"   Characters: "
+                "   Characters: "
                 f"{len(source.get('evidence_text', ''))}"
             )
 
@@ -2986,8 +3460,8 @@ def _classify_study_design(
     )
 
     publication_types_text = " ".join(
-        _clean(x).lower()
-        for x in publication_types
+        _clean(value).lower()
+        for value in publication_types
     )
 
     abstract = _clean(
@@ -3079,9 +3553,7 @@ def _classify_study_design(
             "research_article_or_unspecified"
         )
 
-    source["study_design"] = (
-        design
-    )
+    source["study_design"] = design
 
     return source
 
@@ -3126,7 +3598,7 @@ def mark_evidence_verified(
         ) is not True:
 
             print(
-                f"❌ Rejected unverified source: "
+                "❌ Rejected unverified source: "
                 f"{title}"
             )
 
@@ -3142,7 +3614,7 @@ def mark_evidence_verified(
         if not evidence:
 
             print(
-                f"❌ Rejected metadata-only source: "
+                "❌ Rejected metadata-only source: "
                 f"{title}"
             )
 
@@ -3153,7 +3625,7 @@ def mark_evidence_verified(
         ):
 
             print(
-                f"❌ Rejected insufficient evidence text: "
+                "❌ Rejected insufficient evidence text: "
                 f"{title}"
             )
 
@@ -3180,7 +3652,7 @@ def mark_evidence_verified(
         if not authors:
 
             print(
-                f"❌ Rejected source without authors: "
+                "❌ Rejected source without authors: "
                 f"{title}"
             )
 
@@ -3189,7 +3661,7 @@ def mark_evidence_verified(
         if not year:
 
             print(
-                f"❌ Rejected source without publication year: "
+                "❌ Rejected source without publication year: "
                 f"{title}"
             )
 
@@ -3198,7 +3670,7 @@ def mark_evidence_verified(
         if not doi:
 
             print(
-                f"❌ Rejected source without DOI: "
+                "❌ Rejected source without DOI: "
                 f"{title}"
             )
 
@@ -3235,7 +3707,7 @@ def mark_evidence_verified(
         ):
 
             print(
-                f"❌ Rejected source with invalid "
+                "❌ Rejected source with invalid "
                 f"source_id: {title}"
             )
 
@@ -3330,9 +3802,7 @@ def limit_sources(
     sources,
 ):
 
-    def sort_key(
-        source,
-    ):
+    def sort_key(source):
 
         citation_count = max(
             source.get(
@@ -3348,7 +3818,6 @@ def limit_sources(
         )
 
         quality_rank = {
-            EVIDENCE_QUALITY_HIGH: 2,
             EVIDENCE_QUALITY_MODERATE: 1,
             EVIDENCE_QUALITY_NONE: 0,
         }.get(
@@ -3422,7 +3891,7 @@ def validate_source_ids(
         if not doi:
 
             raise RuntimeError(
-                f"RESEARCH FAILED: source "
+                "RESEARCH FAILED: source "
                 f"'{source.get('title', '')}' "
                 "has no DOI."
             )
@@ -3436,21 +3905,21 @@ def validate_source_ids(
         if source_id != expected_id:
 
             raise RuntimeError(
-                f"RESEARCH FAILED: source ID mismatch "
+                "RESEARCH FAILED: source ID mismatch "
                 f"for '{source.get('title', '')}'."
             )
 
         if source_id in seen_ids:
 
             raise RuntimeError(
-                f"RESEARCH FAILED: duplicate "
+                "RESEARCH FAILED: duplicate "
                 f"source_id detected: {source_id}"
             )
 
         if doi in seen_dois:
 
             raise RuntimeError(
-                f"RESEARCH FAILED: duplicate "
+                "RESEARCH FAILED: duplicate "
                 f"DOI detected: {doi}"
             )
 
@@ -3472,7 +3941,7 @@ def validate_source_ids(
             if source.get(flag) is not True:
 
                 raise RuntimeError(
-                    f"RESEARCH FAILED: source "
+                    "RESEARCH FAILED: source "
                     f"'{source.get('title', '')}' "
                     f"does not have {flag}=True."
                 )
@@ -3489,7 +3958,7 @@ def validate_source_ids(
         ):
 
             raise RuntimeError(
-                f"RESEARCH FAILED: source "
+                "RESEARCH FAILED: source "
                 f"'{source.get('title', '')}' "
                 "has insufficient evidence text."
             )
@@ -3499,7 +3968,7 @@ def validate_source_ids(
         ) != "abstract":
 
             raise RuntimeError(
-                f"RESEARCH FAILED: source "
+                "RESEARCH FAILED: source "
                 f"'{source.get('title', '')}' "
                 "does not contain abstract evidence."
             )
@@ -3523,7 +3992,7 @@ def validate_source_ids(
         ):
 
             raise RuntimeError(
-                f"RESEARCH FAILED: source "
+                "RESEARCH FAILED: source "
                 f"'{source.get('title', '')}' "
                 "has no authors."
             )
@@ -3533,7 +4002,7 @@ def validate_source_ids(
         ):
 
             raise RuntimeError(
-                f"RESEARCH FAILED: source "
+                "RESEARCH FAILED: source "
                 f"'{source.get('title', '')}' "
                 "has no publication year."
             )
@@ -3546,7 +4015,7 @@ def validate_source_ids(
         ):
 
             raise RuntimeError(
-                f"RESEARCH FAILED: source "
+                "RESEARCH FAILED: source "
                 f"'{source.get('title', '')}' "
                 "has no URL."
             )
@@ -3644,8 +4113,8 @@ def validate_research_package(
         }:
 
             raise RuntimeError(
-                f"RESEARCH FAILED: final source "
-                f"is not relevant: "
+                "RESEARCH FAILED: final source "
+                "is not relevant: "
                 f"{source.get('title', '')}"
             )
 
@@ -3664,9 +4133,7 @@ def research_topic(
 
     SEMANTIC_RATE_LIMITED = False
 
-    topic = _clean(
-        topic
-    )
+    topic = _clean(topic)
 
     if not topic:
 
@@ -3675,9 +4142,11 @@ def research_topic(
         )
 
     print("=" * 80)
+
     print(
         f"🔬 MINT-YT-FACTORY RESEARCH v{VERSION}"
     )
+
     print("=" * 80)
 
     print(
@@ -3761,9 +4230,11 @@ def research_topic(
     # ------------------------------------------------------------------
 
     print("=" * 80)
+
     print(
         "🆔 FILTERING DOI-ELIGIBLE CANDIDATES"
     )
+
     print("=" * 80)
 
     doi_candidates = []
@@ -3787,7 +4258,7 @@ def research_topic(
         if not doi:
 
             print(
-                f"⚠️ REJECTED — NO DOI: "
+                "⚠️ REJECTED — NO DOI: "
                 f"{title}"
             )
 
@@ -3806,7 +4277,7 @@ def research_topic(
         )
 
     print(
-        f"DOI-eligible candidates: "
+        "DOI-eligible candidates: "
         f"{len(doi_candidates)}"
     )
 
@@ -3864,9 +4335,11 @@ def research_topic(
     # ------------------------------------------------------------------
 
     print("=" * 80)
+
     print(
         "🧪 VERIFYING DOI + PUBLICATION IDENTITY"
     )
+
     print("=" * 80)
 
     verified_metadata = []
@@ -3921,7 +4394,7 @@ def research_topic(
             )
 
     print(
-        f"DOI/identity-verified sources: "
+        "DOI/identity-verified sources: "
         f"{len(verified_metadata)}"
     )
 
@@ -3947,7 +4420,7 @@ def research_topic(
     )
 
     print(
-        f"Evidence-backed sources: "
+        "Evidence-backed sources: "
         f"{len(evidence_sources)}"
     )
 
@@ -3963,9 +4436,11 @@ def research_topic(
     # ------------------------------------------------------------------
 
     print("=" * 80)
+
     print(
         "🔍 FINAL EVIDENCE RELEVANCE CHECK"
     )
+
     print("=" * 80)
 
     evidence_sources = relevance_filter(
@@ -3991,7 +4466,7 @@ def research_topic(
     ]
 
     print(
-        f"Final relevant evidence sources: "
+        "Final relevant evidence sources: "
         f"{len(evidence_sources)}"
     )
 
@@ -4000,7 +4475,7 @@ def research_topic(
     )
 
     print(
-        f"Sources selected for final package: "
+        "Sources selected for final package: "
         f"{len(evidence_sources)}"
     )
 
@@ -4022,9 +4497,11 @@ def research_topic(
     )
 
     print("=" * 80)
+
     print(
         "🆔 VALIDATING AUTHORITATIVE SOURCE IDs"
     )
+
     print("=" * 80)
 
     validate_source_ids(
@@ -4080,6 +4557,7 @@ def research_topic(
             "semantic_scholar_rate_limit_circuit_breaker": True,
             "provider_aware_verification_order": True,
             "resilient_evidence_fallback": True,
+            "returned_doi_required_for_identity": True,
         },
         "source_count": len(
             evidence_sources
@@ -4096,13 +4574,15 @@ def research_topic(
     )
 
     print("=" * 80)
+
     print(
         "✅ RESEARCH VERIFIED"
     )
+
     print("=" * 80)
 
     print(
-        f"Evidence-backed relevant sources: "
+        "Evidence-backed relevant sources: "
         f"{len(evidence_sources)}"
     )
 
@@ -4117,12 +4597,12 @@ def research_topic(
         )
 
         print(
-            f"   Source ID: "
+            "   Source ID: "
             f"{source['source_id']}"
         )
 
         print(
-            f"   DOI: "
+            "   DOI: "
             f"{source['doi']}"
         )
 
@@ -4205,6 +4685,7 @@ def save_research(
     )
 
     if output_dir:
+
         os.makedirs(
             output_dir,
             exist_ok=True,
@@ -4265,9 +4746,11 @@ if __name__ == "__main__":
         )
 
         print("=" * 80)
+
         print(
             "📄 RESEARCH SAVED"
         )
+
         print("=" * 80)
 
         print(output)
@@ -4275,9 +4758,11 @@ if __name__ == "__main__":
     except Exception as error:
 
         print("=" * 80)
+
         print(
             "❌ RESEARCH FAILED"
         )
+
         print("=" * 80)
 
         print(error)

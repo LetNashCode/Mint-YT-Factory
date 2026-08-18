@@ -39,27 +39,53 @@ jobs:
       # FFMPEG
       # --------------------------------------------------------
 
-      - name: Check FFmpeg
+      - name: Setup FFmpeg
         shell: bash
         run: |
           echo "=========================================="
-          echo "🎬 Checking FFmpeg"
+          echo "🎬 Setting up FFmpeg"
           echo "=========================================="
 
           if command -v ffmpeg >/dev/null 2>&1; then
             echo "✅ FFmpeg already available"
             which ffmpeg
             ffmpeg -version | head -n 1
+
           else
             echo "⚠️ FFmpeg not found."
-            echo "Installing FFmpeg..."
+            echo "⬇️ Downloading static FFmpeg..."
 
-            sudo apt-get update -qq
-            sudo apt-get install -y ffmpeg
+            mkdir -p "$HOME/ffmpeg"
+            cd "$HOME/ffmpeg"
 
-            echo "✅ FFmpeg installed"
-            ffmpeg -version | head -n 1
+            wget -q --show-progress \
+              https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
+
+            echo "📦 Extracting FFmpeg..."
+
+            tar -xf ffmpeg-release-amd64-static.tar.xz
+
+            FFMPEG_DIR=$(find "$HOME/ffmpeg" \
+              -maxdepth 1 \
+              -type d \
+              -name "ffmpeg-*-amd64-static" \
+              | head -n 1)
+
+            if [ -z "$FFMPEG_DIR" ]; then
+              echo "❌ Could not locate extracted FFmpeg directory."
+              exit 1
+            fi
+
+            echo "$FFMPEG_DIR" >> "$GITHUB_PATH"
+
+            echo "✅ Static FFmpeg installed"
           fi
+
+          echo "=========================================="
+          echo "🎬 FFmpeg version"
+          echo "=========================================="
+
+          ffmpeg -version | head -n 1
 
       # --------------------------------------------------------
       # IMAGEMAGICK
@@ -73,32 +99,50 @@ jobs:
           echo "=========================================="
 
           if command -v convert >/dev/null 2>&1; then
+
             echo "✅ ImageMagick already available"
             which convert
             convert --version | head -n 1
+
+            # Allow @ file access if policy exists
+            if [ -f /etc/ImageMagick-6/policy.xml ]; then
+              sudo sed -i \
+                's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
+                /etc/ImageMagick-6/policy.xml
+            fi
+
+            if [ -f /etc/ImageMagick-7/policy.xml ]; then
+              sudo sed -i \
+                's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
+                /etc/ImageMagick-7/policy.xml
+            fi
+
           else
-            echo "⚠️ ImageMagick not found."
+
+            echo "⚠️ ImageMagick not available."
             echo "Installing ImageMagick..."
 
             sudo apt-get update -qq
             sudo apt-get install -y imagemagick
 
             echo "✅ ImageMagick installed"
+
             which convert
             convert --version | head -n 1
-          fi
 
-          # Allow ImageMagick to read/write @ files if policy exists
-          if [ -f /etc/ImageMagick-6/policy.xml ]; then
-            sudo sed -i \
-              's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
-              /etc/ImageMagick-6/policy.xml
-          fi
+            # Allow @ file access if policy exists
+            if [ -f /etc/ImageMagick-6/policy.xml ]; then
+              sudo sed -i \
+                's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
+                /etc/ImageMagick-6/policy.xml
+            fi
 
-          if [ -f /etc/ImageMagick-7/policy.xml ]; then
-            sudo sed -i \
-              's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
-              /etc/ImageMagick-7/policy.xml
+            if [ -f /etc/ImageMagick-7/policy.xml ]; then
+              sudo sed -i \
+                's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
+                /etc/ImageMagick-7/policy.xml
+            fi
+
           fi
 
       # --------------------------------------------------------
@@ -122,11 +166,58 @@ jobs:
           echo "=========================================="
 
       # --------------------------------------------------------
+      # VERIFY ENVIRONMENT
+      # --------------------------------------------------------
+
+      - name: Verify environment
+        run: |
+          echo "=========================================="
+          echo "🔍 ENVIRONMENT CHECK"
+          echo "=========================================="
+
+          echo ""
+          echo "Python:"
+          python --version
+
+          echo ""
+          echo "FFmpeg:"
+          ffmpeg -version | head -n 1
+
+          echo ""
+          echo "ImageMagick:"
+          convert --version | head -n 1
+
+          echo ""
+          echo "Memory:"
+          free -h
+
+          echo ""
+          echo "Disk:"
+          df -h
+
+          echo ""
+          echo "Working directory:"
+          pwd
+
+          echo ""
+          echo "Files:"
+          ls -lah
+
+          echo ""
+          echo "=========================================="
+          echo "✅ ENVIRONMENT READY"
+          echo "=========================================="
+
+      # --------------------------------------------------------
       # YOUTUBE CREDENTIALS
       # --------------------------------------------------------
 
       - name: Write YouTube client credentials
         run: |
+          echo "=========================================="
+          echo "🔐 Setting up YouTube credentials"
+          echo "=========================================="
+
           echo '${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}' > client_secret.json
 
           test -s client_secret.json || {
@@ -150,26 +241,44 @@ jobs:
           echo "🚀 MINT-YT-FACTORY STARTED"
           echo "=========================================="
 
+          echo ""
           echo "Start Time:"
           date
 
+          echo ""
           echo "Runner:"
           uname -a
 
+          echo ""
           echo "Python:"
           python --version
 
+          echo ""
           echo "FFmpeg:"
           ffmpeg -version | head -n 1
 
+          echo ""
           echo "Memory:"
           free -h
 
+          echo ""
           echo "Disk:"
           df -h
 
+          echo ""
           echo "=========================================="
-          echo "🔬 Starting research → script → visuals → video → YouTube"
+          echo "🔬 Starting:"
+          echo "   Research"
+          echo "      ↓"
+          echo "   Script"
+          echo "      ↓"
+          echo "   Visuals"
+          echo "      ↓"
+          echo "   TTS"
+          echo "      ↓"
+          echo "   Video"
+          echo "      ↓"
+          echo "   YouTube"
           echo "=========================================="
 
           python -u main.py
@@ -233,6 +342,10 @@ jobs:
       - name: Commit updated used_topics.json
         if: success()
         run: |
+          echo "=========================================="
+          echo "📝 Updating used topics"
+          echo "=========================================="
+
           git config user.name "auto-publish-bot"
           git config user.email "actions@github.com"
 
@@ -256,3 +369,13 @@ jobs:
           echo "=========================================="
           echo "🎉 MINT-YT-FACTORY COMPLETE"
           echo "=========================================="
+
+          echo ""
+          echo "Finished:"
+          date
+
+          echo ""
+          echo "✅ Video generated"
+          echo "✅ Video uploaded"
+          echo "✅ Artifacts saved"
+          echo "✅ Used topics updated"

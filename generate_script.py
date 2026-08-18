@@ -2,7 +2,7 @@
 generate_script.py
 Mint-YT-Factory
 
-Version 10.6
+Version 10.7
 
 Research-first production script generator.
 
@@ -18,6 +18,9 @@ Key corrections:
 - Gemini can no longer create separate/mismatched caption text.
 - Caption highlights are ALWAYS based on narration.
 - TTS pronunciation corrections remain isolated inside tts.py.
+- Scientific claim strength is explicitly protected.
+- Unsupported causal / absolute language is rejected before production.
+- Overclaiming language causes Gemini to retry.
 """
 
 
@@ -57,6 +60,206 @@ SCENE_DURATIONS = [
 
 MIN_VERIFIED_SOURCES = 2
 MAX_NEXT_SHORT_CHARACTERS = 300
+
+
+# ==========================================================================
+# SCIENTIFIC CLAIM SAFETY
+# ==========================================================================
+
+# These words/phrases are dangerous when generated from abstracts or
+# limited evidence because they can strengthen the evidence beyond what
+# the source actually supports.
+#
+# Example:
+#
+# Evidence:
+# "The results indicate..."
+#
+# Bad:
+# "This proves..."
+#
+# Bad:
+# "This is essential..."
+#
+# The generator will reject such language and ask Gemini to regenerate.
+
+FORBIDDEN_CLAIM_STRENGTH_PATTERNS = [
+    r"\bproves\b",
+    r"\bproved\b",
+    r"\bproven\b",
+    r"\bproof that\b",
+    r"\bthis proves\b",
+    r"\bthis proves that\b",
+    r"\bscientifically proven\b",
+    r"\bscientifically proves\b",
+    r"\bdefinitively\b",
+    r"\bdefinitive proof\b",
+    r"\bdefinitively proves\b",
+    r"\bconfirms that\b",
+    r"\bconfirmed that\b",
+    r"\bconfirms\b",
+    r"\bconfirmed\b",
+    r"\bcauses\b",
+    r"\bcaused by\b",
+    r"\bcaused\b",
+    r"\bcausing\b",
+    r"\bresults in\b",
+    r"\bresults in\b",
+    r"\bguarantees\b",
+    r"\bguaranteed\b",
+    r"\bguarantee\b",
+    r"\bessential for\b",
+    r"\bessential to\b",
+    r"\bis essential\b",
+    r"\bare essential\b",
+    r"\bmust\b",
+    r"\bdefinitely\b",
+    r"\bcertainly\b",
+    r"\bwithout doubt\b",
+    r"\bno doubt\b",
+    r"\bproves the mechanism\b",
+    r"\bproves the theory\b",
+    r"\bproves the hypothesis\b",
+    r"\bproves the explanation\b",
+    r"\bproves the cause\b",
+]
+
+
+def _find_claim_strength_violations(
+    script,
+):
+    """
+    Scan narration and other factual text for language that can
+    accidentally strengthen scientific evidence.
+
+    This is intentionally conservative.
+
+    The goal is not to determine scientific truth here.
+
+    The research verifier in main.py remains authoritative.
+
+    This function simply catches obvious linguistic overclaiming
+    BEFORE the script reaches the final verification gate.
+    """
+
+    violations = []
+
+    scenes = script.get(
+        "scene_plan",
+        [],
+    )
+
+    if not isinstance(
+        scenes,
+        list,
+    ):
+        return violations
+
+    for index, scene in enumerate(
+        scenes,
+        start=1,
+    ):
+
+        if not isinstance(
+            scene,
+            dict,
+        ):
+            continue
+
+        narration = _clean(
+            scene.get(
+                "narration",
+                "",
+            )
+        )
+
+        if not narration:
+            continue
+
+        for pattern in FORBIDDEN_CLAIM_STRENGTH_PATTERNS:
+
+            match = re.search(
+                pattern,
+                narration,
+                flags=re.IGNORECASE,
+            )
+
+            if match:
+
+                violations.append({
+                    "scene": index,
+                    "phrase": match.group(0),
+                    "narration": narration,
+                })
+
+    return violations
+
+
+def _validate_claim_strength(
+    script,
+):
+    """
+    Hard pre-production gate for obvious scientific overclaiming.
+
+    This does NOT replace main.py's scientific verifier.
+
+    It prevents obvious wording such as:
+
+        "This proves..."
+        "X is essential..."
+        "X causes Y..."
+
+    from reaching the final claim verification gate.
+    """
+
+    violations = _find_claim_strength_violations(
+        script
+    )
+
+    if not violations:
+        return
+
+    lines = [
+        "SCIENTIFIC CLAIM STRENGTH CHECK FAILED."
+    ]
+
+    lines.append(
+        "The generated narration contains language that may "
+        "strengthen the supplied evidence."
+    )
+
+    lines.append(
+        ""
+    )
+
+    for item in violations:
+
+        lines.append(
+            f"Scene {item['scene']}: "
+            f"'{item['phrase']}'"
+        )
+
+        lines.append(
+            f"Narration: {item['narration']}"
+        )
+
+    lines.append(
+        ""
+    )
+
+    lines.append(
+        "Preserve the exact strength of the supplied evidence."
+    )
+
+    lines.append(
+        "Use wording such as 'suggests', 'may', "
+        "'appears to', 'is associated with', "
+        "or other wording supported by the evidence."
+    )
+
+    raise RuntimeError(
+        "\n".join(lines)
+    )
 
 
 # ==========================================================================
@@ -797,20 +1000,79 @@ They are NOT evidence.
 ONLY "SUPPLIED SCIENTIFIC EVIDENCE" may support factual claims.
 
 ============================================================
-CLAIM STRENGTH
+CLAIM STRENGTH — CRITICAL
 ============================================================
 
 Preserve the exact strength of the evidence.
 
-"may" must remain "may".
+NEVER strengthen a claim.
 
-"associated with" must not become "causes".
+Examples:
 
-"possible" must not become "proven".
+Evidence says:
+"may"
 
-"hypothesis" must not become "fact".
+You may say:
+"may"
 
-Observational evidence must not become causal claims.
+You MUST NOT say:
+"will"
+"does"
+"always does"
+"proves"
+
+Evidence says:
+"associated with"
+
+You may say:
+"is associated with"
+
+You MUST NOT say:
+"causes"
+"caused"
+"results in"
+
+Evidence says:
+"indicate"
+
+You may say:
+"indicate"
+"suggest"
+
+You MUST NOT say:
+"prove"
+"proven"
+"confirm"
+"confirmed"
+
+NEVER use unsupported absolute scientific language such as:
+
+- proves
+- proven
+- proof
+- definitively proves
+- definitively
+- confirms
+- confirmed
+- causes
+- caused
+- causing
+- guarantees
+- guaranteed
+- essential
+- definitely
+- certainly
+- without doubt
+- no doubt
+
+Do not claim that a mechanism is necessary or essential unless the
+supplied evidence explicitly establishes that.
+
+Do not turn a study observation into a causal statement.
+
+Do not turn an indication into proof.
+
+Do not turn a hypothesis into a fact.
 
 ============================================================
 SOURCE IDs
@@ -969,6 +1231,27 @@ Do NOT include:
 - subtitles
 - viewers
 - AI
+
+============================================================
+FINAL SCIENTIFIC SAFETY CHECK
+============================================================
+
+Before returning JSON, reread every scene.
+
+Ask:
+
+1. Does every factual statement appear in the supplied evidence?
+2. Did I strengthen any uncertainty?
+3. Did I convert association into causation?
+4. Did I turn "may" into certainty?
+5. Did I use "proves", "causes", "essential", "confirms",
+   "guarantees", or similar language?
+6. Did I introduce a fact from general knowledge?
+7. Does Scene 7 naturally finish the current story?
+
+If any answer is YES:
+
+Rewrite the affected narration before returning the JSON.
 
 ============================================================
 OUTPUT
@@ -1146,6 +1429,26 @@ Do NOT:
 - convert hypotheses into facts
 - use general knowledge
 - use information not present in supplied evidence
+
+============================================================
+CLAIM LANGUAGE SAFETY
+============================================================
+
+NEVER use unsupported language such as:
+
+"proves"
+"proven"
+"causes"
+"caused"
+"essential"
+"guarantees"
+"confirmed"
+"definitively"
+"definitely"
+"certainly"
+
+If the evidence says something "may", "suggests", "indicates",
+or is "associated with", preserve that uncertainty.
 
 Return ONLY JSON.
 """
@@ -1871,15 +2174,7 @@ def _sync_captions_to_narration(
             f"Scene {index} narration is empty."
         )
 
-    # ----------------------------------------------------------------------
-    # FORCE captions to exactly match narration.
-    # ----------------------------------------------------------------------
-
     scene["subtitle_text"] = narration
-
-    # ----------------------------------------------------------------------
-    # Generate caption highlights from narration itself.
-    # ----------------------------------------------------------------------
 
     tokens = re.findall(
         r"\b[\w'-]+\b",
@@ -1891,11 +2186,6 @@ def _sync_captions_to_narration(
         raise RuntimeError(
             f"Scene {index} narration contains no usable words."
         )
-
-    # ----------------------------------------------------------------------
-    # Preserve Gemini's emphasis choices only when the selected word
-    # actually exists in the narration.
-    # ----------------------------------------------------------------------
 
     existing = scene.get(
         "caption_highlights",
@@ -1960,11 +2250,6 @@ def _sync_captions_to_narration(
                 key
             )
 
-    # ----------------------------------------------------------------------
-    # If Gemini did not provide a valid highlight, choose the longest
-    # meaningful word from the actual narration.
-    # ----------------------------------------------------------------------
-
     if not result:
 
         candidates = [
@@ -1986,10 +2271,6 @@ def _sync_captions_to_narration(
             "word": word,
             "emphasis": "strong",
         }]
-
-    # ----------------------------------------------------------------------
-    # Maximum three highlighted words.
-    # ----------------------------------------------------------------------
 
     scene["caption_highlights"] = (
         result[:3]
@@ -3062,13 +3343,8 @@ def _validate_scene(
 
     scene["narration"] = narration
 
-    # ======================================================================
-    # CRITICAL FIX
-    #
-    # DO NOT TRUST GEMINI'S subtitle_text.
-    #
-    # Always rebuild captions from narration.
-    # ======================================================================
+    # CRITICAL:
+    # captions always come directly from narration.
 
     _sync_captions_to_narration(
         scene,
@@ -3360,6 +3636,16 @@ def validate_script(
     )
 
     # ----------------------------------------------------------------------
+    # Scientific claim-strength safety gate.
+    #
+    # This is the new protection for the exact failure seen in the log.
+    # ----------------------------------------------------------------------
+
+    _validate_claim_strength(
+        script
+    )
+
+    # ----------------------------------------------------------------------
     # Scene 7 is intentionally NOT forced to mention next_short.topic.
     # ----------------------------------------------------------------------
 
@@ -3459,7 +3745,6 @@ def validate_script(
         "citations_ready": True,
         "next_short_teaser_ready": True,
 
-        # Scene 7 is NOT required to speak the next topic.
         "next_short_spoken_in_scene_7": False,
 
         "subscription_strategy": (
@@ -3470,11 +3755,11 @@ def validate_script(
 
         "claim_verification_required": True,
 
-        # ------------------------------------------------------------------
-        # Caption safety flag.
-        # ------------------------------------------------------------------
         "captions_match_narration": True,
         "caption_source": "scene.narration",
+
+        # New scientific safety status.
+        "claim_strength_guard_enabled": True,
     }
 
     return script
@@ -3639,6 +3924,54 @@ CRITICAL:
 - Do not rewrite caption wording.
 - Do not use phonetic spellings in captions.
 
+SCIENTIFIC CLAIM SAFETY:
+
+The previous generation may have strengthened scientific evidence.
+
+DO NOT use:
+
+- proves
+- proven
+- proof
+- causes
+- caused
+- causing
+- essential
+- guarantees
+- confirmed
+- confirms
+- definitively
+- definitely
+- certainly
+- without doubt
+- no doubt
+
+If the evidence says:
+
+"may"
+
+keep:
+
+"may"
+
+If the evidence says:
+
+"indicate"
+
+keep:
+
+"indicate" or "suggest"
+
+If the evidence says:
+
+"associated with"
+
+keep:
+
+"associated with"
+
+Do not turn these into causal or definitive statements.
+
 Durations:
 
 3, 5, 7, 7, 8, 8, 7.
@@ -3683,19 +4016,7 @@ Return ONLY JSON.
             script["topic"] = topic
 
             # ------------------------------------------------------------------
-            # IMPORTANT:
-            #
-            # Before validation, captions are synchronized from narration.
-            #
-            # This means even if Gemini returns:
-            #
-            # narration     = "The insects make noise."
-            # subtitle_text = "The in sex make nose."
-            #
-            # the final script becomes:
-            #
-            # narration     = "The insects make noise."
-            # subtitle_text = "The insects make noise."
+            # Captions are synchronized before validation.
             # ------------------------------------------------------------------
 
             scenes = script.get(
@@ -3727,6 +4048,12 @@ Return ONLY JSON.
                             scene[
                                 "subtitle_text"
                             ] = narration
+
+            # ------------------------------------------------------------------
+            # Validate complete script.
+            #
+            # This now includes the claim-strength guard.
+            # ------------------------------------------------------------------
 
             script = validate_script(
                 script,
@@ -3793,6 +4120,10 @@ Return ONLY JSON.
             )
 
             print(
+                "Claim-strength guard: PASSED"
+            )
+
+            print(
                 "Research status: VERIFIED"
             )
 
@@ -3840,7 +4171,7 @@ Return ONLY JSON.
     raise RuntimeError(
         "SCRIPT GENERATION FAILED.\n"
         "The pipeline refused to create a Short from "
-        "unverified or insufficient research.\n\n"
+        "unverified, insufficient, or scientifically overclaimed research.\n\n"
         f"Last error: {last_error}"
     )
 

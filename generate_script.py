@@ -2,7 +2,7 @@
 generate_script.py
 Mint-YT-Factory
 
-Version 10.0
+Version 10.1
 
 RESEARCH-FIRST STORY + VISUAL CONTINUITY ENGINE
 
@@ -20,6 +20,18 @@ FIXES IN v10.0
 8. The next topic is never presented as part of the current video's factual story.
 9. Captions remain synchronized with narration.
 10. Existing generate_script(topic, config, research) integration is preserved.
+
+FIXES IN v10.1
+---------------
+
+11. Added explicit HOOK / CURIOSITY-GAP evidence-discipline guidance so
+    Scene 1 and Scene 2 do not add mechanistic language, named forces,
+    or comparisons the supplied evidence does not literally support.
+12. generate_script() now accepts an optional extra_feedback string.
+    When main.py's outer script/claim-verification cycle detects that a
+    generated script failed independent claim verification on genuine
+    (non-structural) scientific grounds, it passes the specific rejected
+    claims back in here so the next generation attempt can avoid them.
 """
 
 
@@ -1272,6 +1284,29 @@ Scene 1 must NOT begin with:
 
 Instead, begin directly with the unusual fact,
 situation, consequence, or contradiction.
+
+
+============================================================
+HOOK AND CURIOSITY-GAP EVIDENCE DISCIPLINE
+============================================================
+
+Scenes 1 and 2 must still only state what the supplied evidence
+directly supports.
+
+Create curiosity through sentence structure, pacing, and framing —
+not by adding mechanistic claims, named forces, causes, or
+comparisons that are not explicitly present in the evidence text.
+
+If the evidence does not explicitly name a mechanism or cause,
+do not introduce one, even briefly, just to make the hook punchier.
+
+A vivid but evidence-bound sentence will always pass claim
+verification. A vivid but invented sentence will not.
+
+If you are unsure whether a hook sentence is directly supported,
+rewrite it to describe only the observable phenomenon itself,
+without explaining why it happens, and let Scene 3 carry the
+explanation.
 
 
 ============================================================
@@ -5188,6 +5223,7 @@ def generate_script(
     topic,
     config,
     research,
+    extra_feedback="",
 ):
 
     # ------------------------------------------------------------------------
@@ -5262,6 +5298,30 @@ def generate_script(
     )
 
 
+    if extra_feedback:
+
+        base_prompt += f"""
+
+============================================================
+PRIOR CLAIM VERIFICATION FEEDBACK
+============================================================
+
+A previous version of this Short passed script validation but FAILED
+independent scientific claim verification. The following claims were
+rejected as unsupported, uncertain, or contradicted by the supplied
+evidence:
+
+{extra_feedback}
+
+Rewrite the story so every claim stays strictly within the wording of
+the supplied evidence. Prefer softer language (may, might, is
+associated with, suggests) over firm mechanistic language when the
+evidence itself is not firm. Do not add causes, forces, or mechanisms
+the evidence does not explicitly state, even in Scene 1 or Scene 2
+hook language.
+"""
+
+
     system_prompt = build_system_prompt()
 
 
@@ -5318,6 +5378,13 @@ def generate_script(
     print(
         "Current-topic-only description: ENABLED"
     )
+
+
+    if extra_feedback:
+
+        print(
+            "Claim-verification retry feedback: INCLUDED"
+        )
 
 
     print("=" * 80)
@@ -5864,7 +5931,7 @@ if __name__ == "__main__":
 
     print(
         "generate_script.py "
-        "v10.0 is a pipeline module."
+        "v10.1 is a pipeline module."
     )
 
     print(

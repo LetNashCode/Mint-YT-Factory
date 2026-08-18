@@ -1,1487 +1,702 @@
 """
-generate_images.py
+generate_script.py
 Mint-YT-Factory
 
-Version 8.1
+Version 10.0
 
-AI Visual Generation Engine
+RESEARCH-FIRST STORY + VISUAL CONTINUITY ENGINE
 
-Fixes in 8.1:
-- Applies image_style, lighting and color_palette from each visual.
-- Applies the script-level style_lock consistently.
-- Uses continuity as a consistency constraint instead of forcing every
-  recurring subject into every image.
-- Gives Shot 2 a clearer visual progression without copying Shot 1.
-- Adds explicit visible-content guidance so metadata is not rendered as text.
-- Uses deterministic shot seeds and deterministic retry seeds.
-- Validates the complete 14-image production contract before generation.
-- Preserves existing generate_images() and generate_single_image() APIs.
+FIXES IN v10.0
+---------------
+
+1. Scene 7 now naturally introduces the NEXT SHORT topic.
+2. The next topic is spoken only in Scene 7.
+3. The next topic is NOT allowed anywhere else in the current story.
+4. The current video's description is generated/validated as CURRENT-TOPIC ONLY.
+5. Description validation no longer falsely rejects descriptions merely because
+   the current and next topics share common words.
+6. next_short remains metadata for the continuation system.
+7. Scene 7 must contain a natural open-loop transition into the next topic.
+8. The next topic is never presented as part of the current video's factual story.
+9. Captions remain synchronized with narration.
+10. Existing generate_script(topic, config, research) integration is preserved.
 """
 
+
+import json
 import os
+import random
+import re
 import time
-import urllib.parse
+import uuid
 
-import requests
-
-try:
-    from PIL import Image
-    from io import BytesIO
-except ImportError:
-    Image = None
-    BytesIO = None
+from google import genai
+from google.genai import types
 
 
-# ==========================================================================
+# ============================================================================
 # CONFIGURATION
-# ==========================================================================
+# ============================================================================
 
-BASE_URL = "https://image.pollinations.ai/prompt/"
-MODEL_NAME = "flux"
+MODEL_NAME = "gemini-flash-lite-latest"
 
-HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 "
-        "(Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 "
-        "(KHTML, like Gecko) "
-        "Chrome/140.0 Safari/537.36"
-    ),
-    "Accept": "image/png,image/jpeg,image/webp,*/*",
+MAX_GENERATION_ATTEMPTS = 4
+
+SCENE_COUNT = 7
+
+TARGET_SECONDS = 45
+
+VISUALS_PER_SCENE = 2
+
+TOTAL_VISUALS = 14
+
+SCENE_DURATIONS = [
+    3,
+    5,
+    7,
+    7,
+    8,
+    8,
+    7,
+]
+
+MIN_VERIFIED_SOURCES = 2
+
+MAX_NEXT_SHORT_CHARACTERS = 300
+
+MAX_TITLE_LENGTH = 70
+
+MAX_DESCRIPTION_LENGTH = 2000
+
+MAX_TAGS = 12
+
+MIN_IMAGE_PROMPT_WORDS = 12
+
+MAX_IMAGE_PROMPT_WORDS = 45
+
+MAX_RECURRING_SUBJECTS = 15
+
+MAX_RECURRING_OBJECTS = 20
+
+MAX_CONTINUITY_RULES = 20
+
+
+# ============================================================================
+# VALID ENUMERATIONS
+# ============================================================================
+
+VALID_PURPOSE = {
+    "hook",
+    "question",
+    "explanation",
+    "example",
+    "mindblowing_fact",
+    "ending",
 }
 
-MAX_RETRIES = 5
-RETRY_DELAY = 5
-REQUEST_TIMEOUT = 180
-BETWEEN_IMAGE_DELAY = 2
 
-DEFAULT_WIDTH = 768
-DEFAULT_HEIGHT = 1365
-
-EXPECTED_SCENES = 7
-VISUALS_PER_SCENE = 2
-EXPECTED_TOTAL_IMAGES = 14
-
-MIN_IMAGE_BYTES = 10_000
-EXPECTED_FORMAT = "PNG"
-
-MAX_RECURRING_SUBJECTS = 4
-MAX_RECURRING_OBJECTS = 5
-MAX_CONTINUITY_RULES = 5
-
-MAX_STYLE_LENGTH = 500
-MAX_PALETTE_LENGTH = 300
-MAX_MOOD_LENGTH = 300
-MAX_ENVIRONMENT_LENGTH = 500
-MAX_PROMPT_LENGTH = 1800
+VALID_RETENTION_PURPOSE = {
+    "open_loop",
+    "escalation",
+    "payoff",
+    "reframe",
+    "curiosity_gap",
+    "pattern_break",
+    "emotional_release",
+    "closure",
+}
 
 
-# ==========================================================================
+VALID_SUBTITLE_STYLE = {
+    "bold_center",
+    "kinetic_word_by_word",
+    "lower_third",
+    "minimal_clean",
+}
+
+
+VALID_EMPHASIS = {
+    "strong",
+    "light",
+}
+
+
+VALID_EMOTIONAL_TONE = {
+    "curious",
+    "tense",
+    "calm",
+    "awe",
+    "playful",
+    "urgent",
+    "satisfied",
+}
+
+
+VALID_VISUAL_PRIORITY = {
+    "hero",
+    "supporting",
+}
+
+
+VALID_CAMERA = {
+    "close_up",
+    "medium",
+    "wide",
+    "macro",
+    "top_down",
+    "side",
+    "aerial",
+    "orbit",
+}
+
+
+VALID_ANIMATION = {
+    "zoom_in",
+    "zoom_out",
+    "pan_left",
+    "pan_right",
+    "rotate",
+    "parallax",
+    "highlight",
+    "hold",
+}
+
+
+VALID_ZOOM_STRENGTH = {
+    "subtle",
+    "medium",
+    "strong",
+}
+
+
+VALID_MOTION_INTENSITY = {
+    "low",
+    "medium",
+    "high",
+}
+
+
+VALID_VISUAL_COMPLEXITY = {
+    "simple",
+    "moderate",
+    "complex",
+}
+
+
+VALID_IMAGE_STYLE = {
+    "realistic_3d_render",
+    "scientific_illustration",
+    "cinematic_photograph",
+    "macro_photography",
+    "infographic_diagram",
+}
+
+
+VALID_OVERLAY_TYPE = {
+    "none",
+    "arrow",
+    "icon",
+    "diagram",
+    "comparison_graphic",
+}
+
+
+VALID_TRANSITION = {
+    "hard_cut",
+    "whip_pan",
+    "match_cut",
+    "dissolve",
+    "none",
+}
+
+
+VALID_MUSIC_CUE = {
+    "intro",
+    "build",
+    "swell",
+    "drop",
+    "fade_out",
+    "none",
+}
+
+
+VALID_CONFIDENCE = {
+    "high",
+    "qualitative_estimate",
+}
+
+
+VALID_CATEGORY = {
+    "space",
+    "physics",
+    "biology",
+    "chemistry",
+    "technology",
+    "engineering",
+    "earth_science",
+    "human_body",
+    "psychology",
+    "history",
+    "animals",
+}
+
+
+ZOOM_FACTORS = {
+    "subtle": 1.06,
+    "medium": 1.15,
+    "strong": 1.30,
+}
+
+
+MOTION_SPEEDS = {
+    "low": 0.5,
+    "medium": 1.0,
+    "high": 1.6,
+}
+
+
+# ============================================================================
+# STORY STRUCTURE
+# ============================================================================
+
+STORY_BEATS = """
+SCENE 1 — HOOK — 0–3 seconds
+
+Start immediately with the most surprising VERIFIED fact,
+consequence, contrast, or visual situation.
+
+Do NOT start with a question.
+
+The first sentence must create immediate curiosity.
+
+The viewer should feel:
+
+"Wait... what?"
+
+The opening should be understandable without context.
+
+
+------------------------------------------------------------
+
+SCENE 2 — CURIOSITY GAP — 3–8 seconds
+
+Reveal the mystery, contradiction, unexpected detail,
+or hidden mechanism behind the hook.
+
+Do not repeat Scene 1.
+
+Create a strong reason to keep watching.
+
+
+------------------------------------------------------------
+
+SCENE 3 — EXPLANATION — 8–15 seconds
+
+Explain what is happening.
+
+Use only verified evidence.
+
+Make the explanation simple enough for a general audience.
+
+Avoid sounding like a textbook.
+
+
+------------------------------------------------------------
+
+SCENE 4 — EXAMPLE — 15–22 seconds
+
+Turn the explanation into something concrete.
+
+Show what the mechanism or phenomenon looks like.
+
+The visual should make the concept easier to understand.
+
+
+------------------------------------------------------------
+
+SCENE 5 — REFRAME — 22–30 seconds
+
+Reveal the implication that changes how the viewer
+understands what they just saw.
+
+This should create an:
+
+"Oh... so THAT is what was happening."
+
+moment.
+
+
+------------------------------------------------------------
+
+SCENE 6 — ESCALATION — 30–38 seconds
+
+Deliver the strongest remaining VERIFIED consequence,
+observation, or perspective shift.
+
+Increase the emotional or intellectual stakes.
+
+Do not introduce an unrelated fact.
+
+
+------------------------------------------------------------
+
+SCENE 7 — PAYOFF + NEXT STORY HOOK — 38–45 seconds
+
+Finish the CURRENT story first.
+
+Then use the final sentence as a short, natural open loop
+that introduces the NEXT SHORT topic.
+
+The next topic is metadata supplied separately as:
+
+next_short.topic
+
+The final sentence MAY mention that topic.
+
+The final sentence must NOT present the next topic as a
+fact that belongs to the CURRENT story.
+
+Good pattern:
+
+"That is the strange part. But it raises an even bigger question:
+[exact next topic]."
+
+Or:
+
+"And that leaves one question worth exploring next:
+[exact next topic]."
+
+Or:
+
+"The story ends here, but the next mystery is:
+[exact next topic]."
+
+Do NOT say:
+
+"Next we'll..."
+"In the next video..."
+"Coming next..."
+"Stay tuned..."
+"Watch my next video..."
+"Part 2..."
+"Subscribe for..."
+
+The next topic should feel like a curiosity bridge,
+not an advertisement.
+
+The current story must still feel complete even if the viewer
+never watches another Short.
+"""
+
+
+# ============================================================================
 # BASIC HELPERS
-# ==========================================================================
+# ============================================================================
 
-def _clean_prompt(text):
-    if not text:
-        return ""
-
-    text = str(text)
-    text = text.replace("\n", " ")
-    text = text.replace("```", "")
-
-    return " ".join(text.split()).strip()
-
-
-def _clean_text(value, maximum=None):
+def _clean(value):
     if value is None:
         return ""
 
-    value = " ".join(str(value).split()).strip()
+    return re.sub(
+        r"\s+",
+        " ",
+        str(value),
+    ).strip()
 
-    if maximum:
-        value = value[:maximum]
 
-    return value
-
-
-def _safe_int(value, default):
+def _safe_int(
+    value,
+    default=0,
+):
     try:
         return int(value)
-    except (TypeError, ValueError):
+    except (
+        TypeError,
+        ValueError,
+    ):
         return default
 
 
-# ==========================================================================
-# VISUAL IDENTITY
-# ==========================================================================
-
-def _get_visual_identity(script):
-    identity = script.get(
-        "visual_identity",
-        {},
-    )
-
-    if not isinstance(identity, dict):
-        identity = {}
-
+def _enum(values):
     return {
-        "style": _clean_text(
-            identity.get("style", ""),
-            MAX_STYLE_LENGTH,
-        ),
-
-        "palette": _clean_text(
-            identity.get("palette", ""),
-            MAX_PALETTE_LENGTH,
-        ),
-
-        "mood_arc": _clean_text(
-            identity.get("mood_arc", ""),
-            MAX_MOOD_LENGTH,
-        ),
+        "type": "string",
+        "enum": sorted(list(values)),
     }
 
 
-def _get_style_lock(script):
-    generation = script.get(
-        "image_generation",
-        {},
+def _slugify(text):
+    slug = re.sub(
+        r"[^a-z0-9]+",
+        "-",
+        str(text).lower(),
+    ).strip("-")
+
+    return slug[:45] or "video"
+
+
+def _get_api_key():
+    api_key = os.environ.get(
+        "GEMINI_API_KEY"
     )
 
-    if not isinstance(generation, dict):
-        generation = {}
-
-    return _clean_text(
-        generation.get(
-            "style_lock",
-            "",
-        ),
-        1000,
-    )
-
-
-# ==========================================================================
-# VISUAL CONTINUITY
-# ==========================================================================
-
-def _get_visual_continuity(script):
-    continuity = script.get(
-        "visual_continuity",
-        {},
-    )
-
-    if not isinstance(continuity, dict):
-        continuity = {}
-
-    subjects = continuity.get(
-        "recurring_subjects",
-        [],
-    )
-
-    if not isinstance(subjects, list):
-        subjects = []
-
-    normalized_subjects = []
-
-    for subject in subjects[
-        :MAX_RECURRING_SUBJECTS
-    ]:
-
-        if not isinstance(
-            subject,
-            dict,
-        ):
-            continue
-
-        name = _clean_text(
-            subject.get(
-                "name",
-                "",
-            ),
-            100,
+    if not api_key:
+        raise RuntimeError(
+            "GEMINI_API_KEY environment variable is missing."
         )
 
-        appearance = _clean_text(
-            subject.get(
-                "appearance",
-                "",
-            ),
-            500,
+    return api_key
+
+
+def _check_enum(
+    value,
+    allowed,
+    label,
+):
+    if value not in allowed:
+        raise RuntimeError(
+            f"{label}: invalid value '{value}'. "
+            f"Allowed values: {sorted(allowed)}"
         )
 
-        continuity_rule = _clean_text(
-            subject.get(
-                "continuity",
-                "",
-            ),
-            300,
+
+def _word_count(text):
+    return len(
+        re.findall(
+            r"\b[\w'-]+\b",
+            _clean(text),
         )
-
-        if not name or not appearance:
-            continue
-
-        normalized_subjects.append({
-            "name": name,
-            "appearance": appearance,
-            "continuity": (
-                continuity_rule
-                or
-                "keep the same appearance whenever this subject is visible"
-            ),
-        })
-
-    objects = continuity.get(
-        "recurring_objects",
-        [],
     )
 
-    if not isinstance(
-        objects,
-        list,
-    ):
-        objects = []
 
-    normalized_objects = [
-        _clean_text(
-            item,
-            200,
-        )
-        for item in objects[
-            :MAX_RECURRING_OBJECTS
-        ]
-        if _clean_text(item)
-    ]
+# ============================================================================
+# NEXT TOPIC HELPERS
+# ============================================================================
 
-    environment = _clean_text(
-        continuity.get(
-            "recurring_environment",
-            "",
-        ),
-        MAX_ENVIRONMENT_LENGTH,
-    )
+def _topic_words(topic):
+    """
+    Extract meaningful words from a topic.
 
-    rules = continuity.get(
-        "continuity_rules",
-        [],
-    )
+    This is deliberately conservative. Common words are ignored so that
+    descriptions and narration are not rejected simply because both topics
+    happen to contain words such as "the", "why", "how", "science", etc.
+    """
 
-    if not isinstance(
-        rules,
-        list,
-    ):
-        rules = []
-
-    normalized_rules = [
-        _clean_text(
-            rule,
-            300,
-        )
-        for rule in rules[
-            :MAX_CONTINUITY_RULES
-        ]
-        if _clean_text(rule)
-    ]
-
-    return {
-        "subjects": normalized_subjects,
-        "objects": normalized_objects,
-        "environment": environment,
-        "rules": normalized_rules,
+    stop_words = {
+        "what",
+        "why",
+        "how",
+        "when",
+        "where",
+        "which",
+        "does",
+        "this",
+        "that",
+        "these",
+        "those",
+        "the",
+        "and",
+        "for",
+        "with",
+        "from",
+        "into",
+        "about",
+        "your",
+        "our",
+        "their",
+        "will",
+        "can",
+        "could",
+        "would",
+        "should",
+        "does",
+        "did",
+        "are",
+        "was",
+        "were",
+        "is",
+        "its",
+        "it's",
+        "they",
+        "them",
+        "than",
+        "then",
+        "really",
+        "actually",
+        "just",
+        "very",
+        "most",
+        "more",
+        "some",
+        "one",
+        "thing",
+        "things",
+        "part",
+        "next",
+        "story",
+        "question",
+        "mystery",
+        "science",
+        "scientific",
     }
 
-
-# ==========================================================================
-# IMAGE GENERATION METADATA
-# ==========================================================================
-
-def _get_image_generation_config(script):
-    generation = script.get(
-        "image_generation",
-        {},
+    words = re.findall(
+        r"[A-Za-z0-9'-]+",
+        _clean(topic).lower(),
     )
 
-    if not isinstance(
-        generation,
-        dict,
-    ):
-        generation = {}
+    return [
+        word
+        for word in words
+        if len(word) >= 4
+        and word not in stop_words
+    ]
 
-    seed = _safe_int(
-        generation.get("seed"),
-        int(time.time()),
+
+def _contains_next_topic(
+    text,
+    next_topic,
+):
+    """
+    Detects whether text is actually revealing the next topic.
+
+    Exact phrase matching is the strongest signal.
+
+    A second conservative check catches descriptions that reproduce most
+    meaningful words from the next topic.
+
+    This intentionally avoids rejecting text based on one or two shared words.
+    """
+
+    text_clean = _clean(
+        text
+    ).lower()
+
+    topic_clean = _clean(
+        next_topic
+    ).lower()
+
+    if not text_clean or not topic_clean:
+        return False
+
+    # Exact topic phrase.
+    if topic_clean in text_clean:
+        return True
+
+    topic_words = _topic_words(
+        topic_clean
     )
 
-    return {
-        "seed": seed,
-        "style_lock": _get_style_lock(script),
+    if len(topic_words) < 2:
+        return False
+
+    text_words = set(
+        re.findall(
+            r"[A-Za-z0-9'-]+",
+            text_clean,
+        )
+    )
+
+    overlap = {
+        word
+        for word in set(topic_words)
+        if word in text_words
     }
 
+    # Require almost all meaningful words for short topics.
+    if len(topic_words) <= 3:
+        return len(overlap) >= len(topic_words)
 
-def _get_base_seed(script):
-    return _get_image_generation_config(
-        script
-    )["seed"]
-
-
-def _get_shot_seed(
-    base_seed,
-    scene_index,
-    visual_index,
-):
-    """
-    Stable seed for every shot.
-
-    Same script + same base seed + same scene/shot
-    always produces the same requested seed.
-    """
-
+    # For longer topics require at least 70% and at least 3 words.
     return (
-        int(base_seed)
-        + (scene_index * 100)
-        + visual_index
-    )
-
-
-def _get_retry_seed(
-    original_seed,
-    attempt,
-):
-    """
-    Attempt 0 uses the normal shot seed.
-
-    Later attempts use deterministic alternate seeds.
-    """
-
-    if attempt <= 0:
-        return int(
-            original_seed
-        )
-
-    return (
-        int(original_seed)
-        + (
-            attempt
-            * 10_000
-        )
-    )
-
-
-# ==========================================================================
-# SHOT CONTEXT
-# ==========================================================================
-
-def _get_scene_context(scene):
-    if not isinstance(
-        scene,
-        dict,
-    ):
-        return {}
-
-    return {
-        "emotional_tone": _clean_text(
-            scene.get(
-                "emotional_tone",
-                "",
-            ),
-            100,
-        ),
-
-        "visual_priority": _clean_text(
-            scene.get(
-                "visual_priority",
-                "",
-            ),
-            100,
-        ),
-
-        "transition": _clean_text(
-            scene.get(
-                "transition",
-                "",
-            ),
-            100,
-        ),
-    }
-
-
-# ==========================================================================
-# PROMPT COMPONENTS
-# ==========================================================================
-
-def _build_identity_block(script):
-    identity = _get_visual_identity(
-        script
-    )
-
-    style_lock = _get_style_lock(
-        script
-    )
-
-    parts = []
-
-    if identity["style"]:
-        parts.append(
-            f"Consistent production style: "
-            f"{identity['style']}."
-        )
-
-    if identity["palette"]:
-        parts.append(
-            f"Consistent color palette: "
-            f"{identity['palette']}."
-        )
-
-    if identity["mood_arc"]:
-        parts.append(
-            f"Overall mood progression: "
-            f"{identity['mood_arc']}."
-        )
-
-    if style_lock:
-        parts.append(
-            f"Global style lock: "
-            f"{style_lock}."
-        )
-
-    return " ".join(
-        parts
-    )
-
-
-def _build_subject_block(
-    script,
-    semantic_prompt,
-):
-    """
-    Continuity subjects are only constraints when they are
-    relevant to the current semantic shot.
-
-    This prevents Gemini from accidentally creating the
-    same person in every scene.
-    """
-
-    continuity = _get_visual_continuity(
-        script
-    )
-
-    subjects = continuity[
-        "subjects"
-    ]
-
-    if not subjects:
-        return ""
-
-    semantic_lower = semantic_prompt.lower()
-
-    relevant = []
-
-    for subject in subjects:
-
-        name = subject[
-            "name"
-        ].lower()
-
-        appearance = subject.get(
-            "appearance",
-            "",
-        ).lower()
-
-        name_tokens = [
-            token
-            for token in name.split()
-            if len(token) >= 4
-        ]
-
-        appearance_tokens = [
-            token
-            for token in appearance.split()
-            if len(token) >= 6
-        ]
-
-        if (
-            name in semantic_lower
-            or any(
-                token in semantic_lower
-                for token in name_tokens
-            )
-            or any(
-                token in semantic_lower
-                for token in appearance_tokens
-            )
-        ):
-            relevant.append(
-                subject
-            )
-
-    if not relevant:
-        return (
-            "Recurring subjects exist in the story, "
-            "but do not add them unless the main visual "
-            "description requires them."
-        )
-
-    parts = [
-        "Continuity for subjects visible in this shot:"
-    ]
-
-    for subject in relevant:
-
-        parts.append(
-            (
-                f"{subject['name']}: "
-                f"{subject['appearance']}. "
-                f"{subject['continuity']}."
-            )
-        )
-
-    return " ".join(
-        parts
-    )
-
-
-def _build_object_block(
-    script,
-    semantic_prompt,
-):
-    continuity = _get_visual_continuity(
-        script
-    )
-
-    objects = continuity[
-        "objects"
-    ]
-
-    if not objects:
-        return ""
-
-    semantic_lower = semantic_prompt.lower()
-
-    relevant = []
-
-    for item in objects:
-
-        tokens = [
-            token
-            for token in item.lower().split()
-            if len(token) >= 4
-        ]
-
-        if (
-            item.lower()
-            in semantic_lower
-            or any(
-                token in semantic_lower
-                for token in tokens
-            )
-        ):
-            relevant.append(
-                item
-            )
-
-    if not relevant:
-        return (
-            "Keep recurring objects consistent "
-            "whenever they are visible; do not introduce "
-            "them unless the visual description calls for them."
-        )
-
-    return (
-        "Recurring object continuity: "
-        + "; ".join(relevant)
-        + ". Keep their shape, proportions "
-        "and appearance consistent."
-    )
-
-
-def _build_environment_block(script):
-    continuity = _get_visual_continuity(
-        script
-    )
-
-    environment = continuity[
-        "environment"
-    ]
-
-    if not environment:
-        return ""
-
-    return (
-        "Recurring environment: "
-        + environment
-        + ". Maintain the same environmental "
-        "identity whenever visible."
-    )
-
-
-def _build_rules_block(script):
-    continuity = _get_visual_continuity(
-        script
-    )
-
-    rules = continuity[
-        "rules"
-    ]
-
-    if not rules:
-        return ""
-
-    return (
-        "Continuity rules: "
-        + "; ".join(rules)
-        + "."
-    )
-
-
-def _build_visual_metadata_block(
-    visual,
-):
-    """
-    These fields were present in generate_script.py
-    but were previously ignored by the image generator.
-
-    They now influence image generation.
-    """
-
-    parts = []
-
-    image_style = _clean_text(
-        visual.get(
-            "image_style",
-            "",
-        ),
-        120,
-    )
-
-    lighting = _clean_text(
-        visual.get(
-            "lighting",
-            "",
-        ),
-        250,
-    )
-
-    palette = _clean_text(
-        visual.get(
-            "color_palette",
-            "",
-        ),
-        250,
-    )
-
-    if image_style:
-        parts.append(
-            f"Rendering approach: "
-            f"{image_style}."
-        )
-
-    if lighting:
-        parts.append(
-            f"Lighting: "
-            f"{lighting}."
-        )
-
-    if palette:
-        parts.append(
-            f"Shot color treatment: "
-            f"{palette}."
-        )
-
-    return " ".join(
-        parts
-    )
-
-
-def _build_previous_shot_context(
-    scene,
-    visual_index,
-):
-    """
-    Shot 2 should belong to the same moment but
-    should not simply duplicate Shot 1.
-    """
-
-    if visual_index <= 1:
-        return ""
-
-    visuals = scene.get(
-        "visuals",
-        [],
-    )
-
-    if not isinstance(
-        visuals,
-        list,
-    ):
-        return ""
-
-    if not visuals:
-        return ""
-
-    previous = visuals[0]
-
-    if not isinstance(
-        previous,
-        dict,
-    ):
-        return ""
-
-    previous_prompt = _clean_prompt(
-        previous.get(
-            "image_prompt",
-            "",
-        )
-    )
-
-    if not previous_prompt:
-        return ""
-
-    previous_prompt = previous_prompt[
-        :500
-    ]
-
-    return (
-        "This is shot 2 of the same scene. "
-        "Preserve continuity with shot 1, but do not "
-        "duplicate its composition. Change the viewpoint, "
-        "framing, visible detail, action or revealed information. "
-        f"Shot 1 context: {previous_prompt}"
-    )
-
-
-# ==========================================================================
-# BUILD IMAGE PROMPT
-# ==========================================================================
-
-def build_prompt(
-    scene,
-    visual,
-    script=None,
-    scene_index=1,
-    visual_index=1,
-):
-    """
-    Build the final Pollinations prompt.
-
-    Gemini's image_prompt remains the primary semantic
-    description.
-
-    Production metadata is added around it.
-    """
-
-    if not isinstance(
-        visual,
-        dict,
-    ):
-        raise RuntimeError(
-            f"Scene {scene_index} "
-            f"visual {visual_index} is invalid."
-        )
-
-    semantic_prompt = _clean_prompt(
-        visual.get(
-            "image_prompt",
-            "",
-        )
-    )
-
-    if not semantic_prompt:
-
-        raise RuntimeError(
-            f"Scene {scene_index} "
-            f"visual {visual_index} "
-            "has an empty image_prompt."
-        )
-
-    if not isinstance(
-        script,
-        dict,
-    ):
-        script = {}
-
-    parts = [
-        semantic_prompt
-    ]
-
-    identity_block = _build_identity_block(
-        script
-    )
-
-    if identity_block:
-        parts.append(
-            identity_block
-        )
-
-    subject_block = _build_subject_block(
-        script,
-        semantic_prompt,
-    )
-
-    if subject_block:
-        parts.append(
-            subject_block
-        )
-
-    object_block = _build_object_block(
-        script,
-        semantic_prompt,
-    )
-
-    if object_block:
-        parts.append(
-            object_block
-        )
-
-    environment_block = _build_environment_block(
-        script
-    )
-
-    if environment_block:
-        parts.append(
-            environment_block
-        )
-
-    rules_block = _build_rules_block(
-        script
-    )
-
-    if rules_block:
-        parts.append(
-            rules_block
-        )
-
-    metadata_block = _build_visual_metadata_block(
-        visual
-    )
-
-    if metadata_block:
-        parts.append(
-            metadata_block
-        )
-
-    previous_shot_block = _build_previous_shot_context(
-        scene,
-        visual_index,
-    )
-
-    if previous_shot_block:
-        parts.append(
-            previous_shot_block
-        )
-
-    scene_context = _get_scene_context(
-        scene
-    )
-
-    if scene_context.get(
-        "emotional_tone"
-    ):
-
-        parts.append(
-            (
-                "Scene emotional tone: "
-                f"{scene_context['emotional_tone']}."
-            )
-        )
-
-    if scene_context.get(
-        "visual_priority"
-    ):
-
-        parts.append(
-            (
-                "Visual priority: "
-                f"{scene_context['visual_priority']}."
-            )
-        )
-
-    if visual_index == 1:
-
-        parts.append(
-            "Establish the visual moment clearly."
-        )
-
-    else:
-
-        parts.append(
-            "Advance the visual story with a clearly "
-            "different shot that reveals or demonstrates "
-            "something new."
-        )
-
-    parts.append(
-        "Visible content only. No written words, labels, "
-        "captions, subtitles, logos, watermarks or "
-        "interface elements."
-    )
-
-    final_prompt = _clean_prompt(
-        " ".join(parts)
-    )
-
-    if len(
-        final_prompt
-    ) > MAX_PROMPT_LENGTH:
-
-        final_prompt = final_prompt[
-            :MAX_PROMPT_LENGTH
-        ]
-
-        final_prompt = final_prompt.rsplit(
-            " ",
-            1,
-        )[0]
-
-    return final_prompt
-
-
-# ==========================================================================
-# IMAGE URL
-# ==========================================================================
-
-def _build_image_url(
-    prompt,
-    width,
-    height,
-    seed,
-):
-    encoded_prompt = urllib.parse.quote(
-        prompt,
-        safe="",
-    )
-
-    return (
-        BASE_URL
-        + encoded_prompt
-        + f"?model={MODEL_NAME}"
-        + f"&width={int(width)}"
-        + f"&height={int(height)}"
-        + f"&seed={int(seed)}"
-        + "&enhance=true"
-        + "&nologo=true"
-    )
-
-
-# ==========================================================================
-# HTTP RESPONSE VALIDATION
-# ==========================================================================
-
-def _validate_image_response(
-    response,
-):
-    if response is None:
-
-        raise RuntimeError(
-            "Empty HTTP response."
-        )
-
-    if response.status_code != 200:
-
-        preview = (
-            response.text[:300]
-            if response.text
-            else ""
-        )
-
-        raise RuntimeError(
-            f"HTTP {response.status_code}: "
-            f"{preview}"
-        )
-
-    content = response.content
-
-    if not content:
-
-        raise RuntimeError(
-            "Image response was empty."
-        )
-
-    if len(content) < MIN_IMAGE_BYTES:
-
-        raise RuntimeError(
-            "Image response is suspiciously small."
-        )
-
-    content_type = (
-        response.headers.get(
-            "Content-Type",
-            "",
-        )
-        .lower()
-    )
-
-    image_signatures = (
-        b"\x89PNG",
-        b"\xff\xd8\xff",
-        b"RIFF",
-    )
-
-    has_image_content_type = (
-        "image"
-        in content_type
-    )
-
-    has_image_signature = any(
-        content.startswith(
-            signature
-        )
-        for signature in image_signatures
-    )
-
-    if (
-        not has_image_content_type
+        len(overlap) >= 3
         and
-        not has_image_signature
-    ):
-
-        preview = content[:300]
-
-        try:
-
-            preview = preview.decode(
-                "utf-8",
-                errors="ignore",
-            )
-
-        except Exception:
-
-            preview = "<binary response>"
-
-        raise RuntimeError(
-            "Server returned a non-image response: "
-            f"{preview}"
-        )
-
-    return content
+        len(overlap) / len(set(topic_words)) >= 0.70
+    )
 
 
-# ==========================================================================
-# PIL IMAGE VALIDATION
-# ==========================================================================
-
-def _validate_with_pillow(
-    content,
-    expected_width,
-    expected_height,
+def _build_next_topic_bridge(
+    next_topic
 ):
-    if Image is None:
-        return content
+    """
+    Fallback bridge used only when Gemini fails to naturally mention the next
+    topic in Scene 7.
 
-    try:
+    It is intentionally curiosity-based and does not make a factual claim
+    about the next topic.
+    """
 
-        image = Image.open(
-            BytesIO(content)
-        )
-
-        image.verify()
-
-        image = Image.open(
-            BytesIO(content)
-        )
-
-        actual_width, actual_height = (
-            image.size
-        )
-
-        if (
-            actual_width <= 0
-            or
-            actual_height <= 0
-        ):
-
-            raise RuntimeError(
-                "Generated image has invalid dimensions."
-            )
-
-        return content
-
-    except Exception as error:
-
-        raise RuntimeError(
-            "Pillow could not validate generated image: "
-            f"{error}"
-        )
-
-
-# ==========================================================================
-# IMAGE REQUEST
-# ==========================================================================
-
-def generate_image(
-    prompt,
-    width,
-    height,
-    seed,
-):
-    prompt = _clean_prompt(
-        prompt
+    next_topic = _clean(
+        next_topic
     )
 
-    if not prompt:
-
-        raise RuntimeError(
-            "Cannot generate an image "
-            "with an empty prompt."
-        )
-
-    last_error = None
-
-    session = requests.Session()
-
-    session.headers.update(
-        HEADERS
-    )
-
-    try:
-
-        for attempt in range(
-            MAX_RETRIES
-        ):
-
-            attempt_seed = _get_retry_seed(
-                seed,
-                attempt,
-            )
-
-            url = _build_image_url(
-                prompt,
-                width,
-                height,
-                attempt_seed,
-            )
-
-            print("=" * 80)
-            print(
-                "IMAGE GENERATION REQUEST"
-            )
-            print("=" * 80)
-
-            print(
-                f"Attempt: "
-                f"{attempt + 1}/{MAX_RETRIES}"
-            )
-
-            print(
-                f"Seed: "
-                f"{attempt_seed}"
-            )
-
-            print(
-                f"Size: "
-                f"{width}x{height}"
-            )
-
-            print(
-                f"Prompt length: "
-                f"{len(prompt)}"
-            )
-
-            print(
-                f"Prompt: "
-                f"{prompt}"
-            )
-
-            print("=" * 80)
-
-            try:
-
-                print(
-                    f"🎨 Image attempt "
-                    f"{attempt + 1}/{MAX_RETRIES}"
-                )
-
-                response = session.get(
-                    url,
-                    timeout=REQUEST_TIMEOUT,
-                )
-
-                print(
-                    f"HTTP status: "
-                    f"{response.status_code}"
-                )
-
-                content = _validate_image_response(
-                    response
-                )
-
-                content = _validate_with_pillow(
-                    content,
-                    width,
-                    height,
-                )
-
-                print(
-                    f"Image bytes: "
-                    f"{len(content):,}"
-                )
-
-                print(
-                    "✅ Image generated successfully."
-                )
-
-                return content
-
-            except Exception as error:
-
-                last_error = error
-
-                print(
-                    f"❌ Image attempt "
-                    f"{attempt + 1} failed:"
-                )
-
-                print(
-                    f"{type(error).__name__}: "
-                    f"{error}"
-                )
-
-                if (
-                    attempt
-                    <
-                    MAX_RETRIES - 1
-                ):
-
-                    print(
-                        f"⏳ Retrying in "
-                        f"{RETRY_DELAY} seconds..."
-                    )
-
-                    time.sleep(
-                        RETRY_DELAY
-                    )
-
-    finally:
-
-        session.close()
-
-    raise RuntimeError(
-        "Failed to generate image after "
-        f"{MAX_RETRIES} attempts: "
-        f"{last_error}"
+    return (
+        "But that leaves one bigger question: "
+        f"{next_topic}."
     )
 
 
-# ==========================================================================
-# SAVE / NORMALIZE IMAGE
-# ==========================================================================
+# ============================================================================
+# SCIENTIFIC CLAIM SAFETY
+# ============================================================================
 
-def _save_image(
-    content,
-    path,
-    width,
-    height,
-):
-    if not content:
+FORBIDDEN_CLAIM_PATTERNS = [
 
-        raise RuntimeError(
-            "Cannot save empty image content."
-        )
+    r"\bproves\b",
+    r"\bproved\b",
+    r"\bproven\b",
+    r"\bproof\b",
 
-    output_dir = os.path.dirname(
-        path
-    )
+    r"\bscientifically proven\b",
+    r"\bscientifically proves\b",
 
-    if output_dir:
+    r"\bdefinitively\b",
+    r"\bdefinitive proof\b",
+    r"\bdefinitively proves\b",
 
-        os.makedirs(
-            output_dir,
-            exist_ok=True,
-        )
+    r"\bconfirms\b",
+    r"\bconfirmed\b",
+    r"\bconfirm that\b",
+    r"\bconfirmed that\b",
 
-    if Image is not None:
+    r"\bcauses\b",
+    r"\bcaused\b",
+    r"\bcausing\b",
 
-        try:
+    r"\bresults in\b",
+    r"\bresulting in\b",
 
-            image = Image.open(
-                BytesIO(content)
-            )
+    r"\bguarantees\b",
+    r"\bguaranteed\b",
+    r"\bguarantee\b",
 
-            image.load()
+    r"\bessential\b",
+    r"\bessential for\b",
+    r"\bessential to\b",
 
-            if image.mode not in (
-                "RGB",
-                "RGBA",
-            ):
+    r"\bis essential\b",
+    r"\bare essential\b",
 
-                image = image.convert(
-                    "RGB"
-                )
+    r"\bmust\b",
+    r"\bdefinitely\b",
+    r"\bcertainly\b",
 
-            if image.size != (
-                int(width),
-                int(height),
-            ):
+    r"\bwithout doubt\b",
+    r"\bno doubt\b",
 
-                image = image.resize(
-                    (
-                        int(width),
-                        int(height),
-                    ),
-                    Image.Resampling.LANCZOS,
-                )
+    r"\balways\b",
+    r"\bnever\b",
 
-            image.save(
-                path,
-                format="PNG",
-                optimize=True,
-            )
+    r"\bcompletely\b",
+    r"\bperfectly\b",
 
-        except Exception as error:
-
-            raise RuntimeError(
-                "Failed to normalize image to PNG: "
-                f"{error}"
-            )
-
-    else:
-
-        with open(
-            path,
-            "wb",
-        ) as file:
-
-            file.write(
-                content
-            )
-
-    if not os.path.exists(
-        path
-    ):
-
-        raise RuntimeError(
-            f"Image was not created: {path}"
-        )
-
-    size = os.path.getsize(
-        path
-    )
-
-    if size < MIN_IMAGE_BYTES:
-
-        try:
-
-            os.remove(
-                path
-            )
-
-        except Exception:
-
-            pass
-
-        raise RuntimeError(
-            f"Generated image appears invalid: "
-            f"{path}"
-        )
-
-    if Image is not None:
-
-        try:
-
-            with Image.open(
-                path
-            ) as image:
-
-                if image.format != EXPECTED_FORMAT:
-
-                    raise RuntimeError(
-                        f"Expected PNG but got "
-                        f"{image.format}."
-                    )
-
-                if image.size != (
-                    int(width),
-                    int(height),
-                ):
-
-                    raise RuntimeError(
-                        "Final image dimensions are incorrect: "
-                        f"{image.size} instead of "
-                        f"{width}x{height}."
-                    )
-
-                image.verify()
-
-        except Exception as error:
-
-            raise RuntimeError(
-                f"Final PNG validation failed: "
-                f"{error}"
-            )
-
-    return path
+    r"\bthe only reason\b",
+    r"\bthe exact reason\b",
+]
 
 
-# ==========================================================================
-# IMAGE CONFIG
-# ==========================================================================
+def _find_claim_violations(script):
 
-def _get_image_dimensions(
-    config,
-):
-    image_config = (
-        config.get(
-            "image",
-            {},
-        )
-        if isinstance(
-            config,
-            dict,
-        )
-        else {}
-    )
-
-    if not isinstance(
-        image_config,
-        dict,
-    ):
-
-        image_config = {}
-
-    width = _safe_int(
-        image_config.get(
-            "width",
-            DEFAULT_WIDTH,
-        ),
-        DEFAULT_WIDTH,
-    )
-
-    height = _safe_int(
-        image_config.get(
-            "height",
-            DEFAULT_HEIGHT,
-        ),
-        DEFAULT_HEIGHT,
-    )
-
-    if width <= 0:
-        width = DEFAULT_WIDTH
-
-    if height <= 0:
-        height = DEFAULT_HEIGHT
-
-    if width >= height:
-
-        width, height = (
-            height,
-            width,
-        )
-
-    return width, height
-
-
-# ==========================================================================
-# SCRIPT STRUCTURE VALIDATION
-# ==========================================================================
-
-def _validate_script_structure(
-    script,
-):
-    if not isinstance(
-        script,
-        dict,
-    ):
-
-        raise RuntimeError(
-            "Script must be a dictionary."
-        )
+    violations = []
 
     scenes = script.get(
         "scene_plan",
@@ -1492,24 +707,9 @@ def _validate_script_structure(
         scenes,
         list,
     ):
+        return violations
 
-        raise RuntimeError(
-            "script.scene_plan must be a list."
-        )
-
-    if len(
-        scenes
-    ) != EXPECTED_SCENES:
-
-        raise RuntimeError(
-            f"Expected exactly "
-            f"{EXPECTED_SCENES} scenes, "
-            f"but found {len(scenes)}."
-        )
-
-    total_visuals = 0
-
-    for scene_index, scene in enumerate(
+    for index, scene in enumerate(
         scenes,
         start=1,
     ):
@@ -1518,667 +718,5156 @@ def _validate_script_structure(
             scene,
             dict,
         ):
+            continue
 
-            raise RuntimeError(
-                f"Scene {scene_index} "
-                "is not an object."
-            )
-
-        scene_number = _safe_int(
+        narration = _clean(
             scene.get(
-                "scene",
-                scene_index,
-            ),
-            scene_index,
+                "narration",
+                "",
+            )
         )
 
-        if scene_number != scene_index:
+        if not narration:
+            continue
 
-            raise RuntimeError(
-                f"Scene {scene_index} has invalid "
-                f"scene number: {scene_number}."
+        for pattern in FORBIDDEN_CLAIM_PATTERNS:
+
+            match = re.search(
+                pattern,
+                narration,
+                flags=re.IGNORECASE,
             )
 
-        visuals = scene.get(
+            if match:
+
+                violations.append({
+                    "scene": index,
+                    "phrase": match.group(0),
+                    "narration": narration,
+                })
+
+    return violations
+
+
+def _validate_claim_strength(script):
+
+    violations = _find_claim_violations(
+        script
+    )
+
+    if not violations:
+        return
+
+    lines = [
+        "SCIENTIFIC CLAIM SAFETY CHECK FAILED.",
+        "",
+        "The narration contains language that may",
+        "strengthen the supplied scientific evidence.",
+        "",
+    ]
+
+    for violation in violations:
+
+        lines.append(
+            f"Scene {violation['scene']}: "
+            f"'{violation['phrase']}'"
+        )
+
+        lines.append(
+            f"Narration: {violation['narration']}"
+        )
+
+        lines.append("")
+
+    lines.extend([
+        "Preserve the strength of the supplied evidence.",
+        "",
+        "Prefer evidence-matched wording such as:",
+        "may",
+        "might",
+        "appears to",
+        "suggests",
+        "indicates",
+        "is associated with",
+        "researchers observed",
+    ])
+
+    raise RuntimeError(
+        "\n".join(lines)
+    )
+
+
+# ============================================================================
+# RESEARCH VALIDATION
+# ============================================================================
+
+def _extract_source_evidence(
+    source
+):
+
+    if not isinstance(
+        source,
+        dict,
+    ):
+        return ""
+
+    evidence = source.get(
+        "evidence_text",
+        "",
+    )
+
+    if not isinstance(
+        evidence,
+        str,
+    ):
+        return ""
+
+    return _clean(evidence)
+
+
+def validate_research_package(
+    research,
+    topic,
+):
+
+    if not isinstance(
+        research,
+        dict,
+    ):
+        raise RuntimeError(
+            "RESEARCH GATE FAILED: research package is missing."
+        )
+
+    if research.get(
+        "verified"
+    ) is not True:
+
+        raise RuntimeError(
+            "RESEARCH GATE FAILED: research package is not VERIFIED."
+        )
+
+    if research.get(
+        "status"
+    ) != "VERIFIED":
+
+        raise RuntimeError(
+            "RESEARCH GATE FAILED: research status is not VERIFIED."
+        )
+
+    sources = research.get(
+        "sources",
+        [],
+    )
+
+    if not isinstance(
+        sources,
+        list,
+    ):
+        raise RuntimeError(
+            "RESEARCH GATE FAILED: sources must be a list."
+        )
+
+    verified_sources = []
+
+    seen_ids = set()
+
+    for index, source in enumerate(
+        sources,
+        start=1,
+    ):
+
+        if not isinstance(
+            source,
+            dict,
+        ):
+            continue
+
+        if source.get(
+            "verified"
+        ) is not True:
+            continue
+
+        if source.get(
+            "evidence_verified"
+        ) is not True:
+            continue
+
+        if source.get(
+            "evidence_available"
+        ) is not True:
+            continue
+
+        source_id = _clean(
+            source.get(
+                "source_id",
+                "",
+            )
+        )
+
+        if not source_id:
+
+            raise RuntimeError(
+                f"RESEARCH GATE FAILED: "
+                f"source {index} has no source_id."
+            )
+
+        if source_id in seen_ids:
+
+            raise RuntimeError(
+                f"RESEARCH GATE FAILED: duplicate "
+                f"source_id '{source_id}'."
+            )
+
+        title = _clean(
+            source.get(
+                "title",
+                "",
+            )
+        )
+
+        authors = _clean(
+            source.get(
+                "authors",
+                "",
+            )
+        )
+
+        url = _clean(
+            source.get(
+                "url",
+                "",
+            )
+        )
+
+        doi = _clean(
+            source.get(
+                "doi",
+                "",
+            )
+        )
+
+        evidence = _extract_source_evidence(
+            source
+        )
+
+        if not title:
+            continue
+
+        if not authors:
+            continue
+
+        if not url:
+            continue
+
+        if not doi:
+            continue
+
+        if not evidence:
+            continue
+
+        seen_ids.add(
+            source_id
+        )
+
+        verified_sources.append(
+            source
+        )
+
+    if len(
+        verified_sources
+    ) < MIN_VERIFIED_SOURCES:
+
+        raise RuntimeError(
+            "RESEARCH GATE FAILED: "
+            f"Only {len(verified_sources)} verified "
+            f"evidence-backed source(s) available. "
+            f"Minimum required: "
+            f"{MIN_VERIFIED_SOURCES}."
+        )
+
+    research_topic = _clean(
+        research.get(
+            "topic",
+            "",
+        )
+    )
+
+    if research_topic and (
+        research_topic.lower()
+        != topic.strip().lower()
+    ):
+
+        print(
+            "⚠️ Research topic differs slightly "
+            "from generated topic."
+        )
+
+    research["sources"] = (
+        verified_sources
+    )
+
+    research["source_count"] = (
+        len(verified_sources)
+    )
+
+    research["evidence_source_count"] = (
+        len(verified_sources)
+    )
+
+    return research
+
+
+# ============================================================================
+# RESEARCH CONTEXT
+# ============================================================================
+
+def build_research_context(
+    research
+):
+
+    blocks = []
+
+    seen_ids = set()
+
+    for index, source in enumerate(
+        research["sources"],
+        start=1,
+    ):
+
+        source_id = _clean(
+            source.get(
+                "source_id",
+                "",
+            )
+        )
+
+        if not source_id:
+
+            raise RuntimeError(
+                f"Research source {index} "
+                "has no source_id."
+            )
+
+        if source_id in seen_ids:
+
+            raise RuntimeError(
+                f"Duplicate source ID: "
+                f"{source_id}"
+            )
+
+        seen_ids.add(
+            source_id
+        )
+
+        evidence = _extract_source_evidence(
+            source
+        )
+
+        if not evidence:
+
+            raise RuntimeError(
+                f"Research source "
+                f"{source_id} has no evidence_text."
+            )
+
+        block = f"""
+============================================================
+VERIFIED SOURCE: {source_id}
+============================================================
+
+SOURCE ID:
+{source_id}
+
+TITLE:
+{_clean(source.get("title", ""))}
+
+AUTHORS:
+{_clean(source.get("authors", ""))}
+
+JOURNAL:
+{_clean(source.get("journal", ""))}
+
+YEAR:
+{source.get("year", "")}
+
+DOI:
+{_clean(source.get("doi", ""))}
+
+URL:
+{_clean(source.get("url", ""))}
+
+DATABASE:
+{_clean(source.get("source_database", ""))}
+
+VERIFICATION LEVEL:
+{_clean(source.get("verification_level", ""))}
+
+------------------------------------------------------------
+
+SUPPLIED SCIENTIFIC EVIDENCE
+
+Evidence type:
+{_clean(source.get("evidence_type", "abstract"))}
+
+Evidence quality:
+{_clean(source.get("evidence_quality", "high"))}
+
+Evidence:
+
+{evidence}
+
+============================================================
+END VERIFIED SOURCE {source_id}
+============================================================
+"""
+
+        blocks.append(
+            block.strip()
+        )
+
+    if not blocks:
+
+        raise RuntimeError(
+            "No verified research sources available."
+        )
+
+    return "\n\n".join(
+        blocks
+    )
+
+
+# ============================================================================
+# SYSTEM PROMPT
+# ============================================================================
+
+def build_system_prompt():
+
+    return f"""
+You are the lead writer and visual director for a premium
+science-focused YouTube Shorts channel.
+
+Your job is to transform VERIFIED scientific evidence into
+one emotionally engaging 45-second story.
+
+The final Short must feel like a human-created story.
+
+It must NOT feel like:
+
+- a textbook
+- a lecture
+- a list
+- a countdown
+- an AI-generated collection of facts
+
+
+============================================================
+ABSOLUTE RESEARCH RULE
+============================================================
+
+The supplied research evidence is the ONLY factual source
+for the CURRENT VIDEO.
+
+You MUST NOT use:
+
+- model memory
+- general knowledge
+- outside facts
+- invented statistics
+- invented dates
+- invented mechanisms
+- invented experiments
+- invented researchers
+- invented institutions
+- invented citations
+
+If the evidence does not support a fact:
+
+DO NOT SAY IT.
+
+
+============================================================
+EVIDENCE STRENGTH
+============================================================
+
+Preserve the exact strength of the supplied evidence.
+
+If evidence says:
+
+"may"
+
+write:
+
+"may"
+
+NOT:
+
+"will"
+"does"
+"always"
+"proves"
+
+If evidence says:
+
+"is associated with"
+
+write:
+
+"is associated with"
+
+NOT:
+
+"causes"
+"leads to"
+"results in"
+
+If evidence says:
+
+"suggests"
+
+preserve that uncertainty.
+
+Never convert:
+
+association → causation
+
+possibility → certainty
+
+observation → universal rule
+
+hypothesis → fact
+
+correlation → mechanism
+
+
+============================================================
+STORY
+============================================================
+
+The Short tells ONE connected story.
+
+{STORY_BEATS}
+
+Every scene must move the story forward.
+
+Do not repeat the same information.
+
+Do not introduce unrelated facts.
+
+Do not use generic filler.
+
+
+============================================================
+HOOK
+============================================================
+
+Scene 1 must NOT begin with:
+
+"Did you know..."
+
+"Have you ever wondered..."
+
+"Today we're going to..."
+
+"In this video..."
+
+Instead, begin directly with the unusual fact,
+situation, consequence, or contradiction.
+
+
+============================================================
+NARRATION
+============================================================
+
+Use natural spoken English.
+
+Target approximately Grade 6–8 comprehension.
+
+Use short sentences.
+
+Avoid unnecessary technical language.
+
+When a technical concept is essential,
+explain it naturally.
+
+
+============================================================
+SCENE 7 NEXT-TOPIC BRIDGE
+============================================================
+
+The CURRENT story must be completed before the next topic appears.
+
+Scene 7 should normally follow this structure:
+
+1. Pay off the current story.
+2. Add one short transition.
+3. Mention next_short.topic as the final curiosity hook.
+
+The next topic MUST be the final topic introduced in narration.
+
+Use the exact or very lightly shortened topic supplied
+in next_short.topic.
+
+Do NOT invent a different next topic.
+
+Do NOT discuss facts about the next topic.
+
+Do NOT explain the next topic.
+
+Do NOT answer the next topic.
+
+Only introduce it as the next question/mystery.
+
+Good:
+
+"But that leaves one bigger question: [NEXT TOPIC]."
+
+"And that raises an even bigger question: [NEXT TOPIC]."
+
+"Which leaves one mystery for another story: [NEXT TOPIC]."
+
+Bad:
+
+"Next we'll explain [NEXT TOPIC]."
+
+"In the next video, you'll learn [NEXT TOPIC]."
+
+"Coming next: [NEXT TOPIC]."
+
+"Stay tuned for [NEXT TOPIC]."
+
+"Subscribe to find out [NEXT TOPIC]."
+
+
+============================================================
+CAPTIONS
+============================================================
+
+subtitle_text MUST exactly equal narration.
+
+Narration is the single source of truth.
+
+Never paraphrase subtitles.
+
+Never shorten them.
+
+
+============================================================
+SOURCE IDS
+============================================================
+
+Use EXACT source IDs supplied by the research package.
+
+Never invent source IDs.
+
+Every factual CURRENT-VIDEO scene must reference one or more
+supporting source IDs.
+
+Scene 7's next-topic bridge does NOT require a source because
+it is a continuation hook rather than a factual claim.
+
+If Scene 7 contains factual claims about the CURRENT topic,
+those claims still require source IDs.
+
+
+============================================================
+DESCRIPTION
+============================================================
+
+The description describes ONLY the CURRENT VIDEO.
+
+The description MUST NOT:
+
+- mention next_short
+- mention the next topic
+- tease the next topic
+- say "next video"
+- say "coming next"
+- say "stay tuned"
+- say "part 2"
+- describe the continuation topic
+- contain the exact next_short.topic
+
+The description should explain the CURRENT topic only.
+
+Do not use the next topic to generate the description.
+
+
+============================================================
+NEXT SHORT
+============================================================
+
+Create a specific researchable continuation topic that naturally
+follows the CURRENT story.
+
+It is metadata for the next video.
+
+It MUST be mentioned naturally in the final sentence of Scene 7.
+
+It MUST NOT appear anywhere else in the current video's narration.
+
+It MUST NOT appear in the current description.
+
+It MUST NOT be treated as a current-video fact.
+
+
+============================================================
+VISUAL STORYTELLING
+============================================================
+
+There are EXACTLY two visuals per scene.
+
+VISUAL 1:
+
+Establish the idea.
+
+VISUAL 2:
+
+Advance, reveal, demonstrate, contrast,
+or reframe the idea.
+
+The two visuals MUST NOT be duplicates.
+
+They should feel like consecutive shots
+from the same story.
+
+
+============================================================
+VISUAL CONTINUITY
+============================================================
+
+If the story contains a recurring:
+
+- person
+- animal
+- object
+- machine
+- spacecraft
+- cell
+- structure
+- environment
+
+define it in visual_continuity.
+
+Give it a stable visual identity.
+
+Keep consistent:
+
+- appearance
+- proportions
+- colors
+- clothing
+- shape
+- design
+- environment
+
+unless the story explicitly requires a transformation.
+
+
+============================================================
+VISUAL IDENTITY
+============================================================
+
+Create ONE global visual identity for the Short.
+
+It must include:
+
+style
+palette
+mood_arc
+
+The identity must work across all 14 images.
+
+The images should feel like frames
+from the same production.
+
+
+============================================================
+IMAGE PROMPTS
+============================================================
+
+Each image_prompt describes ONLY visible content.
+
+Describe:
+
+- subject
+- action
+- environment
+- important objects
+- spatial relationship
+- visual moment
+
+Do NOT put these inside image_prompt:
+
+- camera instructions
+- aspect ratio
+- 9:16
+- 16:9
+- negative prompts
+- text
+- captions
+- subtitles
+- logos
+- watermarks
+- YouTube
+- narration
+- AI-generated
+- camera movement
+
+
+Camera belongs in:
+
+camera
+
+Animation belongs in:
+
+animation
+
+Lighting belongs in:
+
+lighting
+
+Palette belongs in:
+
+color_palette
+
+
+============================================================
+IMAGE PROMPT LENGTH
+============================================================
+
+Image prompts should normally contain
+approximately 15–35 words.
+
+Never produce extremely short prompts.
+
+Never create giant paragraphs.
+
+
+============================================================
+VISUAL DIFFERENTIATION
+============================================================
+
+For each scene:
+
+Visual 1 should establish.
+
+Visual 2 should change something.
+
+Examples:
+
+wide → close-up
+
+subject → mechanism
+
+before → after
+
+surface → interior
+
+normal → unusual
+
+cause → visible consequence
+
+macro → environment
+
+Do not simply repeat the same composition.
+
+
+============================================================
+OUTPUT
+============================================================
+
+Return ONLY valid JSON matching the supplied schema.
+
+No markdown.
+
+No commentary.
+"""
+
+
+# ============================================================================
+# USER PROMPT
+# ============================================================================
+
+def build_user_prompt(
+    topic,
+    config,
+    research,
+):
+
+    channel_config = config.get(
+        "channel",
+        {},
+    )
+
+    script_config = config.get(
+        "script",
+        {},
+    )
+
+    source_ids = [
+        _clean(
+            source.get(
+                "source_id",
+                "",
+            )
+        )
+        for source in research["sources"]
+        if _clean(
+            source.get(
+                "source_id",
+                "",
+            )
+        )
+    ]
+
+    research_context = build_research_context(
+        research
+    )
+
+    return f"""
+CURRENT TOPIC
+============================================================
+
+{topic}
+
+
+CHANNEL AUDIENCE
+============================================================
+
+{channel_config.get(
+    "audience",
+    "General audience"
+)}
+
+
+CHANNEL TONE
+============================================================
+
+{channel_config.get(
+    "tone",
+    "Curious, cinematic, intelligent"
+)}
+
+
+LANGUAGE
+============================================================
+
+{script_config.get(
+    "language",
+    "English"
+)}
+
+
+============================================================
+AVAILABLE VERIFIED SOURCE IDS
+============================================================
+
+{", ".join(source_ids)}
+
+Use ONLY these exact IDs.
+
+
+============================================================
+VERIFIED RESEARCH
+============================================================
+
+{research_context}
+
+
+============================================================
+PRODUCTION CONTRACT
+============================================================
+
+Exactly:
+
+7 scenes
+
+14 visuals
+
+45 seconds
+
+2 visuals per scene
+
+
+Scene durations:
+
+Scene 1 = 3 seconds
+Scene 2 = 5 seconds
+Scene 3 = 7 seconds
+Scene 4 = 7 seconds
+Scene 5 = 8 seconds
+Scene 6 = 8 seconds
+Scene 7 = 7 seconds
+
+
+============================================================
+STORY
+============================================================
+
+Build ONE connected story:
+
+HOOK
+→ CURIOSITY
+→ EXPLANATION
+→ EXAMPLE
+→ REFRAME
+→ ESCALATION
+→ PAYOFF
+→ NEXT STORY CURIOSITY HOOK
+
+
+Do not write a list.
+
+Do not write a countdown.
+
+Do not start with a question.
+
+Do not introduce unrelated facts.
+
+
+============================================================
+CURRENT VIDEO DESCRIPTION
+============================================================
+
+The description must describe ONLY:
+
+{topic}
+
+Do not mention the next topic.
+
+Do not mention next_short.
+
+Do not say what viewers will see next.
+
+Do not use "next video", "coming next", "stay tuned",
+or "part 2".
+
+
+============================================================
+NEXT SHORT
+============================================================
+
+Create a specific researchable continuation topic.
+
+The next_short.topic must:
+
+- naturally follow the CURRENT story
+- be specific
+- be interesting
+- be researchable
+- NOT be the same as the current topic
+
+IMPORTANT:
+
+The final sentence of Scene 7 MUST naturally mention
+next_short.topic.
+
+Do not mention next_short.topic anywhere in Scenes 1–6.
+
+Do not mention next_short.topic in the description.
+
+Do not explain the next topic.
+
+Do not give factual information about the next topic.
+
+Use it only as a curiosity bridge.
+
+Example:
+
+"But that leaves one bigger question: [next_short.topic]."
+
+The exact final wording may vary naturally.
+
+
+============================================================
+VISUAL PRODUCTION
+============================================================
+
+Every scene has exactly two visual shots.
+
+Shot 1 establishes the scene.
+
+Shot 2 advances the scene.
+
+The two prompts must be visually distinct.
+
+Create visual continuity for recurring subjects,
+objects and environments.
+
+
+============================================================
+CAPTIONS
+============================================================
+
+For every scene:
+
+subtitle_text = narration
+
+EXACTLY.
+
+
+============================================================
+SCIENTIFIC FIDELITY
+============================================================
+
+Only supplied evidence.
+
+Do not add facts from memory.
+
+Do not invent numbers.
+
+Do not invent mechanisms.
+
+Do not invent study details.
+
+Do not strengthen uncertainty.
+
+Do not convert correlation into causation.
+
+
+============================================================
+FINAL INTERNAL CHECK
+============================================================
+
+Before returning JSON verify:
+
+- exactly 7 scenes
+- exactly 14 visuals
+- exactly 45 seconds
+- exactly 2 visuals per scene
+- scene durations are correct
+- captions exactly match narration
+- valid source IDs only
+- factual scenes have citations
+- no unsupported claims
+- no causal overclaiming
+- recurring subjects have continuity descriptions
+- global visual identity exists
+- visual prompts are distinct
+- Scene 7 completes the current story
+- Scene 7 naturally mentions next_short.topic
+- next_short.topic is NOT mentioned in Scenes 1–6
+- next_short.topic is NOT mentioned in description
+- description describes ONLY the current topic
+
+Return ONLY JSON.
+"""
+
+
+# ============================================================================
+# RESPONSE SCHEMA
+# ============================================================================
+
+def build_response_schema():
+
+    visual_schema = {
+        "type": "object",
+
+        "properties": {
+
+            "segment": {
+                "type": "integer",
+            },
+
+            "duration": {
+                "type": "integer",
+            },
+
+            "camera": _enum(
+                VALID_CAMERA
+            ),
+
+            "animation": _enum(
+                VALID_ANIMATION
+            ),
+
+            "zoom_strength": _enum(
+                VALID_ZOOM_STRENGTH
+            ),
+
+            "motion_intensity": _enum(
+                VALID_MOTION_INTENSITY
+            ),
+
+            "visual_complexity": _enum(
+                VALID_VISUAL_COMPLEXITY
+            ),
+
+            "image_style": _enum(
+                VALID_IMAGE_STYLE
+            ),
+
+            "lighting": {
+                "type": "string",
+            },
+
+            "color_palette": {
+                "type": "string",
+            },
+
+            "overlay": {
+                "type": "object",
+
+                "properties": {
+
+                    "type": _enum(
+                        VALID_OVERLAY_TYPE
+                    ),
+
+                    "description": {
+                        "type": "string",
+                    },
+                },
+
+                "required": [
+                    "type",
+                    "description",
+                ],
+            },
+
+            "image_prompt": {
+                "type": "string",
+            },
+
+            "visual_impact": {
+                "type": "integer",
+            },
+        },
+
+        "required": [
+            "segment",
+            "duration",
+            "camera",
+            "animation",
+            "zoom_strength",
+            "motion_intensity",
+            "visual_complexity",
+            "image_style",
+            "lighting",
+            "color_palette",
+            "overlay",
+            "image_prompt",
+            "visual_impact",
+        ],
+    }
+
+
+    scene_schema = {
+        "type": "object",
+
+        "properties": {
+
+            "scene": {
+                "type": "integer",
+            },
+
+            "purpose": _enum(
+                VALID_PURPOSE
+            ),
+
+            "retention_purpose": _enum(
+                VALID_RETENTION_PURPOSE
+            ),
+
+            "narration": {
+                "type": "string",
+            },
+
+            "source_ids": {
+                "type": "array",
+
+                "items": {
+                    "type": "string",
+                },
+            },
+
+            "subtitle_text": {
+                "type": "string",
+            },
+
+            "caption_highlights": {
+                "type": "array",
+
+                "items": {
+
+                    "type": "object",
+
+                    "properties": {
+
+                        "word": {
+                            "type": "string",
+                        },
+
+                        "emphasis": _enum(
+                            VALID_EMPHASIS
+                        ),
+                    },
+
+                    "required": [
+                        "word",
+                        "emphasis",
+                    ],
+                },
+            },
+
+            "subtitle_style": _enum(
+                VALID_SUBTITLE_STYLE
+            ),
+
+            "emphasis_word": {
+                "type": "string",
+            },
+
+            "duration": {
+                "type": "integer",
+            },
+
+            "pause_after_ms": {
+                "type": "integer",
+            },
+
+            "emotional_tone": _enum(
+                VALID_EMOTIONAL_TONE
+            ),
+
+            "visual_priority": _enum(
+                VALID_VISUAL_PRIORITY
+            ),
+
+            "transition": _enum(
+                VALID_TRANSITION
+            ),
+
+            "sfx_cue": {
+                "type": "object",
+
+                "properties": {
+
+                    "term": {
+                        "type": "string",
+                    },
+
+                    "at_ms": {
+                        "type": "integer",
+                    },
+                },
+
+                "required": [
+                    "term",
+                    "at_ms",
+                ],
+            },
+
+            "music_cue": _enum(
+                VALID_MUSIC_CUE
+            ),
+
+            "confidence": _enum(
+                VALID_CONFIDENCE
+            ),
+
+            "visuals": {
+                "type": "array",
+
+                "items": visual_schema,
+            },
+        },
+
+        "required": [
+            "scene",
+            "purpose",
+            "retention_purpose",
+            "narration",
+            "source_ids",
+            "subtitle_text",
+            "caption_highlights",
+            "subtitle_style",
+            "emphasis_word",
+            "duration",
+            "pause_after_ms",
+            "emotional_tone",
+            "visual_priority",
+            "transition",
+            "sfx_cue",
+            "music_cue",
+            "confidence",
             "visuals",
+        ],
+    }
+
+
+    source_schema = {
+        "type": "object",
+
+        "properties": {
+
+            "source_id": {
+                "type": "string",
+            },
+
+            "title": {
+                "type": "string",
+            },
+
+            "authors": {
+                "type": "string",
+            },
+
+            "organization": {
+                "type": "string",
+            },
+
+            "journal": {
+                "type": "string",
+            },
+
+            "year": {
+                "type": "integer",
+            },
+
+            "doi": {
+                "type": "string",
+            },
+
+            "url": {
+                "type": "string",
+            },
+
+            "source_database": {
+                "type": "string",
+            },
+
+            "source_type": {
+                "type": "string",
+            },
+
+            "priority": {
+                "type": "string",
+            },
+
+            "verified": {
+                "type": "boolean",
+            },
+
+            "verification": {
+                "type": "string",
+            },
+        },
+
+        "required": [
+            "source_id",
+            "title",
+            "authors",
+            "organization",
+            "journal",
+            "year",
+            "doi",
+            "url",
+            "source_database",
+            "source_type",
+            "priority",
+            "verified",
+            "verification",
+        ],
+    }
+
+
+    recurring_subject_schema = {
+        "type": "object",
+
+        "properties": {
+
+            "name": {
+                "type": "string",
+            },
+
+            "type": {
+                "type": "string",
+            },
+
+            "appearance": {
+                "type": "string",
+            },
+
+            "continuity": {
+                "type": "string",
+            },
+        },
+
+        "required": [
+            "name",
+            "type",
+            "appearance",
+            "continuity",
+        ],
+    }
+
+
+    continuity_schema = {
+        "type": "object",
+
+        "properties": {
+
+            "recurring_subjects": {
+                "type": "array",
+
+                "items": recurring_subject_schema,
+            },
+
+            "recurring_objects": {
+                "type": "array",
+
+                "items": {
+                    "type": "string",
+                },
+            },
+
+            "recurring_environment": {
+                "type": "string",
+            },
+
+            "continuity_rules": {
+                "type": "array",
+
+                "items": {
+                    "type": "string",
+                },
+            },
+        },
+
+        "required": [
+            "recurring_subjects",
+            "recurring_objects",
+            "recurring_environment",
+            "continuity_rules",
+        ],
+    }
+
+
+    return {
+        "type": "object",
+
+        "properties": {
+
+            "title": {
+                "type": "string",
+            },
+
+            "description": {
+                "type": "string",
+            },
+
+            "tags": {
+                "type": "array",
+
+                "items": {
+                    "type": "string",
+                },
+            },
+
+            "category": _enum(
+                VALID_CATEGORY
+            ),
+
+            "thumbnail_prompt": {
+                "type": "string",
+            },
+
+            "voice_style": {
+                "type": "object",
+
+                "properties": {
+
+                    "tone": {
+                        "type": "string",
+                    },
+
+                    "pace": _enum({
+                        "slow",
+                        "medium",
+                        "fast",
+                    }),
+
+                    "pitch": _enum({
+                        "low",
+                        "medium",
+                        "high",
+                    }),
+                },
+
+                "required": [
+                    "tone",
+                    "pace",
+                    "pitch",
+                ],
+            },
+
+            "music": {
+                "type": "object",
+
+                "properties": {
+
+                    "search": {
+                        "type": "string",
+                    },
+
+                    "arc": {
+                        "type": "string",
+                    },
+                },
+
+                "required": [
+                    "search",
+                    "arc",
+                ],
+            },
+
+            "visual_identity": {
+                "type": "object",
+
+                "properties": {
+
+                    "style": {
+                        "type": "string",
+                    },
+
+                    "palette": {
+                        "type": "string",
+                    },
+
+                    "mood_arc": {
+                        "type": "string",
+                    },
+                },
+
+                "required": [
+                    "style",
+                    "palette",
+                    "mood_arc",
+                ],
+            },
+
+            "visual_continuity": continuity_schema,
+
+            "retention_self_check": {
+                "type": "object",
+
+                "properties": {
+
+                    "weakest_scene": {
+                        "type": "integer",
+                    },
+
+                    "reason": {
+                        "type": "string",
+                    },
+                },
+
+                "required": [
+                    "weakest_scene",
+                    "reason",
+                ],
+            },
+
+            "next_short": {
+                "type": "object",
+
+                "properties": {
+
+                    "topic": {
+                        "type": "string",
+                    },
+
+                    "teaser": {
+                        "type": "string",
+                    },
+
+                    "why_viewers_should_return": {
+                        "type": "string",
+                    },
+
+                    "subscription_cta": {
+                        "type": "string",
+                    },
+                },
+
+                "required": [
+                    "topic",
+                    "teaser",
+                    "why_viewers_should_return",
+                    "subscription_cta",
+                ],
+            },
+
+            "research_sources": {
+                "type": "array",
+
+                "items": source_schema,
+            },
+
+            "scene_plan": {
+                "type": "array",
+
+                "items": scene_schema,
+            },
+        },
+
+        "required": [
+            "title",
+            "description",
+            "tags",
+            "category",
+            "thumbnail_prompt",
+            "voice_style",
+            "music",
+            "visual_identity",
+            "visual_continuity",
+            "retention_self_check",
+            "next_short",
+            "research_sources",
+            "scene_plan",
+        ],
+    }
+
+
+# ============================================================================
+# JSON PARSER
+# ============================================================================
+
+def parse_gemini_json(
+    text
+):
+
+    if not text:
+
+        raise RuntimeError(
+            "Gemini returned an empty response."
+        )
+
+    text = text.strip()
+
+    try:
+
+        result = json.loads(
+            text
+        )
+
+        if isinstance(
+            result,
+            dict,
+        ):
+            return result
+
+    except json.JSONDecodeError:
+        pass
+
+
+    cleaned = re.sub(
+        r"^```(?:json)?\s*",
+        "",
+        text,
+        flags=re.IGNORECASE,
+    )
+
+    cleaned = re.sub(
+        r"\s*```$",
+        "",
+        cleaned,
+    ).strip()
+
+    try:
+
+        result = json.loads(
+            cleaned
+        )
+
+        if isinstance(
+            result,
+            dict,
+        ):
+            return result
+
+    except json.JSONDecodeError:
+        pass
+
+
+    start = cleaned.find(
+        "{"
+    )
+
+    end = cleaned.rfind(
+        "}"
+    )
+
+    if start >= 0 and end > start:
+
+        candidate = cleaned[
+            start:end + 1
+        ]
+
+        candidate = re.sub(
+            r",(\s*[}\]])",
+            r"\1",
+            candidate,
+        )
+
+        try:
+
+            result = json.loads(
+                candidate
+            )
+
+            if isinstance(
+                result,
+                dict,
+            ):
+                return result
+
+        except json.JSONDecodeError as error:
+
+            raise RuntimeError(
+                f"Failed to parse Gemini JSON: "
+                f"{error}"
+            )
+
+    raise RuntimeError(
+        "Gemini did not return valid JSON."
+    )
+
+
+# ============================================================================
+# CAPTION SYNCHRONIZATION
+# ============================================================================
+
+def _sync_captions_to_narration(
+    scene,
+    index,
+):
+
+    narration = _clean(
+        scene.get(
+            "narration",
+            "",
+        )
+    )
+
+    if not narration:
+
+        raise RuntimeError(
+            f"Scene {index} narration is empty."
+        )
+
+    scene["narration"] = narration
+
+    scene["subtitle_text"] = narration
+
+    tokens = re.findall(
+        r"\b[\w'-]+\b",
+        narration,
+    )
+
+    if not tokens:
+
+        raise RuntimeError(
+            f"Scene {index} narration "
+            "has no usable words."
+        )
+
+    existing = scene.get(
+        "caption_highlights",
+        [],
+    )
+
+    if not isinstance(
+        existing,
+        list,
+    ):
+        existing = []
+
+    lookup = {
+        token.lower(): token
+        for token in tokens
+    }
+
+    highlights = []
+
+    used = set()
+
+    for item in existing:
+
+        if not isinstance(
+            item,
+            dict,
+        ):
+            continue
+
+        word = _clean(
+            item.get(
+                "word",
+                "",
+            )
+        )
+
+        key = word.lower()
+
+        emphasis = _clean(
+            item.get(
+                "emphasis",
+                "strong",
+            )
+        )
+
+        if (
+            key
+            and key in lookup
+            and key not in used
+            and emphasis in VALID_EMPHASIS
+        ):
+
+            highlights.append({
+                "word": lookup[key],
+                "emphasis": emphasis,
+            })
+
+            used.add(
+                key
+            )
+
+    if not highlights:
+
+        candidates = [
+            token
+            for token in tokens
+            if len(token) >= 4
+        ]
+
+        if not candidates:
+            candidates = tokens
+
+        strongest = max(
+            candidates,
+            key=len,
+        )
+
+        highlights = [{
+            "word": strongest,
+            "emphasis": "strong",
+        }]
+
+    scene["caption_highlights"] = (
+        highlights[:3]
+    )
+
+    emphasis_word = _clean(
+        scene.get(
+            "emphasis_word",
+            "",
+        )
+    )
+
+    if (
+        not emphasis_word
+        or
+        emphasis_word.lower()
+        not in lookup
+    ):
+
+        emphasis_word = (
+            highlights[0]["word"]
+        )
+
+    scene["emphasis_word"] = (
+        emphasis_word
+    )
+
+
+# ============================================================================
+# IMAGE PROMPT CLEANING
+# ============================================================================
+
+def _clean_image_prompt(
+    visual
+):
+
+    prompt = _clean(
+        visual.get(
+            "image_prompt",
+            "",
+        )
+    )
+
+    prompt = prompt.replace(
+        "```",
+        "",
+    )
+
+    forbidden = [
+        r"\baspect ratio\b",
+        r"\b16:9\b",
+        r"\b9:16\b",
+        r"\bnegative prompt\b",
+        r"\btext overlay\b",
+        r"\bwatermark\b",
+        r"\blogo\b",
+        r"\bsubtitles?\b",
+        r"\bnarration\b",
+        r"\byoutube\b",
+        r"\bAI generated\b",
+    ]
+
+    for pattern in forbidden:
+
+        prompt = re.sub(
+            pattern,
+            "",
+            prompt,
+            flags=re.IGNORECASE,
+        )
+
+    return _clean(
+        prompt
+    )
+
+
+def _validate_image_prompt_length(
+    prompt,
+    scene_index,
+    visual_index,
+):
+
+    words = _word_count(
+        prompt
+    )
+
+    if words < MIN_IMAGE_PROMPT_WORDS:
+
+        raise RuntimeError(
+            f"Scene {scene_index} visual "
+            f"{visual_index} image_prompt "
+            f"is too short: {words} words."
+        )
+
+    if words > MAX_IMAGE_PROMPT_WORDS:
+
+        raise RuntimeError(
+            f"Scene {scene_index} visual "
+            f"{visual_index} image_prompt "
+            f"is too long: {words} words."
+        )
+
+
+# ============================================================================
+# VISUAL REPAIR
+# ============================================================================
+
+def _repair_visual(
+    visual,
+    scene_index,
+    visual_index,
+):
+
+    if not isinstance(
+        visual,
+        dict,
+    ):
+
+        raise RuntimeError(
+            f"Scene {scene_index} visual "
+            f"{visual_index} is invalid."
+        )
+
+    visual["segment"] = (
+        visual_index
+    )
+
+    defaults = {
+
+        "camera": "medium",
+
+        "animation": "zoom_in",
+
+        "zoom_strength": "subtle",
+
+        "motion_intensity": "medium",
+
+        "visual_complexity": "moderate",
+
+        "image_style":
+            "realistic_3d_render",
+
+        "lighting":
+            "natural cinematic lighting",
+
+        "color_palette":
+            "natural cinematic tones",
+
+        "overlay": {
+            "type": "none",
+            "description": "",
+        },
+
+        "visual_impact": 7,
+    }
+
+
+    for key, value in defaults.items():
+
+        if key not in visual:
+
+            visual[key] = value
+
+
+    if not isinstance(
+        visual.get(
+            "overlay"
+        ),
+        dict,
+    ):
+
+        visual["overlay"] = {
+            "type": "none",
+            "description": "",
+        }
+
+
+    overlay = visual[
+        "overlay"
+    ]
+
+
+    if (
+        overlay.get(
+            "type"
+        )
+        not in VALID_OVERLAY_TYPE
+    ):
+
+        overlay["type"] = (
+            "none"
+        )
+
+
+    overlay["description"] = _clean(
+        overlay.get(
+            "description",
+            "",
+        )
+    )
+
+
+    if (
+        visual["camera"]
+        not in VALID_CAMERA
+    ):
+
+        visual["camera"] = (
+            "medium"
+        )
+
+
+    if (
+        visual["animation"]
+        not in VALID_ANIMATION
+    ):
+
+        visual["animation"] = (
+            "zoom_in"
+        )
+
+
+    if (
+        visual["zoom_strength"]
+        not in VALID_ZOOM_STRENGTH
+    ):
+
+        visual["zoom_strength"] = (
+            "subtle"
+        )
+
+
+    if (
+        visual["motion_intensity"]
+        not in VALID_MOTION_INTENSITY
+    ):
+
+        visual["motion_intensity"] = (
+            "medium"
+        )
+
+
+    if (
+        visual["visual_complexity"]
+        not in VALID_VISUAL_COMPLEXITY
+    ):
+
+        visual["visual_complexity"] = (
+            "moderate"
+        )
+
+
+    if (
+        visual["image_style"]
+        not in VALID_IMAGE_STYLE
+    ):
+
+        visual["image_style"] = (
+            "realistic_3d_render"
+        )
+
+
+    visual["lighting"] = _clean(
+        visual.get(
+            "lighting",
+            "",
+        )
+    )
+
+
+    visual["color_palette"] = _clean(
+        visual.get(
+            "color_palette",
+            "",
+        )
+    )
+
+
+    visual["image_prompt"] = (
+        _clean_image_prompt(
+            visual
+        )
+    )
+
+
+    if not visual[
+        "image_prompt"
+    ]:
+
+        raise RuntimeError(
+            f"Scene {scene_index} visual "
+            f"{visual_index} has an empty "
+            "image_prompt."
+        )
+
+
+    _validate_image_prompt_length(
+        visual["image_prompt"],
+        scene_index,
+        visual_index,
+    )
+
+
+    impact = _safe_int(
+        visual.get(
+            "visual_impact",
+            7,
+        ),
+        7,
+    )
+
+
+    visual["visual_impact"] = max(
+        1,
+        min(
+            10,
+            impact,
+        ),
+    )
+
+
+    visual["zoom_factor"] = (
+        ZOOM_FACTORS[
+            visual["zoom_strength"]
+        ]
+    )
+
+
+    visual["motion_speed"] = (
+        MOTION_SPEEDS[
+            visual["motion_intensity"]
+        ]
+    )
+
+
+    visual[
+        "needs_regeneration"
+    ] = (
+        visual["visual_impact"]
+        < 5
+    )
+
+
+# ============================================================================
+# VISUAL DURATIONS
+# ============================================================================
+
+def _allocate_visual_durations(
+    scene_duration
+):
+
+    base = (
+        scene_duration
+        //
+        VISUALS_PER_SCENE
+    )
+
+    remainder = (
+        scene_duration
+        %
+        VISUALS_PER_SCENE
+    )
+
+    durations = [
+        base
+        for _ in range(
+            VISUALS_PER_SCENE
+        )
+    ]
+
+    for index in range(
+        remainder
+    ):
+
+        durations[index] += 1
+
+    return durations
+
+
+# ============================================================================
+# VISUAL CONTINUITY
+# ============================================================================
+
+def _normalize_visual_continuity(
+    script
+):
+
+    continuity = script.get(
+        "visual_continuity",
+        {},
+    )
+
+    if not isinstance(
+        continuity,
+        dict,
+    ):
+
+        continuity = {}
+
+
+    subjects = continuity.get(
+        "recurring_subjects",
+        [],
+    )
+
+    if not isinstance(
+        subjects,
+        list,
+    ):
+
+        subjects = []
+
+
+    normalized_subjects = []
+
+
+    for subject in subjects:
+
+        if not isinstance(
+            subject,
+            dict,
+        ):
+            continue
+
+        name = _clean(
+            subject.get(
+                "name",
+                "",
+            )
+        )
+
+        appearance = _clean(
+            subject.get(
+                "appearance",
+                "",
+            )
+        )
+
+        if (
+            not name
+            or
+            not appearance
+        ):
+            continue
+
+
+        normalized_subjects.append({
+
+            "name":
+                name[:100],
+
+            "type":
+                _clean(
+                    subject.get(
+                        "type",
+                        "",
+                    )
+                )[:80],
+
+            "appearance":
+                appearance[:600],
+
+            "continuity":
+                (
+                    _clean(
+                        subject.get(
+                            "continuity",
+                            "",
+                        )
+                    )
+                    or
+                    "Maintain the same appearance throughout the Short."
+                )[:400],
+        })
+
+
+    objects = continuity.get(
+        "recurring_objects",
+        [],
+    )
+
+    if not isinstance(
+        objects,
+        list,
+    ):
+
+        objects = []
+
+
+    rules = continuity.get(
+        "continuity_rules",
+        [],
+    )
+
+    if not isinstance(
+        rules,
+        list,
+    ):
+
+        rules = []
+
+
+    environment = _clean(
+        continuity.get(
+            "recurring_environment",
+            "",
+        )
+    )
+
+
+    script[
+        "visual_continuity"
+    ] = {
+
+        "recurring_subjects":
+            normalized_subjects[
+                :MAX_RECURRING_SUBJECTS
+            ],
+
+        "recurring_objects": [
+
+            _clean(item)[:200]
+
+            for item in objects
+
+            if _clean(item)
+
+        ][
+            :MAX_RECURRING_OBJECTS
+        ],
+
+        "recurring_environment":
+            environment[:600],
+
+        "continuity_rules": [
+
+            _clean(item)[:400]
+
+            for item in rules
+
+            if _clean(item)
+
+        ][
+            :MAX_CONTINUITY_RULES
+        ],
+    }
+
+
+# ============================================================================
+# VISUAL IDENTITY
+# ============================================================================
+
+def _normalize_visual_identity(
+    script
+):
+
+    identity = script.get(
+        "visual_identity",
+        {},
+    )
+
+    if not isinstance(
+        identity,
+        dict,
+    ):
+
+        identity = {}
+
+
+    style = _clean(
+        identity.get(
+            "style",
+            "",
+        )
+    )
+
+    palette = _clean(
+        identity.get(
+            "palette",
+            "",
+        )
+    )
+
+    mood_arc = _clean(
+        identity.get(
+            "mood_arc",
+            "",
+        )
+    )
+
+
+    if not style:
+
+        style = (
+            "cinematic realistic visual storytelling "
+            "with consistent subject design"
+        )
+
+
+    if not palette:
+
+        palette = (
+            "coherent cinematic natural color palette"
+        )
+
+
+    if not mood_arc:
+
+        mood_arc = (
+            "curiosity building into tension, wonder and payoff"
+        )
+
+
+    script[
+        "visual_identity"
+    ] = {
+
+        "style":
+            style[:500],
+
+        "palette":
+            palette[:300],
+
+        "mood_arc":
+            mood_arc[:300],
+    }
+
+
+# ============================================================================
+# NEXT SHORT
+# ============================================================================
+
+def _normalize_next_short(
+    script
+):
+
+    item = script.get(
+        "next_short",
+        {},
+    )
+
+    if not isinstance(
+        item,
+        dict,
+    ):
+
+        item = {}
+
+
+    topic = _clean(
+        item.get(
+            "topic",
+            "",
+        )
+    )
+
+    teaser = _clean(
+        item.get(
+            "teaser",
+            "",
+        )
+    )
+
+    reason = _clean(
+        item.get(
+            "why_viewers_should_return",
+            "",
+        )
+    )
+
+    cta = _clean(
+        item.get(
+            "subscription_cta",
+            "",
+        )
+    )
+
+
+    if not topic:
+
+        raise RuntimeError(
+            "next_short.topic is empty."
+        )
+
+
+    if (
+        len(topic)
+        >
+        MAX_NEXT_SHORT_CHARACTERS
+    ):
+
+        raise RuntimeError(
+            "next_short.topic exceeds "
+            f"{MAX_NEXT_SHORT_CHARACTERS} "
+            "characters."
+        )
+
+
+    if not teaser:
+
+        raise RuntimeError(
+            "next_short.teaser is empty."
+        )
+
+
+    script[
+        "next_short"
+    ] = {
+
+        "topic":
+            topic,
+
+        "teaser":
+            teaser[:220],
+
+        "why_viewers_should_return":
+            (
+                reason
+                or
+                teaser
+            )[:220],
+
+        "subscription_cta":
+            (
+                cta
+                or
+                "Follow for the next science story."
+            )[:160],
+    }
+
+
+# ============================================================================
+# NEXT TOPIC IN SCENE 7
+# ============================================================================
+
+def _ensure_next_topic_in_scene_7(
+    script
+):
+
+    scenes = script.get(
+        "scene_plan",
+        [],
+    )
+
+    if not isinstance(
+        scenes,
+        list,
+    ) or len(scenes) != SCENE_COUNT:
+
+        raise RuntimeError(
+            "Cannot create next-topic bridge: "
+            "scene_plan is incomplete."
+        )
+
+
+    next_short = script.get(
+        "next_short",
+        {},
+    )
+
+    if not isinstance(
+        next_short,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "next_short is missing."
+        )
+
+
+    next_topic = _clean(
+        next_short.get(
+            "topic",
+            "",
+        )
+    )
+
+    if not next_topic:
+
+        raise RuntimeError(
+            "next_short.topic is empty."
+        )
+
+
+    scene_7 = scenes[SCENE_COUNT - 1]
+
+    if not isinstance(
+        scene_7,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "Scene 7 is invalid."
+        )
+
+
+    narration = _clean(
+        scene_7.get(
+            "narration",
+            "",
+        )
+    )
+
+
+    if not narration:
+
+        raise RuntimeError(
+            "Scene 7 narration is empty."
+        )
+
+
+    # ------------------------------------------------------------------------
+    # The next topic must appear ONLY in Scene 7.
+    # ------------------------------------------------------------------------
+
+    for index, scene in enumerate(
+        scenes[:-1],
+        start=1,
+    ):
+
+        if not isinstance(
+            scene,
+            dict,
+        ):
+            continue
+
+        if _contains_next_topic(
+            scene.get(
+                "narration",
+                "",
+            ),
+            next_topic,
+        ):
+
+            raise RuntimeError(
+                f"Next Short topic appears in "
+                f"Scene {index}. It may only appear "
+                "in Scene 7."
+            )
+
+
+    # ------------------------------------------------------------------------
+    # If Gemini already included the topic, preserve it.
+    # ------------------------------------------------------------------------
+
+    if _contains_next_topic(
+        narration,
+        next_topic,
+    ):
+
+        scene_7[
+            "narration"
+        ] = narration
+
+        return
+
+
+    # ------------------------------------------------------------------------
+    # Gemini failed to mention it. Add a concise bridge.
+    #
+    # This is a deterministic repair rather than another API call.
+    # ------------------------------------------------------------------------
+
+    bridge = _build_next_topic_bridge(
+        next_topic
+    )
+
+
+    # Avoid awkward double punctuation.
+    narration = narration.rstrip()
+
+    if narration[-1:] not in ".!?":
+        narration += "."
+
+
+    scene_7[
+        "narration"
+    ] = (
+        f"{narration} {bridge}"
+    )
+
+
+# ============================================================================
+# DESCRIPTION SAFETY
+# ============================================================================
+
+def _validate_description(
+    script
+):
+
+    description = _clean(
+        script.get(
+            "description",
+            "",
+        )
+    )
+
+    if not description:
+
+        raise RuntimeError(
+            "Video description is empty."
+        )
+
+
+    # ------------------------------------------------------------------------
+    # The description is checked ONLY against the next topic.
+    #
+    # We do NOT require the description to avoid every shared word because
+    # current and next topics can naturally overlap.
+    # ------------------------------------------------------------------------
+
+    next_short = script.get(
+        "next_short",
+        {},
+    )
+
+    if isinstance(
+        next_short,
+        dict,
+    ):
+
+        next_topic = _clean(
+            next_short.get(
+                "topic",
+                "",
+            )
+        )
+
+        if next_topic and _contains_next_topic(
+            description,
+            next_topic,
+        ):
+
+            raise RuntimeError(
+                "Current description reveals the "
+                "next Short topic.\n"
+                f"Next topic: {next_topic}\n"
+                f"Description: {description}"
+            )
+
+
+    # ------------------------------------------------------------------------
+    # Block explicit continuation language.
+    # ------------------------------------------------------------------------
+
+    forbidden_phrases = [
+        "next video",
+        "next short",
+        "coming next",
+        "stay tuned",
+        "part 2",
+        "part two",
+        "in the next video",
+        "in the next short",
+        "watch next",
+        "watch the next",
+        "follow for the next",
+    ]
+
+
+    description_lower = (
+        description.lower()
+    )
+
+
+    for phrase in forbidden_phrases:
+
+        if phrase in description_lower:
+
+            raise RuntimeError(
+                "Current description contains "
+                f"continuation language: '{phrase}'."
+            )
+
+
+    script[
+        "description"
+    ] = description
+
+
+# ============================================================================
+# CURRENT TOPIC DESCRIPTION REPAIR
+# ============================================================================
+
+def _repair_description_if_needed(
+    script,
+    current_topic,
+):
+
+    description = _clean(
+        script.get(
+            "description",
+            "",
+        )
+    )
+
+    next_short = script.get(
+        "next_short",
+        {},
+    )
+
+    next_topic = ""
+
+    if isinstance(
+        next_short,
+        dict,
+    ):
+
+        next_topic = _clean(
+            next_short.get(
+                "topic",
+                "",
+            )
+        )
+
+
+    if description:
+
+        try:
+
+            candidate = {
+                "description":
+                    description,
+
+                "next_short":
+                    {
+                        "topic":
+                            next_topic
+                    },
+            }
+
+            _validate_description(
+                candidate
+            )
+
+            return
+
+
+        except RuntimeError:
+
+            pass
+
+
+    # ------------------------------------------------------------------------
+    # Safe fallback.
+    #
+    # This guarantees that the published description is about the CURRENT
+    # topic and contains no continuation information.
+    # ------------------------------------------------------------------------
+
+    current_topic = _clean(
+        current_topic
+    )
+
+    script[
+        "description"
+    ] = (
+        f"Explore the science behind {current_topic}, "
+        "including the evidence, mechanism, and surprising "
+        "details that make this phenomenon so fascinating."
+    )
+
+
+# ============================================================================
+# RESEARCH SOURCE NORMALIZATION
+# ============================================================================
+
+def _normalize_research_sources(
+    script,
+    verified_research,
+):
+
+    normalized = []
+
+    seen_ids = set()
+
+
+    for index, source in enumerate(
+        verified_research[
+            "sources"
+        ],
+        start=1,
+    ):
+
+        source_id = _clean(
+            source.get(
+                "source_id",
+                "",
+            )
+        )
+
+
+        if not source_id:
+
+            raise RuntimeError(
+                f"Verified source {index} "
+                "has no source_id."
+            )
+
+
+        if source_id in seen_ids:
+
+            raise RuntimeError(
+                f"Duplicate verified source ID: "
+                f"{source_id}"
+            )
+
+
+        seen_ids.add(
+            source_id
+        )
+
+
+        evidence = _extract_source_evidence(
+            source
+        )
+
+
+        if not evidence:
+
+            raise RuntimeError(
+                f"Verified source "
+                f"{source_id} has no evidence_text."
+            )
+
+
+        normalized.append({
+
+            "source_id":
+                source_id,
+
+            "title":
+                _clean(
+                    source.get(
+                        "title",
+                        "",
+                    )
+                )[:300],
+
+            "authors":
+                _clean(
+                    source.get(
+                        "authors",
+                        "",
+                    )
+                )[:500],
+
+            "organization":
+                _clean(
+                    source.get(
+                        "organization",
+                        "",
+                    )
+                )[:250],
+
+            "journal":
+                _clean(
+                    source.get(
+                        "journal",
+                        "",
+                    )
+                )[:250],
+
+            "year":
+                _safe_int(
+                    source.get(
+                        "year",
+                        0,
+                    ),
+                    0,
+                ),
+
+            "doi":
+                _clean(
+                    source.get(
+                        "doi",
+                        "",
+                    )
+                ),
+
+            "url":
+                _clean(
+                    source.get(
+                        "url",
+                        "",
+                    )
+                ),
+
+            "source_database":
+                _clean(
+                    source.get(
+                        "source_database",
+                        "",
+                    )
+                ),
+
+            "source_type":
+                _clean(
+                    source.get(
+                        "source_type",
+                        "paper",
+                    )
+                ),
+
+            "priority":
+                _clean(
+                    source.get(
+                        "priority",
+                        "secondary",
+                    )
+                ),
+
+            "verified":
+                True,
+
+            "verification":
+                (
+                    _clean(
+                        source.get(
+                            "verification",
+                            "",
+                        )
+                    )
+                    or
+                    "Verified by research.py"
+                ),
+        })
+
+
+    if not normalized:
+
+        raise RuntimeError(
+            "No verified research sources available."
+        )
+
+
+    script[
+        "research_sources"
+    ] = normalized
+
+
+# ============================================================================
+# SOURCE ID VALIDATION
+# ============================================================================
+
+def _validate_source_ids(
+    script
+):
+
+    valid_ids = {
+
+        _clean(
+            source.get(
+                "source_id",
+                "",
+            )
+        )
+
+        for source in script.get(
+            "research_sources",
             [],
         )
 
-        if not isinstance(
-            visuals,
-            list,
-        ):
-
-            raise RuntimeError(
-                f"Scene {scene_index} "
-                "visuals must be a list."
-            )
-
-        if len(
-            visuals
-        ) != VISUALS_PER_SCENE:
-
-            raise RuntimeError(
-                f"Scene {scene_index} must contain "
-                f"exactly {VISUALS_PER_SCENE} visuals, "
-                f"but found {len(visuals)}."
-            )
-
-        for visual_index, visual in enumerate(
-            visuals,
-            start=1,
-        ):
-
-            if not isinstance(
-                visual,
+        if (
+            isinstance(
+                source,
                 dict,
-            ):
-
-                raise RuntimeError(
-                    f"Scene {scene_index} "
-                    f"visual {visual_index} "
-                    "is invalid."
-                )
-
-            prompt = _clean_prompt(
-                visual.get(
-                    "image_prompt",
+            )
+            and
+            _clean(
+                source.get(
+                    "source_id",
                     "",
                 )
             )
+        )
+    }
 
-            if not prompt:
 
-                raise RuntimeError(
-                    f"Scene {scene_index} "
-                    f"visual {visual_index} "
-                    "has an empty image_prompt."
-                )
-
-            total_visuals += 1
-
-    if total_visuals != EXPECTED_TOTAL_IMAGES:
+    if not valid_ids:
 
         raise RuntimeError(
-            f"Expected exactly "
-            f"{EXPECTED_TOTAL_IMAGES} visuals, "
-            f"but found {total_visuals}."
+            "No verified research source IDs available."
         )
 
-    return scenes
 
-
-# ==========================================================================
-# CONTINUITY VALIDATION
-# ==========================================================================
-
-def _validate_continuity_metadata(
-    script,
-):
-    identity = _get_visual_identity(
-        script
+    scenes = script.get(
+        "scene_plan",
+        [],
     )
 
-    continuity = _get_visual_continuity(
-        script
-    )
 
-    style_lock = _get_style_lock(
-        script
-    )
+    if not isinstance(
+        scenes,
+        list,
+    ):
 
-    print(
-        "Visual identity:"
-    )
-
-    print(
-        f"  Style: "
-        f"{identity['style'] or 'not specified'}"
-    )
-
-    print(
-        f"  Palette: "
-        f"{identity['palette'] or 'not specified'}"
-    )
-
-    print(
-        f"  Mood: "
-        f"{identity['mood_arc'] or 'not specified'}"
-    )
-
-    print(
-        f"  Style lock: "
-        f"{style_lock or 'not specified'}"
-    )
-
-    print(
-        "Visual continuity:"
-    )
-
-    print(
-        f"  Recurring subjects: "
-        f"{len(continuity['subjects'])}"
-    )
-
-    print(
-        f"  Recurring objects: "
-        f"{len(continuity['objects'])}"
-    )
-
-    print(
-        f"  Environment: "
-        f"{'yes' if continuity['environment'] else 'no'}"
-    )
-
-    print(
-        f"  Continuity rules: "
-        f"{len(continuity['rules'])}"
-    )
-
-    return True
+        raise RuntimeError(
+            "scene_plan must be a list."
+        )
 
 
-# ==========================================================================
-# GENERATE ALL VISUALS
-# ==========================================================================
-
-def generate_images(
-    script,
-    workdir,
-    config,
-):
-    """
-    Generate exactly 14 AI images.
-
-    Return structure:
-
-    [
-        [
-            scene_01_shot_01.png,
-            scene_01_shot_02.png
-        ],
-        ...
-        [
-            scene_07_shot_01.png,
-            scene_07_shot_02.png
-        ]
-    ]
-    """
-
-    os.makedirs(
-        workdir,
-        exist_ok=True,
-    )
-
-    # ----------------------------------------------------------------------
-    # Validate before contacting provider.
-    # ----------------------------------------------------------------------
-
-    scenes = _validate_script_structure(
-        script
-    )
-
-    _validate_continuity_metadata(
-        script
-    )
-
-    # ----------------------------------------------------------------------
-    # Dimensions
-    # ----------------------------------------------------------------------
-
-    width, height = _get_image_dimensions(
-        config
-    )
-
-    # ----------------------------------------------------------------------
-    # Seed
-    # ----------------------------------------------------------------------
-
-    base_seed = _get_base_seed(
-        script
-    )
-
-    image_paths = []
-
-    print("=" * 80)
-    print(
-        "🎨 GENERATING AI VISUALS"
-    )
-    print("=" * 80)
-
-    print(
-        f"Scenes: "
-        f"{len(scenes)}"
-    )
-
-    print(
-        f"Visuals per scene: "
-        f"{VISUALS_PER_SCENE}"
-    )
-
-    print(
-        f"Total images: "
-        f"{EXPECTED_TOTAL_IMAGES}"
-    )
-
-    print(
-        f"Resolution: "
-        f"{width}x{height}"
-    )
-
-    print(
-        f"Base seed: "
-        f"{base_seed}"
-    )
-
-    print(
-        "Provider: "
-        "Pollinations AI"
-    )
-
-    print(
-        f"Model: "
-        f"{MODEL_NAME}"
-    )
-
-    print(
-        "Continuity system: ENABLED"
-    )
-
-    print(
-        "Style lock: ENABLED"
-    )
-
-    print(
-        "Per-shot visual metadata: ENABLED"
-    )
-
-    print(
-        "Portrait normalization: ENABLED"
-    )
-
-    print(
-        "PNG validation: ENABLED"
-    )
-
-    print("=" * 80)
-
-    # ----------------------------------------------------------------------
-    # Scene generation
-    # ----------------------------------------------------------------------
-
-    for scene_index, scene in enumerate(
+    for index, scene in enumerate(
         scenes,
         start=1,
     ):
 
-        visuals = scene[
-            "visuals"
-        ]
-
-        scene_paths = []
-
-        print("=" * 80)
-
-        print(
-            f"🎬 SCENE "
-            f"{scene_index}/{EXPECTED_SCENES}"
+        source_ids = scene.get(
+            "source_ids",
+            [],
         )
 
-        print("=" * 80)
 
-        for visual_index, visual in enumerate(
-            visuals,
-            start=1,
+        if not isinstance(
+            source_ids,
+            list,
         ):
 
-            prompt = build_prompt(
-                scene,
-                visual,
-                script,
-                scene_index,
-                visual_index,
+            raise RuntimeError(
+                f"Scene {index} "
+                "source_ids must be a list."
             )
 
-            shot_seed = _get_shot_seed(
-                base_seed,
-                scene_index,
-                visual_index,
+
+        cleaned = []
+
+
+        for source_id in source_ids:
+
+            source_id = _clean(
+                source_id
             )
 
-            print("=" * 80)
 
-            print(
-                f"🖼️ SHOT "
-                f"{visual_index}/{VISUALS_PER_SCENE}"
-            )
+            if not source_id:
+                continue
 
-            print(
-                f"Scene: "
-                f"{scene_index}"
-            )
 
-            print(
-                f"Seed: "
-                f"{shot_seed}"
-            )
+            if source_id not in valid_ids:
 
-            print(
-                f"Style: "
-                f"{visual.get('image_style', '')}"
-            )
-
-            print(
-                f"Lighting: "
-                f"{visual.get('lighting', '')}"
-            )
-
-            print(
-                f"Color palette: "
-                f"{visual.get('color_palette', '')}"
-            )
-
-            print(
-                f"Visual impact: "
-                f"{visual.get('visual_impact', '')}"
-            )
-
-            print(
-                f"Prompt: "
-                f"{prompt}"
-            )
-
-            print("=" * 80)
-
-            # --------------------------------------------------------------
-            # Generate
-            # --------------------------------------------------------------
-
-            image = generate_image(
-                prompt,
-                width,
-                height,
-                shot_seed,
-            )
-
-            # --------------------------------------------------------------
-            # Save
-            # --------------------------------------------------------------
-
-            filename = os.path.join(
-                workdir,
-                (
-                    f"scene_{scene_index:02d}"
-                    f"_shot_{visual_index:02d}.png"
-                ),
-            )
-
-            _save_image(
-                image,
-                filename,
-                width,
-                height,
-            )
-
-            scene_paths.append(
-                filename
-            )
-
-            print(
-                f"✅ Saved: "
-                f"{filename}"
-            )
-
-            # --------------------------------------------------------------
-            # Prevent burst requests.
-            # --------------------------------------------------------------
-
-            if not (
-                scene_index == EXPECTED_SCENES
-                and
-                visual_index == VISUALS_PER_SCENE
-            ):
-
-                time.sleep(
-                    BETWEEN_IMAGE_DELAY
+                raise RuntimeError(
+                    f"Scene {index} references invalid "
+                    f"source ID: {source_id}"
                 )
 
-        image_paths.append(
-            scene_paths
-        )
 
-    # ==========================================================================
-    # FINAL VALIDATION
-    # ==========================================================================
+            if source_id not in cleaned:
 
-    total_images = sum(
-        len(scene_paths)
-        for scene_paths in image_paths
+                cleaned.append(
+                    source_id
+                )
+
+
+        scene[
+            "source_ids"
+        ] = cleaned
+
+
+        if not cleaned:
+
+            purpose = scene.get(
+                "purpose",
+                "",
+            )
+
+
+            if purpose not in {
+                "ending",
+            }:
+
+                raise RuntimeError(
+                    f"Scene {index} contains factual/story "
+                    "content but has no source_ids."
+                )
+
+
+# ============================================================================
+# SCENE COMPATIBILITY FIELDS
+# ============================================================================
+
+def _add_scene_visual_compatibility(
+    scene,
+    identity,
+):
+
+    visuals = scene.get(
+        "visuals",
+        [],
     )
 
-    if total_images != EXPECTED_TOTAL_IMAGES:
+
+    if not visuals:
+        return
+
+
+    primary = visuals[0]
+
+
+    scene[
+        "image_prompt"
+    ] = primary.get(
+        "image_prompt",
+        "",
+    )
+
+
+    scene[
+        "image_style"
+    ] = primary.get(
+        "image_style",
+        "realistic_3d_render",
+    )
+
+
+    scene[
+        "lighting"
+    ] = primary.get(
+        "lighting",
+        "",
+    )
+
+
+    scene[
+        "color_palette"
+    ] = primary.get(
+        "color_palette",
+        "",
+    )
+
+
+    scene[
+        "camera"
+    ] = primary.get(
+        "camera",
+        "medium",
+    )
+
+
+    scene[
+        "visual_role"
+    ] = scene.get(
+        "visual_priority",
+        "supporting",
+    )
+
+
+    scene[
+        "mood"
+    ] = scene.get(
+        "emotional_tone",
+        "curious",
+    )
+
+
+    if not isinstance(
+        identity,
+        dict,
+    ):
+
+        identity = {}
+
+
+    style = _clean(
+        identity.get(
+            "style",
+            "",
+        )
+    )
+
+
+    palette = _clean(
+        identity.get(
+            "palette",
+            "",
+        )
+    )
+
+
+    mood_arc = _clean(
+        identity.get(
+            "mood_arc",
+            "",
+        )
+    )
+
+
+    scene[
+        "visual_identity"
+    ] = ". ".join(
+        value
+        for value in [
+            style,
+            palette,
+            mood_arc,
+        ]
+        if value
+    )
+
+
+# ============================================================================
+# SCENE VALIDATION
+# ============================================================================
+
+def _validate_scene(
+    scene,
+    index,
+):
+
+    required = [
+
+        "scene",
+
+        "purpose",
+
+        "retention_purpose",
+
+        "narration",
+
+        "source_ids",
+
+        "subtitle_text",
+
+        "caption_highlights",
+
+        "subtitle_style",
+
+        "emphasis_word",
+
+        "duration",
+
+        "pause_after_ms",
+
+        "emotional_tone",
+
+        "visual_priority",
+
+        "transition",
+
+        "sfx_cue",
+
+        "music_cue",
+
+        "confidence",
+
+        "visuals",
+    ]
+
+
+    for key in required:
+
+        if key not in scene:
+
+            raise RuntimeError(
+                f"Scene {index} "
+                f"missing '{key}'."
+            )
+
+
+    if (
+        _safe_int(
+            scene["scene"]
+        )
+        != index
+    ):
 
         raise RuntimeError(
-            f"Expected exactly "
-            f"{EXPECTED_TOTAL_IMAGES} generated images, "
-            f"but generated "
-            f"{total_images}."
+            f"Scene {index} "
+            "has invalid scene number."
         )
 
-    for scene_index, scene_paths in enumerate(
-        image_paths,
+
+    _check_enum(
+        scene["purpose"],
+        VALID_PURPOSE,
+        f"Scene {index} purpose",
+    )
+
+
+    _check_enum(
+        scene["retention_purpose"],
+        VALID_RETENTION_PURPOSE,
+        f"Scene {index} retention_purpose",
+    )
+
+
+    _check_enum(
+        scene["subtitle_style"],
+        VALID_SUBTITLE_STYLE,
+        f"Scene {index} subtitle_style",
+    )
+
+
+    _check_enum(
+        scene["emotional_tone"],
+        VALID_EMOTIONAL_TONE,
+        f"Scene {index} emotional_tone",
+    )
+
+
+    _check_enum(
+        scene["visual_priority"],
+        VALID_VISUAL_PRIORITY,
+        f"Scene {index} visual_priority",
+    )
+
+
+    _check_enum(
+        scene["transition"],
+        VALID_TRANSITION,
+        f"Scene {index} transition",
+    )
+
+
+    _check_enum(
+        scene["music_cue"],
+        VALID_MUSIC_CUE,
+        f"Scene {index} music_cue",
+    )
+
+
+    _check_enum(
+        scene["confidence"],
+        VALID_CONFIDENCE,
+        f"Scene {index} confidence",
+    )
+
+
+    narration = _clean(
+        scene["narration"]
+    )
+
+
+    if not narration:
+
+        raise RuntimeError(
+            f"Scene {index} narration is empty."
+        )
+
+
+    scene[
+        "narration"
+    ] = narration
+
+
+    _sync_captions_to_narration(
+        scene,
+        index,
+    )
+
+
+    duration = _safe_int(
+        scene["duration"],
+        -1,
+    )
+
+
+    expected_duration = (
+        SCENE_DURATIONS[
+            index - 1
+        ]
+    )
+
+
+    if (
+        duration
+        != expected_duration
+    ):
+
+        raise RuntimeError(
+            f"Scene {index} duration must be "
+            f"{expected_duration}s."
+        )
+
+
+    scene[
+        "duration"
+    ] = duration
+
+
+    pause = _safe_int(
+        scene.get(
+            "pause_after_ms",
+            0,
+        ),
+        0,
+    )
+
+
+    scene[
+        "pause_after_ms"
+    ] = max(
+        0,
+        min(
+            600,
+            pause,
+        ),
+    )
+
+
+    if not isinstance(
+        scene.get(
+            "sfx_cue"
+        ),
+        dict,
+    ):
+
+        scene[
+            "sfx_cue"
+        ] = {
+            "term": "",
+            "at_ms": 0,
+        }
+
+
+    visuals = scene.get(
+        "visuals",
+        [],
+    )
+
+
+    if not isinstance(
+        visuals,
+        list,
+    ):
+
+        raise RuntimeError(
+            f"Scene {index} visuals "
+            "must be a list."
+        )
+
+
+    if (
+        len(visuals)
+        != VISUALS_PER_SCENE
+    ):
+
+        raise RuntimeError(
+            f"Scene {index} must contain "
+            f"{VISUALS_PER_SCENE} visuals."
+        )
+
+
+    visual_durations = (
+        _allocate_visual_durations(
+            duration
+        )
+    )
+
+
+    prompts = []
+
+    visual_total = 0
+
+
+    for visual_index, visual in enumerate(
+        visuals,
         start=1,
     ):
 
-        if len(
-            scene_paths
-        ) != VISUALS_PER_SCENE:
+        _repair_visual(
+            visual,
+            index,
+            visual_index,
+        )
 
-            raise RuntimeError(
-                f"Scene {scene_index} "
-                f"contains {len(scene_paths)} "
-                f"images instead of "
-                f"{VISUALS_PER_SCENE}."
+
+        visual[
+            "duration"
+        ] = visual_durations[
+            visual_index - 1
+        ]
+
+
+        visual_total += (
+            visual["duration"]
+        )
+
+
+        prompts.append(
+            visual[
+                "image_prompt"
+            ].lower().strip()
+        )
+
+
+    if (
+        len(
+            set(prompts)
+        )
+        != VISUALS_PER_SCENE
+    ):
+
+        raise RuntimeError(
+            f"Scene {index} contains duplicate "
+            "visual prompts."
+        )
+
+
+    if (
+        visual_total
+        != duration
+    ):
+
+        raise RuntimeError(
+            f"Scene {index} visual durations "
+            "do not match scene duration."
+        )
+
+
+# ============================================================================
+# VISUAL CONTINUITY QUALITY CHECK
+# ============================================================================
+
+def _validate_visual_continuity_quality(
+    script
+):
+
+    identity = script.get(
+        "visual_identity",
+        {},
+    )
+
+    if not isinstance(
+        identity,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "visual_identity must be an object."
+        )
+
+
+    if not _clean(
+        identity.get(
+            "style",
+            "",
+        )
+    ):
+
+        raise RuntimeError(
+            "visual_identity.style is empty."
+        )
+
+
+    if not _clean(
+        identity.get(
+            "palette",
+            "",
+        )
+    ):
+
+        raise RuntimeError(
+            "visual_identity.palette is empty."
+        )
+
+
+    if not _clean(
+        identity.get(
+            "mood_arc",
+            "",
+        )
+    ):
+
+        raise RuntimeError(
+            "visual_identity.mood_arc is empty."
+        )
+
+
+    continuity = script.get(
+        "visual_continuity",
+        {},
+    )
+
+
+    if not isinstance(
+        continuity,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "visual_continuity must be an object."
+        )
+
+
+    subjects = continuity.get(
+        "recurring_subjects",
+        [],
+    )
+
+
+    if not isinstance(
+        subjects,
+        list,
+    ):
+
+        raise RuntimeError(
+            "visual_continuity.recurring_subjects "
+            "must be a list."
+        )
+
+
+    for subject in subjects:
+
+        if not isinstance(
+            subject,
+            dict,
+        ):
+            continue
+
+
+        if not _clean(
+            subject.get(
+                "name",
+                "",
             )
-
-        for visual_index, path in enumerate(
-            scene_paths,
-            start=1,
         ):
 
-            if not os.path.exists(
-                path
-            ):
+            raise RuntimeError(
+                "A recurring subject has no name."
+            )
 
-                raise RuntimeError(
-                    f"Missing generated image: "
-                    f"Scene {scene_index}, "
-                    f"Shot {visual_index}: "
-                    f"{path}"
-                )
 
-            if os.path.getsize(
-                path
-            ) < MIN_IMAGE_BYTES:
+        if not _clean(
+            subject.get(
+                "appearance",
+                "",
+            )
+        ):
 
-                raise RuntimeError(
-                    f"Generated image is too small: "
-                    f"{path}"
-                )
+            raise RuntimeError(
+                "Recurring subject "
+                f"'{subject.get('name', '')}' "
+                "has no appearance description."
+            )
 
-            if Image is not None:
 
-                try:
+        if not _clean(
+            subject.get(
+                "continuity",
+                "",
+            )
+        ):
 
-                    with Image.open(
-                        path
-                    ) as image:
+            raise RuntimeError(
+                "Recurring subject "
+                f"'{subject.get('name', '')}' "
+                "has no continuity rule."
+            )
 
-                        if image.format != EXPECTED_FORMAT:
 
-                            raise RuntimeError(
-                                f"Scene {scene_index} "
-                                f"Shot {visual_index}: "
-                                f"expected PNG, got "
-                                f"{image.format}."
-                            )
+# ============================================================================
+# TOP LEVEL VALIDATION
+# ============================================================================
 
-                        if image.size != (
-                            width,
-                            height,
-                        ):
+def _validate_top_level(
+    script
+):
 
-                            raise RuntimeError(
-                                f"Scene {scene_index} "
-                                f"Shot {visual_index}: "
-                                f"expected "
-                                f"{width}x{height}, "
-                                f"got "
-                                f"{image.size}."
-                            )
+    required = [
 
-                        image.verify()
+        "title",
 
-                except Exception as error:
+        "description",
 
-                    raise RuntimeError(
-                        f"Final image validation failed "
-                        f"for Scene {scene_index}, "
-                        f"Shot {visual_index}: "
-                        f"{error}"
-                    )
+        "tags",
 
-    # ==========================================================================
-    # SUMMARY
-    # ==========================================================================
+        "category",
+
+        "thumbnail_prompt",
+
+        "voice_style",
+
+        "music",
+
+        "visual_identity",
+
+        "visual_continuity",
+
+        "retention_self_check",
+
+        "next_short",
+
+        "research_sources",
+
+        "scene_plan",
+    ]
+
+
+    for key in required:
+
+        if key not in script:
+
+            raise RuntimeError(
+                f"Missing required key: "
+                f"{key}"
+            )
+
+
+# ============================================================================
+# COMPLETE VALIDATION
+# ============================================================================
+
+def validate_script(
+    script,
+    verified_research,
+):
+
+    if not isinstance(
+        script,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "Generated script must be "
+            "a JSON object."
+        )
+
+
+    _validate_top_level(
+        script
+    )
+
+
+    scenes = script.get(
+        "scene_plan",
+        [],
+    )
+
+
+    if not isinstance(
+        scenes,
+        list,
+    ):
+
+        raise RuntimeError(
+            "scene_plan must be a list."
+        )
+
+
+    if (
+        len(scenes)
+        != SCENE_COUNT
+    ):
+
+        raise RuntimeError(
+            f"Expected {SCENE_COUNT} scenes, "
+            f"got {len(scenes)}."
+        )
+
+
+    # ------------------------------------------------------------------------
+    # Normalize global visual systems.
+    # ------------------------------------------------------------------------
+
+    _normalize_visual_identity(
+        script
+    )
+
+
+    _normalize_visual_continuity(
+        script
+    )
+
+
+    _normalize_next_short(
+        script
+    )
+
+
+    # ------------------------------------------------------------------------
+    # Make sure the next topic is actually spoken in Scene 7.
+    # ------------------------------------------------------------------------
+
+    _ensure_next_topic_in_scene_7(
+        script
+    )
+
+
+    # ------------------------------------------------------------------------
+    # Validate scenes.
+    # ------------------------------------------------------------------------
+
+    total_duration = 0
+
+    total_visuals = 0
+
+
+    for index, scene in enumerate(
+        scenes,
+        start=1,
+    ):
+
+        _validate_scene(
+            scene,
+            index,
+        )
+
+
+        if index == SCENE_COUNT:
+
+            scene[
+                "purpose"
+            ] = "ending"
+
+            scene[
+                "transition"
+            ] = "none"
+
+
+        total_duration += (
+            scene["duration"]
+        )
+
+
+        total_visuals += len(
+            scene["visuals"]
+        )
+
+
+        _add_scene_visual_compatibility(
+            scene,
+            script.get(
+                "visual_identity",
+                {},
+            ),
+        )
+
+
+    # ------------------------------------------------------------------------
+    # Production contract.
+    # ------------------------------------------------------------------------
+
+    if (
+        total_duration
+        != TARGET_SECONDS
+    ):
+
+        raise RuntimeError(
+            f"Total duration must be "
+            f"{TARGET_SECONDS}s, "
+            f"got {total_duration}s."
+        )
+
+
+    if (
+        total_visuals
+        != TOTAL_VISUALS
+    ):
+
+        raise RuntimeError(
+            f"Total visuals must be "
+            f"{TOTAL_VISUALS}, "
+            f"got {total_visuals}."
+        )
+
+
+    # ------------------------------------------------------------------------
+    # Research metadata.
+    # ------------------------------------------------------------------------
+
+    _normalize_research_sources(
+        script,
+        verified_research,
+    )
+
+
+    # ------------------------------------------------------------------------
+    # Source validation.
+    # ------------------------------------------------------------------------
+
+    _validate_source_ids(
+        script
+    )
+
+
+    # ------------------------------------------------------------------------
+    # Scientific claim safety.
+    # ------------------------------------------------------------------------
+
+    _validate_claim_strength(
+        script
+    )
+
+
+    # ------------------------------------------------------------------------
+    # Visual continuity quality.
+    # ------------------------------------------------------------------------
+
+    _validate_visual_continuity_quality(
+        script
+    )
+
+
+    # ------------------------------------------------------------------------
+    # Description safety.
+    # ------------------------------------------------------------------------
+
+    _validate_description(
+        script
+    )
+
+
+    # ------------------------------------------------------------------------
+    # Metadata normalization.
+    # ------------------------------------------------------------------------
+
+    script[
+        "title"
+    ] = _clean(
+        script.get(
+            "title",
+            "",
+        )
+    )[:MAX_TITLE_LENGTH]
+
+
+    if not script[
+        "title"
+    ]:
+
+        raise RuntimeError(
+            "Video title is empty."
+        )
+
+
+    script[
+        "description"
+    ] = _clean(
+        script.get(
+            "description",
+            "",
+        )
+    )[:MAX_DESCRIPTION_LENGTH]
+
+
+    tags = script.get(
+        "tags",
+        [],
+    )
+
+
+    if not isinstance(
+        tags,
+        list,
+    ):
+
+        tags = []
+
+
+    normalized_tags = []
+
+
+    for tag in tags:
+
+        tag = _clean(
+            tag
+        ).lower()
+
+
+        if not tag:
+            continue
+
+
+        if tag not in normalized_tags:
+
+            normalized_tags.append(
+                tag
+            )
+
+
+    script[
+        "tags"
+    ] = normalized_tags[
+        :MAX_TAGS
+    ]
+
+
+    category = _clean(
+        script.get(
+            "category",
+            "",
+        )
+    ).lower()
+
+
+    if (
+        category
+        not in VALID_CATEGORY
+    ):
+
+        category = "biology"
+
+
+    script[
+        "category"
+    ] = category
+
+
+    script[
+        "thumbnail_prompt"
+    ] = _clean(
+        script.get(
+            "thumbnail_prompt",
+            "",
+        )
+    )
+
+
+    # ------------------------------------------------------------------------
+    # Deterministic image-generation metadata.
+    # ------------------------------------------------------------------------
+
+    existing_generation = (
+        script.get(
+            "image_generation",
+            {},
+        )
+    )
+
+
+    if not isinstance(
+        existing_generation,
+        dict,
+    ):
+
+        existing_generation = {}
+
+
+    existing_seed = existing_generation.get(
+        "seed"
+    )
+
+
+    if existing_seed is None:
+
+        seed = random.randint(
+            1,
+            2_147_483_647,
+        )
+
+    else:
+
+        seed = _safe_int(
+            existing_seed,
+            random.randint(
+                1,
+                2_147_483_647,
+            ),
+        )
+
+
+    identity = script[
+        "visual_identity"
+    ]
+
+
+    style_lock_parts = [
+
+        _clean(
+            identity.get(
+                "style",
+                "",
+            )
+        ),
+
+        _clean(
+            identity.get(
+                "palette",
+                "",
+            )
+        ),
+
+        _clean(
+            identity.get(
+                "mood_arc",
+                "",
+            )
+        ),
+    ]
+
+
+    style_lock_parts = [
+
+        part
+
+        for part in style_lock_parts
+
+        if part
+    ]
+
+
+    style_lock = ", ".join(
+        style_lock_parts
+    )
+
+
+    script[
+        "image_generation"
+    ] = {
+
+        "seed":
+            seed,
+
+        "style_lock":
+            style_lock,
+
+        "images_per_scene":
+            VISUALS_PER_SCENE,
+
+        "total_images":
+            TOTAL_VISUALS,
+
+        "visual_continuity_enabled":
+            True,
+
+        "semantic_prompts":
+            True,
+
+        "portrait_output":
+            True,
+    }
+
+
+    # ------------------------------------------------------------------------
+    # Runtime metadata.
+    # ------------------------------------------------------------------------
+
+    script[
+        "video_id"
+    ] = (
+        f"{_slugify(script['title'])}-"
+        f"{uuid.uuid4().hex[:8]}"
+    )
+
+
+    script[
+        "generated_at"
+    ] = int(
+        time.time()
+    )
+
+
+    script[
+        "video_structure"
+    ] = {
+
+        "format":
+            "short_form_story",
+
+        "scene_count":
+            SCENE_COUNT,
+
+        "target_duration_seconds":
+            TARGET_SECONDS,
+
+        "actual_duration_seconds":
+            total_duration,
+
+        "visuals_per_scene":
+            VISUALS_PER_SCENE,
+
+        "total_visuals":
+            total_visuals,
+
+        "story_format":
+            "hook_curiosity_explanation_example_reframe_escalation_payoff_next_topic_hook",
+    }
+
+
+    # ------------------------------------------------------------------------
+    # Publishing state.
+    # ------------------------------------------------------------------------
+
+    script[
+        "publishing"
+    ] = {
+
+        "research_verified":
+            True,
+
+        "research_sources_require_verification":
+            False,
+
+        "citations_ready":
+            True,
+
+        "next_short_teaser_ready":
+            True,
+
+        "next_short_spoken_in_scene_7":
+            True,
+
+        "next_short_spoken_only_in_scene_7":
+            True,
+
+        "next_short_topic_in_description":
+            False,
+
+        "subscription_strategy":
+            "next_short_continuation",
+
+        "visual_continuity_enabled":
+            True,
+
+        "claim_verification_required":
+            True,
+
+        "captions_match_narration":
+            True,
+
+        "caption_source":
+            "scene.narration",
+
+        "claim_strength_guard_enabled":
+            True,
+
+        "semantic_image_prompts":
+            True,
+
+        "fourteen_visuals_required":
+            True,
+    }
+
+
+    return script
+
+
+# ============================================================================
+# GENERATION
+# ============================================================================
+
+def generate_script(
+    topic,
+    config,
+    research,
+):
+
+    # ------------------------------------------------------------------------
+    # Research gate.
+    # ------------------------------------------------------------------------
+
+    research = validate_research_package(
+        research,
+        topic,
+    )
+
+
+    print("=" * 80)
+    print("🔬 VERIFIED RESEARCH GATE PASSED")
+    print("=" * 80)
+
+
+    print(
+        f"Verified evidence sources: "
+        f"{len(research['sources'])}"
+    )
+
+
+    for source in research[
+        "sources"
+    ]:
+
+        source_id = _clean(
+            source.get(
+                "source_id",
+                "",
+            )
+        )
+
+
+        evidence = _extract_source_evidence(
+            source
+        )
+
+
+        print(
+            f"✅ {source_id}: "
+            f"{source.get('title', '')}"
+        )
+
+
+        print(
+            f"   Evidence: "
+            f"{len(evidence)} characters"
+        )
+
 
     print("=" * 80)
 
-    print(
-        "✅ VISUAL GENERATION COMPLETE"
+
+    # ------------------------------------------------------------------------
+    # Gemini.
+    # ------------------------------------------------------------------------
+
+    api_key = _get_api_key()
+
+
+    client = genai.Client(
+        api_key=api_key
     )
+
+
+    base_prompt = build_user_prompt(
+        topic,
+        config,
+        research,
+    )
+
+
+    system_prompt = build_system_prompt()
+
+
+    response_schema = (
+        build_response_schema()
+    )
+
 
     print("=" * 80)
+    print("✍️ GENERATING RESEARCH-FIRST STORY")
+    print("=" * 80)
+
 
     print(
-        f"Scenes: "
-        f"{len(image_paths)}"
+        f"Model: {MODEL_NAME}"
     )
 
-    print(
-        f"Images generated: "
-        f"{total_images}"
-    )
 
     print(
-        f"Expected images: "
-        f"{EXPECTED_TOTAL_IMAGES}"
+        f"Scenes: {SCENE_COUNT}"
     )
 
+
     print(
-        f"Resolution: "
-        f"{width}x{height}"
+        f"Visuals: {TOTAL_VISUALS}"
     )
+
+
+    print(
+        f"Duration: {TARGET_SECONDS}s"
+    )
+
+
+    print(
+        f"Topic: {topic}"
+    )
+
 
     print(
         "Visual continuity: ENABLED"
     )
 
-    print(
-        "Style lock: APPLIED"
-    )
 
     print(
-        "Per-shot visual metadata: APPLIED"
+        "Research-first mode: ENABLED"
     )
 
-    print(
-        "Recurring subject continuity: APPLIED"
-    )
 
     print(
-        "Environment continuity: APPLIED"
+        "Next-topic Scene 7 bridge: ENABLED"
     )
 
-    print(
-        "PNG normalization: COMPLETE"
-    )
 
     print(
-        "Image validation: PASSED"
+        "Current-topic-only description: ENABLED"
     )
+
 
     print("=" * 80)
 
-    return image_paths
+
+    last_error = None
 
 
-# ==========================================================================
-# OPTIONAL SINGLE IMAGE HELPER
-# ==========================================================================
+    for attempt in range(
+        1,
+        MAX_GENERATION_ATTEMPTS + 1,
+    ):
 
-def generate_single_image(
-    prompt,
-    workdir,
-    filename="generated.png",
-    width=DEFAULT_WIDTH,
-    height=DEFAULT_HEIGHT,
-    seed=None,
-):
-    """
-    Generate one standalone image.
-    """
-
-    os.makedirs(
-        workdir,
-        exist_ok=True,
-    )
-
-    if seed is None:
-
-        seed = int(
-            time.time()
+        print(
+            f"🧠 Gemini attempt "
+            f"{attempt}/"
+            f"{MAX_GENERATION_ATTEMPTS}"
         )
 
-    prompt = _clean_prompt(
-        prompt
+
+        try:
+
+            attempt_prompt = (
+                base_prompt
+            )
+
+
+            if (
+                attempt > 1
+                and
+                last_error
+            ):
+
+                attempt_prompt += f"""
+
+============================================================
+RETRY REQUIRED
+============================================================
+
+The previous generated storyboard failed validation.
+
+PREVIOUS VALIDATION ERROR:
+
+{last_error}
+
+
+Generate the COMPLETE JSON again.
+
+Do not explain the correction.
+
+Do not return partial JSON.
+
+
+============================================================
+NON-NEGOTIABLE
+============================================================
+
+7 scenes.
+
+14 visuals.
+
+45 seconds.
+
+Durations:
+
+3, 5, 7, 7, 8, 8, 7.
+
+Exactly 2 visuals per scene.
+
+subtitle_text MUST equal narration.
+
+Use only supplied evidence.
+
+Use exact supplied source IDs.
+
+Scene 7 MUST complete the current story and then
+naturally mention next_short.topic as the final curiosity hook.
+
+The next topic MUST NOT appear in Scenes 1–6.
+
+The next topic MUST NOT appear in the description.
+
+The description MUST describe ONLY the current topic.
+
+Do not use:
+
+"Next we'll..."
+"In the next video..."
+"Coming next..."
+"Stay tuned..."
+"Part 2..."
+"Subscribe for..."
+
+
+============================================================
+VISUAL CONTINUITY
+============================================================
+
+Create a coherent visual identity.
+
+Define recurring subjects clearly.
+
+Define recurring objects when needed.
+
+Define the recurring environment when relevant.
+
+Every image must feel like it belongs
+to the same Short.
+
+Two visuals in a scene must be different
+but clearly connected.
+
+
+============================================================
+IMAGE PROMPTS
+============================================================
+
+Each image_prompt must describe visible content.
+
+Approximately 15–35 words.
+
+Do not include:
+
+camera instructions
+aspect ratio
+negative prompts
+text
+captions
+subtitles
+logos
+watermarks
+YouTube
+narration
+
+
+============================================================
+SCIENTIFIC LANGUAGE
+============================================================
+
+Do not strengthen evidence.
+
+Do not invent facts.
+
+Do not invent numbers.
+
+Do not invent mechanisms.
+
+Do not convert association into causation.
+
+Preserve words such as:
+
+may
+might
+suggests
+indicates
+associated with
+
+when supported by the research.
+
+
+Return ONLY JSON.
+"""
+
+
+            response = (
+                client.models.generate_content(
+
+                    model=MODEL_NAME,
+
+                    contents=attempt_prompt,
+
+                    config=(
+                        types.GenerateContentConfig(
+
+                            system_instruction=
+                                system_prompt,
+
+                            response_mime_type=
+                                "application/json",
+
+                            response_json_schema=
+                                response_schema,
+                        )
+                    ),
+                )
+            )
+
+
+            response_text = getattr(
+                response,
+                "text",
+                None,
+            )
+
+
+            if not response_text:
+
+                raise RuntimeError(
+                    "Gemini returned an empty response."
+                )
+
+
+            script = parse_gemini_json(
+                response_text
+            )
+
+
+            # ----------------------------------------------------------------
+            # Topic belongs to the pipeline.
+            # ----------------------------------------------------------------
+
+            script[
+                "topic"
+            ] = topic
+
+
+            # ----------------------------------------------------------------
+            # Force subtitle synchronization immediately.
+            # ----------------------------------------------------------------
+
+            scenes = script.get(
+                "scene_plan",
+                [],
+            )
+
+
+            if isinstance(
+                scenes,
+                list,
+            ):
+
+                for scene in scenes:
+
+                    if isinstance(
+                        scene,
+                        dict,
+                    ):
+
+                        narration = _clean(
+                            scene.get(
+                                "narration",
+                                "",
+                            )
+                        )
+
+
+                        if narration:
+
+                            scene[
+                                "subtitle_text"
+                            ] = narration
+
+
+            # ----------------------------------------------------------------
+            # Validate.
+            # ----------------------------------------------------------------
+
+            script = validate_script(
+                script,
+                research,
+            )
+
+
+            # ----------------------------------------------------------------
+            # Final current-topic description safety repair.
+            # ----------------------------------------------------------------
+
+            _repair_description_if_needed(
+                script,
+                topic,
+            )
+
+
+            # Validate the repaired description one final time.
+            _validate_description(
+                script
+            )
+
+
+            # ----------------------------------------------------------------
+            # Final next-topic verification.
+            # ----------------------------------------------------------------
+
+            final_next_topic = _clean(
+                script[
+                    "next_short"
+                ][
+                    "topic"
+                ]
+            )
+
+
+            final_scene_7 = _clean(
+                script[
+                    "scene_plan"
+                ][6][
+                    "narration"
+                ]
+            )
+
+
+            if not _contains_next_topic(
+                final_scene_7,
+                final_next_topic,
+            ):
+
+                raise RuntimeError(
+                    "Scene 7 does not mention "
+                    "next_short.topic."
+                )
+
+
+            for scene_index, scene in enumerate(
+                script["scene_plan"][:6],
+                start=1,
+            ):
+
+                if _contains_next_topic(
+                    scene.get(
+                        "narration",
+                        "",
+                    ),
+                    final_next_topic,
+                ):
+
+                    raise RuntimeError(
+                        f"next_short.topic appears "
+                        f"in Scene {scene_index}. "
+                        "It may only appear in Scene 7."
+                    )
+
+
+            if _contains_next_topic(
+                script["description"],
+                final_next_topic,
+            ):
+
+                raise RuntimeError(
+                    "next_short.topic appears in "
+                    "the current description."
+                )
+
+
+            # ----------------------------------------------------------------
+            # Success.
+            # ----------------------------------------------------------------
+
+            print("=" * 80)
+            print("✅ SHORT SCRIPT ACCEPTED")
+            print("=" * 80)
+
+
+            print(
+                f"Scenes: "
+                f"{SCENE_COUNT}"
+            )
+
+
+            print(
+                f"Visuals: "
+                f"{TOTAL_VISUALS}"
+            )
+
+
+            print(
+                f"Duration: "
+                f"{TARGET_SECONDS}s"
+            )
+
+
+            print(
+                "Research sources: "
+                f"{len(script['research_sources'])}"
+            )
+
+
+            cited_scenes = sum(
+
+                1
+
+                for scene in
+                script["scene_plan"]
+
+                if scene.get(
+                    "source_ids"
+                )
+            )
+
+
+            print(
+                "Scenes with citations: "
+                f"{cited_scenes}/"
+                f"{SCENE_COUNT}"
+            )
+
+
+            continuity = script[
+                "visual_continuity"
+            ]
+
+
+            print(
+                "Recurring subjects: "
+                f"{len(continuity['recurring_subjects'])}"
+            )
+
+
+            print(
+                "Recurring objects: "
+                f"{len(continuity['recurring_objects'])}"
+            )
+
+
+            print(
+                "Environment continuity: "
+                f"{'YES' if continuity['recurring_environment'] else 'NO'}"
+            )
+
+
+            print(
+                "Visual identity: "
+                "LOCKED"
+            )
+
+
+            print(
+                "Current description: "
+                "CURRENT TOPIC ONLY"
+            )
+
+
+            print(
+                "Next Short: "
+                f"{script['next_short']['topic']}"
+            )
+
+
+            print(
+                "Next topic spoken in Scene 7: "
+                "YES"
+            )
+
+
+            print(
+                "Next topic spoken in Scenes 1–6: "
+                "NO"
+            )
+
+
+            print(
+                "Next topic in description: "
+                "NO"
+            )
+
+
+            print(
+                "Captions match narration: "
+                "YES"
+            )
+
+
+            print(
+                "Claim-strength guard: "
+                "PASSED"
+            )
+
+
+            print(
+                "Research: "
+                "VERIFIED"
+            )
+
+
+            print(
+                "14-image visual contract: "
+                "PASSED"
+            )
+
+
+            print("=" * 80)
+
+
+            return script
+
+
+        except Exception as error:
+
+            last_error = error
+
+
+            print("=" * 80)
+
+
+            print(
+                f"❌ ATTEMPT "
+                f"{attempt} FAILED"
+            )
+
+
+            print(
+                f"{type(error).__name__}: "
+                f"{error}"
+            )
+
+
+            print("=" * 80)
+
+
+            if (
+                attempt
+                <
+                MAX_GENERATION_ATTEMPTS
+            ):
+
+                delay = (
+                    4 * attempt
+                )
+
+
+                print(
+                    f"⏳ Retrying in "
+                    f"{delay}s..."
+                )
+
+
+                time.sleep(
+                    delay
+                )
+
+
+    raise RuntimeError(
+        "SCRIPT GENERATION FAILED.\n\n"
+        "The pipeline rejected all generated storyboards.\n\n"
+        f"Last validation error:\n"
+        f"{last_error}"
     )
 
-    if not prompt:
 
-        raise RuntimeError(
-            "Cannot generate image "
-            "with an empty prompt."
-        )
+# ============================================================================
+# LOCAL TEST
+# ============================================================================
 
-    # ----------------------------------------------------------------------
-    # Force portrait.
-    # ----------------------------------------------------------------------
+if __name__ == "__main__":
 
-    if width >= height:
-
-        width, height = (
-            height,
-            width,
-        )
-
-    image = generate_image(
-        prompt,
-        width,
-        height,
-        int(seed),
+    print(
+        "generate_script.py "
+        "v10.0 is a pipeline module."
     )
 
-    path = os.path.join(
-        workdir,
-        filename,
+    print(
+        "Run the complete pipeline "
+        "through main.py."
     )
-
-    _save_image(
-        image,
-        path,
-        width,
-        height,
-    )
-
-    return path

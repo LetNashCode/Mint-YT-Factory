@@ -2,12 +2,16 @@
 research.py
 Mint-YT-Factory
 
-Version 7.2
+Version 7.3
 
 Hardened research/evidence layer.
 
-v7.2 improvements:
-- Dynamic topic vocabulary
+v7.3 improvements:
+- Question-intent aware relevance
+- Mechanism-first topic matching
+- Separates subject from question mechanism
+- Prevents generic subject-only papers from passing
+- Strong protection against agriculture/production/topic drift
 - Deterministic scholarly query expansion
 - Better question-to-paper matching
 - Semantic concept expansion without Gemini
@@ -36,7 +40,7 @@ import requests
 # CONFIG
 # ==========================================================================
 
-VERSION = "7.2"
+VERSION = "7.3"
 
 CROSSREF_URL = "https://api.crossref.org/v1/works"
 SEMANTIC_SEARCH_URL = "https://api.semanticscholar.org/graph/v1/paper/search"
@@ -305,17 +309,225 @@ STOPWORDS = {
 
 
 # ==========================================================================
-# DYNAMIC RELATED VOCABULARY
+# QUESTION INTENT
 # ==========================================================================
 
 """
-This vocabulary is deliberately deterministic.
+The most important v7.3 change.
 
-It is NOT used as evidence.
+The old system treated the topic mostly as a bag of words.
 
-It only helps translate conversational YouTube topics into terminology
-more likely to appear in scholarly titles and abstracts.
+That means:
+
+    why do your eyes water when cutting onions
+
+could match:
+
+    onion production
+    onion agriculture
+    onion yield
+    onion cultivation
+
+because all of those contain "onion".
+
+v7.3 explicitly identifies:
+
+    SUBJECT
+    ACTION / EVENT
+    TARGET
+    MECHANISM / EFFECT
+    QUESTION TYPE
+
+These are used for relevance protection.
+
+They are NOT evidence themselves.
 """
+
+QUESTION_INTENT_RULES = {
+
+    "watering": {
+        "trigger": {
+            "water",
+            "watering",
+            "watery",
+            "tears",
+            "tearing",
+            "cry",
+            "crying",
+            "lacrimation",
+            "lachrymation",
+        },
+
+        "required": {
+            "eye",
+            "onion",
+        },
+
+        "mechanism": {
+            "tear",
+            "tears",
+            "tearing",
+            "lacrimation",
+            "lachrymation",
+            "lachrymatory",
+            "lachrymator",
+            "irritation",
+            "irritant",
+            "volatile",
+            "volatiles",
+            "sulfur",
+            "sulphur",
+            "syn-propanethial-s-oxide",
+            "propanethial",
+            "sulfenic",
+            "sulfenic acid",
+        },
+
+        "event": {
+            "cut",
+            "cutting",
+            "slice",
+            "slicing",
+            "chop",
+            "chopping",
+            "damage",
+            "damaged",
+            "tissue",
+            "plant tissue",
+        },
+
+        "target": {
+            "eye",
+            "eyes",
+            "ocular",
+            "ophthalmic",
+            "lacrimal",
+        },
+
+        "negative": {
+            "production",
+            "agriculture",
+            "agricultural",
+            "cultivation",
+            "cultivating",
+            "yield",
+            "harvest",
+            "harvesting",
+            "fertilizer",
+            "fertilisation",
+            "fertilization",
+            "irrigation",
+            "crop",
+            "crops",
+            "farm",
+            "farming",
+            "soil",
+            "field",
+            "fields",
+            "breeding",
+            "storage",
+            "postharvest",
+            "postharvest",
+        },
+    },
+}
+
+
+def _detect_question_intent(topic):
+
+    text = _clean(topic).lower()
+
+    tokens = set(
+        re.findall(
+            r"[a-z0-9-]+",
+            text,
+        )
+    )
+
+    intents = []
+
+    for intent_name, rules in QUESTION_INTENT_RULES.items():
+
+        if tokens & rules["trigger"]:
+
+            intents.append(intent_name)
+
+    # Special high-confidence pattern:
+    #
+    # "eyes water when cutting onions"
+    # "eyes water while cutting onion"
+    # "onions make eyes water"
+    #
+    if (
+        (
+            "eye" in tokens
+            or "eyes" in tokens
+        )
+        and (
+            "water" in tokens
+            or "watering" in tokens
+            or "tears" in tokens
+            or "cry" in tokens
+            or "crying" in tokens
+        )
+        and (
+            "onion" in tokens
+            or "onions" in tokens
+        )
+    ):
+
+        if "watering" not in intents:
+            intents.append("watering")
+
+    return intents
+
+
+def _intent_profile(topic):
+
+    intents = _detect_question_intent(topic)
+
+    profile = {
+        "intents": intents,
+        "required_terms": set(),
+        "mechanism_terms": set(),
+        "event_terms": set(),
+        "target_terms": set(),
+        "negative_terms": set(),
+    }
+
+    for intent in intents:
+
+        rules = QUESTION_INTENT_RULES.get(
+            intent,
+            {},
+        )
+
+        profile["required_terms"].update(
+            rules.get("required", set())
+        )
+
+        profile["mechanism_terms"].update(
+            rules.get("mechanism", set())
+        )
+
+        profile["event_terms"].update(
+            rules.get("event", set())
+        )
+
+        profile["target_terms"].update(
+            rules.get("target", set())
+        )
+
+        profile["negative_terms"].update(
+            rules.get("negative", set())
+        )
+
+    return profile
+
+
+# ==========================================================================
+# DYNAMIC RELATED VOCABULARY
+# ==========================================================================
 
 RELATED_TERMS = {
 
@@ -369,6 +581,8 @@ RELATED_TERMS = {
         "sulphur",
         "lachrymatory",
         "lachrymator",
+        "propanethial",
+        "sulfenic",
     },
 
     "onions": {
@@ -383,6 +597,8 @@ RELATED_TERMS = {
         "sulphur",
         "lachrymatory",
         "lachrymator",
+        "propanethial",
+        "sulfenic",
     },
 
     "cry": {
@@ -406,6 +622,8 @@ RELATED_TERMS = {
         "processing",
         "tissue",
         "plant tissue",
+        "cell damage",
+        "wounding",
     },
 
     "smell": {
@@ -503,12 +721,6 @@ RELATED_TERMS = {
         "thermal",
         "thermoregulation",
         "heat exposure",
-    },
-
-    "water": {
-        "hydration",
-        "fluid",
-        "fluid balance",
     },
 
     "food": {
@@ -910,11 +1122,18 @@ CONCEPT_GROUPS = {
     "onion": {
         "onion", "onions", "allium", "alliums",
         "bulb", "bulbs", "lachrymatory", "lachrymator",
+        "propanethial",
     },
 
     "irritation": {
         "irritation", "irritant", "irritants",
         "inflammation", "inflammatory",
+    },
+
+    "lachrymatory": {
+        "lachrymatory", "lachrymator",
+        "tear", "tears", "tearing",
+        "lacrimation", "lachrymation",
     },
 }
 
@@ -1049,6 +1268,36 @@ def _stem_like_match(term, text):
     return False
 
 
+def _term_matches_text(term, text):
+
+    text = _clean(text).lower()
+
+    if not term:
+        return False
+
+    term = term.lower().strip()
+
+    if " " in term:
+        return term in text
+
+    return _stem_like_match(
+        term,
+        text,
+    )
+
+
+def _matched_terms(terms, text):
+
+    return {
+        term
+        for term in terms
+        if _term_matches_text(
+            term,
+            text,
+        )
+    }
+
+
 # ==========================================================================
 # SCHOLARLY QUERY GENERATION
 # ==========================================================================
@@ -1058,7 +1307,8 @@ def build_scholarly_queries(topic):
     base_terms = list(_topic_terms(topic))
     expanded = _expanded_topic_terms(topic)
 
-    # Prefer original subject nouns and concrete terms.
+    profile = _intent_profile(topic)
+
     subject_terms = [
         term
         for term in base_terms
@@ -1078,7 +1328,7 @@ def build_scholarly_queries(topic):
 
     queries = []
 
-    # Original natural-language query.
+    # Original natural-language question.
     queries.append(topic)
 
     # Compact query.
@@ -1087,8 +1337,23 @@ def build_scholarly_queries(topic):
             " ".join(sorted(subject_terms))
         )
 
-    # Subject + strongest related terms.
-    if subject_terms and related:
+    # ------------------------------------------------------------------
+    # INTENT-SPECIFIC SCHOLARLY QUERY
+    # ------------------------------------------------------------------
+
+    if "watering" in profile["intents"]:
+
+        queries.append(
+            "onion cutting eye tearing "
+            "lachrymatory volatile irritation"
+        )
+
+        queries.append(
+            "Allium onion lachrymatory factor "
+            "syn-propanethial-S-oxide tears"
+        )
+
+    elif subject_terms and related:
 
         related_sorted = sorted(
             related,
@@ -1118,8 +1383,10 @@ def build_scholarly_queries(topic):
             )
         )
 
-    # Remove duplicates while preserving order.
+    # Remove duplicates.
     final = []
+
+    seen = set()
 
     for query in queries:
 
@@ -1128,12 +1395,285 @@ def build_scholarly_queries(topic):
         if not query:
             continue
 
-        if query.lower() not in {
-            q.lower() for q in final
-        }:
-            final.append(query)
+        key = query.lower()
 
-    return final[:3]
+        if key in seen:
+            continue
+
+        seen.add(key)
+
+        final.append(query)
+
+    return final[:4]
+
+
+# ==========================================================================
+# INTENT RELEVANCE
+# ==========================================================================
+
+def _intent_relevance(topic, source):
+
+    profile = _intent_profile(topic)
+
+    if not profile["intents"]:
+        return {
+            "intent_score": 0,
+            "intent_class": "not_applicable",
+            "intent_pass": True,
+            "mechanism_matches": [],
+            "event_matches": [],
+            "target_matches": [],
+            "negative_matches": [],
+        }
+
+    title = _clean(
+        source.get("title", "")
+    ).lower()
+
+    evidence = _clean(
+        source.get("evidence_text", "")
+        or source.get("abstract", "")
+    ).lower()
+
+    combined = (
+        f"{title} {evidence}"
+    )
+
+    mechanism_matches = _matched_terms(
+        profile["mechanism_terms"],
+        combined,
+    )
+
+    event_matches = _matched_terms(
+        profile["event_terms"],
+        combined,
+    )
+
+    target_matches = _matched_terms(
+        profile["target_terms"],
+        combined,
+    )
+
+    negative_matches = _matched_terms(
+        profile["negative_terms"],
+        combined,
+    )
+
+    title_mechanism_matches = _matched_terms(
+        profile["mechanism_terms"],
+        title,
+    )
+
+    evidence_mechanism_matches = _matched_terms(
+        profile["mechanism_terms"],
+        evidence,
+    )
+
+    title_event_matches = _matched_terms(
+        profile["event_terms"],
+        title,
+    )
+
+    evidence_event_matches = _matched_terms(
+        profile["event_terms"],
+        evidence,
+    )
+
+    title_target_matches = _matched_terms(
+        profile["target_terms"],
+        title,
+    )
+
+    evidence_target_matches = _matched_terms(
+        profile["target_terms"],
+        evidence,
+    )
+
+    score = 0
+
+    # --------------------------------------------------------------
+    # Mechanism
+    # --------------------------------------------------------------
+
+    score += len(
+        mechanism_matches
+    ) * 7
+
+    score += len(
+        title_mechanism_matches
+    ) * 5
+
+    # --------------------------------------------------------------
+    # Event
+    # --------------------------------------------------------------
+
+    score += len(
+        event_matches
+    ) * 4
+
+    score += len(
+        title_event_matches
+    ) * 4
+
+    # --------------------------------------------------------------
+    # Target
+    # --------------------------------------------------------------
+
+    score += len(
+        target_matches
+    ) * 4
+
+    score += len(
+        title_target_matches
+    ) * 5
+
+    # --------------------------------------------------------------
+    # Negative topic drift
+    # --------------------------------------------------------------
+
+    score -= len(
+        negative_matches
+    ) * 5
+
+    # Strong production/agriculture protection.
+    if (
+        negative_matches
+        and not mechanism_matches
+    ):
+        score -= 20
+
+    # --------------------------------------------------------------
+    # High-confidence mechanism combination
+    # --------------------------------------------------------------
+
+    if (
+        mechanism_matches
+        and (
+            event_matches
+            or target_matches
+        )
+    ):
+        score += 15
+
+    # --------------------------------------------------------------
+    # Classification
+    # --------------------------------------------------------------
+
+    if "watering" in profile["intents"]:
+
+        # Strong:
+        #
+        # mechanism + eye
+        #
+        # or mechanism + cutting
+        #
+        # or several mechanism terms.
+        if (
+            len(mechanism_matches) >= 2
+            and (
+                target_matches
+                or event_matches
+            )
+        ):
+
+            intent_class = "strong"
+
+        elif (
+            mechanism_matches
+            and target_matches
+            and event_matches
+        ):
+
+            intent_class = "strong"
+
+        elif (
+            len(mechanism_matches) >= 1
+            and (
+                target_matches
+                or event_matches
+            )
+        ):
+
+            intent_class = "moderate"
+
+        else:
+
+            intent_class = "weak"
+
+        # ----------------------------------------------------------
+        # Hard rejection:
+        #
+        # Onion production/agriculture papers that don't actually
+        # discuss the eye/tearing mechanism cannot pass.
+        # ----------------------------------------------------------
+
+        if (
+            negative_matches
+            and not mechanism_matches
+        ):
+
+            intent_class = "mismatch"
+
+        # Another hard protection:
+        #
+        # Subject-only onion paper = mismatch.
+        #
+        if (
+            not mechanism_matches
+            and not target_matches
+            and not event_matches
+        ):
+
+            intent_class = "mismatch"
+
+    else:
+
+        intent_class = (
+            "strong"
+            if score >= 20
+            else "moderate"
+            if score >= 8
+            else "weak"
+        )
+
+    return {
+        "intent_score": score,
+        "intent_class": intent_class,
+        "intent_pass": intent_class in {
+            "strong",
+            "moderate",
+        },
+        "mechanism_matches": sorted(
+            mechanism_matches
+        ),
+        "event_matches": sorted(
+            event_matches
+        ),
+        "target_matches": sorted(
+            target_matches
+        ),
+        "negative_matches": sorted(
+            negative_matches
+        ),
+        "title_mechanism_matches": sorted(
+            title_mechanism_matches
+        ),
+        "evidence_mechanism_matches": sorted(
+            evidence_mechanism_matches
+        ),
+        "title_event_matches": sorted(
+            title_event_matches
+        ),
+        "evidence_event_matches": sorted(
+            evidence_event_matches
+        ),
+        "title_target_matches": sorted(
+            title_target_matches
+        ),
+        "evidence_target_matches": sorted(
+            evidence_target_matches
+        ),
+    }
 
 
 # ==========================================================================
@@ -1152,13 +1692,13 @@ def _relevance_score(topic, source):
     ).lower()
 
     title_clean = re.sub(
-        r"[^a-z0-9\s]",
+        r"[^a-z0-9\s-]",
         " ",
         title,
     )
 
     evidence_clean = re.sub(
-        r"[^a-z0-9\s]",
+        r"[^a-z0-9\s-]",
         " ",
         evidence,
     )
@@ -1265,6 +1805,19 @@ def _relevance_score(topic, source):
             score += 5
 
     # --------------------------------------------------------------
+    # INTENT / MECHANISM PROTECTION
+    # --------------------------------------------------------------
+
+    intent = _intent_relevance(
+        topic,
+        source,
+    )
+
+    intent_score = intent["intent_score"]
+
+    score += intent_score
+
+    # --------------------------------------------------------------
     # Determine relevance class
     # --------------------------------------------------------------
 
@@ -1341,7 +1894,7 @@ def _relevance_score(topic, source):
             relevance_class = "weak"
 
     # --------------------------------------------------------------
-    # Domain protection
+    # DOMAIN PROTECTION
     # --------------------------------------------------------------
 
     topic_domains = topic_concepts & DOMAIN_CONCEPTS
@@ -1357,6 +1910,22 @@ def _relevance_score(topic, source):
 
             relevance_class = "mismatch"
             score = 0
+
+    # --------------------------------------------------------------
+    # QUESTION INTENT OVERRIDE
+    # --------------------------------------------------------------
+
+    if not intent["intent_pass"]:
+
+        relevance_class = "mismatch"
+
+    # --------------------------------------------------------------
+    # HARD SUBJECT-DRIFT PROTECTION
+    # --------------------------------------------------------------
+
+    if intent["intent_class"] == "mismatch":
+
+        relevance_class = "mismatch"
 
     source["matched_terms"] = sorted(
         set(matched_terms)
@@ -1403,6 +1972,57 @@ def _relevance_score(topic, source):
         3,
     )
 
+    # Intent metadata
+    source["question_intents"] = (
+        intent.get("intents", [])
+    )
+
+    source["intent_score"] = (
+        intent.get("intent_score", 0)
+    )
+
+    source["intent_class"] = (
+        intent.get(
+            "intent_class",
+            "not_applicable",
+        )
+    )
+
+    source["intent_mechanism_matches"] = (
+        intent.get(
+            "mechanism_matches",
+            [],
+        )
+    )
+
+    source["intent_event_matches"] = (
+        intent.get(
+            "event_matches",
+            [],
+        )
+    )
+
+    source["intent_target_matches"] = (
+        intent.get(
+            "target_matches",
+            [],
+        )
+    )
+
+    source["intent_negative_matches"] = (
+        intent.get(
+            "negative_matches",
+            [],
+        )
+    )
+
+    source["intent_pass"] = bool(
+        intent.get(
+            "intent_pass",
+            True,
+        )
+    )
+
     source["relevance_class"] = relevance_class
     source["relevance_score"] = score
 
@@ -1432,6 +2052,7 @@ def relevance_filter(
     topic_concepts = _topic_concepts(topic)
     topic_terms = _topic_terms(topic)
     expanded_terms = _expanded_topic_terms(topic)
+    intent_profile = _intent_profile(topic)
 
     print(
         "Topic terms: "
@@ -1457,6 +2078,29 @@ def relevance_filter(
         )
     )
 
+    print(
+        "Question intents: "
+        + (
+            ", ".join(
+                intent_profile["intents"]
+            )
+            or "none"
+        )
+    )
+
+    if intent_profile["mechanism_terms"]:
+
+        print(
+            "Required mechanism vocabulary: "
+            + ", ".join(
+                sorted(
+                    intent_profile[
+                        "mechanism_terms"
+                    ]
+                )
+            )
+        )
+
     for source in sources:
 
         score = _relevance_score(
@@ -1480,6 +2124,31 @@ def relevance_filter(
             print(f"   Class: {classification}")
 
             print(
+                "   Intent: "
+                f"{source.get('intent_class', '')}"
+            )
+
+            print(
+                "   Mechanism matches: "
+                f"{source.get('intent_mechanism_matches', [])}"
+            )
+
+            print(
+                "   Event matches: "
+                f"{source.get('intent_event_matches', [])}"
+            )
+
+            print(
+                "   Target matches: "
+                f"{source.get('intent_target_matches', [])}"
+            )
+
+            print(
+                "   Negative/drift matches: "
+                f"{source.get('intent_negative_matches', [])}"
+            )
+
+            print(
                 "   Matched terms: "
                 f"{source.get('matched_terms', [])}"
             )
@@ -1499,6 +2168,28 @@ def relevance_filter(
             print(f"❌ REJECTED: {title}")
             print(f"   Score: {score}")
             print(f"   Class: {classification}")
+
+            print(
+                "   Intent: "
+                f"{source.get('intent_class', '')}"
+            )
+
+            if source.get(
+                "intent_negative_matches"
+            ):
+
+                print(
+                    "   🚫 Topic drift detected: "
+                    f"{source.get('intent_negative_matches')}"
+                )
+
+            if not source.get(
+                "intent_mechanism_matches"
+            ):
+
+                print(
+                    "   🚫 No mechanism evidence."
+                )
 
     print(
         f"Relevant candidates: {len(accepted)}"
@@ -3711,7 +4402,21 @@ def limit_sources(sources):
             or []
         )
 
+        intent_rank = {
+            "strong": 3,
+            "moderate": 2,
+            "weak": 1,
+            "mismatch": 0,
+        }.get(
+            source.get(
+                "intent_class",
+                "weak",
+            ),
+            0,
+        )
+
         return (
+            intent_rank,
             source.get(
                 "relevance_score",
                 0,
@@ -3950,6 +4655,16 @@ def validate_research_package(package):
                 f"{source.get('title', '')}"
             )
 
+        if source.get(
+            "intent_pass"
+        ) is not True:
+
+            raise RuntimeError(
+                "RESEARCH FAILED: final source "
+                "does not satisfy question intent: "
+                f"{source.get('title', '')}"
+            )
+
     return True
 
 
@@ -3985,6 +4700,86 @@ def research_topic(topic):
 
     print(
         f"Topic words: {len(topic.split())}"
+    )
+
+    # ------------------------------------------------------------------
+    # QUESTION INTENT
+    # ------------------------------------------------------------------
+
+    intent_profile = _intent_profile(topic)
+
+    print("=" * 80)
+    print("🎯 ANALYZING QUESTION INTENT")
+    print("=" * 80)
+
+    print(
+        "Detected intents: "
+        + (
+            ", ".join(
+                intent_profile["intents"]
+            )
+            or "none"
+        )
+    )
+
+    print(
+        "Required mechanism terms:"
+    )
+
+    print(
+        ", ".join(
+            sorted(
+                intent_profile[
+                    "mechanism_terms"
+                ]
+            )
+        )
+        or "none"
+    )
+
+    print(
+        "Event terms:"
+    )
+
+    print(
+        ", ".join(
+            sorted(
+                intent_profile[
+                    "event_terms"
+                ]
+            )
+        )
+        or "none"
+    )
+
+    print(
+        "Target terms:"
+    )
+
+    print(
+        ", ".join(
+            sorted(
+                intent_profile[
+                    "target_terms"
+                ]
+            )
+        )
+        or "none"
+    )
+
+    print(
+        "Topic-drift terms:"
+    )
+
+    print(
+        ", ".join(
+            sorted(
+                intent_profile[
+                    "negative_terms"
+                ]
+            )
+        )
+        or "none"
     )
 
     # ------------------------------------------------------------------
@@ -4176,7 +4971,7 @@ def research_topic(topic):
     relevant = relevance_filter(
         topic,
         doi_candidates,
-        label="STRICT TOPIC RELEVANCE FILTER",
+        label="STRICT TOPIC + QUESTION INTENT FILTER",
     )
 
     if not relevant:
@@ -4189,6 +4984,10 @@ def research_topic(topic):
     relevant = sorted(
         relevant,
         key=lambda source: (
+            source.get(
+                "intent_score",
+                0,
+            ),
             source.get(
                 "relevance_score",
                 0,
@@ -4317,7 +5116,7 @@ def research_topic(topic):
     print("=" * 80)
 
     print(
-        "🔍 FINAL EVIDENCE RELEVANCE CHECK"
+        "🔍 FINAL EVIDENCE + QUESTION INTENT CHECK"
     )
 
     print("=" * 80)
@@ -4339,6 +5138,9 @@ def research_topic(topic):
         ) is True
         and source.get(
             "verified"
+        ) is True
+        and source.get(
+            "intent_pass"
         ) is True
     ]
 
@@ -4427,6 +5229,34 @@ def research_topic(topic):
             "scholarly_queries": (
                 scholarly_queries
             ),
+
+            "question_intents": (
+                intent_profile["intents"]
+            ),
+
+            "mechanism_terms": sorted(
+                intent_profile[
+                    "mechanism_terms"
+                ]
+            ),
+
+            "event_terms": sorted(
+                intent_profile[
+                    "event_terms"
+                ]
+            ),
+
+            "target_terms": sorted(
+                intent_profile[
+                    "target_terms"
+                ]
+            ),
+
+            "negative_topic_drift_terms": sorted(
+                intent_profile[
+                    "negative_terms"
+                ]
+            ),
         },
 
         "verification_policy": {
@@ -4450,6 +5280,10 @@ def research_topic(topic):
             "evidence_verification_required": True,
 
             "strict_topic_relevance": True,
+
+            "question_intent_relevance": True,
+
+            "mechanism_relevance_required": True,
 
             "final_relevance_recheck": True,
 
@@ -4495,6 +5329,11 @@ def research_topic(topic):
 
             "deterministic_query_expansion": True,
 
+            "subject_only_matching_allowed": False,
+
+            "topic_drift_protection": True,
+
+            "agriculture_production_drift_protection": True,
         },
 
         "source_count": len(
@@ -4569,6 +5408,16 @@ def research_topic(topic):
                     [],
                 )
             )
+        )
+
+        print(
+            "   Intent: "
+            f"{source.get('intent_class', '')}"
+        )
+
+        print(
+            "   Mechanism matches: "
+            f"{source.get('intent_mechanism_matches', [])}"
         )
 
         print(

@@ -2,14 +2,15 @@
 topics.py
 Mint-YT-Factory
 
-Version 6.0
+Version 6.1
 
 VIRAL CURIOSITY QUESTION ENGINE
 
-v6.0 improvements:
+v6.1 improvements:
 - Generates specific WHY/HOW curiosity questions
 - Strong observable-phenomenon requirement
 - Mechanism-oriented question generation
+- Semantic-style specificity gate instead of hardcoded topic vocabulary
 - Prevents broad academic subjects
 - Prevents generic "how X works" questions
 - Prevents listicles/countdowns
@@ -39,7 +40,7 @@ from google.genai import types
 # VERSION
 # ==========================================================================
 
-VERSION = "6.0"
+VERSION = "6.1"
 
 
 # ==========================================================================
@@ -77,25 +78,9 @@ MAX_VIRAL_SCORE = 30
 
 
 # ==========================================================================
-# QUESTION QUALITY
+# BROAD SUBJECT PROTECTION
 # ==========================================================================
 
-"""
-The topic engine is deliberately stricter than the research engine.
-
-topics.py asks:
-
-    Is this a good QUESTION?
-
-research.py asks:
-
-    Can credible evidence actually answer this QUESTION?
-
-The two systems therefore have different responsibilities.
-"""
-
-
-# Words that usually indicate an overly broad academic subject.
 BROAD_SUBJECT_TERMS = {
     "science",
     "biology",
@@ -113,10 +98,17 @@ BROAD_SUBJECT_TERMS = {
     "quantum",
     "thermodynamics",
     "neuroscience",
+    "technology",
+    "computer",
+    "computers",
+    "internet",
+    "smartphones",
+    "smartphone",
+    "artificial",
+    "intelligence",
 }
 
 
-# Generic questions that usually require too much explanation.
 BROAD_QUESTION_PATTERNS = [
     r"^how does the internet work",
     r"^how does electricity work",
@@ -129,16 +121,24 @@ BROAD_QUESTION_PATTERNS = [
     r"^how do airplanes work",
     r"^how do computers work",
     r"^how do phones work",
+    r"^how do smartphones work",
+    r"^how does a smartphone work",
+    r"^how does the internet",
     r"^what is gravity",
     r"^what is quantum",
     r"^what is consciousness",
     r"^what is dark matter",
     r"^what is artificial intelligence",
+    r"^what is biology",
+    r"^what is physics",
+    r"^what is chemistry",
+    r"^what is psychology",
+    r"^what is astronomy",
+    r"^what is evolution",
+    r"^what is electricity",
 ]
 
 
-# Topics that tend to produce poor Shorts even if technically
-# researchable.
 LOW_VALUE_PATTERNS = [
     "history of",
     "importance of",
@@ -155,6 +155,13 @@ LOW_VALUE_PATTERNS = [
     "overview of",
     "what are the different",
     "what are some",
+    "facts about",
+    "interesting facts",
+    "the science of",
+    "the biology of",
+    "the physics of",
+    "the psychology of",
+    "the history of",
 ]
 
 
@@ -192,12 +199,15 @@ then:
 "Ohhh."
 
 ============================================================
-THE MOST IMPORTANT RULE
+MOST IMPORTANT RULE
 ============================================================
 
-Generate a QUESTION about ONE SPECIFIC OBSERVABLE PHENOMENON.
+Generate ONE question about ONE SPECIFIC OBSERVABLE PHENOMENON.
 
-The question should describe something a person can:
+The viewer should be able to understand what is happening
+without already knowing the science.
+
+The phenomenon should be something a person can:
 
 - see
 - hear
@@ -207,22 +217,27 @@ The question should describe something a person can:
 - encounter
 - observe
 
-and ask WHY or HOW it happens.
+The question should ask WHY or HOW it happens.
 
-The answer should explain a mechanism, cause, process,
-or counterintuitive reason.
+The answer should reveal:
+
+- a cause
+- a mechanism
+- a process
+- an unexpected explanation
+- or a counterintuitive reason
 
 ============================================================
-QUESTION STRUCTURE
+STRONG QUESTION STRUCTURES
 ============================================================
 
-Strong questions usually follow structures such as:
+Prefer:
 
 Why does [familiar thing] [unexpected behavior]?
 
 Why do [people/animals/things] [observable behavior]?
 
-How does [familiar phenomenon] happen?
+How does [specific phenomenon] happen?
 
 Why can [familiar thing] [unexpected ability]?
 
@@ -250,41 +265,44 @@ Why can birds sit on power lines
 
 Why does the Moon look bigger near the horizon
 
-Do NOT copy these examples.
+These are FORMAT examples only.
+
+Do NOT copy them.
 
 ============================================================
 ONE PHENOMENON ONLY
 ============================================================
 
-Every video must answer ONE central question.
+GOOD:
+
+Why does static electricity make your hair stand up
+
+One phenomenon:
+Hair standing up because of static electricity.
 
 GOOD:
 
-Why do your eyes water when cutting onions
+Why does a mirror reverse left and right
 
-The phenomenon:
-Eyes water while cutting onions.
-
-The mechanism:
-A chemical released by damaged onion tissue irritates
-the eye and triggers tearing.
+One phenomenon:
+The apparent left-right reversal.
 
 BAD:
 
-Why do onions make you cry and smell so strong?
+Why does static electricity make your hair stand up
+and make clothes cling?
 
-Too many phenomena.
-
-BAD:
-
-Why do onions make people cry, how are they grown,
-and why are they healthy?
-
-Multiple subjects.
+Two phenomena.
 
 BAD:
 
-The science of onions
+How does electricity work?
+
+Too broad.
+
+BAD:
+
+The science of static electricity
 
 Not a question.
 
@@ -292,136 +310,79 @@ Not a question.
 MECHANISM REQUIREMENT
 ============================================================
 
-The question must have an identifiable underlying mechanism.
+There must be a realistic mechanism behind the phenomenon.
 
-Good:
+The question does NOT need to contain technical terminology.
 
-Why does metal feel colder than wood?
-
-Possible mechanism:
-Different thermal conductivity / heat transfer.
-
-Good:
-
-Why do fingers wrinkle in water?
-
-Possible mechanism:
-Nervous-system-mediated vascular response.
-
-Good:
-
-Why does your voice sound different recorded?
-
-Possible mechanism:
-Bone conduction versus air conduction.
-
-Bad:
-
-Why is the universe amazing?
-
-No specific mechanism.
-
-Bad:
-
-Why is nature so interesting?
-
-No specific mechanism.
-
-============================================================
-OBSERVABLE PHENOMENON REQUIREMENT
-============================================================
-
-Prefer things ordinary people have personally experienced.
-
-High-value categories:
-
-EVERYDAY MYSTERIES
-
-- metal and wood feeling different
-- rain smell
-- echoes
-- static electricity
-- reflections
-- shadows
-- ice floating
-- glass appearing invisible
-
-HUMAN BODY
-
-- eyes watering
-- goosebumps
-- yawning
-- sneezing
-- hiccups
-- fingers wrinkling
-- voice sounding different
-- feeling dizzy
-- getting brain freeze
-
-BRAIN / PSYCHOLOGY
-
-- forgetting why you entered a room
-- songs getting stuck in your head
-- déjà vu
-- embarrassing memories returning
-- dreams feeling real
-- time feeling faster
-
-ANIMALS
-
-- dogs tilting their heads
-- cats purring
-- birds flying in formation
-- bees behaving collectively
-- animals responding to sounds
-
-EVERYDAY PHYSICS
-
-- lightning before thunder
-- objects floating
-- heat transfer
-- sound traveling
-- shadows
-- reflections
-- pressure
-
-SPACE
-
-- Moon appearing larger near horizon
-- stars appearing to move
-- space appearing black
-- eclipses
-- planetary motion
-
-TECHNOLOGY
-
-Only when the question concerns ONE familiar observable feature.
+The mechanism will be discovered during research.
 
 GOOD:
 
-Why does airplane turbulence happen?
+Why does your shadow change length during the day
 
-Why does noise cancellation work?
+GOOD:
 
-Why does your phone get hot while charging?
+Why does static electricity make your hair stand up
+
+GOOD:
+
+Why does your phone get hot while charging
+
+GOOD:
+
+Why do echoes repeat your voice
 
 BAD:
 
-How do smartphones work?
+Why is the universe so strange
 
-How does the internet work?
+BAD:
 
-How do computers work?
+Why is nature amazing
 
-These are too broad.
+BAD:
+
+Why are humans special
+
+============================================================
+FAMILIARITY
+============================================================
+
+Prefer things millions of ordinary people can recognize.
+
+The viewer should be able to think:
+
+"I've experienced that."
+
+The subject does NOT need to come from a fixed category.
+
+Possible areas include:
+
+- everyday experiences
+- human behavior
+- body observations
+- brain experiences
+- animals
+- physics
+- weather
+- sound
+- light
+- food
+- household objects
+- transportation
+- technology
+- nature
+- space
+- materials
+- common social experiences
+
+Do not restrict yourself to a predefined vocabulary.
 
 ============================================================
 35–45 SECOND TEST
 ============================================================
 
 Imagine the finished Short.
-
-Can the question be answered with:
 
 0–3 sec:
 HOOK
@@ -430,21 +391,21 @@ HOOK
 MECHANISM
 
 20–35 sec:
-SURPRISING DETAIL / TWIST
+SURPRISING DETAIL
 
 35–45 sec:
 PAYOFF + OPEN LOOP
 
-If answering the question requires a long history lesson,
+If the question requires a long history lesson,
 multiple unrelated mechanisms, or extensive background,
-REJECT IT.
+reject it.
 
 ============================================================
 RESEARCH TEST
 ============================================================
 
-The question must realistically be answerable using at least
-two independent credible sources.
+The question must realistically be answerable using
+at least two independent credible sources.
 
 Prefer:
 
@@ -453,9 +414,7 @@ Prefer:
 - government agencies
 - scientific institutions
 - established research organizations
-- authoritative scientific databases
-
-The answer should be supported by actual evidence.
+- authoritative databases
 
 Avoid:
 
@@ -463,8 +422,8 @@ Avoid:
 - myths
 - social media claims
 - conspiracy theories
+- folklore
 - unverifiable stories
-- vague folklore
 - speculation presented as fact
 
 ============================================================
@@ -476,7 +435,7 @@ The phenomenon should naturally produce useful visuals.
 Prefer:
 
 - physical processes
-- microscopic processes
+- microscopic mechanisms
 - internal mechanisms
 - cause and effect
 - before/after
@@ -488,48 +447,15 @@ Prefer:
 - environments
 - anatomical visualization
 
-Avoid questions where the video would mostly show
-people talking.
-
 ============================================================
 SURPRISE TEST
 ============================================================
 
 The real answer should be more interesting than the obvious answer.
 
-GOOD:
+The surprise must come from the actual mechanism.
 
-Why does metal feel colder than wood?
-
-The viewer may assume the metal is actually colder.
-
-GOOD:
-
-Why does your voice sound different recorded?
-
-The viewer may not realize they normally hear their voice
-through both air conduction and bone conduction.
-
-GOOD:
-
-Why do eyes water when cutting onions?
-
-The viewer may think the onion somehow "makes you cry,"
-but the mechanism is chemical irritation and a protective
-tear response.
-
-============================================================
-FAMILIARITY TEST
-============================================================
-
-Prefer questions that millions of people could recognize.
-
-The viewer should be able to think:
-
-"I've experienced that."
-
-Avoid questions that require the viewer to already care about
-a specialized field.
+Do not manufacture controversy or clickbait.
 
 ============================================================
 ORIGINALITY
@@ -537,18 +463,9 @@ ORIGINALITY
 
 Do not repeat previous topics.
 
-Do not produce a superficial wording variation.
+Do not create superficial wording variations.
 
-Example:
-
-Previous:
-Why does metal feel colder than wood
-
-Reject:
-
-Why does steel feel colder than plastic
-
-unless the underlying phenomenon is genuinely different.
+The underlying phenomenon must be genuinely different.
 
 ============================================================
 MONETIZATION SAFETY
@@ -568,7 +485,7 @@ Avoid:
 - medical diagnosis
 - medical treatment instructions
 
-Normal educational explanations of human biology are allowed.
+Normal educational explanations are allowed.
 
 ============================================================
 FORBIDDEN FORMATS
@@ -587,8 +504,7 @@ Never generate:
 - "history of..."
 - "benefits of..."
 - "everything about..."
-- "what is..."
-  when the subject is extremely broad
+- extremely broad "what is..." questions
 
 ============================================================
 TOPIC LENGTH
@@ -597,8 +513,6 @@ TOPIC LENGTH
 Maximum 12 words.
 
 Prefer 5–10 words.
-
-The question must remain natural conversational English.
 
 ============================================================
 OUTPUT
@@ -614,19 +528,17 @@ No numbering.
 
 No emojis.
 
+No terminal punctuation.
+
 No "Did you know".
 
 No "Let's explore".
 
 No "Today we're going to".
 
-No terminal punctuation.
-
 ============================================================
 FINAL OBJECTIVE
 ============================================================
-
-Generate:
 
 ONE FAMILIAR PHENOMENON
 +
@@ -639,9 +551,8 @@ ONE SURPRISING PAYOFF
 STRONG VISUAL POTENTIAL
 +
 STRONG RESEARCHABILITY
-
-The best topic is something millions of people could recognize
-and immediately want explained.
++
+BROAD AUDIENCE APPEAL
 """
 
 
@@ -650,9 +561,6 @@ and immediately want explained.
 # ==========================================================================
 
 def _atomic_write_json(path, data):
-    """
-    Safely write JSON using a temporary file followed by atomic replace.
-    """
 
     directory = os.path.dirname(
         os.path.abspath(path)
@@ -692,9 +600,7 @@ def _atomic_write_json(path, data):
 
             f.write("\n")
             f.flush()
-            os.fsync(
-                f.fileno()
-            )
+            os.fsync(f.fileno())
 
         os.replace(
             temp_path,
@@ -729,7 +635,6 @@ def _load_used():
     if not os.path.exists(
         USED_TOPICS_PATH
     ):
-
         return []
 
     try:
@@ -742,23 +647,16 @@ def _load_used():
 
             data = json.load(f)
 
-        if isinstance(
-            data,
-            list,
-        ):
+        if isinstance(data, list):
 
             cleaned = []
 
             for item in data:
 
-                topic = _clean_topic(
-                    item
-                )
+                topic = _clean_topic(item)
 
                 if topic:
-                    cleaned.append(
-                        topic
-                    )
+                    cleaned.append(topic)
 
             return cleaned
 
@@ -779,16 +677,12 @@ def _save_used(used):
 
     for topic in used:
 
-        topic = _clean_topic(
-            topic
-        )
+        topic = _clean_topic(topic)
 
         if not topic:
             continue
 
-        key = _topic_key(
-            topic
-        )
+        key = _topic_key(topic)
 
         if key in seen:
             continue
@@ -807,7 +701,6 @@ def _load_next_topic():
     if not os.path.exists(
         NEXT_TOPIC_PATH
     ):
-
         return ""
 
     try:
@@ -820,26 +713,15 @@ def _load_next_topic():
 
             data = json.load(f)
 
-        if isinstance(
-            data,
-            dict,
-        ):
+        if isinstance(data, dict):
 
             return _clean_topic(
-                data.get(
-                    "topic",
-                    "",
-                )
+                data.get("topic", "")
             )
 
-        if isinstance(
-            data,
-            str,
-        ):
+        if isinstance(data, str):
 
-            return _clean_topic(
-                data
-            )
+            return _clean_topic(data)
 
     except Exception as error:
 
@@ -853,9 +735,7 @@ def _load_next_topic():
 
 def _save_next_topic(topic):
 
-    topic = _clean_topic(
-        topic
-    )
+    topic = _clean_topic(topic)
 
     if not topic:
         return False
@@ -894,7 +774,6 @@ def clear_next_topic():
     if not os.path.exists(
         NEXT_TOPIC_PATH
     ):
-
         return True
 
     try:
@@ -925,9 +804,7 @@ def clear_next_topic():
 
 def _clean_topic(topic):
 
-    topic = str(
-        topic or ""
-    ).strip()
+    topic = str(topic or "").strip()
 
     if not topic:
         return ""
@@ -977,7 +854,7 @@ def _clean_topic(topic):
 
 
 # ==========================================================================
-# TOPIC BASIC VALIDATION
+# BASIC VALIDATION
 # ==========================================================================
 
 def _valid_topic(
@@ -988,9 +865,7 @@ def _valid_topic(
     if not topic:
         return False
 
-    topic = _clean_topic(
-        topic
-    )
+    topic = _clean_topic(topic)
 
     if not topic:
         return False
@@ -1027,6 +902,7 @@ def _valid_topic(
         "the biology of",
         "the physics of",
         "the history of",
+        "the psychology of",
     ]
 
     for phrase in forbidden:
@@ -1038,10 +914,10 @@ def _valid_topic(
         r"^(top|best)\s+\d+",
         lowered,
     ):
-
         return False
 
     generic_starts = [
+
         "the history of",
         "introduction to",
         "understanding",
@@ -1056,13 +932,11 @@ def _valid_topic(
 
     for phrase in generic_starts:
 
-        if lowered.startswith(
-            phrase
-        ):
-
+        if lowered.startswith(phrase):
             return False
 
     academic_terms = [
+
         "phenophysiological",
         "thermodynamic",
         "methodological",
@@ -1080,7 +954,7 @@ def _valid_topic(
 
 
 # ==========================================================================
-# QUESTION STRUCTURE VALIDATION
+# QUESTION STRUCTURE
 # ==========================================================================
 
 def _is_question(topic):
@@ -1097,152 +971,259 @@ def _is_question(topic):
         "are ",
     )
 
-    return lowered.startswith(
-        starters
+    return lowered.startswith(starters)
+
+
+# ==========================================================================
+# SEMANTIC-STYLE SPECIFICITY GATE
+# ==========================================================================
+
+def _extract_content_words(topic):
+
+    """
+    Extract meaningful words without relying on a fixed subject list.
+
+    This intentionally avoids saying:
+
+        "a valid topic must contain 'brain' or 'water'"
+
+    because that artificially limits topic diversity.
+    """
+
+    stop_words = {
+        "why",
+        "what",
+        "how",
+        "when",
+        "where",
+        "who",
+        "does",
+        "do",
+        "did",
+        "can",
+        "could",
+        "would",
+        "will",
+        "should",
+        "is",
+        "are",
+        "was",
+        "were",
+        "the",
+        "a",
+        "an",
+        "and",
+        "or",
+        "of",
+        "to",
+        "in",
+        "on",
+        "for",
+        "with",
+        "from",
+        "your",
+        "you",
+        "we",
+        "our",
+        "they",
+        "their",
+        "it",
+        "its",
+        "this",
+        "that",
+        "these",
+        "those",
+        "very",
+        "really",
+        "actually",
+        "often",
+        "usually",
+        "sometimes",
+        "people",
+        "thing",
+        "things",
+    }
+
+    words = re.findall(
+        r"[a-z0-9]+",
+        topic.lower(),
     )
 
+    return [
+        word
+        for word in words
+        if (
+            len(word) >= 3
+            and word not in stop_words
+        )
+    ]
 
-def _has_specificity(topic):
+
+def _has_concrete_subject(topic):
+
+    """
+    Determine whether the question contains enough concrete language
+    to describe an actual phenomenon.
+
+    This is deliberately vocabulary-independent.
+
+    It looks for:
+    - multiple meaningful content words
+    - nouns/materials/objects implied by sentence structure
+    - possessive or relational constructions
+    - specific observable targets
+    """
+
+    words = _extract_content_words(topic)
+
+    if len(words) < 2:
+        return False
 
     lowered = topic.lower()
 
-    # A question containing one of these concrete experience
-    # indicators is more likely to represent an observable phenomenon.
-    concrete_terms = [
+    # A question with a concrete noun-like object followed by
+    # an action/condition is generally sufficiently specific.
+    #
+    # Examples:
+    #
+    # static electricity -> hair stand
+    # spoon -> bend
+    # clouds -> pink
+    # windshield -> fog
+    # bread -> become stale
+    #
 
-        "eye",
-        "eyes",
-        "ear",
-        "ears",
-        "voice",
-        "sound",
-        "skin",
-        "hair",
-        "hand",
-        "hands",
-        "finger",
-        "fingers",
-        "brain",
-        "body",
-        "sleep",
-        "dream",
-        "memory",
-        "song",
-        "music",
-        "water",
-        "ice",
-        "rain",
-        "snow",
-        "metal",
-        "wood",
-        "glass",
-        "light",
-        "shadow",
-        "heat",
-        "cold",
-        "fire",
-        "smell",
-        "onion",
-        "bird",
-        "birds",
-        "dog",
-        "dogs",
-        "cat",
-        "cats",
-        "bee",
-        "bees",
-        "moon",
-        "sun",
-        "stars",
-        "phone",
-        "plane",
-        "airplane",
-        "car",
-        "road",
-        "electricity",
+    concrete_patterns = [
+
+        r"\bwhy does .+ (feel|look|sound|smell|taste|change|move|"
+        r"turn|become|appear|seem|happen|form|break|stick|float|"
+        r"fall|rise|glow|bend|freeze|melt|fog|fade|grow|shrink)",
+
+        r"\bwhy do .+ (feel|look|sound|smell|taste|change|move|"
+        r"turn|become|appear|seem|happen|form|break|stick|float|"
+        r"fall|rise|glow|bend|freeze|melt|fog|fade|grow|shrink)",
+
+        r"\bwhy can .+ (sit|stand|fly|float|bend|break|stick|"
+        r"move|change|survive|see|hear|smell|sense|produce)",
+
+        r"\bhow does .+ (happen|form|change|work|move|produce|"
+        r"create|cause|become|occur)",
+
+        r"\bhow do .+ (happen|form|change|work|move|produce|"
+        r"create|cause|become|occur)",
     ]
 
-    return any(
-        re.search(
-            rf"\b{re.escape(term)}\b",
+    for pattern in concrete_patterns:
+
+        if re.search(
+            pattern,
             lowered,
-        )
-        for term in concrete_terms
-    )
+        ):
+
+            return True
+
+    # Possessive constructions often indicate a specific experience:
+    #
+    # your hair
+    # your phone
+    # a car's brakes
+    # birds' feathers
+    #
+
+    if re.search(
+        r"\b(your|our|their|its|a|an|the)\s+\w+\s+\w+",
+        lowered,
+    ):
+
+        if len(words) >= 3:
+            return True
+
+    # A sufficiently short question with several concrete content
+    # words can also pass without matching a predefined vocabulary.
+    if 3 <= len(words) <= 7:
+
+        return True
+
+    return False
 
 
 def _has_observable_action(topic):
 
+    """
+    Detect observable/experiential wording without maintaining
+    a hardcoded list of acceptable subjects.
+    """
+
     lowered = topic.lower()
 
-    action_terms = [
+    observable_patterns = [
 
-        "feel",
-        "feels",
-        "feeling",
-        "look",
-        "looks",
-        "looking",
-        "sound",
-        "sounds",
-        "hear",
-        "hearing",
-        "see",
-        "seeing",
-        "water",
-        "watering",
-        "tear",
-        "tears",
-        "cry",
-        "crying",
-        "wrinkle",
-        "wrinkles",
-        "float",
-        "floats",
-        "freeze",
-        "freezes",
-        "melt",
-        "melts",
-        "move",
-        "moves",
-        "fly",
-        "flies",
-        "tilt",
-        "tilts",
-        "smell",
-        "smells",
-        "stick",
-        "sticks",
-        "burn",
-        "burns",
-        "glow",
-        "glows",
-        "ring",
-        "rings",
-        "echo",
-        "echoes",
-        "yawn",
-        "yawns",
-        "tickle",
-        "tickles",
-        "sneeze",
-        "sneezes",
-        "hiccup",
-        "hiccups",
-        "change",
-        "changes",
-        "happen",
-        "happens",
-        "work",
-        "works",
+        # Sensory experiences
+        r"\b(feel|feels|feeling)\b",
+        r"\b(look|looks|looking)\b",
+        r"\b(sound|sounds|sounding)\b",
+        r"\b(hear|hears|hearing)\b",
+        r"\b(see|sees|seeing)\b",
+        r"\b(smell|smells|smelling)\b",
+        r"\b(taste|tastes|tasting)\b",
+
+        # Physical changes
+        r"\b(change|changes|changing)\b",
+        r"\b(move|moves|moving)\b",
+        r"\b(turn|turns|turning)\b",
+        r"\b(become|becomes|becoming)\b",
+        r"\b(form|forms|forming)\b",
+        r"\b(break|breaks|breaking)\b",
+        r"\b(bend|bends|bending)\b",
+        r"\b(stick|sticks|sticking)\b",
+        r"\b(float|floats|floating)\b",
+        r"\b(fall|falls|falling)\b",
+        r"\b(rise|rises|rising)\b",
+        r"\b(freeze|freezes|freezing)\b",
+        r"\b(melt|melts|melting)\b",
+        r"\b(fade|fades|fading)\b",
+        r"\b(glow|glows|glowing)\b",
+        r"\b(fog|fogs|fogging)\b",
+        r"\b(shrink|shrinks|shrinking)\b",
+        r"\b(grow|grows|growing)\b",
+
+        # Human experiences
+        r"\b(remember|remembers|remembering)\b",
+        r"\b(forget|forgets|forgetting)\b",
+        r"\b(dream|dreams|dreaming)\b",
+        r"\b(yawn|yawns|yawning)\b",
+        r"\b(sneeze|sneezes|sneezing)\b",
+        r"\b(tickle|tickles|tickling)\b",
+        r"\b(wrinkle|wrinkles|wrinkling)\b",
+        r"\b(cry|cries|crying)\b",
+        r"\b(blink|blinks|blinking)\b",
+        r"\b(breathe|breathes|breathing)\b",
+
+        # Environmental / natural phenomena
+        r"\b(rain|rains|raining)\b",
+        r"\b(snow|snows|snowing)\b",
+        r"\b(thunder|thunders)\b",
+        r"\b(lightning)\b",
+        r"\b(eclipse|eclipses)\b",
+        r"\b(shadow|shadows)\b",
+        r"\b(reflection|reflections)\b",
+        r"\b(echo|echoes)\b",
+
+        # Generic causal observation
+        r"\bhappen(s)?\b",
+        r"\bwork(s)?\b",
+        r"\bappear(s)?\b",
+        r"\bseem(s)?\b",
+        r"\bcause(s)?\b",
+        r"\bproduce(s)?\b",
     ]
 
     return any(
         re.search(
-            rf"\b{re.escape(term)}\b",
+            pattern,
             lowered,
         )
-        for term in action_terms
+        for pattern in observable_patterns
     )
 
 
@@ -1250,46 +1231,41 @@ def _has_mechanism_question(topic):
 
     lowered = topic.lower()
 
-    mechanism_indicators = [
+    mechanism_patterns = [
 
-        "why",
-        "how",
-        "happen",
-        "happens",
-        "work",
-        "works",
-        "cause",
-        "causes",
-        "feel",
-        "feels",
-        "change",
-        "changes",
-        "move",
-        "moves",
-        "sound",
-        "sounds",
-        "look",
-        "looks",
-        "smell",
-        "smells",
-        "float",
-        "floats",
-        "freeze",
-        "freezes",
-        "remember",
-        "forget",
-        "dream",
-        "tickle",
-        "wrinkle",
-        "yawn",
+        r"\bwhy\b",
+        r"\bhow\b",
+        r"\bhappen(s)?\b",
+        r"\bwork(s)?\b",
+        r"\bcause(s)?\b",
+        r"\bmake(s)?\b",
+        r"\bchange(s)?\b",
+        r"\bmove(s)?\b",
+        r"\bproduce(s)?\b",
+        r"\bcreate(s)?\b",
+        r"\bbecome(s)?\b",
+        r"\bform(s)?\b",
+        r"\bfeel(s)?\b",
+        r"\bsound(s)?\b",
+        r"\blook(s)?\b",
+        r"\bsmell(s)?\b",
+        r"\bfloat(s)?\b",
+        r"\bfreeze(s)?\b",
+        r"\bmelt(s)?\b",
+        r"\bremember(s)?\b",
+        r"\bforget(s)?\b",
+        r"\bdream(s)?\b",
+        r"\btickle(s)?\b",
+        r"\bwrinkle(s)?\b",
+        r"\byawn(s)?\b",
     ]
 
     return any(
         re.search(
-            rf"\b{re.escape(term)}\b",
+            pattern,
             lowered,
         )
-        for term in mechanism_indicators
+        for pattern in mechanism_patterns
     )
 
 
@@ -1303,7 +1279,11 @@ def _is_broad_subject(topic):
             pattern,
             lowered,
         ):
+            return True
 
+    for phrase in LOW_VALUE_PATTERNS:
+
+        if phrase in lowered:
             return True
 
     words = set(
@@ -1313,18 +1293,25 @@ def _is_broad_subject(topic):
         )
     )
 
-    # Broad academic nouns without a concrete phenomenon.
     broad_hits = words & BROAD_SUBJECT_TERMS
 
-    if broad_hits and not _has_observable_action(
-        topic
-    ):
+    if broad_hits:
 
-        return True
+        # A broad term can still be acceptable if the question
+        # clearly narrows it to one observable phenomenon.
+        #
+        # Example:
+        # "Why does electricity make your hair stand up?"
+        #
+        # "electricity" is broad, but the phenomenon is specific.
+        #
 
-    for phrase in LOW_VALUE_PATTERNS:
+        if not _has_observable_action(topic):
+            return True
 
-        if phrase in lowered:
+        content_words = _extract_content_words(topic)
+
+        if len(content_words) < 4:
             return True
 
     return False
@@ -1337,7 +1324,7 @@ def _question_quality_score(topic):
     if _is_question(topic):
         score += 2
 
-    if _has_specificity(topic):
+    if _has_concrete_subject(topic):
         score += 2
 
     if _has_observable_action(topic):
@@ -1362,10 +1349,10 @@ def _passes_question_quality(topic):
 
         return False
 
-    if not _has_specificity(topic):
+    if not _has_concrete_subject(topic):
 
         print(
-            "⚠️ Rejected: question is not specific enough."
+            "⚠️ Rejected: question lacks a sufficiently concrete phenomenon."
         )
 
         return False
@@ -1412,9 +1399,7 @@ def _passes_question_quality(topic):
 
 def _topic_key(topic):
 
-    topic = _clean_topic(
-        topic
-    ).lower()
+    topic = _clean_topic(topic).lower()
 
     topic = re.sub(
         r"[^a-z0-9\s]",
@@ -1432,9 +1417,7 @@ def _already_used(
     used,
 ):
 
-    key = _topic_key(
-        topic
-    )
+    key = _topic_key(topic)
 
     if not key:
         return False
@@ -1442,12 +1425,10 @@ def _already_used(
     for existing in used:
 
         if (
-            _topic_key(
-                existing
-            )
-            == key
+            _topic_key(existing)
+            ==
+            key
         ):
-
             return True
 
     return False
@@ -1505,9 +1486,7 @@ def _topic_words(topic):
 
     words = re.findall(
         r"[a-z0-9]+",
-        _topic_key(
-            topic
-        ),
+        _topic_key(topic),
     )
 
     return {
@@ -1515,8 +1494,7 @@ def _topic_words(topic):
         for word in words
         if (
             len(word) >= 3
-            and
-            word not in stop_words
+            and word not in stop_words
         )
     }
 
@@ -1530,18 +1508,14 @@ def _too_similar_to_used(
     used,
 ):
 
-    current_words = _topic_words(
-        topic
-    )
+    current_words = _topic_words(topic)
 
     if not current_words:
         return False
 
     for existing in used:
 
-        existing_words = _topic_words(
-            existing
-        )
+        existing_words = _topic_words(existing)
 
         if not existing_words:
             continue
@@ -1592,27 +1566,7 @@ def _contains_term(
 
 def _score_topic(topic):
 
-    """
-    Local curiosity pre-score.
-
-    Maximum:
-
-        Curiosity      5
-        Familiarity    5
-        Surprise       5
-        Payoff         5
-        Visual         5
-        Researchable   5
-
-    Total = 30
-
-    This is only a pre-filter.
-
-    research.py remains the authoritative research gate.
-    """
-
     lowered = topic.lower()
-
     words = topic.split()
 
     scores = {
@@ -1681,75 +1635,50 @@ def _score_topic(topic):
     # FAMILIARITY
     # ----------------------------------------------------------------------
 
-    familiar_terms = [
-        "brain",
-        "body",
-        "voice",
-        "hand",
-        "hands",
-        "finger",
-        "fingers",
-        "eye",
-        "eyes",
-        "ear",
-        "ears",
-        "skin",
-        "hair",
-        "sleep",
-        "dream",
-        "memory",
-        "time",
-        "water",
-        "ice",
-        "rain",
-        "snow",
-        "metal",
-        "wood",
-        "phone",
-        "car",
-        "plane",
-        "bird",
-        "dog",
-        "cat",
-        "bee",
-        "moon",
-        "sun",
-        "stars",
-        "space",
-        "sound",
-        "light",
-        "electricity",
-        "fire",
-        "food",
-        "music",
-        "song",
-        "room",
-        "road",
-        "glass",
-        "air",
-        "cold",
-        "hot",
-        "heat",
-        "onion",
+    # Familiarity is now based partly on linguistic structure rather
+    # than a fixed list of allowed subjects.
+
+    content_words = _extract_content_words(
+        topic
+    )
+
+    if len(content_words) >= 4:
+        scores["familiarity"] = 4
+
+    elif len(content_words) >= 3:
+        scores["familiarity"] = 3
+
+    elif len(content_words) >= 2:
+        scores["familiarity"] = 2
+
+    # Personal/experiential phrasing increases familiarity.
+
+    personal_patterns = [
+        r"\byour\b",
+        r"\byou\b",
+        r"\bpeople\b",
+        r"\bwe\b",
+        r"\bhumans\b",
+        r"\beveryone\b",
+        r"\bwhen\b",
     ]
 
-    familiarity_hits = sum(
+    personal_hits = sum(
         1
-        for term in familiar_terms
-        if _contains_term(
+        for pattern in personal_patterns
+        if re.search(
+            pattern,
             lowered,
-            term,
         )
     )
 
-    if familiarity_hits >= 3:
-        scores["familiarity"] = 5
-
-    elif familiarity_hits == 2:
-        scores["familiarity"] = 4
-
-    elif familiarity_hits == 1:
-        scores["familiarity"] = 3
+    scores["familiarity"] = min(
+        5,
+        scores["familiarity"] + min(
+            2,
+            personal_hits,
+        ),
+    )
 
     # ----------------------------------------------------------------------
     # SURPRISE
@@ -1790,12 +1719,9 @@ def _score_topic(topic):
 
     if (
         "different" in lowered
-        or
-        "feel" in lowered
-        or
-        "look" in lowered
-        or
-        "sound" in lowered
+        or "feel" in lowered
+        or "look" in lowered
+        or "sound" in lowered
     ):
 
         scores["surprise"] = min(
@@ -1831,6 +1757,13 @@ def _score_topic(topic):
         "water",
         "tear",
         "cry",
+        "stand",
+        "stick",
+        "bend",
+        "glow",
+        "melt",
+        "fall",
+        "rise",
     ]
 
     payoff_hits = sum(
@@ -1855,52 +1788,45 @@ def _score_topic(topic):
     # VISUAL
     # ----------------------------------------------------------------------
 
-    visual_terms = [
-        "water",
-        "ice",
-        "rain",
-        "snow",
-        "metal",
-        "wood",
-        "fire",
-        "light",
-        "sound",
-        "voice",
-        "brain",
-        "eye",
-        "eyes",
-        "hand",
-        "hands",
-        "finger",
-        "fingers",
-        "skin",
-        "hair",
-        "bird",
-        "dog",
-        "cat",
-        "bee",
-        "moon",
-        "sun",
-        "space",
-        "plane",
-        "phone",
-        "electricity",
-        "music",
-        "song",
-        "dream",
-        "sleep",
-        "glass",
-        "heat",
-        "cold",
-        "onion",
+    # Visual scoring remains intentionally broad but no longer controls
+    # whether a subject is valid.
+
+    visual_action_patterns = [
+
+        r"\bfeel",
+        r"\blook",
+        r"\bsound",
+        r"\bmove",
+        r"\bchange",
+        r"\bturn",
+        r"\bform",
+        r"\bfall",
+        r"\brise",
+        r"\bfloat",
+        r"\bfreeze",
+        r"\bmelt",
+        r"\bbend",
+        r"\bstick",
+        r"\bglow",
+        r"\bgrow",
+        r"\bshrink",
+        r"\breflect",
+        r"\bshadow",
+        r"\becho",
+        r"\bappear",
+        r"\bdisappear",
+        r"\bfly",
+        r"\brun",
+        r"\bspin",
+        r"\brotate",
     ]
 
     visual_hits = sum(
         1
-        for term in visual_terms
-        if _contains_term(
+        for pattern in visual_action_patterns
+        if re.search(
+            pattern,
             lowered,
-            term,
         )
     )
 
@@ -1913,65 +1839,68 @@ def _score_topic(topic):
     elif visual_hits == 1:
         scores["visual"] = 3
 
+    # Specific questions are inherently more visually adaptable.
+
+    if _has_concrete_subject(topic):
+
+        scores["visual"] = min(
+            5,
+            scores["visual"] + 1,
+        )
+
     # ----------------------------------------------------------------------
     # RESEARCHABILITY
     # ----------------------------------------------------------------------
 
-    research_terms = [
-        "brain",
-        "body",
-        "psychology",
-        "memory",
-        "dream",
-        "sleep",
-        "sound",
-        "light",
-        "electricity",
-        "water",
-        "ice",
-        "heat",
-        "metal",
-        "wood",
-        "rain",
-        "space",
-        "moon",
-        "sun",
-        "planet",
-        "bird",
-        "bee",
-        "dog",
-        "cat",
-        "voice",
-        "eye",
-        "eyes",
-        "skin",
-        "physics",
-        "biology",
-        "chemistry",
-        "gravity",
-        "weather",
-        "air",
-        "onion",
-        "tears",
-        "tearing",
-        "irritation",
-        "volatile",
+    # Do not use a hardcoded subject whitelist here.
+    #
+    # The purpose of this score is only a pre-filter.
+    # research.py performs the real evidence validation.
+
+    research_action_patterns = [
+
+        r"\bhappen",
+        r"\bwork",
+        r"\bcause",
+        r"\bproduce",
+        r"\bcreate",
+        r"\bchange",
+        r"\bform",
+        r"\bmove",
+        r"\bfeel",
+        r"\bsound",
+        r"\blook",
+        r"\bsmell",
+        r"\bfloat",
+        r"\bfreeze",
+        r"\bmelt",
+        r"\bremember",
+        r"\bforget",
+        r"\bdream",
+        r"\bstand",
+        r"\bstick",
+        r"\bbend",
+        r"\breflect",
+        r"\becho",
     ]
 
     research_hits = sum(
         1
-        for term in research_terms
-        if _contains_term(
+        for pattern in research_action_patterns
+        if re.search(
+            pattern,
             lowered,
-            term,
         )
     )
 
-    if research_hits >= 2:
+    if research_hits >= 3:
         scores["researchable"] = 5
 
-    elif research_hits == 1:
+    elif research_hits >= 2:
         scores["researchable"] = 4
+
+    elif research_hits >= 1:
+        scores["researchable"] = 3
 
     else:
         scores["researchable"] = 2
@@ -2007,9 +1936,7 @@ def _score_topic(topic):
 
 def _passes_viral_score(topic):
 
-    score = _score_topic(
-        topic
-    )
+    score = _score_topic(topic)
 
     print(
         f"📊 Curiosity pre-score: "
@@ -2024,10 +1951,6 @@ def _passes_viral_score(topic):
 # ==========================================================================
 
 def get_pending_topic():
-
-    """
-    Pending next_short topics have no new-topic word restriction.
-    """
 
     topic = _load_next_topic()
 
@@ -2110,22 +2033,48 @@ QUESTION-FIRST REQUIREMENT
 The output MUST be a specific question about ONE observable
 phenomenon.
 
-It should answer the following mental test:
+Think:
 
-"What exactly is happening that the viewer has noticed?"
+"What exactly is the viewer noticing?"
 
 Then:
 
-"What mechanism explains it?"
+"What mechanism could explain it?"
 
 The question must be narrow enough to explain properly
 in approximately 35–45 seconds.
 
 ============================================================
-PREFERRED STRUCTURE
+IMPORTANT
 ============================================================
 
-Prefer:
+Do NOT restrict yourself to a fixed list of subjects.
+
+The phenomenon can come from any ordinary experience,
+including:
+
+- household objects
+- food
+- weather
+- materials
+- sound
+- light
+- transportation
+- animals
+- human behavior
+- body experiences
+- brain experiences
+- technology
+- nature
+- space
+- everyday physics
+- everyday chemistry
+
+But it MUST be something ordinary people can recognize.
+
+============================================================
+PREFERRED STRUCTURE
+============================================================
 
 Why does [thing] [observable behavior]?
 
@@ -2135,47 +2084,41 @@ How does [specific phenomenon] happen?
 
 Why can [familiar thing] [unexpected behavior]?
 
+Why does [ordinary experience] feel/look/sound different?
+
 ============================================================
 GOOD EXAMPLES
 ============================================================
 
-Why do your eyes water when cutting onions
+Why does static electricity make your hair stand up
 
-Why does metal feel colder than wood
+Why does your shadow change length during the day
 
-Why do fingers wrinkle in water
+Why does a cold drink make a glass sweat
 
-Why does your voice sound different recorded
+Why do echoes repeat your voice
 
-Why can't you tickle yourself
+Why does bread become stale
 
-Why does ice float
+Why does your phone get hot while charging
 
-Why does rain smell
-
-Why do dogs tilt their heads
-
-Why can birds sit on power lines
-
-Why does the Moon look bigger near the horizon
-
-These are examples of FORMAT and specificity only.
+These are examples of FORMAT only.
 
 Do NOT copy them.
 
 ============================================================
-REJECT BROAD TOPICS
+REJECT BROAD QUESTIONS
 ============================================================
-
-Reject questions like:
 
 How does the internet work
 
-How do airplanes work
+How does electricity work
 
 How does the brain work
 
-How does electricity work
+How do airplanes work
+
+How do computers work
 
 What is gravity
 
@@ -2187,15 +2130,11 @@ The science of sleep
 
 The biology of humans
 
-These are too broad.
-
 ============================================================
-REJECT GENERIC TOPICS
+REJECT GENERIC QUESTIONS
 ============================================================
 
-Do not generate:
-
-The science of onions
+The science of static electricity
 
 Benefits of sleep
 
@@ -2210,26 +2149,18 @@ Why nature is amazing
 How the human body works
 
 ============================================================
-PREFER
+ONE PHENOMENON
 ============================================================
 
-Everyday mysteries.
+Do not combine two mysteries.
 
-Human body observations.
+BAD:
 
-Brain and psychology experiences.
+Why do phones get hot and batteries drain quickly?
 
-Animals people see regularly.
+GOOD:
 
-Simple physics people experience.
-
-Technology features people personally encounter.
-
-Space phenomena people recognize.
-
-The viewer should be able to think:
-
-"I've experienced that."
+Why does your phone get hot while charging?
 
 ============================================================
 RESEARCH
@@ -2238,28 +2169,30 @@ RESEARCH
 The question must have enough credible evidence to support
 the answer with at least two independent sources.
 
-Prefer scientific papers, universities, government agencies,
-scientific institutions, and established research organizations.
+Prefer:
 
-Do not rely on myths, rumors, social media claims,
-conspiracy theories, or unverifiable stories.
+scientific papers
+universities
+government agencies
+scientific institutions
+established research organizations
+
+Avoid myths, rumors, conspiracy theories and unverifiable claims.
 
 ============================================================
 VISUALS
 ============================================================
 
-The phenomenon should be visually demonstrable.
-
-Prefer:
+The phenomenon should be easy to visualize through:
 
 physical processes
-microscopic mechanisms
-internal processes
 cause and effect
 movement
 transformations
 experiments
 simulations
+internal mechanisms
+microscopic processes
 before/after
 scale comparisons
 
@@ -2269,7 +2202,7 @@ MONETIZATION
 
 Avoid graphic violence, gore, sexual content, extremist content,
 dangerous instructions, drugs, political outrage, conspiracy
-theories, fearbait, medical diagnosis, and treatment instructions.
+theories, fearbait, medical diagnosis and treatment instructions.
 
 ============================================================
 OUTPUT
@@ -2296,7 +2229,6 @@ No "Did you know".
 No "Let's explore".
 
 No "Today we're going to".
-
 """
 
     for attempt in range(
@@ -2410,13 +2342,9 @@ No "Today we're going to".
             if (
                 pending
                 and
-                _topic_key(
-                    pending
-                )
+                _topic_key(pending)
                 ==
-                _topic_key(
-                    topic
-                )
+                _topic_key(topic)
             ):
 
                 print(
@@ -2489,36 +2417,24 @@ No "Today we're going to".
 def get_next_topic():
 
     """
-    Return the topic that should be researched next.
-
     Priority:
 
     1. Existing pending next_short
     2. Gemini-generated high-quality question
 
-    The selected topic is NOT committed here.
+    Selected topic is NOT committed here.
     """
-
-    # ----------------------------------------------------------------------
-    # PRIORITY 1 — PENDING TOPIC
-    # ----------------------------------------------------------------------
 
     pending = get_pending_topic()
 
     if pending:
         return pending
 
-    # ----------------------------------------------------------------------
-    # PRIORITY 2 — GENERATE NEW TOPIC
-    # ----------------------------------------------------------------------
-
     topic = _generate_new_topic()
 
     if topic:
 
-        if not _save_next_topic(
-            topic
-        ):
+        if not _save_next_topic(topic):
 
             raise RuntimeError(
                 "Could not save newly generated "
@@ -2556,9 +2472,7 @@ def commit_topic(topic):
     it is preserved.
     """
 
-    topic = _clean_topic(
-        topic
-    )
+    topic = _clean_topic(topic)
 
     if not topic:
 
@@ -2568,22 +2482,14 @@ def commit_topic(topic):
 
     used = _load_used()
 
-    # ----------------------------------------------------------------------
-    # Add current topic to used list.
-    # ----------------------------------------------------------------------
-
     if not _already_used(
         topic,
         used,
     ):
 
-        used.append(
-            topic
-        )
+        used.append(topic)
 
-        _save_used(
-            used
-        )
+        _save_used(used)
 
         print("=" * 80)
         print("✅ CURRENT TOPIC COMMITTED")
@@ -2601,27 +2507,15 @@ def commit_topic(topic):
 
         print(topic)
 
-    # ----------------------------------------------------------------------
-    # Check pending queue.
-    # ----------------------------------------------------------------------
-
     pending = _load_next_topic()
 
     if not pending:
         return True
 
-    # ----------------------------------------------------------------------
-    # If queue still contains current topic, remove it.
-    # ----------------------------------------------------------------------
-
     if (
-        _topic_key(
-            pending
-        )
+        _topic_key(pending)
         ==
-        _topic_key(
-            topic
-        )
+        _topic_key(topic)
     ):
 
         if not clear_next_topic():
@@ -2632,10 +2526,6 @@ def commit_topic(topic):
             )
 
         return True
-
-    # ----------------------------------------------------------------------
-    # Otherwise preserve NEW next_short.
-    # ----------------------------------------------------------------------
 
     print(
         "🔗 Preserving NEW next_short:"

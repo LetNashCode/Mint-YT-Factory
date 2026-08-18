@@ -1,7 +1,7 @@
 """
 verify_claims.py
 Mint-YT-Factory
-Version 3.0
+Version 3.1
 
 Hardened scientific claim verification layer.
 
@@ -15,6 +15,9 @@ Key hardening:
 - Unsupported / uncertain / contradicted claims always fail.
 - Structural failures can be retried with explicit feedback.
 - A retry never overrides a genuine scientific failure.
+- Final PASS is determined locally, never by Gemini.
+- Research source IDs are preserved exactly.
+- No artificial source IDs are created.
 """
 
 import json
@@ -25,220 +28,840 @@ import time
 from google import genai
 from google.genai import types
 
+
+# ==========================================================================
+# CONFIG
+# ==========================================================================
+
+VERSION = "3.1"
+
 MODEL_NAME = "gemini-flash-lite-latest"
+
 MAX_CLAIMS_PER_SCENE = 8
+
 MIN_EVIDENCE_CHARACTERS = 120
+
 MAX_VERIFICATION_ATTEMPTS = 3
+
 RETRY_DELAY_SECONDS = 3
 
 
+# ==========================================================================
+# HELPERS
+# ==========================================================================
+
 def _clean(text):
-    return re.sub(r"\s+", " ", str(text)).strip() if text is not None else ""
+    if text is None:
+        return ""
+
+    return re.sub(
+        r"\s+",
+        " ",
+        str(text),
+    ).strip()
 
 
 def _get_api_key():
-    key = os.environ.get("GEMINI_API_KEY")
-    if not key:
-        raise RuntimeError("GEMINI_API_KEY environment variable is missing.")
-    return key
-
-
-def _contains_numeric_claim_signal(text):
-    text = _clean(text)
-    if not text:
-        return False
-    patterns = (
-        r"\b\d+(?:\.\d+)?\s*%",
-        r"\b\d+(?:\.\d+)?\s*(?:seconds?|minutes?|hours?|days?|weeks?|months?|years?|meters?|metres?|kilometers?|kilometres?|centimeters?|centimetres?|millimeters?|millimetres?|grams?|kilograms?|milligrams?|degrees?|Â°|celsius|fahrenheit|kelvin|hz|khz|mhz|ghz|watts?|kw|mw|volts?|amps?|times?)\b",
-        r"\b\d+(?:\.\d+)?\s*x\b",
-        r"\b\d+(?:\.\d+)?\s*(?:thousand|million|billion|trillion)\b",
-        r"\b\d+\.\d+\b",
-        r"\b(?:1[5-9]\d{2}|20\d{2}|21\d{2})\b",
+    api_key = os.environ.get(
+        "GEMINI_API_KEY"
     )
-    return any(re.search(p, text, re.I) for p in patterns)
+
+    if not api_key:
+        raise RuntimeError(
+            "GEMINI_API_KEY environment variable is missing."
+        )
+
+    return api_key
 
 
-def _contains_factual_language_signal(text):
-    text = _clean(text).lower()
-    if not text:
-        return False
-    patterns = (
-        r"\bresearchers?\b", r"\bscientists?\b", r"\bstudy\b", r"\bstudies\b",
-        r"\bexperiment(?:s)?\b", r"\bobserved\b", r"\bfound\b", r"\bfindings?\b",
-        r"\bdata\b", r"\bevidence\b", r"\bcauses?\b", r"\bcaused\b", r"\bcausing\b",
-        r"\bleads? to\b", r"\bresults? in\b", r"\bproduces?\b", r"\bcreates?\b",
-        r"\bprevents?\b", r"\bcontrols?\b", r"\btriggers?\b", r"\bdrives?\b",
-        r"\baffects?\b", r"\bincreases?\b", r"\bdecreases?\b", r"\breduces?\b",
-        r"\bimproves?\b", r"\bchanges?\b", r"\bcontains?\b", r"\bconsists? of\b",
-        r"\bhas\b", r"\bhave\b", r"\buses?\b", r"\babsorbs?\b", r"\breflects?\b",
-        r"\bemits?\b", r"\bdetects?\b", r"\bmeasures?\b",
-        r"\bcell(?:s)?\b", r"\bbrain\b", r"\bneurons?\b", r"\bhormones?\b",
-        r"\bdna\b", r"\bproteins?\b", r"\batoms?\b", r"\bmolecules?\b",
-        r"\benergy\b", r"\bpressure\b", r"\btemperature\b", r"\bgravity\b",
-        r"\bvelocity\b", r"\bfrequency\b", r"\bradiation\b", r"\bmagnetic\b",
-        r"\belectric\b", r"\bis known to\b", r"\bare known to\b",
-        r"\bis caused by\b", r"\bare caused by\b", r"\bis associated with\b",
-        r"\bare associated with\b", r"\bhas been shown\b", r"\bhave been shown\b",
-        r"\bwas discovered\b", r"\bwere discovered\b",
-    )
-    return any(re.search(p, text, re.I) for p in patterns)
+def _safe_int(value, default=0):
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return default
 
 
-def _build_source_map(research):
-    result = {}
-    for source in research.get("sources", []) or []:
-        if not isinstance(source, dict):
+def _unique_clean_list(values):
+    if not isinstance(values, list):
+        return []
+
+    result = []
+    seen = set()
+
+    for value in values:
+        value = _clean(value)
+
+        if not value:
             continue
-        sid = _clean(source.get("source_id", ""))
-        if sid:
-            result[sid] = source
+
+        if value.lower() in seen:
+            continue
+
+        seen.add(value.lower())
+        result.append(value)
+
     return result
 
 
-def _build_research_evidence(research):
-    blocks = []
-    for sid, source in _build_source_map(research).items():
-        evidence = _clean(source.get("evidence_text", ""))
-        if (
-            source.get("verified") is not True
-            or source.get("evidence_verified") is not True
-            or source.get("evidence_available") is not True
-            or len(evidence) < MIN_EVIDENCE_CHARACTERS
+# ==========================================================================
+# NUMERIC CLAIM SIGNAL
+# ==========================================================================
+
+def _contains_numeric_claim_signal(text):
+    """
+    Detect obvious quantitative language.
+
+    This does NOT determine whether something is factual.
+
+    It only ensures Gemini cannot silently ignore obvious numbers.
+    """
+
+    text = _clean(text)
+
+    if not text:
+        return False
+
+    patterns = (
+
+        # Percentages
+        r"\b\d+(?:\.\d+)?\s*%",
+
+        # Scientific / physical units
+        r"\b\d+(?:\.\d+)?\s*"
+        r"(?:"
+        r"seconds?|minutes?|hours?|days?|weeks?|months?|years?|"
+        r"meters?|metres?|kilometers?|kilometres?|"
+        r"centimeters?|centimetres?|millimeters?|millimetres?|"
+        r"grams?|kilograms?|milligrams?|"
+        r"degrees?|°|"
+        r"celsius|fahrenheit|kelvin|"
+        r"hz|khz|mhz|ghz|"
+        r"watts?|kw|mw|"
+        r"volts?|amps?|"
+        r"times?"
+        r")\b",
+
+        # Multipliers
+        r"\b\d+(?:\.\d+)?\s*x\b",
+
+        # Large quantities
+        r"\b\d+(?:\.\d+)?\s*"
+        r"(?:thousand|million|billion|trillion)\b",
+
+        # Decimal numbers
+        r"\b\d+\.\d+\b",
+
+        # Years
+        r"\b(?:1[5-9]\d{2}|20\d{2}|21\d{2})\b",
+    )
+
+    return any(
+        re.search(
+            pattern,
+            text,
+            flags=re.IGNORECASE,
+        )
+        for pattern in patterns
+    )
+
+
+# ==========================================================================
+# FACTUAL LANGUAGE SIGNAL
+# ==========================================================================
+
+def _contains_factual_language_signal(text):
+    """
+    Conservative safeguard.
+
+    This does NOT classify a sentence scientifically.
+
+    It only detects language that strongly suggests a factual claim
+    may exist and therefore requires careful Gemini review.
+    """
+
+    text = _clean(text).lower()
+
+    if not text:
+        return False
+
+    patterns = (
+
+        # Research
+        r"\bresearchers?\b",
+        r"\bscientists?\b",
+        r"\bstudy\b",
+        r"\bstudies\b",
+        r"\bexperiment(?:s)?\b",
+        r"\bobserved\b",
+        r"\bfound\b",
+        r"\bfindings?\b",
+        r"\bdata\b",
+        r"\bevidence\b",
+
+        # Causation
+        r"\bcauses?\b",
+        r"\bcaused\b",
+        r"\bcausing\b",
+        r"\bleads? to\b",
+        r"\bresults? in\b",
+        r"\bproduces?\b",
+        r"\bcreates?\b",
+        r"\bprevents?\b",
+        r"\bcontrols?\b",
+        r"\btriggers?\b",
+        r"\bdrives?\b",
+        r"\baffects?\b",
+        r"\bincreases?\b",
+        r"\bdecreases?\b",
+        r"\breduces?\b",
+        r"\bimproves?\b",
+        r"\bchanges?\b",
+
+        # Mechanisms
+        r"\bcontains?\b",
+        r"\bconsists? of\b",
+        r"\bhas\b",
+        r"\bhave\b",
+        r"\buses?\b",
+        r"\babsorbs?\b",
+        r"\breflects?\b",
+        r"\bemits?\b",
+        r"\bdetects?\b",
+        r"\bmeasures?\b",
+
+        # Biology / physics
+        r"\bcells?\b",
+        r"\bbrain\b",
+        r"\bneurons?\b",
+        r"\bhormones?\b",
+        r"\bdna\b",
+        r"\bproteins?\b",
+        r"\batoms?\b",
+        r"\bmolecules?\b",
+        r"\benergy\b",
+        r"\bpressure\b",
+        r"\btemperature\b",
+        r"\bgravity\b",
+        r"\bvelocity\b",
+        r"\bfrequency\b",
+        r"\bradiation\b",
+        r"\bmagnetic\b",
+        r"\belectric\b",
+
+        # Strong factual phrasing
+        r"\bis known to\b",
+        r"\bare known to\b",
+        r"\bis caused by\b",
+        r"\bare caused by\b",
+        r"\bis associated with\b",
+        r"\bare associated with\b",
+        r"\bhas been shown\b",
+        r"\bhave been shown\b",
+        r"\bwas discovered\b",
+        r"\bwere discovered\b",
+    )
+
+    return any(
+        re.search(
+            pattern,
+            text,
+            flags=re.IGNORECASE,
+        )
+        for pattern in patterns
+    )
+
+
+# ==========================================================================
+# SOURCE MAP
+# ==========================================================================
+
+def _build_source_map(research):
+    source_map = {}
+
+    sources = research.get(
+        "sources",
+        [],
+    )
+
+    if not isinstance(
+        sources,
+        list,
+    ):
+        return source_map
+
+    for source in sources:
+
+        if not isinstance(
+            source,
+            dict,
         ):
             continue
+
+        source_id = _clean(
+            source.get(
+                "source_id",
+                "",
+            )
+        )
+
+        if not source_id:
+            continue
+
+        source_map[
+            source_id
+        ] = source
+
+    return source_map
+
+
+# ==========================================================================
+# VERIFIED RESEARCH EVIDENCE
+# ==========================================================================
+
+def _build_research_evidence(research):
+    """
+    Gemini receives ONLY usable scientific evidence.
+
+    Metadata may identify the source, but it cannot be used as evidence.
+    """
+
+    blocks = []
+
+    source_map = _build_source_map(
+        research
+    )
+
+    for source_id, source in source_map.items():
+
+        evidence = _clean(
+            source.get(
+                "evidence_text",
+                "",
+            )
+        )
+
+        if (
+            source.get(
+                "verified"
+            ) is not True
+        ):
+            continue
+
+        if (
+            source.get(
+                "evidence_verified"
+            ) is not True
+        ):
+            continue
+
+        if (
+            source.get(
+                "evidence_available"
+            ) is not True
+        ):
+            continue
+
+        if len(evidence) < (
+            MIN_EVIDENCE_CHARACTERS
+        ):
+            continue
+
         blocks.append(
-            f"""SOURCE ID: {sid}
+            f"""
+SOURCE ID: {source_id}
 
-TITLE:
-{_clean(source.get("title",""))}
+============================================================
+SOURCE IDENTIFICATION
+============================================================
 
-SCIENTIFIC EVIDENCE ONLY:
+Title:
+{_clean(source.get("title", ""))}
+
+============================================================
+SCIENTIFIC EVIDENCE
+============================================================
+
 {evidence}
 
-IMPORTANT: Metadata identifies the source but is NOT evidence."""
-        )
-    return "\n\n".join(blocks) if blocks else "NO VERIFIED SCIENTIFIC EVIDENCE AVAILABLE."
+============================================================
+EVIDENCE RULE
+============================================================
 
+Only the scientific evidence text above may support claims.
+
+Source metadata is NOT scientific evidence.
+""".strip()
+        )
+
+    if not blocks:
+        return (
+            "NO VERIFIED SCIENTIFIC EVIDENCE AVAILABLE."
+        )
+
+    return "\n\n".join(
+        blocks
+    )
+
+
+# ==========================================================================
+# SCRIPT CLAIM CONTEXT
+# ==========================================================================
 
 def _build_claim_context(script):
     blocks = []
-    for scene in script.get("scene_plan", []) or []:
-        if not isinstance(scene, dict):
+
+    scenes = script.get(
+        "scene_plan",
+        [],
+    )
+
+    if not isinstance(
+        scenes,
+        list,
+    ):
+        return ""
+
+    for scene in scenes:
+
+        if not isinstance(
+            scene,
+            dict,
+        ):
             continue
-        sid = scene.get("source_ids", []) or []
-        if not isinstance(sid, list):
-            sid = []
-        sid = [str(x).strip() for x in sid if str(x).strip()]
+
+        source_ids = scene.get(
+            "source_ids",
+            [],
+        )
+
+        if not isinstance(
+            source_ids,
+            list,
+        ):
+            source_ids = []
+
+        source_ids = [
+            str(source_id).strip()
+            for source_id in source_ids
+            if str(source_id).strip()
+        ]
+
         blocks.append(
-            f"""SCENE {scene.get("scene")}
+            f"""
+SCENE {scene.get("scene")}
 
 NARRATION:
-{_clean(scene.get("narration",""))}
+{_clean(scene.get("narration", ""))}
 
 CITED SOURCE IDS:
-{json.dumps(sid)}"""
+{json.dumps(source_ids, ensure_ascii=False)}
+""".strip()
         )
-    return "\n\n".join(blocks)
 
+    return "\n\n".join(
+        blocks
+    )
+
+
+# ==========================================================================
+# RESPONSE SCHEMA
+# ==========================================================================
 
 def build_response_schema():
+
     claim = {
         "type": "object",
         "properties": {
-            "claim": {"type": "string"},
-            "scene": {"type": "integer"},
-            "source_ids": {"type": "array", "items": {"type": "string"}},
-            "status": {"type": "string", "enum": ["supported","unsupported","uncertain","contradicted"]},
-            "reason": {"type": "string"},
-            "evidence": {"type": "string"},
+            "claim": {
+                "type": "string",
+            },
+            "scene": {
+                "type": "integer",
+            },
+            "source_ids": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                },
+            },
+            "status": {
+                "type": "string",
+                "enum": [
+                    "supported",
+                    "unsupported",
+                    "uncertain",
+                    "contradicted",
+                ],
+            },
+            "reason": {
+                "type": "string",
+            },
+            "evidence": {
+                "type": "string",
+            },
         },
-        "required": ["claim","scene","source_ids","status","reason","evidence"],
+        "required": [
+            "claim",
+            "scene",
+            "source_ids",
+            "status",
+            "reason",
+            "evidence",
+        ],
     }
+
     scene_review = {
         "type": "object",
         "properties": {
-            "scene": {"type": "integer"},
-            "factual_claims_found": {"type": "boolean"},
-            "claim_count": {"type": "integer"},
-            "review_note": {"type": "string"},
+            "scene": {
+                "type": "integer",
+            },
+            "factual_claims_found": {
+                "type": "boolean",
+            },
+            "claim_count": {
+                "type": "integer",
+            },
+            "review_note": {
+                "type": "string",
+            },
         },
-        "required": ["scene","factual_claims_found","claim_count","review_note"],
+        "required": [
+            "scene",
+            "factual_claims_found",
+            "claim_count",
+            "review_note",
+        ],
     }
+
     return {
         "type": "object",
         "properties": {
-            "overall_status": {"type": "string", "enum": ["PASS","FAIL"]},
-            "claims": {"type": "array", "items": claim},
-            "scene_reviews": {"type": "array", "items": scene_review},
-            "unsupported_claims": {"type": "array", "items": {"type": "string"}},
-            "warnings": {"type": "array", "items": {"type": "string"}},
+            "overall_status": {
+                "type": "string",
+                "enum": [
+                    "PASS",
+                    "FAIL",
+                ],
+            },
+            "claims": {
+                "type": "array",
+                "items": claim,
+            },
+            "scene_reviews": {
+                "type": "array",
+                "items": scene_review,
+            },
+            "unsupported_claims": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                },
+            },
+            "warnings": {
+                "type": "array",
+                "items": {
+                    "type": "string",
+                },
+            },
         },
-        "required": ["overall_status","claims","scene_reviews","unsupported_claims","warnings"],
+        "required": [
+            "overall_status",
+            "claims",
+            "scene_reviews",
+            "unsupported_claims",
+            "warnings",
+        ],
     }
 
 
+# ==========================================================================
+# SYSTEM PROMPT
+# ==========================================================================
+
 def _system_prompt():
+
     return """
 You are a STRICT scientific fact checker.
 
-Your ONLY job is to determine whether every important factual claim in
-the supplied YouTube Short is supported by the supplied verified
+Your ONLY task is to determine whether every IMPORTANT FACTUAL CLAIM
+in the supplied YouTube Short is supported by the supplied verified
 scientific Evidence Text.
 
-ABSOLUTE RULES:
-- Use ONLY Evidence Text.
-- Never use model memory, general knowledge, internet knowledge, or metadata.
-- Metadata includes title, authors, journal, year, DOI, URL, verification level,
-  evidence type, evidence quality, and source identity.
-- Review the COMPLETE narration of EVERY scene.
-- Extract every important factual, quantitative, causal, mechanistic,
-  historical, observational, or research claim.
-- Do not invent claims from purely stylistic sentences.
-- Every factual claim must have at least one source ID.
-- Claim source_ids MUST be a subset of the source IDs cited by that scene.
-- Never borrow a source from another scene.
-- Never invent or modify source IDs.
-- Numbers, dates, percentages, measurements and statistics must be explicitly
-  supported by the supplied Evidence Text.
-- Do not convert association/correlation into causation.
-- Do not convert possibility into certainty.
-- Do not convert "may" into "does".
-- Do not convert hypothesis into established fact.
-- If evidence is related but insufficient, use uncertain.
-- If evidence does not support the claim, use unsupported.
-- If evidence conflicts with the claim, use contradicted.
-- A PASS is allowed only if every important factual claim is supported and
-  every scene has been explicitly reviewed.
-- Return exactly one scene_reviews entry per script scene.
-- Return ONLY valid JSON.
+============================================================
+ABSOLUTE EVIDENCE RULE
+============================================================
+
+You may ONLY use the supplied Scientific Evidence text.
+
+Do NOT use:
+
+- model memory
+- general knowledge
+- internet knowledge
+- outside scientific knowledge
+- invented evidence
+- invented studies
+- invented statistics
+- assumptions
+
+============================================================
+METADATA IS NOT EVIDENCE
+============================================================
+
+Never use the following as scientific evidence:
+
+- title
+- authors
+- journal
+- year
+- DOI
+- URL
+- source identity
+- verification level
+
+Only the actual Evidence Text can support a factual claim.
+
+============================================================
+EVERY SCENE MUST BE REVIEWED
+============================================================
+
+Read the COMPLETE narration of every scene.
+
+Return exactly ONE scene_reviews object for every script scene.
+
+Never omit a scene.
+
+============================================================
+CLAIM EXTRACTION
+============================================================
+
+Identify EVERY IMPORTANT factual claim.
+
+Include:
+
+- scientific facts
+- biological facts
+- physical facts
+- mechanisms
+- causes
+- effects
+- observations
+- research findings
+- measurements
+- numbers
+- percentages
+- dates
+- statistics
+- historical factual statements
+- relationships between variables
+
+Do NOT create claims from purely stylistic language.
+
+Examples of stylistic language:
+
+"Here's where it gets strange."
+
+"Nature has another surprise."
+
+"This changes everything."
+
+============================================================
+SCENE-LOCAL CITATION
+============================================================
+
+Every factual claim must use ONLY source IDs cited by that scene.
+
+The claim's source_ids MUST be a subset of the scene's source_ids.
+
+Never:
+
+- borrow a source from another scene
+- invent a source ID
+- modify a source ID
+- substitute another source
+
+Preserve source IDs exactly.
+
+============================================================
+CLAIM STATUS
+============================================================
+
+supported:
+
+The supplied Evidence Text directly supports the claim.
+
+uncertain:
+
+The Evidence Text is related but insufficient to establish the claim.
+
+unsupported:
+
+The Evidence Text does not support the claim.
+
+contradicted:
+
+The Evidence Text conflicts with the claim.
+
+============================================================
+SCIENTIFIC LANGUAGE
+============================================================
+
+Do NOT strengthen evidence.
+
+"may contribute" does NOT mean "causes".
+
+"associated with" does NOT mean "causes".
+
+"possible" does NOT mean "certain".
+
+"hypothesis" does NOT mean "proven".
+
+"observed" does NOT mean "always happens".
+
+"could explain" does NOT mean "explains".
+
+============================================================
+NUMBERS
+============================================================
+
+Every:
+
+- number
+- percentage
+- date
+- measurement
+- quantity
+- statistic
+- multiplier
+
+must be explicitly supported by the supplied Evidence Text.
+
+Never infer or invent a number.
+
+============================================================
+CAUSATION
+============================================================
+
+Do NOT convert:
+
+correlation → causation
+
+association → causation
+
+possibility → certainty
+
+hypothesis → established fact
+
+observation → universal rule
+
+============================================================
+PASS CONDITION
+============================================================
+
+PASS is allowed only when:
+
+1. Every important factual claim was extracted.
+2. Every important factual claim is supported.
+3. No important claim is unsupported.
+4. No important claim is uncertain.
+5. No important claim is contradicted.
+6. Every factual claim has at least one source ID.
+7. Every source ID belongs to that scene.
+8. Every source ID is valid.
+9. Every source has verified evidence.
+10. Numbers are supported.
+11. Causal language is supported.
+12. Every scene has been explicitly reviewed.
+
+Return ONLY valid JSON.
 """
 
 
-def _verify_with_gemini(script, research, retry_feedback=""):
-    client = genai.Client(api_key=_get_api_key())
+# ==========================================================================
+# GEMINI VERIFICATION
+# ==========================================================================
+
+def _verify_with_gemini(
+    script,
+    research,
+    retry_feedback="",
+):
+
+    client = genai.Client(
+        api_key=_get_api_key()
+    )
+
+    research_evidence = (
+        _build_research_evidence(
+            research
+        )
+    )
+
+    claim_context = (
+        _build_claim_context(
+            script
+        )
+    )
+
     prompt = f"""
 VERIFY THIS SCRIPT.
 
-================ VERIFIED EVIDENCE ================
-{_build_research_evidence(research)}
+============================================================
+VERIFIED SCIENTIFIC EVIDENCE
+============================================================
 
-================ SCRIPT ================
-{_build_claim_context(script)}
+{research_evidence}
 
-================ INSTRUCTIONS ================
+============================================================
+SCRIPT
+============================================================
+
+{claim_context}
+
+============================================================
+TASK
+============================================================
+
 For EVERY scene:
-1. Read the entire narration.
-2. Extract every important factual claim.
-3. Check every number and causal/mechanistic statement.
-4. Use ONLY Evidence Text from sources cited by that scene.
-5. Return exact source IDs from that scene.
-6. Create exactly one scene_reviews object.
-7. If a scene is purely stylistic, return factual_claims_found=false and claim_count=0.
+
+1. Read the complete narration.
+2. Identify every important factual claim.
+3. Check every number and quantitative statement.
+4. Check every causal or mechanistic statement.
+5. Use ONLY Evidence Text from sources cited by that scene.
+6. Return only exact source IDs cited by that scene.
+7. Create exactly one scene_reviews object.
+8. If a scene contains no factual claims, return:
+   factual_claims_found = false
+   claim_count = 0
+
+For every factual claim:
+
+- state the claim
+- identify its scene
+- provide exact scene-local source IDs
+- classify the claim
+- explain the decision
+- provide a concise evidence explanation
+
+Do NOT use metadata as evidence.
+
+Do NOT use outside knowledge.
+
+Do NOT invent evidence.
+
+Do NOT strengthen scientific language.
+
+Do NOT convert correlation into causation.
+
+Do NOT convert possibility into certainty.
 
 {retry_feedback}
 
-Return the complete JSON result.
+Return the COMPLETE JSON result.
 """
+
     response = client.models.generate_content(
         model=MODEL_NAME,
         contents=prompt,
@@ -248,308 +871,1299 @@ Return the complete JSON result.
             response_json_schema=build_response_schema(),
         ),
     )
-    text = getattr(response, "text", None)
-    if not text:
-        raise RuntimeError("Claim verifier returned an empty response.")
-    try:
-        return json.loads(text)
-    except json.JSONDecodeError as error:
-        raise RuntimeError(f"Claim verifier returned invalid JSON: {error}") from error
 
+    response_text = getattr(
+        response,
+        "text",
+        None,
+    )
+
+    if not response_text:
+        raise RuntimeError(
+            "Claim verifier returned an empty response."
+        )
+
+    try:
+        return json.loads(
+            response_text
+        )
+
+    except json.JSONDecodeError as error:
+
+        raise RuntimeError(
+            "Claim verifier returned invalid JSON: "
+            f"{error}"
+        ) from error
+
+
+# ==========================================================================
+# SCENE MAPS
+# ==========================================================================
 
 def _scene_maps(script):
-    scene_sources, scene_narration = {}, {}
-    for scene in script.get("scene_plan", []) or []:
-        if not isinstance(scene, dict):
+
+    scene_sources = {}
+    scene_narration = {}
+
+    scenes = script.get(
+        "scene_plan",
+        [],
+    )
+
+    if not isinstance(
+        scenes,
+        list,
+    ):
+        return scene_sources, scene_narration
+
+    for scene in scenes:
+
+        if not isinstance(
+            scene,
+            dict,
+        ):
             continue
-        try:
-            number = int(scene.get("scene", 0))
-        except (TypeError, ValueError):
-            number = 0
-        ids = scene.get("source_ids", []) or []
-        if not isinstance(ids, list):
-            ids = []
-        scene_sources[number] = {str(x).strip() for x in ids if str(x).strip()}
-        scene_narration[number] = _clean(scene.get("narration", ""))
+
+        scene_number = _safe_int(
+            scene.get(
+                "scene",
+                0,
+            )
+        )
+
+        source_ids = scene.get(
+            "source_ids",
+            [],
+        )
+
+        if not isinstance(
+            source_ids,
+            list,
+        ):
+            source_ids = []
+
+        scene_sources[
+            scene_number
+        ] = {
+            str(source_id).strip()
+            for source_id in source_ids
+            if str(source_id).strip()
+        }
+
+        scene_narration[
+            scene_number
+        ] = _clean(
+            scene.get(
+                "narration",
+                "",
+            )
+        )
+
     return scene_sources, scene_narration
 
 
-def _local_validate(result, script, research):
-    if not isinstance(result, dict):
-        raise RuntimeError("Claim verifier returned an invalid result.")
+# ==========================================================================
+# LOCAL VALIDATION
+# ==========================================================================
 
-    source_map = _build_source_map(research)
-    valid_ids = set(source_map)
+def _local_validate(
+    result,
+    script,
+    research,
+):
 
-    usable_ids = {
-        sid for sid, source in source_map.items()
-        if source.get("verified") is True
-        and source.get("evidence_verified") is True
-        and source.get("evidence_available") is True
-        and len(_clean(source.get("evidence_text", ""))) >= MIN_EVIDENCE_CHARACTERS
-    }
+    if not isinstance(
+        result,
+        dict,
+    ):
+        raise RuntimeError(
+            "Claim verifier returned an invalid result."
+        )
 
-    scene_sources, scene_narration = _scene_maps(script)
-    expected_scenes = set(scene_sources)
+    source_map = _build_source_map(
+        research
+    )
 
-    claims = result.get("claims", [])
-    reviews = result.get("scene_reviews", [])
-    unsupported = [_clean(x) for x in result.get("unsupported_claims", []) or [] if _clean(x)]
-    warnings = [_clean(x) for x in result.get("warnings", []) or [] if _clean(x)]
+    valid_source_ids = set(
+        source_map.keys()
+    )
 
-    if not isinstance(claims, list):
-        unsupported.append("Verifier claims field is not an array.")
+    usable_source_ids = set()
+
+    for source_id, source in source_map.items():
+
+        if not isinstance(
+            source,
+            dict,
+        ):
+            continue
+
+        evidence = _clean(
+            source.get(
+                "evidence_text",
+                "",
+            )
+        )
+
+        if (
+            source.get(
+                "verified"
+            ) is True
+            and
+            source.get(
+                "evidence_verified"
+            ) is True
+            and
+            source.get(
+                "evidence_available"
+            ) is True
+            and
+            len(evidence)
+            >= MIN_EVIDENCE_CHARACTERS
+        ):
+
+            usable_source_ids.add(
+                source_id
+            )
+
+    scene_sources, scene_narration = (
+        _scene_maps(script)
+    )
+
+    expected_scenes = set(
+        scene_sources.keys()
+    )
+
+    claims = result.get(
+        "claims",
+        [],
+    )
+
+    reviews = result.get(
+        "scene_reviews",
+        [],
+    )
+
+    unsupported = _unique_clean_list(
+        result.get(
+            "unsupported_claims",
+            [],
+        )
+    )
+
+    warnings = _unique_clean_list(
+        result.get(
+            "warnings",
+            [],
+        )
+    )
+
+    if not isinstance(
+        claims,
+        list,
+    ):
+
+        unsupported.append(
+            "Verifier claims field is not an array."
+        )
+
         claims = []
-    if not isinstance(reviews, list):
-        unsupported.append("Verifier scene_reviews field is not an array.")
+
+    if not isinstance(
+        reviews,
+        list,
+    ):
+
+        unsupported.append(
+            "Verifier scene_reviews field is not an array."
+        )
+
         reviews = []
 
     claims_per_scene = {}
-    normalized_claims = []
+
+    # ----------------------------------------------------------------------
+    # CLAIM VALIDATION
+    # ----------------------------------------------------------------------
 
     for claim in claims:
-        if not isinstance(claim, dict):
-            unsupported.append("Verifier returned an invalid claim object.")
+
+        if not isinstance(
+            claim,
+            dict,
+        ):
+
+            unsupported.append(
+                "Verifier returned an invalid claim object."
+            )
+
             continue
 
-        text = _clean(claim.get("claim", ""))
-        try:
-            scene = int(claim.get("scene", 0))
-        except (TypeError, ValueError):
-            scene = 0
-        status = _clean(claim.get("status", "")).lower()
-        reason = _clean(claim.get("reason", ""))
-        evidence = _clean(claim.get("evidence", ""))
-        ids = claim.get("source_ids", []) or []
-        if not isinstance(ids, list):
-            ids = []
-        ids = list(dict.fromkeys(str(x).strip() for x in ids if str(x).strip()))
+        claim_text = _clean(
+            claim.get(
+                "claim",
+                "",
+            )
+        )
 
-        if not text:
-            unsupported.append("Verifier returned an empty claim.")
+        scene_number = _safe_int(
+            claim.get(
+                "scene",
+                0,
+            )
+        )
+
+        status = _clean(
+            claim.get(
+                "status",
+                "",
+            )
+        ).lower()
+
+        reason = _clean(
+            claim.get(
+                "reason",
+                "",
+            )
+        )
+
+        evidence = _clean(
+            claim.get(
+                "evidence",
+                "",
+            )
+        )
+
+        source_ids = claim.get(
+            "source_ids",
+            [],
+        )
+
+        if not isinstance(
+            source_ids,
+            list,
+        ):
+            source_ids = []
+
+        source_ids = list(
+            dict.fromkeys(
+                str(source_id).strip()
+                for source_id in source_ids
+                if str(source_id).strip()
+            )
+        )
+
+        if not claim_text:
+
+            unsupported.append(
+                "Verifier returned an empty claim."
+            )
+
             continue
 
-        claims_per_scene[scene] = claims_per_scene.get(scene, 0) + 1
-        if claims_per_scene[scene] > MAX_CLAIMS_PER_SCENE:
-            unsupported.append(f"Scene {scene} has more than {MAX_CLAIMS_PER_SCENE} claims.")
+        claims_per_scene[
+            scene_number
+        ] = (
+            claims_per_scene.get(
+                scene_number,
+                0,
+            )
+            + 1
+        )
 
-        if scene not in scene_sources:
-            unsupported.append(f"Claim references invalid scene {scene}: {text}")
+        if (
+            claims_per_scene[
+                scene_number
+            ]
+            > MAX_CLAIMS_PER_SCENE
+        ):
+
+            unsupported.append(
+                f"Scene {scene_number} has more than "
+                f"{MAX_CLAIMS_PER_SCENE} claims."
+            )
+
+        # --------------------------------------------------------------
+        # VALID SCENE
+        # --------------------------------------------------------------
+
+        if scene_number not in scene_sources:
+
+            unsupported.append(
+                f"Claim references invalid scene "
+                f"{scene_number}: {claim_text}"
+            )
+
             continue
 
-        scene_ids = scene_sources[scene]
-        invalid = [x for x in ids if x not in valid_ids]
-        unusable = [x for x in ids if x not in usable_ids]
-        wrong_scene = [x for x in ids if x not in scene_ids]
+        scene_source_ids = scene_sources[
+            scene_number
+        ]
 
-        if not ids:
-            unsupported.append(f"Claim has no source citation: {text}")
-        if invalid:
-            unsupported.append(f"Invalid source citation {', '.join(invalid)}: {text}")
-        if unusable:
-            unsupported.append(f"Claim uses source(s) without verified evidence: {', '.join(unusable)}. Claim: {text}")
-        if wrong_scene:
-            unsupported.append(f"Claim uses source(s) not cited by scene {scene}: {', '.join(wrong_scene)}. Claim: {text}")
+        # --------------------------------------------------------------
+        # CITATION REQUIRED
+        # --------------------------------------------------------------
 
-        if status in {"unsupported", "contradicted"}:
-            unsupported.append(text)
+        if not source_ids:
+
+            unsupported.append(
+                f"Claim has no source citation: "
+                f"{claim_text}"
+            )
+
+        # --------------------------------------------------------------
+        # SOURCE VALIDITY
+        # --------------------------------------------------------------
+
+        invalid_ids = [
+            source_id
+            for source_id in source_ids
+            if source_id not in valid_source_ids
+        ]
+
+        if invalid_ids:
+
+            unsupported.append(
+                f"Invalid source citation "
+                f"{', '.join(invalid_ids)}: "
+                f"{claim_text}"
+            )
+
+        # --------------------------------------------------------------
+        # SOURCE MUST HAVE VERIFIED EVIDENCE
+        # --------------------------------------------------------------
+
+        unusable_ids = [
+            source_id
+            for source_id in source_ids
+            if source_id not in usable_source_ids
+        ]
+
+        if unusable_ids:
+
+            unsupported.append(
+                f"Claim uses source(s) without verified "
+                f"evidence: "
+                f"{', '.join(unusable_ids)}. "
+                f"Claim: {claim_text}"
+            )
+
+        # --------------------------------------------------------------
+        # SCENE LOCALITY
+        # --------------------------------------------------------------
+
+        wrong_scene_ids = [
+            source_id
+            for source_id in source_ids
+            if source_id not in scene_source_ids
+        ]
+
+        if wrong_scene_ids:
+
+            unsupported.append(
+                f"Claim uses source(s) not cited by "
+                f"scene {scene_number}: "
+                f"{', '.join(wrong_scene_ids)}. "
+                f"Claim: {claim_text}"
+            )
+
+        # --------------------------------------------------------------
+        # STATUS
+        # --------------------------------------------------------------
+
+        if status in {
+            "unsupported",
+            "contradicted",
+        }:
+
+            unsupported.append(
+                claim_text
+            )
+
         elif status == "uncertain":
-            warnings.append(text)
+
+            warnings.append(
+                claim_text
+            )
+
         elif status != "supported":
-            unsupported.append(f"Claim has invalid verification status '{status}': {text}")
+
+            unsupported.append(
+                f"Claim has invalid verification status "
+                f"'{status}': {claim_text}"
+            )
+
+        # --------------------------------------------------------------
+        # SUPPORTED CLAIM REQUIREMENTS
+        # --------------------------------------------------------------
 
         if status == "supported":
+
             if not reason:
-                unsupported.append(f"Supported claim has no reason: {text}")
+
+                unsupported.append(
+                    f"Supported claim has no verification "
+                    f"reason: {claim_text}"
+                )
+
             if not evidence:
-                unsupported.append(f"Supported claim has no evidence explanation: {text}")
-            if not ids or invalid or unusable or wrong_scene or not reason or not evidence:
-                unsupported.append(f"Supported claim failed citation/evidence requirements: {text}")
-            else:
-                normalized_claims.append(claim)
 
-    reviewed = set()
+                unsupported.append(
+                    f"Supported claim has no evidence "
+                    f"explanation: {claim_text}"
+                )
+
+            if (
+                not source_ids
+                or invalid_ids
+                or unusable_ids
+                or wrong_scene_ids
+                or not reason
+                or not evidence
+            ):
+
+                unsupported.append(
+                    f"Supported claim failed citation/evidence "
+                    f"requirements: {claim_text}"
+                )
+
+    # ----------------------------------------------------------------------
+    # SCENE REVIEW VALIDATION
+    # ----------------------------------------------------------------------
+
+    reviewed_scenes = set()
+
     for review in reviews:
-        if not isinstance(review, dict):
-            unsupported.append("Verifier returned an invalid scene review.")
+
+        if not isinstance(
+            review,
+            dict,
+        ):
+
+            unsupported.append(
+                "Verifier returned an invalid scene review."
+            )
+
             continue
-        try:
-            scene = int(review.get("scene", 0))
-        except (TypeError, ValueError):
-            scene = 0
-        if scene not in expected_scenes:
-            unsupported.append(f"Scene review references invalid scene {scene}.")
+
+        scene_number = _safe_int(
+            review.get(
+                "scene",
+                0,
+            )
+        )
+
+        if scene_number not in expected_scenes:
+
+            unsupported.append(
+                f"Scene review references invalid "
+                f"scene {scene_number}."
+            )
+
             continue
-        if scene in reviewed:
-            unsupported.append(f"Scene {scene} was reviewed more than once.")
+
+        if scene_number in reviewed_scenes:
+
+            unsupported.append(
+                f"Scene {scene_number} was reviewed more than once."
+            )
+
             continue
-        reviewed.add(scene)
 
-        try:
-            reported = int(review.get("claim_count", 0))
-        except (TypeError, ValueError):
-            reported = -1
-        actual = claims_per_scene.get(scene, 0)
-        if reported != actual:
-            unsupported.append(f"Scene {scene} review reports {reported} claims but verifier returned {actual}.")
-        factual = review.get("factual_claims_found") is True
-        if factual and actual == 0:
-            unsupported.append(f"Scene {scene} marked factual but returned zero claims.")
-        if not factual and actual > 0:
-            unsupported.append(f"Scene {scene} returned claims but factual_claims_found is false.")
+        reviewed_scenes.add(
+            scene_number
+        )
 
-    missing = expected_scenes - reviewed
-    if missing:
-        unsupported.append("Missing scene reviews for scene(s): " + ", ".join(map(str, sorted(missing))))
+        reported_count = _safe_int(
+            review.get(
+                "claim_count",
+                0,
+            ),
+            default=-1,
+        )
 
-    # Conservative completeness guard.
-    for scene, narration in scene_narration.items():
-        count = claims_per_scene.get(scene, 0)
-        if _contains_numeric_claim_signal(narration) and count == 0:
-            unsupported.append(f"Scene {scene} contains quantitative language but Gemini returned zero factual claims.")
-        elif _contains_factual_language_signal(narration) and count == 0:
-            review = next((r for r in reviews if isinstance(r, dict) and int(r.get("scene", 0) or 0) == scene), None)
-            if review and review.get("factual_claims_found") is False:
-                unsupported.append(f"Scene {scene} contains language that appears factual but was explicitly reviewed as zero claims.")
+        actual_count = claims_per_scene.get(
+            scene_number,
+            0,
+        )
 
-    if len(usable_ids) < 2:
-        unsupported.append("Research package contains fewer than 2 usable evidence-verified sources.")
+        if reported_count != actual_count:
 
-    # Final status is derived locally. Gemini cannot force PASS.
-    unsupported = list(dict.fromkeys(x for x in unsupported if x))
-    warnings = list(dict.fromkeys(x for x in warnings if x))
+            unsupported.append(
+                f"Scene {scene_number} review reports "
+                f"{reported_count} claims but verifier "
+                f"returned {actual_count}."
+            )
 
-    result["overall_status"] = "PASS" if not unsupported and not warnings else "FAIL"
+        factual_claims_found = (
+            review.get(
+                "factual_claims_found",
+                False,
+            )
+            is True
+        )
+
+        if (
+            factual_claims_found
+            and actual_count == 0
+        ):
+
+            unsupported.append(
+                f"Scene {scene_number} was marked factual "
+                f"but returned zero claims."
+            )
+
+        if (
+            not factual_claims_found
+            and actual_count > 0
+        ):
+
+            unsupported.append(
+                f"Scene {scene_number} returned claims "
+                f"but factual_claims_found is false."
+            )
+
+    # ----------------------------------------------------------------------
+    # EVERY SCENE MUST BE REVIEWED
+    # ----------------------------------------------------------------------
+
+    missing_reviews = (
+        expected_scenes
+        - reviewed_scenes
+    )
+
+    if missing_reviews:
+
+        unsupported.append(
+            "Missing scene reviews for scene(s): "
+            + ", ".join(
+                str(scene)
+                for scene in sorted(
+                    missing_reviews
+                )
+            )
+        )
+
+    # ----------------------------------------------------------------------
+    # CONSERVATIVE COMPLETENESS CHECK
+    # ----------------------------------------------------------------------
+
+    for scene_number, narration in (
+        scene_narration.items()
+    ):
+
+        if not narration:
+            continue
+
+        claim_count = claims_per_scene.get(
+            scene_number,
+            0,
+        )
+
+        numeric_signal = (
+            _contains_numeric_claim_signal(
+                narration
+            )
+        )
+
+        factual_signal = (
+            _contains_factual_language_signal(
+                narration
+            )
+        )
+
+        if (
+            numeric_signal
+            and claim_count == 0
+        ):
+
+            unsupported.append(
+                f"Scene {scene_number} contains "
+                f"quantitative language but Gemini "
+                f"returned zero factual claims."
+            )
+
+        elif (
+            factual_signal
+            and claim_count == 0
+        ):
+
+            scene_review = None
+
+            for review in reviews:
+
+                if not isinstance(
+                    review,
+                    dict,
+                ):
+                    continue
+
+                if (
+                    _safe_int(
+                        review.get(
+                            "scene",
+                            0,
+                        )
+                    )
+                    == scene_number
+                ):
+
+                    scene_review = review
+                    break
+
+            if (
+                scene_review
+                and
+                scene_review.get(
+                    "factual_claims_found",
+                    False,
+                )
+                is False
+            ):
+
+                unsupported.append(
+                    f"Scene {scene_number} contains language "
+                    f"that appears factual but was explicitly "
+                    f"reviewed as zero claims."
+                )
+
+    # ----------------------------------------------------------------------
+    # MINIMUM RESEARCH EVIDENCE
+    # ----------------------------------------------------------------------
+
+    if len(
+        usable_source_ids
+    ) < 2:
+
+        unsupported.append(
+            "Research package contains fewer than "
+            "2 usable evidence-verified sources."
+        )
+
+    # ----------------------------------------------------------------------
+    # DEDUPLICATE
+    # ----------------------------------------------------------------------
+
+    unsupported = _unique_clean_list(
+        unsupported
+    )
+
+    warnings = _unique_clean_list(
+        warnings
+    )
+
+    # ----------------------------------------------------------------------
+    # FINAL STATUS
+    #
+    # Gemini's overall_status is ignored.
+    #
+    # Local validation is authoritative.
+    # ----------------------------------------------------------------------
+
+    if unsupported or warnings:
+
+        result["overall_status"] = "FAIL"
+
+    else:
+
+        result["overall_status"] = "PASS"
+
     result["claims"] = claims
     result["scene_reviews"] = reviews
     result["unsupported_claims"] = unsupported
     result["warnings"] = warnings
+
     return result
 
 
+# ==========================================================================
+# STRUCTURAL FAILURE DETECTION
+# ==========================================================================
+
 def _is_structural_failure(result):
-    if not isinstance(result, dict):
+
+    if not isinstance(
+        result,
+        dict,
+    ):
         return True
-    text = "\n".join(result.get("unsupported_claims", []) or []).lower()
+
+    problems = []
+
+    problems.extend(
+        result.get(
+            "unsupported_claims",
+            [],
+        )
+        or []
+    )
+
+    problems_text = "\n".join(
+        _clean(problem).lower()
+        for problem in problems
+    )
+
     structural_markers = (
         "scene review",
         "scene reviews",
         "claim count",
         "quantitative language but gemini returned zero",
-        "factual claims but no claims",
+        "factual claims but returned zero",
         "returned claims but factual_claims_found",
         "verifier returned an invalid",
         "missing scene reviews",
+        "returned an empty claim",
     )
-    return any(marker in text for marker in structural_markers)
+
+    return any(
+        marker in problems_text
+        for marker in structural_markers
+    )
 
 
-def _retry_feedback(result, attempt):
+# ==========================================================================
+# RETRY FEEDBACK
+# ==========================================================================
+
+def _build_retry_feedback(
+    result,
+    attempt,
+):
+
     problems = []
-    if isinstance(result, dict):
-        problems.extend(result.get("unsupported_claims", []) or [])
-        problems.extend(result.get("warnings", []) or [])
-    problems = [_clean(x) for x in problems if _clean(x)]
+
+    if isinstance(
+        result,
+        dict,
+    ):
+
+        problems.extend(
+            result.get(
+                "unsupported_claims",
+                [],
+            )
+            or []
+        )
+
+        problems.extend(
+            result.get(
+                "warnings",
+                [],
+            )
+            or []
+        )
+
+    problems = _unique_clean_list(
+        problems
+    )
+
     return f"""
-RETRY ATTEMPT {attempt}
+============================================================
+VERIFICATION RETRY
+============================================================
+
+This is verification attempt {attempt}.
 
 The previous result failed structural completeness checks.
-Correct the structural problems below while re-reading the COMPLETE script.
-Do NOT change a scientifically unsupported claim to supported merely to pass.
+
+You MUST re-read the COMPLETE narration.
+
+Correct the structural problems below.
+
+IMPORTANT:
+
+Do NOT change a scientifically unsupported claim into a supported
+claim merely to make the result pass.
+
 Do NOT use outside knowledge.
 
-PREVIOUS STRUCTURAL PROBLEMS:
-{json.dumps(problems[:40], ensure_ascii=False, indent=2)}
+Do NOT use metadata as evidence.
+
+Do NOT borrow sources from another scene.
+
+Do NOT invent source IDs.
+
+Previous problems:
+
+{json.dumps(
+    problems[:40],
+    ensure_ascii=False,
+    indent=2,
+)}
+
+Remember:
+
+- Every scene must have exactly one scene_reviews entry.
+- Every factual claim must be extracted.
+- Every factual claim must have scene-local source IDs.
+- Numbers must be checked.
+- Causal language must be checked.
+- Evidence must come only from supplied Evidence Text.
+
+Return the COMPLETE JSON result.
 """
 
 
-def verify_script_claims(script, research):
-    if not isinstance(script, dict):
-        raise RuntimeError("Claim verification received an invalid script.")
-    if not isinstance(research, dict):
-        raise RuntimeError("Claim verification received invalid research.")
-    if research.get("verified") is not True or research.get("status") != "VERIFIED":
-        raise RuntimeError("Claim verification requires verified research.")
+# ==========================================================================
+# PUBLIC API
+# ==========================================================================
 
-    sources = research.get("sources", [])
-    if not isinstance(sources, list) or len(sources) < 2:
-        raise RuntimeError("Claim verification requires at least 2 research sources.")
+def verify_script_claims(
+    script,
+    research,
+):
+
+    if not isinstance(
+        script,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "Claim verification received an invalid script."
+        )
+
+    if not isinstance(
+        research,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "Claim verification received invalid research."
+        )
+
+    # ----------------------------------------------------------------------
+    # RESEARCH STATUS
+    # ----------------------------------------------------------------------
+
+    if (
+        research.get(
+            "verified"
+        )
+        is not True
+    ):
+
+        raise RuntimeError(
+            "Claim verification requires verified research."
+        )
+
+    if (
+        research.get(
+            "status"
+        )
+        != "VERIFIED"
+    ):
+
+        raise RuntimeError(
+            "Claim verification requires research status VERIFIED."
+        )
+
+    sources = research.get(
+        "sources",
+        [],
+    )
+
+    if not isinstance(
+        sources,
+        list,
+    ):
+
+        raise RuntimeError(
+            "Research sources are invalid."
+        )
+
+    if len(sources) < 2:
+
+        raise RuntimeError(
+            "Claim verification requires at least 2 research sources."
+        )
 
     print("=" * 80)
-    print("ð§ª SCIENTIFIC CLAIM VERIFICATION v3.0")
+    print(
+        f"🧪 SCIENTIFIC CLAIM VERIFICATION v{VERSION}"
+    )
     print("=" * 80)
+
+    print(
+        f"Research sources: {len(sources)}"
+    )
+
+    print(
+        "Evidence policy: VERIFIED EVIDENCE TEXT ONLY"
+    )
+
+    print(
+        "Citation policy: SCENE-LOCAL SOURCES ONLY"
+    )
+
+    print(
+        "Completeness policy: EVERY SCENE REVIEWED"
+    )
+
+    print(
+        "Numeric claim policy: EXPLICITLY CHECKED"
+    )
+
+    # ----------------------------------------------------------------------
+    # AUTHORITATIVE SOURCE IDS
+    # ----------------------------------------------------------------------
+
+    source_map = _build_source_map(
+        research
+    )
+
+    print(
+        f"Authoritative source IDs: "
+        f"{len(source_map)}"
+    )
+
+    for source_id in source_map:
+
+        print(
+            f"  🔗 {source_id}"
+        )
+
+    # ----------------------------------------------------------------------
+    # GEMINI VERIFICATION
+    # ----------------------------------------------------------------------
 
     last_result = None
+
     retry_feedback = ""
 
-    for attempt in range(1, MAX_VERIFICATION_ATTEMPTS + 1):
-        print(f"ð§  CLAIM VERIFICATION ATTEMPT {attempt}/{MAX_VERIFICATION_ATTEMPTS}")
+    for attempt in range(
+        1,
+        MAX_VERIFICATION_ATTEMPTS + 1,
+    ):
+
+        print("=" * 80)
+
+        print(
+            f"🧠 CLAIM VERIFICATION ATTEMPT "
+            f"{attempt}/{MAX_VERIFICATION_ATTEMPTS}"
+        )
+
         try:
-            raw = _verify_with_gemini(script, research, retry_feedback)
-            result = _local_validate(raw, script, research)
+
+            raw_result = _verify_with_gemini(
+                script,
+                research,
+                retry_feedback,
+            )
+
+            result = _local_validate(
+                raw_result,
+                script,
+                research,
+            )
+
             last_result = result
 
-            if result.get("overall_status") == "PASS":
+            # --------------------------------------------------------------
+            # SUCCESS
+            # --------------------------------------------------------------
+
+            if (
+                result.get(
+                    "overall_status"
+                )
+                == "PASS"
+            ):
+
                 break
 
-            if _is_structural_failure(result) and attempt < MAX_VERIFICATION_ATTEMPTS:
-                print(f"â ï¸ Structural completeness issue. Retrying in {RETRY_DELAY_SECONDS}s...")
-                retry_feedback = _retry_feedback(result, attempt + 1)
-                time.sleep(RETRY_DELAY_SECONDS)
+            # --------------------------------------------------------------
+            # STRUCTURAL FAILURE
+            #
+            # Retry only structural problems.
+            # Genuine scientific failures are not retried.
+            # --------------------------------------------------------------
+
+            if (
+                _is_structural_failure(
+                    result
+                )
+                and
+                attempt
+                < MAX_VERIFICATION_ATTEMPTS
+            ):
+
+                print(
+                    "⚠️ Structural completeness issue detected."
+                )
+
+                print(
+                    f"⏳ Retrying in "
+                    f"{RETRY_DELAY_SECONDS}s..."
+                )
+
+                retry_feedback = (
+                    _build_retry_feedback(
+                        result,
+                        attempt + 1,
+                    )
+                )
+
+                time.sleep(
+                    RETRY_DELAY_SECONDS
+                )
+
                 continue
 
+            # --------------------------------------------------------------
+            # GENUINE SCIENTIFIC FAILURE
+            # --------------------------------------------------------------
+
             break
+
         except Exception as error:
-            if attempt >= MAX_VERIFICATION_ATTEMPTS:
+
+            print(
+                f"❌ Verification attempt "
+                f"{attempt} failed:"
+            )
+
+            print(
+                f"{type(error).__name__}: {error}"
+            )
+
+            if (
+                attempt
+                >= MAX_VERIFICATION_ATTEMPTS
+            ):
+
                 raise RuntimeError(
-                    f"Scientific claim verification failed after {MAX_VERIFICATION_ATTEMPTS} attempts: {error}"
+                    "Scientific claim verification failed "
+                    f"after {MAX_VERIFICATION_ATTEMPTS} attempts: "
+                    f"{error}"
                 ) from error
-            print(f"â ï¸ Verification error: {error}")
-            time.sleep(RETRY_DELAY_SECONDS)
+
+            print(
+                f"⏳ Retrying in "
+                f"{RETRY_DELAY_SECONDS}s..."
+            )
+
+            time.sleep(
+                RETRY_DELAY_SECONDS
+            )
 
     if last_result is None:
-        raise RuntimeError("Scientific claim verification produced no result.")
 
-    # Normalize one final time; PASS can only be produced by the local gate.
-    result = _local_validate(last_result, script, research)
+        raise RuntimeError(
+            "Scientific claim verification produced no result."
+        )
 
-    script["claim_verification"] = {
-        "overall_status": result.get("overall_status", "FAIL"),
-        "claims": result.get("claims", []),
-        "scene_reviews": result.get("scene_reviews", []),
-        "unsupported_claims": result.get("unsupported_claims", []),
-        "warnings": result.get("warnings", []),
-        "verified": result.get("overall_status") == "PASS",
+    # ----------------------------------------------------------------------
+    # FINAL LOCAL GATE
+    #
+    # This is intentionally run again.
+    #
+    # Gemini NEVER controls PASS/FAIL.
+    # ----------------------------------------------------------------------
+
+    result = _local_validate(
+        last_result,
+        script,
+        research,
+    )
+
+    # ----------------------------------------------------------------------
+    # STORE VERIFICATION
+    # ----------------------------------------------------------------------
+
+    script[
+        "claim_verification"
+    ] = {
+        "overall_status": result.get(
+            "overall_status",
+            "FAIL",
+        ),
+        "claims": result.get(
+            "claims",
+            [],
+        ),
+        "scene_reviews": result.get(
+            "scene_reviews",
+            [],
+        ),
+        "unsupported_claims": result.get(
+            "unsupported_claims",
+            [],
+        ),
+        "warnings": result.get(
+            "warnings",
+            [],
+        ),
+        "verified": (
+            result.get(
+                "overall_status"
+            )
+            == "PASS"
+        ),
     }
 
-    if result.get("overall_status") == "PASS":
-        print("â ALL IMPORTANT CLAIMS VERIFIED")
+    # ----------------------------------------------------------------------
+    # OUTPUT
+    # ----------------------------------------------------------------------
+
+    if (
+        result.get(
+            "overall_status"
+        )
+        == "PASS"
+    ):
+
+        print("=" * 80)
+        print(
+            "✅ ALL IMPORTANT CLAIMS VERIFIED"
+        )
+        print("=" * 80)
+
+        print(
+            f"Verified claims: "
+            f"{len(result.get('claims', []))}"
+        )
+
+        print(
+            f"Scenes reviewed: "
+            f"{len(result.get('scene_reviews', []))}"
+        )
+
+        print(
+            "Numeric claim checks: ENABLED"
+        )
+
+        print(
+            "Scene-local citations: VERIFIED"
+        )
+
+        print(
+            "Evidence-only verification: VERIFIED"
+        )
+
     else:
-        print("â CLAIM VERIFICATION FAILED")
-        for item in result.get("unsupported_claims", []):
-            print(f"  â {item}")
-        for item in result.get("warnings", []):
-            print(f"  â ï¸ {item}")
+
+        print("=" * 80)
+        print(
+            "❌ CLAIM VERIFICATION FAILED"
+        )
+        print("=" * 80)
+
+        unsupported = result.get(
+            "unsupported_claims",
+            [],
+        )
+
+        warnings = result.get(
+            "warnings",
+            [],
+        )
+
+        if unsupported:
+
+            print(
+                "\n❌ Unsupported / invalid claims:"
+            )
+
+            for item in unsupported:
+
+                print(
+                    f"  ❌ {item}"
+                )
+
+        if warnings:
+
+            print(
+                "\n⚠️ Uncertain claims:"
+            )
+
+            for item in warnings:
+
+                print(
+                    f"  ⚠️ {item}"
+                )
 
     print("=" * 80)
+
     return script
 
 
-def claims_are_verified(script):
-    if not isinstance(script, dict):
+# ==========================================================================
+# VERIFICATION STATUS
+# ==========================================================================
+
+def claims_are_verified(
+    script,
+):
+
+    if not isinstance(
+        script,
+        dict,
+    ):
+
         return False
-    verification = script.get("claim_verification", {})
-    if not isinstance(verification, dict):
+
+    verification = script.get(
+        "claim_verification",
+        {},
+    )
+
+    if not isinstance(
+        verification,
+        dict,
+    ):
+
         return False
+
     return (
-        verification.get("verified") is True
-        and verification.get("overall_status") == "PASS"
-        and isinstance(verification.get("claims"), list)
-        and isinstance(verification.get("scene_reviews"), list)
-        and not verification.get("unsupported_claims")
-        and not verification.get("warnings")
+        verification.get(
+            "verified"
+        )
+        is True
+        and
+        verification.get(
+            "overall_status"
+        )
+        == "PASS"
+        and
+        isinstance(
+            verification.get(
+                "claims",
+                [],
+            ),
+            list,
+        )
+        and
+        isinstance(
+            verification.get(
+                "scene_reviews",
+                [],
+            ),
+            list,
+        )
+        and
+        not verification.get(
+            "unsupported_claims",
+            [],
+        )
+        and
+        not verification.get(
+            "warnings",
+            [],
+        )
     )
 
 
+# ==========================================================================
+# LOCAL TEST
+# ==========================================================================
+
 if __name__ == "__main__":
-    print("verify_claims.py v3.0 is a pipeline module.")
+
+    print(
+        f"verify_claims.py v{VERSION} "
+        "is a pipeline module."
+    )
+
+    print(
+        "It is called automatically by main.py."
+    )

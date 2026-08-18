@@ -2,86 +2,29 @@
 topics.py
 Mint-YT-Factory
 
-Version 5.1
+Version 6.0
 
-VIRAL CURIOSITY TOPIC ENGINE
+VIRAL CURIOSITY QUESTION ENGINE
 
-Core strategy:
-
-Human curiosity
-        ↓
-High-interest question
-        ↓
-Curiosity / familiarity / surprise / payoff scoring
-        ↓
-Researchability filter
-        ↓
-Visual potential filter
-        ↓
-Originality filter
-        ↓
-Pending topic queue
-        ↓
-Research
-        ↓
-Script
-        ↓
-Claim verification
-        ↓
-Video
-        ↓
-Upload
-        ↓
-Save NEW next_short
-        ↓
-Commit CURRENT topic
-
-CONTENT PHILOSOPHY:
-
-Mint-YT-Factory is NOT a generic educational-facts channel.
-
-The goal is to create research-backed Shorts about things people
-genuinely wonder about.
-
-The ideal viewer reaction is:
-
-"I've wondered about that."
-
-followed by:
-
-"Wait... that's why?"
-
-and finally:
-
-"Ohhh."
-
-CONTENT PRIORITIES:
-
-1. Human curiosity
-2. Familiarity
-3. Surprise
-4. Satisfying payoff
-5. Visual storytelling
-6. Strong researchability
-7. Originality
-8. Advertiser safety
-9. Broad audience appeal
-10. Monetization potential
-
-IMPORTANT:
-
-- Pending topics survive failed runs.
-- Current topics are only committed after upload succeeds.
-- next_topic.json is NEVER blindly deleted during commit.
-- A newly generated next_short is preserved.
-- Topic files are written atomically.
-- A topic is never automatically marked used merely because it
-  was selected.
-- New Gemini topics have a maximum 12 words.
-- next_short topics have NO word-count limit.
-- Existing pending next_short topics always take priority.
+v6.0 improvements:
+- Generates specific WHY/HOW curiosity questions
+- Strong observable-phenomenon requirement
+- Mechanism-oriented question generation
+- Prevents broad academic subjects
+- Prevents generic "how X works" questions
+- Prevents listicles/countdowns
+- Stronger 35–45 second scope control
+- Better researchability requirements
+- Better visual-story requirements
+- Stronger duplicate/concept protection
+- Existing pending topics retain priority
+- Existing queue/commit architecture preserved
+- Atomic topic writes preserved
+- Current topic is only committed after successful upload
+- next_short remains protected
+- Gemini remains responsible for ideation
+- research.py remains authoritative for scientific evidence
 """
-
 
 import json
 import os
@@ -93,11 +36,17 @@ from google.genai import types
 
 
 # ==========================================================================
+# VERSION
+# ==========================================================================
+
+VERSION = "6.0"
+
+
+# ==========================================================================
 # FILES
 # ==========================================================================
 
 USED_TOPICS_PATH = "used_topics.json"
-
 NEXT_TOPIC_PATH = "next_topic.json"
 
 
@@ -106,42 +55,107 @@ NEXT_TOPIC_PATH = "next_topic.json"
 # ==========================================================================
 
 NEW_TOPIC_MAX_WORDS = 12
-
 MAX_TOPIC_CHARACTERS = 300
 
 MAX_PREVIOUS_TOPICS = 300
-
 MAX_TOPIC_GENERATION_ATTEMPTS = 10
 
 
 # ==========================================================================
-# GEMINI CONFIG
+# GEMINI
 # ==========================================================================
 
 MODEL_NAME = "gemini-flash-lite-latest"
 
 
 # ==========================================================================
-# VIRAL TOPIC REQUIREMENTS
+# VIRAL SCORING
 # ==========================================================================
 
-# The local heuristic can now reach 30 points.
-#
-# 30 = maximum possible:
-#
-# Curiosity      5
-# Familiarity    5
-# Surprise       5
-# Payoff         5
-# Visual         5
-# Researchable   5
-#
-# The heuristic is intentionally only a PRE-FILTER.
-# The real research gate remains in research.py.
-#
 MIN_VIRAL_SCORE = 20
-
 MAX_VIRAL_SCORE = 30
+
+
+# ==========================================================================
+# QUESTION QUALITY
+# ==========================================================================
+
+"""
+The topic engine is deliberately stricter than the research engine.
+
+topics.py asks:
+
+    Is this a good QUESTION?
+
+research.py asks:
+
+    Can credible evidence actually answer this QUESTION?
+
+The two systems therefore have different responsibilities.
+"""
+
+
+# Words that usually indicate an overly broad academic subject.
+BROAD_SUBJECT_TERMS = {
+    "science",
+    "biology",
+    "physics",
+    "chemistry",
+    "technology",
+    "engineering",
+    "psychology",
+    "astronomy",
+    "medicine",
+    "nature",
+    "evolution",
+    "ecosystem",
+    "electricity",
+    "quantum",
+    "thermodynamics",
+    "neuroscience",
+}
+
+
+# Generic questions that usually require too much explanation.
+BROAD_QUESTION_PATTERNS = [
+    r"^how does the internet work",
+    r"^how does electricity work",
+    r"^how does the brain work",
+    r"^how does the human body work",
+    r"^how does space work",
+    r"^how does gravity work",
+    r"^how does evolution work",
+    r"^how does technology work",
+    r"^how do airplanes work",
+    r"^how do computers work",
+    r"^how do phones work",
+    r"^what is gravity",
+    r"^what is quantum",
+    r"^what is consciousness",
+    r"^what is dark matter",
+    r"^what is artificial intelligence",
+]
+
+
+# Topics that tend to produce poor Shorts even if technically
+# researchable.
+LOW_VALUE_PATTERNS = [
+    "history of",
+    "importance of",
+    "benefits of",
+    "types of",
+    "uses of",
+    "advantages of",
+    "disadvantages of",
+    "everything about",
+    "all about",
+    "complete guide",
+    "ultimate guide",
+    "introduction to",
+    "overview of",
+    "what are the different",
+    "what are some",
+]
 
 
 # ==========================================================================
@@ -149,228 +163,290 @@ MAX_VIRAL_SCORE = 30
 # ==========================================================================
 
 SYSTEM_PROMPT = """
-You are the viral content strategist for Mint-YT-Factory.
+You are the viral curiosity strategist for Mint-YT-Factory.
 
-Your job is NOT to generate generic educational topics.
+Your job is NOT to generate generic educational subjects.
 
-Your job is to discover ONE highly compelling question that ordinary
-people genuinely want answered.
+Your job is to discover ONE highly compelling, specific QUESTION
+that ordinary people genuinely want answered.
 
-The channel's philosophy is:
+The final question will become a roughly 35–45 second
+research-backed YouTube Short.
+
+============================================================
+CHANNEL PHILOSOPHY
+============================================================
 
 "Questions you've probably wondered about but never looked up."
 
-The final video will be a roughly 35–45 second research-backed
-YouTube Short.
-
-============================================================
-PRIMARY GOAL
-============================================================
-
-Generate topics that make viewers stop scrolling because they
-recognize the question and immediately want the answer.
-
-The ideal reaction is:
+The ideal viewer reaction is:
 
 "I've wondered about that."
 
 then:
 
-"Wait... really?"
+"Wait... that's why?"
 
 then:
 
-"Ohhh, that's why."
-
-============================================================
-HIGH-VALUE TOPIC TYPES
-============================================================
-
-Prefer:
-
-1. SHOWER THOUGHTS
-
-Things people randomly wonder about.
-
-Examples:
-
-- Why can't you tickle yourself
-- Why does time feel faster as you age
-- Why do we forget why we entered a room
-- Why can you hear your own thoughts
-
-2. EVERYDAY MYSTERIES
-
-Things people experience constantly but rarely understand.
-
-Examples:
-
-- Why does metal feel colder than wood
-- Why do fingers wrinkle in water
-- Why does rain smell
-- Why does your voice sound different recorded
-
-3. HUMAN BODY QUESTIONS
-
-Simple observations with surprising explanations.
-
-Examples:
-
-- Why do we get goosebumps
-- Why does scratching an itch feel good
-- Why does yawning spread
-- Why do eyes water when cutting onions
-
-4. BRAIN AND PSYCHOLOGY
-
-Common experiences with unexpected mechanisms.
-
-Examples:
-
-- Why do songs get stuck in your head
-- Why do embarrassing memories return years later
-- Why do dreams feel real
-- Why does déjà vu happen
-
-5. EVERYDAY PHYSICS
-
-Simple things with surprising scientific explanations.
-
-Examples:
-
-- Why does ice float
-- Why can birds sit on power lines
-- Why does glass look invisible
-- Why can you see lightning before hearing thunder
-
-6. SPACE QUESTIONS
-
-Popular questions about things people see or wonder about.
-
-Examples:
-
-- Why is space black
-- Why does the Moon look bigger near the horizon
-- Why does the Moon show one side
-- Why don't planets fall into the Sun
-
-7. ANIMALS
-
-Behavior people notice but don't understand.
-
-Examples:
-
-- Why do cats purr
-- Why do dogs tilt their heads
-- Why do birds fly in formation
-- Why do bees fan their wings
-
-8. TECHNOLOGY AND ENGINEERING
-
-Everyday technology that seems mysterious.
-
-Examples:
-
-- Why does airplane mode exist
-- Why don't phones overheat instantly
-- How does noise cancellation work
-
-============================================================
-VIRALITY TEST
-============================================================
-
-Evaluate every candidate internally.
-
-Score these dimensions mentally from 1 to 5:
-
-CURIOUS:
-Would a normal person genuinely wonder about this?
-
-FAMILIAR:
-Has the viewer personally experienced, seen, or encountered it?
-
-SURPRISING:
-Is the real answer likely to differ from the obvious assumption?
-
-PAYOFF:
-Does the answer create a satisfying "that's why" moment?
-
-VISUAL:
-Can the answer be shown through compelling visuals?
-
-RESEARCHABLE:
-Can credible independent scientific, academic, government,
-university, or institutional sources explain it?
-
-Each dimension should ideally score 4 or 5.
-
-Do not optimize for academic sophistication.
-
-Optimize for viewer curiosity.
+"Ohhh."
 
 ============================================================
 THE MOST IMPORTANT RULE
 ============================================================
 
-A technically interesting subject is NOT automatically a good Short.
+Generate a QUESTION about ONE SPECIFIC OBSERVABLE PHENOMENON.
 
-For example:
+The question should describe something a person can:
 
-BAD:
-"Hive temperature regulation in honeybees"
+- see
+- hear
+- feel
+- experience
+- notice
+- encounter
+- observe
 
-BETTER:
-"How do bees keep their hive cool?"
+and ask WHY or HOW it happens.
 
-STRONGER:
-"How do thousands of bees stop their hive overheating?"
-
-The viewer should immediately understand the mystery.
+The answer should explain a mechanism, cause, process,
+or counterintuitive reason.
 
 ============================================================
-HOOK POTENTIAL
+QUESTION STRUCTURE
 ============================================================
 
-The topic should naturally allow a strong opening.
+Strong questions usually follow structures such as:
+
+Why does [familiar thing] [unexpected behavior]?
+
+Why do [people/animals/things] [observable behavior]?
+
+How does [familiar phenomenon] happen?
+
+Why can [familiar thing] [unexpected ability]?
+
+Why does [ordinary experience] feel/look/sound different?
+
+Examples:
+
+Why do your eyes water when cutting onions
+
+Why does metal feel colder than wood
+
+Why do fingers wrinkle in water
+
+Why does your voice sound different recorded
+
+Why can't you tickle yourself
+
+Why does ice float
+
+Why does rain smell
+
+Why do dogs tilt their heads
+
+Why can birds sit on power lines
+
+Why does the Moon look bigger near the horizon
+
+Do NOT copy these examples.
+
+============================================================
+ONE PHENOMENON ONLY
+============================================================
+
+Every video must answer ONE central question.
 
 GOOD:
 
-"That metal spoon isn't actually colder than the wooden one."
+Why do your eyes water when cutting onions
 
-"Birds are sitting on a wire carrying electricity."
+The phenomenon:
+Eyes water while cutting onions.
 
-"Your brain knows you're about to tickle yourself."
+The mechanism:
+A chemical released by damaged onion tissue irritates
+the eye and triggers tearing.
 
 BAD:
 
-"Today we will learn about thermal conductivity."
+Why do onions make you cry and smell so strong?
+
+Too many phenomena.
+
+BAD:
+
+Why do onions make people cry, how are they grown,
+and why are they healthy?
+
+Multiple subjects.
+
+BAD:
+
+The science of onions
+
+Not a question.
 
 ============================================================
-SURPRISE
+MECHANISM REQUIREMENT
 ============================================================
 
-Prefer questions where:
+The question must have an identifiable underlying mechanism.
 
-- the obvious answer is incomplete
-- something ordinary has a hidden mechanism
-- a familiar experience has a strange explanation
-- the explanation is more interesting than the question
-- the viewer learns something counterintuitive
+Good:
 
-Do NOT manufacture controversy.
+Why does metal feel colder than wood?
 
-The surprise must come from the real answer.
+Possible mechanism:
+Different thermal conductivity / heat transfer.
+
+Good:
+
+Why do fingers wrinkle in water?
+
+Possible mechanism:
+Nervous-system-mediated vascular response.
+
+Good:
+
+Why does your voice sound different recorded?
+
+Possible mechanism:
+Bone conduction versus air conduction.
+
+Bad:
+
+Why is the universe amazing?
+
+No specific mechanism.
+
+Bad:
+
+Why is nature so interesting?
+
+No specific mechanism.
 
 ============================================================
-RESEARCH REQUIREMENT
+OBSERVABLE PHENOMENON REQUIREMENT
 ============================================================
 
-The topic must realistically be researchable.
+Prefer things ordinary people have personally experienced.
 
-Prefer phenomena that can be supported by at least two independent
-credible sources.
+High-value categories:
 
-Strong sources include:
+EVERYDAY MYSTERIES
+
+- metal and wood feeling different
+- rain smell
+- echoes
+- static electricity
+- reflections
+- shadows
+- ice floating
+- glass appearing invisible
+
+HUMAN BODY
+
+- eyes watering
+- goosebumps
+- yawning
+- sneezing
+- hiccups
+- fingers wrinkling
+- voice sounding different
+- feeling dizzy
+- getting brain freeze
+
+BRAIN / PSYCHOLOGY
+
+- forgetting why you entered a room
+- songs getting stuck in your head
+- déjà vu
+- embarrassing memories returning
+- dreams feeling real
+- time feeling faster
+
+ANIMALS
+
+- dogs tilting their heads
+- cats purring
+- birds flying in formation
+- bees behaving collectively
+- animals responding to sounds
+
+EVERYDAY PHYSICS
+
+- lightning before thunder
+- objects floating
+- heat transfer
+- sound traveling
+- shadows
+- reflections
+- pressure
+
+SPACE
+
+- Moon appearing larger near horizon
+- stars appearing to move
+- space appearing black
+- eclipses
+- planetary motion
+
+TECHNOLOGY
+
+Only when the question concerns ONE familiar observable feature.
+
+GOOD:
+
+Why does airplane turbulence happen?
+
+Why does noise cancellation work?
+
+Why does your phone get hot while charging?
+
+BAD:
+
+How do smartphones work?
+
+How does the internet work?
+
+How do computers work?
+
+These are too broad.
+
+============================================================
+35–45 SECOND TEST
+============================================================
+
+Imagine the finished Short.
+
+Can the question be answered with:
+
+0–3 sec:
+HOOK
+
+3–20 sec:
+MECHANISM
+
+20–35 sec:
+SURPRISING DETAIL / TWIST
+
+35–45 sec:
+PAYOFF + OPEN LOOP
+
+If answering the question requires a long history lesson,
+multiple unrelated mechanisms, or extensive background,
+REJECT IT.
+
+============================================================
+RESEARCH TEST
+============================================================
+
+The question must realistically be answerable using at least
+two independent credible sources.
+
+Prefer:
 
 - peer-reviewed research
 - universities
@@ -379,42 +455,104 @@ Strong sources include:
 - established research organizations
 - authoritative scientific databases
 
+The answer should be supported by actual evidence.
+
 Avoid:
 
 - rumors
-- anecdotes
+- myths
 - social media claims
 - conspiracy theories
 - unverifiable stories
-- vague internet folklore
+- vague folklore
+- speculation presented as fact
 
 ============================================================
-VISUAL REQUIREMENT
+VISUAL TEST
 ============================================================
 
-Prefer topics where we can show:
+The phenomenon should naturally produce useful visuals.
+
+Prefer:
 
 - physical processes
-- before and after
-- hidden mechanisms
 - microscopic processes
-- internal body processes
+- internal mechanisms
 - cause and effect
+- before/after
 - transformations
-- scale comparisons
 - movement
-- environments
 - experiments
 - simulations
+- scale comparisons
+- environments
+- anatomical visualization
 
-Avoid topics that would require several scenes of people simply
-talking.
+Avoid questions where the video would mostly show
+people talking.
+
+============================================================
+SURPRISE TEST
+============================================================
+
+The real answer should be more interesting than the obvious answer.
+
+GOOD:
+
+Why does metal feel colder than wood?
+
+The viewer may assume the metal is actually colder.
+
+GOOD:
+
+Why does your voice sound different recorded?
+
+The viewer may not realize they normally hear their voice
+through both air conduction and bone conduction.
+
+GOOD:
+
+Why do eyes water when cutting onions?
+
+The viewer may think the onion somehow "makes you cry,"
+but the mechanism is chemical irritation and a protective
+tear response.
+
+============================================================
+FAMILIARITY TEST
+============================================================
+
+Prefer questions that millions of people could recognize.
+
+The viewer should be able to think:
+
+"I've experienced that."
+
+Avoid questions that require the viewer to already care about
+a specialized field.
+
+============================================================
+ORIGINALITY
+============================================================
+
+Do not repeat previous topics.
+
+Do not produce a superficial wording variation.
+
+Example:
+
+Previous:
+Why does metal feel colder than wood
+
+Reject:
+
+Why does steel feel colder than plastic
+
+unless the underlying phenomenon is genuinely different.
 
 ============================================================
 MONETIZATION SAFETY
 ============================================================
-
-Prefer advertiser-friendly subjects.
 
 Avoid:
 
@@ -424,84 +562,63 @@ Avoid:
 - extremist content
 - dangerous instructions
 - drug use
-- conspiracy theories
 - political outrage
+- conspiracy theories
+- fearmongering
 - medical diagnosis
 - medical treatment instructions
-- fearmongering
-- fabricated discoveries
 
-Educational human-body explanations are allowed when factual
-and non-graphic.
+Normal educational explanations of human biology are allowed.
 
 ============================================================
-CONTENT FORMAT
+FORBIDDEN FORMATS
 ============================================================
-
-One video = ONE question.
 
 Never generate:
 
-- listicles
-- countdowns
 - Top 5
 - Top 10
+- lists
+- countdowns
 - compilations
-- unrelated facts
-- generic fact collections
+- generic facts
 - broad academic subjects
-
-The question must be narrow enough to answer meaningfully in
-approximately 35–45 seconds.
-
-============================================================
-ORIGINALITY
-============================================================
-
-Do not repeat previous topics.
-
-Do not generate a slight wording variation of a previous topic.
-
-Example:
-
-Previous:
-"Why does metal feel colder than wood?"
-
-Do NOT generate:
-"Why does steel feel colder than plastic?"
-
-unless the underlying phenomenon is genuinely different.
+- "the science of..."
+- "history of..."
+- "benefits of..."
+- "everything about..."
+- "what is..."
+  when the subject is extremely broad
 
 ============================================================
-TOPIC FORMAT
+TOPIC LENGTH
+============================================================
+
+Maximum 12 words.
+
+Prefer 5–10 words.
+
+The question must remain natural conversational English.
+
+============================================================
+OUTPUT
 ============================================================
 
 Return ONLY ONE topic.
 
-Maximum 12 words.
-
-Natural conversational English.
-
-A curiosity question is strongly preferred.
-
-Do not use:
-
-- Did you know
-- Let's explore
-- Today we're going to
-- In this video
-- The science of
-- Amazing facts about
-- Top 5
-- Top 10
-
-No emojis.
-
-No numbering.
+No explanation.
 
 No quotation marks.
 
-No clickbait.
+No numbering.
+
+No emojis.
+
+No "Did you know".
+
+No "Let's explore".
+
+No "Today we're going to".
 
 No terminal punctuation.
 
@@ -509,26 +626,22 @@ No terminal punctuation.
 FINAL OBJECTIVE
 ============================================================
 
-Optimize for:
+Generate:
 
-HUMAN CURIOSITY
+ONE FAMILIAR PHENOMENON
 +
-FAMILIARITY
+ONE CLEAR QUESTION
 +
-SURPRISE
+ONE EXPLANATABLE MECHANISM
 +
-SATISFYING PAYOFF
+ONE SURPRISING PAYOFF
 +
-VISUAL STORY
+STRONG VISUAL POTENTIAL
 +
-STRONG RESEARCH
-+
-ADVERTISER SAFETY
-+
-BROAD AUDIENCE APPEAL
+STRONG RESEARCHABILITY
 
 The best topic is something millions of people could recognize
-and wonder about.
+and immediately want explained.
 """
 
 
@@ -536,10 +649,7 @@ and wonder about.
 # FILE HELPERS
 # ==========================================================================
 
-def _atomic_write_json(
-    path,
-    data,
-):
+def _atomic_write_json(path, data):
     """
     Safely write JSON using a temporary file followed by atomic replace.
     """
@@ -581,9 +691,7 @@ def _atomic_write_json(
             )
 
             f.write("\n")
-
             f.flush()
-
             os.fsync(
                 f.fileno()
             )
@@ -601,23 +709,17 @@ def _atomic_write_json(
 
             try:
                 os.close(fd)
-
             except Exception:
                 pass
 
         if (
             temp_path
             and
-            os.path.exists(
-                temp_path
-            )
+            os.path.exists(temp_path)
         ):
 
             try:
-                os.remove(
-                    temp_path
-                )
-
+                os.remove(temp_path)
             except Exception:
                 pass
 
@@ -638,9 +740,7 @@ def _load_used():
             encoding="utf-8",
         ) as f:
 
-            data = json.load(
-                f
-            )
+            data = json.load(f)
 
         if isinstance(
             data,
@@ -656,7 +756,6 @@ def _load_used():
                 )
 
                 if topic:
-
                     cleaned.append(
                         topic
                     )
@@ -673,12 +772,9 @@ def _load_used():
     return []
 
 
-def _save_used(
-    used
-):
+def _save_used(used):
 
     cleaned = []
-
     seen = set()
 
     for topic in used:
@@ -688,7 +784,6 @@ def _save_used(
         )
 
         if not topic:
-
             continue
 
         key = _topic_key(
@@ -696,16 +791,10 @@ def _save_used(
         )
 
         if key in seen:
-
             continue
 
-        seen.add(
-            key
-        )
-
-        cleaned.append(
-            topic
-        )
+        seen.add(key)
+        cleaned.append(topic)
 
     _atomic_write_json(
         USED_TOPICS_PATH,
@@ -729,9 +818,7 @@ def _load_next_topic():
             encoding="utf-8",
         ) as f:
 
-            data = json.load(
-                f
-            )
+            data = json.load(f)
 
         if isinstance(
             data,
@@ -764,32 +851,19 @@ def _load_next_topic():
     return ""
 
 
-def _save_next_topic(
-    topic
-):
+def _save_next_topic(topic):
 
     topic = _clean_topic(
         topic
     )
 
     if not topic:
-
         return False
 
-    if len(
-        topic
-    ) > MAX_TOPIC_CHARACTERS:
+    if len(topic) > MAX_TOPIC_CHARACTERS:
 
         print(
             "⚠️ Topic exceeds character safety limit."
-        )
-
-        print(
-            f"Characters: {len(topic)}"
-        )
-
-        print(
-            f"Maximum: {MAX_TOPIC_CHARACTERS}"
         )
 
         return False
@@ -816,13 +890,6 @@ def _save_next_topic(
 
 
 def clear_next_topic():
-
-    """
-    Delete the pending topic.
-
-    Normally only used when the pending topic is still the
-    current topic being committed.
-    """
 
     if not os.path.exists(
         NEXT_TOPIC_PATH
@@ -856,16 +923,13 @@ def clear_next_topic():
 # TOPIC CLEANING
 # ==========================================================================
 
-def _clean_topic(
-    topic
-):
+def _clean_topic(topic):
 
     topic = str(
         topic or ""
     ).strip()
 
     if not topic:
-
         return ""
 
     topic = topic.replace(
@@ -913,7 +977,7 @@ def _clean_topic(
 
 
 # ==========================================================================
-# TOPIC VALIDATION
+# TOPIC BASIC VALIDATION
 # ==========================================================================
 
 def _valid_topic(
@@ -922,7 +986,6 @@ def _valid_topic(
 ):
 
     if not topic:
-
         return False
 
     topic = _clean_topic(
@@ -930,21 +993,14 @@ def _valid_topic(
     )
 
     if not topic:
-
         return False
 
-    if len(
-        topic
-    ) > MAX_TOPIC_CHARACTERS:
-
+    if len(topic) > MAX_TOPIC_CHARACTERS:
         return False
 
     if max_words is not None:
 
-        if len(
-            topic.split()
-        ) > max_words:
-
+        if len(topic.split()) > max_words:
             return False
 
     lowered = topic.lower()
@@ -967,12 +1023,15 @@ def _valid_topic(
         "complete guide",
         "shocking truth",
         "secret they don't want",
+        "the science of",
+        "the biology of",
+        "the physics of",
+        "the history of",
     ]
 
     for phrase in forbidden:
 
         if phrase in lowered:
-
             return False
 
     if re.match(
@@ -1003,10 +1062,6 @@ def _valid_topic(
 
             return False
 
-    # ----------------------------------------------------------------------
-    # Reject obviously long academic-style phrases.
-    # ----------------------------------------------------------------------
-
     academic_terms = [
         "phenophysiological",
         "thermodynamic",
@@ -1019,19 +1074,343 @@ def _valid_topic(
     for term in academic_terms:
 
         if term in lowered:
-
             return False
 
     return True
 
 
 # ==========================================================================
+# QUESTION STRUCTURE VALIDATION
+# ==========================================================================
+
+def _is_question(topic):
+
+    lowered = topic.lower().strip()
+
+    starters = (
+        "why ",
+        "how ",
+        "can ",
+        "do ",
+        "does ",
+        "is ",
+        "are ",
+    )
+
+    return lowered.startswith(
+        starters
+    )
+
+
+def _has_specificity(topic):
+
+    lowered = topic.lower()
+
+    # A question containing one of these concrete experience
+    # indicators is more likely to represent an observable phenomenon.
+    concrete_terms = [
+
+        "eye",
+        "eyes",
+        "ear",
+        "ears",
+        "voice",
+        "sound",
+        "skin",
+        "hair",
+        "hand",
+        "hands",
+        "finger",
+        "fingers",
+        "brain",
+        "body",
+        "sleep",
+        "dream",
+        "memory",
+        "song",
+        "music",
+        "water",
+        "ice",
+        "rain",
+        "snow",
+        "metal",
+        "wood",
+        "glass",
+        "light",
+        "shadow",
+        "heat",
+        "cold",
+        "fire",
+        "smell",
+        "onion",
+        "bird",
+        "birds",
+        "dog",
+        "dogs",
+        "cat",
+        "cats",
+        "bee",
+        "bees",
+        "moon",
+        "sun",
+        "stars",
+        "phone",
+        "plane",
+        "airplane",
+        "car",
+        "road",
+        "electricity",
+    ]
+
+    return any(
+        re.search(
+            rf"\b{re.escape(term)}\b",
+            lowered,
+        )
+        for term in concrete_terms
+    )
+
+
+def _has_observable_action(topic):
+
+    lowered = topic.lower()
+
+    action_terms = [
+
+        "feel",
+        "feels",
+        "feeling",
+        "look",
+        "looks",
+        "looking",
+        "sound",
+        "sounds",
+        "hear",
+        "hearing",
+        "see",
+        "seeing",
+        "water",
+        "watering",
+        "tear",
+        "tears",
+        "cry",
+        "crying",
+        "wrinkle",
+        "wrinkles",
+        "float",
+        "floats",
+        "freeze",
+        "freezes",
+        "melt",
+        "melts",
+        "move",
+        "moves",
+        "fly",
+        "flies",
+        "tilt",
+        "tilts",
+        "smell",
+        "smells",
+        "stick",
+        "sticks",
+        "burn",
+        "burns",
+        "glow",
+        "glows",
+        "ring",
+        "rings",
+        "echo",
+        "echoes",
+        "yawn",
+        "yawns",
+        "tickle",
+        "tickles",
+        "sneeze",
+        "sneezes",
+        "hiccup",
+        "hiccups",
+        "change",
+        "changes",
+        "happen",
+        "happens",
+        "work",
+        "works",
+    ]
+
+    return any(
+        re.search(
+            rf"\b{re.escape(term)}\b",
+            lowered,
+        )
+        for term in action_terms
+    )
+
+
+def _has_mechanism_question(topic):
+
+    lowered = topic.lower()
+
+    mechanism_indicators = [
+
+        "why",
+        "how",
+        "happen",
+        "happens",
+        "work",
+        "works",
+        "cause",
+        "causes",
+        "feel",
+        "feels",
+        "change",
+        "changes",
+        "move",
+        "moves",
+        "sound",
+        "sounds",
+        "look",
+        "looks",
+        "smell",
+        "smells",
+        "float",
+        "floats",
+        "freeze",
+        "freezes",
+        "remember",
+        "forget",
+        "dream",
+        "tickle",
+        "wrinkle",
+        "yawn",
+    ]
+
+    return any(
+        re.search(
+            rf"\b{re.escape(term)}\b",
+            lowered,
+        )
+        for term in mechanism_indicators
+    )
+
+
+def _is_broad_subject(topic):
+
+    lowered = topic.lower().strip()
+
+    for pattern in BROAD_QUESTION_PATTERNS:
+
+        if re.search(
+            pattern,
+            lowered,
+        ):
+
+            return True
+
+    words = set(
+        re.findall(
+            r"[a-z]+",
+            lowered,
+        )
+    )
+
+    # Broad academic nouns without a concrete phenomenon.
+    broad_hits = words & BROAD_SUBJECT_TERMS
+
+    if broad_hits and not _has_observable_action(
+        topic
+    ):
+
+        return True
+
+    for phrase in LOW_VALUE_PATTERNS:
+
+        if phrase in lowered:
+            return True
+
+    return False
+
+
+def _question_quality_score(topic):
+
+    score = 0
+
+    if _is_question(topic):
+        score += 2
+
+    if _has_specificity(topic):
+        score += 2
+
+    if _has_observable_action(topic):
+        score += 2
+
+    if _has_mechanism_question(topic):
+        score += 2
+
+    if not _is_broad_subject(topic):
+        score += 2
+
+    return score
+
+
+def _passes_question_quality(topic):
+
+    if not _is_question(topic):
+
+        print(
+            "⚠️ Rejected: not a natural WHY/HOW-style question."
+        )
+
+        return False
+
+    if not _has_specificity(topic):
+
+        print(
+            "⚠️ Rejected: question is not specific enough."
+        )
+
+        return False
+
+    if not _has_observable_action(topic):
+
+        print(
+            "⚠️ Rejected: no clear observable phenomenon/action."
+        )
+
+        return False
+
+    if not _has_mechanism_question(topic):
+
+        print(
+            "⚠️ Rejected: no clear mechanism-oriented question."
+        )
+
+        return False
+
+    if _is_broad_subject(topic):
+
+        print(
+            "⚠️ Rejected: question is too broad."
+        )
+
+        return False
+
+    score = _question_quality_score(
+        topic
+    )
+
+    print(
+        f"🧩 Question quality score: "
+        f"{score}/10"
+    )
+
+    return score >= 8
+
+
+# ==========================================================================
 # NORMALIZED TOPIC COMPARISON
 # ==========================================================================
 
-def _topic_key(
-    topic
-):
+def _topic_key(topic):
 
     topic = _clean_topic(
         topic
@@ -1050,7 +1429,7 @@ def _topic_key(
 
 def _already_used(
     topic,
-    used
+    used,
 ):
 
     key = _topic_key(
@@ -1058,7 +1437,6 @@ def _already_used(
     )
 
     if not key:
-
         return False
 
     for existing in used:
@@ -1076,12 +1454,10 @@ def _already_used(
 
 
 # ==========================================================================
-# TOPIC WORD EXTRACTION
+# TOPIC WORDS
 # ==========================================================================
 
-def _topic_words(
-    topic
-):
+def _topic_words(topic):
 
     stop_words = {
         "why",
@@ -1159,7 +1535,6 @@ def _too_similar_to_used(
     )
 
     if not current_words:
-
         return False
 
     for existing in used:
@@ -1169,7 +1544,6 @@ def _too_similar_to_used(
         )
 
         if not existing_words:
-
             continue
 
         intersection = (
@@ -1185,7 +1559,6 @@ def _too_similar_to_used(
         )
 
         if not union:
-
             continue
 
         similarity = (
@@ -1195,7 +1568,6 @@ def _too_similar_to_used(
         )
 
         if similarity >= 0.72:
-
             return True
 
     return False
@@ -1210,13 +1582,6 @@ def _contains_term(
     term,
 ):
 
-    """
-    Whole-word matching prevents false positives such as:
-
-    "cat" matching "education"
-    "car" matching "scare"
-    """
-
     return bool(
         re.search(
             rf"\b{re.escape(term)}\b",
@@ -1225,26 +1590,25 @@ def _contains_term(
     )
 
 
-def _score_topic(
-    topic,
-):
+def _score_topic(topic):
+
     """
     Local curiosity pre-score.
 
-    Maximum: 30
+    Maximum:
 
-    Dimensions:
+        Curiosity      5
+        Familiarity    5
+        Surprise       5
+        Payoff         5
+        Visual         5
+        Researchable   5
 
-    Curiosity      0-5
-    Familiarity    0-5
-    Surprise       0-5
-    Payoff         0-5
-    Visual         0-5
-    Researchable   0-5
+    Total = 30
 
-    This is NOT the scientific verification gate.
+    This is only a pre-filter.
 
-    research.py remains responsible for actual research validation.
+    research.py remains the authoritative research gate.
     """
 
     lowered = topic.lower()
@@ -1305,12 +1669,12 @@ def _score_topic(
 
     scores["curiosity"] += min(
         2,
-        curiosity_hits
+        curiosity_hits,
     )
 
     scores["curiosity"] = min(
         5,
-        scores["curiosity"]
+        scores["curiosity"],
     )
 
     # ----------------------------------------------------------------------
@@ -1366,6 +1730,7 @@ def _score_topic(
         "cold",
         "hot",
         "heat",
+        "onion",
     ]
 
     familiarity_hits = sum(
@@ -1378,15 +1743,12 @@ def _score_topic(
     )
 
     if familiarity_hits >= 3:
-
         scores["familiarity"] = 5
 
     elif familiarity_hits == 2:
-
         scores["familiarity"] = 4
 
     elif familiarity_hits == 1:
-
         scores["familiarity"] = 3
 
     # ----------------------------------------------------------------------
@@ -1423,11 +1785,9 @@ def _score_topic(
 
     scores["surprise"] = min(
         5,
-        2 + surprise_hits
+        2 + surprise_hits,
     )
 
-    # Questions involving common experiences naturally receive
-    # additional surprise potential.
     if (
         "different" in lowered
         or
@@ -1440,7 +1800,7 @@ def _score_topic(
 
         scores["surprise"] = min(
             5,
-            scores["surprise"] + 1
+            scores["surprise"] + 1,
         )
 
     # ----------------------------------------------------------------------
@@ -1468,6 +1828,9 @@ def _score_topic(
         "see",
         "feel",
         "sound",
+        "water",
+        "tear",
+        "cry",
     ]
 
     payoff_hits = sum(
@@ -1480,15 +1843,12 @@ def _score_topic(
     )
 
     if payoff_hits >= 3:
-
         scores["payoff"] = 5
 
     elif payoff_hits == 2:
-
         scores["payoff"] = 4
 
     elif payoff_hits == 1:
-
         scores["payoff"] = 3
 
     # ----------------------------------------------------------------------
@@ -1532,6 +1892,7 @@ def _score_topic(
         "glass",
         "heat",
         "cold",
+        "onion",
     ]
 
     visual_hits = sum(
@@ -1544,15 +1905,12 @@ def _score_topic(
     )
 
     if visual_hits >= 3:
-
         scores["visual"] = 5
 
     elif visual_hits == 2:
-
         scores["visual"] = 4
 
     elif visual_hits == 1:
-
         scores["visual"] = 3
 
     # ----------------------------------------------------------------------
@@ -1593,6 +1951,11 @@ def _score_topic(
         "gravity",
         "weather",
         "air",
+        "onion",
+        "tears",
+        "tearing",
+        "irritation",
+        "volatile",
     ]
 
     research_hits = sum(
@@ -1605,37 +1968,29 @@ def _score_topic(
     )
 
     if research_hits >= 2:
-
         scores["researchable"] = 5
 
     elif research_hits == 1:
-
         scores["researchable"] = 4
 
     else:
-
-        # We do not automatically reject it here because research.py
-        # is the authoritative research gate.
         scores["researchable"] = 2
 
     # ----------------------------------------------------------------------
-    # QUESTION LENGTH
+    # LENGTH
     # ----------------------------------------------------------------------
 
     if 4 <= len(words) <= 9:
-
         length_bonus = 2
 
     elif 10 <= len(words) <= 12:
-
         length_bonus = 1
 
     else:
-
         length_bonus = 0
 
     # ----------------------------------------------------------------------
-    # FINAL SCORE
+    # FINAL
     # ----------------------------------------------------------------------
 
     total = sum(
@@ -1644,15 +1999,13 @@ def _score_topic(
 
     total = min(
         MAX_VIRAL_SCORE,
-        total + length_bonus
+        total + length_bonus,
     )
 
     return total
 
 
-def _passes_viral_score(
-    topic,
-):
+def _passes_viral_score(topic):
 
     score = _score_topic(
         topic
@@ -1673,16 +2026,12 @@ def _passes_viral_score(
 def get_pending_topic():
 
     """
-    Return the currently queued topic.
-
-    Pending next_short topics have NO word-count restriction and
-    are trusted as the continuation of the previous verified story.
+    Pending next_short topics have no new-topic word restriction.
     """
 
     topic = _load_next_topic()
 
     if not topic:
-
         return ""
 
     if not _valid_topic(
@@ -1694,9 +2043,7 @@ def get_pending_topic():
             "⚠️ Pending topic is invalid:"
         )
 
-        print(
-            topic
-        )
+        print(topic)
 
         return ""
 
@@ -1753,44 +2100,46 @@ Previously used topics:
 
 {previous}
 
-Generate ONE completely new high-curiosity question for
+Generate ONE completely new curiosity question for
 Mint-YT-Factory.
 
-The channel is built around:
+============================================================
+QUESTION-FIRST REQUIREMENT
+============================================================
 
-"Questions you've probably wondered about but never looked up."
+The output MUST be a specific question about ONE observable
+phenomenon.
 
-Think like a viral YouTube Shorts strategist.
+It should answer the following mental test:
 
-The topic should:
+"What exactly is happening that the viewer has noticed?"
 
-- be recognizable to ordinary people
-- feel personally relevant or familiar
-- trigger immediate curiosity
-- contain a real mystery
-- have a surprising or counterintuitive explanation
-- have a satisfying payoff
-- be visually demonstrable
-- work as a 35–45 second story
-- have strong credible research available
-- be advertiser-friendly
-- be scientifically or historically defensible
+Then:
 
-Prefer topics involving:
+"What mechanism explains it?"
 
-- shower thoughts
-- everyday mysteries
-- human behavior
-- brain and psychology
-- body observations
-- everyday physics
-- animals
-- space
-- technology people use every day
+The question must be narrow enough to explain properly
+in approximately 35–45 seconds.
 
-Examples of the STYLE we want:
+============================================================
+PREFERRED STRUCTURE
+============================================================
 
-Why can't you tickle yourself
+Prefer:
+
+Why does [thing] [observable behavior]?
+
+Why do [people/animals/things] [observable behavior]?
+
+How does [specific phenomenon] happen?
+
+Why can [familiar thing] [unexpected behavior]?
+
+============================================================
+GOOD EXAMPLES
+============================================================
+
+Why do your eyes water when cutting onions
 
 Why does metal feel colder than wood
 
@@ -1798,40 +2147,156 @@ Why do fingers wrinkle in water
 
 Why does your voice sound different recorded
 
-Why do songs get stuck in your head
-
-Why can birds sit on power lines
+Why can't you tickle yourself
 
 Why does ice float
 
+Why does rain smell
+
+Why do dogs tilt their heads
+
+Why can birds sit on power lines
+
 Why does the Moon look bigger near the horizon
 
-Do NOT copy those examples.
+These are examples of FORMAT and specificity only.
 
-Find a different question.
+Do NOT copy them.
 
-Avoid:
+============================================================
+REJECT BROAD TOPICS
+============================================================
 
-- generic school subjects
-- academic paper titles
-- obscure terminology
-- generic facts
-- listicles
-- countdowns
-- broad historical summaries
-- controversial claims
-- conspiracy theories
-- medical diagnosis
-- medical treatment
-- political topics
-- fearbait
-- fabricated phenomena
-- unverifiable internet myths
+Reject questions like:
 
-The topic must be narrow enough to answer properly in about
-35–45 seconds.
+How does the internet work
 
-Return ONLY the topic.
+How do airplanes work
+
+How does the brain work
+
+How does electricity work
+
+What is gravity
+
+What is quantum physics
+
+How does artificial intelligence work
+
+The science of sleep
+
+The biology of humans
+
+These are too broad.
+
+============================================================
+REJECT GENERIC TOPICS
+============================================================
+
+Do not generate:
+
+The science of onions
+
+Benefits of sleep
+
+History of airplanes
+
+Interesting facts about birds
+
+How animals communicate
+
+Why nature is amazing
+
+How the human body works
+
+============================================================
+PREFER
+============================================================
+
+Everyday mysteries.
+
+Human body observations.
+
+Brain and psychology experiences.
+
+Animals people see regularly.
+
+Simple physics people experience.
+
+Technology features people personally encounter.
+
+Space phenomena people recognize.
+
+The viewer should be able to think:
+
+"I've experienced that."
+
+============================================================
+RESEARCH
+============================================================
+
+The question must have enough credible evidence to support
+the answer with at least two independent sources.
+
+Prefer scientific papers, universities, government agencies,
+scientific institutions, and established research organizations.
+
+Do not rely on myths, rumors, social media claims,
+conspiracy theories, or unverifiable stories.
+
+============================================================
+VISUALS
+============================================================
+
+The phenomenon should be visually demonstrable.
+
+Prefer:
+
+physical processes
+microscopic mechanisms
+internal processes
+cause and effect
+movement
+transformations
+experiments
+simulations
+before/after
+scale comparisons
+
+============================================================
+MONETIZATION
+============================================================
+
+Avoid graphic violence, gore, sexual content, extremist content,
+dangerous instructions, drugs, political outrage, conspiracy
+theories, fearbait, medical diagnosis, and treatment instructions.
+
+============================================================
+OUTPUT
+============================================================
+
+Return ONLY ONE topic.
+
+Maximum 12 words.
+
+Prefer 5–10 words.
+
+No explanation.
+
+No quotes.
+
+No numbering.
+
+No emoji.
+
+No terminal punctuation.
+
+No "Did you know".
+
+No "Let's explore".
+
+No "Today we're going to".
+
 """
 
     for attempt in range(
@@ -1840,7 +2305,7 @@ Return ONLY the topic.
     ):
 
         print(
-            f"🧠 Viral topic attempt "
+            f"🧠 Viral question attempt "
             f"{attempt}/"
             f"{MAX_TOPIC_GENERATION_ATTEMPTS}"
         )
@@ -1878,7 +2343,7 @@ Return ONLY the topic.
             )
 
             # --------------------------------------------------------------
-            # Basic validation.
+            # BASIC VALIDATION
             # --------------------------------------------------------------
 
             if not _valid_topic(
@@ -1893,7 +2358,21 @@ Return ONLY the topic.
                 continue
 
             # --------------------------------------------------------------
-            # Exact duplicate.
+            # QUESTION QUALITY
+            # --------------------------------------------------------------
+
+            if not _passes_question_quality(
+                topic
+            ):
+
+                print(
+                    "⚠️ Question quality gate failed. Retrying."
+                )
+
+                continue
+
+            # --------------------------------------------------------------
+            # EXACT DUPLICATE
             # --------------------------------------------------------------
 
             if _already_used(
@@ -1908,7 +2387,7 @@ Return ONLY the topic.
                 continue
 
             # --------------------------------------------------------------
-            # Semantic duplicate.
+            # SEMANTIC DUPLICATE
             # --------------------------------------------------------------
 
             if _too_similar_to_used(
@@ -1923,7 +2402,7 @@ Return ONLY the topic.
                 continue
 
             # --------------------------------------------------------------
-            # Pending duplicate.
+            # PENDING DUPLICATE
             # --------------------------------------------------------------
 
             pending = _load_next_topic()
@@ -1947,7 +2426,7 @@ Return ONLY the topic.
                 continue
 
             # --------------------------------------------------------------
-            # Viral curiosity pre-score.
+            # VIRAL SCORE
             # --------------------------------------------------------------
 
             if not _passes_viral_score(
@@ -1960,13 +2439,15 @@ Return ONLY the topic.
 
                 continue
 
+            # --------------------------------------------------------------
+            # SUCCESS
+            # --------------------------------------------------------------
+
             print("=" * 80)
-            print("🔥 GENERATED HIGH-CURIOSITY TOPIC")
+            print("🔥 GENERATED HIGH-CURIOSITY QUESTION")
             print("=" * 80)
 
-            print(
-                topic
-            )
+            print(topic)
 
             print(
                 f"Words: {len(topic.split())}"
@@ -1977,7 +2458,12 @@ Return ONLY the topic.
             )
 
             print(
-                f"Pre-score: "
+                f"Question quality: "
+                f"{_question_quality_score(topic)}/10"
+            )
+
+            print(
+                f"Curiosity score: "
                 f"{_score_topic(topic)}/"
                 f"{MAX_VIRAL_SCORE}"
             )
@@ -2008,7 +2494,7 @@ def get_next_topic():
     Priority:
 
     1. Existing pending next_short
-    2. Gemini-generated high-curiosity topic
+    2. Gemini-generated high-quality question
 
     The selected topic is NOT committed here.
     """
@@ -2020,7 +2506,6 @@ def get_next_topic():
     pending = get_pending_topic()
 
     if pending:
-
         return pending
 
     # ----------------------------------------------------------------------
@@ -2041,19 +2526,17 @@ def get_next_topic():
             )
 
         print("=" * 80)
-        print("📌 NEW VIRAL-CURIOSITY TOPIC QUEUED")
+        print("📌 NEW VIRAL-CURIOSITY QUESTION QUEUED")
         print("=" * 80)
 
-        print(
-            topic
-        )
+        print(topic)
 
         print("=" * 80)
 
         return topic
 
     raise RuntimeError(
-        "Could not generate a strong high-curiosity topic "
+        "Could not generate a strong high-curiosity question "
         "and no pending topic is available."
     )
 
@@ -2062,18 +2545,15 @@ def get_next_topic():
 # TOPIC COMMIT
 # ==========================================================================
 
-def commit_topic(
-    topic
-):
+def commit_topic(topic):
 
     """
-    Commit the CURRENT topic after successful YouTube upload.
+    Commit CURRENT topic only after successful upload.
 
-    next_topic.json may already contain the NEW next_short.
+    Never blindly deletes next_topic.json.
 
-    Therefore this function NEVER blindly deletes next_topic.json.
-
-    It deletes the file only if it still contains the CURRENT topic.
+    If next_topic.json contains a new next_short,
+    it is preserved.
     """
 
     topic = _clean_topic(
@@ -2089,7 +2569,7 @@ def commit_topic(
     used = _load_used()
 
     # ----------------------------------------------------------------------
-    # Add topic to used list.
+    # Add current topic to used list.
     # ----------------------------------------------------------------------
 
     if not _already_used(
@@ -2109,9 +2589,7 @@ def commit_topic(
         print("✅ CURRENT TOPIC COMMITTED")
         print("=" * 80)
 
-        print(
-            topic
-        )
+        print(topic)
 
         print("=" * 80)
 
@@ -2121,22 +2599,19 @@ def commit_topic(
             "ℹ️ Current topic is already committed:"
         )
 
-        print(
-            topic
-        )
+        print(topic)
 
     # ----------------------------------------------------------------------
-    # Check pending file.
+    # Check pending queue.
     # ----------------------------------------------------------------------
 
     pending = _load_next_topic()
 
     if not pending:
-
         return True
 
     # ----------------------------------------------------------------------
-    # If pending file STILL contains current topic, remove it.
+    # If queue still contains current topic, remove it.
     # ----------------------------------------------------------------------
 
     if (
@@ -2159,9 +2634,7 @@ def commit_topic(
         return True
 
     # ----------------------------------------------------------------------
-    # Otherwise it is the NEW next_short.
-    #
-    # Preserve it.
+    # Otherwise preserve NEW next_short.
     # ----------------------------------------------------------------------
 
     print(
@@ -2179,15 +2652,12 @@ def commit_topic(
 # SAVE NEXT SHORT
 # ==========================================================================
 
-def save_next_short(
-    next_short
-):
+def save_next_short(next_short):
 
     """
     Save the next topic generated by the current video's open loop.
 
-    next_short has NO word-count restriction because it is generated
-    from the story itself and can be more descriptive.
+    next_short has NO word-count restriction.
     """
 
     next_short = _clean_topic(
@@ -2211,15 +2681,9 @@ def save_next_short(
             "⚠️ next_short failed basic validation:"
         )
 
-        print(
-            next_short
-        )
+        print(next_short)
 
         return False
-
-    # ----------------------------------------------------------------------
-    # Do not queue an already committed topic.
-    # ----------------------------------------------------------------------
 
     used = _load_used()
 
@@ -2232,15 +2696,9 @@ def save_next_short(
             "⚠️ next_short is already a committed topic:"
         )
 
-        print(
-            next_short
-        )
+        print(next_short)
 
         return False
-
-    # ----------------------------------------------------------------------
-    # Do not queue something extremely similar to an old topic.
-    # ----------------------------------------------------------------------
 
     if _too_similar_to_used(
         next_short,
@@ -2251,15 +2709,9 @@ def save_next_short(
             "⚠️ next_short is too similar to a previously used topic:"
         )
 
-        print(
-            next_short
-        )
+        print(next_short)
 
         return False
-
-    # ----------------------------------------------------------------------
-    # Save atomically.
-    # ----------------------------------------------------------------------
 
     if not _save_next_topic(
         next_short
@@ -2275,9 +2727,7 @@ def save_next_short(
     print("🔗 NEXT SHORT SAVED")
     print("=" * 80)
 
-    print(
-        next_short
-    )
+    print(next_short)
 
     print(
         f"Word count: "
@@ -2310,12 +2760,10 @@ if __name__ == "__main__":
         topic = get_next_topic()
 
         print("=" * 80)
-        print("🎯 NEXT VIRAL CURIOSITY TOPIC")
+        print("🎯 NEXT VIRAL CURIOSITY QUESTION")
         print("=" * 80)
 
-        print(
-            topic
-        )
+        print(topic)
 
         print("=" * 80)
 
@@ -2325,8 +2773,6 @@ if __name__ == "__main__":
         print("❌ TOPIC GENERATION FAILED")
         print("=" * 80)
 
-        print(
-            error
-        )
+        print(error)
 
         raise

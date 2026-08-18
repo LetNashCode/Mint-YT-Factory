@@ -99,10 +99,35 @@ DEFAULT_FPS = 30
 # CAPTIONS
 # ==========================================================================
 
+# IMPORTANT:
+# Resolve the font from the actual location of this file rather than
+# relying on the current working directory.
+#
+# This prevents GitHub Actions / ImageMagick from receiving a fragile
+# relative path such as:
+#
+#     assets/fonts/Poppins-ExtraBold.ttf
+#
+# Instead it receives the full absolute path.
+
+BASE_DIR = os.path.dirname(
+    os.path.abspath(__file__)
+)
+
 FONT = os.path.join(
+    BASE_DIR,
     "assets",
     "fonts",
     "Poppins-ExtraBold.ttf",
+)
+
+if not os.path.isfile(FONT):
+    raise RuntimeError(
+        f"Caption font not found: {FONT}"
+    )
+
+print(
+    f"✅ Caption font found: {FONT}"
 )
 
 CAPTION_FONT_SIZE = 74
@@ -713,22 +738,13 @@ def build_animated_image(
         0.1,
     )
 
-    # ----------------------------------------------------------------------
-    # IMPORTANT:
-    #
-    # MoviePy resize() with a time lambda works properly only when the
-    # returned scale is applied to the original clip.
-    #
-    # We therefore calculate scale from the beginning rather than resizing
-    # the already-resized clip repeatedly.
-    # ----------------------------------------------------------------------
-
     if animation == "zoom_in":
 
         start_scale = camera_scale
         end_scale = camera_scale * zoom
 
         def scale_function(t):
+
             progress = min(
                 max(
                     t / safe_duration,
@@ -760,6 +776,7 @@ def build_animated_image(
         end_scale = camera_scale
 
         def scale_function(t):
+
             progress = min(
                 max(
                     t / safe_duration,
@@ -1252,10 +1269,6 @@ def build_captions(
             f"{EXPECTED_SCENES} scenes."
         )
 
-    # ----------------------------------------------------------------------
-    # Scene boundaries.
-    # ----------------------------------------------------------------------
-
     scene_ranges = []
 
     current = 0.0
@@ -1276,10 +1289,6 @@ def build_captions(
         })
 
         current += duration
-
-    # ----------------------------------------------------------------------
-    # Group words.
-    # ----------------------------------------------------------------------
 
     groups = _group_caption_words(
         words
@@ -1305,11 +1314,6 @@ def build_captions(
             end - start,
         )
 
-        text = " ".join(
-            item["word"]
-            for item in group
-        )
-
         scene = _get_scene_for_time(
             scenes,
             scene_ranges,
@@ -1319,13 +1323,6 @@ def build_captions(
         highlights = get_caption_highlights(
             scene
         )
-
-        # --------------------------------------------------------------
-        # Highlight individual words.
-        #
-        # MoviePy TextClip cannot color only one word easily without
-        # creating separate clips, so each word is positioned separately.
-        # --------------------------------------------------------------
 
         total_text_width = 0
         word_clips = []
@@ -1367,10 +1364,6 @@ def build_captions(
 
             total_text_width += word_clip.w
 
-        # --------------------------------------------------------------
-        # Spacing.
-        # --------------------------------------------------------------
-
         spacing = 22
 
         total_text_width += (
@@ -1388,10 +1381,6 @@ def build_captions(
             - total_text_width
         ) / 2
 
-        # --------------------------------------------------------------
-        # Build word layers.
-        # --------------------------------------------------------------
-
         cursor_x = start_x
 
         for item in word_clips:
@@ -1402,7 +1391,6 @@ def build_captions(
 
             y = position[1]
 
-            # Shadow layer.
             shadow = TextClip(
                 clip.txt,
                 font=FONT,
@@ -1537,10 +1525,6 @@ def build_audio(
 
     tracks = []
 
-    # ----------------------------------------------------------------------
-    # Narration
-    # ----------------------------------------------------------------------
-
     narration_track = (
         narration
         .set_start(0)
@@ -1555,10 +1539,6 @@ def build_audio(
     tracks.append(
         narration_track
     )
-
-    # ----------------------------------------------------------------------
-    # Music
-    # ----------------------------------------------------------------------
 
     if (
         music_path
@@ -1596,10 +1576,6 @@ def build_audio(
         tracks.append(
             music
         )
-
-    # ----------------------------------------------------------------------
-    # SFX
-    # ----------------------------------------------------------------------
 
     scenes = script.get(
         "scene_plan",
@@ -1924,25 +1900,13 @@ def assemble_video(
 
     print("=" * 80)
 
-    # ----------------------------------------------------------------------
-    # Storyboard
-    # ----------------------------------------------------------------------
-
     validate_storyboard(
         script
     )
 
-    # ----------------------------------------------------------------------
-    # Images
-    # ----------------------------------------------------------------------
-
     validate_image_contract(
         image_paths
     )
-
-    # ----------------------------------------------------------------------
-    # Video config
-    # ----------------------------------------------------------------------
 
     video_config = get_video_config(
         config
@@ -1966,10 +1930,6 @@ def assemble_video(
         f"FPS: "
         f"{fps}"
     )
-
-    # ----------------------------------------------------------------------
-    # Narration
-    # ----------------------------------------------------------------------
 
     if not audio_paths:
 
@@ -2003,10 +1963,6 @@ def assemble_video(
         f"{narration_duration:.2f}s"
     )
 
-    # ----------------------------------------------------------------------
-    # Visual timeline
-    # ----------------------------------------------------------------------
-
     print("=" * 80)
 
     print(
@@ -2037,15 +1993,6 @@ def assemble_video(
             f"{len(visual_clips)}."
         )
 
-    # ----------------------------------------------------------------------
-    # Final duration
-    #
-    # Storyboard remains authoritative.
-    #
-    # If narration is shorter than 45 sec, we do NOT leave the last
-    # visual hanging after the narration.
-    # ----------------------------------------------------------------------
-
     final_duration = min(
         TARGET_DURATION,
         narration_duration,
@@ -2055,10 +2002,6 @@ def assemble_video(
         f"Final duration: "
         f"{final_duration:.2f}s"
     )
-
-    # ----------------------------------------------------------------------
-    # Trim visuals to final duration.
-    # ----------------------------------------------------------------------
 
     trimmed_visuals = []
 
@@ -2096,17 +2039,12 @@ def assemble_video(
             clip
         )
 
-    # ----------------------------------------------------------------------
-    # Captions
-    # ----------------------------------------------------------------------
-
     caption_clips = build_captions(
         narration_path,
         script,
         frame_size,
     )
 
-    # Trim captions to final duration.
     trimmed_captions = []
 
     for clip in caption_clips:
@@ -2141,10 +2079,6 @@ def assemble_video(
             )
         )
 
-    # ----------------------------------------------------------------------
-    # Composite
-    # ----------------------------------------------------------------------
-
     all_video_clips = (
         trimmed_visuals
         + trimmed_captions
@@ -2158,10 +2092,6 @@ def assemble_video(
     final = final.set_duration(
         final_duration
     )
-
-    # ----------------------------------------------------------------------
-    # Audio
-    # ----------------------------------------------------------------------
 
     audio = build_audio(
         narration,
@@ -2178,10 +2108,6 @@ def assemble_video(
             audio
         )
 
-    # ----------------------------------------------------------------------
-    # Output directory
-    # ----------------------------------------------------------------------
-
     output_dir = os.path.dirname(
         out_path
     )
@@ -2192,10 +2118,6 @@ def assemble_video(
             output_dir,
             exist_ok=True,
         )
-
-    # ----------------------------------------------------------------------
-    # Render
-    # ----------------------------------------------------------------------
 
     print("=" * 80)
 
@@ -2265,10 +2187,6 @@ def assemble_video(
     print(
         out_path
     )
-
-    # ----------------------------------------------------------------------
-    # Cleanup
-    # ----------------------------------------------------------------------
 
     try:
         narration.close()

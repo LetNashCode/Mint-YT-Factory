@@ -8,7 +8,7 @@ on:
 
   workflow_dispatch: {}
 
-# Prevent two publishing jobs from running simultaneously.
+# Prevent multiple publishing jobs from running at the same time.
 concurrency:
   group: mint-yt-factory-publish
   cancel-in-progress: false
@@ -41,148 +41,225 @@ jobs:
           cache-dependency-path: requirements.txt
 
       # ============================================================
-      # CHECK SYSTEM TOOLS
+      # WHISPER MODEL CACHE
       #
-      # IMPORTANT:
-      # Do NOT run apt-get update/install here.
+      # whisper.load_model("base") stores the model in:
       #
-      # The previous workflow spent ~10 minutes downloading FFmpeg
-      # and its 99 dependencies before the runner cancelled it.
+      # ~/.cache/whisper
+      #
+      # GitHub runners are temporary, so caching prevents the model
+      # from being downloaded on every run.
       # ============================================================
 
-      - name: Check system tools
+      - name: Cache Whisper model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/whisper
+          key: whisper-base-v1
+
+      # ============================================================
+      # SYSTEM TOOLS
+      #
+      # IMPORTANT:
+      # We intentionally DO NOT run:
+      #
+      # sudo apt-get update
+      #
+      # The previous run spent many minutes downloading apt packages.
+      # ============================================================
+
+      - name: Install system tools
         shell: bash
         run: |
           set -e
 
           echo "=========================================="
-          echo "🔧 CHECKING SYSTEM TOOLS"
+          echo "🔧 SYSTEM TOOL SETUP"
           echo "=========================================="
 
           echo ""
-          echo "OS:"
+          echo "Operating System:"
           cat /etc/os-release | head -n 5
 
           echo ""
           echo "Python:"
           python --version
 
+          # ========================================================
+          # FFMPEG
+          # ========================================================
+
           echo ""
-          echo "FFmpeg:"
+          echo "=========================================="
+          echo "🎬 FFMPEG"
+          echo "=========================================="
+
           if command -v ffmpeg >/dev/null 2>&1; then
-            echo "✅ FFmpeg found"
-            command -v ffmpeg
-            ffmpeg -version | head -n 1
+
+            echo "✅ FFmpeg already available."
+
           else
-            echo "❌ FFmpeg is NOT available on this runner."
-            echo ""
-            echo "PATH:"
-            echo "$PATH"
-            echo ""
-            echo "Available FFmpeg locations:"
-            find /usr /opt -type f -name ffmpeg 2>/dev/null | head -n 20 || true
-            exit 1
+
+            echo "⚠️ FFmpeg not found."
+            echo "Installing FFmpeg..."
+
+            sudo apt-get install \
+              -y \
+              --no-install-recommends \
+              ffmpeg
+
+            echo "✅ FFmpeg installed."
+
           fi
 
           echo ""
-          echo "ImageMagick:"
+          echo "FFmpeg location:"
+          command -v ffmpeg
+
+          echo ""
+          echo "FFmpeg version:"
+          ffmpeg -version | head -n 1
+
+          # ========================================================
+          # IMAGEMAGICK
+          # ========================================================
+
+          echo ""
+          echo "=========================================="
+          echo "🖼️ IMAGEMAGICK"
+          echo "=========================================="
+
           if command -v magick >/dev/null 2>&1; then
-            echo "✅ ImageMagick 'magick' found"
+
+            echo "✅ ImageMagick 'magick' already available."
+
+          elif command -v convert >/dev/null 2>&1; then
+
+            echo "✅ ImageMagick 'convert' already available."
+
+          else
+
+            echo "⚠️ ImageMagick not found."
+            echo "Installing ImageMagick..."
+
+            sudo apt-get install \
+              -y \
+              --no-install-recommends \
+              imagemagick
+
+            echo "✅ ImageMagick installed."
+
+          fi
+
+          # ========================================================
+          # IMAGE MAGICK LOCATION
+          # ========================================================
+
+          echo ""
+          echo "ImageMagick location:"
+
+          if command -v magick >/dev/null 2>&1; then
+
             command -v magick
+
+          else
+
+            command -v convert
+
+          fi
+
+          echo ""
+          echo "ImageMagick version:"
+
+          if command -v magick >/dev/null 2>&1; then
+
             magick --version | head -n 3
 
-          elif command -v convert >/dev/null 2>&1; then
-            echo "✅ ImageMagick 'convert' found"
-            command -v convert
+          else
+
             convert --version | head -n 3
 
-          else
-            echo "❌ ImageMagick is NOT available on this runner."
-            exit 1
           fi
+
+          # ========================================================
+          # IMAGEMAGICK POLICY
+          #
+          # MoviePy TextClip may use ImageMagick.
+          # ========================================================
 
           echo ""
           echo "=========================================="
-          echo "✅ SYSTEM TOOL CHECK COMPLETE"
+          echo "🔐 CONFIGURING IMAGEMAGICK POLICY"
           echo "=========================================="
-
-      # ============================================================
-      # CONFIGURE IMAGEMAGICK
-      #
-      # assemble.py uses MoviePy TextClip.
-      # ============================================================
-
-      - name: Configure ImageMagick
-        shell: bash
-        run: |
-          set -e
-
-          echo "=========================================="
-          echo "🖼️ CONFIGURING IMAGEMAGICK"
-          echo "=========================================="
-
-          IMAGEMAGICK_BINARY=""
-
-          if command -v magick >/dev/null 2>&1; then
-            IMAGEMAGICK_BINARY="$(command -v magick)"
-          elif command -v convert >/dev/null 2>&1; then
-            IMAGEMAGICK_BINARY="$(command -v convert)"
-          fi
-
-          if [ -z "$IMAGEMAGICK_BINARY" ]; then
-            echo "❌ Could not locate ImageMagick."
-            exit 1
-          fi
-
-          echo "Using:"
-          echo "$IMAGEMAGICK_BINARY"
-
-          echo "IMAGEMAGICK_BINARY=$IMAGEMAGICK_BINARY" >> "$GITHUB_ENV"
-
-          # ----------------------------------------------------------
-          # ImageMagick 6
-          # ----------------------------------------------------------
 
           if [ -f /etc/ImageMagick-6/policy.xml ]; then
-            echo "Found ImageMagick 6 policy."
+
+            echo "ImageMagick 6 policy detected."
 
             sudo sed -i \
               's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
               /etc/ImageMagick-6/policy.xml \
               || true
+
           fi
 
-          # ----------------------------------------------------------
-          # ImageMagick 7
-          # ----------------------------------------------------------
-
           if [ -f /etc/ImageMagick-7/policy.xml ]; then
-            echo "Found ImageMagick 7 policy."
+
+            echo "ImageMagick 7 policy detected."
 
             sudo sed -i \
               's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
               /etc/ImageMagick-7/policy.xml \
               || true
+
           fi
 
           echo ""
-          echo "Testing ImageMagick..."
+          echo "=========================================="
+          echo "🧪 TESTING FFMPEG"
+          echo "=========================================="
 
-          TMP_IMAGE="$(mktemp --suffix=.png)"
+          ffmpeg \
+            -f lavfi \
+            -i color=c=black:s=64x64:d=0.1 \
+            -f null \
+            - \
+            -loglevel error
 
-          "$IMAGEMAGICK_BINARY" \
-            -size 200x100 \
-            xc:white \
-            "$TMP_IMAGE"
+          echo "✅ FFmpeg test passed."
 
-          test -s "$TMP_IMAGE"
+          echo ""
+          echo "=========================================="
+          echo "🧪 TESTING IMAGEMAGICK"
+          echo "=========================================="
 
-          rm -f "$TMP_IMAGE"
+          TEMP_IMAGE="$(mktemp --suffix=.png)"
+
+          if command -v magick >/dev/null 2>&1; then
+
+            magick \
+              -size 100x100 \
+              xc:white \
+              "$TEMP_IMAGE"
+
+          else
+
+            convert \
+              -size 100x100 \
+              xc:white \
+              "$TEMP_IMAGE"
+
+          fi
+
+          test -s "$TEMP_IMAGE"
+
+          rm -f "$TEMP_IMAGE"
 
           echo "✅ ImageMagick test passed."
 
+          echo ""
           echo "=========================================="
-          echo "✅ IMAGEMAGICK READY"
+          echo "✅ SYSTEM TOOLS READY"
           echo "=========================================="
 
       # ============================================================
@@ -195,11 +272,19 @@ jobs:
           set -e
 
           echo "=========================================="
-          echo "🐍 INSTALLING PYTHON DEPENDENCIES"
+          echo "🐍 PYTHON DEPENDENCIES"
           echo "=========================================="
 
+          echo ""
+          echo "Python:"
           python --version
+
+          echo ""
+          echo "Pip:"
           python -m pip --version
+
+          echo ""
+          echo "Upgrading pip..."
 
           python -m pip install --upgrade pip
 
@@ -212,7 +297,20 @@ jobs:
 
           echo ""
           echo "=========================================="
-          echo "🔍 VERIFYING PYTHON PACKAGES"
+          echo "✅ PYTHON DEPENDENCIES INSTALLED"
+          echo "=========================================="
+
+      # ============================================================
+      # VERIFY PYTHON PACKAGES
+      # ============================================================
+
+      - name: Verify Python environment
+        shell: bash
+        run: |
+          set -e
+
+          echo "=========================================="
+          echo "🔬 VERIFYING PYTHON ENVIRONMENT"
           echo "=========================================="
 
           python - <<'PY'
@@ -220,81 +318,152 @@ jobs:
 
           print("Python:", sys.version)
 
-          packages = [
-              "google.genai",
-              "requests",
-              "moviepy",
-              "PIL",
-              "yaml",
-              "google.auth",
-              "googleapiclient",
-              "torch",
-              "whisper",
-              "ffmpeg",
+          checks = [
+              ("google.genai", "Google GenAI"),
+              ("requests", "Requests"),
+              ("moviepy", "MoviePy"),
+              ("PIL", "Pillow"),
+              ("yaml", "PyYAML"),
+              ("google.auth", "Google Auth"),
+              ("googleapiclient", "Google API Client"),
+              ("whisper", "OpenAI Whisper"),
+              ("torch", "PyTorch"),
+              ("ffmpeg", "ffmpeg-python"),
           ]
 
           failed = []
 
-          for package in packages:
+          for module_name, display_name in checks:
+
               try:
-                  module = __import__(package)
-                  version = getattr(module, "__version__", "unknown")
-                  print(f"✅ {package}: {version}")
+
+                  module = __import__(module_name)
+
+                  version = getattr(
+                      module,
+                      "__version__",
+                      "unknown",
+                  )
+
+                  print(
+                      f"✅ {display_name}: {version}"
+                  )
+
               except Exception as e:
-                  print(f"❌ {package}: {e}")
-                  failed.append(package)
+
+                  print(
+                      f"❌ {display_name}: {e}"
+                  )
+
+                  failed.append(
+                      display_name
+                  )
 
           if failed:
-              print("")
-              print("Missing/broken packages:")
-              for package in failed:
-                  print(" -", package)
 
-              # Do not fail yet for whisper_align because it may be
-              # supplied by the repository itself.
-              if failed != ["whisper_align"]:
-                  sys.exit(1)
+              print("")
+              print("FAILED IMPORTS:")
+
+              for item in failed:
+                  print(" -", item)
+
+              raise SystemExit(1)
+
+          print("")
+          print("==========================================")
+          print("✅ ALL PYTHON IMPORTS PASSED")
+          print("==========================================")
           PY
 
-          echo ""
-          echo "=========================================="
-          echo "✅ PYTHON DEPENDENCIES READY"
-          echo "=========================================="
-
       # ============================================================
-      # VERIFY PROJECT IMPORTS
-      #
-      # This catches missing whisper_align BEFORE main.py starts.
+      # VERIFY LOCAL PROJECT FILES
       # ============================================================
 
-      - name: Verify project modules
+      - name: Verify project files
         shell: bash
         run: |
           set -e
 
           echo "=========================================="
-          echo "🔬 VERIFYING PROJECT MODULES"
+          echo "📁 VERIFYING PROJECT FILES"
+          echo "=========================================="
+
+          REQUIRED_FILES=(
+            "main.py"
+            "assemble.py"
+            "whisper_align.py"
+          )
+
+          for FILE in "${REQUIRED_FILES[@]}"; do
+
+            if [ -f "$FILE" ]; then
+
+              echo "✅ $FILE"
+
+            else
+
+              echo "❌ Missing: $FILE"
+              exit 1
+
+            fi
+
+          done
+
+          echo ""
+          echo "=========================================="
+          echo "🔬 TESTING LOCAL MODULE IMPORTS"
           echo "=========================================="
 
           python - <<'PY'
-          import importlib
+          import whisper_align
+          print("✅ whisper_align.py imported successfully.")
 
-          modules = [
-              "whisper_align",
-              "assemble",
-          ]
+          import assemble
+          print("✅ assemble.py imported successfully.")
+          PY
 
-          for name in modules:
-              try:
-                  module = importlib.import_module(name)
-                  print(f"✅ {name}: {module.__file__}")
-              except Exception as e:
-                  print(f"❌ {name}: {e}")
-                  raise
+          echo ""
+          echo "=========================================="
+          echo "✅ PROJECT FILE CHECK PASSED"
+          echo "=========================================="
+
+      # ============================================================
+      # VERIFY WHISPER
+      # ============================================================
+
+      - name: Verify Whisper
+        shell: bash
+        run: |
+          set -e
+
+          echo "=========================================="
+          echo "🎙️ WHISPER CHECK"
+          echo "=========================================="
+
+          python - <<'PY'
+          import whisper
+          import torch
+
+          print("Whisper imported successfully.")
+          print("Torch version:", torch.__version__)
+          print("CUDA available:", torch.cuda.is_available())
 
           print("")
-          print("✅ Project imports successful.")
+          print("Whisper model directory:")
+          import os
+          print(os.path.expanduser("~/.cache/whisper"))
+
+          print("")
+          print("The pipeline will use:")
+          print("Model: base")
+          print("FP16: false")
+          print("Device: CPU on GitHub runner")
           PY
+
+          echo ""
+          echo "=========================================="
+          echo "✅ WHISPER ENVIRONMENT READY"
+          echo "=========================================="
 
       # ============================================================
       # YOUTUBE CREDENTIALS
@@ -308,17 +477,24 @@ jobs:
           set -e
 
           echo "=========================================="
-          echo "🔐 PREPARING YOUTUBE CREDENTIALS"
+          echo "🔐 YOUTUBE CREDENTIALS"
           echo "=========================================="
 
-          printf '%s' "$YOUTUBE_CLIENT_SECRET_JSON" > client_secret.json
+          if [ -z "$YOUTUBE_CLIENT_SECRET_JSON" ]; then
+            echo "❌ YOUTUBE_CLIENT_SECRET_JSON secret is empty."
+            exit 1
+          fi
+
+          printf '%s' \
+            "$YOUTUBE_CLIENT_SECRET_JSON" \
+            > client_secret.json
 
           test -s client_secret.json
 
-          echo "✅ YouTube client credentials created."
+          echo "✅ YouTube client_secret.json created."
 
       # ============================================================
-      # PIPELINE
+      # RUN MINT-YT-FACTORY
       # ============================================================
 
       - name: Run Mint-YT-Factory
@@ -353,6 +529,7 @@ jobs:
 
           echo ""
           echo "ImageMagick:"
+
           if command -v magick >/dev/null 2>&1; then
             magick --version | head -n 1
           else
@@ -368,23 +545,51 @@ jobs:
           df -h
 
           echo ""
-          echo "=========================================="
-          echo "🔬 RESEARCH → SCRIPT → VISUALS →"
-          echo "   TTS → CAPTIONS → VIDEO → YOUTUBE"
-          echo "=========================================="
-
-          START=$(date +%s)
-
-          python -u main.py
-
-          END=$(date +%s)
-          ELAPSED=$((END - START))
+          echo "Whisper cache:"
+          du -sh ~/.cache/whisper 2>/dev/null || true
 
           echo ""
           echo "=========================================="
-          echo "⏱️ PIPELINE TIME"
-          echo "${ELAPSED} seconds"
+          echo "🔬 PIPELINE"
           echo "=========================================="
+
+          echo "1. Research"
+          echo "2. Script"
+          echo "3. AI visuals"
+          echo "4. TTS"
+          echo "5. Whisper word timestamps"
+          echo "6. Captions"
+          echo "7. Video assembly"
+          echo "8. YouTube upload"
+
+          echo ""
+          echo "=========================================="
+          echo "▶️ STARTING main.py"
+          echo "=========================================="
+
+          START_TIME=$(date +%s)
+
+          python -u main.py
+
+          END_TIME=$(date +%s)
+
+          ELAPSED=$(
+            (
+              END_TIME
+              - START_TIME
+            )
+          )
+
+          echo ""
+          echo "=========================================="
+          echo "⏱️ PIPELINE FINISHED"
+          echo "=========================================="
+
+          echo "Elapsed seconds: $ELAPSED"
+
+          echo ""
+          echo "Finished:"
+          date
 
       # ============================================================
       # UPLOAD FINAL VIDEO
@@ -458,11 +663,16 @@ jobs:
           git add used_topics.json
 
           if git diff --cached --quiet; then
+
             echo "No topic changes to commit."
+
             exit 0
+
           fi
 
-          git commit -m "Update used topics [skip ci]"
+          git commit \
+            -m "Update used topics [skip ci]"
+
           git push
 
       # ============================================================
@@ -482,4 +692,4 @@ jobs:
           date
 
           echo ""
-          echo "Short successfully generated and published."
+          echo "✅ Short successfully generated and published."

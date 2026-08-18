@@ -2,97 +2,24 @@
 generate_script.py
 Mint-YT-Factory
 
-Version 9.0
+Version 10.0
 
 RESEARCH-FIRST STORY + VISUAL CONTINUITY ENGINE
 
-PIPELINE
---------
-
-research.py
-    ↓
-Verified scientific evidence
-    ↓
-generate_script.py
-    ↓
-45-second single story
-    ↓
-7 scenes
-    ↓
-Visual identity
-    ↓
-Visual continuity
-    ↓
-14 purposeful image prompts
-    ↓
-generate_images.py v8.0
-    ↓
-Pollinations AI
-    ↓
-14 coherent visuals
-    ↓
-assemble.py
-    ↓
-YouTube Short
-
-
-PRIMARY GOAL
-------------
-
-Create a high-retention, scientifically responsible,
-cinematic 35–45 second YouTube Short.
-
-The Short must feel like ONE story.
-
-NOT:
-
-- a Top 5
-- a countdown
-- a list
-- a lecture
-- 14 unrelated AI images
-- a collection of random facts
-
-
-STORY STRUCTURE
+FIXES IN v10.0
 ---------------
 
-Scene 1   0–3s    HOOK
-Scene 2   3–8s    CURIOSITY GAP
-Scene 3   8–15s   EXPLANATION
-Scene 4   15–22s  EXAMPLE
-Scene 5   22–30s  REFRAME
-Scene 6   30–38s  ESCALATION
-Scene 7   38–45s  PAYOFF
-
-
-PRODUCTION CONTRACT
--------------------
-
-Exactly 7 scenes.
-
-Exactly 2 visuals per scene.
-
-Exactly 14 visuals.
-
-Exactly 45 seconds.
-
-Narration is the source of truth for subtitles.
-
-Research evidence is the source of truth for factual claims.
-
-Visual identity and continuity are passed directly
-to generate_images.py.
-
-
-IMPORTANT
----------
-
-This file intentionally preserves:
-
-    generate_script(topic, config, research)
-
-so existing main.py integration remains compatible.
+1. Scene 7 now naturally introduces the NEXT SHORT topic.
+2. The next topic is spoken only in Scene 7.
+3. The next topic is NOT allowed anywhere else in the current story.
+4. The current video's description is generated/validated as CURRENT-TOPIC ONLY.
+5. Description validation no longer falsely rejects descriptions merely because
+   the current and next topics share common words.
+6. next_short remains metadata for the continuation system.
+7. Scene 7 must contain a natural open-loop transition into the next topic.
+8. The next topic is never presented as part of the current video's factual story.
+9. Captions remain synchronized with narration.
+10. Existing generate_script(topic, config, research) integration is preserved.
 """
 
 
@@ -413,24 +340,52 @@ Do not introduce an unrelated fact.
 
 ------------------------------------------------------------
 
-SCENE 7 — PAYOFF — 38–45 seconds
+SCENE 7 — PAYOFF + NEXT STORY HOOK — 38–45 seconds
 
-Finish the CURRENT story.
+Finish the CURRENT story first.
 
-The ending should feel satisfying.
+Then use the final sentence as a short, natural open loop
+that introduces the NEXT SHORT topic.
 
-It may create broader curiosity,
-but it must not depend on another Short.
+The next topic is metadata supplied separately as:
 
-Never mention the next Short.
+next_short.topic
 
-Never say:
+The final sentence MAY mention that topic.
+
+The final sentence must NOT present the next topic as a
+fact that belongs to the CURRENT story.
+
+Good pattern:
+
+"That is the strange part. But it raises an even bigger question:
+[exact next topic]."
+
+Or:
+
+"And that leaves one question worth exploring next:
+[exact next topic]."
+
+Or:
+
+"The story ends here, but the next mystery is:
+[exact next topic]."
+
+Do NOT say:
 
 "Next we'll..."
 "In the next video..."
 "Coming next..."
 "Stay tuned..."
+"Watch my next video..."
+"Part 2..."
+"Subscribe for..."
 
+The next topic should feel like a curiosity bridge,
+not an advertisement.
+
+The current story must still feel complete even if the viewer
+never watches another Short.
 """
 
 
@@ -510,6 +465,173 @@ def _word_count(text):
             r"\b[\w'-]+\b",
             _clean(text),
         )
+    )
+
+
+# ============================================================================
+# NEXT TOPIC HELPERS
+# ============================================================================
+
+def _topic_words(topic):
+    """
+    Extract meaningful words from a topic.
+
+    This is deliberately conservative. Common words are ignored so that
+    descriptions and narration are not rejected simply because both topics
+    happen to contain words such as "the", "why", "how", "science", etc.
+    """
+
+    stop_words = {
+        "what",
+        "why",
+        "how",
+        "when",
+        "where",
+        "which",
+        "does",
+        "this",
+        "that",
+        "these",
+        "those",
+        "the",
+        "and",
+        "for",
+        "with",
+        "from",
+        "into",
+        "about",
+        "your",
+        "our",
+        "their",
+        "will",
+        "can",
+        "could",
+        "would",
+        "should",
+        "does",
+        "did",
+        "are",
+        "was",
+        "were",
+        "is",
+        "its",
+        "it's",
+        "they",
+        "them",
+        "than",
+        "then",
+        "really",
+        "actually",
+        "just",
+        "very",
+        "most",
+        "more",
+        "some",
+        "one",
+        "thing",
+        "things",
+        "part",
+        "next",
+        "story",
+        "question",
+        "mystery",
+        "science",
+        "scientific",
+    }
+
+    words = re.findall(
+        r"[A-Za-z0-9'-]+",
+        _clean(topic).lower(),
+    )
+
+    return [
+        word
+        for word in words
+        if len(word) >= 4
+        and word not in stop_words
+    ]
+
+
+def _contains_next_topic(
+    text,
+    next_topic,
+):
+    """
+    Detects whether text is actually revealing the next topic.
+
+    Exact phrase matching is the strongest signal.
+
+    A second conservative check catches descriptions that reproduce most
+    meaningful words from the next topic.
+
+    This intentionally avoids rejecting text based on one or two shared words.
+    """
+
+    text_clean = _clean(
+        text
+    ).lower()
+
+    topic_clean = _clean(
+        next_topic
+    ).lower()
+
+    if not text_clean or not topic_clean:
+        return False
+
+    # Exact topic phrase.
+    if topic_clean in text_clean:
+        return True
+
+    topic_words = _topic_words(
+        topic_clean
+    )
+
+    if len(topic_words) < 2:
+        return False
+
+    text_words = set(
+        re.findall(
+            r"[A-Za-z0-9'-]+",
+            text_clean,
+        )
+    )
+
+    overlap = {
+        word
+        for word in set(topic_words)
+        if word in text_words
+    }
+
+    # Require almost all meaningful words for short topics.
+    if len(topic_words) <= 3:
+        return len(overlap) >= len(topic_words)
+
+    # For longer topics require at least 70% and at least 3 words.
+    return (
+        len(overlap) >= 3
+        and
+        len(overlap) / len(set(topic_words)) >= 0.70
+    )
+
+
+def _build_next_topic_bridge(
+    next_topic
+):
+    """
+    Fallback bridge used only when Gemini fails to naturally mention the next
+    topic in Scene 7.
+
+    It is intentionally curiosity-based and does not make a factual claim
+    about the next topic.
+    """
+
+    next_topic = _clean(
+        next_topic
+    )
+
+    return (
+        "But that leaves one bigger question: "
+        f"{next_topic}."
     )
 
 
@@ -1042,7 +1164,8 @@ It must NOT feel like:
 ABSOLUTE RESEARCH RULE
 ============================================================
 
-The supplied research evidence is the ONLY factual source.
+The supplied research evidence is the ONLY factual source
+for the CURRENT VIDEO.
 
 You MUST NOT use:
 
@@ -1168,6 +1291,54 @@ explain it naturally.
 
 
 ============================================================
+SCENE 7 NEXT-TOPIC BRIDGE
+============================================================
+
+The CURRENT story must be completed before the next topic appears.
+
+Scene 7 should normally follow this structure:
+
+1. Pay off the current story.
+2. Add one short transition.
+3. Mention next_short.topic as the final curiosity hook.
+
+The next topic MUST be the final topic introduced in narration.
+
+Use the exact or very lightly shortened topic supplied
+in next_short.topic.
+
+Do NOT invent a different next topic.
+
+Do NOT discuss facts about the next topic.
+
+Do NOT explain the next topic.
+
+Do NOT answer the next topic.
+
+Only introduce it as the next question/mystery.
+
+Good:
+
+"But that leaves one bigger question: [NEXT TOPIC]."
+
+"And that raises an even bigger question: [NEXT TOPIC]."
+
+"Which leaves one mystery for another story: [NEXT TOPIC]."
+
+Bad:
+
+"Next we'll explain [NEXT TOPIC]."
+
+"In the next video, you'll learn [NEXT TOPIC]."
+
+"Coming next: [NEXT TOPIC]."
+
+"Stay tuned for [NEXT TOPIC]."
+
+"Subscribe to find out [NEXT TOPIC]."
+
+
+============================================================
 CAPTIONS
 ============================================================
 
@@ -1188,11 +1359,55 @@ Use EXACT source IDs supplied by the research package.
 
 Never invent source IDs.
 
-Every factual scene must reference one or more
+Every factual CURRENT-VIDEO scene must reference one or more
 supporting source IDs.
 
-Scene 7 may contain a purely stylistic closing sentence,
-but factual claims still require evidence.
+Scene 7's next-topic bridge does NOT require a source because
+it is a continuation hook rather than a factual claim.
+
+If Scene 7 contains factual claims about the CURRENT topic,
+those claims still require source IDs.
+
+
+============================================================
+DESCRIPTION
+============================================================
+
+The description describes ONLY the CURRENT VIDEO.
+
+The description MUST NOT:
+
+- mention next_short
+- mention the next topic
+- tease the next topic
+- say "next video"
+- say "coming next"
+- say "stay tuned"
+- say "part 2"
+- describe the continuation topic
+- contain the exact next_short.topic
+
+The description should explain the CURRENT topic only.
+
+Do not use the next topic to generate the description.
+
+
+============================================================
+NEXT SHORT
+============================================================
+
+Create a specific researchable continuation topic that naturally
+follows the CURRENT story.
+
+It is metadata for the next video.
+
+It MUST be mentioned naturally in the final sentence of Scene 7.
+
+It MUST NOT appear anywhere else in the current video's narration.
+
+It MUST NOT appear in the current description.
+
+It MUST NOT be treated as a current-video fact.
 
 
 ============================================================
@@ -1358,33 +1573,6 @@ Do not simply repeat the same composition.
 
 
 ============================================================
-DESCRIPTION
-============================================================
-
-The description describes ONLY the current video.
-
-Do NOT reveal next_short.
-
-Do NOT mention the next topic.
-
-Do NOT mention what the next video will be about.
-
-
-============================================================
-NEXT SHORT
-============================================================
-
-Create a specific researchable topic that naturally follows
-the current story.
-
-It is metadata only.
-
-It MUST NOT be spoken in Scene 7.
-
-It MUST NOT appear in the current description.
-
-
-============================================================
 OUTPUT
 ============================================================
 
@@ -1525,6 +1713,7 @@ HOOK
 → REFRAME
 → ESCALATION
 → PAYOFF
+→ NEXT STORY CURIOSITY HOOK
 
 
 Do not write a list.
@@ -1534,6 +1723,60 @@ Do not write a countdown.
 Do not start with a question.
 
 Do not introduce unrelated facts.
+
+
+============================================================
+CURRENT VIDEO DESCRIPTION
+============================================================
+
+The description must describe ONLY:
+
+{topic}
+
+Do not mention the next topic.
+
+Do not mention next_short.
+
+Do not say what viewers will see next.
+
+Do not use "next video", "coming next", "stay tuned",
+or "part 2".
+
+
+============================================================
+NEXT SHORT
+============================================================
+
+Create a specific researchable continuation topic.
+
+The next_short.topic must:
+
+- naturally follow the CURRENT story
+- be specific
+- be interesting
+- be researchable
+- NOT be the same as the current topic
+
+IMPORTANT:
+
+The final sentence of Scene 7 MUST naturally mention
+next_short.topic.
+
+Do not mention next_short.topic anywhere in Scenes 1–6.
+
+Do not mention next_short.topic in the description.
+
+Do not explain the next topic.
+
+Do not give factual information about the next topic.
+
+Use it only as a curiosity bridge.
+
+Example:
+
+"But that leaves one bigger question: [next_short.topic]."
+
+The exact final wording may vary naturally.
 
 
 ============================================================
@@ -1583,17 +1826,6 @@ Do not convert correlation into causation.
 
 
 ============================================================
-NEXT SHORT
-============================================================
-
-Generate a specific researchable continuation topic.
-
-Do NOT mention it in Scene 7.
-
-Do NOT mention it in the current description.
-
-
-============================================================
 FINAL INTERNAL CHECK
 ============================================================
 
@@ -1613,8 +1845,10 @@ Before returning JSON verify:
 - global visual identity exists
 - visual prompts are distinct
 - Scene 7 completes the current story
-- next_short is not spoken
-- next_short is not revealed in description
+- Scene 7 naturally mentions next_short.topic
+- next_short.topic is NOT mentioned in Scenes 1–6
+- next_short.topic is NOT mentioned in description
+- description describes ONLY the current topic
 
 Return ONLY JSON.
 """
@@ -2212,7 +2446,6 @@ def parse_gemini_json(
 
     text = text.strip()
 
-    # Direct JSON.
     try:
 
         result = json.loads(
@@ -2229,7 +2462,6 @@ def parse_gemini_json(
         pass
 
 
-    # Markdown fenced JSON.
     cleaned = re.sub(
         r"^```(?:json)?\s*",
         "",
@@ -2259,7 +2491,6 @@ def parse_gemini_json(
         pass
 
 
-    # Extract outer object.
     start = cleaned.find(
         "{"
     )
@@ -2328,7 +2559,6 @@ def _sync_captions_to_narration(
 
     scene["narration"] = narration
 
-    # Narration is authoritative.
     scene["subtitle_text"] = narration
 
     tokens = re.findall(
@@ -2776,12 +3006,14 @@ def _allocate_visual_durations(
 
     base = (
         scene_duration
-        // VISUALS_PER_SCENE
+        //
+        VISUALS_PER_SCENE
     )
 
     remainder = (
         scene_duration
-        % VISUALS_PER_SCENE
+        %
+        VISUALS_PER_SCENE
     )
 
     durations = [
@@ -3153,6 +3385,157 @@ def _normalize_next_short(
 
 
 # ============================================================================
+# NEXT TOPIC IN SCENE 7
+# ============================================================================
+
+def _ensure_next_topic_in_scene_7(
+    script
+):
+
+    scenes = script.get(
+        "scene_plan",
+        [],
+    )
+
+    if not isinstance(
+        scenes,
+        list,
+    ) or len(scenes) != SCENE_COUNT:
+
+        raise RuntimeError(
+            "Cannot create next-topic bridge: "
+            "scene_plan is incomplete."
+        )
+
+
+    next_short = script.get(
+        "next_short",
+        {},
+    )
+
+    if not isinstance(
+        next_short,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "next_short is missing."
+        )
+
+
+    next_topic = _clean(
+        next_short.get(
+            "topic",
+            "",
+        )
+    )
+
+    if not next_topic:
+
+        raise RuntimeError(
+            "next_short.topic is empty."
+        )
+
+
+    scene_7 = scenes[SCENE_COUNT - 1]
+
+    if not isinstance(
+        scene_7,
+        dict,
+    ):
+
+        raise RuntimeError(
+            "Scene 7 is invalid."
+        )
+
+
+    narration = _clean(
+        scene_7.get(
+            "narration",
+            "",
+        )
+    )
+
+
+    if not narration:
+
+        raise RuntimeError(
+            "Scene 7 narration is empty."
+        )
+
+
+    # ------------------------------------------------------------------------
+    # The next topic must appear ONLY in Scene 7.
+    # ------------------------------------------------------------------------
+
+    for index, scene in enumerate(
+        scenes[:-1],
+        start=1,
+    ):
+
+        if not isinstance(
+            scene,
+            dict,
+        ):
+            continue
+
+        if _contains_next_topic(
+            scene.get(
+                "narration",
+                "",
+            ),
+            next_topic,
+        ):
+
+            raise RuntimeError(
+                f"Next Short topic appears in "
+                f"Scene {index}. It may only appear "
+                "in Scene 7."
+            )
+
+
+    # ------------------------------------------------------------------------
+    # If Gemini already included the topic, preserve it.
+    # ------------------------------------------------------------------------
+
+    if _contains_next_topic(
+        narration,
+        next_topic,
+    ):
+
+        scene_7[
+            "narration"
+        ] = narration
+
+        return
+
+
+    # ------------------------------------------------------------------------
+    # Gemini failed to mention it. Add a concise bridge.
+    #
+    # This is a deterministic repair rather than another API call.
+    # ------------------------------------------------------------------------
+
+    bridge = _build_next_topic_bridge(
+        next_topic
+    )
+
+
+    # Avoid awkward double punctuation.
+    narration = narration.rstrip()
+
+    if narration[-1:] not in ".!?":
+        narration += "."
+
+
+    scene_7[
+        "narration"
+    ] = (
+        f"{narration} {bridge}"
+    )
+
+
+# ============================================================================
 # DESCRIPTION SAFETY
 # ============================================================================
 
@@ -3174,154 +3557,163 @@ def _validate_description(
         )
 
 
+    # ------------------------------------------------------------------------
+    # The description is checked ONLY against the next topic.
+    #
+    # We do NOT require the description to avoid every shared word because
+    # current and next topics can naturally overlap.
+    # ------------------------------------------------------------------------
+
     next_short = script.get(
         "next_short",
         {},
     )
 
-    if not isinstance(
+    if isinstance(
         next_short,
         dict,
     ):
 
-        script[
-            "description"
-        ] = description
-
-        return
-
-
-    next_topic = _clean(
-        next_short.get(
-            "topic",
-            "",
-        )
-    ).lower()
-
-
-    if not next_topic:
-
-        script[
-            "description"
-        ] = description
-
-        return
-
-
-    stop_words = {
-        "what",
-        "why",
-        "how",
-        "when",
-        "where",
-        "which",
-        "does",
-        "this",
-        "that",
-        "these",
-        "those",
-        "the",
-        "and",
-        "for",
-        "with",
-        "from",
-        "into",
-        "about",
-        "your",
-        "our",
-        "their",
-        "will",
-        "can",
-        "could",
-        "would",
-    }
-
-
-    topic_words = [
-
-        word
-
-        for word in re.findall(
-            r"[A-Za-z0-9'-]+",
-            next_topic,
-        )
-
-        if (
-            len(word) >= 4
-            and
-            word not in stop_words
-        )
-    ]
-
-
-    if len(
-        topic_words
-    ) < 2:
-
-        script[
-            "description"
-        ] = description
-
-        return
-
-
-    description_words = set(
-        re.findall(
-            r"[A-Za-z0-9'-]+",
-            description.lower(),
-        )
-    )
-
-
-    overlap = [
-
-        word
-
-        for word in set(
-            topic_words
-        )
-
-        if word in description_words
-    ]
-
-
-    unique_count = len(
-        set(topic_words)
-    )
-
-
-    if unique_count == 2:
-
-        reject = (
-            len(overlap) == 2
-        )
-
-    else:
-
-        reject = (
-            len(overlap) >= 2
-            and
-            len(overlap)
-            >= int(
-                unique_count * 0.7
+        next_topic = _clean(
+            next_short.get(
+                "topic",
+                "",
             )
         )
 
+        if next_topic and _contains_next_topic(
+            description,
+            next_topic,
+        ):
 
-    if reject:
+            raise RuntimeError(
+                "Current description reveals the "
+                "next Short topic.\n"
+                f"Next topic: {next_topic}\n"
+                f"Description: {description}"
+            )
 
-        raise RuntimeError(
-            "Current description appears to reveal "
-            "the next Short topic.\n"
-            f"Next topic: {next_topic}\n"
-            f"Matching words: {overlap}\n"
-            f"Description: {description}"
-        )
+
+    # ------------------------------------------------------------------------
+    # Block explicit continuation language.
+    # ------------------------------------------------------------------------
+
+    forbidden_phrases = [
+        "next video",
+        "next short",
+        "coming next",
+        "stay tuned",
+        "part 2",
+        "part two",
+        "in the next video",
+        "in the next short",
+        "watch next",
+        "watch the next",
+        "follow for the next",
+    ]
+
+
+    description_lower = (
+        description.lower()
+    )
+
+
+    for phrase in forbidden_phrases:
+
+        if phrase in description_lower:
+
+            raise RuntimeError(
+                "Current description contains "
+                f"continuation language: '{phrase}'."
+            )
 
 
     script[
         "description"
     ] = description
+
+
+# ============================================================================
+# CURRENT TOPIC DESCRIPTION REPAIR
+# ============================================================================
+
+def _repair_description_if_needed(
+    script,
+    current_topic,
+):
+
+    description = _clean(
+        script.get(
+            "description",
+            "",
+        )
+    )
+
+    next_short = script.get(
+        "next_short",
+        {},
+    )
+
+    next_topic = ""
+
+    if isinstance(
+        next_short,
+        dict,
+    ):
+
+        next_topic = _clean(
+            next_short.get(
+                "topic",
+                "",
+            )
+        )
+
+
+    if description:
+
+        try:
+
+            candidate = {
+                "description":
+                    description,
+
+                "next_short":
+                    {
+                        "topic":
+                            next_topic
+                    },
+            }
+
+            _validate_description(
+                candidate
+            )
+
+            return
+
+
+        except RuntimeError:
+
+            pass
+
+
+    # ------------------------------------------------------------------------
+    # Safe fallback.
+    #
+    # This guarantees that the published description is about the CURRENT
+    # topic and contains no continuation information.
+    # ------------------------------------------------------------------------
+
+    current_topic = _clean(
+        current_topic
+    )
+
+    script[
+        "description"
+    ] = (
+        f"Explore the science behind {current_topic}, "
+        "including the evidence, mechanism, and surprising "
+        "details that make this phenomenon so fascinating."
+    )
 
 
 # ============================================================================
@@ -4331,6 +4723,15 @@ def validate_script(
 
 
     # ------------------------------------------------------------------------
+    # Make sure the next topic is actually spoken in Scene 7.
+    # ------------------------------------------------------------------------
+
+    _ensure_next_topic_in_scene_7(
+        script
+    )
+
+
+    # ------------------------------------------------------------------------
     # Validate scenes.
     # ------------------------------------------------------------------------
 
@@ -4349,8 +4750,6 @@ def validate_script(
             index,
         )
 
-
-        # Scene 7 always completes the current story.
 
         if index == SCENE_COUNT:
 
@@ -4719,7 +5118,7 @@ def validate_script(
             total_visuals,
 
         "story_format":
-            "hook_curiosity_explanation_example_reframe_escalation_payoff",
+            "hook_curiosity_explanation_example_reframe_escalation_payoff_next_topic_hook",
     }
 
 
@@ -4744,6 +5143,12 @@ def validate_script(
             True,
 
         "next_short_spoken_in_scene_7":
+            True,
+
+        "next_short_spoken_only_in_scene_7":
+            True,
+
+        "next_short_topic_in_description":
             False,
 
         "subscription_strategy":
@@ -4905,6 +5310,16 @@ def generate_script(
     )
 
 
+    print(
+        "Next-topic Scene 7 bridge: ENABLED"
+    )
+
+
+    print(
+        "Current-topic-only description: ENABLED"
+    )
+
+
     print("=" * 80)
 
 
@@ -4978,11 +5393,23 @@ Use only supplied evidence.
 
 Use exact supplied source IDs.
 
-Scene 7 completes the current story.
+Scene 7 MUST complete the current story and then
+naturally mention next_short.topic as the final curiosity hook.
 
-Do not mention next_short in Scene 7.
+The next topic MUST NOT appear in Scenes 1–6.
 
-Do not reveal next_short in description.
+The next topic MUST NOT appear in the description.
+
+The description MUST describe ONLY the current topic.
+
+Do not use:
+
+"Next we'll..."
+"In the next video..."
+"Coming next..."
+"Stay tuned..."
+"Part 2..."
+"Subscribe for..."
 
 
 ============================================================
@@ -5155,6 +5582,86 @@ Return ONLY JSON.
 
 
             # ----------------------------------------------------------------
+            # Final current-topic description safety repair.
+            # ----------------------------------------------------------------
+
+            _repair_description_if_needed(
+                script,
+                topic,
+            )
+
+
+            # Validate the repaired description one final time.
+            _validate_description(
+                script
+            )
+
+
+            # ----------------------------------------------------------------
+            # Final next-topic verification.
+            # ----------------------------------------------------------------
+
+            final_next_topic = _clean(
+                script[
+                    "next_short"
+                ][
+                    "topic"
+                ]
+            )
+
+
+            final_scene_7 = _clean(
+                script[
+                    "scene_plan"
+                ][6][
+                    "narration"
+                ]
+            )
+
+
+            if not _contains_next_topic(
+                final_scene_7,
+                final_next_topic,
+            ):
+
+                raise RuntimeError(
+                    "Scene 7 does not mention "
+                    "next_short.topic."
+                )
+
+
+            for scene_index, scene in enumerate(
+                script["scene_plan"][:6],
+                start=1,
+            ):
+
+                if _contains_next_topic(
+                    scene.get(
+                        "narration",
+                        "",
+                    ),
+                    final_next_topic,
+                ):
+
+                    raise RuntimeError(
+                        f"next_short.topic appears "
+                        f"in Scene {scene_index}. "
+                        "It may only appear in Scene 7."
+                    )
+
+
+            if _contains_next_topic(
+                script["description"],
+                final_next_topic,
+            ):
+
+                raise RuntimeError(
+                    "next_short.topic appears in "
+                    "the current description."
+                )
+
+
+            # ----------------------------------------------------------------
             # Success.
             # ----------------------------------------------------------------
 
@@ -5237,13 +5744,31 @@ Return ONLY JSON.
 
 
             print(
+                "Current description: "
+                "CURRENT TOPIC ONLY"
+            )
+
+
+            print(
                 "Next Short: "
                 f"{script['next_short']['topic']}"
             )
 
 
             print(
-                "Next topic forced into Scene 7: "
+                "Next topic spoken in Scene 7: "
+                "YES"
+            )
+
+
+            print(
+                "Next topic spoken in Scenes 1–6: "
+                "NO"
+            )
+
+
+            print(
+                "Next topic in description: "
                 "NO"
             )
 
@@ -5339,7 +5864,7 @@ if __name__ == "__main__":
 
     print(
         "generate_script.py "
-        "v9.0 is a pipeline module."
+        "v10.0 is a pipeline module."
     )
 
     print(

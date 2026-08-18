@@ -32,41 +32,74 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: requirements.txt
 
       # --------------------------------------------------------
       # FFMPEG
       # --------------------------------------------------------
 
-      - name: Install FFmpeg
+      - name: Check FFmpeg
+        shell: bash
         run: |
           echo "=========================================="
-          echo "🎬 Installing FFmpeg"
+          echo "🎬 Checking FFmpeg"
           echo "=========================================="
 
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg
+          if command -v ffmpeg >/dev/null 2>&1; then
+            echo "✅ FFmpeg already available"
+            which ffmpeg
+            ffmpeg -version | head -n 1
+          else
+            echo "⚠️ FFmpeg not found."
+            echo "Installing FFmpeg..."
 
-          ffmpeg -version
+            sudo apt-get update -qq
+            sudo apt-get install -y ffmpeg
+
+            echo "✅ FFmpeg installed"
+            ffmpeg -version | head -n 1
+          fi
 
       # --------------------------------------------------------
       # IMAGEMAGICK
       # --------------------------------------------------------
 
-      - name: Install ImageMagick
+      - name: Check ImageMagick
+        shell: bash
         run: |
           echo "=========================================="
-          echo "🖼️ Installing ImageMagick"
+          echo "🖼️ Checking ImageMagick"
           echo "=========================================="
 
-          sudo apt-get install -y imagemagick
+          if command -v convert >/dev/null 2>&1; then
+            echo "✅ ImageMagick already available"
+            which convert
+            convert --version | head -n 1
+          else
+            echo "⚠️ ImageMagick not found."
+            echo "Installing ImageMagick..."
 
-          sudo sed -i \
-            's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
-            /etc/ImageMagick-6/policy.xml
+            sudo apt-get update -qq
+            sudo apt-get install -y imagemagick
 
-          echo "ImageMagick:"
-          which convert
-          convert --version
+            echo "✅ ImageMagick installed"
+            which convert
+            convert --version | head -n 1
+          fi
+
+          # Allow ImageMagick to read/write @ files if policy exists
+          if [ -f /etc/ImageMagick-6/policy.xml ]; then
+            sudo sed -i \
+              's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
+              /etc/ImageMagick-6/policy.xml
+          fi
+
+          if [ -f /etc/ImageMagick-7/policy.xml ]; then
+            sudo sed -i \
+              's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
+              /etc/ImageMagick-7/policy.xml
+          fi
 
       # --------------------------------------------------------
       # PYTHON DEPENDENCIES

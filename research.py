@@ -1,5 +1,5 @@
 """
-research.py - Mint-YT-Factory v9.0
+research.py - Mint-YT-Factory v9.1
 
 Dynamic research-first evidence layer.
 
@@ -31,7 +31,7 @@ import requests
 # CONFIG
 # ============================================================================
 
-VERSION = "9.0"
+VERSION = "9.1"
 
 CROSSREF_URL = "https://api.crossref.org/v1/works"
 SEMANTIC_SEARCH_URL = (
@@ -56,6 +56,12 @@ MIN_ABSTRACT_CHARACTERS = 120
 MAX_EVIDENCE_TEXT_CHARACTERS = 12000
 
 TITLE_SIMILARITY_MINIMUM = 0.55
+
+# Minimum dynamic relevance requirements.
+MIN_CORE_TERM_MATCHES = 2
+MIN_TITLE_CORE_MATCHES = 1
+MIN_ABSTRACT_CORE_MATCHES = 1
+MIN_QUESTION_FOCUS_SCORE = 4
 
 SEMANTIC_RETRIES = 0
 SEMANTIC_BACKOFF_SECONDS = 4
@@ -289,7 +295,7 @@ def _text_clean_for_matching(text):
 
 
 # ============================================================================
-# TOPIC TERMS
+# QUESTION TERMS
 # ============================================================================
 
 STOPWORDS = {
@@ -356,6 +362,59 @@ STOPWORDS = {
 }
 
 
+# Generic words that frequently appear in scholarly writing
+# but should not independently establish relevance.
+GENERIC_RESEARCH_TERMS = {
+    "study",
+    "studies",
+    "research",
+    "result",
+    "results",
+    "finding",
+    "findings",
+    "analysis",
+    "analyses",
+    "data",
+    "paper",
+    "article",
+    "review",
+    "effect",
+    "effects",
+    "impact",
+    "association",
+    "associated",
+    "relationship",
+    "relationships",
+    "role",
+    "roles",
+    "factor",
+    "factors",
+    "mechanism",
+    "mechanisms",
+    "cause",
+    "causes",
+    "causal",
+    "process",
+    "processes",
+    "explanation",
+    "explanations",
+    "evidence",
+    "population",
+    "participants",
+    "people",
+    "individuals",
+    "human",
+    "humans",
+    "model",
+    "models",
+    "system",
+    "systems",
+    "method",
+    "methods",
+    "resulting",
+}
+
+
 def _tokenize(text):
     return [
         token
@@ -372,6 +431,14 @@ def _topic_terms(topic):
     return set(
         _tokenize(topic)
     )
+
+
+def _core_topic_terms(topic):
+    return {
+        term
+        for term in _topic_terms(topic)
+        if term not in GENERIC_RESEARCH_TERMS
+    }
 
 
 def _stem_variants(term):
@@ -412,6 +479,14 @@ def _expanded_topic_terms(topic):
     return expanded
 
 
+def _core_expanded_topic_terms(topic):
+    return {
+        term
+        for term in _expanded_topic_terms(topic)
+        if term not in GENERIC_RESEARCH_TERMS
+    }
+
+
 def _stem_like_match(term, text):
     if not term:
         return False
@@ -448,6 +523,34 @@ def _matched_terms(terms, text):
     }
 
 
+def _matched_phrases(topic, text):
+    """
+    Find meaningful 2- and 3-word phrases from the question.
+
+    This is intentionally generated dynamically from the question.
+    """
+
+    tokens = _tokenize(topic)
+    clean_text = _text_clean_for_matching(text)
+
+    phrases = set()
+
+    for size in (3, 2):
+        for index in range(
+            len(tokens) - size + 1
+        ):
+            phrase = " ".join(
+                tokens[
+                    index:index + size
+                ]
+            )
+
+            if len(phrase) >= 6 and phrase in clean_text:
+                phrases.add(phrase)
+
+    return phrases
+
+
 # ============================================================================
 # QUERY GENERATION
 # ============================================================================
@@ -456,13 +559,17 @@ def build_scholarly_queries(topic):
     """
     Generate several research queries from the actual question.
 
-    No hardcoded subject vocabulary.
+    No fixed subject vocabulary is used.
     """
 
     topic = _clean(topic)
 
     base = sorted(
         _topic_terms(topic)
+    )
+
+    core = sorted(
+        _core_topic_terms(topic)
     )
 
     expanded = sorted(
@@ -482,19 +589,26 @@ def build_scholarly_queries(topic):
             )
         )
 
-    if base and expanded:
+    if core:
         queries.append(
             " ".join(
-                base[:7]
+                core[:10]
+            )
+        )
+
+    if core and expanded:
+        queries.append(
+            " ".join(
+                core[:7]
                 + expanded[:7]
             )
         )
 
     # Mechanism-oriented query.
-    if base:
+    if core:
         queries.append(
             " ".join(
-                base[:8]
+                core[:8]
                 + [
                     "mechanism",
                     "cause",
@@ -504,10 +618,10 @@ def build_scholarly_queries(topic):
         )
 
     # Effect-oriented query.
-    if base:
+    if core:
         queries.append(
             " ".join(
-                base[:8]
+                core[:8]
                 + [
                     "effect",
                     "explanation",
@@ -539,6 +653,38 @@ def build_scholarly_queries(topic):
 # DYNAMIC RELEVANCE
 # ============================================================================
 
+def _calculate_question_focus(topic):
+    """
+    Determine how specific the question is.
+
+    Longer questions contain more information and therefore require
+    stronger evidence overlap.
+    """
+
+    tokens = _tokenize(topic)
+    core = _core_topic_terms(topic)
+
+    score = 0
+
+    score += min(
+        len(tokens),
+        8,
+    )
+
+    score += min(
+        len(core),
+        8,
+    )
+
+    if len(tokens) >= 6:
+        score += 2
+
+    if len(core) >= 4:
+        score += 2
+
+    return score
+
+
 def _relevance_score(topic, source):
     title = _clean(
         source.get(
@@ -567,7 +713,10 @@ def _relevance_score(topic, source):
     )
 
     terms = _topic_terms(topic)
+    core_terms = _core_topic_terms(topic)
+
     expanded = _expanded_topic_terms(topic)
+    core_expanded = _core_expanded_topic_terms(topic)
 
     title_matches = _matched_terms(
         terms,
@@ -576,6 +725,16 @@ def _relevance_score(topic, source):
 
     evidence_matches = _matched_terms(
         terms,
+        evidence_clean,
+    )
+
+    core_title_matches = _matched_terms(
+        core_terms,
+        title_clean,
+    )
+
+    core_evidence_matches = _matched_terms(
+        core_terms,
         evidence_clean,
     )
 
@@ -589,12 +748,43 @@ def _relevance_score(topic, source):
         evidence_clean,
     )
 
+    core_expanded_title_matches = _matched_terms(
+        core_expanded - core_terms,
+        title_clean,
+    )
+
+    core_expanded_evidence_matches = _matched_terms(
+        core_expanded - core_terms,
+        evidence_clean,
+    )
+
+    title_phrases = _matched_phrases(
+        topic,
+        title_clean,
+    )
+
+    evidence_phrases = _matched_phrases(
+        topic,
+        evidence_clean,
+    )
+
     score = 0
 
-    score += len(title_matches) * 8
-    score += len(evidence_matches) * 3
-    score += len(expanded_title_matches) * 5
-    score += len(expanded_evidence_matches)
+    # Core terms carry the majority of the relevance weight.
+    score += len(core_title_matches) * 12
+    score += len(core_evidence_matches) * 5
+
+    # Morphological variants.
+    score += len(core_expanded_title_matches) * 7
+    score += len(core_expanded_evidence_matches) * 2
+
+    # Non-core terms have lower influence.
+    score += len(title_matches - core_terms) * 2
+    score += len(evidence_matches - core_terms)
+
+    # Phrase matches are strong evidence of contextual relevance.
+    score += len(title_phrases) * 10
+    score += len(evidence_phrases) * 4
 
     normalized_topic = _normalize_title(topic)
     normalized_title = _normalize_title(title)
@@ -603,26 +793,33 @@ def _relevance_score(topic, source):
         normalized_topic
         and normalized_topic in normalized_title
     ):
-        score += 20
+        score += 30
 
-    topic_tokens = list(
-        _tokenize(topic)
+    # Exact ordered core phrase.
+    core_tokens = sorted(
+        core_terms
     )
 
     for size in (3, 2):
         for index in range(
-            len(topic_tokens) - size + 1
+            len(core_tokens) - size + 1
         ):
             phrase = " ".join(
-                topic_tokens[
+                core_tokens[
                     index:index + size
                 ]
             )
 
             if phrase in title_clean:
-                score += 6 if size == 3 else 3
+                score += 8 if size == 3 else 4
 
-    # Strong evidence must contain multiple meaningful topic terms.
+    matched_core_total = (
+        core_title_matches
+        | core_evidence_matches
+        | core_expanded_title_matches
+        | core_expanded_evidence_matches
+    )
+
     matched_total = (
         title_matches
         | evidence_matches
@@ -630,50 +827,97 @@ def _relevance_score(topic, source):
         | expanded_evidence_matches
     )
 
-    if len(terms) >= 4:
+    question_focus_score = _calculate_question_focus(
+        topic
+    )
+
+    # ----------------------------------------------------------------------
+    # ACTUAL INTENT PASS
+    # ----------------------------------------------------------------------
+
+    intent_pass = False
+    relevance_class = "weak"
+
+    if not core_terms:
+        intent_pass = bool(
+            matched_total
+            or title_phrases
+            or evidence_phrases
+        )
+
+    elif len(core_terms) == 1:
+        intent_pass = bool(
+            core_title_matches
+            or core_evidence_matches
+        )
+
+    elif len(core_terms) == 2:
+        intent_pass = (
+            len(matched_core_total) >= 2
+            and (
+                len(core_title_matches) >= 1
+                or len(core_evidence_matches) >= 2
+            )
+        )
+
+    else:
+        # For specific questions, require multiple core concepts.
+        intent_pass = (
+            len(matched_core_total)
+            >= min(
+                MIN_CORE_TERM_MATCHES,
+                len(core_terms),
+            )
+            and (
+                len(core_title_matches)
+                >= MIN_TITLE_CORE_MATCHES
+                or len(core_evidence_matches)
+                >= MIN_ABSTRACT_CORE_MATCHES
+            )
+        )
+
+        # Stronger requirement for highly specific questions.
         if (
-            len(title_matches) >= 2
-            and len(evidence_matches) >= 2
+            question_focus_score
+            >= MIN_QUESTION_FOCUS_SCORE + 6
+        ):
+            intent_pass = (
+                intent_pass
+                and len(matched_core_total) >= 3
+            )
+
+    # ----------------------------------------------------------------------
+    # CLASSIFICATION
+    # ----------------------------------------------------------------------
+
+    if intent_pass:
+        if (
+            len(core_title_matches) >= 2
+            and len(core_evidence_matches) >= 2
         ):
             relevance_class = "strong"
 
         elif (
-            len(title_matches) >= 1
-            and len(matched_total) >= 4
+            len(core_title_matches) >= 1
+            and len(matched_core_total) >= 3
         ):
             relevance_class = "strong"
 
-        elif len(matched_total) >= 3:
-            relevance_class = "moderate"
-
-        else:
-            relevance_class = "weak"
-
-    elif len(terms) >= 2:
-        if (
-            len(title_matches) >= 1
-            and len(evidence_matches) >= 1
+        elif (
+            len(matched_core_total) >= 2
+            and (
+                len(core_title_matches) >= 1
+                or len(core_evidence_matches) >= 2
+            )
         ):
-            relevance_class = "strong"
-
-        elif len(matched_total) >= 2:
             relevance_class = "moderate"
 
-        else:
-            relevance_class = "weak"
-
-    else:
-        relevance_class = (
-            "moderate"
-            if matched_total
-            else "weak"
-        )
-
-    # Prevent sources that only match one generic word.
+    # Explicitly reject keyword-only matches.
     if (
-        len(terms) >= 3
-        and len(matched_total) < 2
+        len(core_terms) >= 3
+        and len(matched_core_total) < 2
     ):
+        intent_pass = False
         relevance_class = "weak"
 
     source.update(
@@ -681,8 +925,14 @@ def _relevance_score(topic, source):
             "matched_terms": sorted(
                 matched_total
             ),
+            "core_matched_terms": sorted(
+                matched_core_total
+            ),
             "topic_terms": sorted(
                 terms
+            ),
+            "core_topic_terms": sorted(
+                core_terms
             ),
             "expanded_topic_terms": sorted(
                 expanded
@@ -693,20 +943,37 @@ def _relevance_score(topic, source):
             "abstract_match_count": len(
                 evidence_matches
             ),
+            "core_title_match_count": len(
+                core_title_matches
+            ),
+            "core_abstract_match_count": len(
+                core_evidence_matches
+            ),
             "expanded_title_match_count": len(
                 expanded_title_matches
             ),
             "expanded_abstract_match_count": len(
                 expanded_evidence_matches
             ),
+            "title_phrase_matches": sorted(
+                title_phrases
+            ),
+            "abstract_phrase_matches": sorted(
+                evidence_phrases
+            ),
+            "question_focus_score": question_focus_score,
             "relevance_class": relevance_class,
             "relevance_score": score,
-            "intent_pass": True,
-            "intent_class": "dynamic",
+            "intent_pass": intent_pass,
+            "intent_class": (
+                "question_focused"
+                if intent_pass
+                else "insufficient_question_alignment"
+            ),
             "question_intents": [],
-            "intent_score": 0,
+            "intent_score": score,
             "intent_mechanism_matches": sorted(
-                matched_total
+                matched_core_total
             ),
             "intent_event_matches": [],
             "intent_target_matches": [],
@@ -732,11 +999,11 @@ def relevance_filter(
     )
 
     print(
-        "Terms: "
+        "Core terms: "
         + (
             ", ".join(
                 sorted(
-                    _topic_terms(topic)
+                    _core_topic_terms(topic)
                 )
             )
             or "none"
@@ -761,37 +1028,60 @@ def relevance_filter(
             "weak",
         )
 
-        if classification in {
-            "strong",
-            "moderate",
-        }:
+        intent_pass = source.get(
+            "intent_pass",
+            False,
+        )
+
+        print(
+            f"\n   Source: {title}"
+        )
+
+        print(
+            f"   Score: {score}"
+        )
+
+        print(
+            f"   Class: {classification}"
+        )
+
+        print(
+            "   Core matches: "
+            + ", ".join(
+                source.get(
+                    "core_matched_terms",
+                    [],
+                )
+            )
+            or "none"
+        )
+
+        print(
+            f"   Intent pass: {intent_pass}"
+        )
+
+        if (
+            classification in {
+                "strong",
+                "moderate",
+            }
+            and intent_pass is True
+        ):
             accepted.append(
                 source
             )
 
             print(
-                f"✅ RELEVANT: {title}"
-            )
-
-            print(
-                f"   Score: {score}"
-            )
-
-            print(
-                f"   Class: {classification}"
+                "   ✅ RELEVANT"
             )
 
         else:
             print(
-                f"❌ REJECTED: {title}"
-            )
-
-            print(
-                f"   Score: {score}"
+                "   ❌ REJECTED"
             )
 
     print(
-        f"Relevant candidates: {len(accepted)}"
+        f"\nRelevant candidates: {len(accepted)}"
     )
 
     return accepted
@@ -1153,7 +1443,9 @@ def search_crossref(topic):
                 "source_database": "Crossref",
                 "source_databases": ["Crossref"],
                 "discovery_provider": "Crossref",
-                "discovery_providers": ["Crossref"],
+                "discovery_providers": [
+                    "Crossref"
+                ],
                 "title": title,
                 "authors": _authors_crossref(item),
                 "journal": _clean(
@@ -2902,6 +3194,10 @@ def limit_sources(sources):
                 "relevance_score",
                 0,
             ),
+            source.get(
+                "question_focus_score",
+                0,
+            ),
             evidence_provider_count,
             citation_count,
         )
@@ -3008,12 +3304,12 @@ def validate_source_ids(sources):
 
         if source_id in seen_ids:
             raise RuntimeError(
-                f"RESEARCH FAILED: duplicate source_id."
+                "RESEARCH FAILED: duplicate source_id."
             )
 
         if doi in seen_dois:
             raise RuntimeError(
-                f"RESEARCH FAILED: duplicate DOI."
+                "RESEARCH FAILED: duplicate DOI."
             )
 
         seen_ids.add(source_id)
@@ -3302,6 +3598,10 @@ def research_topic(topic):
                 "relevance_score",
                 0,
             ),
+            source.get(
+                "question_focus_score",
+                0,
+            ),
             len(
                 source.get(
                     "abstract",
@@ -3408,6 +3708,9 @@ def research_topic(topic):
             and source.get(
                 "verified"
             ) is True
+            and source.get(
+                "intent_pass"
+            ) is True
         )
     ]
 
@@ -3456,6 +3759,10 @@ def research_topic(topic):
                 _topic_terms(topic)
             ),
 
+            "core_topic_terms": sorted(
+                _core_topic_terms(topic)
+            ),
+
             "expanded_terms": sorted(
                 _expanded_topic_terms(topic)
             ),
@@ -3467,7 +3774,7 @@ def research_topic(topic):
             "question_intents": [],
 
             "mechanism_terms": sorted(
-                _topic_terms(topic)
+                _core_topic_terms(topic)
             ),
 
             "event_terms": [],
@@ -3551,6 +3858,14 @@ def research_topic(topic):
             "question_mechanism_protection": True,
 
             "hardcoded_subject_rules": False,
+
+            "keyword_only_relevance_allowed": False,
+
+            "question_focus_relevance_enabled": True,
+
+            "core_term_relevance_enabled": True,
+
+            "phrase_relevance_enabled": True,
         },
 
         "source_count": len(
@@ -3594,6 +3909,11 @@ def research_topic(topic):
             f"   Relevance: "
             f"{source.get('relevance_class', '')} "
             f"({source.get('relevance_score', 0)})"
+        )
+
+        print(
+            f"   Intent: "
+            f"{source.get('intent_pass', False)}"
         )
 
         print(

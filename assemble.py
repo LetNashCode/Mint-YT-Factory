@@ -117,7 +117,7 @@ BASE_DIR = os.path.dirname(
 FONT = os.path.join(
     BASE_DIR,
     "assets",
-    "fonts",
+    "Fonts",
     "Poppins-ExtraBold.ttf",
 )
 

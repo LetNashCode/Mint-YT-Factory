@@ -2,7 +2,7 @@
 assemble.py
 Mint-YT-Factory
 
-Version 8.1
+Version 8.2
 
 PURPOSE
 -------
@@ -17,23 +17,22 @@ PRODUCTION CONTRACT
 - 45-second storyboard
 - Portrait 9:16
 - Narration-driven captions
+- ONE WORD AT A TIME captions
 - Scene-aware highlighted words
 - Cinematic image motion
 - Music support
 - SFX support
 - Visual continuity metadata
 
-IMPORTANT
----------
-The storyboard is the creative source of truth.
-
-The 14 images are not treated as a random slideshow.
-
-Each image:
-    - belongs to a specific scene
-    - has a specific visual prompt
-    - has its own animation
-    - advances the story
+CAPTION SYSTEM v8.2
+-------------------
+- Exactly one spoken word visible at a time
+- Whisper word timestamps control timing
+- Main/emphasis words are yellow
+- Normal words are white
+- No caption background rectangle
+- Black stroke + subtle shadow for readability
+- Captions remain centered
 """
 
 
@@ -99,17 +98,6 @@ DEFAULT_FPS = 30
 # CAPTIONS
 # ==========================================================================
 
-# IMPORTANT:
-# Resolve the font from the actual location of this file rather than
-# relying on the current working directory.
-#
-# This prevents GitHub Actions / ImageMagick from receiving a fragile
-# relative path such as:
-#
-#     assets/fonts/Poppins-ExtraBold.ttf
-#
-# Instead it receives the full absolute path.
-
 BASE_DIR = os.path.dirname(
     os.path.abspath(__file__)
 )
@@ -130,30 +118,42 @@ print(
     f"✅ Caption font found: {FONT}"
 )
 
-CAPTION_FONT_SIZE = 74
+
+# --------------------------------------------------------------------------
+# Caption visual design
+# --------------------------------------------------------------------------
+
+CAPTION_FONT_SIZE = 78
 
 CAPTION_COLOR = "white"
 
 CAPTION_HIGHLIGHT_COLOR = "#FFD54A"
 
+CAPTION_STROKE = "#111111"
+
+CAPTION_STROKE_WIDTH = 3
+
 CAPTION_SHADOW_COLOR = "black"
 
-CAPTION_SHADOW_OPACITY = 0.65
+CAPTION_SHADOW_OPACITY = 0.55
 
 CAPTION_SHADOW_OFFSET = 4
 
-CAPTION_STROKE = "#111111"
-
-CAPTION_STROKE_WIDTH = 2
-
+# Vertical position as percentage of video height.
+#
+# 0.64 means approximately 64% down the screen.
+# This keeps captions around the lower-middle area rather than
+# sitting directly on the bottom YouTube UI.
 CAPTION_VERTICAL_POSITION = 0.64
 
-# Maximum words displayed at once.
-# This fixes the previous one-word-at-a-time problem.
-CAPTION_WORDS_PER_GROUP = 3
+# Minimum caption duration.
+CAPTION_MIN_DURATION = 0.05
 
-# Small overlap between caption groups is avoided.
-CAPTION_MIN_DURATION = 0.06
+# Maximum amount of time a single word is allowed to remain
+# on screen when Whisper reports an unusually long gap.
+#
+# This prevents one word from hanging on screen during a pause.
+CAPTION_MAX_DURATION = 1.20
 
 
 # ==========================================================================
@@ -333,41 +333,62 @@ def get_caption_highlights(
         [],
     )
 
-    if not isinstance(
+    result = set()
+
+    if isinstance(
         raw,
         list,
     ):
-        return set()
 
-    result = set()
+        for item in raw:
 
-    for item in raw:
+            if isinstance(
+                item,
+                dict,
+            ):
 
-        if isinstance(
-            item,
-            dict,
-        ):
-
-            word = item.get(
-                "word",
-                "",
-            )
-
-        else:
-
-            word = item
-
-        word = str(
-            word
-        ).strip().lower()
-
-        if word:
-
-            result.add(
-                word.strip(
-                    ".,!?;:\"'()[]{}"
+                word = item.get(
+                    "word",
+                    "",
                 )
+
+            else:
+
+                word = item
+
+            word = str(
+                word
+            ).strip().lower()
+
+            if word:
+
+                result.add(
+                    word.strip(
+                        ".,!?;:\"'()[]{}"
+                    )
+                )
+
+    # ----------------------------------------------------------------------
+    # Also respect emphasis_word.
+    #
+    # generate_script.py already produces this field.
+    # If it is present, it should always be treated as a main word.
+    # ----------------------------------------------------------------------
+
+    emphasis_word = str(
+        scene.get(
+            "emphasis_word",
+            "",
+        )
+    ).strip().lower()
+
+    if emphasis_word:
+
+        result.add(
+            emphasis_word.strip(
+                ".,!?;:\"'()[]{}"
             )
+        )
 
     return result
 
@@ -1075,35 +1096,57 @@ def caption_position(
 
 
 # ==========================================================================
-# TEXT CLIP
+# CAPTION TEXT CLIP
 # ==========================================================================
 
-def create_caption(
-    text,
+def _make_word_clip(
+    word,
     color,
-    start,
-    duration,
-    position,
-    opacity=1.0,
 ):
 
-    clip = TextClip(
-        text,
+    """
+    Create a single transparent text layer.
+
+    IMPORTANT:
+    method='label' is intentional.
+
+    The previous implementation used method='caption'.
+    That mode is designed for caption boxes / constrained text
+    and can produce unwanted background/layout behavior.
+
+    'label' creates only the text itself with transparency.
+    """
+
+    return TextClip(
+        word,
         font=FONT,
         fontsize=CAPTION_FONT_SIZE,
         color=color,
         stroke_color=CAPTION_STROKE,
         stroke_width=CAPTION_STROKE_WIDTH,
-        method="caption",
-        align="center",
+        method="label",
     )
 
-    return (
-        clip
-        .set_start(start)
-        .set_duration(duration)
-        .set_position(position)
-        .set_opacity(opacity)
+
+def _make_word_shadow(
+    word,
+):
+
+    """
+    Create a subtle shadow behind the word.
+
+    This is NOT a background box.
+    It is only a slightly offset duplicate of the text.
+    """
+
+    return TextClip(
+        word,
+        font=FONT,
+        fontsize=CAPTION_FONT_SIZE,
+        color=CAPTION_SHADOW_COLOR,
+        stroke_color=CAPTION_SHADOW_COLOR,
+        stroke_width=CAPTION_STROKE_WIDTH,
+        method="label",
     )
 
 
@@ -1123,34 +1166,44 @@ def _normalize_caption_word(
 
 
 # ==========================================================================
-# CAPTION GROUPING
+# NORMALIZE WHISPER WORDS
 # ==========================================================================
 
-def _group_caption_words(
+def _normalize_whisper_words(
     words,
-    max_words=CAPTION_WORDS_PER_GROUP,
 ):
+
     """
-    Group Whisper words into compact 3-word caption groups.
+    Normalize Whisper alignment output.
 
-    Example:
+    Each returned item contains:
 
-        The boy opened
-        the old door
-        and suddenly saw
+        word
+        start
+        end
 
-    This gives the Short a much more natural Shorts-style
-    caption rhythm than one word at a time.
+    Invalid / empty entries are ignored.
     """
 
-    groups = []
+    normalized = []
 
-    current = []
+    if not isinstance(
+        words,
+        list,
+    ):
 
-    for word_data in words:
+        return normalized
+
+    for item in words:
+
+        if not isinstance(
+            item,
+            dict,
+        ):
+            continue
 
         word = str(
-            word_data.get(
+            item.get(
                 "word",
                 "",
             )
@@ -1160,7 +1213,7 @@ def _group_caption_words(
             continue
 
         start = _safe_float(
-            word_data.get(
+            item.get(
                 "start",
                 0,
             ),
@@ -1169,7 +1222,7 @@ def _group_caption_words(
         )
 
         end = _safe_float(
-            word_data.get(
+            item.get(
                 "end",
                 start + 0.1,
             ),
@@ -1177,26 +1230,100 @@ def _group_caption_words(
             minimum=start,
         )
 
-        current.append({
+        if end <= start:
+
+            end = (
+                start
+                + 0.1
+            )
+
+        normalized.append({
             "word": word,
             "start": start,
             "end": end,
         })
 
-        if len(current) >= max_words:
+    normalized.sort(
+        key=lambda item: item["start"]
+    )
 
-            groups.append(
-                current
+    return normalized
+
+
+# ==========================================================================
+# BUILD ONE-WORD CAPTION TIMELINE
+# ==========================================================================
+
+def _build_word_timeline(
+    words,
+):
+
+    """
+    Create exactly one caption event per spoken word.
+
+    The word remains visible from its Whisper start until:
+
+        - its Whisper end, OR
+        - the next word starts
+
+    whichever comes first.
+
+    This guarantees that two words are never intentionally displayed
+    as a group.
+
+    A maximum duration prevents captions from hanging during pauses.
+    """
+
+    timeline = []
+
+    count = len(words)
+
+    for index, item in enumerate(
+        words
+    ):
+
+        start = item["start"]
+
+        end = item["end"]
+
+        # --------------------------------------------------------------
+        # Never allow this word to overlap the next word.
+        # --------------------------------------------------------------
+
+        if index + 1 < count:
+
+            next_start = words[
+                index + 1
+            ]["start"]
+
+            end = min(
+                end,
+                next_start,
             )
 
-            current = []
+        # --------------------------------------------------------------
+        # Prevent unusually long caption holds.
+        # --------------------------------------------------------------
 
-    if current:
-        groups.append(
-            current
+        end = min(
+            end,
+            start
+            + CAPTION_MAX_DURATION,
         )
 
-    return groups
+        duration = max(
+            CAPTION_MIN_DURATION,
+            end - start,
+        )
+
+        timeline.append({
+            "word": item["word"],
+            "start": start,
+            "end": start + duration,
+            "duration": duration,
+        })
+
+    return timeline
 
 
 # ==========================================================================
@@ -1235,7 +1362,7 @@ def build_captions(
     print("=" * 80)
 
     print(
-        "📝 BUILDING 3-WORD CAPTIONS"
+        "📝 BUILDING ONE-WORD KINETIC CAPTIONS"
     )
 
     print("=" * 80)
@@ -1248,6 +1375,16 @@ def build_captions(
 
         raise RuntimeError(
             "Whisper returned no words."
+        )
+
+    words = _normalize_whisper_words(
+        words
+    )
+
+    if not words:
+
+        raise RuntimeError(
+            "Whisper returned no usable word timestamps."
         )
 
     print(
@@ -1268,6 +1405,10 @@ def build_captions(
             "Caption generation requires "
             f"{EXPECTED_SCENES} scenes."
         )
+
+    # ----------------------------------------------------------------------
+    # Build exact scene timeline.
+    # ----------------------------------------------------------------------
 
     scene_ranges = []
 
@@ -1290,7 +1431,11 @@ def build_captions(
 
         current += duration
 
-    groups = _group_caption_words(
+    # ----------------------------------------------------------------------
+    # Convert Whisper words into one-word caption events.
+    # ----------------------------------------------------------------------
+
+    word_timeline = _build_word_timeline(
         words
     )
 
@@ -1300,19 +1445,20 @@ def build_captions(
 
     clips = []
 
-    for group in groups:
+    normal_count = 0
+    highlighted_count = 0
 
-        if not group:
-            continue
+    # ----------------------------------------------------------------------
+    # ONE WORD AT A TIME
+    # ----------------------------------------------------------------------
 
-        start = group[0]["start"]
+    for item in word_timeline:
 
-        end = group[-1]["end"]
+        word = item["word"]
 
-        duration = max(
-            CAPTION_MIN_DURATION,
-            end - start,
-        )
+        start = item["start"]
+
+        duration = item["duration"]
 
         scene = _get_scene_for_time(
             scenes,
@@ -1324,125 +1470,78 @@ def build_captions(
             scene
         )
 
-        total_text_width = 0
-        word_clips = []
+        normalized = _normalize_caption_word(
+            word
+        )
 
-        for item in group:
+        highlighted = (
+            normalized
+            in highlights
+        )
 
-            word = item["word"]
+        color = (
+            CAPTION_HIGHLIGHT_COLOR
+            if highlighted
+            else CAPTION_COLOR
+        )
 
-            normalized = _normalize_caption_word(
-                word
+        if highlighted:
+            highlighted_count += 1
+        else:
+            normal_count += 1
+
+        # --------------------------------------------------------------
+        # Main word layer.
+        #
+        # method='label' ensures transparent background.
+        # --------------------------------------------------------------
+
+        text_clip = _make_word_clip(
+            word,
+            color,
+        )
+
+        text_clip = (
+            text_clip
+            .set_start(start)
+            .set_duration(duration)
+            .set_position(position)
+        )
+
+        # --------------------------------------------------------------
+        # Subtle shadow layer.
+        #
+        # This is intentionally just text — no rectangle.
+        # --------------------------------------------------------------
+
+        shadow_clip = _make_word_shadow(
+            word
+        )
+
+        shadow_clip = (
+            shadow_clip
+            .set_start(start)
+            .set_duration(duration)
+            .set_position(
+                (
+                    "center",
+                    position[1]
+                    + CAPTION_SHADOW_OFFSET,
+                )
             )
-
-            highlighted = (
-                normalized
-                in highlights
-            )
-
-            color = (
-                CAPTION_HIGHLIGHT_COLOR
-                if highlighted
-                else CAPTION_COLOR
-            )
-
-            word_clip = TextClip(
-                word,
-                font=FONT,
-                fontsize=CAPTION_FONT_SIZE,
-                color=color,
-                stroke_color=CAPTION_STROKE,
-                stroke_width=CAPTION_STROKE_WIDTH,
-                method="caption",
-                align="center",
-            )
-
-            word_clips.append({
-                "clip": word_clip,
-                "width": word_clip.w,
-            })
-
-            total_text_width += word_clip.w
-
-        spacing = 22
-
-        total_text_width += (
-            spacing
-            * max(
-                len(word_clips) - 1,
-                0,
+            .set_opacity(
+                CAPTION_SHADOW_OPACITY
             )
         )
 
-        frame_width = frame_size[0]
+        # Shadow goes underneath text.
+        clips.append(
+            shadow_clip
+        )
 
-        start_x = (
-            frame_width
-            - total_text_width
-        ) / 2
-
-        cursor_x = start_x
-
-        for item in word_clips:
-
-            clip = item["clip"]
-
-            word_width = item["width"]
-
-            y = position[1]
-
-            shadow = TextClip(
-                clip.txt,
-                font=FONT,
-                fontsize=CAPTION_FONT_SIZE,
-                color=CAPTION_SHADOW_COLOR,
-                stroke_color=CAPTION_STROKE,
-                stroke_width=CAPTION_STROKE_WIDTH,
-                method="caption",
-                align="center",
-            )
-
-            shadow = (
-                shadow
-                .set_start(start)
-                .set_duration(duration)
-                .set_position(
-                    (
-                        cursor_x
-                        + CAPTION_SHADOW_OFFSET,
-                        y
-                        + CAPTION_SHADOW_OFFSET,
-                    )
-                )
-                .set_opacity(
-                    CAPTION_SHADOW_OPACITY
-                )
-            )
-
-            clip = (
-                clip
-                .set_start(start)
-                .set_duration(duration)
-                .set_position(
-                    (
-                        cursor_x,
-                        y,
-                    )
-                )
-            )
-
-            clips.append(
-                shadow
-            )
-
-            clips.append(
-                clip
-            )
-
-            cursor_x += (
-                word_width
-                + spacing
-            )
+        clips.append(
+            text_clip
+        )
 
     print(
         f"Caption layers: "
@@ -1450,8 +1549,26 @@ def build_captions(
     )
 
     print(
-        f"Caption groups: "
-        f"{len(groups)}"
+        f"Caption words: "
+        f"{len(word_timeline)}"
+    )
+
+    print(
+        f"White words: "
+        f"{normal_count}"
+    )
+
+    print(
+        f"Yellow highlighted words: "
+        f"{highlighted_count}"
+    )
+
+    print(
+        "Caption mode: ONE WORD AT A TIME"
+    )
+
+    print(
+        "Caption background: NONE"
     )
 
     return clips
@@ -1895,7 +2012,7 @@ def assemble_video(
 
     print(
         "🎬 MINT-YT-FACTORY "
-        "ASSEMBLY v8.1"
+        "ASSEMBLY v8.2"
     )
 
     print("=" * 80)
@@ -2039,6 +2156,10 @@ def assemble_video(
             clip
         )
 
+    # ----------------------------------------------------------------------
+    # NEW CAPTION ENGINE
+    # ----------------------------------------------------------------------
+
     caption_clips = build_captions(
         narration_path,
         script,
@@ -2116,7 +2237,7 @@ def assemble_video(
 
         os.makedirs(
             output_dir,
-            exist_ok=True,
+            exist_ok=True
         )
 
     print("=" * 80)
@@ -2139,12 +2260,27 @@ def assemble_video(
 
     print(
         "Captions: "
-        "3-word groups"
+        "ONE WORD AT A TIME"
     )
 
     print(
-        "Highlighted words: "
-        "enabled"
+        "Normal words: "
+        "WHITE"
+    )
+
+    print(
+        "Main words: "
+        "YELLOW"
+    )
+
+    print(
+        "Caption background: "
+        "NONE"
+    )
+
+    print(
+        "Caption outline: "
+        "BLACK"
     )
 
     print(

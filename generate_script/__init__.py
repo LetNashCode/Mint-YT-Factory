@@ -1,14 +1,14 @@
 """Compatibility wrapper for generate_script.py.
 
-Keeps the existing story engine intact while adding a deterministic prompt
-constraint for next_short.topic so the continuation topic is generated in
-the same question structure already enforced by topics.py.
+Keeps the existing story engine intact while adding deterministic guards for
+continuation-topic format and current-topic story identity.
 """
 
 from __future__ import annotations
 
 import importlib.util
 from pathlib import Path
+import re
 
 
 _ROOT = Path(__file__).resolve().parent.parent
@@ -78,6 +78,8 @@ returning the final JSON.
 
 _original_build_system_prompt = _original.build_system_prompt
 _original_build_user_prompt = _original.build_user_prompt
+_original_normalize_next_short = _original._normalize_next_short
+_original_validate_script = _original.validate_script
 
 
 def build_system_prompt():
@@ -88,16 +90,173 @@ def build_user_prompt(topic, config, research):
     return _original_build_user_prompt(topic, config, research).rstrip() + "\n" + _NEXT_TOPIC_CONTRACT
 
 
+def _normalize_next_short(script):
+    _original_normalize_next_short(script)
+
+    topic = str(
+        script["next_short"]["topic"]
+    ).strip()
+
+    if not re.match(
+        r"^(why does|why do|why is|why are|why can|how does|how do|how is|how are|how can)\s+.+",
+        topic,
+        flags=re.IGNORECASE,
+    ):
+        raise RuntimeError(
+            "next_short.topic must be a complete observable question "
+            "starting with Why does/Why do/Why is/Why are/Why can/"
+            "How does/How do/How is/How are/How can."
+        )
+
+    script["next_short"]["topic"] = topic.rstrip("?!.").strip()
+
+
+def _topic_terms_from_research(research):
+    vocabulary = research.get(
+        "research_vocabulary",
+        {},
+    )
+
+    subjects = vocabulary.get(
+        "subject",
+        [],
+    )
+
+    phenomena = vocabulary.get(
+        "phenomenon",
+        [],
+    )
+
+    if not isinstance(subjects, list):
+        subjects = []
+
+    if not isinstance(phenomena, list):
+        phenomena = []
+
+    subject_phrase = ""
+    for item in subjects:
+        item = str(item or "").strip().lower()
+        if item:
+            subject_phrase = item
+            break
+
+    # The research parser's first subject entry is the concrete phrase.
+    # Ignore generic adjectives when checking story identity.
+    generic = {
+        "fresh", "good", "right", "different", "new", "common",
+        "everyday", "often", "sometimes", "cold", "hot",
+    }
+
+    subject_terms = {
+        word
+        for word in re.findall(r"[a-z0-9]+", subject_phrase)
+        if len(word) >= 3 and word not in generic
+    }
+
+    phenomenon_terms = set()
+    for item in phenomena:
+        text = str(item or "").lower()
+        words = set(re.findall(r"[a-z0-9]+", text))
+        if "smell" in words or "odor" in words or "odour" in words or "aroma" in words:
+            phenomenon_terms.update({"smell", "odor", "odour", "aroma"})
+        elif "sound" in words or "noise" in words or "echo" in words:
+            phenomenon_terms.update({"sound", "noise", "echo"})
+        elif "feel" in words or "temperature" in words or "cold" in words:
+            phenomenon_terms.update({"feel", "temperature", "cold"})
+        elif "taste" in words or "flavor" in words or "flavour" in words:
+            phenomenon_terms.update({"taste", "flavor", "flavour"})
+        else:
+            phenomenon_terms.update(
+                word for word in words if len(word) >= 3
+            )
+
+    return subject_terms, phenomenon_terms
+
+
+def _contains_any(text, terms):
+    words = set(
+        re.findall(
+            r"[a-z0-9]+",
+            str(text or "").lower(),
+        )
+    )
+    return any(term in words for term in terms)
+
+
+def validate_script(script, verified_research):
+    result = _original_validate_script(
+        script,
+        verified_research,
+    )
+
+    subject_terms, phenomenon_terms = _topic_terms_from_research(
+        verified_research
+    )
+
+    if not subject_terms and not phenomenon_terms:
+        return result
+
+    narration = " ".join(
+        str(scene.get("narration", ""))
+        for scene in script.get("scene_plan", [])
+        if isinstance(scene, dict)
+    )
+
+    title = str(
+        script.get("title", "")
+    )
+
+    description = str(
+        script.get("description", "")
+    )
+
+    # The current story must identify its concrete subject somewhere in the
+    # narration and in public metadata. This prevents a valid evidence package
+    # from turning into a different story such as COVID smell loss.
+    if subject_terms:
+        if not _contains_any(narration, subject_terms):
+            raise RuntimeError(
+                "CURRENT TOPIC DRIFT: narration does not identify the "
+                "concrete subject from the verified current topic."
+            )
+
+        if not _contains_any(
+            f"{title} {description}",
+            subject_terms,
+        ):
+            raise RuntimeError(
+                "CURRENT TOPIC DRIFT: title/description do not identify "
+                "the concrete subject from the verified current topic."
+            )
+
+    if phenomenon_terms and not _contains_any(
+        narration,
+        phenomenon_terms,
+    ):
+        raise RuntimeError(
+            "CURRENT TOPIC DRIFT: narration does not identify the "
+            "observable phenomenon from the verified current topic."
+        )
+
+    return result
+
+
+# Patch the ORIGINAL module's globals because generate_script() and its
+# validation helpers execute inside that module namespace.
 _original.build_system_prompt = build_system_prompt
 _original.build_user_prompt = build_user_prompt
+_original._normalize_next_short = _normalize_next_short
+_original.validate_script = validate_script
 
 
-# Export the complete original API after patching its internal prompt builders.
+# Export the complete original API after patching its internal functions.
 for _name, _value in vars(_original).items():
     if _name.startswith("__"):
         continue
     globals()[_name] = _value
 
-# Explicitly export the patched builders too.
+# Explicitly export the patched callables too.
 globals()["build_system_prompt"] = build_system_prompt
 globals()["build_user_prompt"] = build_user_prompt
+globals()["_normalize_next_short"] = _normalize_next_short
+globals()["validate_script"] = validate_script

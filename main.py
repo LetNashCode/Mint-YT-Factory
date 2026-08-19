@@ -2,7 +2,7 @@
 main.py
 Mint-YT-Factory
 
-Version 10.5
+Version 10.6
 
 Research-first production pipeline.
 
@@ -37,13 +37,14 @@ Research must be VERIFIED before script generation.
 The generated script must PASS claim verification before
 production assets are generated.
 
-If claim verification fails on a genuine (non-structural) scientific
-ground, the script is regenerated with specific feedback about which
-claims failed, up to MAX_SCRIPT_CLAIM_ATTEMPTS times, before the
+If script generation itself exhausts its own internal retries (e.g.
+because of the claim-strength guard in generate_script.py), OR claim
+verification fails on a genuine (non-structural) scientific ground,
+the script is regenerated from scratch with specific feedback about
+what went wrong, up to MAX_SCRIPT_CLAIM_ATTEMPTS times, before the
 pipeline gives up.
 
-A failed claim verification after all cycles ALWAYS stops the
-pipeline.
+A failure after all cycles ALWAYS stops the pipeline.
 
 No TTS.
 No images.
@@ -127,8 +128,9 @@ MIN_EVIDENCE_CHARACTERS = 120
 MAX_PUBLIC_RESEARCH_SOURCES = 3
 
 # How many times to cycle (regenerate script -> reverify claims) when
-# claim verification fails on genuine scientific grounds, not just
-# structural issues already retried inside verify_script_claims().
+# either script generation itself fails, or claim verification fails on
+# genuine scientific grounds, not just structural issues already
+# retried inside verify_script_claims() and generate_script().
 MAX_SCRIPT_CLAIM_ATTEMPTS = 3
 
 # How many unsupported/uncertain claim strings to feed back into the
@@ -1004,79 +1006,6 @@ def enforce_claim_verification_gate(
 # CLAIM VERIFICATION FAILURE CLASSIFICATION
 # ==========================================================================
 
-def _claim_failure_is_structural_only(
-    verification,
-):
-    """
-    True when every unsupported/warning item in the FINAL claim
-    verification result looks like a structural problem
-    (missing scene review, count mismatch, malformed claim object,
-    etc.) rather than a genuine "the evidence does not support this"
-    scientific rejection.
-
-    verify_script_claims() already retries pure structural failures
-    internally (up to its own MAX_VERIFICATION_ATTEMPTS). If, after
-    those internal retries, the final result STILL only contains
-    structural markers, regenerating the script is unlikely to help
-    much faster than simply calling verify_script_claims() again on
-    the same script — but we still route it through the outer retry
-    loop below so it gets a fresh attempt rather than silently
-    passing.
-    """
-
-    if not isinstance(
-        verification,
-        dict,
-    ):
-        return False
-
-    problems = []
-
-    problems.extend(
-        verification.get(
-            "unsupported_claims",
-            [],
-        )
-        or []
-    )
-
-    problems.extend(
-        verification.get(
-            "warnings",
-            [],
-        )
-        or []
-    )
-
-    if not problems:
-        return False
-
-    problems_text = "\n".join(
-        str(problem).lower()
-        for problem in problems
-    )
-
-    structural_markers = (
-        "scene review",
-        "scene reviews",
-        "claim count",
-        "quantitative language but gemini returned zero",
-        "factual claims but returned zero",
-        "returned claims but factual_claims_found",
-        "verifier returned an invalid",
-        "missing scene reviews",
-        "returned an empty claim",
-    )
-
-    return all(
-        any(
-            marker in str(problem).lower()
-            for marker in structural_markers
-        )
-        for problem in problems
-    )
-
-
 def _build_claim_feedback_text(
     verification,
 ):
@@ -1155,24 +1084,27 @@ def generate_verified_script(
 
     generate_script() already retries internally on its own validation
     errors (schema, duration, source IDs, claim-strength patterns,
-    etc.) up to MAX_GENERATION_ATTEMPTS.
+    etc.) up to MAX_GENERATION_ATTEMPTS. If it exhausts those internal
+    attempts and raises, that failure is caught HERE and treated as a
+    failed outer cycle rather than crashing the whole pipeline.
 
     verify_script_claims() already retries internally on pure
     structural verification problems up to its own
     MAX_VERIFICATION_ATTEMPTS, but a retry never overrides a genuine
     scientific failure by design.
 
-    This function adds an OUTER cycle: if the final claim verification
-    result is a genuine scientific failure (specific claims rejected
-    as unsupported / uncertain / contradicted, not just structural
-    noise), the script itself is regenerated from scratch with that
-    feedback included, up to MAX_SCRIPT_CLAIM_ATTEMPTS times, before
-    the pipeline gives up.
+    This function adds an OUTER cycle on top of both: if either
+    generate_script() exhausts its own attempts and raises, or the
+    final claim verification result is a genuine scientific failure,
+    the script is regenerated from scratch with feedback included, up
+    to MAX_SCRIPT_CLAIM_ATTEMPTS times, before the pipeline gives up.
     """
 
     extra_feedback = ""
 
     last_script = None
+
+    last_generation_error = None
 
     for cycle in range(
         1,
@@ -1186,12 +1118,55 @@ def generate_verified_script(
         )
         print("=" * 80)
 
-        script = generate_script(
-            topic,
-            config,
-            research,
-            extra_feedback=extra_feedback,
-        )
+        # --------------------------------------------------------------
+        # SCRIPT GENERATION
+        #
+        # generate_script() has its own internal retry loop. If it
+        # exhausts that loop, it raises. That raise is caught here so
+        # the OUTER cycle gets a chance to try again with feedback,
+        # instead of crashing the whole pipeline immediately.
+        # --------------------------------------------------------------
+
+        try:
+
+            script = generate_script(
+                topic,
+                config,
+                research,
+                extra_feedback=extra_feedback,
+            )
+
+        except Exception as error:
+
+            last_generation_error = error
+
+            print(
+                f"❌ Script generation itself failed on cycle "
+                f"{cycle}/{MAX_SCRIPT_CLAIM_ATTEMPTS}."
+            )
+
+            print(
+                f"{type(error).__name__}: {error}"
+            )
+
+            if cycle >= MAX_SCRIPT_CLAIM_ATTEMPTS:
+
+                print(
+                    "⛔ No script/claim cycles remaining. "
+                    "Raising the script generation error."
+                )
+
+                raise
+
+            extra_feedback = (
+                "The previous attempt failed script generation "
+                "entirely with this error. Fix the underlying issue; "
+                "do not simply reword around it while keeping the same "
+                "problem:\n\n"
+                f"{error}"
+            )
+
+            continue
 
         print(
             f"Scenes: "
@@ -1255,7 +1230,8 @@ def generate_verified_script(
             return script
 
         # --------------------------------------------------------------
-        # FAILED. Decide whether to retry the whole cycle.
+        # CLAIM VERIFICATION FAILED. Decide whether to retry the whole
+        # cycle.
         # --------------------------------------------------------------
 
         print(
@@ -1295,6 +1271,17 @@ def generate_verified_script(
             )
 
         extra_feedback = feedback_text
+
+    if last_script is None:
+
+        if last_generation_error is not None:
+
+            raise last_generation_error
+
+        raise RuntimeError(
+            "PIPELINE STOPPED: "
+            "script/claim verification cycle produced no result."
+        )
 
     return last_script
 

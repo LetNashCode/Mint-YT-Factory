@@ -5,14 +5,18 @@ Optimized for Educational Shorts.
 
 import json
 import os
+import re
 import unicodedata
 
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
+from googleapiclient.errors import ResumableUploadError
 from googleapiclient.http import MediaFileUpload
 
 
-MAX_YOUTUBE_DESCRIPTION_LENGTH = 5000
+# YouTube's API limit is 5,000 BYTES, not 5,000 Python characters.
+MAX_YOUTUBE_DESCRIPTION_BYTES = 5000
+MAX_YOUTUBE_TITLE_BYTES = 100
 
 
 def _get_credentials():
@@ -32,61 +36,145 @@ def _get_credentials():
     return Credentials.from_authorized_user_info(info)
 
 
-def _sanitize_youtube_text(value, max_length=None):
+def _sanitize_youtube_text(value, max_bytes=None):
     """
-    Sanitize text before sending it to the YouTube Data API.
+    Sanitize metadata according to the YouTube video resource rules.
 
-    Research-generated descriptions can occasionally contain control
-    characters, Unicode surrogates, zero-width formatting characters, or
-    other characters that cause YouTube to reject body.snippet.description
-    with reason=invalidDescription.
+    YouTube descriptions/titles accept valid UTF-8 but reject < and >.
+    Descriptions are limited to 5000 BYTES, so truncation is byte-aware.
     """
     if value is None:
         value = ""
 
     value = str(value)
-
-    # Normalize visually equivalent Unicode sequences.
     value = unicodedata.normalize("NFKC", value)
 
     cleaned = []
 
     for char in value:
         category = unicodedata.category(char)
+        codepoint = ord(char)
 
-        # Keep normal text, emoji/symbols, punctuation, etc.
-        # Keep only the whitespace controls that are valid/useful in a
-        # YouTube description.
+        # Remove control characters except useful whitespace.
         if category == "Cc" and char not in ("\n", "\r", "\t"):
             continue
 
-        # Remove Unicode formatting/control characters such as zero-width
-        # characters and directional formatting marks. These are not needed
-        # in the public description and can make API validation brittle.
+        # Remove zero-width/directional formatting characters.
         if category == "Cf":
             continue
 
-        # Explicitly discard surrogate code points.
-        if 0xD800 <= ord(char) <= 0xDFFF:
+        # Explicitly discard Unicode surrogate code points.
+        if 0xD800 <= codepoint <= 0xDFFF:
+            continue
+
+        # YouTube metadata rejects angle brackets.
+        if char in ("<", ">"):
+            continue
+
+        # Remove Unicode line/paragraph separators as a conservative API-safe
+        # normalization. Normal newlines remain supported.
+        if char in ("\u2028", "\u2029"):
+            cleaned.append("\n")
             continue
 
         cleaned.append(char)
 
     value = "".join(cleaned)
-
-    # Guarantee valid UTF-8 even if malformed Unicode somehow survived.
     value = value.encode("utf-8", errors="replace").decode("utf-8")
 
-    # Normalize excessive blank lines without changing the actual content.
-    while "\n\n\n" in value:
-        value = value.replace("\n\n\n", "\n\n")
-
+    # Normalize excessive blank lines.
+    value = re.sub(r"\n{3,}", "\n\n", value)
     value = value.strip()
 
-    if max_length is not None:
-        value = value[:max_length].rstrip()
+    if max_bytes is not None:
+        raw = value.encode("utf-8")
+
+        if len(raw) > max_bytes:
+            raw = raw[:max_bytes]
+
+            # Never leave a partial UTF-8 sequence.
+            while raw:
+                try:
+                    value = raw.decode("utf-8")
+                    break
+                except UnicodeDecodeError:
+                    raw = raw[:-1]
+
+            value = value.rstrip()
 
     return value
+
+
+def _build_upload_body(title, description, hashtags, upload):
+
+    hashtag_text = " ".join(
+        "#" + _sanitize_youtube_text(tag).replace(" ", "")
+        for tag in hashtags
+        if _sanitize_youtube_text(tag)
+    )
+
+    clean_description = _sanitize_youtube_text(description)
+
+    if hashtag_text:
+        clean_description = (
+            clean_description + "\n\n" + hashtag_text
+        ).strip()
+
+    final_description = _sanitize_youtube_text(
+        clean_description,
+        max_bytes=MAX_YOUTUBE_DESCRIPTION_BYTES,
+    )
+
+    clean_title = _sanitize_youtube_text(
+        title,
+        max_bytes=MAX_YOUTUBE_TITLE_BYTES,
+    )
+
+    # YouTube also limits the combined tag value to 500 characters.
+    clean_tags = []
+    total_tag_chars = 0
+
+    for tag in hashtags:
+        clean_tag = _sanitize_youtube_text(tag, max_bytes=500)
+
+        if not clean_tag:
+            continue
+
+        # Commas between tags count toward the YouTube limit.
+        extra = len(clean_tag) + (1 if clean_tags else 0)
+
+        if total_tag_chars + extra > 500:
+            break
+
+        clean_tags.append(clean_tag)
+        total_tag_chars += extra
+
+    print("YouTube description validation:")
+    print(f"  Characters: {len(final_description)}")
+    print(f"  UTF-8 bytes: {len(final_description.encode('utf-8'))}")
+    print("  YouTube byte limit: 5000")
+    print("  Angle brackets removed: YES")
+    print("  Control characters removed: YES")
+    print("  Unicode normalized: YES")
+    print("  Description sanitized: YES")
+
+    return {
+        "snippet": {
+            "title": clean_title,
+            "description": final_description,
+            "tags": clean_tags,
+            "categoryId": upload.get("category_id", "27"),
+        },
+        "status": {
+            "privacyStatus": upload.get("privacy_status", "public"),
+            "selfDeclaredMadeForKids": False,
+        },
+    }
+
+
+def _is_invalid_description_error(error):
+    text = str(error).lower()
+    return "invaliddescription" in text or "invalid video description" in text
 
 
 def upload_video(
@@ -105,115 +193,105 @@ def upload_video(
     )
 
     upload = config["upload"]
-
     hashtags = config["seo"]["hashtags"]
 
-    hashtag_text = " ".join(
-        "#" + _sanitize_youtube_text(tag).replace(" ", "")
-        for tag in hashtags
-    )
-
-    # Sanitize the generated research/public description BEFORE adding
-    # hashtags. This is the important fix for YouTube's invalidDescription
-    # API error.
-    clean_description = _sanitize_youtube_text(description)
-    clean_hashtags = _sanitize_youtube_text(hashtag_text)
-
-    final_description = clean_description
-
-    if clean_hashtags:
-        final_description = (
-            final_description
-            + "\n\n"
-            + clean_hashtags
-        ).strip()
-
-    final_description = _sanitize_youtube_text(
-        final_description,
-        max_length=MAX_YOUTUBE_DESCRIPTION_LENGTH,
-    )
-
-    clean_title = _sanitize_youtube_text(
+    body = _build_upload_body(
         title,
-        max_length=100,
+        description,
+        hashtags,
+        upload,
     )
-
-    # Log only safe diagnostics. This makes future metadata failures much
-    # easier to identify without exposing the full description in Actions.
-    print("YouTube description validation:")
-    print(f"  Characters: {len(final_description)}")
-    print(f"  UTF-8 bytes: {len(final_description.encode('utf-8'))}")
-    print("  Control characters removed: YES")
-    print("  Unicode normalized: YES")
-    print("  Description sanitized: YES")
-
-    body = {
-
-        "snippet": {
-
-            "title": clean_title,
-
-            "description": final_description,
-
-            "tags": [
-                _sanitize_youtube_text(tag, max_length=500)
-                for tag in hashtags
-                if _sanitize_youtube_text(tag)
-            ],
-
-            "categoryId": upload.get(
-                "category_id",
-                "27",
-            ),
-
-        },
-
-        "status": {
-
-            "privacyStatus": upload.get(
-                "privacy_status",
-                "public",
-            ),
-
-            "selfDeclaredMadeForKids": False,
-
-        },
-
-    }
 
     media = MediaFileUpload(
-
         video_path,
-
         chunksize=-1,
-
         resumable=True,
-
         mimetype="video/mp4",
-
     )
 
-    request = youtube.videos().insert(
+    def _start_request(request_body):
+        return youtube.videos().insert(
+            part="snippet,status",
+            body=request_body,
+            media_body=media,
+        )
 
-        part="snippet,status",
-
-        body=body,
-
-        media_body=media,
-
-    )
-
+    request = _start_request(body)
     response = None
 
-    while response is None:
+    try:
+        while response is None:
+            status, response = request.next_chunk()
 
-        status, response = request.next_chunk()
+            if status:
+                print(
+                    f"Upload Progress: {int(status.progress()*100)}%"
+                )
 
-        if status:
+    except ResumableUploadError as error:
 
-            print(
-                f"Upload Progress: {int(status.progress()*100)}%"
-            )
+        # If YouTube still rejects the description, perform one final
+        # conservative retry using ASCII-only metadata. This protects the
+        # upload pipeline from unusual Unicode introduced by research titles,
+        # source metadata, or generated text.
+        if not _is_invalid_description_error(error):
+            raise
+
+        print("⚠️ YouTube rejected the description as invalid.")
+        print("🔧 Retrying once with conservative ASCII metadata...")
+
+        ascii_description = (
+            body["snippet"]["description"]
+            .encode("ascii", errors="ignore")
+            .decode("ascii")
+        )
+
+        ascii_description = _sanitize_youtube_text(
+            ascii_description,
+            max_bytes=MAX_YOUTUBE_DESCRIPTION_BYTES,
+        )
+
+        ascii_title = (
+            body["snippet"]["title"]
+            .encode("ascii", errors="ignore")
+            .decode("ascii")
+        )
+
+        ascii_tags = [
+            tag.encode("ascii", errors="ignore").decode("ascii")
+            for tag in body["snippet"]["tags"]
+        ]
+
+        retry_body = {
+            "snippet": {
+                "title": ascii_title[:100].strip(),
+                "description": ascii_description,
+                "tags": ascii_tags,
+                "categoryId": body["snippet"]["categoryId"],
+            },
+            "status": body["status"],
+        }
+
+        print(
+            f"  Retry description bytes: "
+            f"{len(ascii_description.encode('utf-8'))}"
+        )
+
+        request = _start_request(retry_body)
+        response = None
+
+        while response is None:
+            status, response = request.next_chunk()
+
+            if status:
+                print(
+                    f"Upload Progress: {int(status.progress()*100)}%"
+                )
+
+    if not response or "id" not in response:
+        raise RuntimeError(
+            "YouTube upload returned no video ID."
+        )
 
     video_id = response["id"]
 

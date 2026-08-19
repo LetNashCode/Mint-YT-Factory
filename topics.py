@@ -2,7 +2,7 @@
 topics.py
 Mint-YT-Factory
 
-Version 11.0
+Version 11.1
 
 Science Curiosity Topic Engine
 
@@ -31,7 +31,23 @@ This file selects QUESTIONS.
 
 Research.py determines whether credible evidence actually
 supports those questions.
+
+IMPORTANT PERSISTENCE RULE
+--------------------------
+
+The current topic is only committed after:
+
+1. YouTube upload succeeds
+2. next_short is successfully written
+3. next_short is successfully read back and verified
+
+Historical duplicate protection is used when GENERATING a
+brand-new topic.
+
+It is intentionally NOT used when persisting a next_short
+already produced by the verified script.
 """
+
 
 import json
 import os
@@ -46,7 +62,7 @@ from google.genai import types
 # VERSION
 # ==========================================================================
 
-VERSION = "11.0"
+VERSION = "11.1"
 
 
 # ==========================================================================
@@ -452,7 +468,19 @@ No terminal punctuation.
 # FILE HELPERS
 # ==========================================================================
 
-def _atomic_write_json(path, data):
+def _atomic_write_json(
+    path,
+    data,
+):
+    """
+    Atomically write JSON to disk.
+
+    The file is first written to a temporary file in the same
+    directory and then replaced into place.
+
+    This prevents partially written JSON from becoming the
+    active topic file.
+    """
 
     directory = os.path.dirname(
         os.path.abspath(path)
@@ -491,7 +519,9 @@ def _atomic_write_json(path, data):
             )
 
             f.write("\n")
+
             f.flush()
+
             os.fsync(
                 f.fileno()
             )
@@ -508,7 +538,10 @@ def _atomic_write_json(path, data):
         if fd is not None:
 
             try:
-                os.close(fd)
+
+                os.close(
+                    fd
+                )
 
             except Exception:
                 pass
@@ -521,6 +554,7 @@ def _atomic_write_json(path, data):
         ):
 
             try:
+
                 os.remove(
                     temp_path
                 )
@@ -545,7 +579,9 @@ def _load_used():
             encoding="utf-8",
         ) as f:
 
-            data = json.load(f)
+            data = json.load(
+                f
+            )
 
         if not isinstance(
             data,
@@ -580,7 +616,9 @@ def _load_used():
         return []
 
 
-def _save_used(used):
+def _save_used(
+    used
+):
 
     cleaned = []
     seen = set()
@@ -592,6 +630,7 @@ def _save_used(used):
         )
 
         if not topic:
+
             continue
 
         key = _topic_key(
@@ -599,6 +638,7 @@ def _save_used(used):
         )
 
         if key in seen:
+
             continue
 
         seen.add(
@@ -631,7 +671,9 @@ def _load_next_topic():
             encoding="utf-8",
         ) as f:
 
-            data = json.load(f)
+            data = json.load(
+                f
+            )
 
         if isinstance(
             data,
@@ -664,16 +706,40 @@ def _load_next_topic():
     return ""
 
 
-def _save_next_topic(topic):
+def _save_next_topic(
+    topic
+):
+    """
+    Save a pending topic atomically.
+
+    Returns True only when the atomic write itself succeeds.
+
+    The caller that needs strong persistence guarantees should
+    subsequently read the file back and verify it.
+    """
 
     topic = _clean_topic(
         topic
     )
 
     if not topic:
+
+        print(
+            "❌ Cannot save empty topic."
+        )
+
         return False
 
-    if len(topic) > MAX_TOPIC_CHARACTERS:
+    if len(
+        topic
+    ) > MAX_TOPIC_CHARACTERS:
+
+        print(
+            "❌ Cannot save topic: "
+            f"{len(topic)} characters exceeds "
+            f"{MAX_TOPIC_CHARACTERS}."
+        )
+
         return False
 
     try:
@@ -690,8 +756,13 @@ def _save_next_topic(topic):
     except Exception as error:
 
         print(
-            f"❌ Could not save "
+            "❌ Could not save "
             f"{NEXT_TOPIC_PATH}: {error}"
+        )
+
+        print(
+            f"Exception type: "
+            f"{type(error).__name__}"
         )
 
         return False
@@ -735,6 +806,7 @@ def reject_topic(
     pending = _load_next_topic()
 
     if not pending:
+
         return True
 
     if topic:
@@ -744,8 +816,13 @@ def reject_topic(
         )
 
         if (
-            _topic_key(topic)
-            != _topic_key(pending)
+            _topic_key(
+                topic
+            )
+            !=
+            _topic_key(
+                pending
+            )
         ):
 
             print(
@@ -770,13 +847,16 @@ def reject_topic(
 # CLEANING
 # ==========================================================================
 
-def _clean_topic(topic):
+def _clean_topic(
+    topic
+):
 
     topic = str(
         topic or ""
     ).strip()
 
     if not topic:
+
         return ""
 
     topic = re.sub(
@@ -832,9 +912,13 @@ def _valid_topic(
     )
 
     if not topic:
+
         return False
 
-    if len(topic) > MAX_TOPIC_CHARACTERS:
+    if len(
+        topic
+    ) > MAX_TOPIC_CHARACTERS:
+
         return False
 
     if max_words is not None:
@@ -886,18 +970,21 @@ def _valid_topic(
     for phrase in forbidden:
 
         if phrase in lowered:
+
             return False
 
     if re.match(
         r"^(top|best)\s+\d+",
         lowered,
     ):
+
         return False
 
     if re.match(
         r"^(top|best)\s+(five|ten)\b",
         lowered,
     ):
+
         return False
 
     return True
@@ -907,7 +994,9 @@ def _valid_topic(
 # QUESTION VALIDATION
 # ==========================================================================
 
-def _question_words(topic):
+def _question_words(
+    topic
+):
 
     return re.findall(
         r"[a-z0-9]+",
@@ -915,7 +1004,9 @@ def _question_words(topic):
     )
 
 
-def _content_words(topic):
+def _content_words(
+    topic
+):
 
     stop_words = {
         "why",
@@ -983,7 +1074,9 @@ def _content_words(topic):
     ]
 
 
-def _is_question(topic):
+def _is_question(
+    topic
+):
 
     return topic.lower().strip().startswith(
         (
@@ -998,7 +1091,9 @@ def _is_question(topic):
     )
 
 
-def _has_observation_structure(topic):
+def _has_observation_structure(
+    topic
+):
 
     lowered = topic.lower()
 
@@ -1024,7 +1119,9 @@ def _has_observation_structure(topic):
     )
 
 
-def _has_single_phenomenon_shape(topic):
+def _has_single_phenomenon_shape(
+    topic
+):
 
     lowered = topic.lower()
 
@@ -1043,21 +1140,30 @@ def _has_single_phenomenon_shape(topic):
     for pattern in multiple_patterns:
 
         if pattern in lowered:
+
             return False
 
-    if topic.count("?") > 1:
+    if topic.count(
+        "?"
+    ) > 1:
+
         return False
 
     return True
 
 
-def _has_subject_specificity(topic):
+def _has_subject_specificity(
+    topic
+):
 
     content = _content_words(
         topic
     )
 
-    if len(content) < MIN_CONTENT_WORDS:
+    if len(
+        content
+    ) < MIN_CONTENT_WORDS:
+
         return False
 
     generic_patterns = [
@@ -1087,12 +1193,15 @@ def _has_subject_specificity(topic):
             pattern,
             lowered,
         ):
+
             return False
 
     return True
 
 
-def _has_researchable_shape(topic):
+def _has_researchable_shape(
+    topic
+):
 
     """
     Structural test only.
@@ -1100,7 +1209,7 @@ def _has_researchable_shape(topic):
     We intentionally do NOT hardcode a list of scientific
     mechanism words here.
 
-    Research.py is responsible for determining whether
+    research.py is responsible for determining whether
     credible evidence actually exists.
     """
 
@@ -1114,17 +1223,19 @@ def _has_researchable_shape(topic):
     if not lowered.startswith(
         question_starts
     ):
+
         return False
 
     content = _content_words(
         topic
     )
 
-    if len(content) < 3:
+    if len(
+        content
+    ) < 3:
+
         return False
 
-    # The question should contain an identifiable object,
-    # condition, behavior, or event rather than a broad concept.
     abstract_only = {
         "life",
         "existence",
@@ -1158,9 +1269,13 @@ def _has_researchable_shape(topic):
     ) >= 2
 
 
-def _passes_question_quality(topic):
+def _passes_question_quality(
+    topic
+):
 
-    if not _is_question(topic):
+    if not _is_question(
+        topic
+    ):
 
         print(
             "⚠️ Rejected: not a question."
@@ -1172,7 +1287,9 @@ def _passes_question_quality(topic):
         topic
     )
 
-    if len(content) < MIN_CONTENT_WORDS:
+    if len(
+        content
+    ) < MIN_CONTENT_WORDS:
 
         print(
             "⚠️ Rejected: insufficient specificity."
@@ -1241,7 +1358,9 @@ def _passes_question_quality(topic):
 # DUPLICATE PROTECTION
 # ==========================================================================
 
-def _topic_key(topic):
+def _topic_key(
+    topic
+):
 
     topic = _clean_topic(
         topic
@@ -1268,15 +1387,20 @@ def _already_used(
     )
 
     if not key:
+
         return False
 
     return any(
-        _topic_key(existing) == key
+        _topic_key(
+            existing
+        ) == key
         for existing in used
     )
 
 
-def _topic_words(topic):
+def _topic_words(
+    topic
+):
 
     stop_words = {
         "why",
@@ -1346,7 +1470,10 @@ def _too_similar_to_used(
         topic
     )
 
-    if len(current) < 2:
+    if len(
+        current
+    ) < 2:
+
         return False
 
     for existing in used:
@@ -1355,7 +1482,10 @@ def _too_similar_to_used(
             existing
         )
 
-        if len(previous) < 2:
+        if len(
+            previous
+        ) < 2:
+
             continue
 
         intersection = (
@@ -1367,6 +1497,7 @@ def _too_similar_to_used(
         )
 
         if not union:
+
             continue
 
         jaccard = (
@@ -1375,6 +1506,7 @@ def _too_similar_to_used(
         )
 
         if jaccard >= 0.72:
+
             return True
 
         current_coverage = (
@@ -1392,6 +1524,7 @@ def _too_similar_to_used(
             and previous_coverage >= 0.60
             and len(intersection) >= 3
         ):
+
             return True
 
     return False
@@ -1401,7 +1534,9 @@ def _too_similar_to_used(
 # VIRAL POTENTIAL SCORE
 # ==========================================================================
 
-def _curiosity_score(topic):
+def _curiosity_score(
+    topic
+):
 
     """
     Score the question for YouTube curiosity potential.
@@ -1410,10 +1545,11 @@ def _curiosity_score(topic):
 
     It does NOT decide whether the topic is scientifically true.
 
-    Research.py remains the evidence authority.
+    research.py remains the evidence authority.
     """
 
     lowered = topic.lower()
+
     words = topic.split()
 
     score = 0
@@ -1439,6 +1575,7 @@ def _curiosity_score(topic):
             "shadow",
         )
     ):
+
         score += 3
 
     # Strong curiosity structures.
@@ -1450,6 +1587,7 @@ def _curiosity_score(topic):
             "why are ",
         )
     ):
+
         score += 3
 
     elif lowered.startswith(
@@ -1459,6 +1597,7 @@ def _curiosity_score(topic):
             "how can ",
         )
     ):
+
         score += 2
 
     # A condition/change usually creates a visual reveal.
@@ -1491,13 +1630,16 @@ def _curiosity_score(topic):
             "color",
         )
     ):
+
         score += 3
 
     # Moderate length is better for a spoken hook.
     if 6 <= len(words) <= 10:
+
         score += 2
 
     elif 5 <= len(words) <= 12:
+
         score += 1
 
     # Specificity.
@@ -1505,10 +1647,16 @@ def _curiosity_score(topic):
         topic
     )
 
-    if len(content) >= 5:
+    if len(
+        content
+    ) >= 5:
+
         score += 2
 
-    elif len(content) >= 4:
+    elif len(
+        content
+    ) >= 4:
+
         score += 1
 
     return min(
@@ -1521,53 +1669,73 @@ def _curiosity_score(topic):
 # TOPIC QUALITY SCORE
 # ==========================================================================
 
-def _topic_quality_score(topic):
+def _topic_quality_score(
+    topic
+):
 
     score = 0
 
     words = topic.split()
+
     content = _content_words(
         topic
     )
 
-    if _is_question(topic):
+    if _is_question(
+        topic
+    ):
+
         score += 3
 
     if _has_observation_structure(
         topic
     ):
+
         score += 3
 
     if _has_researchable_shape(
         topic
     ):
+
         score += 3
 
     if _has_subject_specificity(
         topic
     ):
+
         score += 2
 
     if _has_single_phenomenon_shape(
         topic
     ):
+
         score += 2
 
     if 6 <= len(words) <= 10:
+
         score += 2
 
     elif 5 <= len(words) <= 12:
+
         score += 1
 
-    if len(content) >= 5:
+    if len(
+        content
+    ) >= 5:
+
         score += 2
 
-    elif len(content) >= 4:
+    elif len(
+        content
+    ) >= 4:
+
         score += 1
 
     score += min(
         3,
-        _curiosity_score(topic) // 4,
+        _curiosity_score(
+            topic
+        ) // 4,
     )
 
     return min(
@@ -1576,7 +1744,9 @@ def _topic_quality_score(topic):
     )
 
 
-def _passes_topic_score(topic):
+def _passes_topic_score(
+    topic
+):
 
     score = _topic_quality_score(
         topic
@@ -1587,11 +1757,13 @@ def _passes_topic_score(topic):
     )
 
     print(
-        f"📊 Topic structure score: {score}/20"
+        f"📊 Topic structure score: "
+        f"{score}/20"
     )
 
     print(
-        f"🔥 Curiosity score: {curiosity}/13"
+        f"🔥 Curiosity score: "
+        f"{curiosity}/13"
     )
 
     return (
@@ -1634,6 +1806,7 @@ def validate_topic_for_pipeline(
         return False
 
     if used is None:
+
         used = _load_used()
 
     if check_duplicate:
@@ -1673,6 +1846,7 @@ def get_pending_topic():
     topic = _load_next_topic()
 
     if not topic:
+
         return ""
 
     if not validate_topic_for_pipeline(
@@ -1689,9 +1863,11 @@ def get_pending_topic():
         return ""
 
     print("=" * 80)
+
     print(
         "🔗 CONTINUING FROM PREVIOUS SHORT"
     )
+
     print("=" * 80)
 
     print(
@@ -1872,8 +2048,13 @@ No terminal punctuation.
             if (
                 pending
                 and
-                _topic_key(pending)
-                == _topic_key(topic)
+                _topic_key(
+                    pending
+                )
+                ==
+                _topic_key(
+                    topic
+                )
             ):
 
                 print(
@@ -1883,15 +2064,20 @@ No terminal punctuation.
                 continue
 
             print("=" * 80)
+
             print(
                 "🔥 GENERATED SCIENCE CURIOSITY QUESTION"
             )
+
             print("=" * 80)
 
-            print(topic)
+            print(
+                topic
+            )
 
             print(
-                f"Words: {len(topic.split())}"
+                f"Words: "
+                f"{len(topic.split())}"
             )
 
             print(
@@ -1927,11 +2113,16 @@ def get_next_topic():
     pending = get_pending_topic()
 
     if pending:
+
         return pending
 
     topic = _generate_new_topic()
 
     if topic:
+
+        # ------------------------------------------------------------------
+        # Save newly generated topic.
+        # ------------------------------------------------------------------
 
         if not _save_next_topic(
             topic
@@ -1941,17 +2132,44 @@ def get_next_topic():
                 "Could not save generated topic."
             )
 
+        # ------------------------------------------------------------------
+        # HARD PERSISTENCE VERIFICATION
+        # ------------------------------------------------------------------
+
+        persisted_topic = _load_next_topic()
+
+        if (
+            not persisted_topic
+            or
+            _topic_key(
+                persisted_topic
+            )
+            !=
+            _topic_key(
+                topic
+            )
+        ):
+
+            raise RuntimeError(
+                "Generated topic was written, "
+                "but could not be verified after persistence."
+            )
+
         print("=" * 80)
+
         print(
             "📌 NEW SCIENCE CURIOSITY QUESTION QUEUED"
         )
-        print("=" * 80)
-
-        print(topic)
 
         print("=" * 80)
 
-        return topic
+        print(
+            persisted_topic
+        )
+
+        print("=" * 80)
+
+        return persisted_topic
 
     raise RuntimeError(
         "Could not generate a strong "
@@ -1963,7 +2181,9 @@ def get_next_topic():
 # COMMIT
 # ==========================================================================
 
-def commit_topic(topic):
+def commit_topic(
+    topic
+):
 
     topic = _clean_topic(
         topic
@@ -1991,23 +2211,33 @@ def commit_topic(topic):
         )
 
         print("=" * 80)
+
         print(
             "✅ CURRENT TOPIC COMMITTED"
         )
+
         print("=" * 80)
 
-        print(topic)
+        print(
+            topic
+        )
 
         print("=" * 80)
 
     pending = _load_next_topic()
 
     if not pending:
+
         return True
 
     if (
-        _topic_key(pending)
-        == _topic_key(topic)
+        _topic_key(
+            pending
+        )
+        ==
+        _topic_key(
+            topic
+        )
     ):
 
         if not clear_next_topic():
@@ -2037,44 +2267,195 @@ def commit_topic(topic):
 def save_next_short(
     next_short
 ):
+    """
+    Save the next Short topic after the current Short has successfully
+    uploaded.
+
+    IMPORTANT:
+
+    We intentionally use:
+
+        check_duplicate=False
+
+    here.
+
+    The next_short has already been selected by the verified script.
+    Historical duplicate/similarity protection is necessary when
+    GENERATING a brand-new topic, but applying it here can incorrectly
+    reject a valid next topic after the current video has already been
+    uploaded.
+
+    Persistence is then independently verified by reading
+    NEXT_TOPIC_PATH back from disk.
+    """
 
     next_short = _clean_topic(
         next_short
     )
 
+    print("=" * 80)
+
+    print(
+        "🔗 VALIDATING NEXT SHORT FOR PERSISTENCE"
+    )
+
+    print("=" * 80)
+
+    print(
+        f"Candidate: "
+        f"{next_short or '[EMPTY]'}"
+    )
+
+    # ----------------------------------------------------------------------
+    # Empty check
+    # ----------------------------------------------------------------------
+
     if not next_short:
 
         print(
-            "⚠️ No next_short was provided."
+            "❌ NEXT SHORT SAVE FAILED: "
+            "empty topic."
         )
 
         return False
 
-    if not validate_topic_for_pipeline(
+    # ----------------------------------------------------------------------
+    # Basic validation
+    # ----------------------------------------------------------------------
+
+    if not _valid_topic(
+        next_short,
+        max_words=NEW_TOPIC_MAX_WORDS,
+    ):
+
+        print(
+            "❌ NEXT SHORT SAVE FAILED: "
+            "basic topic validation failed."
+        )
+
+        print(
+            f"Topic: {next_short}"
+        )
+
+        return False
+
+    # ----------------------------------------------------------------------
+    # Question / quality validation
+    #
+    # IMPORTANT:
+    #
+    # No historical duplicate check.
+    # ----------------------------------------------------------------------
+
+    if not _passes_question_quality(
         next_short
     ):
 
         print(
-            "⚠️ next_short failed "
-            "science curiosity validation."
+            "❌ NEXT SHORT SAVE FAILED: "
+            "question structure validation failed."
         )
 
         return False
+
+    if not _passes_topic_score(
+        next_short
+    ):
+
+        print(
+            "❌ NEXT SHORT SAVE FAILED: "
+            "topic quality score failed."
+        )
+
+        return False
+
+    print(
+        "✅ Next Short topic validation passed."
+    )
+
+    # ----------------------------------------------------------------------
+    # Persist
+    # ----------------------------------------------------------------------
+
+    print()
+
+    print(
+        f"💾 Writing to: {NEXT_TOPIC_PATH}"
+    )
 
     if not _save_next_topic(
         next_short
     ):
 
+        print(
+            "❌ NEXT SHORT SAVE FAILED: "
+            "atomic write failed."
+        )
+
         return False
 
-    print("=" * 80)
+    # ----------------------------------------------------------------------
+    # HARD READ-BACK VERIFICATION
+    # ----------------------------------------------------------------------
+
     print(
-        "🔗 NEXT SCIENCE SHORT SAVED"
+        "🔍 Verifying persisted next_short..."
     )
+
+    persisted_topic = _load_next_topic()
+
+    if not persisted_topic:
+
+        print(
+            "❌ NEXT SHORT SAVE FAILED: "
+            f"{NEXT_TOPIC_PATH} is empty after write."
+        )
+
+        return False
+
+    if (
+        _topic_key(
+            persisted_topic
+        )
+        !=
+        _topic_key(
+            next_short
+        )
+    ):
+
+        print(
+            "❌ NEXT SHORT SAVE FAILED: "
+            "persisted topic does not match requested topic."
+        )
+
+        print(
+            f"Requested: {next_short}"
+        )
+
+        print(
+            f"Persisted: {persisted_topic}"
+        )
+
+        return False
+
+    # ----------------------------------------------------------------------
+    # SUCCESS
+    # ----------------------------------------------------------------------
+
     print("=" * 80)
 
     print(
-        next_short
+        "✅ NEXT SCIENCE SHORT SAVED AND VERIFIED"
+    )
+
+    print("=" * 80)
+
+    print(
+        f"Next topic: {persisted_topic}"
+    )
+
+    print(
+        f"File: {NEXT_TOPIC_PATH}"
     )
 
     print("=" * 80)
@@ -2093,24 +2474,37 @@ if __name__ == "__main__":
         topic = get_next_topic()
 
         print("=" * 80)
+
         print(
             "🎯 NEXT MINT-YT-FACTORY SCIENCE QUESTION"
         )
+
         print("=" * 80)
 
-        print(topic)
+        print(
+            topic
+        )
 
         print("=" * 80)
 
     except Exception as error:
 
         print("=" * 80)
+
         print(
             "❌ TOPIC GENERATION FAILED"
         )
 
         print("=" * 80)
 
-        print(error)
+        print(
+            f"{type(error).__name__}: {error}"
+        )
+
+        print(
+            f"Error: {error}"
+        )
+
+        print("=" * 80)
 
         raise

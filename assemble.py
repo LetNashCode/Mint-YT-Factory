@@ -160,7 +160,7 @@ CAPTION_MAX_DURATION = 1.20
 # AUDIO
 # ==========================================================================
 
-DEFAULT_MUSIC_VOLUME = 0.10
+DEFAULT_MUSIC_VOLUME = 0.25
 DEFAULT_SFX_VOLUME = 0.75
 
 

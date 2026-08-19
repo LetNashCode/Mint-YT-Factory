@@ -16,6 +16,7 @@ _spec.loader.exec_module(_original)
 
 _ORIGINAL_EXTRACT_SUBJECT = _original._extract_subject
 _ORIGINAL_EXTRACT_PHENOMENON = _original._extract_phenomenon
+_ORIGINAL_EXTRACT_QUESTION_TERMS = _original._extract_question_terms
 _ORIGINAL_SCORE_SOURCE = _original._score_source
 
 _EXTRA_SUBJECT_SEPARATORS = (
@@ -28,11 +29,7 @@ _EXTRA_SUBJECT_SEPARATORS = (
 def _strict_extract_subject(topic):
     lowered = _original._clean(topic).lower()
     subject = _ORIGINAL_EXTRACT_SUBJECT(topic)
-    excluded = {
-        "slow", "slows", "slowing", "speed", "speeding", "faster",
-        "starting", "stopping", "stopped", "turning", "during", "while",
-        "after", "before", "cold", "hot",
-    }
+    excluded = {"slow", "slows", "slowing", "speed", "speeding", "faster", "starting", "stopping", "stopped", "turning", "during", "while", "after", "before", "cold", "hot"}
     for separator in _EXTRA_SUBJECT_SEPARATORS:
         if separator not in lowered:
             continue
@@ -47,14 +44,10 @@ def _strict_extract_phenomenon(topic):
     lowered = _original._clean(topic).lower()
     original = list(_ORIGINAL_EXTRACT_PHENOMENON(topic) or [])
     rules = (
-        (("feel prickly", "feels prickly", "prickly tongue", "prickling"),
-         ["prickly", "prickling", "tingling", "tingly", "stinging", "stinging sensation", "oral irritation", "irritation", "tongue"]),
-        (("feel tingly", "feels tingly", "tingling tongue"),
-         ["tingling", "tingly", "prickling", "stinging", "oral irritation", "tongue"]),
-        (("feel burning", "feels burning", "burning tongue"),
-         ["burning", "burning sensation", "oral irritation", "irritation", "tongue"]),
-        (("eyes water", "eye water", "watery eyes", "make your eyes water"),
-         ["tearing", "tear", "lacrimation", "watery eyes", "ocular irritation", "eye irritation"]),
+        (("feel prickly", "feels prickly", "prickly tongue", "prickling"), ["prickly", "prickling", "tingling", "tingly", "stinging", "stinging sensation", "oral irritation", "irritation", "tongue"]),
+        (("feel tingly", "feels tingly", "tingling tongue"), ["tingling", "tingly", "prickling", "stinging", "oral irritation", "tongue"]),
+        (("feel burning", "feels burning", "burning tongue"), ["burning", "burning sensation", "oral irritation", "irritation", "tongue"]),
+        (("eyes water", "eye water", "watery eyes", "make your eyes water"), ["tearing", "tear", "lacrimation", "watery eyes", "ocular irritation", "eye irritation"]),
     )
     for phrases, expanded in rules:
         if any(phrase in lowered for phrase in phrases):
@@ -62,21 +55,31 @@ def _strict_extract_phenomenon(topic):
     return original
 
 
+def _strict_extract_question_terms(topic):
+    terms = list(_ORIGINAL_EXTRACT_QUESTION_TERMS(topic) or [])
+    lowered = _original._clean(topic).lower()
+    if "pineapple" in lowered or "pineapples" in lowered:
+        terms.extend(["pineapple", "ananas", "ananas comosus", "bromelain", "protease"])
+    if "tongue" in lowered and any(x in lowered for x in ("prickly", "prickling", "tingly", "tingling", "stinging", "burning")):
+        terms.extend(["tongue", "oral irritation", "irritation", "tingling", "prickling", "stinging", "bromelain", "protease", "calcium oxalate", "raphides"])
+    if "onion" in lowered or "onions" in lowered:
+        terms.extend(["onion", "allium", "allium cepa"])
+    if "eyes water" in lowered or "watery eyes" in lowered:
+        terms.extend(["tearing", "lacrimation", "ocular irritation", "eye irritation"])
+    return list(dict.fromkeys(terms))
+
+
 _original._extract_subject = _strict_extract_subject
 _original._extract_phenomenon = _strict_extract_phenomenon
+_original._extract_question_terms = _strict_extract_question_terms
 
-_GENERIC_SUBJECT_WORDS = {
-    "fresh", "good", "right", "different", "cold", "hot", "new",
-    "real", "normal", "common", "everyday", "often", "sometimes",
-}
-
+_GENERIC_SUBJECT_WORDS = {"fresh", "good", "right", "different", "cold", "hot", "new", "real", "normal", "common", "everyday", "often", "sometimes"}
 _TOPIC_ALIASES = {
     "pineapple": {"pineapple", "pineapples", "ananas", "ananas comosus", "bromelain", "bromelains", "protease", "proteases"},
     "pineapples": {"pineapple", "pineapples", "ananas", "ananas comosus", "bromelain", "bromelains", "protease", "proteases"},
     "onion": {"onion", "onions", "allium", "allium cepa"},
     "onions": {"onion", "onions", "allium", "allium cepa"},
 }
-
 _PHENOMENON_SYNONYMS = {
     "smell": {"smell", "smells", "odor", "odour", "aroma", "aromas", "fragrance"},
     "odor": {"smell", "smells", "odor", "odour", "aroma", "aromas", "fragrance"},
@@ -98,30 +101,21 @@ def _topic_identity(topic):
     structure = _original._question_structure(topic)
     subject_phrases = structure.get("subject", [])
     subject_phrase = subject_phrases[0] if subject_phrases else ""
-    subject_terms = [
-        token for token in _original._tokens(subject_phrase)
-        if token not in _GENERIC_SUBJECT_WORDS
-    ]
+    subject_terms = [t for t in _original._tokens(subject_phrase) if t not in _GENERIC_SUBJECT_WORDS]
     expanded_subject = set(subject_terms)
     for term in subject_terms:
         expanded_subject.update(_TOPIC_ALIASES.get(term, {term}))
-
     phenomenon_terms = set()
     for item in structure.get("phenomenon", []):
         for word in _content_terms(item):
             phenomenon_terms.update(_PHENOMENON_SYNONYMS.get(word, {word}))
-
     lowered = _original._clean(topic).lower()
     if "tongue" in lowered:
         phenomenon_terms.update({"tongue", "oral", "mouth", "oral irritation", "irritation", "tingling", "prickling", "stinging"})
     if "eyes water" in lowered or "watery eyes" in lowered:
         phenomenon_terms.update({"eye", "eyes", "tear", "tears", "tearing", "lacrimation", "ocular irritation", "eye irritation"})
-
     if not phenomenon_terms:
-        phenomenon_terms.update(
-            token for token in _original._tokens(topic)
-            if token not in subject_terms and token not in _GENERIC_SUBJECT_WORDS
-        )
+        phenomenon_terms.update(t for t in _original._tokens(topic) if t not in subject_terms and t not in _GENERIC_SUBJECT_WORDS)
     return expanded_subject, phenomenon_terms
 
 
@@ -132,9 +126,7 @@ def _source_matches_current_topic(topic, source):
     title = _original._clean(source.get("title", ""))
     evidence = _original._clean_abstract(source.get("evidence_text", "") or source.get("abstract", ""))
     combined = f"{title} {evidence}"
-    subject_hit = any(_original._term_match(term, combined) for term in subject_terms)
-    phenomenon_hit = any(_original._term_match(term, combined) for term in phenomenon_terms)
-    return subject_hit and phenomenon_hit
+    return any(_original._term_match(t, combined) for t in subject_terms) and any(_original._term_match(t, combined) for t in phenomenon_terms)
 
 
 def _strict_score_source(topic, source):
@@ -156,8 +148,8 @@ def research_topic(topic):
     sources = package.get("sources", [])
     if not isinstance(sources, list):
         raise RuntimeError("RESEARCH FAILED: verified sources are not a list.")
-    filtered = [source for source in sources if _source_matches_current_topic(topic, source)]
-    rejected = [source.get("title", "") for source in sources if source not in filtered]
+    filtered = [s for s in sources if _source_matches_current_topic(topic, s)]
+    rejected = [s.get("title", "") for s in sources if s not in filtered]
     if rejected:
         print("=" * 80)
         print("🛡️ CURRENT-TOPIC RESEARCH IDENTITY GUARD")
@@ -167,18 +159,14 @@ def research_topic(topic):
         print(f"Remaining topic-matched sources: {len(filtered)}")
         print("=" * 80)
     if len(filtered) < 2:
-        raise RuntimeError(
-            "RESEARCH FAILED: fewer than two verified sources remain "
-            "after the current-topic identity guard. The pipeline will "
-            "not publish a scientifically valid but topically unrelated story."
-        )
+        raise RuntimeError("RESEARCH FAILED: fewer than two verified sources remain after the current-topic identity guard. The pipeline will not publish a scientifically valid but topically unrelated story.")
     package["sources"] = filtered
     package["source_count"] = len(filtered)
     package["evidence_source_count"] = len(filtered)
     return package
 
 for _name, _value in vars(_original).items():
-    if _name.startswith("__") or _name in {"research_topic", "_extract_subject", "_extract_phenomenon", "_score_source"}:
+    if _name.startswith("__") or _name in {"research_topic", "_extract_subject", "_extract_phenomenon", "_extract_question_terms", "_score_source"}:
         continue
     globals()[_name] = _value
 
@@ -186,5 +174,6 @@ globals()["research_topic"] = research_topic
 globals()["_score_source"] = _strict_score_source
 globals()["_extract_subject"] = _strict_extract_subject
 globals()["_extract_phenomenon"] = _strict_extract_phenomenon
+globals()["_extract_question_terms"] = _strict_extract_question_terms
 
 __all__ = ["research_topic"]

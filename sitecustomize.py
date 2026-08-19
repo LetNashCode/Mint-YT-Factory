@@ -139,10 +139,20 @@ No quotes. No numbering. No explanation. No emoji. No question mark.
 
     def _patch_scene_7(scene, next_topic):
         ending = str(scene.get("narration", "")).strip()
+
+        # The original writer already creates a next-topic bridge. Remove that
+        # old bridge so we never stack two CTAs and accidentally overrun 7 sec.
+        ending = re.split(
+            r"\b(?:but that leaves|and that raises|which leaves|the story ends here|that is the strange part)[^.!?]*",
+            ending,
+            maxsplit=1,
+            flags=re.I,
+        )[0].strip()
+
         ending = ending.rstrip(".!? ") + "."
 
         bridge = (
-            " If that made you curious, the next mystery on this channel is: "
+            " And if you want another everyday mystery, the next one is: "
             f"{next_topic}. Subscribe so you don't miss it."
         )
 

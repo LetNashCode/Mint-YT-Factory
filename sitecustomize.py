@@ -98,7 +98,7 @@ try:
 
     _old_build_system_prompt = generate_script.build_system_prompt
     def build_system_prompt():
-        return _old_build_system_prompt() + r"""
+        return _old_build_system_prompt().rstrip() + r"""
 
 ============================================================
 NEXT SHORT TOPIC FORMAT — HARD REQUIREMENT
@@ -150,35 +150,43 @@ Do NOT output a noun phrase or an incomplete "how ..." phrase.
 """
     generate_script.build_user_prompt = build_user_prompt
 
-    _old_normalize_next_short = generate_script._normalize_next_short
-    def _normalize_next_short(script):
-        _old_normalize_next_short(script)
-        topic = str(script["next_short"]["topic"]).strip()
-        if not re.match(r"^(why does|why do|why is|why are|why can|how does|how do|how is|how are|how can)\s+.+", topic, re.I):
-            raise RuntimeError(
-                "next_short.topic must be a complete observable question starting with "
-                "Why does/Why do/Why is/Why are/Why can/How does/How do/How is/How are/How can."
-            )
-        script["next_short"]["topic"] = topic.rstrip("?!.").strip()
+    _original_module = getattr(generate_script, "_original", None)
 
-    generate_script._normalize_next_short = _normalize_next_short
+    if _original_module is not None:
+        _old_normalize_next_short = _original_module._normalize_next_short
 
-    _old_validate_script = generate_script.validate_script
-    def validate_script(script, verified_research):
-        result = _old_validate_script(script, verified_research)
-        topic = str(verified_research.get("topic", "") or "")
-        subject_terms, phenomenon_terms = _topic_identity(topic)
-        narrative = " ".join(str(s.get("narration", "")) for s in script.get("scene_plan", []) if isinstance(s, dict))
-        title = str(script.get("title", ""))
-        description = str(script.get("description", ""))
-        if subject_terms:
-            narrative_subject = any(t in _terms(narrative) for t in subject_terms)
-            metadata_subject = any(t in _terms(f"{title} {description}") for t in subject_terms)
-            if not narrative_subject or not metadata_subject:
-                raise RuntimeError("CURRENT TOPIC DRIFT: generated narration/title/description do not identify the current topic's concrete subject.")
-        if phenomenon_terms and not any(t in _terms(narrative) for t in phenomenon_terms):
-            raise RuntimeError("CURRENT TOPIC DRIFT: generated narration does not contain the current observable phenomenon.")
-        return result
-    generate_script.validate_script = validate_script
+        def _normalize_next_short(script):
+            _old_normalize_next_short(script)
+            topic = str(script["next_short"]["topic"]).strip()
+            if not re.match(r"^(why does|why do|why is|why are|why can|how does|how do|how is|how are|how can)\s+.+", topic, re.I):
+                raise RuntimeError(
+                    "next_short.topic must be a complete observable question starting with "
+                    "Why does/Why do/Why is/Why are/Why can/How does/How do/How is/How are/How can."
+                )
+            script["next_short"]["topic"] = topic.rstrip("?!.").strip()
+
+        _original_module._normalize_next_short = _normalize_next_short
+
+        _old_validate_script = _original_module.validate_script
+
+        def validate_script(script, verified_research):
+            result = _old_validate_script(script, verified_research)
+            topic = str(verified_research.get("topic", "") or "")
+            subject_terms, phenomenon_terms = _topic_identity(topic)
+            narrative = " ".join(str(s.get("narration", "")) for s in script.get("scene_plan", []) if isinstance(s, dict))
+            title = str(script.get("title", ""))
+            description = str(script.get("description", ""))
+            if subject_terms:
+                narrative_subject = any(t in _terms(narrative) for t in subject_terms)
+                metadata_subject = any(t in _terms(f"{title} {description}") for t in subject_terms)
+                if not narrative_subject or not metadata_subject:
+                    raise RuntimeError("CURRENT TOPIC DRIFT: generated narration/title/description do not identify the current topic's concrete subject.")
+            if phenomenon_terms and not any(t in _terms(narrative) for t in phenomenon_terms):
+                raise RuntimeError("CURRENT TOPIC DRIFT: generated narration does not contain the current observable phenomenon.")
+            return result
+
+        _original_module.validate_script = validate_script
+        generate_script._normalize_next_short = _normalize_next_short
+        generate_script.validate_script = validate_script
 except Exception:
     pass

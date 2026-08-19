@@ -2,7 +2,7 @@
 generate_script.py
 Mint-YT-Factory
 
-Version 10.1
+Version 10.2
 
 RESEARCH-FIRST STORY + VISUAL CONTINUITY ENGINE
 
@@ -32,6 +32,20 @@ FIXES IN v10.1
     generated script failed independent claim verification on genuine
     (non-structural) scientific grounds, it passes the specific rejected
     claims back in here so the next generation attempt can avoid them.
+
+FIXES IN v10.2
+---------------
+
+13. The claim-strength safety check no longer bans "causes" / "caused" /
+    "causing" / "results in" / "resulting in" outright. Causal language
+    is already checked far more accurately, against the actual supplied
+    evidence text, by verify_claims.py downstream. A bare regex ban on
+    the word "causes" was rejecting scientifically correct, evidence-
+    supported causal claims.
+14. "always" / "never" are only flagged when used UNHEDGED. Hedged forms
+    such as "virtually always", "almost never", "generally always", or
+    "nearly always" are appropriately cautious language and are no
+    longer flagged as overclaiming.
 """
 
 
@@ -670,13 +684,6 @@ FORBIDDEN_CLAIM_PATTERNS = [
     r"\bconfirm that\b",
     r"\bconfirmed that\b",
 
-    r"\bcauses\b",
-    r"\bcaused\b",
-    r"\bcausing\b",
-
-    r"\bresults in\b",
-    r"\bresulting in\b",
-
     r"\bguarantees\b",
     r"\bguaranteed\b",
     r"\bguarantee\b",
@@ -695,15 +702,63 @@ FORBIDDEN_CLAIM_PATTERNS = [
     r"\bwithout doubt\b",
     r"\bno doubt\b",
 
-    r"\balways\b",
-    r"\bnever\b",
-
     r"\bcompletely\b",
     r"\bperfectly\b",
 
     r"\bthe only reason\b",
     r"\bthe exact reason\b",
 ]
+
+
+# ----------------------------------------------------------------------------
+# Bare absolute terms ("always", "never") are only overclaiming when
+# unhedged. Hedged forms (virtually always, almost never, generally always,
+# nearly always, typically never, etc.) are appropriately cautious language
+# and must NOT be flagged.
+# ----------------------------------------------------------------------------
+
+ABSOLUTE_TERM_PATTERNS = [
+    r"\balways\b",
+    r"\bnever\b",
+]
+
+ABSOLUTE_TERM_HEDGES = (
+    "virtually",
+    "almost",
+    "nearly",
+    "generally",
+    "typically",
+    "usually",
+    "often",
+    "commonly",
+    "most",
+    "in most cases",
+)
+
+
+def _absolute_term_is_hedged(
+    narration,
+    match,
+):
+    """
+    True if the matched "always"/"never" is preceded within a short
+    window by a hedging qualifier, making it appropriately cautious
+    rather than an overclaim.
+    """
+
+    window_start = max(
+        0,
+        match.start() - 30,
+    )
+
+    preceding_text = narration[
+        window_start:match.start()
+    ].lower()
+
+    return any(
+        hedge in preceding_text
+        for hedge in ABSOLUTE_TERM_HEDGES
+    )
 
 
 def _find_claim_violations(script):
@@ -758,6 +813,26 @@ def _find_claim_violations(script):
                     "narration": narration,
                 })
 
+        for pattern in ABSOLUTE_TERM_PATTERNS:
+
+            for match in re.finditer(
+                pattern,
+                narration,
+                flags=re.IGNORECASE,
+            ):
+
+                if _absolute_term_is_hedged(
+                    narration,
+                    match,
+                ):
+                    continue
+
+                violations.append({
+                    "scene": index,
+                    "phrase": match.group(0),
+                    "narration": narration,
+                })
+
     return violations
 
 
@@ -802,6 +877,13 @@ def _validate_claim_strength(script):
         "indicates",
         "is associated with",
         "researchers observed",
+        "",
+        "Bare absolute terms (always, never) are only a problem when",
+        "unhedged. Hedged forms like 'virtually always', 'almost never',",
+        "or 'generally always' are acceptable and will not be flagged.",
+        "Causal language (causes, results in) is checked separately,",
+        "against the actual supplied evidence text, during claim",
+        "verification — it is not banned here.",
     ])
 
     raise RuntimeError(
@@ -5306,10 +5388,9 @@ def generate_script(
 PRIOR CLAIM VERIFICATION FEEDBACK
 ============================================================
 
-A previous version of this Short passed script validation but FAILED
-independent scientific claim verification. The following claims were
-rejected as unsupported, uncertain, or contradicted by the supplied
-evidence:
+A previous version of this Short failed either script validation or
+independent scientific claim verification. The following feedback
+describes what went wrong:
 
 {extra_feedback}
 
@@ -5543,6 +5624,14 @@ indicates
 associated with
 
 when supported by the research.
+
+If you use causal language ("causes", "results in"), it must be
+directly and explicitly supported by the supplied evidence text for
+that scene's cited source. If in doubt, use softer language instead.
+
+Bare absolute terms ("always", "never") must be hedged (e.g.
+"virtually always", "almost never") unless the evidence itself states
+the absolute without qualification.
 
 
 Return ONLY JSON.
@@ -5931,7 +6020,7 @@ if __name__ == "__main__":
 
     print(
         "generate_script.py "
-        "v10.1 is a pipeline module."
+        "v10.2 is a pipeline module."
     )
 
     print(

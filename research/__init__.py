@@ -26,6 +26,14 @@ _original = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_original)
 
 
+# Preserve the actual implementation before installing any compatibility
+# wrappers. The original research module's _question_structure() resolves
+# _extract_subject() through the module namespace, so calling
+# _original._extract_subject() from our wrapper after replacing that symbol
+# would recursively call the wrapper itself.
+_ORIGINAL_EXTRACT_SUBJECT = _original._extract_subject
+
+
 # ---------------------------------------------------------------------------
 # Improved question parsing
 # ---------------------------------------------------------------------------
@@ -44,7 +52,7 @@ _EXTRA_SUBJECT_SEPARATORS = (
 
 def _strict_extract_subject(topic):
     lowered = _original._clean(topic).lower()
-    subject = _original._extract_subject(topic)
+    subject = _ORIGINAL_EXTRACT_SUBJECT(topic)
 
     excluded = {
         "slow", "slows", "slowing", "speed", "speeding", "faster",
@@ -236,7 +244,6 @@ for _name, _value in vars(_original).items():
 globals()["research_topic"] = research_topic
 
 globals()["_score_source"] = _strict_score_source
-
 globals()["_extract_subject"] = _strict_extract_subject
 
 __all__ = ["research_topic"]

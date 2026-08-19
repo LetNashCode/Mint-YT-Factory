@@ -1,11 +1,8 @@
-"""
-Mint-YT-Factory research compatibility wrapper.
+"""Compatibility wrapper for the existing research.py evidence engine.
 
-The project keeps the existing research.py implementation intact and exposes
-its public API through this package. The wrapper tightens question parsing so
-that a generic phenomenon term (for example, "smell") cannot accidentally
-be treated as the subject of the question and allow an unrelated paper to
-pass the scientific relevance gate.
+The original research.py remains intact. This wrapper strengthens the
+question parser and source relevance gate so a generic phenomenon word such
+as "smell" cannot make an unrelated paper pass a topic-specific question.
 """
 
 from __future__ import annotations
@@ -32,48 +29,37 @@ _spec.loader.exec_module(_original)
 # ---------------------------------------------------------------------------
 # Improved question parsing
 # ---------------------------------------------------------------------------
-# The original extractor already tries to isolate the subject before verbs
-# such as "sound" and "feel", but it did not include "smell". That meant a
-# topic such as "why does fresh bread smell..." could produce "smell" as a
-# subject token. An unrelated smell paper could then satisfy the subject gate.
-# Keep the original algorithm and add the missing observable predicates.
+# research.py already isolates the subject before predicates such as "sound"
+# and "feel", but it did not include "smell". For a topic such as
+# "why does fresh bread smell...", that could leave "smell" as a subject-like
+# concept and allow unrelated smell papers to score highly.
 # ---------------------------------------------------------------------------
 
 _EXTRA_SUBJECT_SEPARATORS = (
-    " smell ",
-    " smells ",
-    " taste ",
-    " tastes ",
-    " get ",
-    " gets ",
-    " appear ",
-    " appears ",
-    " seem ",
-    " seems ",
-    " turn ",
-    " turns ",
+    " smell ", " smells ", " taste ", " tastes ",
+    " get ", " gets ", " appear ", " appears ",
+    " seem ", " seems ", " turn ", " turns ",
 )
 
 
 def _strict_extract_subject(topic):
     lowered = _original._clean(topic).lower()
-
     subject = _original._extract_subject(topic)
 
-    # Prefer the precise subject phrase before an observable predicate.
+    excluded = {
+        "slow", "slows", "slowing", "speed", "speeding", "faster",
+        "starting", "stopping", "stopped", "turning", "during", "while",
+        "after", "before", "cold", "hot",
+    }
+
     for separator in _EXTRA_SUBJECT_SEPARATORS:
         if separator not in lowered:
             continue
 
         left = lowered.split(separator, 1)[0]
         left_tokens = [
-            token
-            for token in _original._tokens(left)
-            if token not in {
-                "slow", "slows", "slowing", "speed", "speeding",
-                "faster", "starting", "stopping", "stopped", "turning",
-                "during", "while", "after", "before", "cold", "hot",
-            }
+            token for token in _original._tokens(left)
+            if token not in excluded
         ]
 
         if left_tokens:
@@ -86,12 +72,7 @@ _original._extract_subject = _strict_extract_subject
 
 
 # ---------------------------------------------------------------------------
-# Final topic-identity guard
-# ---------------------------------------------------------------------------
-# This is deliberately concept-based rather than a single keyword check.
-# A source must support both the concrete subject and the observable
-# phenomenon. For example, a COVID smell-loss paper contains "smell" but not
-# the concrete subject "bread", so it cannot pass a bread-aroma question.
+# Topic identity model
 # ---------------------------------------------------------------------------
 
 _GENERIC_SUBJECT_WORDS = {
@@ -104,9 +85,11 @@ _PHENOMENON_SYNONYMS = {
     "odor": {"smell", "smells", "odor", "odour", "aroma", "aromas", "fragrance"},
     "odour": {"smell", "smells", "odor", "odour", "aroma", "aromas", "fragrance"},
     "sound": {"sound", "sounds", "noise", "noises", "acoustic", "audio", "echo", "echoes"},
+    "sounds": {"sound", "sounds", "noise", "noises", "acoustic", "audio", "echo", "echoes"},
     "feel": {"feel", "feels", "feeling", "cold", "colder", "temperature", "sensation", "perception"},
-    "taste": {"taste", "tastes", "flavor", "flavour", "flavors", "flavours", "taste"},
-    "get": {"get", "gets", "become", "becomes", "change", "changes"},
+    "feels": {"feel", "feels", "feeling", "cold", "colder", "temperature", "sensation", "perception"},
+    "taste": {"taste", "tastes", "flavor", "flavour", "flavors", "flavours"},
+    "tastes": {"taste", "tastes", "flavor", "flavour", "flavors", "flavours"},
 }
 
 
@@ -116,29 +99,28 @@ def _content_terms(text):
 
 def _topic_identity(topic):
     structure = _original._question_structure(topic)
-    subject_phrase = structure.get("subject", [])[:1]
-    subject_phrase = subject_phrase[0] if subject_phrase else ""
+
+    subject_phrases = structure.get("subject", [])
+    subject_phrase = subject_phrases[0] if subject_phrases else ""
+
     subject_terms = [
-        token
-        for token in _original._tokens(subject_phrase)
+        token for token in _original._tokens(subject_phrase)
         if token not in _GENERIC_SUBJECT_WORDS
     ]
 
-    phenomenon = structure.get("phenomenon", [])
     phenomenon_terms = set()
-    for item in phenomenon:
-        words = _content_terms(item)
-        for word in words:
+    for item in structure.get("phenomenon", []):
+        for word in _content_terms(item):
             phenomenon_terms.update(
                 _PHENOMENON_SYNONYMS.get(word, {word})
             )
 
-    # If the parser has no explicit phenomenon, use the remaining topic
-    # content after the subject as a conservative fallback.
+    # Keep the identity guard conservative: if there is no explicit
+    # phenomenon, use remaining concrete topic terms rather than allowing
+    # generic words such as "good" or "different" to define relevance.
     if not phenomenon_terms:
-        topic_terms = _original._tokens(topic)
         phenomenon_terms.update(
-            token for token in topic_terms
+            token for token in _original._tokens(topic)
             if token not in subject_terms
             and token not in _GENERIC_SUBJECT_WORDS
         )
@@ -149,6 +131,8 @@ def _topic_identity(topic):
 def _source_matches_current_topic(topic, source):
     subject_terms, phenomenon_terms = _topic_identity(topic)
 
+    # If the topic parser cannot establish a concrete identity, leave the
+    # existing scientific relevance engine in charge rather than guessing.
     if not subject_terms or not phenomenon_terms:
         return True
 
@@ -156,15 +140,12 @@ def _source_matches_current_topic(topic, source):
     evidence = _original._clean_abstract(
         source.get("evidence_text", "") or source.get("abstract", "")
     )
-
     combined = f"{title} {evidence}"
-    combined_terms = _content_terms(combined)
 
     subject_hit = any(
         _original._term_match(term, combined)
         for term in subject_terms
     )
-
     phenomenon_hit = any(
         _original._term_match(term, combined)
         for term in phenomenon_terms
@@ -173,6 +154,32 @@ def _source_matches_current_topic(topic, source):
     return subject_hit and phenomenon_hit
 
 
+# ---------------------------------------------------------------------------
+# Apply the identity guard DURING the original scoring pipeline, before
+# source selection. This is important: filtering only the final five sources
+# could leave us with fewer than two sources even though relevant candidates
+# existed earlier in the discovery pool.
+# ---------------------------------------------------------------------------
+
+_original_score_source = _original._score_source
+
+
+def _strict_score_source(topic, source):
+    result = _original_score_source(topic, source)
+
+    if not _source_matches_current_topic(topic, source):
+        result["scientific_relevance_pass"] = False
+        result["concept_coverage_pass"] = False
+        result["intent_pass"] = False
+        result["relevance_class"] = "weak"
+        result.setdefault("rejection_reasons", []).append(
+            "current_topic_identity_mismatch"
+        )
+
+    return result
+
+
+_original._score_source = _strict_score_source
 _original_research_topic = _original.research_topic
 
 
@@ -183,9 +190,11 @@ def research_topic(topic):
     if not isinstance(sources, list):
         raise RuntimeError("RESEARCH FAILED: verified sources are not a list.")
 
+    # Final defensive check: the package must never leave this module with a
+    # source that is scientifically credible but unrelated to the current
+    # question.
     filtered = [
-        source
-        for source in sources
+        source for source in sources
         if _source_matches_current_topic(topic, source)
     ]
 
@@ -214,16 +223,20 @@ def research_topic(topic):
     package["sources"] = filtered
     package["source_count"] = len(filtered)
     package["evidence_source_count"] = len(filtered)
-
     return package
 
 
-# Expose the original module API while overriding research_topic.
+# Export the complete original API while overriding research_topic and the
+# scoring/parser helpers used internally by the original pipeline.
 for _name, _value in vars(_original).items():
     if _name.startswith("__") or _name == "research_topic":
         continue
     globals()[_name] = _value
 
 globals()["research_topic"] = research_topic
+
+globals()["_score_source"] = _strict_score_source
+
+globals()["_extract_subject"] = _strict_extract_subject
 
 __all__ = ["research_topic"]

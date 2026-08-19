@@ -2,48 +2,50 @@
 tts.py
 Mint-YT-Factory
 
-Version 8.1 — SINGLE-SHOT TIKTOK TTS TEST
+Version 8.2 — CHUNKED TIKTOK TTS
 
 PURPOSE
 -------
-Send the ENTIRE story narration to TikTok TTS in ONE request.
+Generate ONE continuous narration from the complete story.
 
-IMPORTANT TEST RULE
--------------------
-There is NO local chunking.
+TikTokTTS has an internal hard limit of 300 UTF-8 characters per
+request. Therefore the complete narration is split into natural
+sentence-aware chunks.
 
-There is NO 300-byte limit.
+IMPORTANT
+---------
+This is NOT scene-level TTS.
 
-There is NO sentence splitting.
+There are:
+    - No scene audio files
+    - No artificial scene pauses
+    - No word splitting
+    - No arbitrary character splitting where avoidable
+    - No crossfade
+    - No fallback voice
 
-There is NO word splitting.
-
-There is NO scene-by-scene TTS.
-
-There is NO fallback to chunks.
-
-If TikTok/TikTokTTS rejects the complete narration,
-the pipeline FAILS and prints the complete error information
-so we can identify the actual limitation.
+There ARE:
+    - Multiple TikTok TTS requests when required
+    - Natural sentence-boundary chunking
+    - ONE final story.mp3
 
 The original narration is preserved.
 
-Pronunciation corrections are applied ONLY to the text
-sent to TikTok TTS.
+Pronunciation corrections are applied ONLY to the text sent to
+TikTok TTS.
 
-The final output remains:
+Final output:
 
     workdir/story.mp3
 
 Compatible with main.py and assemble.py.
 """
 
-
 import os
 import re
 import traceback
 
-from moviepy.editor import AudioFileClip
+from moviepy.editor import AudioFileClip, concatenate_audioclips
 
 from tiktoktts import TTS
 
@@ -56,15 +58,14 @@ SAMPLE_RATE = 44100
 
 NARRATION_SPEED = 0.90
 
+# TikTokTTS internally rejects >300 UTF-8 characters.
+# Keep a safety margin rather than targeting exactly 300.
+TIKTOK_MAX_CHARS = 300
+TIKTOK_SAFE_CHARS = 285
+
 
 # ==========================================================================
 # PRONUNCIATION CORRECTIONS
-# ==========================================================================
-#
-# These replacements affect ONLY the text sent to TikTok TTS.
-#
-# The original script narration remains unchanged.
-# Therefore Whisper captions still correspond to the original narration.
 # ==========================================================================
 
 PRONUNCIATION_REPLACEMENTS = {
@@ -93,17 +94,12 @@ PRONUNCIATION_REPLACEMENTS = {
 # TEXT CLEANING
 # ==========================================================================
 
-def clean_text(
-    text,
-):
+def clean_text(text):
 
     if not text:
-
         return ""
 
-    text = str(
-        text
-    )
+    text = str(text)
 
     text = re.sub(
         r"\s+",
@@ -140,23 +136,16 @@ def clean_text(
 # TTS PRONUNCIATION TEXT
 # ==========================================================================
 
-def build_tts_pronunciation_text(
-    text,
-):
+def build_tts_pronunciation_text(text):
 
-    text = clean_text(
-        text
-    )
+    text = clean_text(text)
 
     if not text:
-
         return ""
 
     result = text
 
-    for original, replacement in (
-        PRONUNCIATION_REPLACEMENTS.items()
-    ):
+    for original, replacement in PRONUNCIATION_REPLACEMENTS.items():
 
         pattern = (
             r"(?<![\w'-])"
@@ -171,9 +160,240 @@ def build_tts_pronunciation_text(
             flags=re.IGNORECASE,
         )
 
-    return clean_text(
-        result
+    return clean_text(result)
+
+
+# ==========================================================================
+# UTF-8 LENGTH
+# ==========================================================================
+
+def utf8_length(text):
+
+    return len(
+        text.encode("utf-8")
     )
+
+
+# ==========================================================================
+# SENTENCE SPLITTING
+# ==========================================================================
+
+def split_sentences(text):
+
+    text = clean_text(text)
+
+    if not text:
+        return []
+
+    # Split after normal sentence punctuation.
+    #
+    # Lookbehind keeps punctuation attached to the sentence.
+    sentences = re.split(
+        r"(?<=[.!?])\s+",
+        text,
+    )
+
+    sentences = [
+        clean_text(sentence)
+        for sentence in sentences
+        if clean_text(sentence)
+    ]
+
+    return sentences
+
+
+# ==========================================================================
+# HARD SPLIT
+# ==========================================================================
+
+def hard_split_text(
+    text,
+    max_chars=TIKTOK_SAFE_CHARS,
+):
+    """
+    Split a single oversized sentence without breaking words unless
+    absolutely necessary.
+
+    This is only used when an individual sentence itself exceeds
+    TikTok's request limit.
+    """
+
+    text = clean_text(text)
+
+    if not text:
+        return []
+
+    words = text.split()
+
+    chunks = []
+    current = ""
+
+    for word in words:
+
+        candidate = (
+            word
+            if not current
+            else current + " " + word
+        )
+
+        if utf8_length(candidate) <= max_chars:
+
+            current = candidate
+
+            continue
+
+        if current:
+
+            chunks.append(
+                current
+            )
+
+        # --------------------------------------------------------------
+        # A single word may itself be too long.
+        # Extremely rare, but handle it safely.
+        # --------------------------------------------------------------
+
+        if utf8_length(word) <= max_chars:
+
+            current = word
+
+        else:
+
+            raw = word
+
+            while utf8_length(raw) > max_chars:
+
+                piece = raw[:max_chars]
+
+                # UTF-8 safety.
+                while utf8_length(piece) > max_chars:
+
+                    piece = piece[:-1]
+
+                chunks.append(
+                    piece
+                )
+
+                raw = raw[len(piece):]
+
+            current = raw
+
+    if current:
+
+        chunks.append(
+            current
+        )
+
+    return chunks
+
+
+# ==========================================================================
+# BUILD TIKTOK CHUNKS
+# ==========================================================================
+
+def build_tiktok_chunks(text):
+
+    text = clean_text(text)
+
+    if not text:
+        return []
+
+    sentences = split_sentences(
+        text
+    )
+
+    chunks = []
+
+    current = ""
+
+    for sentence in sentences:
+
+        sentence_length = utf8_length(
+            sentence
+        )
+
+        # --------------------------------------------------------------
+        # Normal sentence fits.
+        # --------------------------------------------------------------
+
+        if sentence_length <= TIKTOK_SAFE_CHARS:
+
+            candidate = (
+                sentence
+                if not current
+                else current + " " + sentence
+            )
+
+            if utf8_length(candidate) <= TIKTOK_SAFE_CHARS:
+
+                current = candidate
+
+            else:
+
+                if current:
+
+                    chunks.append(
+                        current
+                    )
+
+                current = sentence
+
+            continue
+
+        # --------------------------------------------------------------
+        # Sentence itself is too large.
+        # Flush current chunk first.
+        # --------------------------------------------------------------
+
+        if current:
+
+            chunks.append(
+                current
+            )
+
+            current = ""
+
+        # --------------------------------------------------------------
+        # Break oversized sentence by words.
+        # --------------------------------------------------------------
+
+        sentence_chunks = hard_split_text(
+            sentence,
+            TIKTOK_SAFE_CHARS,
+        )
+
+        chunks.extend(
+            sentence_chunks
+        )
+
+    if current:
+
+        chunks.append(
+            current
+        )
+
+    # ------------------------------------------------------------------
+    # Final safety verification.
+    # ------------------------------------------------------------------
+
+    for index, chunk in enumerate(
+        chunks,
+        start=1,
+    ):
+
+        length = utf8_length(
+            chunk
+        )
+
+        if length > TIKTOK_MAX_CHARS:
+
+            raise RuntimeError(
+                f"TikTok chunk {index} exceeds "
+                f"the hard 300-character limit: "
+                f"{length} UTF-8 characters."
+            )
+
+    return chunks
 
 
 # ==========================================================================
@@ -246,12 +466,17 @@ def apply_narration_speed(
 def print_tiktok_error(
     error,
     text,
+    request_number,
 ):
 
     print()
     print("=" * 80)
     print("❌ TIKTOK TTS REQUEST FAILED")
     print("=" * 80)
+
+    print(
+        f"Request: {request_number}"
+    )
 
     print(
         f"Exception type: {type(error).__name__}"
@@ -262,42 +487,19 @@ def print_tiktok_error(
     )
 
     print()
-    print("Full exception representation:")
-    print(
-        repr(error)
-    )
-
-    print()
     print("Narration information:")
+
     print(
-        f"Characters sent: {len(text)}"
+        f"Characters: {len(text)}"
     )
 
     print(
-        f"UTF-8 bytes sent: {len(text.encode('utf-8'))}"
-    )
-
-    print()
-    print("IMPORTANT:")
-    print(
-        "This request was intentionally sent as ONE single "
-        "TikTok TTS request."
-    )
-
-    print(
-        "NO local 300-byte limit was applied."
-    )
-
-    print(
-        "NO local chunking was applied."
-    )
-
-    print(
-        "NO fallback TTS request was attempted."
+        f"UTF-8 characters: {utf8_length(text)}"
     )
 
     print()
     print("Traceback:")
+
     traceback.print_exc()
 
     print("=" * 80)
@@ -305,7 +507,105 @@ def print_tiktok_error(
 
 
 # ==========================================================================
-# SINGLE-SHOT TTS
+# GENERATE ONE TIKTOK CHUNK
+# ==========================================================================
+
+def generate_tiktok_chunk(
+    text,
+    voice,
+    request_number,
+):
+
+    source = "output.mp3"
+
+    if os.path.exists(source):
+
+        try:
+
+            os.remove(source)
+
+        except Exception as error:
+
+            raise RuntimeError(
+                "Could not remove stale output.mp3."
+            ) from error
+
+    print()
+    print(
+        f"🎤 TikTok TTS request "
+        f"{request_number}"
+    )
+
+    print(
+        f"Characters: {len(text)}"
+    )
+
+    print(
+        f"UTF-8 characters: "
+        f"{utf8_length(text)}"
+    )
+
+    print(
+        f"Text: {text}"
+    )
+
+    tts = TTS()
+
+    tts.SetVoice(
+        voice
+    )
+
+    try:
+
+        tts.New(
+            text
+        )
+
+    except Exception as error:
+
+        print_tiktok_error(
+            error,
+            text,
+            request_number,
+        )
+
+        raise RuntimeError(
+            f"TikTok TTS request "
+            f"{request_number} failed."
+        ) from error
+
+    if not os.path.exists(source):
+
+        raise RuntimeError(
+            f"TikTok TTS request "
+            f"{request_number} completed without "
+            f"creating output.mp3."
+        )
+
+    # ------------------------------------------------------------------
+    # Move the generated file to a unique filename.
+    # ------------------------------------------------------------------
+
+    chunk_path = os.path.abspath(
+        f"tiktok_chunk_{request_number}.mp3"
+    )
+
+    if os.path.exists(chunk_path):
+
+        os.remove(
+            chunk_path
+        )
+
+    os.replace(
+        source,
+        chunk_path
+    )
+
+    return chunk_path
+
+
+# ==========================================================================
+# SYNTHESIZE NARRATION
 # ==========================================================================
 
 def synthesize_narration(
@@ -313,23 +613,6 @@ def synthesize_narration(
     config,
     out_path,
 ):
-    """
-    Send the COMPLETE narration to TikTok TTS exactly once.
-
-    There is deliberately NO:
-
-    - byte limit
-    - character limit
-    - sentence splitting
-    - word splitting
-    - chunking
-    - chunk gap
-    - scene pause
-    - crossfade
-    - fallback request
-
-    If TikTok rejects the request, the exception is printed and raised.
-    """
 
     original_text = clean_text(
         text
@@ -377,11 +660,22 @@ def synthesize_narration(
         )
 
     # ----------------------------------------------------------------------
-    # Logging.
+    # Build chunks.
     # ----------------------------------------------------------------------
 
+    chunks = build_tiktok_chunks(
+        tts_text
+    )
+
+    if not chunks:
+
+        raise RuntimeError(
+            "No TikTok TTS chunks were generated."
+        )
+
+    print()
     print("=" * 80)
-    print("🎙️ TIKTOK TTS — SINGLE REQUEST TEST")
+    print("🎙️ TIKTOK TTS — CHUNKED CONTINUOUS NARRATION")
     print("=" * 80)
 
     print(
@@ -399,8 +693,17 @@ def synthesize_narration(
     )
 
     print(
-        f"TTS UTF-8 bytes: "
-        f"{len(tts_text.encode('utf-8'))}"
+        f"TTS UTF-8 characters: "
+        f"{utf8_length(tts_text)}"
+    )
+
+    print(
+        f"Chunks: {len(chunks)}"
+    )
+
+    print(
+        f"Maximum chunk size: "
+        f"{max(utf8_length(c) for c in chunks)}"
     )
 
     print(
@@ -411,16 +714,43 @@ def synthesize_narration(
     print()
     print("TTS REQUEST MODE")
     print("----------------")
-    print("Requests: 1")
-    print("Chunking: DISABLED")
-    print("Sentence splitting: DISABLED")
-    print("Word splitting: DISABLED")
-    print("300-byte limit: DISABLED")
-    print("Character limit: DISABLED")
-    print("Chunk gaps: DISABLED")
-    print("Scene pauses: DISABLED")
-    print("Crossfade: DISABLED")
-    print("Fallback request: DISABLED")
+
+    print(
+        f"Requests: {len(chunks)}"
+    )
+
+    print(
+        "Sentence-aware chunking: ENABLED"
+    )
+
+    print(
+        f"Safe chunk limit: "
+        f"{TIKTOK_SAFE_CHARS}"
+    )
+
+    print(
+        "Scene-level TTS: DISABLED"
+    )
+
+    print(
+        "Word-level TTS: DISABLED"
+    )
+
+    print(
+        "Artificial gaps: DISABLED"
+    )
+
+    print(
+        "Scene pauses: DISABLED"
+    )
+
+    print(
+        "Crossfade: DISABLED"
+    )
+
+    print(
+        "Fallback voice: DISABLED"
+    )
 
     # ----------------------------------------------------------------------
     # Pronunciation logging.
@@ -446,115 +776,84 @@ def synthesize_narration(
         )
 
     # ----------------------------------------------------------------------
-    # Create TTS.
+    # Generate chunks.
     # ----------------------------------------------------------------------
 
-    print()
-    print("=" * 80)
-    print("🎤 SENDING COMPLETE NARRATION TO TIKTOK")
-    print("=" * 80)
+    chunk_paths = []
 
-    print(
-        "The following text is being sent in ONE request:"
-    )
+    clips = []
 
-    print()
+    processed_clips = []
 
-    print(
-        tts_text
-    )
+    try:
 
-    print()
-    print("=" * 80)
+        for index, chunk in enumerate(
+            chunks,
+            start=1,
+        ):
 
-    tts = TTS()
-
-    tts.SetVoice(
-        voice
-    )
-
-    # ----------------------------------------------------------------------
-    # tiktoktts writes to output.mp3.
-    # ----------------------------------------------------------------------
-
-    source = "output.mp3"
-
-    if os.path.exists(
-        source
-    ):
-
-        try:
-
-            os.remove(
-                source
+            chunk_path = generate_tiktok_chunk(
+                chunk,
+                voice,
+                index,
             )
 
-        except Exception as error:
+            chunk_paths.append(
+                chunk_path
+            )
 
-            raise RuntimeError(
-                "Could not remove stale output.mp3."
-            ) from error
+        # --------------------------------------------------------------
+        # Load all generated audio.
+        # --------------------------------------------------------------
 
-    # ----------------------------------------------------------------------
-    # ONE AND ONLY ONE TTS REQUEST.
-    # ----------------------------------------------------------------------
+        print()
+        print("=" * 80)
+        print("🎧 ASSEMBLING CONTINUOUS NARRATION")
+        print("=" * 80)
 
-    try:
+        for index, chunk_path in enumerate(
+            chunk_paths,
+            start=1,
+        ):
 
-        tts.New(
-            tts_text
-        )
+            clip = AudioFileClip(
+                chunk_path
+            )
 
-    except Exception as error:
+            clips.append(
+                clip
+            )
 
-        print_tiktok_error(
-            error,
-            tts_text,
-        )
+            print(
+                f"Chunk {index}: "
+                f"{clip.duration:.2f}s"
+            )
 
-        raise RuntimeError(
-            "TikTok TTS rejected the single-shot narration request."
-        ) from error
+        # --------------------------------------------------------------
+        # Concatenate with ZERO artificial silence.
+        # --------------------------------------------------------------
 
-    # ----------------------------------------------------------------------
-    # Verify output.
-    # ----------------------------------------------------------------------
-
-    if not os.path.exists(
-        source
-    ):
-
-        raise RuntimeError(
-            "TikTok TTS returned without an exception, "
-            "but output.mp3 was not created."
-        )
-
-    # ----------------------------------------------------------------------
-    # Load generated audio.
-    # ----------------------------------------------------------------------
-
-    clip = None
-    processed = None
-
-    try:
-
-        clip = AudioFileClip(
-            source
+        combined = concatenate_audioclips(
+            clips
         )
 
         print()
         print(
-            f"Raw TikTok audio duration: "
-            f"{clip.duration:.2f}s"
+            f"Raw combined duration: "
+            f"{combined.duration:.2f}s"
         )
 
         # --------------------------------------------------------------
-        # Speed adjustment happens AFTER TikTok generates the audio.
+        # Apply narration speed AFTER concatenation.
         # --------------------------------------------------------------
 
         processed = apply_narration_speed(
-            clip,
+            combined,
             NARRATION_SPEED,
+        )
+
+        processed_clips.append(
+            processed
         )
 
         print(
@@ -590,7 +889,7 @@ def synthesize_narration(
 
         print()
         print("=" * 80)
-        print("✅ SINGLE-SHOT TIKTOK TTS SUCCESS")
+        print("✅ TIKTOK TTS NARRATION SUCCESS")
         print("=" * 80)
 
         print(
@@ -598,19 +897,24 @@ def synthesize_narration(
         )
 
         print(
-            f"Duration: {processed.duration:.2f}s"
+            f"TikTok TTS requests: "
+            f"{len(chunks)}"
         )
 
         print(
-            "TikTok TTS requests: 1"
+            "Final audio files: 1"
         )
 
         print(
-            "Audio chunks generated locally: 0"
+            "Scene audio files: 0"
         )
 
         print(
             "Artificial gaps: 0"
+        )
+
+        print(
+            "Scene pauses: 0"
         )
 
         print("=" * 80)
@@ -619,38 +923,60 @@ def synthesize_narration(
 
     finally:
 
-        try:
+        # --------------------------------------------------------------
+        # Close processed audio.
+        # --------------------------------------------------------------
 
-            if processed is not None:
+        for clip in processed_clips:
 
-                processed.close()
-
-        except Exception:
-
-            pass
-
-        try:
-
-            if clip is not None:
-
+            try:
                 clip.close()
-
-        except Exception:
-
-            pass
+            except Exception:
+                pass
 
         # --------------------------------------------------------------
-        # Remove TikTok temporary file.
+        # Close source clips.
+        # --------------------------------------------------------------
+
+        for clip in clips:
+
+            try:
+                clip.close()
+            except Exception:
+                pass
+
+        # --------------------------------------------------------------
+        # Remove temporary TikTok files.
+        # --------------------------------------------------------------
+
+        for chunk_path in chunk_paths:
+
+            try:
+
+                if os.path.exists(
+                    chunk_path
+                ):
+
+                    os.remove(
+                        chunk_path
+                    )
+
+            except Exception:
+
+                pass
+
+        # --------------------------------------------------------------
+        # Remove stale output.mp3.
         # --------------------------------------------------------------
 
         try:
 
             if os.path.exists(
-                source
+                "output.mp3"
             ):
 
                 os.remove(
-                    source
+                    "output.mp3"
                 )
 
         except Exception:
@@ -667,37 +993,6 @@ def synthesize_script(
     config,
     workdir,
 ):
-    """
-    Combine all scene narration into ONE text string and send it
-    to TikTok TTS exactly ONCE.
-
-    Example:
-
-        Scene 1 narration
-        Scene 2 narration
-        Scene 3 narration
-        ...
-        Scene 7 narration
-
-                    ↓
-
-        ONE continuous text string
-
-                    ↓
-
-        tts.New(full_narration)
-
-                    ↓
-
-        ONE TikTok-generated audio file
-
-                    ↓
-
-        story.mp3
-
-    No scene audio files are created.
-    No scene audio is concatenated.
-    """
 
     os.makedirs(
         workdir,
@@ -762,9 +1057,6 @@ def synthesize_script(
 
     # ----------------------------------------------------------------------
     # One continuous narration string.
-    #
-    # Normal spaces are used.
-    # No artificial silence is inserted.
     # ----------------------------------------------------------------------
 
     full_narration = " ".join(
@@ -773,7 +1065,7 @@ def synthesize_script(
 
     print()
     print("=" * 80)
-    print("🎙️ COMPLETE STORY → SINGLE TIKTOK TTS REQUEST")
+    print("🎙️ COMPLETE STORY → TIKTOK TTS")
     print("=" * 80)
 
     print(
@@ -786,28 +1078,61 @@ def synthesize_script(
     )
 
     print(
-        f"Total UTF-8 bytes: "
-        f"{len(full_narration.encode('utf-8'))}"
+        f"Total UTF-8 characters: "
+        f"{utf8_length(full_narration)}"
     )
 
     print()
-    print("The COMPLETE story will be sent to TikTok TTS")
-    print("in ONE request.")
+    print("The complete story remains ONE narration.")
+
+    print()
+    print("TikTok's 300-character request limit requires")
+    print("the narration to be sent as multiple requests.")
+
     print()
     print("There will be:")
-    print("  ❌ No chunking")
-    print("  ❌ No 300-byte restriction")
-    print("  ❌ No scene-level TTS")
-    print("  ❌ No sentence splitting")
-    print("  ❌ No word splitting")
-    print("  ❌ No artificial gaps")
-    print("  ❌ No scene pauses")
-    print("  ❌ No fallback request")
+
+    print(
+        "  ❌ No scene-level TTS"
+    )
+
+    print(
+        "  ❌ No word splitting"
+    )
+
+    print(
+        "  ❌ No artificial gaps"
+    )
+
+    print(
+        "  ❌ No scene pauses"
+    )
+
+    print(
+        "  ❌ No crossfade"
+    )
+
+    print(
+        "  ❌ No fallback voice"
+    )
+
     print()
-    print("There will be:")
-    print("  ✅ ONE TikTok TTS request")
-    print("  ✅ ONE generated narration")
-    print("  ✅ ONE final story.mp3")
+
+    print(
+        "  ✅ Sentence-aware chunks"
+    )
+
+    print(
+        "  ✅ Multiple TikTok requests when required"
+    )
+
+    print(
+        "  ✅ One continuous final narration"
+    )
+
+    print(
+        "  ✅ One final story.mp3"
+    )
 
     print("=" * 80)
 
@@ -819,10 +1144,6 @@ def synthesize_script(
         workdir,
         "story.mp3",
     )
-
-    # ----------------------------------------------------------------------
-    # ONE SINGLE TTS CALL.
-    # ----------------------------------------------------------------------
 
     synthesize_narration(
         full_narration,
@@ -865,11 +1186,11 @@ def synthesize_script(
         )
 
         print(
-            "TikTok TTS requests: 1"
+            "Final audio files: 1"
         )
 
         print(
-            "Local audio chunks: 0"
+            "Local temporary chunks: removed"
         )
 
         print(
@@ -909,7 +1230,7 @@ def scene_indexed_pause(
     """
     Legacy compatibility.
 
-    Scene pauses are disabled.
+    Scene pauses remain disabled.
     """
 
     return 0.0

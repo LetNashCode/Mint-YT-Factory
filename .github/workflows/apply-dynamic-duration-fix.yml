@@ -1,0 +1,54 @@
+name: Apply Dynamic Duration Fix
+
+on:
+  push:
+    branches:
+      - fix/dynamic-short-duration
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Patch assemble.py
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("assemble.py")
+          text = path.read_text(encoding="utf-8")
+
+          old = 'TARGET_DURATION = 45.0\n'
+          new = '''TARGET_DURATION = 45.0\n\n# Maximum final Short duration.\n# Stories may naturally run longer than 45 seconds when needed,\n# but narration is never allowed to exceed 60 seconds.\nMAX_VIDEO_DURATION = 60.0\n'''
+          if old not in text:
+              raise SystemExit("TARGET_DURATION marker not found")
+          text = text.replace(old, new, 1)
+
+          old = '''    narration_duration = (\n        narration.duration\n    )\n\n    print(\n        f"Narration: "\n        f"{narration_duration:.2f}s"\n    )\n'''
+          new = '''    narration_duration = (\n        narration.duration\n    )\n\n    # --------------------------------------------------------------\n    # Dynamic story duration.\n    #\n    # The storyboard is normally 45 seconds, but a complete story may\n    # naturally need more time. Allow it to expand up to 60 seconds.\n    # Scale all seven scenes proportionally so the 14 visuals cover\n    # the complete narration instead of ending at 45 seconds.\n    # --------------------------------------------------------------\n    requested_duration = min(\n        MAX_VIDEO_DURATION,\n        narration_duration,\n    )\n\n    if requested_duration > TARGET_DURATION:\n\n        scale = (\n            requested_duration\n            / TARGET_DURATION\n        )\n\n        scaled_durations = [\n            duration * scale\n            for duration in SCENE_DURATIONS\n        ]\n\n        SCENE_DURATIONS[:] = scaled_durations\n\n        scenes = script.get(\n            "scene_plan",\n            [],\n        )\n\n        for scene, duration in zip(\n            scenes,\n            scaled_durations,\n        ):\n            scene["duration"] = duration\n\n        print(\n            f"⏱️ Dynamic storyboard duration: "\n            f"{requested_duration:.2f}s"\n        )\n\n    print(\n        f"Narration: "\n        f"{narration_duration:.2f}s"\n    )\n'''
+          if old not in text:
+              raise SystemExit("narration block marker not found")
+          text = text.replace(old, new, 1)
+
+          old = '''    final_duration = min(\n        TARGET_DURATION,\n        narration_duration,\n    )\n'''
+          new = '''    final_duration = min(\n        MAX_VIDEO_DURATION,\n        narration_duration,\n    )\n'''
+          if old not in text:
+              raise SystemExit("final duration marker not found")
+          text = text.replace(old, new, 1)
+
+          path.write_text(text, encoding="utf-8")
+          PY
+
+      - name: Commit patched assemble.py
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assemble.py
+          git commit -m "Allow Shorts to run up to 60 seconds" || exit 0
+          git push

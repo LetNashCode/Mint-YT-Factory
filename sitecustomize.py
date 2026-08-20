@@ -184,6 +184,12 @@ def _patch(module):
             module.build_prompt = build_prompt_with_viral_direction
         return
 
+    if name == "tts":
+        # config.yaml already requests 1.0x delivery, but the old TTS module
+        # hard-coded 0.90x. Align the runtime with the configured voice speed.
+        module.NARRATION_SPEED = 1.0
+        return
+
 
 class _MintQualityLoader(importlib.abc.Loader):
     def __init__(self, original_loader):
@@ -201,7 +207,7 @@ class _MintQualityLoader(importlib.abc.Loader):
 
 
 class _MintQualityFinder(importlib.abc.MetaPathFinder):
-    TARGETS = {"topics", "generate_script", "generate_images"}
+    TARGETS = {"topics", "generate_script", "generate_images", "tts"}
 
     def find_spec(self, fullname, path=None, target=None):
         if fullname not in self.TARGETS:

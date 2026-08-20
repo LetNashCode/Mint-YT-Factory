@@ -16,3 +16,7 @@ openai-whisper>=20250625
 torch>=2.2.0
 
 ffmpeg-python>=0.2.0
+
+# Install the project in editable mode so Python loads sitecustomize.py
+# during interpreter startup and applies the production quality layer.
+-e .

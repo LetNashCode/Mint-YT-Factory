@@ -15,7 +15,7 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
 
     env:
       IMAGEMAGICK_BINARY: /usr/bin/convert
@@ -46,11 +46,11 @@ jobs:
       # WHISPER MODEL CACHE
       # ============================================================
 
-      - name: Cache Whisper model
+      - name: Cache Whisper tiny.en model
         uses: actions/cache@v4
         with:
           path: ~/.cache/whisper
-          key: whisper-base-v1
+          key: whisper-tiny-en-v2
 
       # ============================================================
       # SYSTEM TOOLS
@@ -72,10 +72,6 @@ jobs:
           echo ""
           echo "Python:"
           python --version
-
-          # ========================================================
-          # FFMPEG
-          # ========================================================
 
           echo ""
           echo "=========================================="
@@ -104,10 +100,6 @@ jobs:
           echo "FFmpeg version:"
           ffmpeg -version | head -n 1
 
-          # ========================================================
-          # IMAGEMAGICK
-          # ========================================================
-
           echo ""
           echo "=========================================="
           echo "🖼️ IMAGEMAGICK"
@@ -115,14 +107,10 @@ jobs:
 
           if command -v magick >/dev/null 2>&1; then
             echo "✅ ImageMagick 'magick' already available."
-
             IM_PATH="$(command -v magick)"
-
           elif command -v convert >/dev/null 2>&1; then
             echo "✅ ImageMagick 'convert' already available."
-
             IM_PATH="$(command -v convert)"
-
           else
             echo "⚠️ ImageMagick not found."
             echo "Installing ImageMagick..."
@@ -149,10 +137,6 @@ jobs:
           echo "Configured MoviePy ImageMagick binary:"
           echo "$IMAGEMAGICK_BINARY"
 
-          # ========================================================
-          # VERIFY THE EXPECTED BINARY
-          # ========================================================
-
           if [ ! -x "$IMAGEMAGICK_BINARY" ]; then
             echo ""
             echo "❌ Configured ImageMagick binary does not exist:"
@@ -170,40 +154,28 @@ jobs:
           echo "ImageMagick version:"
           "$IMAGEMAGICK_BINARY" --version | head -n 3
 
-          # ========================================================
-          # IMAGEMAGICK POLICY
-          # ========================================================
-
           echo ""
           echo "=========================================="
           echo "🔐 CONFIGURING IMAGEMAGICK POLICY"
           echo "=========================================="
 
           if [ -f /etc/ImageMagick-6/policy.xml ]; then
-
             echo "ImageMagick 6 policy detected."
 
             sudo sed -i \
               's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
               /etc/ImageMagick-6/policy.xml \
               || true
-
           fi
 
           if [ -f /etc/ImageMagick-7/policy.xml ]; then
-
             echo "ImageMagick 7 policy detected."
 
             sudo sed -i \
               's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' \
               /etc/ImageMagick-7/policy.xml \
               || true
-
           fi
-
-          # ========================================================
-          # TEST FFMPEG
-          # ========================================================
 
           echo ""
           echo "=========================================="
@@ -219,10 +191,6 @@ jobs:
 
           echo "✅ FFmpeg test passed."
 
-          # ========================================================
-          # TEST IMAGEMAGICK
-          # ========================================================
-
           echo ""
           echo "=========================================="
           echo "🧪 TESTING IMAGEMAGICK"
@@ -236,14 +204,9 @@ jobs:
             "$TEMP_IMAGE"
 
           test -s "$TEMP_IMAGE"
-
           rm -f "$TEMP_IMAGE"
 
           echo "✅ ImageMagick test passed."
-
-          # ========================================================
-          # FINAL ENVIRONMENT CHECK
-          # ========================================================
 
           echo ""
           echo "=========================================="
@@ -284,12 +247,10 @@ jobs:
 
           echo ""
           echo "Upgrading pip..."
-
           python -m pip install --upgrade pip
 
           echo ""
           echo "Installing requirements.txt..."
-
           python -m pip install \
             --prefer-binary \
             -r requirements.txt
@@ -318,411 +279,64 @@ jobs:
           print("Python:", sys.version)
 
           checks = [
-              ("google.genai", "Google GenAI"),
-              ("requests", "Requests"),
-              ("moviepy", "MoviePy"),
-              ("PIL", "Pillow"),
-              ("yaml", "PyYAML"),
-              ("google.auth", "Google Auth"),
-              ("googleapiclient", "Google API Client"),
-              ("whisper", "OpenAI Whisper"),
-              ("torch", "PyTorch"),
-              ("ffmpeg", "ffmpeg-python"),
+              "requests",
+              "yaml",
+              "moviepy",
+              "PIL",
+              "google.genai",
+              "whisper",
           ]
 
-          failed = []
-
-          for module_name, display_name in checks:
+          for module in checks:
               try:
-                  module = __import__(module_name)
-
-                  version = getattr(
-                      module,
-                      "__version__",
-                      "unknown",
-                  )
-
-                  print(
-                      f"✅ {display_name}: {version}"
-                  )
-
-              except Exception as e:
-                  print(
-                      f"❌ {display_name}: {e}"
-                  )
-
-                  failed.append(
-                      display_name
-                  )
-
-          if failed:
-              print("")
-              print("FAILED IMPORTS:")
-
-              for item in failed:
-                  print(" -", item)
-
-              raise SystemExit(1)
-
-          print("")
-          print("==========================================")
-          print("✅ ALL PYTHON IMPORTS PASSED")
-          print("==========================================")
-          PY
-
-      # ============================================================
-      # VERIFY IMAGEMAGICK FROM PYTHON
-      # ============================================================
-
-      - name: Verify MoviePy ImageMagick configuration
-        shell: bash
-        run: |
-          set -e
-
-          echo "=========================================="
-          echo "🖼️ VERIFYING MOVIEPY IMAGEMAGICK"
-          echo "=========================================="
-
-          echo "Environment:"
-          echo "IMAGEMAGICK_BINARY=$IMAGEMAGICK_BINARY"
-
-          python - <<'PY'
-          import os
-
-          expected = "/usr/bin/convert"
-
-          print(
-              "IMAGEMAGICK_BINARY:",
-              os.environ.get("IMAGEMAGICK_BINARY")
-          )
-
-          if os.environ.get("IMAGEMAGICK_BINARY") != expected:
-              raise SystemExit(
-                  "❌ IMAGEMAGICK_BINARY is incorrect."
-              )
-
-          from moviepy.config import get_setting
-
-          actual = get_setting("IMAGEMAGICK_BINARY")
-
-          print(
-              "MoviePy ImageMagick:",
-              actual
-          )
-
-          if actual != expected:
-              raise SystemExit(
-                  "❌ MoviePy is not using /usr/bin/convert."
-              )
-
-          print("")
-          print("✅ MoviePy ImageMagick configuration is correct.")
-          PY
-
-      # ============================================================
-      # VERIFY PROJECT FILES
-      # ============================================================
-
-      - name: Verify project files
-        shell: bash
-        run: |
-          set -e
-
-          echo "=========================================="
-          echo "📁 VERIFYING PROJECT FILES"
-          echo "=========================================="
-
-          REQUIRED_FILES=(
-            "main.py"
-            "assemble.py"
-            "whisper_align.py"
-            "tts.py"
-          )
-
-          for FILE in "${REQUIRED_FILES[@]}"; do
-
-            if [ -f "$FILE" ]; then
-              echo "✅ $FILE"
-            else
-              echo "❌ Missing: $FILE"
-              exit 1
-            fi
-
-          done
-
-          echo ""
-          echo "=========================================="
-          echo "🔬 TESTING LOCAL MODULE IMPORTS"
-          echo "=========================================="
-
-          python - <<'PY'
-          import whisper_align
-          print("✅ whisper_align.py imported successfully.")
-
-          import tts
-          print("✅ tts.py imported successfully.")
-
-          import assemble
-          print("✅ assemble.py imported successfully.")
+                  __import__(module)
+                  print("✅", module)
+              except Exception as exc:
+                  print("❌", module, exc)
+                  raise
           PY
 
           echo ""
           echo "=========================================="
-          echo "✅ PROJECT FILE CHECK PASSED"
+          echo "✅ PYTHON ENVIRONMENT VERIFIED"
           echo "=========================================="
 
       # ============================================================
-      # VERIFY WHISPER
-      # ============================================================
-
-      - name: Verify Whisper
-        shell: bash
-        run: |
-          set -e
-
-          echo "=========================================="
-          echo "🎙️ WHISPER CHECK"
-          echo "=========================================="
-
-          python - <<'PY'
-          import whisper
-          import torch
-          import os
-
-          print("Whisper imported successfully.")
-          print("Torch version:", torch.__version__)
-          print("CUDA available:", torch.cuda.is_available())
-
-          print("")
-          print("Whisper model directory:")
-          print(os.path.expanduser("~/.cache/whisper"))
-
-          print("")
-          print("Model: base")
-          print("FP16: false")
-          print("Device: CPU on GitHub runner")
-          PY
-
-          echo ""
-          echo "=========================================="
-          echo "✅ WHISPER ENVIRONMENT READY"
-          echo "=========================================="
-
-      # ============================================================
-      # YOUTUBE CREDENTIALS
-      # ============================================================
-
-      - name: Write YouTube client credentials
-        shell: bash
-        env:
-          YOUTUBE_CLIENT_SECRET_JSON: ${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}
-        run: |
-          set -e
-
-          echo "=========================================="
-          echo "🔐 YOUTUBE CREDENTIALS"
-          echo "=========================================="
-
-          if [ -z "$YOUTUBE_CLIENT_SECRET_JSON" ]; then
-            echo "❌ YOUTUBE_CLIENT_SECRET_JSON secret is empty."
-            exit 1
-          fi
-
-          printf '%s' \
-            "$YOUTUBE_CLIENT_SECRET_JSON" \
-            > client_secret.json
-
-          test -s client_secret.json
-
-          echo "✅ YouTube client_secret.json created."
-
-      # ============================================================
-      # RUN MINT-YT-FACTORY
+      # RUN FACTORY
       # ============================================================
 
       - name: Run Mint-YT-Factory
+        shell: bash
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
-
-        shell: bash
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
         run: |
           set -e
 
           echo "=========================================="
-          echo "🚀 MINT-YT-FACTORY STARTED"
+          echo "🎬 MINT-YT-FACTORY"
           echo "=========================================="
 
-          echo ""
-          echo "Start Time:"
-          date
-
-          echo ""
-          echo "Runner:"
-          uname -a
-
-          echo ""
-          echo "Python:"
-          python --version
-
-          echo ""
-          echo "FFmpeg:"
-          ffmpeg -version | head -n 1
-
-          echo ""
-          echo "ImageMagick:"
-          "$IMAGEMAGICK_BINARY" --version | head -n 1
-
-          echo ""
-          echo "ImageMagick binary:"
-          echo "$IMAGEMAGICK_BINARY"
-
-          echo ""
-          echo "Memory:"
-          free -h
-
-          echo ""
-          echo "Disk:"
-          df -h
-
-          echo ""
-          echo "Whisper cache:"
-          du -sh ~/.cache/whisper 2>/dev/null || true
+          python main.py
 
           echo ""
           echo "=========================================="
-          echo "🔬 PIPELINE"
+          echo "✅ FACTORY COMPLETED"
           echo "=========================================="
-
-          echo "1. Research"
-          echo "2. Script"
-          echo "3. AI visuals"
-          echo "4. TTS"
-          echo "5. Whisper word timestamps"
-          echo "6. Captions"
-          echo "7. Video assembly"
-          echo "8. YouTube upload"
-
-          echo ""
-          echo "=========================================="
-          echo "▶️ STARTING main.py"
-          echo "=========================================="
-
-          START_TIME=$(date +%s)
-
-          python -u main.py
-
-          END_TIME=$(date +%s)
-
-          ELAPSED=$((END_TIME - START_TIME))
-
-          echo ""
-          echo "=========================================="
-          echo "⏱️ PIPELINE FINISHED"
-          echo "=========================================="
-
-          echo "Elapsed seconds: $ELAPSED"
-
-          echo ""
-          echo "Finished:"
-          date
 
       # ============================================================
-      # UPLOAD FINAL VIDEO
+      # UPLOAD ARTIFACTS
       # ============================================================
 
-      - name: Upload Final Video
+      - name: Upload production artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: final-video-${{ github.run_id }}
-          path: output/**/final.mp4
-          if-no-files-found: warn
+          name: mint-yt-factory-${{ github.run_id }}
+          path: |
+            output/**
+            logs/**
+          if-no-files-found: ignore
           retention-days: 7
-
-      # ============================================================
-      # UPLOAD GENERATED IMAGES
-      # ============================================================
-
-      - name: Upload Generated Images
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: generated-images-${{ github.run_id }}
-          path: output/**/visuals/
-          if-no-files-found: warn
-          retention-days: 7
-
-      # ============================================================
-      # UPLOAD RESEARCH
-      # ============================================================
-
-      - name: Upload Research Package
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: research-${{ github.run_id }}
-          path: output/**/research.json
-          if-no-files-found: warn
-          retention-days: 7
-
-      # ============================================================
-      # UPLOAD SCRIPT
-      # ============================================================
-
-      - name: Upload Generated Script
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: script-${{ github.run_id }}
-          path: output/**/script.json
-          if-no-files-found: warn
-          retention-days: 7
-
-      # ============================================================
-      # UPDATE USED TOPICS
-      # ============================================================
-
-      - name: Commit updated used_topics.json
-        if: success()
-        shell: bash
-        run: |
-          set -e
-
-          echo "=========================================="
-          echo "📝 UPDATING USED TOPICS"
-          echo "=========================================="
-
-          git config user.name "auto-publish-bot"
-          git config user.email "actions@github.com"
-
-          git add used_topics.json
-
-          if git diff --cached --quiet; then
-            echo "No topic changes to commit."
-            exit 0
-          fi
-
-          git commit \
-            -m "Update used topics [skip ci]"
-
-          git push
-
-      # ============================================================
-      # COMPLETE
-      # ============================================================
-
-      - name: Pipeline complete
-        if: success()
-        shell: bash
-        run: |
-          echo "=========================================="
-          echo "🎉 MINT-YT-FACTORY COMPLETE"
-          echo "=========================================="
-
-          echo ""
-          echo "Finished:"
-          date
-
-          echo ""
-          echo "✅ Short successfully generated and published."

@@ -1,366 +1,115 @@
-# 🎬 AI YouTube Shorts Automation
+# Mint-YT-Factory
 
-An end-to-end fully automated YouTube Shorts generation pipeline powered by Gemini AI, TikTok TTS, Whisper alignment, MoviePy, Pixabay, Pexels and the YouTube Data API.
+Automated production pipeline for research-backed YouTube Shorts.
 
-The goal of this project is to generate high-retention YouTube Shorts completely automatically and publish them without any manual editing.
+## Channel format
 
----
+The channel focuses on **everyday curiosities** — things people see, use, hear, taste, or experience in normal life but rarely stop to ask about.
 
-# Current Status
+Examples:
 
-## ✅ Implemented
+- Why does your voice sound weird in a recording
+- Why does toothpaste make orange juice taste disgusting
+- Why does a fan make you feel cooler
+- Why does your phone get hot while charging
+- Why does a mirror seem to reverse left and right
 
-### 🤖 AI Script Generation
+Science is the explanation, not the packaging. Topics must be simple, relatable, visual, and genuinely researchable.
 
-- Google Gemini Flash Lite
-- Story-driven scripts
-- Hook → Story → Twist → Ending structure
-- 40–45 second narration
-- SEO title generation
-- SEO description generation
-- 15 optimized tags
-- Emotional scene planning
-- Cinematic scene breakdown
-- Open-loop endings
-- High-retention writing prompt
+## Production pipeline
 
----
-
-### 🎥 Visual Engine
-
-Each scene generates
-
-- 4 shots
-
-Each shot generates
-
-- 5 alternative search queries
-
-Visual sources
-
-- Pixabay Videos
-- Pexels Videos
-
-Features
-
-- Automatic fallback search
-- Duplicate clip prevention
-- Quality ranking
-- Portrait preference
-- HD preference
-- Long clip preference
-- Multi-source search
-- Automatic downloading
-
----
-
-### 🎙 Narration
-
-Current Engine
-
-- TikTok TTS
-- Ghostface Voice
-
-Features
-
-- Automatic chunking
-- UTF-8 safe splitting
-- MP3 merging
-- Automatic cleanup
-- Emotion-ready pipeline
-
----
-
-### 📝 Captions
-
-- Whisper Alignment
-- Word-level timestamps
-- Automatic subtitles
-- Burned into video
-
----
-
-### 🎬 Video Assembly
-
-MoviePy based editor
-
-Features
-
-- Dynamic scene durations
-- Auto scaling
-- Center crop
-- Vertical format
-- Motion zoom
-- Background music
-- Caption overlay
-- Automatic timeline creation
-
----
-
-### 📺 YouTube Upload
-
-- OAuth Authentication
-- Automatic upload
-- Title
-- Description
-- Tags
-- Shorts support
-
----
-
-### 🔄 Automation
-
-GitHub Actions
-
-Runs automatically on schedule
-
-Pipeline
-
-Topic
-↓
-
-Script
-↓
-
-Narration
-↓
-
-Visual Search
-↓
-
-Download Assets
-↓
-
-Assemble Video
-↓
-
-Upload to YouTube
-
----
-
-# Story Pipeline
-
-```
-Topic
-      │
-      ▼
-Gemini AI
-      │
-      ▼
-Hook
-      │
-      ▼
-Story
-      │
-      ▼
-Twist
-      │
-      ▼
-Ending
-      │
-      ▼
-Scene Planner
-      │
-      ▼
-Visual Searches
+```text
+Everyday topic
+      ↓
+Verified scientific research
+      ↓
+Research-backed story script
+      ↓
+Claim verification + publishing safety gate
+      ↓
+TikTok TTS narration
+      ↓
+14 AI-generated visuals
+      ↓
+Whisper word timing + narration-aware caption repair
+      ↓
+MoviePy assembly
+      ↓
+YouTube upload
 ```
 
----
+## Research safety
 
-# Video Pipeline
+The pipeline does not publish merely because an LLM says a claim is true. Research discovery, source relevance, evidence retrieval, DOI verification, claim verification, and the final publishing gate remain separate checks.
 
-```
-Script
-      │
-      ▼
-TikTok TTS
-      │
-      ▼
-Whisper Alignment
-      │
-      ▼
-Pixabay
-      │
-      ▼
-Pexels
-      │
-      ▼
-MoviePy
-      │
-      ▼
-Final Short
-      │
-      ▼
-YouTube Upload
-```
+Everyday wording is translated internally into scientific vocabulary for scholarly discovery. That vocabulary is never used as public narration.
 
----
+## Script goals
 
-# Tech Stack
+- One story, not a countdown or list
+- Immediate curiosity hook
+- Simple spoken English
+- Quirky, entertaining narration
+- Clear visual progression
+- A satisfying explanation without unnecessary jargon
+- Strong ending/open loop
+- Current-topic identity checks
+- Next-topic continuation checks
+- Public description describes only the current Short
 
-## AI
+## Captions
 
-- Google Gemini Flash Lite
+Whisper provides timing, but the verified narration saved for the run is the authoritative wording. The caption layer also enforces a minimum separation between words so overlapping text cannot visually merge into malformed strings.
 
-## Speech
+## Project structure
 
-- TikTok TTS
-
-## Alignment
-
-- Whisper
-
-## Editing
-
-- MoviePy
-
-## Visual Sources
-
-- Pixabay API
-- Pexels API
-
-## Upload
-
-- YouTube Data API v3
-
-## Automation
-
-- GitHub Actions
-
----
-
-# Project Structure
-
-```
+```text
 .
+├── .github/workflows/publish.yml
+├── assets/
+│   ├── Fonts/Poppins-ExtraBold.ttf
+│   └── music/
 ├── assemble.py
-├── generate_script.py
-├── visuals.py
-├── tts.py
-├── whisper_align.py
-├── upload_youtube.py
-├── main.py
 ├── config.yaml
+├── generate_images.py
+├── generate_script.py
+├── generate_script/__init__.py
+├── main.py
+├── music.py
+├── research.py
+├── research/__init__.py
+├── topics.py
+├── topics/__init__.py
+├── tts.py
+├── upload_youtube.py
+├── used_topics.json
+├── verify_claims.py
+├── whisper_align.py
 ├── requirements.txt
-├── publish.yml
 └── README.md
 ```
 
----
+## GitHub Actions
 
-# Features
+There is intentionally **one production workflow**:
 
-- AI-generated storytelling
-- High-retention script writing
-- Emotional scene planning
-- Cinematic visual search
-- Multi-source stock footage
-- Automatic narration
-- Word-level captions
-- Motion effects
-- Background music
-- Automatic uploads
-- Scheduled publishing
-- Fully automated pipeline
+`.github/workflows/publish.yml`
 
----
+It installs the required system/Python dependencies, verifies the runtime, runs `main.py`, and publishes the completed Short.
 
-# Environment Variables
+The old one-time FFmpeg/bootstrap workflows are not part of the production system.
 
-```
+## Required secrets
+
+```text
 GEMINI_API_KEY
-
-PIXABAY_API_KEY
-
-PEXELS_API_KEY
-
 YOUTUBE_TOKEN_JSON
-
-YOUTUBE_CLIENT_SECRET_JSON
 ```
 
----
+## Run locally
 
-# Current Workflow
-
-```
-Generate Topic
-        │
-        ▼
-Generate Story
-        │
-        ▼
-Generate Scene Plan
-        │
-        ▼
-Generate Visual Searches
-        │
-        ▼
-Download Videos
-        │
-        ▼
-Generate Narration
-        │
-        ▼
-Generate Captions
-        │
-        ▼
-Assemble Video
-        │
-        ▼
-Upload to YouTube
+```bash
+python main.py
 ```
 
----
-
-# Planned Improvements
-
-## Script Engine
-
-- 500+ categorized viral hooks
-- Better emotional pacing
-- Topic memory
-- Retention scoring
-- Hook optimization
-- Multi-language support
-
----
-
-## Visual Engine
-
-- Better visual matching
-- Documentary-style motion graphics
-- Public-domain archives
-- Maps
-- Timelines
-- Animated infographics
-- Evidence board effects
-- Dynamic camera movement
-- Color grading
-
----
-
-## Narration
-
-- Emotion-aware TTS
-- Better voice options
-- Dynamic pacing
-- Natural pauses
-
----
-
-## Automation
-
-- Multiple uploads per day
-- Automatic topic queue
-- Upload history
-- Duplicate detection
-- Scheduled YouTube publishing
-- Retry failed uploads
-- Analytics-driven scheduling
-
----
-
-# Vision
-
-Build a fully autonomous AI-powered YouTube Shorts production system capable of generating, editing, and publishing high-retention videos every day with zero manual intervention.
+The same production pipeline is used locally and by GitHub Actions.

@@ -1,0 +1,36 @@
+name: Final duration tail fix
+
+on:
+  push:
+    branches:
+      - fix/permanent-duration-final8
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extend visuals through narration tail
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('assemble.py')
+          s = p.read_text(encoding='utf-8')
+          old = '''    requested_duration = min(\n        MAX_VIDEO_DURATION - END_HOLD_SECONDS,\n        narration_duration,\n    )'''
+          new = '''    # Include the small end hold in the visual timeline itself.\n    # This guarantees the final frame remains visible after the last\n    # spoken word instead of leaving a black frame at the end.\n    requested_duration = min(\n        MAX_VIDEO_DURATION,\n        narration_duration + END_HOLD_SECONDS,\n    )'''
+          if old not in s:
+              raise SystemExit('requested duration marker not found')
+          s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assemble.py
+          git commit -m "Keep final visual frame through end hold" || exit 0
+          git push

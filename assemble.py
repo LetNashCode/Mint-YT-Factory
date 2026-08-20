@@ -2089,9 +2089,12 @@ def assemble_video(
     # Scale all seven scenes proportionally so the 14 visuals cover
     # the complete narration instead of ending at 45 seconds.
     # --------------------------------------------------------------
+    # Include the small end hold in the visual timeline itself.
+    # This guarantees the final frame remains visible after the last
+    # spoken word instead of leaving a black frame at the end.
     requested_duration = min(
-        MAX_VIDEO_DURATION - END_HOLD_SECONDS,
-        narration_duration,
+        MAX_VIDEO_DURATION,
+        narration_duration + END_HOLD_SECONDS,
     )
 
     if requested_duration > TARGET_DURATION:

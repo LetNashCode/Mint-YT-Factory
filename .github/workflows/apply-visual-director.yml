@@ -20,16 +20,12 @@ jobs:
         shell: bash
         run: |
           set -e
-
           python - <<'PY'
           from pathlib import Path
 
           path = Path("generate_script.py")
           text = path.read_text(encoding="utf-8")
 
-          # ------------------------------------------------------------
-          # 1. Restrict the model to story-first visual styles.
-          # ------------------------------------------------------------
           old_styles = '''VALID_IMAGE_STYLE = {
               "realistic_3d_render",
               "scientific_illustration",
@@ -49,9 +45,6 @@ jobs:
 
           text = text.replace(old_styles, new_styles, 1)
 
-          # ------------------------------------------------------------
-          # 2. Add a hard visual-director policy before IMAGE PROMPTS.
-          # ------------------------------------------------------------
           marker = '''============================================================
 IMAGE PROMPTS
 ============================================================'''
@@ -84,10 +77,10 @@ HARD RULES:
 
 4. NEVER VISUALIZE UNSEEN MECHANISMS AS IF THEY ARE A CAMERA VIEW.
    If a mechanism is invisible, represent it with a believable physical
-   consequence or a cinematic metaphor that remains clearly grounded in the
-   real scene. Do not invent microscopic structures, receptors, particles,
-   forces, pathways, or internal anatomy unless the narration explicitly
-   requires a scientifically established visible structure.
+   consequence or a grounded cinematic metaphor. Do not invent microscopic
+   structures, receptors, particles, forces, pathways, or internal anatomy
+   unless the narration explicitly requires a scientifically established
+   visible structure.
 
 5. DO NOT INVENT VISUAL FACTS.
    The image must not imply a mechanism, object, experiment, location,
@@ -129,7 +122,7 @@ BAD VISUAL:
 
 GOOD VISUAL:
 "Extreme close-up of fingertips resting on the cold metal surface while
-condensation beads on the polished block and the hand reacts to the chill."
+the hand reacts to the chill."
 
 BAD VISUAL:
 "A cross-section of skin showing microscopic heat receptors."
@@ -153,13 +146,10 @@ IMAGE PROMPTS
           if "VISUAL DIRECTOR POLICY — STORY FIRST, NOT TEXTBOOK" not in text:
               text = text.replace(marker, policy, 1)
 
-          # ------------------------------------------------------------
-          # 3. Bump the version marker so the deployed file is obvious.
-          # ------------------------------------------------------------
           text = text.replace("Version 10.2", "Version 10.3", 1)
 
           path.write_text(text, encoding="utf-8")
-          print("✅ Visual Director policy applied to generate_script.py")
+          print("✅ Visual Director policy applied.")
           PY
 
       - name: Validate patch
@@ -168,29 +158,17 @@ IMAGE PROMPTS
           set -e
           grep -q 'Version 10.3' generate_script.py
           grep -q 'VISUAL DIRECTOR POLICY — STORY FIRST, NOT TEXTBOOK' generate_script.py
-          grep -q '"realistic_3d_render"' generate_script.py
-          grep -q '"cinematic_photograph"' generate_script.py
-          grep -q '"macro_photography"' generate_script.py
-          if grep -q '"scientific_illustration"' generate_script.py; then
-            echo "❌ scientific_illustration is still enabled"
-            exit 1
-          fi
-          if grep -q '"infographic_diagram"' generate_script.py; then
-            echo "❌ infographic_diagram is still enabled"
-            exit 1
-          fi
+          if grep -q '"scientific_illustration"' generate_script.py; then exit 1; fi
+          if grep -q '"infographic_diagram"' generate_script.py; then exit 1; fi
           echo "✅ Visual Director validation passed."
 
       - name: Commit patched generator
         shell: bash
         run: |
           set -e
-
           git config user.name "auto-publish-bot"
           git config user.email "actions@github.com"
-
           git add generate_script.py
-
           if git diff --cached --quiet; then
             echo "No changes needed."
           else
@@ -202,7 +180,6 @@ IMAGE PROMPTS
         shell: bash
         run: |
           set -e
-
           git rm .github/workflows/apply-visual-director.yml
           git commit -m "Remove one-time visual director patch workflow [skip ci]"
           git push

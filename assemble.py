@@ -86,6 +86,11 @@ EXPECTED_TOTAL_VISUALS = 14
 
 TARGET_DURATION = 45.0
 
+# Maximum final Short duration.
+# Stories may naturally run longer than 45 seconds when needed,
+# but narration is never allowed to exceed 60 seconds.
+MAX_VIDEO_DURATION = 60.0
+
 DEFAULT_RESOLUTION = (
     1080,
     1920,
@@ -2075,6 +2080,49 @@ def assemble_video(
         narration.duration
     )
 
+    # --------------------------------------------------------------
+    # Dynamic story duration.
+    #
+    # The storyboard is normally 45 seconds, but a complete story may
+    # naturally need more time. Allow it to expand up to 60 seconds.
+    # Scale all seven scenes proportionally so the 14 visuals cover
+    # the complete narration instead of ending at 45 seconds.
+    # --------------------------------------------------------------
+    requested_duration = min(
+        MAX_VIDEO_DURATION,
+        narration_duration,
+    )
+
+    if requested_duration > TARGET_DURATION:
+
+        scale = (
+            requested_duration
+            / TARGET_DURATION
+        )
+
+        scaled_durations = [
+            duration * scale
+            for duration in SCENE_DURATIONS
+        ]
+
+        SCENE_DURATIONS[:] = scaled_durations
+
+        scenes = script.get(
+            "scene_plan",
+            [],
+        )
+
+        for scene, duration in zip(
+            scenes,
+            scaled_durations,
+        ):
+            scene["duration"] = duration
+
+        print(
+            f"⏱️ Dynamic storyboard duration: "
+            f"{requested_duration:.2f}s"
+        )
+
     print(
         f"Narration: "
         f"{narration_duration:.2f}s"
@@ -2111,7 +2159,7 @@ def assemble_video(
         )
 
     final_duration = min(
-        TARGET_DURATION,
+        MAX_VIDEO_DURATION,
         narration_duration,
     )
 

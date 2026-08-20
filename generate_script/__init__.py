@@ -1,7 +1,8 @@
 """Compatibility wrapper for generate_script.py.
 
 Keeps the existing story engine intact while adding deterministic guards for
-continuation-topic format and current-topic story identity.
+continuation-topic format, everyday-curiosity packaging, and current-topic
+story identity.
 """
 
 from __future__ import annotations
@@ -25,6 +26,86 @@ _original = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_original)
 
 
+# ============================================================================
+# EVERYDAY-CURIOSITY CONTINUATION GATE
+# ============================================================================
+
+_BANNED_ACADEMIC = (
+    "permafrost", "tundra", "tectonic", "geological", "geology",
+    "quantum", "particle physics", "astrophysics", "cosmology",
+    "black hole", "neutron star", "supernova", "dark matter",
+    "dark energy", "subduction", "plate boundary", "ice wedge",
+    "ice-wedge", "brine pocket", "crystal lattice", "electromagnetic field",
+    "entropy", "thermodynamics", "microcrack", "gravitational wave",
+    "neutrino", "gene expression", "chromosome", "mitochondria",
+    "atmospheric circulation", "ocean current", "radiative forcing",
+    "fracture mechanics", "thermal cracks", "material fatigue",
+    "periglacial", "seismic", "magnetohydrodynamic", "fluid dynamics",
+    "cryogenic", "crystallography", "geophysical",
+)
+
+_FORBIDDEN_PHRASES = (
+    "the science of", "the physics of", "the biology of", "the history of",
+    "the neuroscience of", "a study of", "study of", "mechanism of",
+    "top 5", "top 10", "facts about", "interesting facts", "did you know",
+    "benefits of", "importance of", "complete guide", "ultimate guide",
+)
+
+_EVERYDAY_SIGNALS = (
+    "phone", "battery", "charger", "charging", "screen", "wifi", "wi-fi",
+    "headphone", "earbuds", "voice", "recording", "speaker", "fan",
+    "mirror", "shower", "toothpaste", "orange juice", "onion", "popcorn",
+    "milk", "coffee", "tea", "food", "taste", "smell", "spicy", "mosquito",
+    "sneeze", "hiccup", "yawn", "sleep", "alarm", "dream", "skin", "water",
+    "ice", "cold", "hot", "sweat", "hair", "clothes", "static", "shock",
+    "door", "window", "glass", "soap", "bubble", "bread", "egg", "rice",
+    "salt", "sugar", "fridge", "freezer", "car", "traffic", "seatbelt",
+    "tire", "keyboard", "computer", "laptop", "remote", "light", "shadow",
+    "rain", "umbrella", "pillow", "blanket", "shoe", "paper", "pen", "bag",
+    "bottle", "cup", "echo", "sound", "nose", "mouth", "teeth", "tears",
+    "breath", "blink", "goosebumps", "fingers", "hands", "laundry", "oven",
+    "stove", "microwave", "toaster", "candle", "towel", "sink", "tap", "socks",
+)
+
+
+def _clean_topic(value):
+    value = str(value or "").strip()
+    value = re.sub(r"```(?:text|json)?", "", value, flags=re.I)
+    value = value.replace('"', "").replace("'", "")
+    value = re.sub(
+        r"^(topic|next topic|next_short|next short)\s*:\s*",
+        "",
+        value,
+        flags=re.I,
+    )
+    value = re.sub(r"^\s*\d+[.\)\-:]\s*", "", value)
+    return " ".join(value.split()).rstrip("?!.").strip()
+
+
+def _is_everyday_topic(candidate):
+    text = _clean_topic(candidate).lower()
+    if not text:
+        return False
+    if any(term in text for term in _BANNED_ACADEMIC):
+        return False
+    if any(term in text for term in _FORBIDDEN_PHRASES):
+        return False
+    if not re.match(
+        r"^(why does|why do|why is|why are|why can|how does|how do|how is|how are|how can)\s+.+",
+        text,
+        flags=re.IGNORECASE,
+    ):
+        return False
+    words = re.findall(r"\b[\w'-]+\b", text)
+    if not 6 <= len(words) <= 12:
+        return False
+    if any(p in text for p in (" and why ", " and how ", " or why ", " or how ")):
+        return False
+    if not any(term in f" {text} " for term in _EVERYDAY_SIGNALS):
+        return False
+    return True
+
+
 _NEXT_TOPIC_CONTRACT = r"""
 
 ============================================================
@@ -32,8 +113,8 @@ NEXT SHORT TOPIC — HARD FORMAT CONTRACT
 ============================================================
 
 next_short.topic is consumed by the existing topics.py persistence validator.
-It MUST already be a complete observable curiosity question before you return
-JSON. Do not rely on downstream repair or validation to rewrite it.
+It MUST already be a complete, everyday, observable curiosity question before
+you return JSON. Do not rely on downstream repair or validation to rewrite it.
 
 The topic MUST begin with exactly one of these question structures:
 
@@ -51,7 +132,7 @@ How can ...
 The words "why" or "how" alone are NOT sufficient.
 
 GOOD:
-Why does fresh laundry odor boost retail spending in second-hand stores
+Why does toothpaste make orange juice taste disgusting
 Why does ice sometimes crack loudly
 Why do wet clothes feel colder in moving air
 How does a mirror seem to reverse left and right
@@ -61,14 +142,17 @@ how fresh laundry odor boosts retail spending in second-hand stores
 fresh laundry odor and retail spending
 how ice sometimes cracks loudly
 The effect of fresh laundry odor on retail spending
+Why ice-wedge cracks propagate upward in permafrost
+The thermodynamics of freezing water
 
 The topic must:
-- describe ONE observable phenomenon
+- describe ONE observable everyday phenomenon
 - be specific and researchable
 - naturally follow the CURRENT story
 - be different from the CURRENT topic
 - fit the existing 12-word topic limit
 - contain no question mark or terminal punctuation
+- use simple spoken language rather than academic terminology
 
 Return the question itself, without quotes, numbering, explanation, or labels.
 If a draft does not satisfy the required structure, rewrite it internally before
@@ -93,9 +177,9 @@ def build_user_prompt(topic, config, research):
 def _normalize_next_short(script):
     _original_normalize_next_short(script)
 
-    topic = str(
+    topic = _clean_topic(
         script["next_short"]["topic"]
-    ).strip()
+    )
 
     if not re.match(
         r"^(why does|why do|why is|why are|why can|how does|how do|how is|how are|how can)\s+.+",
@@ -108,7 +192,12 @@ def _normalize_next_short(script):
             "How does/How do/How is/How are/How can."
         )
 
-    script["next_short"]["topic"] = topic.rstrip("?!.").strip()
+    if not _is_everyday_topic(topic):
+        raise RuntimeError(
+            "next_short.topic violates the everyday-curiosity policy: " + topic
+        )
+
+    script["next_short"]["topic"] = topic
 
 
 def _topic_terms_from_research(research):
@@ -140,8 +229,6 @@ def _topic_terms_from_research(research):
             subject_phrase = item
             break
 
-    # The research parser's first subject entry is the concrete phrase.
-    # Ignore generic adjectives when checking story identity.
     generic = {
         "fresh", "good", "right", "different", "new", "common",
         "everyday", "often", "sometimes", "cold", "hot",
@@ -210,9 +297,6 @@ def validate_script(script, verified_research):
         script.get("description", "")
     )
 
-    # The current story must identify its concrete subject somewhere in the
-    # narration and in public metadata. This prevents a valid evidence package
-    # from turning into a different story such as COVID smell loss.
     if subject_terms:
         if not _contains_any(narration, subject_terms):
             raise RuntimeError(

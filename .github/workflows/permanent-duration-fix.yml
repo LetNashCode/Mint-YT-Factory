@@ -1,0 +1,50 @@
+name: Permanent duration fix
+
+on:
+  push:
+    branches:
+      - fix/permanent-duration-final8
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch duration handling
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          # TTS: dynamically speed long narration enough to fit under 60s,
+          # preserving every spoken word instead of cutting the ending.
+          p = Path('tts.py')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('speed = max(\n        0.80,\n        min(\n            speed,\n            1.10,\n        ),\n    )', 'speed = max(\n        0.80,\n        min(\n            speed,\n            1.25,\n        ),\n    )', 1)
+          old = '''        processed = apply_narration_speed(\n            combined,\n            NARRATION_SPEED,\n        )'''
+          new = '''        # Keep the complete narration inside the YouTube Shorts 60s limit.\n        # Never truncate the final sentence. If natural TTS is longer than\n        # 60s, increase playback speed only as much as necessary.\n        max_duration = 59.70\n        required_speed = max(\n            1.0,\n            combined.duration / max_duration,\n        )\n        effective_speed = min(\n            max(1.0, required_speed),\n            1.25,\n        )\n\n        if effective_speed > 1.0:\n            print(\n                f"⏱️ Long narration detected: {combined.duration:.2f}s. "\n                f"Compressing to <=60s at {effective_speed:.3f}x without cutting content."\n            )\n\n        processed = apply_narration_speed(\n            combined,\n            effective_speed,\n        )'''
+          if old not in s:
+              raise SystemExit('TTS processing marker not found')
+          s = s.replace(old, new, 1)
+          p.write_text(s, encoding='utf-8')
+
+          # Assembly: derive the entire visual timeline from the actual final
+          # narration duration, not a hard 45s ceiling. Add a tiny visual tail
+          # so the final spoken word is not visually chopped at the exact frame.
+          p = Path('assemble.py')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('MAX_VIDEO_DURATION = 60.0', 'MAX_VIDEO_DURATION = 60.0\nEND_HOLD_SECONDS = 0.20', 1)
+          s = s.replace('''    requested_duration = min(\n        MAX_VIDEO_DURATION,\n        narration_duration,\n    )''', '''    requested_duration = min(\n        MAX_VIDEO_DURATION - END_HOLD_SECONDS,\n        narration_duration,\n    )''', 1)
+          s = s.replace('''    final_duration = min(\n        MAX_VIDEO_DURATION,\n        narration_duration,\n    )''', '''    final_duration = min(\n        MAX_VIDEO_DURATION,\n        narration_duration + END_HOLD_SECONDS,\n    )''', 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit patched files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tts.py assemble.py
+          git commit -m "Prevent abrupt narration endings" || exit 0
+          git push

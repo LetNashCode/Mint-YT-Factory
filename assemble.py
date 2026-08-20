@@ -90,6 +90,7 @@ TARGET_DURATION = 45.0
 # Stories may naturally run longer than 45 seconds when needed,
 # but narration is never allowed to exceed 60 seconds.
 MAX_VIDEO_DURATION = 60.0
+END_HOLD_SECONDS = 0.20
 
 DEFAULT_RESOLUTION = (
     1080,
@@ -2089,7 +2090,7 @@ def assemble_video(
     # the complete narration instead of ending at 45 seconds.
     # --------------------------------------------------------------
     requested_duration = min(
-        MAX_VIDEO_DURATION,
+        MAX_VIDEO_DURATION - END_HOLD_SECONDS,
         narration_duration,
     )
 
@@ -2160,7 +2161,7 @@ def assemble_video(
 
     final_duration = min(
         MAX_VIDEO_DURATION,
-        narration_duration,
+        narration_duration + END_HOLD_SECONDS,
     )
 
     print(

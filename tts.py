@@ -419,7 +419,7 @@ def apply_narration_speed(
         0.80,
         min(
             speed,
-            1.10,
+            1.25,
         ),
     )
 
@@ -847,9 +847,28 @@ def synthesize_narration(
         # Apply narration speed AFTER concatenation.
         # --------------------------------------------------------------
 
+        # Keep the complete narration inside the YouTube Shorts 60s limit.
+        # Never truncate the final sentence. If natural TTS is longer than
+        # 60s, increase playback speed only as much as necessary.
+        max_duration = 59.70
+        required_speed = max(
+            1.0,
+            combined.duration / max_duration,
+        )
+        effective_speed = min(
+            max(1.0, required_speed),
+            1.25,
+        )
+
+        if effective_speed > 1.0:
+            print(
+                f"⏱️ Long narration detected: {combined.duration:.2f}s. "
+                f"Compressing to <=60s at {effective_speed:.3f}x without cutting content."
+            )
+
         processed = apply_narration_speed(
             combined,
-            NARRATION_SPEED,
+            effective_speed,
         )
 
         processed_clips.append(

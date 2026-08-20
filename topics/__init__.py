@@ -1,6 +1,6 @@
 """Compatibility wrapper for the existing topics.py engine.
 
-This package is the public topic entry point used by main.py.  The original
+This package is the public topic entry point used by main.py. The original
 root topics.py remains responsible for the existing research/duplicate and
 persistence rules, while this wrapper owns the channel's viewer-facing topic
 policy.
@@ -8,7 +8,7 @@ policy.
 HARD CHANNEL POLICY
 -------------------
 The channel is built around ordinary things people notice in daily life.
-Science is the explanation, not the packaging.  Academic phenomena such as
+Science is the explanation, not the packaging. Academic phenomena such as
 permafrost, tectonic processes, fracture mechanics, particle physics, etc.
 must never become the next video's current topic.
 
@@ -63,7 +63,7 @@ _BANNED_ACADEMIC = (
     "fracture mechanics", "thermal cracks", "material fatigue",
     "periglacial", "seismic", "magnetohydrodynamic", "fluid dynamics",
     "quantum mechanics", "plate tectonics", "ice-wedge", "ice wedge",
-    "periglacial", "cryogenic", "crystallography", "geophysical",
+    "cryogenic", "crystallography", "geophysical",
 )
 
 _FORBIDDEN_TOPIC_PHRASES = (
@@ -90,8 +90,8 @@ _EVERYDAY_SIGNALS = (
     "blanket", "shoe", "paper", "pen", "bag", "bottle", "cup",
     "clap", "echo", "sound", "nose", "mouth", "teeth", "tears",
     "breath", "blink", "goosebumps", "fingers", "hands", "laundry",
-    "clothes", "oven", "stove", "microwave", "toaster", "candle",
-    "soap", "towel", "sink", "tap", "water bottle", "socks", "shoes",
+    "oven", "stove", "microwave", "toaster", "candle", "towel", "sink",
+    "tap", "water bottle", "socks", "shoes",
 )
 
 
@@ -130,7 +130,6 @@ def _is_everyday_topic(candidate):
     if any(p in text for p in (" and why ", " and how ", " or why ", " or how ")):
         return False
 
-    # A topic must contain a recognisable everyday object/experience.
     if not any(term in f" {text} " for term in _EVERYDAY_SIGNALS):
         return False
 
@@ -254,7 +253,6 @@ def _generate_everyday_topic(current_topic="", used=None):
                 print("⚠️ Rejected: duplicate of a previous topic.")
                 continue
 
-            # Keep the existing research/duplicate validator as a SECOND gate.
             if not _original.validate_topic_for_pipeline(
                 candidate,
                 used=used,
@@ -386,28 +384,28 @@ def _persist_pending_topic(topic):
 
 
 def get_next_topic():
-    """Return the exact queued topic, otherwise generate a new everyday topic."""
+    """Return a valid queued topic, otherwise generate a new everyday topic.
+
+    Old versions of the pipeline could already have persisted a topic before
+    the everyday-curiosity hard gate was introduced. Such a stale topic must
+    not crash the entire workflow. It is discarded and replaced with a fresh
+    valid topic. New continuation topics are still hard-validated before they
+    are persisted, so this is only a migration path for legacy state.
+    """
     pending = _consume_persisted_pending_topic()
 
     if pending:
-        if not _is_everyday_topic(pending):
-            raise RuntimeError(
-                "Persisted continuation topic violates everyday-curiosity policy: "
-                + pending
-            )
-
-        if not _original.validate_topic_for_pipeline(
+        if _is_everyday_topic(pending) and _original.validate_topic_for_pipeline(
             pending,
             check_duplicate=False,
         ):
-            raise RuntimeError(
-                "Persisted continuation topic is invalid: " + pending
-            )
+            return pending
 
-        return pending
+        print("⚠️ Persisted continuation topic is from an older topic policy.")
+        print(f"⚠️ Discarding stale continuation topic: {pending}")
+        print("🔄 Generating a fresh everyday-curiosity replacement.")
 
     used = _read_used_topics_raw()
-    # Remove the private persistence marker from the duplicate context.
     used = [item for item in used if not item.startswith(_PENDING_PREFIX)]
     return _generate_everyday_topic(used=used)
 

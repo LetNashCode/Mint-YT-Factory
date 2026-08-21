@@ -122,57 +122,11 @@ and objects, side views and consequence shots over empty wide shots.
 
 
 # ---------------------------------------------------------------------------
-# Caption grouping
-# ---------------------------------------------------------------------------
-
-def _group_caption_words(words, group_size=3):
-    """Convert word-level timing into compact three-word kinetic caption groups."""
-    if not isinstance(words, list):
-        return words
-
-    clean = []
-    for item in words:
-        if not isinstance(item, dict):
-            continue
-        word = str(item.get("word", "")).strip()
-        if not word:
-            continue
-        try:
-            start = float(item.get("start", 0.0))
-            end = float(item.get("end", start + 0.05))
-        except Exception:
-            continue
-        clean.append({
-            "word": word,
-            "start": start,
-            "end": max(end, start + 0.05),
-        })
-
-    grouped = []
-    for index in range(0, len(clean), group_size):
-        chunk = clean[index:index + group_size]
-        if not chunk:
-            continue
-        grouped.append({
-            "word": " ".join(item["word"] for item in chunk),
-            "start": chunk[0]["start"],
-            "end": chunk[-1]["end"],
-            "words": chunk,
-        })
-    return grouped
-
-
-# ---------------------------------------------------------------------------
 # Production video quality
 # ---------------------------------------------------------------------------
 
 def _patch_video_quality(module):
-    """Force the final renderer to use the configured production quality.
-
-    YouTube has no hard upload bitrate ceiling for normal uploads. For SDR
-    4K60, YouTube currently recommends 53–68 Mbps, so the factory uses 68 Mbps
-    rather than wasting bandwidth on an unnecessary 100 Mbps encode.
-    """
+    """Force the final renderer to use the configured production quality."""
     try:
         video_class = getattr(module, "CompositeVideoClip", None)
         if video_class is None:
@@ -209,6 +163,150 @@ def _patch_video_quality(module):
 
     except Exception as error:
         print(f"⚠️ Production video quality patch skipped: {error}")
+
+
+# ---------------------------------------------------------------------------
+# Caption system
+# ---------------------------------------------------------------------------
+
+def _clean_caption_words(words):
+    clean = []
+    if not isinstance(words, list):
+        return clean
+
+    for item in words:
+        if not isinstance(item, dict):
+            continue
+
+        word = str(item.get("word", "")).strip()
+        if not word:
+            continue
+
+        try:
+            start = max(0.0, float(item.get("start", 0.0)))
+            end = max(start + 0.05, float(item.get("end", start + 0.05)))
+        except Exception:
+            continue
+
+        clean.append({"word": word, "start": start, "end": end})
+
+    clean.sort(key=lambda x: x["start"])
+    return clean
+
+
+def _caption_groups(words, group_size=3):
+    """Create compact 3-word groups while retaining exact word timings."""
+    groups = []
+    for index in range(0, len(words), group_size):
+        chunk = words[index:index + group_size]
+        if chunk:
+            groups.append(chunk)
+    return groups
+
+
+def _build_kinetic_captions(module, narration_path, script, frame_size):
+    """Three words visible; the currently spoken word turns yellow.
+
+    The three-word group remains white while the active word receives a yellow
+    overlay exactly during its Whisper-aligned speaking interval.
+    """
+    raw_transcribe = getattr(module, "_mint_raw_transcribe", None)
+    if raw_transcribe is None:
+        raise RuntimeError("Raw Whisper transcriber is unavailable.")
+
+    words = _clean_caption_words(raw_transcribe(narration_path))
+    if not words:
+        raise RuntimeError("Whisper returned no usable word timestamps.")
+
+    scenes = script.get("scene_plan", [])
+    if not isinstance(scenes, list) or len(scenes) != 7:
+        raise RuntimeError("Caption generation requires exactly 7 scenes.")
+
+    # 4K-safe typography: slightly larger than the old 1080p design while
+    # remaining well above the lower Shorts UI region.
+    module.CAPTION_FONT_SIZE = 168
+    module.CAPTION_VERTICAL_POSITION = 0.60
+
+    width, height = frame_size
+    center_y = int(height * module.CAPTION_VERTICAL_POSITION)
+    clips = []
+
+    for group in _caption_groups(words, 3):
+        group_start = group[0]["start"]
+        group_end = group[-1]["end"]
+
+        # Keep the group centered as one unit.
+        base_clips = []
+        yellow_clips = []
+        widths = []
+
+        for item in group:
+            base = module._make_word_clip(item["word"], module.CAPTION_COLOR)
+            widths.append(base.w)
+            base_clips.append((item, base))
+
+        spacing = max(22, int(module.CAPTION_FONT_SIZE * 0.16))
+        total_width = sum(widths) + spacing * (len(widths) - 1)
+        x = (width - total_width) / 2
+
+        for item, base in base_clips:
+            base_y = center_y - base.h / 2
+
+            shadow = module._make_word_shadow(item["word"])
+            shadow = (
+                shadow
+                .set_start(group_start)
+                .set_duration(max(0.05, group_end - group_start))
+                .set_position((x + module.CAPTION_SHADOW_OFFSET, base_y + module.CAPTION_SHADOW_OFFSET))
+                .set_opacity(module.CAPTION_SHADOW_OPACITY)
+            )
+            clips.append(shadow)
+
+            base = (
+                base
+                .set_start(group_start)
+                .set_duration(max(0.05, group_end - group_start))
+                .set_position((x, base_y))
+            )
+            clips.append(base)
+
+            # Yellow overlay exists only while THIS exact word is spoken.
+            yellow = module._make_word_clip(item["word"], module.CAPTION_HIGHLIGHT_COLOR)
+            yellow = (
+                yellow
+                .set_start(item["start"])
+                .set_duration(max(0.05, item["end"] - item["start"]))
+                .set_position((x, base_y))
+            )
+            clips.append(yellow)
+
+            x += base.w + spacing
+
+    print(f"🎬 Kinetic captions: {len(words)} words / 3-word groups")
+    print("🎬 Active spoken word: YELLOW")
+    print("🎬 Other visible words: WHITE")
+    print("🎬 Caption size: 168px at 4K")
+    print("🎬 Caption position: 60% — protected from lower Shorts UI")
+
+    return clips
+
+
+def _patch_assemble(module):
+    # Keep the original Whisper function untouched for exact word timing.
+    old_transcribe = getattr(module, "transcribe", None)
+    if old_transcribe is not None:
+        module._mint_raw_transcribe = old_transcribe
+
+    # Replace the original one-word caption builder with the 3-word kinetic
+    # version. This is intentionally done at runtime so assemble.py stays
+    # compatible with the existing production pipeline.
+    module.build_captions = lambda narration_path, script, frame_size: _build_kinetic_captions(
+        module, narration_path, script, frame_size
+    )
+
+    module.CAPTION_FONT_SIZE = 168
+    module.CAPTION_VERTICAL_POSITION = 0.60
+    _patch_video_quality(module)
 
 
 def _patch(module):
@@ -250,17 +348,7 @@ def _patch(module):
         return
 
     if name == "assemble":
-        old_transcribe = getattr(module, "transcribe", None)
-        if old_transcribe and not getattr(old_transcribe, "_mint_three_word", False):
-            def grouped_transcribe(*args, **kwargs):
-                words = old_transcribe(*args, **kwargs)
-                grouped = _group_caption_words(words, 3)
-                print(f"🎬 Kinetic captions: {len(words)} words -> {len(grouped)} three-word groups")
-                return grouped
-            grouped_transcribe._mint_three_word = True
-            module.transcribe = grouped_transcribe
-
-        _patch_video_quality(module)
+        _patch_assemble(module)
         return
 
     if name == "tts":

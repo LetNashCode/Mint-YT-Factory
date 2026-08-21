@@ -1,4 +1,9 @@
-"""Compatibility wrapper for the existing research.py evidence engine."""
+"""Compatibility wrapper for the research.py evidence engine.
+
+The public topic stays conversational, while scholarly discovery uses precise
+technical vocabulary. Sources must match BOTH the concrete subject and the
+observable phenomenon before they can reach the script generator.
+"""
 
 from __future__ import annotations
 
@@ -50,6 +55,7 @@ def _strict_extract_phenomenon(topic):
         (("feel burning", "feels burning", "burning tongue"), ["burning", "burning sensation", "oral irritation", "irritation", "tongue"]),
         (("eyes water", "eye water", "watery eyes", "make your eyes water"), ["tearing", "tear", "lacrimation", "watery eyes", "ocular irritation", "eye irritation"]),
         (("look weird through sunglasses", "looks weird through sunglasses", "look strange through sunglasses", "looks strange through sunglasses", "look different through sunglasses", "looks different through sunglasses"), ["polarization", "polarized", "polarisation", "polarised", "liquid crystal", "lcd", "display", "optical", "light"]),
+        (("fingerprints", "fingerprint", "smudges", "smudged", "finger marks"), ["fingerprint", "fingerprints", "smudge", "smudges", "skin oil", "skin oils", "sebum", "skin lipids", "lipid", "sweat", "residue", "deposit", "deposits"]),
     )
     for phrases, expanded in rules:
         if any(phrase in lowered for phrase in phrases):
@@ -57,10 +63,6 @@ def _strict_extract_phenomenon(topic):
     return original
 
 
-# Technical research vocabulary for common everyday questions. The topic can
-# remain conversational while discovery uses the language scientists actually
-# use in papers. This is discovery vocabulary only; it never becomes public
-# narration and does not weaken the DOI/evidence gates.
 _EVERYDAY_RESEARCH_MAP = {
     "phone screen look weird through sunglasses": {
         "queries": [
@@ -153,12 +155,22 @@ _EVERYDAY_RESEARCH_MAP = {
         "subject": {"popcorn", "maize", "corn", "kernel"},
         "phenomenon": {"popping", "water vapor", "pressure", "starch", "expansion", "pericarp"},
     },
+    "phone screen fingerprints": {
+        "queries": [
+            "smartphone screen fingerprint smudges skin sebum glass surface",
+            "glass surface fingerprint residue skin lipids touch",
+            "fingerprint deposits glass skin oil sebum",
+            "oleophobic coating smartphone screen fingerprint smudges",
+            "touchscreen fingerprint residue sweat sebum skin oils",
+        ],
+        "subject": {"phone", "smartphone", "screen", "touchscreen", "glass", "display"},
+        "phenomenon": {"fingerprint", "fingerprints", "smudge", "smudges", "skin oil", "skin oils", "sebum", "skin lipids", "lipid", "sweat", "residue", "deposit", "deposits", "oleophobic"},
+    },
 }
 
 
 def _matching_everyday_map(topic):
-    lowered = _original._clean(topic).lower()
-    normalized = re.sub(r"[^a-z0-9]+", " ", lowered).strip()
+    normalized = re.sub(r"[^a-z0-9]+", " ", _original._clean(topic).lower()).strip()
     best = None
     best_len = 0
     for key, value in _EVERYDAY_RESEARCH_MAP.items():
@@ -166,6 +178,8 @@ def _matching_everyday_map(topic):
         if key_norm in normalized and len(key_norm) > best_len:
             best = value
             best_len = len(key_norm)
+    if best is None and "phone" in normalized and "screen" in normalized and any(term in normalized for term in ("fingerprint", "fingerprints", "smudge", "smudges", "finger marks")):
+        best = _EVERYDAY_RESEARCH_MAP["phone screen fingerprints"]
     return best
 
 
@@ -180,6 +194,8 @@ def _strict_extract_question_terms(topic):
         terms.extend(["onion", "allium", "allium cepa"])
     if "eyes water" in lowered or "watery eyes" in lowered:
         terms.extend(["tearing", "lacrimation", "ocular irritation", "eye irritation"])
+    if any(x in lowered for x in ("fingerprint", "fingerprints", "smudge", "smudges")):
+        terms.extend(["fingerprint", "fingerprints", "smudge", "smudges", "skin oil", "skin oils", "sebum", "skin lipids", "sweat", "residue", "deposits", "oleophobic"])
     mapped = _matching_everyday_map(topic)
     if mapped:
         terms.extend(mapped["subject"])
@@ -232,6 +248,9 @@ def _topic_identity(topic):
         phenomenon_terms.update({"tongue", "oral", "mouth", "oral irritation", "irritation", "tingling", "prickling", "stinging"})
     if "eyes water" in lowered or "watery eyes" in lowered:
         phenomenon_terms.update({"eye", "eyes", "tear", "tears", "tearing", "lacrimation", "ocular irritation", "eye irritation"})
+    if any(x in lowered for x in ("fingerprint", "fingerprints", "smudge", "smudges")):
+        expanded_subject.update({"phone", "smartphone", "screen", "touchscreen", "glass", "display"})
+        phenomenon_terms.update({"fingerprint", "fingerprints", "smudge", "smudges", "skin oil", "skin oils", "sebum", "skin lipids", "lipid", "sweat", "residue", "deposit", "deposits", "oleophobic"})
     mapped = _matching_everyday_map(topic)
     if mapped:
         expanded_subject.update(mapped["subject"])
@@ -250,34 +269,29 @@ def _source_matches_current_topic(topic, source):
     combined = f"{title} {evidence}"
     subject_match = any(_original._term_match(t, combined) for t in subject_terms)
     phenomenon_match = any(_original._term_match(t, combined) for t in phenomenon_terms)
+    lowered_topic = _original._clean(topic).lower()
+    if "fingerprint" in lowered_topic or "smudge" in lowered_topic:
+        deposition_terms = {"smudge", "smudges", "skin oil", "skin oils", "sebum", "skin lipid", "skin lipids", "lipid", "sweat", "residue", "deposit", "deposits", "oleophobic", "surface contamination"}
+        deposition_match = any(_original._term_match(t, combined) for t in deposition_terms)
+        return subject_match and phenomenon_match and deposition_match
     return subject_match and phenomenon_match
 
 
 def _strict_score_source(topic, source):
     result = _ORIGINAL_SCORE_SOURCE(topic, source)
     mapped = _matching_everyday_map(topic)
-    if mapped:
-        subject_terms, phenomenon_terms = _topic_identity(topic)
-        title = _original._clean(source.get("title", ""))
-        evidence = _original._clean_abstract(source.get("evidence_text", "") or source.get("abstract", ""))
-        combined = f"{title} {evidence}"
-        subject_match = any(_original._term_match(t, combined) for t in subject_terms)
-        phenomenon_match = any(_original._term_match(t, combined) for t in phenomenon_terms)
-        if subject_match and phenomenon_match:
-            # Keep the underlying evidence/DOI verification gate intact, but
-            # score against the research vocabulary rather than literal words
-            # from the conversational question.
-            result["scientific_relevance_pass"] = True
-            result["concept_coverage_pass"] = True
-            result["intent_pass"] = True
-            result["subject_pass"] = True
-            result["phenomenon_pass"] = True
-            result["causal_pass"] = True
-            result["causal_support"] = True
-            result["scientific_score"] = max(int(result.get("scientific_score", 0)), 18)
-            result["relevance_score"] = result["scientific_score"]
-            result["relevance_class"] = "moderate"
-            result["rejection_reasons"] = []
+    if mapped and _source_matches_current_topic(topic, source):
+        result["scientific_relevance_pass"] = True
+        result["concept_coverage_pass"] = True
+        result["intent_pass"] = True
+        result["subject_pass"] = True
+        result["phenomenon_pass"] = True
+        result["causal_pass"] = True
+        result["causal_support"] = True
+        result["scientific_score"] = max(int(result.get("scientific_score", 0)), 18)
+        result["relevance_score"] = result["scientific_score"]
+        result["relevance_class"] = "moderate"
+        result["rejection_reasons"] = []
     if not _source_matches_current_topic(topic, source):
         result["scientific_relevance_pass"] = False
         result["concept_coverage_pass"] = False
@@ -322,12 +336,17 @@ def research_topic(topic):
     package["sources"] = filtered
     package["source_count"] = len(filtered)
     package["evidence_source_count"] = len(filtered)
+    mapped = _matching_everyday_map(topic)
+    if mapped:
+        package["research_vocabulary"] = {"subject": sorted(mapped["subject"]), "phenomenon": sorted(mapped["phenomenon"])}
     return package
+
 
 for _name, _value in vars(_original).items():
     if _name.startswith("__") or _name in {"research_topic", "_extract_subject", "_extract_phenomenon", "_extract_question_terms", "_score_source", "build_scholarly_queries"}:
         continue
     globals()[_name] = _value
+
 
 globals()["research_topic"] = research_topic
 globals()["_score_source"] = _strict_score_source

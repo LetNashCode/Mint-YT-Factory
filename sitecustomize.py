@@ -1,8 +1,8 @@
 """Mint-YT-Factory runtime quality layer.
 
-Current development mode is entertainment-first. This layer only reinforces
-storytelling and literal visual relevance at runtime; it does not perform or
-require research.
+Entertainment-first development mode.
+This layer reinforces story quality and literal visual relevance without
+bringing research back into the generation pipeline.
 """
 
 import importlib.abc
@@ -17,42 +17,68 @@ ENTERTAINMENT-FIRST QUALITY LAYER
 
 Write like a clever friend showing the viewer something weird.
 
-- Hook immediately.
-- Use conversational, slightly quirky spoken English.
-- Keep sentences punchy and varied.
-- Every scene must reveal something new.
-- Prefer relatable human-scale examples.
-- Avoid textbook, lecture and newsreader language.
-- Avoid generic intros and filler.
-- Do not force jokes.
-- Make the payoff feel earned.
+- Hook immediately with a surprising concrete observation.
+- Use conversational, playful, slightly quirky spoken English.
+- Keep sentences punchy and varied; avoid dense explanatory paragraphs.
+- Use everyday comparisons instead of scientific terminology whenever possible.
+- Every scene must reveal a new piece of the story, not repeat the previous point.
+- Build curiosity before explaining the answer.
+- Use a visible cause -> consequence -> reveal progression.
+- Make the strongest surprising detail land near the end.
+- Do not sound like a documentary narrator, textbook, teacher or research paper.
+- Avoid phrases such as "the scientific reason", "the mechanism", "according to",
+  "this phenomenon", "in other words", and other lecture-style filler unless truly needed.
+- Do not force jokes. Quirkiness should come from the observation and wording.
 - Finish the current story before the continuation hook.
 '''
 
 VIRAL_IMAGE_RULES = r'''
 
 ============================================================
-LITERAL STORY VISUALS
+ENTERTAINMENT-FIRST LITERAL STORY VISUALS
 ============================================================
 
-The image must show what the narration is actually talking about.
+The image must make the narration understandable with SOUND OFF.
 
-Prefer recognizable real-world scenes, people, animals, objects, hands,
-physical actions, reactions, before/after states and visible consequences.
+CORE RULE:
+Show the thing being talked about, doing the thing being talked about.
+Never replace a concrete subject with a generic representation of its category.
 
-Avoid generic laboratories, textbook diagrams, arrows, equations, charts,
-abstract particles, glowing effects, empty rooms and static portraits unless
-the narration genuinely requires them.
+Examples:
+- "cold glass gets wet" -> show a cold drinking glass visibly covered in droplets.
+- "phone gets hot while charging" -> show a person holding a charging phone and reacting to its warmth.
+- "onions make you cry" -> show someone cutting an onion with watery eyes.
+- "bread rises" -> show dough visibly puffed before/after baking.
 
-Shot 1 establishes the moment.
-Shot 2 must reveal or demonstrate something new.
+VISUAL STORY RULES:
+- Each shot has ONE obvious subject and ONE obvious action/change.
+- Prefer people, hands, animals, objects, food, machines, streets, homes and believable locations.
+- Prefer visible actions, reactions, transformations, comparisons and consequences.
+- Shot 1 establishes the moment; Shot 2 must advance it with a different action,
+  physical state, reaction, revealed detail or useful perspective.
+- Never create two near-identical stills merely by changing camera angle.
+- Every second visual should add information or emotional movement.
+- Use varied, bright, believable lighting appropriate to the actual location.
+- Vary framing: close action, medium interaction, wider context, overhead detail,
+  side view and environmental shots when useful.
 
-Use bright believable lighting and varied compositions.
+ANTI-TEXTBOOK HARD RULES:
+- Never turn a normal explanation into an infographic or scientific diagram.
+- No arrows, equations, charts, graphs, labeled parts, schematic drawings,
+  anatomy diagrams, textbook cross-sections, UI panels or fake microscopic worlds.
+- Do not invent invisible particles, forces, receptors, pathways or internal structures.
+- Do not use generic glowing particles to represent an idea.
+- Do not use generic laboratories unless the narration explicitly requires a lab.
+- Do not use a scientific illustration style for an everyday topic.
+- Do not make every image blue, dark, sterile, centered or laboratory-like.
 
-Every visual prompt must clearly identify the subject, action, location and
-important visible detail.
+IMAGE PROMPT QUALITY:
+Every generated prompt must explicitly communicate:
+WHO/WHAT is visible + WHAT it is doing + WHERE it is + WHAT changes + WHAT the viewer notices.
+Keep the physical event concrete and immediately recognizable.
 
-No text, captions, labels, logos, watermarks or UI inside generated images.
+NO GENERATED TEXT:
+No captions, subtitles, labels, logos, watermarks, signs with readable text or UI.
 '''
 
 
@@ -75,7 +101,22 @@ def _patch(module):
         old_builder = getattr(module, "build_prompt", None)
         if old_builder and not getattr(old_builder, "_mint_visual", False):
             def wrapped(*args, **kwargs):
-                return old_builder(*args, **kwargs) + " " + VIRAL_IMAGE_RULES
+                prompt = old_builder(*args, **kwargs)
+
+                # Remove legacy style wording that can pull an everyday shot
+                # toward a textbook/science-illustration look. Keep explicit
+                # location and subject descriptions intact.
+                replacements = (
+                    ("scientific illustration and realistic 3d render", "cinematic real-world render"),
+                    ("scientific illustration", "cinematic real-world scene"),
+                    ("science textbook aesthetic", "entertaining documentary aesthetic"),
+                    ("scientific diagram", "literal real-world scene"),
+                )
+                for old, new in replacements:
+                    prompt = prompt.replace(old, new)
+
+                return prompt + " " + VIRAL_IMAGE_RULES
+
             wrapped._mint_visual = True
             module.build_prompt = wrapped
         return

@@ -1,8 +1,11 @@
-"""Fast caption timing for Mint-YT-Factory.
+"""Word-accurate caption timing for Mint-YT-Factory.
 
-Whisper provides sentence/segment timing on CPU. The verified narration text
-is authoritative; words are distributed across each Whisper segment instead
-of using Whisper's expensive word_timestamps alignment pass.
+Whisper is used for REAL word-level timestamps. The narration text stored in
+script.json remains authoritative for the exact words displayed on screen.
+
+The previous implementation used sentence/segment timestamps and then guessed
+where each word occurred by character length. That caused captions to drift
+away from the spoken audio, especially around pauses and short words.
 """
 
 from __future__ import annotations
@@ -17,12 +20,15 @@ WHISPER_MODEL_NAME = "tiny.en"
 _model = None
 
 
+_WORD_RE = re.compile(r"[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*")
+
+
 def _get_model():
     global _model
     if _model is None:
-        print("🎙️ Loading Whisper model: tiny.en")
+        print(f"🎙️ Loading Whisper model: {WHISPER_MODEL_NAME}")
         _model = whisper.load_model(WHISPER_MODEL_NAME)
-        print("✅ Whisper model ready: tiny.en")
+        print(f"✅ Whisper model ready: {WHISPER_MODEL_NAME}")
     return _model
 
 
@@ -31,117 +37,189 @@ def _clean_word(value):
 
 
 def _load_expected_words(audio_path):
+    """Load the exact narration words that were sent to TTS."""
     try:
         run_dir = os.path.dirname(os.path.dirname(os.path.abspath(audio_path)))
         script_path = os.path.join(run_dir, "script.json")
         if not os.path.isfile(script_path):
             return []
+
         with open(script_path, "r", encoding="utf-8") as handle:
             script = json.load(handle)
+
         text = " ".join(
             str(scene.get("narration", ""))
             for scene in script.get("scene_plan", [])
             if isinstance(scene, dict)
         )
-        return re.findall(r"[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*", text)
+        return _WORD_RE.findall(text)
     except Exception:
         return []
 
 
-def _segment_words(segment):
-    return re.findall(r"[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*", str(segment.get("text", "")))
-
-
-def _build_words_from_segments(result, expected):
-    segments = result.get("segments", []) or []
-    if not segments:
-        return []
-
-    # Use verified narration wording whenever possible. Match expected words
-    # to Whisper segment text by simple sequential normalization.
-    expected_index = 0
+def _extract_whisper_words(result):
+    """Extract REAL Whisper word timestamps from every segment."""
     output = []
 
-    for segment in segments:
-        try:
-            start = max(0.0, float(segment.get("start", 0.0)))
-            end = max(start + 0.08, float(segment.get("end", start + 0.08)))
-        except Exception:
-            continue
+    for segment in result.get("segments", []) or []:
+        segment_start = max(0.0, float(segment.get("start", 0.0)))
+        segment_end = max(segment_start + 0.05, float(segment.get("end", segment_start + 0.05)))
 
-        observed = _segment_words(segment)
-        count = len(observed)
-        if count == 0:
-            continue
+        segment_words = segment.get("words") or []
 
-        if expected:
-            remaining = len(expected) - expected_index
-            take = min(count, remaining)
-            words = expected[expected_index:expected_index + take]
-            expected_index += take
-        else:
-            words = observed
+        # Some Whisper builds can return a segment without word entries.
+        # We deliberately do NOT invent word positions here.
+        for item in segment_words:
+            if not isinstance(item, dict):
+                continue
 
-        if not words:
-            continue
+            word = str(item.get("word", "")).strip()
+            if not word:
+                continue
 
-        # Allocate the segment duration by character weight. This gives short
-        # words less screen time and long words more, without expensive word
-        # timestamp alignment.
-        weights = [max(1, len(_clean_word(word))) for word in words]
-        total_weight = sum(weights)
-        duration = end - start
-        cursor = start
+            try:
+                start = max(segment_start, float(item.get("start", segment_start)))
+                end = max(start + 0.04, float(item.get("end", start + 0.04)))
+                end = min(end, segment_end)
+            except Exception:
+                continue
 
-        for index, word in enumerate(words):
-            share = duration * weights[index] / total_weight
-            item_end = end if index == len(words) - 1 else cursor + share
             output.append({
                 "word": word,
-                "start": cursor,
-                "end": max(cursor + 0.05, item_end),
+                "start": start,
+                "end": end,
             })
-            cursor = item_end
 
-    # If Whisper's segmentation omitted a few expected words, append them over
-    # the remaining narration duration rather than silently losing captions.
-    if expected_index < len(expected):
-        last_end = output[-1]["end"] if output else 0.0
-        tail = expected[expected_index:]
-        duration = max(0.05, (result.get("segments", [])[-1].get("end", last_end) if result.get("segments") else last_end) - last_end)
-        weights = [max(1, len(_clean_word(word))) for word in tail]
-        total_weight = sum(weights) or 1
-        cursor = last_end
-        for index, word in enumerate(tail):
-            share = duration * weights[index] / total_weight
-            item_end = cursor + share
-            output.append({"word": word, "start": cursor, "end": max(cursor + 0.05, item_end)})
-            cursor = item_end
+    output.sort(key=lambda item: (item["start"], item["end"]))
+    return output
 
+
+def _finalize_words(words):
+    """Make timings safe for the one-word-at-a-time renderer."""
     normalized = []
-    previous_start = -0.05
-    for item in output:
+    previous_end = 0.0
+
+    for item in words:
         start = max(0.0, float(item["start"]))
-        end = max(start + 0.05, float(item["end"]))
-        if start < previous_start + 0.05:
-            start = previous_start + 0.05
-            end = max(end, start + 0.05)
-        normalized.append({"word": str(item["word"]).strip(), "start": start, "end": end})
-        previous_start = start
+        end = max(start + 0.04, float(item["end"]))
+
+        # Never let a word overlap the preceding word.
+        if start < previous_end:
+            start = previous_end
+            end = max(start + 0.04, end)
+
+        normalized.append({
+            "word": str(item["word"]).strip(),
+            "start": start,
+            "end": end,
+        })
+        previous_end = end
+
     return normalized
 
 
+def _map_expected_words(expected, whisper_words):
+    """Use Whisper timing but the exact script wording.
+
+    In the normal case the counts match and this is a direct 1:1 mapping.
+    If Whisper inserts/omits a token, we keep its REAL timestamps and use a
+    conservative sequential alignment instead of returning guessed timings.
+    """
+    if not whisper_words:
+        return []
+
+    if not expected:
+        return _finalize_words(whisper_words)
+
+    # Best case: TTS narration and Whisper tokenization have the same count.
+    # This gives us exact script words with exact audio-derived timestamps.
+    if len(expected) == len(whisper_words):
+        mapped = []
+        for expected_word, observed in zip(expected, whisper_words):
+            mapped.append({
+                "word": expected_word,
+                "start": observed["start"],
+                "end": observed["end"],
+            })
+        return _finalize_words(mapped)
+
+    # More robust fallback: align normalized tokens using dynamic programming.
+    # This handles occasional Whisper punctuation/token differences without
+    # falling back to character-weight timing.
+    n = len(expected)
+    m = len(whisper_words)
+    dp = [[0] * (m + 1) for _ in range(n + 1)]
+
+    for i in range(n):
+        for j in range(m):
+            a = _clean_word(expected[i])
+            b = _clean_word(whisper_words[j]["word"])
+            match = 2 if a == b else -1
+            dp[i + 1][j + 1] = max(
+                dp[i][j + 1] - 1,
+                dp[i + 1][j] - 1,
+                dp[i][j] + match,
+            )
+
+    pairs = []
+    i, j = n, m
+    while i > 0 and j > 0:
+        a = _clean_word(expected[i - 1])
+        b = _clean_word(whisper_words[j - 1]["word"])
+        match = 2 if a == b else -1
+        score = dp[i][j]
+
+        if score == dp[i - 1][j - 1] + match:
+            pairs.append((i - 1, j - 1))
+            i -= 1
+            j -= 1
+        elif score == dp[i - 1][j] - 1:
+            i -= 1
+        else:
+            j -= 1
+
+    pairs.reverse()
+
+    mapped = []
+    for expected_index, whisper_index in pairs:
+        observed = whisper_words[whisper_index]
+        mapped.append({
+            "word": expected[expected_index],
+            "start": observed["start"],
+            "end": observed["end"],
+        })
+
+    # If alignment is badly degraded, fail loudly rather than generating
+    # captions that visibly disagree with the narration.
+    coverage = len(mapped) / float(max(1, len(expected)))
+    if coverage < 0.85:
+        raise RuntimeError(
+            "Whisper word alignment coverage is too low "
+            f"({coverage:.0%}). Refusing to generate drifting captions."
+        )
+
+    return _finalize_words(mapped)
+
+
 def transcribe(audio_path):
-    print("🎙️ Starting FAST Whisper caption timing")
+    print("🎙️ Starting WORD-ACCURATE Whisper caption timing")
     print(f"   Model: {WHISPER_MODEL_NAME}")
     print(f"   Audio: {audio_path}")
+    print("   Word timestamps: ENABLED")
+    print("   Segment-duration guessing: DISABLED")
 
     model = _get_model()
+    expected = _load_expected_words(audio_path)
+
+    # Supplying the actual narration as an initial prompt improves recognition
+    # consistency without using the prompt to fabricate timing.
+    prompt = " ".join(expected) if expected else None
+
     result = model.transcribe(
         audio_path,
         language="en",
         task="transcribe",
-        word_timestamps=False,
+        word_timestamps=True,
         fp16=False,
         temperature=0,
         best_of=1,
@@ -150,14 +228,19 @@ def transcribe(audio_path):
         compression_ratio_threshold=2.4,
         logprob_threshold=-1.0,
         no_speech_threshold=0.55,
+        initial_prompt=prompt,
         verbose=False,
     )
 
-    expected = _load_expected_words(audio_path)
-    words = _build_words_from_segments(result, expected)
+    whisper_words = _extract_whisper_words(result)
+    if not whisper_words:
+        raise RuntimeError("Whisper returned no usable word-level timestamps.")
 
+    words = _map_expected_words(expected, whisper_words)
     if not words:
-        raise RuntimeError("Whisper returned no usable caption timings.")
+        raise RuntimeError("Whisper word alignment produced no usable captions.")
 
-    print(f"✅ Fast caption timing complete: {len(words)} words")
+    print(f"✅ Word-accurate caption timing complete: {len(words)} words")
+    print("✅ Timing source: Whisper WORD timestamps")
+    print("✅ Display wording source: script.json narration")
     return words

@@ -20,7 +20,15 @@ import time
 
 import yaml
 
-from topics import get_next_topic, save_next_short, commit_topic
+from topics import (
+    get_next_topic,
+    save_next_short,
+    commit_topic,
+    validate_topic_for_pipeline,
+    _generate_topic,
+    _read_used,
+    _PENDING_PREFIX,
+)
 from generate_script import generate_script
 from tts import synthesize_script
 from generate_images import generate_images
@@ -46,6 +54,70 @@ def save_json(data, path):
 
 def _normalise_topic_text(value):
     return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
+
+
+def _topic_is_same(a, b):
+    return _normalise_topic_text(a) == _normalise_topic_text(b)
+
+
+def lock_next_topic(script, current_topic):
+    """Resolve the exact next-video topic BEFORE TTS/rendering.
+
+    The old pipeline generated the teaser first and only later called
+    save_next_short(). That function could repair an invalid/duplicate topic,
+    meaning the spoken teaser and the queued topic could silently diverge.
+
+    This function makes one canonical topic authoritative before narration is
+    synthesized. The exact same value is then persisted after a successful
+    upload.
+    """
+    next_short = script.get("next_short") or {}
+    candidate = str(next_short.get("topic", "")).strip()
+    if not candidate:
+        raise RuntimeError("Generated script did not provide next_short.topic.")
+
+    # Include the current topic in duplicate protection even though it has not
+    # been committed to used_topics.json yet.
+    used = [str(current_topic)]
+    used.extend(
+        item for item in _read_used()
+        if not str(item).startswith(_PENDING_PREFIX)
+    )
+
+    if validate_topic_for_pipeline(candidate, used=used, check_duplicate=True):
+        canonical = candidate
+        print(f"🔒 Next topic locked before narration: {canonical}")
+    else:
+        print(f"⚠️ Gemini next topic failed continuation policy: {candidate}")
+        print("🔧 Generating a replacement BEFORE TTS so the spoken tease stays exact.")
+        canonical = _generate_topic(used)
+        if not validate_topic_for_pipeline(canonical, used=used, check_duplicate=True):
+            raise RuntimeError(f"Could not create a valid canonical next topic: {canonical}")
+        print(f"🔗 Canonical replacement next topic: {canonical}")
+
+    script["next_short"]["topic"] = canonical
+
+    # The teaser that gets spoken must contain the exact canonical topic.
+    # Rebuild the final scene if Gemini used a different continuation.
+    scenes = script.get("scene_plan")
+    if not isinstance(scenes, list) or not scenes:
+        raise RuntimeError("Script has no scene_plan.")
+
+    final_scene = scenes[-1]
+    narration = str(final_scene.get("narration", "")).strip()
+    canonical_key = _normalise_topic_text(canonical)
+    narration_key = _normalise_topic_text(narration)
+
+    if canonical_key not in narration_key:
+        connector = "One more thing to wonder about:"
+        final_scene["narration"] = (
+            f"{narration.rstrip('.!? ')}. {connector} {canonical}."
+        ).strip()
+        final_scene["subtitle_text"] = final_scene["narration"]
+        print("🔧 Final scene updated with the canonical next topic.")
+
+    print(f"🎯 CANONICAL NEXT TOPIC: {canonical}")
+    return script, canonical
 
 
 def ensure_next_topic_is_spoken(script):
@@ -83,9 +155,7 @@ def build_youtube_metadata(script):
     """
     topic = str(script.get("topic", "Wonder Minute curiosity")).strip()
     title = str(script.get("title", topic or "Wonder Minute Short")).strip()[:100]
-    description = (
-        f"A quick look at {topic} and the everyday mystery behind it."
-    )
+    description = f"A quick look at {topic} and the everyday mystery behind it."
 
     tags = script.get("tags", [])
     hashtags = []
@@ -121,18 +191,25 @@ def run(dry_run=False):
     print("✍️ GENERATING ENTERTAINING STORY")
     print("=" * 80)
     script = generate_script(topic, config, None)
+
+    # IMPORTANT: canonicalize and lock the next topic BEFORE TTS, visuals,
+    # captions and upload. The teaser and future queued Short now share one
+    # immutable topic value.
+    script, next_topic = lock_next_topic(script, topic)
     script = ensure_next_topic_is_spoken(script)
 
+    # Re-read after the guard so the value saved later is exactly the one that
+    # was spoken in the final scene.
     next_topic = str(script.get("next_short", {}).get("topic", "")).strip()
     if not next_topic:
-        raise RuntimeError("Generated script did not provide next_short.topic.")
+        raise RuntimeError("Canonical next topic is empty.")
 
     workdir = os.path.join("output", str(int(time.time())))
     os.makedirs(workdir, exist_ok=True)
     save_json(script, os.path.join(workdir, "script.json"))
 
     print(f"✅ Script ready: {workdir}/script.json")
-    print(f"➡️ Next Short: {next_topic}")
+    print(f"➡️ Next Short (locked): {next_topic}")
     print("Research: SKIPPED BY DESIGN")
 
     if dry_run:
@@ -172,7 +249,6 @@ def run(dry_run=False):
 
     print(f"✅ VIDEO CREATED: {final_video}")
 
-    # Never upload a render that does not meet the production contract.
     video_settings = config.get("video", {})
     target_bitrate = 68.0
     try:
@@ -205,13 +281,22 @@ def run(dry_run=False):
         print(f"⚠️ Analytics registry update skipped: {analytics_error}")
 
     print("=" * 80)
-    print("🔗 SAVING NEXT SHORT")
+    print("🔗 SAVING EXACT NEXT SHORT")
     print("=" * 80)
     queued_topic = save_next_short(next_topic)
     if not queued_topic:
         raise RuntimeError("Upload succeeded but next_short could not be saved.")
 
-    print(f"✅ Next Short queued: {queued_topic}")
+    # Hard safety check: persistence must return the exact topic that was
+    # spoken. If the persistence layer ever repairs it, fail loudly rather
+    # than silently publishing a mismatched continuation chain.
+    if not _topic_is_same(queued_topic, next_topic):
+        raise RuntimeError(
+            "Continuation integrity failure: queued topic differs from spoken topic. "
+            f"spoken={next_topic!r} queued={queued_topic!r}"
+        )
+
+    print(f"✅ Next Short queued EXACTLY: {queued_topic}")
 
     print("=" * 80)
     print("📌 COMMITTING CURRENT TOPIC")

@@ -1,7 +1,7 @@
 """Entertainment-first topic engine for Mint-YT-Factory.
 
 Research is intentionally disabled in this development phase.
-This module is self-contained so it does not depend on the legacy topics.py API.
+Topics are deliberately short, familiar and visually demonstrable.
 """
 
 from __future__ import annotations
@@ -74,8 +74,11 @@ lights, shadows, rain, bottles, cups, doors, windows, sounds and echoes.
 Reject academic subjects, generic facts, lists, countdowns, medical advice,
 politics, conspiracy, fearbait, broad subjects, and anything difficult to show.
 
-Return ONLY one question, 6-12 words, no quotes, no numbering, no explanation,
-no question mark. Prefer Why does / Why do / Why is / Why are / Why can / How does / How do.
+Return ONLY one short curiosity question. It may be as short as 3 words.
+Natural examples include: Why ice floats / Why bread rises / Why popcorn pops.
+Prefer Why does / Why do / Why is / Why are / Why can / How does / How do,
+but natural everyday questions are acceptable when they are clearly a curiosity.
+No quotes, no numbering, no explanation, no question mark.
 
 Previous topics:
 {previous}
@@ -99,10 +102,10 @@ def _is_everyday_topic(value: str) -> bool:
     text = _clean_topic(value).lower()
     if not text or any(x in text for x in _BANNED) or any(x in text for x in _FORBIDDEN):
         return False
-    if not re.match(r"^(why does|why do|why is|why are|why can|how does|how do|how is|how are|how can)\s+.+", text):
+    if not re.match(r"^(why|how)\s+.+", text):
         return False
     words = re.findall(r"\b[\w'-]+\b", text)
-    if not 6 <= len(words) <= 12:
+    if not 3 <= len(words) <= 12:
         return False
     if any(x in text for x in (" and why ", " and how ", " or why ", " or how ")):
         return False
@@ -180,6 +183,9 @@ def _generate_topic(used: list[str]) -> str:
         "Why does a cold glass get covered in water",
         "Why does a fan make you feel cooler",
         "Why do onions make you cry",
+        "Why ice floats",
+        "Why bread rises",
+        "Why popcorn pops",
     ]
     for candidate in fallbacks:
         if _is_everyday_topic(candidate) and not any(_key(candidate) == _key(x) for x in used):

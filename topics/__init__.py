@@ -110,14 +110,11 @@ def _is_everyday_topic(value: str) -> bool:
     if any(x in text for x in (" and why ", " and how ", " or why ", " or how ")):
         return False
 
-    # Use token matching rather than raw substring matching. This prevents
-    # accidental acceptance/rejection caused by words embedded in other words.
     tokens = set(words)
-    signal_hit = any(
+    return any(
         signal in text if " " in signal else signal in tokens
         for signal in _SIGNALS
     )
-    return signal_hit
 
 
 def _read_used() -> list[str]:
@@ -212,13 +209,8 @@ def get_next_topic() -> str:
     return _generate_topic(used)
 
 
-def save_next_short(next_short: str) -> bool:
-    """Save a safe continuation without ever failing after a successful upload.
-
-    If Gemini produces a topic that violates the topic policy, generate a new
-    compliant everyday topic (or use a deterministic fallback) instead of
-    crashing the pipeline after the video is already published.
-    """
+def save_next_short(next_short: str) -> str:
+    """Save a safe continuation without failing after a successful upload."""
     topic = _clean_topic(next_short)
     items = [x for x in _read_used() if not x.startswith(_PENDING_PREFIX)]
 
@@ -255,7 +247,7 @@ def save_next_short(next_short: str) -> bool:
     _write_used(items)
     print("💾 Durable continuation state saved in used_topics.json")
     print(f"🔗 Exact next-video topic: {topic}")
-    return True
+    return topic
 
 
 def commit_topic(topic: str) -> bool:

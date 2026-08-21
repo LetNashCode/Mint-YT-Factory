@@ -103,8 +103,7 @@ workbenches and everyday environments whenever appropriate.
 
 PEOPLE:
 When narration describes a human action, show believable hands/body posture
-performing that action. Maintain character appearance when the same person is
-visible again.
+performing that action. Maintain character appearance when the same person is visible again.
 
 NO DECORATIVE SCIENCE:
 Do not add particles, arrows, energy fields, microscopic structures, equations,
@@ -163,6 +162,55 @@ def _group_caption_words(words, group_size=3):
     return grouped
 
 
+# ---------------------------------------------------------------------------
+# Production video quality
+# ---------------------------------------------------------------------------
+
+def _patch_video_quality(module):
+    """Force the final renderer to use the configured production quality.
+
+    YouTube has no hard upload bitrate ceiling for normal uploads. For SDR
+    4K60, YouTube currently recommends 53–68 Mbps, so the factory uses 68 Mbps
+    rather than wasting bandwidth on an unnecessary 100 Mbps encode.
+    """
+    try:
+        video_class = getattr(module, "CompositeVideoClip", None)
+        if video_class is None:
+            return
+
+        original = getattr(video_class, "write_videofile", None)
+        if original is None or getattr(original, "_mint_quality", False):
+            return
+
+        def production_write(self, filename, *args, **kwargs):
+            kwargs.setdefault("bitrate", "68M")
+            kwargs.setdefault("audio_bitrate", "384k")
+            kwargs.setdefault("codec", "libx264")
+            kwargs.setdefault("audio_codec", "aac")
+            kwargs.setdefault("preset", "medium")
+            kwargs.setdefault("threads", 4)
+            kwargs.setdefault("ffmpeg_params", [
+                "-pix_fmt", "yuv420p",
+                "-movflags", "+faststart",
+                "-profile:v", "high",
+                "-level:v", "5.2",
+                "-color_primaries", "bt709",
+                "-color_trc", "bt709",
+                "-colorspace", "bt709",
+            ])
+
+            print("🎥 Production encoding: H.264 High / 68 Mbps / 384 kbps AAC")
+            print("🎥 Production pixel format: yuv420p / BT.709 / Fast Start")
+
+            return original(self, filename, *args, **kwargs)
+
+        production_write._mint_quality = True
+        video_class.write_videofile = production_write
+
+    except Exception as error:
+        print(f"⚠️ Production video quality patch skipped: {error}")
+
+
 def _patch(module):
     name = getattr(module, "__name__", "")
 
@@ -211,6 +259,8 @@ def _patch(module):
                 return grouped
             grouped_transcribe._mint_three_word = True
             module.transcribe = grouped_transcribe
+
+        _patch_video_quality(module)
         return
 
     if name == "tts":

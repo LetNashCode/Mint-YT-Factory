@@ -1,24 +1,11 @@
-"""Compatibility wrapper for the existing topics.py engine.
+"""Entertainment-first topic engine for Mint-YT-Factory.
 
-This package is the public topic entry point used by main.py. The original
-root topics.py remains responsible for the existing research/duplicate and
-persistence rules, while this wrapper owns the channel's viewer-facing topic
-policy.
-
-HARD CHANNEL POLICY
--------------------
-The channel is built around ordinary things people notice in daily life.
-Science is the explanation, not the packaging. Academic phenomena such as
-permafrost, tectonic processes, fracture mechanics, particle physics, etc.
-must never become the next video's current topic.
-
-The everyday gate lives here (not only in sitecustomize.py) so it remains
-active even when Python does not load the optional runtime hook.
+Research is intentionally disabled in this development phase.
+This module is self-contained so it does not depend on the legacy topics.py API.
 """
 
 from __future__ import annotations
 
-import importlib.util
 import json
 import os
 import re
@@ -27,427 +14,219 @@ from pathlib import Path
 from google import genai
 from google.genai import types
 
-
 _ROOT = Path(__file__).resolve().parent.parent
-_ORIGINAL_PATH = _ROOT / "topics.py"
 _USED_TOPICS_PATH = _ROOT / "used_topics.json"
 _PENDING_PREFIX = "__MINT_PENDING_NEXT_TOPIC__::"
+MODEL = "gemini-flash-lite-latest"
 
-_spec = importlib.util.spec_from_file_location(
-    "_mint_original_topics",
-    _ORIGINAL_PATH,
-)
-if _spec is None or _spec.loader is None:
-    raise ImportError(f"Could not load original topics module: {_ORIGINAL_PATH}")
-
-_original = importlib.util.module_from_spec(_spec)
-_spec.loader.exec_module(_original)
-
-
-# ============================================================================
-# EVERYDAY-CURIOSITY HARD GATE
-# ============================================================================
-
-EVERYDAY_TOPIC_MODEL = "gemini-flash-lite-latest"
-EVERYDAY_TOPIC_ATTEMPTS = 10
-
-_BANNED_ACADEMIC = (
-    "permafrost", "tundra", "tectonic", "geological", "geology",
-    "quantum", "particle physics", "astrophysics", "cosmology",
-    "black hole", "neutron star", "supernova", "dark matter",
-    "dark energy", "subduction", "plate boundary", "ice wedge",
-    "brine pocket", "crystal lattice", "electromagnetic field",
-    "entropy", "thermodynamics", "microcrack", "gravitational wave",
-    "neutrino", "gene expression", "chromosome", "mitochondria",
-    "atmospheric circulation", "ocean current", "radiative forcing",
-    "fracture mechanics", "thermal cracks", "material fatigue",
-    "periglacial", "seismic", "magnetohydrodynamic", "fluid dynamics",
-    "quantum mechanics", "plate tectonics", "ice-wedge", "ice wedge",
-    "cryogenic", "crystallography", "geophysical",
+_BANNED = (
+    "permafrost", "tundra", "tectonic", "geological", "geology", "quantum",
+    "particle physics", "astrophysics", "cosmology", "black hole", "neutron star",
+    "supernova", "dark matter", "dark energy", "subduction", "plate boundary",
+    "ice wedge", "ice-wedge", "brine pocket", "crystal lattice", "electromagnetic field",
+    "entropy", "thermodynamics", "microcrack", "gravitational wave", "neutrino",
+    "gene expression", "chromosome", "mitochondria", "atmospheric circulation",
+    "ocean current", "radiative forcing", "fracture mechanics", "thermal cracks",
+    "material fatigue", "periglacial", "seismic", "magnetohydrodynamic",
+    "fluid dynamics", "cryogenic", "crystallography", "geophysical", "cell tower",
+    "cellular positioning", "gps positioning", "rf positioning", "network positioning",
+    "triangulation", "trilateration",
 )
 
-_FORBIDDEN_TOPIC_PHRASES = (
+_FORBIDDEN = (
     "the science of", "the physics of", "the biology of", "the history of",
-    "the neuroscience of", "a study of", "study of", "mechanism of",
-    "thermodynamics", "fracture mechanics", "academic", "research on",
-    "what is", "what are", "how the universe", "why is the universe",
-    "top 5", "top 10", "facts about", "interesting facts", "did you know",
-    "benefits of", "importance of", "complete guide", "ultimate guide",
+    "the neuroscience of", "study of", "mechanism of", "top 5", "top 10",
+    "facts about", "interesting facts", "did you know", "benefits of",
+    "importance of", "complete guide", "ultimate guide", "what is", "what are",
 )
 
-_EVERYDAY_SIGNALS = (
-    "phone", "battery", "charger", "charging", "screen", "wifi", "wi-fi",
-    "headphone", "earbuds", "voice", "recording", "speaker", "fan",
-    "air conditioner", " ac ", "mirror", "shower", "toothpaste",
-    "orange juice", "onion", "popcorn", "milk", "coffee", "tea",
-    "food", "taste", "smell", "spicy", "mosquito", "itch", "sneeze",
-    "hiccup", "yawn", "sleep", "alarm", "dream", "skin", "water",
-    "ice", "cold", "hot", "sweat", "hair", "clothes", "static",
-    "shock", "door", "window", "glass", "soap", "bubble", "bread",
-    "egg", "rice", "salt", "sugar", "fridge", "freezer", "car",
-    "traffic", "seatbelt", "steering", "tire", "keyboard", "computer",
-    "laptop", "remote", "light", "shadow", "rain", "umbrella", "pillow",
-    "blanket", "shoe", "paper", "pen", "bag", "bottle", "cup",
-    "clap", "echo", "sound", "nose", "mouth", "teeth", "tears",
-    "breath", "blink", "goosebumps", "fingers", "hands", "laundry",
-    "oven", "stove", "microwave", "toaster", "candle", "towel", "sink",
-    "tap", "water bottle", "socks", "shoes",
+_SIGNALS = (
+    "phone", "battery", "charger", "charging", "screen", "wifi", "wi-fi", "headphone",
+    "earbuds", "voice", "recording", "speaker", "fan", "mirror", "shower", "toothpaste",
+    "orange juice", "onion", "popcorn", "milk", "coffee", "tea", "food", "taste", "smell",
+    "spicy", "mosquito", "sneeze", "hiccup", "yawn", "sleep", "alarm", "dream", "skin",
+    "water", "ice", "cold", "hot", "sweat", "hair", "clothes", "static", "shock", "door",
+    "window", "glass", "soap", "bubble", "bread", "egg", "rice", "salt", "sugar", "fridge",
+    "freezer", "car", "traffic", "seatbelt", "tire", "keyboard", "computer", "laptop",
+    "remote", "light", "shadow", "rain", "umbrella", "pillow", "blanket", "shoe", "paper",
+    "pen", "bag", "bottle", "cup", "echo", "sound", "nose", "mouth", "teeth", "tears",
+    "breath", "blink", "goosebumps", "fingers", "hands", "laundry", "oven", "stove",
+    "microwave", "toaster", "candle", "towel", "sink", "tap", "socks",
 )
 
+_PROMPT = """
+You create topics for a highly entertaining YouTube Shorts channel.
 
-def _clean_topic(value):
-    value = str(value or "").strip()
-    value = re.sub(r"```(?:text|json)?", "", value, flags=re.I)
-    value = value.replace('"', "").replace("'", "")
-    value = re.sub(
-        r"^(topic|next topic|next_short|next short)\s*:\s*",
-        "",
-        value,
-        flags=re.I,
-    )
-    value = re.sub(r"^\s*\d+[.\)\-:]\s*", "", value)
-    return " ".join(value.split()).rstrip(".!? ").strip()
+CHANNEL PROMISE:
+Things ordinary people experience all the time but almost never stop to ask why.
+
+Choose ONE familiar, visually interesting everyday mystery. The viewer should
+instantly recognise it and think: "Wait... why DOES that happen?"
+
+Science is the explanation, NEVER the packaging.
+
+Good areas: phones, charging, screens, headphones, voice recordings, fans,
+mirrors, showers, toothpaste, food, taste, smell, cooking, onions, popcorn,
+coffee, spicy food, mosquitoes, sneezing, hiccups, yawning, sleep, skin, hair,
+water, ice, static, soap, bubbles, bread, eggs, cars, traffic, keyboards,
+lights, shadows, rain, bottles, cups, doors, windows, sounds and echoes.
+
+Reject academic subjects, generic facts, lists, countdowns, medical advice,
+politics, conspiracy, fearbait, broad subjects, and anything difficult to show.
+
+Return ONLY one question, 6-12 words, no quotes, no numbering, no explanation,
+no question mark. Prefer Why does / Why do / Why is / Why are / Why can / How does / How do.
+
+Previous topics:
+{previous}
+"""
 
 
-def _is_everyday_topic(candidate):
-    text = _clean_topic(candidate).lower()
-    if not text:
+def _clean_topic(value: str) -> str:
+    text = str(value or "").strip()
+    text = re.sub(r"```(?:text|json)?", "", text, flags=re.I)
+    text = text.replace('"', "").replace("'", "")
+    text = re.sub(r"^(topic|next topic|next_short|next short)\s*:\s*", "", text, flags=re.I)
+    text = re.sub(r"^\s*\d+[.)\-:]\s*", "", text)
+    return " ".join(text.split()).rstrip(".!? ").strip()
+
+
+def _key(value: str) -> str:
+    return " ".join(re.sub(r"[^a-z0-9]+", " ", _clean_topic(value).lower()).split())
+
+
+def _is_everyday_topic(value: str) -> bool:
+    text = _clean_topic(value).lower()
+    if not text or any(x in text for x in _BANNED) or any(x in text for x in _FORBIDDEN):
         return False
-
-    if any(term in text for term in _BANNED_ACADEMIC):
+    if not re.match(r"^(why does|why do|why is|why are|why can|how does|how do|how is|how are|how can)\s+.+", text):
         return False
-
-    if any(term in text for term in _FORBIDDEN_TOPIC_PHRASES):
-        return False
-
-    if not re.match(r"^(why|how|can|does|do)\b", text):
-        return False
-
     words = re.findall(r"\b[\w'-]+\b", text)
     if not 6 <= len(words) <= 12:
         return False
-
-    if any(p in text for p in (" and why ", " and how ", " or why ", " or how ")):
+    if any(x in text for x in (" and why ", " and how ", " or why ", " or how ")):
         return False
-
-    if not any(term in f" {text} " for term in _EVERYDAY_SIGNALS):
-        return False
-
-    return True
+    return any(signal in f" {text} " for signal in _SIGNALS)
 
 
-_EVERYDAY_PROMPT = """
-You are selecting the next episode for a highly entertaining everyday-
-curiosity YouTube Shorts channel.
-
-CHANNEL PROMISE:
-Things people experience all the time but almost never stop to ask why.
-
-Science is the ANSWER, not the topic packaging.
-The viewer should recognise the situation instantly and think:
-"Wait... why DOES that happen?"
-
-Choose exactly ONE ordinary, personally recognisable phenomenon.
-It must be something people commonly see, hear, touch, taste, use or do.
-The answer must have a real, researchable scientific or technical basis.
-The explanation must be understandable in simple spoken English.
-
-HIGH-VALUE AREAS:
-phones, batteries, charging, screens, headphones, voice recordings, fans,
-AC, mirrors, showers, toothpaste, food, taste, smell, cooking, onions,
-popcorn, milk, coffee, spicy food, mosquitoes, sneezing, hiccups, yawning,
-sleep, alarms, skin, hair, clothes, water, ice, static electricity,
-bubbles, soap, bread, eggs, cars, traffic, keyboards, computers, lights,
-shadows, rain, bottles, cups, doors, windows, sound, echoes and other
-ordinary household or daily-life experiences.
-
-TARGET EXAMPLES:
-Why does toothpaste make orange juice taste disgusting
-Why does your phone get hot while charging
-Why does a fan make you feel cooler
-Why does your voice sound weird in a recording
-Why does your stomach growl when you're hungry
-Why do onions make you cry
-Why does boiling milk suddenly overflow
-Why does your skin wrinkle in water
-Why does your nose run when you eat spicy food
-Why does a cold glass get covered in water
-Why does metal feel colder than wood
-Why does a mirror seem to reverse left and right
-
-ABSOLUTELY REJECT:
-permafrost, tundra, tectonic plates, plate boundaries, ice wedges,
-fracture mechanics, thermal cracks, geological formations, quantum topics,
-particle physics, astrophysics, black holes, neutron stars, atmospheric
-circulation, academic titles, broad psychology/biology, generic facts,
-trivia, lists, countdowns, health advice, diagnosis, treatment, fearbait,
-conspiracy, politics or anything a viewer is unlikely to encounter personally.
-
-TITLE RULES:
-- 6–12 words
-- preferably starts with Why or How
-- simple everyday words
-- exactly one phenomenon
-- no jargon
-- no answer revealed in the title
-- no fake hype
-- no question mark
-
-PREVIOUS TOPICS:
-{previous}
-
-Return ONLY ONE topic. No explanation, quotes, numbering or emoji.
-"""
-
-
-def _read_used_topics_raw():
+def _read_used() -> list[str]:
     try:
         if not _USED_TOPICS_PATH.exists():
             return []
-        with _USED_TOPICS_PATH.open("r", encoding="utf-8") as handle:
-            data = json.load(handle)
-        if not isinstance(data, list):
-            return []
-        return [str(item) for item in data if isinstance(item, str)]
-    except Exception as error:
-        print(f"⚠️ Could not read used_topics.json: {error}")
+        data = json.loads(_USED_TOPICS_PATH.read_text(encoding="utf-8"))
+        return [str(x) for x in data] if isinstance(data, list) else []
+    except Exception:
         return []
 
 
-def _topic_key(value):
-    text = _clean_topic(value).lower()
-    text = re.sub(r"[^a-z0-9 ]+", " ", text)
-    return " ".join(text.split())
+def _write_used(items: list[str]) -> None:
+    tmp = _USED_TOPICS_PATH.with_suffix(".tmp")
+    tmp.write_text(json.dumps(items, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    tmp.replace(_USED_TOPICS_PATH)
 
 
-def _generate_everyday_topic(current_topic="", used=None):
-    used = list(used or [])
-    api_key = os.environ.get("GEMINI_API_KEY")
-    if not api_key:
-        raise RuntimeError("GEMINI_API_KEY is missing for everyday topic generation.")
-
-    previous = "\n".join(used[-120:])
-    prompt = _EVERYDAY_PROMPT.format(previous=previous)
-    client = genai.Client(api_key=api_key)
-
-    for attempt in range(1, EVERYDAY_TOPIC_ATTEMPTS + 1):
-        try:
-            response = client.models.generate_content(
-                model=EVERYDAY_TOPIC_MODEL,
-                contents=prompt,
-                config=types.GenerateContentConfig(temperature=1.10),
-            )
-            candidate = _clean_topic(getattr(response, "text", ""))
-            print(f"🧠 Everyday topic attempt {attempt}/{EVERYDAY_TOPIC_ATTEMPTS}: {candidate}")
-
-            if not _is_everyday_topic(candidate):
-                print("⚠️ Rejected: topic is not an everyday curiosity.")
-                continue
-
-            key = _topic_key(candidate)
-            if current_topic and key == _topic_key(current_topic):
-                print("⚠️ Rejected: duplicate of current topic.")
-                continue
-
-            if any(key == _topic_key(item) for item in used):
-                print("⚠️ Rejected: duplicate of a previous topic.")
-                continue
-
-            if not _original.validate_topic_for_pipeline(
-                candidate,
-                used=used,
-                check_duplicate=True,
-            ):
-                print("⚠️ Rejected by the original topic validator.")
-                continue
-
-            return candidate
-        except Exception as error:
-            print(f"⚠️ Everyday topic attempt {attempt} failed: {error}")
-
-    raise RuntimeError("Could not generate a valid everyday-curiosity topic.")
-
-
-# ============================================================================
-# DURABLE CONTINUATION STATE
-# ============================================================================
-
-_NEXT_TOPIC_FORMAT = r"""
-
-============================================================
-NEXT TOPIC FORMAT — HARD REQUIREMENT
-============================================================
-
-Any topic generated for the continuation queue MUST already be a valid
-observable everyday question accepted by the channel's everyday validator.
-
-It MUST begin with one of these exact structures:
-
-Why does ...
-Why do ...
-Why is ...
-Why are ...
-Why can ...
-How does ...
-How do ...
-How is ...
-How are ...
-How can ...
-
-Return the question itself, without a question mark, quotation marks,
-numbering, explanation, or terminal punctuation.
-"""
-
-_original.SYSTEM_PROMPT = (
-    _original.SYSTEM_PROMPT.rstrip()
-    + "\n"
-    + _NEXT_TOPIC_FORMAT
-)
-
-
-def _write_used_topics_raw(topics):
-    temp_path = _USED_TOPICS_PATH.with_suffix(".tmp")
-    try:
-        with temp_path.open("w", encoding="utf-8") as handle:
-            json.dump(topics, handle, indent=2, ensure_ascii=False)
-            handle.write("\n")
-            handle.flush()
-        temp_path.replace(_USED_TOPICS_PATH)
-    finally:
-        if temp_path.exists():
-            try:
-                temp_path.unlink()
-            except Exception:
-                pass
-
-
-def _pending_from_used_topics():
-    for item in reversed(_read_used_topics_raw()):
-        if item.startswith(_PENDING_PREFIX):
-            topic = item[len(_PENDING_PREFIX):].strip()
-            if topic:
-                return topic
-    return ""
-
-
-def _consume_persisted_pending_topic():
-    topics = _read_used_topics_raw()
+def _consume_pending() -> str:
+    items = _read_used()
     pending = ""
-    cleaned = []
-
-    for item in topics:
+    clean = []
+    for item in items:
         if item.startswith(_PENDING_PREFIX):
             if not pending:
-                candidate = item[len(_PENDING_PREFIX):].strip()
-                if candidate:
-                    pending = candidate
-            continue
-        cleaned.append(item)
-
+                pending = _clean_topic(item[len(_PENDING_PREFIX):])
+        else:
+            clean.append(item)
     if pending:
-        _write_used_topics_raw(cleaned)
+        _write_used(clean)
         print("=" * 80)
         print("🔗 CONTINUING FROM PREVIOUS SHORT")
         print("=" * 80)
         print(f"Next topic: {pending}")
         print("Continuation state consumed from used_topics.json.")
         print("=" * 80)
-
     return pending
 
 
-def _persist_pending_topic(topic):
-    topic = _clean_topic(topic)
-    if not topic:
-        return False
+def _generate_topic(used: list[str]) -> str:
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        raise RuntimeError("GEMINI_API_KEY is missing.")
+    client = genai.Client(api_key=api_key)
+    previous = "\n".join(used[-100:])
+    prompt = _PROMPT.format(previous=previous)
 
+    for attempt in range(1, 11):
+        try:
+            response = client.models.generate_content(
+                model=MODEL,
+                contents=prompt,
+                config=types.GenerateContentConfig(temperature=1.1),
+            )
+            candidate = _clean_topic(getattr(response, "text", ""))
+            print(f"🧠 Topic attempt {attempt}/10: {candidate}")
+            if not _is_everyday_topic(candidate):
+                print("⚠️ Rejected: not a valid everyday curiosity.")
+                continue
+            key = _key(candidate)
+            if any(key == _key(x) for x in used):
+                print("⚠️ Rejected: duplicate topic.")
+                continue
+            return candidate
+        except Exception as error:
+            print(f"⚠️ Topic attempt failed: {error}")
+
+    fallbacks = [
+        "Why does your phone get hot while charging",
+        "Why does your voice sound weird in a recording",
+        "Why does a cold glass get covered in water",
+        "Why does a fan make you feel cooler",
+        "Why do onions make you cry",
+    ]
+    for candidate in fallbacks:
+        if _is_everyday_topic(candidate) and not any(_key(candidate) == _key(x) for x in used):
+            print(f"🔄 Using fallback topic: {candidate}")
+            return candidate
+    raise RuntimeError("Could not generate a valid everyday-curiosity topic.")
+
+
+def get_next_topic() -> str:
+    pending = _consume_pending()
+    if pending and _is_everyday_topic(pending):
+        return pending
+    if pending:
+        print(f"⚠️ Discarding stale continuation topic: {pending}")
+    used = [x for x in _read_used() if not x.startswith(_PENDING_PREFIX)]
+    return _generate_topic(used)
+
+
+def save_next_short(next_short: str) -> bool:
+    topic = _clean_topic(next_short)
     if not _is_everyday_topic(topic):
-        raise RuntimeError(
-            "Refusing to persist a non-everyday continuation topic: " + topic
-        )
-
-    topics = _read_used_topics_raw()
-    topics = [item for item in topics if not item.startswith(_PENDING_PREFIX)]
-    topics.append(_PENDING_PREFIX + topic)
-    _write_used_topics_raw(topics)
-
-    persisted = _pending_from_used_topics()
-    if persisted.strip().lower() != topic.strip().lower():
-        raise RuntimeError(
-            "Continuation topic was written to used_topics.json but could not "
-            "be verified after persistence."
-        )
-
+        raise RuntimeError(f"Generated next Short violates topic policy: {topic}")
+    items = [x for x in _read_used() if not x.startswith(_PENDING_PREFIX)]
+    items.append(_PENDING_PREFIX + topic)
+    _write_used(items)
     print("💾 Durable continuation state saved in used_topics.json")
     print(f"🔗 Exact next-video topic: {topic}")
     return True
 
 
-def get_next_topic():
-    """Return a valid queued topic, otherwise generate a new everyday topic.
-
-    Old versions of the pipeline could already have persisted a topic before
-    the everyday-curiosity hard gate was introduced. Such a stale topic must
-    not crash the entire workflow. It is discarded and replaced with a fresh
-    valid topic. New continuation topics are still hard-validated before they
-    are persisted, so this is only a migration path for legacy state.
-    """
-    pending = _consume_persisted_pending_topic()
-
-    if pending:
-        if _is_everyday_topic(pending) and _original.validate_topic_for_pipeline(
-            pending,
-            check_duplicate=False,
-        ):
-            return pending
-
-        print("⚠️ Persisted continuation topic is from an older topic policy.")
-        print(f"⚠️ Discarding stale continuation topic: {pending}")
-        print("🔄 Generating a fresh everyday-curiosity replacement.")
-
-    used = _read_used_topics_raw()
-    used = [item for item in used if not item.startswith(_PENDING_PREFIX)]
-    return _generate_everyday_topic(used=used)
-
-
-def save_next_short(next_short):
-    """Persist the generated next Short locally and durably across runs."""
-    next_short = _clean_topic(next_short)
-
-    if not _is_everyday_topic(next_short):
-        raise RuntimeError(
-            "Generated next Short violates everyday-curiosity policy: "
-            + next_short
-        )
-
-    saved = _original.save_next_short(next_short)
-    if not saved:
-        return False
-
-    _persist_pending_topic(next_short)
+def commit_topic(topic: str) -> bool:
+    topic = _clean_topic(topic)
+    items = _read_used()
+    key = _key(topic)
+    items = [x for x in items if not x.startswith(_PENDING_PREFIX)]
+    if not any(_key(x) == key for x in items):
+        items.append(topic)
+    _write_used(items)
+    print(f"📌 Committed topic: {topic}")
     return True
 
 
-def validate_topic_for_pipeline(topic, used=None, check_duplicate=True):
-    """Public validator: everyday policy first, original safety rules second."""
+def validate_topic_for_pipeline(topic: str, used=None, check_duplicate=True) -> bool:
     if not _is_everyday_topic(topic):
-        print(f"⚠️ Topic rejected by everyday-curiosity hard gate: {_clean_topic(topic)}")
         return False
-    return _original.validate_topic_for_pipeline(
-        topic,
-        used=used,
-        check_duplicate=check_duplicate,
-    )
-
-
-# Export the complete original API first, then restore the wrappers above.
-for _name, _value in vars(_original).items():
-    if _name.startswith("__"):
-        continue
-    if _name in {"get_next_topic", "save_next_short", "validate_topic_for_pipeline"}:
-        continue
-    globals()[_name] = _value
-
-globals()["get_next_topic"] = get_next_topic
-globals()["save_next_short"] = save_next_short
-globals()["validate_topic_for_pipeline"] = validate_topic_for_pipeline
+    if check_duplicate:
+        pool = list(used) if used is not None else _read_used()
+        if any(_key(topic) == _key(x) for x in pool if not x.startswith(_PENDING_PREFIX)):
+            return False
+    return True

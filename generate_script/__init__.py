@@ -8,6 +8,8 @@ story identity.
 from __future__ import annotations
 
 import importlib.util
+import json
+import os
 from pathlib import Path
 import re
 
@@ -42,6 +44,11 @@ _BANNED_ACADEMIC = (
     "fracture mechanics", "thermal cracks", "material fatigue",
     "periglacial", "seismic", "magnetohydrodynamic", "fluid dynamics",
     "cryogenic", "crystallography", "geophysical",
+    # Technical infrastructure topics are not the channel's viewer-facing
+    # everyday-curiosity packaging.
+    "cell tower", "cellular positioning", "tower positioning", "gps positioning",
+    "radio positioning", "rf positioning", "network positioning",
+    "indoor positioning", "triangulation", "trilateration",
 )
 
 _FORBIDDEN_PHRASES = (
@@ -112,12 +119,11 @@ _NEXT_TOPIC_CONTRACT = r"""
 NEXT SHORT TOPIC — HARD FORMAT CONTRACT
 ============================================================
 
-next_short.topic is consumed by the existing topics.py persistence validator.
-It MUST already be a complete, everyday, observable curiosity question before
-you return JSON. Do not rely on downstream repair or validation to rewrite it.
+next_short.topic is a VIEWER-FACING continuation question.
+It must describe one ordinary thing a person can recognise immediately.
+Science is the explanation, never the packaging.
 
-The topic MUST begin with exactly one of these question structures:
-
+The topic MUST begin with exactly one of these structures:
 Why does ...
 Why do ...
 Why is ...
@@ -129,34 +135,30 @@ How is ...
 How are ...
 How can ...
 
-The words "why" or "how" alone are NOT sufficient.
+Never invent technical infrastructure topics such as cell-tower positioning,
+GPS positioning, RF positioning, cellular triangulation, network positioning,
+or similar engineering terminology.
+
+If the proposed next topic fails the everyday gate, DO NOT keep retrying the
+same idea. Replace it with a fresh everyday curiosity question.
 
 GOOD:
 Why does toothpaste make orange juice taste disgusting
-Why does ice sometimes crack loudly
-Why do wet clothes feel colder in moving air
-How does a mirror seem to reverse left and right
+Why does your phone get hot while charging
+Why does a fan make you feel cooler
+Why does your voice sound weird in a recording
+Why does a cold glass get covered in water
+Why does metal feel colder than wood
+Why does a mirror seem to reverse left and right
 
 BAD:
-how fresh laundry odor boosts retail spending in second-hand stores
-fresh laundry odor and retail spending
-how ice sometimes cracks loudly
-The effect of fresh laundry odor on retail spending
-Why ice-wedge cracks propagate upward in permafrost
+How does cell tower positioning work without GPS
+How does indoor positioning work without GPS
+How does RF fingerprinting locate a phone
 The thermodynamics of freezing water
-
-The topic must:
-- describe ONE observable everyday phenomenon
-- be specific and researchable
-- naturally follow the CURRENT story
-- be different from the CURRENT topic
-- fit the existing 12-word topic limit
-- contain no question mark or terminal punctuation
-- use simple spoken language rather than academic terminology
+Why ice-wedge cracks propagate upward in permafrost
 
 Return the question itself, without quotes, numbering, explanation, or labels.
-If a draft does not satisfy the required structure, rewrite it internally before
-returning the final JSON.
 """
 
 
@@ -174,6 +176,62 @@ def build_user_prompt(topic, config, research):
     return _original_build_user_prompt(topic, config, research).rstrip() + "\n" + _NEXT_TOPIC_CONTRACT
 
 
+def _used_topics_for_fallback():
+    path = _ROOT / "used_topics.json"
+    try:
+        with path.open("r", encoding="utf-8") as handle:
+            data = json.load(handle)
+        if not isinstance(data, list):
+            return []
+        return [str(item) for item in data if isinstance(item, str)]
+    except Exception:
+        return []
+
+
+def _fallback_everyday_topic(current_topic=""):
+    """Generate a clean continuation topic instead of retrying bad Gemini output.
+
+    This is deliberately delegated to the channel topic engine so the same
+    everyday-curiosity policy and duplicate protection used by topic selection
+    applies here too.
+    """
+    try:
+        import topics as _topics
+
+        generator = getattr(_topics, "_generate_everyday_topic", None)
+        if callable(generator):
+            used = _used_topics_for_fallback()
+            candidate = generator(
+                current_topic=current_topic,
+                used=used,
+            )
+            candidate = _clean_topic(candidate)
+            if _is_everyday_topic(candidate):
+                print(f"🔄 Replaced invalid Gemini next topic with: {candidate}")
+                return candidate
+    except Exception as error:
+        print(f"⚠️ Everyday next-topic fallback failed: {error}")
+
+    # Last-resort deterministic fallback. It is only used if the topic engine
+    # itself cannot produce a topic, so the pipeline never dies because Gemini
+    # repeatedly proposes an academic continuation.
+    fallbacks = [
+        "Why does your phone get hot while charging",
+        "Why does your voice sound weird in a recording",
+        "Why does a cold glass get covered in water",
+        "Why does a fan make you feel cooler",
+        "Why does toothpaste make orange juice taste disgusting",
+    ]
+
+    current_key = _clean_topic(current_topic).lower()
+    for candidate in fallbacks:
+        if candidate.lower() != current_key and _is_everyday_topic(candidate):
+            print(f"🔄 Using deterministic everyday next topic: {candidate}")
+            return candidate
+
+    return fallbacks[0]
+
+
 def _normalize_next_short(script):
     _original_normalize_next_short(script)
 
@@ -185,49 +243,24 @@ def _normalize_next_short(script):
         r"^(why does|why do|why is|why are|why can|how does|how do|how is|how are|how can)\s+.+",
         topic,
         flags=re.IGNORECASE,
-    ):
-        raise RuntimeError(
-            "next_short.topic must be a complete observable question "
-            "starting with Why does/Why do/Why is/Why are/Why can/"
-            "How does/How do/How is/How are/How can."
+    ) or not _is_everyday_topic(topic):
+        current_topic = _clean_topic(
+            script.get("current_topic", script.get("topic", ""))
         )
-
-    if not _is_everyday_topic(topic):
-        raise RuntimeError(
-            "next_short.topic violates the everyday-curiosity policy: " + topic
-        )
+        topic = _fallback_everyday_topic(current_topic)
 
     script["next_short"]["topic"] = topic
 
 
 def _topic_terms_from_research(research):
-    vocabulary = research.get(
-        "research_vocabulary",
-        {},
-    )
-
-    subjects = vocabulary.get(
-        "subject",
-        [],
-    )
-
-    phenomena = vocabulary.get(
-        "phenomenon",
-        [],
-    )
+    vocabulary = research.get("research_vocabulary", {})
+    subjects = vocabulary.get("subject", [])
+    phenomena = vocabulary.get("phenomenon", [])
 
     if not isinstance(subjects, list):
         subjects = []
-
     if not isinstance(phenomena, list):
         phenomena = []
-
-    subject_phrase = ""
-    for item in subjects:
-        item = str(item or "").strip().lower()
-        if item:
-            subject_phrase = item
-            break
 
     generic = {
         "fresh", "good", "right", "different", "new", "common",
@@ -236,50 +269,37 @@ def _topic_terms_from_research(research):
 
     subject_terms = {
         word
-        for word in re.findall(r"[a-z0-9]+", subject_phrase)
+        for item in subjects
+        for word in re.findall(r"[a-z0-9]+", str(item or "").lower())
         if len(word) >= 3 and word not in generic
     }
 
     phenomenon_terms = set()
     for item in phenomena:
-        text = str(item or "").lower()
-        words = set(re.findall(r"[a-z0-9]+", text))
-        if "smell" in words or "odor" in words or "odour" in words or "aroma" in words:
+        words = set(re.findall(r"[a-z0-9]+", str(item or "").lower()))
+        if {"smell", "odor", "odour", "aroma"} & words:
             phenomenon_terms.update({"smell", "odor", "odour", "aroma"})
-        elif "sound" in words or "noise" in words or "echo" in words:
+        elif {"sound", "noise", "echo"} & words:
             phenomenon_terms.update({"sound", "noise", "echo"})
-        elif "feel" in words or "temperature" in words or "cold" in words:
+        elif {"feel", "temperature", "cold"} & words:
             phenomenon_terms.update({"feel", "temperature", "cold"})
-        elif "taste" in words or "flavor" in words or "flavour" in words:
+        elif {"taste", "flavor", "flavour"} & words:
             phenomenon_terms.update({"taste", "flavor", "flavour"})
         else:
-            phenomenon_terms.update(
-                word for word in words if len(word) >= 3
-            )
+            phenomenon_terms.update(word for word in words if len(word) >= 3)
 
     return subject_terms, phenomenon_terms
 
 
 def _contains_any(text, terms):
-    words = set(
-        re.findall(
-            r"[a-z0-9]+",
-            str(text or "").lower(),
-        )
-    )
+    words = set(re.findall(r"[a-z0-9]+", str(text or "").lower()))
     return any(term in words for term in terms)
 
 
 def validate_script(script, verified_research):
-    result = _original_validate_script(
-        script,
-        verified_research,
-    )
+    result = _original_validate_script(script, verified_research)
 
-    subject_terms, phenomenon_terms = _topic_terms_from_research(
-        verified_research
-    )
-
+    subject_terms, phenomenon_terms = _topic_terms_from_research(verified_research)
     if not subject_terms and not phenomenon_terms:
         return result
 
@@ -288,38 +308,25 @@ def validate_script(script, verified_research):
         for scene in script.get("scene_plan", [])
         if isinstance(scene, dict)
     )
+    title = str(script.get("title", ""))
+    description = str(script.get("description", ""))
 
-    title = str(
-        script.get("title", "")
-    )
-
-    description = str(
-        script.get("description", "")
-    )
-
-    if subject_terms:
-        if not _contains_any(narration, subject_terms):
-            raise RuntimeError(
-                "CURRENT TOPIC DRIFT: narration does not identify the "
-                "concrete subject from the verified current topic."
-            )
-
-        if not _contains_any(
-            f"{title} {description}",
-            subject_terms,
-        ):
-            raise RuntimeError(
-                "CURRENT TOPIC DRIFT: title/description do not identify "
-                "the concrete subject from the verified current topic."
-            )
-
-    if phenomenon_terms and not _contains_any(
-        narration,
-        phenomenon_terms,
-    ):
+    if subject_terms and not _contains_any(narration, subject_terms):
         raise RuntimeError(
-            "CURRENT TOPIC DRIFT: narration does not identify the "
-            "observable phenomenon from the verified current topic."
+            "CURRENT TOPIC DRIFT: narration does not identify the concrete "
+            "subject from the verified current topic."
+        )
+
+    if subject_terms and not _contains_any(f"{title} {description}", subject_terms):
+        raise RuntimeError(
+            "CURRENT TOPIC DRIFT: title/description do not identify the "
+            "concrete subject from the verified current topic."
+        )
+
+    if phenomenon_terms and not _contains_any(narration, phenomenon_terms):
+        raise RuntimeError(
+            "CURRENT TOPIC DRIFT: narration does not identify the observable "
+            "phenomenon from the verified current topic."
         )
 
     return result
@@ -333,13 +340,12 @@ _original._normalize_next_short = _normalize_next_short
 _original.validate_script = validate_script
 
 
-# Export the complete original API after patching its internal functions.
 for _name, _value in vars(_original).items():
     if _name.startswith("__"):
         continue
     globals()[_name] = _value
 
-# Explicitly export the patched callables too.
+
 globals()["build_system_prompt"] = build_system_prompt
 globals()["build_user_prompt"] = build_user_prompt
 globals()["_normalize_next_short"] = _normalize_next_short

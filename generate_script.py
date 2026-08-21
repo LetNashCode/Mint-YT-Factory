@@ -1,9 +1,4 @@
-"""Entertainment-first Short storyboard generator for Mint-YT-Factory.
-
-Research is intentionally NOT used in this stage.
-The goal is to make the generated Short fun, visual, conversational and
-high-retention first. A research/verification layer can be added later.
-"""
+"""Entertainment-first Short storyboard generator for Mint-YT-Factory."""
 
 from __future__ import annotations
 
@@ -56,40 +51,25 @@ def _api_key():
     return key
 
 
-def _fallback_visual(scene_text, shot, previous=""):
-    """Deterministic visual fallback; narration remains the source of truth."""
-    subject = scene_text.rstrip(".!?")
-    if shot == 1:
-        return f"A recognizable real-world scene literally showing {subject}, with the main subject clearly visible and a concrete physical action."
-    return f"A different close physical view of {subject}, revealing a new detail or visible consequence while remaining in the same real-world setting."
-
-
 def _build_system_prompt():
     return """
 You are the entertainment writer and visual director for Wonder Minute.
 Create ONE highly engaging 35–45 second YouTube Short about the supplied topic.
 
 THIS IS NOT A RESEARCH PASS.
-Do not behave like an academic researcher. Do not write citations, papers,
-source lists, scientific disclaimers, or textbook explanations.
-The topic is the creative starting point. Use ordinary, broadly understood
-knowledge only when needed to make the story coherent; do not invent precise
-statistics, study names, quotes, experiments, or fake evidence.
+Do not write citations, papers, source lists, scientific disclaimers, or textbook explanations.
+Use ordinary broadly understood knowledge only when needed for coherence.
+Do not invent precise statistics, study names, quotes, experiments, or fake evidence.
 
 PRIMARY GOAL:
 Make the viewer think: "Wait... WHAT?"
 
 VOICE:
-- conversational
-- playful
-- curious
-- slightly quirky
-- confident
+- conversational, playful, curious, slightly quirky and confident
 - simple spoken English
 - short punchy sentences
-- sounds like a great human storyteller, not an AI assistant
-- explain technical ideas using everyday comparisons
-- prefer concrete words over jargon
+- sound like a great human storyteller, not an AI assistant
+- explain technical ideas with everyday comparisons
 
 ABSOLUTELY AVOID:
 - "Did you know"
@@ -99,12 +79,9 @@ ABSOLUTELY AVOID:
 - "According to scientists"
 - textbook definitions
 - lecture language
-- long technical terminology
-- generic introductions
 - lists/countdowns/top 5
 - unrelated facts
 - repetitive explanations
-- generic laboratory imagery unless the topic actually happens in a lab
 
 STORY:
 Scene 1 (0–3): explosive hook. State the weirdest or most surprising part.
@@ -113,8 +90,7 @@ Scene 3 (8–15): simple explanation in normal human language.
 Scene 4 (15–22): concrete everyday example or demonstration.
 Scene 5 (22–30): reframe; reveal what the viewer misunderstood.
 Scene 6 (30–38): strongest twist/payoff or surprising implication.
-Scene 7 (38–45): satisfying ending. Then optionally introduce a completely
-new curiosity topic as the FINAL sentence only.
+Scene 7 (38–45): satisfying ending. Then introduce a completely new curiosity topic as the FINAL sentence only.
 
 The story must work even if the viewer never watches another Short.
 
@@ -123,12 +99,11 @@ Every visual must literally show what the narration is talking about.
 If narration says a hand touches metal, show a hand touching metal.
 If it says an animal jumps, show the animal jumping.
 If it says a glass fogs up, show the glass fogging up.
-Do not convert explanations into diagrams, arrows, equations, particles,
-microscopic fantasy, generic science labs, or abstract glowing effects.
+Do not convert explanations into diagrams, arrows, equations, particles, microscopic fantasy,
+generic science labs, or abstract glowing effects.
 
 For each scene, shot 1 establishes the moment and shot 2 advances it.
-Shot 2 must change action, physical state, perspective, reaction, comparison,
-or revealed detail. Never make two nearly identical images.
+Shot 2 must change action, physical state, perspective, reaction, comparison, or revealed detail.
 
 IMAGE PROMPTS:
 - visible content only
@@ -136,22 +111,18 @@ IMAGE PROMPTS:
 - 15–35 words
 - no camera instructions inside image_prompt
 - no captions/text/logos/watermarks/UI
-- no "cinematic science illustration" unless genuinely appropriate
 - default to cinematic_photograph or realistic_3d_render
-- use natural varied lighting appropriate to the actual location
-- use bright interesting compositions
+- natural varied lighting appropriate to the location
 
 CONTINUITY:
 Only define recurring subjects when they genuinely recur.
-Do NOT force a person, notebook, laboratory, glassware, or other object into
-shots where the narration does not require it.
-Continuity supports the story; it never overrides literal visual relevance.
+Do not force people or objects into shots where the narration does not require them.
 
 NEXT TOPIC:
 Create one specific curiosity topic that naturally follows the current story.
-It is metadata for the next Short. Mention it only in Scene 7's final sentence.
-Do not explain it. Do not put it in the description. Do not say "next video",
-"coming next", "stay tuned", or "part 2".
+Mention it only in Scene 7's final sentence.
+Do not explain it. Do not put it in the description.
+Do not say "next video", "coming next", "stay tuned", or "part 2".
 
 Return ONLY JSON.
 """
@@ -161,54 +132,35 @@ def _build_schema():
     visual = {
         "type": "object",
         "properties": {
-            "segment": {"type": "integer"},
-            "duration": {"type": "integer"},
-            "camera": {"type": "string"},
-            "animation": {"type": "string"},
-            "zoom_strength": {"type": "string"},
-            "motion_intensity": {"type": "string"},
-            "visual_complexity": {"type": "string"},
-            "image_style": {"type": "string"},
-            "lighting": {"type": "string"},
-            "color_palette": {"type": "string"},
+            "segment": {"type": "integer"}, "duration": {"type": "integer"},
+            "camera": {"type": "string"}, "animation": {"type": "string"},
+            "zoom_strength": {"type": "string"}, "motion_intensity": {"type": "string"},
+            "visual_complexity": {"type": "string"}, "image_style": {"type": "string"},
+            "lighting": {"type": "string"}, "color_palette": {"type": "string"},
             "overlay": {"type": "object", "properties": {"type": {"type": "string"}, "description": {"type": "string"}}, "required": ["type", "description"]},
-            "image_prompt": {"type": "string"},
-            "visual_impact": {"type": "integer"},
+            "image_prompt": {"type": "string"}, "visual_impact": {"type": "integer"},
         },
         "required": ["segment", "duration", "camera", "animation", "zoom_strength", "motion_intensity", "visual_complexity", "image_style", "lighting", "color_palette", "overlay", "image_prompt", "visual_impact"],
     }
     scene = {
         "type": "object",
         "properties": {
-            "scene": {"type": "integer"},
-            "purpose": {"type": "string"},
-            "retention_purpose": {"type": "string"},
-            "narration": {"type": "string"},
-            "source_ids": {"type": "array", "items": {"type": "string"}},
+            "scene": {"type": "integer"}, "purpose": {"type": "string"}, "retention_purpose": {"type": "string"},
+            "narration": {"type": "string"}, "source_ids": {"type": "array", "items": {"type": "string"}},
             "subtitle_text": {"type": "string"},
             "caption_highlights": {"type": "array", "items": {"type": "object", "properties": {"word": {"type": "string"}, "emphasis": {"type": "string"}}, "required": ["word", "emphasis"]}},
-            "subtitle_style": {"type": "string"},
-            "emphasis_word": {"type": "string"},
-            "duration": {"type": "integer"},
-            "pause_after_ms": {"type": "integer"},
-            "emotional_tone": {"type": "string"},
-            "visual_priority": {"type": "string"},
-            "transition": {"type": "string"},
-            "sfx_cue": {"type": "object", "properties": {"term": {"type": "string"}, "at_ms": {"type": "integer"}}, "required": ["term", "at_ms"]},
-            "music_cue": {"type": "string"},
-            "confidence": {"type": "string"},
-            "visuals": {"type": "array", "items": visual},
+            "subtitle_style": {"type": "string"}, "emphasis_word": {"type": "string"}, "duration": {"type": "integer"},
+            "pause_after_ms": {"type": "integer"}, "emotional_tone": {"type": "string"}, "visual_priority": {"type": "string"},
+            "transition": {"type": "string"}, "sfx_cue": {"type": "object", "properties": {"term": {"type": "string"}, "at_ms": {"type": "integer"}}, "required": ["term", "at_ms"]},
+            "music_cue": {"type": "string"}, "confidence": {"type": "string"}, "visuals": {"type": "array", "items": visual},
         },
         "required": ["scene", "purpose", "retention_purpose", "narration", "source_ids", "subtitle_text", "caption_highlights", "subtitle_style", "emphasis_word", "duration", "pause_after_ms", "emotional_tone", "visual_priority", "transition", "sfx_cue", "music_cue", "confidence", "visuals"],
     }
     return {
         "type": "object",
         "properties": {
-            "title": {"type": "string"},
-            "description": {"type": "string"},
-            "tags": {"type": "array", "items": {"type": "string"}},
-            "category": {"type": "string"},
-            "thumbnail_prompt": {"type": "string"},
+            "title": {"type": "string"}, "description": {"type": "string"}, "tags": {"type": "array", "items": {"type": "string"}},
+            "category": {"type": "string"}, "thumbnail_prompt": {"type": "string"},
             "voice_style": {"type": "object", "properties": {"tone": {"type": "string"}, "pace": {"type": "string"}, "pitch": {"type": "string"}}, "required": ["tone", "pace", "pitch"]},
             "music": {"type": "object", "properties": {"search": {"type": "string"}, "arc": {"type": "string"}}, "required": ["search", "arc"]},
             "visual_identity": {"type": "object", "properties": {"style": {"type": "string"}, "palette": {"type": "string"}, "mood_arc": {"type": "string"}}, "required": ["style", "palette", "mood_arc"]},
@@ -229,10 +181,6 @@ def _parse(text):
     return json.loads(text)
 
 
-def _bridge(next_topic):
-    return f"But that leaves one bigger question: {next_topic}."
-
-
 def _normalize(script, topic):
     if not isinstance(script, dict):
         raise RuntimeError("Gemini returned a non-object script.")
@@ -242,9 +190,7 @@ def _normalize(script, topic):
 
     script["topic"] = topic
     script["title"] = _clean(script.get("title"))[:70] or topic[:70]
-    script["description"] = _clean(script.get("description"))
-    if not script["description"]:
-        script["description"] = f"A strange little mystery hiding in everyday life: {topic}."
+    script["description"] = _clean(script.get("description")) or f"A strange little mystery hiding in everyday life: {topic}."
     script["tags"] = [_clean(x).lstrip("#") for x in script.get("tags", []) if _clean(x)][:12]
     script["category"] = _clean(script.get("category")) or "science"
     script["thumbnail_prompt"] = _clean(script.get("thumbnail_prompt"))
@@ -279,7 +225,6 @@ def _normalize(script, topic):
         "continuity_rules": [_clean(x)[:250] for x in continuity.get("continuity_rules", [])[:8] if _clean(x)],
     }
 
-    # Enforce exact timing and caption source of truth.
     for i, scene in enumerate(scenes):
         if not isinstance(scene, dict):
             raise RuntimeError(f"Scene {i+1} is invalid.")
@@ -291,82 +236,66 @@ def _normalize(script, topic):
         scene["narration"] = narration
         scene["subtitle_text"] = narration
         scene["source_ids"] = []
-        scene["purpose"] = _clean(scene.get("purpose")) if _clean(scene.get("purpose")) in PURPOSES else (["hook", "question", "explanation", "example", "mindblowing_fact", "ending"][i])
-        scene["retention_purpose"] = _clean(scene.get("retention_purpose")) if _clean(scene.get("retention_purpose")) in RETENTION else (["open_loop", "curiosity_gap", "reframe", "pattern_break", "payoff", "escalation", "closure"][i])
-        scene["emotional_tone"] = _clean(scene.get("emotional_tone")) if _clean(scene.get("emotional_tone")) in TONES else (["curious", "curious", "calm", "playful", "awe", "urgent", "satisfied"][i])
-        scene["visual_priority"] = "hero" if i in (0, 4, 5, 6) else "supporting"
+        scene["pause_after_ms"] = max(0, min(600, _safe_int(scene.get("pause_after_ms"), 0)))
+        scene["purpose"] = _clean(scene.get("purpose")) if _clean(scene.get("purpose")) in PURPOSES else ("hook" if i == 0 else "ending" if i == 6 else "explanation")
+        scene["retention_purpose"] = _clean(scene.get("retention_purpose")) if _clean(scene.get("retention_purpose")) in RETENTION else ("open_loop" if i < 2 else "payoff" if i >= 5 else "escalation")
+        scene["subtitle_style"] = _clean(scene.get("subtitle_style")) or "dynamic"
+        scene["emphasis_word"] = _clean(scene.get("emphasis_word")) or (_words(narration)[0] if _words(narration) else "")
+        scene["emotional_tone"] = _clean(scene.get("emotional_tone")) if _clean(scene.get("emotional_tone")) in TONES else "curious"
+        scene["visual_priority"] = _clean(scene.get("visual_priority")) or "primary"
         scene["transition"] = _clean(scene.get("transition")) if _clean(scene.get("transition")) in TRANSITIONS else "hard_cut"
-        scene["music_cue"] = _clean(scene.get("music_cue")) if _clean(scene.get("music_cue")) in MUSIC_CUES else ("intro" if i == 0 else "build")
-        scene["subtitle_style"] = "kinetic_word_by_word"
-        scene["pause_after_ms"] = max(0, min(400, _safe_int(scene.get("pause_after_ms"), 0)))
-        scene["confidence"] = "high"
+        scene["music_cue"] = _clean(scene.get("music_cue")) if _clean(scene.get("music_cue")) in MUSIC_CUES else "build"
+        scene["confidence"] = _clean(scene.get("confidence")) or "high"
         scene["sfx_cue"] = scene.get("sfx_cue") if isinstance(scene.get("sfx_cue"), dict) else {"term": "", "at_ms": 0}
-        scene["caption_highlights"] = [{"word": max(_words(narration), key=len), "emphasis": "strong"}] if _words(narration) else []
-        scene["emphasis_word"] = scene["caption_highlights"][0]["word"] if scene["caption_highlights"] else ""
 
         visuals = scene.get("visuals")
-        if not isinstance(visuals, list) or len(visuals) != 2:
+        if not isinstance(visuals, list) or len(visuals) != VISUALS_PER_SCENE:
             raise RuntimeError(f"Scene {i+1} must contain exactly 2 visuals.")
-        durations = [SCENE_DURATIONS[i] // 2, SCENE_DURATIONS[i] - (SCENE_DURATIONS[i] // 2)]
+        durations = [scene["duration"] // 2, scene["duration"] - scene["duration"] // 2]
         for j, visual in enumerate(visuals):
             if not isinstance(visual, dict):
-                visual = {}
-                visuals[j] = visual
+                raise RuntimeError(f"Scene {i+1} visual {j+1} is invalid.")
+            visual["segment"] = j + 1
+            visual["duration"] = durations[j]
+            visual["camera"] = _clean(visual.get("camera")) if _clean(visual.get("camera")) in CAMERAS else "medium"
+            visual["animation"] = _clean(visual.get("animation")) if _clean(visual.get("animation")) in ANIMATIONS else ("zoom_in" if j == 0 else "pan_right")
+            visual["zoom_strength"] = _clean(visual.get("zoom_strength")) or "subtle"
+            visual["motion_intensity"] = _clean(visual.get("motion_intensity")) or "medium"
+            visual["visual_complexity"] = _clean(visual.get("visual_complexity")) or "moderate"
+            visual["image_style"] = _clean(visual.get("image_style")) if _clean(visual.get("image_style")) in {"realistic_3d_render", "cinematic_photograph", "macro_photography"} else "cinematic_photograph"
+            visual["lighting"] = _clean(visual.get("lighting")) or "natural believable lighting"
+            visual["color_palette"] = _clean(visual.get("color_palette")) or script["visual_identity"]["palette"]
+            visual["overlay"] = visual.get("overlay") if isinstance(visual.get("overlay"), dict) else {"type": "none", "description": ""}
+            visual["visual_impact"] = max(1, min(10, _safe_int(visual.get("visual_impact"), 8)))
             prompt = _clean(visual.get("image_prompt"))
             if not prompt:
-                prompt = _fallback_visual(narration, j + 1)
-            if len(_words(prompt)) < 12:
-                prompt = _fallback_visual(narration, j + 1)
-            visual.update({
-                "segment": j + 1,
-                "duration": durations[j],
-                "camera": _clean(visual.get("camera")) if _clean(visual.get("camera")) in CAMERAS else ("medium" if j == 0 else "close_up"),
-                "animation": _clean(visual.get("animation")) if _clean(visual.get("animation")) in ANIMATIONS else ("zoom_in" if j == 0 else "pan_right"),
-                "zoom_strength": _clean(visual.get("zoom_strength")) or "subtle",
-                "motion_intensity": _clean(visual.get("motion_intensity")) or "medium",
-                "visual_complexity": _clean(visual.get("visual_complexity")) or "moderate",
-                "image_style": _clean(visual.get("image_style")) if _clean(visual.get("image_style")) in {"realistic_3d_render", "cinematic_photograph", "macro_photography"} else "cinematic_photograph",
-                "lighting": _clean(visual.get("lighting")) or "bright believable natural lighting appropriate to the location",
-                "color_palette": _clean(visual.get("color_palette")) or script["visual_identity"]["palette"],
-                "overlay": {"type": "none", "description": ""},
-                "image_prompt": prompt[:1200],
-                "visual_impact": max(1, min(10, _safe_int(visual.get("visual_impact"), 8))),
-            })
-        scene["visuals"] = visuals
+                prompt = f"A real-world scene literally showing the action described in this narration: {narration}"
+            visual["image_prompt"] = prompt[:700]
 
-    # Scene 7 must end with the continuation question. Remove accidental mentions elsewhere.
-    for scene in scenes[:6]:
-        if next_topic.lower() in scene["narration"].lower():
-            scene["narration"] = scene["narration"].replace(next_topic, "that mystery")
-            scene["subtitle_text"] = scene["narration"]
-    final = scenes[6]["narration"].rstrip()
-    if next_topic.lower() not in final.lower():
-        final = final.rstrip(".!?") + ". " + _bridge(next_topic)
-    scenes[6]["narration"] = final
-    scenes[6]["subtitle_text"] = final
-    scenes[6]["purpose"] = "ending"
-    scenes[6]["transition"] = "none"
-    scenes[6]["music_cue"] = "fade_out"
-    scenes[6]["caption_highlights"] = [{"word": max(_words(final), key=len), "emphasis": "strong"}]
-    scenes[6]["emphasis_word"] = scenes[6]["caption_highlights"][0]["word"]
+        highlights = []
+        for word in _words(narration):
+            if len(word) >= 4:
+                highlights.append({"word": word, "emphasis": "strong"})
+            if len(highlights) >= 3:
+                break
+        scene["caption_highlights"] = highlights or [{"word": _words(narration)[0], "emphasis": "strong"}]
 
-    # Never leak the next topic into the public description.
+    # Scene 7 owns the continuation hook. Remove the next topic from earlier scenes and description.
+    next_key = re.sub(r"[^a-z0-9 ]", " ", next_topic.lower()).strip()
     description = script["description"]
-    if next_topic.lower() in description.lower() or any(x in description.lower() for x in ("next video", "next short", "coming next", "stay tuned", "part 2")):
-        script["description"] = f"Why {topic.rstrip('?')} is much stranger than it looks."
+    if next_key and next_key in re.sub(r"[^a-z0-9 ]", " ", description.lower()):
+        script["description"] = f"Explore the strange everyday mystery behind {topic}."
 
-    script["scene_plan"] = scenes
-    seed = _safe_int(script.get("image_generation", {}).get("seed"), random.randint(1, 2147483647))
-    script["image_generation"] = {
-        "seed": seed,
-        "style_lock": f"{script['visual_identity']['style']}; {script['visual_identity']['palette']}; {script['visual_identity']['mood_arc']}",
-        "images_per_scene": 2,
-        "total_images": 14,
-        "visual_continuity_enabled": True,
-        "semantic_prompts": True,
-        "portrait_output": True,
-    }
-    script["video_structure"] = {"format": "short_form_story", "scene_count": 7, "target_duration_seconds": 45, "actual_duration_seconds": 45, "visuals_per_scene": 2, "total_visuals": 14}
+    scene7 = scenes[6]
+    if next_topic.lower() not in scene7["narration"].lower():
+        scene7["narration"] = scene7["narration"].rstrip(".!? ") + f" But that leaves one bigger question: {next_topic}."
+        scene7["subtitle_text"] = scene7["narration"]
+
+    for scene in scenes[:6]:
+        if next_key and next_key in re.sub(r"[^a-z0-9 ]", " ", scene["narration"].lower()):
+            raise RuntimeError("Next topic appeared before Scene 7.")
+
+    script["retention_self_check"] = script.get("retention_self_check") or {"weakest_scene": 4, "reason": "Every scene advances the mystery."}
     script["publishing"] = {"research_verified": False, "research_sources_require_verification": False, "citations_ready": False, "claim_verification_required": False, "captions_match_narration": True, "semantic_image_prompts": True, "fourteen_visuals_required": True}
     script["generated_at"] = int(time.time())
     script["video_id"] = f"{re.sub(r'[^a-z0-9]+', '-', script['title'].lower()).strip('-')[:40]}-{uuid.uuid4().hex[:8]}"
@@ -374,11 +303,16 @@ def _normalize(script, topic):
 
 
 def generate_script(topic, config, research=None, extra_feedback=""):
-    """Generate an entertainment-first storyboard. `research` is intentionally ignored."""
+    """Generate an entertainment-first storyboard. Research is intentionally ignored."""
     topic = _clean(topic)
     if not topic:
         raise RuntimeError("Topic is empty.")
+
     client = genai.Client(api_key=_api_key())
+    feedback = ""
+    if extra_feedback:
+        feedback = "\n\nPRIOR FEEDBACK:\n" + _clean(extra_feedback)
+
     prompt = f"""
 CURRENT TOPIC:
 {topic}
@@ -386,10 +320,8 @@ CURRENT TOPIC:
 Create a 45-second Short with exactly 7 scenes and 2 visuals per scene.
 Use durations 3, 5, 7, 7, 8, 8, 7 seconds.
 
-Make it fun, conversational and surprising. The first sentence must grab
-attention immediately. Use a relatable physical example whenever possible.
-Explain the idea simply, with a quirky comparison or observation where it
-helps. Do not sound scientific for the sake of sounding scientific.
+Make it fun, conversational and surprising. The first sentence must grab attention immediately.
+Use relatable physical examples whenever possible. Explain simply.
 
 DESCRIPTION:
 Write a short description ONLY about the current topic.
@@ -402,15 +334,18 @@ VISUALS:
 Every image must literally depict the narration. No generic labs, diagrams,
 abstract particles, arrows, equations, text, labels or meaningless effects.
 Shot 1 establishes; shot 2 reveals something different.
-
-{('PRIOR FEEDBACK:\n' + extra_feedback) if extra_feedback else ''}
+{feedback}
 """
+
     last_error = None
     for attempt in range(1, MAX_ATTEMPTS + 1):
         try:
+            retry = ""
+            if last_error:
+                retry = "\n\nFix this previous validation error:\n" + last_error
             response = client.models.generate_content(
                 model=MODEL_NAME,
-                contents=prompt + (f"\n\nFix this previous validation error:\n{last_error}" if last_error else ""),
+                contents=prompt + retry,
                 config=types.GenerateContentConfig(
                     system_instruction=_build_system_prompt(),
                     response_mime_type="application/json",
@@ -419,15 +354,16 @@ Shot 1 establishes; shot 2 reveals something different.
                 ),
             )
             text = getattr(response, "text", None)
-            script = _parse(text)
-            return _normalize(script, topic)
+            if not text:
+                raise RuntimeError("Gemini returned an empty response.")
+            return _normalize(_parse(text), topic)
         except Exception as error:
             last_error = f"{type(error).__name__}: {error}"
-            print(f"❌ Entertainment script attempt {attempt}/{MAX_ATTEMPTS} failed: {last_error}")
             if attempt < MAX_ATTEMPTS:
-                time.sleep(2 * attempt)
-    raise RuntimeError(f"Entertainment script generation failed: {last_error}")
+                time.sleep(3 * attempt)
+
+    raise RuntimeError(f"SCRIPT GENERATION FAILED. Last error: {last_error}")
 
 
 if __name__ == "__main__":
-    print("generate_script.py — entertainment-first mode")
+    print("generate_script.py entertainment-first module")

@@ -103,7 +103,7 @@ workbenches and everyday environments whenever appropriate.
 
 PEOPLE:
 When narration describes a human action, show believable hands/body posture
-performing that action. Maintain character appearance when the same person is visible again.
+performing the action. Maintain character appearance when the same person is visible again.
 
 NO DECORATIVE SCIENCE:
 Do not add particles, arrows, energy fields, microscopic structures, equations,
@@ -204,11 +204,61 @@ def _caption_groups(words, group_size=3):
     return groups
 
 
+def _caption_group_width(module, group, spacing):
+    """Measure one caption group using the currently selected font size."""
+    total = 0
+    for item in group:
+        probe = module._make_word_clip(
+            item["word"],
+            module.CAPTION_COLOR,
+        )
+        total += probe.w
+    total += spacing * max(0, len(group) - 1)
+    return total
+
+
+def _fit_caption_font_size(module, group, frame_size):
+    """Choose the largest font that fits inside the Shorts safe area.
+
+    The previous fixed 168px size was appropriate only for a true 4K frame.
+    When the renderer produces a 1080p frame, that same size makes a three-word
+    group wider than the screen. This function scales typography with the actual
+    render resolution and then performs a final width check.
+    """
+    width, _ = frame_size
+
+    # Horizontal safe zone: keep captions away from the right-side Shorts
+    # controls. The usable caption area is intentionally asymmetric because
+    # YouTube's action buttons occupy the right side of the player.
+    safe_left = width * 0.07
+    safe_right = width * 0.79
+    max_width = safe_right - safe_left
+
+    # 168px is the intended 4K size. Scale it from the actual output width.
+    start_size = int(round(168.0 * (width / 2160.0)))
+    start_size = max(64, min(168, start_size))
+
+    # Use a small amount of spacing between words.
+    for size in range(start_size, 51, -2):
+        module.CAPTION_FONT_SIZE = size
+        spacing = max(10, int(size * 0.16))
+        measured = _caption_group_width(module, group, spacing)
+
+        if measured <= max_width:
+            return size
+
+    module.CAPTION_FONT_SIZE = 50
+    return 50
+
+
 def _build_kinetic_captions(module, narration_path, script, frame_size):
     """Three words visible; the currently spoken word turns yellow.
 
     The three-word group remains white while the active word receives a yellow
     overlay exactly during its Whisper-aligned speaking interval.
+
+    Captions are resolution-aware and constrained to a Shorts-safe horizontal
+    region so no word can be clipped or sit underneath the right-side controls.
     """
     raw_transcribe = getattr(module, "_mint_raw_transcribe", None)
     if raw_transcribe is None:
@@ -222,32 +272,51 @@ def _build_kinetic_captions(module, narration_path, script, frame_size):
     if not isinstance(scenes, list) or len(scenes) != 7:
         raise RuntimeError("Caption generation requires exactly 7 scenes.")
 
-    # 4K-safe typography: slightly larger than the old 1080p design while
-    # remaining well above the lower Shorts UI region.
-    module.CAPTION_FONT_SIZE = 168
-    module.CAPTION_VERTICAL_POSITION = 0.60
-
     width, height = frame_size
+
+    # Keep the caption comfortably above the lower metadata/UI area.
+    module.CAPTION_VERTICAL_POSITION = 0.55
     center_y = int(height * module.CAPTION_VERTICAL_POSITION)
+
     clips = []
+
+    # Safe horizontal region. This intentionally leaves extra room on the
+    # right because Shorts overlays Like / Comment / Share there.
+    safe_left = width * 0.07
+    safe_right = width * 0.79
+    safe_center = (safe_left + safe_right) / 2.0
 
     for group in _caption_groups(words, 3):
         group_start = group[0]["start"]
         group_end = group[-1]["end"]
 
-        # Keep the group centered as one unit.
+        # Responsive font size: 168px at 2160-wide 4K, approximately 84px at
+        # 1080-wide output, with an additional width-fit pass for long groups.
+        font_size = _fit_caption_font_size(
+            module,
+            group,
+            frame_size,
+        )
+
+        spacing = max(10, int(font_size * 0.16))
+
         base_clips = []
-        yellow_clips = []
         widths = []
 
         for item in group:
-            base = module._make_word_clip(item["word"], module.CAPTION_COLOR)
+            base = module._make_word_clip(
+                item["word"],
+                module.CAPTION_COLOR,
+            )
             widths.append(base.w)
             base_clips.append((item, base))
 
-        spacing = max(22, int(module.CAPTION_FONT_SIZE * 0.16))
         total_width = sum(widths) + spacing * (len(widths) - 1)
-        x = (width - total_width) / 2
+
+        # Center inside the protected caption zone, not the entire video.
+        x = safe_center - (total_width / 2.0)
+        x = max(safe_left, x)
+        x = min(x, safe_right - total_width)
 
         for item, base in base_clips:
             base_y = center_y - base.h / 2
@@ -271,7 +340,10 @@ def _build_kinetic_captions(module, narration_path, script, frame_size):
             clips.append(base)
 
             # Yellow overlay exists only while THIS exact word is spoken.
-            yellow = module._make_word_clip(item["word"], module.CAPTION_HIGHLIGHT_COLOR)
+            yellow = module._make_word_clip(
+                item["word"],
+                module.CAPTION_HIGHLIGHT_COLOR,
+            )
             yellow = (
                 yellow
                 .set_start(item["start"])
@@ -285,8 +357,9 @@ def _build_kinetic_captions(module, narration_path, script, frame_size):
     print(f"🎬 Kinetic captions: {len(words)} words / 3-word groups")
     print("🎬 Active spoken word: YELLOW")
     print("🎬 Other visible words: WHITE")
-    print("🎬 Caption size: 168px at 4K")
-    print("🎬 Caption position: 60% — protected from lower Shorts UI")
+    print("🎬 Caption sizing: responsive to actual render resolution")
+    print("🎬 Caption safe area: 7% → 79% width")
+    print("🎬 Caption position: 55% height")
 
     return clips
 
@@ -297,15 +370,11 @@ def _patch_assemble(module):
     if old_transcribe is not None:
         module._mint_raw_transcribe = old_transcribe
 
-    # Replace the original one-word caption builder with the 3-word kinetic
-    # version. This is intentionally done at runtime so assemble.py stays
-    # compatible with the existing production pipeline.
     module.build_captions = lambda narration_path, script, frame_size: _build_kinetic_captions(
         module, narration_path, script, frame_size
     )
 
-    module.CAPTION_FONT_SIZE = 168
-    module.CAPTION_VERTICAL_POSITION = 0.60
+    module.CAPTION_VERTICAL_POSITION = 0.55
     _patch_video_quality(module)
 
 

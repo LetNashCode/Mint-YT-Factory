@@ -75,8 +75,17 @@ def ensure_next_topic_is_spoken(script):
 
 
 def build_youtube_metadata(script):
-    title = str(script.get("title", "Wonder Minute Short")).strip()[:100]
-    description = str(script.get("description", "")).strip()
+    """Build metadata from the current topic only.
+
+    This intentionally ignores Gemini's free-form description so the next
+    video's continuation topic can never leak into the current description.
+    """
+    topic = str(script.get("topic", "Wonder Minute curiosity")).strip()
+    title = str(script.get("title", topic or "Wonder Minute Short")).strip()[:100]
+    description = (
+        f"A quick look at {topic} and the everyday mystery behind it."
+    )
+
     tags = script.get("tags", [])
     hashtags = []
     if isinstance(tags, list):

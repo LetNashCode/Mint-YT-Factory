@@ -48,12 +48,7 @@ def _normalise_topic_text(value):
 
 
 def ensure_next_topic_is_spoken(script):
-    """Guarantee the queued next topic is actually spoken in the final scene.
-
-    Gemini is instructed to do this already, but a post-generation guard is
-    safer than allowing a successful video to publish without the continuation
-    promise that the topic engine relies on.
-    """
+    """Guarantee the queued next topic is actually spoken in the final scene."""
     next_topic = str(script.get("next_short", {}).get("topic", "")).strip()
     scenes = script.get("scene_plan")
     if not next_topic or not isinstance(scenes, list) or not scenes:
@@ -61,15 +56,12 @@ def ensure_next_topic_is_spoken(script):
 
     final_scene = scenes[-1]
     narration = str(final_scene.get("narration", "")).strip()
-
     topic_key = _normalise_topic_text(next_topic)
     narration_key = _normalise_topic_text(narration)
 
     if topic_key and topic_key in narration_key:
         return script
 
-    # Keep the continuation as the final spoken sentence. Do not reveal it in
-    # the description and do not use "next video" / "coming next" language.
     connector = "One more thing to wonder about:"
     final_scene["narration"] = (
         f"{narration.rstrip('.!? ')}. {connector} {next_topic}."
@@ -181,8 +173,6 @@ def run(dry_run=False):
     upload_result = upload_video(final_video, title, description, config)
     print(f"✅ Upload completed: {upload_result}")
 
-    # Analytics must NEVER make an already-successful YouTube upload fail.
-    # The durable registry is committed by the workflow after the run.
     try:
         from youtube_analytics import record_upload
         record_upload(upload_result, topic, title, workdir)
@@ -192,10 +182,11 @@ def run(dry_run=False):
     print("=" * 80)
     print("🔗 SAVING NEXT SHORT")
     print("=" * 80)
-    if not save_next_short(next_topic):
+    queued_topic = save_next_short(next_topic)
+    if not queued_topic:
         raise RuntimeError("Upload succeeded but next_short could not be saved.")
 
-    print(f"✅ Next Short queued: {next_topic}")
+    print(f"✅ Next Short queued: {queued_topic}")
 
     print("=" * 80)
     print("📌 COMMITTING CURRENT TOPIC")
@@ -208,7 +199,7 @@ def run(dry_run=False):
     print("🎉 ENTERTAINMENT-FIRST PIPELINE COMPLETE")
     print("=" * 80)
     print(f"Published: {topic}")
-    print(f"Next run: {next_topic}")
+    print(f"Next run: {queued_topic}")
     print(f"Artifacts: {workdir}")
 
 

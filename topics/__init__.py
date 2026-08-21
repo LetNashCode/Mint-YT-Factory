@@ -51,7 +51,7 @@ _SIGNALS = (
     "remote", "light", "shadow", "rain", "umbrella", "pillow", "blanket", "shoe", "paper",
     "pen", "bag", "bottle", "cup", "echo", "sound", "nose", "mouth", "teeth", "tears",
     "breath", "blink", "goosebumps", "fingers", "hands", "laundry", "oven", "stove",
-    "microwave", "toaster", "candle", "towel", "sink", "tap", "socks",
+    "microwave", "toaster", "candle", "towel", "sink", "tap", "socks", "float", "floats",
 )
 
 _PROMPT = """
@@ -109,7 +109,15 @@ def _is_everyday_topic(value: str) -> bool:
         return False
     if any(x in text for x in (" and why ", " and how ", " or why ", " or how ")):
         return False
-    return any(signal in f" {text} " for signal in _SIGNALS)
+
+    # Use token matching rather than raw substring matching. This prevents
+    # accidental acceptance/rejection caused by words embedded in other words.
+    tokens = set(words)
+    signal_hit = any(
+        signal in text if " " in signal else signal in tokens
+        for signal in _SIGNALS
+    )
+    return signal_hit
 
 
 def _read_used() -> list[str]:
@@ -205,10 +213,44 @@ def get_next_topic() -> str:
 
 
 def save_next_short(next_short: str) -> bool:
+    """Save a safe continuation without ever failing after a successful upload.
+
+    If Gemini produces a topic that violates the topic policy, generate a new
+    compliant everyday topic (or use a deterministic fallback) instead of
+    crashing the pipeline after the video is already published.
+    """
     topic = _clean_topic(next_short)
-    if not _is_everyday_topic(topic):
-        raise RuntimeError(f"Generated next Short violates topic policy: {topic}")
     items = [x for x in _read_used() if not x.startswith(_PENDING_PREFIX)]
+
+    if not _is_everyday_topic(topic):
+        print(f"⚠️ Generated next topic failed policy: {topic}")
+        print("🔧 Repairing continuation topic instead of failing the published run.")
+        try:
+            topic = _generate_topic(items)
+        except Exception as error:
+            print(f"⚠️ Topic repair generation failed: {error}")
+            fallback_pool = [
+                "Why ice floats",
+                "Why bread rises",
+                "Why popcorn pops",
+                "Why does a fan make you feel cooler",
+                "Why does your voice sound weird in a recording",
+            ]
+            topic = next(
+                (
+                    candidate
+                    for candidate in fallback_pool
+                    if _is_everyday_topic(candidate)
+                    and not any(_key(candidate) == _key(x) for x in items)
+                ),
+                "Why bread rises",
+            )
+        print(f"🔗 Repaired next-video topic: {topic}")
+
+    if any(_key(topic) == _key(x) for x in items):
+        print(f"⚠️ Repaired topic is already used: {topic}")
+        topic = _generate_topic(items)
+
     items.append(_PENDING_PREFIX + topic)
     _write_used(items)
     print("💾 Durable continuation state saved in used_topics.json")

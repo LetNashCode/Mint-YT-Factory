@@ -3,7 +3,7 @@
 CURRENT MODE: ENTERTAINMENT-FIRST
 
 Topic -> entertaining script/storyboard -> TTS -> AI visuals -> music ->
-assembly -> optional YouTube upload.
+assembly -> final quality validation -> optional YouTube upload.
 
 The pipeline also keeps a durable continuation state and a lightweight
 YouTube performance registry so future production can learn from actual
@@ -27,6 +27,7 @@ from generate_images import generate_images
 from music import download_music
 from assemble import assemble_video
 from upload_youtube import upload_video
+from validate_video import validate_final_video
 
 
 def load_config():
@@ -107,6 +108,7 @@ def run(dry_run=False):
     print("Research layer: DISABLED")
     print("Claim verification: DISABLED")
     print("Goal: make the Short entertaining first")
+    print("Production render: 2160x3840 / 60 FPS / 68 Mbps")
     print("=" * 80)
 
     topic = get_next_topic()
@@ -169,6 +171,20 @@ def run(dry_run=False):
         raise RuntimeError("Final video was not created.")
 
     print(f"✅ VIDEO CREATED: {final_video}")
+
+    # Never upload a render that does not meet the production contract.
+    video_settings = config.get("video", {})
+    target_bitrate = 68.0
+    try:
+        target_bitrate = float(str(video_settings.get("bitrate", "68M")).upper().replace("M", ""))
+    except Exception:
+        pass
+
+    quality = validate_final_video(
+        final_video,
+        expected_bitrate_mbps=target_bitrate,
+    )
+    save_json(quality, os.path.join(workdir, "video_quality.json"))
 
     if not config.get("upload", {}).get("auto_upload", False):
         print("⚠️ AUTO UPLOAD DISABLED — topic remains uncommitted.")

@@ -1,0 +1,19 @@
+{
+  "generated_at": null,
+  "video_count": 0,
+  "optimization_ready": false,
+  "reason": "Need at least 3 published videos before optimizing content.",
+  "totals": {
+    "views": 0,
+    "likes": 0,
+    "comments": 0
+  },
+  "averages": {
+    "views": 0,
+    "likes": 0,
+    "comments": 0,
+    "engagement_rate": 0
+  },
+  "top_videos": [],
+  "topic_performance": []
+}

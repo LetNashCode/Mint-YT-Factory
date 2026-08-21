@@ -164,8 +164,9 @@ def _word_size_for_index(word, index, frame_size):
 
 
 def _caption_color_for_word(word, index):
-    # Restrained premium palette: yellow remains the signature highlight.
-    colors = ("#FFD54A", "#FFFFFF", "#7DE3FF", "#FF8A65")
+    # Yellow is the primary active-word color. Small variations keep the
+    # sequence lively without turning the captions into a rainbow.
+    colors = ("#FFD54A", "#FFD54A", "#FFFFFF", "#FFD54A")
     return colors[(sum(ord(ch) for ch in str(word)) + index) % len(colors)]
 
 
@@ -196,7 +197,7 @@ def _make_funky_emoji_clip(emoji, font_size):
 
 
 def _build_funky_captions(module, narration_path, script, frame_size):
-    """One spoken word at a time, with funky sizing, color and matching emoji."""
+    """One spoken word at a time with safe positioning and optional emoji."""
     raw_transcribe = getattr(module, "_mint_raw_transcribe", None)
     if raw_transcribe is None:
         raise RuntimeError("Raw Whisper transcriber is unavailable.")
@@ -206,12 +207,18 @@ def _build_funky_captions(module, narration_path, script, frame_size):
         raise RuntimeError("Whisper returned no usable word timestamps.")
 
     width, height = frame_size
-    center_y = int(height * 0.55)
 
-    # Keep clear of the right-side Shorts controls and lower UI.
-    safe_left = width * 0.08
+    # The marked Shorts-safe area is deliberately below the visual focal
+    # point and above the channel/title/share UI. The word itself is centered
+    # in that area, not at the center of the whole 9:16 frame.
+    center_y = int(height * 0.60)
+
+    # Leave the right-side engagement controls clear. This creates a stable
+    # caption lane similar to the user's reference image.
+    safe_left = width * 0.06
     safe_right = width * 0.80
     safe_center = (safe_left + safe_right) / 2.0
+    max_word_width = safe_right - safe_left
 
     clips = []
 
@@ -227,34 +234,20 @@ def _build_funky_captions(module, narration_path, script, frame_size):
         color = _caption_color_for_word(word, index)
         word_clip = _make_funky_word_clip(module, word, color, font_size)
 
-        max_word_width = safe_right - safe_left
+        # Never allow a word to touch the right-side Shorts controls or leave
+        # the frame. Long words are scaled down until they fit the safe lane.
         if word_clip.w > max_word_width:
             ratio = max_word_width / float(word_clip.w)
-            font_size = max(50, int(font_size * ratio * 0.96))
+            font_size = max(50, int(font_size * ratio * 0.94))
             word_clip = _make_funky_word_clip(module, word, color, font_size)
 
         x = safe_center - word_clip.w / 2.0
         x = max(safe_left, min(x, safe_right - word_clip.w))
         word_y = center_y - word_clip.h / 2.0
 
-        # Re-render shadow at the same funky size so its dimensions line up.
-        try:
-            shadow = module._make_word_shadow(word)
-            if shadow.w > word_clip.w * 1.4:
-                shadow = _make_funky_word_clip(module, word, "black", font_size)
-        except Exception:
-            shadow = None
-
-        if shadow is not None:
-            shadow = (
-                shadow
-                .set_start(start)
-                .set_duration(duration)
-                .set_position((x + module.CAPTION_SHADOW_OFFSET, word_y + module.CAPTION_SHADOW_OFFSET))
-                .set_opacity(module.CAPTION_SHADOW_OPACITY)
-            )
-            clips.append(shadow)
-
+        # IMPORTANT: no duplicate/shadow text layer.
+        # The previous shadow produced a ghost word behind the real caption.
+        # The black stroke on the actual word already provides separation.
         clips.append(
             word_clip
             .set_start(start)
@@ -278,11 +271,12 @@ def _build_funky_captions(module, narration_path, script, frame_size):
 
     print(f"🎬 Funky captions: {len(words)} words")
     print("🎬 Caption mode: ONE WORD AT A TIME")
-    print("🎬 Caption colors: yellow / white / cyan / coral")
+    print("🎬 Caption colors: yellow-first / white accent")
     print("🎬 Caption sizing: deterministic small / normal / big")
     print("🎬 Matching emoji: ABOVE active word")
-    print("🎬 Caption safe area: 8% → 80% width")
-    print("🎬 Caption position: 55% height")
+    print("🎬 Caption safe area: 6% → 80% width")
+    print("🎬 Caption position: 60% height / centered safe lane")
+    print("🎬 Caption shadow: DISABLED — no ghost text")
 
     return clips
 
@@ -295,7 +289,7 @@ def _patch_assemble(module):
     module.build_captions = lambda narration_path, script, frame_size: _build_funky_captions(
         module, narration_path, script, frame_size
     )
-    module.CAPTION_VERTICAL_POSITION = 0.55
+    module.CAPTION_VERTICAL_POSITION = 0.60
     _patch_video_quality(module)
 
 

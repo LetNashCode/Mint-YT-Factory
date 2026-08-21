@@ -39,7 +39,6 @@ content:
     no_generic_facts: true
     no_unrelated_facts: true
 
-# Research is intentionally bypassed while we tune entertainment quality.
 research:
   enabled: false
   required: false
@@ -114,8 +113,8 @@ visuals:
   model: "flux"
   style: "cinematic real-world storytelling"
   orientation: "portrait"
-  width: 1080
-  height: 1920
+  width: 2160
+  height: 3840
   enhance: false
   nologo: true
   images_per_scene: 2
@@ -139,8 +138,8 @@ visuals:
 image:
   provider: "pollinations"
   model: "flux"
-  width: 1080
-  height: 1920
+  width: 2160
+  height: 3840
   orientation: "portrait"
   enhance: false
   nologo: true
@@ -151,9 +150,15 @@ image:
   use_style_lock: true
 
 video:
-  resolution: [1080, 1920]
+  resolution: [2160, 3840]
   orientation: "portrait"
-  fps: 30
+  fps: 60
+  bitrate: "68M"
+  codec: "libx264"
+  audio_codec: "aac"
+  audio_bitrate: "384k"
+  pixel_format: "yuv420p"
+  color_space: "bt709"
   target_duration_seconds: 45
   motion:
     enabled: true
@@ -244,6 +249,12 @@ validation:
     exactly_2_per_scene: true
     all_files_exist: true
     no_missing_images: true
+  video:
+    width: 2160
+    height: 3840
+    fps: 60
+    bitrate: "68M"
+    portrait_9_16: true
 
 upload:
   auto_upload: true

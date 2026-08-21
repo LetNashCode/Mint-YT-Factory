@@ -5,9 +5,9 @@ CURRENT MODE: ENTERTAINMENT-FIRST
 Topic -> entertaining script/storyboard -> TTS -> AI visuals -> music ->
 assembly -> optional YouTube upload.
 
-Research is intentionally bypassed for this development phase. It will be
-reintroduced after the Shorts are consistently entertaining and visually
-relevant.
+The pipeline also keeps a durable continuation state and a lightweight
+YouTube performance registry so future production can learn from actual
+channel results.
 """
 
 from __future__ import annotations
@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import time
 
 import yaml
@@ -40,6 +41,45 @@ def save_json(data, path):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as handle:
         json.dump(data, handle, indent=2, ensure_ascii=False)
+
+
+def _normalise_topic_text(value):
+    return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
+
+
+def ensure_next_topic_is_spoken(script):
+    """Guarantee the queued next topic is actually spoken in the final scene.
+
+    Gemini is instructed to do this already, but a post-generation guard is
+    safer than allowing a successful video to publish without the continuation
+    promise that the topic engine relies on.
+    """
+    next_topic = str(script.get("next_short", {}).get("topic", "")).strip()
+    scenes = script.get("scene_plan")
+    if not next_topic or not isinstance(scenes, list) or not scenes:
+        raise RuntimeError("Script is missing a next topic or scene plan.")
+
+    final_scene = scenes[-1]
+    narration = str(final_scene.get("narration", "")).strip()
+
+    topic_key = _normalise_topic_text(next_topic)
+    narration_key = _normalise_topic_text(narration)
+
+    if topic_key and topic_key in narration_key:
+        return script
+
+    # Keep the continuation as the final spoken sentence. Do not reveal it in
+    # the description and do not use "next video" / "coming next" language.
+    connector = "One more thing to wonder about:"
+    final_scene["narration"] = (
+        f"{narration.rstrip('.!? ')}. {connector} {next_topic}."
+    ).strip()
+    final_scene["subtitle_text"] = final_scene["narration"]
+
+    print("⚠️ Next topic was not spoken by Gemini.")
+    print("🔧 Added a deterministic final-sentence continuation guard.")
+    print(f"🔗 Spoken next topic: {next_topic}")
+    return script
 
 
 def build_youtube_metadata(script):
@@ -78,6 +118,7 @@ def run(dry_run=False):
     print("✍️ GENERATING ENTERTAINING STORY")
     print("=" * 80)
     script = generate_script(topic, config, None)
+    script = ensure_next_topic_is_spoken(script)
 
     next_topic = str(script.get("next_short", {}).get("topic", "")).strip()
     if not next_topic:
@@ -139,6 +180,14 @@ def run(dry_run=False):
     print("=" * 80)
     upload_result = upload_video(final_video, title, description, config)
     print(f"✅ Upload completed: {upload_result}")
+
+    # Analytics must NEVER make an already-successful YouTube upload fail.
+    # The durable registry is committed by the workflow after the run.
+    try:
+        from youtube_analytics import record_upload
+        record_upload(upload_result, topic, title, workdir)
+    except Exception as analytics_error:
+        print(f"⚠️ Analytics registry update skipped: {analytics_error}")
 
     print("=" * 80)
     print("🔗 SAVING NEXT SHORT")

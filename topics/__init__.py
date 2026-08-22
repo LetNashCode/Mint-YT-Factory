@@ -74,11 +74,17 @@ lights, shadows, rain, bottles, cups, doors, windows, sounds and echoes.
 Reject academic subjects, generic facts, lists, countdowns, medical advice,
 politics, conspiracy, fearbait, broad subjects, and anything difficult to show.
 
-Return ONLY one short curiosity question. It may be as short as 3 words.
-Natural examples include: Why ice floats / Why bread rises / Why popcorn pops.
-Prefer Why does / Why do / Why is / Why are / Why can / How does / How do,
-but natural everyday questions are acceptable when they are clearly a curiosity.
-No quotes, no numbering, no explanation, no question mark.
+IMPORTANT: the topic will be spoken aloud as a final teaser in a 45-second
+Short. Keep it VERY short: 3 to 7 words total. It must still be a natural
+curiosity question. Prefer forms like:
+Why ice floats
+Why bread rises
+Why popcorn pops
+Why onions make you cry
+Why clothes smell stale
+
+Return ONLY one short curiosity question. No quotes, no numbering, no explanation,
+no question mark.
 
 Previous topics:
 {previous}
@@ -105,7 +111,7 @@ def _is_everyday_topic(value: str) -> bool:
     if not re.match(r"^(why|how)\s+.+", text):
         return False
     words = re.findall(r"\b[\w'-]+\b", text)
-    if not 3 <= len(words) <= 12:
+    if not 3 <= len(words) <= 7:
         return False
     if any(x in text for x in (" and why ", " and how ", " or why ", " or how ")):
         return False
@@ -172,7 +178,7 @@ def _generate_topic(used: list[str]) -> str:
             candidate = _clean_topic(getattr(response, "text", ""))
             print(f"🧠 Topic attempt {attempt}/10: {candidate}")
             if not _is_everyday_topic(candidate):
-                print("⚠️ Rejected: not a valid everyday curiosity.")
+                print("⚠️ Rejected: not a valid short everyday curiosity.")
                 continue
             key = _key(candidate)
             if any(key == _key(x) for x in used):
@@ -183,20 +189,20 @@ def _generate_topic(used: list[str]) -> str:
             print(f"⚠️ Topic attempt failed: {error}")
 
     fallbacks = [
-        "Why does your phone get hot while charging",
-        "Why does your voice sound weird in a recording",
-        "Why does a cold glass get covered in water",
-        "Why does a fan make you feel cooler",
-        "Why do onions make you cry",
         "Why ice floats",
         "Why bread rises",
         "Why popcorn pops",
+        "Why onions make you cry",
+        "Why clothes smell stale",
+        "Why metal feels cold",
+        "Why fans feel cool",
+        "Why glass fogs up",
     ]
     for candidate in fallbacks:
         if _is_everyday_topic(candidate) and not any(_key(candidate) == _key(x) for x in used):
             print(f"🔄 Using fallback topic: {candidate}")
             return candidate
-    raise RuntimeError("Could not generate a valid everyday-curiosity topic.")
+    raise RuntimeError("Could not generate a valid short everyday-curiosity topic.")
 
 
 def get_next_topic() -> str:
@@ -210,38 +216,19 @@ def get_next_topic() -> str:
 
 
 def save_next_short(next_short: str) -> str:
-    """Save a safe continuation without failing after a successful upload."""
+    """Save the exact canonical continuation without silently changing it."""
     topic = _clean_topic(next_short)
     items = [x for x in _read_used() if not x.startswith(_PENDING_PREFIX)]
 
     if not _is_everyday_topic(topic):
-        print(f"⚠️ Generated next topic failed policy: {topic}")
-        print("🔧 Repairing continuation topic instead of failing the published run.")
-        try:
-            topic = _generate_topic(items)
-        except Exception as error:
-            print(f"⚠️ Topic repair generation failed: {error}")
-            fallback_pool = [
-                "Why ice floats",
-                "Why bread rises",
-                "Why popcorn pops",
-                "Why does a fan make you feel cooler",
-                "Why does your voice sound weird in a recording",
-            ]
-            topic = next(
-                (
-                    candidate
-                    for candidate in fallback_pool
-                    if _is_everyday_topic(candidate)
-                    and not any(_key(candidate) == _key(x) for x in items)
-                ),
-                "Why bread rises",
-            )
-        print(f"🔗 Repaired next-video topic: {topic}")
+        raise RuntimeError(
+            f"Refusing to queue invalid continuation topic: {topic}"
+        )
 
     if any(_key(topic) == _key(x) for x in items):
-        print(f"⚠️ Repaired topic is already used: {topic}")
-        topic = _generate_topic(items)
+        raise RuntimeError(
+            f"Refusing to queue duplicate continuation topic: {topic}"
+        )
 
     items.append(_PENDING_PREFIX + topic)
     _write_used(items)

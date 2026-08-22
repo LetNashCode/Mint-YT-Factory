@@ -5,9 +5,10 @@ CURRENT MODE: ENTERTAINMENT-FIRST
 Topic -> entertaining script/storyboard -> TTS -> AI visuals -> music ->
 assembly -> final quality validation -> optional YouTube upload.
 
-The pipeline also keeps a durable continuation state and a lightweight
-YouTube performance registry so future production can learn from actual
-channel results.
+Continuation is treated as a production contract: the exact next topic is
+locked before narration, spoken as the final sentence, and queued unchanged.
+The final scene is also compacted so the continuation is fully spoken instead
+of being clipped at the 45-second render boundary.
 """
 
 from __future__ import annotations
@@ -38,6 +39,9 @@ from upload_youtube import upload_video
 from validate_video import validate_final_video
 
 
+CONTINUATION_MANIFEST = "continuation_state.json"
+
+
 def load_config():
     with open("config.yaml", "r", encoding="utf-8") as handle:
         config = yaml.safe_load(handle)
@@ -47,7 +51,9 @@ def load_config():
 
 
 def save_json(data, path):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
+    directory = os.path.dirname(path)
+    if directory:
+        os.makedirs(directory, exist_ok=True)
     with open(path, "w", encoding="utf-8") as handle:
         json.dump(data, handle, indent=2, ensure_ascii=False)
 
@@ -60,24 +66,88 @@ def _topic_is_same(a, b):
     return _normalise_topic_text(a) == _normalise_topic_text(b)
 
 
+def _word_count(value):
+    return len(re.findall(r"\b[\w'-]+\b", str(value or "")))
+
+
+def _split_sentences(text):
+    return [
+        part.strip()
+        for part in re.split(r"(?<=[.!?])\s+", str(text or "").strip())
+        if part.strip()
+    ]
+
+
+def _compact_payoff(narration, max_words=10):
+    """Keep a short, coherent payoff before the continuation sentence."""
+    sentences = _split_sentences(narration)
+    if not sentences:
+        return "That is the strange part."
+
+    # Gemini often puts its best payoff in the final sentence. Keep that
+    # sentence first, then add earlier short context only if it still fits.
+    chosen = []
+    total = 0
+    for sentence in reversed(sentences):
+        # Never keep an old continuation sentence; main.py owns it now.
+        if re.search(r"\b(next video|coming next|stay tuned|part 2)\b", sentence, re.I):
+            continue
+        words = _word_count(sentence)
+        if words == 0:
+            continue
+        if total + words <= max_words:
+            chosen.insert(0, sentence.rstrip(".!? "))
+            total += words
+        elif not chosen:
+            short_words = re.findall(r"\S+", sentence)[:max_words]
+            chosen.insert(0, " ".join(short_words).rstrip(".!? "))
+            break
+        else:
+            break
+
+    payoff = " ".join(chosen).strip()
+    if not payoff:
+        payoff = "And that is the strange part"
+    return payoff.rstrip(".!? ") + "."
+
+
+def _remove_existing_continuation(narration, next_topic):
+    """Remove an already-appended teaser so it can be rebuilt exactly once."""
+    sentences = _split_sentences(narration)
+    topic_key = _normalise_topic_text(next_topic)
+    kept = []
+    for sentence in sentences:
+        key = _normalise_topic_text(sentence)
+        if topic_key and topic_key in key:
+            continue
+        if re.search(r"\b(bigger question|one more thing to wonder about|next video|coming next|stay tuned|part 2)\b", sentence, re.I):
+            continue
+        kept.append(sentence)
+    return " ".join(kept).strip()
+
+
+def _build_locked_final_sentence(next_topic):
+    # Keep this sentence short enough to be completely spoken inside Scene 7.
+    return f"And next: {next_topic}."
+
+
 def lock_next_topic(script, current_topic):
-    """Resolve the exact next-video topic BEFORE TTS/rendering.
+    """Lock one canonical next topic BEFORE TTS and build a short final tease.
 
-    The old pipeline generated the teaser first and only later called
-    save_next_short(). That function could repair an invalid/duplicate topic,
-    meaning the spoken teaser and the queued topic could silently diverge.
+    The exact same canonical value is used for:
+      1. the final spoken sentence,
+      2. script.json,
+      3. the post-upload continuation queue.
 
-    This function makes one canonical topic authoritative before narration is
-    synthesized. The exact same value is then persisted after a successful
-    upload.
+    Scene 7 is deliberately compacted because the old guard could append a
+    long continuation to an already-full 7-second scene. The result was a
+    teaser that ended mid-sentence (often only the final word was heard).
     """
     next_short = script.get("next_short") or {}
     candidate = str(next_short.get("topic", "")).strip()
     if not candidate:
         raise RuntimeError("Generated script did not provide next_short.topic.")
 
-    # Include the current topic in duplicate protection even though it has not
-    # been committed to used_topics.json yet.
     used = [str(current_topic)]
     used.extend(
         item for item in _read_used()
@@ -95,64 +165,71 @@ def lock_next_topic(script, current_topic):
             raise RuntimeError(f"Could not create a valid canonical next topic: {canonical}")
         print(f"🔗 Canonical replacement next topic: {canonical}")
 
-    script["next_short"]["topic"] = canonical
+    # Keep future topics short enough to fit naturally in the final sentence.
+    if _word_count(canonical) > 7:
+        print(f"⚠️ Next topic is too long for a clean spoken tease: {canonical}")
+        canonical = _generate_topic(used)
+        if _word_count(canonical) > 7:
+            raise RuntimeError(f"Generated continuation is still too long: {canonical}")
+        print(f"🔗 Short canonical next topic: {canonical}")
 
-    # The teaser that gets spoken must contain the exact canonical topic.
-    # Rebuild the final scene if Gemini used a different continuation.
+    script["next_short"]["topic"] = canonical
+    script["next_short"]["teaser"] = _build_locked_final_sentence(canonical)
+
     scenes = script.get("scene_plan")
-    if not isinstance(scenes, list) or not scenes:
-        raise RuntimeError("Script has no scene_plan.")
+    if not isinstance(scenes, list) or len(scenes) != 7:
+        raise RuntimeError("Script must contain exactly 7 scenes.")
 
     final_scene = scenes[-1]
-    narration = str(final_scene.get("narration", "")).strip()
-    canonical_key = _normalise_topic_text(canonical)
-    narration_key = _normalise_topic_text(narration)
+    original = str(final_scene.get("narration", "")).strip()
+    base = _remove_existing_continuation(original, canonical)
+    payoff = _compact_payoff(base, max_words=10)
+    teaser = _build_locked_final_sentence(canonical)
+    final_scene["narration"] = f"{payoff} {teaser}".strip()
+    final_scene["subtitle_text"] = final_scene["narration"]
+    final_scene["pause_after_ms"] = 250
+    final_scene["emotional_tone"] = "satisfied"
+    final_scene["music_cue"] = "fade_out"
 
-    if canonical_key not in narration_key:
-        connector = "One more thing to wonder about:"
-        final_scene["narration"] = (
-            f"{narration.rstrip('.!? ')}. {connector} {canonical}."
-        ).strip()
-        final_scene["subtitle_text"] = final_scene["narration"]
-        print("🔧 Final scene updated with the canonical next topic.")
+    # Rebuild highlights so the final teaser is caption-highlighted correctly.
+    teaser_words = re.findall(r"\b[\w'-]+\b", canonical)
+    final_scene["caption_highlights"] = [
+        {"word": word, "emphasis": "strong"}
+        for word in teaser_words[:3]
+    ] or [{"word": canonical.split()[0], "emphasis": "strong"}]
+    final_scene["emphasis_word"] = teaser_words[0] if teaser_words else canonical.split()[0]
+
+    # Hard contract: the exact canonical topic must occur once in the final
+    # narration and nowhere in Scenes 1-6.
+    canonical_key = _normalise_topic_text(canonical)
+    final_key = _normalise_topic_text(final_scene["narration"])
+    if canonical_key not in final_key:
+        raise RuntimeError("Canonical next topic was not inserted into final narration.")
+
+    for scene in scenes[:6]:
+        if canonical_key and canonical_key in _normalise_topic_text(scene.get("narration", "")):
+            raise RuntimeError("Next topic appeared before Scene 7.")
 
     print(f"🎯 CANONICAL NEXT TOPIC: {canonical}")
+    print(f"🗣️ FINAL SPOKEN TEASE: {final_scene['narration']}")
+    print(f"⏱️ Scene 7 words: {_word_count(final_scene['narration'])}")
     return script, canonical
 
 
-def ensure_next_topic_is_spoken(script):
-    """Guarantee the queued next topic is actually spoken in the final scene."""
-    next_topic = str(script.get("next_short", {}).get("topic", "")).strip()
-    scenes = script.get("scene_plan")
-    if not next_topic or not isinstance(scenes, list) or not scenes:
-        raise RuntimeError("Script is missing a next topic or scene plan.")
-
-    final_scene = scenes[-1]
-    narration = str(final_scene.get("narration", "")).strip()
-    topic_key = _normalise_topic_text(next_topic)
-    narration_key = _normalise_topic_text(narration)
-
-    if topic_key and topic_key in narration_key:
-        return script
-
-    connector = "One more thing to wonder about:"
-    final_scene["narration"] = (
-        f"{narration.rstrip('.!? ')}. {connector} {next_topic}."
-    ).strip()
-    final_scene["subtitle_text"] = final_scene["narration"]
-
-    print("⚠️ Next topic was not spoken by Gemini.")
-    print("🔧 Added a deterministic final-sentence continuation guard.")
-    print(f"🔗 Spoken next topic: {next_topic}")
-    return script
+def write_continuation_manifest(current_topic, next_topic, status, workdir=""):
+    data = {
+        "status": status,
+        "current_topic": current_topic,
+        "next_topic": next_topic,
+        "workdir": workdir,
+        "updated_at": int(time.time()),
+    }
+    save_json(data, CONTINUATION_MANIFEST)
+    print(f"🧾 Continuation manifest: {status} -> {next_topic}")
 
 
 def build_youtube_metadata(script):
-    """Build metadata from the current topic only.
-
-    This intentionally ignores Gemini's free-form description so the next
-    video's continuation topic can never leak into the current description.
-    """
+    """Build metadata from the current topic only."""
     topic = str(script.get("topic", "Wonder Minute curiosity")).strip()
     title = str(script.get("title", topic or "Wonder Minute Short")).strip()[:100]
     description = f"A quick look at {topic} and the everyday mystery behind it."
@@ -179,6 +256,8 @@ def run(dry_run=False):
     print("Claim verification: DISABLED")
     print("Goal: make the Short entertaining first")
     print("Production render: 2160x3840 / 60 FPS / 68 Mbps")
+    print("Continuation lock: ENABLED")
+    print("Scene 7 ending guard: ENABLED")
     print("=" * 80)
 
     topic = get_next_topic()
@@ -191,25 +270,15 @@ def run(dry_run=False):
     print("✍️ GENERATING ENTERTAINING STORY")
     print("=" * 80)
     script = generate_script(topic, config, None)
-
-    # IMPORTANT: canonicalize and lock the next topic BEFORE TTS, visuals,
-    # captions and upload. The teaser and future queued Short now share one
-    # immutable topic value.
     script, next_topic = lock_next_topic(script, topic)
-    script = ensure_next_topic_is_spoken(script)
-
-    # Re-read after the guard so the value saved later is exactly the one that
-    # was spoken in the final scene.
-    next_topic = str(script.get("next_short", {}).get("topic", "")).strip()
-    if not next_topic:
-        raise RuntimeError("Canonical next topic is empty.")
 
     workdir = os.path.join("output", str(int(time.time())))
     os.makedirs(workdir, exist_ok=True)
     save_json(script, os.path.join(workdir, "script.json"))
+    write_continuation_manifest(topic, next_topic, "locked", workdir)
 
     print(f"✅ Script ready: {workdir}/script.json")
-    print(f"➡️ Next Short (locked): {next_topic}")
+    print(f"➡️ LOCKED Next Short: {next_topic}")
     print("Research: SKIPPED BY DESIGN")
 
     if dry_run:
@@ -222,6 +291,28 @@ def run(dry_run=False):
     print("🎙️ GENERATING NARRATION")
     print("=" * 80)
     audio = synthesize_script(script, config, os.path.join(workdir, "audio"))
+
+    print("=" * 80)
+    print("🗣️ VERIFYING NARRATION BUDGET")
+    print("=" * 80)
+    # The compact Scene 7 should leave a small visual/music tail instead of
+    # ending exactly on the final spoken syllable.
+    try:
+        from moviepy.editor import AudioFileClip
+        narration_check = AudioFileClip(audio)
+        narration_duration = float(narration_check.duration)
+        narration_check.close()
+        print(f"Narration duration: {narration_duration:.2f}s")
+        if narration_duration > 44.35:
+            raise RuntimeError(
+                f"Narration is too long ({narration_duration:.2f}s). "
+                "Scene 7 must be shortened before rendering."
+            )
+        print(f"Ending safety margin: {44.35 - narration_duration:.2f}s")
+    except RuntimeError:
+        raise
+    except Exception as error:
+        print(f"⚠️ Narration duration check skipped: {error}")
 
     print("=" * 80)
     print("🖼️ GENERATING STORY-DRIVEN VISUALS")
@@ -274,6 +365,11 @@ def run(dry_run=False):
     upload_result = upload_video(final_video, title, description, config)
     print(f"✅ Upload completed: {upload_result}")
 
+    # Mark the exact locked continuation as published BEFORE touching the
+    # durable queue. If the runner crashes after upload, the manifest tells
+    # the next run which topic must continue.
+    write_continuation_manifest(topic, next_topic, "published", workdir)
+
     try:
         from youtube_analytics import record_upload
         record_upload(upload_result, topic, title, workdir)
@@ -286,14 +382,9 @@ def run(dry_run=False):
     queued_topic = save_next_short(next_topic)
     if not queued_topic:
         raise RuntimeError("Upload succeeded but next_short could not be saved.")
-
-    # Hard safety check: persistence must return the exact topic that was
-    # spoken. If the persistence layer ever repairs it, fail loudly rather
-    # than silently publishing a mismatched continuation chain.
     if not _topic_is_same(queued_topic, next_topic):
         raise RuntimeError(
-            "Continuation integrity failure: queued topic differs from spoken topic. "
-            f"spoken={next_topic!r} queued={queued_topic!r}"
+            f"CONTINUATION INTEGRITY FAILURE: spoken={next_topic!r}, queued={queued_topic!r}"
         )
 
     print(f"✅ Next Short queued EXACTLY: {queued_topic}")
@@ -305,11 +396,13 @@ def run(dry_run=False):
     if committed is False:
         raise RuntimeError("Upload succeeded but current topic could not be committed.")
 
+    write_continuation_manifest(topic, next_topic, "queued", workdir)
+
     print("=" * 80)
     print("🎉 ENTERTAINMENT-FIRST PIPELINE COMPLETE")
     print("=" * 80)
     print(f"Published: {topic}")
-    print(f"Next run: {queued_topic}")
+    print(f"Next run MUST use: {next_topic}")
     print(f"Artifacts: {workdir}")
 
 

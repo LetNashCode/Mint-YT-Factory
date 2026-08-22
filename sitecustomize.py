@@ -214,6 +214,85 @@ def _ocr_has_text(data):
         return False, ""
 
 
+def _vision_relevant(data, prompt):
+    """Ask Gemini whether the generated frame literally matches the prompt."""
+    try:
+        from google import genai
+        from google.genai import types
+        import json
+        api_key = os.environ.get("GEMINI_API_KEY")
+        if not api_key:
+            return False, "vision gate unavailable: GEMINI_API_KEY missing"
+        client = genai.Client(api_key=api_key)
+        image_part = types.Part.from_bytes(data=data, mime_type="image/png")
+        instruction = f"""
+You are the final visual quality-control editor for a YouTube Short.
+
+Compare the image to this exact required visual frame:
+{prompt}
+
+Return ONLY JSON: {{"score":0,"pass":false,"reason":"short reason"}}
+
+PASS only if the requested subject, physical action/state and setting are
+clearly visible and immediately recognizable. Reject unrelated people,
+objects, locations, generic beauty shots, symbolic/abstract imagery,
+scientific diagrams, fake phone screens, readable text, logos and watermarks.
+A beautiful image that does not literally show the requested moment MUST FAIL.
+Score 8-10 only when the requested moment is unmistakable.
+"""
+        response = client.models.generate_content(
+            model="gemini-flash-lite-latest",
+            contents=[image_part, instruction],
+            config=types.GenerateContentConfig(temperature=0),
+        )
+        text = str(getattr(response, "text", "") or "").strip()
+        text = re.sub(r"^```(?:json)?", "", text, flags=re.I).strip()
+        text = re.sub(r"```$", "", text).strip()
+        result = json.loads(text)
+        score = int(result.get("score", 0))
+        passed = bool(result.get("pass")) and score >= 8
+        return passed, str(result.get("reason", ""))[:300]
+    except Exception as exc:
+        print(f"⚠️ IMAGE VISION GATE unavailable: {exc}")
+        return False, "vision gate unavailable"
+
+
+def _patch_strict_image_gate(module):
+    old_generate = getattr(module, "generate_image", None)
+    if not old_generate or getattr(old_generate, "_mint_strict_gate", False):
+        return
+
+    def generate(prompt, width, height, seed):
+        last = None
+        for attempt in range(3):
+            correction = ""
+            if attempt:
+                correction = (
+                    " Previous image failed relevance QC. Regenerate from scratch. "
+                    "Make the exact physical subject and action unmistakable; remove "
+                    "all unrelated people, objects, screens, text and abstract effects."
+                )
+            data = old_generate(str(prompt) + correction, width, height, seed + attempt * 17777)
+            last = data
+
+            bad_text, text_reason = _ocr_has_text(data)
+            if bad_text:
+                print(f"⚠️ IMAGE QC: {text_reason}")
+                continue
+
+            passed, reason = _vision_relevant(data, str(prompt))
+            print(f"🔎 IMAGE QC: {'PASS' if passed else 'FAIL'} — {reason}")
+            if passed:
+                return data
+
+        raise RuntimeError(
+            "Strict image quality gate failed after 3 attempts. Refusing to publish an irrelevant generated visual."
+        )
+
+    generate._mint_strict_gate = True
+    module.generate_image = generate
+
+
 def _patch_images(module):
     old_build = getattr(module, "build_prompt", None)
     if old_build and not getattr(old_build, "_mint_hard_visuals", False):
@@ -258,6 +337,8 @@ If dust is discussed, visibly show dust on the relevant surface.
         module.VISUAL_GUARD_MIN_SCORE = 8
     if hasattr(module, "VISUAL_GUARD_MAX_REGENERATIONS"):
         module.VISUAL_GUARD_MAX_REGENERATIONS = max(int(getattr(module, "VISUAL_GUARD_MAX_REGENERATIONS", 4)), 10)
+
+    _patch_strict_image_gate(module)
 
 
 def _better_payoff(narration, max_words=18):

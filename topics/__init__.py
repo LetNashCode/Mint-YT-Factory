@@ -238,14 +238,22 @@ def save_next_short(next_short: str) -> str:
 
 
 def commit_topic(topic: str) -> bool:
+    """Commit the current topic WITHOUT deleting the pending next topic."""
     topic = _clean_topic(topic)
     items = _read_used()
     key = _key(topic)
-    items = [x for x in items if not x.startswith(_PENDING_PREFIX)]
-    if not any(_key(x) == key for x in items):
-        items.append(topic)
-    _write_used(items)
+
+    pending = [x for x in items if x.startswith(_PENDING_PREFIX)]
+    committed = [x for x in items if not x.startswith(_PENDING_PREFIX)]
+
+    if not any(_key(x) == key for x in committed):
+        committed.append(topic)
+
+    # CRITICAL: pending continuation survives current-topic commit.
+    _write_used(committed + pending)
     print(f"📌 Committed topic: {topic}")
+    if pending:
+        print(f"🔗 Preserved pending continuation: {_clean_topic(pending[0][len(_PENDING_PREFIX):])}")
     return True
 
 

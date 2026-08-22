@@ -46,7 +46,7 @@ jobs:
         run: |
           set -euo pipefail
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends ffmpeg imagemagick
+          sudo apt-get install -y --no-install-recommends ffmpeg imagemagick tesseract-ocr
 
           if [ -f /etc/ImageMagick-6/policy.xml ]; then
             sudo sed -i 's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' /etc/ImageMagick-6/policy.xml || true
@@ -58,6 +58,7 @@ jobs:
           test -x "$IMAGEMAGICK_BINARY"
           ffmpeg -version | head -n 1
           "$IMAGEMAGICK_BINARY" --version | head -n 1
+          tesseract --version | head -n 1
 
       - name: Install Python dependencies
         shell: bash
@@ -77,15 +78,18 @@ jobs:
           import yaml
           import google.genai
           import ffmpeg
+          import pytesseract
           print("Python environment OK")
           print("Torch:", torch.__version__)
           print("CUDA available:", torch.cuda.is_available())
+          print("Tesseract:", pytesseract.get_tesseract_version())
           PY
 
           test -f main.py
           test -f assemble.py
           test -f tts.py
           test -f whisper_align.py
+          test -f sitecustomize.py
 
       - name: Write YouTube client credentials
         shell: bash
@@ -156,12 +160,8 @@ jobs:
           git config user.name "auto-publish-bot"
           git config user.email "actions@github.com"
 
-          # Preserve exactly what this successful generation produced.
           cp used_topics.json /tmp/generated_used_topics.json
 
-          # The runner checked out an older commit. Remote main may have
-          # changed while the video was being generated. Never overwrite
-          # those changes and never use force-push.
           for attempt in 1 2 3; do
             echo "=========================================="
             echo "📝 TOPIC STATE SYNC — ATTEMPT $attempt"
@@ -186,21 +186,16 @@ jobs:
               raise SystemExit("used_topics.json must contain a JSON array")
 
           pending_prefix = "__MINT_PENDING_NEXT_TOPIC__::"
-
-          # Preserve every remote committed topic/analytics record.
           merged = []
           seen = set()
+
           for item in remote + generated:
-              if not isinstance(item, str):
-                  continue
-              if item.startswith(pending_prefix):
+              if not isinstance(item, str) or item.startswith(pending_prefix):
                   continue
               if item not in seen:
                   seen.add(item)
                   merged.append(item)
 
-          # The successful generation that just ran owns the pending
-          # continuation. Preserve exactly that topic, unchanged.
           local_pending = [x for x in generated if isinstance(x, str) and x.startswith(pending_prefix)]
           remote_pending = [x for x in remote if isinstance(x, str) and x.startswith(pending_prefix)]
 

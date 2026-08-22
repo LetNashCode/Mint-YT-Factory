@@ -165,6 +165,9 @@ def _patch_assemble(module):
 
     module.build_captions = build
     module.CAPTION_VERTICAL_POSITION = 0.60
+    # Production master: 2160x3840 portrait at 60 FPS.
+    module.DEFAULT_RESOLUTION = (2160, 3840)
+    module.DEFAULT_FPS = 60
 
 
 def _patch_video_quality(module):
@@ -215,7 +218,6 @@ def _ocr_has_text(data):
 
 
 def _vision_relevant(data, prompt):
-    """Ask Gemini whether the generated frame literally matches the prompt."""
     try:
         from google import genai
         from google.genai import types
@@ -263,7 +265,6 @@ def _patch_strict_image_gate(module):
         return
 
     def generate(prompt, width, height, seed):
-        last = None
         for attempt in range(3):
             correction = ""
             if attempt:
@@ -273,7 +274,6 @@ def _patch_strict_image_gate(module):
                     "all unrelated people, objects, screens, text and abstract effects."
                 )
             data = old_generate(str(prompt) + correction, width, height, seed + attempt * 17777)
-            last = data
 
             bad_text, text_reason = _ocr_has_text(data)
             if bad_text:

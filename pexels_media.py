@@ -16,7 +16,6 @@ import json
 import os
 import re
 import time
-import urllib.parse
 from pathlib import Path
 
 import requests
@@ -54,20 +53,12 @@ def _query_for(scene: dict, visual: dict) -> str:
             token = token.lower().strip("'-")
             if len(token) >= 4 and token not in words:
                 words.append(token)
-    # Keep the query concrete; Pexels performs poorly with long prose prompts.
     return " ".join(words[:8]) or "everyday object close up"
 
 
 def _score_result(result: dict, required: set[str], media_type: str) -> float:
-    text = " ".join([
-        _clean(result.get("alt"), 300),
-        _clean(result.get("url"), 300),
-        _clean(result.get("user", {}).get("name"), 100) if isinstance(result.get("user"), dict) else "",
-    ]).lower()
-    result_tokens = _tokens(text)
-    overlap = len(required & result_tokens)
-    score = overlap * 3.0
-
+    """Score format suitability while trusting Pexels search ranking for relevance."""
+    score = 0.0
     if media_type == "video":
         duration = float(result.get("duration") or 0)
         if MIN_VIDEO_DURATION <= duration <= MAX_VIDEO_DURATION:
@@ -76,13 +67,14 @@ def _score_result(result: dict, required: set[str], media_type: str) -> float:
         height = int(result.get("height") or 0)
         if height > width:
             score += 2.0
+        elif width > 0 and height > 0:
+            score += 1.0
     else:
         src = result.get("src") or {}
         if isinstance(src, dict) and src.get("portrait"):
             score += 2.0
         if int(result.get("height") or 0) >= int(result.get("width") or 0):
             score += 1.0
-
     return score
 
 
@@ -138,13 +130,9 @@ def _download(url: str, path: str) -> bool:
 
 
 def _pick_video(results: list[dict], required: set[str]) -> dict | None:
-    ranked = sorted(
-        results,
-        key=lambda item: _score_result(item, required, "video"),
-        reverse=True,
-    )
+    ranked = sorted(results, key=lambda item: _score_result(item, required, "video"), reverse=True)
     for item in ranked:
-        if _score_result(item, required, "video") < 4.0:
+        if _score_result(item, required, "video") < 3.0:
             continue
         files = item.get("video_files") or []
         candidates = []
@@ -154,30 +142,31 @@ def _pick_video(results: list[dict], required: set[str]) -> dict | None:
             height = int(video_file.get("height") or 0)
             if not link or width <= 0 or height <= 0:
                 continue
-            if height >= width:
-                orientation_bonus = 2
-            else:
-                orientation_bonus = 0
+            orientation_bonus = 2 if height >= width else 0
             quality = 2 if str(video_file.get("quality", "")).lower() == "hd" else 0
             candidates.append((orientation_bonus + quality, width * height, link))
         if candidates:
-            return {"video": max(candidates)[2], "page": item.get("url", ""), "photographer": (item.get("user") or {}).get("name", "")}
+            return {
+                "video": max(candidates)[2],
+                "page": item.get("url", ""),
+                "photographer": (item.get("user") or {}).get("name", ""),
+            }
     return None
 
 
 def _pick_photo(results: list[dict], required: set[str]) -> dict | None:
-    ranked = sorted(
-        results,
-        key=lambda item: _score_result(item, required, "photo"),
-        reverse=True,
-    )
+    ranked = sorted(results, key=lambda item: _score_result(item, required, "photo"), reverse=True)
     for item in ranked:
-        if _score_result(item, required, "photo") < 4.0:
+        if _score_result(item, required, "photo") < 2.0:
             continue
         src = item.get("src") or {}
         link = src.get("portrait") or src.get("large2x") or src.get("large") or src.get("original")
         if link:
-            return {"photo": link, "page": item.get("url", ""), "photographer": (item.get("photographer") or "")}
+            return {
+                "photo": link,
+                "page": item.get("url", ""),
+                "photographer": item.get("photographer") or "",
+            }
     return None
 
 
@@ -282,8 +271,19 @@ def generate_media(script: dict, output_dir: str, config: dict, generate_images_
             raise RuntimeError(f"Scene {scene_index} did not produce exactly 2 media assets.")
         groups.append(scene_paths)
 
+    manifest = {
+        "provider_order": ["pexels_video", "pexels_photo", "pollinations"],
+        "pexels_used": bool(credits),
+        "credits": credits,
+    }
     with open(os.path.join(output_dir, "media_manifest.json"), "w", encoding="utf-8") as handle:
-        json.dump({"provider_order": ["pexels_video", "pexels_photo", "pollinations"], "credits": credits}, handle, ensure_ascii=False, indent=2)
+        json.dump(manifest, handle, ensure_ascii=False, indent=2)
+
+    # main.py builds YouTube metadata after media generation. These fields let
+    # the production entrypoint add the required Pexels attribution only when
+    # Pexels media was actually used.
+    script["_pexels_used"] = bool(credits)
+    script["_pexels_credits"] = credits
 
     print(f"✅ Media complete: {sum(len(x) for x in groups)} assets")
     return groups

@@ -90,6 +90,7 @@ jobs:
           test -f tts.py
           test -f whisper_align.py
           test -f sitecustomize.py
+          test -f runtime_overrides.py
 
       - name: Write YouTube client credentials
         shell: bash
@@ -113,7 +114,7 @@ jobs:
           echo "=========================================="
           date
           python --version
-          python -u main.py
+          python -u runtime_overrides.py
 
       - name: Upload final video
         if: always()

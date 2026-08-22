@@ -1,14 +1,13 @@
-"""Production entrypoint for Mint-YT-Factory.
-
-Production media cascade: Pexels VIDEO -> Pexels PHOTO -> Pollinations FLUX.
-"""
+"""Production entrypoint for Mint-YT-Factory."""
 from __future__ import annotations
 import os
 from runtime_overrides import patch_continuation,patch_tts_result,patch_visuals,patch_story_style
 from quality_overrides import patch_story_quality,patch_visual_diversity
+from media_quality_overrides import patch_media_selection
 
 def _patch_pexels_media(main,generate_images_module):
     import pexels_media
+    patch_media_selection(pexels_media)
     def generate(script,output_dir,config): return pexels_media.generate_media(script,output_dir,config,generate_images_module)
     main.generate_images=generate
     patch_visual_diversity(pexels_media)
@@ -43,11 +42,11 @@ def main_entry():
     import main,generate_images
     patch_story_style(); patch_story_quality(main); patch_continuation(main); patch_tts_result(main); patch_visuals(generate_images)
     _patch_pexels_media(main,generate_images); _patch_pexels_metadata(main); _patch_pexels_video_assembly()
-    print("="*80); print("🧩 MINT-YT-FACTORY PRODUCTION MEDIA + STORY QUALITY v2"); print("="*80)
-    print("1. Pexels video — only when sufficiently relevant")
-    print("2. Pexels photo — only when sufficiently relevant")
-    print("3. Pollinations FLUX — fallback when Pexels is not good enough")
-    print("Story target: 125-140 words / approximately 38-43 seconds")
+    print("="*80); print("🧩 MINT-YT-FACTORY PRODUCTION MEDIA + STORY QUALITY v3"); print("="*80)
+    print("Pexels: relevant video → relevant photo → Pollinations FLUX")
+    print("Media: portrait preference, useful duration, no duplicate Pexels assets")
+    print("Story: 125-140 words / approximately 38-43 seconds")
+    print("Captions: meaningful-word emphasis")
     print("Pexels API key:","AVAILABLE" if os.environ.get("PEXELS_API_KEY") else "NOT CONFIGURED — Pollinations fallback active")
     print("="*80)
     main.run(dry_run=False)

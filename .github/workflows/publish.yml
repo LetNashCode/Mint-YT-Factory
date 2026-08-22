@@ -91,6 +91,8 @@ jobs:
           test -f whisper_align.py
           test -f sitecustomize.py
           test -f runtime_overrides.py
+          test -f production_entry.py
+          test -f pexels_media.py
 
       - name: Write YouTube client credentials
         shell: bash
@@ -107,6 +109,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
         run: |
           set -euo pipefail
           echo "=========================================="
@@ -114,7 +117,7 @@ jobs:
           echo "=========================================="
           date
           python --version
-          python -u runtime_overrides.py
+          python -u production_entry.py
 
       - name: Upload final video
         if: always()

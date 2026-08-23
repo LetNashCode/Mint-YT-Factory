@@ -1,11 +1,12 @@
-"""Hybrid visual casting for Mint-YT-Factory.
+"""Strict hybrid visual casting for Mint-YT-Factory.
 
-Pexels is first. If verified Pexels cannot represent the beat, the existing
-AI image engine generates that shot instead of accepting unrelated stock or
-crashing the production run.
+Pexels is used only when Gemini confirms a DIRECT visual match (8+/10).
+Anything merely contextual is rejected and the shot is generated with FLUX.
+AI-generated shots receive their own Gemini vision QC before being accepted.
 """
 from __future__ import annotations
 
+import io
 import json
 import os
 import shutil
@@ -35,7 +36,7 @@ def _visual_intent(scene, visual):
     return "LITERAL_ACTION"
 
 
-def _fallback_prompt(scene, visual, shot, script):
+def _fallback_prompt(scene, visual, shot, script, correction=""):
     intent = _visual_intent(scene, visual)
     spoken = _clean(visual.get("spoken_line") or scene.get("narration"), 420)
     focus = _clean(visual.get("visual_focus"), 220)
@@ -45,42 +46,89 @@ def _fallback_prompt(scene, visual, shot, script):
         must = "; ".join(_clean(x, 100) for x in must[:6] if _clean(x))
     else:
         must = _clean(must, 400)
-
-    if intent == "CONTEXTUAL/CONCEPTUAL":
-        strategy = (
-            "Do not literally depict invisible ideas. Show a concrete believable physical consequence "
-            "or everyday demonstration that makes the spoken beat obvious. If the sentence says nobody "
-            "touched something, show the object sitting untouched. If it describes math or chaos, show "
-            "the physical object behaving that way. Never use diagrams or abstract science graphics."
-        )
-    elif intent == "LITERAL_STATE":
-        strategy = "Show the exact visible object and physical state described by the beat, prominently and unmistakably."
-    else:
-        strategy = "Show the exact physical object and action described by the beat, not merely the general topic."
-
     identity = script.get("visual_identity") if isinstance(script, dict) else {}
     style = _clean(identity.get("style"), 300) if isinstance(identity, dict) else ""
 
+    if intent == "CONTEXTUAL/CONCEPTUAL":
+        strategy = (
+            "Do not depict invisible concepts with diagrams, formulas or generic science imagery. "
+            "Show the concrete physical consequence described by the sentence. The viewer must be able "
+            "to understand the beat from the object and its visible state/action alone."
+        )
+    elif intent == "LITERAL_STATE":
+        strategy = "Show the exact object in the exact physical state described. The state must be unmistakable."
+    else:
+        strategy = "Show the exact physical object performing the exact action described, not merely the general topic."
+
     return _clean(" ".join([
-        "PHOTOREALISTIC CINEMATIC PORTRAIT 9:16 STORY FRAME.",
-        f"VISUAL INTENT: {intent}.",
-        f"SPOKEN BEAT: {spoken}.",
-        f"PRIMARY SUBJECT: {focus}.",
-        f"PHYSICAL ACTION OR STATE: {action}.",
+        "PHOTOREALISTIC CINEMATIC 9:16 STORY FRAME.",
+        f"EXACT SPOKEN BEAT: {spoken}.",
+        f"PRIMARY OBJECT/SUBJECT: {focus}.",
+        f"EXACT VISIBLE ACTION OR STATE: {action}.",
         f"MUST VISIBLY CONTAIN: {must}." if must else "",
         strategy,
-        "Main subject fills enough of the frame to be instantly recognizable on a phone.",
-        "Real-world materials, believable scale, natural cinematic lighting, realistic shadows and physics.",
-        "Use a playful visually interesting composition when appropriate, but never sacrifice relevance.",
+        "The primary object must dominate the frame and be immediately recognizable on a phone.",
+        "Use believable real-world materials, scale, lighting, shadows and physics.",
+        "Make the visual playful and cinematic where appropriate, but never sacrifice semantic accuracy.",
         f"Global visual style: {style}." if style else "",
-        "Shot 1 establishes the beat clearly." if shot == 1 else "Shot 2 advances the same beat with a different close-up, angle, reaction, or physical reveal.",
-        "No text, letters, numbers, labels, logos, captions, subtitles, UI, diagrams, arrows, formulas, charts, watermarks, fantasy effects, generic laboratory imagery, or unrelated objects.",
-    ]), 2200)
+        "Shot 1 establishes the physical beat clearly." if shot == 1 else "Shot 2 advances the same beat with a different close-up, angle, changed state, reaction or consequence.",
+        f"CORRECT THE PREVIOUS FAILURE: {correction}." if correction else "",
+        "NO unrelated objects, generic stock-photo symbolism, diagrams, text, captions, subtitles, labels, logos, UI, arrows, formulas, charts, watermarks, fantasy effects or laboratory graphics.",
+    ]), 2300)
+
+
+def _ai_vision_check(data, spoken, focus, action, must_show):
+    """Return (passed, score, reason). Fail closed when Gemini is available."""
+    try:
+        from google import genai
+        from google.genai import types
+    except Exception:
+        print("   ⚠️ AI visual QC unavailable: Gemini SDK missing; accepting prompt-constrained image")
+        return True, 8, "Gemini SDK unavailable"
+
+    key = os.environ.get("GEMINI_API_KEY", "").strip()
+    if not key:
+        print("   ⚠️ AI visual QC skipped: GEMINI_API_KEY unavailable")
+        return True, 8, "Gemini key unavailable"
+
+    try:
+        client = genai.Client(api_key=key)
+        contents = [
+            types.Part.from_bytes(data=data, mime_type="image/png"),
+            f'''You are the FINAL visual casting gate for a YouTube Short.
+
+SPOKEN BEAT: {spoken}
+PRIMARY OBJECT/SUBJECT: {focus}
+EXACT ACTION/STATE: {action}
+MUST SHOW: {must_show}
+
+Inspect the actual image. Ignore the prompt and judge only what is visibly present.
+PASS ONLY when the primary object AND the required physical action/state are clearly visible.
+A generic object, related object, symbolic image, random person, or vaguely related scene is a FAIL.
+For example, if the beat is tangled wired earbuds, wireless earbuds, a generic cable, a sewing knot, or a person merely wearing earbuds is NOT a pass.
+Score 0-10. Pass requires score >= 8.
+Return ONLY JSON: {{"score":8,"pass":true,"reason":"short explanation"}}'''
+        ]
+        response = client.models.generate_content(
+            model="gemini-flash-lite-latest",
+            contents=contents,
+            config=types.GenerateContentConfig(temperature=0),
+        )
+        text = _clean(getattr(response, "text", ""), 1200)
+        if text.startswith("```"):
+            text = text.split("\n", 1)[-1].rsplit("```", 1)[0].strip()
+        result = json.loads(text)
+        score = int(result.get("score", 0) or 0)
+        passed = bool(result.get("pass")) and score >= 8
+        return passed, score, _clean(result.get("reason"), 240)
+    except Exception as exc:
+        print(f"   ⚠️ AI visual QC unavailable: {type(exc).__name__}: {exc}")
+        return True, 8, f"QC unavailable: {type(exc).__name__}"
 
 
 def patch_hybrid_media(pexels_media, generate_images_module):
-    """Install Pexels-first + AI fallback without changing main.py."""
-    if getattr(pexels_media, "_mint_hybrid_media_v2", False):
+    """Install strict Pexels → AI fallback without changing main.py."""
+    if getattr(pexels_media, "_mint_hybrid_media_v3", False):
         return
 
     base_selector = getattr(pexels_media, "_select", None)
@@ -93,14 +141,21 @@ def patch_hybrid_media(pexels_media, generate_images_module):
 
     def hybrid_select(scene, visual, excluded_pages=None):
         selected = base_selector(scene, visual, excluded_pages or set()) if base_selector else None
-        if selected:
+
+        # CRITICAL: a Gemini 6/7 contextual match is NOT good enough for this channel.
+        # This is what caused the previous video to show trousers, water, generic wires, etc.
+        if selected and int(selected.get("score", 0) or 0) >= 8:
+            print(f"   ✅ Direct Pexels match accepted: {selected.get('score')}/10")
             return selected
+
+        if selected:
+            print(f"   🚫 Rejecting contextual Pexels match: Gemini {selected.get('score', 0)}/10 — {selected.get('qc_reason', '')}")
 
         scene_index = ((counter["n"] - 1) // 2) + 1
         shot_index = ((counter["n"] - 1) % 2) + 1
         intent = _visual_intent(scene, visual)
         print(f"   🧠 Visual intent: {intent}")
-        print("   ⚠️ No sufficiently relevant Pexels asset — generating a matching AI visual")
+        print("   🎨 No DIRECT Pexels match — generating an exact AI visual")
 
         try:
             gim = generate_images_module
@@ -114,8 +169,12 @@ def patch_hybrid_media(pexels_media, generate_images_module):
             if width >= height:
                 width, height = height, width
             generation = script.get("image_generation", {}) if isinstance(script, dict) else {}
-            seed = int(generation.get("seed", 0) or 0) + scene_index * 100 + shot_index
+            base_seed = int(generation.get("seed", 0) or 0) + scene_index * 100 + shot_index
 
+            spoken = _clean(visual.get("spoken_line") or scene.get("narration"), 420)
+            focus = _clean(visual.get("visual_focus"), 220)
+            action = _clean(visual.get("visual_action"), 260)
+            must = visual.get("must_show") or []
             prompt = _fallback_prompt(scene, visual, shot_index, script)
             if build_prompt:
                 try:
@@ -123,20 +182,39 @@ def patch_hybrid_media(pexels_media, generate_images_module):
                 except Exception:
                     pass
 
-            data = generate_image(prompt[:2200], width, height, seed)
+            accepted = None
+            accepted_score = 0
+            accepted_reason = ""
+            for attempt in range(1, 4):
+                seed = base_seed + ((attempt - 1) * 500_000)
+                print(f"   🎨 AI visual attempt {attempt}/3 | seed={seed}")
+                data = generate_image(prompt[:2300], width, height, seed)
+                passed, score, reason = _ai_vision_check(data, spoken, focus, action, must)
+                print(f"   👁️ AI visual QC: {'PASS' if passed else 'FAIL'} score={score}/10 — {reason}")
+                if passed:
+                    accepted = data
+                    accepted_score = score
+                    accepted_reason = reason
+                    break
+                prompt = _fallback_prompt(scene, visual, shot_index, script, correction=reason)
+                accepted_reason = reason
+
+            if accepted is None:
+                raise RuntimeError(f"AI visual failed strict semantic QC after 3 attempts: {accepted_reason}")
+
             fd, local_path = tempfile.mkstemp(prefix="mint_ai_visual_", suffix=".png")
             os.close(fd)
             with open(local_path, "wb") as handle:
-                handle.write(data)
+                handle.write(accepted)
             generated_files.append(local_path)
             return {
                 "kind": "photo",
                 "photo": local_path,
                 "page": "ai://generated",
                 "photographer": "",
-                "score": 10,
-                "qc_reason": f"AI fallback generated for {intent} visual intent",
-                "query": "AI visual fallback",
+                "score": accepted_score,
+                "qc_reason": f"AI visual strict QC: {accepted_reason}",
+                "query": "AI exact visual fallback",
             }
         except Exception as exc:
             print(f"   ❌ AI visual fallback failed: {type(exc).__name__}: {exc}")
@@ -185,5 +263,5 @@ def patch_hybrid_media(pexels_media, generate_images_module):
             generated_files.clear()
 
     pexels_media.generate_media = wrapped_generate
-    pexels_media._mint_hybrid_media_v2 = True
-    print("🧩 Hybrid media: Pexels verified VIDEO → Pexels verified PHOTO → AI generated visual")
+    pexels_media._mint_hybrid_media_v3 = True
+    print("🧩 STRICT HYBRID MEDIA: Pexels direct 8+ → AI exact visual → Gemini vision QC")

@@ -66,12 +66,7 @@ def _add_visual_contract_fields(script):
 
 
 def _sanitize_final_scene(script):
-    """Remove stale continuation fragments before runtime continuation locking.
-
-    Gemini sometimes appends an old teaser or an unrelated 'which is why ...'
-    clause to Scene 7. The continuation layer must own Scene 7's final sentence,
-    so remove those fragments deterministically before it builds the new teaser.
-    """
+    """Remove stale continuation fragments before runtime continuation locking."""
     scenes = script.get("scene_plan") or []
     if not scenes:
         return
@@ -80,17 +75,12 @@ def _sanitize_final_scene(script):
     if not text:
         return
 
-    # Anything after these markers is not allowed to survive into the final
-    # payoff. This catches stale teasers and dangling cross-topic explanations.
     text = re.split(
         r"\b(?:and\s+next\s*:|next\s+(?:video|short|topic)\s*:|coming\s+next\b|stay\s+tuned\b|part\s*2\b)",
         text,
         maxsplit=1,
         flags=re.I,
     )[0].strip()
-
-    # Remove a trailing cross-topic causal clause. A final payoff should state
-    # the current story's conclusion, not suddenly explain another phenomenon.
     text = re.split(
         r"\s+(?:which|and\s+that)\s+(?:is\s+)?(?:also\s+)?why\b",
         text,
@@ -121,9 +111,10 @@ def patch_story_quality(main):
                 feedback += (
                     "\nThe previous draft failed production length validation. "
                     "Rewrite the ENTIRE story for a natural 38-43 second narration. "
-                    "Do not add filler. Expand the mystery, example, escalation and payoff."
+                    "Do not add filler. Expand the mystery, concrete demonstration, "
+                    "escalation and payoff. Keep the final continuation sentence short."
                 )
-            script = original(topic, config, research)
+            script = original(topic, config, research, feedback)
             _sanitize_final_scene(script)
             total = _word_total(script)
             print(

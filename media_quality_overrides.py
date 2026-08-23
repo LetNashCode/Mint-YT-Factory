@@ -9,25 +9,6 @@ import os,re,json
 
 _CUSTOM_RE=re.compile(r"\b(?:square|triangular|triangle|cubic|cube|rectangular|hexagonal|pentagonal|wire[- ]frame|soap[- ]film|film under tension|molecular|molecule|cross[- ]section|microscopic|micro[- ]scale|membrane|surface tension|physics demonstration|experiment setup|exact geometry|geometric frame)\b",re.I)
 
-# Pexels search often indexes common-language synonyms better than the exact
-# narration wording. These aliases keep the spoken story intact while making
-# stock discovery much more effective.
-_ALIASES={
-    "earbuds":["earbuds","earphones","headphones"],
-    "earbud":["earbud","earphone","headphone"],
-    "wired earbuds":["wired earbuds","wired earphones","earphone cable"],
-    "pocket":["pocket","jeans pocket","pants pocket"],
-    "cord":["cord","cable","wire"],
-    "cable":["cable","wire","cord"],
-    "phone":["phone","smartphone","mobile phone"],
-    "ice cube":["ice cube","ice","ice cubes"],
-    "ice cubes":["ice cubes","ice","ice cube"],
-    "soap bubbles":["soap bubbles","bubbles","bubble"],
-    "bubble":["bubble","soap bubble","bubbles"],
-    "keyboard":["keyboard","computer keyboard"],
-    "screen":["screen","phone screen","display"],
-}
-
 def _text(scene,visual):
     return " ".join(str(x or "") for x in (visual.get("visual_focus"),visual.get("visual_action"),visual.get("must_show"),visual.get("spoken_line") or scene.get("narration")))
 
@@ -52,51 +33,56 @@ def _expand_queries(pexels_media,scene,visual):
     def add(q):
         q=" ".join(q.split()).strip()
         if q and q not in variants: variants.append(q)
-    # Prefer exact visible-object phrases first.
     base_phrases=[]
     for phrase in (focus,must_text,action):
         phrase=" ".join(re.findall(r"[a-z0-9]+",phrase))
         if phrase: base_phrases.append(phrase)
     for phrase in base_phrases:
         low=phrase.lower()
-        replacement=None
         for key,aliases in _ALIASES.items():
             if key in low:
-                for alias in aliases[:3]:
-                    replacement=low.replace(key,alias)
-                    add(replacement[:90])
+                for alias in aliases[:3]: add(low.replace(key,alias)[:90])
         add(low[:90])
-    # Compact noun/action combinations avoid Pexels returning generic prose matches.
     alias_hits=[]
     lowraw=raw.lower()
     for key,aliases in _ALIASES.items():
-        if key in lowraw:
-            alias_hits.extend(aliases[:3])
+        if key in lowraw: alias_hits.extend(aliases[:3])
     actions=[]
     for a in getattr(pexels_media,"ACTIONS",set()):
         if a in lowraw: actions.append(a)
     for noun in alias_hits[:8]:
         for act in actions[:3]: add(f"{noun} {act}")
         add(noun)
-    # Last resort: concise high-information words from the visual beat.
     if important:
         add(" ".join(important[:5]))
-    add(" ".join(important[:8]))
+        add(" ".join(important[:8]))
     return variants[:8] or pexels_media.queries(scene,visual)
+
+_ALIASES={
+    "earbuds":["earbuds","earphones","headphones"],
+    "earbud":["earbud","earphone","headphone"],
+    "wired earbuds":["wired earbuds","wired earphones","earphone cable"],
+    "pocket":["pocket","jeans pocket","pants pocket"],
+    "cord":["cord","cable","wire"],
+    "cable":["cable","wire","cord"],
+    "phone":["phone","smartphone","mobile phone"],
+    "ice cube":["ice cube","ice","ice cubes"],
+    "ice cubes":["ice cubes","ice","ice cube"],
+    "soap bubbles":["soap bubbles","bubbles","bubble"],
+    "bubble":["bubble","soap bubble","bubbles"],
+    "keyboard":["keyboard","computer keyboard"],
+    "screen":["screen","phone screen","display"],
+}
 
 def _install_strict_selector(pexels_media):
     if getattr(pexels_media,"_mint_selector_v5",False): return
     def select(scene,visual,excluded_pages=None):
         excluded_pages=excluded_pages or set()
-        if _custom(scene,visual):
-            print("   🚫 Pexels skipped: exact scientific/geometric beat has no trustworthy stock guarantee")
-            return None
         if not pexels_media.headers(): return None
         qs=_expand_queries(pexels_media,scene,visual)
         required=pexels_media.tokens(_text(scene,visual))
         actions=pexels_media.action_tokens(_text(scene,visual))
         videos=[]; photos=[]
-        # Aggregate candidates across several semantic formulations before QC.
         for q in qs:
             videos.extend(pexels_media.search("videos/search",q,{"orientation":"portrait","size":"medium"}))
         videos=pexels_media._dedupe(videos,"video",excluded_pages)
@@ -108,7 +94,7 @@ def _install_strict_selector(pexels_media):
                 link=pexels_media._video_download_url(item)
                 if link:
                     return {"kind":"video","video":link,"page":item.get("url",""),"photographer":(item.get("user") or {}).get("name","") or "","score":int(item.get("_gemini_score",0)),"qc_reason":item.get("_gemini_reason","") ,"query":" | ".join(qs[:5])}
-        # Only search photos if no verified video exists.
+        photos=[]
         for q in qs:
             photos.extend(pexels_media.search("search",q,{"orientation":"portrait","size":"large"}))
         photos=pexels_media._dedupe(photos,"photo",excluded_pages)
@@ -145,7 +131,7 @@ def patch_media_selection(media):
                 "gemini_calls":"one_per_shot_for_pexels_only",
                 "post_selection_gemini_qc":False,
                 "pollinations":"disabled",
-                "exact_scientific_visuals":"not_available_in_pexels_only_mode",
+                "exact_scientific_visuals":"pexels_only",
                 "heuristic_fallback":"disabled",
             },handle,ensure_ascii=False,indent=2)
         print("🧠 Media policy v5: Pexels VIDEO → Pexels PHOTO | semantic query expansion | relevance-ranked | Pollinations disabled")

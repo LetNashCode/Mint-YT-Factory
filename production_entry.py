@@ -1,17 +1,24 @@
 """Production entrypoint for Mint-YT-Factory."""
 from __future__ import annotations
-import inspect,json,os,glob
+import inspect,json,os,glob,re
 from runtime_overrides import patch_continuation,patch_tts_result,patch_visuals,patch_story_style
 from quality_overrides import patch_story_quality,patch_visual_diversity
 from media_quality_overrides import patch_media_selection
 MIN_NARRATION_SECONDS=35.0;MAX_SHORT_TTS_REGEN=2
+
+def _canonical_teaser(topic:str)->str:
+    """Return the only allowed spoken continuation sentence for a canonical topic."""
+    text=re.sub(r"\s+"," ",str(topic or "").strip()).rstrip(".!?")
+    return f"Then comes an even weirder question: {text}."
 
 def _patch_tts_duration(main):
     from moviepy.editor import AudioFileClip
     original=main.synthesize_script
     if getattr(original,"_mint_duration_guard",False):return
     def synthesize(script,config,out_dir):
-        current_next=((script.get("next_short") or {}).get("topic") or "").strip();topic=str(script.get("topic","")).strip()
+        current_next=((script.get("next_short") or {}).get("topic") or "").strip()
+        current_teaser=((script.get("next_short") or {}).get("teaser") or "").strip()
+        topic=str(script.get("topic","")).strip()
         for attempt in range(MAX_SHORT_TTS_REGEN+1):
             audio=original(script,config,out_dir);clip=AudioFileClip(audio)
             try:duration=float(clip.duration)
@@ -19,10 +26,43 @@ def _patch_tts_duration(main):
             print(f"🎯 TTS duration gate: {duration:.2f}s")
             if duration>=MIN_NARRATION_SECONDS:return audio
             if attempt>=MAX_SHORT_TTS_REGEN:raise RuntimeError(f"Narration remained too short after {MAX_SHORT_TTS_REGEN} regeneration attempts: {duration:.2f}s")
-            feedback=f"The previous narration rendered at {duration:.2f} seconds. Rewrite the entire current story so natural narration is at least {MIN_NARRATION_SECONDS:.0f} seconds. Add concrete everyday details, stronger escalation and a satisfying payoff. Do not pad with scientific filler. Aim for about 115-135 words before the final teaser."
-            candidate=main.generate_script(topic,config,None,extra_feedback=feedback);candidate["next_short"]=script.get("next_short",{});candidate["topic"]=script.get("topic",candidate.get("topic",topic));candidate["title"]=candidate.get("title",script.get("title",topic))
+            feedback=f"The previous narration rendered at {duration:.2f} seconds. Rewrite the entire current story so natural narration is at least {MIN_NARRATION_SECONDS:.0f} seconds. Add concrete everyday details, stronger escalation and a satisfying payoff. Do not pad with scientific filler. Aim for about 115-135 words before the final teaser. IMPORTANT: the final teaser is injected by the production system, so do not invent, change, or mention any future topic in the rewritten story."
+            candidate=main.generate_script(topic,config,None,extra_feedback=feedback)
+            candidate["topic"]=script.get("topic",candidate.get("topic",topic))
+            candidate["title"]=candidate.get("title",script.get("title",topic))
             if len(candidate.get("scene_plan") or [])!=7:raise RuntimeError("Audio-length regeneration produced an invalid 7-scene script.")
-            script.clear();script.update(candidate);script["next_short"]["topic"]=current_next
+            # A regeneration must NEVER be allowed to replace the canonical
+            # continuation. The previous implementation copied only topic,
+            # leaving a newly generated teaser behind (which caused logs such
+            # as topic=earbuds but narration=cat purring frequencies).
+            preserved_next={"topic":current_next,"teaser":current_teaser or _canonical_teaser(current_next)}
+            candidate["next_short"]=preserved_next
+            scenes=candidate.get("scene_plan") or []
+            if scenes:
+                final_scene=scenes[-1]
+                narration=str(final_scene.get("narration") or "").strip()
+                # Remove any model-generated future-topic teaser and append the
+                # canonical teaser exactly once. The main lock remains the source
+                # of truth for the initial generation; this protects only regen.
+                sentences=re.split(r"(?<=[.!?])\s+",narration)
+                kept=[]
+                canonical_key=re.sub(r"[^a-z0-9 ]+","",current_next.lower()).strip()
+                for sentence in sentences:
+                    norm=re.sub(r"[^a-z0-9 ]+","",sentence.lower()).strip()
+                    if ("next" in norm or "future" in norm or "weirder question" in norm or
+                        "speaking of hidden forces" in norm or (canonical_key and canonical_key in norm)):
+                        continue
+                    kept.append(sentence.strip())
+                base=" ".join(x for x in kept if x).strip()
+                if not base:base="And that is the strange part."
+                # Keep the regeneration focused on the current story; teaser is
+                # always the final sentence and the only future-topic mention.
+                final_scene["narration"]=(base.rstrip(".!?")+". "+preserved_next["teaser"]).strip()
+                final_scene["subtitle_text"]=final_scene["narration"]
+                final_scene["pause_after_ms"]=250
+                final_scene["emotional_tone"]="satisfied"
+                final_scene["music_cue"]="fade_out"
+            script.clear();script.update(candidate)
             try:
                 workdir=os.path.dirname(os.path.dirname(os.path.abspath(out_dir)))
                 with open(os.path.join(workdir,"script.json"),"w",encoding="utf-8") as h:json.dump(script,h,indent=2,ensure_ascii=False)
@@ -91,9 +131,6 @@ def _patch_thumbnail_upload(main):
 
 def main_entry():
     import main,generate_images
-    # IMPORTANT: main.py contains the canonical continuation lock. Do not apply
-    # the legacy runtime continuation override, which used the old "And next:"
-    # announcement format and could reintroduce it into every Short.
     patch_story_style();patch_story_quality(main);patch_tts_result(main);patch_visuals(generate_images)
     _patch_tts_duration(main);_patch_pexels_media(main,generate_images);_patch_pexels_metadata(main);_patch_pexels_video_assembly();_patch_thumbnail_upload(main)
     print("="*80);print("🧩 MINT-YT-FACTORY PRODUCTION MEDIA + STORY QUALITY v5.4");print("="*80)

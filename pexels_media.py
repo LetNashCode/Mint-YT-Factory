@@ -1,12 +1,12 @@
-"""Relevance-first story media selection: Pexels is a candidate source, not an automatic winner.
+"""Relevance-first story media selection using Pexels only.
 
 Pipeline:
 1) Build literal, object/action-focused Pexels queries.
 2) Fetch multiple Pexels candidates.
 3) Gemini visually ranks candidate thumbnails against the CURRENT spoken beat.
 4) Download the winner only when it is a strong literal match.
-5) Fall back to Pollinations FLUX only when Pexels cannot produce a sufficiently
-   relevant candidate.
+5) If Pexels cannot provide a verified match, fail the shot instead of
+   silently switching to an AI-generated image provider.
 """
 from __future__ import annotations
 import json, os, re, time
@@ -16,9 +16,9 @@ import requests
 
 PEXELS_API = "https://api.pexels.com/v1"
 TIMEOUT = 45
-USER_AGENT = "Mint-YT-Factory/PexelsMedia/3.0"
+USER_AGENT = "Mint-YT-Factory/PexelsMedia/3.1"
 STOP = {"this","that","with","from","your","into","about","just","they","them","their","very","have","will","what","when","where","which","because","while","then","than","like","gets","make","makes","made","thing","things","exact","physical","show","showing","scene","shot","visible","action","state","realistic","cinematic","photo","photograph","video","image","someone","something","person","people","close","camera","natural","looking","moment","also","really","tiny","microscopic","single","entire","every","time","next","remember","designed","suicide","hates","defying","entirely","actually","basically","literally"}
-ACTIONS = {"cling","clinging","stick","sticking","pull","pulling","grab","grabbing","hold","holding","touch","touching","rub","rubbing","fall","falling","drop","dropping","jump","jumping","run","running","pour","pouring","spill","spilling","open","opening","close","closing","break","breaking","tear","tearing","bend","bending","shake","shaking","twist","twisting","stretch","stretching","slide","sliding","move","moving","tumble","tumbling","wash","washing","dry","drying","iron","ironing","sew","sewing","wear","wearing","remove","removing","press","pressing","boil","boiling","freeze","freezing","melt","melting","fog","fogging","steam","squeeze","squeezing","crush","crushing","bounce","bouncing","spin","spinning","plug","plugging","drip","dripping","float","floating","burst","bursting","snap","snapping","crack","cracking","lift","lifting","collapse","collapsing"}
+ACTIONS = {"cling","clinging","stick","sticking","pull","pulling","grab","grabbing","hold","holding","touch","touching","rub","rubbing","fall","falling","drop","dropping","jump","jumping","run","running","pour","pouring","spill","spilling","open","opening","close","closing","break","breaking","tear","tearing","bend","bending","shake","shaking","twist","twisting","stretch","stretching","slide","sliding","move","moving","tumble","tumbling","wash","washing","dry","drying","iron","ironing","sew","sewing","wear","wearing","remove","removing","press","pressing","boil","boiling","freeze","freezing","melt","melting","fog","fogging","steam","steaming","squeeze","squeezing","crush","crushing","bounce","bouncing","spin","spinning","plug","plugging","drip","dripping","float","floating","burst","bursting","snap","snapping","crack","cracking","lift","lifting","collapse","collapsing"}
 
 def clean(value: Any, limit: int = 500) -> str:
     return " ".join(str(value or "").replace("\n", " ").split()).strip()[:limit]
@@ -172,10 +172,6 @@ def pick_video(results, required, actions, scene, visual, excluded_pages=None):
                 link = _video_download_url(item)
                 if link: return {"video":link,"page":item.get("url",""),"photographer":(item.get("user") or {}).get("name",""),"score":int(item.get("_gemini_score",0)),"qc_reason":item.get("_gemini_reason","")}
         return None
-    for item in pool:
-        if _heuristic_score(item,required,actions,"video") < 7: continue
-        link = _video_download_url(item)
-        if link: return {"video":link,"page":item.get("url",""),"photographer":(item.get("user") or {}).get("name",""),"score":_heuristic_score(item,required,actions,"video"),"qc_reason":"Gemini visual ranking unavailable; heuristic fallback."}
     return None
 
 def pick_photo(results, required, actions, scene, visual, excluded_pages=None):
@@ -187,10 +183,6 @@ def pick_photo(results, required, actions, scene, visual, excluded_pages=None):
                 src = item.get("src") or {}; link = src.get("portrait") or src.get("large2x") or src.get("large") or src.get("original")
                 if link: return {"photo":link,"page":item.get("url",""),"photographer":item.get("photographer","") or "","score":int(item.get("_gemini_score",0)),"qc_reason":item.get("_gemini_reason","")}
         return None
-    for item in pool:
-        if _heuristic_score(item,required,actions,"photo") < 5.5: continue
-        src = item.get("src") or {}; link = src.get("portrait") or src.get("large2x") or src.get("large") or src.get("original")
-        if link: return {"photo":link,"page":item.get("url",""),"photographer":item.get("photographer","") or "","score":_heuristic_score(item,required,actions,"photo"),"qc_reason":"Gemini visual ranking unavailable; heuristic fallback."}
     return None
 
 def download(url: str, path: str) -> bool:
@@ -220,21 +212,9 @@ def _select(scene, visual, excluded_pages=None):
         if selected: selected["kind"]="photo"; selected["query"]=query; return selected
     return None
 
-def find_pexels_replacement(scene, visual, output_dir, stem, excluded_pages=None):
-    selected = _select(scene,visual,excluded_pages or set())
-    if not selected: return None, None
-    extension = ".mp4" if selected["kind"] == "video" else ".jpg"; path = os.path.join(output_dir,stem+"_pexels"+extension); source = selected["video"] if selected["kind"] == "video" else selected["photo"]
-    if not download(source,path): return None,None
-    credit(os.path.join(output_dir,stem+"_pexels.credit.json"),selected["kind"],selected["page"],selected["photographer"])
-    return path,selected
-
-def fallback(gim,scene,visual,path,width,height,seed,si,vi):
-    prompt = gim.build_prompt(scene,visual,{},scene_index=si,visual_index=vi,correction="Pexels could not provide a visually verified literal match. Generate ONLY the exact physical moment described by the spoken beat. The main object/action must be obvious immediately. No metaphor, abstract science art, random scenery, unrelated people, or decorative imagery.")
-    return gim._save_image(gim.generate_image(prompt,width,height,seed),path,width,height)
-
 def generate_media(script, output_dir, config, gim):
-    scenes = script.get("scene_plan") or []; cfg = config.get("image",{}) if isinstance(config,dict) else {}; width = int(cfg.get("width",2160)); height = int(cfg.get("height",3840)); base = int(time.time()); os.makedirs(output_dir,exist_ok=True); available = bool(headers()); used=False; groups=[]; credits=[]; used_pages=set()
-    print("="*80); print("📚 RELEVANCE-FIRST STORY MEDIA v3"); print(f"Pexels API: {'AVAILABLE' if available else 'NOT CONFIGURED'}"); print("Rule: Gemini must visually verify Pexels before selection"); print("Provider order: Pexels verified VIDEO → Pexels verified PHOTO → Pollinations FLUX"); print("Pexels is NOT accepted from keyword/URL score alone"); print("="*80)
+    scenes = script.get("scene_plan") or []; cfg = config.get("image",{}) if isinstance(config,dict) else {}; os.makedirs(output_dir,exist_ok=True); available = bool(headers()); used=False; groups=[]; credits=[]; used_pages=set()
+    print("="*80); print("📚 RELEVANCE-FIRST STORY MEDIA v3.1 — PEXELS ONLY"); print(f"Pexels API: {'AVAILABLE' if available else 'NOT CONFIGURED'}"); print("Rule: Gemini must visually verify Pexels before selection"); print("Provider: Pexels verified VIDEO → Pexels verified PHOTO"); print("Pollinations/FLUX: DISABLED"); print("No-provider-fallback: a missing verified Pexels match fails the shot"); print("="*80)
     for si,scene in enumerate(scenes,1):
         paths=[]; visuals=scene.get("visuals") or []
         for vi,visual in enumerate(visuals[:2],1):
@@ -243,9 +223,9 @@ def generate_media(script, output_dir, config, gim):
                 extension = ".mp4" if selected["kind"] == "video" else ".jpg"; path=os.path.join(output_dir,stem+extension); source=selected["video"] if selected["kind"] == "video" else selected["photo"]
                 if download(source,path):
                     credit(os.path.join(output_dir,stem+".credit.json"),selected["kind"],selected["page"],selected["photographer"]); used_pages.add(selected["page"]); credits.append({**selected,"scene":si,"shot":vi}); paths.append(path); used=True; label="VIDEO" if selected["kind"]=="video" else "PHOTO"; print(f"🎞️ Pexels {label} VERIFIED + selected | Gemini score={selected['score']}/10 | query={selected['query']}"); print(f"   └─ {selected.get('qc_reason','')}"); continue
-            path=os.path.join(output_dir,stem+".png"); paths.append(fallback(gim,scene,visual,path,width,height,base+si*100+vi,si,vi)); print("🧠 Pollinations FLUX selected: Pexels had no verified literal match")
-        if len(paths)!=2: raise RuntimeError(f"Scene {si} did not produce exactly 2 media assets.")
+            raise RuntimeError(f"Scene {si} Shot {vi}: Pexels could not provide a Gemini-verified literal match for the spoken beat. Pollinations/FLUX is disabled. Revise the visual query or narration instead of using an unrelated/generated fallback.")
+        if len(paths)!=2: raise RuntimeError(f"Scene {si} did not produce exactly 2 Pexels media assets.")
         groups.append(paths)
-    script["_pexels_used"]=used; script["_pexels_credits"]=credits; script["_media_provider_order"]=["pexels_verified_video","pexels_verified_photo","pollinations"]
-    with open(os.path.join(output_dir,"media_manifest.json"),"w",encoding="utf-8") as handle: json.dump({"provider_order":["pexels_verified_video","pexels_verified_photo","pollinations"],"pexels_used":used,"credits":credits},handle,ensure_ascii=False,indent=2)
+    script["_pexels_used"]=used; script["_pexels_credits"]=credits; script["_media_provider_order"]=["pexels_verified_video","pexels_verified_photo"]
+    with open(os.path.join(output_dir,"media_manifest.json"),"w",encoding="utf-8") as handle: json.dump({"provider_order":["pexels_verified_video","pexels_verified_photo"],"pexels_used":used,"credits":credits},handle,ensure_ascii=False,indent=2)
     print(f"✅ Media complete: {sum(map(len,groups))} assets | Pexels verified used: {used}"); return groups

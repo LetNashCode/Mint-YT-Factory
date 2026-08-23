@@ -130,7 +130,7 @@ def patch_hybrid_media(pexels_media, generate_images_module):
                 handle.write(data)
             generated_files.append(local_path)
             return {
-                "kind": "ai_image",
+                "kind": "photo",
                 "photo": local_path,
                 "page": "ai://generated",
                 "photographer": "",

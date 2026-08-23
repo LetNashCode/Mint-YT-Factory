@@ -91,12 +91,16 @@ def _patch_thumbnail_upload(main):
 
 def main_entry():
     import main,generate_images
-    patch_story_style();patch_story_quality(main);patch_continuation(main);patch_tts_result(main);patch_visuals(generate_images)
+    # IMPORTANT: main.py contains the canonical continuation lock. Do not apply
+    # the legacy runtime continuation override, which used the old "And next:"
+    # announcement format and could reintroduce it into every Short.
+    patch_story_style();patch_story_quality(main);patch_tts_result(main);patch_visuals(generate_images)
     _patch_tts_duration(main);_patch_pexels_media(main,generate_images);_patch_pexels_metadata(main);_patch_pexels_video_assembly();_patch_thumbnail_upload(main)
-    print("="*80);print("🧩 MINT-YT-FACTORY PRODUCTION MEDIA + STORY QUALITY v5.3");print("="*80)
+    print("="*80);print("🧩 MINT-YT-FACTORY PRODUCTION MEDIA + STORY QUALITY v5.4");print("="*80)
     print("Visual selection: Pexels verified VIDEO → Pexels verified PHOTO only")
     print("Pollinations FLUX: DISABLED — no generated-image fallback")
     print("Thumbnail: story-specific Pexels asset + curiosity headline")
+    print("Continuation: canonical main.py teaser — legacy 'And next:' override DISABLED")
     print("Gemini: visual verification/ranking of Pexels candidates only")
     print("Pexels API key:","AVAILABLE" if os.environ.get("PEXELS_API_KEY") else "NOT CONFIGURED")
     print("Story: soft 100-145 words / TTS-authoritative 35-44 seconds")

@@ -15,6 +15,34 @@ def _text(scene,visual):
 def _custom(scene,visual):
     return bool(_CUSTOM_RE.search(_text(scene,visual)))
 
+_ALIASES={
+    "earbuds":["earbuds","earphones","headphones"],
+    "earbud":["earbud","earphone","headphone"],
+    "wired earbuds":["wired earbuds","wired earphones","earphone cable"],
+    "pocket":["pocket","jeans pocket","pants pocket"],
+    "cord":["cord","cable","wire"],
+    "cable":["cable","wire","cord"],
+    "phone":["phone","smartphone","mobile phone"],
+    "ice cube":["ice cube","ice","ice cubes"],
+    "ice cubes":["ice cubes","ice","ice cube"],
+    "soap bubbles":["soap bubbles","bubbles","bubble"],
+    "bubble":["bubble","soap bubble","bubbles"],
+    "keyboard":["keyboard","computer keyboard"],
+    "screen":["screen","phone screen","display"],
+}
+
+# Stock search engines respond much better to the visible state than to prose
+# such as "ancient sailor knot" or "pull them out minutes later".
+_STATE_ALIASES={
+    "tangle":["tangled earbuds","tangled earphones","tangled headphones","earbuds tangled"],
+    "tangled":["tangled earbuds","tangled earphones","tangled headphones","earbuds tangled"],
+    "knot":["earbud knot","earphone knot","tangled earphones","tangled earbuds"],
+    "knotted":["knotted earphones","knotted earbuds","tangled earphones","tangled earbuds"],
+    "shake":["shaking cable","shaking cord","tangled cord"],
+    "pull":["pulling earbuds","pulling earphones","earbuds from pocket"],
+    "pocket":["earbuds pocket","earphones pocket","earbuds jeans pocket"],
+}
+
 def _expand_queries(pexels_media,scene,visual):
     """Build stock-friendly queries from the visual beat, not the whole prose."""
     focus=str(visual.get("visual_focus") or "").strip().lower()
@@ -37,14 +65,23 @@ def _expand_queries(pexels_media,scene,visual):
     for phrase in (focus,must_text,action):
         phrase=" ".join(re.findall(r"[a-z0-9]+",phrase))
         if phrase: base_phrases.append(phrase)
+
+    # 1. Explicit state queries first. These are the highest-value queries for
+    # beats where the exact sentence describes an action that stock rarely tags.
+    lowraw=raw.lower()
+    for key,aliases in _STATE_ALIASES.items():
+        if key in lowraw:
+            for alias in aliases: add(alias)
+
+    # 2. Normal noun aliases and focus/action combinations.
     for phrase in base_phrases:
         low=phrase.lower()
         for key,aliases in _ALIASES.items():
             if key in low:
                 for alias in aliases[:3]: add(low.replace(key,alias)[:90])
         add(low[:90])
+
     alias_hits=[]
-    lowraw=raw.lower()
     for key,aliases in _ALIASES.items():
         if key in lowraw: alias_hits.extend(aliases[:3])
     actions=[]
@@ -53,36 +90,28 @@ def _expand_queries(pexels_media,scene,visual):
     for noun in alias_hits[:8]:
         for act in actions[:3]: add(f"{noun} {act}")
         add(noun)
+
+    # 3. Always inject the most useful physical-state combinations when the
+    # story is about loose wires/earbuds. This avoids generic pocket results.
+    if any(x in lowraw for x in ("earbud","earphone","headphone")) and any(x in lowraw for x in ("tangle","tangled","knot","knotted","cord","wire")):
+        for q in ("tangled earbuds","tangled earphones","earphones tangled knot","earbuds tangled cord","tangled headphone wires"):
+            add(q)
+
     if important:
         add(" ".join(important[:5]))
         add(" ".join(important[:8]))
+    # Keep explicit state queries ahead of noisy full-sentence queries.
     return variants[:8] or pexels_media.queries(scene,visual)
 
-_ALIASES={
-    "earbuds":["earbuds","earphones","headphones"],
-    "earbud":["earbud","earphone","headphone"],
-    "wired earbuds":["wired earbuds","wired earphones","earphone cable"],
-    "pocket":["pocket","jeans pocket","pants pocket"],
-    "cord":["cord","cable","wire"],
-    "cable":["cable","wire","cord"],
-    "phone":["phone","smartphone","mobile phone"],
-    "ice cube":["ice cube","ice","ice cubes"],
-    "ice cubes":["ice cubes","ice","ice cube"],
-    "soap bubbles":["soap bubbles","bubbles","bubble"],
-    "bubble":["bubble","soap bubble","bubbles"],
-    "keyboard":["keyboard","computer keyboard"],
-    "screen":["screen","phone screen","display"],
-}
-
 def _install_strict_selector(pexels_media):
-    if getattr(pexels_media,"_mint_selector_v5",False): return
+    if getattr(pexels_media,"_mint_selector_v6",False): return
     def select(scene,visual,excluded_pages=None):
         excluded_pages=excluded_pages or set()
         if not pexels_media.headers(): return None
         qs=_expand_queries(pexels_media,scene,visual)
         required=pexels_media.tokens(_text(scene,visual))
         actions=pexels_media.action_tokens(_text(scene,visual))
-        videos=[]; photos=[]
+        videos=[]
         for q in qs:
             videos.extend(pexels_media.search("videos/search",q,{"orientation":"portrait","size":"medium"}))
         videos=pexels_media._dedupe(videos,"video",excluded_pages)
@@ -109,7 +138,7 @@ def _install_strict_selector(pexels_media):
                     return {"kind":"photo","photo":link,"page":item.get("url",""),"photographer":item.get("photographer","") or "","score":int(item.get("_gemini_score",0)),"qc_reason":item.get("_gemini_reason","") ,"query":" | ".join(qs[:5])}
         return None
     pexels_media._select=select
-    pexels_media._mint_selector_v5=True
+    pexels_media._mint_selector_v6=True
 
 def _assert_complete(groups):
     if len(groups)!=7: raise RuntimeError(f"Media contract failed: expected 7 scene groups, found {len(groups)}")
@@ -119,7 +148,7 @@ def _assert_complete(groups):
 
 def patch_media_selection(media):
     original_generate=media.generate_media
-    if getattr(original_generate,"_mint_media_policy_v5",False): return
+    if getattr(original_generate,"_mint_media_policy_v6",False): return
     import pexels_media
     _install_strict_selector(pexels_media)
     def generate_media(script,output_dir,config,gim):
@@ -133,8 +162,9 @@ def patch_media_selection(media):
                 "pollinations":"disabled",
                 "exact_scientific_visuals":"pexels_only",
                 "heuristic_fallback":"disabled",
+                "semantic_state_queries":"enabled",
             },handle,ensure_ascii=False,indent=2)
-        print("🧠 Media policy v5: Pexels VIDEO → Pexels PHOTO | semantic query expansion | relevance-ranked | Pollinations disabled")
+        print("🧠 Media policy v6: Pexels VIDEO → Pexels PHOTO | state-aware semantic queries | relevance-ranked | Pollinations disabled")
         return groups
-    generate_media._mint_media_policy_v5=True
+    generate_media._mint_media_policy_v6=True
     media.generate_media=generate_media

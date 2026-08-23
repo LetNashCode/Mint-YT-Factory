@@ -3,7 +3,7 @@
 CURRENT MODE: ENTERTAINMENT-FIRST + SELF-LEARNING
 
 Topic -> fresh analytics refresh -> learned creative brief -> entertaining
-script/storyboard -> TTS -> AI visuals -> music -> assembly -> quality
+script/storyboard -> TTS -> Pexels visuals -> music -> assembly -> quality
 validation -> upload -> analytics registry.
 """
 from __future__ import annotations
@@ -45,14 +45,16 @@ def _remove_existing_continuation(narration,next_topic):
         if re.search(r"\b(bigger question|one more thing to wonder about)\b",sentence,re.I):continue
         kept.append(sentence)
     return " ".join(kept).strip()
-def _topic_as_natural_question(next_topic):
-    text=re.sub(r"\s+"," ",str(next_topic or "").strip()).rstrip(".!?")
-    text=re.sub(r"^why\s+do\s+","why ",text,flags=re.I);text=re.sub(r"^why\s+does\s+","why ",text,flags=re.I);text=re.sub(r"^why\s+is\s+","why ",text,flags=re.I);text=re.sub(r"^why\s+are\s+","why ",text,flags=re.I);text=re.sub(r"^how\s+do\s+","how ",text,flags=re.I);text=re.sub(r"^how\s+does\s+","how ",text,flags=re.I);text=re.sub(r"^what\s+makes\s+","what makes ",text,flags=re.I)
-    return text.strip()
-def _build_locked_final_sentence(next_topic):return f"Then comes an even weirder question: {_topic_as_natural_question(next_topic)}?"
+def _build_locked_final_sentence(next_topic):
+    # IMPORTANT: preserve the exact canonical topic text. Do not rewrite
+    # "Why do..." into "Why..." because continuation integrity compares the
+    # exact canonical topic after normalisation.
+    topic=re.sub(r"\s+"," ",str(next_topic or "").strip()).rstrip(".!?")
+    return f"Then comes an even weirder question: {topic}."
 def _final_scene_has_only_one_continuation_topic(narration,canonical):
-    sentences=_split_sentences(narration);canonical_key=_normalise_topic_text(canonical);continuation_sentences=[s for s in sentences if _looks_like_future_topic_teaser(s)]
-    return len(continuation_sentences)==1 and bool(canonical_key and canonical_key in _normalise_topic_text(continuation_sentences[0]))
+    sentences=_split_sentences(narration);canonical_key=_normalise_topic_text(canonical);continuation_sentences=[s for s in sentences if _looks_like_future_topic_teaser(s) or (canonical_key and canonical_key in _normalise_topic_text(s))]
+    matching=[s for s in continuation_sentences if canonical_key and canonical_key in _normalise_topic_text(s)]
+    return len(matching)==1 and len(continuation_sentences)==1
 def lock_next_topic(script,current_topic):
     next_short=script.get("next_short") or {};candidate=str(next_short.get("topic","")).strip()
     if not candidate:raise RuntimeError("Generated script did not provide next_short.topic.")
@@ -62,17 +64,30 @@ def lock_next_topic(script,current_topic):
     if _word_count(canonical)>7:
         canonical=_generate_topic(used)
         if _word_count(canonical)>7:raise RuntimeError(f"Generated continuation is still too long: {canonical}")
-    script["next_short"]["topic"]=canonical;script["next_short"]["teaser"]=_build_locked_final_sentence(canonical);scenes=script.get("scene_plan")
+    script["next_short"]["topic"]=canonical
+    script["next_short"]["teaser"]=_build_locked_final_sentence(canonical)
+    scenes=script.get("scene_plan")
     if not isinstance(scenes,list) or len(scenes)!=7:raise RuntimeError("Script must contain exactly 7 scenes.")
-    final_scene=scenes[-1];base=_remove_existing_continuation(str(final_scene.get("narration","")).strip(),canonical)
+    final_scene=scenes[-1]
+    base=_remove_existing_continuation(str(final_scene.get("narration","")).strip(),canonical)
     if not base:base="And that is the strange part"
-    final_scene["narration"]=f"{_compact_payoff(base,10)} {_build_locked_final_sentence(canonical)}".strip();final_scene["subtitle_text"]=final_scene["narration"];final_scene["pause_after_ms"]=250;final_scene["emotional_tone"]="satisfied";final_scene["music_cue"]="fade_out"
-    teaser_words=re.findall(r"\b[\w'-]+\b",canonical);final_scene["caption_highlights"]=[{"word":w,"emphasis":"strong"} for w in teaser_words[:3]] or [{"word":canonical.split()[0],"emphasis":"strong"}];final_scene["emphasis_word"]=teaser_words[0] if teaser_words else canonical.split()[0];canonical_key=_normalise_topic_text(canonical)
-    if canonical_key not in _normalise_topic_text(final_scene["narration"]):raise RuntimeError("Canonical next topic was not inserted into final narration.")
+    final_scene["narration"]=f"{_compact_payoff(base,10)} {_build_locked_final_sentence(canonical)}".strip()
+    final_scene["subtitle_text"]=final_scene["narration"]
+    final_scene["pause_after_ms"]=250
+    final_scene["emotional_tone"]="satisfied"
+    final_scene["music_cue"]="fade_out"
+    teaser_words=re.findall(r"\b[\w'-]+\b",canonical)
+    final_scene["caption_highlights"]=[{"word":w,"emphasis":"strong"} for w in teaser_words[:3]] or [{"word":canonical.split()[0],"emphasis":"strong"}]
+    final_scene["emphasis_word"]=teaser_words[0] if teaser_words else canonical.split()[0]
+    canonical_key=_normalise_topic_text(canonical)
+    final_key=_normalise_topic_text(final_scene["narration"])
+    if canonical_key not in final_key:raise RuntimeError("Canonical next topic was not inserted into final narration.")
     for scene in scenes[:6]:
         if canonical_key and canonical_key in _normalise_topic_text(scene.get("narration","")):raise RuntimeError("Next topic appeared before Scene 7.")
     if not _final_scene_has_only_one_continuation_topic(final_scene["narration"],canonical):raise RuntimeError("Scene 7 contains more than one future-topic teaser; continuation integrity failed.")
-    print(f"🔒 Canonical next topic: {canonical}");print(f"🗣️ FINAL SPOKEN TEASE: {final_scene['narration']}");return script,canonical
+    print(f"🔒 Canonical next topic: {canonical}")
+    print(f"🗣️ FINAL SPOKEN TEASE: {final_scene['narration']}")
+    return script,canonical
 def _compact_payoff(narration,max_words=10):
     sentences=_split_sentences(narration);chosen=[];total=0
     for sentence in reversed(sentences):

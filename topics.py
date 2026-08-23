@@ -34,7 +34,6 @@ def _key(topic):
 
 
 def _topic_records(items):
-    """Recover real topics from normal entries and analytics entries."""
     out=[]
     for item in items if isinstance(items,list) else []:
         if not isinstance(item,str) or item.startswith("__MINT_PENDING_NEXT_TOPIC__::"):
@@ -79,7 +78,6 @@ def _pending():
 
 
 def _similar(topic,used):
-    """Conservative local duplicate check before semantic Gemini check."""
     a=set(_key(topic).split())
     if not a: return True
     stop={"why","does","do","your","you","the","a","an","is","are","to","in","on","of","and","when","how","what"}
@@ -110,7 +108,7 @@ Reject the candidate if it covers the SAME underlying curiosity, object + phenom
 or cause/effect question as any previous topic, even if worded differently.
 Examples of duplicates: "Why do phone screens attract dust" vs "Why does dust stick to your phone screen"; "Why do onions make you cry" vs "Why do cut onions make your eyes water".
 Do NOT reject merely because two topics share a broad category such as phones, food, water, or animals.
-Return ONLY JSON: {"duplicate":true/false,"match_index":0,"reason":"brief"}
+Return ONLY JSON: {{"duplicate":true/false,"match_index":0,"reason":"brief"}}
 """
     try:
         r=client.models.generate_content(model=MODEL_NAME,contents=prompt,config=types.GenerateContentConfig(temperature=0))

@@ -114,7 +114,15 @@ def patch_story_quality(main):
                     "Do not add filler. Expand the mystery, concrete demonstration, "
                     "escalation and payoff. Keep the final continuation sentence short."
                 )
-            script = original(topic, config, research, feedback)
+            # IMPORTANT: main.generate_script is wrapped by this module, so pass
+            # the learning feedback by keyword. Passing a fourth positional
+            # argument breaks the entertainment generator's public signature.
+            script = original(
+                topic,
+                config,
+                research,
+                extra_feedback=feedback,
+            )
             _sanitize_final_scene(script)
             total = _word_total(script)
             print(

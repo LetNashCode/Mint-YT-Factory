@@ -1,1 +1,339 @@
-[]
+[
+  {
+    "video_id": "qz3CHI7gymM",
+    "topic": "Why does coffee foam disappear instantly",
+    "title": "Why Your Coffee Foam Dies Instantly",
+    "workdir": "output/1787334112",
+    "published_at": "2026-08-21T18:03:09Z",
+    "latest": {
+      "views": 174,
+      "likes": 1,
+      "comments": 0,
+      "engagement_rate": 0.5747,
+      "checked_at": "2026-08-23T16:57:06.151024+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 174,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 0.5747,
+        "checked_at": "2026-08-23T16:57:06.151024+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "FqQg3FeG1Sg",
+    "topic": "Why does water droplets bead up on a freshly waxed car",
+    "title": "Why Waxed Cars Hate Water",
+    "workdir": "output/1787338117",
+    "published_at": "2026-08-21T19:11:04Z",
+    "latest": {
+      "views": 353,
+      "likes": 7,
+      "comments": 0,
+      "engagement_rate": 1.983,
+      "checked_at": "2026-08-23T16:57:06.151024+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 353,
+        "likes": 7,
+        "comments": 0,
+        "engagement_rate": 1.983,
+        "checked_at": "2026-08-23T16:57:06.151024+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "uR7gB2nn2So",
+    "topic": "Why does hot water freeze faster than cold water",
+    "title": "The Ice Paradox That Breaks Physics",
+    "workdir": "output/1787342421",
+    "published_at": "2026-08-21T20:21:21Z",
+    "latest": {
+      "views": 944,
+      "likes": 25,
+      "comments": 0,
+      "engagement_rate": 2.6483,
+      "checked_at": "2026-08-23T16:57:06.151024+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 944,
+        "likes": 25,
+        "comments": 0,
+        "engagement_rate": 2.6483,
+        "checked_at": "2026-08-23T16:57:06.151024+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "ykGHVo9AagM",
+    "topic": "Why do ice cubes stick to your fingers",
+    "title": "Why Ice Cubes Glue Themselves to Your Skin",
+    "workdir": "output/1787345765",
+    "published_at": "2026-08-21T21:17:38Z",
+    "latest": {
+      "views": 935,
+      "likes": 28,
+      "comments": 0,
+      "engagement_rate": 2.9947,
+      "checked_at": "2026-08-23T16:57:06.151024+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 935,
+        "likes": 28,
+        "comments": 0,
+        "engagement_rate": 2.9947,
+        "checked_at": "2026-08-23T16:57:06.151024+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "SLNemeQ1MgQ",
+    "topic": "Why do clothes smell stale when left in the washing machine",
+    "title": "The Hidden Swamp Inside Your Washing Machine",
+    "workdir": "output/1787367059",
+    "published_at": "2026-08-22T03:11:36Z",
+    "latest": {
+      "views": 129,
+      "likes": 1,
+      "comments": 0,
+      "engagement_rate": 0.7752,
+      "checked_at": "2026-08-23T16:57:06.151024+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 129,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 0.7752,
+        "checked_at": "2026-08-23T16:57:06.151024+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "CyQkCAulolI",
+    "topic": "Why do phone screens attract dust instantly",
+    "title": "Why Your Phone Screen Attracts Dust Instantly",
+    "workdir": "output/1787385088",
+    "published_at": "2026-08-22T08:15:02Z",
+    "latest": {
+      "views": 883,
+      "likes": 21,
+      "comments": 0,
+      "engagement_rate": 2.3783,
+      "checked_at": "2026-08-23T16:57:06.151024+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 883,
+        "likes": 21,
+        "comments": 0,
+        "engagement_rate": 2.3783,
+        "checked_at": "2026-08-23T16:57:06.151024+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "C2lMQOKyUwg",
+    "topic": "Why do phone screens attract dust",
+    "title": "Why Your Phone Screen is a Dust Magnet",
+    "workdir": "output/1787394025",
+    "published_at": "2026-08-22T10:39:51.264221+00:00",
+    "latest": {},
+    "snapshots": []
+  },
+  {
+    "video_id": "kB6LBGV3UBg",
+    "topic": "Why do old books smell so good",
+    "title": "Why Old Books Smell So Good",
+    "workdir": "output/1787396094",
+    "published_at": "2026-08-22T11:17:12Z",
+    "latest": {
+      "views": 46,
+      "likes": 1,
+      "comments": 0,
+      "engagement_rate": 2.1739,
+      "checked_at": "2026-08-23T16:57:06.151024+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 46,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 2.1739,
+        "checked_at": "2026-08-23T16:57:06.151024+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "qgG61u4cBoI",
+    "topic": "Why static cling ruins your clothes",
+    "title": "Why Static Cling Ruins Your Clothes",
+    "workdir": "output/1787407639",
+    "published_at": "2026-08-22T14:15:56Z",
+    "latest": {
+      "views": 165,
+      "likes": 1,
+      "comments": 0,
+      "engagement_rate": 0.6061,
+      "checked_at": "2026-08-23T16:57:06.151024+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 165,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 0.6061,
+        "checked_at": "2026-08-23T16:57:06.151024+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "zi3fBOpdS3k",
+    "topic": "Why mirrors fog up in the shower",
+    "title": "Why Your Bathroom Mirror Hates Your Hot Shower",
+    "workdir": "output/1787413769",
+    "published_at": "2026-08-22T16:01:56Z",
+    "latest": {
+      "views": 1019,
+      "likes": 15,
+      "comments": 0,
+      "engagement_rate": 1.472,
+      "checked_at": "2026-08-23T16:57:06.151024+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 1019,
+        "likes": 15,
+        "comments": 0,
+        "engagement_rate": 1.472,
+        "checked_at": "2026-08-23T16:57:06.151024+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "ppJdGPNJC8Y",
+    "topic": "Why do computer keyboards get dusty underneath",
+    "title": "The Secret Life of Keyboard Dust",
+    "workdir": "output/1787416709",
+    "published_at": "2026-08-22T16:47:41Z",
+    "latest": {
+      "views": 994,
+      "likes": 19,
+      "comments": 0,
+      "engagement_rate": 1.9115,
+      "checked_at": "2026-08-23T16:57:06.151024+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 994,
+        "likes": 19,
+        "comments": 0,
+        "engagement_rate": 1.9115,
+        "checked_at": "2026-08-23T16:57:06.151024+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "uQoU5LFxIjo",
+    "topic": "Why phone chargers get hot",
+    "title": "Why Your Phone Charger Gets Hot",
+    "workdir": "output/1787427177",
+    "published_at": "2026-08-22T19:47:11Z",
+    "latest": {
+      "views": 865,
+      "likes": 13,
+      "comments": 0,
+      "engagement_rate": 1.5029,
+      "checked_at": "2026-08-23T16:57:06.151024+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 865,
+        "likes": 13,
+        "comments": 0,
+        "engagement_rate": 1.5029,
+        "checked_at": "2026-08-23T16:57:06.151024+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "x5H-SxdtOoc",
+    "topic": "Why your phone screen gets greasy",
+    "title": "Why Your Phone Screen Is Always Greasy",
+    "workdir": "output/1787453871",
+    "published_at": "2026-08-23T03:07:49Z",
+    "latest": {
+      "views": 4,
+      "likes": 1,
+      "comments": 0,
+      "engagement_rate": 25.0,
+      "checked_at": "2026-08-23T16:57:06.151024+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 4,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 25.0,
+        "checked_at": "2026-08-23T16:57:06.151024+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "RaL8RuPoCmA",
+    "topic": "Why popcorn kernels leave unpopped hulls",
+    "title": "The Traitor Kernel Left Behind",
+    "workdir": "output/1787471710",
+    "published_at": "2026-08-23T08:06:18Z",
+    "latest": {
+      "views": 919,
+      "likes": 11,
+      "comments": 0,
+      "engagement_rate": 1.197,
+      "checked_at": "2026-08-23T16:57:06.151024+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 919,
+        "likes": 11,
+        "comments": 0,
+        "engagement_rate": 1.197,
+        "checked_at": "2026-08-23T16:57:06.151024+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "pO0wYgv-1oo",
+    "topic": "Why phone cables fray at the ends",
+    "title": "Why Your Phone Cable Destroys Itself",
+    "workdir": "output/1787500460",
+    "published_at": "2026-08-23T16:21:55Z",
+    "topic_category": "Why phone cables fray at the ends",
+    "hook_type": "open_loop",
+    "story_structure": "7-scene curiosity story",
+    "visual_style": "clean macro photography with dramatic side lighting",
+    "music_type": "starts curious, builds tension during the middle physics explanation, drops into a satisfying realization",
+    "voice": "conversational and slightly quirky",
+    "latest": {
+      "views": 47,
+      "likes": 1,
+      "comments": 0,
+      "engagement_rate": 2.1277,
+      "checked_at": "2026-08-23T16:57:06.151024+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 47,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 2.1277,
+        "checked_at": "2026-08-23T16:57:06.151024+00:00"
+      }
+    ]
+  }
+]

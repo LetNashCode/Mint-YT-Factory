@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-08-23T16:57:06.209601+00:00",
+  "video_count": 15,
+  "learning_ready": true,
+  "metrics_available": true,
+  "objective": "maximize sustainable views and subscriber growth while preserving originality",
+  "strategy": {
+    "exploitation": 0.7,
+    "adjacent_exploration": 0.2,
+    "wild_exploration": 0.1
+  },
+  "winning_patterns": [],
+  "weak_patterns": [],
+  "winning_topics": [
+    "Why your phone screen gets greasy",
+    "Why do ice cubes stick to your fingers",
+    "Why does hot water freeze faster than cold water",
+    "Why do phone screens attract dust instantly"
+  ],
+  "avoid_topics": [
+    "Why do clothes smell stale when left in the washing machine",
+    "Why static cling ruins your clothes",
+    "Why does coffee foam disappear instantly",
+    "Why do phone screens attract dust"
+  ],
+  "used_topic_count": 15,
+  "rules": [
+    "Learn patterns, never copy winning topics literally.",
+    "Prefer concrete everyday mysteries with an immediate curiosity gap.",
+    "Favor entertaining demonstrations and playful explanations over lectures.",
+    "Use subscriber conversion and retention, not views alone, as growth signals.",
+    "Keep 20% of topics adjacent experiments and 10% genuinely new experiments.",
+    "Reject exact repeats and near-duplicate topics before generation."
+  ]
+}

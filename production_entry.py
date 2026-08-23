@@ -1,6 +1,6 @@
 """Production entrypoint for Mint-YT-Factory."""
 from __future__ import annotations
-import inspect,json,os
+import inspect,json,os,glob
 from runtime_overrides import patch_continuation,patch_tts_result,patch_visuals,patch_story_style
 from quality_overrides import patch_story_quality,patch_visual_diversity
 from media_quality_overrides import patch_media_selection
@@ -56,33 +56,47 @@ def _patch_pexels_metadata(main):
     main.build_youtube_metadata=build
 
 def _patch_pexels_video_assembly():
-    import os,assemble
+    import assemble
     from moviepy.editor import VideoFileClip
     from moviepy.video.fx.all import loop
     original=assemble.build_animated_image
     if getattr(original,"_mint_pexels_video_support",False):return
     def build_animated_image(image_path,duration,frame_size,scene,visual):
-        if not str(image_path).lower().endswith((".mp4",".mov",".webm")):
-            return original(image_path,duration,frame_size,scene,visual)
-        width,height=frame_size
-        print(f"🎞️ Pexels VIDEO clip: {os.path.basename(image_path)}")
-        clip=VideoFileClip(image_path,audio=False)
+        if not str(image_path).lower().endswith((".mp4",".mov",".webm")):return original(image_path,duration,frame_size,scene,visual)
+        width,height=frame_size;print(f"🎞️ Pexels VIDEO clip: {os.path.basename(image_path)}");clip=VideoFileClip(image_path,audio=False)
         try:
-            clip=loop(clip,duration=duration) if clip.duration<duration else clip.subclip(0,duration)
-            scale=max(width/clip.w,height/clip.h);clip=clip.resize(scale)
-            crop_x=max(0,int((clip.w-width)/2));crop_y=max(0,int((clip.h-height)/2))
-            return clip.crop(x1=crop_x,y1=crop_y,x2=crop_x+width,y2=crop_y+height).set_duration(duration).set_position("center")
-        except Exception:
-            clip.close();raise
+            clip=loop(clip,duration=duration) if clip.duration<duration else clip.subclip(0,duration);scale=max(width/clip.w,height/clip.h);clip=clip.resize(scale);crop_x=max(0,int((clip.w-width)/2));crop_y=max(0,int((clip.h-height)/2));return clip.crop(x1=crop_x,y1=crop_y,x2=crop_x+width,y2=crop_y+height).set_duration(duration).set_position("center")
+        except Exception:clip.close();raise
     build_animated_image._mint_pexels_video_support=True;assemble.build_animated_image=build_animated_image
+
+def _patch_thumbnail_upload(main):
+    """Build a thumbnail from the same Pexels assets and attach it after upload."""
+    original=main.upload_video
+    if getattr(original,"_mint_thumbnail_support",False):return
+    def upload(video_path,title,description,config):
+        from thumbnail_builder import build_thumbnail
+        workdir=os.path.dirname(video_path);script_path=os.path.join(workdir,"script.json");thumbnail_path=os.path.join(workdir,"thumbnail.jpg")
+        try:
+            with open(script_path,"r",encoding="utf-8") as handle:script=json.load(handle)
+            media_paths=sorted(glob.glob(os.path.join(workdir,"visuals","*")))
+            if not media_paths:raise RuntimeError("No Pexels media assets found for thumbnail.")
+            build_thumbnail(script,[media_paths],thumbnail_path)
+            print(f"🖼️ Uploading with custom thumbnail: {thumbnail_path}")
+            return original(video_path,title,description,config,thumbnail_path=thumbnail_path)
+        except Exception as exc:
+            print(f"⚠️ Thumbnail generation failed: {type(exc).__name__}: {exc}")
+            print("ℹ️ Continuing with the video upload without a custom thumbnail.")
+            return original(video_path,title,description,config)
+    upload._mint_thumbnail_support=True;main.upload_video=upload
 
 def main_entry():
     import main,generate_images
     patch_story_style();patch_story_quality(main);patch_continuation(main);patch_tts_result(main);patch_visuals(generate_images)
-    _patch_tts_duration(main);_patch_pexels_media(main,generate_images);_patch_pexels_metadata(main);_patch_pexels_video_assembly()
-    print("="*80);print("🧩 MINT-YT-FACTORY PRODUCTION MEDIA + STORY QUALITY v5.2");print("="*80)
+    _patch_tts_duration(main);_patch_pexels_media(main,generate_images);_patch_pexels_metadata(main);_patch_pexels_video_assembly();_patch_thumbnail_upload(main)
+    print("="*80);print("🧩 MINT-YT-FACTORY PRODUCTION MEDIA + STORY QUALITY v5.3");print("="*80)
     print("Visual selection: Pexels verified VIDEO → Pexels verified PHOTO only")
     print("Pollinations FLUX: DISABLED — no generated-image fallback")
+    print("Thumbnail: story-specific Pexels asset + curiosity headline")
     print("Gemini: visual verification/ranking of Pexels candidates only")
     print("Pexels API key:","AVAILABLE" if os.environ.get("PEXELS_API_KEY") else "NOT CONFIGURED")
     print("Story: soft 100-145 words / TTS-authoritative 35-44 seconds")

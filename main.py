@@ -2,8 +2,9 @@
 
 CURRENT MODE: ENTERTAINMENT-FIRST + SELF-LEARNING
 
-Topic -> learned creative brief -> entertaining script/storyboard -> TTS ->
-AI visuals -> music -> assembly -> quality validation -> upload -> analytics.
+Topic -> fresh analytics refresh -> learned creative brief -> entertaining
+script/storyboard -> TTS -> AI visuals -> music -> assembly -> quality
+validation -> upload -> analytics registry.
 """
 
 from __future__ import annotations
@@ -52,7 +53,7 @@ def _compact_payoff(narration,max_words=10):
         if total+words<=max_words: chosen.insert(0,sentence.rstrip(".!? ")); total+=words
         elif not chosen: chosen.insert(0," ".join(re.findall(r"\S+",sentence)[:max_words]).rstrip(".!? ")); break
         else: break
-    return (" ".join(chosen).strip() or "And that is the strange part").rstrip(".!? ")+"."
+    return (" ".join(chosen).strip() or "And that is the strange part").rstrip(".!?")+"."
 
 def _remove_existing_continuation(narration,next_topic):
     topic_key=_normalise_topic_text(next_topic); kept=[]
@@ -71,7 +72,7 @@ def lock_next_topic(script,current_topic):
     used=[str(current_topic)]; used.extend(item for item in _read_used() if not str(item).startswith(_PENDING_PREFIX))
     if validate_topic_for_pipeline(candidate,used=used,check_duplicate=True): canonical=candidate
     else: canonical=_generate_topic(used)
-    if not validate_topic_for_pipeline(canonical,used=used,check_duplicate=True): raise RuntimeError(f"Could not create a valid canonical next topic: {canonical}")
+    if not validate_topic_for_pipeline(canonical,used=used,check_duplicate=True): raise RuntimeError(f"Could not create valid canonical next topic: {canonical}")
     if _word_count(canonical)>7:
         canonical=_generate_topic(used)
         if _word_count(canonical)>7: raise RuntimeError(f"Generated continuation is still too long: {canonical}")
@@ -99,10 +100,39 @@ def build_youtube_metadata(script):
     if hashtags: description=f"{description}\n\n{' '.join(hashtags)}"
     return title,description[:4500]
 
+def refresh_learning_before_generation():
+    """Refresh live YouTube metrics before the next script is generated.
+
+    This is intentionally best-effort: analytics must improve publishing, never
+    become a reason the production pipeline cannot publish. The analytics module
+    materializes the durable upload markers in used_topics.json, so older Shorts
+    recorded before analytics/videos.json existed are also learned from.
+    """
+    print("="*80); print("📊 REFRESHING LIVE YOUTUBE ANALYTICS BEFORE GENERATION"); print("="*80)
+    try:
+        from youtube_analytics import refresh_registry
+        summary=refresh_registry()
+        print(f"📊 Analytics refreshed: {summary.get('video_count',0)} videos | optimization_ready={summary.get('optimization_ready',False)}")
+    except Exception as error:
+        print(f"⚠️ Live analytics refresh unavailable: {type(error).__name__}: {error}")
+        print("⚠️ Continuing with the last saved learning state.")
+    try:
+        playbook=refresh_playbook()
+        print(f"🧠 Learning playbook refreshed: {playbook.get('video_count',0)} videos | learning_ready={playbook.get('learning_ready',False)}")
+    except Exception as error:
+        print(f"⚠️ Learning playbook refresh unavailable: {type(error).__name__}: {error}")
+
+
 def run(dry_run=False):
     config=load_config()
     print("="*80); print("🚀 MINT-YT-FACTORY — ENTERTAINMENT-FIRST + SELF-LEARNING"); print("="*80)
     print("🧠 Self-learning: ENABLED"); print("📈 Objective: views + subscriber growth + YPP readiness"); print("🔁 Learning strategy: 70% proven patterns / 20% adjacent experiments / 10% wild experiments"); print("🚫 Duplicate-topic protection: ENABLED")
+
+    # Critical ordering: analytics -> learning -> topic/story generation.
+    # The previous implementation only refreshed learning after upload, which
+    # meant a production run could generate from an empty/stale playbook.
+    refresh_learning_before_generation()
+
     topic=get_next_topic()
     if not topic: raise RuntimeError("No topic available.")
     print(f"🎯 CURRENT TOPIC: {topic}")

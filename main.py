@@ -44,27 +44,48 @@ def _topic_is_same(a,b): return _normalise_topic_text(a)==_normalise_topic_text(
 def _word_count(value): return len(re.findall(r"\b[\w'-]+\b",str(value or "")))
 def _split_sentences(text): return [p.strip() for p in re.split(r"(?<=[.!?])\s+",str(text or "").strip()) if p.strip()]
 
-def _compact_payoff(narration,max_words=10):
-    sentences=_split_sentences(narration); chosen=[]; total=0
-    for sentence in reversed(sentences):
-        if re.search(r"\b(next video|coming next|stay tuned|part 2)\b",sentence,re.I): continue
-        words=_word_count(sentence)
-        if not words: continue
-        if total+words<=max_words: chosen.insert(0,sentence.rstrip(".!? ")); total+=words
-        elif not chosen: chosen.insert(0," ".join(re.findall(r"\S+",sentence)[:max_words]).rstrip(".!? ")); break
-        else: break
-    return (" ".join(chosen).strip() or "And that is the strange part").rstrip(".!?")+"."
+def _looks_like_future_topic_teaser(sentence):
+    """Return True for a sentence that introduces another/future curiosity.
+
+    Scene 7 is allowed to contain exactly one continuation topic. Gemini can
+    occasionally invent an extra curiosity before the canonical continuation
+    sentence (for example: "Wonder why ice cubes crack..."). Such sentences
+    are not part of the current story payoff and must never reach TTS/captions.
+    """
+    text=str(sentence or "").strip()
+    if not text: return False
+    patterns=(
+        r"^(?:and\s+)?next\b",
+        r"^wonder\s+why\b",
+        r"^ever\s+wonder\s+why\b",
+        r"^curious\s+(?:why|how|what|when)\b",
+        r"^why\s+(?:do|does|is|are|can|doesn['’]t|isn['’]t)\b",
+        r"^how\s+(?:do|does|is|are|can|come)\b",
+        r"^what\s+(?:makes|happens|causes|would|if)\b",
+        r"^watch\s+what\s+happens\b",
+        r"\b(?:next\s+video|coming\s+next|stay\s+tuned|part\s+2)\b",
+    )
+    return any(re.search(pattern,text,re.I) for pattern in patterns)
 
 def _remove_existing_continuation(narration,next_topic):
     topic_key=_normalise_topic_text(next_topic); kept=[]
     for sentence in _split_sentences(narration):
         key=_normalise_topic_text(sentence)
         if topic_key and topic_key in key: continue
-        if re.search(r"\b(bigger question|one more thing to wonder about|next video|coming next|stay tuned|part 2)\b",sentence,re.I): continue
+        if _looks_like_future_topic_teaser(sentence): continue
+        if re.search(r"\b(bigger question|one more thing to wonder about)\b",sentence,re.I): continue
         kept.append(sentence)
     return " ".join(kept).strip()
 
 def _build_locked_final_sentence(next_topic): return f"And next: {next_topic}."
+
+def _final_scene_has_only_one_continuation_topic(narration,canonical):
+    """Hard safety check: Scene 7 may contain only the canonical next topic."""
+    sentences=_split_sentences(narration)
+    canonical_key=_normalise_topic_text(canonical)
+    continuation_sentences=[s for s in sentences if _looks_like_future_topic_teaser(s)]
+    if len(continuation_sentences)!=1: return False
+    return canonical_key and canonical_key in _normalise_topic_text(continuation_sentences[0])
 
 def lock_next_topic(script,current_topic):
     next_short=script.get("next_short") or {}; candidate=str(next_short.get("topic","")).strip()
@@ -79,14 +100,35 @@ def lock_next_topic(script,current_topic):
     script["next_short"]["topic"]=canonical; script["next_short"]["teaser"]=_build_locked_final_sentence(canonical)
     scenes=script.get("scene_plan")
     if not isinstance(scenes,list) or len(scenes)!=7: raise RuntimeError("Script must contain exactly 7 scenes.")
-    final_scene=scenes[-1]; base=_remove_existing_continuation(str(final_scene.get("narration","")).strip(),canonical)
-    final_scene["narration"]=f"{_compact_payoff(base,10)} {_build_locked_final_sentence(canonical)}".strip(); final_scene["subtitle_text"]=final_scene["narration"]; final_scene["pause_after_ms"]=250; final_scene["emotional_tone"]="satisfied"; final_scene["music_cue"]="fade_out"
+    final_scene=scenes[-1]
+
+    # Gemini may return an extra future curiosity inside Scene 7 even though
+    # the schema asks for one continuation topic. Strip ALL future-topic-like
+    # sentences first, then append exactly one canonical continuation.
+    base=_remove_existing_continuation(str(final_scene.get("narration","")).strip(),canonical)
+    if not base: base="And that is the strange part"
+    final_scene["narration"]=f"{_compact_payoff(base,10)} {_build_locked_final_sentence(canonical)}".strip()
+    final_scene["subtitle_text"]=final_scene["narration"]
+    final_scene["pause_after_ms"]=250; final_scene["emotional_tone"]="satisfied"; final_scene["music_cue"]="fade_out"
     teaser_words=re.findall(r"\b[\w'-]+\b",canonical); final_scene["caption_highlights"]=[{"word":w,"emphasis":"strong"} for w in teaser_words[:3]] or [{"word":canonical.split()[0],"emphasis":"strong"}]; final_scene["emphasis_word"]=teaser_words[0] if teaser_words else canonical.split()[0]
     canonical_key=_normalise_topic_text(canonical)
     if canonical_key not in _normalise_topic_text(final_scene["narration"]): raise RuntimeError("Canonical next topic was not inserted into final narration.")
     for scene in scenes[:6]:
         if canonical_key and canonical_key in _normalise_topic_text(scene.get("narration","")): raise RuntimeError("Next topic appeared before Scene 7.")
+    if not _final_scene_has_only_one_continuation_topic(final_scene["narration"],canonical):
+        raise RuntimeError("Scene 7 contains more than one future-topic teaser; continuation integrity failed.")
     print(f"🔒 Canonical next topic: {canonical}"); print(f"🗣️ FINAL SPOKEN TEASE: {final_scene['narration']}"); return script,canonical
+
+def _compact_payoff(narration,max_words=10):
+    sentences=_split_sentences(narration); chosen=[]; total=0
+    for sentence in reversed(sentences):
+        if _looks_like_future_topic_teaser(sentence): continue
+        words=_word_count(sentence)
+        if not words: continue
+        if total+words<=max_words: chosen.insert(0,sentence.rstrip(".!? ")); total+=words
+        elif not chosen: chosen.insert(0," ".join(re.findall(r"\S+",sentence)[:max_words]).rstrip(".!? ")); break
+        else: break
+    return (" ".join(chosen).strip() or "And that is the strange part").rstrip(".!?")+"."
 
 def write_continuation_manifest(current_topic,next_topic,status,workdir=""):
     save_json({"status":status,"current_topic":current_topic,"next_topic":next_topic,"workdir":workdir,"updated_at":int(time.time())},CONTINUATION_MANIFEST)
@@ -101,13 +143,7 @@ def build_youtube_metadata(script):
     return title,description[:4500]
 
 def refresh_learning_before_generation():
-    """Refresh live YouTube metrics before the next script is generated.
-
-    This is intentionally best-effort: analytics must improve publishing, never
-    become a reason the production pipeline cannot publish. The analytics module
-    materializes the durable upload markers in used_topics.json, so older Shorts
-    recorded before analytics/videos.json existed are also learned from.
-    """
+    """Refresh live YouTube metrics before the next script is generated."""
     print("="*80); print("📊 REFRESHING LIVE YOUTUBE ANALYTICS BEFORE GENERATION"); print("="*80)
     try:
         from youtube_analytics import refresh_registry
@@ -127,12 +163,7 @@ def run(dry_run=False):
     config=load_config()
     print("="*80); print("🚀 MINT-YT-FACTORY — ENTERTAINMENT-FIRST + SELF-LEARNING"); print("="*80)
     print("🧠 Self-learning: ENABLED"); print("📈 Objective: views + subscriber growth + YPP readiness"); print("🔁 Learning strategy: 70% proven patterns / 20% adjacent experiments / 10% wild experiments"); print("🚫 Duplicate-topic protection: ENABLED")
-
-    # Critical ordering: analytics -> learning -> topic/story generation.
-    # The previous implementation only refreshed learning after upload, which
-    # meant a production run could generate from an empty/stale playbook.
     refresh_learning_before_generation()
-
     topic=get_next_topic()
     if not topic: raise RuntimeError("No topic available.")
     print(f"🎯 CURRENT TOPIC: {topic}")

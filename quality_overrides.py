@@ -2,12 +2,12 @@
 from __future__ import annotations
 import inspect
 import re
+
 FILLER={"the","a","an","and","or","but","so","because","that","this","these","those","your","you","yourself","is","are","was","were","be","been","being","to","of","in","on","at","for","from","with","into","over","under","it","its","they","them","their","there","here","just","really","very","then","than","when","where","what","why","how","do","does","did","can","could","will","would","should","has","have","had","as","like","about","one","two","three","some","any","even","also","still"}
-# TikTok en_us_010 in the current pipeline speaks ~3.4 words/sec.
-# Generate 118-128 words before the locked teaser so the final narration is
-# normally ~125-140 words / ~37-42 seconds.
-MIN_STORY_WORDS=118
-MAX_STORY_WORDS=128
+
+# Word count is a soft generation guard only. Actual TTS duration is authoritative.
+MIN_STORY_WORDS=100
+MAX_STORY_WORDS=145
 MAX_REGEN_ATTEMPTS=3
 
 def _words(text): return re.findall(r"\b[\w'-]+\b",str(text or ""))
@@ -55,15 +55,19 @@ def patch_story_quality(main):
     original=main.generate_script
     def generate_script(topic,config,research=None,extra_feedback=""):
         last=None
-        for _ in range(MAX_REGEN_ATTEMPTS):
+        for attempt in range(1,MAX_REGEN_ATTEMPTS+1):
             feedback=extra_feedback or ""
-            if last: feedback+="\nThe previous draft was too short for the narrator. Rewrite the ENTIRE story for a natural 37-42 second narration. Target 118-128 words BEFORE the final next-topic teaser. Add concrete visual action, escalation and a satisfying payoff, not scientific filler."
+            if last:
+                feedback += "\nThe previous draft was outside the preferred length. Rewrite the ENTIRE story naturally. Aim for roughly 105-135 words before the final next-topic teaser. Prioritize a punchy hook, concrete everyday details, escalation and a satisfying payoff. Do not pad with scientific filler."
             script=_call_original(original,topic,config,research,feedback); _sanitize_final_scene(script); total=_word_total(script)
-            print(f"🧮 Story length: {total} words (target pre-teaser {MIN_STORY_WORDS}-{MAX_STORY_WORDS}; final target ~125-140 words)")
+            print(f"🧮 Story length: {total} words (soft production range {MIN_STORY_WORDS}-{MAX_STORY_WORDS}; TTS duration is authoritative)")
             if MIN_STORY_WORDS<=total<=MAX_STORY_WORDS:
                 _refresh_highlights(script); _add_visual_contract_fields(script); return script
-            last=f"story length {total} words outside {MIN_STORY_WORDS}-{MAX_STORY_WORDS}"; print(f"⚠️ Story length rejected: {last}")
-        raise RuntimeError(f"Could not generate a production-length story after {MAX_REGEN_ATTEMPTS} attempts.")
+            last=f"story length {total} words outside soft range {MIN_STORY_WORDS}-{MAX_STORY_WORDS}"; print(f"⚠️ Story length outside soft range: {last}")
+            if attempt==MAX_REGEN_ATTEMPTS:
+                print("⚠️ Accepting final draft; real TTS duration will decide production viability.")
+                _refresh_highlights(script); _add_visual_contract_fields(script); return script
+        raise RuntimeError("Unreachable story generation state")
     main.generate_script=generate_script
 
 def patch_visual_diversity(generate_media_module):

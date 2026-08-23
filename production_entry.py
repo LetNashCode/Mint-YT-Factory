@@ -56,12 +56,6 @@ def _patch_pexels_metadata(main):
     main.build_youtube_metadata=build
 
 def _patch_pexels_video_assembly():
-    """Add Pexels video support without risking startup failure.
-
-    This wrapper used to define the function as `build_animated_image` but then
-    assign the non-existent local name `build`, causing NameError before the
-    production run even reached script generation.
-    """
     import os,assemble
     from moviepy.editor import VideoFileClip
     from moviepy.video.fx.all import loop
@@ -75,29 +69,24 @@ def _patch_pexels_video_assembly():
         clip=VideoFileClip(image_path,audio=False)
         try:
             clip=loop(clip,duration=duration) if clip.duration<duration else clip.subclip(0,duration)
-            scale=max(width/clip.w,height/clip.h)
-            clip=clip.resize(scale)
+            scale=max(width/clip.w,height/clip.h);clip=clip.resize(scale)
             crop_x=max(0,int((clip.w-width)/2));crop_y=max(0,int((clip.h-height)/2))
             return clip.crop(x1=crop_x,y1=crop_y,x2=crop_x+width,y2=crop_y+height).set_duration(duration).set_position("center")
         except Exception:
-            clip.close()
-            raise
-    build_animated_image._mint_pexels_video_support=True
-    assemble.build_animated_image=build_animated_image
+            clip.close();raise
+    build_animated_image._mint_pexels_video_support=True;assemble.build_animated_image=build_animated_image
 
 def main_entry():
     import main,generate_images
     patch_story_style();patch_story_quality(main);patch_continuation(main);patch_tts_result(main);patch_visuals(generate_images)
     _patch_tts_duration(main);_patch_pexels_media(main,generate_images);_patch_pexels_metadata(main);_patch_pexels_video_assembly()
-    print("="*80);print("🧩 MINT-YT-FACTORY PRODUCTION MEDIA + STORY QUALITY v5.1");print("="*80)
-    print("Visual selection: exact scientific/geometric → Pollinations FLUX | ordinary real-world → Gemini-verified Pexels")
-    print("Pexels: ONE Gemini ranking call per shot; keyword/URL score alone cannot select media")
-    print("Gemini 429: Pexels rejected → FLUX, never weak stock fallback")
-    print("Per-image Gemini gate: DISABLED; prevents 15 RPM quota exhaustion")
-    print("Post-selection 14-image Gemini QC: DISABLED; selection itself is verified")
+    print("="*80);print("🧩 MINT-YT-FACTORY PRODUCTION MEDIA + STORY QUALITY v5.2");print("="*80)
+    print("Visual selection: Pexels verified VIDEO → Pexels verified PHOTO only")
+    print("Pollinations FLUX: DISABLED — no generated-image fallback")
+    print("Gemini: visual verification/ranking of Pexels candidates only")
+    print("Pexels API key:","AVAILABLE" if os.environ.get("PEXELS_API_KEY") else "NOT CONFIGURED")
     print("Story: soft 100-145 words / TTS-authoritative 35-44 seconds")
     print("Captions: Whisper word timing → deterministic fallback if Whisper fails")
     print("TTS duration guard: ENABLED")
-    print("Pexels API key:","AVAILABLE" if os.environ.get("PEXELS_API_KEY") else "NOT CONFIGURED — FLUX fallback active")
     print("="*80);main.run(dry_run=False)
 if __name__=="__main__":main_entry()

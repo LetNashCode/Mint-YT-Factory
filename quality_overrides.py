@@ -1,11 +1,4 @@
-"""Quality controls layered onto the existing Mint-YT-Factory pipeline.
-
-IMPORTANT: this layer must remain compatible with the runtime-patched
-``main.generate_script`` installed by sitecustomize.py.  The runtime wrapper
-currently exposes the legacy 3-argument signature, so this module deliberately
-uses the public 3-argument call and treats word count as a soft signal.
-Actual TikTok TTS duration is the production truth.
-"""
+"""Quality controls layered onto the existing Mint-YT-Factory pipeline."""
 from __future__ import annotations
 import re
 
@@ -17,6 +10,10 @@ FILLER = {
     "why","how","do","does","did","can","could","will","would","should","has","have",
     "had","as","like","about","one","two","three","some","any","even","also","still",
 }
+
+MIN_STORY_WORDS = 105
+MAX_STORY_WORDS = 120
+MAX_REGEN_ATTEMPTS = 3
 
 
 def _words(text):
@@ -68,36 +65,81 @@ def _add_visual_contract_fields(script):
                 )
 
 
-def patch_story_quality(main):
-    """Patch script output without breaking the existing runtime wrapper.
+def _sanitize_final_scene(script):
+    """Remove stale continuation fragments before runtime continuation locking.
 
-    Do NOT call main.generate_script with four positional arguments here.
-    sitecustomize.py wraps that function with a legacy 3-argument signature.
-    Word count is only used to report/validate natural output; we intentionally
-    avoid repeated regeneration because TTS timing is the authoritative test.
+    Gemini sometimes appends an old teaser or an unrelated 'which is why ...'
+    clause to Scene 7. The continuation layer must own Scene 7's final sentence,
+    so remove those fragments deterministically before it builds the new teaser.
     """
+    scenes = script.get("scene_plan") or []
+    if not scenes:
+        return
+    scene = scenes[-1]
+    text = str(scene.get("narration", "")).strip()
+    if not text:
+        return
+
+    # Anything after these markers is not allowed to survive into the final
+    # payoff. This catches stale teasers and dangling cross-topic explanations.
+    text = re.split(
+        r"\b(?:and\s+next\s*:|next\s+(?:video|short|topic)\s*:|coming\s+next\b|stay\s+tuned\b|part\s*2\b)",
+        text,
+        maxsplit=1,
+        flags=re.I,
+    )[0].strip()
+
+    # Remove a trailing cross-topic causal clause. A final payoff should state
+    # the current story's conclusion, not suddenly explain another phenomenon.
+    text = re.split(
+        r"\s+(?:which|and\s+that)\s+(?:is\s+)?(?:also\s+)?why\b",
+        text,
+        maxsplit=1,
+        flags=re.I,
+    )[0].strip()
+    text = re.split(
+        r"\s+(?:and\s+that'?s\s+why|which\s+means)\b",
+        text,
+        maxsplit=1,
+        flags=re.I,
+    )[0].strip()
+
+    if text:
+        scene["narration"] = text.rstrip(".!? ") + "."
+        scene["subtitle_text"] = scene["narration"]
+
+
+def patch_story_quality(main):
+    """Make story duration a real production gate, not a soft suggestion."""
     original = main.generate_script
 
     def generate_script(topic, config, research=None, extra_feedback=""):
-        # Compatibility rule: always call the installed public wrapper using
-        # its stable 3-argument API.  The existing generate_script prompt is
-        # already entertainment-first and the runtime wrapper adds the hard
-        # coherence/visual rules.
-        script = original(topic, config, research)
-        total = _word_total(script)
-        print(f"🧮 Story length: {total} words (soft target 115-140; TTS duration is authoritative)")
+        last = None
+        for attempt in range(1, MAX_REGEN_ATTEMPTS + 1):
+            feedback = extra_feedback or ""
+            if last:
+                feedback += (
+                    "\nThe previous draft failed production length validation. "
+                    "Rewrite the ENTIRE story for a natural 38-43 second narration. "
+                    "Do not add filler. Expand the mystery, example, escalation and payoff."
+                )
+            script = original(topic, config, research)
+            _sanitize_final_scene(script)
+            total = _word_total(script)
+            print(
+                f"🧮 Story length: {total} words "
+                f"(hard target {MIN_STORY_WORDS}-{MAX_STORY_WORDS}; target narration ~38-43s)"
+            )
+            if MIN_STORY_WORDS <= total <= MAX_STORY_WORDS:
+                _refresh_highlights(script)
+                _add_visual_contract_fields(script)
+                return script
+            last = f"story length {total} words outside {MIN_STORY_WORDS}-{MAX_STORY_WORDS}"
+            print(f"⚠️ Story length rejected: {last}")
 
-        # Only reject genuinely abnormal output. Do not fail a good natural
-        # story merely because Gemini produced fewer/more words than the soft
-        # planning target.
-        if total < 100 or total > 155:
-            print(f"⚠️ Story length outside preferred range: {total} words")
-            # Keep the pipeline alive for natural Gemini output. The subsequent
-            # TTS duration check remains the real production gate.
-
-        _refresh_highlights(script)
-        _add_visual_contract_fields(script)
-        return script
+        raise RuntimeError(
+            f"Could not generate a production-length story after {MAX_REGEN_ATTEMPTS} attempts."
+        )
 
     main.generate_script = generate_script
 

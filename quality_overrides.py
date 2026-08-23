@@ -2,10 +2,12 @@
 from __future__ import annotations
 import inspect
 import re
-
 FILLER={"the","a","an","and","or","but","so","because","that","this","these","those","your","you","yourself","is","are","was","were","be","been","being","to","of","in","on","at","for","from","with","into","over","under","it","its","they","them","their","there","here","just","really","very","then","than","when","where","what","why","how","do","does","did","can","could","will","would","should","has","have","had","as","like","about","one","two","three","some","any","even","also","still"}
-MIN_STORY_WORDS=105
-MAX_STORY_WORDS=120
+# TikTok en_us_010 in the current pipeline speaks ~3.4 words/sec.
+# Generate 118-128 words before the locked teaser so the final narration is
+# normally ~125-140 words / ~37-42 seconds.
+MIN_STORY_WORDS=118
+MAX_STORY_WORDS=128
 MAX_REGEN_ATTEMPTS=3
 
 def _words(text): return re.findall(r"\b[\w'-]+\b",str(text or ""))
@@ -17,7 +19,6 @@ def _meaningful(text):
     return out
 
 def _word_total(script): return sum(len(_words(scene.get("narration",""))) for scene in script.get("scene_plan",[]))
-
 def _refresh_highlights(script):
     for index,scene in enumerate(script.get("scene_plan") or []):
         words=_meaningful(scene.get("narration","")); chosen=words[:3]
@@ -44,13 +45,10 @@ def _sanitize_final_scene(script):
     if text: scene["narration"]=text.rstrip(".!? ")+"."; scene["subtitle_text"]=scene["narration"]
 
 def _call_original(original,topic,config,research,feedback):
-    """Pass learning feedback only when the underlying generator supports it."""
     try:
         params=inspect.signature(original).parameters
-        if "extra_feedback" in params or any(p.kind==inspect.Parameter.VAR_KEYWORD for p in params.values()):
-            return original(topic,config,research,extra_feedback=feedback)
-    except (TypeError,ValueError):
-        pass
+        if "extra_feedback" in params or any(p.kind==inspect.Parameter.VAR_KEYWORD for p in params.values()): return original(topic,config,research,extra_feedback=feedback)
+    except (TypeError,ValueError): pass
     return original(topic,config,research)
 
 def patch_story_quality(main):
@@ -59,9 +57,9 @@ def patch_story_quality(main):
         last=None
         for _ in range(MAX_REGEN_ATTEMPTS):
             feedback=extra_feedback or ""
-            if last: feedback+="\nThe previous draft failed production length validation. Rewrite the ENTIRE story for a natural 38-43 second narration. Do not add filler. Expand the mystery, concrete demonstration, escalation and payoff. Keep the final continuation sentence short."
+            if last: feedback+="\nThe previous draft was too short for the narrator. Rewrite the ENTIRE story for a natural 37-42 second narration. Target 118-128 words BEFORE the final next-topic teaser. Add concrete visual action, escalation and a satisfying payoff, not scientific filler."
             script=_call_original(original,topic,config,research,feedback); _sanitize_final_scene(script); total=_word_total(script)
-            print(f"🧮 Story length: {total} words (hard target {MIN_STORY_WORDS}-{MAX_STORY_WORDS}; target narration ~38-43s)")
+            print(f"🧮 Story length: {total} words (target pre-teaser {MIN_STORY_WORDS}-{MAX_STORY_WORDS}; final target ~125-140 words)")
             if MIN_STORY_WORDS<=total<=MAX_STORY_WORDS:
                 _refresh_highlights(script); _add_visual_contract_fields(script); return script
             last=f"story length {total} words outside {MIN_STORY_WORDS}-{MAX_STORY_WORDS}"; print(f"⚠️ Story length rejected: {last}")

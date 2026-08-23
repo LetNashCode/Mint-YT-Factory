@@ -3,7 +3,6 @@ from __future__ import annotations
 import argparse,json,os
 from datetime import datetime,timezone
 from pathlib import Path
-from typing import Any
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 
@@ -11,14 +10,17 @@ ROOT=Path(__file__).resolve().parent; ANALYTICS_DIR=ROOT/'analytics'; REGISTRY_P
 
 def _utc_now(): return datetime.now(timezone.utc).isoformat()
 def _load(path,default):
-    try: return json.loads(path.read_text(encoding='utf-8')) if path.exists() else default
-    except Exception: return default
+    try:return json.loads(path.read_text(encoding='utf-8')) if path.exists() else default
+    except Exception:return default
+
 def _write(path,data):
     ANALYTICS_DIR.mkdir(parents=True,exist_ok=True); tmp=path.with_suffix(path.suffix+'.tmp'); tmp.write_text(json.dumps(data,indent=2,ensure_ascii=False)+'\n',encoding='utf-8'); tmp.replace(path)
+
 def _credentials():
     raw=os.environ.get('YOUTUBE_TOKEN_JSON')
     if not raw: raise RuntimeError('YOUTUBE_TOKEN_JSON is missing.')
     return Credentials.from_authorized_user_info(json.loads(raw))
+
 def _youtube_service(): return build('youtube','v3',credentials=_credentials(),cache_discovery=False)
 
 def _read_registry_markers():
@@ -27,35 +29,35 @@ def _read_registry_markers():
     for item in raw:
         if isinstance(item,str) and item.startswith(ANALYTICS_MARKER):
             try:
-                record=json.loads(item[len(ANALYTICS_MARKER):]);
+                record=json.loads(item[len(ANALYTICS_MARKER):])
                 if isinstance(record,dict) and record.get('video_id'): out.append(record)
             except Exception: pass
     return out
 
 def _persist_registry_marker(record):
     raw=_load(USED_TOPICS_PATH,[]); raw=raw if isinstance(raw,list) else []; vid=str(record.get('video_id',''))
-    if not vid: return
+    if not vid:return
     for item in raw:
         if isinstance(item,str) and item.startswith(ANALYTICS_MARKER):
             try:
-                if json.loads(item[len(ANALYTICS_MARKER):]).get('video_id')==vid: return
-            except Exception: pass
+                if json.loads(item[len(ANALYTICS_MARKER):]).get('video_id')==vid:return
+            except Exception:pass
     raw.append(ANALYTICS_MARKER+json.dumps(record,ensure_ascii=False,separators=(',',':')))
     tmp=USED_TOPICS_PATH.with_suffix('.tmp'); tmp.write_text(json.dumps(raw,indent=2,ensure_ascii=False)+'\n',encoding='utf-8'); tmp.replace(USED_TOPICS_PATH)
 
 def fetch_video_stats(video_ids):
-    if not video_ids: return {}
+    if not video_ids:return {}
     yt=_youtube_service(); result={}
     for start in range(0,len(video_ids),50):
-        batch=[x for x in video_ids[start:start+50] if x]; response=yt.videos().list(part='snippet,statistics,contentDetails',id=','.join(batch),maxResults=50).execute()
+        batch=[x for x in video_ids[start:start+50] if x]
+        response=yt.videos().list(part='snippet,statistics,contentDetails',id=','.join(batch),maxResults=50).execute()
         for item in response.get('items',[]):
             stats=item.get('statistics',{}); snippet=item.get('snippet',{})
             result[item['id']]={'title':snippet.get('title',''),'published_at':snippet.get('publishedAt'),'views':int(stats.get('viewCount',0)),'likes':int(stats.get('likeCount',0)),'comments':int(stats.get('commentCount',0)),'duration':item.get('contentDetails',{}).get('duration')}
     return result
 
 def fetch_analytics_metrics(video_ids):
-    """Best-effort retention/subscriber metrics. Requires yt-analytics.readonly."""
-    if not video_ids: return {}
+    if not video_ids:return {}
     try:
         yt=build('youtubeAnalytics','v2',credentials=_credentials(),cache_discovery=False); out={}
         for vid in video_ids:
@@ -67,18 +69,16 @@ def fetch_analytics_metrics(video_ids):
             except Exception as exc: print(f'⚠️ Analytics metrics unavailable for {vid}: {exc}')
         return out
     except Exception as exc:
-        print(f'⚠️ YouTube Analytics API scope unavailable; using Data API metrics only: {exc}')
+        print(f'⚠️ YouTube Analytics API unavailable: {exc}')
+        print('ℹ️ Re-authorize YOUTUBE_TOKEN_JSON with youtube.readonly and yt-analytics.readonly to enable retention/subscriber learning.')
         return {}
 
 def record_upload(video_id,topic,title,workdir='',production_metadata=None):
-    metadata=production_metadata if isinstance(production_metadata,dict) else {}
-    record={'video_id':video_id,'topic':str(topic or '').strip(),'title':str(title or '').strip(),'workdir':str(workdir or '').strip(),'published_at':_utc_now(),**metadata}
+    metadata=production_metadata if isinstance(production_metadata,dict) else {}; record={'video_id':video_id,'topic':str(topic or '').strip(),'title':str(title or '').strip(),'workdir':str(workdir or '').strip(),'published_at':_utc_now(),**metadata}
     records=_load(REGISTRY_PATH,[]); records=records if isinstance(records,list) else []
     existing=next((x for x in records if isinstance(x,dict) and x.get('video_id')==video_id),None)
-    if existing:
-        existing.update({k:v for k,v in record.items() if v not in ('',None,{})})
-    else:
-        records.append({**record,'latest':{'views':0,'likes':0,'comments':0,'shares':0,'average_view_duration':0,'average_view_percentage':0,'subscribers_gained':0,'subscribers_lost':0},'snapshots':[]})
+    if existing: existing.update({k:v for k,v in record.items() if v not in ('',None,{})})
+    else: records.append({**record,'latest':{'views':0,'likes':0,'comments':0,'shares':0,'average_view_duration':0,'average_view_percentage':0,'subscribers_gained':0,'subscribers_lost':0},'snapshots':[]})
     _write(REGISTRY_PATH,records); _persist_registry_marker(record); print(f'📊 Analytics registry: recorded {video_id}')
 
 def _engagement_rate(v,l,c): return round(((l+c)/v)*100,4) if v>0 else 0.0
@@ -91,27 +91,42 @@ def _materialize_records():
         else: by_id[vid].update({k:v for k,v in marker.items() if v})
     return list(by_id.values())
 
+def _save_materialized_records(records):
+    _write(REGISTRY_PATH,records)
+    return records
+
 def refresh_registry():
     records=_materialize_records()
     if not records:
         summary={'generated_at':_utc_now(),'video_count':0,'optimization_ready':False,'reason':'Need at least 3 published videos before optimizing content.','totals':{},'averages':{},'top_videos':[],'topic_performance':[]}; _write(REGISTRY_PATH,[]); _write(SUMMARY_PATH,summary); return summary
-    ids=[str(x['video_id']) for x in records]; basic=fetch_video_stats(ids); advanced=fetch_analytics_metrics(ids); now=_utc_now()
+    # IMPORTANT: persist durable upload markers BEFORE any network request. If the
+    # token lacks read scopes, the next run still has the complete learning corpus.
+    _save_materialized_records(records)
+    ids=[str(x['video_id']) for x in records]
+    try:
+        basic=fetch_video_stats(ids)
+    except Exception as exc:
+        print(f'⚠️ YouTube Data API unavailable: {exc}')
+        print('ℹ️ Re-authorize YOUTUBE_TOKEN_JSON with youtube.readonly (plus yt-analytics.readonly for retention/subscribers).')
+        existing_summary=_load(SUMMARY_PATH,{})
+        existing_summary.update({'generated_at':_utc_now(),'video_count':len(records),'optimization_ready':len(records)>=3,'reason':'Durable upload registry available; live metrics unavailable until OAuth read scopes are restored.'})
+        _write(SUMMARY_PATH,existing_summary)
+        return existing_summary
+    advanced=fetch_analytics_metrics(ids); now=_utc_now()
     for r in records:
         vid=str(r['video_id']); cur=basic.get(vid)
         if not cur: continue
         r['title']=cur.get('title') or r.get('title',''); r['published_at']=cur.get('published_at') or r.get('published_at')
-        latest={'views':int(cur.get('views',0)),'likes':int(cur.get('likes',0)),'comments':int(cur.get('comments',0)),'engagement_rate':_engagement_rate(int(cur.get('views',0)),int(cur.get('likes',0)),int(cur.get('comments',0))),'checked_at':now}
-        latest.update(advanced.get(vid,{})); r['latest']=latest; snaps=r.get('snapshots',[]); snaps=snaps if isinstance(snaps,list) else []; snaps.append(latest); r['snapshots']=snaps[-60:]
+        latest={'views':int(cur.get('views',0)),'likes':int(cur.get('likes',0)),'comments':int(cur.get('comments',0)),'engagement_rate':_engagement_rate(int(cur.get('views',0)),int(cur.get('likes',0)),int(cur.get('comments',0))),'checked_at':now}; latest.update(advanced.get(vid,{})); r['latest']=latest
+        snaps=r.get('snapshots',[]); snaps=snaps if isinstance(snaps,list) else []; snaps.append(latest); r['snapshots']=snaps[-60:]
     _write(REGISTRY_PATH,records)
     total_views=sum(int(x.get('latest',{}).get('views',0)) for x in records); total_likes=sum(int(x.get('latest',{}).get('likes',0)) for x in records); total_comments=sum(int(x.get('latest',{}).get('comments',0)) for x in records); count=len(records)
     avg={k:round(sum(float(x.get('latest',{}).get(k,0)) for x in records)/count,2) for k in ('views','likes','comments','average_view_percentage','subscribers_gained','shares')}
-    ranked=sorted(records,key=lambda x:int(x.get('latest',{}).get('views',0)),reverse=True)
-    rows=[]
+    ranked=sorted(records,key=lambda x:int(x.get('latest',{}).get('views',0)),reverse=True); rows=[]
     for r in ranked:
         x=r.get('latest',{}); rows.append({'topic':r.get('topic',''),'video_id':r.get('video_id'),'title':r.get('title',''),'views':int(x.get('views',0)),'likes':int(x.get('likes',0)),'comments':int(x.get('comments',0)),'shares':int(x.get('shares',0)),'average_view_duration':float(x.get('average_view_duration',0)),'average_view_percentage':float(x.get('average_view_percentage',0)),'subscribers_gained':int(x.get('subscribers_gained',0)),'subscribers_lost':int(x.get('subscribers_lost',0)),'engagement_rate':float(x.get('engagement_rate',0))})
     summary={'generated_at':now,'video_count':count,'optimization_ready':count>=3,'reason':'' if count>=3 else 'Need at least 3 published videos before optimizing content.','totals':{'views':total_views,'likes':total_likes,'comments':total_comments},'averages':avg,'top_videos':rows[:10],'topic_performance':rows[:50],'optimization_rules':['Learn patterns, never copy winning topics literally.','Optimize for retention and subscriber conversion as well as views.','Prefer strong curiosity gaps and concrete everyday mysteries.','Keep experiments so the model does not overfit to one topic.'] if count>=3 else []}
-    _write(SUMMARY_PATH,summary); print(f'📊 Tracked videos: {count}'); print(f'📊 Total views: {total_views:,}'); print(f'🧠 Optimization ready: {"YES" if count>=3 else "NO"}')
-    return summary
+    _write(SUMMARY_PATH,summary); print(f'📊 Tracked videos: {count}'); print(f'📊 Total views: {total_views:,}'); print(f'🧠 Optimization ready: {"YES" if count>=3 else "NO"}'); return summary
 
 def main():
     parser=argparse.ArgumentParser(); parser.add_argument('--refresh',action='store_true'); args=parser.parse_args()

@@ -45,13 +45,7 @@ def _word_count(value): return len(re.findall(r"\b[\w'-]+\b",str(value or "")))
 def _split_sentences(text): return [p.strip() for p in re.split(r"(?<=[.!?])\s+",str(text or "").strip()) if p.strip()]
 
 def _looks_like_future_topic_teaser(sentence):
-    """Return True for a sentence that introduces another/future curiosity.
-
-    Scene 7 is allowed to contain exactly one continuation topic. Gemini can
-    occasionally invent an extra curiosity before the canonical continuation
-    sentence (for example: "Wonder why ice cubes crack..."). Such sentences
-    are not part of the current story payoff and must never reach TTS/captions.
-    """
+    """Return True for a sentence that introduces another/future curiosity."""
     text=str(sentence or "").strip()
     if not text: return False
     patterns=(
@@ -63,6 +57,7 @@ def _looks_like_future_topic_teaser(sentence):
         r"^how\s+(?:do|does|is|are|can|come)\b",
         r"^what\s+(?:makes|happens|causes|would|if)\b",
         r"^watch\s+what\s+happens\b",
+        r"^(?:then\s+comes|which\s+brings\s+us\s+to|the\s+weird\s+part\??|i['’]?m\s+still\s+wondering)\b",
         r"\b(?:next\s+video|coming\s+next|stay\s+tuned|part\s+2)\b",
     )
     return any(re.search(pattern,text,re.I) for pattern in patterns)
@@ -77,7 +72,23 @@ def _remove_existing_continuation(narration,next_topic):
         kept.append(sentence)
     return " ".join(kept).strip()
 
-def _build_locked_final_sentence(next_topic): return f"And next: {next_topic}."
+def _topic_as_natural_question(next_topic):
+    """Turn a canonical topic into a natural spoken curiosity phrase."""
+    text=re.sub(r"\s+"," ",str(next_topic or "").strip()).rstrip(".!?")
+    # Preserve the canonical topic's meaning while removing announcement-style wording.
+    text=re.sub(r"^why\s+do\s+", "why ", text, flags=re.I)
+    text=re.sub(r"^why\s+does\s+", "why ", text, flags=re.I)
+    text=re.sub(r"^why\s+is\s+", "why ", text, flags=re.I)
+    text=re.sub(r"^why\s+are\s+", "why ", text, flags=re.I)
+    text=re.sub(r"^how\s+do\s+", "how ", text, flags=re.I)
+    text=re.sub(r"^how\s+does\s+", "how ", text, flags=re.I)
+    text=re.sub(r"^what\s+makes\s+", "what makes ", text, flags=re.I)
+    return text.strip()
+
+def _build_locked_final_sentence(next_topic):
+    """Create a natural curiosity bridge instead of an 'And next:' announcement."""
+    question=_topic_as_natural_question(next_topic)
+    return f"Then comes an even weirder question: {question}?"
 
 def _final_scene_has_only_one_continuation_topic(narration,canonical):
     """Hard safety check: Scene 7 may contain only the canonical next topic."""
@@ -85,7 +96,7 @@ def _final_scene_has_only_one_continuation_topic(narration,canonical):
     canonical_key=_normalise_topic_text(canonical)
     continuation_sentences=[s for s in sentences if _looks_like_future_topic_teaser(s)]
     if len(continuation_sentences)!=1: return False
-    return canonical_key and canonical_key in _normalise_topic_text(continuation_sentences[0])
+    return bool(canonical_key and canonical_key in _normalise_topic_text(continuation_sentences[0]))
 
 def lock_next_topic(script,current_topic):
     next_short=script.get("next_short") or {}; candidate=str(next_short.get("topic","")).strip()
@@ -102,9 +113,8 @@ def lock_next_topic(script,current_topic):
     if not isinstance(scenes,list) or len(scenes)!=7: raise RuntimeError("Script must contain exactly 7 scenes.")
     final_scene=scenes[-1]
 
-    # Gemini may return an extra future curiosity inside Scene 7 even though
-    # the schema asks for one continuation topic. Strip ALL future-topic-like
-    # sentences first, then append exactly one canonical continuation.
+    # Gemini may return an extra future curiosity inside Scene 7. Strip every
+    # future-topic-like sentence first, then append exactly one canonical teaser.
     base=_remove_existing_continuation(str(final_scene.get("narration","")).strip(),canonical)
     if not base: base="And that is the strange part"
     final_scene["narration"]=f"{_compact_payoff(base,10)} {_build_locked_final_sentence(canonical)}".strip()

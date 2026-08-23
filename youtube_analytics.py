@@ -70,7 +70,7 @@ def fetch_analytics_metrics(video_ids):
         return out
     except Exception as exc:
         print(f'⚠️ YouTube Analytics API unavailable: {exc}')
-        print('ℹ️ Re-authorize YOUTUBE_TOKEN_JSON with youtube.readonly and yt-analytics.readonly to enable retention/subscriber learning.')
+        print('ℹ️ Re-authorize YOUTUBE_TOKEN_JSON with youtube.upload + youtube.readonly + yt-analytics.readonly.')
         return {}
 
 def record_upload(video_id,topic,title,workdir='',production_metadata=None):
@@ -91,6 +91,13 @@ def _materialize_records():
         else: by_id[vid].update({k:v for k,v in marker.items() if v})
     return list(by_id.values())
 
+def _has_live_metrics(records):
+    for r in records:
+        latest=r.get('latest',{}) if isinstance(r,dict) else {}
+        if any(float(latest.get(k,0) or 0)>0 for k in ('views','likes','comments','average_view_percentage','subscribers_gained','shares')):
+            return True
+    return False
+
 def _save_materialized_records(records):
     _write(REGISTRY_PATH,records)
     return records
@@ -98,18 +105,16 @@ def _save_materialized_records(records):
 def refresh_registry():
     records=_materialize_records()
     if not records:
-        summary={'generated_at':_utc_now(),'video_count':0,'optimization_ready':False,'reason':'Need at least 3 published videos before optimizing content.','totals':{},'averages':{},'top_videos':[],'topic_performance':[]}; _write(REGISTRY_PATH,[]); _write(SUMMARY_PATH,summary); return summary
-    # IMPORTANT: persist durable upload markers BEFORE any network request. If the
-    # token lacks read scopes, the next run still has the complete learning corpus.
+        summary={'generated_at':_utc_now(),'video_count':0,'optimization_ready':False,'live_metrics_ready':False,'reason':'Need published videos before optimizing content.','totals':{},'averages':{},'top_videos':[],'topic_performance':[]}; _write(REGISTRY_PATH,[]); _write(SUMMARY_PATH,summary); return summary
     _save_materialized_records(records)
     ids=[str(x['video_id']) for x in records]
     try:
         basic=fetch_video_stats(ids)
     except Exception as exc:
         print(f'⚠️ YouTube Data API unavailable: {exc}')
-        print('ℹ️ Re-authorize YOUTUBE_TOKEN_JSON with youtube.readonly (plus yt-analytics.readonly for retention/subscribers).')
+        print('ℹ️ Live analytics are NOT refreshed. Run reauthorize_youtube.py and replace YOUTUBE_TOKEN_JSON.')
         existing_summary=_load(SUMMARY_PATH,{})
-        existing_summary.update({'generated_at':_utc_now(),'video_count':len(records),'optimization_ready':len(records)>=3,'reason':'Durable upload registry available; live metrics unavailable until OAuth read scopes are restored.'})
+        existing_summary.update({'generated_at':_utc_now(),'video_count':len(records),'optimization_ready':_has_live_metrics(records),'live_metrics_ready':False,'reason':'Live YouTube metrics unavailable until OAuth read scopes are restored; durable registry remains available.'})
         _write(SUMMARY_PATH,existing_summary)
         return existing_summary
     advanced=fetch_analytics_metrics(ids); now=_utc_now()
@@ -121,12 +126,13 @@ def refresh_registry():
         snaps=r.get('snapshots',[]); snaps=snaps if isinstance(snaps,list) else []; snaps.append(latest); r['snapshots']=snaps[-60:]
     _write(REGISTRY_PATH,records)
     total_views=sum(int(x.get('latest',{}).get('views',0)) for x in records); total_likes=sum(int(x.get('latest',{}).get('likes',0)) for x in records); total_comments=sum(int(x.get('latest',{}).get('comments',0)) for x in records); count=len(records)
+    live_ready=_has_live_metrics(records)
     avg={k:round(sum(float(x.get('latest',{}).get(k,0)) for x in records)/count,2) for k in ('views','likes','comments','average_view_percentage','subscribers_gained','shares')}
     ranked=sorted(records,key=lambda x:int(x.get('latest',{}).get('views',0)),reverse=True); rows=[]
     for r in ranked:
         x=r.get('latest',{}); rows.append({'topic':r.get('topic',''),'video_id':r.get('video_id'),'title':r.get('title',''),'views':int(x.get('views',0)),'likes':int(x.get('likes',0)),'comments':int(x.get('comments',0)),'shares':int(x.get('shares',0)),'average_view_duration':float(x.get('average_view_duration',0)),'average_view_percentage':float(x.get('average_view_percentage',0)),'subscribers_gained':int(x.get('subscribers_gained',0)),'subscribers_lost':int(x.get('subscribers_lost',0)),'engagement_rate':float(x.get('engagement_rate',0))})
-    summary={'generated_at':now,'video_count':count,'optimization_ready':count>=3,'reason':'' if count>=3 else 'Need at least 3 published videos before optimizing content.','totals':{'views':total_views,'likes':total_likes,'comments':total_comments},'averages':avg,'top_videos':rows[:10],'topic_performance':rows[:50],'optimization_rules':['Learn patterns, never copy winning topics literally.','Optimize for retention and subscriber conversion as well as views.','Prefer strong curiosity gaps and concrete everyday mysteries.','Keep experiments so the model does not overfit to one topic.'] if count>=3 else []}
-    _write(SUMMARY_PATH,summary); print(f'📊 Tracked videos: {count}'); print(f'📊 Total views: {total_views:,}'); print(f'🧠 Optimization ready: {"YES" if count>=3 else "NO"}'); return summary
+    summary={'generated_at':now,'video_count':count,'optimization_ready':count>=3 and live_ready,'live_metrics_ready':live_ready,'reason':'' if count>=3 and live_ready else ('Live metrics unavailable; re-authorize YOUTUBE_TOKEN_JSON.' if not live_ready else 'Need at least 3 published videos before optimizing content.'),'totals':{'views':total_views,'likes':total_likes,'comments':total_comments},'averages':avg,'top_videos':rows[:10],'topic_performance':rows[:50],'optimization_rules':['Learn patterns, never copy winning topics literally.','Optimize for retention and subscriber conversion as well as views.','Prefer strong curiosity gaps and concrete everyday mysteries.','Keep experiments so the model does not overfit to one topic.'] if count>=3 and live_ready else []}
+    _write(SUMMARY_PATH,summary); print(f'📊 Tracked videos: {count}'); print(f'📊 Total views: {total_views:,}'); print(f'🧠 Optimization ready: {"YES" if summary["optimization_ready"] else "NO"}'); return summary
 
 def main():
     parser=argparse.ArgumentParser(); parser.add_argument('--refresh',action='store_true'); args=parser.parse_args()

@@ -2,10 +2,7 @@
 tts.py
 Mint-YT-Factory
 
-Version 8.5 — CHUNKED TIKTOK TTS WITH ROBUST MOVIEPY SPEED CONTROL
-
-Public API compatibility:
-    synthesize_script(script, config, out_dir) -> story.mp3
+Version 8.6 — CHUNKED TIKTOK TTS WITH ADAPTIVE DURATION CONTROL
 """
 
 import os
@@ -16,7 +13,11 @@ from moviepy.editor import AudioFileClip, concatenate_audioclips
 from tiktoktts import TTS
 
 SAMPLE_RATE = 44100
-NARRATION_SPEED = 0.90
+# TikTok voice output varies slightly run-to-run. We target a safe duration
+# below the pipeline's 44.35s hard limit instead of always slowing to 0.90x.
+TARGET_MAX_DURATION = 43.70
+MIN_PLAYBACK_SPEED = 0.95
+MAX_PLAYBACK_SPEED = 1.10
 TIKTOK_MAX_CHARS = 300
 TIKTOK_SAFE_CHARS = 285
 TIKTOK_REQUEST_RETRIES = 4
@@ -111,27 +112,25 @@ def build_tiktok_chunks(text):
     return chunks
 
 
-def apply_narration_speed(clip, speed=NARRATION_SPEED):
-    """Change audio playback speed without relying on MoviePy's missing speedx fx.
-
-    MoviePy 1.0.3 installations used by GitHub Actions do not consistently expose
-    moviepy.audio.fx.all.speedx. A time-domain transform is available on the
-    AudioClip itself and gives the same practical result for narration.
-
-    speed < 1.0 = slower / longer narration.
-    speed > 1.0 = faster / shorter narration.
-    """
-    try:
-        speed = max(0.80, min(float(speed), 1.10))
-    except Exception:
-        speed = 1.0
-    if abs(speed - 1.0) < 0.001:
-        return clip
+def apply_narration_speed(clip):
+    """Adapt playback speed so normal TikTok variance cannot cross 44.35s."""
     try:
         duration = float(clip.duration)
+        # duration / speed <= TARGET_MAX_DURATION
+        required = duration / TARGET_MAX_DURATION if TARGET_MAX_DURATION > 0 else 1.0
+        speed = max(MIN_PLAYBACK_SPEED, required)
+        speed = min(MAX_PLAYBACK_SPEED, speed)
+    except Exception:
+        duration = float(getattr(clip, "duration", 0.0) or 0.0)
+        speed = 1.0
+
+    if abs(speed - 1.0) < 0.001:
+        print(f"✅ Narration speed adjustment not needed ({duration:.2f}s)")
+        return clip
+    try:
         transformed = clip.fl_time(lambda t: t / speed, apply_to=["audio"])
         transformed = transformed.set_duration(duration / speed)
-        print(f"✅ Narration speed adjustment applied: {speed:.2f}x ({duration:.2f}s → {duration / speed:.2f}s)")
+        print(f"✅ Adaptive narration speed: {speed:.3f}x ({duration:.2f}s → {duration / speed:.2f}s)")
         return transformed
     except Exception as error:
         print(f"⚠️ Narration speed adjustment failed: {error}")
@@ -202,7 +201,8 @@ def synthesize_narration(text, config, out_path):
     print(f"Original characters: {len(original_text)}")
     print(f"TTS characters: {len(tts_text)}")
     print(f"Chunks: {len(chunks)}")
-    print(f"Narration speed: {NARRATION_SPEED:.2f}x")
+    print(f"Target max duration: {TARGET_MAX_DURATION:.2f}s")
+    print("Adaptive narration speed: ENABLED")
     print("Sentence-aware chunking: ENABLED")
     print("Transient request retries: ENABLED")
     print("Scene-level TTS: DISABLED")

@@ -1,7 +1,9 @@
-"""Mint-YT-Factory media quality policy v11.
+"""Mint-YT-Factory media quality policy v12.
 
-Relevance-first Pexels selection with a dedicated physical-proxy path for
-boiling/heating/bubble beats. Numeric Gemini score is authoritative.
+Relevance-first Pexels selection with semantic visual-beat sanitization.
+The selector strips unsupported material/detail hallucinations from generated
+visual metadata before constructing stock searches, while Gemini remains the
+final visual relevance judge.
 """
 from __future__ import annotations
 import json, os, re
@@ -11,13 +13,23 @@ _PHENOMENON_QUERIES = [
     (("shockwave", "shockwaves", "sound wave", "sound waves"), ("boiling water bubbles popping", "water bubbles popping close up", "kettle boiling steam close up", "boiling pot close up")),
     (("microscopic drum", "tiny sound waves"), ("boiling water bubbles close up", "bubbles popping in boiling water", "boiling water macro close up")),
     (("millions of tiny bubbles", "tiny bubbles", "vapor bubble", "vapor bubbles"), ("boiling water bubbles close up", "bubbles rising in boiling water", "boiling pot bubbles macro")),
-    (("metal base of kettle", "metal bottom of kettle", "bottom of kettle", "inside bottom of kettle", "inside kettle", "heated metal bottom"), ("glass kettle boiling water close up", "glass electric kettle bubbles close up", "boiling water in glass kettle", "kettle bubbles macro close up", "electric kettle boiling bubbles")),
+    (("metal base of kettle", "metal bottom of kettle", "bottom of kettle", "inside bottom of kettle", "inside kettle", "heated metal bottom"), ("kettle boiling water close up", "kettle bubbles macro close up", "electric kettle boiling bubbles", "boiling water in kettle close up")),
     (("rising tune", "rising pitch", "high pitched hiss", "high-pitched hiss", "low rumble", "deep rumble", "kettle sings", "kettle singing", "piercing shriek", "shriek", "steam jet", "steam jets", "escaping steam", "kettle lid"), ("kettle boiling close up", "kettle steam close up", "boiling kettle on stove", "kettle spout steam", "kettle lid steam", "steam escaping kettle", "boiling water close up")),
-    # Generic physical beats. These must be treated as contextual because stock
-    # footage cannot literally show the sound/heat event described by narration.
     (("boiling water", "boiling bubbles", "bubbles forming", "bubbles at the bottom", "bubbles on the bottom", "large bubbles forming", "small bubbles forming", "hot water bubbling", "heated water", "water heating", "bottom of the pot", "base of the pot", "base of pot"), ("boiling water close up", "boiling water bubbles close up", "bubbles forming in boiling water", "water boiling in pot close up", "boiling pot macro", "kettle boiling close up")),
 ]
 _CONTEXTUAL_PHENOMENA = tuple(x for group in _PHENOMENON_QUERIES for x in group[0])
+
+# Material adjectives frequently invented by the LLM but irrelevant to the spoken beat.
+# They should never become hard requirements for stock footage unless the narration
+# explicitly establishes the material as important.
+_MATERIAL_WORDS = {
+    "copper", "glass", "stainless", "steel", "ceramic", "brass", "silver",
+    "gold", "black", "white", "red", "blue", "green", "rustic", "vintage",
+}
+
+
+def _clean(value):
+    return re.sub(r"\s+", " ", str(value or "")).strip()
 
 
 def _text(scene, visual):
@@ -30,14 +42,54 @@ def _has_any(text, phrases):
 
 def _is_contextual_phenomenon(scene, visual):
     text = _text(scene, visual)
-    # Explicit registered phenomena first, then safe generic physical proxies.
     if _has_any(text, _CONTEXTUAL_PHENOMENA):
         return True
-    # A beat describing water heating/boiling and bubbles is inherently a
-    # physical-proxy beat even when Gemini writes awkward wording such as
-    # "bottom of glass pot". Do not force Pexels to find that exact phrase.
     generic = ("boiling", "bubbles", "bubble", "heating water", "heated water", "hot water")
     return _has_any(text, generic) and _has_any(text, ("water", "pot", "kettle", "bottom", "base"))
+
+
+def _sanitize_visual(scene, visual):
+    """Remove LLM-invented visual specificity that is not supported by narration.
+
+    Example: narration says "bottom is boiling" but Gemini invents
+    "bottom of a glass pot". We keep the actual physical beat (boiling water)
+    and discard the unsupported material so Pexels can find truthful footage.
+    """
+    if not isinstance(visual, dict):
+        return visual
+
+    narration = _clean(scene.get("narration"))
+    spoken = _clean(visual.get("spoken_line"))
+    reference = f"{narration} {spoken}".lower()
+    contextual = _is_contextual_phenomenon(scene, visual)
+
+    if contextual:
+        # Material is retained only when it is explicitly spoken in the narration.
+        spoken_materials = {m for m in _MATERIAL_WORDS if re.search(rf"\b{re.escape(m)}\b", reference)}
+        replacement = {}
+        for key in ("visual_focus", "visual_action", "image_prompt"):
+            value = _clean(visual.get(key))
+            for material in _MATERIAL_WORDS - spoken_materials:
+                value = re.sub(rf"\b{re.escape(material)}\b\s+", "", value, flags=re.I)
+            # Generated "glass pot" / "glass kettle" is especially dangerous
+            # because it sends Pexels toward a different object.
+            if not spoken_materials:
+                value = re.sub(r"\bglass\s+(pot|kettle|vessel)\b", r"\1", value, flags=re.I)
+            replacement[key] = _clean(value)
+        visual.update(replacement)
+
+        must_show = visual.get("must_show")
+        if isinstance(must_show, list) and not spoken_materials:
+            visual["must_show"] = [
+                _clean(re.sub(r"\b(?:copper|glass|stainless|steel|ceramic|brass|silver|gold|rustic|vintage)\b", "", str(x), flags=re.I))
+                for x in must_show
+                if _clean(x)
+            ]
+            visual["must_show"] = [x for x in visual["must_show"] if x]
+
+        visual["visual_contract_note"] = "Material/detail specificity removed unless explicitly supported by narration."
+
+    return visual
 
 
 def _clean_query(value):
@@ -45,6 +97,7 @@ def _clean_query(value):
 
 
 def _expand_queries(pm, scene, visual):
+    visual = _sanitize_visual(scene, visual)
     focus = str(visual.get("visual_focus") or "").strip().lower()
     action = str(visual.get("visual_action") or "").strip().lower()
     must = visual.get("must_show") or []
@@ -58,21 +111,16 @@ def _expand_queries(pm, scene, visual):
         if q and q not in variants:
             variants.append(q)
 
-    # Physical proxies first. Never let an awkward generated object phrase such
-    # as "bottom of glass pot" dominate search when the real beat is boiling water.
     for triggers, replacements in _PHENOMENON_QUERIES:
         if _has_any(raw, triggers):
             for q in replacements:
                 add(q)
 
-    # For generic boiling/bubble beats, deliberately avoid material-specific
-    # searches. This improves relevance and keeps the visual truthful.
     if _has_any(raw, ("boiling", "bubbles", "bubble", "hot water", "heated water")) and _has_any(raw, ("water", "pot", "kettle")):
         for q in ("boiling water close up", "boiling water bubbles close up", "water boiling in pot close up", "boiling pot macro"):
             add(q)
 
-    # Preserve ordinary object/action searches, but cap them after the physical
-    # proxy queries so they cannot crowd out the useful candidates.
+    # Only use literal generated object/action searches after proxy queries.
     for phrase in (focus, action):
         q = _clean_query(phrase)
         if q:
@@ -95,7 +143,7 @@ def _acceptable(item, minimum):
 
 
 def _install_selector(pm):
-    if getattr(pm, "_mint_selector_v11", False):
+    if getattr(pm, "_mint_selector_v12", False):
         return
 
     def select(scene, visual, excluded_pages=None):
@@ -103,6 +151,7 @@ def _install_selector(pm):
         if not pm.headers():
             return None
 
+        visual = _sanitize_visual(scene, visual)
         qs = _expand_queries(pm, scene, visual)
         required = pm.tokens(_text(scene, visual))
         actions = pm.action_tokens(_text(scene, visual))
@@ -147,7 +196,7 @@ def _install_selector(pm):
         return None
 
     pm._select = select
-    pm._mint_selector_v11 = True
+    pm._mint_selector_v12 = True
 
 
 def _assert_complete(groups):
@@ -162,7 +211,7 @@ def _assert_complete(groups):
 
 def patch_media_selection(media):
     original_generate = media.generate_media
-    if getattr(original_generate, "_mint_media_policy_v11", False):
+    if getattr(original_generate, "_mint_media_policy_v12", False):
         return
     import pexels_media
     _install_selector(pexels_media)
@@ -180,9 +229,10 @@ def patch_media_selection(media):
                 "ordinary_minimum_gemini_visual_score": 8,
                 "contextual_science_minimum_gemini_visual_score": 6,
                 "physical_proxy_beats": "boiling_heating_bubbles",
+                "visual_specificity_sanitization": "enabled",
             }, h, ensure_ascii=False, indent=2)
-        print("🧠 Media policy v11: physical boiling/bubble proxy path enabled | numeric Gemini score controls acceptance")
+        print("🧠 Media policy v12: visual specificity sanitization + physical proxy path enabled")
         return groups
 
-    generate_media._mint_media_policy_v11 = True
+    generate_media._mint_media_policy_v12 = True
     media.generate_media = generate_media

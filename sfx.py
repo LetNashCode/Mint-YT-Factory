@@ -1,8 +1,7 @@
 """Story-aware SFX selector.
 
-Prefers real cached SFX downloaded by sfx_assets.py. Uses the original
-commercial-safe FAAA/HUH reaction generator for genuinely comedic beats, and
-falls back to the existing procedural effects when a real asset is unavailable.
+Guarantees one FAAA reaction per Short and places effects at meaningful
+narrative beats instead of using a fixed offset for every scene.
 """
 from __future__ import annotations
 import os, math, random, struct, wave
@@ -56,35 +55,45 @@ def _procedural(kind):
             for i,v in enumerate(tone):
                 if off+i<len(parts):parts[off+i]+=v
         return parts
-    n=int(.42*SAMPLE_RATE);noise=_noise(.42,.20,2.2,11);out=[];phase=0
-    for i,x in enumerate(noise):
-        p=i/max(1,n-1);phase+=2*math.pi*(180+1050*p)/SAMPLE_RATE
-        out.append(x+32767*.11*math.sin(phase)*(p**.8)*(1-p*.15))
-    return out
+    return _noise(.42,.20,2.2,11)
 
 def _fallback(scene,index):
     text=_clean(scene.get("narration","")).lower()
-    if index==0:return "pop",180
-    if any(x in text for x in ("glass","window","mirror","reflection")):return "glass_ting",220
-    if any(x in text for x in ("crack","break","snap","hit","bang")):return "impact",180
-    if any(x in text for x in ("suddenly","but then","except","actually","turns out")):return "reveal",180
-    if any(x in text for x in ("weird","strange","ridiculous","funny","odd")):return "boing",180
-    if any(x in text for x in ("question","wonder","why","how")) and index>=4:return "suspense",250
-    if any(x in text for x in ("tiny","little","touch","tap","finger","screen","button")):return "tap",160
-    if index in (1,2):return "whoosh",160
-    if index==5:return "reveal",180
-    if index==6:return "sparkle",120
-    return "pop",160
+    if index==0:return "pop",120
+    if any(x in text for x in ("glass","window","mirror","reflection")):return "glass_ting",180
+    if any(x in text for x in ("crack","break","snap","hit","bang")):return "impact",120
+    if any(x in text for x in ("suddenly","but then","except","actually","turns out")):return "reveal",120
+    if any(x in text for x in ("weird","strange","ridiculous","funny","odd")):return "boing",120
+    if any(x in text for x in ("question","wonder","why","how")) and index>=4:return "suspense",160
+    if any(x in text for x in ("tiny","little","touch","tap","finger","screen","button")):return "tap",100
+    if index in (1,2):return "whoosh",120
+    if index==5:return "reveal",120
+    if index==6:return "sparkle",100
+    return "pop",120
 
 def _is_comedic(scene):
     text=_clean(" ".join(str(scene.get(k,"")) for k in ("narration","spoken_beat","physical_action","visual_prompt"))).lower()
-    return any(x in text for x in ("funny","ridiculous","absurd","hilarious","faaa","what?!","wait","no way","insane","bonkers","wild"))
+    return any(x in text for x in ("funny","ridiculous","absurd","hilarious","faaa","what?!","wait","no way","insane","bonkers","wild","seriously"))
+
+def _scene_strength(scene,index):
+    text=_clean(" ".join(str(scene.get(k,"")) for k in ("narration","spoken_beat","physical_action","visual_prompt"))).lower()
+    score=index*0.05
+    for phrase,weight in (("suddenly",5),("but then",5),("turns out",5),("actually",4),("wait",5),("what",3),("no way",6),("insane",5),("weird",3),("ridiculous",4),("finally",3),("the truth",5)):
+        if phrase in text: score+=weight
+    if _is_comedic(scene): score+=5
+    if index==0: score-=4
+    return score
+
+def _pick_faaa_scene(scenes):
+    # Prefer the actual punchline/reveal, not automatically Scene 1.
+    ranked=sorted(range(len(scenes)),key=lambda i:_scene_strength(scenes[i],i),reverse=True)
+    return ranked[0] if ranked else min(3,len(scenes)-1)
 
 def generate_sfx(script,output_dir):
     scenes=script.get("scene_plan",[]) if isinstance(script,dict) else []
     if len(scenes)!=7: raise RuntimeError("SFX generation requires exactly 7 scenes.")
     os.makedirs(output_dir,exist_ok=True);paths=[];plan=[]
-    print("="*80);print("🔊 STORY-AWARE SFX — REAL ASSETS + ORIGINAL REACTIONS");print("="*80)
+    print("="*80);print("🔊 STORY-AWARE SFX — NARRATIVE PLACEMENT + MANDATORY FAAA");print("="*80)
     real=[]
     if prepare_real_sfx:
         try:
@@ -95,18 +104,28 @@ def generate_sfx(script,output_dir):
     if ensure_reaction_assets:
         try: reactions=ensure_reaction_assets()
         except Exception as e: print(f"⚠️ Reaction SFX unavailable: {e}")
-    reaction_count=0
+
+    faaa_scene=_pick_faaa_scene(scenes)
+    print(f"😂 FAAA mandatory scene: {faaa_scene+1}")
     for index,scene in enumerate(scenes):
         kind,at_ms=_fallback(scene,index);source="procedural"
-        # Use the original FAAA only for strong comedic moments, max twice.
-        if reaction_count<2 and _is_comedic(scene) and reactions.get("faaa"):
-            path=reactions["faaa"];kind="faaa";at_ms=170 if index==0 else 240;reaction_count+=1;source="original_reaction"
+        if index==faaa_scene and reactions.get("faaa"):
+            path=reactions["faaa"];kind="faaa";source="original_reaction"
+            # Put the reaction after the scene's key spoken beat, not at a blind fixed time.
+            at_ms=scene.get("sfx_cue",{}).get("at_ms",None) if isinstance(scene.get("sfx_cue"),dict) else None
+            if not isinstance(at_ms,(int,float)):
+                at_ms=620 if index>=4 else 520
         elif index<len(real) and real[index] and os.path.exists(real[index]):
-            path=real[index];kind=scene.get("sfx_cue",{}).get("category",kind);source="real_library"
-            at_ms=scene.get("sfx_cue",{}).get("at_ms",at_ms)
+            path=real[index];kind=scene.get("sfx_cue",{}).get("category",kind) if isinstance(scene.get("sfx_cue"),dict) else kind;source="real_library"
+            at_ms=scene.get("sfx_cue",{}).get("at_ms",at_ms) if isinstance(scene.get("sfx_cue"),dict) else at_ms
         else:
             path=os.path.join(output_dir,f"scene_{index+1}_{kind}.wav");_write_wav(path,_procedural(kind))
-        scene["sfx_cue"]={"enabled":True,"type":kind,"source":source,"at_ms":at_ms,"intensity":"medium" if kind in ("impact","faaa","reveal") else "subtle"}
-        paths.append(path);plan.append({"scene":index+1,"type":kind,"source":source,"at_ms":at_ms});print(f"Scene {index+1}: {kind} [{source}] @ {at_ms}ms")
+        cue={"enabled":True,"type":kind,"source":source,"at_ms":int(at_ms),"intensity":"medium" if kind in ("impact","faaa","reveal") else "subtle"}
+        scene["sfx_cue"]=cue
+        paths.append(path);plan.append({"scene":index+1,"type":kind,"source":source,"at_ms":int(at_ms)})
+        print(f"Scene {index+1}: {kind} [{source}] @ {int(at_ms)}ms")
+    if not any(x["type"]=="faaa" and x["source"]=="original_reaction" for x in plan):
+        raise RuntimeError("FAAA generation failed: every Short must contain one FAAA reaction.")
     script["sfx_plan"]=plan
+    script["faaa_required"]=True
     return paths

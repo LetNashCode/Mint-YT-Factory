@@ -1,124 +1,289 @@
-"""Strict Pexels media selection policy for Mint-YT-Factory.
+"""Mint-YT-Factory media quality policy.
 
-Pexels is the only media provider in the current production mode.
-Gemini visually verifies Pexels candidates.
-The selector refuses weak contextual matches: a shot must be an 8+/10
-literal visual match to the spoken beat. This intentionally prefers stopping
-rather than inserting a misleading stock clip.
+v8: relevance-first Pexels selection with semantic stock-query translation.
+
+The important distinction is:
+- narration can describe microscopic/physical phenomena that stock footage cannot
+  literally show;
+- the search layer must translate those beats into the closest honest real-world
+  visual (for example: cavitation -> boiling-water bubbles popping), rather than
+  searching the scientific phrase literally and returning scuba/diving footage;
+- Gemini remains the final visual judge;
+- ordinary beats still require an 8/10 literal match;
+- only explicitly registered "stockable-context" phenomena may use a 6-7/10
+  contextual match, and only when Gemini says the shot is clearly relevant.
 """
 from __future__ import annotations
-import os,re,json
 
-_CUSTOM_RE=re.compile(r"\b(?:square|triangular|triangle|cubic|cube|rectangular|hexagonal|pentagonal|wire[- ]frame|soap[- ]film|film under tension|molecular|molecule|cross[- ]section|microscopic|micro[- ]scale|membrane|surface tension|physics demonstration|experiment setup|exact geometry|geometric frame)\b",re.I)
+import json
+import os
+import re
 
-def _text(scene,visual):
-    return " ".join(str(x or "") for x in (visual.get("visual_focus"),visual.get("visual_action"),visual.get("must_show"),visual.get("spoken_line") or scene.get("narration")))
 
-def _custom(scene,visual): return bool(_CUSTOM_RE.search(_text(scene,visual)))
+# Phrases that are scientifically meaningful but usually produce terrible stock
+# search results.  Each rule maps the abstract beat to an honest, recognizable
+# physical demonstration that Pexels actually contains.
+_PHENOMENON_QUERIES = [
+    (
+        ("collapsing bubble", "collapsing bubbles", "implode", "implodes", "implode instantly", "slam shut", "cavitation"),
+        ("boiling water bubbles popping", "close up boiling water bubbles", "boiling water bubbling in pot", "hot water bubbles popping", "boiling water close up"),
+    ),
+    (
+        ("shockwave", "shockwaves", "sound wave", "sound waves", "acoustic instrument"),
+        ("boiling water bubbles popping", "water bubbles popping close up", "kettle boiling steam close up", "boiling pot close up"),
+    ),
+    (
+        ("microscopic drum", "microscopic drums", "tiny sound waves"),
+        ("boiling water bubbles close up", "bubbles popping in boiling water", "boiling water macro close up"),
+    ),
+    (
+        ("millions of tiny bubbles", "tiny bubbles", "vapor bubbles"),
+        ("boiling water bubbles close up", "bubbles rising in boiling water", "boiling pot bubbles macro"),
+    ),
+]
 
-_ALIASES={
-    "earbuds":["earbuds","earphones","headphones"],"earbud":["earbud","earphone","headphone"],
-    "wired earbuds":["wired earbuds","wired earphones","earphone cable"],"pocket":["pocket","jeans pocket","pants pocket"],
-    "cord":["cord","cable","wire"],"cable":["cable","wire","cord"],"phone":["phone","smartphone","mobile phone"],
-    "ice cube":["ice cube","ice","ice cubes"],"ice cubes":["ice cubes","ice","ice cube"],
-    "soap bubbles":["soap bubbles","bubbles","bubble"],"bubble":["bubble","soap bubble","bubbles"],
-    "keyboard":["keyboard","computer keyboard"],"screen":["screen","phone screen","display"],
-}
-_STATE_ALIASES={
-    "tangle":["tangled earbuds","tangled earphones","tangled headphones","earbuds tangled"],
-    "tangled":["tangled earbuds","tangled earphones","tangled headphones","earbuds tangled"],
-    "knot":["earbud knot","earphone knot","tangled earphones","tangled earbuds"],
-    "knotted":["knotted earphones","knotted earbuds","tangled earphones","tangled earbuds"],
-    "shake":["shaking cable","shaking cord","tangled cord"],"pull":["pulling earbuds","pulling earphones","earbuds from pocket"],
-    "pocket":["earbuds pocket","earphones pocket","earbuds jeans pocket"],
-}
+# Contextual fallback is ONLY permitted for phenomena where the exact microscopic
+# event cannot reasonably exist in a stock library.  This is deliberately narrow.
+_CONTEXTUAL_PHENOMENA = (
+    "collapsing bubble", "collapsing bubbles", "implode", "implodes", "cavitation",
+    "shockwave", "shockwaves", "sound wave", "sound waves", "acoustic instrument",
+    "microscopic drum", "microscopic drums", "tiny sound waves", "vapor bubble",
+    "vapor bubbles", "millions of tiny bubbles",
+)
 
-def _expand_queries(pexels_media,scene,visual):
-    focus=str(visual.get("visual_focus") or "").strip().lower(); action=str(visual.get("visual_action") or "").strip().lower()
-    must=visual.get("must_show") or []; must_text=" ".join(str(x) for x in must[:6]).lower() if isinstance(must,list) else str(must).lower()
-    spoken=str(visual.get("spoken_line") or scene.get("narration") or "").strip().lower(); raw=" ".join([focus,action,must_text,spoken])
-    tokens=re.findall(r"[a-z0-9]+",raw); important=[]
-    for word in tokens:
-        if len(word)>=4 and word not in important and word not in getattr(pexels_media,"STOP",set()): important.append(word)
-    variants=[]
+
+def _text(scene, visual):
+    return " ".join(
+        str(x or "")
+        for x in (
+            visual.get("visual_focus"),
+            visual.get("visual_action"),
+            visual.get("must_show"),
+            visual.get("spoken_line") or scene.get("narration"),
+        )
+    ).lower()
+
+
+def _has_any(text, phrases):
+    return any(p in text for p in phrases)
+
+
+def _is_contextual_phenomenon(scene, visual):
+    return _has_any(_text(scene, visual), _CONTEXTUAL_PHENOMENA)
+
+
+def _clean_query(value):
+    return " ".join(re.findall(r"[a-z0-9]+", str(value or "").lower())).strip()
+
+
+def _expand_queries(pexels_media, scene, visual):
+    """Build search queries around what can actually be filmed.
+
+    Keep the normal semantic queries, then add explicit physical translations for
+    abstract science phrases. This prevents searches such as 'collapsing vapor
+    bubble' from returning divers, soap bubbles, or random underwater footage.
+    """
+    focus = str(visual.get("visual_focus") or "").strip().lower()
+    action = str(visual.get("visual_action") or "").strip().lower()
+    must = visual.get("must_show") or []
+    must_text = " ".join(str(x) for x in must[:6]).lower() if isinstance(must, list) else str(must).lower()
+    spoken = str(visual.get("spoken_line") or scene.get("narration") or "").strip().lower()
+    raw = " ".join((focus, action, must_text, spoken))
+
+    variants = []
+
     def add(q):
-        q=" ".join(q.split()).strip()
-        if q and q not in variants: variants.append(q)
-    base_phrases=[]
-    for phrase in (focus,must_text,action):
-        phrase=" ".join(re.findall(r"[a-z0-9]+",phrase))
-        if phrase: base_phrases.append(phrase)
-    lowraw=raw.lower()
-    for key,aliases in _STATE_ALIASES.items():
-        if key in lowraw:
-            for alias in aliases: add(alias)
-    for phrase in base_phrases:
-        low=phrase.lower()
-        for key,aliases in _ALIASES.items():
-            if key in low:
-                for alias in aliases[:3]: add(low.replace(key,alias)[:90])
-        add(low[:90])
-    alias_hits=[]
-    for key,aliases in _ALIASES.items():
-        if key in lowraw: alias_hits.extend(aliases[:3])
-    actions=[]
-    for a in getattr(pexels_media,"ACTIONS",set()):
-        if a in lowraw: actions.append(a)
-    for noun in alias_hits[:8]:
-        for act in actions[:3]: add(f"{noun} {act}")
-        add(noun)
-    if any(x in lowraw for x in ("earbud","earphone","headphone")) and any(x in lowraw for x in ("tangle","tangled","knot","knotted","cord","wire")):
-        for q in ("tangled earbuds","tangled earphones","earphones tangled knot","earbuds tangled cord","tangled headphone wires"): add(q)
-    if important:
-        add(" ".join(important[:5])); add(" ".join(important[:8]))
-    return variants[:8] or pexels_media.queries(scene,visual)
+        q = _clean_query(q)
+        if q and q not in variants:
+            variants.append(q)
 
-def _install_strict_selector(pexels_media):
-    if getattr(pexels_media,"_mint_selector_v7",False): return
-    def select(scene,visual,excluded_pages=None):
-        excluded_pages=excluded_pages or set()
-        if not pexels_media.headers(): return None
-        qs=_expand_queries(pexels_media,scene,visual)
-        required=pexels_media.tokens(_text(scene,visual)); actions=pexels_media.action_tokens(_text(scene,visual))
-        videos=[]
-        for q in qs: videos.extend(pexels_media.search("videos/search",q,{"orientation":"portrait","size":"medium"}))
-        videos=pexels_media._dedupe(videos,"video",excluded_pages)
-        videos.sort(key=lambda x:pexels_media._heuristic_score(x,required,actions,"video"),reverse=True)
-        print(f"   🔎 Pexels video queries: {len(qs)} | candidates: {len(videos)}")
-        selected=pexels_media._gemini_rank_candidates(scene,visual,videos[:12],"video") if videos else []
+    # Highest-priority translations first so the Pexels candidate pool contains
+    # usable footage instead of being dominated by literal scientific keywords.
+    for triggers, replacements in _PHENOMENON_QUERIES:
+        if _has_any(raw, triggers):
+            for replacement in replacements:
+                add(replacement)
+
+    # Preserve useful ordinary-object searches as well.
+    base_phrases = (focus, must_text, action)
+    for phrase in base_phrases:
+        cleaned = _clean_query(phrase)
+        if cleaned:
+            add(cleaned[:100])
+
+    # Let the existing alias system contribute known real-world synonyms.
+    aliases = getattr(pexels_media, "STOP", set())
+    important = []
+    for word in re.findall(r"[a-z0-9]+", raw):
+        if len(word) >= 4 and word not in important and word not in aliases:
+            important.append(word)
+    if important:
+        add(" ".join(important[:5]))
+        add(" ".join(important[:8]))
+
+    # Keep the query budget small enough for the existing aggregated Gemini QC.
+    return variants[:8] or pexels_media.queries(scene, visual)
+
+
+def _install_selector(pexels_media):
+    if getattr(pexels_media, "_mint_selector_v8", False):
+        return
+
+    def select(scene, visual, excluded_pages=None):
+        excluded_pages = excluded_pages or set()
+        if not pexels_media.headers():
+            return None
+
+        qs = _expand_queries(pexels_media, scene, visual)
+        required = pexels_media.tokens(_text(scene, visual))
+        actions = pexels_media.action_tokens(_text(scene, visual))
+        contextual_allowed = _is_contextual_phenomenon(scene, visual)
+
+        print(
+            f"   🧭 Semantic visual search: {'CONTEXTUAL SCIENCE' if contextual_allowed else 'LITERAL'} | "
+            f"queries={len(qs)}"
+        )
+        print(f"   🔎 Search queries: {' | '.join(qs[:6])}")
+
+        videos = []
+        for q in qs:
+            videos.extend(
+                pexels_media.search(
+                    "videos/search", q, {"orientation": "portrait", "size": "medium"}
+                )
+            )
+        videos = pexels_media._dedupe(videos, "video", excluded_pages)
+        videos.sort(
+            key=lambda x: pexels_media._heuristic_score(x, required, actions, "video"),
+            reverse=True,
+        )
+        print(f"   🔎 Pexels video candidates: {len(videos)}")
+
+        selected = (
+            pexels_media._gemini_rank_candidates(scene, visual, videos[:12], "video")
+            if videos
+            else []
+        )
+
+        minimum = 6 if contextual_allowed else 8
         for item in selected:
-            if item.get("_gemini_pass") and int(item.get("_gemini_score",0))>=8:
-                link=pexels_media._video_download_url(item)
-                if link: return {"kind":"video","video":link,"page":item.get("url",""),"photographer":(item.get("user") or {}).get("name","") or "","score":int(item.get("_gemini_score",0)),"qc_reason":item.get("_gemini_reason","") ,"query":" | ".join(qs[:5])}
-        photos=[]
-        for q in qs: photos.extend(pexels_media.search("search",q,{"orientation":"portrait","size":"large"}))
-        photos=pexels_media._dedupe(photos,"photo",excluded_pages)
-        photos.sort(key=lambda x:pexels_media._heuristic_score(x,required,actions,"photo"),reverse=True)
+            score = int(item.get("_gemini_score", 0) or 0)
+            if item.get("_gemini_pass") and score >= minimum:
+                link = pexels_media._video_download_url(item)
+                if link:
+                    return {
+                        "kind": "video",
+                        "video": link,
+                        "page": item.get("url", ""),
+                        "photographer": (item.get("user") or {}).get("name", "") or "",
+                        "score": score,
+                        "qc_reason": item.get("_gemini_reason", ""),
+                        "query": " | ".join(qs[:6]),
+                    }
+
+        photos = []
+        for q in qs:
+            photos.extend(
+                pexels_media.search(
+                    "search", q, {"orientation": "portrait", "size": "large"}
+                )
+            )
+        photos = pexels_media._dedupe(photos, "photo", excluded_pages)
+        photos.sort(
+            key=lambda x: pexels_media._heuristic_score(x, required, actions, "photo"),
+            reverse=True,
+        )
         print(f"   🔎 Pexels photo candidates: {len(photos)}")
-        selected=pexels_media._gemini_rank_candidates(scene,visual,photos[:12],"photo") if photos else []
+
+        selected = (
+            pexels_media._gemini_rank_candidates(scene, visual, photos[:12], "photo")
+            if photos
+            else []
+        )
         for item in selected:
-            if item.get("_gemini_pass") and int(item.get("_gemini_score",0))>=8:
-                src=item.get("src") or {}; link=src.get("portrait") or src.get("large2x") or src.get("large") or src.get("original")
-                if link: return {"kind":"photo","photo":link,"page":item.get("url",""),"photographer":item.get("photographer","") or "","score":int(item.get("_gemini_score",0)),"qc_reason":item.get("_gemini_reason","") ,"query":" | ".join(qs[:5])}
-        print("   ❌ No Pexels asset reached the strict 8/10 literal-match threshold")
+            score = int(item.get("_gemini_score", 0) or 0)
+            if item.get("_gemini_pass") and score >= minimum:
+                src = item.get("src") or {}
+                link = (
+                    src.get("portrait")
+                    or src.get("large2x")
+                    or src.get("large")
+                    or src.get("original")
+                )
+                if link:
+                    return {
+                        "kind": "photo",
+                        "photo": link,
+                        "page": item.get("url", ""),
+                        "photographer": item.get("photographer", "") or "",
+                        "score": score,
+                        "qc_reason": item.get("_gemini_reason", ""),
+                        "query": " | ".join(qs[:6]),
+                    }
+
+        print(
+            f"   ❌ No Pexels asset passed the {'6/10 contextual' if contextual_allowed else '8/10 literal'} threshold"
+        )
         return None
-    pexels_media._select=select; pexels_media._mint_selector_v7=True
+
+    pexels_media._select = select
+    pexels_media._mint_selector_v8 = True
+
 
 def _assert_complete(groups):
-    if len(groups)!=7: raise RuntimeError(f"Media contract failed: expected 7 scene groups, found {len(groups)}")
-    for si,paths in enumerate(groups,1):
-        if len(paths)!=2: raise RuntimeError(f"Media contract failed: Scene {si} has {len(paths)} paths")
-        if any(not os.path.exists(p) for p in paths): raise RuntimeError(f"Media contract failed: Scene {si} has missing assets")
+    if len(groups) != 7:
+        raise RuntimeError(
+            f"Media contract failed: expected 7 scene groups, found {len(groups)}"
+        )
+    for si, paths in enumerate(groups, 1):
+        if len(paths) != 2:
+            raise RuntimeError(
+                f"Media contract failed: Scene {si} has {len(paths)} paths"
+            )
+        if any(not os.path.exists(p) for p in paths):
+            raise RuntimeError(
+                f"Media contract failed: Scene {si} has missing assets"
+            )
+
 
 def patch_media_selection(media):
-    original_generate=media.generate_media
-    if getattr(original_generate,"_mint_media_policy_v7",False): return
+    original_generate = media.generate_media
+    if getattr(original_generate, "_mint_media_policy_v8", False):
+        return
+
     import pexels_media
-    _install_strict_selector(pexels_media)
-    def generate_media(script,output_dir,config,gim):
-        groups=original_generate(script,output_dir,config,gim); _assert_complete(groups)
-        with open(os.path.join(output_dir,"media_manifest.json"),"w",encoding="utf-8") as handle:
-            json.dump({"provider_order":["pexels_verified_video","pexels_verified_photo"],"gemini_calls":"one_per_shot_for_pexels_only","post_selection_gemini_qc":False,"pollinations":"disabled","exact_scientific_visuals":"pexels_only","heuristic_fallback":"disabled","semantic_state_queries":"enabled","minimum_gemini_visual_score":8,"contextual_match_fallback":"disabled"},handle,ensure_ascii=False,indent=2)
-        print("🧠 Media policy v7: strict literal visual relevance | Pexels VIDEO → PHOTO | minimum Gemini score 8/10")
+
+    _install_selector(pexels_media)
+
+    def generate_media(script, output_dir, config, gim):
+        groups = original_generate(script, output_dir, config, gim)
+        _assert_complete(groups)
+        with open(
+            os.path.join(output_dir, "media_manifest.json"), "w", encoding="utf-8"
+        ) as handle:
+            json.dump(
+                {
+                    "provider_order": [
+                        "pexels_verified_video",
+                        "pexels_verified_photo",
+                    ],
+                    "gemini_calls": "one_per_shot_for_pexels_only",
+                    "post_selection_gemini_qc": False,
+                    "pollinations": "disabled",
+                    "semantic_stock_query_translation": "enabled",
+                    "ordinary_minimum_gemini_visual_score": 8,
+                    "contextual_science_minimum_gemini_visual_score": 6,
+                    "contextual_science_only_for_registered_phenomena": True,
+                },
+                handle,
+                ensure_ascii=False,
+                indent=2,
+            )
+        print(
+            "🧠 Media policy v8: semantic stock translation | Pexels VIDEO → PHOTO | "
+            "8/10 literal, narrow 6/10 contextual science fallback"
+        )
         return groups
-    generate_media._mint_media_policy_v7=True; media.generate_media=generate_media
+
+    generate_media._mint_media_policy_v8 = True
+    media.generate_media = generate_media

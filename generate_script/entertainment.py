@@ -1,8 +1,4 @@
-"""Upgraded entertainment-first storyboard generator.
-
-This module deliberately bypasses research while the Short format is being tuned.
-It produces a story, exact visual beats, and strict visual constraints for every shot.
-"""
+"""Entertainment-first storyboard generator for Mint-YT-Factory."""
 from __future__ import annotations
 
 import json
@@ -80,12 +76,21 @@ STORY ARC:
 The current story must feel complete before the continuation sentence.
 The continuation topic must not appear in the title, description, or Scenes 1–6.
 
+SCENE 7 HARD RULE:
+Scene 7 must contain ONLY the payoff/ending of the CURRENT topic plus the final
+continuation sentence. Do not introduce a second fact, second mystery, unrelated object,
+new animal, new invention, or a mini-story before the continuation sentence.
+Never write constructions such as "Now watch how..." or "Speaking of..." followed by
+an unrelated topic. The next topic is not an invitation to start another story.
+
 VISUAL DIRECTOR RULE — CRITICAL:
 Every image must literally depict the exact physical beat being spoken.
 Illustrate the action, not the general topic.
 If narration says water rolls across wax, show water visibly rolling across waxed paint.
-If narration says a hand touches metal, show the hand touching metal.
-If narration says ice rises in water, show ice floating above the water.
+If narration says a hand touches metal, show the hand touching the metal.
+If narration describes an invisible/microscopic phenomenon that cannot be filmed literally,
+use a truthful visible proxy that demonstrates the physical context, and make the visual
+beat say what is actually visible rather than pretending the camera sees the microscopic event.
 
 NEVER use random people, leaves, honey jars, generic laboratories, microscopes, diagrams,
 arrows, equations, glowing particles, abstract science art, generic blue backgrounds,
@@ -172,6 +177,56 @@ def _parse(text):
     return json.loads(text)
 
 
+def _content_tokens(text):
+    stop = {
+        "that", "this", "with", "from", "your", "they", "them", "then", "than", "into",
+        "when", "where", "what", "which", "because", "while", "just", "really", "very",
+        "have", "will", "does", "doesn", "there", "their", "about", "like", "more", "only",
+        "still", "even", "gets", "make", "makes", "made", "into", "over", "under", "also",
+        "actually", "strange", "weird", "thing", "things", "little", "sudden", "suddenly",
+        "part", "time", "way", "water", "your", "you", "are", "the", "and", "but", "for",
+        "not", "its", "it's", "can", "how", "why", "now", "watch", "ever", "ever",
+    }
+    return {w.lower() for w in re.findall(r"[a-z0-9]+", _clean(text).lower()) if len(w) >= 4 and w not in stop}
+
+
+def _sanitize_scene7(scene7, earlier_scenes):
+    """Remove accidental second-story material before the continuation sentence.
+
+    Gemini occasionally produces a valid payoff, then starts an unrelated fact such as
+    'Now watch how spider silk...' before giving the requested next-topic sentence.
+    That creates a broken narration and contaminates the TTS. We keep short bridge lines,
+    but remove long sentences introducing vocabulary disconnected from the current story.
+    """
+    text = _clean(scene7.get("narration"))
+    # Normalize common malformed bridge punctuation before sentence splitting.
+    text = re.sub(r"\s+([.!?,])", r"\1", text)
+    sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", text) if s.strip()]
+    if not sentences:
+        return text
+
+    story_tokens = set()
+    for scene in earlier_scenes:
+        story_tokens |= _content_tokens(scene.get("narration", ""))
+    current_tokens = story_tokens | _content_tokens(" ".join(scene.get("narration", "") for scene in earlier_scenes))
+
+    bad_intro = re.compile(r"^(now watch|speaking of|and now|meanwhile|another weird|here's another|here is another)\b", re.I)
+    kept = []
+    for sentence in sentences:
+        # The final continuation sentence is protected later by _normalize.
+        if bad_intro.search(sentence):
+            continue
+        tokens = _content_tokens(sentence)
+        # Long, vocabulary-disconnected sentences are almost certainly an accidental
+        # second topic. Short connective sentences such as "And that is the strange part."
+        # are allowed to preserve the storyteller voice.
+        if len(tokens) >= 4 and not (tokens & current_tokens):
+            continue
+        kept.append(sentence)
+
+    return _clean(" ".join(kept))
+
+
 def _normalize(script, topic):
     if not isinstance(script, dict):
         raise RuntimeError("Gemini returned a non-object script.")
@@ -181,6 +236,7 @@ def _normalize(script, topic):
 
     script["topic"] = topic
     script["title"] = _clean(script.get("title"))[:70] or topic[:70]
+    # Description is deterministic and contains ONLY the current topic.
     script["description"] = f"Explore the strange everyday mystery behind {topic}."
     script["tags"] = [_clean(x).lstrip("#") for x in script.get("tags", []) if _clean(x)][:12]
     script["category"] = _clean(script.get("category")) or "science"
@@ -229,7 +285,6 @@ def _normalize(script, topic):
             raise RuntimeError(f"Scene {i+1} narration is empty.")
         if i == 0 and narration.lower().startswith(banned_openings):
             raise RuntimeError("Hook uses a forbidden generic opening.")
-        total_words += len(_words(narration))
         scene["narration"] = narration
         scene["subtitle_text"] = narration
         scene["source_ids"] = []
@@ -270,24 +325,38 @@ def _normalize(script, topic):
             visual["color_palette"] = _clean(visual.get("color_palette")) or script["visual_identity"]["palette"]
             visual["overlay"] = visual.get("overlay") if isinstance(visual.get("overlay"), dict) else {"type": "none", "description": ""}
             visual["visual_impact"] = max(1, min(10, _safe_int(visual.get("visual_impact"), 8)))
-            prompt = _clean(visual.get("image_prompt"))
-            if not prompt:
-                prompt = f"Realistic cinematic scene showing {visual['visual_action']} with {visual['visual_focus']} clearly visible."
-            visual["image_prompt"] = prompt[:900]
+            prompt_text = _clean(visual.get("image_prompt"))
+            if not prompt_text:
+                prompt_text = f"Realistic cinematic scene showing {visual['visual_action']} with {visual['visual_focus']} clearly visible."
+            visual["image_prompt"] = prompt_text[:900]
 
+    # Scene 7 is the most important continuation boundary. Strip any accidental
+    # second story before adding the one canonical next-topic sentence.
     scene7 = scenes[6]
+    scene7["narration"] = _sanitize_scene7(scene7, scenes[:6])
+    if not scene7["narration"]:
+        raise RuntimeError("Scene 7 lost its current-topic payoff during continuation sanitization.")
+
     clean7 = scene7["narration"].rstrip(".!? ")
-    if next_topic.lower() not in clean7.lower():
-        scene7["narration"] = clean7 + f" And that makes you wonder: {next_topic}."
-        scene7["subtitle_text"] = scene7["narration"]
+    # Canonical final sentence: exactly one continuation topic, spoken once.
+    scene7["narration"] = clean7 + f" And that makes you wonder: {next_topic}."
+    scene7["subtitle_text"] = scene7["narration"]
 
     next_key = re.sub(r"[^a-z0-9 ]", " ", next_topic.lower()).strip()
     for scene in scenes[:6]:
         if next_key and next_key in re.sub(r"[^a-z0-9 ]", " ", scene["narration"].lower()):
             raise RuntimeError("Next topic appeared before Scene 7.")
 
-    if total_words < 75 or total_words > 115:
-        raise RuntimeError(f"Narration length is {total_words} words; target is 75–115 words.")
+    # Final spoken length includes the continuation sentence because TTS sees it.
+    total_words = sum(len(_words(scene["narration"])) for scene in scenes)
+    if total_words < 90 or total_words > 135:
+        raise RuntimeError(f"Narration length is {total_words} words; target is 90–135 words including continuation.")
+
+    # Make Scene 7's two visual beats match its sanitized narration. This prevents
+    # an accidentally removed sentence from leaving a stale visual prompt behind.
+    for visual in scene7.get("visuals", []):
+        if isinstance(visual, dict):
+            visual["spoken_line"] = scene7["narration"] if not _clean(visual.get("spoken_line")) else visual["spoken_line"]
 
     script["retention_self_check"] = script.get("retention_self_check") or {"weakest_scene": 4, "reason": "Every scene advances the mystery."}
     script["publishing"] = {"research_verified": False, "research_sources_require_verification": False, "citations_ready": False, "claim_verification_required": False, "captions_match_narration": True, "semantic_image_prompts": True, "fourteen_visuals_required": True, "entertainment_first": True, "visual_relevance_constraints": True}
@@ -309,7 +378,8 @@ CURRENT TOPIC:
 {topic}
 
 Create exactly 7 scenes totaling about 45 seconds, durations 3, 5, 7, 7, 8, 8, 7.
-Write 75–115 spoken words total. Keep sentences short enough for natural TTS.
+Write 90–135 spoken words total INCLUDING the final continuation sentence.
+Keep sentences short enough for natural TTS.
 
 Make the opening instantly visual and surprising. Make the middle feel like a tiny story,
 not a lecture. Use a concrete everyday demonstration. Give a clear payoff before the
@@ -318,11 +388,13 @@ final continuation sentence.
 DESCRIPTION: write only about the current topic. Never mention the next topic.
 
 NEXT SHORT: invent one specific curiosity topic. It must appear only in the final sentence
-of Scene 7 and nowhere else.
+of Scene 7 and nowhere else. Scene 7 must NOT introduce any unrelated fact before that sentence.
+The final sentence should be the only bridge to the next Short.
 
 VISUALS: every one of the 14 shots must represent a specific spoken beat. Return spoken_line,
 visual_focus, visual_action, must_show and must_not_show. The image_prompt must literally
-show the action. No generic topic images and no unrelated filler.
+show the action. For invisible/microscopic phenomena, describe an honest visible physical
+proxy rather than an impossible camera view. No generic topic images and no unrelated filler.
 {feedback}
 """
 

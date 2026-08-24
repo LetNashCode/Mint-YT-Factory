@@ -4,6 +4,7 @@ import inspect,json,os,glob,re,time
 from runtime_overrides import patch_continuation,patch_tts_result,patch_visuals
 from quality_overrides import patch_story_quality,patch_visual_diversity
 from media_quality_overrides import patch_media_selection
+from story_quality_gate import patch_story_generation
 
 MIN_NARRATION_SECONDS=35.0
 MAX_NARRATION_SECONDS=43.90
@@ -69,6 +70,7 @@ def _patch_lock_next_topic(main):
             if canon_norm and canon_norm in norm:continue
             if _looks_like_future(sentence):continue
             if re.search(r"\b(?:bigger question|one more thing to wonder about|one more question|another question|related question|next topic|next short|next video|next time)\b",sentence,re.I):continue
+            if re.search(r"\b(?:subscribe|follow|like and subscribe|comment below|link in bio|click the link|watch why|watch how|stay tuned|part 2)\b",sentence,re.I):continue
             kept.append(sentence)
         base=_clean_dangling_ending(" ".join(kept).strip())
         if not base:base="And that is the strange part."
@@ -160,11 +162,11 @@ def _patch_pexels_media(main,generate_images_module):
 
 def main_entry():
     import main
-    patch_continuation(main);patch_tts_result(main);patch_story_quality(main);_patch_lock_next_topic(main);_patch_tts_duration(main);patch_visuals(main);_patch_assemble_video_media(main)
+    patch_continuation(main);patch_tts_result(main);patch_story_quality(main);patch_story_generation(main);_patch_lock_next_topic(main);_patch_tts_duration(main);patch_visuals(main);_patch_assemble_video_media(main)
     try:
         import generate_images
         _patch_pexels_media(main,generate_images)
     except Exception as exc:print(f"⚠️ Visual runtime patch skipped: {exc}")
-    print("="*80);print("🚀 MINT-YT-FACTORY STARTED");print("="*80);print("Script: entertainment-first + hard coherence gate + low-jargon contract");print("Visual provider: Pexels ONLY");print("Media order: Pexels verified VIDEO → Pexels verified PHOTO");print("AI image generation: DISABLED");print("Pollinations/FLUX: DISABLED");print("If Pexels cannot provide a relevant verified asset: production stops rather than using an unrelated fallback");print("Continuation: one locked next topic, final sentence only");print("Pexels API key:","AVAILABLE" if os.environ.get("PEXELS_API_KEY") else "NOT CONFIGURED");print("Story: TTS-authoritative 35-43.9 seconds");print("Captions: Whisper word timing → deterministic fallback if Whisper fails");print("TTS duration guard: ENABLED");print("Gemini visual QC: retry transient 503s before failing");print("="*80);main.run(dry_run=False)
+    print("="*80);print("🚀 MINT-YT-FACTORY STARTED");print("="*80);print("Script: entertainment-first + hard coherence gate + low-jargon contract + FINAL visual gate");print("Visual provider: Pexels ONLY");print("Media order: Pexels verified VIDEO → Pexels verified PHOTO");print("AI image generation: DISABLED");print("Pollinations/FLUX: DISABLED");print("If Pexels cannot provide a relevant verified asset: production stops rather than using an unrelated fallback");print("Continuation: one locked next topic, final sentence only");print("Pexels API key:","AVAILABLE" if os.environ.get("PEXELS_API_KEY") else "NOT CONFIGURED");print("Story: TTS-authoritative 35-43.9 seconds");print("Captions: Whisper word timing → deterministic fallback if Whisper fails");print("TTS duration guard: ENABLED");print("Gemini visual QC: retry transient 503s before failing");print("="*80);main.run(dry_run=False)
 
 if __name__=="__main__":main_entry()

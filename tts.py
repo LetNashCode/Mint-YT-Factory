@@ -2,15 +2,10 @@
 tts.py
 Mint-YT-Factory
 
-Version 8.4 — CHUNKED TIKTOK TTS WITH TRANSIENT RETRIES
+Version 8.5 — CHUNKED TIKTOK TTS WITH ROBUST MOVIEPY SPEED CONTROL
 
 Public API compatibility:
     synthesize_script(script, config, out_dir) -> story.mp3
-
-The complete story is synthesized as one continuous narration. TikTokTTS has
-an unofficial hard limit of roughly 300 UTF-8 characters per request, so the
-story is split only at natural sentence boundaries and the resulting audio
-chunks are concatenated without artificial scene pauses.
 """
 
 import os
@@ -117,6 +112,15 @@ def build_tiktok_chunks(text):
 
 
 def apply_narration_speed(clip, speed=NARRATION_SPEED):
+    """Change audio playback speed without relying on MoviePy's missing speedx fx.
+
+    MoviePy 1.0.3 installations used by GitHub Actions do not consistently expose
+    moviepy.audio.fx.all.speedx. A time-domain transform is available on the
+    AudioClip itself and gives the same practical result for narration.
+
+    speed < 1.0 = slower / longer narration.
+    speed > 1.0 = faster / shorter narration.
+    """
     try:
         speed = max(0.80, min(float(speed), 1.10))
     except Exception:
@@ -124,8 +128,11 @@ def apply_narration_speed(clip, speed=NARRATION_SPEED):
     if abs(speed - 1.0) < 0.001:
         return clip
     try:
-        from moviepy.audio.fx.all import speedx
-        return speedx(clip, factor=speed)
+        duration = float(clip.duration)
+        transformed = clip.fl_time(lambda t: t / speed, apply_to=["audio"])
+        transformed = transformed.set_duration(duration / speed)
+        print(f"✅ Narration speed adjustment applied: {speed:.2f}x ({duration:.2f}s → {duration / speed:.2f}s)")
+        return transformed
     except Exception as error:
         print(f"⚠️ Narration speed adjustment failed: {error}")
         return clip
@@ -251,5 +258,4 @@ def synthesize_script(script, config, out_dir):
         raise RuntimeError("Script contains no scene narration.")
     os.makedirs(out_dir, exist_ok=True)
     out_path = os.path.join(out_dir, "story.mp3")
-    result = synthesize_narration(narration, config, out_path)
-    return result
+    return synthesize_narration(narration, config, out_path)

@@ -12,8 +12,7 @@ FUTURE_MARKERS=re.compile(r"\b(?:speaking of|on a related note|that makes you wo
 QUESTION_START=re.compile(r"^(?:why|how|what|when|where)\b",re.I)
 
 # A question-like clause is only a side mystery when it introduces a genuinely
-# different subject.  The old gate looked at every "why/how" phrase and could
-# reject valid explanatory clauses such as "why the sound changes".
+# different subject. Ordinary causal/explanatory "why/how" clauses are allowed.
 MYSTERY_CLAUSE=re.compile(r"\b(?:why|how)\s+([^.!?]{8,100})",re.I)
 SIDE_MYSTERY_MARKERS=re.compile(r"\b(?:see why|see how|find out why|find out how|wonder why|wonder how|makes you wonder|makes you ask|raises the question|another mystery|another question|weird question)\b",re.I)
 
@@ -40,10 +39,7 @@ def _story_topic_vocabulary(topic,script):
     return vocab
 
 def _mystery_clause_is_unrelated(sentence,story_vocab):
-    # Only inspect clauses that are explicitly framed as a new mystery.
-    # Ordinary causal/explanatory "why/how" clauses are allowed.
-    if not SIDE_MYSTERY_MARKERS.search(sentence):
-        return False,""
+    if not SIDE_MYSTERY_MARKERS.search(sentence): return False,""
     match=MYSTERY_CLAUSE.search(sentence)
     if not match:return True,sentence.strip()
     words=[w.lower() for w in _meaningful(match.group(1))]
@@ -57,12 +53,22 @@ def _find_visual_problems(script):
         for vi,visual in enumerate(scene.get("visuals") or [],1):
             spoken=str(visual.get("spoken_line") or "").strip()
             if not spoken:continue
+
+            # Visual beats must never become a back door for Gemini to append the
+            # next topic. Check this before overlap scoring so an unrelated teaser
+            # gets a precise error and is regenerated rather than treated as a bad
+            # paraphrase.
+            if FUTURE_MARKERS.search(spoken):
+                problems.append(f"Scene {index} Shot {vi} contains future-topic language: {spoken}");continue
+
             visual_tokens=set(w.lower() for w in _meaningful(spoken))
             if visual_tokens and narration_tokens:
                 overlap=len(visual_tokens & narration_tokens)/max(1,len(visual_tokens))
                 if overlap<0.45:
                     problems.append(f"Scene {index} Shot {vi} visual beat does not match its narration: {spoken}");continue
             prompt=" ".join(str(visual.get(k) or "") for k in ("visual_focus","visual_action","image_prompt"))
+            if FUTURE_MARKERS.search(prompt):
+                problems.append(f"Scene {index} Shot {vi} visual prompt contains future-topic language: {prompt[:180]}");continue
             bad,_=_mystery_clause_is_unrelated(prompt,narration_tokens)
             if bad:problems.append(f"Scene {index} Shot {vi} visual contract contains a side mystery: {prompt[:180]}")
     return problems
@@ -110,8 +116,6 @@ def _sanitize_final_scene(script):
     if not scenes:return
     scene=scenes[-1];text=str(scene.get("narration","")).strip()
     if not text:return
-    # Remove only explicit continuation constructions. Do not try to infer and
-    # delete arbitrary "why/how" clauses; those can be the actual payoff.
     text=re.split(r"\b(?:and\s+next\s*:|next\s+(?:video|short|topic)\s*:|coming\s+next\b|stay\s+tuned\b|part\s*2\b)",text,maxsplit=1,flags=re.I)[0].strip()
     text=re.split(r"\s+(?:speaking\s+of|on\s+a\s+related\s+note|that\s+makes\s+you\s+wonder|another\s+question|one\s+more\s+question|then\s+comes)\b",text,maxsplit=1,flags=re.I)[0].strip()
     if text:scene["narration"]=text.rstrip(".!? ")+".";scene["subtitle_text"]=scene["narration"]
@@ -143,8 +147,9 @@ MINT SCRIPT QUALITY CONTRACT — FOLLOW THIS ON EVERY DRAFT
 - Explain the mechanism in plain spoken language. Prefer funny comparisons, personification, vivid verbs, and ordinary situations over scientific terminology.
 - Use technical vocabulary only when it materially improves the explanation, and immediately translate it into normal language.
 - The payoff must answer the original mystery with an 'ohhh' realization.
-- Do not write 'speaking of...', 'another question...', 'that makes you wonder...', 'then comes...' or similar transitions inside the story body.
+- Do not write 'speaking of...', 'another question...', 'that makes you wonder...', 'then comes...' or similar transitions inside the story body OR visual spoken_line/prompt fields.
 - A causal sentence such as 'When bubbles rise into the cooler water, they collapse' is valid story narration and MUST NOT be rejected as an unrelated question.
+- Target 110-125 words so the final TTS normally lands inside the 35-44 second production window.
 """
             if last_reason:feedback+=f"\nPrevious draft failed quality gate: {last_reason}. Rewrite the ENTIRE story; do not patch one sentence."
             script=_call_original(original,topic,config,research,feedback);_sanitize_final_scene(script);total=_word_total(script);problems=_find_story_problems(script,topic)

@@ -10,7 +10,13 @@ MAX_REGEN_ATTEMPTS=3
 TECHNICAL_TERMS={"molecule","molecules","electron","electrons","proton","protons","neutron","neutrons","quantum","thermodynamics","electromagnetic","electromagnetism","coefficient","equilibrium","density","molecular","microscopic","microscope","wavelength","frequency","entropy","kinetic","potential","inertia","viscosity","polarity","covalent","ionic","charge","charges","particles","particle","mechanism","phenomenon","oscillation","pressure","buoyancy"}
 FUTURE_MARKERS=re.compile(r"\b(?:speaking of|on a related note|that makes you wonder|that makes you ask|another question|one more question|one more thing|which raises|which brings up|that brings us to|related question|then comes|coming next|next topic|next short|next video|stay tuned|part 2)\b",re.I)
 QUESTION_START=re.compile(r"^(?:why|how|what|when|where)\b",re.I)
+
+# A question-like clause is only a side mystery when it introduces a genuinely
+# different subject.  The old gate looked at every "why/how" phrase and could
+# reject valid explanatory clauses such as "why the sound changes".
 MYSTERY_CLAUSE=re.compile(r"\b(?:why|how)\s+([^.!?]{8,100})",re.I)
+SIDE_MYSTERY_MARKERS=re.compile(r"\b(?:see why|see how|find out why|find out how|wonder why|wonder how|makes you wonder|makes you ask|raises the question|another mystery|another question|weird question)\b",re.I)
+
 
 def _words(text): return re.findall(r"\b[\w'-]+\b",str(text or ""))
 def _meaningful(text):
@@ -34,12 +40,15 @@ def _story_topic_vocabulary(topic,script):
     return vocab
 
 def _mystery_clause_is_unrelated(sentence,story_vocab):
-    for match in MYSTERY_CLAUSE.finditer(sentence):
-        words=[w.lower() for w in _meaningful(match.group(1))]
-        if not words:continue
-        unknown=[w for w in words if w not in story_vocab]
-        if len(unknown)>=2:return True,match.group(0).strip()
-    return False,""
+    # Only inspect clauses that are explicitly framed as a new mystery.
+    # Ordinary causal/explanatory "why/how" clauses are allowed.
+    if not SIDE_MYSTERY_MARKERS.search(sentence):
+        return False,""
+    match=MYSTERY_CLAUSE.search(sentence)
+    if not match:return True,sentence.strip()
+    words=[w.lower() for w in _meaningful(match.group(1))]
+    unknown=[w for w in words if w not in story_vocab]
+    return (len(unknown)>=2,match.group(0).strip())
 
 def _find_visual_problems(script):
     problems=[]
@@ -101,7 +110,10 @@ def _sanitize_final_scene(script):
     if not scenes:return
     scene=scenes[-1];text=str(scene.get("narration","")).strip()
     if not text:return
-    text=re.split(r"\b(?:and\s+next\s*:|next\s+(?:video|short|topic)\s*:|coming\s+next\b|stay\s+tuned\b|part\s*2\b)",text,maxsplit=1,flags=re.I)[0].strip();text=re.split(r"\s+(?:which|and\s+that)\s+(?:is\s+)?(?:also\s+)?why\b",text,maxsplit=1,flags=re.I)[0].strip();text=re.split(r"\s+(?:and\s+that'?s\s+why|which\s+means)\b",text,maxsplit=1,flags=re.I)[0].strip()
+    # Remove only explicit continuation constructions. Do not try to infer and
+    # delete arbitrary "why/how" clauses; those can be the actual payoff.
+    text=re.split(r"\b(?:and\s+next\s*:|next\s+(?:video|short|topic)\s*:|coming\s+next\b|stay\s+tuned\b|part\s*2\b)",text,maxsplit=1,flags=re.I)[0].strip()
+    text=re.split(r"\s+(?:speaking\s+of|on\s+a\s+related\s+note|that\s+makes\s+you\s+wonder|another\s+question|one\s+more\s+question|then\s+comes)\b",text,maxsplit=1,flags=re.I)[0].strip()
     if text:scene["narration"]=text.rstrip(".!? ")+".";scene["subtitle_text"]=scene["narration"]
 
 def _call_original(original,topic,config,research,feedback):

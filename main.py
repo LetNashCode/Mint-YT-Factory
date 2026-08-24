@@ -1,10 +1,6 @@
 """Mint-YT-Factory production pipeline.
 
-CURRENT MODE: ENTERTAINMENT-FIRST + SELF-LEARNING
-
-Topic -> fresh analytics refresh -> learned creative brief -> entertaining
-script/storyboard -> TTS -> Pexels visuals -> music -> assembly -> quality
-validation -> upload -> analytics registry.
+CURRENT MODE: ENTERTAINMENT-FIRST + SELF-LEARNING + STORY-AWARE SFX
 """
 from __future__ import annotations
 import argparse,json,os,re,time,yaml
@@ -13,6 +9,7 @@ from generate_script import generate_script
 from tts import synthesize_script
 from generate_images import generate_images
 from music import download_music
+from sfx import generate_sfx
 from assemble import assemble_video
 from upload_youtube import upload_video
 from validate_video import validate_final_video
@@ -46,9 +43,6 @@ def _remove_existing_continuation(narration,next_topic):
         kept.append(sentence)
     return " ".join(kept).strip()
 def _build_locked_final_sentence(next_topic):
-    # IMPORTANT: preserve the exact canonical topic text. Do not rewrite
-    # "Why do..." into "Why..." because continuation integrity compares the
-    # exact canonical topic after normalisation.
     topic=re.sub(r"\s+"," ",str(next_topic or "").strip()).rstrip(".!?")
     return f"Then comes an even weirder question: {topic}."
 def _final_scene_has_only_one_continuation_topic(narration,canonical):
@@ -117,7 +111,7 @@ def refresh_learning_before_generation():
         playbook=refresh_playbook();print(f"🧠 Learning playbook refreshed: {playbook.get('video_count',0)} videos | learning_ready={playbook.get('learning_ready',False)}")
     except Exception as error:print(f"⚠️ Learning playbook refresh unavailable: {type(error).__name__}: {error}")
 def run(dry_run=False):
-    config=load_config();print("="*80);print("🚀 MINT-YT-FACTORY — ENTERTAINMENT-FIRST + SELF-LEARNING");print("="*80);print("🧠 Self-learning: ENABLED");print("📈 Objective: views + subscriber growth + YPP readiness");print("🔁 Learning strategy: 70% proven patterns / 20% adjacent experiments / 10% wild experiments");print("🚫 Duplicate-topic protection: ENABLED");refresh_learning_before_generation();topic=get_next_topic()
+    config=load_config();print("="*80);print("🚀 MINT-YT-FACTORY — ENTERTAINMENT-FIRST + SELF-LEARNING + SFX");print("="*80);print("🧠 Self-learning: ENABLED");print("📈 Objective: views + subscriber growth + YPP readiness");print("🔁 Learning strategy: 70% proven patterns / 20% adjacent experiments / 10% wild experiments");print("🚫 Duplicate-topic protection: ENABLED");print("🔊 Story-aware SFX: ENABLED (free local procedural)");refresh_learning_before_generation();topic=get_next_topic()
     if not topic:raise RuntimeError("No topic available.")
     print(f"🎯 CURRENT TOPIC: {topic}");learning_context=load_learning_context();print("="*80);print("🧠 LOADED CHANNEL LEARNING PLAYBOOK");print("="*80);print(learning_context[:3500]);print("="*80);print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS");print("="*80)
     script=generate_script(topic,config,None,extra_feedback=learning_context);script,next_topic=lock_next_topic(script,topic);workdir=os.path.join("output",str(int(time.time())));os.makedirs(workdir,exist_ok=True);save_json(script,os.path.join(workdir,"script.json"));write_continuation_manifest(topic,next_topic,"locked",workdir);print(f"✅ Script ready: {workdir}/script.json");print(f"➡️ LOCKED Next Short: {next_topic}")
@@ -129,7 +123,9 @@ def run(dry_run=False):
         if duration>44.35:raise RuntimeError(f"Narration is too long ({duration:.2f}s).")
     except RuntimeError:raise
     except Exception as error:print(f"⚠️ Narration duration check skipped: {error}")
-    print("="*80);print("🖼️ GENERATING STORY-DRIVEN VISUALS");print("="*80);visuals=generate_images(script,os.path.join(workdir,"visuals"),config);print("="*80);print("🎵 SELECTING MUSIC");print("="*80);music=download_music(script,os.path.join(workdir,"music"));sfx=[];final_video=os.path.join(workdir,"final.mp4");print("="*80);print("🎬 ASSEMBLING SHORT");print("="*80);assemble_video(script,audio,visuals,music,sfx,config,final_video)
+    print("="*80);print("🖼️ GENERATING STORY-DRIVEN VISUALS");print("="*80);visuals=generate_images(script,os.path.join(workdir,"visuals"),config)
+    print("="*80);print("🔊 GENERATING STORY-AWARE SFX");print("="*80);sfx=generate_sfx(script,os.path.join(workdir,"sfx"));save_json(script,os.path.join(workdir,"script.json"))
+    print("="*80);print("🎵 SELECTING MUSIC");print("="*80);music=download_music(script,os.path.join(workdir,"music"));final_video=os.path.join(workdir,"final.mp4");print("="*80);print("🎬 ASSEMBLING SHORT");print("="*80);assemble_video(script,audio,visuals,music,sfx,config,final_video)
     if not os.path.exists(final_video):raise RuntimeError("Final video was not created.")
     video_settings=config.get("video",{});target_bitrate=68.0
     try:target_bitrate=float(str(video_settings.get("bitrate","68M")).upper().replace("M",""))

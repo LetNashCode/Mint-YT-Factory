@@ -10,6 +10,8 @@ MAX_REGEN_ATTEMPTS=3
 TECHNICAL_TERMS={"molecule","molecules","electron","electrons","proton","protons","neutron","neutrons","quantum","thermodynamics","electromagnetic","electromagnetism","coefficient","equilibrium","density","molecular","microscopic","microscope","wavelength","frequency","entropy","kinetic","potential","inertia","viscosity","polarity","covalent","ionic","charge","charges","particles","particle","mechanism","phenomenon","oscillation","pressure","buoyancy"}
 FUTURE_MARKERS=re.compile(r"\b(?:speaking of|on a related note|that makes you wonder|that makes you ask|another question|one more question|one more thing|which raises|which brings up|that brings us to|related question|then comes|coming next|next topic|next short|next video|stay tuned|part 2)\b",re.I)
 QUESTION_START=re.compile(r"^(?:why|how|what|when|where)\b",re.I)
+MYSTERY_CLAUSE=re.compile(r"\b(?:why|how)\s+([^.!?]{8,100})",re.I)
+
 
 def _words(text): return re.findall(r"\b[\w'-]+\b",str(text or ""))
 def _meaningful(text):
@@ -25,42 +27,73 @@ def _word_total(script): return sum(len(_words(scene.get("narration",""))) for s
 def _story_text(script): return " ".join(str(scene.get("narration","")).strip() for scene in script.get("scene_plan",[]))
 
 def _story_topic_vocabulary(topic,script):
-    """Build a broader topic vocabulary from the topic + generated story.
-
-    This is deliberately NOT used to allow future topics. It only prevents the
-    quality gate from calling a valid causal statement an unrelated question.
-    """
     vocab=_topic_tokens(topic)
-    scenes=script.get("scene_plan") or []
-    # Terms repeated across multiple current-story scenes are strong evidence
-    # that they belong to the current mystery.
     counts={}
-    for scene in scenes[:6]:
+    for scene in (script.get("scene_plan") or [])[:6]:
         seen=set(w.lower() for w in _meaningful(scene.get("narration","")))
         for w in seen: counts[w]=counts.get(w,0)+1
     for w,n in counts.items():
         if n>=2: vocab.add(w)
     return vocab
 
+def _mystery_clause_is_unrelated(sentence,story_vocab):
+    """Catch hidden side mysteries even when the sentence has no '?'.
+
+    Example caught: 'Watch till the end to see why frozen bubbles look like foggy marbles.'
+    A valid causal line such as 'When bubbles rise, they collapse' is untouched.
+    """
+    for match in MYSTERY_CLAUSE.finditer(sentence):
+        clause=match.group(1).lower()
+        words=[w.lower() for w in _meaningful(clause)]
+        if not words: continue
+        unknown=[w for w in words if w not in story_vocab]
+        # Two or more concrete unknown terms strongly indicate that Gemini has
+        # introduced a second mystery/object/state rather than explaining the story.
+        if len(unknown)>=2:
+            return True, match.group(0).strip()
+    return False,""
+
+def _find_visual_problems(script):
+    problems=[]
+    for index,scene in enumerate(script.get("scene_plan") or [],1):
+        narration_tokens=set(w.lower() for w in _meaningful(scene.get("narration","")))
+        for vi,visual in enumerate(scene.get("visuals") or [],1):
+            spoken=str(visual.get("spoken_line") or "").strip()
+            if not spoken: continue
+            visual_tokens=set(w.lower() for w in _meaningful(spoken))
+            if visual_tokens and narration_tokens:
+                overlap=len(visual_tokens & narration_tokens)/max(1,len(visual_tokens))
+                if overlap < 0.45:
+                    problems.append(f"Scene {index} Shot {vi} visual beat does not match its narration: {spoken}")
+                    continue
+            prompt=" ".join(str(visual.get(k) or "") for k in ("visual_focus","visual_action","image_prompt"))
+            # Reject obvious second-mystery language in visual contracts too.
+            bad,_=_mystery_clause_is_unrelated(prompt, narration_tokens)
+            if bad: problems.append(f"Scene {index} Shot {vi} visual contract contains a side mystery: {prompt[:180]}")
+    return problems
+
 def _find_story_problems(script,topic):
     scenes=script.get("scene_plan") or []
     problems=[]
-    topic_words=_topic_tokens(topic)
     story_vocab=_story_topic_vocabulary(topic,script)
-    for index,scene in enumerate(scenes[:-1],1):
+    for index,scene in enumerate(scenes,1):
         narration=str(scene.get("narration","")).strip()
         for sentence in _split_sentences(narration):
-            if FUTURE_MARKERS.search(sentence):
+            if index < len(scenes) and FUTURE_MARKERS.search(sentence):
                 problems.append(f"Scene {index} contains future-topic language: {sentence}")
                 break
-            # IMPORTANT: a sentence beginning with When/Why/How is not itself
-            # an unrelated question. 'When bubbles rise...' is a causal clause.
-            # Only reject an explicit question (ends with ?) and only when its
-            # subject has no meaningful connection to the current story.
+            # Only explicit questions are checked here; causal 'When ...' clauses
+            # are valid narration and must not be rejected.
             if QUESTION_START.search(sentence) and sentence.rstrip().endswith("?") and len(_meaningful(sentence))>=4:
                 content={w.lower() for w in _meaningful(sentence)}
                 if story_vocab and not (content & story_vocab):
                     problems.append(f"Scene {index} contains an unrelated question: {sentence}")
+                    break
+            # Also catch embedded 'why/how ...' mysteries that never use '?'.
+            if index < len(scenes):
+                bad,clause=_mystery_clause_is_unrelated(sentence,story_vocab)
+                if bad:
+                    problems.append(f"Scene {index} contains a hidden side mystery: {clause}")
                     break
     all_words=[w.lower().strip(".,!?;:'\"()[]") for w in _words(_story_text(script))]
     jargon=[w for w in all_words if w in TECHNICAL_TERMS]
@@ -71,6 +104,7 @@ def _find_story_problems(script,topic):
         if re.search(pattern,story,re.I): problems.append(f"Lecture-style wording: {pattern}")
     first=str(scenes[0].get("narration","")) if scenes else ""
     if re.match(r"^(?:today|in this video|did you know|have you ever wondered)",first.strip(),re.I): problems.append("Generic hook opening")
+    problems.extend(_find_visual_problems(script))
     return problems
 
 def _refresh_highlights(script):
@@ -120,14 +154,17 @@ def patch_story_quality(main):
 
 MINT SCRIPT QUALITY CONTRACT — FOLLOW THIS ON EVERY DRAFT
 - Write one self-contained everyday mystery, not a mini lesson.
-- The current topic is the ONLY subject of Scenes 1–6. Do not introduce another animal, object, question, mystery, or future topic.
+- The current topic is the ONLY subject of all 7 scenes until the production system appends the locked continuation topic.
+- Do not introduce a second mystery, animal, object, state, comparison target, or question that is not needed to explain the current topic.
 - Scene 1 must create an immediate 'wait, why does THAT happen?' reaction without a generic YouTube intro.
 - Escalate the SAME mystery across Scenes 2–6. Each scene adds a new observation, demonstration, reveal, or consequence.
+- Scene 7 must finish the CURRENT story. The production system alone owns the continuation teaser.
+- Never write a hidden side mystery such as 'see why frozen bubbles look like foggy marbles' before the continuation teaser.
+- Every visual's spoken_line must be a literal excerpt or tight paraphrase of that scene's narration. Never invent a new visual story inside the visual contract.
+- Keep the same concrete subject across the story. If the topic is a kettle, do not switch to generic pots, soda glasses, soap bubbles, torches, marbles, frozen bubbles, or other objects unless the narration explicitly requires that comparison.
 - Explain the mechanism in plain spoken language. Prefer funny comparisons, personification, vivid verbs, and ordinary situations over scientific terminology.
 - Use technical vocabulary only when it materially improves the explanation, and immediately translate it into normal language.
 - The payoff must answer the original mystery with an 'ohhh' realization.
-- Scene 7 must finish the CURRENT story first. Only after that may the production system insert one continuation topic as the final sentence.
-- Never mention or hint at another future mystery anywhere before that final continuation sentence.
 - Do not write 'speaking of...', 'another question...', 'that makes you wonder...', 'then comes...' or similar transitions inside the story body.
 - A causal sentence such as 'When bubbles rise into the cooler water, they collapse' is valid story narration and MUST NOT be rejected as an unrelated question.
 """

@@ -4,30 +4,14 @@ import inspect
 import re
 
 FILLER={"the","a","an","and","or","but","so","because","that","this","these","those","your","you","yourself","is","are","was","were","be","been","being","to","of","in","on","at","for","from","with","into","over","under","it","its","they","them","their","there","here","just","really","very","then","than","when","where","what","why","how","do","does","did","can","could","will","would","should","has","have","had","as","like","about","one","two","three","some","any","even","also","still"}
-
 MIN_STORY_WORDS=100
 MAX_STORY_WORDS=145
 MAX_REGEN_ATTEMPTS=3
-
-TECHNICAL_TERMS={
-    "molecule","molecules","electron","electrons","proton","protons","neutron","neutrons",
-    "quantum","thermodynamics","electromagnetic","electromagnetism","coefficient","equilibrium",
-    "density","molecular","microscopic","microscope","wavelength","frequency","entropy",
-    "kinetic","potential","inertia","viscosity","polarity","covalent","ionic","charge","charges",
-    "particles","particle","mechanism","phenomenon","oscillation","pressure","buoyancy",
-}
-
-FUTURE_MARKERS=re.compile(
-    r"\b(?:speaking of|on a related note|that makes you wonder|that makes you ask|"
-    r"another question|one more question|one more thing|which raises|which brings up|"
-    r"that brings us to|related question|then comes|coming next|next topic|next short|"
-    r"next video|stay tuned|part 2)\b",re.I
-)
+TECHNICAL_TERMS={"molecule","molecules","electron","electrons","proton","protons","neutron","neutrons","quantum","thermodynamics","electromagnetic","electromagnetism","coefficient","equilibrium","density","molecular","microscopic","microscope","wavelength","frequency","entropy","kinetic","potential","inertia","viscosity","polarity","covalent","ionic","charge","charges","particles","particle","mechanism","phenomenon","oscillation","pressure","buoyancy"}
+FUTURE_MARKERS=re.compile(r"\b(?:speaking of|on a related note|that makes you wonder|that makes you ask|another question|one more question|one more thing|which raises|which brings up|that brings us to|related question|then comes|coming next|next topic|next short|next video|stay tuned|part 2)\b",re.I)
 QUESTION_START=re.compile(r"^(?:why|how|what|when|where)\b",re.I)
 
-
 def _words(text): return re.findall(r"\b[\w'-]+\b",str(text or ""))
-
 def _meaningful(text):
     out=[]; filler={x.lower() for x in FILLER}
     for w in _words(text):
@@ -36,53 +20,58 @@ def _meaningful(text):
     return out
 
 def _topic_tokens(topic): return {w.lower() for w in _meaningful(topic) if len(w)>=4}
-
 def _split_sentences(text): return [x.strip() for x in re.split(r"(?<=[.!?])\s+",str(text or "").strip()) if x.strip()]
-
 def _word_total(script): return sum(len(_words(scene.get("narration",""))) for scene in script.get("scene_plan",[]))
-
 def _story_text(script): return " ".join(str(scene.get("narration","")).strip() for scene in script.get("scene_plan",[]))
+
+def _story_topic_vocabulary(topic,script):
+    """Build a broader topic vocabulary from the topic + generated story.
+
+    This is deliberately NOT used to allow future topics. It only prevents the
+    quality gate from calling a valid causal statement an unrelated question.
+    """
+    vocab=_topic_tokens(topic)
+    scenes=script.get("scene_plan") or []
+    # Terms repeated across multiple current-story scenes are strong evidence
+    # that they belong to the current mystery.
+    counts={}
+    for scene in scenes[:6]:
+        seen=set(w.lower() for w in _meaningful(scene.get("narration","")))
+        for w in seen: counts[w]=counts.get(w,0)+1
+    for w,n in counts.items():
+        if n>=2: vocab.add(w)
+    return vocab
 
 def _find_story_problems(script,topic):
     scenes=script.get("scene_plan") or []
     problems=[]
     topic_words=_topic_tokens(topic)
-
-    # Future/side-topic language is forbidden before Scene 7.
+    story_vocab=_story_topic_vocabulary(topic,script)
     for index,scene in enumerate(scenes[:-1],1):
         narration=str(scene.get("narration","")).strip()
         for sentence in _split_sentences(narration):
             if FUTURE_MARKERS.search(sentence):
                 problems.append(f"Scene {index} contains future-topic language: {sentence}")
                 break
-            # Catch explicit unrelated questions such as "Why do cats walk backward..."
-            # while allowing generic questions like "Why does this happen?".
-            if QUESTION_START.search(sentence) and len(_meaningful(sentence))>=4:
+            # IMPORTANT: a sentence beginning with When/Why/How is not itself
+            # an unrelated question. 'When bubbles rise...' is a causal clause.
+            # Only reject an explicit question (ends with ?) and only when its
+            # subject has no meaningful connection to the current story.
+            if QUESTION_START.search(sentence) and sentence.rstrip().endswith("?") and len(_meaningful(sentence))>=4:
                 content={w.lower() for w in _meaningful(sentence)}
-                if topic_words and not (content & topic_words):
+                if story_vocab and not (content & story_vocab):
                     problems.append(f"Scene {index} contains an unrelated question: {sentence}")
                     break
-
     all_words=[w.lower().strip(".,!?;:'\"()[]") for w in _words(_story_text(script))]
     jargon=[w for w in all_words if w in TECHNICAL_TERMS]
-    if len(jargon)>=6:
-        problems.append(f"Too much technical jargon ({len(jargon)} terms)")
-
-    lecture_patterns=(
-        r"according to scientists",r"the scientific explanation",r"in scientific terms",
-        r"the definition of",r"this phenomenon occurs because",r"the reason is that",
-        r"from a physics perspective",r"in conclusion",r"therefore,",
-    )
+    if len(jargon)>=6: problems.append(f"Too much technical jargon ({len(jargon)} terms)")
+    lecture_patterns=(r"according to scientists",r"the scientific explanation",r"in scientific terms",r"the definition of",r"this phenomenon occurs because",r"the reason is that",r"from a physics perspective",r"in conclusion",r"therefore,")
     story=_story_text(script).lower()
     for pattern in lecture_patterns:
-        if re.search(pattern,story,re.I):
-            problems.append(f"Lecture-style wording: {pattern}")
-
+        if re.search(pattern,story,re.I): problems.append(f"Lecture-style wording: {pattern}")
     first=str(scenes[0].get("narration","")) if scenes else ""
-    if re.match(r"^(?:today|in this video|did you know|have you ever wondered)",first.strip(),re.I):
-        problems.append("Generic hook opening")
+    if re.match(r"^(?:today|in this video|did you know|have you ever wondered)",first.strip(),re.I): problems.append("Generic hook opening")
     return problems
-
 
 def _refresh_highlights(script):
     for index,scene in enumerate(script.get("scene_plan") or []):
@@ -90,7 +79,6 @@ def _refresh_highlights(script):
         if index in (0,5,6) and len(words)>=3: chosen=[words[0],words[len(words)//2],words[-1]]
         scene["caption_highlights"]=[{"word":w,"emphasis":"strong"} for w in chosen]
         if chosen: scene["emphasis_word"]=chosen[0]
-
 
 def _add_visual_contract_fields(script):
     for scene in script.get("scene_plan") or []:
@@ -102,9 +90,7 @@ def _add_visual_contract_fields(script):
             visual.setdefault("visual_action",prompt[:220] or narration[:220])
             visual.setdefault("must_show",_meaningful(prompt)[:6] or _meaningful(narration)[:6])
             visual["story_beat"]="establish" if vi==0 else "advance"
-            if vi==1:
-                visual["advance_rule"]="show a changed physical state, reaction, closer detail, or consequence; do not repeat shot 1"
-
+            if vi==1: visual["advance_rule"]="show a changed physical state, reaction, closer detail, or consequence; do not repeat shot 1"
 
 def _sanitize_final_scene(script):
     scenes=script.get("scene_plan") or []
@@ -118,15 +104,12 @@ def _sanitize_final_scene(script):
         scene["narration"]=text.rstrip(".!? ")+"."
         scene["subtitle_text"]=scene["narration"]
 
-
 def _call_original(original,topic,config,research,feedback):
     try:
         params=inspect.signature(original).parameters
-        if "extra_feedback" in params or any(p.kind==inspect.Parameter.VAR_KEYWORD for p in params.values()):
-            return original(topic,config,research,extra_feedback=feedback)
+        if "extra_feedback" in params or any(p.kind==inspect.Parameter.VAR_KEYWORD for p in params.values()): return original(topic,config,research,extra_feedback=feedback)
     except (TypeError,ValueError): pass
     return original(topic,config,research)
-
 
 def patch_story_quality(main):
     original=main.generate_script
@@ -146,33 +129,25 @@ MINT SCRIPT QUALITY CONTRACT — FOLLOW THIS ON EVERY DRAFT
 - Scene 7 must finish the CURRENT story first. Only after that may the production system insert one continuation topic as the final sentence.
 - Never mention or hint at another future mystery anywhere before that final continuation sentence.
 - Do not write 'speaking of...', 'another question...', 'that makes you wonder...', 'then comes...' or similar transitions inside the story body.
+- A causal sentence such as 'When bubbles rise into the cooler water, they collapse' is valid story narration and MUST NOT be rejected as an unrelated question.
 """
-            if last_reason:
-                feedback += f"\nPrevious draft failed quality gate: {last_reason}. Rewrite the ENTIRE story; do not patch one sentence."
+            if last_reason: feedback += f"\nPrevious draft failed quality gate: {last_reason}. Rewrite the ENTIRE story; do not patch one sentence."
             script=_call_original(original,topic,config,research,feedback)
             _sanitize_final_scene(script)
-            total=_word_total(script)
-            problems=_find_story_problems(script,topic)
+            total=_word_total(script); problems=_find_story_problems(script,topic)
             print(f"🧮 Story length: {total} words (soft production range {MIN_STORY_WORDS}-{MAX_STORY_WORDS}; TTS duration is authoritative)")
             if problems:
-                last_reason="; ".join(problems[:3])
-                print(f"🚫 Story quality gate failed: {last_reason}")
+                last_reason="; ".join(problems[:3]); print(f"🚫 Story quality gate failed: {last_reason}")
                 if attempt<MAX_REGEN_ATTEMPTS: continue
                 raise RuntimeError(f"Story failed quality gate after {MAX_REGEN_ATTEMPTS} attempts: {last_reason}")
             if MIN_STORY_WORDS<=total<=MAX_STORY_WORDS:
-                _refresh_highlights(script)
-                _add_visual_contract_fields(script)
-                return script
-            last_reason=f"story length {total} outside soft range {MIN_STORY_WORDS}-{MAX_STORY_WORDS}"
-            print(f"⚠️ Story length outside soft range: {last_reason}")
+                _refresh_highlights(script); _add_visual_contract_fields(script); return script
+            last_reason=f"story length {total} outside soft range {MIN_STORY_WORDS}-{MAX_STORY_WORDS}"; print(f"⚠️ Story length outside soft range: {last_reason}")
             if attempt==MAX_REGEN_ATTEMPTS:
                 print("⚠️ Accepting final draft; real TTS duration will decide production viability.")
-                _refresh_highlights(script)
-                _add_visual_contract_fields(script)
-                return script
+                _refresh_highlights(script); _add_visual_contract_fields(script); return script
         raise RuntimeError("Unreachable story generation state")
     main.generate_script=generate_script
-
 
 def patch_visual_diversity(generate_media_module):
     generate_media_module.MEDIA_DIVERSITY_REQUIRED=True

@@ -1,14 +1,10 @@
 """Final hard gate for narration/visual coherence before TTS and Pexels."""
 from __future__ import annotations
 
-import inspect
 import re
 
 MAX_ATTEMPTS = 4
 
-# These are not "bad writing" by themselves; they are bad INPUTS for a literal
-# stock-footage pipeline because they turn into searches such as "chemical warfare"
-# or "physics dances" instead of something a camera can actually show.
 ABSTRACT_BEATS = (
     "plotting chemical warfare", "chemical warfare", "plotting", "secret code",
     "secret world", "underground world", "reveals its secret", "reveals the secret",
@@ -21,7 +17,6 @@ ABSTRACT_BEATS = (
     "desperate panic", "chemical invader", "secret", "invader",
 )
 
-# "scream" is allowed only when the sentence explicitly says it is a sound.
 ABSTRACT_SINGLE_WORDS = {
     "climbs", "climb", "whispers", "dances", "thinks", "decides", "communicates",
     "remembers", "fights", "wins", "loses", "reveals", "plotting",
@@ -39,6 +34,7 @@ FUTURE_MARKERS = (
     "next topic", "next short", "next video", "then comes",
 )
 
+# Concrete observable actions/states that can become stock-footage searches.
 PHYSICAL_ACTIONS = {
     "cut", "cuts", "slice", "slices", "chop", "chops", "pour", "pours", "boil",
     "boils", "bubble", "bubbles", "rise", "rises", "fall", "falls", "drop", "drops",
@@ -49,8 +45,12 @@ PHYSICAL_ACTIONS = {
     "rush", "rushes", "escape", "escapes", "hit", "hits", "touch", "touches",
     "land", "lands", "bounce", "bounces", "bend", "bends", "break", "breaks",
     "tear", "tears", "burn", "burns", "glow", "glows", "flash", "flashes",
-    "move", "moves", "turn", "turns", "shake", "shakes", "form", "forms",
-    "collapse", "collapses", "spread", "spreads", "dry", "dries", "wet", "gets wet",
+    "move", "moves", "turn", "turns", "form", "forms", "collapse", "collapses",
+    "spread", "spreads", "dry", "dries", "wet", "gets wet", "mix", "mixes",
+    "react", "reacts", "release", "releases", "shatter", "shatters", "flood", "floods",
+    "sit", "sits", "sitting", "rest", "rests", "resting", "lie", "lies", "lying",
+    "stand", "stands", "standing", "hold", "holds", "holding", "float", "floats",
+    "appear", "appears", "form", "forms", "grow", "grows", "expand", "expands",
 }
 
 
@@ -105,15 +105,11 @@ def _validate(script, topic):
         if si < 7 and _hits(narration, FUTURE_MARKERS):
             errors.append(f"Scene {si}: future-topic transition leaked into story")
 
-        # Reject metaphorical visual language even when a real object is also named.
-        # This is the exact failure that let "onion ... plotting chemical warfare"
-        # pass the previous gate merely because the word "onion" was present.
         abstract = _hits(narration, ABSTRACT_BEATS)
         if abstract:
-            # A literal sound comparison is acceptable: "sounds like a scream as steam..."
             low = narration.lower()
             scream_ok = "sounds like a scream" in low or "sounds almost like a scream" in low
-            abstract = [x for x in abstract if not (x == "scream" and scream_ok)]
+            abstract = [x for x in abstract if x != "scream" or scream_ok]
             if abstract:
                 errors.append(f"Scene {si}: non-literal narration: {', '.join(abstract[:4])}")
 
@@ -154,14 +150,10 @@ def _validate(script, topic):
                 errors.append(f"{label}: non-literal visual wording: {', '.join(abstract_visual[:4])}")
             if _abstract_word_hits(combined):
                 errors.append(f"{label}: abstract visual action")
-
             if _hits(combined, CTA_WORDS):
                 errors.append(f"{label}: CTA text in visual contract")
-
-            # A visual beat should contain an observable action or a concrete state.
-            # This catches prose such as "the onion plots..." before it reaches Pexels.
             if not _physical_action(combined):
-                errors.append(f"{label}: no searchable physical action")
+                errors.append(f"{label}: no searchable physical action/state")
 
             if spoken:
                 narration_words = set(_words(narration))

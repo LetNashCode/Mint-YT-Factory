@@ -1,6 +1,7 @@
 google-genai>=1.30.0
 requests>=2.31.0
 urllib3>=2.2.0
+numpy>=1.26.0
 
 moviepy==1.0.3
 Pillow<10

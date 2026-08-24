@@ -1,171 +1,76 @@
-"""Mint-YT-Factory media quality policy v16.
-
-The spoken BEAT is the authority for every shot. Metaphors are never allowed
-to become literal stock-search subjects. Every metaphor must resolve back to
-the physical thing being explained.
-"""
+"""Narration-authoritative Pexels media selection. No Gemini visual verification."""
 from __future__ import annotations
 import json, os, re
 
-_RULES = [
-    (("trapped air pocket", "trapped air pockets", "air pocket", "air pockets", "collapsing cavity", "collapsing cavities", "microscopic slap", "structural collapse", "tiny structural collapse", "frequency shoots", "frequency higher", "pitch shoots", "pitch higher", "pitch climbs", "rising pitch", "rising tune", "deep grumpy growl", "grumpy growl", "deep rumble", "rumble", "frantic high pitched hiss", "high pitched hiss", "high pitch", "high pitched", "low pitch", "sonic shift", "kettle sings", "kettle singing", "kettle is singing", "singing", "opera", "orchestra", "orchestra", "musical instrument", "musical", "instrument", "screech", "shriek", "hiss", "sound shifts", "sound changes"),
-     ("kettle boiling close up", "kettle on stove close up", "boiling water close up", "kettle steam close up", "boiling water bubbles macro"),
-     "kettle and heated water", "show the kettle heating water, with bubbles or steam changing as it heats"),
-
-    (("sudden collapse", "bubbles collapse", "bubbles collapsing", "bubble collapse", "bubble shrinking", "bubbles shrink", "bubbles implode", "bubbles popping", "bubbles rising", "bubbles rise", "bubbles forming", "vapor bubbles", "air bubbles", "micro bubbles", "microscopic bubbles", "acoustic shockwaves", "shockwaves", "tiny explosions", "billions of tiny explosions"),
-     ("tiny bubbles in boiling water close up", "bubbles rising in water close up", "boiling water bubbles macro", "water bubbles close up"),
-     "tiny bubbles in heated water", "tiny bubbles forming, rising, shrinking, popping or collapsing in liquid"),
-
-    (("boiling water", "water boils", "water boiling", "boiling bubbles", "hot water", "heated water", "rolling boil"),
-     ("boiling water close up", "boiling water bubbles close up", "water boiling in pot close up", "boiling pot macro"),
-     "water boiling in a pot", "bubbles rising, forming, popping or collapsing"),
-
-    (("higher up", "higher up the water", "still chilly", "still cool", "water is still cool", "water is still cold", "cooler layer", "cool water", "cold water", "upper water layer"),
-     ("kettle water upper layer close up", "water in pot close up", "pot of water heating close up", "kettle on stove close up"),
-     "upper layer of water in a heated pot", "show the upper water remaining cooler while the lower water is being heated"),
-
-    (("steam", "steaming", "escaping steam", "steam jet", "steam escaping"),
-     ("kettle steam close up", "steam escaping kettle", "boiling kettle close up", "boiling water close up"),
-     "kettle or pot with steam", "steam rising from heated water"),
-
-    (("flame", "burner", "stove", "blazing hot", "very hot", "bottom of the pot", "water at the bottom", "scorching hot"),
-     ("pot on gas stove close up", "pot over flame close up", "boiling pot on stove", "stove flame under pot"),
-     "pot over a stove flame", "heat reaching the bottom of the pot"),
-
-    (("ice", "ice cube", "freezing", "frozen", "melt", "melting"),
-     ("ice cube close up", "ice melting close up", "water freezing close up", "melting ice macro"),
-     "ice or freezing water", "ice melting or water freezing"),
-
-    (("bubble", "bubbles", "foam", "froth"),
-     ("water bubbles close up", "bubbles forming in water", "bubbles popping close up", "boiling water bubbles close up"),
-     "water bubbles", "bubbles forming, rising or popping"),
+RULES=[
+(("boiling water","water boils","water boiling","hot water","heated water"),("boiling water close up","water boiling in pot close up","boiling pot macro"),"water boiling in a pot","bubbles rising, forming, popping or collapsing"),
+(("steam","steaming","escaping steam"),("kettle steam close up","steam escaping kettle","boiling kettle close up"),"kettle or pot with steam","steam rising from heated water"),
+(("ice","ice cube","freezing","frozen","melt","melting"),("ice cube close up","ice melting close up","water freezing close up"),"ice or freezing water","ice melting or water freezing"),
+(("bubble","bubbles","foam","froth"),("water bubbles close up","bubbles forming in water","bubbles popping close up"),"water bubbles","bubbles forming, rising or popping"),
 ]
 
-# Visual-search details that are not physically required by narration must not
-# survive into queries. This is deliberately broad: generated color/material/
-# setting adjectives caused Pexels to drift away from the actual subject.
-_UNSUPPORTED = re.compile(r"\b(?:polished\s+)?(?:copper|glass|stainless|steel|ceramic|brass|silver|gold|black|white|red|blue|green|yellow|rustic|vintage|wooden|plastic|transparent|metallic|glowing|artisan|camping|outdoor|indoor|kitchen|workshop|portable|dark|domestic|morning|acoustic|musical|instrument|orchestra|opera)\b", re.I)
+def clean(v,limit=700): return re.sub(r"\s+"," ",str(v or "")).strip()[:limit]
+def beat(scene,visual): return clean((visual or {}).get("spoken_line") or scene.get("narration"),900).lower()
+def rule(scene,visual):
+    text=beat(scene,visual)
+    for triggers,qs,focus,action in RULES:
+        if any(x in text for x in triggers): return qs,focus,action
+    return None,None,None
 
-def _clean(value, limit=700):
-    return re.sub(r"\s+", " ", str(value or "")).strip()[:limit]
-
-def _beat(scene, visual):
-    if isinstance(visual, dict):
-        spoken = _clean(visual.get("spoken_line"), 900)
-        if spoken:
-            return spoken.lower()
-    return _clean(scene.get("narration"), 900).lower()
-
-def _has(text, phrases):
-    return any(p in text for p in phrases)
-
-def _rule(scene, visual=None):
-    text=_beat(scene, visual or {})
-    for triggers, queries, focus, action in _RULES:
-        if _has(text, triggers):
-            return queries, focus, action
-    return None, None, None
-
-def _strip(value, narration):
-    text=_clean(value)
-    def repl(match):
-        return match.group(0) if match.group(0).lower() in narration else ""
-    return _clean(_UNSUPPORTED.sub(repl,text))
-
-def _sanitize_visual(scene, visual):
-    if not isinstance(visual, dict):
-        return visual
-    queries,focus,action=_rule(scene,visual)
+def sanitize(scene,visual):
+    v=dict(visual or {}); qs,focus,action=rule(scene,v)
     if focus:
-        visual["visual_focus"]=focus
-        visual["visual_action"]=action
-        visual["image_prompt"]=f"{focus}; {action}"
-        visual["must_show"]=[focus]
-    else:
-        beat=_beat(scene,visual)
-        for key in ("visual_focus","visual_action","image_prompt"):
-            visual[key]=_strip(visual.get(key),beat)
-        must=visual.get("must_show")
-        if isinstance(must,list):
-            visual["must_show"]=[x for x in (_strip(v,beat) for v in must) if x][:6]
-    visual["visual_contract_note"]="Narration-authoritative v16; physical mapping overrides metaphor and generated visual prose."
-    return visual
+        v["visual_focus"]=focus; v["visual_action"]=action; v["image_prompt"]=f"{focus}; {action}"; v["must_show"]=[focus]
+    return v
 
-def _query_clean(value):
-    stop={"this","that","with","from","your","into","about","just","they","them","their","very","have","will","what","when","where","which","because","while","then","than","like","gets","make","makes","made","thing","things","exact","physical","show","showing","scene","shot","visible","action","state","realistic","cinematic","photo","photograph","video","image","someone","something","close","camera","natural","looking","moment","also","really","tiny","microscopic","single","entire","every","time","next","remember","designed","actually","basically","literally","nobody","touched","cursed","higher","lower","still","same","current","secretly"}
+def query_clean(v):
+    stop={"this","that","with","from","your","into","about","just","they","them","their","very","have","will","what","when","where","which","because","while","then","than","like","gets","make","makes","made","thing","things","exact","physical","show","showing","scene","shot","visible","action","state","realistic","cinematic","photo","photograph","video","image","someone","something","close","camera","natural","looking","moment","also","really","tiny","microscopic","single","entire","every","time","next","remember","designed","actually","basically","literally","nobody","touched","cursed"}
     words=[]
-    for w in re.findall(r"[a-z0-9]+",str(value).lower()):
-        if len(w)>=4 and w not in stop and w not in words:
-            words.append(w)
+    for w in re.findall(r"[a-z0-9]+",str(v).lower()):
+        if len(w)>=4 and w not in stop and w not in words: words.append(w)
     return " ".join(words[:8])
 
-def _expand_queries(pm,scene,visual):
-    visual=_sanitize_visual(scene,visual)
-    rule_queries,_,_=_rule(scene,visual)
-    variants=[]
-    def add(q):
-        q=_query_clean(q)
-        if q and q not in variants:
-            variants.append(q)
-    if rule_queries:
-        for q in rule_queries: add(q)
-    else:
-        add(_beat(scene,visual))
-        add(f"{visual.get('visual_focus','')} {visual.get('visual_action','')}")
-    return variants[:8] or ["everyday object close up"]
+def expand_queries(pm,scene,visual):
+    v=sanitize(scene,visual); qs,_,_=rule(scene,v); values=list(qs or [])+[beat(scene,v),f"{v.get('visual_focus','')} {v.get('visual_action','')}"]; out=[]
+    for value in values:
+        q=query_clean(value)
+        if q and q not in out: out.append(q)
+    return out[:8] or ["everyday object close up"]
 
-def _text(scene,visual):
-    return _beat(scene,visual)
+def _select(pm,scene,visual,excluded_pages=None):
+    excluded_pages=excluded_pages or set()
+    if not pm.headers(): return None
+    v=sanitize(scene,visual); qs=expand_queries(pm,scene,v)
+    required=pm.tokens(beat(scene,v)+" "+clean(v.get("visual_focus"),300)); actions=pm.action_tokens(clean(v.get("visual_action"),300)+" "+beat(scene,v))
+    videos=[]
+    for q in qs: videos.extend(pm.search("videos/search",q,{"orientation":"portrait","size":"medium"}))
+    videos=pm._dedupe(videos,"video",excluded_pages); videos.sort(key=lambda x:pm._heuristic_score(x,required,actions,"video"),reverse=True)
+    for item in videos[:12]:
+        link=pm._video_download_url(item)
+        if link: return {"kind":"video","video":link,"page":item.get("url",""),"photographer":(item.get("user") or {}).get("name","") or "","score":int(pm._heuristic_score(item,required,actions,"video")),"qc_reason":"Local narration relevance ranking","query":" | ".join(qs[:6])}
+    photos=[]
+    for q in qs: photos.extend(pm.search("search",q,{"orientation":"portrait","size":"large"}))
+    photos=pm._dedupe(photos,"photo",excluded_pages); photos.sort(key=lambda x:pm._heuristic_score(x,required,actions,"photo"),reverse=True)
+    for item in photos[:12]:
+        src=item.get("src") or {}; link=src.get("portrait") or src.get("large2x") or src.get("large") or src.get("original")
+        if link: return {"kind":"photo","photo":link,"page":item.get("url",""),"photographer":item.get("photographer","") or "","score":int(pm._heuristic_score(item,required,actions,"photo")),"qc_reason":"Local narration relevance ranking","query":" | ".join(qs[:6])}
+    return None
 
-def _install_selector(pm):
-    if getattr(pm,"_mint_selector_v16",False): return
-    def select(scene,visual,excluded_pages=None):
-        excluded_pages=excluded_pages or set()
-        if not pm.headers(): return None
-        visual=_sanitize_visual(scene,visual)
-        qs=_expand_queries(pm,scene,visual)
-        required=pm.tokens(_text(scene,visual)); actions=pm.action_tokens(_text(scene,visual))
-        contextual=bool(_rule(scene,visual)); minimum=6 if contextual else 8
-        print(f"   🧭 Semantic visual search: {'NARRATION-DRIVEN PHYSICAL PROXY' if contextual else 'NARRATION-DRIVEN LITERAL'} | queries={len(qs)}")
-        print(f"   🔎 Search queries: {' | '.join(qs[:6])}")
-        videos=[]
-        for q in qs: videos.extend(pm.search("videos/search",q,{"orientation":"portrait","size":"medium"}))
-        videos=pm._dedupe(videos,"video",excluded_pages); videos.sort(key=lambda x:pm._heuristic_score(x,required,actions,"video"),reverse=True)
-        print(f"   🔎 Pexels video candidates: {len(videos)}")
-        ranked=pm._gemini_rank_candidates(scene,visual,videos[:12],"video") if videos else []
-        for item in ranked:
-            score=int(item.get("_gemini_score",0) or 0); link=pm._video_download_url(item)
-            if score>=minimum and link:
-                return {"kind":"video","video":link,"page":item.get("url",""),"photographer":(item.get("user") or {}).get("name","") or "","score":score,"qc_reason":item.get("_gemini_reason",""),"query":" | ".join(qs[:6])}
-        photos=[]
-        for q in qs: photos.extend(pm.search("search",q,{"orientation":"portrait","size":"large"}))
-        photos=pm._dedupe(photos,"photo",excluded_pages); photos.sort(key=lambda x:pm._heuristic_score(x,required,actions,"photo"),reverse=True)
-        print(f"   🔎 Pexels photo candidates: {len(photos)}")
-        ranked=pm._gemini_rank_candidates(scene,visual,photos[:12],"photo") if photos else []
-        for item in ranked:
-            score=int(item.get("_gemini_score",0) or 0); src=item.get("src") or {}; link=src.get("portrait") or src.get("large2x") or src.get("large") or src.get("original")
-            if score>=minimum and link:
-                return {"kind":"photo","photo":link,"page":item.get("url",""),"photographer":item.get("photographer","") or "","score":score,"qc_reason":item.get("_gemini_reason",""),"query":" | ".join(qs[:6])}
-        print(f"   ❌ No Pexels asset passed the {minimum}/10 narration relevance threshold")
-        return None
-    pm._select=select; pm._mint_selector_v16=True
-
-def _assert_complete(groups):
+def assert_complete(groups):
     if len(groups)!=7: raise RuntimeError(f"Media contract failed: expected 7 scene groups, found {len(groups)}")
     for si,paths in enumerate(groups,1):
         if len(paths)!=2: raise RuntimeError(f"Media contract failed: Scene {si} has {len(paths)} paths")
         if any(not os.path.exists(p) for p in paths): raise RuntimeError(f"Media contract failed: Scene {si} has missing assets")
 
 def patch_media_selection(media):
-    original_generate=media.generate_media
-    if getattr(original_generate,"_mint_media_policy_v16",False): return
+    original=media.generate_media
+    if getattr(original,"_mint_media_policy_local",False): return
     import pexels_media
-    _install_selector(pexels_media)
+    pexels_media._select=lambda scene,visual,excluded_pages=None:_select(pexels_media,scene,visual,excluded_pages)
     def generate_media(script,output_dir,config,gim):
-        groups=original_generate(script,output_dir,config,gim); _assert_complete(groups)
-        with open(os.path.join(output_dir,"media_manifest.json"),"w",encoding="utf-8") as h:
-            json.dump({"provider_order":["pexels_verified_video","pexels_verified_photo"],"gemini_calls":"one_per_shot_for_pexels_only","pollinations":"disabled","semantic_stock_query_translation":"narration_authoritative_v16_shot_level","generated_visual_metadata":"ignored_when_physical_rule_matches","metaphor_literalization":"disabled","shot_level_beats":"authoritative","contextual_minimum":6,"ordinary_minimum":8},h,ensure_ascii=False,indent=2)
-        print("🧠 Media policy v16: metaphor leakage blocked; physical shot mapping authoritative")
+        groups=original(script,output_dir,config,gim); assert_complete(groups)
+        manifest={"provider_order":["pexels_video","pexels_photo"],"gemini_calls":0,"visual_verification":"disabled","ranking":"local narration relevance"}
+        with open(os.path.join(output_dir,"media_manifest.json"),"w",encoding="utf-8") as h: json.dump(manifest,h,ensure_ascii=False,indent=2)
+        print("🧠 Media policy: local relevance ranking — Gemini visual verification DISABLED")
         return groups
-    generate_media._mint_media_policy_v16=True
-    media.generate_media=generate_media
+    generate_media._mint_media_policy_local=True; media.generate_media=generate_media

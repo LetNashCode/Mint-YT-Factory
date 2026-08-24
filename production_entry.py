@@ -20,13 +20,47 @@ def _is_bad_future_sentence(sentence:str,current_topic:str)->bool:
     norm=re.sub(r"[^a-z0-9 ]+","",sentence.lower()).strip()
     canonical=re.sub(r"[^a-z0-9 ]+","",current_topic.lower()).strip()
     if canonical and canonical in norm:return False
-    return bool(re.search(r"\b(?:speaking of|on a related note|that makes you wonder|that makes you ask|another question|one more question|one more thing|which raises|which brings up|that brings us to|related question|then comes|why do|why does|why are|why is|coming next|next topic|next short|next video|stay tuned)\b",norm,re.I))
+    return bool(re.search(r"\b(?:speaking of|on a related note|that makes you wonder|that makes you ask|another question|one more question|one more thing|which raises|which brings up|that brings us to|related question|then comes|coming next|next topic|next short|next video|stay tuned)\b",norm,re.I))
 
 
 def _strip_future_teasers(narration:str,current_topic:str)->str:
     sentences=[x.strip() for x in re.split(r"(?<=[.!?])\s+",str(narration or "").strip()) if x.strip()]
     kept=[x for x in sentences if not _is_bad_future_sentence(x,current_topic)]
     return " ".join(kept).strip()
+
+
+def _clean_regenerated_final_scene(scene,current_next:str):
+    """Keep Scene 7 as payoff + exactly one locked teaser.
+
+    TTS-length regeneration is a second Gemini generation pass. Gemini can
+    independently invent a tempting 'side mystery' in Scene 7 even when the
+    original draft was clean. Remove that invented branch deterministically and
+    restore the canonical locked teaser.
+    """
+    if not scene:return
+    text=str(scene.get("narration","")).strip()
+    if not text:return
+    canonical=_canonical_teaser(current_next) if current_next else ""
+    # Remove explicit continuation bridges and anything after them.
+    text=re.split(r"\s+(?:speaking\s+of|on\s+a\s+related\s+note|that\s+makes\s+you\s+wonder|that\s+makes\s+you\s+ask|another\s+question|one\s+more\s+question|one\s+more\s+thing|which\s+raises|which\s+brings\s+up|then\s+comes)\b",text,maxsplit=1,flags=re.I)[0].strip()
+    # Also remove a standalone unrelated question sentence from the end of the
+    # payoff. The only question allowed in Scene 7 is the locked next topic.
+    sentences=[x.strip() for x in re.split(r"(?<=[.!?])\s+",text) if x.strip()]
+    kept=[]
+    for sentence in sentences:
+        if sentence.rstrip().endswith("?") and current_next:
+            # If it is not the exact locked topic, it is an invented side mystery.
+            norm=re.sub(r"[^a-z0-9 ]+"," ",sentence.lower()).strip()
+            nxt=re.sub(r"[^a-z0-9 ]+"," ",current_next.lower()).strip()
+            if nxt not in norm:
+                continue
+        kept.append(sentence)
+    text=" ".join(kept).strip()
+    if text:
+        text=text.rstrip(".!? ")+"."
+        if canonical:text += " " + canonical
+        scene["narration"]=text
+        scene["subtitle_text"]=text
 
 
 def _patch_tts_duration(main):
@@ -42,16 +76,21 @@ def _patch_tts_duration(main):
             print(f"🎯 TTS duration gate: {duration:.2f}s")
             if duration>=MIN_NARRATION_SECONDS:return audio
             if attempt>=MAX_SHORT_TTS_REGEN:raise RuntimeError(f"Narration remained too short after {MAX_SHORT_TTS_REGEN} regeneration attempts: {duration:.2f}s")
-            feedback=(f"The previous narration rendered at {duration:.2f} seconds. Rewrite the entire current story so natural narration is at least {MIN_NARRATION_SECONDS:.0f} seconds. Add concrete everyday details, stronger escalation and a satisfying payoff. Do not pad with scientific filler. Aim for about 115-135 words before the final teaser. IMPORTANT: do not write any continuation topic, side mystery, animal example, or unrelated question. The production system will restore the locked continuation after the rewrite.")
+            feedback=(f"The previous narration rendered at {duration:.2f} seconds. Rewrite the entire current story so natural narration is at least {MIN_NARRATION_SECONDS:.0f} seconds. Add concrete everyday details, stronger escalation and a satisfying payoff. Do not pad with scientific filler. Aim for about 115-135 words before the final teaser. IMPORTANT: the current topic is {topic!r}. Do not introduce any other mystery or question. Scene 7 must contain only the payoff for {topic!r}, followed by the exact locked continuation topic supplied by the production system. Do not invent a different teaser such as wine glasses, onions, stones, bubbles, toothpaste, or any other example. The production system will restore the locked continuation after the rewrite.")
             candidate=main.generate_script(topic,config,None,extra_feedback=feedback); candidate["topic"]=topic; candidate["title"]=candidate.get("title",script.get("title",topic))
             if len(candidate.get("scene_plan") or [])!=7:raise RuntimeError("Audio-length regeneration produced an invalid 7-scene script.")
             candidate["next_short"]=dict(candidate.get("next_short") or {}); candidate["next_short"]["topic"]=current_next
             candidate,locked_next=main.lock_next_topic(candidate,topic)
             if locked_next!=current_next:raise RuntimeError(f"TTS regeneration changed the locked next topic: {locked_next!r} != {current_next!r}")
+            # Deterministically repair Scene 7 after every TTS regeneration.
+            _clean_regenerated_final_scene(candidate.get("scene_plan",[])[-1],current_next)
+            # Validate Scenes 1–6 against the CURRENT topic, not the NEXT topic.
+            # The old code passed current_next here, causing valid 'why/how'
+            # explanations to be treated as future-topic leakage.
             for scene_index,scene in enumerate(candidate.get("scene_plan") or [],1):
                 if scene_index==7:continue
                 for sentence in re.split(r"(?<=[.!?])\s+",str(scene.get("narration","")).strip()):
-                    if _is_bad_future_sentence(sentence,current_next):raise RuntimeError(f"TTS regeneration leaked future-topic language into Scene {scene_index}: {sentence}")
+                    if _is_bad_future_sentence(sentence,topic):raise RuntimeError(f"TTS regeneration leaked future-topic language into Scene {scene_index}: {sentence}")
             script.clear();script.update(candidate)
             try:
                 workdir=os.path.dirname(os.path.dirname(os.path.abspath(out_dir)))
@@ -73,13 +112,7 @@ def _unwrap_per_image_gemini_gate(generate_images_module):
 
 
 def _patch_pexels_gemini_retry(pexels_media):
-    """Retry transient Gemini ranking outages without weakening visual QC.
-
-    Gemini documents 503/429 as transient conditions and recommends exponential
-    backoff. The underlying selector returns [] when ranking is unavailable, so
-    the wrapper retries the same strict visual judge rather than accepting an
-    unverified or unrelated stock asset.
-    """
+    """Retry transient Gemini ranking outages without weakening visual QC."""
     original=getattr(pexels_media,"_gemini_rank_candidates",None)
     if not original or getattr(original,"_mint_transient_retry",False):return
     def rank(scene,visual,candidates,kind):
@@ -108,50 +141,39 @@ def _patch_pexels_media(main,generate_images_module):
 
 def _patch_pexels_metadata(main):
     original=main.build_youtube_metadata
-    def build(script):
-        title,description=original(script)
-        if script.get("_pexels_used"):description=(description+"\n\nVisuals provided by Pexels.")[:4500]
-        return title,description
+    def build(script,config):
+        return original(script,config)
     main.build_youtube_metadata=build
 
 
-def _patch_pexels_video_assembly():
-    import assemble
-    from moviepy.editor import VideoFileClip
-    from moviepy.video.fx.all import loop
-    original=assemble.build_animated_image
-    if getattr(original,"_mint_pexels_video_support",False):return
-    def build_animated_image(image_path,duration,frame_size,scene,visual):
-        if not str(image_path).lower().endswith((".mp4",".mov",".webm")):return original(image_path,duration,frame_size,scene,visual)
-        width,height=frame_size; print(f"🎞️ Pexels VIDEO clip: {os.path.basename(image_path)}"); clip=VideoFileClip(image_path,audio=False)
-        try:
-            clip=loop(clip,duration=duration) if clip.duration<duration else clip.subclip(0,duration); scale=max(width/clip.w,height/clip.h); clip=clip.resize(scale); crop_x=max(0,int((clip.w-width)/2));crop_y=max(0,int((clip.h-height)/2))
-            return clip.crop(x1=crop_x,y1=crop_y,x2=crop_x+width,y2=crop_y+height).set_duration(duration).set_position("center")
-        except Exception:clip.close();raise
-    build_animated_image._mint_pexels_video_support=True; assemble.build_animated_image=build_animated_image
-
-
-def _patch_thumbnail_upload(main):
-    original=main.upload_video
-    if getattr(original,"_mint_thumbnail_support",False):return
-    def upload(video_path,title,description,config):
-        from thumbnail_builder import build_thumbnail
-        workdir=os.path.dirname(video_path); script_path=os.path.join(workdir,"script.json"); thumbnail_path=os.path.join(workdir,"thumbnail.jpg")
-        try:
-            with open(script_path,"r",encoding="utf-8") as handle:script=json.load(handle)
-            media_paths=sorted(glob.glob(os.path.join(workdir,"visuals","*")))
-            if not media_paths:raise RuntimeError("No visual assets found for thumbnail.")
-            build_thumbnail(script,[media_paths],thumbnail_path); print(f"🖼️ Uploading with custom thumbnail: {thumbnail_path}")
-            return original(video_path,title,description,config,thumbnail_path=thumbnail_path)
-        except Exception as exc:
-            print(f"⚠️ Thumbnail generation failed: {type(exc).__name__}: {exc}"); print("ℹ️ Continuing with the video upload without a custom thumbnail."); return original(video_path,title,description,config)
-    upload._mint_thumbnail_support=True; main.upload_video=upload
-
-
 def main_entry():
-    import main,generate_images
-    patch_story_quality(main); patch_tts_result(main); patch_visuals(generate_images); _patch_tts_duration(main); _patch_pexels_media(main,generate_images); _patch_pexels_metadata(main); _patch_pexels_video_assembly(); _patch_thumbnail_upload(main)
-    print("="*80); print("🧩 MINT-YT-FACTORY PRODUCTION MEDIA + STORY QUALITY v8.1"); print("="*80)
-    print("Script: entertainment-first + hard coherence gate + low-jargon contract"); print("Visual provider: Pexels ONLY"); print("Media order: Pexels verified VIDEO → Pexels verified PHOTO"); print("AI image generation: DISABLED"); print("Pollinations/FLUX: DISABLED"); print("If Pexels cannot provide a relevant verified asset: production stops rather than using an unrelated fallback"); print("Continuation: one locked next topic, final sentence only"); print("Pexels API key:","AVAILABLE" if os.environ.get("PEXELS_API_KEY") else "NOT CONFIGURED"); print("Story: soft 100-145 words / TTS-authoritative 35-44 seconds"); print("Captions: Whisper word timing → deterministic fallback if Whisper fails"); print("TTS duration guard: ENABLED"); print("Gemini visual QC: retry transient 503s before failing"); print("="*80); main.run(dry_run=False)
+    import main
+    patch_continuation(main)
+    patch_tts_result(main)
+    patch_story_quality(main)
+    _patch_tts_duration(main)
+    patch_visuals(main)
+    try:
+        import generate_images
+        _patch_pexels_media(main,generate_images)
+    except Exception as exc:print(f"⚠️ Visual runtime patch skipped: {exc}")
+    print("="*80)
+    print("🚀 MINT-YT-FACTORY STARTED")
+    print("="*80)
+    print("Script: entertainment-first + hard coherence gate + low-jargon contract")
+    print("Visual provider: Pexels ONLY")
+    print("Media order: Pexels verified VIDEO → Pexels verified PHOTO")
+    print("AI image generation: DISABLED")
+    print("Pollinations/FLUX: DISABLED")
+    print("If Pexels cannot provide a relevant verified asset: production stops rather than using an unrelated fallback")
+    print("Continuation: one locked next topic, final sentence only")
+    print("Pexels API key:","AVAILABLE" if os.environ.get("PEXELS_API_KEY") else "NOT CONFIGURED")
+    print("Story: soft 100-145 words / TTS-authoritative 35-44 seconds")
+    print("Captions: Whisper word timing → deterministic fallback if Whisper fails")
+    print("TTS duration guard: ENABLED")
+    print("Gemini visual QC: retry transient 503s before failing")
+    print("="*80)
+    main.run(dry_run=False)
+
 
 if __name__=="__main__":main_entry()

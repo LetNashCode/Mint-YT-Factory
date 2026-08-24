@@ -6,6 +6,7 @@ from quality_overrides import patch_story_quality,patch_visual_diversity
 from media_quality_overrides import patch_media_selection
 
 MIN_NARRATION_SECONDS=35.0
+MAX_NARRATION_SECONDS=43.90
 MAX_SHORT_TTS_REGEN=2
 PEXELS_GEMINI_RETRIES=3
 PEXELS_GEMINI_BACKOFF=(4,8,16)
@@ -37,7 +38,6 @@ def _clean_regenerated_final_scene(scene,current_next:str):
     text=str(scene.get("narration","")).strip()
     if not text:return
     canonical=_canonical_teaser(current_next) if current_next else ""
-    # Cut off any continuation bridge before it can contaminate the payoff.
     text=re.split(r"\s+(?:speaking\s+of|on\s+a\s+related\s+note|that\s+makes\s+you\s+wonder|that\s+makes\s+you\s+ask|another\s+question|one\s+more\s+question|one\s+more\s+thing|which\s+raises|which\s+brings\s+up|then\s+comes|next\s+time|watch\s+why|watch\s+what|watch\s+how)\b",text,maxsplit=1,flags=re.I)[0].strip()
     kept=[]
     for sentence in _split_sentences(text):
@@ -48,19 +48,24 @@ def _clean_regenerated_final_scene(scene,current_next:str):
         kept.append(sentence)
     text=" ".join(kept).strip()
     if text:
+        text=_clean_dangling_ending(text)
         scene["narration"]=text.rstrip(".!? ")+". "+canonical
         scene["subtitle_text"]=scene["narration"]
 
 
-def _patch_lock_next_topic(main):
-    """Runtime hard-lock Scene 7 so no old continuation sentence survives.
+def _clean_dangling_ending(text):
+    """Remove Gemini's accidental sentence fragments before the locked teaser."""
+    text=re.sub(r"\s+", " ", str(text or "")).strip()
+    # Common malformed endings observed in generated Scene 7: '...stops And.'
+    text=re.sub(r"(?:\s+)(?:and|but|so|or|because|then)\s*[.!?]*$", "", text, flags=re.I)
+    text=re.sub(r"\b(?:stops|ends|finishes)\s+and\s*[.!?]*$", lambda m:m.group(0).split()[0]+".", text, flags=re.I)
+    return text.strip()
 
-    This patch is intentionally applied at production startup, so even an older
-    main.py checkout cannot reintroduce the corrupted 'you pour a drink... And'
-    ending seen in the previous run.
-    """
+
+def _patch_lock_next_topic(main):
+    """Runtime hard-lock Scene 7 and guarantee a complete payoff before the teaser."""
     original=main.lock_next_topic
-    if getattr(original,"_mint_locked_v2",False):return
+    if getattr(original,"_mint_locked_v3",False):return
     def lock(script,current_topic):
         next_short=script.get("next_short") or {};candidate=str(next_short.get("topic","")).strip()
         if not candidate:raise RuntimeError("Generated script did not provide next_short.topic.")
@@ -71,60 +76,47 @@ def _patch_lock_next_topic(main):
         if len(re.findall(r"\b[\w'-]+\b",canonical))>7:
             canonical=_generate_topic(used)
             if len(re.findall(r"\b[\w'-]+\b",canonical))>7:raise RuntimeError(f"Generated continuation is still too long: {canonical}")
-        script["next_short"]["topic"]=canonical;script["next_short"]["teaser"]=_canonical_teaser(canonical)
+        script.setdefault("next_short",{})["topic"]=canonical;script["next_short"]["teaser"]=_canonical_teaser(canonical)
         scenes=script.get("scene_plan")
         if not isinstance(scenes,list) or len(scenes)!=7:raise RuntimeError("Script must contain exactly 7 scenes.")
-        final=scenes[-1]
-        original_text=str(final.get("narration","")).strip()
-        kept=[]
+        final=scenes[-1];original_text=str(final.get("narration","")).strip();kept=[]
+        canon_norm=re.sub(r"[^a-z0-9 ]+"," ",canonical.lower()).strip()
         for sentence in _split_sentences(original_text):
-            norm=re.sub(r"[^a-z0-9 ]+"," ",sentence.lower()).strip();canon_norm=re.sub(r"[^a-z0-9 ]+"," ",canonical.lower()).strip()
+            norm=re.sub(r"[^a-z0-9 ]+"," ",sentence.lower()).strip()
             if canon_norm and canon_norm in norm:continue
             if _looks_like_future(sentence):continue
             if re.search(r"\b(?:bigger question|one more thing to wonder about|one more question|another question|related question|next topic|next short|next video|next time)\b",sentence,re.I):continue
             kept.append(sentence)
-        base=" ".join(kept).strip()
+        base=_clean_dangling_ending(" ".join(kept).strip())
         if not base:base="And that is the strange part."
-        base=base.rstrip(".!? ")+"."
+        # Prefer the final complete current-topic sentence; never manufacture an
+        # incomplete '...stops And.' ending.
+        sentences=_split_sentences(base)
+        if sentences:base=sentences[-1]
+        base=_clean_dangling_ending(base).rstrip(".!? ")+"."
         final["narration"]=base+" "+_canonical_teaser(canonical)
         final["subtitle_text"]=final["narration"]
         final["pause_after_ms"]=250;final["emotional_tone"]="satisfied";final["music_cue"]="fade_out"
         words=re.findall(r"\b[\w'-]+\b",canonical);final["caption_highlights"]=[{"word":w,"emphasis":"strong"} for w in words[:3]];final["emphasis_word"]=words[0] if words else canonical.split()[0]
-        canon_norm=re.sub(r"[^a-z0-9 ]+"," ",canonical.lower()).strip()
         if sum(1 for s in _split_sentences(final["narration"]) if canon_norm in re.sub(r"[^a-z0-9 ]+"," ",s.lower()).strip())!=1:raise RuntimeError("Continuation integrity failed: canonical topic must appear exactly once in Scene 7.")
         for scene in scenes[:6]:
             if canon_norm in re.sub(r"[^a-z0-9 ]+"," ",str(scene.get("narration","")).lower()).strip():raise RuntimeError("Next topic appeared before Scene 7.")
         print(f"🔒 Canonical next topic: {canonical}");print(f"🗣️ FINAL SPOKEN TEASE: {final['narration']}")
         return script,canonical
-    lock._mint_locked_v2=True;main.lock_next_topic=lock
+    lock._mint_locked_v3=True;main.lock_next_topic=lock
 
 
 def _patch_assemble_video_media(main):
-    """Teach the assembler that Pexels VIDEO assets are videos, not images.
-
-    Pexels selection intentionally prefers verified MP4 footage. The old
-    assembler always called ImageClip(), which makes imageio try to read MP4 in
-    single-image mode and crashes with 'Format FFMPEG cannot read...'.
-    """
     import assemble
     from moviepy.editor import VideoFileClip, vfx
     original=assemble.make_image_clip
     if getattr(original,"_mint_media_v2",False):return
     video_ext={".mp4",".mov",".m4v",".webm",".avi",".mkv"}
     def make_media_clip(path,frame_size):
-        if os.path.splitext(str(path))[1].lower() not in video_ext:
-            return original(path,frame_size)
-        width,height=frame_size
-        print(f"🎞️ Assembler: reading VIDEO asset as VideoFileClip: {os.path.basename(str(path))}")
-        clip=VideoFileClip(path,audio=False)
-        scale=max(width/clip.w,height/clip.h)
-        clip=clip.resize(scale)
-        crop_x=max(0,int((clip.w-width)/2));crop_y=max(0,int((clip.h-height)/2))
-        clip=clip.crop(x1=crop_x,y1=crop_y,x2=crop_x+width,y2=crop_y+height)
-        # All storyboard shots are <=4s. Loop short source clips so set_duration()
-        # in build_animated_image never asks a reader for a frame past EOF.
-        clip=clip.fx(vfx.loop,duration=10.0)
-        return clip
+        if os.path.splitext(str(path))[1].lower() not in video_ext:return original(path,frame_size)
+        width,height=frame_size;print(f"🎞️ Assembler: reading VIDEO asset as VideoFileClip: {os.path.basename(str(path))}")
+        clip=VideoFileClip(path,audio=False);scale=max(width/clip.w,height/clip.h);clip=clip.resize(scale)
+        crop_x=max(0,int((clip.w-width)/2));crop_y=max(0,int((clip.h-height)/2));clip=clip.crop(x1=crop_x,y1=crop_y,x2=crop_x+width,y2=crop_y+height);return clip.fx(vfx.loop,duration=10.0)
     make_media_clip._mint_media_v2=True;assemble.make_image_clip=make_media_clip
     print("🛡️ Assembly media compatibility: Pexels MP4 → VideoFileClip + safe loop")
 
@@ -134,16 +126,22 @@ def _patch_tts_duration(main):
     original=main.synthesize_script
     if getattr(original,"_mint_duration_guard",False):return
     def synthesize(script,config,out_dir):
-        current_next=((script.get("next_short") or {}).get("topic") or "").strip(); topic=str(script.get("topic","")).strip()
+        current_next=((script.get("next_short") or {}).get("topic") or "").strip();topic=str(script.get("topic","")).strip()
         for attempt in range(MAX_SHORT_TTS_REGEN+1):
             audio=original(script,config,out_dir);clip=AudioFileClip(audio)
             try:duration=float(clip.duration)
             finally:clip.close()
             print(f"🎯 TTS duration gate: {duration:.2f}s")
-            if duration>=MIN_NARRATION_SECONDS:return audio
-            if attempt>=MAX_SHORT_TTS_REGEN:raise RuntimeError(f"Narration remained too short after {MAX_SHORT_TTS_REGEN} regeneration attempts: {duration:.2f}s")
-            feedback=(f"The previous narration rendered at {duration:.2f} seconds. Rewrite the entire current story so natural narration is at least {MIN_NARRATION_SECONDS:.0f} seconds. Add concrete everyday details, stronger escalation and a satisfying payoff. Do not pad with scientific filler. Aim for about 115-135 words before the final teaser. IMPORTANT: the current topic is {topic!r}. Do not introduce any other mystery or question. Scene 7 must contain only the payoff for {topic!r}, followed by the exact locked continuation topic supplied by the production system. Do not invent a different teaser. The production system will restore the locked continuation after the rewrite.")
-            candidate=main.generate_script(topic,config,None,extra_feedback=feedback);candidate["topic"]=topic;candidate["title"]=candidate.get("title",script.get("title",topic));candidate["next_short"]=dict(candidate.get("next_short") or {});candidate["next_short"]["topic"]=current_next
+            if MIN_NARRATION_SECONDS<=duration<=MAX_NARRATION_SECONDS:return audio
+            if attempt>=MAX_SHORT_TTS_REGEN:
+                raise RuntimeError(f"Narration duration remained outside production range after {MAX_SHORT_TTS_REGEN} regeneration attempts: {duration:.2f}s (allowed {MIN_NARRATION_SECONDS:.2f}-{MAX_NARRATION_SECONDS:.2f}s).")
+            if duration>MAX_NARRATION_SECONDS:
+                target_words="90-100"
+                direction=f"The previous narration rendered at {duration:.2f} seconds and is TOO LONG. Rewrite it shorter. Target {target_words} words before the locked continuation. Remove filler, repeated explanations and extra setup while keeping the hook, escalation and payoff."
+            else:
+                direction=f"The previous narration rendered at {duration:.2f} seconds and is TOO SHORT. Target 100-110 words before the locked continuation. Add concrete everyday details and escalation, not scientific filler."
+            feedback=(f"{direction} IMPORTANT: the current topic is {topic!r}. Do not introduce any other mystery or question. Scene 7 must contain only the payoff for {topic!r}, followed by the exact locked continuation topic supplied by the production system. Do not invent a different teaser. The production system will restore the locked continuation after the rewrite.")
+            candidate=main.generate_script(topic,config,None,extra_feedback=feedback);candidate["topic"]=topic;candidate["title"]=candidate.get("title",script.get("title",topic));candidate["next_short"]=dict(candidate.get("next_short") or {});candidate["next_short"]["topic"]=current_next]
             candidate,locked_next=main.lock_next_topic(candidate,topic)
             if locked_next!=current_next:raise RuntimeError(f"TTS regeneration changed the locked next topic: {locked_next!r} != {current_next!r}")
             _clean_regenerated_final_scene(candidate.get("scene_plan",[])[-1],current_next)
@@ -153,8 +151,8 @@ def _patch_tts_duration(main):
                     if _is_bad_future_sentence(sentence,topic):raise RuntimeError(f"TTS regeneration leaked future-topic language into Scene {scene_index}: {sentence}")
             script.clear();script.update(candidate)
             try:
-                workdir=os.path.dirname(os.path.dirname(os.path.abspath(out_dir)))
-                with open(os.path.join(workdir,"script.json"),"w",encoding="utf-8") as h:json.dump(script,h,indent=2,ensure_ascii=False)
+                workdir=os.path.dirname(os.path.dirname(os.path.abspath(out_dir)));with_path=os.path.join(workdir,"script.json")
+                with open(with_path,"w",encoding="utf-8") as h:json.dump(script,h,indent=2,ensure_ascii=False)
                 if hasattr(main,"write_continuation_manifest"):main.write_continuation_manifest(topic,current_next,"locked",workdir)
             except Exception as exc:print(f"⚠️ Could not refresh regenerated script artifact: {exc}")
         return audio
@@ -174,13 +172,12 @@ def _patch_pexels_gemini_retry(pexels_media):
     original=getattr(pexels_media,"_gemini_rank_candidates",None)
     if not original or getattr(original,"_mint_transient_retry",False):return
     def rank(scene,visual,candidates,kind):
-        last=[]
         for attempt in range(PEXELS_GEMINI_RETRIES+1):
             ranked=original(scene,visual,candidates,kind)
             if ranked:return ranked
             if attempt>=PEXELS_GEMINI_RETRIES:break
             delay=PEXELS_GEMINI_BACKOFF[min(attempt,len(PEXELS_GEMINI_BACKOFF)-1)];print(f"⏳ Gemini visual ranking unavailable; retrying in {delay}s ({attempt+1}/{PEXELS_GEMINI_RETRIES})");time.sleep(delay)
-        return last
+        return []
     rank._mint_transient_retry=True;pexels_media._gemini_rank_candidates=rank;print("🛡️ Gemini visual QC: transient 503 retry with exponential backoff enabled")
 
 
@@ -204,7 +201,7 @@ def main_entry():
     print("AI image generation: DISABLED");print("Pollinations/FLUX: DISABLED")
     print("If Pexels cannot provide a relevant verified asset: production stops rather than using an unrelated fallback")
     print("Continuation: one locked next topic, final sentence only");print("Pexels API key:","AVAILABLE" if os.environ.get("PEXELS_API_KEY") else "NOT CONFIGURED")
-    print("Story: soft 100-145 words / TTS-authoritative 35-44 seconds");print("Captions: Whisper word timing → deterministic fallback if Whisper fails");print("TTS duration guard: ENABLED");print("Gemini visual QC: retry transient 503s before failing");print("="*80)
+    print("Story: TTS-authoritative 35-43.9 seconds");print("Captions: Whisper word timing → deterministic fallback if Whisper fails");print("TTS duration guard: ENABLED");print("Gemini visual QC: retry transient 503s before failing");print("="*80)
     main.run(dry_run=False)
 
 if __name__=="__main__":main_entry()

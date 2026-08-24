@@ -1,8 +1,4 @@
-"""Entertainment-first 45-second story generator for Mint-YT-Factory.
-
-The narration is written for spoken delivery first: playful, visual, punchy and
-human. Technical detail is only used when it makes the story clearer or funnier.
-"""
+"""Entertainment-first story generator with a hard visual-contract gate."""
 from __future__ import annotations
 
 import json
@@ -17,9 +13,8 @@ from google.genai import types
 MODEL_NAME = "gemini-flash-lite-latest"
 SCENE_COUNT = 7
 VISUALS_PER_SCENE = 2
-TARGET_SECONDS = 45
 SCENE_DURATIONS = [3, 5, 7, 7, 8, 8, 7]
-MAX_ATTEMPTS = 4
+MAX_ATTEMPTS = 6
 
 CAMERAS = {"close_up", "medium", "wide", "macro", "top_down", "side", "aerial", "orbit"}
 ANIMATIONS = {"zoom_in", "zoom_out", "pan_left", "pan_right", "rotate", "parallax", "highlight", "hold"}
@@ -28,6 +23,48 @@ TONES = {"curious", "tense", "calm", "awe", "playful", "urgent", "satisfied"}
 RETENTION = {"open_loop", "escalation", "payoff", "reframe", "curiosity_gap", "pattern_break", "emotional_release", "closure"}
 TRANSITIONS = {"hard_cut", "whip_pan", "match_cut", "dissolve", "none"}
 MUSIC_CUES = {"intro", "build", "swell", "drop", "fade_out", "none"}
+
+# Phrases that repeatedly produced unsearchable Pexels queries in production.
+# These are hard failures unless the same sentence also contains a concrete physical action.
+ABSTRACT_VISUAL_PHRASES = (
+    "climbs higher", "climbs up", "climbs", "screams", "whispers", "dances",
+    "plays an orchestra", "plays a song", "secret code", "physics dances",
+    "physics plays", "nature plays", "molecules dance", "atoms dance",
+    "tiny workers", "invisible machine", "invisible machines", "secret world",
+    "underground world", "comes alive", "gets angry", "gets confused",
+    "thinks", "decides", "communicates", "has a conversation", "is having a conversation",
+    "tells a story", "tells us", "reveals its secret", "fights", "wins the battle",
+    "loses the battle", "plays a tune", "plays music", "becomes an orchestra",
+    "kitchen symphony", "acoustic shrinking game", "magic happens", "the magic happens",
+)
+
+ABSTRACT_SUBJECTS = {
+    "physics", "science", "sound", "pressure", "energy", "force", "nature",
+    "the molecules", "molecules", "atoms", "the universe", "time", "gravity",
+}
+
+PHYSICAL_TERMS = {
+    "water", "kettle", "steam", "bubble", "bubbles", "stove", "metal", "lid",
+    "spout", "cup", "pan", "pot", "hand", "finger", "ice", "oil", "soap",
+    "foam", "drop", "droplet", "surface", "glass", "flame", "food", "onion",
+    "knife", "phone", "screen", "cloth", "sock", "door", "shadow", "light",
+    "air", "wind", "balloon", "paper", "wood", "plastic", "coin", "salt",
+    "sugar", "coffee", "tea", "bread", "egg", "fruit", "skin", "hair",
+    "leaf", "plant", "shoe", "wheel", "wheelchair", "car", "window", "mirror",
+    "spoon", "fork", "plate", "bottle", "candle", "smoke", "rain", "snow",
+}
+
+BANNED_LECTURE_PHRASES = (
+    "did you know", "have you ever wondered", "today we're going to", "in this video",
+    "according to scientists", "the scientific explanation is", "this phenomenon occurs because",
+    "therefore", "thus", "hence", "in conclusion", "the reason is simply because",
+)
+
+TECHNICAL_JARGON = {
+    "thermodynamics", "coefficient", "equilibrium", "wavelength", "viscosity",
+    "nucleation", "cavitation", "quantum", "electron", "electromagnetic",
+    "molecular", "microscopic", "macroscopic", "differential", "oscillation",
+}
 
 
 def _clean(value):
@@ -47,85 +84,110 @@ def _api_key():
 
 def _build_system_prompt():
     return r"""
-You are the head writer for a wildly engaging YouTube Shorts channel called Wonder Minute.
-Write ONE self-contained 35–45 second curiosity story about the supplied CURRENT topic.
+You are the head writer for a high-retention YouTube Shorts channel.
 
-Your job is NOT to sound smart. Your job is to make the viewer grin, lean closer and think:
-"Wait... seriously?!"
+Write ONE 35–45 second curiosity story about the CURRENT TOPIC.
+The viewer should feel: "Wait... seriously?!"
 
-VOICE / DELIVERY:
-- sound like a clever, slightly mischievous human friend telling a story
-- conversational spoken English, not essay English
-- playful, quirky, confident, energetic
-- short sentences mixed with occasional punchy fragments
-- use vivid verbs and concrete objects the viewer can picture
-- use natural rhetorical reactions such as "Yep.", "And here's the weird part.", "Sounds impossible, right?"
-- use one memorable funny comparison or bit of personification when it genuinely fits
-- build curiosity before explaining anything
-- explain the mechanism in ordinary language first; technical terminology is optional
-- if a technical term is essential, immediately translate it into normal language
-- let the narrator have a little personality; do not make every sentence purely factual
+IMPORTANT: entertainment comes from the DISCOVERY, not from making the science sound fancy.
+Sound like a clever, mischievous friend explaining something weird you can see in everyday life.
 
-PACING:
-- Hook immediately. No warm-up.
-- Every 1–2 sentences should either reveal something, change the viewer's mental picture,
-  create a question, or deliver a surprising consequence.
-- Avoid long definition sentences.
-- Use punctuation naturally for spoken rhythm: commas, dashes and short sentences.
-- Prefer a concrete scene over abstract explanation.
+VOICE
+- conversational spoken English
+- playful, quirky, confident and energetic
+- short punchy sentences mixed with natural longer sentences
+- concrete nouns and physical verbs
+- one or two light jokes/comparisons are fine
+- simple language first; technical terminology only when genuinely necessary
+- never sound like a textbook, documentary narrator or classroom teacher
 
-ABSOLUTELY AVOID:
-- "Did you know"
-- "Have you ever wondered"
-- "Today we're going to"
-- "In this video"
-- "According to scientists"
-- "The scientific explanation is"
-- "This phenomenon occurs because"
-- textbook definitions
-- lecture voice
-- academic transitions such as "therefore", "thus", "hence"
-- lists, countdowns, Top 5, numbered facts
-- fake quotes, fake studies, fake statistics or invented precise measurements
-- stuffing several unrelated facts into one story
-- excessive words such as molecule, electron, quantum, thermodynamics, coefficient,
-  equilibrium, wavelength, mechanism, phenomenon, density, viscosity unless genuinely necessary
+STORY
+Scene 1: immediate weird observation / hook.
+Scene 2: make the observation stranger without explaining it yet.
+Scene 3: reveal the first simple piece of the mechanism.
+Scene 4: show the physical change happening.
+Scene 5: reveal the surprising consequence.
+Scene 6: deliver the strongest "WAIT, WHAT?" payoff.
+Scene 7: close the CURRENT mystery, then tease ONLY the locked next topic in the final sentence.
 
-STORY STRUCTURE:
-Scene 1 (0–3s): a punchy weird hook. Make the viewer immediately notice the mystery.
-Scene 2 (3–8s): make the situation stranger. Do not explain yet.
-Scene 3 (8–15s): give the simple "oh, that's why" setup.
-Scene 4 (15–22s): show a concrete everyday example or physical consequence.
-Scene 5 (22–30s): flip the viewer's assumption or reveal the surprising detail.
-Scene 6 (30–38s): strongest payoff. This should feel like the "WAIT, WHAT?" moment.
-Scene 7 (38–45s): finish the CURRENT story with a satisfying line. The production system may
-then append exactly one continuation topic as the final sentence. Never introduce that topic
-or any other future mystery earlier.
+The story must be ONE chain of cause → visible change → consequence → payoff.
+Do not turn it into a list of facts.
 
-VISUAL-FIRST WRITING:
-Every sentence must be easy to visualize. If you cannot imagine a literal shot for it,
-rewrite it. Prefer things like a hand, glass, ice cube, sock, door, spoon, phone, animal,
-steam, water, shadow, flame, food, clothing, etc. over abstract language.
+HARD VISUAL CONTRACT
+Every spoken beat must be literally filmable.
+Every sentence must contain or clearly refer to a concrete physical subject, object, person,
+material, environment or observable event.
+Every visual must answer:
+1. WHAT is visible?
+2. WHAT is it physically doing or changing?
+3. WHERE is it happening?
 
-VISUAL CONTRACT:
-For each shot provide:
-- spoken_line: the exact narration beat the image represents
-- visual_focus: the main visible subject
-- visual_action: the exact physical action/state
-- must_show: concrete visible details
-- must_not_show: misleading things to avoid
-- image_prompt: 15–40 words describing ONLY the literal scene
-Shot 1 establishes the moment. Shot 2 advances it with a different action, physical state,
-reaction, closer detail or consequence.
-Never use diagrams, equations, arrows, generic laboratories, abstract particles or symbolic
-representations when the narration can be shown literally.
+A viewer should be able to search the sentence on a stock-footage site without interpreting
+metaphors.
 
-NEXT TOPIC:
-Provide one specific curiosity topic that naturally follows the current story.
-It is metadata for the production system. Mention it only in the final sentence of Scene 7.
-Never put it in the description or earlier narration.
+GOOD:
+"Tiny bubbles form on the hot metal at the bottom of the kettle."
+"As the water gets hotter, those bubbles rise and collapse."
+"Steam finally starts escaping from the spout."
 
-Return ONLY JSON.
+BAD:
+"The sound climbs higher."
+"The kettle starts screaming."
+"Physics turns the kitchen into an orchestra."
+"The pressure gets angry."
+"Molecules start dancing."
+"The kettle reveals its secret."
+
+If you want a playful metaphor, immediately anchor it to a literal physical event.
+GOOD: "The kettle sounds almost like a scream as steam rushes through the spout."
+BAD: "The kettle screams."
+
+DO NOT use abstract verbs as the primary visual action: climbs, screams, whispers, dances,
+plays, thinks, decides, communicates, fights, wins, loses, reveals, remembers, gets angry,
+gets confused, comes alive.
+
+DO NOT invent microscopic characters, invisible machines, secret worlds, fantasy interiors,
+abstract particle scenes, equations, diagrams or symbolic animations when real footage can show
+the idea.
+
+PREFER concrete demonstrations: pouring, cutting, boiling, freezing, melting, bubbling,
+steaming, cracking, sticking, rubbing, squeezing, dropping, spinning, shaking, opening,
+closing, expanding, shrinking, changing color or changing texture.
+
+SCIENCE LANGUAGE
+Explain the mechanism like a smart friend. Avoid jargon. If a technical term is needed,
+explain it in ordinary words immediately.
+Never use jargon merely to make the script sound intelligent.
+
+HOOK
+Never start with "Did you know", "Have you ever wondered", "Today we're going to", or
+"In this video". Start with the weird thing itself.
+
+NO FILLER
+Every 1–2 sentences must reveal something, change the viewer's mental model, create curiosity,
+or deliver a consequence. Do not pad the story to hit the word count.
+
+VISUALS
+Each scene has exactly 2 visuals.
+Shot 1 establishes the physical situation.
+Shot 2 must advance it with a new physical action, state, angle, reaction or consequence.
+The two shots must not be generic duplicates.
+
+For every visual provide:
+- spoken_line: exact narration represented
+- visual_focus: concrete visible subject
+- visual_action: concrete physical action/state
+- must_show: specific visible details
+- must_not_show: misleading alternatives
+- image_prompt: literal real-world 15–40 word scene description
+
+Image prompts must NEVER contain metaphorical actions. Write them as if directing a camera operator.
+
+NEXT TOPIC
+The next topic is metadata. It may appear ONLY in the final sentence of Scene 7.
+Never mention it in Scenes 1–6, the description, title, tags or thumbnail prompt.
+
+Return ONLY JSON matching the supplied schema.
 """
 
 
@@ -184,6 +246,83 @@ def _parse(text):
     return json.loads(text)
 
 
+def _contains_any(text, phrases):
+    lower = _clean(text).lower()
+    return [p for p in phrases if p in lower]
+
+
+def _visual_contract_errors(scenes, next_topic):
+    errors = []
+    narration_words = 0
+    all_narration = []
+
+    for i, scene in enumerate(scenes):
+        n = _clean(scene.get("narration"))
+        narration_words += len(_words(n))
+        all_narration.append(n.lower())
+        if not n:
+            errors.append(f"Scene {i+1}: empty narration")
+            continue
+
+        lecture_hits = _contains_any(n, BANNED_LECTURE_PHRASES)
+        if lecture_hits:
+            errors.append(f"Scene {i+1}: lecture phrase(s): {', '.join(lecture_hits)}")
+
+        abstract_hits = _contains_any(n, ABSTRACT_VISUAL_PHRASES)
+        physical_hits = [w for w in PHYSICAL_TERMS if re.search(rf"\b{re.escape(w)}\b", n.lower())]
+        if abstract_hits and not physical_hits:
+            errors.append(f"Scene {i+1}: abstract/non-searchable narration: {n}")
+
+        if i < 6 and next_topic and next_topic.lower() in n.lower():
+            errors.append(f"Scene {i+1}: next topic leaked before Scene 7")
+
+        visuals = scene.get("visuals")
+        if not isinstance(visuals, list) or len(visuals) != VISUALS_PER_SCENE:
+            errors.append(f"Scene {i+1}: exactly 2 visuals required")
+            continue
+
+        previous_focus = ""
+        for j, visual in enumerate(visuals):
+            prefix = f"Scene {i+1} Shot {j+1}"
+            focus = _clean(visual.get("visual_focus"))
+            action = _clean(visual.get("visual_action"))
+            prompt = _clean(visual.get("image_prompt"))
+            spoken = _clean(visual.get("spoken_line"))
+
+            if not focus or not action or not prompt:
+                errors.append(f"{prefix}: missing concrete visual fields")
+                continue
+            if len(prompt.split()) < 8:
+                errors.append(f"{prefix}: image prompt too vague")
+            if len(prompt.split()) > 60:
+                errors.append(f"{prefix}: image prompt too verbose")
+
+            visual_abstract = _contains_any(" ".join([focus, action, prompt]), ABSTRACT_VISUAL_PHRASES)
+            if visual_abstract:
+                errors.append(f"{prefix}: abstract visual wording: {', '.join(visual_abstract)}")
+
+            if not physical_hits and not _contains_any(" ".join([focus, action, prompt]), PHYSICAL_TERMS):
+                errors.append(f"{prefix}: no concrete physical subject detected")
+
+            if spoken and n.lower() not in spoken.lower() and spoken.lower() not in n.lower():
+                # Spoken-line can be a beat extracted from the scene, but it must overlap meaningfully.
+                overlap = set(re.findall(r"[a-z]{4,}", spoken.lower())) & set(re.findall(r"[a-z]{4,}", n.lower()))
+                if len(overlap) < 2:
+                    errors.append(f"{prefix}: spoken_line does not map to scene narration")
+
+            if j == 1 and previous_focus and focus.lower() == previous_focus.lower():
+                errors.append(f"{prefix}: Shot 2 duplicates Shot 1 focus")
+            previous_focus = focus
+
+    if not any(re.search(r"[.!?]", x) for x in all_narration):
+        errors.append("Narration has no sentence punctuation")
+
+    if not next_topic:
+        errors.append("next_short.topic is empty")
+
+    return errors, narration_words
+
+
 def _normalize(script, topic):
     if not isinstance(script, dict):
         raise RuntimeError("Gemini returned a non-object script.")
@@ -240,14 +379,19 @@ def _normalize(script, topic):
         scene["subtitle_text"] = narration
         scene["source_ids"] = []
         scene["pause_after_ms"] = max(0, min(400, int(scene.get("pause_after_ms", 0) or 0)))
-        scene["purpose"] = _clean(scene.get("purpose")) if _clean(scene.get("purpose")) in PURPOSES else ("hook" if i == 0 else "ending" if i == 6 else "explanation")
-        scene["retention_purpose"] = _clean(scene.get("retention_purpose")) if _clean(scene.get("retention_purpose")) in RETENTION else ("open_loop" if i < 2 else "payoff" if i >= 5 else "escalation")
+        p = _clean(scene.get("purpose"))
+        scene["purpose"] = p if p in PURPOSES else ("hook" if i == 0 else "ending" if i == 6 else "explanation")
+        r = _clean(scene.get("retention_purpose"))
+        scene["retention_purpose"] = r if r in RETENTION else ("open_loop" if i < 2 else "payoff" if i >= 5 else "escalation")
         scene["subtitle_style"] = _clean(scene.get("subtitle_style")) or "dynamic"
         scene["emphasis_word"] = _words(narration)[0] if _words(narration) else ""
-        scene["emotional_tone"] = _clean(scene.get("emotional_tone")) if _clean(scene.get("emotional_tone")) in TONES else ("playful" if i in (0, 3) else "curious")
+        tone = _clean(scene.get("emotional_tone"))
+        scene["emotional_tone"] = tone if tone in TONES else ("playful" if i in (0, 3) else "curious")
         scene["visual_priority"] = _clean(scene.get("visual_priority")) or "primary"
-        scene["transition"] = _clean(scene.get("transition")) if _clean(scene.get("transition")) in TRANSITIONS else "hard_cut"
-        scene["music_cue"] = _clean(scene.get("music_cue")) if _clean(scene.get("music_cue")) in MUSIC_CUES else ("intro" if i == 0 else "fade_out" if i == 6 else "build")
+        transition = _clean(scene.get("transition"))
+        scene["transition"] = transition if transition in TRANSITIONS else "hard_cut"
+        music = _clean(scene.get("music_cue"))
+        scene["music_cue"] = music if music in MUSIC_CUES else ("intro" if i == 0 else "fade_out" if i == 6 else "build")
         scene["confidence"] = _clean(scene.get("confidence")) or "high"
         scene["sfx_cue"] = scene.get("sfx_cue") if isinstance(scene.get("sfx_cue"), dict) else {"term": "none", "at_ms": 0}
 
@@ -260,42 +404,61 @@ def _normalize(script, topic):
                 raise RuntimeError(f"Scene {i+1} visual {j+1} is invalid.")
             visual["segment"] = j + 1
             visual["duration"] = durations[j]
-            visual["camera"] = _clean(visual.get("camera")) if _clean(visual.get("camera")) in CAMERAS else "medium"
-            visual["animation"] = _clean(visual.get("animation")) if _clean(visual.get("animation")) in ANIMATIONS else ("zoom_in" if j == 0 else "pan_right")
+            camera = _clean(visual.get("camera"))
+            visual["camera"] = camera if camera in CAMERAS else "medium"
+            animation = _clean(visual.get("animation"))
+            visual["animation"] = animation if animation in ANIMATIONS else ("zoom_in" if j == 0 else "pan_right")
             visual["zoom_strength"] = _clean(visual.get("zoom_strength")) or "subtle"
             visual["motion_intensity"] = _clean(visual.get("motion_intensity")) or "medium"
             visual["visual_complexity"] = _clean(visual.get("visual_complexity")) or "moderate"
-            visual["image_style"] = _clean(visual.get("image_style")) if _clean(visual.get("image_style")) in {"realistic_3d_render", "cinematic_photograph", "macro_photography"} else "cinematic_photograph"
+            style = _clean(visual.get("image_style"))
+            visual["image_style"] = style if style in {"realistic_3d_render", "cinematic_photograph", "macro_photography"} else "cinematic_photograph"
             visual["lighting"] = _clean(visual.get("lighting")) or "natural believable lighting"
             visual["color_palette"] = _clean(visual.get("color_palette")) or script["visual_identity"]["palette"]
             visual["overlay"] = visual.get("overlay") if isinstance(visual.get("overlay"), dict) else {"type": "none", "description": ""}
             visual["spoken_line"] = _clean(visual.get("spoken_line")) or narration
-            visual["visual_focus"] = _clean(visual.get("visual_focus")) or narration[:120]
-            visual["visual_action"] = _clean(visual.get("visual_action")) or narration[:180]
+            visual["visual_focus"] = _clean(visual.get("visual_focus"))
+            visual["visual_action"] = _clean(visual.get("visual_action"))
             visual["must_show"] = [_clean(x) for x in (visual.get("must_show") or []) if _clean(x)][:6]
             visual["must_not_show"] = [_clean(x) for x in (visual.get("must_not_show") or []) if _clean(x)][:8]
             visual["visual_impact"] = max(1, min(10, int(visual.get("visual_impact", 8) or 8)))
-            prompt = _clean(visual.get("image_prompt"))
-            if not prompt:
-                prompt = f"Literal real-world scene showing {visual['visual_action']} with {visual['visual_focus']} clearly visible"
-            visual["image_prompt"] = prompt[:700]
+            visual["image_prompt"] = _clean(visual.get("image_prompt"))
 
         meaningful = [w for w in _words(narration) if len(w.strip(".,!?;:'\"")) >= 4]
         chosen = meaningful[:3] or _words(narration)[:1]
         scene["caption_highlights"] = [{"word": w, "emphasis": "strong"} for w in chosen]
 
+    # We require Gemini to provide the final tease itself. Do not silently invent one here,
+    # because doing so bypasses the story quality gate.
     scene7 = scenes[6]
     if next_topic.lower() not in scene7["narration"].lower():
-        scene7["narration"] = scene7["narration"].rstrip(".!? ") + f" But that leaves one bigger question: {next_topic}."
-        scene7["subtitle_text"] = scene7["narration"]
+        raise RuntimeError("Scene 7 must contain the locked next topic in its final sentence.")
 
     next_key = re.sub(r"[^a-z0-9 ]", " ", next_topic.lower()).strip()
     for scene in scenes[:6]:
         if next_key and next_key in re.sub(r"[^a-z0-9 ]", " ", scene["narration"].lower()):
             raise RuntimeError("Next topic appeared before Scene 7.")
 
+    errors, word_count = _visual_contract_errors(scenes, next_topic)
+    # 95–115 is intentionally tighter than the previous 110–135 request.
+    if word_count < 95 or word_count > 115:
+        errors.append(f"Spoken word count {word_count} is outside 95–115")
+
+    if errors:
+        preview = " | ".join(errors[:10])
+        raise RuntimeError(f"VISUAL CONTRACT FAILED: {preview}")
+
     script["retention_self_check"] = script.get("retention_self_check") or {"weakest_scene": 4, "reason": "Every scene advances the same mystery."}
-    script["publishing"] = {"research_verified": False, "research_sources_require_verification": False, "citations_ready": False, "claim_verification_required": False, "captions_match_narration": True, "semantic_image_prompts": True, "fourteen_visuals_required": True}
+    script["publishing"] = {
+        "research_verified": False,
+        "research_sources_require_verification": False,
+        "citations_ready": False,
+        "claim_verification_required": False,
+        "captions_match_narration": True,
+        "semantic_image_prompts": True,
+        "fourteen_visuals_required": True,
+        "visual_contract_passed": True,
+    }
     script["generated_at"] = int(time.time())
     script["video_id"] = f"{re.sub(r'[^a-z0-9]+', '-', script['title'].lower()).strip('-')[:40]}-{uuid.uuid4().hex[:8]}"
     return script
@@ -305,6 +468,7 @@ def generate_script(topic, config, research=None, extra_feedback=""):
     topic = _clean(topic)
     if not topic:
         raise RuntimeError("Topic is empty.")
+
     client = genai.Client(api_key=_api_key())
     feedback = ""
     if extra_feedback:
@@ -315,34 +479,64 @@ CURRENT TOPIC:
 {topic}
 
 Create exactly 7 scenes with durations 3, 5, 7, 7, 8, 8, 7 seconds.
-Write roughly 110–135 spoken words before any continuation sentence.
+Target 95–115 total spoken words INCLUDING the final next-topic tease.
 
-NON-NEGOTIABLE STYLE:
-Make this feel like a fun human telling a weird story to a friend. Start with the strangest
-thing, not a definition. Use concrete everyday imagery, playful phrasing and at least one
-natural quirky comparison when it fits. Keep the explanation short and return quickly to the
-physical story. Avoid sounding scientific, formal or instructional.
+CURRENT STORY ONLY:
+Scenes 1–6 must discuss only the current topic.
+Scene 7 must finish the current mystery and end with exactly one natural sentence that names
+next_short.topic.
 
-The current topic is the ONLY mystery in Scenes 1–6.
-Scene 7 must finish that mystery before the continuation sentence.
+ENTERTAINMENT:
+Start with the weirdest observable thing. Make it feel like a clever friend showing the viewer
+something they normally overlook. Use playful language, but keep every claim understandable.
+Use at most two metaphors in the entire narration, and every metaphor must be anchored to a
+literal physical event.
+
+VISUAL CONTRACT — HARD REQUIREMENT:
+Every scene narration must be literally filmable.
+Every visual needs a concrete subject + physical action/state + location/context.
+Do NOT write visual beats such as "the sound climbs", "the kettle screams", "physics dances",
+"molecules dance", "the object reveals its secret", "pressure gets angry", or other abstract
+metaphorical actions.
+If the interesting idea is invisible, explain it through a visible consequence instead.
+
+For example, instead of:
+"The sound climbs higher and higher."
+write:
+"The bubbling changes from slow, deep pops to faster, sharper pops as the water heats up."
+
+Instead of:
+"The kettle screams."
+write:
+"Steam rushes through the small opening in the spout, producing the high sound you hear."
+
+Each Shot 2 must advance Shot 1 physically. Never repeat the same generic stock shot twice.
+
+IMAGE PROMPTS:
+Write literal camera-ready descriptions. No metaphor, no diagrams, no equations, no abstract
+particles, no generic laboratory, no symbolic representation.
 
 DESCRIPTION:
-Write a short description ONLY about the current topic. Never mention the continuation topic.
+Describe ONLY the current topic. Never mention the next topic.
 
 NEXT SHORT:
-Invent one specific curiosity-driven topic. It may appear only in the final sentence of Scene 7.
+Choose one specific, curiosity-driven everyday mystery related enough to feel like a natural
+follow-up, but not a duplicate of the current topic.
 
-VISUALS:
-Each image must literally depict the exact spoken beat, subject and physical action. Do not
-use generic topic imagery, diagrams, laboratories, abstract particles, symbols or unrelated people.
-Shot 2 must visibly advance shot 1.
 {feedback}
 """
 
     last_error = None
     for attempt in range(1, MAX_ATTEMPTS + 1):
         try:
-            retry = f"\n\nFix this previous validation error:\n{last_error}" if last_error else ""
+            retry = ""
+            if last_error:
+                retry = (
+                    "\n\nPREVIOUS ATTEMPT FAILED THE HARD QUALITY GATE."
+                    " Rewrite the story instead of defending it."
+                    f"\nQUALITY GATE ERROR:\n{last_error}\n"
+                    "The replacement must contain concrete, searchable physical beats."
+                )
             response = client.models.generate_content(
                 model=MODEL_NAME,
                 contents=prompt + retry,
@@ -350,19 +544,22 @@ Shot 2 must visibly advance shot 1.
                     system_instruction=_build_system_prompt(),
                     response_mime_type="application/json",
                     response_json_schema=_build_schema(),
-                    temperature=1.0,
+                    temperature=0.9,
                 ),
             )
             text = getattr(response, "text", None)
             if not text:
                 raise RuntimeError("Gemini returned an empty response.")
-            return _normalize(_parse(text), topic)
+            parsed = _parse(text)
+            return _normalize(parsed, topic)
         except Exception as error:
             last_error = f"{type(error).__name__}: {error}"
+            print(f"⚠️ Story quality attempt {attempt}/{MAX_ATTEMPTS} failed: {last_error}")
             if attempt < MAX_ATTEMPTS:
-                time.sleep(2 * attempt)
-    raise RuntimeError(f"SCRIPT GENERATION FAILED. Last error: {last_error}")
+                time.sleep(min(8, 2 * attempt))
+
+    raise RuntimeError(f"SCRIPT GENERATION FAILED AFTER {MAX_ATTEMPTS} QUALITY-GATED ATTEMPTS. Last error: {last_error}")
 
 
 if __name__ == "__main__":
-    print("generate_script.py entertainment-first module")
+    print("generate_script.py — entertainment-first + hard visual-contract gate")

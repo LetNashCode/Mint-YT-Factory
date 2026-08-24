@@ -4,9 +4,10 @@ Guarantees one FAAA reaction per Short and places effects at meaningful
 narrative beats instead of using a fixed offset for every scene.
 """
 from __future__ import annotations
-import os, math, random, struct, wave
+import os, math, random, struct, wave, re
 
 SAMPLE_RATE=44100
+DEFAULT_SCENE_DURATIONS=(3,5,7,7,8,8,7)
 
 try:
     from sfx_runtime import prepare_real_sfx
@@ -85,9 +86,41 @@ def _scene_strength(scene,index):
     return score
 
 def _pick_faaa_scene(scenes):
-    # Prefer the actual punchline/reveal, not automatically Scene 1.
     ranked=sorted(range(len(scenes)),key=lambda i:_scene_strength(scenes[i],i),reverse=True)
     return ranked[0] if ranked else min(3,len(scenes)-1)
+
+def _scene_duration(scene,index):
+    value=scene.get("duration_seconds",scene.get("duration",None)) if isinstance(scene,dict) else None
+    try:
+        value=float(value)
+        if value>0:return value
+    except Exception: pass
+    return float(DEFAULT_SCENE_DURATIONS[min(index,len(DEFAULT_SCENE_DURATIONS)-1)])
+
+def _beat_position(scene,duration):
+    """Return milliseconds for the strongest spoken/comedic beat.
+
+    We estimate timing from where punchline/reveal words occur in the scene
+    narration. This is substantially better than putting every effect at 170ms.
+    """
+    narration=_clean(scene.get("narration","")).lower()
+    words=re.findall(r"\b[\w'-]+\b",narration)
+    if not words:return int(max(.15,min(duration*.65,duration-.25))*1000)
+    triggers=("wait","what","no way","seriously","suddenly","but then","turns out","actually","insane","ridiculous","weird","truth","finally","faaa")
+    match=None
+    for trigger in triggers:
+        pos=narration.find(trigger)
+        if pos>=0:
+            match=len(re.findall(r"\b[\w'-]+\b",narration[:pos]))
+            break
+    if match is None:
+        # Default to the final third: reaction SFX should punctuate, not bury,
+        # the beginning of the spoken sentence.
+        ratio=.72
+    else:
+        ratio=match/max(1,len(words))
+        ratio=max(.28,min(.86,ratio))
+    return int(max(.15,min(duration-.25,duration*ratio))*1000)
 
 def generate_sfx(script,output_dir):
     scenes=script.get("scene_plan",[]) if isinstance(script,dict) else []
@@ -111,15 +144,16 @@ def generate_sfx(script,output_dir):
         kind,at_ms=_fallback(scene,index);source="procedural"
         if index==faaa_scene and reactions.get("faaa"):
             path=reactions["faaa"];kind="faaa";source="original_reaction"
-            # Put the reaction after the scene's key spoken beat, not at a blind fixed time.
-            at_ms=scene.get("sfx_cue",{}).get("at_ms",None) if isinstance(scene.get("sfx_cue"),dict) else None
-            if not isinstance(at_ms,(int,float)):
-                at_ms=620 if index>=4 else 520
+            at_ms=_beat_position(scene,_scene_duration(scene,index))
         elif index<len(real) and real[index] and os.path.exists(real[index]):
             path=real[index];kind=scene.get("sfx_cue",{}).get("category",kind) if isinstance(scene.get("sfx_cue"),dict) else kind;source="real_library"
-            at_ms=scene.get("sfx_cue",{}).get("at_ms",at_ms) if isinstance(scene.get("sfx_cue"),dict) else at_ms
+            # Real SFX also gets beat-aware timing unless the script explicitly
+            # supplied a cue position.
+            explicit=scene.get("sfx_cue",{}).get("at_ms") if isinstance(scene.get("sfx_cue"),dict) else None
+            at_ms=int(explicit) if isinstance(explicit,(int,float)) else _beat_position(scene,_scene_duration(scene,index))
         else:
             path=os.path.join(output_dir,f"scene_{index+1}_{kind}.wav");_write_wav(path,_procedural(kind))
+            at_ms=_beat_position(scene,_scene_duration(scene,index))
         cue={"enabled":True,"type":kind,"source":source,"at_ms":int(at_ms),"intensity":"medium" if kind in ("impact","faaa","reveal") else "subtle"}
         scene["sfx_cue"]=cue
         paths.append(path);plan.append({"scene":index+1,"type":kind,"source":source,"at_ms":int(at_ms)})

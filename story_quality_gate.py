@@ -20,20 +20,43 @@ ABSTRACT_BEATS = (
 ABSTRACT_SINGLE_WORDS = {"climbs","climb","whispers","dances","thinks","decides","communicates","remembers","fights","wins","loses","reveals","plotting"}
 CTA_WORDS = ("subscribe","follow for","like and subscribe","smash that","comment below","link in bio","click the link","watch next","watch why","watch how","part 2","stay tuned","don't miss","hit subscribe","decode why")
 FUTURE_MARKERS = ("another question","one more question","one more thing","that makes you wonder","that makes you ask","speaking of","on a related note","coming next","next topic","next short","next video","then comes")
-PHYSICAL_ACTIONS = {"cut","cuts","slice","slices","chop","chops","pour","pours","boil","boils","bubble","bubbles","rise","rises","fall","falls","drop","drops","melt","melts","freeze","freezes","crack","cracks","stick","sticks","rub","rubs","squeeze","squeezes","spin","spins","roll","rolls","shake","shakes","open","opens","close","closes","expand","expands","shrink","shrinks","change","changes","drip","drips","flow","flows","rush","rushes","escape","escapes","hit","hits","touch","touches","land","lands","bounce","bounces","bend","bends","break","breaks","tear","tears","burn","burns","glow","glows","flash","flashes","move","moves","turn","turns","form","forms","collapse","collapses","spread","spreads","dry","dries","wet","mix","mixes","react","reacts","release","releases","shatter","shatters","flood","floods","sit","sits","sitting","rest","rests","resting","lie","lies","lying","stand","stands","standing","hold","holds","holding","float","floats","appear","appears","grow","grows"}
+# Searchable physical actions AND visible physical states. The gate should reject
+# vague/abstract visual contracts without rejecting useful descriptions such as
+# "wet eyes", "liquid reaches the eye", or "cut onion releasing vapor".
+PHYSICAL_ACTIONS = {
+    "cut","cuts","slice","slices","chop","chops","dice","dices","peel","peels",
+    "pour","pours","boil","boils","bubble","bubbles","rise","rises","fall","falls",
+    "drop","drops","melt","melts","freeze","freezes","crack","cracks","stick","sticks",
+    "rub","rubs","squeeze","squeezes","spin","spins","roll","rolls","shake","shakes",
+    "open","opens","close","closes","expand","expands","shrink","shrinks","change","changes",
+    "drip","drips","flow","flows","rush","rushes","escape","escapes","hit","hits","touch","touches",
+    "land","lands","bounce","bounces","bend","bends","break","breaks","tear","tears","burn","burns",
+    "glow","glows","flash","flashes","move","moves","turn","turns","form","forms","collapse","collapses",
+    "spread","spreads","dry","dries","wet","wets","mix","mixes","react","reacts","release","releases",
+    "released","reach","reaches","reached","fill","fills","filled","irritate","irritates","sting","stings",
+    "blink","blinks","blinked","swell","swells","water","waters","stream","streams","flowing","running",
+    "pouring","cutting","slicing","chopping","opening","closing","rising","falling","floating","appearing",
+    "forming","changing","visible","shown","shows","showing","close-up","closeup","wetness","liquid",
+    "droplets","droplet","steam","smoke","foam","teardrop","teardrops","red","watery","swollen","cracked",
+    "broken","hot","cold","cloudy","mist","misting","spray","sprays","spread","spreads","leak","leaks",
+}
 
 def _words(text): return re.findall(r"\b[\w'-]+\b", str(text or "").lower())
 def _clean(text): return re.sub(r"\s+", " ", str(text or "")).strip()
-def _sentences(text): return [x.strip() for x in re.split(r"(?<=[.!?])\s+", _clean(text)) if x.strip()]
 def _hits(text, phrases):
     low=_clean(text).lower(); return [p for p in phrases if p in low]
 def _abstract_word_hits(text): return sorted(set(_words(text)) & ABSTRACT_SINGLE_WORDS)
 def _physical_action(text):
-    low=_clean(text).lower(); return any(re.search(rf"\b{re.escape(x)}\b", low) for x in PHYSICAL_ACTIONS)
+    low=_clean(text).lower()
+    return any(re.search(rf"\b{re.escape(x)}\b", low) for x in PHYSICAL_ACTIONS)
 
 def _validate(script, topic):
     errors=[]; scenes=script.get("scene_plan") or []
     if len(scenes)!=7: return [f"expected 7 scenes, got {len(scenes)}"]
+    # next_short.topic is generated now, but the actual spoken continuation is
+    # inserted later by main.lock_next_topic(). Validating it here created a
+    # circular failure: the gate rejected the draft before the locking step had
+    # a chance to append the canonical topic.
     next_topic=_clean((script.get("next_short") or {}).get("topic"))
     if not next_topic: errors.append("next_short.topic is empty")
     total_words=0
@@ -46,10 +69,6 @@ def _validate(script, topic):
         if abstract: errors.append(f"Scene {si}: non-literal narration: {', '.join(abstract[:4])}")
         word_hits=_abstract_word_hits(narration)
         if word_hits: errors.append(f"Scene {si}: abstract action words: {', '.join(word_hits)}")
-        if si==7 and next_topic:
-            sentences=_sentences(narration)
-            if not sentences or next_topic.lower() not in sentences[-1].lower(): errors.append("Scene 7: final sentence must name the generated next topic")
-            if len([s for s in sentences if next_topic.lower() in s.lower()])!=1: errors.append("Scene 7: next topic must appear exactly once")
         visuals=scene.get("visuals") or []
         if len(visuals)!=2: errors.append(f"Scene {si}: exactly 2 visuals required"); continue
         previous_focus=""
@@ -80,9 +99,9 @@ def patch_story_generation(main):
             feedback=(extra_feedback or "") + """
 
 FINAL MINT VISUAL RULES — NON-NEGOTIABLE:
-Every narration beat must describe a literal, observable physical event. Do not use metaphorical actions such as plotting, chemical warfare, dancing, revealing secrets, invisible workers, or secret worlds. If an idea is invisible, describe the visible consequence instead. Do not put Subscribe, Follow, CTA, or a different future mystery inside the story. Scene 7 must end with exactly the generated next_short.topic and nothing after it. Every visual needs a concrete subject, physical action/state, and context. Shot 2 must physically advance Shot 1. Aim for 88–102 words, but do not pad. Any coherent 80–110 word story is valid because TTS duration is authoritative.
+Every narration beat must describe a literal, observable physical event. Do not use metaphorical actions such as plotting, chemical warfare, dancing, revealing secrets, invisible workers, or secret worlds. If an idea is invisible, describe the visible consequence instead. Do not put Subscribe, Follow, CTA, or a different future mystery inside the story. Scene 7 must finish the CURRENT mystery; the production system will append the locked next topic after this gate. Every visual needs a concrete subject, a searchable physical action OR clearly visible physical state, and context. Shot 2 must physically advance Shot 1. Aim for 88–102 words, but do not pad. Any coherent 80–110 word story is valid because TTS duration is authoritative.
 """
-            if last_error: feedback+=f"\nTHE PREVIOUS DRAFT FAILED THIS HARD GATE:\n{last_error}\nRewrite the entire story."
+            if last_error: feedback+=f"\nTHE PREVIOUS DRAFT FAILED THIS HARD GATE:\n{last_error}\nRewrite the entire story. Make every visual concrete, searchable, and physically observable."
             script=original(topic,config,research,extra_feedback=feedback); errors=_validate(script,topic)
             if not errors:
                 print(f"🛡️ Final story/visual gate: PASS (attempt {attempt})"); return script

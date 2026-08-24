@@ -4,18 +4,17 @@ import inspect
 import re
 
 FILLER={"the","a","an","and","or","but","so","because","that","this","these","those","your","you","yourself","is","are","was","were","be","been","being","to","of","in","on","at","for","from","with","into","over","under","it","its","they","them","their","there","here","just","really","very","then","than","when","where","what","why","how","do","does","did","can","could","will","would","should","has","have","had","as","like","about","one","two","three","some","any","even","also","still"}
-# The runtime hard-stop is 44.35s. With the current TikTok voice, keeping the
-# story around 100–110 words gives enough margin for normal TTS variance.
-MIN_STORY_WORDS=95
-MAX_STORY_WORDS=110
-TARGET_STORY_WORDS="100-108"
-MAX_REGEN_ATTEMPTS=3
+# Word count is a generation target, NOT a hard production gate.
+# Actual TTS duration is authoritative later in the pipeline.
+MIN_STORY_WORDS=88
+MAX_STORY_WORDS=112
+TARGET_STORY_WORDS="96-104"
+MAX_REGEN_ATTEMPTS=4
 TECHNICAL_TERMS={"molecule","molecules","electron","electrons","proton","protons","neutron","neutrons","quantum","thermodynamics","electromagnetic","electromagnetism","coefficient","equilibrium","density","molecular","microscopic","microscope","wavelength","frequency","entropy","kinetic","potential","inertia","viscosity","polarity","covalent","ionic","charge","charges","particles","particle","mechanism","phenomenon","oscillation","pressure","buoyancy"}
 FUTURE_MARKERS=re.compile(r"\b(?:speaking of|on a related note|that makes you wonder|that makes you ask|another question|one more question|one more thing|which raises|which brings up|that brings us to|related question|then comes|coming next|next topic|next short|next video|stay tuned|part 2)\b",re.I)
 QUESTION_START=re.compile(r"^(?:why|how|what|when|where)\b",re.I)
 MYSTERY_CLAUSE=re.compile(r"\b(?:why|how)\s+([^.!?]{8,100})",re.I)
 SIDE_MYSTERY_MARKERS=re.compile(r"\b(?:see why|see how|find out why|find out how|wonder why|wonder how|makes you wonder|makes you ask|raises the question|another mystery|another question|weird question)\b",re.I)
-
 
 def _words(text): return re.findall(r"\b[\w'-]+\b",str(text or ""))
 def _meaningful(text):
@@ -73,8 +72,6 @@ def _find_story_problems(script,topic):
         narration=str(scene.get("narration","")).strip()
         for sentence in _split_sentences(narration):
             if FUTURE_MARKERS.search(sentence):
-                # Scene 7's single locked continuation is owned by main.lock_next_topic.
-                # It is allowed at the boundary; all earlier future-topic language is not.
                 if index != 7:problems.append(f"Scene {index} contains future-topic language: {sentence}");break
                 continue
             if QUESTION_START.search(sentence) and sentence.rstrip().endswith("?") and len(_meaningful(sentence))>=4:
@@ -82,10 +79,7 @@ def _find_story_problems(script,topic):
                 if story_vocab and not (content & story_vocab):
                     problems.append(f"Scene {index} contains an unrelated question: {sentence}");break
             bad,clause=_mystery_clause_is_unrelated(sentence,story_vocab)
-            if bad:
-                # The continuation is intentionally a question in Scene 7 and is
-                # validated separately by lock_next_topic.
-                if index != 7:problems.append(f"Scene {index} contains a hidden side mystery: {clause}");break
+            if bad and index != 7:problems.append(f"Scene {index} contains a hidden side mystery: {clause}");break
     all_words=[w.lower().strip(".,!?;:'\"()[]") for w in _words(_story_text(script))]; jargon=[w for w in all_words if w in TECHNICAL_TERMS]
     if len(jargon)>=6:problems.append(f"Too much technical jargon ({len(jargon)} terms)")
     lecture_patterns=(r"according to scientists",r"the scientific explanation",r"in scientific terms",r"the definition of",r"this phenomenon occurs because",r"the reason is that",r"from a physics perspective",r"in conclusion",r"therefore,")
@@ -104,9 +98,7 @@ def _refresh_highlights(script):
         if chosen:scene["emphasis_word"]=chosen[0]
 
 def _scene7_current_story_text(narration):
-    """Return Scene 7's current-topic payoff without the continuation teaser."""
     text=str(narration or "").strip()
-    # Gemini may already have inserted a continuation before main.lock_next_topic.
     text=re.split(r"\s+(?:then\s+comes|speaking\s+of|on\s+a\s+related\s+note|that\s+makes\s+you\s+wonder|another\s+question|one\s+more\s+question|coming\s+next|next\s+(?:short|topic|video))\b",text,maxsplit=1,flags=re.I)[0].strip()
     sentences=_split_sentences(text)
     return (sentences[-1] if sentences else text).rstrip(".!? ") or "the strange final effect"
@@ -121,14 +113,8 @@ def _add_visual_contract_fields(script):
             visual.setdefault("must_show",_meaningful(str(visual.get("image_prompt") or narration))[:6] or _meaningful(narration)[:6])
             visual["story_beat"]="establish" if vi==0 else "advance"
             if vi==1:visual["advance_rule"]="show a changed physical state, reaction, closer detail, or consequence; do not repeat shot 1"
-
-            # Scene 7 is allowed to contain the continuation in narration, but the
-            # visuals belong ONLY to the current story. The teaser is audio/text,
-            # not a separate visual story. Gemini sometimes creates an onion/spider/
-            # ice visual here; replace that visual contract with the actual payoff.
             if index==7:
-                payoff=_scene7_current_story_text(narration)
-                visual["spoken_line"]=payoff
+                payoff=_scene7_current_story_text(narration);visual["spoken_line"]=payoff
                 prompt=" ".join(str(visual.get(k) or "") for k in ("visual_focus","visual_action","image_prompt"))
                 bad,_=_mystery_clause_is_unrelated(prompt,set(w.lower() for w in _meaningful(payoff)))
                 if FUTURE_MARKERS.search(prompt) or bad:
@@ -137,7 +123,6 @@ def _add_visual_contract_fields(script):
                     visual["must_show"]=_meaningful(payoff)[:6]
                     visual["must_not_show"]=["unrelated second topic","different object","new mystery"]
                     visual["image_prompt"]=f"Realistic cinematic close-up showing the exact physical payoff: {payoff}. Keep the same subject and environment as the current story, natural lighting, believable materials, no text."
-
 
 def _sanitize_final_scene(script):
     scenes=script.get("scene_plan") or []
@@ -171,25 +156,25 @@ MINT SCRIPT QUALITY CONTRACT — FOLLOW THIS ON EVERY DRAFT
 - Scene 7 must finish the CURRENT story. The production system alone owns the continuation teaser.
 - Never write a hidden side mystery such as 'see why frozen bubbles look like foggy marbles' before the continuation teaser.
 - Every visual's spoken_line must be a literal excerpt or tight paraphrase of that scene's narration. Never invent a new visual story inside the visual contract.
-- Keep the same concrete subject across the story. If the topic is a kettle, do not switch to generic pots, soda glasses, soap bubbles, torches, marbles, frozen bubbles, or other objects unless the narration explicitly requires that comparison.
+- Keep the same concrete subject across the story. Do not switch to unrelated objects unless the narration explicitly requires that comparison.
 - Explain the mechanism in plain spoken language. Prefer funny comparisons, personification, vivid verbs, and ordinary situations over scientific terminology.
-- Use technical vocabulary only when it materially improves the explanation, and immediately translate it into normal language.
 - The payoff must answer the original mystery with an 'ohhh' realization.
-- Do not write 'speaking of...', 'another question...', 'that makes you wonder...', 'then comes...' or similar transitions inside the story body OR visual spoken_line/prompt fields.
-- A causal sentence such as 'When bubbles rise into the cooler water, they collapse' is valid story narration and MUST NOT be rejected as an unrelated question.
-- Target 100–108 words so the final TTS normally lands inside the 35–44 second production window.
+- Do not write future-topic transitions inside the story body or visual fields.
+- Target 96–104 words. Do not intentionally pad or over-explain.
 """
-            if last_reason:feedback+=f"\nPrevious draft failed quality gate: {last_reason}. Rewrite the ENTIRE story; do not patch one sentence."
+            if last_reason:feedback+=f"\nPrevious draft failed: {last_reason}. Rewrite the ENTIRE story cleanly and stay near 96–104 words."
             script=_call_original(original,topic,config,research,feedback);_sanitize_final_scene(script);_add_visual_contract_fields(script);total=_word_total(script);problems=_find_story_problems(script,topic)
-            print(f"🧮 Story length: {total} words (soft production range {MIN_STORY_WORDS}-{MAX_STORY_WORDS}; TTS duration is authoritative)")
+            print(f"🧮 Story length: {total} words (generation target {MIN_STORY_WORDS}-{MAX_STORY_WORDS}; TTS duration is authoritative)")
             if problems:
                 last_reason="; ".join(problems[:3]);print(f"🚫 Story quality gate failed: {last_reason}")
                 if attempt<MAX_REGEN_ATTEMPTS:continue
                 raise RuntimeError(f"Story failed quality gate after {MAX_REGEN_ATTEMPTS} attempts: {last_reason}")
-            if MIN_STORY_WORDS<=total<=MAX_STORY_WORDS:_refresh_highlights(script);return script
-            last_reason=f"story length {total} outside soft range {MIN_STORY_WORDS}-{MAX_STORY_WORDS}";print(f"⚠️ Story length outside soft range: {last_reason}")
-            if attempt==MAX_REGEN_ATTEMPTS:
-                raise RuntimeError(f"Story length remains too long for the TTS duration guard after {MAX_REGEN_ATTEMPTS} attempts: {last_reason}")
+            _refresh_highlights(script)
+            if total<MIN_STORY_WORDS or total>MAX_STORY_WORDS:
+                print(f"⚠️ Story length outside generation target: {total}; continuing to TTS duration guard")
+            else:
+                print("✅ Story length inside generation target")
+            return script
         raise RuntimeError("Unreachable story generation state")
     main.generate_script=generate_script
 

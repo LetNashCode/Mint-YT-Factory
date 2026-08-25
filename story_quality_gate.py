@@ -2,7 +2,7 @@
 from __future__ import annotations
 import re
 
-MAX_ATTEMPTS = 4
+MAX_ATTEMPTS = 6
 MIN_STORY_WORDS = 80
 MAX_STORY_WORDS = 112
 
@@ -18,9 +18,6 @@ ABSTRACT_BEATS = (
     "desperate panic", "chemical invader", "secret", "invader",
 )
 
-# Only reject these when they are used as VISUAL actions. Ordinary narration can
-# naturally contain words such as "wins", "climb", or "fights" without making
-# the visual contract abstract.
 ABSTRACT_VISUAL_SINGLE_WORDS = {
     "whispers", "dances", "thinks", "decides", "communicates", "remembers",
     "plotting", "reveals", "invades", "imagines", "wonders",
@@ -37,6 +34,8 @@ FUTURE_MARKERS = (
     "next topic", "next short", "next video", "then comes",
 )
 
+# Searchable physical actions/states. A visual does not need an "action" verb if
+# the required state itself is directly visible in stock footage.
 PHYSICAL_ACTIONS = {
     "cut","cuts","slice","slices","chop","chops","dice","dices","peel","peels",
     "pour","pours","boil","boils","bubble","bubbles","rise","rises","fall","falls",
@@ -54,6 +53,9 @@ PHYSICAL_ACTIONS = {
     "droplets","droplet","steam","smoke","foam","teardrop","teardrops","red","watery","swollen","cracked",
     "broken","hot","cold","cloudy","mist","misting","spray","sprays","leak","leaks","climb","climbs",
     "fight","fights","win","wins","lose","loses","hold","holds","push","pushes","pull","pulls",
+    "sealed","seal","seals","sealed","pressurized","pressure","compressed","compression","carbonated",
+    "hiss","hisses","fizz","fizzes","fizzing","splash","splashes","squeeze","squeezed","burst","bursts",
+    "sound","noisy","opened","opening","can","bottle","container","surface","texture","steam","vapor",
 }
 
 def _words(text):
@@ -73,6 +75,22 @@ def _physical_action(text):
     low = _clean(text).lower()
     return any(re.search(rf"\b{re.escape(x)}\b", low) for x in PHYSICAL_ACTIONS)
 
+def _strip_cta_sentences(text):
+    """Remove accidental marketing sentences from a generated draft.
+
+    The continuation system owns Scene 7's final teaser, so an accidental CTA
+    should not burn an entire generation attempt. Other scenes remain strict.
+    """
+    kept=[]
+    for sentence in re.split(r"(?<=[.!?])\s+", _clean(text)):
+        if not sentence:
+            continue
+        if _hits(sentence, CTA_WORDS):
+            print(f"🧹 Removed accidental CTA from Scene 7 draft: {sentence}")
+            continue
+        kept.append(sentence)
+    return _clean(" ".join(kept))
+
 def _validate(script, topic):
     errors=[]
     scenes=script.get("scene_plan") or []
@@ -86,6 +104,11 @@ def _validate(script, topic):
     total_words=0
     for si,scene in enumerate(scenes,1):
         narration=_clean(scene.get("narration"))
+        if si==7:
+            narration=_strip_cta_sentences(narration)
+            scene["narration"]=narration
+            if scene.get("subtitle_text"):
+                scene["subtitle_text"]=narration
         total_words += len(_words(narration))
         if not narration:
             errors.append(f"Scene {si}: empty narration")
@@ -157,8 +180,8 @@ def patch_story_generation(main):
 
 FINAL MINT VISUAL RULES — NON-NEGOTIABLE:
 Every narration beat must describe a literal, observable physical event. Avoid metaphorical visual language such as plotting, chemical warfare, dancing molecules, invisible workers, secret worlds, or magic. If an idea is invisible, describe its visible physical consequence instead.
-Do not put Subscribe, Follow, CTA, or a different future mystery inside the story.
-Every visual needs a concrete subject, a searchable physical action OR clearly visible physical state, and context.
+Do not put Subscribe, Follow, CTA, or a different future mystery inside the story. Scene 7 should end naturally; the production system adds the locked continuation afterward.
+Every visual needs a concrete subject, a searchable physical action OR clearly visible physical state, and context. Physical states include sealed, pressurized, compressed, wet, dry, foamy, steaming, cracked, broken, bubbling, fizzing, etc.
 Shot 2 must physically advance Shot 1 rather than repeating the same view.
 Aim for 88–105 words, but do not pad. A coherent 80–112 word story is valid because TTS duration is authoritative.
 Do not use a future-topic tease inside the generated draft; the production system adds the locked continuation after the gate.
@@ -168,7 +191,7 @@ Do not use a future-topic tease inside the generated draft; the production syste
 
 THE PREVIOUS DRAFT FAILED THIS HARD GATE:
 {last_error}
-Rewrite the entire story and fix every listed problem. Keep the explanation fun, conversational, concrete, and easy to visualize.
+Rewrite the entire story and fix every listed problem. Keep the explanation fun, conversational, concrete, and easy to visualize. Do not solve a visual failure by adding abstract science language.
 """
             script=original(topic,config,research,extra_feedback=feedback)
             errors=_validate(script,topic)

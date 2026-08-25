@@ -1,14 +1,10 @@
-"""Media compatibility layer for Mint-YT-Factory.
+"""Media policy override for Mint-YT-Factory.
 
-Production visual policy:
-- Gemini is used separately upstream as the VISUAL DIRECTOR that creates the
-  literal visual plan and image/search prompts from the locked narration.
-- Pexels is then used to source the actual stock video/photo.
-- Gemini is deliberately NOT used as a post-generation visual verification gate.
-- A deterministic local relevance pre-filter/ranker remains in the Pexels
-  selector so the media stage does not silently pick arbitrary stock footage.
-
-This separation is intentional: Gemini writes/directs; Pexels supplies media.
+The production architecture intentionally uses Gemini twice during script
+creation (entertainment writer + visual director), but does NOT use Gemini to
+verify/rank Pexels candidates. Pexels selection is therefore local and
+semantic: the Visual Director's concrete focus/action drives multiple Pexels
+queries, followed by deterministic relevance ranking.
 """
 from __future__ import annotations
 
@@ -16,63 +12,118 @@ import json
 import os
 
 
-def _local_rank_candidates(media, scene, visual, candidates, kind):
-    """Rank Pexels candidates locally without any Gemini visual-QC call.
+def _local_select_factory(media):
+    """Build a Pexels-only selector without any Gemini visual verification."""
 
-    The native selector already computes a useful lexical/action score. We use
-    that score only to order the candidate pool and mark the ordered candidates
-    as locally acceptable. This is NOT visual verification; the actual visual
-    semantics come from the Gemini Visual Director's locked visual plan.
-    """
-    try:
+    def select(scene, visual, excluded_pages=None):
+        if not media.headers():
+            return None
+        excluded_pages = excluded_pages or set()
         required = media.tokens(media._visual_text(scene, visual))
         actions = media.action_tokens(
             f"{media.clean(visual.get('visual_action'))} "
             f"{media.clean(visual.get('spoken_line') or scene.get('narration'))}"
         )
-        ranked = sorted(
-            candidates,
-            key=lambda item: media._heuristic_score(item, required, actions, kind),
+        query_list = media.queries(scene, visual)
+
+        # Aggregate several formulations before ranking. This keeps search
+        # recall high without making a provider verification call per query.
+        videos = []
+        for query in query_list:
+            videos.extend(
+                media.search(
+                    "videos/search",
+                    query,
+                    {"orientation": "portrait", "size": "medium"},
+                )
+            )
+
+        pool = media._dedupe(videos, "video", excluded_pages)
+        pool.sort(
+            key=lambda item: media._heuristic_score(
+                item, required, actions, "video"
+            ),
             reverse=True,
         )
-    except Exception:
-        ranked = list(candidates)
 
-    ordered = []
-    for item in ranked:
-        copy = dict(item)
-        copy["_gemini_score"] = None
-        copy["_gemini_pass"] = True
-        copy["_gemini_reason"] = "Gemini visual verification disabled by policy; ranked from Visual Director plan."
-        ordered.append(copy)
-    return ordered
+        for item in pool[:12]:
+            link = media._video_download_url(item)
+            if not link:
+                continue
+            score = media._heuristic_score(item, required, actions, "video")
+            return {
+                "video": link,
+                "kind": "video",
+                "page": item.get("url", ""),
+                "photographer": (item.get("user") or {}).get("name", ""),
+                "score": round(float(score), 2),
+                "qc_reason": "local semantic relevance ranking; Gemini visual verification disabled",
+                "query": " | ".join(query_list[:3]),
+            }
+
+        photos = []
+        for query in query_list:
+            photos.extend(
+                media.search(
+                    "search",
+                    query,
+                    {"orientation": "portrait", "size": "large"},
+                )
+            )
+
+        pool = media._dedupe(photos, "photo", excluded_pages)
+        pool.sort(
+            key=lambda item: media._heuristic_score(
+                item, required, actions, "photo"
+            ),
+            reverse=True,
+        )
+
+        for item in pool[:12]:
+            src = item.get("src") or {}
+            link = (
+                src.get("portrait")
+                or src.get("large2x")
+                or src.get("large")
+                or src.get("original")
+            )
+            if not link:
+                continue
+            score = media._heuristic_score(item, required, actions, "photo")
+            return {
+                "photo": link,
+                "kind": "photo",
+                "page": item.get("url", ""),
+                "photographer": item.get("photographer", "") or "",
+                "score": round(float(score), 2),
+                "qc_reason": "local semantic relevance ranking; Gemini visual verification disabled",
+                "query": " | ".join(query_list[:3]),
+            }
+
+        return None
+
+    return select
 
 
 def patch_media_selection(media):
-    """Install the intended Gemini-Writer/Visual-Director + Pexels architecture."""
+    """Replace the old Gemini-Pexels verifier with the requested local policy."""
+    if getattr(media, "_mint_media_policy_local", False):
+        return
+
+    media._select = _local_select_factory(media)
+
     original = getattr(media, "generate_media", None)
     if original is None:
         return
 
-    if getattr(original, "_mint_media_policy_separate_visual_director", False):
-        return
-
-    # The native Pexels selector calls this helper for candidate verification.
-    # Replace that helper only; keep query aggregation, deduplication, media
-    # ordering, downloading, continuity and duplicate-asset protection intact.
-    media._gemini_rank_candidates = lambda scene, visual, candidates, kind: _local_rank_candidates(
-        media, scene, visual, candidates, kind
-    )
-
     def generate_media(script, output_dir, config, gim):
         groups = original(script, output_dir, config, gim)
-
         manifest = {
             "provider_order": ["pexels_video", "pexels_photo"],
-            "gemini_calls": "story_writer_and_visual_director_only",
-            "visual_director": "gemini",
+            "script_gemini": "two_stage_writer_and_visual_director",
             "visual_verification": "disabled",
-            "ranking": "local_heuristic_from_gemini_visual_plan",
+            "candidate_ranking": "local_semantic_heuristic",
+            "gemini_candidate_qc": False,
             "unrelated_fallback": False,
         }
         os.makedirs(output_dir, exist_ok=True)
@@ -83,10 +134,11 @@ def patch_media_selection(media):
         ) as handle:
             json.dump(manifest, handle, ensure_ascii=False, indent=2)
 
-        print("🎬 Media policy: Gemini Visual Director → Pexels media")
-        print("🚫 Gemini post-generation visual verification: DISABLED")
-        print("🧭 Pexels ranking: local relevance against Gemini visual plan")
+        print(
+            "🛡️ Media policy: Pexels multi-query + local semantic ranking "
+            "(Gemini visual verification DISABLED)"
+        )
         return groups
 
-    generate_media._mint_media_policy_separate_visual_director = True
+    generate_media._mint_media_policy_local = True
     media.generate_media = generate_media

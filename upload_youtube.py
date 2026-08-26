@@ -116,6 +116,15 @@ def post_top_level_comment(video_id, comment, youtube=None):
     return comment_id
 
 
+def _persist_comment_status(video_path, posted, comment_id):
+    workdir=os.path.dirname(os.path.abspath(video_path))
+    status_path=os.path.join(workdir,"engagement_comment_status.json")
+    payload={"posted":bool(posted),"comment_id":comment_id,"updated_at":int(__import__('time').time())}
+    try:
+        with open(status_path,"w",encoding="utf-8") as handle: json.dump(payload,handle,indent=2,ensure_ascii=False)
+    except Exception as exc: print(f"⚠️ Could not persist engagement comment status: {type(exc).__name__}: {exc}")
+
+
 def upload_video(video_path,title,description,config,thumbnail_path=None,engagement_comment=None):
     creds=_get_credentials(); youtube=build("youtube","v3",credentials=creds); upload=config["upload"]; hashtags=config["seo"]["hashtags"]
     body=_build_upload_body(title,description,hashtags,upload)
@@ -135,11 +144,15 @@ def upload_video(video_path,title,description,config,thumbnail_path=None,engagem
     if thumbnail_path:
         try: set_thumbnail(video_id,thumbnail_path,youtube)
         except Exception as exc: print(f"⚠️ Custom thumbnail upload failed: {type(exc).__name__}: {exc}")
+    comment_posted=False; comment_id=None
     if engagement_comment:
         try:
             comment_id=post_top_level_comment(video_id, engagement_comment, youtube)
-            config["_last_engagement_comment_posted"]=bool(comment_id)
+            comment_posted=bool(comment_id)
+            config["_last_engagement_comment_posted"]=comment_posted
             config["_last_engagement_comment_id"]=comment_id
         except Exception as exc:
             print(f"⚠️ Engagement comment failed; video upload remains successful: {type(exc).__name__}: {exc}")
+    _persist_comment_status(video_path,comment_posted,comment_id)
+    print(f"🧪 Engagement comment delivery: {'POSTED' if comment_posted else 'FAILED'}")
     return video_id

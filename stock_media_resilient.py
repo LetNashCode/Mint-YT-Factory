@@ -1,15 +1,14 @@
 """Failure-resilient visual media pipeline for Mint-YT-Factory.
 
-Priority:
+Stock media is preferred. Gemini is used ONLY to verify/search-direct stock
+candidates. It is NEVER used to generate images.
+
+Fallback order:
 1. Verified Pexels video
 2. Verified Pixabay video
 3. Verified Pexels photo
 4. Verified Pixabay photo
-5. Literal Gemini-generated still when stock cannot illustrate the beat
-
-The final fallback is NOT unrelated stock. It is generated directly from the
-locked visual brief and spoken beat, so the pipeline can finish difficult
-subjects such as popcorn kernels, internal mechanisms, and other rare shots.
+5. Pollinations generated still
 """
 from __future__ import annotations
 
@@ -20,9 +19,8 @@ import time
 from typing import Any
 
 import requests
-
 import stock_search as stock
-from ai_image_fallback import generate as generate_ai_image
+from ai_image_fallback import generate as generate_pollinations_image
 
 VERIFY_MODEL = "gemini-flash-lite-latest"
 VERIFY_THRESHOLD = 7.5
@@ -31,7 +29,7 @@ VERIFY_CANDIDATE_BATCHES = (8, 4, 2)
 SEARCH_ATTEMPTS = 3
 DOWNLOAD_ATTEMPTS = 3
 RETRY_BASE_SECONDS = 1.5
-USER_AGENT = "Mint-YT-Factory/StockMedia/10.0"
+USER_AGENT = "Mint-YT-Factory/StockMedia/11.0"
 
 
 def _sleep(attempt: int) -> None:
@@ -71,15 +69,8 @@ def _candidate_pool(directed: dict, provider: str, video: bool, used: set[str]) 
         url = stock._url(item, provider, video)
         if preview and url:
             creator = ((item.get("user") or {}).get("name", "") if provider == "Pexels" else item.get("user", ""))
-            candidates.append({
-                "provider": provider,
-                "kind": "video" if video else "photo",
-                "url": url,
-                "page": page,
-                "creator": creator,
-                "metadata_score": score,
-                "preview": preview,
-            })
+            candidates.append({"provider": provider, "kind": "video" if video else "photo", "url": url,
+                              "page": page, "creator": creator, "metadata_score": score, "preview": preview})
     return candidates
 
 
@@ -131,13 +122,10 @@ Judge ONLY what is actually visible in each candidate.
 
 SPOKEN BEAT:
 {directed.get('spoken_beat', '')}
-
 IDEAL VISUAL:
 {directed.get('casting_brief', '')}
-
 MUST MATCH:
 {json.dumps(directed.get('must_match', []), ensure_ascii=False)}
-
 AVOID:
 {json.dumps(directed.get('avoid', []), ensure_ascii=False)}
 
@@ -146,7 +134,7 @@ Rules:
 2. The visible action/state must match the spoken action/state.
 3. A merely related object is NOT a match.
 4. Reject generic people, generic food, generic water, decorative textures and attractive footage that does not illustrate the beat.
-5. For invisible/internal mechanisms, accept only a truthful visible proxy that directly demonstrates the physical context.
+5. For invisible/internal mechanisms, accept only a truthful visible proxy directly demonstrating the physical context.
 6. Cinematic quality never compensates for subject or action mismatch.
 7. Be conservative. If unsure, reject.
 
@@ -169,13 +157,11 @@ Score 0-10. Usable means score >= {VERIFY_THRESHOLD} AND reject=false."""
             if not 0 <= index < len(usable) or bool(result.get("reject", True)) or score < VERIFY_THRESHOLD:
                 continue
             item = dict(usable[index])
-            item.update(
-                visual_score=score,
-                visual_subject_match=float(result.get("subject_match", 0) or 0),
-                visual_action_match=float(result.get("action_match", 0) or 0),
-                visual_context_match=float(result.get("context_match", 0) or 0),
-                visual_reason=stock.clean(result.get("reason"), 400),
-            )
+            item.update(visual_score=score,
+                        visual_subject_match=float(result.get("subject_match", 0) or 0),
+                        visual_action_match=float(result.get("action_match", 0) or 0),
+                        visual_context_match=float(result.get("context_match", 0) or 0),
+                        visual_reason=stock.clean(result.get("reason"), 400))
             results.append(item)
         except (TypeError, ValueError):
             continue
@@ -211,10 +197,7 @@ def _verify_resilient(candidates: list[dict], directed: dict) -> list[dict]:
     best_by_page: dict[str, dict] = {}
     for item in all_verified:
         page = str(item.get("page", ""))
-        if not page:
-            continue
-        previous = best_by_page.get(page)
-        if previous is None or float(item.get("visual_score", 0)) > float(previous.get("visual_score", 0)):
+        if page and (page not in best_by_page or float(item.get("visual_score", 0)) > float(best_by_page[page].get("visual_score", 0))):
             best_by_page[page] = item
     verified = sorted(best_by_page.values(), key=lambda item: item.get("visual_score", 0), reverse=True)
     if last_error and not verified:
@@ -237,10 +220,8 @@ def _download_resilient(url: str, path: str, provider: str) -> bool:
             return True
         except Exception as exc:
             print(f"      ⚠️ {provider} download {attempt}/{DOWNLOAD_ATTEMPTS}: {type(exc).__name__}: {exc}")
-            try:
-                os.remove(path)
-            except OSError:
-                pass
+            try: os.remove(path)
+            except OSError: pass
             if attempt < DOWNLOAD_ATTEMPTS:
                 _sleep(attempt)
     return False
@@ -248,52 +229,38 @@ def _download_resilient(url: str, path: str, provider: str) -> bool:
 
 def _credit(path: str, chosen: dict, directed: dict) -> None:
     with open(path, "w", encoding="utf-8") as handle:
-        json.dump({
-            "provider": chosen["provider"],
-            "type": chosen["kind"],
-            "page": chosen.get("page", ""),
-            "creator": chosen.get("creator", ""),
-            "search_queries": directed.get("queries", []),
-            "search_mode": directed.get("search_mode", ""),
-            "metadata_score": chosen.get("metadata_score", 0),
-            "gemini_visual_score": chosen.get("visual_score", 0),
-            "visual_reason": chosen.get("visual_reason", ""),
-        }, handle, ensure_ascii=False, indent=2)
+        json.dump({"provider": chosen["provider"], "type": chosen["kind"], "page": chosen.get("page", ""),
+                   "creator": chosen.get("creator", ""), "search_queries": directed.get("queries", []),
+                   "search_mode": directed.get("search_mode", ""), "metadata_score": chosen.get("metadata_score", 0),
+                   "gemini_visual_score": chosen.get("visual_score", 0), "visual_reason": chosen.get("visual_reason", "")},
+                  handle, ensure_ascii=False, indent=2)
 
 
 def _generate_fallback(directed: dict, output_dir: str, scene_no: int, shot_no: int):
     path = os.path.join(output_dir, f"scene_{scene_no:02d}_shot_{shot_no:02d}.jpg")
-    print(f"   🧠 Scene {scene_no} Shot {shot_no}: no verified stock match — generating literal Gemini still")
-    if not generate_ai_image(directed, path):
-        raise RuntimeError(
-            f"No usable visually relevant media found for Scene {scene_no} Shot {shot_no}; "
-            "stock exhausted and Gemini image fallback failed."
-        )
-    print(f"   ✅ Scene {scene_no} Shot {shot_no}: GEMINI IMAGE FALLBACK → {os.path.basename(path)}")
-    credit = {
-        "provider": "Gemini",
-        "kind": "generated_image",
-        "page": "",
-        "creator": "Google Gemini",
-        "metadata_score": 10,
-        "visual_score": 10,
-        "visual_reason": "Generated directly from the locked spoken beat and literal visual brief.",
-    }
+    print(f"   🧠 Scene {scene_no} Shot {shot_no}: no verified stock match — generating literal Pollinations still")
+    if not generate_pollinations_image(directed, path):
+        raise RuntimeError(f"No usable visually relevant media found for Scene {scene_no} Shot {shot_no}; stock exhausted and Pollinations image fallback failed.")
+    print(f"   ✅ Scene {scene_no} Shot {shot_no}: POLLINATIONS IMAGE FALLBACK → {os.path.basename(path)}")
+    credit = {"provider": "Pollinations", "kind": "generated_image", "page": "", "creator": "Pollinations",
+              "metadata_score": 10, "visual_score": 10,
+              "visual_reason": "Generated directly from the locked spoken beat and literal visual brief."}
     _credit(path + ".credit.json", credit, directed)
-    return (credit, path)
+    return credit, path
 
 
 def generate_media(script: dict, output_dir: str, config: dict, gim=None):
-    if not os.getenv("PEXELS_API_KEY", "").strip() and not os.getenv("PIXABAY_API_KEY", "").strip() and not os.getenv("GEMINI_API_KEY", "").strip():
-        raise RuntimeError("PEXELS_API_KEY, PIXABAY_API_KEY, or GEMINI_API_KEY is required.")
+    if not os.getenv("PEXELS_API_KEY", "").strip() and not os.getenv("PIXABAY_API_KEY", "").strip():
+        raise RuntimeError("PEXELS_API_KEY or PIXABAY_API_KEY is required.")
     os.makedirs(output_dir, exist_ok=True)
     plan = stock.build_plan(script)
     used: set[str] = set()
     groups: list[list[str]] = []
     print("=" * 80)
-    print("📚 VISUAL MEDIA v10.0 — VERIFIED STOCK + LITERAL GEMINI FALLBACK")
-    print("Gemini: search director + strict visual verifier + generated-image recovery")
-    print("Priority: Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO → Gemini IMAGE")
+    print("📚 VISUAL MEDIA v11.0 — VERIFIED STOCK + POLLINATIONS FALLBACK")
+    print("Gemini: search director + strict visual verifier ONLY")
+    print("Image generation: Pollinations ONLY — Gemini image generation DISABLED")
+    print("Priority: Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO → Pollinations IMAGE")
     print("Unrelated stock fallback: DISABLED")
     print("=" * 80)
 
@@ -304,10 +271,8 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None):
             selected = None
             rejected_pages: set[str] = set()
             for provider, video in providers:
-                if provider == "Pexels" and not os.getenv("PEXELS_API_KEY", "").strip():
-                    continue
-                if provider == "Pixabay" and not os.getenv("PIXABAY_API_KEY", "").strip():
-                    continue
+                if provider == "Pexels" and not os.getenv("PEXELS_API_KEY", "").strip(): continue
+                if provider == "Pixabay" and not os.getenv("PIXABAY_API_KEY", "").strip(): continue
                 candidates = _candidate_pool(directed, provider, video, used | rejected_pages)
                 if not candidates:
                     print(f"   ↪️ Scene {scene_no} Shot {shot_no}: {provider} {'VIDEO' if video else 'PHOTO'} — no candidates")
@@ -318,23 +283,20 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None):
                     continue
                 for chosen in verified:
                     page = str(chosen.get("page", ""))
-                    if not page or page in rejected_pages or page in used:
-                        continue
+                    if not page or page in rejected_pages or page in used: continue
                     ext = "mp4" if chosen["kind"] == "video" else "jpg"
                     path = os.path.join(output_dir, f"scene_{scene_no:02d}_shot_{shot_no:02d}.{ext}")
                     print(f"   🎯 Scene {scene_no} Shot {shot_no}: trying verified {provider} {chosen['kind']} {chosen['visual_score']:.1f}/10")
                     if _download_resilient(chosen["url"], path, chosen["provider"]):
-                        selected = (chosen, path)
+                        selected = chosen, path
                         break
                     rejected_pages.add(page)
-                if selected:
-                    break
+                if selected: break
                 print(f"   ↪️ Scene {scene_no} Shot {shot_no}: all verified {provider} {'VIDEO' if video else 'PHOTO'} downloads failed")
 
             if selected:
                 chosen, path = selected
-                page = chosen["page"]
-                used.add(page)
+                used.add(chosen["page"])
                 _credit(path + ".credit.json", chosen, directed)
                 scene_paths.append(path)
             else:

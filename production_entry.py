@@ -4,9 +4,6 @@ ACTIVE MEDIA ARCHITECTURE
 --------------------------
 Gemini Visual/Search Director -> Pexels VIDEO -> Pixabay VIDEO fallback ->
 Pexels PHOTO -> Pixabay PHOTO -> Gemini candidate visual verification -> assembly.
-
-Gemini verifies stock candidates but never generates replacement visuals.
-There is no Pollinations/FLUX or AI visual fallback.
 """
 from __future__ import annotations
 
@@ -24,14 +21,7 @@ MAX_SHORT_TTS_REGEN = 2
 
 
 def _patch_visual_search_plan():
-    """Turn Gemini's precise search plan into a diverse stock-retrieval plan.
-
-    Gemini remains the semantic director. This adapter prevents a common stock
-    search failure where all four Gemini queries are effectively the same
-    cinematic description (for example, four variants of 'single yellow kernel
-    on dark slate'). We preserve the best literal query and deliberately add
-    object-only, action/context, and simplified retrieval forms.
-    """
+    """Make the existing Gemini visual plan retrieval-friendly without changing its API."""
     import pexels_media
 
     original = pexels_media.build_search_plan
@@ -43,16 +33,15 @@ def _patch_visual_search_plan():
         "cinematic", "glossy", "isolated", "dark", "moody", "dramatic", "beautiful",
         "photography", "photograph", "photo", "slow", "motion", "detailed", "detail",
         "realistic", "natural", "background", "slate", "surface", "shiny", "polished",
-        "extreme", "high", "quality", "professional", "shot", "footage",
+        "high", "quality", "professional", "shot", "footage",
     }
 
     def simplify(value: str) -> str:
         words = re.findall(r"[A-Za-z0-9'-]+", str(value or "").lower())
-        words = [w for w in words if w not in REMOVE_WORDS]
-        return " ".join(words[:8]).strip()
+        return " ".join(w for w in words if w not in REMOVE_WORDS)[:160].strip()
 
-    def build():
-        plan = original()
+    def build(script):
+        plan = original(script)
         for scene_plan in plan:
             for directed in scene_plan:
                 original_queries = [str(q).strip() for q in directed.get("queries", []) if str(q).strip()]
@@ -73,19 +62,12 @@ def _patch_visual_search_plan():
                 if len(must) > 1:
                     candidates.append(simplify(" ".join(must[:2])))
 
-                # De-duplicate while keeping the deliberately different retrieval
-                # strategies. Exactly four are used to control API volume.
                 final = []
                 seen = set()
-                for query in candidates:
+                for query in candidates + original_queries[2:]:
                     query = re.sub(r"\s+", " ", query).strip()
                     if len(query.split()) < 2:
                         continue
-                    key = query.lower()
-                    if key not in seen:
-                        seen.add(key)
-                        final.append(query)
-                for query in original_queries[2:]:
                     key = query.lower()
                     if key not in seen:
                         seen.add(key)
@@ -127,25 +109,9 @@ def _patch_tts_duration(main):
             if MIN_NARRATION_SECONDS <= duration <= MAX_NARRATION_SECONDS:
                 return audio
             if attempt >= MAX_SHORT_TTS_REGEN:
-                raise RuntimeError(
-                    f"Narration duration remained outside production range after {MAX_SHORT_TTS_REGEN} "
-                    f"regeneration attempts: {duration:.2f}s (allowed {MIN_NARRATION_SECONDS:.2f}-"
-                    f"{MAX_NARRATION_SECONDS:.2f}s)."
-                )
-            direction = (
-                f"The previous narration rendered at {duration:.2f} seconds and is TOO LONG. "
-                "Rewrite it shorter. Target 90-100 words before the locked continuation. "
-                "Remove filler, repeated explanations and extra setup while keeping the hook, escalation and payoff."
-                if duration > MAX_NARRATION_SECONDS else
-                f"The previous narration rendered at {duration:.2f} seconds and is TOO SHORT. "
-                "Target 100-110 words before the locked continuation. Add concrete everyday details and escalation, "
-                "not scientific filler."
-            )
-            feedback = (
-                f"{direction} IMPORTANT: current topic is {topic!r}. Do not introduce another mystery. "
-                f"Scene 7 must contain only the payoff for {topic!r}, followed by the exact locked continuation topic "
-                f"{current_next!r}. Do not invent a different teaser."
-            )
+                raise RuntimeError(f"Narration duration remained outside production range after {MAX_SHORT_TTS_REGEN} regeneration attempts: {duration:.2f}s (allowed {MIN_NARRATION_SECONDS:.2f}-{MAX_NARRATION_SECONDS:.2f}s).")
+            direction = (f"The previous narration rendered at {duration:.2f} seconds and is TOO LONG. Rewrite it shorter. Target 90-100 words before the locked continuation. Remove filler, repeated explanations and extra setup while keeping the hook, escalation and payoff." if duration > MAX_NARRATION_SECONDS else f"The previous narration rendered at {duration:.2f} seconds and is TOO SHORT. Target 100-110 words before the locked continuation. Add concrete everyday details and escalation, not scientific filler.")
+            feedback = f"{direction} IMPORTANT: current topic is {topic!r}. Do not introduce another mystery. Scene 7 must contain only the payoff for {topic!r}, followed by the exact locked continuation topic {current_next!r}. Do not invent a different teaser."
             candidate = main.generate_script(topic, config, None, extra_feedback=feedback)
             candidate["topic"] = topic
             candidate["next_short"] = dict(candidate.get("next_short") or {})
@@ -153,8 +119,7 @@ def _patch_tts_duration(main):
             candidate, locked_next = main.lock_next_topic(candidate, topic)
             if locked_next != current_next:
                 raise RuntimeError(f"TTS regeneration changed locked next topic: {locked_next!r} != {current_next!r}")
-            script.clear()
-            script.update(candidate)
+            script.clear(); script.update(candidate)
             workdir = os.path.dirname(os.path.dirname(os.path.abspath(out_dir)))
             try:
                 with open(os.path.join(workdir, "script.json"), "w", encoding="utf-8") as handle:
@@ -172,13 +137,10 @@ def _patch_tts_duration(main):
 def _patch_assemble_video_media():
     import assemble
     from moviepy.editor import VideoFileClip, vfx
-
     original = assemble.make_image_clip
     if getattr(original, "_mint_media_v3", False):
         return
-
     video_ext = {".mp4", ".mov", ".m4v", ".webm", ".avi", ".mkv"}
-
     def make_media_clip(path, frame_size):
         if os.path.splitext(str(path))[1].lower() not in video_ext:
             return original(path, frame_size)
@@ -187,11 +149,9 @@ def _patch_assemble_video_media():
         clip = VideoFileClip(path, audio=False)
         scale = max(width / clip.w, height / clip.h)
         clip = clip.resize(scale)
-        crop_x = max(0, int((clip.w - width) / 2))
-        crop_y = max(0, int((clip.h - height) / 2))
+        crop_x = max(0, int((clip.w - width) / 2)); crop_y = max(0, int((clip.h - height) / 2))
         clip = clip.crop(x1=crop_x, y1=crop_y, x2=crop_x + width, y2=crop_y + height)
         return clip.fx(vfx.loop, duration=10.0)
-
     make_media_clip._mint_media_v3 = True
     assemble.make_image_clip = make_media_clip
     print("🛡️ Assembly media compatibility: stock MP4 → VideoFileClip + safe loop")
@@ -210,7 +170,6 @@ def _install_media_pipeline(main):
 
 def main_entry():
     import main
-
     patch_continuation(main)
     patch_tts_result(main)
     patch_story_quality(main)
@@ -219,7 +178,6 @@ def main_entry():
     _patch_tts_duration(main)
     _patch_assemble_video_media()
     _install_media_pipeline(main)
-
     print("=" * 80)
     print("🚀 MINT-YT-FACTORY STARTED")
     print("=" * 80)

@@ -42,9 +42,8 @@ def _split_sentences(text: str) -> list[str]:
     return [x.strip() for x in re.split(r"(?<=[.!?])\s+", _clean(text)) if x.strip()]
 
 
-# Anything here is considered continuation/side-topic language. This is
-# deliberately broader than the old list because phrases such as
-# "Next, see why onions..." were previously allowed through.
+# Continuation/meta language that makes Scene 7 sound like an ad for the next Short.
+# The actual continuation topic is still allowed, but must be woven into a natural sentence.
 STALE_TEASER_PATTERNS = (
     r"^\s*(?:and\s+)?next\b",
     r"\bnext\s+(?:video|short|topic)\b",
@@ -99,7 +98,20 @@ def _clean_payoff(text: str, max_words: int = 24) -> str:
 
 
 def _build_teaser(topic: str) -> str:
-    return f"And next: {topic}."
+    """Return a seamless continuation sentence, never an explicit 'next' cue."""
+    topic = _clean(topic).rstrip(".!? ")
+    # These are deliberately story-like rather than CTA-like. The topic itself remains
+    # the final spoken reveal, but there is no 'And next', 'see why', or 'coming up'.
+    templates = (
+        "And somehow, that leaves us with one wonderfully weird question: {topic}?",
+        "And that makes the ordinary world a little stranger: {topic}?",
+        "And just like that, another everyday mystery appears: {topic}?",
+        "Which makes you look at the world a little differently: {topic}?",
+    )
+    # Avoid malformed double question marks when the canonical topic already contains '?'.
+    template = templates[sum(ord(c) for c in topic) % len(templates)]
+    suffix = "" if topic.endswith("?") else "?"
+    return template.format(topic=topic)[:-1] + suffix
 
 
 def _stale_visual_tokens(text: str) -> set[str]:
@@ -135,7 +147,7 @@ def _sanitize_final_visuals(final: dict, stale_text: str, current_topic: str) ->
 
 
 def patch_continuation(main):
-    """Lock exactly one continuation topic and never leak rejected candidates."""
+    """Lock exactly one continuation topic and weave it into Scene 7 naturally."""
     def lock_next_topic(script, current_topic):
         from topics import _PENDING_PREFIX, _generate_topic, _read_used, validate_topic_for_pipeline
 
@@ -155,17 +167,14 @@ def patch_continuation(main):
         if not canonical:
             raise RuntimeError("Could not create a valid canonical next topic.")
 
-        # The generated next_short metadata is NOT allowed to dictate the final
-        # sentence. From this point onward canonical is the sole source of truth.
         script.setdefault("next_short", {})["topic"] = canonical
+        # Keep metadata useful, but do not use it as spoken narration.
         script["next_short"]["teaser"] = _build_teaser(canonical)
 
         scenes = script.get("scene_plan")
         if not isinstance(scenes, list) or len(scenes) != 7:
             raise RuntimeError("Script must contain exactly 7 scenes.")
 
-        # Remove every future/side-topic sentence first, then append exactly one
-        # canonical teaser. This prevents "onion ... and next bread ..." leaks.
         final = scenes[-1]
         original_final = _clean(final.get("narration", ""))
         payoff_source = _remove_stale_teaser(original_final, canonical)
@@ -186,13 +195,12 @@ def patch_continuation(main):
         if any(key in _topic_key(scene.get("narration", "")) for scene in scenes[:6]):
             raise RuntimeError("Next topic appeared before Scene 7.")
 
-        # Exactly one sentence may be the continuation teaser, and it must be the
-        # exact canonical topic. No "see why X" sentence survives.
+        # Exactly one sentence contains the continuation topic, and it is the final sentence.
         sentences = _split_sentences(final["narration"])
         teaser_matches = [s for s in sentences if key in _topic_key(s)]
         stale_matches = [s for s in sentences if _is_stale_teaser(s) and key not in _topic_key(s)]
-        if len(teaser_matches) != 1 or stale_matches:
-            raise RuntimeError("Scene 7 continuation integrity failed: more than one or a stale future-topic teaser remains.")
+        if len(teaser_matches) != 1 or stale_matches or not sentences or teaser_matches[0] != sentences[-1]:
+            raise RuntimeError("Scene 7 continuation integrity failed: continuation must be one seamless final sentence with no explicit next/teaser cue.")
 
         print(f"🔒 Canonical next topic: {canonical}")
         print(f"🗣️ FINAL SPOKEN TEASE: {final['narration']}")
@@ -237,9 +245,6 @@ def _install_gemini_verifier_resilience():
                 if attempt < 3:
                     time.sleep(1.5 * attempt)
 
-        # Gemini is temporarily unavailable. Preserve semantic stock selection
-        # rather than crashing the whole production run. The candidates were
-        # already generated from the exact spoken beat by the Visual Director.
         ranked = sorted(candidates or [], key=lambda x: float(x.get("metadata_score", 0) or 0), reverse=True)
         if ranked:
             print(f"⚠️ Gemini verifier unavailable after retries; using best retrieved stock candidate (no unrelated/AI fallback). Last error: {type(last).__name__ if last else 'unknown'}")
@@ -258,7 +263,6 @@ def _install_gemini_verifier_resilience():
     print("🛡️ Gemini visual verifier resilience: retries + non-fatal transport fallback ENABLED")
 
 
-# Install as soon as runtime_overrides is imported by production_entry.
 _install_gemini_verifier_resilience()
 
 

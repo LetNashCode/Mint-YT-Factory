@@ -178,33 +178,36 @@ Score 0-10. Usable means score >= {VERIFY_THRESHOLD} AND reject=false."""
 
 
 def _verify_resilient(candidates: list[dict], directed: dict) -> list[dict]:
-    """Return all verified choices available from progressively smaller batches."""
+    """Verify the entire candidate pool in disjoint 8 -> 4 -> 2 batches.
+
+    The previous implementation combined a moving offset with a filtered list
+    of already-seen candidates, which could skip candidates after the first
+    successful batch. Keep an explicit cursor over the original pool instead.
+    """
     if not candidates:
         return []
 
     all_verified: list[dict] = []
-    seen_pages: set[str] = set()
+    cursor = 0
     last_error: Exception | None = None
 
-    # Verify disjoint batches. This makes the smaller-batch fallback useful
-    # rather than re-verifying the same first candidates repeatedly.
-    offset = 0
     for batch_size in VERIFY_CANDIDATE_BATCHES:
-        batch = [c for c in candidates if str(c.get("page", "")) not in seen_pages][offset:offset + batch_size]
+        batch = candidates[cursor:cursor + batch_size]
+        cursor += len(batch)
         if not batch:
             break
-        offset += len(batch)
+
         for attempt in range(1, VERIFY_ATTEMPTS + 1):
             try:
                 verified = _verify_once(batch, directed)
                 if verified:
-                    for item in verified:
-                        page = str(item.get("page", ""))
-                        if page and page not in seen_pages:
-                            seen_pages.add(page)
-                            all_verified.append(item)
-                    break
-                print(f"      ℹ️ Gemini verified batch of {len(batch)} candidates: no acceptable visual")
+                    all_verified.extend(verified)
+                    print(f"      ✅ Gemini verified {len(verified)}/{len(batch)} candidates in batch of {len(batch)}")
+                else:
+                    print(f"      ℹ️ Gemini verified batch of {len(batch)} candidates: no acceptable visual")
+                # A completed verification is not a transient failure. Move
+                # to the next disjoint batch so every available candidate gets
+                # its intended verification opportunity.
                 break
             except Exception as exc:
                 last_error = exc
@@ -212,10 +215,20 @@ def _verify_resilient(candidates: list[dict], directed: dict) -> list[dict]:
                 if attempt < VERIFY_ATTEMPTS:
                     _sleep(attempt)
 
-    if last_error and not all_verified:
+    # Deduplicate by stock page while preserving the best Gemini score.
+    best_by_page: dict[str, dict] = {}
+    for item in all_verified:
+        page = str(item.get("page", ""))
+        if not page:
+            continue
+        previous = best_by_page.get(page)
+        if previous is None or float(item.get("visual_score", 0)) > float(previous.get("visual_score", 0)):
+            best_by_page[page] = item
+
+    verified = sorted(best_by_page.values(), key=lambda item: item.get("visual_score", 0), reverse=True)
+    if last_error and not verified:
         print(f"      ⚠️ Gemini verifier unavailable for this shot after retries: {type(last_error).__name__}")
-    all_verified.sort(key=lambda item: item.get("visual_score", 0), reverse=True)
-    return all_verified
+    return verified
 
 
 def _download_resilient(url: str, path: str, provider: str) -> bool:

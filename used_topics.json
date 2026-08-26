@@ -247,5 +247,7 @@
   "Why paperclips float on water",
   "__MINT_ANALYTICS__::{\"video_id\":\"albcmYypmuQ\",\"topic\":\"Why wet paper towels tear\",\"title\":\"Why Wet Paper Towels Tear So Easily\",\"workdir\":\"output/1787713230\",\"published_at\":\"2026-08-26T03:25:52.549984+00:00\",\"topic_category\":\"Why wet paper towels tear\",\"hook_type\":\"open_loop\",\"story_structure\":\"7-scene curiosity story\",\"visual_style\":\"Cinematic macro photography with natural textures and realistic lighting\",\"music_type\":\"Starts curious, builds tension during explanation, resolves with a light quirky pop\",\"voice\":\"Curious, playful, and confident\"}",
   "Why wet paper towels tear",
-  "__MINT_PENDING_NEXT_TOPIC__::Why do tea bags float"
+  "__MINT_ANALYTICS__::{\"video_id\":\"3FcG7OAtukc\",\"topic\":\"Why do tea bags float\",\"title\":\"Why Do Tea Bags Float\",\"workdir\":\"output/1787739372\",\"published_at\":\"2026-08-26T10:39:47.511658+00:00\",\"topic_category\":\"Why do tea bags float\",\"hook_type\":\"open_loop\",\"story_structure\":\"7-scene curiosity story\",\"visual_style\":\"Cinematic macro photography\",\"music_type\":\"starts curious, builds tension during demonstration, resolves with a playful pop\",\"voice\":\"playful and curious\",\"engagement_experiment\":\"prediction\",\"engagement_phase\":\"baseline_test_1_of_6\",\"engagement_comment\":\"Before watching again: what was your guess about tea bags float? 👇\",\"engagement_share_prompt\":\"Send this to someone who would guess wrong.\"}",
+  "Why do tea bags float",
+  "__MINT_PENDING_NEXT_TOPIC__::Why popcorn kernels explode"
 ]

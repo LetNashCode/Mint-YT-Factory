@@ -18,6 +18,7 @@ from typing import Any
 
 import requests
 import stock_search as stock
+import stock_query_expander
 
 VERIFY_MODEL = "gemini-flash-lite-latest"
 VERIFY_THRESHOLD = 7.5
@@ -26,7 +27,7 @@ VERIFY_CANDIDATE_BATCHES = (8, 4, 2)
 SEARCH_ATTEMPTS = 3
 DOWNLOAD_ATTEMPTS = 3
 RETRY_BASE_SECONDS = 1.5
-USER_AGENT = "Mint-YT-Factory/StockMedia/11.0"
+USER_AGENT = "Mint-YT-Factory/StockMedia/11.2"
 
 
 def _sleep(attempt: int) -> None:
@@ -69,6 +70,37 @@ def _candidate_pool(directed: dict, provider: str, video: bool, used: set[str]) 
             candidates.append({"provider": provider, "kind": "video" if video else "photo", "url": url,
                               "page": page, "creator": creator, "metadata_score": score, "preview": preview})
     return candidates
+
+
+def _search_and_verify(directed: dict, provider: str, video: bool, used: set[str]):
+    """Search normal vocabulary first, then expand vocabulary only after failure."""
+    candidates = _candidate_pool(directed, provider, video, used)
+    if candidates:
+        verified = _verify_resilient(candidates, directed)
+        if verified:
+            return verified, directed, False
+
+    print(f"   🧠 {provider} {'VIDEO' if video else 'PHOTO'}: normal vocabulary failed — expanding search vocabulary")
+    try:
+        expanded = stock_query_expander.expand(directed)
+    except Exception as exc:
+        print(f"   ⚠️ Semantic search expansion failed: {type(exc).__name__}: {exc}")
+        return [], directed, False
+
+    fallbacks = expanded.get("semantic_fallback_queries", [])
+    if not fallbacks:
+        print(f"   ↪️ {provider} {'VIDEO' if video else 'PHOTO'}: no semantic alternatives generated")
+        return [], directed, False
+
+    print(f"   🔎 Semantic alternatives: {' | '.join(fallbacks)}")
+    fallback_directed = dict(expanded)
+    fallback_directed["queries"] = fallbacks
+    fallback_directed["primary_queries"] = directed.get("queries", [])
+    candidates = _candidate_pool(fallback_directed, provider, video, used)
+    if not candidates:
+        return [], fallback_directed, True
+    verified = _verify_resilient(candidates, fallback_directed)
+    return verified, fallback_directed, True
 
 
 def _load_preview(url: str) -> bytes | None:
@@ -247,12 +279,13 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None):
     groups: list[list[str]] = []
 
     print("=" * 80)
-    print("📚 VISUAL MEDIA v11.1 — PEXELS + PIXABAY ONLY")
-    print("Gemini: search direction + visual verification ONLY")
+    print("📚 VISUAL MEDIA v11.2 — PEXELS + PIXABAY ONLY + SEMANTIC SEARCH FALLBACK")
+    print("Gemini: search direction + semantic vocabulary + visual verification ONLY")
     print("Image generation: DISABLED")
     print("Allowed media: Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO")
     print("Generated-image fallback: DISABLED")
     print("Unrelated-media fallback: DISABLED")
+    print("Semantic search fallback: ENABLED — same-meaning stock vocabulary")
     print("=" * 80)
 
     providers = (("Pexels", True), ("Pixabay", True), ("Pexels", False), ("Pixabay", False))
@@ -260,34 +293,34 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None):
         scene_paths: list[str] = []
         for shot_no, directed in enumerate(shots, 1):
             selected = None
+            chosen_directed = directed
             rejected_pages: set[str] = set()
             for provider, video in providers:
                 if provider == "Pexels" and not os.getenv("PEXELS_API_KEY", "").strip():
                     continue
                 if provider == "Pixabay" and not os.getenv("PIXABAY_API_KEY", "").strip():
                     continue
-                candidates = _candidate_pool(directed, provider, video, used | rejected_pages)
-                if not candidates:
-                    print(f"   ↪️ Scene {scene_no} Shot {shot_no}: {provider} {'VIDEO' if video else 'PHOTO'} — no candidates")
-                    continue
-                verified = _verify_resilient(candidates, directed)
+
+                verified, search_directed, expanded_used = _search_and_verify(directed, provider, video, used | rejected_pages)
                 if not verified:
                     print(f"   ↪️ Scene {scene_no} Shot {shot_no}: {provider} {'VIDEO' if video else 'PHOTO'} — no verified match")
                     continue
+
                 for chosen in verified:
                     page = str(chosen.get("page", ""))
                     if not page or page in rejected_pages or page in used:
                         continue
                     ext = "mp4" if chosen["kind"] == "video" else "jpg"
                     path = os.path.join(output_dir, f"scene_{scene_no:02d}_shot_{shot_no:02d}.{ext}")
-                    print(f"   🎯 Scene {scene_no} Shot {shot_no}: trying verified {provider} {chosen['kind']} {chosen['visual_score']:.1f}/10")
+                    mode_label = "semantic " if expanded_used else ""
+                    print(f"   🎯 Scene {scene_no} Shot {shot_no}: trying {mode_label}verified {provider} {chosen['kind']} {chosen['visual_score']:.1f}/10")
                     if _download_resilient(chosen["url"], path, chosen["provider"]):
                         selected = chosen, path
+                        chosen_directed = search_directed
                         break
                     rejected_pages.add(page)
                 if selected:
                     break
-                print(f"   ↪️ Scene {scene_no} Shot {shot_no}: all verified {provider} {'VIDEO' if video else 'PHOTO'} downloads failed")
 
             if not selected:
                 raise RuntimeError(
@@ -298,7 +331,7 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None):
 
             chosen, path = selected
             used.add(chosen["page"])
-            _credit(path + ".credit.json", chosen, directed)
+            _credit(path + ".credit.json", chosen, chosen_directed)
             scene_paths.append(path)
         groups.append(scene_paths)
 

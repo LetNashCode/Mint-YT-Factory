@@ -1,15 +1,16 @@
-"""Compatibility entrypoint for story-driven Pexels media.
+"""Compatibility entrypoint for verified stock media.
 
-Actual media selection lives in pexels_media.py. Gemini acts only as the
-Visual/Search Director and Pexels is the sole production media provider.
+Actual media selection lives in stock_media.py. Gemini is used as the
+Visual/Search Director and as the final candidate-level Visual Verifier.
+Pexels and Pixabay are the only production media providers.
 """
 from __future__ import annotations
 
-from pexels_media import generate_media
+from stock_media import generate_media
 
 
 def generate_images(script, output_dir, config):
-    """Compatibility wrapper returning 7 scenes × 2 Pexels assets."""
+    """Compatibility wrapper returning 7 scenes × 2 verified stock assets."""
     return generate_media(script, output_dir, config)
 
 

@@ -10,10 +10,14 @@ Everyday topic
   -> Gemini Story Visual Director
   -> locked 7-scene / 14-beat storyboard
   -> Gemini Visual/Search Director
-  -> Pexels video
-  -> Pixabay video fallback when Pexels video is unavailable/rejected
-  -> Pexels photo fallback
-  -> Pixabay photo fallback
+  -> Pexels video candidates
+  -> Gemini Visual Verifier
+  -> Pixabay video candidates if needed
+  -> Gemini Visual Verifier
+  -> Pexels photo candidates if needed
+  -> Gemini Visual Verifier
+  -> Pixabay photo candidates if needed
+  -> Gemini Visual Verifier
   -> deterministic relevance + diversity selection
   -> TikTok TTS
   -> Whisper captions
@@ -24,9 +28,9 @@ Everyday topic
   -> analytics + learning
 ```
 
-Gemini has three separate jobs: write the entertaining narration, translate the locked narration into literal visuals, and create concrete stock-media search queries. Gemini does not inspect returned media and does not generate replacement visuals.
+Gemini has four separate jobs: write the entertaining narration, translate the locked narration into literal visuals, create concrete stock-media search queries, and finally inspect a small candidate pool to verify that the actual media visibly supports the spoken beat. Gemini never generates replacement visuals.
 
-The production media providers are **Pexels and Pixabay only**. Provider priority is Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO. If neither stock provider can supply a sufficiently relevant asset, production stops. There is no AI-image fallback, Pollinations/FLUX fallback, generic stock filler, or unrelated-media fallback.
+The production media providers are **Pexels and Pixabay only**. Provider priority is Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO. For each shot, the top metadata candidates are inspected by Gemini; a candidate must reach the configured visual-verification threshold before it can be used. If neither stock provider can supply a sufficiently relevant asset, production stops. There is no AI-image fallback, Pollinations/FLUX fallback, generic stock filler, or unrelated-media fallback.
 
 Each Short is exactly 7 scenes × 2 unique assets. Visuals must directly support the spoken beat and advance the story.
 

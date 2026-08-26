@@ -2,28 +2,14 @@
 
 Automated production pipeline for entertaining YouTube Shorts.
 
-## Channel format
-
-The channel focuses on **everyday curiosities** — things people see, use, hear, taste, or experience in normal life but rarely stop to ask about.
-
-Examples:
-
-- Why does your voice sound weird in a recording
-- Why does toothpaste make orange juice taste disgusting
-- Why does a fan make you feel cooler
-- Why does your phone get hot while charging
-- Why does a mirror seem to reverse left and right
-
-Science is the explanation, not the packaging. Topics must be simple, relatable, visual, and genuinely explainable.
-
-## Active production pipeline
+## Final production architecture
 
 ```text
 Everyday topic
       ↓
-Gemini entertainment writer
+Gemini Entertainment Writer
       ↓
-Gemini visual director
+Gemini Story Visual Director
       ↓
 Locked 7-scene story / 14 visual beats
       ↓
@@ -31,96 +17,87 @@ Gemini Visual/Search Director
       ↓
 Pexels video → Pexels photo fallback
       ↓
-Deterministic metadata selection
+Deterministic relevance + diversity selection
       ↓
 TikTok TTS narration
       ↓
 Whisper word timing + narration-aware captions
       ↓
+Music + story-aware SFX
+      ↓
 MoviePy assembly
       ↓
 Final validation
       ↓
-YouTube upload + engagement experiment
+YouTube upload + creator engagement experiment
+      ↓
+YouTube analytics → learning engine
 ```
 
-### Media rules
+## Gemini responsibilities
 
-- Pexels is the **only production media provider**.
-- Gemini is used as the **Visual/Search Director**, not as a candidate-media verifier.
-- Candidate Pexels images/videos are **never uploaded to Gemini for visual verification**.
+### 1. Entertainment Writer
+Gemini writes the spoken story only. It is deliberately not constrained by stock-media search limitations. The target is conversational, playful, quirky, curiosity-driven narration with a clear escalation and satisfying payoff.
+
+### 2. Story Visual Director
+A second Gemini pass receives the locked narration and creates two literal, story-advancing visual beats per scene. It translates metaphors into observable physical scenes instead of creating abstract science imagery.
+
+### 3. Visual/Search Director
+A third Gemini pass receives each visual beat and creates concrete Pexels search queries plus a casting brief. It does **not** inspect Pexels candidates.
+
+## Media rules
+
+- Pexels is the only production media provider.
+- Gemini directs the search; Pexels supplies the actual media.
+- Gemini candidate-media verification is intentionally disabled.
+- Candidate Pexels images/videos are never uploaded to Gemini for verification.
 - AI image generation is disabled in production.
-- Unrelated-media fallback is forbidden; if no relevant Pexels asset can be found, production stops.
-- Each Short requires exactly **7 scenes × 2 assets = 14 assets**.
-- Scene 2 shots must advance the same story rather than repeat the first shot.
-
-The active implementation is in `pexels_media.py` and is installed by `production_entry.py`.
+- Unrelated-media fallback is forbidden; if no acceptable Pexels asset can be selected, production stops.
+- Each Short requires exactly 7 scenes × 2 assets = 14 assets.
+- Shot 1 establishes the physical situation; Shot 2 advances it.
+- Selection combines Gemini search intent with deterministic metadata relevance, action matching, portrait suitability, duration and duplicate protection.
 
 ## Script goals
 
-- One story, not a countdown or list
+- One connected story, not a list
 - Immediate curiosity hook
 - Simple spoken English
 - Quirky, entertaining narration
 - Clear visual progression
 - Satisfying payoff
 - No unnecessary scientific jargon
-- Scene 7 resolves the current story before the locked continuation teaser
-- The YouTube description describes **only the current Short**
+- Scene 7 resolves the current story
+- The locked continuation topic is spoken only as the final continuation tease
+- YouTube descriptions describe only the current Short
 
-## Captions and video quality
+## Engagement learning
 
-Whisper provides word timing and the verified narration remains the source of truth. The caption layer uses a safe on-screen lane and one timed word at a time so captions do not merge into malformed strings.
+After upload, the factory can automatically post one topic-specific creator comment. Pinning remains manual because the standard YouTube Data API does not provide a supported pin-comment operation.
 
-Production output is portrait 2160×3840 at 60 FPS with H.264 encoding, 68 Mbps video bitrate and 384 kbps AAC audio.
+Engagement experiments are tested sequentially:
+
+1. prediction
+2. choice
+3. challenge
+4. disagreement
+5. next_experiment
+6. curiosity
+
+The learning engine only counts an experiment when the creator comment is confirmed as delivered. It learns from comments, shares and other available YouTube Analytics metrics and favors the best-performing mechanic once enough data exists.
+
+## Analytics
+
+The factory maintains a durable video registry and snapshots. Basic YouTube Data API statistics are refreshed every production run. Advanced YouTube Analytics metrics are collected when the OAuth token has the required `yt-analytics.readonly` access; if the Analytics API is temporarily unavailable, production continues without pretending those advanced metrics were refreshed.
 
 ## Research status
 
-The repository contains a research/claim-verification subsystem, but the current production entrypoint does **not** run that subsystem before script generation. `config.yaml` therefore keeps research explicitly disabled rather than falsely advertising a research-first production gate.
+A research/claim-verification subsystem exists in the repository but is intentionally **not part of the active production gate**. The channel currently prioritizes entertainment-first everyday curiosity stories. Re-enabling research should be a deliberate architecture change, not a configuration-only switch.
 
-If research-first publishing is re-enabled later, it should be wired into `main.run()` and made a hard pre-script/pre-publish gate rather than only changing a configuration flag.
+## Captions and video quality
 
-## Self-learning
+Whisper provides word timing and the verified narration remains the source of truth. Captions use a safe on-screen lane and one timed word at a time.
 
-The factory refreshes YouTube analytics and maintains a learning playbook. It uses a 70% proven-pattern / 20% adjacent-experiment / 10% wild-experiment strategy, while protecting against duplicate and near-duplicate topics.
-
-Engagement experiments are sequential and are counted only when the planned creator comment is confirmed as delivered.
-
-## Project structure
-
-```text
-.
-├── .github/workflows/publish.yml
-├── assets/
-├── analytics/
-├── assemble.py
-├── config.yaml
-├── generate_images.py          # compatibility wrapper → pexels_media.py
-├── generate_script.py
-├── main.py
-├── music.py
-├── pexels_media.py
-├── production_entry.py
-├── quality_overrides.py
-├── research.py
-├── research/
-├── runtime_overrides.py
-├── sitecustomize.py
-├── topics.py
-├── tts.py
-├── upload_youtube.py
-├── used_topics.json
-├── validate_video.py
-└── requirements.txt
-```
-
-## GitHub Actions
-
-There is one production workflow:
-
-`.github/workflows/publish.yml`
-
-It installs the required dependencies, verifies the runtime, runs `production_entry.py`, uploads the finished Short, and safely synchronizes topic state.
+Production output is portrait 2160×3840 at 60 FPS with H.264 encoding, 68 Mbps video bitrate and 384 kbps AAC audio.
 
 ## Required secrets
 

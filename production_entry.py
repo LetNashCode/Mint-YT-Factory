@@ -33,7 +33,7 @@ def _patch_script_model_resilience(main):
     print(f"🛡️ Script Gemini resilience: {primary} → {fallback} on transient availability failures")
 
 def _patch_scene7_sanitizer(main):
-    """Do not delete Gemini's final continuation sentence as 'unrelated'."""
+    """Preserve Gemini's authored final continuation bridge."""
     original=main.generate_script
     globals_dict=getattr(original,"__globals__",{})
     old=globals_dict.get("_sanitize_scene7")
@@ -45,16 +45,83 @@ def _patch_scene7_sanitizer(main):
         bad=re.compile(r"^(now watch|speaking of|and now|meanwhile|another weird|here's another|here is another)\b",re.I)
         kept=[]
         for i,sentence in enumerate(sentences):
-            # The final sentence is the authored continuation bridge. Preserve it
-            # even when its topic has little lexical overlap with the current story.
             if i==len(sentences)-1:
-                kept.append(sentence); continue
-            if bad.search(sentence): continue
+                kept.append(sentence)
+                continue
+            if bad.search(sentence):
+                continue
             kept.append(sentence)
         return " ".join(kept).strip()
     preserve_bridge._mint_preserve_bridge=True
     globals_dict["_sanitize_scene7"]=preserve_bridge
     print("🛡️ Scene 7 sanitizer: Gemini final continuation bridge preserved")
+
+def _patch_scene7_validator(main):
+    """Make Scene 7 validation structural, not punctuation-fragile."""
+    original_generate=main.generate_script
+    globals_dict=getattr(original_generate,"__globals__",{})
+    old_validator=globals_dict.get("_validate_natural_bridge")
+    if old_validator is None or getattr(old_validator,"_mint_structural_bridge",False): return
+
+    def validate(scene7_narration,next_topic):
+        text=" ".join(str(scene7_narration or "").split()).strip()
+        key=re.sub(r"[^a-z0-9]+"," ",str(next_topic or "").lower()).strip()
+        if not text or not key:
+            raise RuntimeError("Scene 7 must contain a payoff followed by a natural continuation bridge.")
+        normalized=re.sub(r"[^a-z0-9]+"," ",text.lower()).strip()
+        if normalized.count(key)!=1:
+            raise RuntimeError("The exact next topic must appear exactly once in Scene 7.")
+        sentences=[s.strip() for s in re.split(r"(?<=[.!?])\s+",text) if s.strip()]
+        matches=[s for s in sentences if key in re.sub(r"[^a-z0-9]+"," ",s.lower()).strip()]
+        if len(sentences)==1:
+            # Gemini occasionally returns the payoff and bridge as one long sentence.
+            # Accept it here; lock_next_topic will insert the sentence boundary before
+            # the exact next topic. This avoids wasting a full Gemini generation attempt.
+            if normalized.endswith(key):
+                return text
+            raise RuntimeError("Scene 7 must end with the continuation topic.")
+        if not matches or matches[-1]!=sentences[-1]:
+            raise RuntimeError("The continuation topic must be in Scene 7's final sentence.")
+        bridge=matches[-1]
+        banned=(r"^(?:and\s+)?next\b",r"^then\s+comes\b",r"^coming\s+next\b",r"^in\s+the\s+next\s+(?:video|short)\b",r"^stay\s+tuned\b",r"^part\s+2\b",r"^have\s+you\s+ever\s+wondered\b",r"^ever\s+wondered\b",r"^wonder\s+why\b",r"^curious\s+(?:why|how|what)\b",r"^why\s+(?:do|does|is|are)\b",r"^how\s+(?:do|does|is|are)\b",r"^what\s+(?:makes|happens|causes)\b")
+        if any(re.search(p,bridge,re.I) for p in banned):
+            raise RuntimeError(f"Canned continuation bridge rejected: {bridge}")
+        word_count=len(re.findall(r"\b[\w'-]+\b",bridge))
+        if word_count<4 or word_count>40:
+            raise RuntimeError("Natural continuation bridge is too short or too long.")
+        return bridge
+
+    validate._mint_structural_bridge=True
+    globals_dict["_validate_natural_bridge"]=validate
+    print("🛡️ Scene 7 validator: structural bridge validation + long-topic tolerance enabled")
+
+def _patch_locked_continuation(main):
+    """Normalize a punctuation-free Gemini payoff+bridge before final locking."""
+    original=main.lock_next_topic
+    if getattr(original,"_mint_bridge_normalizer",False): return
+    def lock(script,current_topic):
+        scenes=script.get("scene_plan") or []
+        if scenes:
+            final=scenes[-1]
+            text=" ".join(str(final.get("narration","") or "").split()).strip()
+            next_topic=str((script.get("next_short") or {}).get("topic","") or "").strip()
+            key=re.sub(r"[^a-z0-9]+"," ",next_topic.lower()).strip()
+            normalized=re.sub(r"[^a-z0-9]+"," ",text.lower()).strip()
+            if key and normalized.endswith(key) and len(re.findall(r"[.!?]",text))==0:
+                pos=normalized.rfind(key)
+                # Map normalized topic length back to the original text by searching
+                # the literal topic case-insensitively first; generated topics are exact.
+                literal_pos=text.lower().rfind(next_topic.lower())
+                if literal_pos>0:
+                    prefix=text[:literal_pos].rstrip(" ,;:-")
+                    if prefix and prefix[-1] not in ".!?":
+                        text=prefix+". "+text[literal_pos:].lstrip()
+                        final["narration"]=text
+                        final["subtitle_text"]=text
+        return original(script,current_topic)
+    lock._mint_bridge_normalizer=True
+    main.lock_next_topic=lock
+    print("🛡️ Continuation lock: punctuation-free Scene 7 bridge normalized")
 
 def _patch_tts_duration(main):
     from moviepy.editor import AudioFileClip
@@ -101,7 +168,7 @@ def _patch_assemble_video_media():
 def main_entry():
     import main
     patch_continuation(main); patch_tts_result(main); patch_story_quality(main); patch_story_generation(main)
-    _patch_scene7_sanitizer(main); _patch_script_model_resilience(main); _patch_tts_duration(main); _patch_assemble_video_media()
+    _patch_scene7_sanitizer(main); _patch_scene7_validator(main); _patch_script_model_resilience(main); _patch_locked_continuation(main); _patch_tts_duration(main); _patch_assemble_video_media()
     print("="*80); print("🚀 MINT-YT-FACTORY STARTED"); print("="*80)
     print("Script: entertainment-first + hard coherence gate + low-jargon contract")
     print("Visual/Search Director: Gemini")

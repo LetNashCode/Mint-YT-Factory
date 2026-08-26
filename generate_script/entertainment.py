@@ -60,6 +60,8 @@ SCENE 7 HARD RULE: Scene 7 must contain ONLY the payoff/ending of the CURRENT to
 
 NATURAL CONTINUATION BRIDGE: Gemini itself must write the final bridge sentence. Do NOT use a reusable template, fixed phrase, canned transition, or repeated sentence pattern. The bridge should grow naturally out of the current story and make the viewer curious about the next topic. The exact next_short.topic must appear once in that final sentence. NEVER start it with "And next", "Then comes", "Coming next", "Stay tuned", "Part 2", "Have you ever wondered", "Ever wondered", "Wonder why", "Curious why", "Why do", "Why does", "How do", "How does", "What makes", or another generic question opener.
 
+IMPORTANT FORMAT: Scene 7 must contain two spoken sentences: a satisfying payoff sentence, followed by the natural continuation bridge sentence. If Gemini accidentally combines them into one sentence, the pipeline may safely insert the sentence boundary immediately before the final-topic clause; it must never replace the bridge with a canned template.
+
 VISUAL DIRECTOR RULE: Every image must literally depict the exact physical beat being spoken. Illustrate the action, not the general topic. If narration describes an invisible phenomenon, use a truthful visible physical proxy. Never use random people, generic laboratories, microscopes, diagrams, arrows, equations, glowing particles, abstract science art, generic blue backgrounds, concept art, text, labels, logos, UI or watermarks unless narration explicitly requires them.
 
 TWO SHOTS PER SCENE: Shot 1 establishes the exact moment. Shot 2 advances it by changing physical state, action, viewpoint, comparison, reaction or revealed detail. Never duplicate Shot 1.
@@ -88,22 +90,66 @@ def _content_tokens(text):
     stop={"that","this","with","from","your","they","them","then","than","into","when","where","what","which","because","while","just","really","very","have","will","does","doesn","there","their","about","like","more","only","still","even","gets","make","makes","made","over","under","also","actually","strange","weird","thing","things","little","sudden","suddenly","part","time","way","water","you","are","the","and","but","for","not","its","it's","can","how","why","now","watch","ever"}
     return {w.lower() for w in re.findall(r"[a-z0-9]+",_clean(text).lower()) if len(w)>=4 and w not in stop}
 
+def _sentence_parts(text): return [s.strip() for s in re.split(r"(?<=[.!?])\s+",_clean(text)) if s.strip()]
+def _normalise_phrase(text): return re.sub(r"[^a-z0-9]+"," ",_clean(text).lower()).strip()
+
+def _ensure_scene7_boundary(text,next_topic):
+    """Guarantee payoff + bridge sentence without inventing bridge wording."""
+    text=_clean(text)
+    topic_key=_normalise_phrase(next_topic)
+    if not text or not topic_key: return text
+    sentences=_sentence_parts(text)
+    if len(sentences)>=2:
+        return text
+    norm=_normalise_phrase(text)
+    pos=norm.find(topic_key)
+    if pos<=0: return text
+    # Work from the actual text and find the start of the topic phrase.
+    match=re.search(re.escape(next_topic),text,re.I)
+    if not match:
+        # Fall back to a punctuation-insensitive whitespace match.
+        words=re.escape(_clean(next_topic)).replace(r"\ ",r"\\s+")
+        match=re.search(words,text,re.I)
+    if not match: return text
+    prefix=text[:match.start()].rstrip(" ,;:-–—")
+    suffix=text[match.start():].strip()
+    # Prefer a natural clause boundary immediately before the topic.
+    candidates=list(re.finditer(r"\s+(?:and|but|so|because|while|which|that)\s+",prefix,re.I))
+    if candidates:
+        cut=candidates[-1]
+        left=prefix[:cut.start()].rstrip(" ,;:-–—")
+        bridge_prefix=prefix[cut.end():].strip(" ,;:-–—")
+        if left and bridge_prefix:
+            return f"{left}. {bridge_prefix} {suffix}".strip()
+    commas=list(re.finditer(r"[,;:]\s+",prefix))
+    if commas:
+        cut=commas[-1]
+        left=prefix[:cut.start()].strip()
+        bridge_prefix=prefix[cut.end():].strip()
+        if left and bridge_prefix:
+            return f"{left}. {bridge_prefix} {suffix}".strip()
+    # Last-resort structural repair: preserve Gemini's words and only add the boundary.
+    return f"{prefix}. {suffix}".strip()
+
 def _sanitize_scene7(scene7, earlier_scenes):
     text=_clean(scene7.get("narration")); text=re.sub(r"\s+([.!?,])",r"\1",text)
-    sentences=[s.strip() for s in re.split(r"(?<=[.!?])\s+",text) if s.strip()]
+    sentences=_sentence_parts(text)
     if not sentences: return text
     current_tokens=set()
     for scene in earlier_scenes: current_tokens |= _content_tokens(scene.get("narration",""))
     bad_intro=re.compile(r"^(now watch|speaking of|and now|meanwhile|another weird|here's another|here is another)\b",re.I)
     kept=[]
-    for sentence in sentences:
+    for i,sentence in enumerate(sentences):
+        # Scene 7's final sentence is the authored continuation bridge. Never
+        # remove it merely because its vocabulary differs from the current topic.
+        if i==len(sentences)-1:
+            kept.append(sentence); continue
         if bad_intro.search(sentence): continue
         tokens=_content_tokens(sentence)
         if len(tokens)>=4 and not (tokens & current_tokens): continue
         kept.append(sentence)
     return _clean(" ".join(kept))
 
-def _sentence_parts(text): return [s.strip() for s in re.split(r"(?<=[.!?])\s+",_clean(text)) if s.strip()]
 def _bridge_is_canned(sentence):
     banned=(r"^(?:and\s+)?next\b",r"^then\s+comes\b",r"^coming\s+next\b",r"^in\s+the\s+next\s+(?:video|short)\b",r"^stay\s+tuned\b",r"^part\s+2\b",r"^have\s+you\s+ever\s+wondered\b",r"^ever\s+wondered\b",r"^wonder\s+why\b",r"^curious\s+(?:why|how|what)\b",r"^why\s+(?:do|does|is|are)\b",r"^how\s+(?:do|does|is|are)\b",r"^what\s+(?:makes|happens|causes)\b")
     return any(re.search(p,sentence,re.I) for p in banned)
@@ -111,12 +157,12 @@ def _bridge_is_canned(sentence):
 def _validate_natural_bridge(scene7_narration,next_topic):
     sentences=_sentence_parts(scene7_narration)
     if len(sentences)<2: raise RuntimeError("Scene 7 must contain a payoff followed by a natural continuation bridge.")
-    key=re.sub(r"[^a-z0-9]+"," ",next_topic.lower()).strip(); matches=[s for s in sentences if key and key in re.sub(r"[^a-z0-9]+"," ",s.lower()).strip()]
+    key=_normalise_phrase(next_topic); matches=[s for s in sentences if key and key in _normalise_phrase(s)]
     if len(matches)!=1: raise RuntimeError("The exact next topic must appear exactly once in Scene 7.")
     bridge=matches[0]
     if sentences[-1]!=bridge: raise RuntimeError("The continuation topic must be in Scene 7's final sentence.")
     if _bridge_is_canned(bridge): raise RuntimeError(f"Canned continuation bridge rejected: {bridge}")
-    if len(_words(bridge))<4 or len(_words(bridge))>22: raise RuntimeError("Natural continuation bridge is too short or too long.")
+    if len(_words(bridge))<4 or len(_words(bridge))>30: raise RuntimeError("Natural continuation bridge is too short or too long.")
     return bridge
 
 def _normalize(script,topic):
@@ -147,7 +193,9 @@ def _normalize(script,topic):
         for j,visual in enumerate(visuals):
             if not isinstance(visual,dict): raise RuntimeError(f"Scene {i+1} visual {j+1} is invalid.")
             visual["segment"]=j+1; visual["duration"]=durations[j]; visual["spoken_line"]=_clean(visual.get("spoken_line")) or narration; visual["visual_focus"]=_clean(visual.get("visual_focus")) or topic; visual["visual_action"]=_clean(visual.get("visual_action")) or "show the exact physical action described in the spoken line"; visual["must_show"]=[_clean(x)[:100] for x in visual.get("must_show",[]) if _clean(x)][:6] or [visual["visual_focus"],visual["visual_action"]]; visual["must_not_show"]=[_clean(x)[:100] for x in visual.get("must_not_show",[]) if _clean(x)][:8]; visual["camera"]=_clean(visual.get("camera")) if _clean(visual.get("camera")) in CAMERAS else ("close_up" if j==0 else "macro"); visual["animation"]=_clean(visual.get("animation")) if _clean(visual.get("animation")) in ANIMATIONS else (["zoom_in","pan_right","highlight","parallax"][i%4] if j==0 else ["pan_left","zoom_out","highlight","rotate"][i%4]); visual["zoom_strength"]=_clean(visual.get("zoom_strength")) or ("strong" if i==0 else "medium"); visual["motion_intensity"]=_clean(visual.get("motion_intensity")) or ("high" if i in (0,5) else "medium"); visual["visual_complexity"]=_clean(visual.get("visual_complexity")) or "focused"; visual["image_style"]=_clean(visual.get("image_style")) if _clean(visual.get("image_style")) in IMAGE_STYLES else ("macro_photography" if visual["camera"] in {"close_up","macro"} else "cinematic_photograph"); visual["lighting"]=_clean(visual.get("lighting")) or "natural believable lighting with realistic reflections and shadows"; visual["color_palette"]=_clean(visual.get("color_palette")) or script["visual_identity"]["palette"]; visual["overlay"]=visual.get("overlay") if isinstance(visual.get("overlay"),dict) else {"type":"none","description":""}; visual["visual_impact"]=max(1,min(10,_safe_int(visual.get("visual_impact"),8))); prompt_text=_clean(visual.get("image_prompt")); visual["image_prompt"]=(prompt_text or f"Realistic cinematic scene showing {visual['visual_action']} with {visual['visual_focus']} clearly visible.")[:900]
-    scene7=scenes[6]; scene7["narration"]=_sanitize_scene7(scene7,scenes[:6])
+    scene7=scenes[6]
+    scene7["narration"]=_ensure_scene7_boundary(scene7.get("narration"),next_topic)
+    scene7["narration"]=_sanitize_scene7(scene7,scenes[:6])
     if not scene7["narration"]: raise RuntimeError("Scene 7 lost its current-topic payoff during continuation sanitization.")
     bridge=_validate_natural_bridge(scene7["narration"],next_topic); scene7["subtitle_text"]=scene7["narration"]; script["next_short"]["teaser"]=bridge
     next_key=re.sub(r"[^a-z0-9 ]"," ",next_topic.lower()).strip()

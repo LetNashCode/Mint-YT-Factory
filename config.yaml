@@ -1,4 +1,4 @@
-# Mint-YT-Factory — entertainment-first development configuration
+# Mint-YT-Factory — entertainment-first production configuration
 
 channel:
   name: "Wonder Minute"
@@ -39,6 +39,8 @@ content:
     no_generic_facts: true
     no_unrelated_facts: true
 
+# Research is implemented in research.py but is not currently wired into main.run().
+# Keep this explicitly disabled rather than claiming a research-first production gate.
 research:
   enabled: false
   required: false
@@ -108,15 +110,18 @@ voice:
     avoid_robotic_delivery: true
     avoid_newsreader_delivery: true
 
+# ACTIVE MEDIA ARCHITECTURE:
+# Gemini creates the visual/search direction; Pexels supplies the actual media.
+# Gemini never receives candidate media for verification.
 visuals:
-  provider: "pollinations"
-  model: "flux"
+  provider: "pexels"
+  director: "gemini"
+  search_mode: "gemini_directed"
+  media_types: ["video", "photo"]
   style: "cinematic real-world storytelling"
   orientation: "portrait"
   width: 2160
   height: 3840
-  enhance: false
-  nologo: true
   images_per_scene: 2
   total_images: 14
   rules:
@@ -128,6 +133,7 @@ visuals:
     no_duplicate_visuals_within_scene: true
     visual_1_establishes: true
     visual_2_advances_story: true
+    reject_unrelated_assets: true
   continuity:
     enabled: true
     preserve_recurring_subjects: true
@@ -136,18 +142,15 @@ visuals:
     preserve_character_appearance: true
 
 image:
-  provider: "pollinations"
-  model: "flux"
+  provider: "pexels"
+  director: "gemini"
+  mode: "search_only"
+  source: "pexels"
   width: 2160
   height: 3840
   orientation: "portrait"
-  enhance: false
-  nologo: true
   images_per_scene: 2
   total_images: 14
-  generation_mode: "storyboard_driven"
-  use_visual_continuity: true
-  use_style_lock: true
 
 video:
   resolution: [2160, 3840]
@@ -249,6 +252,7 @@ validation:
     exactly_2_per_scene: true
     all_files_exist: true
     no_missing_images: true
+    reject_unrelated_assets: true
   video:
     width: 2160
     height: 3840

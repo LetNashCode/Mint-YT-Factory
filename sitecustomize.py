@@ -1,82 +1,15 @@
 """Mint-YT-Factory runtime quality layer.
 
-This module is intentionally a runtime patch layer so production behavior can
-be improved without duplicating the main pipeline.
+Only production-wide caption and video-encoding patches live here.
+Media selection is owned by pexels_media.py and is installed explicitly by
+production_entry.py. No image generation, candidate-image inspection, OCR
+visual gate, or alternate media provider is patched here.
 """
-
 from __future__ import annotations
 
 import importlib.abc
 import importlib.machinery
-import io
-import os
-import re
 import sys
-
-SCRIPT_RULES = r"""
-ENTERTAINMENT + COHERENCE HARD RULES
-
-Write like a clever friend showing the viewer one weird everyday thing.
-The story must be understandable with the sound on and still visually
-understandable with sound off.
-
-ENDING CONTRACT:
-- Scene 7 MUST finish the current story before the teaser.
-- The payoff must answer the hook in plain English.
-- Never end on a dangling clause, "so basically...", "which means...", or an
-  unfinished "and that's why...".
-- The final sentence is the ONLY continuation teaser.
-- The teaser must be short and natural, not a CTA.
-- Scene 7 must contain a complete payoff and a complete teaser.
-- Do not introduce a new fact in the payoff that was not explained earlier.
-
-VISUAL CONTRACT:
-Every visual is one literal physical moment. It must identify the exact
-subject, exact action/state, real-world setting, and visible consequence/detail.
-Never turn narration into symbolic art, diagrams, particles, energy waves,
-generic science imagery, unrelated people, generic rooms or landscapes.
-Every shot must be directly defensible from the words being spoken.
-"""
-
-_EMOJI = {
-    "fire":"🔥","hot":"🔥","burn":"🔥","burning":"🔥",
-    "cold":"🥶","ice":"🧊","freeze":"🥶","frozen":"🥶",
-    "water":"💧","rain":"🌧️","cloud":"☁️","sun":"☀️","sunlight":"☀️",
-    "moon":"🌙","star":"⭐","stars":"⭐","earth":"🌍","world":"🌍",
-    "space":"🚀","rocket":"🚀","heart":"❤️","love":"❤️","happy":"😊",
-    "smile":"😊","sad":"😢","cry":"😭","laugh":"😂","funny":"😂",
-    "shock":"😱","shocked":"😱","surprise":"😲","surprised":"😲",
-    "idea":"💡","think":"🤔","thinking":"🤔","brain":"🧠",
-    "danger":"⚠️","warning":"⚠️","dangerous":"⚠️","money":"💰",
-    "rich":"💰","cash":"💵","buy":"🛒","food":"🍔","eat":"🍴",
-    "coffee":"☕","drink":"🥤","dog":"🐶","cat":"🐱","bird":"🐦",
-    "fish":"🐟","tree":"🌳","leaf":"🍃","flower":"🌸","plant":"🌱",
-    "light":"💡","dark":"🌑","night":"🌙","day":"☀️","fast":"⚡",
-    "speed":"⚡","electric":"⚡","power":"⚡","magic":"✨","secret":"🤫",
-    "hidden":"🕵️","look":"👀","watch":"👀","see":"👀","eyes":"👀",
-    "hand":"✋","stop":"🛑","go":"🚀","up":"⬆️","down":"⬇️",
-    "science":"🔬","experiment":"🧪","question":"❓","why":"❓","answer":"💡",
-    "true":"✅","wrong":"❌","yes":"✅","no":"❌","win":"🏆","winner":"🏆",
-}
-
-
-def _emoji_for_word(word):
-    token = str(word or "").strip().lower().strip(".,!?;:'\"()[]{}")
-    if token in _EMOJI:
-        return _EMOJI[token]
-    for suffix in ("ing", "ed", "s"):
-        if len(token) > len(suffix) + 2 and token.endswith(suffix):
-            root = token[:-len(suffix)]
-            if root in _EMOJI:
-                return _EMOJI[root]
-    return None
-
-
-def _word_size(word, index, frame_size):
-    width, _ = frame_size
-    base = max(62, min(172, int(round(150.0 * width / 2160.0))))
-    seed = sum(ord(ch) for ch in str(word)) + index * 17
-    return int(base * (0.86, 1.0, 1.16)[seed % 3])
 
 
 def _clean_words(words):
@@ -96,6 +29,47 @@ def _clean_words(words):
             continue
         result.append({"word": word, "start": start, "end": end})
     return sorted(result, key=lambda x: x["start"])
+
+
+def _word_size(word, index, frame_size):
+    width, _ = frame_size
+    base = max(62, min(172, int(round(150.0 * width / 2160.0))))
+    seed = sum(ord(ch) for ch in str(word)) + index * 17
+    return int(base * (0.86, 1.0, 1.16)[seed % 3])
+
+
+def _emoji_for_word(word):
+    mapping = {
+        "fire": "🔥", "hot": "🔥", "burn": "🔥", "burning": "🔥",
+        "cold": "🥶", "ice": "🧊", "freeze": "🥶", "frozen": "🥶",
+        "water": "💧", "rain": "🌧️", "cloud": "☁️", "sun": "☀️",
+        "moon": "🌙", "star": "⭐", "stars": "⭐", "earth": "🌍",
+        "space": "🚀", "heart": "❤️", "love": "❤️", "happy": "😊",
+        "smile": "😊", "sad": "😢", "cry": "😭", "laugh": "😂",
+        "funny": "😂", "shock": "😱", "shocked": "😱", "surprise": "😲",
+        "surprised": "😲", "idea": "💡", "think": "🤔", "thinking": "🤔",
+        "brain": "🧠", "danger": "⚠️", "warning": "⚠️", "money": "💰",
+        "cash": "💵", "food": "🍔", "eat": "🍴", "coffee": "☕",
+        "drink": "🥤", "dog": "🐶", "cat": "🐱", "bird": "🐦",
+        "fish": "🐟", "tree": "🌳", "leaf": "🍃", "flower": "🌸",
+        "plant": "🌱", "light": "💡", "dark": "🌑", "night": "🌙",
+        "day": "☀️", "fast": "⚡", "speed": "⚡", "electric": "⚡",
+        "power": "⚡", "magic": "✨", "secret": "🤫", "hidden": "🕵️",
+        "look": "👀", "watch": "👀", "see": "👀", "eyes": "👀",
+        "hand": "✋", "stop": "🛑", "go": "🚀", "up": "⬆️", "down": "⬇️",
+        "science": "🔬", "experiment": "🧪", "question": "❓", "why": "❓",
+        "answer": "💡", "true": "✅", "wrong": "❌", "yes": "✅", "no": "❌",
+        "win": "🏆", "winner": "🏆",
+    }
+    token = str(word or "").strip().lower().strip(".,!?;:'\"()[]{}")
+    if token in mapping:
+        return mapping[token]
+    for suffix in ("ing", "ed", "s"):
+        if len(token) > len(suffix) + 2 and token.endswith(suffix):
+            root = token[:-len(suffix)]
+            if root in mapping:
+                return mapping[root]
+    return None
 
 
 def _patch_assemble(module):
@@ -165,7 +139,6 @@ def _patch_assemble(module):
 
     module.build_captions = build
     module.CAPTION_VERTICAL_POSITION = 0.60
-    # Production master: 2160x3840 portrait at 60 FPS.
     module.DEFAULT_RESOLUTION = (2160, 3840)
     module.DEFAULT_FPS = 60
 
@@ -205,232 +178,11 @@ def _patch_video_quality(module):
         print(f"⚠️ Video quality patch skipped: {exc}")
 
 
-def _ocr_has_text(data):
-    try:
-        import pytesseract
-        from PIL import Image
-        image = Image.open(io.BytesIO(data)).convert("RGB")
-        text = pytesseract.image_to_string(image, config="--psm 11")
-        tokens = re.findall(r"[A-Za-z]{3,}", text or "")
-        return len(tokens) >= 2, "OCR detected readable text: " + " ".join(tokens[:8])
-    except Exception:
-        return False, ""
-
-
-def _vision_relevant(data, prompt):
-    try:
-        from google import genai
-        from google.genai import types
-        import json
-        api_key = os.environ.get("GEMINI_API_KEY")
-        if not api_key:
-            return False, "vision gate unavailable: GEMINI_API_KEY missing"
-        client = genai.Client(api_key=api_key)
-        image_part = types.Part.from_bytes(data=data, mime_type="image/png")
-        instruction = f"""
-You are the final visual quality-control editor for a YouTube Short.
-
-Compare the image to this exact required visual frame:
-{prompt}
-
-Return ONLY JSON: {{"score":0,"pass":false,"reason":"short reason"}}
-
-PASS only if the requested subject, physical action/state and setting are
-clearly visible and immediately recognizable. Reject unrelated people,
-objects, locations, generic beauty shots, symbolic/abstract imagery,
-scientific diagrams, fake phone screens, readable text, logos and watermarks.
-A beautiful image that does not literally show the requested moment MUST FAIL.
-Score 8-10 only when the requested moment is unmistakable.
-"""
-        response = client.models.generate_content(
-            model="gemini-flash-lite-latest",
-            contents=[image_part, instruction],
-            config=types.GenerateContentConfig(temperature=0),
-        )
-        text = str(getattr(response, "text", "") or "").strip()
-        text = re.sub(r"^```(?:json)?", "", text, flags=re.I).strip()
-        text = re.sub(r"```$", "", text).strip()
-        result = json.loads(text)
-        score = int(result.get("score", 0))
-        passed = bool(result.get("pass")) and score >= 8
-        return passed, str(result.get("reason", ""))[:300]
-    except Exception as exc:
-        print(f"⚠️ IMAGE VISION GATE unavailable: {exc}")
-        return False, "vision gate unavailable"
-
-
-def _patch_strict_image_gate(module):
-    old_generate = getattr(module, "generate_image", None)
-    if not old_generate or getattr(old_generate, "_mint_strict_gate", False):
-        return
-
-    def generate(prompt, width, height, seed):
-        for attempt in range(3):
-            correction = ""
-            if attempt:
-                correction = (
-                    " Previous image failed relevance QC. Regenerate from scratch. "
-                    "Make the exact physical subject and action unmistakable; remove "
-                    "all unrelated people, objects, screens, text and abstract effects."
-                )
-            data = old_generate(str(prompt) + correction, width, height, seed + attempt * 17777)
-
-            bad_text, text_reason = _ocr_has_text(data)
-            if bad_text:
-                print(f"⚠️ IMAGE QC: {text_reason}")
-                continue
-
-            passed, reason = _vision_relevant(data, str(prompt))
-            print(f"🔎 IMAGE QC: {'PASS' if passed else 'FAIL'} — {reason}")
-            if passed:
-                return data
-
-        raise RuntimeError(
-            "Strict image quality gate failed after 3 attempts. Refusing to publish an irrelevant generated visual."
-        )
-
-    generate._mint_strict_gate = True
-    module.generate_image = generate
-
-
-def _patch_images(module):
-    old_build = getattr(module, "build_prompt", None)
-    if old_build and not getattr(old_build, "_mint_hard_visuals", False):
-        def build(*args, **kwargs):
-            prompt = str(old_build(*args, **kwargs) or "")
-            hard = """
-HARD VISUAL CONTRACT:
-This is a literal documentary-style STORY FRAME.
-ONLY show the exact subject, action, setting and physical consequence stated in
-this spoken beat. Do not invent another person, object, location or metaphor.
-NO readable text anywhere: no phone UI, no fake app screen, no labels, no signs,
-no letters, no numbers, no logos, no watermarks, no subtitles.
-NO abstract glowing particles, energy beams, diagrams, charts, equations or
-generic science imagery unless the spoken beat literally requires it.
-If a phone is shown, its screen must be blank/neutral with no readable UI.
-If dust is discussed, visibly show dust on the relevant surface.
-"""
-            return prompt + hard
-        build._mint_hard_visuals = True
-        module.build_prompt = build
-
-    old_generate = getattr(module, "generate_image", None)
-    if old_generate and not getattr(old_generate, "_mint_ocr_gate", False):
-        def generate(prompt, width, height, seed):
-            last = None
-            for attempt in range(3):
-                p = str(prompt)
-                if attempt:
-                    p += f" REGENERATION {attempt}: Make the literal physical subject and action unmistakable. No text."
-                data = old_generate(p, width, height, seed + attempt * 7777)
-                bad, reason = _ocr_has_text(data)
-                if not bad:
-                    return data
-                print(f"⚠️ IMAGE OCR GATE: {reason}")
-                last = data
-            print("⚠️ IMAGE OCR GATE: provider kept producing text; using last image.")
-            return last
-        generate._mint_ocr_gate = True
-        module.generate_image = generate
-
-    if hasattr(module, "VISUAL_GUARD_MIN_SCORE"):
-        module.VISUAL_GUARD_MIN_SCORE = 8
-    if hasattr(module, "VISUAL_GUARD_MAX_REGENERATIONS"):
-        module.VISUAL_GUARD_MAX_REGENERATIONS = max(int(getattr(module, "VISUAL_GUARD_MAX_REGENERATIONS", 4)), 10)
-
-    _patch_strict_image_gate(module)
-
-
-def _better_payoff(narration, max_words=18):
-    sentences = [x.strip() for x in re.split(r"(?<=[.!?])\s+", str(narration or "").strip()) if x.strip()]
-    candidates = []
-    for sentence in sentences:
-        lower = sentence.lower()
-        if re.search(r"\b(next video|coming next|stay tuned|part 2)\b", lower):
-            continue
-        words = re.findall(r"\b[\w'-]+\b", sentence)
-        if 5 <= len(words) <= max_words:
-            score = 0
-            if re.search(r"\b(so|that's|that is|because|which means|turns out|basically)\b", lower):
-                score += 3
-            if sentence.endswith((".", "!", "?")):
-                score += 1
-            if len(words) >= 7:
-                score += 1
-            candidates.append((score, sentence))
-    if candidates:
-        return max(candidates, key=lambda x: x[0])[1].rstrip(".!? ") + "."
-    return "And that's the part most people miss."
-
-
-def _patch_main(module):
-    old = getattr(module, "_compact_payoff", None)
-    if old and not getattr(old, "_mint_better_ending", False):
-        _better_payoff._mint_better_ending = True
-        module._compact_payoff = _better_payoff
-
-    old_lock = getattr(module, "lock_next_topic", None)
-    if old_lock and not getattr(old_lock, "_mint_ending_guard", False):
-        def lock(script, current_topic):
-            result = old_lock(script, current_topic)
-            if isinstance(result, tuple) and len(result) == 2:
-                s, next_topic = result
-                scenes = s.get("scene_plan", [])
-                if scenes:
-                    final = scenes[-1]
-                    narration = str(final.get("narration", "")).strip()
-                    sentences = [x for x in re.split(r"(?<=[.!?])\s+", narration) if x.strip()]
-                    if len(sentences) < 2:
-                        raise RuntimeError("Ending quality gate failed: Scene 7 has no separate payoff and teaser.")
-                    teaser = sentences[-1]
-                    if next_topic.lower() not in teaser.lower():
-                        raise RuntimeError("Ending quality gate failed: teaser is not the locked next topic.")
-                    payoff = " ".join(sentences[:-1]).strip()
-                    if len(re.findall(r"\b[\w'-]+\b", payoff)) < 5:
-                        raise RuntimeError("Ending quality gate failed: payoff is too short.")
-                    final["narration"] = f"{payoff.rstrip('.!?')} {teaser.strip()}".strip()
-                    final["subtitle_text"] = final["narration"]
-                    print("✅ Scene 7 ending gate: payoff + teaser are structurally separate.")
-            return result
-        lock._mint_ending_guard = True
-        module.lock_next_topic = lock
-
-
-def _patch_script(module):
-    old_builder = getattr(module, "_build_system_prompt", None)
-    if old_builder and not getattr(old_builder, "_mint_hard_story", False):
-        def build():
-            return old_builder() + SCRIPT_RULES
-        build._mint_hard_story = True
-        module._build_system_prompt = build
-
-    old_generate = getattr(module, "generate_script", None)
-    if old_generate and not getattr(old_generate, "_mint_script_gate", False):
-        def generate(topic, config, research=None):
-            for attempt in range(3):
-                script = old_generate(topic, config, research)
-                scenes = script.get("scene_plan", []) if isinstance(script, dict) else []
-                if len(scenes) == 7 and all(str(x.get("narration", "")).strip() for x in scenes if isinstance(x, dict)):
-                    final = str(scenes[-1].get("narration", "")).strip()
-                    if final and re.search(r"[.!?]$", final):
-                        return script
-                print("⚠️ Script quality gate: invalid storyboard/ending; regenerating.")
-            raise RuntimeError("Script quality gate failed after 3 attempts.")
-        generate._mint_script_gate = True
-        module.generate_script = generate
-
-
 def _patch(module):
     name = getattr(module, "__name__", "")
-    if name == "generate_script":
-        _patch_script(module)
-    elif name == "generate_images":
-        _patch_images(module)
-    elif name == "assemble":
+    if name == "assemble":
         _patch_assemble(module)
         _patch_video_quality(module)
-    elif name == "main":
-        _patch_main(module)
     elif name == "tts":
         module.NARRATION_SPEED = 1.0
 
@@ -438,16 +190,19 @@ def _patch(module):
 class _Loader(importlib.abc.Loader):
     def __init__(self, loader):
         self.loader = loader
+
     def create_module(self, spec):
         creator = getattr(self.loader, "create_module", None)
         return creator(spec) if creator else None
+
     def exec_module(self, module):
         self.loader.exec_module(module)
         _patch(module)
 
 
 class _Finder(importlib.abc.MetaPathFinder):
-    TARGETS = {"generate_script", "generate_images", "tts", "assemble", "main"}
+    TARGETS = {"tts", "assemble"}
+
     def find_spec(self, fullname, path=None, target=None):
         if fullname not in self.TARGETS:
             return None

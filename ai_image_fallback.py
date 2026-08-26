@@ -3,18 +3,23 @@
 Used only when verified Pexels/Pixabay media cannot illustrate a shot.
 The prompt is deliberately literal: the generated frame must show the exact
 physical subject/state from the narration, not a generic science illustration.
+
+The fallback uses Gemini's REST generateContent endpoint rather than relying on
+an installed google-genai SDK schema for response_format. This avoids breaking
+when the runner's SDK version does not expose the image response-format field.
 """
 from __future__ import annotations
 
+import base64
 import os
 import time
 from pathlib import Path
 
-from google import genai
-from google.genai import types
+import requests
 
 MODEL = os.getenv("GEMINI_IMAGE_MODEL", "gemini-2.5-flash-image")
 ATTEMPTS = 3
+API_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 
 
 def _key() -> str:
@@ -75,6 +80,17 @@ HARD RULES:
 """
 
 
+def _extract_image(response_json: dict) -> bytes | None:
+    for candidate in response_json.get("candidates", []) or []:
+        content = candidate.get("content") or {}
+        for part in content.get("parts", []) or []:
+            inline = part.get("inlineData") or part.get("inline_data") or {}
+            encoded = inline.get("data")
+            if encoded:
+                return base64.b64decode(encoded)
+    return None
+
+
 def generate(directed: dict, path: str) -> bool:
     """Generate a literal vertical fallback image and save it to *path*."""
     output = Path(path)
@@ -83,22 +99,32 @@ def generate(directed: dict, path: str) -> bool:
 
     for attempt in range(1, ATTEMPTS + 1):
         try:
-            client = genai.Client(api_key=_key())
-            response = client.models.generate_content(
-                model=MODEL,
-                contents=_prompt(directed),
-                config=types.GenerateContentConfig(
-                    response_modalities=["IMAGE"],
-                    response_format={"image": {"aspect_ratio": "9:16"}},
-                ),
+            payload = {
+                "contents": [{"parts": [{"text": _prompt(directed)}]}],
+                "generationConfig": {
+                    "responseModalities": ["IMAGE"],
+                    "responseFormat": {"image": {"aspectRatio": "9:16"}},
+                },
+            }
+            response = requests.post(
+                API_URL.format(model=MODEL),
+                params={"key": _key()},
+                json=payload,
+                headers={"Content-Type": "application/json"},
+                timeout=120,
             )
-            for part in response.parts:
-                if getattr(part, "inline_data", None) is not None:
-                    image = part.as_image()
-                    image.save(str(output), format="JPEG", quality=94)
-                    if output.exists() and output.stat().st_size > 10_000:
-                        return True
-            raise RuntimeError("Gemini returned no image data")
+            if not response.ok:
+                raise RuntimeError(f"Gemini HTTP {response.status_code}: {response.text[:500]}")
+
+            data = response.json()
+            image_bytes = _extract_image(data)
+            if not image_bytes:
+                raise RuntimeError("Gemini returned no inline image data")
+
+            output.write_bytes(image_bytes)
+            if output.exists() and output.stat().st_size > 10_000:
+                return True
+            raise RuntimeError("Gemini image output is unexpectedly small")
         except Exception as exc:
             last_error = exc
             print(f"      ⚠️ Gemini image fallback {attempt}/{ATTEMPTS}: {type(exc).__name__}: {exc}")

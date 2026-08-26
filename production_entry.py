@@ -109,8 +109,6 @@ def _install_media_pipeline(main):
     print("🎯 Media pipeline: Gemini Visual/Search Director → Pexels → Pixabay stock fallback")
     print("🛡️ Gemini visual verification: ENABLED")
     print("🛡️ Candidate media sent to Gemini: ENABLED")
-    print("🚫 AI image generation: DISABLED")
-    print("🚫 Pollinations/FLUX: REMOVED")
     print("🔎 Stock search strategy: literal + object + action/context + simplified queries")
 
 
@@ -125,7 +123,7 @@ def main_entry():
     print("Visual verification threshold: 7.5/10")
     print("Visual verification candidate pool: up to 6 per provider/shot")
     print("Stock search: diversified retrieval; exact cinematic phrasing is not required")
-    print("AI image generation: DISABLED"); print("Pollinations/FLUX: REMOVED"); print("Fallback: stock provider fallback only; no unrelated or AI visual fallback")
+    print("Fallback: stock provider fallback only; no unrelated-media fallback")
     print("Continuation: one locked next topic, final sentence only")
     print("Pexels API key:","AVAILABLE" if os.environ.get("PEXELS_API_KEY") else "NOT CONFIGURED")
     print("Pixabay API key:","AVAILABLE" if os.environ.get("PIXABAY_API_KEY") else "NOT CONFIGURED")

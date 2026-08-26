@@ -1,6 +1,6 @@
 """Mint-YT-Factory production pipeline.
 
-CURRENT MODE: ENTERTAINMENT-FIRST + SELF-LEARNING + STORY-AWARE SFX
+CURRENT MODE: ENTERTAINMENT-FIRST + SELF-LEARNING + STORY-AWARE SFX + ENGAGEMENT EXPERIMENTS
 """
 from __future__ import annotations
 import argparse,json,os,re,time,yaml
@@ -67,21 +67,14 @@ def lock_next_topic(script,current_topic):
     if not base:base="And that is the strange part"
     final_scene["narration"]=f"{_compact_payoff(base,10)} {_build_locked_final_sentence(canonical)}".strip()
     final_scene["subtitle_text"]=final_scene["narration"]
-    final_scene["pause_after_ms"]=250
-    final_scene["emotional_tone"]="satisfied"
-    final_scene["music_cue"]="fade_out"
-    teaser_words=re.findall(r"\b[\w'-]+\b",canonical)
-    final_scene["caption_highlights"]=[{"word":w,"emphasis":"strong"} for w in teaser_words[:3]] or [{"word":canonical.split()[0],"emphasis":"strong"}]
-    final_scene["emphasis_word"]=teaser_words[0] if teaser_words else canonical.split()[0]
-    canonical_key=_normalise_topic_text(canonical)
-    final_key=_normalise_topic_text(final_scene["narration"])
+    final_scene["pause_after_ms"]=250;final_scene["emotional_tone"]="satisfied";final_scene["music_cue"]="fade_out"
+    teaser_words=re.findall(r"\b[\w'-]+\b",canonical);final_scene["caption_highlights"]=[{"word":w,"emphasis":"strong"} for w in teaser_words[:3]] or [{"word":canonical.split()[0],"emphasis":"strong"}];final_scene["emphasis_word"]=teaser_words[0] if teaser_words else canonical.split()[0]
+    canonical_key=_normalise_topic_text(canonical);final_key=_normalise_topic_text(final_scene["narration"])
     if canonical_key not in final_key:raise RuntimeError("Canonical next topic was not inserted into final narration.")
     for scene in scenes[:6]:
         if canonical_key and canonical_key in _normalise_topic_text(scene.get("narration","")):raise RuntimeError("Next topic appeared before Scene 7.")
     if not _final_scene_has_only_one_continuation_topic(final_scene["narration"],canonical):raise RuntimeError("Scene 7 contains more than one future-topic teaser; continuation integrity failed.")
-    print(f"🔒 Canonical next topic: {canonical}")
-    print(f"🗣️ FINAL SPOKEN TEASE: {final_scene['narration']}")
-    return script,canonical
+    print(f"🔒 Canonical next topic: {canonical}");print(f"🗣️ FINAL SPOKEN TEASE: {final_scene['narration']}");return script,canonical
 def _compact_payoff(narration,max_words=10):
     sentences=_split_sentences(narration);chosen=[];total=0
     for sentence in reversed(sentences):
@@ -111,10 +104,18 @@ def refresh_learning_before_generation():
         playbook=refresh_playbook();print(f"🧠 Learning playbook refreshed: {playbook.get('video_count',0)} videos | learning_ready={playbook.get('learning_ready',False)}")
     except Exception as error:print(f"⚠️ Learning playbook refresh unavailable: {type(error).__name__}: {error}")
 def run(dry_run=False):
-    config=load_config();print("="*80);print("🚀 MINT-YT-FACTORY — ENTERTAINMENT-FIRST + SELF-LEARNING + SFX");print("="*80);print("🧠 Self-learning: ENABLED");print("📈 Objective: views + subscriber growth + YPP readiness");print("🔁 Learning strategy: 70% proven patterns / 20% adjacent experiments / 10% wild experiments");print("🚫 Duplicate-topic protection: ENABLED");print("🔊 Story-aware SFX: ENABLED (free local procedural)");refresh_learning_before_generation();topic=get_next_topic()
+    config=load_config();print("="*80);print("🚀 MINT-YT-FACTORY — ENTERTAINMENT-FIRST + SELF-LEARNING + SFX");print("="*80);print("🧠 Self-learning: ENABLED");print("📈 Objective: views + subscriber growth + YPP readiness");print("🔁 Learning strategy: 70% proven patterns / 20% adjacent experiments / 10% wild experiments");print("💬 Engagement learning: sequential comment/share experiments ENABLED");print("🚫 Duplicate-topic protection: ENABLED");print("🔊 Story-aware SFX: ENABLED (free local procedural)");refresh_learning_before_generation();topic=get_next_topic()
     if not topic:raise RuntimeError("No topic available.")
-    print(f"🎯 CURRENT TOPIC: {topic}");learning_context=load_learning_context();print("="*80);print("🧠 LOADED CHANNEL LEARNING PLAYBOOK");print("="*80);print(learning_context[:3500]);print("="*80);print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS");print("="*80)
-    script=generate_script(topic,config,None,extra_feedback=learning_context);script,next_topic=lock_next_topic(script,topic);workdir=os.path.join("output",str(int(time.time())));os.makedirs(workdir,exist_ok=True);save_json(script,os.path.join(workdir,"script.json"));write_continuation_manifest(topic,next_topic,"locked",workdir);print(f"✅ Script ready: {workdir}/script.json");print(f"➡️ LOCKED Next Short: {next_topic}")
+    print(f"🎯 CURRENT TOPIC: {topic}")
+    try:
+        from engagement_experiments import assign, summarize
+        engagement=assign(topic);print(f"🧪 Engagement experiment: {engagement['experiment']} | phase={engagement['phase']}");print(f"💬 Planned comment: {engagement['comment']}");print(f"🔄 Share trigger: {engagement['share_prompt']}");print(f"📊 Existing experiment results: {json.dumps(summarize(),ensure_ascii=False)}")
+    except Exception as error:
+        engagement={"experiment":"none","phase":"disabled","spoken_prompt":"","comment":"","share_prompt":""};print(f"⚠️ Engagement experiment setup skipped: {type(error).__name__}: {error}")
+    learning_context=load_learning_context();engagement_feedback=(f"\nENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}\nUse this mechanic naturally in the final narration if it fits, without sounding like engagement bait.\nSuggested spoken interaction: {engagement['spoken_prompt']}\nDo not add generic like/subscribe language.\n")
+    print("="*80);print("🧠 LOADED CHANNEL LEARNING PLAYBOOK");print("="*80);print(learning_context[:3500]);print("="*80);print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS");print("="*80)
+    script=generate_script(topic,config,None,extra_feedback=learning_context+engagement_feedback);script,next_topic=lock_next_topic(script,topic);script["engagement"]={"experiment":engagement["experiment"],"phase":engagement["phase"],"spoken_prompt":engagement["spoken_prompt"],"comment":engagement["comment"],"share_prompt":engagement["share_prompt"]}
+    workdir=os.path.join("output",str(int(time.time())));os.makedirs(workdir,exist_ok=True);save_json(script,os.path.join(workdir,"script.json"));write_continuation_manifest(topic,next_topic,"locked",workdir);print(f"✅ Script ready: {workdir}/script.json");print(f"➡️ LOCKED Next Short: {next_topic}")
     if dry_run:print("✅ DRY RUN COMPLETE");return
     print("="*80);print("🎙️ GENERATING NARRATION");print("="*80);audio=synthesize_script(script,config,os.path.join(workdir,"audio"))
     try:
@@ -132,10 +133,10 @@ def run(dry_run=False):
     except Exception:pass
     quality=validate_final_video(final_video,expected_bitrate_mbps=target_bitrate);save_json(quality,os.path.join(workdir,"video_quality.json"))
     if not config.get("upload",{}).get("auto_upload",False):print("⚠️ AUTO UPLOAD DISABLED — topic remains uncommitted.");return
-    title,description=build_youtube_metadata(script);print("="*80);print("🚀 UPLOADING SHORT");print("="*80);upload_result=upload_video(final_video,title,description,config);print(f"✅ Upload completed: {upload_result}");write_continuation_manifest(topic,next_topic,"published",workdir)
+    title,description=build_youtube_metadata(script);print("="*80);print("🚀 UPLOADING SHORT");print("="*80);upload_result=upload_video(final_video,title,description,config,engagement_comment=engagement.get("comment"));print(f"✅ Upload completed: {upload_result}");write_continuation_manifest(topic,next_topic,"published",workdir)
     try:
         from youtube_analytics import record_upload
-        record_upload(upload_result,topic,title,workdir,production_metadata={"topic_category":script.get("topic_category",topic),"hook_type":script.get("hook_type",script.get("scene_plan",[{}])[0].get("retention_purpose","")),"story_structure":"7-scene curiosity story","visual_style":script.get("visual_identity",{}).get("style",""),"music_type":script.get("music",{}).get("arc",""),"voice":script.get("voice_style",{}).get("tone","")});refresh_playbook()
+        record_upload(upload_result,topic,title,workdir,production_metadata={"topic_category":script.get("topic_category",topic),"hook_type":script.get("hook_type",script.get("scene_plan",[{}])[0].get("retention_purpose","")),"story_structure":"7-scene curiosity story","visual_style":script.get("visual_identity",{}).get("style",""),"music_type":script.get("music",{}).get("arc",""),"voice":script.get("voice_style",{}).get("tone",""),"engagement_experiment":engagement.get("experiment","none"),"engagement_phase":engagement.get("phase",""),"engagement_comment":engagement.get("comment",""),"engagement_share_prompt":engagement.get("share_prompt","")});refresh_playbook()
     except Exception as analytics_error:print(f"⚠️ Analytics/learning refresh skipped: {analytics_error}")
     print("="*80);print("🔗 SAVING EXACT NEXT SHORT");print("="*80);queued_topic=save_next_short(next_topic)
     if not queued_topic:raise RuntimeError("Upload succeeded but next_short could not be saved.")

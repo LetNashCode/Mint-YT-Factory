@@ -99,19 +99,21 @@ def set_thumbnail(video_id, thumbnail_path, youtube=None):
 def post_top_level_comment(video_id, comment, youtube=None):
     """Post a topic-specific top-level engagement comment.
 
-    YouTube Data API does not expose a supported pin-comment endpoint, so this
-    intentionally creates the comment only and reports that pinning is manual.
+    Returns the created comment ID on success and raises on failure. Pinning is
+    intentionally manual because the standard YouTube Data API has no supported
+    pin-comment endpoint.
     """
     text = _sanitize_youtube_text(comment, max_bytes=10000)
-    if not text: return False
+    if not text: return None
     youtube = youtube or build("youtube","v3",credentials=_get_credentials())
     body={"snippet":{"videoId":video_id,"topLevelComment":{"snippet":{"textOriginal":text}}}}
     response=youtube.commentThreads().insert(part="snippet",body=body).execute()
     comment_id=((response.get("snippet") or {}).get("topLevelComment") or {}).get("id") or response.get("id")
+    if not comment_id: raise RuntimeError("YouTube accepted the comment request but returned no comment ID.")
     print("💬 Engagement comment posted")
-    print(f"   Comment ID: {comment_id or 'unknown'}")
+    print(f"   Comment ID: {comment_id}")
     print("📌 Pinning: manual (YouTube Data API has no supported pin endpoint)")
-    return True
+    return comment_id
 
 
 def upload_video(video_path,title,description,config,thumbnail_path=None,engagement_comment=None):
@@ -131,7 +133,11 @@ def upload_video(video_path,title,description,config,thumbnail_path=None,engagem
     if thumbnail_path:
         try: set_thumbnail(video_id,thumbnail_path,youtube)
         except Exception as exc: print(f"⚠️ Custom thumbnail upload failed: {type(exc).__name__}: {exc}")
+    comment_posted=False; comment_id=None
     if engagement_comment:
-        try: post_top_level_comment(video_id, engagement_comment, youtube)
-        except Exception as exc: print(f"⚠️ Engagement comment failed; video upload remains successful: {type(exc).__name__}: {exc}")
-    return video_id
+        try:
+            comment_id=post_top_level_comment(video_id, engagement_comment, youtube)
+            comment_posted=bool(comment_id)
+        except Exception as exc:
+            print(f"⚠️ Engagement comment failed; video upload remains successful: {type(exc).__name__}: {exc}")
+    return {"video_id":video_id,"engagement_comment_posted":comment_posted,"engagement_comment_id":comment_id}

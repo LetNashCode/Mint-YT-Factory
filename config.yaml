@@ -3,48 +3,18 @@
 channel:
   name: "Wonder Minute"
   niche: "Entertaining Curiosity Shorts"
-  tone:
-    - curious
-    - playful
-    - engaging
-    - cinematic
-    - quirky
+  tone: [curious, playful, engaging, cinematic, quirky]
   audience: "Global"
   language: "English"
   reading_level: "Grade 6-8"
-  content_goal:
-    - stop the scroll
-    - create curiosity
-    - make explanations feel fun
-    - create memorable visual moments
-    - deliver satisfying payoffs
+  content_goal: [stop_the_scroll, create_curiosity, fun_explanations, memorable_visuals, satisfying_payoffs]
 
 content:
-  pillars:
-    - Human Body
-    - Psychology
-    - Science
-    - Space
-    - Earth
-    - Technology
-    - History
-    - Animals
-  format:
-    type: "single_story"
-    one_topic_per_video: true
-    one_connected_story: true
-    no_lists: true
-    no_countdowns: true
-    no_top_5: true
-    no_generic_facts: true
-    no_unrelated_facts: true
+  pillars: [Human Body, Psychology, Science, Space, Earth, Technology, History, Animals]
+  format: {type: single_story, one_topic_per_video: true, one_connected_story: true, no_lists: true, no_countdowns: true, no_top_5: true, no_generic_facts: true, no_unrelated_facts: true}
 
-research:
-  enabled: false
-  required: false
-
-scientific_safety:
-  enabled: false
+research: {enabled: false, required: false}
+scientific_safety: {enabled: false}
 
 script:
   language: "English"
@@ -57,16 +27,15 @@ script:
   visuals_per_scene: 2
   total_visuals: 14
   structure:
-    scene_1: {name: "Hook", duration: 3}
-    scene_2: {name: "Curiosity Gap", duration: 5}
-    scene_3: {name: "Explanation", duration: 7}
-    scene_4: {name: "Example", duration: 7}
-    scene_5: {name: "Reframe", duration: 8}
-    scene_6: {name: "Escalation", duration: 8}
-    scene_7: {name: "Payoff", duration: 7}
+    scene_1: {name: Hook, duration: 3}
+    scene_2: {name: Curiosity Gap, duration: 5}
+    scene_3: {name: Explanation, duration: 7}
+    scene_4: {name: Example, duration: 7}
+    scene_5: {name: Reframe, duration: 8}
+    scene_6: {name: Escalation, duration: 8}
+    scene_7: {name: Payoff, duration: 7}
   rules:
     one_connected_story: true
-    start_with_question: false
     lecture_style: false
     textbook_style: false
     ai_assistant_style: false
@@ -81,44 +50,20 @@ script:
   ending:
     scene_7_must_resolve_current_story: true
     satisfying_payoff: true
-    open_broader_curiosity: true
     mention_next_video: false
     mention_next_short: true
-    say_coming_next: false
-    say_in_the_next_video: false
-    say_stay_tuned: false
     subscription_cta_in_narration: false
 
-next_short:
-  enabled: true
-  spoken_in_current_video: true
-  reveal_in_current_description: false
-  must_follow_current_story: true
+next_short: {enabled: true, spoken_in_current_video: true, reveal_in_current_description: false, must_follow_current_story: true}
+voice: {provider: tiktok, voice_name: en_us_010, speed: 1.0, tone: "curious, confident, playful storyteller"}
 
-voice:
-  provider: "tiktok"
-  voice_name: "en_us_010"
-  speed: 1.0
-  tone: "curious, confident, playful storyteller"
-  target_delivery:
-    energetic_hook: true
-    natural_pacing: true
-    conversational: true
-    dramatic_pauses: true
-    avoid_robotic_delivery: true
-    avoid_newsreader_delivery: true
-
-# ACTIVE MEDIA ARCHITECTURE:
-# Gemini creates storyboard direction and Pexels search direction; Pexels supplies media.
-# Gemini never receives candidate media for verification.
 media:
-  provider: "pexels"
-  director: "gemini"
-  search_director: "gemini"
-  search_mode: "gemini_directed"
-  media_types: ["video", "photo"]
-  style: "cinematic real-world storytelling"
-  orientation: "portrait"
+  provider: pexels
+  director: gemini
+  search_director: gemini
+  search_mode: gemini_directed
+  media_types: [video, photo]
+  orientation: portrait
   width: 2160
   height: 3840
   assets_per_scene: 2
@@ -128,78 +73,44 @@ media:
   rules:
     visuals_must_advance_story: true
     visuals_must_support_narration: true
-    visuals_should_work_without_audio: true
     no_random_stock_visuals: true
     no_generic_backgrounds: true
     no_duplicate_visuals_within_scene: true
     visual_1_establishes: true
     visual_2_advances_story: true
     reject_unrelated_assets: true
-  continuity:
-    enabled: true
-    preserve_recurring_subjects: true
-    preserve_recurring_objects: true
-    preserve_environment: true
-    preserve_character_appearance: true
+  continuity: {enabled: true, preserve_recurring_subjects: true, preserve_recurring_objects: true, preserve_environment: true, preserve_character_appearance: true}
 
-# Compatibility alias for older modules; production uses media above.
-image:
-  provider: "pexels"
-  director: "gemini"
-  mode: "search_only"
-  source: "pexels"
-  width: 2160
-  height: 3840
-  orientation: "portrait"
-  images_per_scene: 2
-  total_images: 14
+# Legacy compatibility block; production reads media.provider above.
+image: {provider: pexels, director: gemini, mode: search_only, source: pexels, width: 2160, height: 3840, orientation: portrait, images_per_scene: 2, total_images: 14}
 
 video:
   resolution: [2160, 3840]
-  orientation: "portrait"
+  orientation: portrait
   fps: 60
-  bitrate: "68M"
-  codec: "libx264"
-  audio_codec: "aac"
-  audio_bitrate: "384k"
-  pixel_format: "yuv420p"
-  color_space: "bt709"
+  bitrate: 68M
+  codec: libx264
+  audio_codec: aac
+  audio_bitrate: 384k
+  pixel_format: yuv420p
   target_duration_seconds: 40
-  motion:
-    enabled: true
-    storyboard_controlled: true
-    allow_zoom: true
-    allow_pan: true
-    allow_parallax: true
-    allow_rotate: true
-    allow_hold: true
-    default_intensity: "medium"
-  camera:
-    storyboard_controlled: true
-    default: "medium"
-  transitions:
-    enabled: true
-    storyboard_controlled: true
-    default: "hard_cut"
-  background_music:
-    enabled: true
-    volume: 0.08
-  sound_effects:
-    enabled: true
-    volume: 0.55
+  motion: {enabled: true, storyboard_controlled: true, allow_zoom: true, allow_pan: true, allow_parallax: true, allow_rotate: true, allow_hold: true, default_intensity: medium}
+  transitions: {enabled: true, storyboard_controlled: true, default: hard_cut}
+  background_music: {enabled: true, volume: 0.08}
+  sound_effects: {enabled: true, volume: 0.55}
   music_volume: 0.08
   sfx_volume: 0.55
 
 captions:
   enabled: true
-  source: "narration"
+  source: narration
   narration_is_source_of_truth: true
   word_by_word: true
   scene_aware: true
   highlight: true
   maximum_words_per_caption: 1
   font_size: 72
-  color: "white"
+  color: white
   highlight_color: "#FFD54A"
   stroke_color: "#111111"
   stroke_width: 2
@@ -207,109 +118,22 @@ captions:
   shadow_opacity: 0.65
   vertical_position: 0.64
 
-branding:
-  channel_name: "Wonder Minute"
-  ending_text: "Follow for more."
-  ending_text_enabled: true
-  ending_text_in_narration: false
-  overlay_branding: false
-  watermark: false
-
+branding: {channel_name: "Wonder Minute", ending_text: "Follow for more.", ending_text_enabled: true, ending_text_in_narration: false, overlay_branding: false, watermark: false}
 seo:
   hashtags: [shorts, science, education, facts, learn, curiosity, knowledge]
   max_tags: 12
-  title:
-    maximum_characters: 70
-    avoid_clickbait: true
-    curiosity_driven: true
-  description:
-    maximum_characters: 2000
-    describe_current_video_only: true
-    reveal_next_short: false
+  title: {maximum_characters: 70, avoid_clickbait: true, curiosity_driven: true}
+  description: {maximum_characters: 2000, describe_current_video_only: true, reveal_next_short: false}
 
-retention:
-  enabled: true
-  prioritize_first_3_seconds: true
-  hook_must_create_curiosity: true
-  no_generic_opening: true
-  curiosity_gap: true
-  escalation: true
-  reframe: true
-  payoff: true
-  avoid_repetition: true
-  every_scene_must_advance_story: true
-
-engagement:
-  enabled: true
-  sequential_experiments: true
-  automatic_creator_comment: true
-  pin_comment: manual
-  learn_from_comments: true
-  learn_from_shares: true
-  learn_from_retention: true
-  learn_from_subscribers: true
+retention: {enabled: true, prioritize_first_3_seconds: true, hook_must_create_curiosity: true, no_generic_opening: true, curiosity_gap: true, escalation: true, reframe: true, payoff: true, avoid_repetition: true, every_scene_must_advance_story: true}
+engagement: {enabled: true, sequential_experiments: true, automatic_creator_comment: true, pin_comment: manual, learn_from_comments: true, learn_from_shares: true, learn_from_retention: true, learn_from_subscribers: true}
 
 validation:
   enabled: true
-  script:
-    scene_count: 7
-    duration_seconds: 40
-    minimum_duration_seconds: 35
-    maximum_duration_seconds: 43.9
-    visuals_per_scene: 2
-    total_visuals: 14
-    captions_match_narration: true
-    scene_7_resolves_story: true
-    next_short_not_in_description: true
-  visuals:
-    exactly_14_images: true
-    exactly_2_per_scene: true
-    all_files_exist: true
-    no_missing_images: true
-    reject_unrelated_assets: true
-  video:
-    width: 2160
-    height: 3840
-    fps: 60
-    bitrate: "68M"
-    portrait_9_16: true
+  script: {scene_count: 7, duration_seconds: 40, minimum_duration_seconds: 35, maximum_duration_seconds: 43.9, visuals_per_scene: 2, total_visuals: 14, captions_match_narration: true, scene_7_resolves_story: true, next_short_not_in_description: true}
+  visuals: {exactly_14_images: true, exactly_2_per_scene: true, all_files_exist: true, no_missing_images: true, reject_unrelated_assets: true}
+  video: {width: 2160, height: 3840, fps: 60, bitrate: 68M, portrait_9_16: true}
 
-upload:
-  auto_upload: true
-  privacy_status: "public"
-  category_id: "27"
-  publish_only_after_validation: true
-  require_render_success: true
-  require_visual_validation: true
-  require_script_validation: true
-  never_publish_failed_video: true
-  never_publish_partial_video: true
-
-pipeline:
-  research_first: false
-  script_after_research: false
-  visuals_after_script: true
-  narration_after_script: true
-  assembly_after_visuals: true
-  validation_before_upload: true
-  upload_after_validation: true
-  stages:
-    - topic
-    - script
-    - visual_generation
-    - narration
-    - assembly
-    - validation
-    - upload
-
-production:
-  fail_if_research_not_verified: false
-  fail_if_sources_missing: false
-  fail_if_visuals_missing: true
-  fail_if_scene_count_wrong: true
-  fail_if_visual_count_wrong: true
-  fail_if_caption_sync_fails: true
-  fail_if_claim_safety_fails: false
-  fail_if_storyboard_invalid: true
-  fail_if_render_fails: true
-  never_publish_partial_video: true
+upload: {auto_upload: true, privacy_status: public, category_id: "27", publish_only_after_validation: true, require_render_success: true, require_visual_validation: true, require_script_validation: true, never_publish_failed_video: true, never_publish_partial_video: true}
+pipeline: {research_first: false, script_after_research: false, visuals_after_script: true, narration_after_script: true, assembly_after_visuals: true, validation_before_upload: true, upload_after_validation: true, stages: [topic, script, visual_generation, narration, assembly, validation, upload]}
+production: {fail_if_research_not_verified: false, fail_if_sources_missing: false, fail_if_visuals_missing: true, fail_if_scene_count_wrong: true, fail_if_visual_count_wrong: true, fail_if_caption_sync_fails: true, fail_if_claim_safety_fails: false, fail_if_storyboard_invalid: true, fail_if_render_fails: true, never_publish_partial_video: true}

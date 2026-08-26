@@ -1,8 +1,7 @@
 """Stock-only visual search pipeline for Mint-YT-Factory.
 
-Gemini plans searches and verifies real stock candidates. It never generates
-replacement imagery. Search is optimized for concrete, searchable visuals,
-not abstract or cinematic wording.
+Gemini directs and verifies real Pexels/Pixabay candidates. It never generates
+replacement imagery. Search is optimized for concrete, searchable visuals.
 """
 from __future__ import annotations
 
@@ -17,13 +16,13 @@ import requests
 PEXELS_API = "https://api.pexels.com/v1"
 PIXABAY_API = "https://pixabay.com/api"
 PIXABAY_VIDEO_API = "https://pixabay.com/api/videos"
-DIRECTOR_MODEL = "gemini-flash-lite-latest"
-VERIFY_MODEL = "gemini-flash-lite-latest"
+DIRECTOR_MODEL = "gemini-3.5-flash-lite"
+VERIFY_MODELS = ("gemini-3.5-flash-lite", "gemini-2.5-flash-lite")
 VERIFY_THRESHOLD = 7.5
 CANDIDATES = 8
 QUERIES = 5
 TIMEOUT = 35
-USER_AGENT = "Mint-YT-Factory/StockSearch/8.0"
+USER_AGENT = "Mint-YT-Factory/StockSearch/11.3"
 
 STOP = {"this","that","with","from","your","into","about","just","they","them","their","very","have","will","what","when","where","which","because","while","then","than","like","gets","make","makes","made","thing","things","exact","physical","show","showing","scene","shot","visible","action","state","realistic","cinematic","photo","photograph","video","image","someone","something","people","person","camera","natural","looking","moment","also","really","tiny","microscopic","single","entire","every","time","next","remember","designed","actually","basically","literally","only","must","contain"}
 ACTIONS = {"cling","stick","pull","grab","hold","touch","rub","fall","drop","jump","run","pour","spill","open","close","break","tear","bend","shake","twist","stretch","slide","move","tumble","wash","dry","iron","sew","wear","remove","press","boil","freeze","melt","steam","squeeze","crush","bounce","spin","plug","drip","float","burst","snap","crack","lift","collapse","tangle","cut","slice","pop","pouring","boiling","melting","cracking","popping"}
@@ -78,33 +77,40 @@ VISUAL ACTION: {action}
 MUST SHOW: {json.dumps(must)}
 MUST NOT SHOW: {json.dumps(avoid)}
 
-Your job is NOT to invent an image. Your job is to find what stock libraries can realistically contain.
+Find what stock libraries can realistically contain. Do not invent an image.
 
 SEARCH RULES:
-1. Start from the exact physical object in the spoken beat.
-2. Search the visible action/state, not the scientific explanation.
+1. Start from the exact physical subject.
+2. Search visible actions/states, not scientific explanations.
 3. Prefer ordinary real-world footage: object, hand, pan, food, water, steam, crack, pop, etc.
-4. If the narration describes an invisible/internal mechanism, do NOT search for a fake microscopic visualization. Instead search for the closest real visible evidence: a cut-open object, visible steam, boiling, swelling, cracking, bursting, or the resulting object.
-5. Never substitute a related object. A popcorn kernel is not corn-on-the-cob; a tea bag is not tea leaves; ice cubes are not generic water.
-6. Never use abstract words like science, mystery, concept, mechanism, education, experiment, cinematic.
-7. Queries must be short, literal, and stock-search friendly: 2-6 words each.
-8. Produce five meaningfully different searches: exact object; object+action; object+context; close-up/macro only when stock-realistic; simplified fallback.
-9. Avoid repeating the same noun phrase five times.
+4. For invisible/internal mechanisms, use truthful visible evidence: cut-open object, visible steam, boiling, swelling, cracking, bursting, or the immediate result.
+5. Never substitute a merely related object.
+6. IMPORTANT AVAILABILITY RULE: if an exact intermediate action is unlikely to exist as stock, search for the nearest DIRECTLY CAUSAL visible progression using the same subject. Example: for a kernel heating in a pan, include "popcorn popping pan" and "popcorn cooking skillet" because those visibly establish the heating process. Do not jump to generic corn, fields, or unrelated food.
+7. Never use abstract words such as science, mystery, concept, mechanism, education, experiment, cinematic.
+8. Queries should be 2-6 words and stock-search friendly.
+9. Produce five materially different searches: exact subject, subject+action, subject+context, causal progression, simplified fallback.
 10. Keep the shot visually distinct from the other shot in this scene when possible.
 
 Return ONLY JSON:
-{{"queries":["..."],"casting_brief":"...","must_match":["..."],"avoid":["..."],"search_mode":"literal|action|context|visible-proxy"}}"""
+{{"queries":["..."],"casting_brief":"...","must_match":["..."],"avoid":["..."],"search_mode":"literal|action|context|visible-proxy|causal"}}"""
     client = genai.Client(api_key=_key())
-    response = client.models.generate_content(model=DIRECTOR_MODEL, contents=[prompt], config=types.GenerateContentConfig(temperature=0.15))
-    data = _json(getattr(response, "text", ""))
-    queries = []
-    for q in data.get("queries", []):
-        q = clean(q, 90)
-        if q and len(q.split()) <= 8 and q.lower() not in {x.lower() for x in queries}:
-            queries.append(q)
-    if len(queries) < 3:
-        raise RuntimeError(f"Gemini produced too few usable stock queries for Scene {scene_no} Shot {shot_no}.")
-    return {"queries": queries[:QUERIES], "casting_brief": clean(data.get("casting_brief"), 500), "must_match":[clean(x,150) for x in data.get("must_match",[])[:8]], "avoid":[clean(x,150) for x in data.get("avoid",[])[:8]], "search_mode":clean(data.get("search_mode"),40), "spoken_beat":spoken}
+    last = None
+    for model in (DIRECTOR_MODEL, "gemini-2.5-flash-lite"):
+        try:
+            response = client.models.generate_content(model=model, contents=[prompt], config=types.GenerateContentConfig(temperature=0.15))
+            data = _json(getattr(response, "text", ""))
+            queries = []
+            for q in data.get("queries", []):
+                q = clean(q, 90)
+                if q and len(q.split()) <= 8 and q.lower() not in {x.lower() for x in queries}:
+                    queries.append(q)
+            if len(queries) < 3:
+                raise RuntimeError("Gemini produced too few usable stock queries.")
+            return {"queries": queries[:QUERIES], "casting_brief": clean(data.get("casting_brief"), 500), "must_match":[clean(x,150) for x in data.get("must_match",[])[:8]], "avoid":[clean(x,150) for x in data.get("avoid",[])[:8]], "search_mode":clean(data.get("search_mode"),40), "spoken_beat":spoken}
+        except Exception as exc:
+            last = exc
+            print(f"⚠️ Stock search director {model} failed: {type(exc).__name__}")
+    raise last or RuntimeError("Stock search direction failed.")
 
 
 def build_plan(script):
@@ -112,7 +118,7 @@ def build_plan(script):
     if not isinstance(scenes, list) or len(scenes) != 7:
         raise RuntimeError("Stock search requires exactly 7 scenes.")
     plan=[]
-    print("🧠 STOCK SEARCH DIRECTOR v8.0 — literal/action/context search")
+    print("🧠 STOCK SEARCH DIRECTOR v11.3 — literal/action/context/causal search")
     for si, scene in enumerate(scenes,1):
         visuals=scene.get("visuals")
         if not isinstance(visuals,list) or len(visuals)!=2:
@@ -226,36 +232,49 @@ IDEAL STOCK SHOT: {directed['casting_brief']}
 MUST MATCH: {json.dumps(directed.get('must_match',[]))}
 AVOID: {json.dumps(directed.get('avoid',[]))}
 
-A usable asset must visibly show the correct object AND the correct state/action when one is described. Reject merely related objects, decorative macro textures, generic food, generic water, generic people, abstract science imagery, or attractive footage that does not illustrate the spoken beat. If the narration describes an internal mechanism, accept a real visible proxy only when it directly helps explain the beat (for example a cut-open object or visible steam/boiling/cracking). Never reward cinematic quality by itself.
+A usable asset must show the correct subject and should show the requested state/action when stock can reasonably show it. Reject merely related objects, decorative textures, generic food/water, generic people, abstract science imagery, or attractive footage that does not explain the beat.
+IMPORTANT: When the requested shot describes a short-lived or hard-to-film intermediate state, a DIRECTLY CAUSAL visible progression with the same subject is acceptable. For example, if the beat says a popcorn kernel is heating in a pan, footage of the same popcorn kernel popping/cooking in that pan is acceptable. Do NOT accept a different food, generic corn fields, or unrelated kitchen footage.
+For invisible/internal mechanisms, accept a truthful visible proxy such as a cut-open object, visible steam, boiling, swelling, cracking, bursting, or the immediate physical result.
+Cinematic quality never compensates for subject mismatch.
 Return ONLY JSON: {{"results":[{{"candidate":1,"score":0,"subject_match":0,"action_match":0,"context_match":0,"reject":true,"reason":"..."}}]}}. Score 0-10; usable requires score >= {VERIFY_THRESHOLD} and reject=false."""
-    last=None
-    for attempt in range(1,4):
-        try:
-            client=genai.Client(api_key=_key())
-            response=client.models.generate_content(model=VERIFY_MODEL,contents=parts+[types.Part.from_text(text=prompt)],config=types.GenerateContentConfig(temperature=0))
-            data=_json(getattr(response,"text","") or "")
-            results=[]
-            for x in data.get("results",[]):
-                i=int(x.get("candidate",0))-1
-                if 0<=i<len(usable) and not bool(x.get("reject",True)) and float(x.get("score",0) or 0)>=VERIFY_THRESHOLD:
-                    z=dict(usable[i]);z.update(visual_score=float(x.get("score",0)),visual_subject_match=float(x.get("subject_match",0)),visual_action_match=float(x.get("action_match",0)),visual_context_match=float(x.get("context_match",0)),visual_reason=clean(x.get("reason"),400));results.append(z)
-            return sorted(results,key=lambda x:x["visual_score"],reverse=True)[0] if results else None
-        except Exception as exc:
-            last=exc;print(f"⚠️ Gemini visual verification {attempt}/3 failed: {type(exc).__name__}");time.sleep(1.5*attempt)
-    print(f"⚠️ Gemini verification unavailable after retries: {type(last).__name__ if last else 'unknown'}")
+    for model in VERIFY_MODELS:
+        for attempt in range(1,4):
+            try:
+                client=genai.Client(api_key=_key())
+                response=client.models.generate_content(model=model,contents=parts+[types.Part.from_text(text=prompt)],config=types.GenerateContentConfig(temperature=0))
+                data=_json(getattr(response,"text","") or "")
+                results=[]
+                for x in data.get("results",[]):
+                    try:
+                        i=int(x.get("candidate",0))-1; score=float(x.get("score",0) or 0)
+                        if 0<=i<len(usable) and not bool(x.get("reject",True)) and score>=VERIFY_THRESHOLD:
+                            z=dict(usable[i]);z.update(visual_score=score,visual_subject_match=float(x.get("subject_match",0)),visual_action_match=float(x.get("action_match",0)),visual_context_match=float(x.get("context_match",0)),visual_reason=clean(x.get("reason"),400));results.append(z)
+                    except (TypeError,ValueError):continue
+                if results:
+                    return sorted(results,key=lambda x:x["visual_score"],reverse=True)[0]
+                print(f"      ℹ️ Gemini {model} verified batch: no acceptable visual")
+                break
+            except Exception as exc:
+                print(f"      ⚠️ Gemini visual verification model={model} attempt={attempt}/3: {type(exc).__name__}")
+                if attempt<3:time.sleep(1.5*attempt)
+        print(f"      ↪️ Visual verifier falling back: {model} → next model")
+    print("      ❌ Visual verification failed on all Gemini models")
     return None
 
 
 def _download(url,path,provider):
-    try:
-        r=requests.get(url,headers={"User-Agent":USER_AGENT},timeout=120,stream=True);r.raise_for_status();os.makedirs(os.path.dirname(path),exist_ok=True)
-        with open(path,"wb") as f:
-            for chunk in r.iter_content(1024*1024):
-                if chunk:f.write(chunk)
-        if os.path.getsize(path)<=10000:raise RuntimeError("download too small")
-        return True
-    except Exception as exc:
-        print(f"⚠️ {provider} download failed: {type(exc).__name__}: {exc}");return False
+    for attempt in range(1,4):
+        try:
+            r=requests.get(url,headers={"User-Agent":USER_AGENT},timeout=120,stream=True);r.raise_for_status();os.makedirs(os.path.dirname(path),exist_ok=True)
+            with open(path,"wb") as f:
+                for chunk in r.iter_content(1024*1024):
+                    if chunk:f.write(chunk)
+            if os.path.getsize(path)<=10000:raise RuntimeError("download too small")
+            return True
+        except Exception as exc:
+            print(f"⚠️ {provider} download {attempt}/3 failed: {type(exc).__name__}: {exc}")
+            if attempt<3:time.sleep(1.5*attempt)
+    return False
 
 
 def _credit(path,c,d):
@@ -265,7 +284,7 @@ def _credit(path,c,d):
 def generate_media(script,output_dir,config,gim=None):
     if not os.getenv("PEXELS_API_KEY","").strip() and not os.getenv("PIXABAY_API_KEY","").strip():raise RuntimeError("PEXELS_API_KEY or PIXABAY_API_KEY is required.")
     os.makedirs(output_dir,exist_ok=True);plan=build_plan(script);used=set();groups=[]
-    print("📚 STOCK SEARCH v8.0 | Pexels/Pixabay only | Gemini directs + verifies | no unrelated fallback")
+    print("📚 STOCK SEARCH v11.3 | Pexels/Pixabay only | Gemini directs + verifies | causal visual proxies enabled")
     for si,shots in enumerate(plan,1):
         paths=[]
         for vi,d in enumerate(shots,1):

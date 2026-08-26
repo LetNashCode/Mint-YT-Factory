@@ -1,14 +1,12 @@
-"""Failure-resilient visual media pipeline for Mint-YT-Factory.
+"""Failure-resilient stock-media pipeline for Mint-YT-Factory.
 
-Stock media is preferred. Gemini is used ONLY to verify/search-direct stock
-candidates. It is NEVER used to generate images.
-
-Fallback order:
-1. Verified Pexels video
-2. Verified Pixabay video
-3. Verified Pexels photo
-4. Verified Pixabay photo
-5. Pollinations generated still
+IMPORTANT MEDIA CONTRACT:
+- Pexels and Pixabay are the ONLY media providers.
+- Gemini may direct searches and verify candidate relevance.
+- Gemini must NEVER generate images.
+- Pollinations or any other image-generation service must NEVER be called.
+- If neither Pexels nor Pixabay has a sufficiently relevant asset, the shot FAILS.
+  We deliberately do not substitute an unrelated visual.
 """
 from __future__ import annotations
 
@@ -20,7 +18,6 @@ from typing import Any
 
 import requests
 import stock_search as stock
-from ai_image_fallback import generate as generate_pollinations_image
 
 VERIFY_MODEL = "gemini-flash-lite-latest"
 VERIFY_THRESHOLD = 7.5
@@ -236,32 +233,26 @@ def _credit(path: str, chosen: dict, directed: dict) -> None:
                   handle, ensure_ascii=False, indent=2)
 
 
-def _generate_fallback(directed: dict, output_dir: str, scene_no: int, shot_no: int):
-    path = os.path.join(output_dir, f"scene_{scene_no:02d}_shot_{shot_no:02d}.jpg")
-    print(f"   🧠 Scene {scene_no} Shot {shot_no}: no verified stock match — generating literal Pollinations still")
-    if not generate_pollinations_image(directed, path):
-        raise RuntimeError(f"No usable visually relevant media found for Scene {scene_no} Shot {shot_no}; stock exhausted and Pollinations image fallback failed.")
-    print(f"   ✅ Scene {scene_no} Shot {shot_no}: POLLINATIONS IMAGE FALLBACK → {os.path.basename(path)}")
-    credit = {"provider": "Pollinations", "kind": "generated_image", "page": "", "creator": "Pollinations",
-              "metadata_score": 10, "visual_score": 10,
-              "visual_reason": "Generated directly from the locked spoken beat and literal visual brief."}
-    _credit(path + ".credit.json", credit, directed)
-    return credit, path
-
-
 def generate_media(script: dict, output_dir: str, config: dict, gim=None):
+    """Generate exactly 14 assets from Pexels/Pixabay only.
+
+    There is intentionally NO generated-image fallback. If stock cannot provide a
+    sufficiently relevant asset, production fails rather than publishing a wrong visual.
+    """
     if not os.getenv("PEXELS_API_KEY", "").strip() and not os.getenv("PIXABAY_API_KEY", "").strip():
         raise RuntimeError("PEXELS_API_KEY or PIXABAY_API_KEY is required.")
     os.makedirs(output_dir, exist_ok=True)
     plan = stock.build_plan(script)
     used: set[str] = set()
     groups: list[list[str]] = []
+
     print("=" * 80)
-    print("📚 VISUAL MEDIA v11.0 — VERIFIED STOCK + POLLINATIONS FALLBACK")
-    print("Gemini: search director + strict visual verifier ONLY")
-    print("Image generation: Pollinations ONLY — Gemini image generation DISABLED")
-    print("Priority: Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO → Pollinations IMAGE")
-    print("Unrelated stock fallback: DISABLED")
+    print("📚 VISUAL MEDIA v11.1 — PEXELS + PIXABAY ONLY")
+    print("Gemini: search direction + visual verification ONLY")
+    print("Image generation: DISABLED")
+    print("Allowed media: Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO")
+    print("Generated-image fallback: DISABLED")
+    print("Unrelated-media fallback: DISABLED")
     print("=" * 80)
 
     providers = (("Pexels", True), ("Pixabay", True), ("Pexels", False), ("Pixabay", False))
@@ -271,8 +262,10 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None):
             selected = None
             rejected_pages: set[str] = set()
             for provider, video in providers:
-                if provider == "Pexels" and not os.getenv("PEXELS_API_KEY", "").strip(): continue
-                if provider == "Pixabay" and not os.getenv("PIXABAY_API_KEY", "").strip(): continue
+                if provider == "Pexels" and not os.getenv("PEXELS_API_KEY", "").strip():
+                    continue
+                if provider == "Pixabay" and not os.getenv("PIXABAY_API_KEY", "").strip():
+                    continue
                 candidates = _candidate_pool(directed, provider, video, used | rejected_pages)
                 if not candidates:
                     print(f"   ↪️ Scene {scene_no} Shot {shot_no}: {provider} {'VIDEO' if video else 'PHOTO'} — no candidates")
@@ -283,7 +276,8 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None):
                     continue
                 for chosen in verified:
                     page = str(chosen.get("page", ""))
-                    if not page or page in rejected_pages or page in used: continue
+                    if not page or page in rejected_pages or page in used:
+                        continue
                     ext = "mp4" if chosen["kind"] == "video" else "jpg"
                     path = os.path.join(output_dir, f"scene_{scene_no:02d}_shot_{shot_no:02d}.{ext}")
                     print(f"   🎯 Scene {scene_no} Shot {shot_no}: trying verified {provider} {chosen['kind']} {chosen['visual_score']:.1f}/10")
@@ -291,17 +285,21 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None):
                         selected = chosen, path
                         break
                     rejected_pages.add(page)
-                if selected: break
+                if selected:
+                    break
                 print(f"   ↪️ Scene {scene_no} Shot {shot_no}: all verified {provider} {'VIDEO' if video else 'PHOTO'} downloads failed")
 
-            if selected:
-                chosen, path = selected
-                used.add(chosen["page"])
-                _credit(path + ".credit.json", chosen, directed)
-                scene_paths.append(path)
-            else:
-                _, path = _generate_fallback(directed, output_dir, scene_no, shot_no)
-                scene_paths.append(path)
+            if not selected:
+                raise RuntimeError(
+                    f"No usable visually relevant Pexels/Pixabay media found for "
+                    f"Scene {scene_no} Shot {shot_no}. Generation is disabled by design; "
+                    f"refusing to substitute unrelated or AI-generated media."
+                )
+
+            chosen, path = selected
+            used.add(chosen["page"])
+            _credit(path + ".credit.json", chosen, directed)
+            scene_paths.append(path)
         groups.append(scene_paths)
 
     if len(groups) != 7 or any(len(group) != 2 for group in groups):

@@ -1,12 +1,8 @@
 """Failure-resilient stock-media pipeline for Mint-YT-Factory.
 
-IMPORTANT MEDIA CONTRACT:
-- Pexels and Pixabay are the ONLY media providers.
-- Gemini may direct searches and verify candidate relevance.
-- Gemini must NEVER generate images.
-- Pollinations or any other image-generation service must NEVER be called.
-- If neither Pexels nor Pixabay has a sufficiently relevant asset, the shot FAILS.
-  We deliberately do not substitute an unrelated visual.
+Pexels and Pixabay are the only media providers. Gemini directs searches,
+expands stock vocabulary, and verifies candidate relevance. It never generates
+images. No unrelated-media fallback is permitted.
 """
 from __future__ import annotations
 
@@ -20,14 +16,14 @@ import requests
 import stock_search as stock
 import stock_query_expander
 
-VERIFY_MODEL = "gemini-flash-lite-latest"
+VERIFY_MODELS = ("gemini-3.5-flash-lite", "gemini-2.5-flash-lite")
 VERIFY_THRESHOLD = 7.5
-VERIFY_ATTEMPTS = 4
+VERIFY_ATTEMPTS = 3
 VERIFY_CANDIDATE_BATCHES = (8, 4, 2)
 SEARCH_ATTEMPTS = 3
 DOWNLOAD_ATTEMPTS = 3
 RETRY_BASE_SECONDS = 1.5
-USER_AGENT = "Mint-YT-Factory/StockMedia/11.2"
+USER_AGENT = "Mint-YT-Factory/StockMedia/11.4"
 
 
 def _sleep(attempt: int) -> None:
@@ -72,37 +68,6 @@ def _candidate_pool(directed: dict, provider: str, video: bool, used: set[str]) 
     return candidates
 
 
-def _search_and_verify(directed: dict, provider: str, video: bool, used: set[str]):
-    """Search normal vocabulary first, then expand vocabulary only after failure."""
-    candidates = _candidate_pool(directed, provider, video, used)
-    if candidates:
-        verified = _verify_resilient(candidates, directed)
-        if verified:
-            return verified, directed, False
-
-    print(f"   🧠 {provider} {'VIDEO' if video else 'PHOTO'}: normal vocabulary failed — expanding search vocabulary")
-    try:
-        expanded = stock_query_expander.expand(directed)
-    except Exception as exc:
-        print(f"   ⚠️ Semantic search expansion failed: {type(exc).__name__}: {exc}")
-        return [], directed, False
-
-    fallbacks = expanded.get("semantic_fallback_queries", [])
-    if not fallbacks:
-        print(f"   ↪️ {provider} {'VIDEO' if video else 'PHOTO'}: no semantic alternatives generated")
-        return [], directed, False
-
-    print(f"   🔎 Semantic alternatives: {' | '.join(fallbacks)}")
-    fallback_directed = dict(expanded)
-    fallback_directed["queries"] = fallbacks
-    fallback_directed["primary_queries"] = directed.get("queries", [])
-    candidates = _candidate_pool(fallback_directed, provider, video, used)
-    if not candidates:
-        return [], fallback_directed, True
-    verified = _verify_resilient(candidates, fallback_directed)
-    return verified, fallback_directed, True
-
-
 def _load_preview(url: str) -> bytes | None:
     for attempt in range(1, 4):
         try:
@@ -130,7 +95,7 @@ def _parse_json(text: str) -> dict:
         return json.loads(match.group(0))
 
 
-def _verify_once(candidates: list[dict], directed: dict) -> list[dict]:
+def _verify_once(candidates: list[dict], directed: dict, model: str) -> list[dict]:
     from google import genai
     from google.genai import types
 
@@ -160,12 +125,13 @@ AVOID:
 
 Rules:
 1. The visible subject must be the actual subject spoken about.
-2. The visible action/state must match the spoken action/state.
+2. The visible action/state should match the spoken action/state when that state is realistically available as stock.
 3. A merely related object is NOT a match.
 4. Reject generic people, generic food, generic water, decorative textures and attractive footage that does not illustrate the beat.
-5. For invisible/internal mechanisms, accept only a truthful visible proxy directly demonstrating the physical context.
-6. Cinematic quality never compensates for subject or action mismatch.
-7. Be conservative. If unsure, reject.
+5. For short-lived or hard-to-film intermediate states, accept a DIRECTLY CAUSAL visible progression with the SAME subject. Example: if the beat says a popcorn kernel is heating in a pan, popcorn cooking/popping in that pan is acceptable evidence of the heating stage. Do not accept generic corn, corn fields, unrelated food, or generic kitchen footage.
+6. For invisible/internal mechanisms, accept only a truthful visible proxy directly demonstrating the physical context: cut-open object, visible steam, boiling, swelling, cracking, bursting, or immediate physical result.
+7. Cinematic quality never compensates for subject or context mismatch.
+8. Be conservative. If the candidate is merely aesthetically related, reject it.
 
 Return ONLY JSON:
 {{"results":[{{"candidate":1,"score":0,"subject_match":0,"action_match":0,"context_match":0,"reject":true,"reason":"brief reason"}}]}}
@@ -173,7 +139,7 @@ Score 0-10. Usable means score >= {VERIFY_THRESHOLD} AND reject=false."""
 
     client = genai.Client(api_key=_gemini_key())
     response = client.models.generate_content(
-        model=VERIFY_MODEL,
+        model=model,
         contents=parts + [types.Part.from_text(text=prompt)],
         config=types.GenerateContentConfig(temperature=0),
     )
@@ -203,35 +169,66 @@ def _verify_resilient(candidates: list[dict], directed: dict) -> list[dict]:
         return []
     all_verified: list[dict] = []
     cursor = 0
-    last_error: Exception | None = None
     for batch_size in VERIFY_CANDIDATE_BATCHES:
         batch = candidates[cursor:cursor + batch_size]
         cursor += len(batch)
         if not batch:
             break
-        for attempt in range(1, VERIFY_ATTEMPTS + 1):
-            try:
-                verified = _verify_once(batch, directed)
-                if verified:
-                    all_verified.extend(verified)
-                    print(f"      ✅ Gemini verified {len(verified)}/{len(batch)} candidates in batch of {len(batch)}")
-                else:
-                    print(f"      ℹ️ Gemini verified batch of {len(batch)} candidates: no acceptable visual")
+        batch_done = False
+        for model in VERIFY_MODELS:
+            for attempt in range(1, VERIFY_ATTEMPTS + 1):
+                try:
+                    verified = _verify_once(batch, directed, model)
+                    if verified:
+                        all_verified.extend(verified)
+                        print(f"      ✅ Gemini verified {len(verified)}/{len(batch)} candidates with {model}")
+                    else:
+                        print(f"      ℹ️ Gemini {model} verified batch of {len(batch)}: no acceptable visual")
+                    batch_done = True
+                    break
+                except Exception as exc:
+                    print(f"      ⚠️ Gemini verification model={model} batch={len(batch)} attempt={attempt}/{VERIFY_ATTEMPTS}: {type(exc).__name__}")
+                    if attempt < VERIFY_ATTEMPTS:
+                        _sleep(attempt)
+            if batch_done:
                 break
-            except Exception as exc:
-                last_error = exc
-                print(f"      ⚠️ Gemini verification batch={len(batch)} attempt={attempt}/{VERIFY_ATTEMPTS}: {type(exc).__name__}")
-                if attempt < VERIFY_ATTEMPTS:
-                    _sleep(attempt)
+            print(f"      ↪️ Visual verifier fallback: {model} → next model")
+        if not batch_done:
+            print("      ❌ All visual-verifier models failed for this batch")
+
     best_by_page: dict[str, dict] = {}
     for item in all_verified:
         page = str(item.get("page", ""))
         if page and (page not in best_by_page or float(item.get("visual_score", 0)) > float(best_by_page[page].get("visual_score", 0))):
             best_by_page[page] = item
-    verified = sorted(best_by_page.values(), key=lambda item: item.get("visual_score", 0), reverse=True)
-    if last_error and not verified:
-        print(f"      ⚠️ Gemini verifier unavailable for this shot after retries: {type(last_error).__name__}")
-    return verified
+    return sorted(best_by_page.values(), key=lambda item: item.get("visual_score", 0), reverse=True)
+
+
+def _search_and_verify(directed: dict, provider: str, video: bool, used: set[str]):
+    candidates = _candidate_pool(directed, provider, video, used)
+    if candidates:
+        verified = _verify_resilient(candidates, directed)
+        if verified:
+            return verified, directed, False
+
+    print(f"   🧠 {provider} {'VIDEO' if video else 'PHOTO'}: normal vocabulary failed — expanding search vocabulary")
+    try:
+        expanded = stock_query_expander.expand(directed)
+    except Exception as exc:
+        print(f"   ⚠️ Semantic search expansion failed: {type(exc).__name__}: {exc}")
+        return [], directed, False
+
+    fallbacks = expanded.get("semantic_fallback_queries", [])
+    if not fallbacks:
+        return [], expanded, False
+    print(f"   🔎 Semantic alternatives: {' | '.join(fallbacks)}")
+    fallback_directed = dict(expanded)
+    fallback_directed["queries"] = fallbacks
+    candidates = _candidate_pool(fallback_directed, provider, video, used)
+    if not candidates:
+        return [], fallback_directed, True
+    verified = _verify_resilient(candidates, fallback_directed)
+    return verified, fallback_directed, True
 
 
 def _download_resilient(url: str, path: str, provider: str) -> bool:
@@ -266,11 +263,7 @@ def _credit(path: str, chosen: dict, directed: dict) -> None:
 
 
 def generate_media(script: dict, output_dir: str, config: dict, gim=None):
-    """Generate exactly 14 assets from Pexels/Pixabay only.
-
-    There is intentionally NO generated-image fallback. If stock cannot provide a
-    sufficiently relevant asset, production fails rather than publishing a wrong visual.
-    """
+    """Generate exactly 14 assets from Pexels/Pixabay only."""
     if not os.getenv("PEXELS_API_KEY", "").strip() and not os.getenv("PIXABAY_API_KEY", "").strip():
         raise RuntimeError("PEXELS_API_KEY or PIXABAY_API_KEY is required.")
     os.makedirs(output_dir, exist_ok=True)
@@ -279,13 +272,14 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None):
     groups: list[list[str]] = []
 
     print("=" * 80)
-    print("📚 VISUAL MEDIA v11.2 — PEXELS + PIXABAY ONLY + SEMANTIC SEARCH FALLBACK")
+    print("📚 VISUAL MEDIA v11.4 — PEXELS + PIXABAY ONLY + SEMANTIC SEARCH")
     print("Gemini: search direction + semantic vocabulary + visual verification ONLY")
     print("Image generation: DISABLED")
     print("Allowed media: Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO")
     print("Generated-image fallback: DISABLED")
     print("Unrelated-media fallback: DISABLED")
-    print("Semantic search fallback: ENABLED — same-meaning stock vocabulary")
+    print("Causal visual proxy: ENABLED for hard-to-film intermediate states")
+    print("Verifier model fallback: gemini-3.5-flash-lite → gemini-2.5-flash-lite")
     print("=" * 80)
 
     providers = (("Pexels", True), ("Pixabay", True), ("Pexels", False), ("Pixabay", False))
@@ -300,12 +294,10 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None):
                     continue
                 if provider == "Pixabay" and not os.getenv("PIXABAY_API_KEY", "").strip():
                     continue
-
                 verified, search_directed, expanded_used = _search_and_verify(directed, provider, video, used | rejected_pages)
                 if not verified:
                     print(f"   ↪️ Scene {scene_no} Shot {shot_no}: {provider} {'VIDEO' if video else 'PHOTO'} — no verified match")
                     continue
-
                 for chosen in verified:
                     page = str(chosen.get("page", ""))
                     if not page or page in rejected_pages or page in used:
@@ -321,14 +313,8 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None):
                     rejected_pages.add(page)
                 if selected:
                     break
-
             if not selected:
-                raise RuntimeError(
-                    f"No usable visually relevant Pexels/Pixabay media found for "
-                    f"Scene {scene_no} Shot {shot_no}. Generation is disabled by design; "
-                    f"refusing to substitute unrelated or AI-generated media."
-                )
-
+                raise RuntimeError(f"No usable visually relevant Pexels/Pixabay media found for Scene {scene_no} Shot {shot_no}. Generation is disabled by design; refusing to substitute unrelated or AI-generated media.")
             chosen, path = selected
             used.add(chosen["page"])
             _credit(path + ".credit.json", chosen, chosen_directed)

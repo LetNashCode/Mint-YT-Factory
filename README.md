@@ -10,7 +10,10 @@ Everyday topic
   -> Gemini Story Visual Director
   -> locked 7-scene / 14-beat storyboard
   -> Gemini Visual/Search Director
-  -> Pexels video/photo
+  -> Pexels video
+  -> Pixabay video fallback when Pexels video is unavailable/rejected
+  -> Pexels photo fallback
+  -> Pixabay photo fallback
   -> deterministic relevance + diversity selection
   -> TikTok TTS
   -> Whisper captions
@@ -21,7 +24,9 @@ Everyday topic
   -> analytics + learning
 ```
 
-Gemini has three separate jobs: write the entertaining narration, translate the locked narration into literal visuals, and create concrete Pexels search queries. Gemini does not inspect returned Pexels candidates. Pexels is the only production media provider; AI image generation and unrelated-media fallbacks are disabled.
+Gemini has three separate jobs: write the entertaining narration, translate the locked narration into literal visuals, and create concrete stock-media search queries. Gemini does not inspect returned media and does not generate replacement visuals.
+
+The production media providers are **Pexels and Pixabay only**. Provider priority is Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO. If neither stock provider can supply a sufficiently relevant asset, production stops. There is no AI-image fallback, Pollinations/FLUX fallback, generic stock filler, or unrelated-media fallback.
 
 Each Short is exactly 7 scenes × 2 unique assets. Visuals must directly support the spoken beat and advance the story.
 
@@ -46,6 +51,7 @@ Portrait 2160×3840, 60 FPS, H.264, 68 Mbps video, 384 kbps AAC, narration-autho
 ```text
 GEMINI_API_KEY
 PEXELS_API_KEY
+PIXABAY_API_KEY
 YOUTUBE_TOKEN_JSON
 ```
 

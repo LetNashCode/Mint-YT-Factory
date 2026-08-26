@@ -12,7 +12,7 @@ from google.genai import types
 _ROOT = Path(__file__).resolve().parent.parent
 _USED_TOPICS_PATH = _ROOT / "used_topics.json"
 _PENDING_PREFIX = "__MINT_PENDING_NEXT_TOPIC__::"
-MODEL = "gemini-flash-lite-latest"
+MODEL = "gemini-3.5-flash-lite"
 
 _BANNED = (
     "permafrost", "tundra", "tectonic", "geological", "geology", "quantum", "particle physics", "astrophysics", "cosmology", "black hole", "neutron star", "supernova", "dark matter", "dark energy", "subduction", "plate boundary", "ice wedge", "ice-wedge", "brine pocket", "crystal lattice", "electromagnetic field", "entropy", "thermodynamics", "microcrack", "gravitational wave", "neutrino", "gene expression", "chromosome", "mitochondria", "atmospheric circulation", "ocean current", "radiative forcing", "fracture mechanics", "thermal cracks", "material fatigue", "periglacial", "seismic", "magnetohydrodynamic", "fluid dynamics", "cryogenic", "crystallography", "geophysical", "cell tower", "cellular positioning", "gps positioning", "rf positioning", "network positioning", "triangulation", "trilateration",
@@ -20,6 +20,7 @@ _BANNED = (
 _FORBIDDEN = ("the science of", "the physics of", "the biology of", "the history of", "the neuroscience of", "study of", "mechanism of", "top 5", "top 10", "facts about", "interesting facts", "did you know", "benefits of", "importance of", "complete guide", "ultimate guide", "what is", "what are")
 _SIGNALS = (
     "phone", "battery", "charger", "charging", "screen", "wifi", "wi-fi", "headphone", "earbuds", "voice", "recording", "speaker", "fan", "mirror", "shower", "toothpaste", "orange juice", "onion", "popcorn", "milk", "coffee", "tea", "food", "taste", "smell", "spicy", "mosquito", "sneeze", "hiccup", "yawn", "sleep", "alarm", "dream", "skin", "water", "ice", "cold", "hot", "sweat", "hair", "clothes", "static", "shock", "door", "window", "glass", "soap", "bubble", "bread", "egg", "rice", "salt", "sugar", "fridge", "freezer", "car", "traffic", "seatbelt", "tire", "keyboard", "computer", "laptop", "remote", "light", "shadow", "rain", "umbrella", "pillow", "blanket", "shoe", "paper", "pen", "bag", "bottle", "cup", "echo", "sound", "nose", "mouth", "teeth", "tears", "breath", "blink", "goosebumps", "fingers", "hands", "laundry", "oven", "stove", "microwave", "toaster", "candle", "towel", "sink", "tap", "socks", "float", "floats", "soda", "kettle", "boil", "boiling", "steam", "hiss", "pitch", "whistle", "can",
+    "pasta", "spaghetti", "noodle", "noodles", "banana", "bananas", "garlic", "toast", "toaster", "cheese", "butter", "potato", "potatoes", "apple", "apples", "bread", "crumb", "crumbs", "cake", "cookie", "cookies", "rice", "oil", "vinegar", "pepper", "flour", "dough", "yeast", "meat", "chocolate", "ice cream", "cereal", "jam", "honey", "ketchup", "mustard", "plate", "pan", "pot", "knife", "fork", "spoon", "fork", "bowl", "mug", "straw", "lid", "zipper", "shoelace", "shirt", "jeans", "sock", "towel", "sponge", "brush", "comb", "razor", "mirror", "sink", "drain", "toilet", "shampoo", "deodorant", "perfume", "paint", "rust", "metal", "wood", "plastic", "rubber", "magnet", "coin", "key", "lock", "hinge", "wheel", "brake", "engine", "seat", "road", "bus", "train", "airplane", "helmet", "ball", "bounce", "bounces", "break", "breaks", "snap", "snaps", "crack", "cracks", "bruise", "bruises", "green", "float", "floats", "sink", "sinks", "stick", "sticks", "melt", "melts", "burn", "burns", "rise", "rises", "pop", "pops", "hiss", "hisses", "fog", "fogs", "steams", "squeak", "squeaks", "smell", "smells", "stale", "spill", "spills", "drip", "drips", "leak", "leaks",
 )
 _PROMPT = """
 You create topics for a highly entertaining YouTube Shorts channel.
@@ -29,7 +30,7 @@ Things ordinary people experience all the time but almost never stop to ask why.
 
 Choose ONE familiar, visually interesting everyday mystery. The viewer should instantly recognise it and think: "Wait... why DOES that happen?"
 Science is the explanation, NEVER the packaging.
-Good areas: phones, charging, screens, headphones, voice recordings, fans, mirrors, showers, toothpaste, food, taste, smell, cooking, onions, popcorn, coffee, spicy food, mosquitoes, sneezing, hiccups, yawning, sleep, skin, hair, water, ice, static, soap, bubbles, bread, eggs, cars, traffic, keyboards, lights, shadows, rain, bottles, cups, doors, windows, sounds and echoes, kettles, soda cans and everyday sounds.
+Good areas: phones, charging, screens, headphones, voice recordings, fans, mirrors, showers, toothpaste, food, taste, smell, cooking, onions, popcorn, coffee, spicy food, mosquitoes, sneezing, hiccups, yawning, sleep, skin, hair, water, ice, static, soap, bubbles, bread, eggs, cars, traffic, keyboards, lights, shadows, rain, bottles, cups, doors, windows, sounds and echoes, kettles, soda cans, pasta, bananas, garlic, toast, cheese, potatoes, rust, magnets and everyday objects.
 Reject academic subjects, generic facts, lists, countdowns, medical advice, politics, conspiracy, fearbait, broad subjects, and anything difficult to show.
 IMPORTANT: the topic will be spoken aloud as a final teaser in a 45-second Short. Keep it VERY short: 3 to 7 words total. It must still be a natural curiosity question. Prefer forms like:
 Why ice floats
@@ -39,6 +40,10 @@ Why onions make you cry
 Why clothes smell stale
 Why soda cans hiss
 Why boiling water changes pitch
+Why bananas bruise from inside
+Why garlic turns green
+Why toast burns so fast
+Why dry spaghetti breaks
 
 Return ONLY one short curiosity question. No quotes, no numbering, no explanation, no question mark.
 
@@ -108,8 +113,10 @@ def _generate_topic(used: list[str]) -> str:
             key = _key(candidate)
             if any(key == _key(x) for x in used): print("⚠️ Rejected: duplicate topic."); continue
             return candidate
-        except Exception as error: print(f"⚠️ Topic attempt failed: {error}")
-    fallbacks = ["Why ice floats", "Why bread rises", "Why popcorn pops", "Why onions make you cry", "Why clothes smell stale", "Why metal feels cold", "Why fans feel cool", "Why glass fogs up"]
+        except Exception as error:
+            print(f"⚠️ Topic attempt failed: {error}")
+            if attempt < 10: __import__("time").sleep(min(2 * attempt, 8))
+    fallbacks = ["Why ice floats", "Why bread rises", "Why popcorn pops", "Why onions make you cry", "Why clothes smell stale", "Why metal feels cold", "Why fans feel cool", "Why glass fogs up", "Why bananas bruise from inside", "Why garlic turns green", "Why toast burns so fast", "Why dry spaghetti breaks"]
     for candidate in fallbacks:
         if _is_everyday_topic(candidate) and not any(_key(candidate) == _key(x) for x in used): print(f"🔄 Using fallback topic: {candidate}"); return candidate
     raise RuntimeError("Could not generate a valid short everyday-curiosity topic.")

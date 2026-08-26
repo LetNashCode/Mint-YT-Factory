@@ -95,8 +95,14 @@ jobs:
           test -f sitecustomize.py
           test -f runtime_overrides.py
           test -f production_entry.py
-          test -f pexels_media.py
-          test -f stock_media.py
+          test -f stock_search.py
+          test -f stock_media_resilient.py
+
+          python -m py_compile main.py production_entry.py stock_search.py stock_media_resilient.py
+          python - <<'PY'
+          import stock_media_resilient
+          print("Stock media pipeline import OK")
+          PY
 
       - name: Write YouTube client credentials
         shell: bash

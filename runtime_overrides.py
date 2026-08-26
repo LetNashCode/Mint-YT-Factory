@@ -1,7 +1,8 @@
 """Runtime hardening for Mint-YT-Factory.
 
-Keeps continuation state deterministic and makes Gemini stock verification
-resilient to transient API/network disconnects.
+Continuation is authored by Gemini and only validated here. Runtime code must
+never manufacture a canned Scene 7 bridge because that makes every ending feel
+like the same template.
 """
 from __future__ import annotations
 
@@ -42,8 +43,8 @@ def _split_sentences(text: str) -> list[str]:
     return [x.strip() for x in re.split(r"(?<=[.!?])\s+", _clean(text)) if x.strip()]
 
 
-# Continuation/meta language that makes Scene 7 sound like an ad for the next Short.
-# The actual continuation topic is still allowed, but must be woven into a natural sentence.
+# These phrases make a continuation sound like an advertisement or an editor's
+# instruction. Gemini is free to use natural connective language not listed here.
 STALE_TEASER_PATTERNS = (
     r"^\s*(?:and\s+)?next\b",
     r"\bnext\s+(?:video|short|topic)\b",
@@ -54,13 +55,8 @@ STALE_TEASER_PATTERNS = (
     r"\bsee\s+how\b",
     r"\bfind\s+out\s+why\b",
     r"\bfind\s+out\s+how\b",
-    r"\bwonder\s+why\b",
-    r"\bwonder\s+how\b",
-    r"\bcurious\s+(?:why|how)\b",
     r"\bthat\s+brings\s+us\s+to\b",
-    r"\bthat\s+leaves\s+one\b",
-    r"\bwhich\s+raises\b",
-    r"\bwhich\s+brings\s+up\b",
+    r"\bthat\s+leaves\s+us\s+with\b",
     r"\bone\s+(?:bigger|more)\s+question\b",
     r"\banother\s+question\b",
     r"\bone\s+more\s+(?:question|thing)\b",
@@ -87,31 +83,6 @@ def _remove_stale_teaser(text: str, canonical: str) -> str:
             continue
         kept.append(sentence)
     return _clean(" ".join(kept))
-
-
-def _clean_payoff(text: str, max_words: int = 24) -> str:
-    candidates = [s for s in _split_sentences(text) if not _is_stale_teaser(s)]
-    if candidates:
-        return candidates[-1].rstrip(".!? ") + "."
-    words = _words(text)
-    return (" ".join(words[-max_words:]).rstrip(".!?") + ".") if words else "And that's the weird part."
-
-
-def _build_teaser(topic: str) -> str:
-    """Return a seamless continuation sentence, never an explicit 'next' cue."""
-    topic = _clean(topic).rstrip(".!? ")
-    # These are deliberately story-like rather than CTA-like. The topic itself remains
-    # the final spoken reveal, but there is no 'And next', 'see why', or 'coming up'.
-    templates = (
-        "And somehow, that leaves us with one wonderfully weird question: {topic}?",
-        "And that makes the ordinary world a little stranger: {topic}?",
-        "And just like that, another everyday mystery appears: {topic}?",
-        "Which makes you look at the world a little differently: {topic}?",
-    )
-    # Avoid malformed double question marks when the canonical topic already contains '?'.
-    template = templates[sum(ord(c) for c in topic) % len(templates)]
-    suffix = "" if topic.endswith("?") else "?"
-    return template.format(topic=topic)[:-1] + suffix
 
 
 def _stale_visual_tokens(text: str) -> set[str]:
@@ -142,12 +113,26 @@ def _sanitize_final_visuals(final: dict, stale_text: str, current_topic: str) ->
         visual["visual_action"] = "show the final physical result clearly"
         visual["spoken_line"] = _clean(final.get("narration", ""))
         visual["must_show"] = [topic_label, "clear final physical state"]
-        visual["must_not_show"] = ["rejected continuation topic", "unrelated object", "different mystery"]
+        visual["must_not_show"] = ["future continuation topic", "unrelated object", "different mystery"]
         visual["image_prompt"] = f"Realistic stock footage or photo of {topic_label}, clearly showing the final physical result in a simple believable setting; no unrelated object or second topic."
 
 
+def _validate_gemini_bridge(sentence: str, canonical: str) -> tuple[bool, str]:
+    """Validate a Gemini-authored final bridge without replacing it."""
+    sentence = _clean(sentence)
+    key = _topic_key(canonical)
+    if not sentence or not key or key not in _topic_key(sentence):
+        return False, "canonical next topic missing from Gemini bridge"
+    if any(re.search(pattern, sentence, re.I) for pattern in STALE_TEASER_PATTERNS):
+        return False, "explicit next-topic/CTA language detected"
+    words = _words(sentence)
+    if len(words) < 5 or len(words) > 30:
+        return False, "bridge sentence is outside the natural 5-30 word range"
+    return True, "ok"
+
+
 def patch_continuation(main):
-    """Lock exactly one continuation topic and weave it into Scene 7 naturally."""
+    """Lock one continuation topic; Gemini must author the final bridge."""
     def lock_next_topic(script, current_topic):
         from topics import _PENDING_PREFIX, _generate_topic, _read_used, validate_topic_for_pipeline
 
@@ -163,59 +148,66 @@ def patch_continuation(main):
                 canonical = value
                 break
             print(f"⚠️ Continuation rejected: {value}")
-
         if not canonical:
             raise RuntimeError("Could not create a valid canonical next topic.")
 
         script.setdefault("next_short", {})["topic"] = canonical
-        # Keep metadata useful, but do not use it as spoken narration.
-        script["next_short"]["teaser"] = _build_teaser(canonical)
-
         scenes = script.get("scene_plan")
         if not isinstance(scenes, list) or len(scenes) != 7:
             raise RuntimeError("Script must contain exactly 7 scenes.")
 
         final = scenes[-1]
         original_final = _clean(final.get("narration", ""))
-        payoff_source = _remove_stale_teaser(original_final, canonical)
-        payoff = _clean_payoff(payoff_source)
-        final["narration"] = f"{payoff} {_build_teaser(canonical)}"
+        sentences = _split_sentences(original_final)
+        key = _topic_key(canonical)
+
+        # Remove only accidental/generated future-topic sentences from the draft.
+        # The actual Gemini-authored bridge is preserved if it already passes.
+        matches = [s for s in sentences if key in _topic_key(s)]
+        if len(matches) > 1:
+            raise RuntimeError("Gemini placed the continuation topic in more than one Scene 7 sentence.")
+
+        if matches:
+            bridge = matches[0]
+            if bridge != sentences[-1]:
+                raise RuntimeError("Gemini continuation topic must be in the final Scene 7 sentence.")
+            valid, reason = _validate_gemini_bridge(bridge, canonical)
+            if not valid:
+                raise RuntimeError(f"Gemini-authored Scene 7 bridge rejected: {reason}")
+            payoff_source = original_final
+        else:
+            # Gemini may have returned a next_short teaser separately. That is not
+            # sufficient: spoken Scene 7 must contain the actual Gemini-authored bridge.
+            raise RuntimeError("Gemini did not author a Scene 7 final bridge containing the locked next topic.")
+
+        # Reject stale future-topic language anywhere in Scene 7 without silently
+        # manufacturing a replacement sentence.
+        stale_matches = [s for s in _split_sentences(payoff_source) if _is_stale_teaser(s) and key not in _topic_key(s)]
+        if stale_matches:
+            raise RuntimeError("Scene 7 contains stale explicit continuation language: " + " | ".join(stale_matches))
+
         final["subtitle_text"] = final["narration"]
         final["pause_after_ms"] = 150
         final["emotional_tone"] = "satisfied"
         final["music_cue"] = "fade_out"
         final["caption_highlights"] = [{"word": w, "emphasis": "strong"} for w in _words(canonical)[:3]]
         final["emphasis_word"] = _words(canonical)[0]
-
         _sanitize_final_visuals(final, original_final, current_topic)
 
-        key = _topic_key(canonical)
         if key not in _topic_key(final["narration"]):
             raise RuntimeError("Canonical next topic was not inserted into Scene 7.")
         if any(key in _topic_key(scene.get("narration", "")) for scene in scenes[:6]):
             raise RuntimeError("Next topic appeared before Scene 7.")
 
-        # Exactly one sentence contains the continuation topic, and it is the final sentence.
-        sentences = _split_sentences(final["narration"])
-        teaser_matches = [s for s in sentences if key in _topic_key(s)]
-        stale_matches = [s for s in sentences if _is_stale_teaser(s) and key not in _topic_key(s)]
-        if len(teaser_matches) != 1 or stale_matches or not sentences or teaser_matches[0] != sentences[-1]:
-            raise RuntimeError("Scene 7 continuation integrity failed: continuation must be one seamless final sentence with no explicit next/teaser cue.")
-
         print(f"🔒 Canonical next topic: {canonical}")
-        print(f"🗣️ FINAL SPOKEN TEASE: {final['narration']}")
+        print(f"🗣️ GEMINI FINAL BRIDGE: {final['narration']}")
         return script, canonical
 
     main.lock_next_topic = lock_next_topic
 
 
 def _install_gemini_verifier_resilience():
-    """Make transient Gemini verification disconnects non-fatal.
-
-    We retry transient transport failures. If Gemini remains unavailable, use
-    deterministic metadata ranking only for the already-retrieved stock
-    candidates. We never invent or download an unrelated/AI asset.
-    """
+    """Make transient Gemini verification disconnects non-fatal."""
     try:
         import stock_media
     except Exception as exc:

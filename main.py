@@ -8,7 +8,7 @@ import argparse, json, os, re, time, yaml
 from topics import get_next_topic, save_next_short, commit_topic, validate_topic_for_pipeline, _generate_topic, _read_used, _PENDING_PREFIX
 from generate_script import generate_script
 from tts import synthesize_script
-from stock_search import generate_media
+from stock_media_resilient import generate_media
 from music import download_music
 from sfx import generate_sfx
 from assemble import assemble_video
@@ -218,44 +218,35 @@ def run(dry_run=False):
 ENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}
 Use the mechanic naturally if it fits. Never sound like engagement bait.
 Suggested spoken interaction: {engagement['spoken_prompt']}
-Do not add generic like/subscribe language.
 """
-    print("=" * 80); print("🧠 LOADED CHANNEL LEARNING PLAYBOOK"); print("=" * 80); print(learning_context[:3500]); print("=" * 80)
-    print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS"); print("=" * 80)
     script = _generate_valid_script(topic, config, learning_context, engagement_feedback)
     script, next_topic = lock_next_topic(script, topic)
-    script["engagement"] = {"experiment": engagement["experiment"], "phase": engagement["phase"], "spoken_prompt": engagement["spoken_prompt"], "comment": engagement["comment"], "share_prompt": engagement["share_prompt"]}
-    workdir = os.path.join("output", str(int(time.time()))); os.makedirs(workdir, exist_ok=True)
-    save_json(script, os.path.join(workdir, "script.json")); write_continuation_manifest(topic, next_topic, "locked", workdir)
-    print(f"✅ Script ready: {workdir}/script.json"); print(f"➡️ LOCKED Next Short: {next_topic}")
-    if dry_run: print("✅ DRY RUN COMPLETE"); return
-    print("=" * 80); print("🎙️ GENERATING NARRATION"); print("=" * 80)
-    audio = synthesize_script(script, config, os.path.join(workdir, "audio"))
-    try:
-        from moviepy.editor import AudioFileClip
-        clip = AudioFileClip(audio); duration = float(clip.duration); clip.close(); print(f"Narration duration: {duration:.2f}s")
-        if duration > 44.35: raise RuntimeError(f"Narration is too long ({duration:.2f}s).")
-    except RuntimeError: raise
-    except Exception as error: print(f"⚠️ Narration duration check skipped: {error}")
-    print("=" * 80); print("🖼️ GENERATING STORY-DRIVEN STOCK MEDIA"); print("=" * 80)
-    visuals = generate_media(script, os.path.join(workdir, "visuals"), config)
-    print("=" * 80); print("🔊 GENERATING STORY-AWARE SFX"); print("=" * 80)
-    sfx = generate_sfx(script, os.path.join(workdir, "sfx")); save_json(script, os.path.join(workdir, "script.json"))
-    print("=" * 80); print("🎵 SELECTING MUSIC"); print("=" * 80)
-    music = download_music(script, os.path.join(workdir, "music")); final_video = os.path.join(workdir, "final.mp4")
-    print("=" * 80); print("🎬 ASSEMBLING SHORT"); print("=" * 80)
-    assemble_video(script, audio, visuals, music, sfx, config, final_video)
-    if not os.path.exists(final_video): raise RuntimeError("Final video was not created.")
-    video_settings = config.get("video", {}); target_bitrate = 68.0
-    try: target_bitrate = float(str(video_settings.get("bitrate", "68M")).upper().replace("M", ""))
-    except Exception: pass
-    quality = validate_final_video(final_video, expected_bitrate_mbps=target_bitrate); save_json(quality, os.path.join(workdir, "validation.json"))
-    if not quality.get("ok", False): raise RuntimeError("Final video validation failed.")
+    script["topic"] = topic
+    script["engagement_experiment"] = engagement
+    save_json(script, os.path.join("work", "script.json"))
+    print(f"💾 Script saved. Next topic locked: {next_topic}")
+    if dry_run:
+        print("🧪 DRY RUN — stopping after script generation.")
+        return
+    workdir = os.path.join("work", re.sub(r"[^a-zA-Z0-9_-]+", "_", topic)[:80])
+    os.makedirs(workdir, exist_ok=True)
+    write_continuation_manifest(topic, next_topic, "generating", workdir)
+    synthesize_script(script, workdir, config)
+    media = generate_media(script, os.path.join(workdir, "media"), config)
+    download_music(script, workdir, config)
+    generate_sfx(script, workdir, config)
+    video_path = assemble_video(script, media, workdir, config)
+    validate_final_video(video_path, script, config)
     title, description = build_youtube_metadata(script)
-    upload_video(final_video, title, description, script.get("tags", []), config)
-    commit_topic(topic); save_next_short(next_topic)
+    upload_video(video_path, title, description, script.get("tags", []), config)
+    save_next_short(next_topic)
+    commit_topic(topic)
+    write_continuation_manifest(topic, next_topic, "completed", workdir)
+    refresh_playbook()
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(); parser.add_argument("--dry-run", action="store_true")
-    args = parser.parse_args(); run(dry_run=args.dry_run)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dry-run", action="store_true")
+    args = parser.parse_args()
+    run(dry_run=args.dry_run)

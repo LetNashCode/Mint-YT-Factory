@@ -14,12 +14,13 @@ concurrency:
   group: mint-yt-factory-publish
   cancel-in-progress: false
 
+env:
+  IMAGEMAGICK_BINARY: /usr/bin/convert
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    env:
-      IMAGEMAGICK_BINARY: /usr/bin/convert
 
     steps:
       - name: Checkout repository
@@ -79,10 +80,12 @@ jobs:
           import google.genai
           import ffmpeg
           import pytesseract
+          import requests
           print("Python environment OK")
           print("Torch:", torch.__version__)
           print("CUDA available:", torch.cuda.is_available())
           print("Tesseract:", pytesseract.get_tesseract_version())
+          print("Requests:", requests.__version__)
           PY
 
           test -f main.py
@@ -93,6 +96,7 @@ jobs:
           test -f runtime_overrides.py
           test -f production_entry.py
           test -f pexels_media.py
+          test -f stock_media.py
 
       - name: Write YouTube client credentials
         shell: bash
@@ -110,11 +114,14 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
         run: |
           set -euo pipefail
           echo "=========================================="
           echo "🚀 MINT-YT-FACTORY STARTED"
           echo "=========================================="
+          echo "Pexels key: ${PEXELS_API_KEY:+AVAILABLE}"
+          echo "Pixabay key: ${PIXABAY_API_KEY:+AVAILABLE}"
           date
           python --version
           python -u production_entry.py
@@ -128,7 +135,7 @@ jobs:
           if-no-files-found: warn
           retention-days: 7
 
-      - name: Upload generated Pexels media
+      - name: Upload generated stock media
         if: always()
         uses: actions/upload-artifact@v4
         with:

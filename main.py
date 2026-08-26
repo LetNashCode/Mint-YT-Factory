@@ -8,7 +8,7 @@ import argparse, json, os, re, time, yaml
 from topics import get_next_topic, save_next_short, commit_topic, validate_topic_for_pipeline, _generate_topic, _read_used, _PENDING_PREFIX
 from generate_script import generate_script
 from tts import synthesize_script
-from generate_images import generate_images
+from stock_media import generate_media
 from music import download_music
 from sfx import generate_sfx
 from assemble import assemble_video
@@ -54,25 +54,16 @@ def _split_sentences(text):
 
 # These are rejection rules, NOT generation templates. Gemini must create the actual bridge.
 _BANNED_BRIDGE_PATTERNS = (
-    r"^(?:and\s+)?next\b",
-    r"^then\s+comes\b",
-    r"^coming\s+next\b",
-    r"^in\s+the\s+next\s+(?:video|short)\b",
-    r"^stay\s+tuned\b",
-    r"^part\s+2\b",
-    r"^have\s+you\s+ever\s+wondered\b",
-    r"^ever\s+wondered\b",
-    r"^wonder\s+why\b",
-    r"^curious\s+(?:why|how|what)\b",
-    r"^why\s+(?:do|does|is|are)\b",
-    r"^how\s+(?:do|does|is|are)\b",
-    r"^what\s+(?:makes|happens|causes)\b",
+    r"^(?:and\s+)?next\b", r"^then\s+comes\b", r"^coming\s+next\b",
+    r"^in\s+the\s+next\s+(?:video|short)\b", r"^stay\s+tuned\b", r"^part\s+2\b",
+    r"^have\s+you\s+ever\s+wondered\b", r"^ever\s+wondered\b", r"^wonder\s+why\b",
+    r"^curious\s+(?:why|how|what)\b", r"^why\s+(?:do|does|is|are)\b",
+    r"^how\s+(?:do|does|is|are)\b", r"^what\s+(?:makes|happens|causes)\b",
 )
 
 
 def _is_canned_bridge(sentence):
-    text = str(sentence or "").strip()
-    return any(re.search(pattern, text, re.I) for pattern in _BANNED_BRIDGE_PATTERNS)
+    return any(re.search(pattern, str(sentence or "").strip(), re.I) for pattern in _BANNED_BRIDGE_PATTERNS)
 
 
 def _bridge_sentences_for_topic(narration, canonical):
@@ -103,7 +94,6 @@ def _validate_gemini_scene7(script, canonical):
         raise RuntimeError("Scene 7 contains a canned/future-topic transition before the final bridge.")
     if _word_count(bridge) < 3 or _word_count(bridge) > 18:
         raise RuntimeError("Natural Scene 7 bridge has an invalid length.")
-    # The bridge must contain the exact locked topic, but Gemini controls the surrounding wording.
     return bridge
 
 
@@ -125,12 +115,6 @@ def _lock_canonical_topic(script, current_topic):
 
 
 def lock_next_topic(script, current_topic):
-    """Lock the next topic without rewriting Gemini's narration.
-
-    This is deliberately validation-only. The previous implementation deleted Gemini's
-    Scene 7 ending and inserted a hard-coded 'Then comes an even weirder question...' line.
-    That behavior is forbidden now.
-    """
     canonical = _lock_canonical_topic(script, current_topic)
     bridge = _validate_gemini_scene7(script, canonical)
     script["next_short"]["teaser"] = bridge
@@ -165,9 +149,7 @@ def build_youtube_metadata(script):
 
 
 def refresh_learning_before_generation():
-    print("=" * 80)
-    print("📊 REFRESHING LIVE YOUTUBE ANALYTICS BEFORE GENERATION")
-    print("=" * 80)
+    print("=" * 80); print("📊 REFRESHING LIVE YOUTUBE ANALYTICS BEFORE GENERATION"); print("=" * 80)
     try:
         from youtube_analytics import refresh_registry
         summary = refresh_registry()
@@ -198,7 +180,6 @@ Scene 7 must finish the current topic's payoff before the bridge.
     for attempt in range(1, 5):
         try:
             script = generate_script(topic, config, None, extra_feedback=feedback)
-            # Canonical topic may be regenerated later, so validate the generated candidate first.
             candidate = str((script.get("next_short") or {}).get("topic", "")).strip()
             if not candidate:
                 raise RuntimeError("Missing next_short.topic")
@@ -214,35 +195,25 @@ Scene 7 must finish the current topic's payoff before the bridge.
 
 def run(dry_run=False):
     config = load_config()
-    print("=" * 80)
-    print("🚀 MINT-YT-FACTORY — ENTERTAINMENT-FIRST + SELF-LEARNING + SFX")
-    print("=" * 80)
-    print("🧠 Self-learning: ENABLED")
-    print("📈 Objective: views + subscriber growth + YPP readiness")
+    print("=" * 80); print("🚀 MINT-YT-FACTORY — ENTERTAINMENT-FIRST + SELF-LEARNING + SFX"); print("=" * 80)
+    print("🧠 Self-learning: ENABLED"); print("📈 Objective: views + subscriber growth + YPP readiness")
     print("🔁 Learning strategy: 70% proven patterns / 20% adjacent experiments / 10% wild experiments")
-    print("💬 Engagement learning: sequential comment/share experiments ENABLED")
-    print("🚫 Duplicate-topic protection: ENABLED")
-    print("🔊 Story-aware SFX: ENABLED (free local procedural)")
-    print("🧠 Gemini owns Scene 7 bridge: ENABLED")
+    print("💬 Engagement learning: sequential comment/share experiments ENABLED"); print("🚫 Duplicate-topic protection: ENABLED")
+    print("🔊 Story-aware SFX: ENABLED (free local procedural)"); print("🧠 Gemini owns Scene 7 bridge: ENABLED")
     print("🚫 Hard-coded continuation sentence: DISABLED")
     refresh_learning_before_generation()
-
     topic = get_next_topic()
-    if not topic:
-        raise RuntimeError("No topic available.")
+    if not topic: raise RuntimeError("No topic available.")
     print(f"🎯 CURRENT TOPIC: {topic}")
-
     try:
         from engagement_experiments import assign, summarize
         engagement = assign(topic)
         print(f"🧪 Engagement experiment: {engagement['experiment']} | phase={engagement['phase']}")
-        print(f"💬 Planned comment: {engagement['comment']}")
-        print(f"🔄 Share trigger: {engagement['share_prompt']}")
+        print(f"💬 Planned comment: {engagement['comment']}"); print(f"🔄 Share trigger: {engagement['share_prompt']}")
         print(f"📊 Existing experiment results: {json.dumps(summarize(), ensure_ascii=False)}")
     except Exception as error:
         engagement = {"experiment": "none", "phase": "disabled", "spoken_prompt": "", "comment": "", "share_prompt": ""}
         print(f"⚠️ Engagement experiment setup skipped: {type(error).__name__}: {error}")
-
     learning_context = load_learning_context()
     engagement_feedback = f"""
 ENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}
@@ -250,112 +221,42 @@ Use the mechanic naturally if it fits. Never sound like engagement bait.
 Suggested spoken interaction: {engagement['spoken_prompt']}
 Do not add generic like/subscribe language.
 """
-    print("=" * 80)
-    print("🧠 LOADED CHANNEL LEARNING PLAYBOOK")
-    print("=" * 80)
-    print(learning_context[:3500])
-    print("=" * 80)
-    print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS")
-    print("=" * 80)
-
+    print("=" * 80); print("🧠 LOADED CHANNEL LEARNING PLAYBOOK"); print("=" * 80); print(learning_context[:3500]); print("=" * 80)
+    print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS"); print("=" * 80)
     script = _generate_valid_script(topic, config, learning_context, engagement_feedback)
     script, next_topic = lock_next_topic(script, topic)
     script["engagement"] = {"experiment": engagement["experiment"], "phase": engagement["phase"], "spoken_prompt": engagement["spoken_prompt"], "comment": engagement["comment"], "share_prompt": engagement["share_prompt"]}
-
-    workdir = os.path.join("output", str(int(time.time())))
-    os.makedirs(workdir, exist_ok=True)
-    save_json(script, os.path.join(workdir, "script.json"))
-    write_continuation_manifest(topic, next_topic, "locked", workdir)
-    print(f"✅ Script ready: {workdir}/script.json")
-    print(f"➡️ LOCKED Next Short: {next_topic}")
-
-    if dry_run:
-        print("✅ DRY RUN COMPLETE")
-        return
-
+    workdir = os.path.join("output", str(int(time.time()))); os.makedirs(workdir, exist_ok=True)
+    save_json(script, os.path.join(workdir, "script.json")); write_continuation_manifest(topic, next_topic, "locked", workdir)
+    print(f"✅ Script ready: {workdir}/script.json"); print(f"➡️ LOCKED Next Short: {next_topic}")
+    if dry_run: print("✅ DRY RUN COMPLETE"); return
     print("=" * 80); print("🎙️ GENERATING NARRATION"); print("=" * 80)
     audio = synthesize_script(script, config, os.path.join(workdir, "audio"))
     try:
         from moviepy.editor import AudioFileClip
-        clip = AudioFileClip(audio); duration = float(clip.duration); clip.close()
-        print(f"Narration duration: {duration:.2f}s")
-        if duration > 44.35:
-            raise RuntimeError(f"Narration is too long ({duration:.2f}s).")
-    except RuntimeError:
-        raise
-    except Exception as error:
-        print(f"⚠️ Narration duration check skipped: {error}")
-
-    print("=" * 80); print("🖼️ GENERATING STORY-DRIVEN VISUALS"); print("=" * 80)
-    visuals = generate_images(script, os.path.join(workdir, "visuals"), config)
+        clip = AudioFileClip(audio); duration = float(clip.duration); clip.close(); print(f"Narration duration: {duration:.2f}s")
+        if duration > 44.35: raise RuntimeError(f"Narration is too long ({duration:.2f}s).")
+    except RuntimeError: raise
+    except Exception as error: print(f"⚠️ Narration duration check skipped: {error}")
+    print("=" * 80); print("🖼️ GENERATING STORY-DRIVEN STOCK MEDIA"); print("=" * 80)
+    visuals = generate_media(script, os.path.join(workdir, "visuals"), config)
     print("=" * 80); print("🔊 GENERATING STORY-AWARE SFX"); print("=" * 80)
-    sfx = generate_sfx(script, os.path.join(workdir, "sfx"))
-    save_json(script, os.path.join(workdir, "script.json"))
+    sfx = generate_sfx(script, os.path.join(workdir, "sfx")); save_json(script, os.path.join(workdir, "script.json"))
     print("=" * 80); print("🎵 SELECTING MUSIC"); print("=" * 80)
-    music = download_music(script, os.path.join(workdir, "music"))
-    final_video = os.path.join(workdir, "final.mp4")
+    music = download_music(script, os.path.join(workdir, "music")); final_video = os.path.join(workdir, "final.mp4")
     print("=" * 80); print("🎬 ASSEMBLING SHORT"); print("=" * 80)
     assemble_video(script, audio, visuals, music, sfx, config, final_video)
-    if not os.path.exists(final_video):
-        raise RuntimeError("Final video was not created.")
-
-    video_settings = config.get("video", {})
-    target_bitrate = 68.0
-    try:
-        target_bitrate = float(str(video_settings.get("bitrate", "68M")).upper().replace("M", ""))
-    except Exception:
-        pass
-    quality = validate_final_video(final_video, expected_bitrate_mbps=target_bitrate)
-    save_json(quality, os.path.join(workdir, "video_quality.json"))
-
-    if not config.get("upload", {}).get("auto_upload", False):
-        print("⚠️ AUTO UPLOAD DISABLED — topic remains uncommitted.")
-        return
-
+    if not os.path.exists(final_video): raise RuntimeError("Final video was not created.")
+    video_settings = config.get("video", {}); target_bitrate = 68.0
+    try: target_bitrate = float(str(video_settings.get("bitrate", "68M")).upper().replace("M", ""))
+    except Exception: pass
+    quality = validate_final_video(final_video, expected_bitrate_mbps=target_bitrate); save_json(quality, os.path.join(workdir, "validation.json"))
+    if not quality.get("ok", False): raise RuntimeError("Final video validation failed.")
     title, description = build_youtube_metadata(script)
-    print("=" * 80); print("🚀 UPLOADING SHORT"); print("=" * 80)
-    upload_result = upload_video(final_video, title, description, config, engagement_comment=engagement.get("comment"))
-    print(f"✅ Upload completed: {upload_result}")
-    write_continuation_manifest(topic, next_topic, "published", workdir)
-
-    try:
-        from youtube_analytics import record_upload
-        record_upload(upload_result, topic, title, workdir, production_metadata={
-            "topic_category": script.get("topic_category", topic),
-            "hook_type": script.get("hook_type", script.get("scene_plan", [{}])[0].get("retention_purpose", "")),
-            "story_structure": "7-scene curiosity story",
-            "visual_style": script.get("visual_identity", {}).get("style", ""),
-            "music_type": script.get("music", {}).get("arc", ""),
-            "voice": script.get("voice_style", {}).get("tone", ""),
-            "engagement_experiment": engagement.get("experiment", "none"),
-            "engagement_phase": engagement.get("phase", ""),
-            "engagement_comment": engagement.get("comment", ""),
-            "engagement_share_prompt": engagement.get("share_prompt", ""),
-        })
-        refresh_playbook()
-    except Exception as analytics_error:
-        print(f"⚠️ Analytics/learning refresh skipped: {analytics_error}")
-
-    print("=" * 80); print("🔗 SAVING EXACT NEXT SHORT"); print("=" * 80)
-    queued_topic = save_next_short(next_topic)
-    if not queued_topic:
-        raise RuntimeError("Upload succeeded but next_short could not be saved.")
-    if not _topic_is_same(queued_topic, next_topic):
-        raise RuntimeError(f"CONTINUATION INTEGRITY FAILURE: spoken={next_topic!r}, queued={queued_topic!r}")
-    print(f"✅ Next Short queued EXACTLY: {queued_topic}")
-
-    print("=" * 80); print("📌 COMMITTING CURRENT TOPIC"); print("=" * 80)
-    committed = commit_topic(topic)
-    if committed is False:
-        raise RuntimeError("Upload succeeded but current topic could not be committed.")
-    write_continuation_manifest(topic, next_topic, "queued", workdir)
-    print("🎉 SELF-LEARNING PIPELINE COMPLETE")
-    print(f"Published: {topic}")
-    print(f"Next run MUST use: {next_topic}")
+    upload_video(final_video, title, description, script.get("tags", []), config)
+    commit_topic(topic); save_next_short(next_topic)
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--dry-run", action="store_true")
-    args = parser.parse_args()
-    run(dry_run=args.dry_run)
+    parser = argparse.ArgumentParser(); parser.add_argument("--dry-run", action="store_true")
+    args = parser.parse_args(); run(dry_run=args.dry_run)

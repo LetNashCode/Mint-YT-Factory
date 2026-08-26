@@ -38,8 +38,6 @@ def _split_sentences(text: str) -> list[str]:
     return [x.strip() for x in re.split(r"(?<=[.!?])\s+", _clean(text)) if x.strip()]
 
 
-# These phrases are strong signals that the writer has leaked a rejected
-# continuation/topic candidate into the current Short's payoff.
 STALE_TEASER_PATTERNS = (
     r"\bfind out (?:what|why|how)\b",
     r"\bthat brings us to\b",
@@ -61,6 +59,13 @@ STALE_TEASER_PATTERNS = (
     r"\bhiding inside that ordinary\b",
 )
 
+VISUAL_STOPWORDS = {
+    "this", "that", "with", "from", "your", "into", "about", "what", "when", "where",
+    "which", "because", "while", "then", "than", "like", "gets", "make", "makes", "made",
+    "thing", "things", "single", "ordinary", "kitchen", "find", "out", "inside", "hiding",
+    "chemical", "weapon", "question", "next", "topic", "short", "video", "one", "more",
+}
+
 
 def _remove_stale_teaser(text: str, canonical: str) -> str:
     canonical_key = _topic_key(canonical)
@@ -74,7 +79,6 @@ def _remove_stale_teaser(text: str, canonical: str) -> str:
             continue
         kept.append(sentence)
     cleaned = " ".join(kept).strip()
-    # Prevent malformed writer fragments such as "And." from becoming spoken text.
     cleaned = re.sub(r"(?:^|\s)And\.\s*$", ".", cleaned, flags=re.I).strip()
     cleaned = re.sub(r"\s+And\.\s+", ". ", cleaned, flags=re.I)
     return cleaned
@@ -96,6 +100,51 @@ def _clean_payoff(text: str, max_words: int = 24) -> str:
 
 def _build_teaser(topic: str) -> str:
     return f"And next: {topic}."
+
+
+def _stale_visual_tokens(text: str) -> set[str]:
+    return {
+        word for word in re.findall(r"\b[a-z0-9]+\b", _clean(text).lower())
+        if len(word) >= 5 and word not in VISUAL_STOPWORDS
+    }
+
+
+def _sanitize_final_visuals(final: dict, stale_text: str, current_topic: str) -> None:
+    """Remove visual contracts that were generated from a rejected continuation.
+
+    This specifically closes the failure seen when a rejected topic appeared in
+    Scene 7 narration and its corresponding object also survived in Shot 2.
+    """
+    stale_tokens = _stale_visual_tokens(stale_text)
+    if not stale_tokens:
+        return
+
+    visuals = final.get("visuals")
+    if not isinstance(visuals, list):
+        return
+
+    topic_words = _words(current_topic)
+    topic_label = " ".join(topic_words[-4:]) if topic_words else current_topic
+    for index, visual in enumerate(visuals, 1):
+        combined = " ".join(str(visual.get(key, "")) for key in (
+            "visual_focus", "visual_action", "image_prompt", "spoken_line"
+        ))
+        overlap = stale_tokens & _stale_visual_tokens(combined)
+        if not overlap:
+            continue
+        print(
+            f"🧹 Removed stale continuation visual from Scene 7 Shot {index}: "
+            f"{', '.join(sorted(overlap)[:5])}"
+        )
+        visual["visual_focus"] = topic_label
+        visual["visual_action"] = "show the final physical result clearly"
+        visual["spoken_line"] = _clean(final.get("narration", ""))
+        visual["must_show"] = [topic_label, "clear final physical state"]
+        visual["must_not_show"] = ["rejected continuation topic", "unrelated object", "different mystery"]
+        visual["image_prompt"] = (
+            f"Clear stock footage or photo of {topic_label}, showing the final physical result "
+            "in a simple realistic setting; no unrelated object or second topic."
+        )
 
 
 def patch_continuation(main):
@@ -135,14 +184,14 @@ def patch_continuation(main):
         final["caption_highlights"] = [{"word": w, "emphasis": "strong"} for w in _words(canonical)[:3]]
         final["emphasis_word"] = _words(canonical)[0]
 
+        _sanitize_final_visuals(final, original_final, current_topic)
+
         key = _topic_key(canonical)
         if key not in _topic_key(final["narration"]):
             raise RuntimeError("Canonical next topic was not inserted into Scene 7.")
         if any(key in _topic_key(scene.get("narration", "")) for scene in scenes[:6]):
             raise RuntimeError("Next topic appeared before Scene 7.")
 
-        # Final hard contamination check: Scene 1–6 must never mention a future
-        # topic marker, and Scene 7 must contain exactly the canonical teaser.
         teaser = _build_teaser(canonical)
         if final["narration"].count(teaser) != 1:
             raise RuntimeError("Scene 7 does not contain exactly one canonical continuation teaser.")

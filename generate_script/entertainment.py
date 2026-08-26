@@ -62,7 +62,7 @@ through what a person can see, touch or imagine in ordinary life.
 
 NEVER USE:
 "Did you know", "Have you ever wondered", "Today we're going to", "In this video",
-"According to scientists", lecture language, lists, countdowns, Top 5, generic filler.
+lecture language, lists, countdowns, Top 5, generic filler.
 
 STORY ARC:
 1) 0–3s: immediate weird behavior or surprising claim. No warm-up.
@@ -82,6 +82,18 @@ continuation sentence. Do not introduce a second fact, second mystery, unrelated
 new animal, new invention, or a mini-story before the continuation sentence.
 Never write constructions such as "Now watch how..." or "Speaking of..." followed by
 an unrelated topic. The next topic is not an invitation to start another story.
+
+NATURAL CONTINUATION BRIDGE — CRITICAL:
+Gemini itself must write the final bridge sentence. Do NOT use a reusable template,
+fixed phrase, canned transition, or repeated sentence pattern.
+The bridge should grow naturally out of the current story and make the viewer curious
+about the next topic. It may use an observation, contrast, consequence, playful connection,
+visual association, or other natural storyteller move.
+NEVER start the final bridge with "And next", "Then comes", "Coming next", "Stay tuned",
+"Part 2", "Have you ever wondered", "Ever wondered", "Wonder why", "Curious why",
+"Why do", "Why does", "How do", "How does", "What makes", or another generic question opener.
+The exact next_short.topic must appear once in that final sentence, but the surrounding
+wording must be original and conversational.
 
 VISUAL DIRECTOR RULE — CRITICAL:
 Every image must literally depict the exact physical beat being spoken.
@@ -178,53 +190,63 @@ def _parse(text):
 
 
 def _content_tokens(text):
-    stop = {
-        "that", "this", "with", "from", "your", "they", "them", "then", "than", "into",
-        "when", "where", "what", "which", "because", "while", "just", "really", "very",
-        "have", "will", "does", "doesn", "there", "their", "about", "like", "more", "only",
-        "still", "even", "gets", "make", "makes", "made", "into", "over", "under", "also",
-        "actually", "strange", "weird", "thing", "things", "little", "sudden", "suddenly",
-        "part", "time", "way", "water", "your", "you", "are", "the", "and", "but", "for",
-        "not", "its", "it's", "can", "how", "why", "now", "watch", "ever", "ever",
-    }
+    stop = {"that", "this", "with", "from", "your", "they", "them", "then", "than", "into", "when", "where", "what", "which", "because", "while", "just", "really", "very", "have", "will", "does", "doesn", "there", "their", "about", "like", "more", "only", "still", "even", "gets", "make", "makes", "made", "over", "under", "also", "actually", "strange", "weird", "thing", "things", "little", "sudden", "suddenly", "part", "time", "way", "water", "you", "are", "the", "and", "but", "for", "not", "its", "it's", "can", "how", "why", "now", "watch", "ever"}
     return {w.lower() for w in re.findall(r"[a-z0-9]+", _clean(text).lower()) if len(w) >= 4 and w not in stop}
 
 
 def _sanitize_scene7(scene7, earlier_scenes):
-    """Remove accidental second-story material before the continuation sentence.
-
-    Gemini occasionally produces a valid payoff, then starts an unrelated fact such as
-    'Now watch how spider silk...' before giving the requested next-topic sentence.
-    That creates a broken narration and contaminates the TTS. We keep short bridge lines,
-    but remove long sentences introducing vocabulary disconnected from the current story.
-    """
     text = _clean(scene7.get("narration"))
-    # Normalize common malformed bridge punctuation before sentence splitting.
     text = re.sub(r"\s+([.!?,])", r"\1", text)
     sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", text) if s.strip()]
     if not sentences:
         return text
-
     story_tokens = set()
     for scene in earlier_scenes:
         story_tokens |= _content_tokens(scene.get("narration", ""))
     current_tokens = story_tokens | _content_tokens(" ".join(scene.get("narration", "") for scene in earlier_scenes))
-
     bad_intro = re.compile(r"^(now watch|speaking of|and now|meanwhile|another weird|here's another|here is another)\b", re.I)
     kept = []
     for sentence in sentences:
-        # The final continuation sentence is protected later by _normalize.
         if bad_intro.search(sentence):
             continue
         tokens = _content_tokens(sentence)
-        # Long, vocabulary-disconnected sentences are almost certainly an accidental
-        # second topic. Short connective sentences such as "And that is the strange part."
-        # are allowed to preserve the storyteller voice.
         if len(tokens) >= 4 and not (tokens & current_tokens):
             continue
         kept.append(sentence)
-
     return _clean(" ".join(kept))
+
+
+def _sentence_parts(text):
+    return [s.strip() for s in re.split(r"(?<=[.!?])\s+", _clean(text)) if s.strip()]
+
+
+def _bridge_is_canned(sentence):
+    banned = (
+        r"^(?:and\s+)?next\b", r"^then\s+comes\b", r"^coming\s+next\b",
+        r"^in\s+the\s+next\s+(?:video|short)\b", r"^stay\s+tuned\b", r"^part\s+2\b",
+        r"^have\s+you\s+ever\s+wondered\b", r"^ever\s+wondered\b", r"^wonder\s+why\b",
+        r"^curious\s+(?:why|how|what)\b", r"^why\s+(?:do|does|is|are)\b",
+        r"^how\s+(?:do|does|is|are)\b", r"^what\s+(?:makes|happens|causes)\b",
+    )
+    return any(re.search(pattern, sentence, re.I) for pattern in banned)
+
+
+def _validate_natural_bridge(scene7_narration, next_topic):
+    sentences = _sentence_parts(scene7_narration)
+    if len(sentences) < 2:
+        raise RuntimeError("Scene 7 must contain a payoff followed by a natural continuation bridge.")
+    key = re.sub(r"[^a-z0-9]+", " ", next_topic.lower()).strip()
+    matches = [s for s in sentences if key and key in re.sub(r"[^a-z0-9]+", " ", s.lower()).strip()]
+    if len(matches) != 1:
+        raise RuntimeError("The exact next topic must appear exactly once in Scene 7.")
+    bridge = matches[0]
+    if sentences[-1] != bridge:
+        raise RuntimeError("The continuation topic must be in Scene 7's final sentence.")
+    if _bridge_is_canned(bridge):
+        raise RuntimeError(f"Canned continuation bridge rejected: {bridge}")
+    if len(_words(bridge)) < 4 or len(_words(bridge)) > 22:
+        raise RuntimeError("Natural continuation bridge is too short or too long.")
+    return bridge
 
 
 def _normalize(script, topic):
@@ -236,7 +258,6 @@ def _normalize(script, topic):
 
     script["topic"] = topic
     script["title"] = _clean(script.get("title"))[:70] or topic[:70]
-    # Description is deterministic and contains ONLY the current topic.
     script["description"] = f"Explore the strange everyday mystery behind {topic}."
     script["tags"] = [_clean(x).lstrip("#") for x in script.get("tags", []) if _clean(x)][:12]
     script["category"] = _clean(script.get("category")) or "science"
@@ -245,10 +266,13 @@ def _normalize(script, topic):
     next_short = script.get("next_short") or {}
     next_topic = _clean(next_short.get("topic"))
     if not next_topic:
-        raise RuntimeError("next_short.topic is empty.")
+        raise RuntimeError("Gemini did not provide next_short.topic.")
+    next_teaser = _clean(next_short.get("teaser"))
+    if not next_teaser:
+        raise RuntimeError("Gemini did not provide next_short.teaser.")
     script["next_short"] = {
         "topic": next_topic[:300],
-        "teaser": _clean(next_short.get("teaser"))[:220] or next_topic,
+        "teaser": next_teaser[:220],
         "why_viewers_should_return": _clean(next_short.get("why_viewers_should_return"))[:220] or next_topic,
         "subscription_cta": _clean(next_short.get("subscription_cta"))[:160] or "Follow for another weird little mystery.",
     }
@@ -272,9 +296,7 @@ def _normalize(script, topic):
         "continuity_rules": [_clean(x)[:250] for x in continuity.get("continuity_rules", [])[:8] if _clean(x)],
     }
 
-    total_words = 0
     banned_openings = ("did you know", "have you ever wondered", "today we're going to", "in this video")
-
     for i, scene in enumerate(scenes):
         if not isinstance(scene, dict):
             raise RuntimeError(f"Scene {i+1} is invalid.")
@@ -299,11 +321,9 @@ def _normalize(script, topic):
         scene["music_cue"] = _clean(scene.get("music_cue")) if _clean(scene.get("music_cue")) in MUSIC_CUES else ("intro" if i == 0 else "drop" if i == 5 else "fade_out" if i == 6 else "build")
         scene["confidence"] = _clean(scene.get("confidence")) or "high"
         scene["sfx_cue"] = scene.get("sfx_cue") if isinstance(scene.get("sfx_cue"), dict) else {"term": "", "at_ms": 0}
-
         visuals = scene.get("visuals")
         if not isinstance(visuals, list) or len(visuals) != VISUALS_PER_SCENE:
             raise RuntimeError(f"Scene {i+1} must contain exactly 2 visuals.")
-
         durations = [scene["duration"] // 2, scene["duration"] - scene["duration"] // 2]
         for j, visual in enumerate(visuals):
             if not isinstance(visual, dict):
@@ -330,30 +350,27 @@ def _normalize(script, topic):
                 prompt_text = f"Realistic cinematic scene showing {visual['visual_action']} with {visual['visual_focus']} clearly visible."
             visual["image_prompt"] = prompt_text[:900]
 
-    # Scene 7 is the most important continuation boundary. Strip any accidental
-    # second story before adding the one canonical next-topic sentence.
     scene7 = scenes[6]
     scene7["narration"] = _sanitize_scene7(scene7, scenes[:6])
     if not scene7["narration"]:
         raise RuntimeError("Scene 7 lost its current-topic payoff during continuation sanitization.")
 
-    clean7 = scene7["narration"].rstrip(".!? ")
-    # Canonical final sentence: exactly one continuation topic, spoken once.
-    scene7["narration"] = clean7 + f" And that makes you wonder: {next_topic}."
+    # IMPORTANT: preserve Gemini's own final bridge. Python must validate it, never
+    # replace it with a reusable sentence. If sanitization removed Gemini's bridge,
+    # validation fails and Gemini gets another attempt.
+    bridge = _validate_natural_bridge(scene7["narration"], next_topic)
     scene7["subtitle_text"] = scene7["narration"]
+    script["next_short"]["teaser"] = bridge
 
     next_key = re.sub(r"[^a-z0-9 ]", " ", next_topic.lower()).strip()
     for scene in scenes[:6]:
         if next_key and next_key in re.sub(r"[^a-z0-9 ]", " ", scene["narration"].lower()):
             raise RuntimeError("Next topic appeared before Scene 7.")
 
-    # Final spoken length includes the continuation sentence because TTS sees it.
     total_words = sum(len(_words(scene["narration"])) for scene in scenes)
     if total_words < 90 or total_words > 135:
         raise RuntimeError(f"Narration length is {total_words} words; target is 90–135 words including continuation.")
 
-    # Make Scene 7's two visual beats match its sanitized narration. This prevents
-    # an accidentally removed sentence from leaving a stale visual prompt behind.
     for visual in scene7.get("visuals", []):
         if isinstance(visual, dict):
             visual["spoken_line"] = scene7["narration"] if not _clean(visual.get("spoken_line")) else visual["spoken_line"]
@@ -370,7 +387,6 @@ def generate_script(topic, config, research=None, extra_feedback=""):
     topic = _clean(topic)
     if not topic:
         raise RuntimeError("Topic is empty.")
-
     client = genai.Client(api_key=_api_key())
     feedback = "\n\nPRIOR FEEDBACK:\n" + _clean(extra_feedback) if extra_feedback else ""
     prompt = f"""
@@ -391,27 +407,25 @@ NEXT SHORT: invent one specific curiosity topic. It must appear only in the fina
 of Scene 7 and nowhere else. Scene 7 must NOT introduce any unrelated fact before that sentence.
 The final sentence should be the only bridge to the next Short.
 
+IMPORTANT FINAL BRIDGE:
+Write the final bridge sentence yourself. Do not use a fixed template or repeat a stock
+transition. The exact next_short.topic must appear once in that sentence. Make the wording
+feel like a natural continuation of the current story, not an announcement of the next video.
+Do not begin it with "And next", "Then comes", "Coming next", "Stay tuned", "Part 2",
+"Have you ever wondered", "Ever wondered", "Wonder why", "Why do", "Why does", "How do",
+"How does", "What makes", or another generic teaser opener.
+
 VISUALS: every one of the 14 shots must represent a specific spoken beat. Return spoken_line,
 visual_focus, visual_action, must_show and must_not_show. The image_prompt must literally
 show the action. For invisible/microscopic phenomena, describe an honest visible physical
 proxy rather than an impossible camera view. No generic topic images and no unrelated filler.
 {feedback}
 """
-
     last_error = None
     for attempt in range(1, MAX_ATTEMPTS + 1):
         try:
             retry = f"\n\nFIX THE PREVIOUS VALIDATION ERROR:\n{last_error}" if last_error else ""
-            response = client.models.generate_content(
-                model=MODEL_NAME,
-                contents=prompt + retry,
-                config=types.GenerateContentConfig(
-                    system_instruction=SYSTEM_PROMPT,
-                    response_mime_type="application/json",
-                    response_json_schema=_build_schema(),
-                    temperature=0.95,
-                ),
-            )
+            response = client.models.generate_content(model=MODEL_NAME, contents=prompt + retry, config=types.GenerateContentConfig(system_instruction=SYSTEM_PROMPT, response_mime_type="application/json", response_json_schema=_build_schema(), temperature=0.95))
             text = getattr(response, "text", None)
             if not text:
                 raise RuntimeError("Gemini returned an empty response.")
@@ -420,5 +434,4 @@ proxy rather than an impossible camera view. No generic topic images and no unre
             last_error = f"{type(error).__name__}: {error}"
             if attempt < MAX_ATTEMPTS:
                 time.sleep(3 * attempt)
-
     raise RuntimeError(f"SCRIPT GENERATION FAILED. Last error: {last_error}")

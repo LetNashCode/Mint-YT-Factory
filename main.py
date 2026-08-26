@@ -8,7 +8,7 @@ import argparse, json, os, re, time, yaml
 from topics import get_next_topic, save_next_short, commit_topic, validate_topic_for_pipeline, _generate_topic, _read_used, _PENDING_PREFIX
 from generate_script import generate_script
 from tts import synthesize_script
-from stock_media import generate_media
+from stock_search import generate_media
 from music import download_music
 from sfx import generate_sfx
 from assemble import assemble_video
@@ -52,7 +52,6 @@ def _split_sentences(text):
     return [p.strip() for p in re.split(r"(?<=[.!?])\s+", str(text or "").strip()) if p.strip()]
 
 
-# These are rejection rules, NOT generation templates. Gemini must create the actual bridge.
 _BANNED_BRIDGE_PATTERNS = (
     r"^(?:and\s+)?next\b", r"^then\s+comes\b", r"^coming\s+next\b",
     r"^in\s+the\s+next\s+(?:video|short)\b", r"^stay\s+tuned\b", r"^part\s+2\b",

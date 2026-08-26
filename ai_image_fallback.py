@@ -1,32 +1,27 @@
-"""Gemini image-generation fallback for Mint-YT-Factory.
+"""Pollinations image-generation fallback for Mint-YT-Factory.
 
 Used only when verified Pexels/Pixabay media cannot illustrate a shot.
 The prompt is deliberately literal: the generated frame must show the exact
 physical subject/state from the narration, not a generic science illustration.
 
-The fallback uses Gemini's REST generateContent endpoint rather than relying on
-an installed google-genai SDK schema for response_format. This avoids breaking
-when the runner's SDK version does not expose the image response-format field.
+IMPORTANT: Gemini is NOT used for image generation. Gemini remains available
+elsewhere in the pipeline only for visual verification/search direction.
 """
 from __future__ import annotations
 
-import base64
 import os
 import time
 from pathlib import Path
+from urllib.parse import quote
 
 import requests
+from PIL import Image
+from io import BytesIO
 
-MODEL = os.getenv("GEMINI_IMAGE_MODEL", "gemini-2.5-flash-image")
 ATTEMPTS = 3
-API_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-
-
-def _key() -> str:
-    key = os.getenv("GEMINI_API_KEY", "").strip()
-    if not key:
-        raise RuntimeError("GEMINI_API_KEY is required for AI image fallback.")
-    return key
+API_URL = "https://image.pollinations.ai/prompt/{prompt}"
+WIDTH = int(os.getenv("POLLINATIONS_IMAGE_WIDTH", "1080"))
+HEIGHT = int(os.getenv("POLLINATIONS_IMAGE_HEIGHT", "1920"))
 
 
 def _prompt(directed: dict) -> str:
@@ -38,98 +33,72 @@ def _prompt(directed: dict) -> str:
     must = ", ".join(str(x).strip() for x in directed.get("must_match", []) if str(x).strip())
     avoid = ", ".join(str(x).strip() for x in directed.get("avoid", []) if str(x).strip())
 
-    return f"""Create ONE photorealistic vertical 9:16 frame for a fast, fun YouTube Short.
+    return f"""Photorealistic vertical 9:16 frame for a fast, fun YouTube Short.
+Show the EXACT physical subject and EXACT visible action/state from the spoken beat.
+This is a literal visual, not an abstract science illustration.
 
-This frame is a literal visual for the spoken beat below. Show the EXACT physical subject
-and the EXACT visible action/state. Do not illustrate the explanation with abstract science.
+SPOKEN BEAT: {spoken}
+MAIN SUBJECT: {focus}
+VISIBLE ACTION / STATE: {action}
+DIRECTOR BRIEF: {brief}
+ORIGINAL CAMERA PROMPT: {image_prompt}
+MUST MATCH: {must}
+MUST NOT SHOW: {avoid}
 
-SPOKEN BEAT:
-{spoken}
-
-MAIN SUBJECT:
-{focus}
-
-VISIBLE ACTION / STATE:
-{action}
-
-DIRECTOR BRIEF:
-{brief}
-
-ORIGINAL CAMERA PROMPT:
-{image_prompt}
-
-MUST MATCH:
-{must}
-
-MUST NOT SHOW:
-{avoid}
-
-HARD RULES:
-- The named object must be unmistakably recognizable.
-- If an action is spoken, visibly show that action or its immediate physical result.
-- If the mechanism is invisible, show a truthful physical proxy such as a cut-open object,
-  visible steam, swelling, cracking, bursting, melting, or the resulting object.
-- Prefer a realistic macro/close-up when the subject is small.
-- No diagrams, equations, labels, arrows, text, logos, fantasy particles, cartoon science,
-  generic laboratory scenes, unrelated objects, or symbolic metaphors.
-- Do not replace a specific object with a related one. For example, popcorn kernel means
-  a popcorn kernel, not corn-on-the-cob.
-- Make the frame visually interesting with lighting, depth and composition, but relevance
-  is more important than cinematic decoration.
-- No people unless a hand/person is explicitly required by the beat.
-"""
+Hard rules: the named object must be unmistakably recognizable; show the spoken action
+or its immediate physical result; for invisible mechanisms use a truthful physical proxy
+such as a cut-open object, visible steam, swelling, cracking, bursting or melting;
+prefer realistic macro/close-up for small subjects; no diagrams, equations, labels,
+arrows, text, logos, fantasy particles, cartoon science, generic laboratories,
+unrelated objects or symbolic metaphors; never substitute a related object; cinematic
+lighting is welcome but relevance is more important; no people unless explicitly required."""
 
 
-def _extract_image(response_json: dict) -> bytes | None:
-    for candidate in response_json.get("candidates", []) or []:
-        content = candidate.get("content") or {}
-        for part in content.get("parts", []) or []:
-            inline = part.get("inlineData") or part.get("inline_data") or {}
-            encoded = inline.get("data")
-            if encoded:
-                return base64.b64decode(encoded)
-    return None
+def _validate_and_save(data: bytes, output: Path) -> None:
+    image = Image.open(BytesIO(data))
+    image.load()
+    if image.width < 256 or image.height < 256:
+        raise RuntimeError(f"Pollinations image too small: {image.width}x{image.height}")
+    image = image.convert("RGB")
+    image.save(output, format="JPEG", quality=95, optimize=True)
+    if output.stat().st_size <= 10_000:
+        raise RuntimeError("Pollinations image output is unexpectedly small")
 
 
 def generate(directed: dict, path: str) -> bool:
-    """Generate a literal vertical fallback image and save it to *path*."""
+    """Generate a literal portrait fallback image with Pollinations and save it."""
     output = Path(path)
     output.parent.mkdir(parents=True, exist_ok=True)
+    prompt = quote(_prompt(directed), safe="")
     last_error: Exception | None = None
 
     for attempt in range(1, ATTEMPTS + 1):
         try:
-            payload = {
-                "contents": [{"parts": [{"text": _prompt(directed)}]}],
-                "generationConfig": {
-                    "responseModalities": ["IMAGE"],
-                    "responseFormat": {"image": {"aspectRatio": "9:16"}},
+            url = API_URL.format(prompt=prompt)
+            response = requests.get(
+                url,
+                params={
+                    "width": WIDTH,
+                    "height": HEIGHT,
+                    "nologo": "true",
                 },
-            }
-            response = requests.post(
-                API_URL.format(model=MODEL),
-                params={"key": _key()},
-                json=payload,
-                headers={"Content-Type": "application/json"},
-                timeout=120,
+                headers={"User-Agent": "Mint-YT-Factory/11.0"},
+                timeout=180,
             )
-            if not response.ok:
-                raise RuntimeError(f"Gemini HTTP {response.status_code}: {response.text[:500]}")
-
-            data = response.json()
-            image_bytes = _extract_image(data)
-            if not image_bytes:
-                raise RuntimeError("Gemini returned no inline image data")
-
-            output.write_bytes(image_bytes)
-            if output.exists() and output.stat().st_size > 10_000:
-                return True
-            raise RuntimeError("Gemini image output is unexpectedly small")
+            response.raise_for_status()
+            if not response.content:
+                raise RuntimeError("Pollinations returned an empty response")
+            _validate_and_save(response.content, output)
+            return True
         except Exception as exc:
             last_error = exc
-            print(f"      ⚠️ Gemini image fallback {attempt}/{ATTEMPTS}: {type(exc).__name__}: {exc}")
+            print(f"      ⚠️ Pollinations image fallback {attempt}/{ATTEMPTS}: {type(exc).__name__}: {exc}")
+            try:
+                output.unlink(missing_ok=True)
+            except OSError:
+                pass
             if attempt < ATTEMPTS:
-                time.sleep(1.5 * attempt)
+                time.sleep(2.0 * attempt)
 
-    print(f"      ❌ Gemini image fallback exhausted: {type(last_error).__name__ if last_error else 'unknown'}")
+    print(f"      ❌ Pollinations image fallback exhausted: {type(last_error).__name__ if last_error else 'unknown'}")
     return False

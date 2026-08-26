@@ -46,7 +46,9 @@ media:
   height: 3840
   assets_per_scene: 2
   total_assets: 14
-  gemini_candidate_verification: false
+  gemini_candidate_verification: true
+  gemini_verification_threshold: 7.5
+  gemini_verification_candidates: 6
   ai_generation: false
   rules: {visuals_must_advance_story: true, visuals_must_support_narration: true, no_random_stock_visuals: true, no_generic_backgrounds: true, no_duplicate_visuals_within_scene: true, visual_1_establishes: true, visual_2_advances_story: true, reject_unrelated_assets: true, stock_provider_fallback_only: true}
   continuity: {enabled: true, preserve_recurring_subjects: true, preserve_recurring_objects: true, preserve_environment: true, preserve_character_appearance: true}
@@ -79,7 +81,7 @@ engagement: {enabled: true, sequential_experiments: true, automatic_creator_comm
 validation:
   enabled: true
   script: {scene_count: 7, duration_seconds: 40, minimum_duration_seconds: 35, maximum_duration_seconds: 43.9, visuals_per_scene: 2, total_visuals: 14, captions_match_narration: true, scene_7_resolves_story: true, next_short_not_in_description: true}
-  visuals: {exactly_14_images: true, exactly_2_per_scene: true, all_files_exist: true, no_missing_images: true, reject_unrelated_assets: true, allowed_providers: [Pexels, Pixabay]}
+  visuals: {exactly_14_images: true, exactly_2_per_scene: true, all_files_exist: true, no_missing_images: true, reject_unrelated_assets: true, allowed_providers: [Pexels, Pixabay], require_gemini_visual_verification: true, minimum_gemini_visual_score: 7.5}
   video: {width: 2160, height: 3840, fps: 60, bitrate: 68M, portrait_9_16: true}
 upload: {auto_upload: true, privacy_status: public, category_id: "27", publish_only_after_validation: true, require_render_success: true, require_visual_validation: true, require_script_validation: true, never_publish_failed_video: true, never_publish_partial_video: true}
 pipeline: {research_first: false, script_after_research: false, visuals_after_script: true, narration_after_script: true, assembly_after_visuals: true, validation_before_upload: true, upload_after_validation: true, stages: [topic, script, visual_generation, narration, assembly, validation, upload]}

@@ -3,11 +3,10 @@
 ACTIVE MEDIA ARCHITECTURE
 --------------------------
 Gemini Visual/Search Director -> Pexels VIDEO -> Pixabay VIDEO fallback ->
-Pexels PHOTO -> Pixabay PHOTO -> Gemini visual verification -> assembly.
+Pexels PHOTO -> Pixabay PHOTO -> Gemini candidate visual verification -> assembly.
 
-Gemini never generates visuals. Pexels/Pixabay are the only media providers.
-Candidate stock previews are inspected by Gemini only for final visual
-relevance; rejected candidates are never used as unrelated fallback.
+Gemini verifies stock candidates but never generates replacement visuals.
+There is no Pollinations/FLUX or AI visual fallback.
 """
 from __future__ import annotations
 
@@ -49,14 +48,18 @@ def _patch_tts_duration(main):
                     f"{MAX_NARRATION_SECONDS:.2f}s)."
                 )
             direction = (
-                f"The previous narration rendered at {duration:.2f} seconds and is TOO LONG. Rewrite it shorter. "
-                "Target 90-100 words before the locked continuation. Remove filler, repeated explanations and extra setup while keeping the hook, escalation and payoff."
+                f"The previous narration rendered at {duration:.2f} seconds and is TOO LONG. "
+                "Rewrite it shorter. Target 90-100 words before the locked continuation. "
+                "Remove filler, repeated explanations and extra setup while keeping the hook, escalation and payoff."
                 if duration > MAX_NARRATION_SECONDS else
-                f"The previous narration rendered at {duration:.2f} seconds and is TOO SHORT. Target 100-110 words before the locked continuation. Add concrete everyday details and escalation, not scientific filler."
+                f"The previous narration rendered at {duration:.2f} seconds and is TOO SHORT. "
+                "Target 100-110 words before the locked continuation. Add concrete everyday details and escalation, "
+                "not scientific filler."
             )
             feedback = (
                 f"{direction} IMPORTANT: current topic is {topic!r}. Do not introduce another mystery. "
-                f"Scene 7 must contain only the payoff for {topic!r}, followed by the exact locked continuation topic {current_next!r}. Do not invent a different teaser."
+                f"Scene 7 must contain only the payoff for {topic!r}, followed by the exact locked continuation topic "
+                f"{current_next!r}. Do not invent a different teaser."
             )
             candidate = main.generate_script(topic, config, None, extra_feedback=feedback)
             candidate["topic"] = topic
@@ -112,11 +115,11 @@ def _patch_assemble_video_media():
 def _install_media_pipeline(main):
     import stock_media
     main.generate_images = stock_media.generate_media
-    print("🎯 Media pipeline: Gemini Search Director → Pexels/Pixabay → Gemini Visual Verification")
-    print("✅ Gemini visual verification: ENABLED")
-    print("🔎 Candidate media inspected by Gemini: YES (top stock candidates only)")
+    print("🎯 Media pipeline: Gemini Visual/Search Director → Pexels → Pixabay stock fallback")
+    print("🛡️ Gemini visual verification: ENABLED")
+    print("🛡️ Candidate media sent to Gemini: ENABLED")
     print("🚫 AI image generation: DISABLED")
-    print("🚫 Pollinations/FLUX: DISABLED")
+    print("🚫 Pollinations/FLUX: REMOVED")
 
 
 def main_entry():
@@ -140,7 +143,7 @@ def main_entry():
     print("Visual verification threshold: 7.5/10")
     print("Visual verification candidate pool: up to 6 per provider/shot")
     print("AI image generation: DISABLED")
-    print("Pollinations/FLUX: DISABLED")
+    print("Pollinations/FLUX: REMOVED")
     print("Fallback: stock provider fallback only; no unrelated or AI visual fallback")
     print("Continuation: one locked next topic, final sentence only")
     print("Pexels API key:", "AVAILABLE" if os.environ.get("PEXELS_API_KEY") else "NOT CONFIGURED")

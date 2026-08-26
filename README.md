@@ -28,9 +28,9 @@ Everyday topic
   -> analytics + learning
 ```
 
-Gemini has four separate jobs: write the entertaining narration, translate the locked narration into literal visuals, create concrete stock-media search queries, and finally inspect a small candidate pool to verify that the actual media visibly supports the spoken beat. Gemini never generates replacement visuals.
+Gemini has four separate jobs: write the entertaining narration, translate the locked narration into literal visuals, create concrete stock-media search queries, and finally inspect a small candidate pool to verify that the actual media visibly supports the spoken beat. Gemini does not generate production visuals.
 
-The production media providers are **Pexels and Pixabay only**. Provider priority is Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO. For each shot, the top metadata candidates are inspected by Gemini; a candidate must reach the configured visual-verification threshold before it can be used. If neither stock provider can supply a sufficiently relevant asset, production stops. There is no AI-image fallback, Pollinations/FLUX fallback, generic stock filler, or unrelated-media fallback.
+The production media providers are **Pexels and Pixabay only**. Provider priority is Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO. For each shot, the top metadata candidates are inspected by Gemini; a candidate must reach the configured visual-verification threshold before it can be used. If neither stock provider can supply a sufficiently relevant asset, production stops. No generated-image provider or unrelated-media fallback is part of the production media pipeline.
 
 Each Short is exactly 7 scenes × 2 unique assets. Visuals must directly support the spoken beat and advance the story.
 

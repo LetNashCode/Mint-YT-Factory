@@ -33,14 +33,14 @@ script:
 next_short: {enabled: true, spoken_in_current_video: true, reveal_in_current_description: false, must_follow_current_story: true}
 voice: {provider: tiktok, voice_name: en_us_010, speed: 1.0, tone: "curious, confident, playful storyteller"}
 media:
-  providers: [pexels, pixabay]
+  providers: [pexels, pixabay, pollinations]
   primary_provider: pexels
   fallback_provider: pixabay
-  priority: [pexels_video, pixabay_video, pexels_photo, pixabay_photo]
+  priority: [pexels_video, pixabay_video, pexels_photo, pixabay_photo, pollinations_image]
   director: gemini
   search_director: gemini
   search_mode: gemini_directed
-  media_types: [video, photo]
+  media_types: [video, photo, generated_image]
   orientation: portrait
   width: 2160
   height: 3840
@@ -49,10 +49,11 @@ media:
   gemini_candidate_verification: true
   gemini_verification_threshold: 7.5
   gemini_verification_candidates: 6
-  ai_generation: false
-  rules: {visuals_must_advance_story: true, visuals_must_support_narration: true, no_random_stock_visuals: true, no_generic_backgrounds: true, no_duplicate_visuals_within_scene: true, visual_1_establishes: true, visual_2_advances_story: true, reject_unrelated_assets: true, stock_provider_fallback_only: true}
+  ai_generation: true
+  ai_generation_provider: pollinations
+  rules: {visuals_must_advance_story: true, visuals_must_support_narration: true, no_random_stock_visuals: true, no_generic_backgrounds: true, no_duplicate_visuals_within_scene: true, visual_1_establishes: true, visual_2_advances_story: true, reject_unrelated_assets: true, stock_provider_fallback_only: false}
   continuity: {enabled: true, preserve_recurring_subjects: true, preserve_recurring_objects: true, preserve_environment: true, preserve_character_appearance: true}
-image: {providers: [pexels, pixabay], primary_provider: pexels, fallback_provider: pixabay, director: gemini, mode: search_only, source: stock_only, width: 2160, height: 3840, orientation: portrait, images_per_scene: 2, total_images: 14}
+image: {providers: [pexels, pixabay, pollinations], primary_provider: pexels, fallback_provider: pixabay, ai_fallback_provider: pollinations, director: gemini, mode: stock_then_pollinations, source: stock_or_pollinations, width: 2160, height: 3840, orientation: portrait, images_per_scene: 2, total_images: 14}
 video:
   resolution: [2160, 3840]
   orientation: portrait
@@ -81,7 +82,7 @@ engagement: {enabled: true, sequential_experiments: true, automatic_creator_comm
 validation:
   enabled: true
   script: {scene_count: 7, duration_seconds: 40, minimum_duration_seconds: 35, maximum_duration_seconds: 43.9, visuals_per_scene: 2, total_visuals: 14, captions_match_narration: true, scene_7_resolves_story: true, next_short_not_in_description: true}
-  visuals: {exactly_14_images: true, exactly_2_per_scene: true, all_files_exist: true, no_missing_images: true, reject_unrelated_assets: true, allowed_providers: [Pexels, Pixabay], require_gemini_visual_verification: true, minimum_gemini_visual_score: 7.5}
+  visuals: {exactly_14_images: true, exactly_2_per_scene: true, all_files_exist: true, no_missing_images: true, reject_unrelated_assets: true, allowed_providers: [Pexels, Pixabay, Pollinations], require_gemini_visual_verification: true, minimum_gemini_visual_score: 7.5}
   video: {width: 2160, height: 3840, fps: 60, bitrate: 68M, portrait_9_16: true}
 upload: {auto_upload: true, privacy_status: public, category_id: "27", publish_only_after_validation: true, require_render_success: true, require_visual_validation: true, require_script_validation: true, never_publish_failed_video: true, never_publish_partial_video: true}
 pipeline: {research_first: false, script_after_research: false, visuals_after_script: true, narration_after_script: true, assembly_after_visuals: true, validation_before_upload: true, upload_after_validation: true, stages: [topic, script, visual_generation, narration, assembly, validation, upload]}

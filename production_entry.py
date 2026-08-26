@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 
 from runtime_overrides import patch_continuation, patch_tts_result
 from quality_overrides import patch_story_quality
@@ -20,6 +21,90 @@ from story_quality_gate import patch_story_generation
 MIN_NARRATION_SECONDS = 35.0
 MAX_NARRATION_SECONDS = 43.90
 MAX_SHORT_TTS_REGEN = 2
+
+
+def _patch_visual_search_plan():
+    """Turn Gemini's precise search plan into a diverse stock-retrieval plan.
+
+    Gemini remains the semantic director. This adapter prevents a common stock
+    search failure where all four Gemini queries are effectively the same
+    cinematic description (for example, four variants of 'single yellow kernel
+    on dark slate'). We preserve the best literal query and deliberately add
+    object-only, action/context, and simplified retrieval forms.
+    """
+    import pexels_media
+
+    original = pexels_media.build_search_plan
+    if getattr(original, "_mint_diverse_queries", False):
+        return
+
+    REMOVE_WORDS = {
+        "single", "one", "macro", "close", "closeup", "close-up", "extreme",
+        "cinematic", "glossy", "isolated", "dark", "moody", "dramatic", "beautiful",
+        "photography", "photograph", "photo", "slow", "motion", "detailed", "detail",
+        "realistic", "natural", "background", "slate", "surface", "shiny", "polished",
+        "extreme", "high", "quality", "professional", "shot", "footage",
+    }
+
+    def simplify(value: str) -> str:
+        words = re.findall(r"[A-Za-z0-9'-]+", str(value or "").lower())
+        words = [w for w in words if w not in REMOVE_WORDS]
+        return " ".join(words[:8]).strip()
+
+    def build():
+        plan = original()
+        for scene_plan in plan:
+            for directed in scene_plan:
+                original_queries = [str(q).strip() for q in directed.get("queries", []) if str(q).strip()]
+                focus = str(directed.get("visual_focus") or directed.get("casting_brief") or "").strip()
+                action = str(directed.get("visual_action") or "").strip()
+                must = [str(x).strip() for x in directed.get("must_match", []) if str(x).strip()]
+
+                candidates = []
+                candidates.extend(original_queries[:2])
+                if focus and action:
+                    candidates.append(f"{simplify(focus)} {simplify(action)}".strip())
+                elif focus:
+                    candidates.append(simplify(focus))
+                elif must:
+                    candidates.append(simplify(must[0]))
+                if must:
+                    candidates.append(simplify(must[0]))
+                if len(must) > 1:
+                    candidates.append(simplify(" ".join(must[:2])))
+
+                # De-duplicate while keeping the deliberately different retrieval
+                # strategies. Exactly four are used to control API volume.
+                final = []
+                seen = set()
+                for query in candidates:
+                    query = re.sub(r"\s+", " ", query).strip()
+                    if len(query.split()) < 2:
+                        continue
+                    key = query.lower()
+                    if key not in seen:
+                        seen.add(key)
+                        final.append(query)
+                for query in original_queries[2:]:
+                    key = query.lower()
+                    if key not in seen:
+                        seen.add(key)
+                        final.append(query)
+                    if len(final) >= 4:
+                        break
+                if len(final) < 2:
+                    raise RuntimeError(
+                        f"Visual search plan became too narrow for Scene {directed.get('scene')} Shot {directed.get('shot')}."
+                    )
+                directed["queries"] = final[:4]
+                print(
+                    f"   🔎 Diversified stock queries Scene {directed.get('scene')} Shot {directed.get('shot')}: "
+                    + " | ".join(directed["queries"])
+                )
+        return plan
+
+    build._mint_diverse_queries = True
+    pexels_media.build_search_plan = build
 
 
 def _patch_tts_duration(main):
@@ -120,6 +205,7 @@ def _install_media_pipeline(main):
     print("🛡️ Candidate media sent to Gemini: ENABLED")
     print("🚫 AI image generation: DISABLED")
     print("🚫 Pollinations/FLUX: REMOVED")
+    print("🔎 Stock search strategy: literal + object + action/context + simplified queries")
 
 
 def main_entry():
@@ -129,6 +215,7 @@ def main_entry():
     patch_tts_result(main)
     patch_story_quality(main)
     patch_story_generation(main)
+    _patch_visual_search_plan()
     _patch_tts_duration(main)
     _patch_assemble_video_media()
     _install_media_pipeline(main)
@@ -142,6 +229,7 @@ def main_entry():
     print("Visual verification: ENABLED — Gemini inspects top stock candidates")
     print("Visual verification threshold: 7.5/10")
     print("Visual verification candidate pool: up to 6 per provider/shot")
+    print("Stock search: diversified retrieval; exact cinematic phrasing is not required")
     print("AI image generation: DISABLED")
     print("Pollinations/FLUX: REMOVED")
     print("Fallback: stock provider fallback only; no unrelated or AI visual fallback")

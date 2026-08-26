@@ -3,7 +3,7 @@
 ACTIVE MEDIA ARCHITECTURE
 --------------------------
 Gemini Visual/Search Director -> Pexels search -> deterministic metadata
-selection -> verified Pexels asset -> assembly.
+selection -> Pexels asset -> assembly.
 
 Gemini never receives candidate media for verification. Pollinations/FLUX is
 not part of the production path.
@@ -12,11 +12,9 @@ from __future__ import annotations
 
 import json
 import os
-import re
 
 from runtime_overrides import patch_continuation, patch_tts_result
-from quality_overrides import patch_story_quality, patch_visual_diversity
-from media_quality_overrides import patch_media_selection
+from quality_overrides import patch_story_quality
 from story_quality_gate import patch_story_generation
 
 MIN_NARRATION_SECONDS = 35.0
@@ -49,20 +47,15 @@ def _patch_tts_duration(main):
                     f"regeneration attempts: {duration:.2f}s (allowed {MIN_NARRATION_SECONDS:.2f}-"
                     f"{MAX_NARRATION_SECONDS:.2f}s)."
                 )
-
-            if duration > MAX_NARRATION_SECONDS:
-                direction = (
-                    f"The previous narration rendered at {duration:.2f} seconds and is TOO LONG. "
-                    "Rewrite it shorter. Target 90-100 words before the locked continuation. "
-                    "Remove filler, repeated explanations and extra setup while keeping the hook, escalation and payoff."
-                )
-            else:
-                direction = (
-                    f"The previous narration rendered at {duration:.2f} seconds and is TOO SHORT. "
-                    "Target 100-110 words before the locked continuation. Add concrete everyday details and escalation, "
-                    "not scientific filler."
-                )
-
+            direction = (
+                f"The previous narration rendered at {duration:.2f} seconds and is TOO LONG. "
+                "Rewrite it shorter. Target 90-100 words before the locked continuation. "
+                "Remove filler, repeated explanations and extra setup while keeping the hook, escalation and payoff."
+                if duration > MAX_NARRATION_SECONDS else
+                f"The previous narration rendered at {duration:.2f} seconds and is TOO SHORT. "
+                "Target 100-110 words before the locked continuation. Add concrete everyday details and escalation, "
+                "not scientific filler."
+            )
             feedback = (
                 f"{direction} IMPORTANT: current topic is {topic!r}. Do not introduce another mystery. "
                 f"Scene 7 must contain only the payoff for {topic!r}, followed by the exact locked continuation topic "
@@ -120,11 +113,8 @@ def _patch_assemble_video_media():
 
 
 def _install_media_pipeline(main):
-    """Install the one and only production media implementation."""
     import pexels_media
     main.generate_images = pexels_media.generate_media
-    patch_media_selection(pexels_media)
-    patch_visual_diversity(pexels_media)
     print("🎯 Media pipeline: Gemini Visual/Search Director → Pexels → metadata selection")
     print("🚫 Gemini visual verification: DISABLED")
     print("🚫 Candidate media sent to Gemini: DISABLED")

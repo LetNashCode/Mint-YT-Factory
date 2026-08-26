@@ -30,18 +30,31 @@ def _word_count(value): return len(re.findall(r"\b[\w'-]+\b",str(value or "")))
 def _split_sentences(text): return [p.strip() for p in re.split(r"(?<=[.!?])\s+",str(text or "").strip()) if p.strip()]
 _BANNED_BRIDGE_PATTERNS=(r"^(?:and\s+)?next\b",r"^then\s+comes\b",r"^coming\s+next\b",r"^in\s+the\s+next\s+(?:video|short)\b",r"^stay\s+tuned\b",r"^part\s+2\b",r"^have\s+you\s+ever\s+wondered\b",r"^ever\s+wondered\b",r"^wonder\s+why\b",r"^curious\s+(?:why|how|what)\b",r"^why\s+(?:do|does|is|are)\b",r"^how\s+(?:do|does|is|are)\b",r"^what\s+(?:makes|happens|causes)\b")
 def _is_canned_bridge(sentence): return any(re.search(pattern,str(sentence or "").strip(),re.I) for pattern in _BANNED_BRIDGE_PATTERNS)
+
 def _validate_gemini_scene7(script,canonical):
+    """Validate the final continuation AFTER our deterministic bridge is installed.
+
+    Gemini is never trusted to author the bridge. The only things we require here are:
+    exact topic in the final sentence, nowhere in Scenes 1-6, one occurrence, and a
+    compact spoken sentence. This prevents a malformed Gemini teaser from burning
+    through four expensive script retries.
+    """
     scenes=script.get("scene_plan")
     if not isinstance(scenes,list) or len(scenes)!=7: raise RuntimeError("Script must contain exactly 7 scenes.")
     key=_normalise_topic_text(canonical)
-    if any(key in _normalise_topic_text(scene.get("narration","")) for scene in scenes[:6]): raise RuntimeError("Next topic appeared before Scene 7.")
-    sentences=_split_sentences(scenes[-1].get("narration","")); matches=[s for s in sentences if key and key in _normalise_topic_text(s)]
-    if len(matches)!=1 or len(sentences)<2: raise RuntimeError("Scene 7 must end with exactly one natural next-topic bridge.")
-    bridge=matches[0]
-    if _is_canned_bridge(bridge): raise RuntimeError(f"Canned Scene 7 bridge rejected: {bridge}")
-    if _normalise_topic_text(sentences[-1])!=_normalise_topic_text(bridge): raise RuntimeError("Next-topic bridge must be the final Scene 7 sentence.")
-    if _word_count(bridge)<8 or _word_count(bridge)>22: raise RuntimeError("Natural Scene 7 bridge has invalid length.")
-    return bridge
+    if not key: raise RuntimeError("Canonical next topic is empty.")
+    early=" ".join(str(scene.get("narration","")) for scene in scenes[:6])
+    if key in _normalise_topic_text(early): raise RuntimeError("Next topic appeared before Scene 7.")
+    final_sentences=_split_sentences(scenes[-1].get("narration",""))
+    if not final_sentences: raise RuntimeError("Scene 7 has no narration.")
+    final_sentence=final_sentences[-1]
+    if key not in _normalise_topic_text(final_sentence): raise RuntimeError("Scene 7 final sentence does not contain the locked next topic.")
+    occurrence=len(re.findall(re.escape(key),_normalise_topic_text(scenes[-1].get("narration",""))))
+    if occurrence != 1: raise RuntimeError("Locked next topic must occur exactly once in Scene 7.")
+    if _is_canned_bridge(final_sentence): raise RuntimeError(f"Canned Scene 7 bridge rejected: {final_sentence}")
+    count=_word_count(final_sentence)
+    if count < 7 or count > 22: raise RuntimeError(f"Natural Scene 7 bridge has invalid length: {count} words")
+    return final_sentence
 
 def _lock_canonical_topic(script,current_topic):
     candidate=str((script.get("next_short") or {}).get("topic","")).strip()
@@ -50,33 +63,48 @@ def _lock_canonical_topic(script,current_topic):
     canonical=candidate if validate_topic_for_pipeline(candidate,used=used,check_duplicate=True) else _generate_topic(used)
     if not validate_topic_for_pipeline(canonical,used=used,check_duplicate=True): raise RuntimeError(f"Could not create valid canonical next topic: {canonical}")
     if _word_count(canonical)>7: canonical=_generate_topic(used)
-    script.setdefault("next_short",{})["topic"]=canonical; return canonical
+    script.setdefault("next_short",{})["topic"]=canonical
+    return canonical
 
 def _install_natural_bridge(script,canonical):
-    """Replace Gemini's unreliable Scene 7 teaser with one deterministic spoken bridge."""
+    """Remove Gemini's attempted next-topic sentence and install ONE short bridge."""
     scenes=script.get("scene_plan")
     if not isinstance(scenes,list) or len(scenes)!=7: raise RuntimeError("Script must contain exactly 7 scenes.")
-    final=scenes[-1]; sentences=_split_sentences(final.get("narration","")); key=_normalise_topic_text(canonical)
+    final=scenes[-1]
+    sentences=_split_sentences(final.get("narration",""))
+    key=_normalise_topic_text(canonical)
+    # Remove every Gemini sentence that already contains the locked topic. This prevents
+    # duplicate mentions and prevents malformed constructions such as "when Why ...".
     clean_sentences=[s for s in sentences if key not in _normalise_topic_text(s)]
-    if not clean_sentences: clean_sentences=["And that is the weird little trick hiding inside this everyday moment."]
-    topic_spoken=canonical.strip().rstrip("?").lower()
-    if topic_spoken.startswith(("why ","how ","what ","when ","where ")):
-        bridge=f"And that is the fun part: everyday things hide weird little tricks, like {topic_spoken}."
-    else:
-        bridge=f"And that is the fun part: everyday things hide weird little tricks, like why {topic_spoken}."
+    if not clean_sentences:
+        clean_sentences=["And that is the weird little trick hiding inside this everyday moment."]
+    topic_spoken=canonical.strip().rstrip("?.!").lower()
+    # Keep the topic's own grammatical form. If it is already a question, don't add a second "why".
+    bridge=f"And that little trick is hiding in plain sight: {topic_spoken}."
     final["narration"]=" ".join(clean_sentences+[bridge])
-    return final["narration"]
+    return bridge
 
 def lock_next_topic(script,current_topic):
-    canonical=_lock_canonical_topic(script,current_topic); _install_natural_bridge(script,canonical); bridge=_validate_gemini_scene7(script,canonical); script["next_short"]["teaser"]=bridge
-    final_scene=script["scene_plan"][-1]; final_scene["subtitle_text"]=final_scene.get("narration",""); final_scene["pause_after_ms"]=int(final_scene.get("pause_after_ms",250) or 250); final_scene["emotional_tone"]=final_scene.get("emotional_tone","satisfied"); final_scene["music_cue"]=final_scene.get("music_cue","fade_out")
-    print(f"🔒 Canonical next topic: {canonical}"); print(f"🗣️ NATURAL FINAL BRIDGE: {bridge}"); return script,canonical
+    canonical=_lock_canonical_topic(script,current_topic)
+    bridge=_install_natural_bridge(script,canonical)
+    _validate_gemini_scene7(script,canonical)
+    script["next_short"]["teaser"]=bridge
+    final_scene=script["scene_plan"][-1]
+    final_scene["subtitle_text"]=final_scene.get("narration","")
+    final_scene["pause_after_ms"]=int(final_scene.get("pause_after_ms",250) or 250)
+    final_scene["emotional_tone"]=final_scene.get("emotional_tone","satisfied")
+    final_scene["music_cue"]=final_scene.get("music_cue","fade_out")
+    print(f"🔒 Canonical next topic: {canonical}")
+    print(f"🗣️ NATURAL FINAL BRIDGE: {bridge}")
+    return script,canonical
 
 def write_continuation_manifest(current_topic,next_topic,status,workdir=""):
     save_json({"status":status,"current_topic":current_topic,"next_topic":next_topic,"workdir":workdir,"updated_at":int(time.time())},CONTINUATION_MANIFEST)
 
 def build_youtube_metadata(script):
-    topic=str(script.get("topic","Wonder Minute curiosity")).strip(); title=str(script.get("title",topic or "Wonder Minute Short")).strip()[:100]; description=f"A quick look at {topic} and the everyday mystery behind it."
+    topic=str(script.get("topic","Wonder Minute curiosity")).strip()
+    title=str(script.get("title",topic or "Wonder Minute Short")).strip()[:100]
+    description=f"A quick look at {topic} and the everyday mystery behind it."
     tags=script.get("tags",[]); hashtags=[]
     if isinstance(tags,list):
         for tag in tags[:12]:
@@ -97,16 +125,22 @@ def refresh_learning_before_generation():
 def _generate_valid_script(topic,config,learning_context,engagement_feedback):
     feedback=learning_context+engagement_feedback+"""
 CONTINUATION HARD REQUIREMENT:
-The final sentence of Scene 7 must contain the exact next_short.topic, but Gemini must write a fresh, natural bridge around it. NEVER start that sentence with 'And next', 'Then comes', 'Coming next', 'Have you ever wondered', 'Ever wondered', 'Wonder why', 'Why do/does', 'How do/does', 'What makes', or another canned opener. Do not mention the next topic anywhere in Scenes 1-6, title, or description. Scene 7 must finish the current topic's payoff before the bridge.
+Return a valid 7-scene story and a candidate next_short.topic. Do NOT try to write a next-topic teaser in Scene 7; the production pipeline will add the final bridge itself. Do not mention the candidate next topic anywhere in Scenes 1-6, title, or description. Scene 7 must finish the current topic's payoff naturally.
 """
     last_error=None
     for attempt in range(1,5):
         try:
-            script=generate_script(topic,config,None,extra_feedback=feedback); candidate=str((script.get("next_short") or {}).get("topic","")).strip()
+            script=generate_script(topic,config,None,extra_feedback=feedback)
+            candidate=str((script.get("next_short") or {}).get("topic","")).strip()
             if not candidate: raise RuntimeError("Missing next_short.topic")
-            canonical=_lock_canonical_topic(script,topic); _install_natural_bridge(script,canonical); _validate_gemini_scene7(script,canonical); return script
+            canonical=_lock_canonical_topic(script,topic)
+            _install_natural_bridge(script,canonical)
+            _validate_gemini_scene7(script,canonical)
+            return script
         except Exception as error:
-            last_error=error; print(f"⚠️ Continuation/story validation failed ({attempt}/4): {error}"); feedback+=f"\nPREVIOUS ATTEMPT FAILED: {error}. Rewrite the entire story and make Scene 7's final bridge natural and unique.\n"
+            last_error=error
+            print(f"⚠️ Continuation/story validation failed ({attempt}/4): {error}")
+            feedback+=f"\nPREVIOUS ATTEMPT FAILED: {error}. Do not write a Scene 7 teaser; return only the current story plus next_short.topic.\n"
     raise RuntimeError(f"Could not generate a valid natural Scene 7 continuation after 4 attempts: {last_error}")
 
 def run(dry_run=False):

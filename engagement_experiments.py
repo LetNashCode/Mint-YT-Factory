@@ -23,11 +23,16 @@ def _rate(record:dict,metric:str)->float:
     latest=record.get('latest',{}) or {};views=max(1,int(latest.get('views',0) or 0));return float(latest.get(metric,0) or 0)/views*100.0
 
 def _engagement_delivered(record:dict)->bool:
-    """Only count an experiment when its planned creator comment was posted."""
+    """Count an experiment only when the planned creator comment is confirmed posted."""
     value=record.get('engagement_comment_posted')
     if isinstance(value,bool): return value
-    # Backward compatibility: old records predate the delivery flag.
-    return bool(record.get('engagement_comment','').strip())
+    workdir=str(record.get('workdir','')).strip()
+    if workdir:
+        status=_load(ROOT/workdir/'engagement_comment_status.json',None)
+        if isinstance(status,dict) and isinstance(status.get('posted'),bool): return status['posted']
+    # Old records predate delivery tracking. Do not infer success merely from
+    # the planned comment text; that would contaminate the experiment dataset.
+    return False
 
 def _published_experiments()->list[str]:
     return [str(r.get('engagement_experiment')) for r in _records()
@@ -77,4 +82,4 @@ def summarize()->dict[str,Any]:
         exp=r.get('engagement_experiment');latest=r.get('latest',{}) or {};views=int(latest.get('views',0) or 0)
         if exp not in EXPERIMENTS or views<=0 or not _engagement_delivered(r):continue
         by.setdefault(exp,[]).append({'comments_rate':_rate(r,'comments'),'shares_rate':_rate(r,'shares'),'views':views})
-    return {exp:{'videos':len(rows),'avg_comment_rate':round(sum(x['comments_rate'] for x in rows)/len(rows),4),'avg_share_rate':round(sum(x['shares_rate'] for x in rows)/len(rows),4),'avg_views':round(sum(x['views'] for x in rows)/len(rows),1)} for exp,rows in by.items()}
+    return {exp:{'videos':len(rows),'avg_comment_rate':round(sum(x['comments_rate'] for x in rows)/len(rows),4),'avg_share_rate':round(sum(x['share_rate'] for x in rows)/len(rows),4) if False else round(sum(x['shares_rate'] for x in rows)/len(rows),4),'avg_views':round(sum(x['views'] for x in rows)/len(rows),1)} for exp,rows in by.items()}

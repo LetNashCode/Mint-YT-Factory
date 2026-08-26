@@ -119,6 +119,8 @@ def post_top_level_comment(video_id, comment, youtube=None):
 def upload_video(video_path,title,description,config,thumbnail_path=None,engagement_comment=None):
     creds=_get_credentials(); youtube=build("youtube","v3",credentials=creds); upload=config["upload"]; hashtags=config["seo"]["hashtags"]
     body=_build_upload_body(title,description,hashtags,upload)
+    config["_last_engagement_comment_posted"]=False
+    config["_last_engagement_comment_id"]=None
     try:
         response=_upload_video_request(youtube,video_path,body)
     except ResumableUploadError as error:
@@ -133,11 +135,11 @@ def upload_video(video_path,title,description,config,thumbnail_path=None,engagem
     if thumbnail_path:
         try: set_thumbnail(video_id,thumbnail_path,youtube)
         except Exception as exc: print(f"⚠️ Custom thumbnail upload failed: {type(exc).__name__}: {exc}")
-    comment_posted=False; comment_id=None
     if engagement_comment:
         try:
             comment_id=post_top_level_comment(video_id, engagement_comment, youtube)
-            comment_posted=bool(comment_id)
+            config["_last_engagement_comment_posted"]=bool(comment_id)
+            config["_last_engagement_comment_id"]=comment_id
         except Exception as exc:
             print(f"⚠️ Engagement comment failed; video upload remains successful: {type(exc).__name__}: {exc}")
-    return {"video_id":video_id,"engagement_comment_posted":comment_posted,"engagement_comment_id":comment_id}
+    return video_id

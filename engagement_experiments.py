@@ -22,13 +22,22 @@ def _records()->list[dict]:
 def _rate(record:dict,metric:str)->float:
     latest=record.get('latest',{}) or {};views=max(1,int(latest.get('views',0) or 0));return float(latest.get(metric,0) or 0)/views*100.0
 
-def _published_experiments()->list[str]:return [str(r.get('engagement_experiment')) for r in _records() if r.get('engagement_experiment') in EXPERIMENTS]
+def _engagement_delivered(record:dict)->bool:
+    """Only count an experiment when its planned creator comment was posted."""
+    value=record.get('engagement_comment_posted')
+    if isinstance(value,bool): return value
+    # Backward compatibility: old records predate the delivery flag.
+    return bool(record.get('engagement_comment','').strip())
+
+def _published_experiments()->list[str]:
+    return [str(r.get('engagement_experiment')) for r in _records()
+            if r.get('engagement_experiment') in EXPERIMENTS and _engagement_delivered(r)]
 
 def _learned_winner()->str|None:
     grouped:dict[str,list[tuple[float,int]]]={}
     for record in _records():
         exp=record.get('engagement_experiment');latest=record.get('latest',{}) or {};views=int(latest.get('views',0) or 0)
-        if exp not in EXPERIMENTS or views<100:continue
+        if exp not in EXPERIMENTS or views<100 or not _engagement_delivered(record):continue
         score=_rate(record,'comments')*.65+_rate(record,'shares')*.35;grouped.setdefault(exp,[]).append((score,views))
     eligible=[]
     for exp,vals in grouped.items():
@@ -66,6 +75,6 @@ def summarize()->dict[str,Any]:
     by:dict[str,list[dict[str,float]]]={}
     for r in _records():
         exp=r.get('engagement_experiment');latest=r.get('latest',{}) or {};views=int(latest.get('views',0) or 0)
-        if exp not in EXPERIMENTS or views<=0:continue
+        if exp not in EXPERIMENTS or views<=0 or not _engagement_delivered(r):continue
         by.setdefault(exp,[]).append({'comments_rate':_rate(r,'comments'),'shares_rate':_rate(r,'shares'),'views':views})
     return {exp:{'videos':len(rows),'avg_comment_rate':round(sum(x['comments_rate'] for x in rows)/len(rows),4),'avg_share_rate':round(sum(x['shares_rate'] for x in rows)/len(rows),4),'avg_views':round(sum(x['views'] for x in rows)/len(rows),1)} for exp,rows in by.items()}

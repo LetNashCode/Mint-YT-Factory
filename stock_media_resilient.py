@@ -39,7 +39,6 @@ def _gemini_key() -> str:
 
 
 def _search_with_retry(provider: str, query: str, video: bool) -> list[dict]:
-    """Retry transient stock-provider failures without aborting the shot."""
     fn = stock.pexels if provider == "Pexels" else stock.pixabay
     for attempt in range(1, SEARCH_ATTEMPTS + 1):
         try:
@@ -179,7 +178,7 @@ Score 0-10. Usable means score >= {VERIFY_THRESHOLD} AND reject=false."""
 
 
 def _verify_resilient(candidates: list[dict], directed: dict) -> list[dict]:
-    """Return multiple verified choices so a download failure can recover."""
+    """Return all verified choices available from progressively smaller batches."""
     if not candidates:
         return []
 
@@ -187,10 +186,14 @@ def _verify_resilient(candidates: list[dict], directed: dict) -> list[dict]:
     seen_pages: set[str] = set()
     last_error: Exception | None = None
 
+    # Verify disjoint batches. This makes the smaller-batch fallback useful
+    # rather than re-verifying the same first candidates repeatedly.
+    offset = 0
     for batch_size in VERIFY_CANDIDATE_BATCHES:
-        batch = [c for c in candidates if c.get("page") not in seen_pages][:batch_size]
+        batch = [c for c in candidates if str(c.get("page", "")) not in seen_pages][offset:offset + batch_size]
         if not batch:
-            continue
+            break
+        offset += len(batch)
         for attempt in range(1, VERIFY_ATTEMPTS + 1):
             try:
                 verified = _verify_once(batch, directed)
@@ -216,7 +219,6 @@ def _verify_resilient(candidates: list[dict], directed: dict) -> list[dict]:
 
 
 def _download_resilient(url: str, path: str, provider: str) -> bool:
-    """Download selected media with retry and cleanup between attempts."""
     for attempt in range(1, DOWNLOAD_ATTEMPTS + 1):
         try:
             response = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=120, stream=True)

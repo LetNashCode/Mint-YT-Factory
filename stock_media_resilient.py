@@ -1,9 +1,15 @@
-"""Failure-resilient stock-media pipeline for Mint-YT-Factory.
+"""Failure-resilient visual media pipeline for Mint-YT-Factory.
 
-Uses only real Pexels/Pixabay media. Gemini directs searches and verifies
-candidate visuals. Gemini failures never become an automatic acceptance of
-unrelated media: the pipeline retries, reduces candidate batches, and moves
-through the configured stock-provider fallbacks before failing the shot.
+Priority:
+1. Verified Pexels video
+2. Verified Pixabay video
+3. Verified Pexels photo
+4. Verified Pixabay photo
+5. Literal Gemini-generated still when stock cannot illustrate the beat
+
+The final fallback is NOT unrelated stock. It is generated directly from the
+locked visual brief and spoken beat, so the pipeline can finish difficult
+subjects such as popcorn kernels, internal mechanisms, and other rare shots.
 """
 from __future__ import annotations
 
@@ -16,6 +22,7 @@ from typing import Any
 import requests
 
 import stock_search as stock
+from ai_image_fallback import generate as generate_ai_image
 
 VERIFY_MODEL = "gemini-flash-lite-latest"
 VERIFY_THRESHOLD = 7.5
@@ -24,7 +31,7 @@ VERIFY_CANDIDATE_BATCHES = (8, 4, 2)
 SEARCH_ATTEMPTS = 3
 DOWNLOAD_ATTEMPTS = 3
 RETRY_BASE_SECONDS = 1.5
-USER_AGENT = "Mint-YT-Factory/StockMedia/9.1"
+USER_AGENT = "Mint-YT-Factory/StockMedia/10.0"
 
 
 def _sleep(attempt: int) -> None:
@@ -63,7 +70,16 @@ def _candidate_pool(directed: dict, provider: str, video: bool, used: set[str]) 
         preview = stock._preview(item, provider, video)
         url = stock._url(item, provider, video)
         if preview and url:
-            candidates.append({"provider": provider, "kind": "video" if video else "photo", "url": url, "page": page, "creator": ((item.get("user") or {}).get("name", "") if provider == "Pexels" else item.get("user", "")), "metadata_score": score, "preview": preview})
+            creator = ((item.get("user") or {}).get("name", "") if provider == "Pexels" else item.get("user", ""))
+            candidates.append({
+                "provider": provider,
+                "kind": "video" if video else "photo",
+                "url": url,
+                "page": page,
+                "creator": creator,
+                "metadata_score": score,
+                "preview": preview,
+            })
     return candidates
 
 
@@ -72,9 +88,8 @@ def _load_preview(url: str) -> bytes | None:
         try:
             response = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=20)
             response.raise_for_status()
-            data = response.content
-            if data:
-                return data
+            if response.content:
+                return response.content
         except Exception as exc:
             if attempt == 3:
                 print(f"      ⚠️ Preview download failed after retries: {type(exc).__name__}")
@@ -98,6 +113,7 @@ def _parse_json(text: str) -> dict:
 def _verify_once(candidates: list[dict], directed: dict) -> list[dict]:
     from google import genai
     from google.genai import types
+
     usable: list[dict] = []
     parts: list[Any] = []
     for candidate in candidates:
@@ -109,6 +125,7 @@ def _verify_once(candidates: list[dict], directed: dict) -> list[dict]:
         usable.append(candidate)
     if not usable:
         return []
+
     prompt = f"""You are the FINAL VISUAL VERIFIER for a YouTube Short.
 Judge ONLY what is actually visible in each candidate.
 
@@ -136,8 +153,13 @@ Rules:
 Return ONLY JSON:
 {{"results":[{{"candidate":1,"score":0,"subject_match":0,"action_match":0,"context_match":0,"reject":true,"reason":"brief reason"}}]}}
 Score 0-10. Usable means score >= {VERIFY_THRESHOLD} AND reject=false."""
+
     client = genai.Client(api_key=_gemini_key())
-    response = client.models.generate_content(model=VERIFY_MODEL, contents=parts + [types.Part.from_text(text=prompt)], config=types.GenerateContentConfig(temperature=0))
+    response = client.models.generate_content(
+        model=VERIFY_MODEL,
+        contents=parts + [types.Part.from_text(text=prompt)],
+        config=types.GenerateContentConfig(temperature=0),
+    )
     payload = _parse_json(getattr(response, "text", "") or "")
     results: list[dict] = []
     for result in payload.get("results", []):
@@ -147,7 +169,13 @@ Score 0-10. Usable means score >= {VERIFY_THRESHOLD} AND reject=false."""
             if not 0 <= index < len(usable) or bool(result.get("reject", True)) or score < VERIFY_THRESHOLD:
                 continue
             item = dict(usable[index])
-            item.update(visual_score=score, visual_subject_match=float(result.get("subject_match", 0) or 0), visual_action_match=float(result.get("action_match", 0) or 0), visual_context_match=float(result.get("context_match", 0) or 0), visual_reason=stock.clean(result.get("reason"), 400))
+            item.update(
+                visual_score=score,
+                visual_subject_match=float(result.get("subject_match", 0) or 0),
+                visual_action_match=float(result.get("action_match", 0) or 0),
+                visual_context_match=float(result.get("context_match", 0) or 0),
+                visual_reason=stock.clean(result.get("reason"), 400),
+            )
             results.append(item)
         except (TypeError, ValueError):
             continue
@@ -218,22 +246,57 @@ def _download_resilient(url: str, path: str, provider: str) -> bool:
     return False
 
 
+def _credit(path: str, chosen: dict, directed: dict) -> None:
+    with open(path, "w", encoding="utf-8") as handle:
+        json.dump({
+            "provider": chosen["provider"],
+            "type": chosen["kind"],
+            "page": chosen.get("page", ""),
+            "creator": chosen.get("creator", ""),
+            "search_queries": directed.get("queries", []),
+            "search_mode": directed.get("search_mode", ""),
+            "metadata_score": chosen.get("metadata_score", 0),
+            "gemini_visual_score": chosen.get("visual_score", 0),
+            "visual_reason": chosen.get("visual_reason", ""),
+        }, handle, ensure_ascii=False, indent=2)
+
+
+def _generate_fallback(directed: dict, output_dir: str, scene_no: int, shot_no: int):
+    path = os.path.join(output_dir, f"scene_{scene_no:02d}_shot_{shot_no:02d}.jpg")
+    print(f"   🧠 Scene {scene_no} Shot {shot_no}: no verified stock match — generating literal Gemini still")
+    if not generate_ai_image(directed, path):
+        raise RuntimeError(
+            f"No usable visually relevant media found for Scene {scene_no} Shot {shot_no}; "
+            "stock exhausted and Gemini image fallback failed."
+        )
+    print(f"   ✅ Scene {scene_no} Shot {shot_no}: GEMINI IMAGE FALLBACK → {os.path.basename(path)}")
+    credit = {
+        "provider": "Gemini",
+        "kind": "generated_image",
+        "page": "",
+        "creator": "Google Gemini",
+        "metadata_score": 10,
+        "visual_score": 10,
+        "visual_reason": "Generated directly from the locked spoken beat and literal visual brief.",
+    }
+    _credit(path + ".credit.json", credit, directed)
+    return (credit, path)
+
+
 def generate_media(script: dict, output_dir: str, config: dict, gim=None):
-    if not os.getenv("PEXELS_API_KEY", "").strip() and not os.getenv("PIXABAY_API_KEY", "").strip():
-        raise RuntimeError("PEXELS_API_KEY or PIXABAY_API_KEY is required.")
+    if not os.getenv("PEXELS_API_KEY", "").strip() and not os.getenv("PIXABAY_API_KEY", "").strip() and not os.getenv("GEMINI_API_KEY", "").strip():
+        raise RuntimeError("PEXELS_API_KEY, PIXABAY_API_KEY, or GEMINI_API_KEY is required.")
     os.makedirs(output_dir, exist_ok=True)
     plan = stock.build_plan(script)
     used: set[str] = set()
     groups: list[list[str]] = []
     print("=" * 80)
-    print("📚 STOCK MEDIA v9.1 — FAILURE-RESILIENT")
-    print("Gemini: search director + strict visual verifier")
-    print("Media: Pexels/Pixabay only — AI image generation DISABLED")
-    print("Fallback order: Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO")
-    print("Gemini failures: RETRY → SMALLER BATCH → NEXT PROVIDER")
-    print("Download failures: RETRY → NEXT VERIFIED CANDIDATE → NEXT PROVIDER")
-    print("Unrelated fallback: DISABLED")
+    print("📚 VISUAL MEDIA v10.0 — VERIFIED STOCK + LITERAL GEMINI FALLBACK")
+    print("Gemini: search director + strict visual verifier + generated-image recovery")
+    print("Priority: Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO → Gemini IMAGE")
+    print("Unrelated stock fallback: DISABLED")
     print("=" * 80)
+
     providers = (("Pexels", True), ("Pixabay", True), ("Pexels", False), ("Pixabay", False))
     for scene_no, shots in enumerate(plan, 1):
         scene_paths: list[str] = []
@@ -264,18 +327,21 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None):
                         selected = (chosen, path)
                         break
                     rejected_pages.add(page)
-                    print(f"   ↪️ Scene {scene_no} Shot {shot_no}: verified asset download failed; trying another verified candidate")
                 if selected:
                     break
                 print(f"   ↪️ Scene {scene_no} Shot {shot_no}: all verified {provider} {'VIDEO' if video else 'PHOTO'} downloads failed")
-            if not selected:
-                raise RuntimeError(f"No usable visually relevant stock asset found for Scene {scene_no} Shot {shot_no}. All available stock providers, verified candidates, and download retries were exhausted; unrelated fallback remains disabled.")
-            chosen, path = selected
-            page = chosen["page"]
-            used.add(page)
-            stock._credit(path + ".credit.json", chosen, directed)
-            scene_paths.append(path)
+
+            if selected:
+                chosen, path = selected
+                page = chosen["page"]
+                used.add(page)
+                _credit(path + ".credit.json", chosen, directed)
+                scene_paths.append(path)
+            else:
+                _, path = _generate_fallback(directed, output_dir, scene_no, shot_no)
+                scene_paths.append(path)
         groups.append(scene_paths)
+
     if len(groups) != 7 or any(len(group) != 2 for group in groups):
-        raise RuntimeError("Stock media contract failed: expected exactly 7 scenes × 2 assets.")
+        raise RuntimeError("Visual media contract failed: expected exactly 7 scenes × 2 assets.")
     return groups

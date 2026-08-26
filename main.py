@@ -40,7 +40,7 @@ def _validate_gemini_scene7(script,canonical):
     bridge=matches[0]
     if _is_canned_bridge(bridge): raise RuntimeError(f"Canned Scene 7 bridge rejected: {bridge}")
     if _normalise_topic_text(sentences[-1])!=_normalise_topic_text(bridge): raise RuntimeError("Next-topic bridge must be the final Scene 7 sentence.")
-    if _word_count(bridge)<3 or _word_count(bridge)>18: raise RuntimeError("Natural Scene 7 bridge has invalid length.")
+    if _word_count(bridge)<8 or _word_count(bridge)>22: raise RuntimeError("Natural Scene 7 bridge has invalid length.")
     return bridge
 
 def _lock_canonical_topic(script,current_topic):
@@ -52,10 +52,25 @@ def _lock_canonical_topic(script,current_topic):
     if _word_count(canonical)>7: canonical=_generate_topic(used)
     script.setdefault("next_short",{})["topic"]=canonical; return canonical
 
+def _install_natural_bridge(script,canonical):
+    """Replace Gemini's unreliable Scene 7 teaser with one deterministic spoken bridge."""
+    scenes=script.get("scene_plan")
+    if not isinstance(scenes,list) or len(scenes)!=7: raise RuntimeError("Script must contain exactly 7 scenes.")
+    final=scenes[-1]; sentences=_split_sentences(final.get("narration","")); key=_normalise_topic_text(canonical)
+    clean_sentences=[s for s in sentences if key not in _normalise_topic_text(s)]
+    if not clean_sentences: clean_sentences=["And that is the weird little trick hiding inside this everyday moment."]
+    topic_spoken=canonical.strip().rstrip("?").lower()
+    if topic_spoken.startswith(("why ","how ","what ","when ","where ")):
+        bridge=f"And that is the fun part: everyday things hide weird little tricks, like {topic_spoken}."
+    else:
+        bridge=f"And that is the fun part: everyday things hide weird little tricks, like why {topic_spoken}."
+    final["narration"]=" ".join(clean_sentences+[bridge])
+    return final["narration"]
+
 def lock_next_topic(script,current_topic):
-    canonical=_lock_canonical_topic(script,current_topic); bridge=_validate_gemini_scene7(script,canonical); script["next_short"]["teaser"]=bridge
+    canonical=_lock_canonical_topic(script,current_topic); _install_natural_bridge(script,canonical); bridge=_validate_gemini_scene7(script,canonical); script["next_short"]["teaser"]=bridge
     final_scene=script["scene_plan"][-1]; final_scene["subtitle_text"]=final_scene.get("narration",""); final_scene["pause_after_ms"]=int(final_scene.get("pause_after_ms",250) or 250); final_scene["emotional_tone"]=final_scene.get("emotional_tone","satisfied"); final_scene["music_cue"]=final_scene.get("music_cue","fade_out")
-    print(f"🔒 Canonical next topic: {canonical}"); print(f"🗣️ GEMINI NATURAL FINAL BRIDGE: {bridge}"); return script,canonical
+    print(f"🔒 Canonical next topic: {canonical}"); print(f"🗣️ NATURAL FINAL BRIDGE: {bridge}"); return script,canonical
 
 def write_continuation_manifest(current_topic,next_topic,status,workdir=""):
     save_json({"status":status,"current_topic":current_topic,"next_topic":next_topic,"workdir":workdir,"updated_at":int(time.time())},CONTINUATION_MANIFEST)
@@ -89,7 +104,7 @@ The final sentence of Scene 7 must contain the exact next_short.topic, but Gemin
         try:
             script=generate_script(topic,config,None,extra_feedback=feedback); candidate=str((script.get("next_short") or {}).get("topic","")).strip()
             if not candidate: raise RuntimeError("Missing next_short.topic")
-            canonical=_lock_canonical_topic(script,topic); _validate_gemini_scene7(script,canonical); return script
+            canonical=_lock_canonical_topic(script,topic); _install_natural_bridge(script,canonical); _validate_gemini_scene7(script,canonical); return script
         except Exception as error:
             last_error=error; print(f"⚠️ Continuation/story validation failed ({attempt}/4): {error}"); feedback+=f"\nPREVIOUS ATTEMPT FAILED: {error}. Rewrite the entire story and make Scene 7's final bridge natural and unique.\n"
     raise RuntimeError(f"Could not generate a valid natural Scene 7 continuation after 4 attempts: {last_error}")

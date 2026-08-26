@@ -39,8 +39,6 @@ content:
     no_generic_facts: true
     no_unrelated_facts: true
 
-# Research is implemented in research.py but is not currently wired into main.run().
-# Keep this explicitly disabled rather than claiming a research-first production gate.
 research:
   enabled: false
   required: false
@@ -50,10 +48,10 @@ scientific_safety:
 
 script:
   language: "English"
-  target_narration_seconds: 45
-  target_duration_seconds: 45
+  target_narration_seconds: 40
+  target_duration_seconds: 40
   minimum_duration_seconds: 35
-  maximum_duration_seconds: 45
+  maximum_duration_seconds: 43.9
   reading_level: "Grade 6-8"
   scenes: 7
   visuals_per_scene: 2
@@ -111,19 +109,22 @@ voice:
     avoid_newsreader_delivery: true
 
 # ACTIVE MEDIA ARCHITECTURE:
-# Gemini creates the visual/search direction; Pexels supplies the actual media.
+# Gemini creates storyboard direction and Pexels search direction; Pexels supplies media.
 # Gemini never receives candidate media for verification.
-visuals:
+media:
   provider: "pexels"
   director: "gemini"
+  search_director: "gemini"
   search_mode: "gemini_directed"
   media_types: ["video", "photo"]
   style: "cinematic real-world storytelling"
   orientation: "portrait"
   width: 2160
   height: 3840
-  images_per_scene: 2
-  total_images: 14
+  assets_per_scene: 2
+  total_assets: 14
+  gemini_candidate_verification: false
+  alternate_provider: false
   rules:
     visuals_must_advance_story: true
     visuals_must_support_narration: true
@@ -141,6 +142,7 @@ visuals:
     preserve_environment: true
     preserve_character_appearance: true
 
+# Compatibility alias for older modules; production uses media above.
 image:
   provider: "pexels"
   director: "gemini"
@@ -162,7 +164,7 @@ video:
   audio_bitrate: "384k"
   pixel_format: "yuv420p"
   color_space: "bt709"
-  target_duration_seconds: 45
+  target_duration_seconds: 40
   motion:
     enabled: true
     storyboard_controlled: true
@@ -183,7 +185,7 @@ video:
     enabled: true
     volume: 0.08
   sound_effects:
-    enabled: false
+    enabled: true
     volume: 0.55
   music_volume: 0.08
   sfx_volume: 0.55
@@ -237,11 +239,23 @@ retention:
   avoid_repetition: true
   every_scene_must_advance_story: true
 
+engagement:
+  enabled: true
+  sequential_experiments: true
+  automatic_creator_comment: true
+  pin_comment: manual
+  learn_from_comments: true
+  learn_from_shares: true
+  learn_from_retention: true
+  learn_from_subscribers: true
+
 validation:
   enabled: true
   script:
     scene_count: 7
-    duration_seconds: 45
+    duration_seconds: 40
+    minimum_duration_seconds: 35
+    maximum_duration_seconds: 43.9
     visuals_per_scene: 2
     total_visuals: 14
     captions_match_narration: true

@@ -1,12 +1,4 @@
-"""Small production runtime overrides that remain provider-agnostic.
-
-Visual generation is no longer patched here. The active media architecture is
-implemented directly in pexels_media.py:
-    Gemini Visual/Search Director -> Pexels -> deterministic metadata selection.
-
-This module only keeps the continuation and TTS compatibility fixes that are
-independent of the media provider.
-"""
+"""Production runtime compatibility and continuation hardening."""
 from __future__ import annotations
 
 import re
@@ -46,32 +38,55 @@ def _split_sentences(text: str) -> list[str]:
     return [x.strip() for x in re.split(r"(?<=[.!?])\s+", _clean(text)) if x.strip()]
 
 
+# These phrases are strong signals that the writer has leaked a rejected
+# continuation/topic candidate into the current Short's payoff.
+STALE_TEASER_PATTERNS = (
+    r"\bfind out (?:what|why|how)\b",
+    r"\bthat brings us to\b",
+    r"\bthat leaves one\b",
+    r"\bwhich raises\b",
+    r"\bwhich brings up\b",
+    r"\bone bigger question\b",
+    r"\banother question\b",
+    r"\bone more question\b",
+    r"\bone more thing to wonder\b",
+    r"\bspeaking of\b",
+    r"\bon a related note\b",
+    r"\bcoming next\b",
+    r"\bnext video\b",
+    r"\bnext short\b",
+    r"\bnext topic\b",
+    r"\bstay tuned\b",
+    r"\bpart 2\b",
+    r"\bhiding inside that ordinary\b",
+)
+
+
 def _remove_stale_teaser(text: str, canonical: str) -> str:
-    noise = re.compile(
-        r"\b(?:speaking of|on a related note|that brings us to|that leaves one|"
-        r"which raises|which brings up|one bigger question|another question|"
-        r"one more thing to wonder about|next video|next short|next topic|"
-        r"coming next|stay tuned|part 2|and next|next:)\b", re.I
-    )
     canonical_key = _topic_key(canonical)
-    kept = []
+    kept: list[str] = []
     for sentence in _split_sentences(text):
         normalized = _topic_key(sentence)
         if canonical_key and canonical_key in normalized:
             continue
-        if noise.search(sentence):
+        if any(re.search(pattern, sentence, flags=re.I) for pattern in STALE_TEASER_PATTERNS):
+            print(f"🧹 Removed stale/rejected continuation from Scene 7: {sentence}")
             continue
         kept.append(sentence)
-    return " ".join(kept).strip()
+    cleaned = " ".join(kept).strip()
+    # Prevent malformed writer fragments such as "And." from becoming spoken text.
+    cleaned = re.sub(r"(?:^|\s)And\.\s*$", ".", cleaned, flags=re.I).strip()
+    cleaned = re.sub(r"\s+And\.\s+", ". ", cleaned, flags=re.I)
+    return cleaned
 
 
-def _clean_payoff(text: str, max_words: int = 14) -> str:
+def _clean_payoff(text: str, max_words: int = 24) -> str:
     sentences = _split_sentences(text)
     candidates = []
     for sentence in sentences:
-        if len(_words(sentence)) > max_words:
+        if any(re.search(pattern, sentence, flags=re.I) for pattern in STALE_TEASER_PATTERNS):
             continue
-        if sentence.endswith((".", "!", "?")):
+        if sentence.endswith((".", "!", "?")) and len(_words(sentence)) <= max_words:
             candidates.append(sentence)
     if candidates:
         return candidates[-1].rstrip(".!? ") + "."
@@ -84,7 +99,7 @@ def _build_teaser(topic: str) -> str:
 
 
 def patch_continuation(main):
-    """Keep exactly one canonical next topic in Scene 7."""
+    """Keep exactly one canonical next topic and prevent rejected topics leaking into Scene 7."""
     def lock_next_topic(script, current_topic):
         from topics import _PENDING_PREFIX, _generate_topic, _read_used, validate_topic_for_pipeline
 
@@ -107,8 +122,11 @@ def patch_continuation(main):
         scenes = script.get("scene_plan")
         if not isinstance(scenes, list) or len(scenes) != 7:
             raise RuntimeError("Script must contain exactly 7 scenes.")
+
         final = scenes[-1]
-        payoff = _clean_payoff(_remove_stale_teaser(final.get("narration", ""), canonical))
+        original_final = _clean(final.get("narration", ""))
+        payoff_source = _remove_stale_teaser(original_final, canonical)
+        payoff = _clean_payoff(payoff_source)
         final["narration"] = f"{payoff} {_build_teaser(canonical)}"
         final["subtitle_text"] = final["narration"]
         final["pause_after_ms"] = 150
@@ -122,6 +140,12 @@ def patch_continuation(main):
             raise RuntimeError("Canonical next topic was not inserted into Scene 7.")
         if any(key in _topic_key(scene.get("narration", "")) for scene in scenes[:6]):
             raise RuntimeError("Next topic appeared before Scene 7.")
+
+        # Final hard contamination check: Scene 1–6 must never mention a future
+        # topic marker, and Scene 7 must contain exactly the canonical teaser.
+        teaser = _build_teaser(canonical)
+        if final["narration"].count(teaser) != 1:
+            raise RuntimeError("Scene 7 does not contain exactly one canonical continuation teaser.")
         print(f"🔒 Canonical next topic: {canonical}")
         print(f"🗣️ FINAL SPOKEN TEASE: {final['narration']}")
         return script, canonical

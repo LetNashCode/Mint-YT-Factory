@@ -96,7 +96,25 @@ def set_thumbnail(video_id, thumbnail_path, youtube=None):
     return True
 
 
-def upload_video(video_path,title,description,config,thumbnail_path=None):
+def post_top_level_comment(video_id, comment, youtube=None):
+    """Post a topic-specific top-level engagement comment.
+
+    YouTube Data API does not expose a supported pin-comment endpoint, so this
+    intentionally creates the comment only and reports that pinning is manual.
+    """
+    text = _sanitize_youtube_text(comment, max_bytes=10000)
+    if not text: return False
+    youtube = youtube or build("youtube","v3",credentials=_get_credentials())
+    body={"snippet":{"videoId":video_id,"topLevelComment":{"snippet":{"textOriginal":text}}}}
+    response=youtube.commentThreads().insert(part="snippet",body=body).execute()
+    comment_id=((response.get("snippet") or {}).get("topLevelComment") or {}).get("id") or response.get("id")
+    print("💬 Engagement comment posted")
+    print(f"   Comment ID: {comment_id or 'unknown'}")
+    print("📌 Pinning: manual (YouTube Data API has no supported pin endpoint)")
+    return True
+
+
+def upload_video(video_path,title,description,config,thumbnail_path=None,engagement_comment=None):
     creds=_get_credentials(); youtube=build("youtube","v3",credentials=creds); upload=config["upload"]; hashtags=config["seo"]["hashtags"]
     body=_build_upload_body(title,description,hashtags,upload)
     try:
@@ -113,4 +131,7 @@ def upload_video(video_path,title,description,config,thumbnail_path=None):
     if thumbnail_path:
         try: set_thumbnail(video_id,thumbnail_path,youtube)
         except Exception as exc: print(f"⚠️ Custom thumbnail upload failed: {type(exc).__name__}: {exc}")
+    if engagement_comment:
+        try: post_top_level_comment(video_id, engagement_comment, youtube)
+        except Exception as exc: print(f"⚠️ Engagement comment failed; video upload remains successful: {type(exc).__name__}: {exc}")
     return video_id

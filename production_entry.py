@@ -22,13 +22,47 @@ MAX_NARRATION_SECONDS = 43.90
 MAX_SHORT_TTS_REGEN = 2
 
 
-def _patch_tts_duration(main):
-    """Keep narration inside the production duration window.
+def _patch_script_model_resilience(main):
+    """Use a stable Gemini model and fail over on transient 503/high-demand errors."""
+    original = main.generate_script
+    if getattr(original, "_mint_model_resilient", False):
+        return
 
-    If TTS is outside the target range, regenerate the story while preserving
-    the already-locked continuation topic. This is a production guard only;
-    it does not own media generation or continuation selection.
-    """
+    # generate_script is a function imported from generate_script.entertainment;
+    # changing its globals changes the model used by that implementation without
+    # replacing its prompts, schemas, normalization or validation.
+    globals_dict = getattr(original, "__globals__", {})
+    primary = "gemini-3.5-flash-lite"
+    fallback = "gemini-2.5-flash-lite"
+    globals_dict["MODEL_NAME"] = primary
+
+    def resilient(topic, config, research=None, extra_feedback=""):
+        last = None
+        for model in (primary, fallback):
+            globals_dict["MODEL_NAME"] = model
+            try:
+                print(f"🧠 Script model: {model}")
+                return original(topic, config, research, extra_feedback=extra_feedback)
+            except Exception as exc:
+                last = exc
+                text = str(exc).lower()
+                transient = (
+                    "503" in text or "unavailable" in text or "high demand" in text
+                    or "serviceunavailable" in text or "resource_exhausted" in text
+                )
+                if not transient or model == fallback:
+                    raise
+                print(f"⚠️ Gemini script model unavailable ({model}); failing over to {fallback}")
+
+        raise last or RuntimeError("Gemini script generation failed.")
+
+    resilient._mint_model_resilient = True
+    main.generate_script = resilient
+    print(f"🛡️ Script Gemini resilience: {primary} → {fallback} on transient availability failures")
+
+
+def _patch_tts_duration(main):
+    """Keep narration inside the production duration window."""
     from moviepy.editor import AudioFileClip
 
     original = main.synthesize_script
@@ -124,21 +158,13 @@ def _patch_assemble_video_media():
             return original(path, frame_size)
 
         width, height = frame_size
-        print(
-            "🎞️ Assembler: verified stock VIDEO asset → VideoFileClip: "
-            f"{os.path.basename(str(path))}"
-        )
+        print("🎞️ Assembler: verified stock VIDEO asset → VideoFileClip: " + os.path.basename(str(path)))
         clip = VideoFileClip(path, audio=False)
         scale = max(width / clip.w, height / clip.h)
         clip = clip.resize(scale)
         crop_x = max(0, int((clip.w - width) / 2))
         crop_y = max(0, int((clip.h - height) / 2))
-        clip = clip.crop(
-            x1=crop_x,
-            y1=crop_y,
-            x2=crop_x + width,
-            y2=crop_y + height,
-        )
+        clip = clip.crop(x1=crop_x, y1=crop_y, x2=crop_x + width, y2=crop_y + height)
         return clip.fx(vfx.loop, duration=10.0)
 
     make_media_clip._mint_media_v3 = True
@@ -153,6 +179,7 @@ def main_entry():
     patch_tts_result(main)
     patch_story_quality(main)
     patch_story_generation(main)
+    _patch_script_model_resilience(main)
     _patch_tts_duration(main)
     _patch_assemble_video_media()
 
@@ -176,7 +203,6 @@ def main_entry():
     print("=" * 80)
 
     main.run(dry_run=False)
-
 
 if __name__ == "__main__":
     main_entry()

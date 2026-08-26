@@ -1,6 +1,6 @@
 # Mint-YT-Factory
 
-Automated production pipeline for research-backed YouTube Shorts.
+Automated production pipeline for entertaining YouTube Shorts.
 
 ## Channel format
 
@@ -14,35 +14,47 @@ Examples:
 - Why does your phone get hot while charging
 - Why does a mirror seem to reverse left and right
 
-Science is the explanation, not the packaging. Topics must be simple, relatable, visual, and genuinely researchable.
+Science is the explanation, not the packaging. Topics must be simple, relatable, visual, and genuinely explainable.
 
-## Production pipeline
+## Active production pipeline
 
 ```text
 Everyday topic
       ↓
-Verified scientific research
+Gemini entertainment writer
       ↓
-Research-backed story script
+Gemini visual director
       ↓
-Claim verification + publishing safety gate
+Locked 7-scene story / 14 visual beats
+      ↓
+Gemini Visual/Search Director
+      ↓
+Pexels video → Pexels photo fallback
+      ↓
+Deterministic metadata selection
       ↓
 TikTok TTS narration
       ↓
-14 AI-generated visuals
-      ↓
-Whisper word timing + narration-aware caption repair
+Whisper word timing + narration-aware captions
       ↓
 MoviePy assembly
       ↓
-YouTube upload
+Final validation
+      ↓
+YouTube upload + engagement experiment
 ```
 
-## Research safety
+### Media rules
 
-The pipeline does not publish merely because an LLM says a claim is true. Research discovery, source relevance, evidence retrieval, DOI verification, claim verification, and the final publishing gate remain separate checks.
+- Pexels is the **only production media provider**.
+- Gemini is used as the **Visual/Search Director**, not as a candidate-media verifier.
+- Candidate Pexels images/videos are **never uploaded to Gemini for visual verification**.
+- AI image generation is disabled in production.
+- Unrelated-media fallback is forbidden; if no relevant Pexels asset can be found, production stops.
+- Each Short requires exactly **7 scenes × 2 assets = 14 assets**.
+- Scene 2 shots must advance the same story rather than repeat the first shot.
 
-Everyday wording is translated internally into scientific vocabulary for scholarly discovery. That vocabulary is never used as public narration.
+The active implementation is in `pexels_media.py` and is installed by `production_entry.py`.
 
 ## Script goals
 
@@ -51,15 +63,28 @@ Everyday wording is translated internally into scientific vocabulary for scholar
 - Simple spoken English
 - Quirky, entertaining narration
 - Clear visual progression
-- A satisfying explanation without unnecessary jargon
-- Strong ending/open loop
-- Current-topic identity checks
-- Next-topic continuation checks
-- Public description describes only the current Short
+- Satisfying payoff
+- No unnecessary scientific jargon
+- Scene 7 resolves the current story before the locked continuation teaser
+- The YouTube description describes **only the current Short**
 
-## Captions
+## Captions and video quality
 
-Whisper provides timing, but the verified narration saved for the run is the authoritative wording. The caption layer also enforces a minimum separation between words so overlapping text cannot visually merge into malformed strings.
+Whisper provides word timing and the verified narration remains the source of truth. The caption layer uses a safe on-screen lane and one timed word at a time so captions do not merge into malformed strings.
+
+Production output is portrait 2160×3840 at 60 FPS with H.264 encoding, 68 Mbps video bitrate and 384 kbps AAC audio.
+
+## Research status
+
+The repository contains a research/claim-verification subsystem, but the current production entrypoint does **not** run that subsystem before script generation. `config.yaml` therefore keeps research explicitly disabled rather than falsely advertising a research-first production gate.
+
+If research-first publishing is re-enabled later, it should be wired into `main.run()` and made a hard pre-script/pre-publish gate rather than only changing a configuration flag.
+
+## Self-learning
+
+The factory refreshes YouTube analytics and maintains a learning playbook. It uses a 70% proven-pattern / 20% adjacent-experiment / 10% wild-experiment strategy, while protecting against duplicate and near-duplicate topics.
+
+Engagement experiments are sequential and are counted only when the planned creator comment is confirmed as delivered.
 
 ## Project structure
 
@@ -67,49 +92,48 @@ Whisper provides timing, but the verified narration saved for the run is the aut
 .
 ├── .github/workflows/publish.yml
 ├── assets/
-│   ├── Fonts/Poppins-ExtraBold.ttf
-│   └── music/
+├── analytics/
 ├── assemble.py
 ├── config.yaml
-├── generate_images.py
+├── generate_images.py          # compatibility wrapper → pexels_media.py
 ├── generate_script.py
-├── generate_script/__init__.py
 ├── main.py
 ├── music.py
+├── pexels_media.py
+├── production_entry.py
+├── quality_overrides.py
 ├── research.py
-├── research/__init__.py
+├── research/
+├── runtime_overrides.py
+├── sitecustomize.py
 ├── topics.py
-├── topics/__init__.py
 ├── tts.py
 ├── upload_youtube.py
 ├── used_topics.json
-├── verify_claims.py
-├── whisper_align.py
-├── requirements.txt
-└── README.md
+├── validate_video.py
+└── requirements.txt
 ```
 
 ## GitHub Actions
 
-There is intentionally **one production workflow**:
+There is one production workflow:
 
 `.github/workflows/publish.yml`
 
-It installs the required system/Python dependencies, verifies the runtime, runs `main.py`, and publishes the completed Short.
-
-The old one-time FFmpeg/bootstrap workflows are not part of the production system.
+It installs the required dependencies, verifies the runtime, runs `production_entry.py`, uploads the finished Short, and safely synchronizes topic state.
 
 ## Required secrets
 
 ```text
 GEMINI_API_KEY
+PEXELS_API_KEY
 YOUTUBE_TOKEN_JSON
 ```
 
 ## Run locally
 
 ```bash
-python main.py
+python production_entry.py
 ```
 
-The same production pipeline is used locally and by GitHub Actions.
+The same production entrypoint is used by GitHub Actions.

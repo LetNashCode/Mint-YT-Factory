@@ -2,11 +2,11 @@
 
 ACTIVE MEDIA ARCHITECTURE
 --------------------------
-Gemini Visual/Search Director -> Pexels search -> deterministic metadata
-selection -> Pexels asset -> assembly.
+Gemini Visual/Search Director -> Pexels VIDEO -> Pixabay VIDEO fallback ->
+Pexels PHOTO -> Pixabay PHOTO -> assembly.
 
-Gemini never receives candidate media for verification. Pollinations/FLUX is
-not part of the production path.
+Gemini never receives candidate media for verification and never generates
+visuals. Pixabay is a stock-media fallback only; there is no AI visual fallback.
 """
 from __future__ import annotations
 
@@ -98,7 +98,7 @@ def _patch_assemble_video_media():
         if os.path.splitext(str(path))[1].lower() not in video_ext:
             return original(path, frame_size)
         width, height = frame_size
-        print(f"🎞️ Assembler: Pexels VIDEO asset → VideoFileClip: {os.path.basename(str(path))}")
+        print(f"🎞️ Assembler: stock VIDEO asset → VideoFileClip: {os.path.basename(str(path))}")
         clip = VideoFileClip(path, audio=False)
         scale = max(width / clip.w, height / clip.h)
         clip = clip.resize(scale)
@@ -109,15 +109,16 @@ def _patch_assemble_video_media():
 
     make_media_clip._mint_media_v3 = True
     assemble.make_image_clip = make_media_clip
-    print("🛡️ Assembly media compatibility: Pexels MP4 → VideoFileClip + safe loop")
+    print("🛡️ Assembly media compatibility: stock MP4 → VideoFileClip + safe loop")
 
 
 def _install_media_pipeline(main):
-    import pexels_media
-    main.generate_images = pexels_media.generate_media
-    print("🎯 Media pipeline: Gemini Visual/Search Director → Pexels → metadata selection")
+    import stock_media
+    main.generate_images = stock_media.generate_media
+    print("🎯 Media pipeline: Gemini Visual/Search Director → Pexels → Pixabay stock fallback")
     print("🚫 Gemini visual verification: DISABLED")
     print("🚫 Candidate media sent to Gemini: DISABLED")
+    print("🚫 AI image generation: DISABLED")
     print("🚫 Pollinations/FLUX: DISABLED")
 
 
@@ -136,15 +137,15 @@ def main_entry():
     print("🚀 MINT-YT-FACTORY STARTED")
     print("=" * 80)
     print("Script: entertainment-first + hard coherence gate + low-jargon contract")
-    print("Visual director: Gemini")
-    print("Media provider: Pexels ONLY")
-    print("Media selection: Gemini-directed Pexels search + deterministic metadata ranking")
+    print("Visual/Search Director: Gemini")
+    print("Media priority: Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO")
     print("Visual verification: DISABLED")
     print("AI image generation: DISABLED")
     print("Pollinations/FLUX: DISABLED")
-    print("Fallback: NO unrelated visual fallback")
+    print("Fallback: stock provider fallback only; no unrelated or AI visual fallback")
     print("Continuation: one locked next topic, final sentence only")
     print("Pexels API key:", "AVAILABLE" if os.environ.get("PEXELS_API_KEY") else "NOT CONFIGURED")
+    print("Pixabay API key:", "AVAILABLE" if os.environ.get("PIXABAY_API_KEY") else "NOT CONFIGURED")
     print("Gemini API key:", "AVAILABLE" if os.environ.get("GEMINI_API_KEY") else "NOT CONFIGURED")
     print("Story: TTS-authoritative 35-43.9 seconds")
     print("Captions: Whisper word timing → deterministic fallback if Whisper fails")

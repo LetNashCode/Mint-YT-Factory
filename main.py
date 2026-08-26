@@ -25,20 +25,23 @@ def save_json(data,path):
     if directory: os.makedirs(directory,exist_ok=True)
     with open(path,"w",encoding="utf-8") as handle: json.dump(data,handle,indent=2,ensure_ascii=False)
 
-def _normalise_topic_text(value): return re.sub(r"[^a-z0-9]+"," ",str(value or "").lower()).strip()
+def _normalise_topic_text(value): return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
 def _word_count(value): return len(re.findall(r"\b[\w'-]+\b",str(value or "")))
 def _split_sentences(text): return [p.strip() for p in re.split(r"(?<=[.!?])\s+",str(text or "").strip()) if p.strip()]
-_BANNED_BRIDGE_PATTERNS=(r"^(?:and\s+)?next\b",r"^then\s+comes\b",r"^coming\s+next\b",r"^in\s+the\s+next\s+(?:video|short)\b",r"^stay\s+tuned\b",r"^part\s+2\b",r"^have\s+you\s+ever\s+wondered\b",r"^ever\s+wondered\b",r"^wonder\s+why\b",r"^curious\s+(?:why|how|what)\b",r"^why\s+(?:do|does|is|are)\b",r"^how\s+(?:do|does|is|are)\b",r"^what\s+(?:makes|happens|causes)\b")
+_BANNED_BRIDGE_PATTERNS=(r"^(?:and\s+)?next\b",r"^then\s+comes\b",r"^coming\s+next\b",r"^up\s+next\b",r"^stay\s+tuned\b",r"^part\s+2\b",r"^have\s+you\s+ever\s+wondered\b",r"^ever\s+wondered\b",r"^wonder\s+why\b",r"^curious\s+(?:why|how|what)\b",r"^why\s+(?:do|does|is|are)\b",r"^how\s+(?:do|does|is|are)\b",r"^what\s+(?:makes|happens|causes)\b")
+
 def _is_canned_bridge(sentence): return any(re.search(pattern,str(sentence or "").strip(),re.I) for pattern in _BANNED_BRIDGE_PATTERNS)
 
-def _validate_gemini_scene7(script,canonical):
-    """Validate the final continuation AFTER our deterministic bridge is installed.
+def _is_future_teaser(sentence):
+    text=_normalise_topic_text(sentence)
+    if not text: return False
+    if re.search(r"\bnext\s+(?:video|short|episode|topic|one)\b",text): return True
+    if "next" in text and re.search(r"\b(?:why|how|what)\b",text): return True
+    if re.search(r"\bwatch\s+what\s+happens\s+when\b",text) and "next" in text: return True
+    if re.search(r"\b(?:coming|up)\s+next\b",text): return True
+    return False
 
-    Gemini is never trusted to author the bridge. The only things we require here are:
-    exact topic in the final sentence, nowhere in Scenes 1-6, one occurrence, and a
-    compact spoken sentence. This prevents a malformed Gemini teaser from burning
-    through four expensive script retries.
-    """
+def _validate_gemini_scene7(script,canonical):
     scenes=script.get("scene_plan")
     if not isinstance(scenes,list) or len(scenes)!=7: raise RuntimeError("Script must contain exactly 7 scenes.")
     key=_normalise_topic_text(canonical)
@@ -53,7 +56,7 @@ def _validate_gemini_scene7(script,canonical):
     if occurrence != 1: raise RuntimeError("Locked next topic must occur exactly once in Scene 7.")
     if _is_canned_bridge(final_sentence): raise RuntimeError(f"Canned Scene 7 bridge rejected: {final_sentence}")
     count=_word_count(final_sentence)
-    if count < 7 or count > 22: raise RuntimeError(f"Natural Scene 7 bridge has invalid length: {count} words")
+    if count < 7 or count > 24: raise RuntimeError(f"Natural Scene 7 bridge has invalid length: {count} words")
     return final_sentence
 
 def _lock_canonical_topic(script,current_topic):
@@ -67,20 +70,30 @@ def _lock_canonical_topic(script,current_topic):
     return canonical
 
 def _install_natural_bridge(script,canonical):
-    """Remove Gemini's attempted next-topic sentence and install ONE short bridge."""
+    """Strip Gemini's entire attempted teaser and install exactly one controlled bridge."""
     scenes=script.get("scene_plan")
     if not isinstance(scenes,list) or len(scenes)!=7: raise RuntimeError("Script must contain exactly 7 scenes.")
     final=scenes[-1]
     sentences=_split_sentences(final.get("narration",""))
     key=_normalise_topic_text(canonical)
-    # Remove every Gemini sentence that already contains the locked topic. This prevents
-    # duplicate mentions and prevents malformed constructions such as "when Why ...".
-    clean_sentences=[s for s in sentences if key not in _normalise_topic_text(s)]
+    clean_sentences=[]
+    removed=[]
+    for sentence in sentences:
+        normalized=_normalise_topic_text(sentence)
+        # Remove the canonical topic if Gemini already inserted it, and remove any
+        # obvious future-topic teaser even when it names a DIFFERENT topic.
+        if key in normalized or _is_future_teaser(sentence):
+            removed.append(sentence)
+            continue
+        clean_sentences.append(sentence)
+    if removed:
+        print(f"🧹 Removed Gemini Scene 7 teaser sentence(s): {len(removed)}")
     if not clean_sentences:
         clean_sentences=["And that is the weird little trick hiding inside this everyday moment."]
     topic_spoken=canonical.strip().rstrip("?.!").lower()
-    # Keep the topic's own grammatical form. If it is already a question, don't add a second "why".
-    bridge=f"And that little trick is hiding in plain sight: {topic_spoken}."
+    # Deliberately say the next topic once, in a natural handoff. Never ask the
+    # audience to wait for a future video and never let Gemini author this sentence.
+    bridge=f"Our next everyday mystery is {topic_spoken}."
     final["narration"]=" ".join(clean_sentences+[bridge])
     return bridge
 
@@ -95,7 +108,7 @@ def lock_next_topic(script,current_topic):
     final_scene["emotional_tone"]=final_scene.get("emotional_tone","satisfied")
     final_scene["music_cue"]=final_scene.get("music_cue","fade_out")
     print(f"🔒 Canonical next topic: {canonical}")
-    print(f"🗣️ NATURAL FINAL BRIDGE: {bridge}")
+    print(f"🗣️ CONTROLLED FINAL BRIDGE: {bridge}")
     return script,canonical
 
 def write_continuation_manifest(current_topic,next_topic,status,workdir=""):
@@ -125,7 +138,7 @@ def refresh_learning_before_generation():
 def _generate_valid_script(topic,config,learning_context,engagement_feedback):
     feedback=learning_context+engagement_feedback+"""
 CONTINUATION HARD REQUIREMENT:
-Return a valid 7-scene story and a candidate next_short.topic. Do NOT try to write a next-topic teaser in Scene 7; the production pipeline will add the final bridge itself. Do not mention the candidate next topic anywhere in Scenes 1-6, title, or description. Scene 7 must finish the current topic's payoff naturally.
+Return a valid 7-scene story and a candidate next_short.topic. Do NOT write ANY next-topic teaser or future-video sentence in Scene 7. Do not mention the candidate next topic anywhere in Scenes 1-6, title, or description. Scene 7 must finish the current topic's payoff naturally. The production pipeline will strip any accidental future teaser and install the only allowed final handoff.
 """
     last_error=None
     for attempt in range(1,5):

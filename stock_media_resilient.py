@@ -24,7 +24,7 @@ VERIFY_CANDIDATE_BATCHES = (8, 4, 2)
 SEARCH_ATTEMPTS = 3
 DOWNLOAD_ATTEMPTS = 3
 RETRY_BASE_SECONDS = 1.5
-USER_AGENT = "Mint-YT-Factory/StockMedia/9.0"
+USER_AGENT = "Mint-YT-Factory/StockMedia/9.1"
 
 
 def _sleep(attempt: int) -> None:
@@ -178,22 +178,29 @@ Score 0-10. Usable means score >= {VERIFY_THRESHOLD} AND reject=false."""
     return results
 
 
-def _verify_resilient(candidates: list[dict], directed: dict) -> dict | None:
-    """Retry Gemini and progressively shrink the batch to isolate bad requests."""
+def _verify_resilient(candidates: list[dict], directed: dict) -> list[dict]:
+    """Return multiple verified choices so a download failure can recover."""
     if not candidates:
-        return None
+        return []
 
+    all_verified: list[dict] = []
+    seen_pages: set[str] = set()
     last_error: Exception | None = None
+
     for batch_size in VERIFY_CANDIDATE_BATCHES:
-        batch = candidates[:batch_size]
+        batch = [c for c in candidates if c.get("page") not in seen_pages][:batch_size]
+        if not batch:
+            continue
         for attempt in range(1, VERIFY_ATTEMPTS + 1):
             try:
                 verified = _verify_once(batch, directed)
                 if verified:
-                    return verified[0]
-                # A successful Gemini call with no acceptable candidate is a
-                # content rejection, not a transport failure. Let the next
-                # provider try rather than repeatedly spending Gemini calls.
+                    for item in verified:
+                        page = str(item.get("page", ""))
+                        if page and page not in seen_pages:
+                            seen_pages.add(page)
+                            all_verified.append(item)
+                    break
                 print(f"      ℹ️ Gemini verified batch of {len(batch)} candidates: no acceptable visual")
                 break
             except Exception as exc:
@@ -201,12 +208,11 @@ def _verify_resilient(candidates: list[dict], directed: dict) -> dict | None:
                 print(f"      ⚠️ Gemini verification batch={len(batch)} attempt={attempt}/{VERIFY_ATTEMPTS}: {type(exc).__name__}")
                 if attempt < VERIFY_ATTEMPTS:
                     _sleep(attempt)
-        if len(batch) < len(candidates):
-            print(f"      ↘️ Reducing Gemini verification batch from {len(batch)} to {max(1, batch_size // 2)}")
 
-    if last_error:
+    if last_error and not all_verified:
         print(f"      ⚠️ Gemini verifier unavailable for this shot after retries: {type(last_error).__name__}")
-    return None
+    all_verified.sort(key=lambda item: item.get("visual_score", 0), reverse=True)
+    return all_verified
 
 
 def _download_resilient(url: str, path: str, provider: str) -> bool:
@@ -245,11 +251,12 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None):
     groups: list[list[str]] = []
 
     print("=" * 80)
-    print("📚 STOCK MEDIA v9.0 — FAILURE-RESILIENT")
+    print("📚 STOCK MEDIA v9.1 — FAILURE-RESILIENT")
     print("Gemini: search director + strict visual verifier")
     print("Media: Pexels/Pixabay only — AI image generation DISABLED")
     print("Fallback order: Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO")
     print("Gemini failures: RETRY → SMALLER BATCH → NEXT PROVIDER")
+    print("Download failures: RETRY → NEXT VERIFIED CANDIDATE → NEXT PROVIDER")
     print("Unrelated fallback: DISABLED")
     print("=" * 80)
 
@@ -259,42 +266,51 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None):
         scene_paths: list[str] = []
         for shot_no, directed in enumerate(shots, 1):
             selected = None
+            rejected_pages: set[str] = set()
+
             for provider, video in providers:
                 if provider == "Pexels" and not os.getenv("PEXELS_API_KEY", "").strip():
                     continue
                 if provider == "Pixabay" and not os.getenv("PIXABAY_API_KEY", "").strip():
                     continue
 
-                candidates = _candidate_pool(directed, provider, video, used)
+                candidates = _candidate_pool(directed, provider, video, used | rejected_pages)
                 if not candidates:
                     print(f"   ↪️ Scene {scene_no} Shot {shot_no}: {provider} {'VIDEO' if video else 'PHOTO'} — no candidates")
                     continue
 
-                chosen = _verify_resilient(candidates, directed)
-                if chosen:
-                    selected = chosen
-                    print(f"   ✅ Scene {scene_no} Shot {shot_no}: {provider} {chosen['kind']} VERIFIED {chosen['visual_score']:.1f}/10")
+                verified = _verify_resilient(candidates, directed)
+                if not verified:
+                    print(f"   ↪️ Scene {scene_no} Shot {shot_no}: {provider} {'VIDEO' if video else 'PHOTO'} — no verified match")
+                    continue
+
+                for chosen in verified:
+                    page = str(chosen.get("page", ""))
+                    if not page or page in rejected_pages or page in used:
+                        continue
+                    ext = "mp4" if chosen["kind"] == "video" else "jpg"
+                    path = os.path.join(output_dir, f"scene_{scene_no:02d}_shot_{shot_no:02d}.{ext}")
+                    print(f"   🎯 Scene {scene_no} Shot {shot_no}: trying verified {provider} {chosen['kind']} {chosen['visual_score']:.1f}/10")
+                    if _download_resilient(chosen["url"], path, chosen["provider"]):
+                        selected = (chosen, path)
+                        break
+                    rejected_pages.add(page)
+                    print(f"   ↪️ Scene {scene_no} Shot {shot_no}: verified asset download failed; trying another verified candidate")
+
+                if selected:
                     break
-                print(f"   ↪️ Scene {scene_no} Shot {shot_no}: {provider} {'VIDEO' if video else 'PHOTO'} — no verified match")
+                print(f"   ↪️ Scene {scene_no} Shot {shot_no}: all verified {provider} {'VIDEO' if video else 'PHOTO'} downloads failed")
 
             if not selected:
                 raise RuntimeError(
-                    f"No visually relevant stock asset found for Scene {scene_no} Shot {shot_no}. "
-                    "All available stock providers and Gemini verification paths were exhausted; unrelated fallback remains disabled."
+                    f"No usable visually relevant stock asset found for Scene {scene_no} Shot {shot_no}. "
+                    "All available stock providers, verified candidates, and download retries were exhausted; unrelated fallback remains disabled."
                 )
 
-            page = selected["page"]
+            chosen, path = selected
+            page = chosen["page"]
             used.add(page)
-            ext = "mp4" if selected["kind"] == "video" else "jpg"
-            path = os.path.join(output_dir, f"scene_{scene_no:02d}_shot_{shot_no:02d}.{ext}")
-            if not _download_resilient(selected["url"], path, selected["provider"]):
-                # A download failure must not abort immediately. The selected
-                # page is removed from this shot's used set so the caller can
-                # safely retry the shot through another provider.
-                used.discard(page)
-                raise RuntimeError(f"Stock asset download failed for Scene {scene_no} Shot {shot_no} after retries.")
-
-            stock._credit(path + ".credit.json", selected, directed)
+            stock._credit(path + ".credit.json", chosen, directed)
             scene_paths.append(path)
 
         groups.append(scene_paths)

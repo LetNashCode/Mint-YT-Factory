@@ -51,6 +51,27 @@ GitHub Actions failed because the code attempted to fall back from `gemini-flash
 
 ---
 
+## 2026-08-27 — Gemini fallback removal hardening
+
+### User requirement
+- Continue using **only `gemini-flash-lite-latest`**.
+- Never fall back to `gemini-3.5-flash-lite`, `gemini-2.5-flash-lite`, or any other Gemini model.
+
+### Changes made
+- `sitecustomize.py`
+  - Removed the runtime override that configured `gemini-3.5-flash-lite` as `GEMINI_FALLBACK_MODEL`.
+  - Explicitly forces `GEMINI_MODEL = "gemini-flash-lite-latest"`.
+  - Sets `GEMINI_FALLBACK_MODEL = None`.
+  - Updated runtime logging to state `gemini-flash-lite-latest ONLY — no fallback model`.
+  - Applied the same single-model rule to `stock_query_expander`.
+
+### Important behavior
+- A Gemini quota or availability failure must **not** trigger a model switch.
+- The 429 quota exhaustion seen in the 2026-08-27 GitHub Actions run is an API quota limitation, not a reason to use another model.
+- Pexels/Pixabay provider fallback remains independent of Gemini model fallback.
+
+---
+
 ## Change-log operating rule
 
 For future Mint-YT-Factory changes:

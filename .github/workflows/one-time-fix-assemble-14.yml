@@ -1,0 +1,131 @@
+name: One-time fix assemble 14 visuals
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  fix-assemble:
+    if: github.actor == 'LetNashCode'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Update assemble.py image contract
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path("assemble.py")
+          text = path.read_text(encoding="utf-8")
+
+          old = '''def validate_image_contract(
+    image_paths,
+):
+
+    if not isinstance(
+        image_paths,
+        list,
+    ):
+
+        raise RuntimeError(
+            "image_paths must be a list."
+        )
+
+    if len(
+        image_paths
+    ) != EXPECTED_SCENES:
+
+        raise RuntimeError(
+            f"Expected "
+            f"{EXPECTED_SCENES} image groups, "
+            f"got {len(image_paths)}."
+        )
+
+    total = 0
+
+    for scene_index in range(
+        EXPECTED_SCENES
+    ):
+
+        paths = get_scene_image_paths(
+            image_paths,
+            scene_index,
+        )
+'''
+
+          new = '''def validate_image_contract(
+    image_paths,
+):
+
+    if not isinstance(
+        image_paths,
+        list,
+    ):
+
+        raise RuntimeError(
+            "image_paths must be a list."
+        )
+
+    # The media pipeline now returns a flat list of 14 visual files:
+    # 2 visuals for each of the 7 scenes.
+    # Normalize that flat list into the scene-group structure expected
+    # by the rest of the assembler before validating it.
+    if len(image_paths) == EXPECTED_TOTAL_VISUALS:
+
+        image_paths[:] = [
+            image_paths[
+                scene_index * VISUALS_PER_SCENE:
+                (scene_index + 1) * VISUALS_PER_SCENE
+            ]
+            for scene_index in range(EXPECTED_SCENES)
+        ]
+
+    if len(
+        image_paths
+    ) != EXPECTED_SCENES:
+
+        raise RuntimeError(
+            f"Expected "
+            f"{EXPECTED_TOTAL_VISUALS} flat visuals "
+            f"or {EXPECTED_SCENES} image groups, "
+            f"got {len(image_paths)}."
+        )
+
+    total = 0
+
+    for scene_index in range(
+        EXPECTED_SCENES
+    ):
+
+        paths = get_scene_image_paths(
+            image_paths,
+            scene_index,
+        )
+'''
+
+          if old not in text:
+              raise SystemExit("Expected validate_image_contract block was not found; refusing to modify assemble.py")
+
+          path.write_text(text.replace(old, new, 1), encoding="utf-8")
+          print("assemble.py updated: 14 flat visuals -> 7 scene groups of 2")
+
+      - name: Verify fix
+        run: |
+          python -m py_compile assemble.py
+          grep -n -A75 'def validate_image_contract' assemble.py
+
+      - name: Commit fix and remove one-time workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -f .github/workflows/one-time-fix-assemble-14.yml
+          git add assemble.py .github/workflows/one-time-fix-assemble-14.yml
+          git diff --cached --quiet && exit 0
+          git commit -m "Fix assembly for 14 flat visuals"
+          git push

@@ -250,5 +250,6 @@
   "__MINT_ANALYTICS__::{\"video_id\":\"3FcG7OAtukc\",\"topic\":\"Why do tea bags float\",\"title\":\"Why Do Tea Bags Float\",\"workdir\":\"output/1787739372\",\"published_at\":\"2026-08-26T10:39:47.511658+00:00\",\"topic_category\":\"Why do tea bags float\",\"hook_type\":\"open_loop\",\"story_structure\":\"7-scene curiosity story\",\"visual_style\":\"Cinematic macro photography\",\"music_type\":\"starts curious, builds tension during demonstration, resolves with a playful pop\",\"voice\":\"playful and curious\",\"engagement_experiment\":\"prediction\",\"engagement_phase\":\"baseline_test_1_of_6\",\"engagement_comment\":\"Before watching again: what was your guess about tea bags float? 👇\",\"engagement_share_prompt\":\"Send this to someone who would guess wrong.\"}",
   "Why do tea bags float",
   "Why popcorn kernels explode",
-  "__MINT_PENDING_NEXT_TOPIC__::Why dry spaghetti snaps into three"
+  "Why dry spaghetti snaps into three",
+  "__MINT_PENDING_NEXT_TOPIC__::Why do mirrors fog up"
 ]

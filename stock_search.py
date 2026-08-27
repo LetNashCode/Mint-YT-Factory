@@ -20,9 +20,10 @@ PIXABAY_VIDEO_API = "https://pixabay.com/api/videos"
 GEMINI_MODEL = "gemini-flash-lite-latest"
 VERIFY_THRESHOLD = 7.5
 SEARCH_PROMPTS = 8
+DYNAMIC_SEARCH_ROUNDS = 2
 CANDIDATES_PER_SEARCH = 6
 TIMEOUT = 35
-USER_AGENT = "Mint-YT-Factory/StockSearch/12.0"
+USER_AGENT = "Mint-YT-Factory/StockSearch/13.0"
 
 
 def clean(v: Any, n=700):
@@ -83,25 +84,53 @@ def _gemini(prompt: str, temperature: float):
     ) from last_error
 
 
-def direct(scene_no: int, shot_no: int, scene: dict, visual: dict):
-    """Turn one spoken visual beat into an ordered vocabulary search ladder.
+def _normalize_ladder(data):
+    ladder = []
+    seen = set()
+    for item in data.get("search_ladder", []):
+        if not isinstance(item, dict):
+            continue
+        query = clean(item.get("query"), 100)
+        strategy = clean(item.get("strategy"), 40)
+        key = re.sub(r"[^a-z0-9 ]+", "", query.lower()).strip()
+        words = query.split()
+        if not query or key in seen or len(words) < 2 or len(words) > 7:
+            continue
+        seen.add(key)
+        ladder.append({"query": query, "strategy": strategy or "alternate"})
+    return ladder
 
-    The important change is that Gemini does NOT merely produce five near-
-    duplicate keywords. It creates genuinely different ways to describe the
-    SAME visual event. The search engine tries them in order and stops only
-    after a Gemini visual check accepts an asset.
+
+def direct(scene_no: int, shot_no: int, scene: dict, visual: dict, failed_queries=None, round_no=1):
+    """Ask Gemini for stock-library search language for one exact visual beat.
+
+    The model is deliberately asked to think in *stock-library vocabulary*,
+    not scientific vocabulary. If a previous ladder failed, the next request
+    receives the failed queries and must invent a materially different lexical
+    route while preserving the same visible subject/event.
     """
     spoken = clean(visual.get("spoken_line") or scene.get("narration"), 650)
     focus = clean(visual.get("visual_focus"), 350)
     action = clean(visual.get("visual_action"), 350)
     must = [clean(x, 180) for x in visual.get("must_show", []) if clean(x)]
     avoid = [clean(x, 180) for x in visual.get("must_not_show", []) if clean(x)]
+    failed_queries = [clean(x, 100) for x in (failed_queries or []) if clean(x)]
 
-    prompt = f"""You are the VISUAL SEARCH DIRECTOR for a fast, funny, curiosity-driven YouTube Short.
+    retry_context = ""
+    if failed_queries:
+        retry_context = f"""
+PREVIOUS SEARCHES THAT FAILED:
+{json.dumps(failed_queries, ensure_ascii=False)}
+
+These queries produced no acceptable visual. Do NOT repeat them or make tiny
+edits to them. Take a genuinely different lexical route.
+"""
+
+    prompt = f"""You are the STOCK SEARCH DIRECTOR for a fast, funny, curiosity-driven YouTube Short.
 
 The final video can ONLY use real stock media from Pexels or Pixabay.
-You are NOT generating an image. You are writing search language that a stock
-library can understand.
+You are NOT generating an image or video. You are writing search queries for
+stock-media search engines.
 
 SCENE: {scene_no}
 SHOT: {shot_no}
@@ -110,50 +139,64 @@ VISUAL FOCUS: {focus}
 VISUAL ACTION: {action}
 MUST SHOW: {json.dumps(must, ensure_ascii=False)}
 MUST NOT SHOW: {json.dumps(avoid, ensure_ascii=False)}
+SEARCH ROUND: {round_no}
+{retry_context}
 
-YOUR JOB
-Create an ordered SEARCH LADDER for this exact visual beat.
-Every search must still refer to the SAME real-world subject and idea.
-Do not wander into a merely related object.
+CORE OBJECTIVE
+Find footage that makes the narration visually obvious. The search query must
+lead to footage of the SAME real-world subject, not merely something related.
 
-VOCABULARY RULE — CRITICAL
-If search #1 is unavailable, search #2 MUST use noticeably different wording,
-not just add/remove one word. Change the noun, verb, everyday phrasing,
-physical description, viewpoint, or context while preserving the meaning.
-For example, do NOT output:
-  "candle flame", "candle flame closeup", "candle burning flame"
-Instead think like a stock researcher:
-  "wax candle burning"
-  "candle wick lit"
-  "flame melting candle wax"
-  "burning candle close view"
-  "wax dripping from candle"
+STOCK-LIBRARY VOCABULARY RULE — CRITICAL
+Use words that ordinary people and stock photographers actually put in titles,
+tags and descriptions. Prefer common visual nouns over scientific terminology.
+For example, for popcorn prefer "popcorn", "popcorn kernel", "corn popping",
+"popcorn pan" over "maize grain", "pericarp", "starchy interior", or abstract
+scientific terms.
+
+VOCABULARY DIVERSITY RULE — CRITICAL
+Every query must take a meaningfully different lexical route. Do not create
+near-duplicates by adding "close up", "macro", "shot", "video", or "footage".
+Change the useful nouns/verbs/context while preserving the same subject.
+If a query fails, the next round MUST use noticeably different vocabulary.
+
+GOOD PATTERN:
+"popcorn kernel"
+"corn popping pan"
+"unpopped popcorn"
+"popcorn exploding"
+"popping corn close view"
+
+BAD PATTERN:
+"popcorn kernel macro"
+"popcorn kernel closeup"
+"popcorn kernel close shot"
 
 SEARCH LADDER TYPES
-1. LITERAL — the most obvious stock-library wording.
-2. EVERYDAY — how an ordinary person would describe the same thing.
-3. ACTION — emphasize what the subject is physically doing.
-4. STATE/RESULT — emphasize the visible condition or immediate result.
-5. ALTERNATE NOUN — use a genuine synonym or more concrete term for the subject.
-6. VIEWPOINT — close-up, hands-on, overhead, side view, macro, etc., ONLY if useful.
-7. CONTEXT — put the same subject in the real setting where the event happens.
-8. CAUSAL — show the same subject immediately before/after the spoken event.
+1. literal — common stock wording for the exact subject.
+2. everyday — ordinary-person wording for the same subject.
+3. action — emphasize the visible physical action.
+4. state-result — emphasize the visible condition/result.
+5. alternate-noun — a genuinely useful common synonym or stock term.
+6. viewpoint — change framing only when it improves discoverability.
+7. context — same subject in its real environment.
+8. causal — same subject immediately before/after the spoken event.
 
 HARD RULES
-- Keep the subject identical across the ladder.
-- Do not replace the subject with a metaphor, diagram, laboratory graphic,
-  generic texture, generic person, or unrelated object.
-- Prefer visible physical evidence over invisible scientific explanations.
-- For invisible mechanisms, search for the SAME object's visible consequence.
-- Avoid words like science, concept, mystery, mechanism, educational,
-  experiment, cinematic, futuristic, abstract.
-- Each query must be 2-7 words and natural for Pexels/Pixabay search.
-- Make every query materially different in vocabulary.
-- Queries must be useful even if the previous query returned zero results.
+- SAME subject across every query.
+- Never substitute a metaphor, generic object, generic person, laboratory,
+  diagram, texture, abstract concept, or unrelated proxy.
+- For an invisible mechanism, search for a visible consequence involving the
+  SAME object.
+- Do not use technical/scientific words unless they are genuinely common stock
+  search terms for that subject.
+- Do not use "science", "concept", "mechanism", "mystery", "educational",
+  "experiment", "cinematic", "futuristic", or "abstract".
+- 2-7 words per query.
+- Every query must be materially different from the others.
+- Optimize for Pexels/Pixabay discoverability, not literary elegance.
 - Keep Shot {shot_no} visually distinct from the other shot in Scene {scene_no}.
 
-Also describe what a successful asset must visibly contain so a later visual
-judge can reject attractive but irrelevant footage.
+Also give a concise casting brief and the visual facts a verifier should demand.
 
 Return ONLY JSON:
 {{
@@ -173,19 +216,7 @@ Return ONLY JSON:
 }}"""
 
     data = _gemini(prompt, 0.25)
-    ladder = []
-    seen = set()
-    for item in data.get("search_ladder", []):
-        if not isinstance(item, dict):
-            continue
-        query = clean(item.get("query"), 100)
-        strategy = clean(item.get("strategy"), 40)
-        key = query.lower()
-        if not query or key in seen or len(query.split()) > 8:
-            continue
-        seen.add(key)
-        ladder.append({"query": query, "strategy": strategy or "alternate"})
-
+    ladder = _normalize_ladder(data)
     if len(ladder) < 4:
         raise RuntimeError("Gemini produced too few materially different stock-search prompts.")
 
@@ -229,7 +260,9 @@ def pexels(query, video):
     if not key:
         return []
     endpoint = "videos/search" if video else "search"
-    params = {"query": query, "per_page": CANDIDATES_PER_SEARCH, "orientation": "portrait"}
+    # Do not force portrait at API level. Relevant stock footage may be
+    # landscape; the Shorts assembler can crop/reframe it later.
+    params = {"query": query, "per_page": CANDIDATES_PER_SEARCH}
     if video:
         params["size"] = "medium"
     try:
@@ -260,7 +293,9 @@ def pixabay(query, video):
     if video:
         params["video_type"] = "film"
     else:
-        params.update(image_type="photo", orientation="vertical")
+        # Do not force vertical photos; relevance is more important than source
+        # orientation because the final Short can crop the asset.
+        params.update(image_type="photo")
     try:
         r = requests.get(endpoint, params=params, headers={"User-Agent": USER_AGENT}, timeout=TIMEOUT)
         if r.status_code != 200:
@@ -285,7 +320,6 @@ def _preview(item, provider, video):
 def _url(item, provider, video):
     if provider == "Pexels":
         if video:
-            # Prefer portrait files, then highest usable resolution.
             choices = []
             for f in item.get("video_files") or []:
                 u = f.get("link")
@@ -346,13 +380,13 @@ STRICT JUDGING RULES
 4. Generic attractive footage is NOT good enough. Reject it.
 5. Generic people, generic laboratory scenes, generic food/water, decorative
    textures, diagrams and abstract science imagery are NOT good enough.
-6. If the spoken mechanism is invisible, accept only a truthful visible proxy
-   involving the SAME subject: for example a cut-open object, steam, boiling,
-   swelling, cracking, dripping, melting, bursting, or the immediate result.
+6. If the spoken mechanism is invisible, accept a truthful visible proxy only
+   when it still clearly involves the SAME subject.
 7. A causal before/after shot is acceptable only when it uses the SAME subject
    and clearly helps explain the spoken beat.
 8. Do not reward cinematic quality when the subject is wrong.
 9. Prefer a simple literal stock shot over a clever but ambiguous one.
+10. Judge the preview as an ordinary viewer would; do not invent hidden details.
 
 Score each candidate from 0-10 using:
 - subject_match: 0-10
@@ -368,12 +402,6 @@ Return ONLY JSON:
 
 
 def verify(candidates, directed, query, strategy):
-    """Let Gemini choose from the assets returned by ONE search prompt.
-
-    There is intentionally NO metadata candidate ranking here. Stock APIs are
-    search providers, not relevance judges. Gemini sees the actual previews and
-    decides whether any asset really matches the spoken beat.
-    """
     if not candidates:
         return None
 
@@ -404,7 +432,6 @@ def verify(candidates, directed, query, strategy):
     prompt = _verify_prompt(directed, query, strategy)
     last_error = None
     data = None
-
     for attempt in range(1, 4):
         try:
             response = client.models.generate_content(
@@ -449,9 +476,6 @@ def verify(candidates, directed, query, strategy):
         except (TypeError, ValueError):
             continue
 
-    # Gemini has already judged the assets. If it accepts multiple, use the
-    # first accepted candidate in the order Gemini returned them; no metadata
-    # score/ranking is applied.
     return accepted[0] if accepted else None
 
 
@@ -493,28 +517,6 @@ def _credit(path, selected, directed):
         }, f, ensure_ascii=False, indent=2)
 
 
-def _fetch_for_query(query, provider, video, used_pages):
-    raw = pexels(query, video) if provider == "Pexels" else pixabay(query, video)
-    candidates = []
-    for item in raw[:CANDIDATES_PER_SEARCH]:
-        page = str(item.get("url") if provider == "Pexels" else item.get("pageURL") or "")
-        if not page or page in used_pages:
-            continue
-        preview = _preview(item, provider, video)
-        url = _url(item, provider, video)
-        if not preview or not url:
-            continue
-        candidates.append({
-            "provider": provider,
-            "kind": "video" if video else "photo",
-            "url": url,
-            "page": page,
-            "creator": _creator(item, provider),
-            "preview": preview,
-        })
-    return candidates
-
-
 def generate_media(script, output_dir, config, gim=None):
     if not os.getenv("PEXELS_API_KEY", "").strip() and not os.getenv("PIXABAY_API_KEY", "").strip():
         raise RuntimeError("PEXELS_API_KEY or PIXABAY_API_KEY is required.")
@@ -524,44 +526,54 @@ def generate_media(script, output_dir, config, gim=None):
     used_pages = set()
     groups = []
 
-    print(f"📚 STOCK SEARCH {GEMINI_MODEL} | Pexels/Pixabay only | NO metadata ranking")
+    print(f"📚 STOCK SEARCH {GEMINI_MODEL} | Pexels/Pixabay only | Gemini visual verification | NO metadata ranking")
 
     for si, shots in enumerate(plan, 1):
         paths = []
-        for vi, directed in enumerate(shots, 1):
+        for vi, initial_directed in enumerate(shots, 1):
             selected = None
+            directed = initial_directed
+            failed_queries = []
 
-            # Each search prompt is tried independently. We do not pool or
-            # rank candidates from different prompts. A failed vocabulary
-            # variant simply advances to the next materially different one.
-            for ladder_item in directed["search_ladder"]:
-                query = ladder_item["query"]
-                strategy = ladder_item["strategy"]
-                print(f"   🔎 Scene {si} Shot {vi}: [{strategy}] {query}")
+            for round_no in range(1, DYNAMIC_SEARCH_ROUNDS + 1):
+                if round_no > 1:
+                    print(f"   🧠 Scene {si} Shot {vi}: generating a NEW vocabulary set after previous searches failed")
+                    directed = direct(si, vi, script["scene_plan"][si - 1], script["scene_plan"][si - 1]["visuals"][vi - 1], failed_queries=failed_queries, round_no=round_no)
 
-                provider_modes = []
-                if os.getenv("PEXELS_API_KEY", "").strip():
-                    provider_modes.extend([("Pexels", True), ("Pexels", False)])
-                if os.getenv("PIXABAY_API_KEY", "").strip():
-                    provider_modes.extend([("Pixabay", True), ("Pixabay", False)])
-
-                for provider, video in provider_modes:
-                    candidates = _fetch_for_query(query, provider, video, used_pages)
-                    if not candidates:
-                        print(f"      ↪️ {provider} {'VIDEO' if video else 'PHOTO'}: no assets")
+                for ladder_item in directed["search_ladder"]:
+                    query = ladder_item["query"]
+                    strategy = ladder_item["strategy"]
+                    if query.lower() in {x.lower() for x in failed_queries}:
                         continue
+                    print(f"   🔎 Scene {si} Shot {vi}: [{strategy}] {query}")
 
-                    chosen = verify(candidates, directed, query, strategy)
-                    if chosen:
-                        selected = chosen
-                        print(
-                            f"      ✅ {provider} {chosen['kind']} VERIFIED "
-                            f"{chosen['visual_score']:.1f}/10 "
-                            f"({chosen['search_strategy']}: {chosen['search_query']})"
-                        )
+                    provider_modes = []
+                    if os.getenv("PEXELS_API_KEY", "").strip():
+                        provider_modes.extend([("Pexels", True), ("Pexels", False)])
+                    if os.getenv("PIXABAY_API_KEY", "").strip():
+                        provider_modes.extend([("Pixabay", True), ("Pixabay", False)])
+
+                    for provider, video in provider_modes:
+                        candidates = _fetch_for_query(query, provider, video, used_pages)
+                        if not candidates:
+                            print(f"      ↪️ {provider} {'VIDEO' if video else 'PHOTO'}: no assets")
+                            continue
+
+                        chosen = verify(candidates, directed, query, strategy)
+                        if chosen:
+                            selected = chosen
+                            print(
+                                f"      ✅ {provider} {chosen['kind']} VERIFIED "
+                                f"{chosen['visual_score']:.1f}/10 "
+                                f"({chosen['search_strategy']}: {chosen['search_query']})"
+                            )
+                            break
+
+                        print(f"      ↪️ {provider} {'VIDEO' if video else 'PHOTO'}: Gemini rejected all previews")
+
+                    failed_queries.append(query)
+                    if selected:
                         break
-
-                    print(f"      ↪️ {provider} {'VIDEO' if video else 'PHOTO'}: Gemini rejected all previews")
 
                 if selected:
                     break
@@ -569,8 +581,8 @@ def generate_media(script, output_dir, config, gim=None):
             if not selected:
                 raise RuntimeError(
                     f"No visually relevant stock asset found for Scene {si} Shot {vi} "
-                    f"after {len(directed['search_ladder'])} different Gemini-directed search vocabularies; "
-                    "unrelated fallback is disabled."
+                    f"after {len(failed_queries)} Gemini-directed search vocabularies across "
+                    f"{DYNAMIC_SEARCH_ROUNDS} search rounds; unrelated fallback is disabled."
                 )
 
             used_pages.add(selected["page"])

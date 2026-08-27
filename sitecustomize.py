@@ -151,7 +151,7 @@ def _patch_video_quality(module):
             return
 
         def write(self, filename, *args, **kwargs):
-            kwargs.setdefault("bitrate", "68M")
+            kwargs.setdefault("bitrate", "100M")
             kwargs.setdefault("audio_bitrate", "384k")
             kwargs.setdefault("codec", "libx264")
             kwargs.setdefault("audio_codec", "aac")
@@ -169,7 +169,7 @@ def _patch_video_quality(module):
             ):
                 if flag not in params:
                     params.extend([flag, value])
-            print("🎥 Production encoding: H.264 / 68 Mbps / 384 kbps AAC")
+            print("🎥 Production encoding: H.264 / 100 Mbps / 384 kbps AAC")
             return original(self, filename, *args, **kwargs)
 
         write._mint_quality = True

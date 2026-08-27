@@ -31,7 +31,7 @@ script:
   rules: {one_connected_story: true, lecture_style: false, textbook_style: false, ai_assistant_style: false, use_did_you_know: false, use_in_this_video: false, use_today_we_are_going_to: false, use_lists: false, use_countdowns: false, use_top_5: false, use_unrelated_facts: false, repeat_ideas: false}
   ending: {scene_7_must_resolve_current_story: true, satisfying_payoff: true, mention_next_video: false, mention_next_short: true, subscription_cta_in_narration: false}
 next_short: {enabled: true, spoken_in_current_video: true, reveal_in_current_description: false, must_follow_current_story: true}
-voice: {provider: edge, voice_name: en_us_010, edge_voice: en-US-GuyNeural, tiktok_voice_name: en_us_010, speed: 1.0, tone: "curious, confident, playful storyteller"}
+voice: {provider: kokoro, voice_name: af_heart, kokoro_lang: a, edge_voice: en-US-GuyNeural, tiktok_voice_name: en_us_010, speed: 1.0, tone: "curious, confident, playful storyteller"}
 media:
   providers: [pexels, pixabay]
   primary_provider: pexels

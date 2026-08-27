@@ -2,19 +2,23 @@
 tts.py
 Mint-YT-Factory
 
-Version 8.6 — CHUNKED TIKTOK TTS WITH ADAPTIVE DURATION CONTROL
+Version 9.0 — KEYLESS TIKTOK TTS WITH BACKEND FAILOVER
+
+The old `tiktoktts` package depended on ottsy.weilbyte.dev, which is no
+longer reliable. This implementation calls keyless TikTok-TTS-compatible
+backends directly and keeps the existing chunking, duration control, and
+MoviePy assembly pipeline unchanged.
 """
 
+import base64
 import os
 import re
 import time
 
+import requests
 from moviepy.editor import AudioFileClip, concatenate_audioclips
-from tiktoktts import TTS
 
 SAMPLE_RATE = 44100
-# TikTok voice output varies slightly run-to-run. We target a safe duration
-# below the pipeline's 44.35s hard limit instead of always slowing to 0.90x.
 TARGET_MAX_DURATION = 43.70
 MIN_PLAYBACK_SPEED = 0.95
 MAX_PLAYBACK_SPEED = 1.10
@@ -22,6 +26,24 @@ TIKTOK_MAX_CHARS = 300
 TIKTOK_SAFE_CHARS = 285
 TIKTOK_REQUEST_RETRIES = 4
 TIKTOK_RETRY_DELAYS = (1.5, 3.0, 6.0, 10.0)
+
+# Keyless backends. The first endpoint is the current community Cloudflare
+# Worker implementation. The remaining endpoints are TikTok's own speech
+# endpoints and require no API key/session for the public TTS path when the
+# selected voice is supported.
+TIKTOK_TTS_BACKENDS = (
+    "https://tiktok-tts.weilnet.workers.dev/api/generation",
+    "https://api16-normal-v6.tiktokv.com/media/api/text/speech/invoke/",
+    "https://api16-normal-c-useast1a.tiktokv.com/media/api/text/speech/invoke/",
+    "https://api16-normal-c-useast2a.tiktokv.com/media/api/text/speech/invoke/",
+    "https://api16-normal-useast5.us.tiktokv.com/media/api/text/speech/invoke/",
+)
+
+TIKTOK_USER_AGENT = (
+    "com.zhiliaoapp.musically/2022600030 "
+    "(Linux; U; Android 7.1.2; es_ES; SM-G988N; "
+    "Build/NRD90M;tt-ok/3.12.13.1)"
+)
 
 PRONUNCIATION_REPLACEMENTS = {
     "insects": "in-sects", "insect": "in-sect",
@@ -113,10 +135,9 @@ def build_tiktok_chunks(text):
 
 
 def apply_narration_speed(clip):
-    """Adapt playback speed so normal TikTok variance cannot cross 44.35s."""
+    """Adapt playback speed so normal TTS variance cannot cross 44.35s."""
     try:
         duration = float(clip.duration)
-        # duration / speed <= TARGET_MAX_DURATION
         required = duration / TARGET_MAX_DURATION if TARGET_MAX_DURATION > 0 else 1.0
         speed = max(MIN_PLAYBACK_SPEED, required)
         speed = min(MAX_PLAYBACK_SPEED, speed)
@@ -137,6 +158,70 @@ def apply_narration_speed(clip):
         return clip
 
 
+def _decode_backend_response(response):
+    """Return MP3 bytes from known keyless TikTok response formats."""
+    response.raise_for_status()
+    data = response.json()
+
+    # Community worker: {success: true, data: <base64>}
+    if data.get("success") is True and data.get("data"):
+        return base64.b64decode(data["data"]), "community-worker"
+
+    # TikTok private endpoint: {status_code: 0, data: {v_str: <base64>}}
+    if data.get("status_code") == 0:
+        nested = data.get("data") or {}
+        encoded = nested.get("v_str") if isinstance(nested, dict) else None
+        if encoded:
+            return base64.b64decode(encoded), "tiktok-direct"
+
+    if data.get("statusCode") == 0:
+        nested = data.get("data") or {}
+        encoded = nested.get("v_str") if isinstance(nested, dict) else None
+        if encoded:
+            return base64.b64decode(encoded), "tiktok-direct"
+
+    message = data.get("status_msg") or data.get("statusMessage") or data.get("error") or str(data)
+    raise RuntimeError(f"TTS backend rejected request: {message}")
+
+
+def _request_keyless_tiktok_tts(text, voice):
+    """Try all configured keyless backends before failing the chunk."""
+    last_error = None
+
+    for backend in TIKTOK_TTS_BACKENDS:
+        try:
+            if backend.endswith("/api/generation"):
+                response = requests.post(
+                    backend,
+                    json={"text": text, "voice": voice},
+                    headers={"User-Agent": TIKTOK_USER_AGENT},
+                    timeout=(10, 45),
+                )
+            else:
+                params = {
+                    "text_speaker": voice,
+                    "req_text": text,
+                    "speaker_map_type": "0",
+                    "aid": "1233",
+                }
+                response = requests.post(
+                    backend,
+                    params=params,
+                    headers={"User-Agent": TIKTOK_USER_AGENT},
+                    timeout=(10, 45),
+                )
+
+            audio_bytes, backend_name = _decode_backend_response(response)
+            if not audio_bytes:
+                raise RuntimeError("TTS backend returned empty audio.")
+            return audio_bytes, backend_name
+        except Exception as error:
+            last_error = error
+            print(f"⚠️ Keyless TikTok backend failed: {backend} — {type(error).__name__}: {error}")
+
+    raise RuntimeError("All keyless TikTok TTS backends failed.") from last_error
+
+
 def print_tiktok_error(error, text, request_number, attempt):
     print("=" * 80)
     print("❌ TIKTOK TTS REQUEST FAILED")
@@ -149,25 +234,20 @@ def print_tiktok_error(error, text, request_number, attempt):
 
 
 def generate_tiktok_chunk(text, voice, request_number):
-    source = "output.mp3"
     last_error = None
     for attempt in range(1, TIKTOK_REQUEST_RETRIES + 1):
-        if os.path.exists(source):
-            os.remove(source)
         print(f"🎤 TikTok TTS request {request_number} — attempt {attempt}/{TIKTOK_REQUEST_RETRIES}")
         print(f"Characters: {len(text)} | UTF-8 characters: {utf8_length(text)}")
         print(f"Text: {text}")
         try:
-            tts = TTS()
-            tts.SetVoice(voice)
-            tts.New(text)
-            if not os.path.exists(source):
-                raise RuntimeError("TikTok returned successfully but did not create output.mp3.")
+            audio_bytes, backend_name = _request_keyless_tiktok_tts(text, voice)
             chunk_path = os.path.abspath(f"tiktok_chunk_{request_number}.mp3")
             if os.path.exists(chunk_path):
                 os.remove(chunk_path)
-            os.replace(source, chunk_path)
+            with open(chunk_path, "wb") as output:
+                output.write(audio_bytes)
             print(f"✅ TikTok TTS request {request_number} succeeded on attempt {attempt}")
+            print(f"🔊 TTS backend: {backend_name} (keyless)")
             return chunk_path
         except Exception as error:
             last_error = error
@@ -198,6 +278,9 @@ def synthesize_narration(text, config, out_path):
     print("🎙️ TIKTOK TTS — CHUNKED CONTINUOUS NARRATION")
     print("=" * 80)
     print(f"Voice: {voice}")
+    print("Backend: keyless TikTok-compatible API failover")
+    print("API key: NOT REQUIRED")
+    print("Session ID: NOT REQUIRED")
     print(f"Original characters: {len(original_text)}")
     print(f"TTS characters: {len(tts_text)}")
     print(f"Chunks: {len(chunks)}")

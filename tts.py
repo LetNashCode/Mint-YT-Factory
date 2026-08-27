@@ -2,7 +2,7 @@
 tts.py
 Mint-YT-Factory
 
-Version 12.1 — SINGLE-PASS KOKORO PRIMARY + EDGE FALLBACK
+Version 12.2 — SINGLE-PASS KOKORO PRIMARY + EDGE FALLBACK
 
 Narration is synthesized as one continuous request with Kokoro-82M using
  the af_heart American-English voice. Kokoro itself may internally split long
@@ -64,14 +64,12 @@ def build_tts_pronunciation_text(text):
 
 def apply_narration_speed(clip):
     """
-    Apply adaptive playback speed without letting MoviePy request a frame
-    beyond the physical end of the generated WAV.
+    Apply adaptive playback speed without allowing MoviePy to request a
+    source frame beyond the readable end of the generated WAV.
 
-    Kokoro WAV files can have a tiny discrepancy between MoviePy's reported
-    duration and the final readable sample boundary. MoviePy's fl_time()
-    transformation can therefore ask the source reader for a frame a few
-    milliseconds past EOF while writing the transformed clip. Keep a small
-    source-side safety margin before applying the time mapping.
+    MoviePy's audio writer can pass a NumPy array of timestamps into the
+    fl_time() mapping function. Therefore the time mapping MUST be vectorized;
+    Python's built-in min()/max() cannot safely compare timestamp arrays.
     """
     try:
         duration = float(clip.duration)
@@ -81,9 +79,8 @@ def apply_narration_speed(clip):
         duration = float(getattr(clip, "duration", 0.0) or 0.0)
         speed = 1.0
 
-    # MoviePy/ffmpeg can report a duration a few milliseconds longer than the
-    # last readable source frame. Trim only a tiny safety margin; this is far
-    # below perceptible narration timing while preventing EOF frame requests.
+    # Keep a tiny source-side margin because the reader can report a duration
+    # fractionally beyond the final readable sample/frame.
     safety_margin = min(0.10, max(0.0, duration * 0.002))
     safe_duration = max(0.01, duration - safety_margin)
 
@@ -96,18 +93,20 @@ def apply_narration_speed(clip):
         return safe_clip
 
     try:
+        source_limit = max(0.0, safe_duration - 0.001)
+
+        def _safe_time_map(t):
+            # MoviePy may supply either a scalar or a NumPy timestamp array.
+            # np.minimum handles both forms without ambiguous truth-value errors.
+            return np.minimum(np.asarray(t) / speed, source_limit)
+
         transformed = clip.fl_time(
-            lambda t: min(
-                t / speed,
-                max(0.0, safe_duration - 0.001),
-            ),
+            _safe_time_map,
             apply_to=["audio"],
         )
 
         transformed_duration = safe_duration / speed
-        transformed = transformed.set_duration(
-            transformed_duration
-        )
+        transformed = transformed.set_duration(transformed_duration)
 
         print(
             f"✅ Adaptive narration speed: "
@@ -116,9 +115,7 @@ def apply_narration_speed(clip):
         )
         return transformed
     except Exception as error:
-        print(
-            f"⚠️ Narration speed adjustment failed: {error}"
-        )
+        print(f"⚠️ Narration speed adjustment failed: {error}")
         return clip.set_duration(safe_duration)
 
 
@@ -162,9 +159,6 @@ def _generate_kokoro(text, voice_config, output_path):
 
     pipeline = _get_kokoro_pipeline(lang)
 
-    # IMPORTANT: this is ONE Kokoro synthesis call for the entire narration.
-    # Kokoro may internally tokenize/split the text for inference, but the
-    # project never sends separate TTS requests or stitches generated chunks.
     try:
         generator = pipeline(text, voice=voice, speed=1.0, split_pattern=r"\n+")
         audio_parts = []

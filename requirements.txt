@@ -18,7 +18,7 @@ kokoro>=0.9.4
 soundfile>=0.12.1
 edge-tts>=7.0.0
 
-aopenai-whisper>=20250625
+openai-whisper>=20250625
 torch>=2.2.0
 
 ffmpeg-python>=0.2.0

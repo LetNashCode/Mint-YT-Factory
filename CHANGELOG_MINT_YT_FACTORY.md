@@ -33,6 +33,24 @@ GitHub Actions failed because the code attempted to fall back from `gemini-flash
 
 ---
 
+## 2026-08-27 — Media provider restriction
+
+### User requirement
+- **Pexels and Pixabay are the only permitted media providers for videos and images.**
+- Do not use any other stock-media, image, video, search, or media provider for production assets.
+- This restriction applies to both video and image assets throughout the Mint-YT-Factory pipeline.
+
+### Implementation constraint
+- Gemini may be used only for reasoning/search direction/visual analysis as already specified; it is **not** a media provider.
+- Production media retrieval must remain limited to:
+  1. Pexels VIDEO
+  2. Pixabay VIDEO
+  3. Pexels PHOTO
+  4. Pixabay PHOTO
+- If a Pexels/Pixabay asset cannot be found or verified, the system must not silently substitute media from another provider.
+
+---
+
 ## Change-log operating rule
 
 For future Mint-YT-Factory changes:

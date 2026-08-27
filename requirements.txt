@@ -13,10 +13,12 @@ google-auth>=2.29.0
 google-auth-oauthlib>=1.2.0
 google-api-python-client>=2.130.0
 
+# Local keyless TTS — Kokoro-82M primary; Edge remains fallback.
+kokoro>=0.9.4
+soundfile>=0.12.1
 edge-tts>=7.0.0
-gTTS>=2.5.4
 
-openai-whisper>=20250625
+aopenai-whisper>=20250625
 torch>=2.2.0
 
 ffmpeg-python>=0.2.0

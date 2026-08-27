@@ -2,7 +2,7 @@
 tts.py
 Mint-YT-Factory
 
-Version 12.0 — SINGLE-PASS KOKORO PRIMARY + EDGE FALLBACK
+Version 12.1 — SINGLE-PASS KOKORO PRIMARY + EDGE FALLBACK
 
 Narration is synthesized as one continuous request with Kokoro-82M using
  the af_heart American-English voice. Kokoro itself may internally split long
@@ -63,25 +63,63 @@ def build_tts_pronunciation_text(text):
 
 
 def apply_narration_speed(clip):
+    """
+    Apply adaptive playback speed without letting MoviePy request a frame
+    beyond the physical end of the generated WAV.
+
+    Kokoro WAV files can have a tiny discrepancy between MoviePy's reported
+    duration and the final readable sample boundary. MoviePy's fl_time()
+    transformation can therefore ask the source reader for a frame a few
+    milliseconds past EOF while writing the transformed clip. Keep a small
+    source-side safety margin before applying the time mapping.
+    """
     try:
         duration = float(clip.duration)
         required = duration / TARGET_MAX_DURATION if TARGET_MAX_DURATION > 0 else 1.0
         speed = min(MAX_PLAYBACK_SPEED, max(MIN_PLAYBACK_SPEED, required))
     except Exception:
-        duration, speed = float(getattr(clip, "duration", 0.0) or 0.0), 1.0
+        duration = float(getattr(clip, "duration", 0.0) or 0.0)
+        speed = 1.0
+
+    # MoviePy/ffmpeg can report a duration a few milliseconds longer than the
+    # last readable source frame. Trim only a tiny safety margin; this is far
+    # below perceptible narration timing while preventing EOF frame requests.
+    safety_margin = min(0.10, max(0.0, duration * 0.002))
+    safe_duration = max(0.01, duration - safety_margin)
 
     if abs(speed - 1.0) < 0.001:
-        print(f"✅ Narration speed adjustment not needed ({duration:.2f}s)")
-        return clip
+        safe_clip = clip.set_duration(safe_duration)
+        print(
+            f"✅ Narration speed adjustment not needed "
+            f"({duration:.2f}s; safe source duration {safe_duration:.2f}s)"
+        )
+        return safe_clip
 
     try:
-        transformed = clip.fl_time(lambda t: t / speed, apply_to=["audio"])
-        transformed = transformed.set_duration(duration / speed)
-        print(f"✅ Adaptive narration speed: {speed:.3f}x ({duration:.2f}s → {duration / speed:.2f}s)")
+        transformed = clip.fl_time(
+            lambda t: min(
+                t / speed,
+                max(0.0, safe_duration - 0.001),
+            ),
+            apply_to=["audio"],
+        )
+
+        transformed_duration = safe_duration / speed
+        transformed = transformed.set_duration(
+            transformed_duration
+        )
+
+        print(
+            f"✅ Adaptive narration speed: "
+            f"{speed:.3f}x "
+            f"({duration:.2f}s → {transformed_duration:.2f}s)"
+        )
         return transformed
     except Exception as error:
-        print(f"⚠️ Narration speed adjustment failed: {error}")
-        return clip
+        print(
+            f"⚠️ Narration speed adjustment failed: {error}"
+        )
+        return clip.set_duration(safe_duration)
 
 
 _KOKORO_PIPELINE = None

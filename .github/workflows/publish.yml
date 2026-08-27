@@ -42,12 +42,18 @@ jobs:
           path: ~/.cache/whisper
           key: whisper-tiny-en-v2
 
+      - name: Cache Kokoro model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: kokoro-82m-v1
+
       - name: Install system tools
         shell: bash
         run: |
           set -euo pipefail
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends ffmpeg imagemagick tesseract-ocr
+          sudo apt-get install -y --no-install-recommends ffmpeg imagemagick tesseract-ocr espeak-ng
 
           if [ -f /etc/ImageMagick-6/policy.xml ]; then
             sudo sed -i 's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' /etc/ImageMagick-6/policy.xml || true
@@ -60,6 +66,7 @@ jobs:
           ffmpeg -version | head -n 1
           "$IMAGEMAGICK_BINARY" --version | head -n 1
           tesseract --version | head -n 1
+          espeak-ng --version | head -n 1
 
       - name: Install Python dependencies
         shell: bash
@@ -81,11 +88,15 @@ jobs:
           import ffmpeg
           import pytesseract
           import requests
+          import soundfile
+          import kokoro
           print("Python environment OK")
           print("Torch:", torch.__version__)
           print("CUDA available:", torch.cuda.is_available())
           print("Tesseract:", pytesseract.get_tesseract_version())
           print("Requests:", requests.__version__)
+          print("SoundFile:", soundfile.__version__)
+          print("Kokoro: available")
           PY
 
           test -f main.py
@@ -98,7 +109,7 @@ jobs:
           test -f stock_search.py
           test -f stock_media_resilient.py
 
-          python -m py_compile main.py production_entry.py stock_search.py stock_media_resilient.py
+          python -m py_compile main.py production_entry.py stock_search.py stock_media_resilient.py tts.py
           python - <<'PY'
           import stock_media_resilient
           print("Stock media pipeline import OK")

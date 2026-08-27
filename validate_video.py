@@ -16,6 +16,7 @@ EXPECTED_WIDTH = 2160
 EXPECTED_HEIGHT = 3840
 EXPECTED_FPS = 60.0
 EXPECTED_BITRATE_MBPS = 100.0
+MINIMUM_ACCEPTED_BITRATE_RATIO = 0.95
 
 
 def _probe(path: str) -> dict:
@@ -75,6 +76,7 @@ def validate_final_video(path: str, expected_bitrate_mbps: float = EXPECTED_BITR
     print(f"Pixel format: {pixel_format}")
     print(f"Measured video bitrate: {bitrate:.2f} Mbps")
     print(f"Target video bitrate: {expected_bitrate_mbps:.2f} Mbps")
+    print(f"Minimum accepted bitrate: {expected_bitrate_mbps * MINIMUM_ACCEPTED_BITRATE_RATIO:.2f} Mbps")
 
     errors = []
 
@@ -90,13 +92,11 @@ def validate_final_video(path: str, expected_bitrate_mbps: float = EXPECTED_BITR
     if pixel_format != "yuv420p":
         errors.append(f"Expected yuv420p, got {pixel_format or 'unknown'}")
 
-    # ffprobe reports average stream bitrate. The encoder target is 100 Mbps;
-    # allow normal encoder/content variation but reject a materially lower render.
     if bitrate <= 0:
         errors.append("Could not measure the final video bitrate")
-    elif bitrate < expected_bitrate_mbps * 0.90:
+    elif bitrate < expected_bitrate_mbps * MINIMUM_ACCEPTED_BITRATE_RATIO:
         errors.append(
-            f"Video bitrate is materially below 100 Mbps target: {bitrate:.2f} Mbps"
+            f"Video bitrate is below the 100 Mbps production floor: {bitrate:.2f} Mbps"
         )
 
     if errors:
@@ -118,4 +118,5 @@ def validate_final_video(path: str, expected_bitrate_mbps: float = EXPECTED_BITR
         "pixel_format": pixel_format,
         "bitrate_mbps": bitrate,
         "target_bitrate_mbps": expected_bitrate_mbps,
+        "minimum_accepted_bitrate_mbps": expected_bitrate_mbps * MINIMUM_ACCEPTED_BITRATE_RATIO,
     }

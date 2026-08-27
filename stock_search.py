@@ -1,8 +1,7 @@
 """Stock-only visual search pipeline for Mint-YT-Factory.
 
 Gemini directs and verifies real Pexels/Pixabay candidates. It never generates
-replacement imagery. The primary model is gemini-flash-lite-latest, with a
-multimodal fallback only when the primary service is temporarily unavailable.
+replacement imagery. ALL Gemini calls use gemini-flash-lite-latest only.
 """
 from __future__ import annotations
 
@@ -18,7 +17,6 @@ PEXELS_API = "https://api.pexels.com/v1"
 PIXABAY_API = "https://pixabay.com/api"
 PIXABAY_VIDEO_API = "https://pixabay.com/api/videos"
 GEMINI_MODEL = "gemini-flash-lite-latest"
-GEMINI_FALLBACK_MODEL = "gemini-2.5-flash-lite"
 VERIFY_THRESHOLD = 7.5
 CANDIDATES = 6
 QUERIES = 5
@@ -28,25 +26,20 @@ USER_AGENT = "Mint-YT-Factory/StockSearch/11.5"
 STOP = {"this","that","with","from","your","into","about","just","they","them","their","very","have","will","what","when","where","which","because","while","then","than","like","gets","make","makes","made","thing","things","exact","physical","show","showing","scene","shot","visible","action","state","realistic","cinematic","photo","photograph","video","image","someone","something","people","person","camera","natural","looking","moment","also","really","tiny","microscopic","single","entire","every","time","next","remember","designed","actually","basically","literally","only","must","contain"}
 ACTIONS = {"cling","stick","pull","grab","hold","touch","rub","fall","drop","jump","run","pour","spill","open","close","break","tear","bend","shake","twist","stretch","slide","move","tumble","wash","dry","iron","sew","wear","remove","press","boil","freeze","melt","steam","squeeze","crush","bounce","spin","plug","drip","float","burst","snap","crack","lift","collapse","tangle","cut","slice","pop","pouring","boiling","melting","cracking","popping"}
 
-
 def clean(v: Any, n=700):
     return " ".join(str(v or "").replace("\n", " ").split()).strip()[:n]
-
 
 def tokens(v: Any):
     return {x for x in re.findall(r"[a-z0-9]+", clean(v, 3000).lower()) if len(x) >= 3 and x not in STOP}
 
-
 def action_tokens(v: Any):
     return tokens(v) & ACTIONS
-
 
 def _key():
     key = os.getenv("GEMINI_API_KEY", "").strip()
     if not key:
         raise RuntimeError("GEMINI_API_KEY is required for stock visual direction.")
     return key
-
 
 def _json(text):
     text = re.sub(r"^```(?:json)?", "", str(text or "").strip(), flags=re.I).strip()
@@ -59,35 +52,31 @@ def _json(text):
             raise RuntimeError("Gemini returned invalid stock-search JSON.")
         return json.loads(match.group(0))
 
-
 def _is_transient_gemini_error(exc: Exception) -> bool:
     text = str(exc).lower()
     return any(x in text for x in ("503", "unavailable", "429", "resource exhausted", "500", "502", "504", "high demand", "temporarily"))
 
-
 def _gemini(prompt: str, temperature: float):
     from google import genai
     from google.genai import types
+    client = genai.Client(api_key=_key())
     last_error = None
-    for model_index, model in enumerate((GEMINI_MODEL, GEMINI_FALLBACK_MODEL)):
-        client = genai.Client(api_key=_key())
-        for attempt in range(1, 3):
-            try:
-                response = client.models.generate_content(model=model, contents=[prompt], config=types.GenerateContentConfig(temperature=temperature))
-                if model != GEMINI_MODEL:
-                    print(f"🛟 Gemini fallback used: {model}")
-                return _json(getattr(response, "text", ""))
-            except Exception as exc:
-                last_error = exc
-                if _is_transient_gemini_error(exc) and attempt < 2:
-                    print(f"⚠️ {model} temporary failure ({attempt}/2); retrying...")
-                    time.sleep(2.0 * attempt)
-                    continue
-                if model_index == 0 and _is_transient_gemini_error(exc):
-                    print(f"⚠️ {model} unavailable; switching to {GEMINI_FALLBACK_MODEL}")
-                break
-    raise RuntimeError(f"Gemini visual/search call failed after primary+fallback: {type(last_error).__name__}: {last_error}") from last_error
-
+    for attempt in range(1, 4):
+        try:
+            response = client.models.generate_content(
+                model=GEMINI_MODEL,
+                contents=[prompt],
+                config=types.GenerateContentConfig(temperature=temperature),
+            )
+            return _json(getattr(response, "text", ""))
+        except Exception as exc:
+            last_error = exc
+            if _is_transient_gemini_error(exc) and attempt < 3:
+                print(f"⚠️ {GEMINI_MODEL} temporary failure ({attempt}/3); retrying...")
+                time.sleep(2.0 * attempt)
+                continue
+            break
+    raise RuntimeError(f"Gemini visual/search call failed using {GEMINI_MODEL}: {type(last_error).__name__}: {last_error}") from last_error
 
 def direct(scene_no: int, shot_no: int, scene: dict, visual: dict):
     spoken = clean(visual.get("spoken_line") or scene.get("narration"), 650)
@@ -129,12 +118,11 @@ Return ONLY JSON:
     if len(queries)<3: raise RuntimeError("Gemini produced too few usable stock queries.")
     return {"queries":queries[:QUERIES],"casting_brief":clean(data.get("casting_brief"),500),"must_match":[clean(x,150) for x in data.get("must_match",[])[:8]],"avoid":[clean(x,150) for x in data.get("avoid",[])[:8]],"search_mode":clean(data.get("search_mode"),40),"spoken_beat":spoken}
 
-
 def build_plan(script):
     scenes=script.get("scene_plan")
     if not isinstance(scenes,list) or len(scenes)!=7: raise RuntimeError("Stock search requires exactly 7 scenes.")
     plan=[]
-    print(f"🧠 STOCK SEARCH DIRECTOR — {GEMINI_MODEL} — fallback={GEMINI_FALLBACK_MODEL}")
+    print(f"🧠 STOCK SEARCH DIRECTOR — {GEMINI_MODEL} — no fallback model")
     for si,scene in enumerate(scenes,1):
         visuals=scene.get("visuals")
         if not isinstance(visuals,list) or len(visuals)!=2: raise RuntimeError(f"Scene {si} must contain exactly 2 visuals.")
@@ -144,7 +132,6 @@ def build_plan(script):
             print(f"   🎯 Scene {si} Shot {vi}: {' | '.join(d['queries'])}")
         plan.append(shots)
     return plan
-
 
 def pexels(query, video):
     key=os.getenv("PEXELS_API_KEY","").strip()
@@ -156,7 +143,6 @@ def pexels(query, video):
         r=requests.get(f"{PEXELS_API}/{endpoint}",headers={"Authorization":key,"User-Agent":USER_AGENT},params=params,timeout=TIMEOUT)
         return r.json().get("videos" if video else "photos",[]) if r.status_code==200 else []
     except Exception:return []
-
 
 def pixabay(query, video):
     key=os.getenv("PIXABAY_API_KEY","").strip()
@@ -171,11 +157,9 @@ def pixabay(query, video):
         return r.json().get("hits",[])
     except Exception:return []
 
-
 def _text(item,provider,video):
     if provider=="Pexels": return clean(item.get("url"))+" "+clean(item.get("video_pictures")) if video else clean(item.get("alt"))+" "+clean(item.get("url"))
     return clean(item.get("tags"))+" "+clean(item.get("pageURL"))
-
 
 def rank(items,directed,provider,video,used):
     req=tokens(" ".join(directed.get("must_match",[]))); q=tokens(" ".join(directed.get("queries",[]))); acts=action_tokens(" ".join(directed.get("must_match",[])))
@@ -194,7 +178,6 @@ def rank(items,directed,provider,video,used):
         out.append((score,item,page)); seen.add(page)
     out.sort(key=lambda x:x[0],reverse=True); return out[:CANDIDATES]
 
-
 def _preview(item,provider,video):
     if provider=="Pexels":
         if video:return item.get("image","")
@@ -202,7 +185,6 @@ def _preview(item,provider,video):
     if video:
         pid=str(item.get("picture_id") or ""); return f"https://i.vimeocdn.com/video/{pid}_640x360.jpg" if pid else ""
     return item.get("previewURL") or item.get("largeImageURL") or ""
-
 
 def _url(item,provider,video):
     if provider=="Pexels":
@@ -220,7 +202,6 @@ def _url(item,provider,video):
         return ""
     return item.get("largeImageURL") or item.get("fullHDURL") or item.get("imageURL") or ""
 
-
 def _verify_prompt(directed):
     return f"""You are the strict final visual judge for a YouTube Short. Judge ONLY what is visible.
 SPOKEN BEAT: {directed['spoken_beat']}
@@ -232,11 +213,11 @@ Reject merely related objects, decorative textures, generic food/water, generic 
 
 Return ONLY JSON: {{"results":[{{"candidate":1,"score":0,"subject_match":0,"action_match":0,"context_match":0,"reject":true,"reason":"..."}}]}}. Score 0-10; usable requires score >= {VERIFY_THRESHOLD} and reject=false."""
 
-
 def verify(candidates,directed):
     if not candidates:return None
     from google import genai
     from google.genai import types
+    client=genai.Client(api_key=_key())
     usable=[];parts=[]
     for c in candidates[:CANDIDATES]:
         try:
@@ -246,24 +227,22 @@ def verify(candidates,directed):
         except Exception:continue
     if not usable:return None
     prompt=_verify_prompt(directed)
-    last_error=None; data=None
-    for model in (GEMINI_MODEL,GEMINI_FALLBACK_MODEL):
-        client=genai.Client(api_key=_key())
-        for attempt in range(1,3):
-            try:
-                response=client.models.generate_content(model=model,contents=parts+[types.Part.from_text(text=prompt)],config=types.GenerateContentConfig(temperature=0))
-                if model != GEMINI_MODEL: print(f"🛟 Visual verification fallback used: {model}")
-                data=_json(getattr(response,"text","") or "")
-                last_error=None; break
-            except Exception as exc:
-                last_error=exc
-                if _is_transient_gemini_error(exc) and attempt<2:
-                    print(f"⚠️ Visual verification {model} temporary failure ({attempt}/2); retrying...")
-                    time.sleep(2.0*attempt); continue
-                if model==GEMINI_MODEL and _is_transient_gemini_error(exc): print(f"⚠️ Visual verification switching to {GEMINI_FALLBACK_MODEL}")
-                break
-        if last_error is None: break
-    if last_error is not None: raise RuntimeError(f"Visual verification failed after primary+fallback: {type(last_error).__name__}: {last_error}") from last_error
+    last_error=None
+    data=None
+    for attempt in range(1,4):
+        try:
+            response=client.models.generate_content(model=GEMINI_MODEL,contents=parts+[types.Part.from_text(text=prompt)],config=types.GenerateContentConfig(temperature=0))
+            data=_json(getattr(response,"text","") or "")
+            last_error=None
+            break
+        except Exception as exc:
+            last_error=exc
+            if _is_transient_gemini_error(exc) and attempt<3:
+                print(f"⚠️ Visual verification {GEMINI_MODEL} temporary failure ({attempt}/3); retrying...")
+                time.sleep(2.0*attempt)
+                continue
+            break
+    if last_error is not None: raise RuntimeError(f"Visual verification failed using {GEMINI_MODEL}: {type(last_error).__name__}: {last_error}") from last_error
     results=[]
     for x in data.get("results",[]):
         try:
@@ -272,7 +251,6 @@ def verify(candidates,directed):
                 z=dict(usable[i]); z.update(visual_score=score,visual_subject_match=float(x.get("subject_match",0)),visual_action_match=float(x.get("action_match",0)),visual_context_match=float(x.get("context_match",0)),visual_reason=clean(x.get("reason"),400)); results.append(z)
         except (TypeError,ValueError):continue
     return sorted(results,key=lambda x:x["visual_score"],reverse=True)[0] if results else None
-
 
 def _download(url,path,provider):
     for attempt in range(1,4):
@@ -288,16 +266,14 @@ def _download(url,path,provider):
             if attempt<3:time.sleep(1.5*attempt)
     return False
 
-
 def _credit(path,c,d):
     with open(path,"w",encoding="utf-8") as f:
         json.dump({"provider":c["provider"],"type":c["kind"],"page":c["page"],"creator":c.get("creator",""),"search_queries":d["queries"],"search_mode":d.get("search_mode",""),"metadata_score":c["metadata_score"],"gemini_visual_score":c["visual_score"],"visual_reason":c["visual_reason"]},f,ensure_ascii=False,indent=2)
 
-
 def generate_media(script,output_dir,config,gim=None):
     if not os.getenv("PEXELS_API_KEY","").strip() and not os.getenv("PIXABAY_API_KEY","").strip():raise RuntimeError("PEXELS_API_KEY or PIXABAY_API_KEY is required.")
     os.makedirs(output_dir,exist_ok=True); plan=build_plan(script); used=set(); groups=[]
-    print(f"📚 STOCK SEARCH {GEMINI_MODEL} | fallback {GEMINI_FALLBACK_MODEL} | Pexels/Pixabay only")
+    print(f"📚 STOCK SEARCH {GEMINI_MODEL} | Pexels/Pixabay only | no Gemini fallback")
     for si,shots in enumerate(plan,1):
         paths=[]
         for vi,d in enumerate(shots,1):

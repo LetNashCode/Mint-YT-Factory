@@ -14,6 +14,9 @@ from learning_context import load_learning_context
 from learning_engine import refresh_playbook
 
 CONTINUATION_MANIFEST = "continuation_state.json"
+EXPECTED_UPLOAD_BITRATE_MBPS = 100.0
+EXPECTED_UPLOAD_RESOLUTION = (2160, 3840)
+EXPECTED_UPLOAD_FPS = 60
 
 def load_config():
     with open("config.yaml", "r", encoding="utf-8") as handle: config = yaml.safe_load(handle)
@@ -80,8 +83,6 @@ def _install_natural_bridge(script,canonical):
     removed=[]
     for sentence in sentences:
         normalized=_normalise_topic_text(sentence)
-        # Remove the canonical topic if Gemini already inserted it, and remove any
-        # obvious future-topic teaser even when it names a DIFFERENT topic.
         if key in normalized or _is_future_teaser(sentence):
             removed.append(sentence)
             continue
@@ -91,8 +92,6 @@ def _install_natural_bridge(script,canonical):
     if not clean_sentences:
         clean_sentences=["And that is the weird little trick hiding inside this everyday moment."]
     topic_spoken=canonical.strip().rstrip("?.!").lower()
-    # Deliberately say the next topic once, in a natural handoff. Never ask the
-    # audience to wait for a future video and never let Gemini author this sentence.
     bridge=f"Our next everyday mystery is {topic_spoken}."
     final["narration"]=" ".join(clean_sentences+[bridge])
     return bridge
@@ -171,8 +170,11 @@ def run(dry_run=False):
     if dry_run: print("✅ DRY RUN COMPLETE"); return
     audio=synthesize_script(script,config,os.path.join(workdir,"audio")); visuals=generate_media(script,os.path.join(workdir,"visuals"),config); sfx=generate_sfx(script,os.path.join(workdir,"sfx")); music=download_music(script,os.path.join(workdir,"music")); final_video=os.path.join(workdir,"final.mp4"); assemble_video(script,audio,visuals,music,sfx,config,final_video)
     if not os.path.exists(final_video): raise RuntimeError("Final video was not created.")
-    quality=validate_final_video(final_video,expected_bitrate_mbps=68.0); save_json(quality,os.path.join(workdir,"validation.json"))
+    quality=validate_final_video(final_video,expected_bitrate_mbps=EXPECTED_UPLOAD_BITRATE_MBPS); save_json(quality,os.path.join(workdir,"validation.json"))
     if not quality.get("ok",False): raise RuntimeError("Final video validation failed.")
+    if (quality.get("width"),quality.get("height")) != EXPECTED_UPLOAD_RESOLUTION: raise RuntimeError("Upload blocked: final video is not 2160x3840 4K portrait.")
+    if abs(float(quality.get("fps",0))-EXPECTED_UPLOAD_FPS) > 0.05: raise RuntimeError("Upload blocked: final video is not 60 fps.")
+    if float(quality.get("bitrate_mbps",0)) < EXPECTED_UPLOAD_BITRATE_MBPS*0.90: raise RuntimeError("Upload blocked: final video bitrate is below the 100 Mbps production floor.")
     title,description=build_youtube_metadata(script); engagement_comment=str((script.get("engagement") or {}).get("comment") or "").strip() or None; thumbnail_path=os.path.join(workdir,"thumbnail.jpg"); thumbnail_path=thumbnail_path if os.path.exists(thumbnail_path) else None
     upload_video(final_video,title,description,config,thumbnail_path=thumbnail_path,engagement_comment=engagement_comment)
     commit_topic(topic); save_next_short(next_topic)

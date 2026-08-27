@@ -178,17 +178,14 @@ def _patch_video_quality(module):
 
 
 def _patch_stock_search(module):
-    # Google has retired gemini-2.5-flash-lite for new users. Keep the
-    # repository's primary model, but force every stock-search fallback path
-    # onto the current supported multimodal fallback.
-    module.GEMINI_FALLBACK_MODEL = "gemini-3.5-flash-lite"
-    print("🛡️ Stock-search Gemini fallback: gemini-3.5-flash-lite")
+    # Single-model policy: every Gemini call in Mint-YT-Factory must use
+    # gemini-flash-lite-latest. Never configure or invoke a model fallback.
+    module.GEMINI_MODEL = "gemini-flash-lite-latest"
+    module.GEMINI_FALLBACK_MODEL = None
+    print("🛡️ Stock-search Gemini: gemini-flash-lite-latest ONLY — no fallback model")
 
 
 def _patch_stock_media_resilient(module):
-    # This adapter previously replaced Gemini visual verification with a
-    # metadata-only picker, which defeated the relevance gate. Restore the
-    # real verifier so unrelated stock footage is rejected before assembly.
     import stock_search
 
     def generate_media(script, output_dir, config, gim=None):
@@ -200,9 +197,8 @@ def _patch_stock_media_resilient(module):
 
 
 def _patch_stock_query_expander(module):
-    # Keep this module on a supported model if it is invoked by a future
-    # stock-search recovery path.
-    module.GEMINI_FALLBACK_MODEL = "gemini-3.5-flash-lite"
+    module.GEMINI_MODEL = "gemini-flash-lite-latest"
+    module.GEMINI_FALLBACK_MODEL = None
 
 
 def _patch(module):

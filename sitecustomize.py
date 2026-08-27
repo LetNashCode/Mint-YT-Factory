@@ -1,9 +1,8 @@
 """Mint-YT-Factory runtime quality layer.
 
-Only production-wide caption and video-encoding patches live here.
-Media selection is owned by pexels_media.py and is installed explicitly by
-production_entry.py. No image generation, candidate-image inspection, OCR
-visual gate, or alternate media provider is patched here.
+Production-wide caption/video encoding patches plus compatibility overrides for
+stock-media Gemini models live here so model migrations cannot silently break
+the pipeline.
 """
 from __future__ import annotations
 
@@ -178,6 +177,34 @@ def _patch_video_quality(module):
         print(f"⚠️ Video quality patch skipped: {exc}")
 
 
+def _patch_stock_search(module):
+    # Google has retired gemini-2.5-flash-lite for new users. Keep the
+    # repository's primary model, but force every stock-search fallback path
+    # onto the current supported multimodal fallback.
+    module.GEMINI_FALLBACK_MODEL = "gemini-3.5-flash-lite"
+    print("🛡️ Stock-search Gemini fallback: gemini-3.5-flash-lite")
+
+
+def _patch_stock_media_resilient(module):
+    # This adapter previously replaced Gemini visual verification with a
+    # metadata-only picker, which defeated the relevance gate. Restore the
+    # real verifier so unrelated stock footage is rejected before assembly.
+    import stock_search
+
+    def generate_media(script, output_dir, config, gim=None):
+        print("🛡️ Stock media adapter: Gemini search direction + visual verification ENABLED")
+        return stock_search.generate_media(script, output_dir, config, gim=gim)
+
+    module.generate_media = generate_media
+    module.GEMINI_MODEL = stock_search.GEMINI_MODEL
+
+
+def _patch_stock_query_expander(module):
+    # Keep this module on a supported model if it is invoked by a future
+    # stock-search recovery path.
+    module.GEMINI_FALLBACK_MODEL = "gemini-3.5-flash-lite"
+
+
 def _patch(module):
     name = getattr(module, "__name__", "")
     if name == "assemble":
@@ -185,6 +212,12 @@ def _patch(module):
         _patch_video_quality(module)
     elif name == "tts":
         module.NARRATION_SPEED = 1.0
+    elif name == "stock_search":
+        _patch_stock_search(module)
+    elif name == "stock_media_resilient":
+        _patch_stock_media_resilient(module)
+    elif name == "stock_query_expander":
+        _patch_stock_query_expander(module)
 
 
 class _Loader(importlib.abc.Loader):
@@ -201,7 +234,7 @@ class _Loader(importlib.abc.Loader):
 
 
 class _Finder(importlib.abc.MetaPathFinder):
-    TARGETS = {"tts", "assemble"}
+    TARGETS = {"tts", "assemble", "stock_search", "stock_media_resilient", "stock_query_expander"}
 
     def find_spec(self, fullname, path=None, target=None):
         if fullname not in self.TARGETS:

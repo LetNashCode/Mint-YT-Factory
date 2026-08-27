@@ -2,40 +2,38 @@
 tts.py
 Mint-YT-Factory
 
-Version 10.0 — RESILIENT TTS: EDGE PRIMARY + OPTIONAL TIKTOK + GTTS FALLBACK
+Version 11.0 — KOKORO PRIMARY + EDGE FALLBACK
+
+Primary narration is generated locally with Kokoro-82M using the af_heart
+American-English voice. No API key or external TTS endpoint is required.
+Microsoft Edge TTS remains an automatic network fallback.
 """
 
 import asyncio
-import base64
 import os
 import re
 import time
 
-import requests
+import numpy as np
 from moviepy.editor import AudioFileClip, concatenate_audioclips
 
 SAMPLE_RATE = 44100
+KOKORO_SAMPLE_RATE = 24000
 TARGET_MAX_DURATION = 43.70
 MIN_PLAYBACK_SPEED = 0.95
 MAX_PLAYBACK_SPEED = 1.10
-TIKTOK_MAX_CHARS = 300
-TIKTOK_SAFE_CHARS = 285
+TTS_SAFE_CHARS = 285
 TTS_RETRIES = 2
 
-# The old community TikTok proxy can currently redirect to ottsy.weilbyte.dev
-# and time out. Do NOT use it unless explicitly enabled.
-TIKTOK_ENABLED = os.environ.get("MINT_TIKTOK_TTS_FALLBACK", "0").strip().lower() in {"1", "true", "yes"}
-TIKTOK_TTS_BACKENDS = (
-    "https://tiktok-tts.weilnet.workers.dev/api/generation",
-    "https://api16-normal-v6.tiktokv.com/media/api/text/speech/invoke/",
-    "https://api16-normal-c-useast1a.tiktokv.com/media/api/text/speech/invoke/",
-    "https://api16-normal-c-useast2a.tiktokv.com/media/api/text/speech/invoke/",
-    "https://api16-normal-useast5.us.tiktokv.com/media/api/text/speech/invoke/",
-)
-TIKTOK_USER_AGENT = (
-    "com.zhiliaoapp.musically/2022600030 "
-    "(Linux; U; Android 7.1.2; es_ES; SM-G988N; Build/NRD90M;tt-ok/3.12.13.1)"
-)
+# Kokoro is the production provider. The model and voice weights are
+# downloaded/cached automatically by the kokoro package on first use.
+KOKORO_ENABLED = os.environ.get("MINT_KOKORO_TTS", "1").strip().lower() not in {"0", "false", "no"}
+KOKORO_VOICE = os.environ.get("MINT_KOKORO_VOICE", "af_heart").strip() or "af_heart"
+KOKORO_LANG = os.environ.get("MINT_KOKORO_LANG", "a").strip() or "a"
+
+# Edge remains available as a keyless emergency provider if Kokoro cannot
+# initialize or generate audio on the GitHub runner.
+EDGE_ENABLED = os.environ.get("MINT_EDGE_TTS_FALLBACK", "1").strip().lower() not in {"0", "false", "no"}
 
 PRONUNCIATION_REPLACEMENTS = {
     "insects": "in-sects", "insect": "in-sect",
@@ -75,7 +73,7 @@ def split_sentences(text):
     return [clean_text(x) for x in re.split(r"(?<=[.!?])\s+", clean_text(text)) if clean_text(x)]
 
 
-def hard_split_text(text, max_chars=TIKTOK_SAFE_CHARS):
+def hard_split_text(text, max_chars=TTS_SAFE_CHARS):
     words = clean_text(text).split()
     chunks, current = [], ""
     for word in words:
@@ -104,9 +102,9 @@ def hard_split_text(text, max_chars=TIKTOK_SAFE_CHARS):
 def build_tts_chunks(text):
     chunks, current = [], ""
     for sentence in split_sentences(text):
-        if utf8_length(sentence) <= TIKTOK_SAFE_CHARS:
+        if utf8_length(sentence) <= TTS_SAFE_CHARS:
             candidate = sentence if not current else current + " " + sentence
-            if utf8_length(candidate) <= TIKTOK_SAFE_CHARS:
+            if utf8_length(candidate) <= TTS_SAFE_CHARS:
                 current = candidate
             else:
                 if current:
@@ -119,9 +117,6 @@ def build_tts_chunks(text):
             chunks.extend(hard_split_text(sentence))
     if current:
         chunks.append(current)
-    for i, chunk in enumerate(chunks, 1):
-        if utf8_length(chunk) > TIKTOK_MAX_CHARS:
-            raise RuntimeError(f"TTS chunk {i} exceeds the hard 300-character limit.")
     return chunks
 
 
@@ -145,14 +140,75 @@ def apply_narration_speed(clip):
         return clip
 
 
+# Keep one Kokoro pipeline in memory for all chunks. This avoids repeatedly
+# loading the 82M model and makes chunked narration practical on CI runners.
+_KOKORO_PIPELINE = None
+_KOKORO_PIPELINE_KEY = None
+
+
+def _get_kokoro_pipeline():
+    global _KOKORO_PIPELINE, _KOKORO_PIPELINE_KEY
+    key = (KOKORO_LANG, KOKORO_VOICE)
+    if _KOKORO_PIPELINE is not None and _KOKORO_PIPELINE_KEY == key:
+        return _KOKORO_PIPELINE
+    try:
+        from kokoro import KPipeline
+    except ImportError as error:
+        raise RuntimeError("kokoro is not installed") from error
+    print(f"🧠 Loading Kokoro-82M | lang={KOKORO_LANG} | voice={KOKORO_VOICE}")
+    try:
+        _KOKORO_PIPELINE = KPipeline(lang_code=KOKORO_LANG)
+    except Exception as error:
+        raise RuntimeError(f"Kokoro pipeline initialization failed: {error}") from error
+    _KOKORO_PIPELINE_KEY = key
+    print("✅ Kokoro-82M pipeline ready")
+    return _KOKORO_PIPELINE
+
+
+def _generate_kokoro_chunk(text, voice_config, request_number):
+    if not KOKORO_ENABLED:
+        raise RuntimeError("Kokoro is disabled")
+    try:
+        import soundfile as sf
+    except ImportError as error:
+        raise RuntimeError("soundfile is not installed") from error
+
+    voice = str(voice_config.get("voice_name") or KOKORO_VOICE).strip() or KOKORO_VOICE
+    lang = str(voice_config.get("kokoro_lang") or KOKORO_LANG).strip() or KOKORO_LANG
+    global _KOKORO_PIPELINE_KEY
+    if lang != KOKORO_LANG:
+        _KOKORO_PIPELINE_KEY = None
+    pipeline = _get_kokoro_pipeline()
+    path = os.path.abspath(f"tts_kokoro_chunk_{request_number}.wav")
+    if os.path.exists(path):
+        os.remove(path)
+
+    audio_parts = []
+    try:
+        generator = pipeline(text, voice=voice)
+        for _, _, audio in generator:
+            if audio is not None:
+                if hasattr(audio, "detach"):
+                    audio = audio.detach().cpu().numpy()
+                audio = np.asarray(audio, dtype=np.float32).reshape(-1)
+                if audio.size:
+                    audio_parts.append(audio)
+    except Exception as error:
+        raise RuntimeError(f"Kokoro generation failed: {error}") from error
+
+    if not audio_parts:
+        raise RuntimeError("Kokoro returned no usable audio.")
+    audio = np.concatenate(audio_parts)
+    sf.write(path, audio, KOKORO_SAMPLE_RATE, subtype="PCM_16")
+    if not os.path.exists(path) or os.path.getsize(path) < 1024:
+        raise RuntimeError("Kokoro returned an empty audio file.")
+    print(f"✅ Kokoro chunk {request_number} succeeded | voice={voice} | sample_rate={KOKORO_SAMPLE_RATE}")
+    return path
+
+
 def _edge_voice(voice_config):
     configured = str(voice_config.get("edge_voice") or "").strip()
-    if configured:
-        return configured
-    legacy = str(voice_config.get("voice_name") or "").strip().lower()
-    if legacy.startswith("en_us"):
-        return "en-US-GuyNeural"
-    return "en-US-GuyNeural"
+    return configured or "en-US-GuyNeural"
 
 
 def _edge_rate(voice_config):
@@ -186,98 +242,31 @@ def _generate_edge_chunk(text, voice_config, request_number):
     return path
 
 
-def _decode_tiktok_response(response):
-    response.raise_for_status()
-    data = response.json()
-    if data.get("success") is True and data.get("data"):
-        return base64.b64decode(data["data"]), "community-worker"
-    if data.get("status_code") == 0:
-        nested = data.get("data") or {}
-        encoded = nested.get("v_str") if isinstance(nested, dict) else None
-        if encoded:
-            return base64.b64decode(encoded), "tiktok-direct"
-    if data.get("statusCode") == 0:
-        nested = data.get("data") or {}
-        encoded = nested.get("v_str") if isinstance(nested, dict) else None
-        if encoded:
-            return base64.b64decode(encoded), "tiktok-direct"
-    raise RuntimeError(data.get("status_msg") or data.get("statusMessage") or data.get("error") or str(data))
-
-
-def _request_tiktok(text, voice):
-    last_error = None
-    for backend in TIKTOK_TTS_BACKENDS:
-        try:
-            if backend.endswith("/api/generation"):
-                response = requests.post(backend, json={"text": text, "voice": voice}, headers={"User-Agent": TIKTOK_USER_AGENT}, timeout=(5, 15))
-            else:
-                response = requests.post(
-                    backend,
-                    params={"text_speaker": voice, "req_text": text, "speaker_map_type": "0", "aid": "1233"},
-                    headers={"User-Agent": TIKTOK_USER_AGENT},
-                    timeout=(5, 15),
-                )
-            audio, name = _decode_tiktok_response(response)
-            if audio:
-                return audio, name
-        except Exception as error:
-            last_error = error
-            print(f"⚠️ Optional TikTok backend failed: {backend} — {type(error).__name__}: {error}")
-    raise RuntimeError("All optional TikTok TTS backends failed") from last_error
-
-
-def _generate_gtts_chunk(text, request_number):
-    try:
-        from gtts import gTTS
-    except ImportError as error:
-        raise RuntimeError("gTTS is not installed") from error
-    path = os.path.abspath(f"tts_gtts_chunk_{request_number}.mp3")
-    if os.path.exists(path):
-        os.remove(path)
-    gTTS(text=text, lang="en", slow=False).save(path)
-    if not os.path.exists(path) or os.path.getsize(path) < 1024:
-        raise RuntimeError("gTTS returned no usable audio.")
-    print(f"✅ gTTS emergency fallback chunk {request_number} succeeded")
-    return path
-
-
 def generate_tts_chunk(text, voice_config, request_number):
     last_error = None
     print(f"🎤 TTS chunk {request_number} | chars={len(text)}")
 
-    # Production default: Edge TTS. It is keyless and does not depend on the
-    # unstable ottsy proxy. edge-tts uses Microsoft's online TTS service.
+    # Primary: local Kokoro-82M. No API key, no session, and no third-party
+    # TTS endpoint is involved in normal production.
     for attempt in range(1, TTS_RETRIES + 1):
         try:
-            return _generate_edge_chunk(text, voice_config, request_number)
+            return _generate_kokoro_chunk(text, voice_config, request_number)
         except Exception as error:
             last_error = error
-            print(f"⚠️ Edge TTS attempt {attempt}/{TTS_RETRIES} failed: {type(error).__name__}: {error}")
+            print(f"⚠️ Kokoro attempt {attempt}/{TTS_RETRIES} failed: {type(error).__name__}: {error}")
             if attempt < TTS_RETRIES:
                 time.sleep(attempt)
 
-    # TikTok is deliberately opt-in because the current public endpoints are
-    # failing in GitHub Actions. It can be re-enabled without code changes.
-    if TIKTOK_ENABLED:
-        try:
-            legacy_voice = str(voice_config.get("tiktok_voice_name") or "en_us_010")
-            audio, backend = _request_tiktok(text, legacy_voice)
-            path = os.path.abspath(f"tts_tiktok_chunk_{request_number}.mp3")
-            with open(path, "wb") as handle:
-                handle.write(audio)
-            print(f"✅ Optional TikTok fallback succeeded via {backend}")
-            return path
-        except Exception as error:
-            last_error = error
-            print(f"⚠️ Optional TikTok fallback failed: {type(error).__name__}: {error}")
-
-    # Final network fallback. This is slower/less expressive than Edge but
-    # prevents the entire production run from dying on a transient provider outage.
-    try:
-        return _generate_gtts_chunk(text, request_number)
-    except Exception as error:
-        last_error = error
-        print(f"❌ gTTS emergency fallback failed: {type(error).__name__}: {error}")
+    # Keyless Edge fallback preserves the existing production safety net.
+    if EDGE_ENABLED:
+        for attempt in range(1, TTS_RETRIES + 1):
+            try:
+                return _generate_edge_chunk(text, voice_config, request_number)
+            except Exception as error:
+                last_error = error
+                print(f"⚠️ Edge fallback attempt {attempt}/{TTS_RETRIES} failed: {type(error).__name__}: {error}")
+                if attempt < TTS_RETRIES:
+                    time.sleep(attempt)
 
     raise RuntimeError(f"All configured TTS providers failed for chunk {request_number}") from last_error
 
@@ -295,20 +284,24 @@ def synthesize_narration(text, config, out_path):
         raise RuntimeError("No TTS chunks were generated.")
 
     print("\n" + "=" * 80)
-    print("🎙️ RESILIENT TTS — CHUNKED CONTINUOUS NARRATION")
+    print("🎙️ KOKORO TTS — CHUNKED CONTINUOUS NARRATION")
     print("=" * 80)
-    print(f"Configured provider: {voice_config.get('provider', 'edge')}")
-    print(f"Edge voice: {_edge_voice(voice_config)}")
-    print("Primary backend: Microsoft Edge TTS (keyless)")
-    print("TikTok fallback: " + ("ENABLED" if TIKTOK_ENABLED else "DISABLED by default"))
-    print("Emergency fallback: gTTS")
+    print(f"Configured provider: {voice_config.get('provider', 'kokoro')}")
+    print(f"Kokoro voice: {voice_config.get('voice_name', KOKORO_VOICE)}")
+    print(f"Kokoro language: {voice_config.get('kokoro_lang', KOKORO_LANG)}")
+    print("Primary backend: Kokoro-82M (local, keyless)")
+    print("API key: NOT REQUIRED")
+    print("Session ID: NOT REQUIRED")
+    print("Edge fallback: " + ("ENABLED" if EDGE_ENABLED else "DISABLED"))
     print(f"Original characters: {len(original_text)}")
     print(f"TTS characters: {len(tts_text)}")
     print(f"Chunks: {len(chunks)}")
     print(f"Target max duration: {TARGET_MAX_DURATION:.2f}s")
     print("Adaptive narration speed: ENABLED")
     print("Sentence-aware chunking: ENABLED")
+    print("Scene-level TTS: DISABLED")
     print("Artificial gaps: DISABLED")
+    print("Crossfade: DISABLED")
 
     chunk_paths, clips = [], []
     combined = processed = None
@@ -329,16 +322,22 @@ def synthesize_narration(text, config, out_path):
         return out_path
     finally:
         for clip in clips:
-            try: clip.close()
-            except Exception: pass
+            try:
+                clip.close()
+            except Exception:
+                pass
         for clip in (processed, combined):
             try:
-                if clip is not None: clip.close()
-            except Exception: pass
+                if clip is not None:
+                    clip.close()
+            except Exception:
+                pass
         for path in chunk_paths:
             try:
-                if os.path.exists(path): os.remove(path)
-            except Exception: pass
+                if os.path.exists(path):
+                    os.remove(path)
+            except Exception:
+                pass
 
 
 def _script_narration(script):

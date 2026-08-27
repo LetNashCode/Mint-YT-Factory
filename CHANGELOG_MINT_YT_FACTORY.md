@@ -72,6 +72,24 @@ GitHub Actions failed because the code attempted to fall back from `gemini-flash
 
 ---
 
+## 2026-08-27 — Image-generation prohibition
+
+### User requirement
+- **Do not use Gemini or any other AI/image-generation service to generate production images.**
+- Production images must be real stock assets retrieved only from Pexels or Pixabay.
+- Do not introduce an AI-generated-image fallback if stock imagery is unavailable.
+
+### Implementation rule
+- Gemini is not an image-generation provider in the Mint-YT-Factory media pipeline.
+- No `txt2img`, image-generation API, generative image model, or third-party AI image service may be added as a media fallback.
+- The existing Pexels/Pixabay-only media-provider restriction remains authoritative for both photos and videos.
+- Gemini, where still used by the project, may only perform non-generation tasks such as script/reasoning/search-direction/visual-analysis functions explicitly permitted by the project architecture.
+
+### Decision
+- A failed stock-image search must remain a stock-search failure; it must never silently become an AI-generated image.
+
+---
+
 ## Change-log operating rule
 
 For future Mint-YT-Factory changes:

@@ -1,7 +1,7 @@
 """Final render validation for Mint-YT-Factory.
 
 The upload stage is allowed to run only when the finished MP4 is actually
-2160x3840 portrait, 60 fps, and encoded at the configured production bitrate.
+2160x3840 portrait, 60 fps, and encoded at the configured 100 Mbps production bitrate.
 """
 
 from __future__ import annotations
@@ -10,6 +10,12 @@ import json
 import subprocess
 from fractions import Fraction
 from pathlib import Path
+
+
+EXPECTED_WIDTH = 2160
+EXPECTED_HEIGHT = 3840
+EXPECTED_FPS = 60.0
+EXPECTED_BITRATE_MBPS = 100.0
 
 
 def _probe(path: str) -> dict:
@@ -46,7 +52,7 @@ def _fps(stream: dict) -> float:
         return 0.0
 
 
-def validate_final_video(path: str, expected_bitrate_mbps: float = 68.0) -> dict:
+def validate_final_video(path: str, expected_bitrate_mbps: float = EXPECTED_BITRATE_MBPS) -> dict:
     if not Path(path).is_file():
         raise RuntimeError(f"Final video not found: {path}")
 
@@ -72,11 +78,11 @@ def validate_final_video(path: str, expected_bitrate_mbps: float = 68.0) -> dict
 
     errors = []
 
-    if (width, height) != (2160, 3840):
-        errors.append(f"Expected 2160x3840, got {width}x{height}")
+    if (width, height) != (EXPECTED_WIDTH, EXPECTED_HEIGHT):
+        errors.append(f"Expected {EXPECTED_WIDTH}x{EXPECTED_HEIGHT}, got {width}x{height}")
 
-    if abs(fps - 60.0) > 0.05:
-        errors.append(f"Expected 60 fps, got {fps:.3f}")
+    if abs(fps - EXPECTED_FPS) > 0.05:
+        errors.append(f"Expected {EXPECTED_FPS:.0f} fps, got {fps:.3f}")
 
     if codec != "h264":
         errors.append(f"Expected H.264, got {codec or 'unknown'}")
@@ -84,11 +90,13 @@ def validate_final_video(path: str, expected_bitrate_mbps: float = 68.0) -> dict
     if pixel_format != "yuv420p":
         errors.append(f"Expected yuv420p, got {pixel_format or 'unknown'}")
 
-    # ffprobe reports average stream bitrate. Allow normal container/encoder
-    # variation, but reject a render that is materially below the target.
-    if bitrate and bitrate < expected_bitrate_mbps * 0.80:
+    # ffprobe reports average stream bitrate. The encoder target is 100 Mbps;
+    # allow normal encoder/content variation but reject a materially lower render.
+    if bitrate <= 0:
+        errors.append("Could not measure the final video bitrate")
+    elif bitrate < expected_bitrate_mbps * 0.90:
         errors.append(
-            f"Video bitrate is materially below target: {bitrate:.2f} Mbps"
+            f"Video bitrate is materially below 100 Mbps target: {bitrate:.2f} Mbps"
         )
 
     if errors:
@@ -100,9 +108,6 @@ def validate_final_video(path: str, expected_bitrate_mbps: float = 68.0) -> dict
     print("✅ VIDEO QUALITY VALIDATION PASSED")
     print("=" * 80)
 
-    # The validator raises on failure, so reaching this point means the
-    # validation succeeded.  main.py relies on this explicit status flag
-    # before allowing the upload stage to run.
     return {
         "ok": True,
         "path": path,

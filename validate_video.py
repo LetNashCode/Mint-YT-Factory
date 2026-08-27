@@ -100,7 +100,11 @@ def validate_final_video(path: str, expected_bitrate_mbps: float = 68.0) -> dict
     print("✅ VIDEO QUALITY VALIDATION PASSED")
     print("=" * 80)
 
+    # The validator raises on failure, so reaching this point means the
+    # validation succeeded.  main.py relies on this explicit status flag
+    # before allowing the upload stage to run.
     return {
+        "ok": True,
         "path": path,
         "width": width,
         "height": height,

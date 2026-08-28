@@ -1,0 +1,39 @@
+Mint-YT-Factory production log — 2026-08-27
+
+This file preserves the user-provided GitHub Actions production log from the Kokoro migration/debugging run.
+
+Key run milestones:
+- Pipeline started successfully on Python 3.11.16.
+- Gemini script model: gemini-flash-lite-latest.
+- Visual/Search Director: Gemini.
+- Stock media priority: Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO.
+- Visual verification enabled; threshold 7.5/10.
+- Story target: TTS-authoritative 35–43.9 seconds.
+- Continuation: one locked next topic, final sentence only.
+- Current topic: Why popcorn kernels explode.
+- Gemini generated and accepted next topic: Why dry noodles snap into three.
+- Kokoro TTS successfully loaded Kokoro-82M locally with voice af_heart, language a.
+- Kokoro uses a single continuous narration pass; chunking disabled.
+- Kokoro synthesis succeeded at 24 kHz.
+- Adaptive narration speed was used to fit the target duration.
+- SFX generation completed with 19 assets and mandatory FAAA reaction placement.
+- Background music selected successfully.
+
+Important failures observed during this run:
+1. Before Kokoro migration, keyless TikTok TTS failed across all configured backends after 4 attempts.
+2. After Kokoro migration, MoviePy failed because the generated raw WAV reported a shorter file duration than the processed clip requested. Error example: accessing t≈37.36–37.40s while clip duration was reported as 37s.
+3. A subsequent attempt exposed a MoviePy frame-rate/array issue in the speed-adjustment path: ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all().
+4. An assembly contract mismatch was previously identified: the pipeline generated 14 image groups (7 scenes × 2 shots), while assemble.py expected 7. The contract was changed to expect 14.
+5. Gemini visual verification sometimes temporarily failed; the stock pipeline then used conservative metadata fallback/provider fallback rather than unrelated media.
+6. Gemini topic generation can produce invalid candidates; the continuation pipeline should retry Gemini rather than inject a static hard-coded topic.
+
+Architecture/decisions captured by this log:
+- Work directly on main and the publish-short workflow; do not create additional branches/workflows.
+- Gemini must generate the seamless next-topic preview. Do not use a hard-coded recurring topic such as “Why onions make you cry” as a fallback.
+- The accepted Gemini next topic is canonical and should be persisted for the next Short.
+- Scene 7 should contain the seamless continuation preview as the final sentence only.
+- Descriptions should describe the current Short’s topic, not the upcoming topic.
+- Visuals should closely match the exact narration beat; unrelated/general scientific imagery is not acceptable.
+- Script tone should be entertainment-first, fun, quirky, conversational, and low-jargon rather than dry/scientific.
+
+Full user-supplied log is preserved in the conversation that requested this repository log entry.

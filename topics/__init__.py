@@ -16,9 +16,10 @@ _SIGNALS=("phone","battery","charger","charging","screen","wifi","wi-fi","headph
 
 _PROMPT="""You create topics for a highly entertaining YouTube Shorts channel.
 CHANNEL PROMISE: Things ordinary people experience all the time but almost never stop to ask why.
-Choose ONE familiar, visually interesting everyday mystery. The viewer should instantly recognise it and think: Wait... why DOES that happen?
+Choose ONE NEW familiar, visually interesting everyday mystery. The viewer should instantly recognise it and think: Wait... why DOES that happen?
 Science is the explanation, NEVER the packaging. Reject academic subjects, generic facts, lists, countdowns, medical advice, politics, conspiracy, fearbait, broad subjects, and anything difficult to show.
-The topic will be spoken aloud as a final teaser in a 45-second Short. Keep it VERY short: 3 to 7 words total. Prefer forms like Why ice floats, Why bread rises, Why popcorn pops, Why onions make you cry, Why soda cans hiss.
+The topic will be spoken aloud as a final teaser in a 45-second Short. Keep it VERY short: 3 to 7 words total.
+IMPORTANT: Generate an original topic from your own reasoning. Do NOT copy, reuse, or select a topic from examples, fallback lists, or previous topics.
 Return ONLY one short curiosity question. No quotes, numbering, explanation, or question mark.
 Previous topics:
 {previous}"""
@@ -77,10 +78,7 @@ def _generate_topic(used):
         except Exception as error:
             print(f"⚠️ Topic attempt failed: {error}")
             if attempt<10:time.sleep(min(2*attempt,8))
-    fallbacks=["Why ice floats","Why bread rises","Why popcorn pops","Why onions make you cry","Why clothes smell stale","Why metal feels cold","Why fans feel cool","Why glass fogs up","Why bananas bruise from inside","Why garlic turns green","Why toast burns so fast","Why dry spaghetti breaks"]
-    for candidate in fallbacks:
-        if _is_everyday_topic(candidate) and not any(_key(candidate)==_key(x) for x in used):print(f"🔄 Using fallback topic: {candidate}");return candidate
-    raise RuntimeError("Could not generate a valid short everyday-curiosity topic.")
+    raise RuntimeError("Gemini could not generate a valid new short everyday-curiosity topic after 10 attempts; no static topic fallback is permitted.")
 
 def get_next_topic():
     pending=_consume_pending()

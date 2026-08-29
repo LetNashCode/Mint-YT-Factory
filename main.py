@@ -145,9 +145,9 @@ Return a valid 7-scene story and a candidate next_short.topic. Do NOT write ANY 
             script=generate_script(topic,config,None,extra_feedback=feedback)
             candidate=str((script.get("next_short") or {}).get("topic","")).strip()
             if not candidate: raise RuntimeError("Missing next_short.topic")
-            canonical=_lock_canonical_topic(script,topic)
-            _install_natural_bridge(script,canonical)
-            _validate_gemini_scene7(script,canonical)
+            # Keep the valid Gemini story authoritative. Lock the Gemini-generated
+            # next topic now; normalize the final bridge later without regeneration.
+            _lock_canonical_topic(script,topic)
             return script
         except Exception as error:
             last_error=error

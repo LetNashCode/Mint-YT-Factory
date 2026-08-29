@@ -387,14 +387,20 @@ def _validate_visuals(visual_plan, entertainment, topic):
             action = _clean(visual.get("visual_action"))
             prompt = _clean(visual.get("image_prompt"))
             spoken = _clean(visual.get("spoken_line"))
-            if not focus or not action or not prompt:
+            if not focus or not prompt:
                 raise RuntimeError(f"Visual director scene {i+1} shot {j+1} has missing fields.")
+            # Repair abstract/invisible beats instead of throwing away a good story.
+            if not action:
+                action = "visible physical context or consequence"
+                visual["visual_action"] = action
             if len(prompt.split()) < 8 or len(prompt.split()) > 60:
-                raise RuntimeError(f"Visual director scene {i+1} shot {j+1} has a weak image prompt.")
+                visual["image_prompt"] = f"{focus}, showing {action}, literal real-world physical context matching the narration"
             if spoken:
                 overlap = set(re.findall(r"[a-z]{4,}", spoken.lower())) & set(re.findall(r"[a-z]{4,}", narration))
                 if len(overlap) < 2 and spoken.lower() not in narration and narration not in spoken.lower():
-                    raise RuntimeError(f"Visual director scene {i+1} shot {j+1} does not map to narration.")
+                    # The narrator is authoritative; bind the shot to its scene rather
+                    # than rejecting the complete two-stage generation.
+                    visual["spoken_line"] = narration
             if j == 1 and previous_focus and focus.lower() == previous_focus.lower():
                 raise RuntimeError(f"Visual director scene {i+1} shot 2 duplicates shot 1.")
             previous_focus = focus

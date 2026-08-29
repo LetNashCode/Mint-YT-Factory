@@ -72,75 +72,27 @@ def _emoji_for_word(word):
 
 
 def _patch_assemble(module):
-    old_transcribe = getattr(module, "transcribe", None)
-    if old_transcribe is not None:
-        module._mint_raw_transcribe = old_transcribe
+    # IMPORTANT: keep assemble.py as the single source of truth for captions.
+    #
+    # A previous runtime override replaced build_captions() with an alternate
+    # renderer that randomly varied word size, alternated colours by index and
+    # injected emoji overlays. That bypassed the canonical scene-aware
+    # highlighting, shadow styling and timeline logic in assemble.py and made
+    # captions visually inconsistent from one Short to the next.
+    #
+    # Do not monkey-patch build_captions here. The canonical renderer already
+    # owns:
+    #   - Whisper/script word timing
+    #   - min/max caption durations
+    #   - scene-aware semantic highlights
+    #   - font, outline and shadow styling
+    #   - one-word kinetic caption mode
+    print("📝 Caption runtime: canonical assemble.py renderer ENABLED")
 
-    def build(narration_path, script, frame_size):
-        raw = getattr(module, "_mint_raw_transcribe", None)
-        if raw is None:
-            raise RuntimeError("Raw Whisper transcriber unavailable.")
-        words = _clean_words(raw(narration_path))
-        if not words:
-            raise RuntimeError("Whisper returned no usable word timestamps.")
-
-        from moviepy.editor import TextClip
-        width, height = frame_size
-        safe_left = width * 0.06
-        safe_right = width * 0.80
-        safe_center = (safe_left + safe_right) / 2.0
-        center_y = height * 0.60
-        max_word_width = safe_right - safe_left
-        clips = []
-
-        for index, item in enumerate(words):
-            word = item["word"]
-            start = item["start"]
-            duration = min(max(0.05, item["end"] - start), 1.20)
-            size = _word_size(word, index, frame_size)
-            color = "#FFD54A" if index % 4 != 2 else "#FFFFFF"
-            old_size = getattr(module, "CAPTION_FONT_SIZE", 78)
-            module.CAPTION_FONT_SIZE = size
-            try:
-                clip = module._make_word_clip(word, color)
-            finally:
-                module.CAPTION_FONT_SIZE = old_size
-
-            if clip.w > max_word_width:
-                size = max(50, int(size * max_word_width / float(clip.w) * 0.94))
-                module.CAPTION_FONT_SIZE = size
-                try:
-                    clip = module._make_word_clip(word, color)
-                finally:
-                    module.CAPTION_FONT_SIZE = old_size
-
-            x = max(safe_left, min(safe_center - clip.w / 2.0, safe_right - clip.w))
-            y = center_y - clip.h / 2.0
-            clips.append(clip.set_start(start).set_duration(duration).set_position((x, y)))
-
-            emoji = _emoji_for_word(word)
-            if emoji:
-                try:
-                    esize = max(36, int(size * 0.58))
-                    eclip = TextClip(
-                        emoji, fontsize=esize, font="DejaVu-Sans", color="white",
-                        stroke_color="black", stroke_width=max(1, int(esize * 0.035)),
-                        method="label",
-                    )
-                    ex = safe_center - eclip.w / 2.0
-                    ey = y - eclip.h - max(10, int(size * 0.16))
-                    clips.append(eclip.set_start(start).set_duration(duration).set_position((ex, ey)))
-                except Exception:
-                    pass
-
-        print(f"🎬 Captions: {len(words)} timed words / safe lane 6%-80% / center 60%")
-        return clips
-
-    module.build_captions = build
-    module.CAPTION_VERTICAL_POSITION = 0.60
+    # Video defaults remain production-quality settings; caption behaviour is
+    # intentionally not overridden at runtime.
     module.DEFAULT_RESOLUTION = (2160, 3840)
     module.DEFAULT_FPS = 60
-
 
 def _patch_video_quality(module):
     try:

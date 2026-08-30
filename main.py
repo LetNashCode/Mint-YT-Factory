@@ -310,7 +310,22 @@ def run(dry_run=False):
     if isinstance(upload_result, dict):
         video_id = str(upload_result.get("video_id") or upload_result.get("id") or "")
     record_topic(topic, title=title, video_id=video_id, workdir=workdir, status="published")
-    save_next_short(next_topic)
+    # Upload success is final. Continuation is best-effort and must never mark a published Short as failed.
+    try:
+        save_next_short(next_topic)
+    except Exception as error:
+        print(f"⚠️ Next-topic queue rejected after successful upload: {type(error).__name__}: {error}")
+        print("🛠️ Generating a fresh unused continuation topic instead.")
+        try:
+            used = [topic]
+            used.extend(item for item in _read_used() if not str(item).startswith(_PENDING_PREFIX))
+            replacement = _generate_topic(used)
+            save_next_short(replacement)
+            next_topic = replacement
+            print(f"🔗 Replacement next-video topic: {next_topic}")
+        except Exception as replacement_error:
+            print(f"⚠️ Continuation queue unavailable; upload remains successful: {type(replacement_error).__name__}: {replacement_error}")
+    write_continuation_manifest(topic, next_topic, "published", workdir)
 
 
 if __name__ == "__main__":

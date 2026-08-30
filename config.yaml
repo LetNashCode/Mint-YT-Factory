@@ -67,9 +67,9 @@ video:
   motion: {enabled: true, storyboard_controlled: true, allow_zoom: true, allow_pan: true, allow_parallax: true, allow_rotate: true, allow_hold: true, default_intensity: medium}
   transitions: {enabled: true, storyboard_controlled: true, default: hard_cut}
   background_music: {enabled: true, volume: 0.08}
-  sound_effects: {enabled: true, volume: 0.55}
+  sound_effects: {enabled: true, mode: meme_only, local_library: assets/sfx/meme, volume: 0.65}
   music_volume: 0.08
-  sfx_volume: 0.55
+  sfx_volume: 0.65
 captions: {enabled: true, source: narration, narration_is_source_of_truth: true, word_by_word: true, scene_aware: true, highlight: true, maximum_words_per_caption: 1, font_size: 72, color: white, highlight_color: "#FFD54A", stroke_color: "#111111", stroke_width: 2, shadow: true, shadow_opacity: 0.65, vertical_position: 0.64}
 branding: {channel_name: "Wonder Minute", ending_text: "Follow for more.", ending_text_enabled: true, ending_text_in_narration: false, overlay_branding: false, watermark: false}
 seo:

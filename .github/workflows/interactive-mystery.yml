@@ -1,0 +1,46 @@
+name: Interactive Mystery Short
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Generate without uploading
+        required: true
+        default: true
+        type: boolean
+permissions:
+  contents: read
+concurrency:
+  group: mint-yt-factory-interactive
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg imagemagick tesseract-ocr espeak-ng
+          python -m pip install --upgrade pip
+          python -m pip install --prefer-binary -r requirements.txt
+      - run: |
+          python -m py_compile interactive_main.py interactive_topics.py interactive_analytics.py
+      - name: Run Interactive Mystery Universe
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then python -u interactive_main.py --dry-run; else python -u interactive_main.py; fi
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: interactive-mystery-${{ github.run_id }}
+          path: output/interactive/**
+          if-no-files-found: warn
+          retention-days: 7

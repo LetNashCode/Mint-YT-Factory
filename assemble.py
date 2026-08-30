@@ -55,7 +55,7 @@ CAPTION_SHADOW_OFFSET = 7
 CAPTION_VERTICAL_POSITION = 0.67
 CAPTION_MIN_DURATION = 0.18
 CAPTION_MAX_DURATION = 1.60
-CAPTION_MAX_WORDS = 4
+CAPTION_MAX_WORDS = 1
 CAPTION_MAX_CHARS = 28
 CAPTION_SAFE_WIDTH = 0.88
 CAPTION_SIZE_BY_SCENE = (1.38, 0.92, 1.00, 1.00, 1.08, 1.08, 1.28)
@@ -365,36 +365,14 @@ def _normalize_whisper_words(words):
 
 
 def _build_caption_phrases(words):
-    """Group Whisper words into short, punchy readable caption beats."""
+    """One-word-at-a-time captions using Whisper timing."""
     phrases = []
-    current = []
-
-    def flush():
-        nonlocal current
-        if not current:
-            return
-        start = current[0]["start"]
-        end = current[-1]["end"]
-        duration = max(CAPTION_MIN_DURATION, min(CAPTION_MAX_DURATION, end - start))
-        phrases.append({
-            "text": " ".join(item["word"] for item in current),
-            "words": [item["word"] for item in current],
-            "start": start,
-            "duration": duration,
-        })
-        current = []
-
     for item in words:
-        current.append(item)
-        text = " ".join(entry["word"] for entry in current)
-        boundary = str(item["word"]).rstrip().endswith((".", "!", "?", ",", ";", ":"))
-        too_long = len(current) >= CAPTION_MAX_WORDS or len(text) >= CAPTION_MAX_CHARS
-        if boundary or too_long:
-            flush()
-
-    flush()
+        start = item["start"]
+        end = item["end"]
+        duration = max(CAPTION_MIN_DURATION, min(CAPTION_MAX_DURATION, end - start))
+        phrases.append({"text": item["word"], "words": [item["word"]], "start": start, "duration": duration})
     return phrases
-
 
 def _caption_style(scene_index, scene, phrase, phrase_index):
     """Return playful size and colour for the current story beat."""
@@ -456,7 +434,7 @@ def _get_scene_index_for_time(scene_ranges, timestamp):
 
 def build_captions(narration_path, script, frame_size):
     print("=" * 80)
-    print("🌈 BUILDING QUIRKY COLOURFUL BEAT CAPTIONS")
+    print("🌈 BUILDING QUIRKY COLOURFUL ONE-WORD CAPTIONS")
     print("=" * 80)
     words = _normalize_whisper_words(transcribe(narration_path))
     if not words:
@@ -497,7 +475,7 @@ def build_captions(narration_path, script, frame_size):
 
     print(f"Caption layers: {len(clips)}")
     print(f"Caption beats: {len(phrases)}")
-    print("Caption mode: SHORT PHRASES (2-4 WORD BEATS)")
+    print("Caption mode: ONE WORD AT A TIME")
     print("Caption style: BIG HOOKS + MEDIUM EXPLAINS + BIG PAYOFFS")
     print("Caption colours: WHITE / YELLOW / CYAN / PINK / GREEN")
     print("Caption placement: LOWER CENTER SAFE AREA")
@@ -658,8 +636,8 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
     print("=" * 80)
     print(f"Output: {out_path}")
     print("Story structure: 7 scenes / 14 shots")
-    print("Captions: QUIRKY SHORT PHRASE BEATS")
-    print("Caption sizes: BIG HOOKS / MEDIUM EXPLAINS / BIG PAYOFFS")
+    print("Captions: QUIRKY ONE-WORD-AT-A-TIME")
+    print("Caption sizes: DYNAMIC SMALL / MEDIUM / BIG EMPHASIS")
     print("Caption colours: WHITE / YELLOW / CYAN / PINK / GREEN")
     print("Caption placement: LOWER CENTER")
     print("Caption outline: THICK BLACK + SHADOW")

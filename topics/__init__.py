@@ -4,7 +4,7 @@ import json, os, re, time
 from pathlib import Path
 from google import genai
 from google.genai import types
-from topic_history import is_new_topic, published_topics
+from topic_history import find_duplicate, is_new_topic, published_topics
 
 _ROOT=Path(__file__).resolve().parent.parent
 _USED_TOPICS_PATH=_ROOT/"used_topics.json"
@@ -91,7 +91,9 @@ def get_next_topic():
 def save_next_short(next_short):
     topic=_clean_topic(next_short); items=[x for x in _read_used() if not x.startswith(_PENDING_PREFIX)]
     if not _is_everyday_topic(topic):raise RuntimeError(f"Refusing to queue invalid continuation topic: {topic}")
-    if any(_key(topic)==_key(x) for x in items) or not is_new_topic(topic):raise RuntimeError(f"Refusing to queue duplicate or near-duplicate continuation topic: {topic}")
+    history_duplicate = find_duplicate(topic)
+    if any(_key(topic)==_key(x) for x in items) or history_duplicate:
+        raise RuntimeError(f"Refusing to queue duplicate or near-duplicate continuation topic: {topic}")
     items.append(_PENDING_PREFIX+topic); _write_used(items); print(f"🔗 Exact next-video topic: {topic}"); return topic
 
 def commit_topic(topic):

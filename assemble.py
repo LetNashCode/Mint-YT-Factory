@@ -40,17 +40,25 @@ if not os.path.isfile(FONT):
     raise RuntimeError(f"Caption font not found: {FONT}")
 print(f"✅ Caption font found: {FONT}")
 
-CAPTION_FONT_SIZE = 78
+# Quirky, high-impact caption system.
+# Captions live in the lower-centre safe area and deliberately change scale
+# and colour with the story beat instead of showing tiny uniform words.
+CAPTION_FONT_SIZE = 92
 CAPTION_COLOR = "white"
 CAPTION_HIGHLIGHT_COLOR = "#FFD54A"
+CAPTION_COLORS = ("#FFFFFF", "#FFD54A", "#49D7FF", "#FF5AAE", "#8DFF63")
 CAPTION_STROKE = "#111111"
-CAPTION_STROKE_WIDTH = 3
+CAPTION_STROKE_WIDTH = 5
 CAPTION_SHADOW_COLOR = "black"
-CAPTION_SHADOW_OPACITY = 0.55
-CAPTION_SHADOW_OFFSET = 4
-CAPTION_VERTICAL_POSITION = 0.64
-CAPTION_MIN_DURATION = 0.05
-CAPTION_MAX_DURATION = 1.20
+CAPTION_SHADOW_OPACITY = 0.65
+CAPTION_SHADOW_OFFSET = 7
+CAPTION_VERTICAL_POSITION = 0.67
+CAPTION_MIN_DURATION = 0.18
+CAPTION_MAX_DURATION = 1.60
+CAPTION_MAX_WORDS = 4
+CAPTION_MAX_CHARS = 28
+CAPTION_SAFE_WIDTH = 0.88
+CAPTION_SIZE_BY_SCENE = (1.38, 0.92, 1.00, 1.00, 1.08, 1.08, 1.28)
 DEFAULT_MUSIC_VOLUME = 0.25
 DEFAULT_SFX_VOLUME = 0.75
 
@@ -356,30 +364,99 @@ def _normalize_whisper_words(words):
     return normalized
 
 
-def _build_word_timeline(words):
-    timeline = []
-    count = len(words)
-    for index, item in enumerate(words):
-        start = item["start"]
-        end = item["end"]
-        if index + 1 < count:
-            end = min(end, words[index + 1]["start"])
-        end = min(end, start + CAPTION_MAX_DURATION)
-        duration = max(CAPTION_MIN_DURATION, end - start)
-        timeline.append({"word": item["word"], "start": start, "end": start + duration, "duration": duration})
-    return timeline
+def _build_caption_phrases(words):
+    """Group Whisper words into short, punchy readable caption beats."""
+    phrases = []
+    current = []
+
+    def flush():
+        nonlocal current
+        if not current:
+            return
+        start = current[0]["start"]
+        end = current[-1]["end"]
+        duration = max(CAPTION_MIN_DURATION, min(CAPTION_MAX_DURATION, end - start))
+        phrases.append({
+            "text": " ".join(item["word"] for item in current),
+            "words": [item["word"] for item in current],
+            "start": start,
+            "duration": duration,
+        })
+        current = []
+
+    for item in words:
+        current.append(item)
+        text = " ".join(entry["word"] for entry in current)
+        boundary = str(item["word"]).rstrip().endswith((".", "!", "?", ",", ";", ":"))
+        too_long = len(current) >= CAPTION_MAX_WORDS or len(text) >= CAPTION_MAX_CHARS
+        if boundary or too_long:
+            flush()
+
+    flush()
+    return phrases
 
 
-def _get_scene_for_time(scenes, scene_ranges, timestamp):
-    for item in scene_ranges:
+def _caption_style(scene_index, scene, phrase, phrase_index):
+    """Return playful size and colour for the current story beat."""
+    multiplier = CAPTION_SIZE_BY_SCENE[min(max(scene_index, 0), len(CAPTION_SIZE_BY_SCENE) - 1)]
+    highlights = get_caption_highlights(scene)
+    normalized = [_normalize_caption_word(word) for word in phrase["words"]]
+    has_highlight = any(word in highlights for word in normalized)
+    dramatic = "!" in phrase["text"] or phrase_index == 0 or scene_index in (0, 6)
+
+    if has_highlight:
+        color = CAPTION_HIGHLIGHT_COLOR
+    else:
+        color = CAPTION_COLORS[(scene_index + phrase_index) % len(CAPTION_COLORS)]
+
+    if dramatic:
+        multiplier *= 1.08
+
+    return int(CAPTION_FONT_SIZE * multiplier), color
+
+
+def _make_caption_clip(text, fontsize, color, frame_size):
+    width, _ = frame_size
+    max_width = int(width * CAPTION_SAFE_WIDTH)
+    return TextClip(
+        text,
+        font=FONT,
+        fontsize=fontsize,
+        color=color,
+        stroke_color=CAPTION_STROKE,
+        stroke_width=CAPTION_STROKE_WIDTH,
+        method="caption",
+        size=(max_width, None),
+        align="center",
+    )
+
+
+def _make_caption_shadow(text, fontsize, frame_size):
+    width, _ = frame_size
+    max_width = int(width * CAPTION_SAFE_WIDTH)
+    return TextClip(
+        text,
+        font=FONT,
+        fontsize=fontsize,
+        color=CAPTION_SHADOW_COLOR,
+        stroke_color=CAPTION_SHADOW_COLOR,
+        stroke_width=CAPTION_STROKE_WIDTH,
+        method="caption",
+        size=(max_width, None),
+        align="center",
+    )
+
+
+def _get_scene_index_for_time(scene_ranges, timestamp):
+    for index, item in enumerate(scene_ranges):
         if item["start"] <= timestamp < item["end"]:
-            return item["scene"]
-    return scenes[-1]
+            return index
+    return len(scene_ranges) - 1
 
 
 def build_captions(narration_path, script, frame_size):
     print("=" * 80)
-    print("📝 BUILDING ONE-WORD KINETIC CAPTIONS")
+    print("🌈 BUILDING QUIRKY COLOURFUL BEAT CAPTIONS")
     print("=" * 80)
     words = _normalize_whisper_words(transcribe(narration_path))
     if not words:
@@ -399,37 +476,31 @@ def build_captions(narration_path, script, frame_size):
 
     position = caption_position(frame_size)
     clips = []
-    normal_count = 0
-    highlighted_count = 0
+    phrases = _build_caption_phrases(words)
 
-    for item in _build_word_timeline(words):
-        word = item["word"]
-        start = item["start"]
-        duration = item["duration"]
-        scene = _get_scene_for_time(scenes, scene_ranges, start)
-        highlighted = _normalize_caption_word(word) in get_caption_highlights(scene)
-        color = CAPTION_HIGHLIGHT_COLOR if highlighted else CAPTION_COLOR
-        if highlighted:
-            highlighted_count += 1
-        else:
-            normal_count += 1
+    for phrase_index, phrase in enumerate(phrases):
+        scene_index = _get_scene_index_for_time(scene_ranges, phrase["start"])
+        scene = scene_ranges[scene_index]["scene"]
+        fontsize, color = _caption_style(scene_index, scene, phrase, phrase_index)
 
-        text_clip = _make_word_clip(word, color).set_start(start).set_duration(duration).set_position(position)
-        shadow_clip = (
-            _make_word_shadow(word)
-            .set_start(start)
-            .set_duration(duration)
-            .set_position(("center", position[1] + CAPTION_SHADOW_OFFSET))
-            .set_opacity(CAPTION_SHADOW_OPACITY)
-        )
+        text_clip = _make_caption_clip(
+            phrase["text"], fontsize, color, frame_size
+        ).set_start(phrase["start"]).set_duration(phrase["duration"]).set_position(position)
+
+        shadow_clip = _make_caption_shadow(
+            phrase["text"], fontsize, frame_size
+        ).set_start(phrase["start"]).set_duration(phrase["duration"]).set_position(
+            ("center", position[1] + CAPTION_SHADOW_OFFSET)
+        ).set_opacity(CAPTION_SHADOW_OPACITY)
+
         clips.extend([shadow_clip, text_clip])
 
     print(f"Caption layers: {len(clips)}")
-    print(f"Caption words: {len(clips) // 2}")
-    print(f"White words: {normal_count}")
-    print(f"Yellow highlighted words: {highlighted_count}")
-    print("Caption mode: ONE WORD AT A TIME")
-    print("Caption background: NONE")
+    print(f"Caption beats: {len(phrases)}")
+    print("Caption mode: SHORT PHRASES (2-4 WORD BEATS)")
+    print("Caption style: BIG HOOKS + MEDIUM EXPLAINS + BIG PAYOFFS")
+    print("Caption colours: WHITE / YELLOW / CYAN / PINK / GREEN")
+    print("Caption placement: LOWER CENTER SAFE AREA")
     return clips
 
 
@@ -587,11 +658,11 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
     print("=" * 80)
     print(f"Output: {out_path}")
     print("Story structure: 7 scenes / 14 shots")
-    print("Captions: ONE WORD AT A TIME")
-    print("Normal words: WHITE")
-    print("Main words: YELLOW")
-    print("Caption background: NONE")
-    print("Caption outline: BLACK")
+    print("Captions: QUIRKY SHORT PHRASE BEATS")
+    print("Caption sizes: BIG HOOKS / MEDIUM EXPLAINS / BIG PAYOFFS")
+    print("Caption colours: WHITE / YELLOW / CYAN / PINK / GREEN")
+    print("Caption placement: LOWER CENTER")
+    print("Caption outline: THICK BLACK + SHADOW")
     print("Visual continuity: enabled")
     print("Portrait 9:16: enabled")
     print(f"Duration: {final_duration:.2f}s")

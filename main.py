@@ -12,6 +12,7 @@ from upload_youtube import upload_video
 from validate_video import validate_final_video
 from learning_context import load_learning_context
 from learning_engine import refresh_playbook
+from topic_history import record_topic
 
 CONTINUATION_MANIFEST = "continuation_state.json"
 EXPECTED_UPLOAD_BITRATE_MBPS = 100.0
@@ -299,12 +300,16 @@ def run(dry_run=False):
     thumbnail_path = os.path.join(workdir, "thumbnail.jpg")
     thumbnail_path = thumbnail_path if os.path.exists(thumbnail_path) else None
 
-    upload_video(
+    upload_result = upload_video(
         final_video, title, description, config,
         thumbnail_path=thumbnail_path,
         engagement_comment=engagement_comment,
     )
     commit_topic(topic)
+    video_id = ""
+    if isinstance(upload_result, dict):
+        video_id = str(upload_result.get("video_id") or upload_result.get("id") or "")
+    record_topic(topic, title=title, video_id=video_id, workdir=workdir, status="published")
     save_next_short(next_topic)
 
 

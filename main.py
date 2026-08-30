@@ -87,27 +87,33 @@ def _bridge_matches_topic(bridge, topic):
 
 
 def _generate_natural_bridge(current_topic, next_topic):
-    """Generate one flexible spoken handoff after the main story is valid."""
-    from google import genai
-    from google.genai import types
-    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
-    prompt = "Write ONE natural spoken sentence of 6-24 words that follows a satisfying explanation of '" + current_topic + "' and creates curiosity about '" + next_topic + "'. Do not say next video, coming next, stay tuned, part 2, or have you ever wondered. Return only the sentence."
-    response = client.models.generate_content(model="gemini-flash-lite-latest", contents=prompt, config=types.GenerateContentConfig(temperature=0.8))
-    bridge = str(getattr(response, "text", "") or "").strip().strip('"')
-    if not bridge:
-        raise RuntimeError("Gemini returned an empty continuation bridge.")
-    return bridge
+    """Build a deterministic, natural handoff without another Gemini failure point.
+
+    The current story is generated and validated independently. The exact next topic is
+    then inserted once by the pipeline so continuation cannot fail because a model omitted,
+    paraphrased, duplicated, or formatted the topic incorrectly.
+    """
+    current = str(current_topic or "").strip().rstrip(".!?")
+    nxt = str(next_topic or "").strip().rstrip(".!?")
+    if not nxt:
+        raise RuntimeError("Continuation topic is empty.")
+    return f"That little everyday mystery opens another one: {nxt}."
 
 def _lock_canonical_topic(script, current_topic):
-    candidate = str((script.get("next_short") or {}).get("topic", "")).strip()
-    if not candidate:
-        raise RuntimeError("Generated script did not provide next_short.topic.")
+    """Lock a valid next topic, repairing missing model metadata instead of failing."""
     used = [str(current_topic)]
     used.extend(item for item in _read_used() if not str(item).startswith(_PENDING_PREFIX))
+
+    candidate = str((script.get("next_short") or {}).get("topic", "")).strip()
     if not validate_topic_for_pipeline(candidate, used=used, check_duplicate=True):
-        raise RuntimeError("Gemini generated an invalid or duplicate next topic: " + candidate)
+        # next_short is production metadata, not narration. A missing/bad model field
+        # must not discard an otherwise good current-topic story.
+        candidate = _generate_topic(used)
+        print("🛠️ Repaired invalid next_short.topic with topic engine: " + candidate)
+
     if _word_count(candidate) > 7:
-        raise RuntimeError("Gemini next topic is too long for continuation metadata: " + candidate)
+        raise RuntimeError("Generated next topic is too long for continuation metadata: " + candidate)
+
     script.setdefault("next_short", {})["topic"] = candidate
     return candidate
 
@@ -179,14 +185,14 @@ def refresh_learning_before_generation():
 
 
 def _generate_valid_script(topic, config, learning_context, engagement_feedback):
-    """Generate the current-topic story first; continuation is added only afterward."""
+    """Generate the current-topic story first; continuation metadata is repairable."""
     feedback = learning_context + engagement_feedback + """
 CONTINUATION ARCHITECTURE:
 Write ONLY the complete 7-scene story for the CURRENT TOPIC.
 Scene 7 must end with a satisfying payoff for the CURRENT TOPIC.
 Do not put a future-topic teaser, preview, CTA, or continuation sentence into any scene.
-Return next_short.topic as metadata only. Its teaser field may be empty because the pipeline
-generates the spoken bridge separately after the story passes all quality gates.
+Return next_short.topic as metadata when possible. The production pipeline can repair
+missing continuation metadata after the current story passes its quality gates.
 """
     last_error = None
     valid_attempt = 0
@@ -195,9 +201,6 @@ generates the spoken bridge separately after the story passes all quality gates.
     while valid_attempt < MAX_SCRIPT_ATTEMPTS:
         try:
             script = generate_script(topic, config, None, extra_feedback=feedback)
-            candidate = str((script.get("next_short") or {}).get("topic", "")).strip()
-            if not candidate:
-                raise RuntimeError("Missing next_short.topic")
             _lock_canonical_topic(script, topic)
             return script
         except Exception as error:

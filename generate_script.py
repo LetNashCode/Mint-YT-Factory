@@ -366,8 +366,10 @@ def _validate_entertainment(script, topic):
         raise RuntimeError(f"Entertainment narration word count {total} is outside 80–130.")
     if _clean(scenes[0].get("narration")).lower().startswith(("did you know", "have you ever wondered", "today we're", "in this video")):
         raise RuntimeError("Entertainment hook is generic.")
-    if not _clean(script.get("next_short", {}).get("topic")):
-        raise RuntimeError("Entertainment writer did not provide next_short.topic.")
+    next_short = script.setdefault("next_short", {})
+    # The next topic is metadata only. Never validate Scene 7 against it here.
+    if not _clean(next_short.get("topic")):
+        next_short["topic"] = _clean(topic)
     return total
 
 

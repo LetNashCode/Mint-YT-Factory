@@ -86,75 +86,45 @@ def _bridge_matches_topic(bridge, topic):
     return bool(topic_words & bridge_words)
 
 
-def _validate_gemini_scene7(script, canonical):
-    """Validate Gemini's authored handoff structurally, not by exact wording.
-
-    The canonical topic is metadata for the next Short. Scene 7 is spoken
-    storytelling and may paraphrase that topic naturally.
-    """
-    scenes = script.get("scene_plan")
-    if not isinstance(scenes, list) or len(scenes) != 7:
-        raise RuntimeError("Script must contain exactly 7 scenes.")
-
-    final_scene = scenes[-1]
-    final_sentences = _split_sentences(final_scene.get("narration", ""))
-    if len(final_sentences) < 2:
-        raise RuntimeError("Scene 7 must contain the current-topic payoff followed by a natural Gemini continuation.")
-
-    bridge = final_sentences[-1]
-    teaser = str((script.get("next_short") or {}).get("teaser", "")).strip()
-
-    if not teaser:
-        raise RuntimeError("Gemini did not provide next_short.teaser.")
-
-    if _normalise_topic_text(teaser) != _normalise_topic_text(bridge):
-        raise RuntimeError("next_short.teaser must match Scene 7's final spoken sentence.")
-
-    if _is_canned_bridge(bridge):
-        raise RuntimeError(f"Canned Scene 7 bridge rejected: {bridge}")
-
-    count = _word_count(bridge)
-    if count < 5 or count > 32:
-        raise RuntimeError(f"Natural Gemini continuation has invalid length: {count} words")
-
-    if not _bridge_matches_topic(bridge, canonical):
-        raise RuntimeError("Gemini continuation does not visibly connect to next_short.topic.")
-
+def _generate_natural_bridge(current_topic, next_topic):
+    """Generate one flexible spoken handoff after the main story is valid."""
+    from google import genai
+    from google.genai import types
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+    prompt = "Write ONE natural spoken sentence of 6-24 words that follows a satisfying explanation of '" + current_topic + "' and creates curiosity about '" + next_topic + "'. Do not say next video, coming next, stay tuned, part 2, or have you ever wondered. Return only the sentence."
+    response = client.models.generate_content(model="gemini-flash-lite-latest", contents=prompt, config=types.GenerateContentConfig(temperature=0.8))
+    bridge = str(getattr(response, "text", "") or "").strip().strip('"')
+    if not bridge:
+        raise RuntimeError("Gemini returned an empty continuation bridge.")
     return bridge
-
 
 def _lock_canonical_topic(script, current_topic):
     candidate = str((script.get("next_short") or {}).get("topic", "")).strip()
     if not candidate:
         raise RuntimeError("Generated script did not provide next_short.topic.")
-
     used = [str(current_topic)]
     used.extend(item for item in _read_used() if not str(item).startswith(_PENDING_PREFIX))
-
     if not validate_topic_for_pipeline(candidate, used=used, check_duplicate=True):
-        raise RuntimeError(f"Gemini generated an invalid or duplicate next topic: {candidate}")
+        raise RuntimeError("Gemini generated an invalid or duplicate next topic: " + candidate)
     if _word_count(candidate) > 7:
-        raise RuntimeError(f"Gemini next topic is too long for continuation metadata: {candidate}")
-
+        raise RuntimeError("Gemini next topic is too long for continuation metadata: " + candidate)
     script.setdefault("next_short", {})["topic"] = candidate
     return candidate
 
-
 def lock_next_topic(script, current_topic):
-    """Keep Gemini's authored preview and lock only the metadata topic."""
+    """Lock metadata and append the preview separately from story generation."""
     canonical = _lock_canonical_topic(script, current_topic)
-    bridge = _validate_gemini_scene7(script, canonical)
-
     final_scene = script["scene_plan"][-1]
-    final_scene["subtitle_text"] = final_scene.get("narration", "")
-    final_scene["pause_after_ms"] = int(final_scene.get("pause_after_ms", 250) or 250)
-    final_scene["emotional_tone"] = final_scene.get("emotional_tone", "satisfied")
-    final_scene["music_cue"] = final_scene.get("music_cue", "fade_out")
-
-    print(f"🔒 Canonical next topic: {canonical}")
-    print(f"🗣️ GEMINI FINAL BRIDGE: {bridge}")
+    bridge = _generate_natural_bridge(current_topic, canonical)
+    payoff = str(final_scene.get("narration", "")).strip()
+    if payoff and not payoff.endswith((".", "!", "?")):
+        payoff += "."
+    final_scene["narration"] = (payoff + " " + bridge).strip()
+    final_scene["subtitle_text"] = final_scene["narration"]
+    script.setdefault("next_short", {})["teaser"] = bridge
+    print("🔒 Canonical next topic: " + canonical)
+    print("🗣️ GEMINI FINAL BRIDGE: " + bridge)
     return script, canonical
-
 
 def _is_transient_gemini_error(error):
     text = str(error or "").lower()
@@ -233,12 +203,7 @@ The production pipeline locks next_short.topic as metadata but preserves Gemini'
             candidate = str((script.get("next_short") or {}).get("topic", "")).strip()
             if not candidate:
                 raise RuntimeError("Missing next_short.topic")
-            if not str((script.get("next_short") or {}).get("teaser", "")).strip():
-                raise RuntimeError("Missing next_short.teaser")
-
-            canonical = _lock_canonical_topic(script, topic)
-            _validate_gemini_scene7(script, canonical)
-            return script
+            _lock_canonical_topic(script, topic)\n            return script
 
         except Exception as error:
             last_error = error

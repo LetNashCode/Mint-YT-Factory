@@ -179,19 +179,14 @@ def refresh_learning_before_generation():
 
 
 def _generate_valid_script(topic, config, learning_context, engagement_feedback):
+    """Generate the current-topic story first; continuation is added only afterward."""
     feedback = learning_context + engagement_feedback + """
-CONTINUATION REQUIREMENT — GEMINI OWNS THE SPOKEN PREVIEW:
-Return a valid 7-scene story plus next_short.topic and next_short.teaser.
-
-Scene 7 must do two things in this exact order:
-1. Finish the CURRENT TOPIC with a satisfying payoff.
-2. End with ONE short, seamless, natural sentence that creates curiosity about the next_short.topic.
-
-The final Scene 7 sentence MUST be exactly the same idea as next_short.teaser.
-You may paraphrase next_short.topic naturally in speech. Do NOT force the exact topic title into narration.
-Do not use "next video", "next short", "coming next", "stay tuned", "part 2", "have you ever wondered", or other canned handoff language.
-Do not mention the next topic or preview anywhere in Scenes 1-6.
-The production pipeline locks next_short.topic as metadata but preserves Gemini's final spoken preview.
+CONTINUATION ARCHITECTURE:
+Write ONLY the complete 7-scene story for the CURRENT TOPIC.
+Scene 7 must end with a satisfying payoff for the CURRENT TOPIC.
+Do not put a future-topic teaser, preview, CTA, or continuation sentence into any scene.
+Return next_short.topic as metadata only. Its teaser field may be empty because the pipeline
+generates the spoken bridge separately after the story passes all quality gates.
 """
     last_error = None
     valid_attempt = 0
@@ -205,29 +200,20 @@ The production pipeline locks next_short.topic as metadata but preserves Gemini'
                 raise RuntimeError("Missing next_short.topic")
             _lock_canonical_topic(script, topic)
             return script
-
         except Exception as error:
             last_error = error
-
             if _is_transient_gemini_error(error) and transient_attempt < MAX_TRANSIENT_GEMINI_RETRIES:
                 transient_attempt += 1
                 delay = min(45, 5 * transient_attempt)
                 print(f"⏳ Transient Gemini failure — retrying without consuming script attempt ({transient_attempt}/{MAX_TRANSIENT_GEMINI_RETRIES}) in {delay}s: {error}")
                 time.sleep(delay)
                 continue
-
             valid_attempt += 1
-            print(f"⚠️ Continuation/story validation failed ({valid_attempt}/{MAX_SCRIPT_ATTEMPTS}): {error}")
-            feedback += (
-                f"\nPREVIOUS ATTEMPT FAILED: {error}. "
-                "Keep the same architecture: current-topic payoff first, then one natural Gemini-authored final preview sentence. "
-                "Return next_short.teaser matching that final sentence.\n"
-            )
+            print(f"⚠️ Story generation failed ({valid_attempt}/{MAX_SCRIPT_ATTEMPTS}): {error}")
 
     raise RuntimeError(
-        f"Could not generate a valid Gemini continuation after {MAX_SCRIPT_ATTEMPTS} valid attempts: {last_error}"
+        f"Could not generate a valid current-topic story after {MAX_SCRIPT_ATTEMPTS} attempts: {last_error}"
     )
-
 
 def run(dry_run=False):
     config = load_config()

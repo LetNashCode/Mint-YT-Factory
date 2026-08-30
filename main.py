@@ -315,16 +315,23 @@ def run(dry_run=False):
         save_next_short(next_topic)
     except Exception as error:
         print(f"⚠️ Next-topic queue rejected after successful upload: {type(error).__name__}: {error}")
-        print("🛠️ Generating a fresh unused continuation topic instead.")
-        try:
-            used = [topic]
-            used.extend(item for item in _read_used() if not str(item).startswith(_PENDING_PREFIX))
-            replacement = _generate_topic(used)
-            save_next_short(replacement)
-            next_topic = replacement
-            print(f"🔗 Replacement next-video topic: {next_topic}")
-        except Exception as replacement_error:
-            print(f"⚠️ Continuation queue unavailable; upload remains successful: {type(replacement_error).__name__}: {replacement_error}")
+        print("🛠️ Generating a fresh unused continuation topic and retrying until it is queued successfully.")
+        used = [topic]
+        used.extend(item for item in _read_used() if not str(item).startswith(_PENDING_PREFIX))
+        last_replacement_error = None
+        for replacement_attempt in range(1, 11):
+            try:
+                replacement = _generate_topic(used)
+                save_next_short(replacement)
+                next_topic = replacement
+                print(f"🔗 Replacement next-video topic queued successfully: {next_topic}")
+                break
+            except Exception as replacement_error:
+                last_replacement_error = replacement_error
+                print(f"⚠️ Replacement continuation attempt {replacement_attempt}/10 failed: {type(replacement_error).__name__}: {replacement_error}")
+                time.sleep(min(5 * replacement_attempt, 30))
+        else:
+            raise RuntimeError(f"Upload succeeded, but no valid unused continuation topic could be queued after 10 attempts: {last_replacement_error}")
     write_continuation_manifest(topic, next_topic, "published", workdir)
 
 

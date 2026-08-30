@@ -203,7 +203,8 @@ The production pipeline locks next_short.topic as metadata but preserves Gemini'
             candidate = str((script.get("next_short") or {}).get("topic", "")).strip()
             if not candidate:
                 raise RuntimeError("Missing next_short.topic")
-            _lock_canonical_topic(script, topic)\n            return script
+            _lock_canonical_topic(script, topic)
+            return script
 
         except Exception as error:
             last_error = error

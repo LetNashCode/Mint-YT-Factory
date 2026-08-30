@@ -25,6 +25,12 @@ MIN_PLAYBACK_SPEED = 0.95
 MAX_PLAYBACK_SPEED = 1.10
 TTS_RETRIES = 2
 
+# Remove provider-generated dead air so the visual timeline never continues
+# for several seconds after the last spoken word.
+TRAILING_SILENCE_THRESHOLD = 0.006
+TRAILING_SILENCE_KEEP_SECONDS = 0.18
+TRAILING_SILENCE_MIN_SECONDS = 0.35
+
 KOKORO_ENABLED = os.environ.get("MINT_KOKORO_TTS", "1").strip().lower() not in {"0", "false", "no"}
 KOKORO_VOICE = os.environ.get("MINT_KOKORO_VOICE", "af_heart").strip() or "af_heart"
 KOKORO_LANG = os.environ.get("MINT_KOKORO_LANG", "a").strip() or "a"
@@ -145,6 +151,37 @@ def _get_kokoro_pipeline(lang):
     return _KOKORO_PIPELINE
 
 
+def _trim_trailing_silence(audio, sample_rate):
+    """Trim only meaningful dead air from the end of generated narration.
+
+    TTS providers can return several seconds of silence after the final word.
+    The assembler correctly trusts narration.duration, so that dead air would
+    otherwise leave visuals, music and SFX playing with no spoken narration.
+    Keep a tiny natural tail, but remove long silent endings.
+    """
+    audio = np.asarray(audio, dtype=np.float32).reshape(-1)
+    if audio.size == 0 or sample_rate <= 0:
+        return audio, 0.0
+
+    threshold = float(TRAILING_SILENCE_THRESHOLD)
+    audible = np.flatnonzero(np.abs(audio) >= threshold)
+    if audible.size == 0:
+        return audio, 0.0
+
+    last_audible = int(audible[-1])
+    trailing_samples = max(0, audio.size - last_audible - 1)
+    trailing_seconds = trailing_samples / float(sample_rate)
+
+    if trailing_seconds < TRAILING_SILENCE_MIN_SECONDS:
+        return audio, 0.0
+
+    keep_samples = int(TRAILING_SILENCE_KEEP_SECONDS * sample_rate)
+    end = min(audio.size, last_audible + 1 + keep_samples)
+    trimmed = audio[:end]
+    removed = max(0.0, (audio.size - trimmed.size) / float(sample_rate))
+    return trimmed, removed
+
+
 def _generate_kokoro(text, voice_config, output_path):
     if not KOKORO_ENABLED:
         raise RuntimeError("Kokoro is disabled")
@@ -178,6 +215,9 @@ def _generate_kokoro(text, voice_config, output_path):
         raise RuntimeError("Kokoro returned no usable audio")
 
     audio = np.concatenate(audio_parts)
+    audio, removed_silence = _trim_trailing_silence(audio, KOKORO_SAMPLE_RATE)
+    if removed_silence > 0:
+        print(f"✂️ Trimmed {removed_silence:.2f}s of trailing TTS silence")
     os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
     sf.write(output_path, audio, KOKORO_SAMPLE_RATE, subtype="PCM_16")
 

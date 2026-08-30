@@ -131,14 +131,13 @@ def _lock_canonical_topic(script, current_topic):
     used = [str(current_topic)]
     used.extend(item for item in _read_used() if not str(item).startswith(_PENDING_PREFIX))
 
-    canonical = candidate if validate_topic_for_pipeline(candidate, used=used, check_duplicate=True) else _generate_topic(used)
-    if not validate_topic_for_pipeline(canonical, used=used, check_duplicate=True):
-        raise RuntimeError(f"Could not create valid canonical next topic: {canonical}")
-    if _word_count(canonical) > 7:
-        canonical = _generate_topic(used)
+    if not validate_topic_for_pipeline(candidate, used=used, check_duplicate=True):
+        raise RuntimeError(f"Gemini generated an invalid or duplicate next topic: {candidate}")
+    if _word_count(candidate) > 7:
+        raise RuntimeError(f"Gemini next topic is too long for continuation metadata: {candidate}")
 
-    script.setdefault("next_short", {})["topic"] = canonical
-    return canonical
+    script.setdefault("next_short", {})["topic"] = candidate
+    return candidate
 
 
 def lock_next_topic(script, current_topic):

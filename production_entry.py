@@ -65,8 +65,7 @@ def _patch_tts_duration(main):
             if duration > MAX_NARRATION_SECONDS:
                 direction = (
                     f"The previous narration rendered at {duration:.2f} seconds and is TOO LONG. "
-                    "Rewrite it shorter. Remove filler and repeated explanation while keeping the hook, "
-                    "escalation, payoff, and the seamless final preview."
+                    "Rewrite it shorter. Remove filler and repeated explanation while keeping the hook, escalation, and payoff."
                 )
             else:
                 direction = (
@@ -77,9 +76,7 @@ def _patch_tts_duration(main):
             feedback = (
                 f"{direction} CURRENT TOPIC: {topic!r}. "
                 f"The canonical next topic is locked as metadata: {current_next!r}. "
-                "Scene 7 must finish the current topic first and then end with ONE natural, Gemini-authored "
-                "preview sentence about that locked next topic. The preview may paraphrase the topic naturally; "
-                "do not force the exact title into speech. next_short.teaser must match the final Scene 7 sentence."
+                "Write only the current-topic story. Do not add any continuation sentence; the pipeline appends the preview separately after generation."
             )
 
             candidate = main.generate_script(topic, config, None, extra_feedback=feedback)

@@ -17,6 +17,7 @@ def _interactive_feedback(extra_feedback=""):
         "scenario, then end with one short genuine question about the CURRENT "
         "dilemma that invites comments. No next video, next short, stay tuned, "
         "part 2, or subscribe language. "
+        + " The COMPLETE narration must be 90–135 spoken words total. Aim for 105–120 words so normal variation stays inside the range. If a previous attempt was too short, expand the scenario with a concrete consequence, escalation, and payoff; never pad with filler."
         + str(extra_feedback or "")
     )
 
@@ -60,6 +61,10 @@ def _validate_interactive_scene7(script):
 
 
 def generate_script(topic, config, research=None, extra_feedback=""):
+    # Retry short/long interactive narrations instead of letting one bad model
+    # response terminate the GitHub Actions workflow.
+    max_length_attempts = 4
+    last_error = None
     # entertainment._normalize normally enforces a next-topic bridge in Scene 7.
     # Patch only those continuation helpers during this call. The full production
     # schema/visual normalization still runs unchanged.
@@ -77,13 +82,45 @@ def generate_script(topic, config, research=None, extra_feedback=""):
     _base._ensure_scene7_boundary = interactive_boundary
     _base._validate_natural_bridge = interactive_bridge
     try:
-        result = _base.generate_script(
-            topic,
-            config,
-            research,
-            extra_feedback=_interactive_feedback(extra_feedback),
+        for length_attempt in range(1, max_length_attempts + 1):
+            feedback = _interactive_feedback(extra_feedback)
+            if last_error:
+                feedback += (
+                    "\\n\\nREGENERATE THE ENTIRE SCRIPT. Previous attempt failed: "
+                    + last_error
+                    + " Keep exactly 7 scenes and produce 90–135 spoken words total."
+                )
+            try:
+                result = _base.generate_script(
+                    topic,
+                    config,
+                    research,
+                    extra_feedback=feedback,
+                )
+                result = _validate_interactive_scene7(result)
+                total_words = sum(
+                    len(_base._words(scene.get("narration", "")))
+                    for scene in (result.get("scene_plan") or [])
+                )
+                if 90 <= total_words <= 135:
+                    print(f"🧩 Interactive narration validated: {total_words} words (attempt {length_attempt}/{max_length_attempts})")
+                    return result
+                last_error = (
+                    f"Narration length is {total_words} words; target is 90–135 words."
+                )
+                print(f"⚠️ {last_error} Regenerating interactive script ({length_attempt}/{max_length_attempts})...")
+            except RuntimeError as error:
+                last_error = f"{type(error).__name__}: {error}"
+                # Only retry generation/validation failures. Do not hide an
+                # exhausted retry budget behind an immediate workflow crash.
+                if length_attempt < max_length_attempts:
+                    print(f"⚠️ Interactive script attempt {length_attempt} rejected: {last_error}")
+                    continue
+                raise
+        raise RuntimeError(
+            "Interactive script generation failed after "
+            f"{max_length_attempts} length-validation attempts. Last error: {last_error}"
         )
-        return _validate_interactive_scene7(result)
     finally:
         _base._ensure_scene7_boundary = original_boundary
         _base._validate_natural_bridge = original_bridge

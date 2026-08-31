@@ -26,3 +26,8 @@ ffmpeg-python>=0.2.0
 # Install the project in editable mode so Python loads sitecustomize.py
 # during interpreter startup and applies the production quality layer.
 -e .
+
+# Free local script-generation fallback for Gemini quota/API failures.
+transformers>=4.45.0
+accelerate>=1.0.0
+sentencepiece>=0.2.0

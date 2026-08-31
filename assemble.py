@@ -10,6 +10,7 @@ Assembles the 7-scene / 14-visual YouTube Short.
 import os
 import math
 import shutil as _shutil
+from PIL import Image, ImageDraw, ImageFont
 
 from whisper_align import transcribe
 from moviepy.config import change_settings
@@ -418,37 +419,40 @@ def _caption_style(scene_index, scene, phrase, phrase_index):
     return int(CAPTION_FONT_SIZE * multiplier), color
 
 
-def _make_caption_clip(text, fontsize, color, frame_size):
-    width, _ = frame_size
-    max_width = int(width * CAPTION_SAFE_WIDTH)
-    return TextClip(
-        text,
-        font=FONT,
-        fontsize=fontsize,
-        color=color,
-        stroke_color=CAPTION_STROKE,
-        stroke_width=CAPTION_STROKE_WIDTH,
-        method="caption",
-        size=(max_width, None),
-        align="center",
-    )
+def _caption_font(fontsize):
+    try:
+        return ImageFont.truetype(FONT, max(1, int(fontsize)))
+    except Exception as exc:
+        raise RuntimeError(f"Could not load caption font: {FONT}") from exc
 
+def _caption_bitmap(text, fontsize, color, frame_size, shadow=False):
+    """Render captions with Pillow; avoids ImageMagick security-policy failures."""
+    max_width = max(1, int(frame_size[0] * CAPTION_SAFE_WIDTH))
+    font = _caption_font(fontsize)
+    probe = Image.new("RGBA", (8, 8), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(probe)
+    bbox = draw.textbbox((0, 0), text, font=font, stroke_width=CAPTION_STROKE_WIDTH)
+    text_w = max(1, bbox[2] - bbox[0])
+    text_h = max(1, bbox[3] - bbox[1])
+    if text_w > max_width:
+        font = _caption_font(max(1, int(fontsize * max_width / float(text_w))))
+        bbox = draw.textbbox((0, 0), text, font=font, stroke_width=CAPTION_STROKE_WIDTH)
+        text_w = max(1, bbox[2] - bbox[0])
+        text_h = max(1, bbox[3] - bbox[1])
+    pad = CAPTION_STROKE_WIDTH + 8
+    image = Image.new("RGBA", (text_w + pad * 2, text_h + pad * 2), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(image)
+    fill = CAPTION_SHADOW_COLOR if shadow else color
+    stroke_fill = CAPTION_SHADOW_COLOR if shadow else CAPTION_STROKE
+    draw.text((pad - bbox[0], pad - bbox[1]), text, font=font, fill=fill,
+              stroke_width=CAPTION_STROKE_WIDTH, stroke_fill=stroke_fill)
+    return image
+
+def _make_caption_clip(text, fontsize, color, frame_size):
+    return ImageClip(_caption_bitmap(text, fontsize, color, frame_size, shadow=False))
 
 def _make_caption_shadow(text, fontsize, frame_size):
-    width, _ = frame_size
-    max_width = int(width * CAPTION_SAFE_WIDTH)
-    return TextClip(
-        text,
-        font=FONT,
-        fontsize=fontsize,
-        color=CAPTION_SHADOW_COLOR,
-        stroke_color=CAPTION_SHADOW_COLOR,
-        stroke_width=CAPTION_STROKE_WIDTH,
-        method="caption",
-        size=(max_width, None),
-        align="center",
-    )
-
+    return ImageClip(_caption_bitmap(text, fontsize, CAPTION_SHADOW_COLOR, frame_size, shadow=True))
 
 def _get_scene_index_for_time(scene_ranges, timestamp):
     for index, item in enumerate(scene_ranges):

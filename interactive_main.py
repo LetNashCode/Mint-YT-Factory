@@ -58,6 +58,18 @@ def _resolve_narration_path(result):
 
 def run():
     config = load_config()
+    # Interactive Mystery Shorts have their own voice identity and must not alter
+    # the Publish Shorts voice configured in config.yaml.
+    config = dict(config or {})
+    mystery_voice = dict(config.get("voice") or {})
+    mystery_voice.update({
+        "provider": "kokoro",
+        "voice_name": "am_michael",
+        "kokoro_lang": "a",
+        "tone": "calm, deep, suspenseful mystery storyteller",
+    })
+    config["voice"] = mystery_voice
+    print("🎙️ Interactive Mystery voice: am_michael (Kokoro)")
     pillar, topic = get_next_topic()
     print("🧩 INTERACTIVE MYSTERY |", pillar, "|", topic)
 

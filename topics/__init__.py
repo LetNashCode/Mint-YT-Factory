@@ -22,7 +22,8 @@ Science is the explanation, NEVER the packaging. Reject academic subjects, gener
 The topic will be spoken aloud as a final teaser in a 45-second Short. Keep it VERY short: 3 to 7 words total.
 IMPORTANT: Generate an original topic from your own reasoning. Do NOT copy, reuse, or select a topic from examples, fallback lists, or previous topics.
 Return ONLY one short curiosity question. No quotes, numbering, explanation, or question mark.
-Previous topics:
+Previously covered topics are ONLY an exclusion list. Do not use them as inspiration and do not stay in their subject areas. Deliberately choose a different everyday category such as home, clothing, food, objects, sounds, weather, body reactions, travel, or technology. A shared object word alone does not make a topic invalid; only avoid the same curiosity or near-rewording.
+Previously covered topics:
 {previous}"""
 
 def _clean_topic(value):
@@ -68,13 +69,13 @@ def _consume_pending():
 def _generate_topic(used):
     key=os.environ.get("GEMINI_API_KEY")
     if not key:raise RuntimeError("GEMINI_API_KEY is missing.")
-    client=genai.Client(api_key=key); prompt=_PROMPT.format(previous="\n".join(used[-100:]))
+    client=genai.Client(api_key=key); prompt=_PROMPT.format(previous="\n".join(used[-30:]) or "(none)")
     for attempt in range(1,11):
         try:
             response=client.models.generate_content(model=MODEL,contents=prompt,config=types.GenerateContentConfig(temperature=1.1))
             candidate=_clean_topic(getattr(response,"text","")); print(f"🧠 Topic attempt {attempt}/10: {candidate}")
             if not _is_everyday_topic(candidate):print("⚠️ Rejected: not a valid short everyday curiosity.");continue
-            if any(_key(candidate)==_key(x) for x in used) or not is_new_topic(candidate):print("⚠️ Rejected: duplicate or near-duplicate topic.");continue
+            if any(_key(candidate)==_key(x) for x in used) or not is_new_topic(candidate, threshold=0.82):print("⚠️ Rejected: duplicate or near-duplicate topic.");continue
             return candidate
         except Exception as error:
             print(f"⚠️ Topic attempt failed: {error}")
@@ -83,7 +84,7 @@ def _generate_topic(used):
 
 def get_next_topic():
     pending=_consume_pending()
-    if pending and _is_everyday_topic(pending) and is_new_topic(pending):return pending
+    if pending and _is_everyday_topic(pending) and is_new_topic(pending, threshold=0.82):return pending
     if pending:print(f"⚠️ Discarding already-covered or stale continuation topic: {pending}")
     used=[x for x in _read_used() if not x.startswith(_PENDING_PREFIX)] + published_topics()
     return _generate_topic(used)
@@ -91,7 +92,7 @@ def get_next_topic():
 def save_next_short(next_short):
     topic=_clean_topic(next_short); items=[x for x in _read_used() if not x.startswith(_PENDING_PREFIX)]
     if not _is_everyday_topic(topic):raise RuntimeError(f"Refusing to queue invalid continuation topic: {topic}")
-    history_duplicate = find_duplicate(topic)
+    history_duplicate = find_duplicate(topic, threshold=0.82)
     if any(_key(topic)==_key(x) for x in items) or history_duplicate:
         raise RuntimeError(f"Refusing to queue duplicate or near-duplicate continuation topic: {topic}")
     items.append(_PENDING_PREFIX+topic); _write_used(items); print(f"🔗 Exact next-video topic: {topic}"); return topic
@@ -106,5 +107,5 @@ def validate_topic_for_pipeline(topic,used=None,check_duplicate=True):
     if check_duplicate:
         pool=list(used) if used is not None else _read_used()
         if any(_key(topic)==_key(x) for x in pool if not x.startswith(_PENDING_PREFIX)):return False
-        if not is_new_topic(topic):return False
+        if not is_new_topic(topic, threshold=0.82):return False
     return True

@@ -708,6 +708,10 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
         remove_temp=True,
     )
 
+    # Re-open the actual encoded output: this protects the publish workflow from
+    # MoviePy timeline rounding or an accidental tail surviving the render.
+    _assert_output_matches_narration(out_path, final_duration)
+
     print("=" * 80)
     print("✅ FINAL SHORT COMPLETE")
     print("=" * 80)

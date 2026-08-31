@@ -11,6 +11,7 @@ from google import genai
 from google.genai import types
 
 MODEL_NAME = "gemini-flash-lite-latest"
+FALLBACK_MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
 SCENE_COUNT = 7
 VISUALS_PER_SCENE = 2
 SCENE_DURATIONS = [3, 5, 7, 7, 8, 8, 7]
@@ -208,6 +209,28 @@ def _normalize(script,topic):
     script["retention_self_check"]=script.get("retention_self_check") or {"weakest_scene":4,"reason":"Every scene advances the mystery."}; script["publishing"]={"research_verified":False,"research_sources_require_verification":False,"citations_ready":False,"claim_verification_required":False,"captions_match_narration":True,"semantic_image_prompts":True,"fourteen_visuals_required":True,"entertainment_first":True,"visual_relevance_constraints":True}; script["generated_at"]=int(time.time()); script["video_id"]=f"{re.sub(r'[^a-z0-9]+','-',script['title'].lower()).strip('-')[:40]}-{uuid.uuid4().hex[:8]}"; script["image_generation"]={"seed":int(time.time()),"style_lock":"realistic cinematic photography, natural materials, physically plausible lighting, no illustration look"}
     return script
 
+def _is_quota_error(error_text):
+    value=_clean(error_text).lower()
+    return any(x in value for x in ("429","resource_exhausted","quota exceeded","rate limit","insufficient quota"))
+
+def _generate_with_qwen(prompt,topic,last_error=None):
+    """Free Hugging Face model fallback for GitHub Actions when Gemini quota is exhausted."""
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+    import torch
+    print(f"🛟 Gemini unavailable — using free fallback: {FALLBACK_MODEL_NAME}")
+    tokenizer=AutoTokenizer.from_pretrained(FALLBACK_MODEL_NAME)
+    model=AutoModelForCausalLM.from_pretrained(FALLBACK_MODEL_NAME,torch_dtype=torch.float32,low_cpu_mem_usage=True)
+    user_prompt=prompt+(f"\\n\\nFIX THE PREVIOUS ERROR: {last_error}" if last_error else "")
+    messages=[{"role":"system","content":SYSTEM_PROMPT+"\\nReturn ONLY valid JSON matching the requested schema."},{"role":"user","content":user_prompt}]
+    rendered=tokenizer.apply_chat_template(messages,tokenize=False,add_generation_prompt=True)
+    inputs=tokenizer(rendered,return_tensors="pt")
+    with torch.inference_mode():
+        output=model.generate(**inputs,max_new_tokens=6000,do_sample=True,temperature=0.8,top_p=0.9,pad_token_id=tokenizer.eos_token_id)
+    generated=output[0][inputs["input_ids"].shape[1]:]
+    text=tokenizer.decode(generated,skip_special_tokens=True)
+    if not _clean(text): raise RuntimeError("Qwen returned an empty response.")
+    return _normalize(_parse(text),topic)
+
 def generate_script(topic,config,research=None,extra_feedback=""):
     topic=_clean(topic)
     if not topic: raise RuntimeError("Topic is empty.")
@@ -243,4 +266,9 @@ VISUALS: every one of the 14 shots must represent a specific spoken beat. Return
         except Exception as error:
             last_error=f"{type(error).__name__}: {error}"
             if attempt<MAX_ATTEMPTS: time.sleep(3*attempt)
+    if last_error and _is_quota_error(last_error):
+        try:
+            return _generate_with_qwen(prompt,topic,last_error)
+        except Exception as fallback_error:
+            raise RuntimeError(f"SCRIPT GENERATION FAILED. Gemini error: {last_error} | Qwen fallback error: {type(fallback_error).__name__}: {fallback_error}") from fallback_error
     raise RuntimeError(f"SCRIPT GENERATION FAILED. Last error: {last_error}")

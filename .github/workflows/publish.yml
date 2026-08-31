@@ -189,6 +189,8 @@ jobs:
           git config user.email "actions@github.com"
 
           cp used_topics.json /tmp/generated_used_topics.json
+          mkdir -p /tmp/generated_analytics
+          cp analytics/topic_history.json /tmp/generated_analytics/topic_history.json 2>/dev/null || echo "[]" > /tmp/generated_analytics/topic_history.json
 
           for attempt in 1 2 3; do
             echo "=========================================="
@@ -199,6 +201,7 @@ jobs:
             git reset --hard origin/main
 
             cp /tmp/generated_used_topics.json /tmp/generated.json
+            cp /tmp/generated_analytics/topic_history.json /tmp/generated_topic_history.json
 
             python - <<'PY'
           import json
@@ -237,14 +240,33 @@ jobs:
           print("Pending continuation:", local_pending[-1] if local_pending else (remote_pending[-1] if remote_pending else "NONE"))
           PY
 
-            git add used_topics.json
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("analytics/topic_history.json"); local=Path("/tmp/generated_topic_history.json")
+          def load(x):
+              try:
+                  d=json.loads(x.read_text(encoding="utf-8")); return d if isinstance(d,list) else []
+              except Exception:return []
+          merged=[]; seen=set()
+          for item in load(p)+load(local):
+              if not isinstance(item,dict): continue
+              key=str(item.get("normalized") or item.get("topic") or "").strip().lower()
+              if not key or key in seen: continue
+              seen.add(key); merged.append(item)
+          p.parent.mkdir(parents=True,exist_ok=True)
+          p.write_text(json.dumps(merged,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+          print("Merged published topic history:",len(merged),"records")
+          PY
+
+            git add used_topics.json analytics/topic_history.json
 
             if git diff --cached --quiet; then
               echo "No topic changes to commit."
               exit 0
             fi
 
-            git commit -m "Update used topics [skip ci]"
+            git commit -m "Update topic registry [skip ci]"
 
             if git push origin HEAD:main; then
               echo "✅ Topic state pushed successfully."

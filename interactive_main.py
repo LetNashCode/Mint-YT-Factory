@@ -105,7 +105,7 @@ def run():
         config,
         engagement_comment=script["engagement"]["comment"],
     )
-    vid = str((result or {}).get("video_id") or (result or {}).get("id") or "")
+    # upload_video() currently returns the video ID as a string; accept both string and legacy dict returns.\n    if isinstance(result, str):\n        vid = result\n    elif isinstance(result, dict):\n        vid = str(result.get("video_id") or result.get("id") or "")\n    else:\n        vid = ""
     record_topic(topic, pillar, title, vid, workdir)
     if vid:
         record_analytics(vid, topic, pillar, title, workdir)

@@ -166,6 +166,19 @@ def direct(scene_no: int, shot_no: int, scene: dict, visual: dict, failed_querie
     avoid = [clean(x, 180) for x in visual.get("must_not_show", []) if clean(x)]
     failed = [clean(x, 100) for x in (failed_queries or []) if clean(x)]
     anchors = _anchor_terms(spoken, focus, action, must)
+    # Prefer explicit visual brief nouns over fragmented narration words. This
+    # prevents queries like "thief never" when the narration itself is abstract.
+    subject_text = " ".join([focus, action, *must]).lower()
+    subject_words = [
+        w for w in re.findall(r"[a-z][a-z-]{2,}", subject_text)
+        if w not in BAD_QUERY_WORDS and w not in {"show", "showing", "visible", "camera", "shot", "scene", "with", "from", "onto", "into", "table", "screen"}
+    ]
+    if subject_words:
+        preferred = []
+        for w in subject_words + anchors:
+            if w not in preferred:
+                preferred.append(w)
+        anchors = preferred[:10]
     anchor_hint = ", ".join(anchors[:6])
 
     prompt = f'''You are the STOCK SEARCH DIRECTOR for a funny, curiosity-driven YouTube Short.
@@ -222,8 +235,12 @@ Return ONLY JSON:
     # Deterministic practical queries guarantee that a poor Gemini answer cannot
     # turn the whole search into exotic/non-searchable language.
     if anchors:
+        # Use a meaningful concrete subject phrase only. Never manufacture a
+        # search query from arbitrary narration fragments.
         subject = " ".join(anchors[:2])
-        practical = [
+        if len(subject.split()) < 1 or subject in {"never", "cannot", "unless", "being", "onto"}:
+            subject = ""
+        practical = ([
             subject,
             f"{subject} on table",
             f"{subject} being heated",
@@ -232,7 +249,7 @@ Return ONLY JSON:
             f"{subject} close up",
             f"{subject} in kitchen",
             f"{subject} changing state",
-        ]
+        ] if subject else [])
         existing = {x["query"] for x in ladder}
         for q in practical:
             q = clean(q.lower(), 80)

@@ -78,9 +78,6 @@ def run():
     os.makedirs(workdir, exist_ok=True)
     save(script, os.path.join(workdir, "script.json"))
 
-    if dry_run:
-        print("✅ INTERACTIVE DRY RUN COMPLETE")
-        return
 
     tts_result = synthesize_script(script, config, os.path.join(workdir, "audio"))
     audio = _resolve_narration_path(tts_result)
@@ -116,8 +113,4 @@ def run():
 
 
 if __name__ == "__main__":
-    import argparse
-
-    p = argparse.ArgumentParser()
-    p.add_argument("--dry-run", action="store_true")
-    run(p.parse_args().dry_run)
+    run()

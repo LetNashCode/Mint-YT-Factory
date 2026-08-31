@@ -29,10 +29,13 @@ def _similarity(a,b):
     return max(j,seq,contain)
 
 def _same_subject(a,b):
+    """A shared noun alone is not a duplicate; require substantial idea overlap."""
     ta,tb=_core(a),_core(b)
+    if not ta or not tb:
+        return False
     shared=ta&tb
-    # A shared concrete subject is treated as an idea collision when either topic is short.
-    return bool(shared) and (len(ta)<=4 or len(tb)<=4)
+    overlap=len(shared)/min(len(ta),len(tb))
+    return overlap>=0.80 and len(shared)>=2
 
 def _load():
     try:

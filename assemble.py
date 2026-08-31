@@ -609,6 +609,16 @@ def validate_storyboard(script):
         raise RuntimeError(f"Storyboard duration is {total}s, expected {TARGET_DURATION}s.")
 
 
+def _trim_clip_to_duration(clip, total_duration):
+    """Hard-stop any timeline layer at the narration-authoritative end."""
+    start = float(clip.start or 0.0)
+    duration = float(clip.duration or 0.0)
+    if start >= total_duration or duration <= 0:
+        return None
+    allowed = min(duration, total_duration - start)
+    return clip.set_duration(max(0.01, allowed))
+
+
 def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, config, out_path):
     print("=" * 80)
     print("🎬 MINT-YT-FACTORY ASSEMBLY v8.3")
@@ -641,25 +651,27 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
     if len(visual_clips) != EXPECTED_TOTAL_VISUALS:
         raise RuntimeError(f"Expected {EXPECTED_TOTAL_VISUALS} visual clips, got {len(visual_clips)}.")
 
+    # Narration is the absolute master clock. Never render a visual/music/SFX tail
+    # after the spoken story ends, especially in the interactive mystery workflow.
     final_duration = min(TARGET_DURATION, narration_duration)
-    print(f"Final duration: {final_duration:.2f}s")
+    if narration_duration <= 0.05:
+        raise RuntimeError("Narration duration is invalid; refusing to render a silent visual tail.")
+    print(f"🎙️ Narration-authoritative final duration: {final_duration:.2f}s")
 
     trimmed_visuals = []
     for clip in visual_clips:
-        start = clip.start or 0
-        end = start + (clip.duration or 0)
-        if start >= final_duration:
-            continue
-        trimmed_visuals.append(clip.set_duration(max(0.01, min(end, final_duration) - start)))
+        trimmed = _trim_clip_to_duration(clip, final_duration)
+        if trimmed is not None:
+            trimmed_visuals.append(trimmed)
+    if not trimmed_visuals:
+        raise RuntimeError("No visuals remain inside narration duration.")
 
     caption_clips = build_captions(narration_path, script, frame_size)
     trimmed_captions = []
     for clip in caption_clips:
-        start = clip.start or 0
-        end = start + (clip.duration or 0)
-        if start >= final_duration:
-            continue
-        trimmed_captions.append(clip.set_duration(max(0.01, min(end, final_duration) - start)))
+        trimmed = _trim_clip_to_duration(clip, final_duration)
+        if trimmed is not None:
+            trimmed_captions.append(trimmed)
 
     final = CompositeVideoClip(trimmed_visuals + trimmed_captions, size=frame_size).set_duration(final_duration)
     audio = build_audio(narration, music_path, sfx_paths, script, final_duration, config)
@@ -682,7 +694,8 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
     print("Caption outline: THICK BLACK + SHADOW")
     print("Visual continuity: enabled")
     print("Portrait 9:16: enabled")
-    print(f"Duration: {final_duration:.2f}s")
+    print(f"Duration: {final_duration:.2f}s (hard-locked to narration end)")
+    print("🛡️ Silent visual tail guard: ENABLED")
 
     final.write_videofile(
         out_path,

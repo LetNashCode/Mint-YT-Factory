@@ -109,32 +109,17 @@ def _patch_tts_duration(main):
 
 
 def _patch_assemble_video_media():
+    # assemble.py v8.3 already natively supports both still images and stock
+    # video through make_visual_clip(). Keep this entrypoint compatible with
+    # future versions without referencing the removed make_image_clip symbol.
     import assemble
-    from moviepy.editor import VideoFileClip, vfx
 
-    original = assemble.make_image_clip
-    if getattr(original, "_mint_media_v3", False):
-        return
+    if not hasattr(assemble, "make_visual_clip"):
+        raise RuntimeError(
+            "assemble.py is missing make_visual_clip(); cannot enable stock-video assembly."
+        )
 
-    video_ext = {".mp4", ".mov", ".m4v", ".webm", ".avi", ".mkv"}
-
-    def make_media_clip(path, frame_size):
-        if os.path.splitext(str(path))[1].lower() not in video_ext:
-            return original(path, frame_size)
-
-        width, height = frame_size
-        print("🎞️ Assembler: verified stock VIDEO asset → VideoFileClip: " + os.path.basename(str(path)))
-        clip = VideoFileClip(path, audio=False)
-        scale = max(width / clip.w, height / clip.h)
-        clip = clip.resize(scale)
-        crop_x = max(0, int((clip.w - width) / 2))
-        crop_y = max(0, int((clip.h - height) / 2))
-        clip = clip.crop(x1=crop_x, y1=crop_y, x2=crop_x + width, y2=crop_y + height)
-        return clip.fx(vfx.loop, duration=10.0)
-
-    make_media_clip._mint_media_v3 = True
-    assemble.make_image_clip = make_media_clip
-    print("🛡️ Assembly media compatibility: verified stock MP4 → VideoFileClip + safe loop")
+    print("🛡️ Assembly media compatibility: native make_visual_clip() handles stock VIDEO + IMAGE")
 
 
 def main_entry():

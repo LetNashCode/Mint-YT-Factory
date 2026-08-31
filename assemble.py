@@ -29,6 +29,9 @@ from moviepy.editor import (
     afx,
 )
 
+# Video looping is intentionally handled locally below. `afx` only contains audio effects.
+
+
 EXPECTED_SCENES = 7
 VISUALS_PER_SCENE = 2
 EXPECTED_TOTAL_VISUALS = 14
@@ -216,7 +219,13 @@ def make_visual_clip(media_path, frame_size, duration):
             clip.close()
             raise RuntimeError(f"Visual video has invalid duration: {media_path}")
         if clip.duration < duration:
-            clip = clip.fx(afx.loop, duration=duration)
+            # MoviePy's audio fx namespace does not provide a video loop effect.
+            # Build the loop explicitly so this works across MoviePy versions.
+            from moviepy.editor import concatenate_videoclips
+            original_duration = float(clip.duration)
+            repeats = max(1, int(math.ceil(duration / original_duration)))
+            parts = [clip.subclip(0, original_duration) for _ in range(repeats)]
+            clip = concatenate_videoclips(parts, method="chain").subclip(0, duration)
         else:
             clip = clip.subclip(0, min(duration, clip.duration))
         media_kind = "VIDEO"

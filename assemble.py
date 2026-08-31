@@ -9,6 +9,7 @@ Assembles the 7-scene / 14-visual YouTube Short.
 
 import os
 import math
+import numpy as np
 import shutil as _shutil
 from PIL import Image, ImageDraw, ImageFont
 
@@ -455,7 +456,7 @@ def _caption_bitmap(text, fontsize, color, frame_size, shadow=False):
     stroke_fill = CAPTION_SHADOW_COLOR if shadow else CAPTION_STROKE
     draw.text((pad - bbox[0], pad - bbox[1]), text, font=font, fill=fill,
               stroke_width=CAPTION_STROKE_WIDTH, stroke_fill=stroke_fill)
-    return image
+    return np.array(image)
 
 def _make_caption_clip(text, fontsize, color, frame_size):
     return ImageClip(_caption_bitmap(text, fontsize, color, frame_size, shadow=False))

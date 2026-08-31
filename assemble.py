@@ -23,6 +23,7 @@ from moviepy.editor import (
     CompositeAudioClip,
     CompositeVideoClip,
     ImageClip,
+    VideoFileClip,
     TextClip,
     afx,
 )
@@ -199,14 +200,38 @@ def validate_image_contract(image_paths):
         raise RuntimeError(f"Expected {EXPECTED_TOTAL_VISUALS} total images, found {total}.")
 
 
-def make_image_clip(image_path, frame_size):
+IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".bmp"}
+VIDEO_EXTENSIONS = {".mp4", ".mov", ".m4v", ".webm", ".avi", ".mkv"}
+
+def _is_video_path(path):
+    return os.path.splitext(str(path))[1].lower() in VIDEO_EXTENSIONS
+
+def make_visual_clip(media_path, frame_size, duration):
+    """Load either a still image or stock video without changing caller contracts."""
     width, height = frame_size
-    clip = ImageClip(image_path)
+    if _is_video_path(media_path):
+        clip = VideoFileClip(media_path, audio=False)
+        if not clip.duration or clip.duration <= 0:
+            clip.close()
+            raise RuntimeError(f"Visual video has invalid duration: {media_path}")
+        if clip.duration < duration:
+            clip = clip.fx(afx.loop, duration=duration)
+        else:
+            clip = clip.subclip(0, min(duration, clip.duration))
+        media_kind = "VIDEO"
+    else:
+        clip = ImageClip(media_path).set_duration(duration)
+        media_kind = "IMAGE"
+    if not clip.w or not clip.h:
+        clip.close()
+        raise RuntimeError(f"Visual media has invalid dimensions: {media_path}")
     scale = max(width / clip.w, height / clip.h)
     clip = clip.resize(scale)
     crop_x = max(0, int((clip.w - width) / 2))
     crop_y = max(0, int((clip.h - height) / 2))
-    return clip.crop(x1=crop_x, y1=crop_y, x2=crop_x + width, y2=crop_y + height)
+    clip = clip.crop(x1=crop_x, y1=crop_y, x2=crop_x + width, y2=crop_y + height)
+    print(f"   🎞️ {media_kind}: {os.path.basename(media_path)}")
+    return clip.set_duration(duration)
 
 
 def get_visual_animation(visual):
@@ -234,7 +259,7 @@ def get_camera_scale(scene, visual):
 
 
 def build_animated_image(image_path, duration, frame_size, scene, visual):
-    clip = make_image_clip(image_path, frame_size).set_duration(duration)
+    clip = make_visual_clip(image_path, frame_size, duration).set_duration(duration)
     animation = get_visual_animation(visual)
     zoom = get_visual_zoom(visual)
     motion = get_visual_motion(visual)

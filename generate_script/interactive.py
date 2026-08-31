@@ -1,8 +1,8 @@
 """Interactive Mystery script generator wrapper.
 
-Keeps the existing Publish Shorts generator unchanged. Interactive Shorts use the
-same visual/storyboard schema, but Scene 7 ends the current story with a payoff
-and a comment-driving viewer question instead of requiring next_short continuity.
+Interactive Mystery Shorts use the production generator's schema and visual
+normalization, but deliberately disable the normal Publish Shorts continuation
+bridge requirement for Scene 7.
 """
 from __future__ import annotations
 
@@ -11,13 +11,12 @@ from . import entertainment as _base
 
 def _interactive_feedback(extra_feedback=""):
     return (
-        "INTERACTIVE MODE OVERRIDE: This is an Interactive Mystery Short. "
-        "Do not require, invent, or tease a next_short topic. Scene 7 must end "
-        "the CURRENT scenario only: first give the payoff or reveal, then ask "
-        "one short, genuine viewer question that invites a comment. The final "
-        "question must concern the current dilemma, mystery, or psychological "
-        "choice. No continuation bridge, no 'next video' language, and no "
-        "subscribe CTA. "
+        "INTERACTIVE MODE — CRITICAL ENDING RULE: This is a self-contained "
+        "Interactive Mystery Short. Do NOT tease, mention, or bridge to another "
+        "topic. Scene 7 must first deliver the payoff/reveal for the CURRENT "
+        "scenario, then end with one short genuine question about the CURRENT "
+        "dilemma that invites comments. No next video, next short, stay tuned, "
+        "part 2, or subscribe language. "
         + str(extra_feedback or "")
     )
 
@@ -26,55 +25,51 @@ def _validate_interactive_scene7(script):
     scenes = script.get("scene_plan") or []
     if len(scenes) != 7:
         raise RuntimeError("Interactive script must contain exactly 7 scenes.")
-    text = _base._clean(scenes[6].get("narration"))
-    sentences = _base._sentence_parts(text)
+
+    narration = _base._clean(scenes[6].get("narration"))
+    sentences = _base._sentence_parts(narration)
     if len(sentences) < 2:
-        raise RuntimeError("Interactive Scene 7 must contain a payoff followed by a viewer question.")
+        raise RuntimeError(
+            "Interactive Scene 7 must contain a payoff followed by a viewer question."
+        )
     if "?" not in sentences[-1]:
         raise RuntimeError("Interactive Scene 7 must end with a genuine viewer question.")
+
     banned = ("next short", "next video", "coming next", "stay tuned", "part 2")
-    if any(x in text.lower() for x in banned):
+    if any(term in narration.lower() for term in banned):
         raise RuntimeError("Interactive Scene 7 must not contain a continuation teaser.")
+
+    script.pop("next_short", None)
+    scenes[6]["narration"] = narration
+    scenes[6]["subtitle_text"] = narration
     return script
 
 
 def generate_script(topic, config, research=None, extra_feedback=""):
-    # Reuse the proven generator for schema/visual generation, but temporarily
-    # adapt its normalizer only for this call. Restore immediately so main
-    # Publish Shorts behavior is untouched.
-    original_normalize = _base._normalize
+    # entertainment._normalize normally enforces a next-topic bridge in Scene 7.
+    # Patch only those continuation helpers during this call. The full production
+    # schema/visual normalization still runs unchanged.
+    original_boundary = _base._ensure_scene7_boundary
+    original_bridge = _base._validate_natural_bridge
 
-    def interactive_normalize(script, current_topic):
-        if not isinstance(script, dict):
-            raise RuntimeError("Gemini returned a non-object script.")
+    def interactive_boundary(narration, next_topic):
+        # Preserve the authored Scene 7 exactly; do not append a continuation.
+        return _base._clean(narration)
 
-        # Give the base normalizer a valid continuation target solely to preserve
-        # its schema handling, then replace Scene 7 after generation validation.
-        # This fallback should rarely be needed because the prompt below requests
-        # the interactive ending explicitly.
-        result = original_normalize(script, current_topic)
-        scene7 = result["scene_plan"][6]
-        text = _base._clean(scene7.get("narration"))
-        sentences = _base._sentence_parts(text)
-        if len(sentences) >= 2:
-            # Remove only a detected continuation sentence and keep authored payoff.
-            last = sentences[-1]
-            if _base._normalise_phrase(result.get("next_short", {}).get("topic", "")) in _base._normalise_phrase(last):
-                sentences = sentences[:-1]
-                payoff = _base._clean(" ".join(sentences)) or text
-                question = "What would YOU choose?"
-                scene7["narration"] = f"{payoff} {question}"
-                scene7["subtitle_text"] = scene7["narration"]
-        result.pop("next_short", None)
-        return _validate_interactive_scene7(result)
+    def interactive_bridge(narration, next_topic):
+        # Scene 7 continuation validation is intentionally disabled for this mode.
+        return "interactive-ending"
 
-    _base._normalize = interactive_normalize
+    _base._ensure_scene7_boundary = interactive_boundary
+    _base._validate_natural_bridge = interactive_bridge
     try:
-        return _base.generate_script(
+        result = _base.generate_script(
             topic,
             config,
             research,
             extra_feedback=_interactive_feedback(extra_feedback),
         )
+        return _validate_interactive_scene7(result)
     finally:
-        _base._normalize = original_normalize
+        _base._ensure_scene7_boundary = original_boundary
+        _base._validate_natural_bridge = original_bridge

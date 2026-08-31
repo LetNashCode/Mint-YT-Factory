@@ -56,7 +56,7 @@ def _resolve_narration_path(result):
     return path
 
 
-def run(dry_run=False):
+def run():
     config = load_config()
     pillar, topic = get_next_topic()
     print("🧩 INTERACTIVE MYSTERY |", pillar, "|", topic)

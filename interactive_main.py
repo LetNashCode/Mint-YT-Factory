@@ -91,7 +91,8 @@ def run(dry_run=False):
     music = download_music(script, os.path.join(workdir, "music"))
 
     final = os.path.join(workdir, "final.mp4")
-    # assemble_video accepts narration paths; keep the structured list contract.\n    assemble_video(script, [audio], visuals, music, sfx, config, final)
+    # assemble_video accepts narration paths; keep the structured list contract.
+    assemble_video(script, [audio], visuals, music, sfx, config, final)
 
     q = validate_final_video(final, expected_bitrate_mbps=100.0)
     save(q, os.path.join(workdir, "validation.json"))

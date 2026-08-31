@@ -3,7 +3,7 @@ from __future__ import annotations
 import json,os,time,yaml
 from interactive_topics import get_next_topic,record_topic
 from interactive_analytics import record as record_analytics,build_comparison
-from generate_script import generate_script
+from generate_script.interactive import generate_script
 from tts import synthesize_script
 from stock_media_resilient import generate_media
 from music import download_music

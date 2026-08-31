@@ -27,12 +27,23 @@ def _validate_interactive_scene7(script):
         raise RuntimeError("Interactive script must contain exactly 7 scenes.")
 
     narration = _base._clean(scenes[6].get("narration"))
-    sentences = _base._sentence_parts(narration)
-    if len(sentences) < 2:
+    # The model occasionally writes the payoff and question as one sentence or
+    # uses punctuation that _sentence_parts normalizes differently. Validate the
+    # semantic contract without rejecting an otherwise usable generation.
+    question_pos = narration.rfind("?")
+    if question_pos < 0:
+        raise RuntimeError("Interactive Scene 7 must end with a genuine viewer question.")
+
+    question = narration[: question_pos + 1].split("?")[-2].strip() if narration.count("?") else ""
+    payoff = narration[:question_pos].strip()
+    if not payoff or len(payoff.split()) < 3:
         raise RuntimeError(
-            "Interactive Scene 7 must contain a payoff followed by a viewer question."
+            "Interactive Scene 7 must contain a payoff before the viewer question."
         )
-    if "?" not in sentences[-1]:
+
+    # Require the final non-space character to be the question mark so captions
+    # and the interactive ending remain deterministic.
+    if narration.rstrip()[-1] != "?":
         raise RuntimeError("Interactive Scene 7 must end with a genuine viewer question.")
 
     banned = ("next short", "next video", "coming next", "stay tuned", "part 2")

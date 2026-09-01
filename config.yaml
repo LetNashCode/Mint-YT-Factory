@@ -63,6 +63,8 @@ video:
   audio_codec: aac
   audio_bitrate: 384k
   pixel_format: yuv420p
+  render_preset: veryfast
+  render_threads: 8
   target_duration_seconds: 40
   motion: {enabled: true, storyboard_controlled: true, allow_zoom: true, allow_pan: true, allow_parallax: true, allow_rotate: true, allow_hold: true, default_intensity: medium}
   transitions: {enabled: true, storyboard_controlled: true, default: hard_cut}

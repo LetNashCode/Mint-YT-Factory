@@ -619,6 +619,31 @@ def _trim_clip_to_duration(clip, total_duration):
     return clip.set_duration(max(0.01, allowed))
 
 
+
+def _assert_output_matches_narration(out_path, narration_duration, tolerance=0.35):
+    """Verify the encoded file does not materially outlive the narration."""
+    if not os.path.isfile(out_path):
+        raise RuntimeError(f"Rendered output not found: {out_path}")
+    encoded = None
+    try:
+        encoded = VideoFileClip(out_path, audio=False)
+        actual = float(encoded.duration or 0.0)
+        expected = float(narration_duration or 0.0)
+        if actual <= 0.05:
+            raise RuntimeError(f"Rendered output has invalid duration: {actual:.2f}s")
+        if actual > expected + tolerance:
+            raise RuntimeError(
+                f"Rendered output exceeds narration clock: {actual:.2f}s > {expected:.2f}s + {tolerance:.2f}s"
+            )
+        print(f"🛡️ Output duration verified: {actual:.2f}s (target {expected:.2f}s)")
+        return actual
+    finally:
+        if encoded is not None:
+            try:
+                encoded.close()
+            except Exception:
+                pass
+
 def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, config, out_path):
     print("=" * 80)
     print("🎬 MINT-YT-FACTORY ASSEMBLY v8.3")

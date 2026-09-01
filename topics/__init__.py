@@ -56,14 +56,17 @@ def _read_used():
 def _write_used(items):
     tmp=_USED_TOPICS_PATH.with_suffix(".tmp"); tmp.write_text(json.dumps(items,indent=2,ensure_ascii=False)+"\n",encoding="utf-8"); tmp.replace(_USED_TOPICS_PATH)
 
+def _pending_topics(items=None):
+    items = _read_used() if items is None else list(items)
+    return [_clean_topic(x[len(_PENDING_PREFIX):]) for x in items if isinstance(x, str) and x.startswith(_PENDING_PREFIX) and _clean_topic(x[len(_PENDING_PREFIX):])]
+
 def _consume_pending():
-    items=_read_used(); pending=""; clean=[]
-    for item in items:
-        if item.startswith(_PENDING_PREFIX):
-            if not pending:pending=_clean_topic(item[len(_PENDING_PREFIX):])
-        else:clean.append(item)
+    # Do NOT delete the reservation here. A failed/cancelled workflow must not
+    # silently lose the queued topic and allow it to be regenerated elsewhere.
+    pending_topics = _pending_topics()
+    pending = pending_topics[0] if pending_topics else ""
     if pending:
-        _write_used(clean); print("🔗 CONTINUING FROM PREVIOUS SHORT"); print(f"Next topic: {pending}")
+        print("🔗 CONTINUING FROM PREVIOUS SHORT"); print(f"Next topic: {pending}")
     return pending
 
 def _generate_topic(used):
@@ -83,22 +86,41 @@ def _generate_topic(used):
     raise RuntimeError("Gemini could not generate a valid new short everyday-curiosity topic after 10 attempts; no static topic fallback is permitted.")
 
 def get_next_topic():
-    pending=_consume_pending()
-    if pending and _is_everyday_topic(pending) and is_new_topic(pending, threshold=0.82):return pending
-    if pending:print(f"⚠️ Discarding already-covered or stale continuation topic: {pending}")
-    used=[x for x in _read_used() if not x.startswith(_PENDING_PREFIX)] + published_topics()
+    items = _read_used()
+    pending = _consume_pending()
+    # A pending topic is an authoritative reservation. Use it even though the
+    # duplicate-history gate sees it as already reserved; validate only shape.
+    if pending and _is_everyday_topic(pending):
+        return pending
+    if pending:
+        print(f"⚠️ Discarding invalid continuation topic: {pending}")
+        items=[x for x in items if not (isinstance(x,str) and x.startswith(_PENDING_PREFIX))]
+        _write_used(items)
+    used=[_clean_topic(x[len(_PENDING_PREFIX):]) if isinstance(x,str) and x.startswith(_PENDING_PREFIX) else x for x in _read_used()]
+    used += published_topics()
     return _generate_topic(used)
 
 def save_next_short(next_short):
-    topic=_clean_topic(next_short); items=[x for x in _read_used() if not x.startswith(_PENDING_PREFIX)]
+    topic=_clean_topic(next_short); raw_items=_read_used()
+    existing_pending=_pending_topics(raw_items)
+    items=[x for x in raw_items if not x.startswith(_PENDING_PREFIX)]
     if not _is_everyday_topic(topic):raise RuntimeError(f"Refusing to queue invalid continuation topic: {topic}")
     history_duplicate = find_duplicate(topic, threshold=0.82)
+    pending_duplicate = any(_key(topic)==_key(x) for x in existing_pending)
+    if existing_pending and not pending_duplicate:
+        raise RuntimeError(f"Refusing to replace an existing pending continuation topic: {existing_pending[0]}")
+    if pending_duplicate:
+        print(f"🔗 Continuation topic already reserved: {topic}")
+        return existing_pending[0]
     if any(_key(topic)==_key(x) for x in items) or history_duplicate:
         raise RuntimeError(f"Refusing to queue duplicate or near-duplicate continuation topic: {topic}")
     items.append(_PENDING_PREFIX+topic); _write_used(items); print(f"🔗 Exact next-video topic: {topic}"); return topic
 
 def commit_topic(topic):
-    topic=_clean_topic(topic); items=_read_used(); key=_key(topic); pending=[x for x in items if x.startswith(_PENDING_PREFIX)]; committed=[x for x in items if not x.startswith(_PENDING_PREFIX)]
+    topic=_clean_topic(topic); items=_read_used(); key=_key(topic)
+    # Consume only the reservation that was actually published.
+    pending=[x for x in items if x.startswith(_PENDING_PREFIX) and _key(_clean_topic(x[len(_PENDING_PREFIX):])) != key]
+    committed=[x for x in items if not x.startswith(_PENDING_PREFIX)]
     if not any(_key(x)==key for x in committed):committed.append(topic)
     _write_used(committed+pending); print(f"📌 Committed topic: {topic}"); return True
 
@@ -106,6 +128,7 @@ def validate_topic_for_pipeline(topic,used=None,check_duplicate=True):
     if not _is_everyday_topic(topic):return False
     if check_duplicate:
         pool=list(used) if used is not None else _read_used()
-        if any(_key(topic)==_key(x) for x in pool if not x.startswith(_PENDING_PREFIX)):return False
+        normalized_pool=[_clean_topic(x[len(_PENDING_PREFIX):]) if isinstance(x,str) and x.startswith(_PENDING_PREFIX) else x for x in pool]
+        if any(_key(topic)==_key(x) for x in normalized_pool):return False
         if not is_new_topic(topic, threshold=0.82):return False
     return True

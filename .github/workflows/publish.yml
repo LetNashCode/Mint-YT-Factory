@@ -230,10 +230,19 @@ jobs:
           local_pending = [x for x in generated if isinstance(x, str) and x.startswith(pending_prefix)]
           remote_pending = [x for x in remote if isinstance(x, str) and x.startswith(pending_prefix)]
 
-          if local_pending:
-              merged.append(local_pending[-1])
+          # Never let a stale runner overwrite a newer remote reservation.
+          # A reservation consumed by this successful run is removed locally;
+          # otherwise preserve the authoritative remote pending topic.
+          if local_pending and remote_pending:
+              if local_pending[-1] == remote_pending[-1]:
+                  merged.append(remote_pending[-1])
+              else:
+                  print("WARNING: conflicting pending topics; preserving remote reservation:", remote_pending[-1])
+                  merged.append(remote_pending[-1])
           elif remote_pending:
               merged.append(remote_pending[-1])
+          elif local_pending:
+              merged.append(local_pending[-1])
 
           remote_path.write_text(json.dumps(merged, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
           print("Merged topic state:", len(merged), "records")

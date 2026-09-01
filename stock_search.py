@@ -46,10 +46,8 @@ def clean(value: Any, maximum: int = 700) -> str:
 
 
 def _key() -> str:
-    key = os.getenv("GEMINI_API_KEY", "").strip()
-    if not key:
-        raise RuntimeError("GEMINI_API_KEY is required for stock visual direction.")
-    return key
+    # Gemini is optional for stock search. Local fallback keeps production running.
+    return os.getenv("GEMINI_API_KEY", "").strip()
 
 
 def _json(text: str) -> dict:
@@ -86,7 +84,10 @@ def _gemini(prompt: str, temperature: float = 0.15, parts: list[Any] | None = No
     from google import genai
     from google.genai import types
 
-    client = genai.Client(api_key=_key())
+    key = _key()
+    if not key:
+        raise RuntimeError("Gemini unavailable: GEMINI_API_KEY not configured")
+    client = genai.Client(api_key=key)
     contents: Any = [prompt] if not parts else [prompt, *parts]
     last: Exception | None = None
     for attempt in range(1, 4):
@@ -229,8 +230,13 @@ Return ONLY JSON:
   "avoid":["likely wrong results"]
 }}'''
 
-    data = _gemini(prompt, 0.25)
-    ladder = _normalize_ladder(data, anchors)
+    # Gemini improves query phrasing, but must never be a production dependency.
+    data = {}
+    try:
+        data = _gemini(prompt, 0.25)
+    except Exception as exc:
+        print(f"🛡️ Gemini stock director unavailable — local deterministic fallback: {type(exc).__name__}")
+    ladder = _normalize_ladder(data, anchors) if data else []
 
     # Deterministic practical queries guarantee that a poor Gemini answer cannot
     # turn the whole search into exotic/non-searchable language.
@@ -258,7 +264,14 @@ Return ONLY JSON:
                 existing.add(q)
 
     if len(ladder) < 4:
-        raise RuntimeError("Gemini produced too few usable stock-search queries.")
+        # Never fail production merely because Gemini is unavailable.
+        base = subject if 'subject' in locals() and subject else (" ".join(anchors[:2]) or "person thinking")
+        existing = {x["query"] for x in ladder}
+        for q in [base, f"{base} close up", f"{base} indoors", f"{base} reaction", f"{base} hands"]:
+            q = clean(q.lower(), 80)
+            if q and q not in existing and 1 <= len(q.split()) <= 7:
+                ladder.append({"query": q, "strategy": "local-fallback"})
+                existing.add(q)
 
     return {
         "search_ladder": ladder[:SEARCH_PROMPTS],

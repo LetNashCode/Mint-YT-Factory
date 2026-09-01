@@ -580,7 +580,13 @@ def get_video_config(config):
         width, height = DEFAULT_RESOLUTION
     if width > height:
         width, height = height, width
-    return {"size": (width, height), "fps": _safe_int(video.get("fps", DEFAULT_FPS), DEFAULT_FPS, minimum=1)}
+    return {
+        "size": (width, height),
+        "fps": _safe_int(video.get("fps", DEFAULT_FPS), DEFAULT_FPS, minimum=1),
+        "bitrate": str(video.get("bitrate", "100M")),
+        "preset": str(video.get("render_preset", "veryfast")),
+        "threads": _safe_int(video.get("render_threads", min(8, os.cpu_count() or 4)), min(8, os.cpu_count() or 4), minimum=1),
+    }
 
 
 def validate_storyboard(script):
@@ -721,14 +727,16 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
     print("Portrait 9:16: enabled")
     print(f"Duration: {final_duration:.2f}s (hard-locked to narration end)")
     print("🛡️ Silent visual tail guard: ENABLED")
+    print(f"⚡ Render preset: {video_config['preset']} | threads: {video_config['threads']} | bitrate: {video_config['bitrate']}")
 
     final.write_videofile(
         out_path,
         fps=fps,
         codec="libx264",
         audio_codec="aac",
-        preset="medium",
-        threads=4,
+        preset=video_config["preset"],
+        threads=video_config["threads"],
+        bitrate=video_config["bitrate"],
         temp_audiofile=out_path + ".temp_audio.m4a",
         remove_temp=True,
     )

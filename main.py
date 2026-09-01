@@ -1,7 +1,7 @@
 """Mint-YT-Factory production pipeline."""
 from __future__ import annotations
 import argparse, json, os, re, time, yaml
-from topics import get_next_topic, save_next_short, commit_topic, validate_topic_for_pipeline, _generate_topic, _read_used, _PENDING_PREFIX
+from topics import get_next_topic, save_next_short, commit_topic, validate_topic_for_pipeline, _generate_topic, _read_used, _PENDING_PREFIX, reserve_next_short
 from generate_script import generate_script
 from tts import synthesize_script
 from stock_media_resilient import generate_media
@@ -100,12 +100,12 @@ def _generate_natural_bridge(current_topic, next_topic):
         raise RuntimeError("Continuation topic is empty.")
     return f"That little everyday mystery opens another one: {nxt}."
 
-def _lock_canonical_topic(script, current_topic):
+def _lock_canonical_topic(script, current_topic, locked_topic=None):
     """Lock a valid next topic, repairing missing model metadata instead of failing."""
     used = [str(current_topic)]
     used.extend(item for item in _read_used() if not str(item).startswith(_PENDING_PREFIX))
 
-    candidate = str((script.get("next_short") or {}).get("topic", "")).strip()
+    candidate = str(locked_topic or (script.get("next_short") or {}).get("topic", "")).strip()
     if not validate_topic_for_pipeline(candidate, used=used, check_duplicate=True):
         # next_short is production metadata, not narration. A missing/bad model field
         # must not discard an otherwise good current-topic story.
@@ -118,9 +118,9 @@ def _lock_canonical_topic(script, current_topic):
     script.setdefault("next_short", {})["topic"] = candidate
     return candidate
 
-def lock_next_topic(script, current_topic):
+def lock_next_topic(script, current_topic, locked_topic=None):
     """Lock metadata and append the preview separately from story generation."""
-    canonical = _lock_canonical_topic(script, current_topic)
+    canonical = _lock_canonical_topic(script, current_topic, locked_topic=locked_topic)
     final_scene = script["scene_plan"][-1]
     bridge = _generate_natural_bridge(current_topic, canonical)
     payoff = str(final_scene.get("narration", "")).strip()
@@ -254,7 +254,10 @@ def run(dry_run=False):
 
     print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS")
     script = _generate_valid_script(topic, config, learning_context, engagement_feedback)
-    script, next_topic = lock_next_topic(script, topic)
+    next_topic = reserve_next_short(str((script.get("next_short") or {}).get("topic") or ""), current_topic=topic)
+    script["next_short"] = dict(script.get("next_short") or {})
+    script["next_short"]["topic"] = next_topic
+    script, next_topic = lock_next_topic(script, topic, locked_topic=next_topic)
     script["engagement"] = {
         "experiment": engagement["experiment"],
         "phase": engagement["phase"],
@@ -310,28 +313,8 @@ def run(dry_run=False):
     if isinstance(upload_result, dict):
         video_id = str(upload_result.get("video_id") or upload_result.get("id") or "")
     record_topic(topic, title=title, video_id=video_id, workdir=workdir, status="published")
-    # Upload success is final. Continuation is best-effort and must never mark a published Short as failed.
-    try:
-        save_next_short(next_topic)
-    except Exception as error:
-        print(f"⚠️ Next-topic queue rejected after successful upload: {type(error).__name__}: {error}")
-        print("🛠️ Generating a fresh unused continuation topic and retrying until it is queued successfully.")
-        used = [topic]
-        used.extend(item for item in _read_used() if not str(item).startswith(_PENDING_PREFIX))
-        last_replacement_error = None
-        for replacement_attempt in range(1, 11):
-            try:
-                replacement = _generate_topic(used)
-                save_next_short(replacement)
-                next_topic = replacement
-                print(f"🔗 Replacement next-video topic queued successfully: {next_topic}")
-                break
-            except Exception as replacement_error:
-                last_replacement_error = replacement_error
-                print(f"⚠️ Replacement continuation attempt {replacement_attempt}/10 failed: {type(replacement_error).__name__}: {replacement_error}")
-                time.sleep(min(5 * replacement_attempt, 30))
-        else:
-            raise RuntimeError(f"Upload succeeded, but no valid unused continuation topic could be queued after 10 attempts: {last_replacement_error}")
+    # Exact teaser topic was reserved before narration; never replace it after upload.
+    save_next_short(next_topic)
     write_continuation_manifest(topic, next_topic, "published", workdir)
 
 

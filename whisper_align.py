@@ -14,8 +14,8 @@ import wave
 
 import whisper
 
-WHISPER_MODEL_NAME = "base.en"
-WHISPER_RETRY_MODEL_NAME = "tiny.en"
+WHISPER_MODEL_NAME = "tiny.en"
+WHISPER_RETRY_MODEL_NAME = None
 _model = None
 _retry_model = None
 _WORD_RE = re.compile(r"[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*")
@@ -23,7 +23,7 @@ _WORD_RE = re.compile(r"[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*")
 
 def _get_model(name=WHISPER_MODEL_NAME):
     global _model, _retry_model
-    if name == WHISPER_RETRY_MODEL_NAME:
+    if WHISPER_RETRY_MODEL_NAME and name == WHISPER_RETRY_MODEL_NAME:
         if _retry_model is None:
             print(f"🎙️ Loading Whisper retry model: {name}")
             _retry_model = whisper.load_model(name)
@@ -194,7 +194,7 @@ def _transcribe(model, audio_path, strong=False):
 
 def transcribe(audio_path):
     print("🎙️ Starting FULL-SEQUENCE Whisper caption timing")
-    print(f"   Primary model: {WHISPER_MODEL_NAME} → retry: {WHISPER_RETRY_MODEL_NAME}")
+    print(f"   Fast model: {WHISPER_MODEL_NAME}; deterministic reconstruction is the fallback")
     expected = _load_expected_words(audio_path)
     duration = _audio_duration(audio_path)
     if not expected:
@@ -202,7 +202,7 @@ def transcribe(audio_path):
 
     best_anchors = []
     best_coverage = 0.0
-    for model_name, strong in ((WHISPER_MODEL_NAME, True), (WHISPER_RETRY_MODEL_NAME, False)):
+    for model_name, strong in ((WHISPER_MODEL_NAME, False),):
         try:
             result = _transcribe(_get_model(model_name), audio_path, strong)
             observed = _extract_whisper_words(result)

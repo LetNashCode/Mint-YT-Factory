@@ -17,7 +17,7 @@ def _interactive_feedback(extra_feedback=""):
         "scenario, then end with one short genuine question about the CURRENT "
         "dilemma that invites comments. No next video, next short, stay tuned, "
         "part 2, or subscribe language. "
-        + " The COMPLETE narration must be 90–135 spoken words total. Aim for 105–120 words so normal variation stays inside the range. If a previous attempt was too short, expand the scenario with a concrete consequence, escalation, and payoff; never pad with filler."
+        + " The COMPLETE narration must be 90–125 spoken words total. Aim for 100–115 words so normal variation stays inside the range. If a previous attempt was too short, expand the scenario with a concrete consequence, escalation, and payoff; never pad with filler."
         + str(extra_feedback or "")
     )
 
@@ -63,7 +63,7 @@ def _validate_interactive_scene7(script):
 def generate_script(topic, config, research=None, extra_feedback=""):
     # Retry short/long interactive narrations instead of letting one bad model
     # response terminate the GitHub Actions workflow.
-    max_length_attempts = 4
+    max_length_attempts = 2
     last_error = None
     # entertainment._normalize normally enforces a next-topic bridge in Scene 7.
     # Patch only those continuation helpers during this call. The full production
@@ -88,7 +88,7 @@ def generate_script(topic, config, research=None, extra_feedback=""):
                 feedback += (
                     "\\n\\nREGENERATE THE ENTIRE SCRIPT. Previous attempt failed: "
                     + last_error
-                    + " Keep exactly 7 scenes and produce 90–135 spoken words total."
+                    + " Keep exactly 7 scenes and produce 90–125 spoken words total."
                 )
             try:
                 result = _base.generate_script(
@@ -102,11 +102,11 @@ def generate_script(topic, config, research=None, extra_feedback=""):
                     len(_base._words(scene.get("narration", "")))
                     for scene in (result.get("scene_plan") or [])
                 )
-                if 90 <= total_words <= 135:
+                if 90 <= total_words <= 125:
                     print(f"🧩 Interactive narration validated: {total_words} words (attempt {length_attempt}/{max_length_attempts})")
                     return result
                 last_error = (
-                    f"Narration length is {total_words} words; target is 90–135 words."
+                    f"Narration length is {total_words} words; target is 90–125 words."
                 )
                 print(f"⚠️ {last_error} Regenerating interactive script ({length_attempt}/{max_length_attempts})...")
             except RuntimeError as error:

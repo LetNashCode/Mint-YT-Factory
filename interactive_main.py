@@ -117,7 +117,13 @@ def run():
         config,
         engagement_comment=script["engagement"]["comment"],
     )
-    # upload_video() currently returns the video ID as a string; accept both string and legacy dict returns.\n    if isinstance(result, str):\n        vid = result\n    elif isinstance(result, dict):\n        vid = str(result.get("video_id") or result.get("id") or "")\n    else:\n        vid = ""
+    # upload_video() may return a video ID string or a legacy mapping.
+    if isinstance(result, str):
+        vid = result
+    elif isinstance(result, dict):
+        vid = str(result.get("video_id") or result.get("id") or "")
+    else:
+        vid = ""
     record_topic(topic, pillar, title, vid, workdir)
     if vid:
         record_analytics(vid, topic, pillar, title, workdir)

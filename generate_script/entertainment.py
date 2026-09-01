@@ -15,7 +15,10 @@ FALLBACK_MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
 SCENE_COUNT = 7
 VISUALS_PER_SCENE = 2
 SCENE_DURATIONS = [3, 5, 7, 7, 8, 8, 7]
-MAX_ATTEMPTS = 4
+MAX_ATTEMPTS = 3
+TRANSIENT_RETRIES = 3
+TRANSIENT_BACKOFF_SECONDS = (3, 8, 15)
+ENABLE_CPU_QWEN_FALLBACK = os.environ.get("ENABLE_CPU_QWEN_FALLBACK", "0") == "1"
 _QWEN_TOKENIZER = None
 _QWEN_MODEL = None
 
@@ -282,19 +285,32 @@ VISUALS: every one of the 14 shots must represent a specific spoken beat. Return
 {feedback}
 """
     last_error=None
-    for attempt in range(1,MAX_ATTEMPTS+1):
+    transient_failures=0
+    validation_attempts=0
+    while validation_attempts < MAX_ATTEMPTS:
         try:
             retry=f"\n\nFIX THE PREVIOUS VALIDATION ERROR:\n{last_error}" if last_error else ""
-            response=client.models.generate_content(model=MODEL_NAME,contents=prompt+retry,config=types.GenerateContentConfig(system_instruction=SYSTEM_PROMPT,response_mime_type="application/json",response_json_schema=_build_schema(),temperature=0.95))
+            response=client.models.generate_content(model=MODEL_NAME,contents=prompt+retry,config=types.GenerateContentConfig(system_instruction=SYSTEM_PROMPT,response_mime_type="application/json",response_json_schema=_build_schema(),temperature=0.85))
             text=getattr(response,"text",None)
             if not text: raise RuntimeError("Gemini returned an empty response.")
             return _normalize(_parse(text),topic)
         except Exception as error:
             last_error=f"{type(error).__name__}: {error}"
-            if attempt<MAX_ATTEMPTS: time.sleep(3*attempt)
-    if last_error and (_is_quota_error(last_error) or "503" in last_error or "unavailable" in last_error.lower() or "high demand" in last_error.lower()):
+            transient=(_is_quota_error(last_error) or "503" in last_error or "unavailable" in last_error.lower() or "high demand" in last_error.lower())
+            if transient:
+                if transient_failures >= TRANSIENT_RETRIES:
+                    break
+                delay=TRANSIENT_BACKOFF_SECONDS[min(transient_failures,len(TRANSIENT_BACKOFF_SECONDS)-1)]
+                transient_failures += 1
+                print(f"⏳ Gemini transient failure; retry {transient_failures}/{TRANSIENT_RETRIES} in {delay}s (CPU Qwen fallback disabled by default)")
+                time.sleep(delay)
+                continue
+            validation_attempts += 1
+            if validation_attempts < MAX_ATTEMPTS:
+                time.sleep(2)
+    if ENABLE_CPU_QWEN_FALLBACK and last_error:
         try:
             return _generate_with_qwen(prompt,topic,last_error)
         except Exception as fallback_error:
             raise RuntimeError(f"SCRIPT GENERATION FAILED. Gemini error: {last_error} | Qwen fallback error: {type(fallback_error).__name__}: {fallback_error}") from fallback_error
-    raise RuntimeError(f"SCRIPT GENERATION FAILED. Last error: {last_error}")
+    raise RuntimeError(f"SCRIPT GENERATION FAILED after bounded Gemini retries. Last error: {last_error}")

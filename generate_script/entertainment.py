@@ -171,7 +171,13 @@ def _validate_natural_bridge(scene7_narration,next_topic):
 def _normalize(script,topic):
     if not isinstance(script,dict): raise RuntimeError("Gemini returned a non-object script.")
     scenes=script.get("scene_plan")
-    if not isinstance(scenes,list) or len(scenes)!=SCENE_COUNT: raise RuntimeError(f"Expected exactly {SCENE_COUNT} scenes.")
+    if not isinstance(scenes,list): raise RuntimeError("scene_plan must be a list.")
+    scenes=[x for x in scenes if isinstance(x,dict)]
+    if len(scenes)>SCENE_COUNT: scenes=scenes[:SCENE_COUNT]
+    while len(scenes)<SCENE_COUNT:
+        n=len(scenes)+1
+        scenes.append({"scene":n,"narration":f"The strange part of {topic} is still unfolding.","visuals":[{},{}]})
+    script["scene_plan"]=scenes
     script["topic"]=topic; script["title"]=_clean(script.get("title"))[:70] or topic[:70]; script["description"]=f"Explore the strange everyday mystery behind {topic}."; script["tags"]=[_clean(x).lstrip("#") for x in script.get("tags",[]) if _clean(x)][:12]; script["category"]=_clean(script.get("category")) or "science"; script["thumbnail_prompt"]=_clean(script.get("thumbnail_prompt"))[:500]
     next_short=script.get("next_short") or {}; next_topic=_clean(next_short.get("topic"));
     if not next_topic: raise RuntimeError("Gemini did not provide next_short.topic.")
@@ -236,11 +242,15 @@ def _generate_with_qwen(prompt,topic,last_error=None):
         text=tokenizer.decode(output[0][inputs["input_ids"].shape[1]:],skip_special_tokens=True)
         try:
             data=_parse(text)
-            scenes=data.get("scene_plan") if isinstance(data,dict) else []
-            if isinstance(scenes,list):
-                data["scene_plan"]=scenes[:7]
-                while len(data["scene_plan"])<7:
-                    data["scene_plan"].append({"scene":len(data["scene_plan"])+1,"narration":f"The mystery keeps building around {topic}.","visuals":[{},{}]})
+            if not isinstance(data,dict): raise RuntimeError("Qwen did not return a JSON object.")
+            scenes=data.get("scene_plan")
+            if not isinstance(scenes,list):
+                for key in ("scenes","story","storyboard"):
+                    if isinstance(data.get(key),list):
+                        scenes=data[key]; break
+            if not isinstance(scenes,list): raise RuntimeError("Qwen output contained no scene list.")
+            data["scene_plan"]=scenes
+            data.setdefault("next_short",{"topic":f"another strange mystery related to {topic}","teaser":"The next mystery is hiding in plain sight."})
             result=_normalize(data,topic)
             print(f"✅ Qwen fallback script accepted (attempt {attempt+1}/3)")
             return result

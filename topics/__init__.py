@@ -100,6 +100,20 @@ def get_next_topic():
     used += published_topics()
     return _generate_topic(used)
 
+def reserve_next_short(next_short, current_topic=""):
+    """Reserve the exact continuation before Scene 7 narration is created."""
+    topic = _clean_topic(next_short)
+    raw_items = _read_used()
+    existing_pending = _pending_topics(raw_items)
+    if existing_pending:
+        raise RuntimeError(f"Cannot reserve a new continuation while one is pending: {existing_pending[0]}")
+    used = [current_topic]
+    used.extend(x for x in raw_items if not (isinstance(x, str) and x.startswith(_PENDING_PREFIX)))
+    if not validate_topic_for_pipeline(topic, used=used, check_duplicate=True):
+        topic = _generate_topic(used)
+        print(f"🛠️ Repaired and reserved continuation topic: {topic}")
+    return save_next_short(topic)
+
 def save_next_short(next_short):
     topic=_clean_topic(next_short); raw_items=_read_used()
     existing_pending=_pending_topics(raw_items)

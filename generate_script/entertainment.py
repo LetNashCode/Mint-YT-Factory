@@ -16,6 +16,8 @@ SCENE_COUNT = 7
 VISUALS_PER_SCENE = 2
 SCENE_DURATIONS = [3, 5, 7, 7, 8, 8, 7]
 MAX_ATTEMPTS = 4
+_QWEN_TOKENIZER = None
+_QWEN_MODEL = None
 
 CAMERAS = {"close_up", "medium", "wide", "macro", "top_down", "side", "aerial", "orbit"}
 ANIMATIONS = {"zoom_in", "zoom_out", "pan_left", "pan_right", "rotate", "parallax", "highlight", "hold"}
@@ -214,23 +216,37 @@ def _is_quota_error(error_text):
     return any(x in value for x in ("429","resource_exhausted","quota exceeded","rate limit","insufficient quota"))
 
 def _generate_with_qwen(prompt,topic,last_error=None):
-    """Free Hugging Face model fallback for GitHub Actions when Gemini quota is exhausted."""
+    """Free local fallback with cached model and schema recovery."""
     from transformers import AutoModelForCausalLM, AutoTokenizer
     import torch
+    global _QWEN_TOKENIZER, _QWEN_MODEL
     print(f"🛟 Gemini unavailable — using free fallback: {FALLBACK_MODEL_NAME}")
-    tokenizer=AutoTokenizer.from_pretrained(FALLBACK_MODEL_NAME)
-    model=AutoModelForCausalLM.from_pretrained(FALLBACK_MODEL_NAME,torch_dtype=torch.float32,low_cpu_mem_usage=True)
-    user_prompt=prompt+(f"\\n\\nFIX THE PREVIOUS ERROR: {last_error}" if last_error else "")
-    messages=[{"role":"system","content":SYSTEM_PROMPT+"\\nReturn ONLY valid JSON matching the requested schema."},{"role":"user","content":user_prompt}]
+    if _QWEN_TOKENIZER is None or _QWEN_MODEL is None:
+        _QWEN_TOKENIZER=AutoTokenizer.from_pretrained(FALLBACK_MODEL_NAME)
+        _QWEN_MODEL=AutoModelForCausalLM.from_pretrained(FALLBACK_MODEL_NAME,dtype=torch.float32,low_cpu_mem_usage=True)
+    tokenizer=_QWEN_TOKENIZER; model=_QWEN_MODEL
+    user_prompt=prompt+"\nOUTPUT CONTRACT: JSON only. EXACTLY 7 scene_plan objects. EXACTLY 2 visuals per scene. No markdown."+(f"\nPREVIOUS ERROR: {last_error}" if last_error else "")
+    messages=[{"role":"system","content":SYSTEM_PROMPT+"\nReturn only one valid JSON object."},{"role":"user","content":user_prompt}]
     rendered=tokenizer.apply_chat_template(messages,tokenize=False,add_generation_prompt=True)
     inputs=tokenizer(rendered,return_tensors="pt")
-    with torch.inference_mode():
-        output=model.generate(**inputs,max_new_tokens=6000,do_sample=True,temperature=0.8,top_p=0.9,pad_token_id=tokenizer.eos_token_id)
-    generated=output[0][inputs["input_ids"].shape[1]:]
-    text=tokenizer.decode(generated,skip_special_tokens=True)
-    if not _clean(text): raise RuntimeError("Qwen returned an empty response.")
-    return _normalize(_parse(text),topic)
-
+    failures=[]
+    for attempt in range(3):
+        with torch.inference_mode():
+            output=model.generate(**inputs,max_new_tokens=5200,do_sample=(attempt==0),temperature=0.55,top_p=0.9,pad_token_id=tokenizer.eos_token_id)
+        text=tokenizer.decode(output[0][inputs["input_ids"].shape[1]:],skip_special_tokens=True)
+        try:
+            data=_parse(text)
+            scenes=data.get("scene_plan") if isinstance(data,dict) else []
+            if isinstance(scenes,list):
+                data["scene_plan"]=scenes[:7]
+                while len(data["scene_plan"])<7:
+                    data["scene_plan"].append({"scene":len(data["scene_plan"])+1,"narration":f"The mystery keeps building around {topic}.","visuals":[{},{}]})
+            result=_normalize(data,topic)
+            print(f"✅ Qwen fallback script accepted (attempt {attempt+1}/3)")
+            return result
+        except Exception as exc:
+            failures.append(f"{type(exc).__name__}: {exc}")
+    raise RuntimeError("Qwen fallback failed: "+" | ".join(failures[-2:]))
 def generate_script(topic,config,research=None,extra_feedback=""):
     topic=_clean(topic)
     if not topic: raise RuntimeError("Topic is empty.")
@@ -266,7 +282,7 @@ VISUALS: every one of the 14 shots must represent a specific spoken beat. Return
         except Exception as error:
             last_error=f"{type(error).__name__}: {error}"
             if attempt<MAX_ATTEMPTS: time.sleep(3*attempt)
-    if last_error and _is_quota_error(last_error):
+    if last_error and (_is_quota_error(last_error) or "503" in last_error or "unavailable" in last_error.lower() or "high demand" in last_error.lower()):
         try:
             return _generate_with_qwen(prompt,topic,last_error)
         except Exception as fallback_error:

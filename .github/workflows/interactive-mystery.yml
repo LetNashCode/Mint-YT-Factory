@@ -13,7 +13,7 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
 
@@ -31,7 +31,7 @@ jobs:
 
       - name: Verify pipeline
         run: |
-          python -m py_compile interactive_main.py interactive_topics.py interactive_analytics.py
+          python -m py_compile interactive_main.py interactive_topics.py interactive_analytics.py generate_script/interactive.py whisper_align.py
 
       - name: Generate and publish Interactive Mystery Short
         env:

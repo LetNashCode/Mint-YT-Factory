@@ -692,7 +692,10 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
     # finishes before the fixed 45-second storyboard clock.
     if narration_duration <= 0.05:
         raise RuntimeError("Narration duration is invalid; refusing to render a silent visual tail.")
-    final_duration = min(TARGET_DURATION, narration_duration)
+    # Never cap the rendered timeline below the actual narration. A hard
+    # TARGET_DURATION ceiling can cut the final spoken words when Kokoro runs
+    # slightly long. The narration file is the authoritative master clock.
+    final_duration = narration_duration
     print(f"🎙️ Narration-authoritative final duration: {final_duration:.2f}s")
     print("=" * 80)
     print("🖼️ BUILDING 14-SHOT VISUAL TIMELINE")

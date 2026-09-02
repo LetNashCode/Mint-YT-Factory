@@ -44,8 +44,6 @@ Current `main.py` design:
 
 Key functions: `_lock_canonical_topic`, `reserve_next_short`, `lock_next_topic`, `_generate_natural_bridge`, `save_next_short`, `commit_topic`.
 
-Important: current code uses deterministic bridge insertion. `production_entry.py` has an older log string saying continuation is Gemini-authored; keep logs and code consistent when editing.
-
 ### 4. Description contamination
 Requirement: YouTube description describes only the current Short.
 Current implementation: `build_youtube_metadata()` uses current `script["topic"]` only.
@@ -58,7 +56,7 @@ State model:
 - Duplicate validation occurs before canonical locking.
 - Next topic is reserved before production proceeds.
 - Current topic is committed only after successful upload.
-Relevant functions: `get_next_topic`, `reserve_next_short`, `save_next_short`, `commit_topic`, `validate_topic_for_pipeline`, `_read_used`, `_generate_topic`.
+
 If duplicates recur, inspect persistence files and reservation/commit ordering before changing prompts.
 
 ### 6. Gemini 503/429 resilience
@@ -79,30 +77,6 @@ Keep independent from Publish Shorts. Narration is master clock; trim all layers
 ### 10. Quality gate
 Production checks resolution 2160×3840, 60 FPS, H.264, bitrate floor, final duration, and narration alignment. Do not bypass validation merely to finish faster.
 
-## Files to inspect first
-Publish Shorts:
-- `production_entry.py`
-- `main.py`
-- `topics.py`
-- `topic_history.py`
-- `generate_script/entertainment.py`
-- `story_quality_gate.py`
-- `quality_overrides.py`
-- `runtime_overrides.py`
-- `stock_media_resilient.py`
-- `assemble.py`
-- `tts.py`
-- `upload_youtube.py`
-- `validate_video.py`
-
-Interactive Mystery:
-- `interactive_main.py`
-- `interactive_topics.py`
-- `interactive_analytics.py`
-- `generate_script/interactive.py`
-
-Automation: `.github/workflows/`.
-
 ## Non-negotiable contracts
 - 7 scenes and 14 visuals.
 - Entertaining coherent current-topic story.
@@ -117,23 +91,32 @@ Automation: `.github/workflows/`.
 - Publish and Interactive pipelines remain independently testable.
 - Retries are bounded.
 
-## Known cleanup targets
-1. `production_entry.py` continuation log wording is stale versus deterministic bridge code.
-2. README may be stale; verify against runtime code.
-3. Qwen fallback startup/reload cost needs monitoring.
-4. “No searchable physical action/state” gate caused excessive rejections; improve search-query/visual-beat repair instead of endless regeneration.
-5. Creator comments previously failed with HTTP 403 insufficient OAuth scopes; upload still succeeded. This is auth configuration, not video generation.
-
-## Future AI workflow
-1. Read this file.
-2. Inspect relevant entrypoint.
-3. Trace data flow and source of truth.
-4. Make minimal changes.
-5. Run syntax/import checks.
-6. Check workflow logs after deployment.
-7. Append problem, root cause, fix, files changed, validation, and regression rule to this file.
-
 ## Current status
 Implemented: separate pipelines, 7-scene/14-visual contract, stock-provider priority, visual verification, narration-authoritative assembly, encoded-duration verification, final quality validation, authoritative upload IDs, current-topic-only descriptions, canonical next-topic locking, topic reservation/commit architecture, bounded transient retries, analytics/learning, and engagement experiments that should not invalidate upload success.
 
-Continue monitoring: duplicate-topic prevention in real state, Gemini quota behavior, Qwen reliability/runtime, visual-gate rejection rate, creator-comment OAuth scopes, and consistency between code/README/startup logs.
+## 2026-09-02 — Clean architecture rebuild checkpoint
+
+### What was verified
+- The repository memory file exists and is now the durable handoff point for future AI work.
+- `main.py` contains the canonical Publish Shorts orchestration and post-upload topic commit sequence.
+- `production_entry.py` remains a compatibility/bootstrap layer around the core pipeline.
+- The project still has two separate production contracts: Publish Shorts and Interactive Mystery.
+
+### Rebuild direction
+Future work should simplify architecture rather than add more monkey-patch layers:
+1. Keep `main.py` as the single source of truth for Publish Shorts orchestration.
+2. Move stable runtime behavior from patch modules into normal module functions when doing a controlled migration.
+3. Preserve the existing 7-scene, 14-visual, narration-authoritative and stock-media contracts.
+4. Keep topic reservation and commit transactional around confirmed upload success.
+5. Keep optional post-upload actions isolated from upload success.
+
+### Next recommended rebuild steps
+1. Inventory every runtime override and patch module.
+2. Classify each as temporary compatibility code or permanent behavior.
+3. Inline permanent behavior into the owning module.
+4. Remove obsolete wrappers only after imports and workflow entrypoints are verified.
+5. Add a small architecture smoke test covering imports, topic reservation, continuation locking, metadata generation and post-upload state sequencing.
+6. Update README and startup logs so they exactly match runtime behavior.
+
+### Do not regress
+Do not rebuild by deleting working production safeguards. The clean architecture must retain the behavioral contracts listed above.

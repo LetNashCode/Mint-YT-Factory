@@ -7,7 +7,7 @@ on:
   workflow_dispatch: {}
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: mint-yt-factory-riddles
@@ -43,6 +43,17 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
         run: python -u interactive_main.py
+
+      - name: Persist Riddle sequence state
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add interactive_topic_history.json pending_riddle.json riddle_counter.json analytics/interactive_videos.json analytics/interactive_comparison.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Persist Riddles Shorts sequence state"
+            git push
+          fi
 
       - name: Upload production artifacts
         if: always()

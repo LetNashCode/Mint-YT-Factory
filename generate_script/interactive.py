@@ -119,16 +119,13 @@ the new answer itself. Return the normal production JSON schema.
 
             original_boundary = _base._ensure_scene7_boundary
             original_bridge = _base._validate_natural_bridge
-            original_word_contract = _base._validate_word_contract
             _base._ensure_scene7_boundary = lambda narration, next_topic: _base._clean(narration)
             _base._validate_natural_bridge = lambda narration, next_topic: "riddle-ending"
-            _base._validate_word_contract = lambda script: None
             try:
                 result = _base._normalize(data, topic)
             finally:
                 _base._ensure_scene7_boundary = original_boundary
                 _base._validate_natural_bridge = original_bridge
-                _base._validate_word_contract = original_word_contract
 
             result = _validate_interactive_scene7(result)
             total_words = sum(

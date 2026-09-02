@@ -164,7 +164,7 @@ def build_youtube_metadata(script):
             if tag:
                 hashtags.append(f"#{tag}")
     if hashtags:
-        description += "\\n\\n" + " ".join(hashtags)
+        description += "\n\n" + " ".join(hashtags)
     return title, description[:4500]
 
 

@@ -132,11 +132,11 @@ the new answer itself. Return the normal production JSON schema.
                 len(_base._words(scene.get("narration", "")))
                 for scene in (result.get("scene_plan") or [])
             )
-            if 25 <= total_words <= 240:
+            if 20 <= total_words <= 260:
                 print(f"🧩 Riddles Shorts narration validated: {total_words} words")
                 return result
             raise RuntimeError(
-                f"Riddle narration length is {total_words} words; flexible range is 25–240."
+                f"Riddle narration length is {total_words} words; flexible range is 20–260."
             )
 
         except Exception as error:

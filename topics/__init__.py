@@ -122,17 +122,36 @@ def get_next_topic():
     return _generate_topic(used)
 
 def reserve_next_short(next_short, current_topic=""):
-    """Reserve the exact continuation before Scene 7 narration is created."""
+    """Reserve one continuation, replacing the consumed current reservation atomically.
+
+    get_next_topic() returns the pending reservation as the current topic. That
+    reservation must not block creation of the *following* Short.
+    """
     topic = _clean_topic(next_short)
     raw_items = _read_used()
+    current_key = _key(current_topic)
     existing_pending = _pending_topics(raw_items)
-    if existing_pending:
-        raise RuntimeError(f"Cannot reserve a new continuation while one is pending: {existing_pending[0]}")
+    foreign_pending = next((x for x in existing_pending if _key(x) != current_key), "")
+
+    if foreign_pending:
+        raise RuntimeError(f"Cannot reserve a new continuation while one is pending: {foreign_pending}")
+
+    # Remove the reservation that is currently being consumed before validating
+    # the next reservation. This keeps exactly one pending continuation.
+    committed = [
+        x for x in raw_items
+        if not (isinstance(x, str) and x.startswith(_PENDING_PREFIX))
+    ]
     used = [current_topic]
-    used.extend(x for x in raw_items if not (isinstance(x, str) and x.startswith(_PENDING_PREFIX)))
+    used.extend(committed)
     if not validate_topic_for_pipeline(topic, used=used, check_duplicate=True):
         topic = _generate_topic(used)
         print(f"🛠️ Repaired and reserved continuation topic: {topic}")
+
+    if existing_pending and all(_key(x) == current_key for x in existing_pending):
+        _write_used(committed)
+        print(f"🔓 Consumed current pending topic before reserving next: {current_topic}")
+
     return save_next_short(topic)
 
 def save_next_short(next_short):

@@ -119,13 +119,18 @@ the new answer itself. Return the normal production JSON schema.
 
             original_boundary = _base._ensure_scene7_boundary
             original_bridge = _base._validate_natural_bridge
+            # _normalize() belongs to Publish Shorts and enforces its 90–135
+            # word contract. Disable that contract only while normalizing Riddles.
+            original_words = _base._words
             _base._ensure_scene7_boundary = lambda narration, next_topic: _base._clean(narration)
             _base._validate_natural_bridge = lambda narration, next_topic: "riddle-ending"
+            _base._words = lambda text: []
             try:
                 result = _base._normalize(data, topic)
             finally:
                 _base._ensure_scene7_boundary = original_boundary
                 _base._validate_natural_bridge = original_bridge
+                _base._words = original_words
 
             result = _validate_interactive_scene7(result)
             total_words = sum(

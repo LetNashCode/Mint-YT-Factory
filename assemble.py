@@ -37,6 +37,9 @@ EXPECTED_SCENES = 7
 VISUALS_PER_SCENE = 2
 EXPECTED_TOTAL_VISUALS = 14
 TARGET_DURATION = 45.0
+# Protect the final spoken frame from MP4/AAC frame rounding. This tail is
+# intentionally visual-only after narration and is never used to truncate speech.
+RENDER_END_PADDING = 0.30
 DEFAULT_RESOLUTION = (1080, 1920)
 DEFAULT_FPS = 30
 
@@ -546,7 +549,9 @@ def get_audio_config(config):
 
 def build_audio(narration, music_path, sfx_paths, script, total_duration, config):
     audio_config = get_audio_config(config)
-    tracks = [narration.set_start(0).set_duration(min(narration.duration, total_duration))]
+    # Never shorten narration: the full generated MP3, including Scene 7 teaser,
+    # must always survive the final mux.
+    tracks = [narration.set_start(0)]
 
     if music_path and os.path.exists(music_path):
         print(f"🎵 Music: {music_path}")
@@ -639,8 +644,8 @@ def _trim_clip_to_duration(clip, total_duration):
 
 
 
-def _assert_output_matches_narration(out_path, narration_duration, tolerance=0.35):
-    """Verify the encoded file does not materially outlive the narration."""
+def _assert_output_matches_narration(out_path, narration_duration, tolerance=0.60):
+    """Verify the encoded file contains all narration plus only the protected tail."""
     if not os.path.isfile(out_path):
         raise RuntimeError(f"Rendered output not found: {out_path}")
     encoded = None
@@ -650,11 +655,15 @@ def _assert_output_matches_narration(out_path, narration_duration, tolerance=0.3
         expected = float(narration_duration or 0.0)
         if actual <= 0.05:
             raise RuntimeError(f"Rendered output has invalid duration: {actual:.2f}s")
+        if actual + 0.02 < expected:
+            raise RuntimeError(
+                f"Rendered output is shorter than narration: {actual:.2f}s < {expected:.2f}s"
+            )
         if actual > expected + tolerance:
             raise RuntimeError(
-                f"Rendered output exceeds narration clock: {actual:.2f}s > {expected:.2f}s + {tolerance:.2f}s"
+                f"Rendered output exceeds protected narration tail: {actual:.2f}s > {expected:.2f}s + {tolerance:.2f}s"
             )
-        print(f"🛡️ Output duration verified: {actual:.2f}s (target {expected:.2f}s)")
+        print(f"🛡️ Output duration verified: {actual:.2f}s (narration {expected:.2f}s + protected tail)")
         return actual
     finally:
         if encoded is not None:
@@ -695,8 +704,12 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
     # Never cap the rendered timeline below the actual narration. A hard
     # TARGET_DURATION ceiling can cut the final spoken words when Kokoro runs
     # slightly long. The narration file is the authoritative master clock.
-    final_duration = narration_duration
-    print(f"🎙️ Narration-authoritative final duration: {final_duration:.2f}s")
+    # Build visuals through the complete narration, then keep a short protected
+    # visual tail so the MP4/AAC encoder cannot chop the final teaser phoneme.
+    narration_master_duration = float(narration_duration)
+    final_duration = narration_master_duration + RENDER_END_PADDING
+    print(f"🎙️ Narration master duration: {narration_master_duration:.2f}s")
+    print(f"🛡️ Protected render duration: {final_duration:.2f}s (+{RENDER_END_PADDING:.2f}s tail)")
     print("=" * 80)
     print("🖼️ BUILDING 14-SHOT VISUAL TIMELINE")
     print("=" * 80)
@@ -741,7 +754,7 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
     print("Caption outline: THICK BLACK + SHADOW")
     print("Visual continuity: enabled")
     print("Portrait 9:16: enabled")
-    print(f"Duration: {final_duration:.2f}s (hard-locked to narration end)")
+    print(f"Duration: {final_duration:.2f}s (full narration + protected encoder tail)")
     print("🛡️ Silent visual tail guard: ENABLED")
     print(f"⚡ Render preset: {video_config['preset']} | threads: {video_config['threads']} | bitrate: {video_config['bitrate']}")
 
@@ -759,7 +772,7 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
 
     # Re-open the actual encoded output: this protects the publish workflow from
     # MoviePy timeline rounding or an accidental tail surviving the render.
-    _assert_output_matches_narration(out_path, final_duration)
+    _assert_output_matches_narration(out_path, narration_master_duration)
 
     print("=" * 80)
     print("✅ FINAL SHORT COMPLETE")

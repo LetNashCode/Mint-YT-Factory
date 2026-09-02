@@ -3,6 +3,7 @@ from __future__ import annotations
 import json,math
 from collections import defaultdict
 import re
+import re
 from datetime import datetime,timezone
 from pathlib import Path
 from typing import Any
@@ -29,6 +30,10 @@ def _pattern_features(topic:str)->dict:
         'hook_type': 'why_question' if text.startswith('why') else ('how_question' if text.startswith('how') else 'curiosity'),
         'topic_length': 'short' if len(words)<=5 else ('medium' if len(words)<=7 else 'long'),
     }
+
+def _pattern_features(topic:str)->dict:
+    text=str(topic or '').lower(); words=re.findall(r"[a-z0-9]+",text)
+    return {'hook_type':'why_question' if text.startswith('why') else ('how_question' if text.startswith('how') else 'curiosity'),'topic_length':'short' if len(words)<=5 else ('medium' if len(words)<=7 else 'long')}
 
 def _topic_similarity(a:str,b:str)->float:
     sa,sb=set(_norm_topic(a).split()),set(_norm_topic(b).split())
@@ -61,6 +66,16 @@ def score_candidate_topic(topic:str, playbook:dict|None=None)->dict:
         pat=str(row.get('pattern',''))
         for k,v in features.items():
             if pat==f"{k}:{v}": score-=abs(float(row.get('score',0)))*max(1,int(row.get('sample_size',1))); reasons.append('weak '+pat)
+    return {'topic':topic,'score':round(score,3),'features':features,'reasons':reasons[:8]}
+
+def score_candidate_topic(topic:str, playbook:dict|None=None)->dict:
+    pb=playbook or get_playbook(); features=_pattern_features(topic); score=0.0; reasons=[]
+    for group,sign in ((pb.get('winning_patterns',[]),1),(pb.get('weak_patterns',[]),-1)):
+        for row in group:
+            for k,v in features.items():
+                if str(row.get('pattern',''))==f"{k}:{v}":
+                    delta=abs(float(row.get('score',0)))*max(1,int(row.get('sample_size',1)))
+                    score+=sign*delta; reasons.append(('winner ' if sign>0 else 'weak ')+f"{k}:{v}")
     return {'topic':topic,'score':round(score,3),'features':features,'reasons':reasons[:8]}
 
 def refresh_playbook()->dict:

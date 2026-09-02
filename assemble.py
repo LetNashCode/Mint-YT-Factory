@@ -322,15 +322,17 @@ def build_animated_image(image_path, duration, frame_size, scene, visual):
     return clip
 
 
-def build_visual_timeline(script, image_paths, frame_size):
+def build_visual_timeline(script, image_paths, frame_size, total_duration=None):
     scenes = script.get("scene_plan", [])
     if len(scenes) != EXPECTED_SCENES:
         raise RuntimeError(f"Expected {EXPECTED_SCENES} scenes.")
 
+    base_total = float(sum(SCENE_DURATIONS))
+    timeline_scale = (float(total_duration) / base_total) if total_duration and total_duration > 0 else 1.0
     clips = []
     current_time = 0.0
     for scene_index, scene in enumerate(scenes):
-        duration = get_scene_duration(scene, scene_index)
+        duration = get_scene_duration(scene, scene_index) * timeline_scale
         paths = get_scene_image_paths(image_paths, scene_index)
         if len(paths) != VISUALS_PER_SCENE:
             raise RuntimeError(f"Scene {scene_index + 1} does not have exactly {VISUALS_PER_SCENE} images.")
@@ -401,12 +403,21 @@ def _normalize_whisper_words(words):
 
 
 def _build_caption_phrases(words):
-    """One-word-at-a-time captions using Whisper timing."""
+    """One-word captions that NEVER overlap the next spoken word.
+
+    Whisper word end-times can overlap the following word's start-time. The next
+    word start is therefore the authoritative caption cut point.
+    """
     phrases = []
-    for item in words:
-        start = item["start"]
-        end = item["end"]
-        duration = max(CAPTION_MIN_DURATION, min(CAPTION_MAX_DURATION, end - start))
+    for index, item in enumerate(words):
+        start = float(item["start"])
+        natural_end = float(item["end"])
+        next_start = float(words[index + 1]["start"]) if index + 1 < len(words) else natural_end
+        # A new spoken word must immediately replace the previous caption.
+        end = min(natural_end, next_start) if index + 1 < len(words) else natural_end
+        if end <= start:
+            end = next_start if next_start > start else start + 0.01
+        duration = min(CAPTION_MAX_DURATION, max(0.01, end - start))
         phrases.append({"text": item["word"], "words": [item["word"]], "start": start, "duration": duration})
     return phrases
 
@@ -471,7 +482,7 @@ def _get_scene_index_for_time(scene_ranges, timestamp):
     return len(scene_ranges) - 1
 
 
-def build_captions(narration_path, script, frame_size):
+def build_captions(narration_path, script, frame_size, total_duration=None):
     print("=" * 80)
     print("🌈 BUILDING QUIRKY COLOURFUL ONE-WORD CAPTIONS")
     print("=" * 80)
@@ -486,8 +497,10 @@ def build_captions(narration_path, script, frame_size):
 
     scene_ranges = []
     current = 0.0
+    base_total = float(sum(SCENE_DURATIONS))
+    timeline_scale = (float(total_duration) / base_total) if total_duration and total_duration > 0 else 1.0
     for scene_index, scene in enumerate(scenes):
-        duration = get_scene_duration(scene, scene_index)
+        duration = get_scene_duration(scene, scene_index) * timeline_scale
         scene_ranges.append({"start": current, "end": current + duration, "scene": scene})
         current += duration
 
@@ -674,20 +687,20 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
     narration_duration = narration.duration
     print(f"Narration: {narration_duration:.2f}s")
 
+    # Narration is the absolute master clock. Scale the complete 7-scene visual
+    # timeline to its real duration instead of hard-cutting Scene 7 when narration
+    # finishes before the fixed 45-second storyboard clock.
+    if narration_duration <= 0.05:
+        raise RuntimeError("Narration duration is invalid; refusing to render a silent visual tail.")
+    final_duration = min(TARGET_DURATION, narration_duration)
+    print(f"🎙️ Narration-authoritative final duration: {final_duration:.2f}s")
     print("=" * 80)
     print("🖼️ BUILDING 14-SHOT VISUAL TIMELINE")
     print("=" * 80)
-    visual_clips = build_visual_timeline(script, image_paths, frame_size)
+    visual_clips = build_visual_timeline(script, image_paths, frame_size, total_duration=final_duration)
     print(f"Visual clips created: {len(visual_clips)}")
     if len(visual_clips) != EXPECTED_TOTAL_VISUALS:
         raise RuntimeError(f"Expected {EXPECTED_TOTAL_VISUALS} visual clips, got {len(visual_clips)}.")
-
-    # Narration is the absolute master clock. Never render a visual/music/SFX tail
-    # after the spoken story ends, especially in the interactive mystery workflow.
-    final_duration = min(TARGET_DURATION, narration_duration)
-    if narration_duration <= 0.05:
-        raise RuntimeError("Narration duration is invalid; refusing to render a silent visual tail.")
-    print(f"🎙️ Narration-authoritative final duration: {final_duration:.2f}s")
 
     trimmed_visuals = []
     for clip in visual_clips:
@@ -697,7 +710,7 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
     if not trimmed_visuals:
         raise RuntimeError("No visuals remain inside narration duration.")
 
-    caption_clips = build_captions(narration_path, script, frame_size)
+    caption_clips = build_captions(narration_path, script, frame_size, total_duration=final_duration)
     trimmed_captions = []
     for clip in caption_clips:
         trimmed = _trim_clip_to_duration(clip, final_duration)

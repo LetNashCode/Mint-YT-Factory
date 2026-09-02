@@ -9,6 +9,8 @@ from topic_history import find_duplicate, is_new_topic, published_topics
 _ROOT=Path(__file__).resolve().parent.parent
 _USED_TOPICS_PATH=_ROOT/"used_topics.json"
 _PENDING_PREFIX="__MINT_PENDING_NEXT_TOPIC__::"
+# Topics explicitly retired by the channel owner. Keep them out of both new generation and continuation reservations.
+_RETIRED_TOPIC_KEYS={"why do onions make you cry","why onions make you cry"}
 MODEL="gemini-flash-lite-latest"
 
 _BANNED=("permafrost","tundra","tectonic","geological","geology","quantum","particle physics","astrophysics","cosmology","black hole","neutron star","supernova","dark matter","dark energy","subduction","plate boundary","ice wedge","brine pocket","crystal lattice","electromagnetic field","entropy","thermodynamics","microcrack","gravitational wave","neutrino","gene expression","chromosome","mitochondria","atmospheric circulation","ocean current","radiative forcing","fracture mechanics","thermal cracks","material fatigue","periglacial","seismic","magnetohydrodynamic","fluid dynamics","cryogenic","crystallography","geophysical","cell tower","cellular positioning","gps positioning","rf positioning","triangulation","trilateration")
@@ -35,6 +37,7 @@ def _key(value): return " ".join(re.sub(r"[^a-z0-9]+"," ",_clean_topic(value).lo
 
 def _is_everyday_topic(value):
     text=_clean_topic(value).lower()
+    if _key(text) in _RETIRED_TOPIC_KEYS: return False
     if not text or any(x in text for x in _BANNED) or any(x in text for x in _FORBIDDEN): return False
     if not re.match(r"^(why|how)\s+.+",text): return False
     words=re.findall(r"\b[\w'-]+\b",text)

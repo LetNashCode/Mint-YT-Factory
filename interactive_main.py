@@ -73,7 +73,7 @@ def run():
     pillar, topic = get_next_topic()
     print("🧩 INTERACTIVE MYSTERY |", pillar, "|", topic)
 
-    feedback = f"""INTERACTIVE MYSTERY UNIVERSE. PILLAR: {pillar}. Write an entertaining 7-scene interactive Short, not a science explainer. Open with a concrete dilemma, clue, or psychological situation. Make the viewer choose or solve before the payoff. Use tension, reversals, specific details, and natural spoken English. Ask one genuine viewer question near the end. No generic like/subscribe CTA. Scene 7 must have a satisfying payoff and no continuation teaser."""
+    feedback = f"""RIDDLE CHALLENGE SHORT. The exact riddle is: "{topic}" The exact answer is: "{answer}". Write a highly entertaining 7-scene spoken Short around this riddle. Do not change the riddle or invent another answer. First hook curiosity, then present the complete riddle clearly. Explicitly tell viewers to comment their answer before the countdown ends. Give a spoken countdown from 10 to 1 with suspenseful pacing. After 1, reveal the exact answer and explain it clearly and fairly. End by asking whether they knew the answer and tell them to share this Short with someone else to challenge them. No continuation teaser, no subscribe CTA, no generic mystery dilemma. Narration length is flexible: never pad or cut the riddle to hit a fixed duration."""
 
     script = generate_script(topic, config, None, extra_feedback=feedback)
     script["topic"] = topic
@@ -109,7 +109,7 @@ def run():
         raise RuntimeError("Interactive final video validation failed.")
 
     title = str(script.get("title") or topic)[:100]
-    desc = f"Can YOU figure this out? {topic}\n\n#Mystery #Psychology #Shorts"
+    desc = f"Can YOU solve this riddle? Comment your answer before the reveal.\\n\\n#Riddle #BrainTeaser #Shorts"
     result = upload_video(
         final,
         title,
@@ -124,7 +124,7 @@ def run():
         vid = str(result.get("video_id") or result.get("id") or "")
     else:
         vid = ""
-    record_topic(topic, pillar, title, vid, workdir)
+    record_topic(topic, pillar, title, vid, workdir, answer=answer)
     if vid:
         record_analytics(vid, topic, pillar, title, workdir)
     print("📊 Comparison:", json.dumps(build_comparison(), ensure_ascii=False))

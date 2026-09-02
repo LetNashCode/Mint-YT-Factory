@@ -171,7 +171,7 @@ def _validate_natural_bridge(scene7_narration,next_topic):
     if len(_words(bridge))<4 or len(_words(bridge))>30: raise RuntimeError("Natural continuation bridge is too short or too long.")
     return bridge
 
-def _normalize(script,topic):
+def _normalize(script,topic,enforce_word_contract=True):
     if not isinstance(script,dict): raise RuntimeError("Gemini returned a non-object script.")
     scenes=script.get("scene_plan")
     if not isinstance(scenes,list): raise RuntimeError("scene_plan must be a list.")
@@ -214,7 +214,8 @@ def _normalize(script,topic):
     for scene in scenes[:6]:
         if next_key and next_key in re.sub(r"[^a-z0-9 ]"," ",scene["narration"].lower()): raise RuntimeError("Next topic appeared before Scene 7.")
     total_words=sum(len(_words(scene["narration"])) for scene in scenes)
-    if total_words<90 or total_words>135: raise RuntimeError(f"Narration length is {total_words} words; target is 90–135 words including continuation.")
+    if enforce_word_contract and (total_words<90 or total_words>135):
+        raise RuntimeError(f"Narration length is {total_words} words; target is 90–135 words including continuation.")
     for visual in scene7.get("visuals",[]):
         if isinstance(visual,dict) and not _clean(visual.get("spoken_line")): visual["spoken_line"]=scene7["narration"]
     script["retention_self_check"]=script.get("retention_self_check") or {"weakest_scene":4,"reason":"Every scene advances the mystery."}; script["publishing"]={"research_verified":False,"research_sources_require_verification":False,"citations_ready":False,"claim_verification_required":False,"captions_match_narration":True,"semantic_image_prompts":True,"fourteen_visuals_required":True,"entertainment_first":True,"visual_relevance_constraints":True}; script["generated_at"]=int(time.time()); script["video_id"]=f"{re.sub(r'[^a-z0-9]+','-',script['title'].lower()).strip('-')[:40]}-{uuid.uuid4().hex[:8]}"; script["image_generation"]={"seed":int(time.time()),"style_lock":"realistic cinematic photography, natural materials, physically plausible lighting, no illustration look"}

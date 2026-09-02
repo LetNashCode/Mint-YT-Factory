@@ -1,4 +1,4 @@
-"""Interactive Mystery script generator wrapper.
+"""Riddle Challenge script generator wrapper.
 
 Interactive Mystery Shorts use the production generator's schema and visual
 normalization, but deliberately disable the normal Publish Shorts continuation
@@ -17,7 +17,7 @@ def _interactive_feedback(extra_feedback=""):
         "scenario, then end with one short genuine question about the CURRENT "
         "dilemma that invites comments. No next video, next short, stay tuned, "
         "part 2, or subscribe language. "
-        + " The COMPLETE narration must be 90–125 spoken words total. Aim for 100–115 words so normal variation stays inside the range. If a previous attempt was too short, expand the scenario with a concrete consequence, escalation, and payoff; never pad with filler."
+        + " Narration length is flexible and must fit the riddle naturally; never pad or truncate merely to satisfy a fixed word count."
         + str(extra_feedback or "")
     )
 
@@ -25,7 +25,7 @@ def _interactive_feedback(extra_feedback=""):
 def _validate_interactive_scene7(script):
     scenes = script.get("scene_plan") or []
     if len(scenes) != 7:
-        raise RuntimeError("Interactive script must contain exactly 7 scenes.")
+        raise RuntimeError("Riddle script must contain exactly 7 scenes.")
 
     narration = _base._clean(scenes[6].get("narration"))
     # The model occasionally writes the payoff and question as one sentence or
@@ -102,11 +102,11 @@ def generate_script(topic, config, research=None, extra_feedback=""):
                     len(_base._words(scene.get("narration", "")))
                     for scene in (result.get("scene_plan") or [])
                 )
-                if 90 <= total_words <= 125:
+                if 35 <= total_words <= 220:
                     print(f"🧩 Interactive narration validated: {total_words} words (attempt {length_attempt}/{max_length_attempts})")
                     return result
                 last_error = (
-                    f"Narration length is {total_words} words; target is 90–125 words."
+                    f"Narration length is {total_words} words; target is 35–220 words."
                 )
                 print(f"⚠️ {last_error} Regenerating interactive script ({length_attempt}/{max_length_attempts})...")
             except RuntimeError as error:

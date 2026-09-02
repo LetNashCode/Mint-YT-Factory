@@ -2032,5 +2032,23 @@
     "workdir": "output/1788369875",
     "status": "published",
     "recorded_at": 1788372326
+  },
+  {
+    "topic": "Why do onions make you cry",
+    "normalized": "why do onions make you cry",
+    "title": "",
+    "video_id": "",
+    "workdir": "",
+    "status": "published",
+    "recorded_at": 1788107803
+  },
+  {
+    "topic": "Why do drinking straws float",
+    "normalized": "why do drinking straws float",
+    "title": "Why Drinking Straws Defy Gravity",
+    "video_id": "jbI3sQZdx24",
+    "workdir": "output/1788381481",
+    "status": "published",
+    "recorded_at": 1788383287
   }
 ]

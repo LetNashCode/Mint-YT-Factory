@@ -245,7 +245,6 @@ def run(dry_run=False):
         print(f"⚠️ Engagement experiment setup skipped: {type(error).__name__}: {error}")
 
     learning_context = load_learning_context()
-    learning_context = load_learning_context()
     engagement_feedback = (
         f"\nENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}"
         f"\nUse the mechanic naturally if it fits. Never sound like engagement bait."

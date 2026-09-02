@@ -1,4 +1,4 @@
-"""Independent Interactive Mystery pipeline. Does not modify main.py or production_entry.py."""
+"""Independent Riddles Shorts pipeline. Does not modify main.py or production_entry.py."""
 from __future__ import annotations
 
 import json
@@ -69,9 +69,10 @@ def run():
         "tone": "calm, deep, suspenseful mystery storyteller",
     })
     config["voice"] = mystery_voice
-    print("🎙️ Interactive Mystery voice: am_michael (Kokoro)")
-    pillar, topic = get_next_topic()
-    print("🧩 INTERACTIVE MYSTERY |", pillar, "|", topic)
+    print("🎙️ Riddles Shorts voice: am_michael (Kokoro)")
+    pillar, topic, answer = get_next_topic()
+    print("🧩 RIDDLE SHORT |", pillar, "|", topic)
+    print(f"🔒 Answer locked for reveal: {answer}")
 
     feedback = f"""RIDDLE CHALLENGE SHORT. The exact riddle is: "{topic}" The exact answer is: "{answer}". Write a highly entertaining 7-scene spoken Short around this riddle. Do not change the riddle or invent another answer. First hook curiosity, then present the complete riddle clearly. Explicitly tell viewers to comment their answer before the countdown ends. Give a spoken countdown from 10 to 1 with suspenseful pacing. After 1, reveal the exact answer and explain it clearly and fairly. End by asking whether they knew the answer and tell them to share this Short with someone else to challenge them. No continuation teaser, no subscribe CTA, no generic mystery dilemma. Narration length is flexible: never pad or cut the riddle to hit a fixed duration."""
 

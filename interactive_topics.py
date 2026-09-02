@@ -3,6 +3,8 @@ import json,re,random
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 HISTORY=ROOT/"interactive_topic_history.json"
+PENDING=ROOT/"pending_riddle.json"
+COUNTER=ROOT/"riddle_counter.json"
 RIDDLES=[
 ("classic","The more you take, the more you leave behind. What am I?","footsteps"),
 ("wordplay","What has keys but cannot open locks?","a piano"),
@@ -32,3 +34,17 @@ def record_topic(topic,pillar,title="",video_id="",workdir="",answer=""):
  if na and na in {_n(x.get("answer","")) for x in rows if isinstance(x,dict)}: return
  rows.append({"topic":topic,"answer":answer,"pillar":pillar,"title":title,"video_id":video_id,"workdir":workdir})
  HISTORY.write_text(json.dumps(rows,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+
+
+def get_pending_riddle():
+ try:
+  x=json.loads(PENDING.read_text(encoding="utf-8")); return x if isinstance(x,dict) and x.get("topic") and x.get("answer") else None
+ except Exception:return None
+
+def save_pending_riddle(pillar,topic,answer,number):
+ PENDING.write_text(json.dumps({"pillar":pillar,"topic":topic,"answer":answer,"number":number},indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+
+def next_riddle_number():
+ try: n=int(json.loads(COUNTER.read_text(encoding="utf-8")).get("last",0))+1
+ except Exception: n=1
+ COUNTER.write_text(json.dumps({"last":n},indent=2)+"\n",encoding="utf-8"); return n

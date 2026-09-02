@@ -37,15 +37,13 @@ Visual rule: never show the NEW answer while asking the riddle or during countdo
             data.setdefault("next_short",{"topic":"riddle answer reveal","teaser":"answer reveal"})
             original_boundary=_base._ensure_scene7_boundary
             original_bridge=_base._validate_natural_bridge
-            original_words=_base._words
             _base._ensure_scene7_boundary=lambda narration,next_topic:_base._clean(narration)
             _base._validate_natural_bridge=lambda narration,next_topic:"riddle continuation"
-            _base._words=lambda text:[]
-            try: result=_base._normalize(data,topic)
+            try:
+                result=_base._normalize(data,topic,enforce_word_contract=False)
             finally:
                 _base._ensure_scene7_boundary=original_boundary
                 _base._validate_natural_bridge=original_bridge
-                _base._words=original_words
             scenes=result.get("scene_plan") or []
             if len(scenes)!=7: raise RuntimeError("Riddle script must contain exactly 7 scenes.")
             total=sum(len(_base._words(s.get("narration",""))) for s in scenes)

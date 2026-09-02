@@ -11,7 +11,7 @@ from assemble import assemble_video
 from upload_youtube import upload_video
 from validate_video import validate_final_video
 from learning_context import load_learning_context
-from learning_engine import refresh_playbook
+from learning_engine import refresh_playbook, get_playbook, score_candidate_topic
 from topic_history import record_topic
 
 CONTINUATION_MANIFEST = "continuation_state.json"
@@ -229,6 +229,10 @@ def run(dry_run=False):
 
     refresh_learning_before_generation()
     topic = get_next_topic()
+    if topic:
+        decision = score_candidate_topic(topic, get_playbook())
+        print(f"🧠 Learning topic score: {decision['score']} | features={decision['features']}")
+        if decision.get('reasons'): print("🧠 Learning signals: " + "; ".join(decision['reasons']))
     if not topic:
         raise RuntimeError("No topic available.")
     print(f"🎯 CURRENT TOPIC: {topic}")
@@ -315,6 +319,21 @@ def run(dry_run=False):
     if not video_id:
         raise RuntimeError("Upload succeeded without a video ID; refusing to mutate topic state.")
     record_topic(topic, title=title, video_id=video_id, workdir=workdir, status="published")
+    try:
+        from youtube_analytics import record_upload
+        production_metadata = {
+            'topic_category': str(script.get('category','')),
+            'hook_type': str((script.get('scene_plan') or [{}])[0].get('purpose','')),
+            'story_structure': '7_scene_entertainment',
+            'visual_style': str((script.get('visual_identity') or {}).get('style','')),
+            'music_type': str((script.get('music') or {}).get('search','')),
+            'voice': str((script.get('voice_style') or {}).get('tone','')),
+            'engagement_experiment': str((script.get('engagement') or {}).get('experiment','')),
+        }
+        record_upload(video_id, topic, title, workdir=workdir, production_metadata=production_metadata)
+        print('🧠 Published creative metadata recorded for future learning.')
+    except Exception as error:
+        print(f'⚠️ Learning metadata recording skipped: {type(error).__name__}: {error}')
     save_next_short(next_topic)
     commit_topic(topic)
     write_continuation_manifest(topic, next_topic, "published", workdir)

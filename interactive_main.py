@@ -6,7 +6,7 @@ import os
 import time
 import yaml
 
-from interactive_topics import get_next_topic, record_topic
+from interactive_topics import get_next_topic, record_topic, get_pending_riddle, save_pending_riddle, next_riddle_number
 from interactive_analytics import record as record_analytics, build_comparison
 from generate_script.interactive import generate_script
 from tts import synthesize_script
@@ -70,14 +70,21 @@ def run():
     })
     config["voice"] = mystery_voice
     print("🎙️ Riddles Shorts voice: am_michael (Kokoro)")
+    previous = get_pending_riddle()
     pillar, topic, answer = get_next_topic()
-    print("🧩 RIDDLE SHORT |", pillar, "|", topic)
-    print(f"🔒 Answer locked for reveal: {answer}")
-
-    feedback = f"""RIDDLE CHALLENGE SHORT. The exact riddle is: "{topic}" The exact answer is: "{answer}". Write a highly entertaining 7-scene spoken Short around this riddle. Do not change the riddle or invent another answer. First hook curiosity, then present the complete riddle clearly. Explicitly tell viewers to comment their answer before the countdown ends. Give a spoken countdown from 10 to 1 with suspenseful pacing. After 1, reveal the exact answer and explain it clearly and fairly. End by asking whether they knew the answer and tell them to share this Short with someone else to challenge them. No continuation teaser, no subscribe CTA, no generic mystery dilemma. Narration length is flexible: never pad or cut the riddle to hit a fixed duration."""
+    number = next_riddle_number()
+    print(f"🧩 RIDDLE SHORT #{number} | {pillar} | {topic}")
+    if previous:
+        print(f"🔓 Revealing Riddle #{previous.get('number')} answer: {previous.get('answer')}")
+        previous_instruction = f'Reveal the answer to Riddle #{previous.get("number")} first: "{previous.get("answer")}". Ask whether viewers got it right. '
+    else:
+        previous_instruction = "This is the first Riddle Short, so there is no previous answer to reveal. "
+    feedback = f"""RIDDLE SHORT #{number}. {previous_instruction}The NEW exact riddle is: "{topic}". The NEW answer is locked internally as: "{answer}". Write an entertaining spoken Short. Present the complete new riddle clearly, tell viewers to comment their answer, and give a suspenseful spoken countdown from 10 to 1. CRITICAL: NEVER reveal, say, display, explain, or strongly hint at the NEW answer in this Short. End by clearly saying that the answer to Riddle #{number} will be revealed in the next Riddle Short. During the new riddle and countdown, visuals must not reveal the answer; use thinking, suspense, curiosity, or neutral clue-related imagery. Narration length is flexible."""
 
     script = generate_script(topic, config, None, extra_feedback=feedback)
     script["topic"] = topic
+    script["riddle_number"] = number
+    script["previous_riddle"] = previous
     script["interactive_pillar"] = pillar
     script["engagement"] = {
         "comment": (
@@ -125,6 +132,7 @@ def run():
         vid = str(result.get("video_id") or result.get("id") or "")
     else:
         vid = ""
+    save_pending_riddle(pillar, topic, answer, number)
     record_topic(topic, pillar, title, vid, workdir, answer=answer)
     if vid:
         record_analytics(vid, topic, pillar, title, workdir)

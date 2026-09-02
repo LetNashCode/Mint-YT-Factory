@@ -48,7 +48,19 @@ Visual rule: never show the NEW answer while asking the riddle or during countdo
             if len(scenes)!=7: raise RuntimeError("Riddle script must contain exactly 7 scenes.")
             total=sum(len(_base._words(s.get("narration",""))) for s in scenes)
             if not 20<=total<=260: raise RuntimeError(f"Riddle narration length {total} outside flexible 20-260 range.")
-            print(f"🧩 Riddles Shorts narration validated: {total} words")
+
+            # A reveal is not optional once interactive_main passes a previous riddle.
+            # Validate it here so Gemini cannot silently omit the answer from Riddle #2+.
+            previous_answer=""
+            import re as _re
+            m=_re.search(r'Reveal Riddle #\d+ answer naturally: "([^"]+)"', str(extra_feedback or ""), _re.I)
+            if m:
+                previous_answer=_base._clean(m.group(1))
+                narration=" ".join(_base._clean(s.get("narration","")) for s in scenes)
+                if previous_answer.lower() not in narration.lower():
+                    raise RuntimeError(f"Previous riddle answer reveal missing from narration: {previous_answer!r}")
+
+            print(f"🧩 Riddles Shorts narration validated: {total} words" + (" + previous answer reveal" if previous_answer else ""))
             return result
         except Exception as e:
             last_error=f"{type(e).__name__}: {e}";attempts+=1

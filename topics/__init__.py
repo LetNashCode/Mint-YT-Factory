@@ -58,7 +58,28 @@ def _write_used(items):
 
 def _pending_topics(items=None):
     items = _read_used() if items is None else list(items)
-    return [_clean_topic(x[len(_PENDING_PREFIX):]) for x in items if isinstance(x, str) and x.startswith(_PENDING_PREFIX) and _clean_topic(x[len(_PENDING_PREFIX):])]
+    pending=[]
+    seen=set()
+    for x in items:
+        if not isinstance(x, str) or not x.startswith(_PENDING_PREFIX):
+            continue
+        topic=_clean_topic(x[len(_PENDING_PREFIX):])
+        key=_key(topic)
+        if topic and key and key not in seen:
+            pending.append(topic); seen.add(key)
+    return pending
+
+def _repair_pending_state(items=None):
+    """Keep exactly one authoritative pending reservation and drop stale duplicates."""
+    raw=_read_used() if items is None else list(items)
+    pending=_pending_topics(raw)
+    if len(pending)<=1:
+        return pending[0] if pending else ""
+    authoritative=pending[-1]
+    committed=[x for x in raw if not (isinstance(x,str) and x.startswith(_PENDING_PREFIX))]
+    _write_used(committed+[_PENDING_PREFIX+authoritative])
+    print(f"🛠️ Repaired multiple pending continuations; keeping: {authoritative}")
+    return authoritative
 
 def _consume_pending():
     # Do NOT delete the reservation here. A failed/cancelled workflow must not
@@ -87,7 +108,7 @@ def _generate_topic(used):
 
 def get_next_topic():
     items = _read_used()
-    pending = _consume_pending()
+    pending = _repair_pending_state(items) or _consume_pending()
     # A pending topic is an authoritative reservation. Use it even though the
     # duplicate-history gate sees it as already reserved; validate only shape.
     if pending and _is_everyday_topic(pending):
@@ -132,11 +153,16 @@ def save_next_short(next_short):
 
 def commit_topic(topic):
     topic=_clean_topic(topic); items=_read_used(); key=_key(topic)
-    # Consume only the reservation that was actually published.
-    pending=[x for x in items if x.startswith(_PENDING_PREFIX) and _key(_clean_topic(x[len(_PENDING_PREFIX):])) != key]
-    committed=[x for x in items if not x.startswith(_PENDING_PREFIX)]
-    if not any(_key(x)==key for x in committed):committed.append(topic)
-    _write_used(committed+pending); print(f"📌 Committed topic: {topic}"); return True
+    committed=[x for x in items if not (isinstance(x,str) and x.startswith(_PENDING_PREFIX))]
+    if not any(_key(x)==key for x in committed):
+        committed.append(topic)
+    pending=_repair_pending_state(items)
+    # If the just-published topic was the old reservation, it is consumed. Any
+    # different reservation was created for the next Short and must survive.
+    if pending and _key(pending)==key:
+        pending=""
+    _write_used(committed+([_PENDING_PREFIX+pending] if pending else []))
+    print(f"📌 Committed topic: {topic}"); return True
 
 def validate_topic_for_pipeline(topic,used=None,check_duplicate=True):
     if not _is_everyday_topic(topic):return False

@@ -164,7 +164,9 @@ def build_youtube_metadata(script):
             if tag:
                 hashtags.append(f"#{tag}")
     if hashtags:
-        description += "\n\n" + " ".join(hashtags)
+        description += "
+
+" + " ".join(hashtags)
     return title, description[:4500]
 
 
@@ -246,10 +248,15 @@ def run(dry_run=False):
 
     learning_context = load_learning_context()
     engagement_feedback = (
-        f"\nENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}"
-        f"\nUse the mechanic naturally if it fits. Never sound like engagement bait."
-        f"\nSuggested spoken interaction: {engagement['spoken_prompt']}"
-        "\nDo not add generic like/subscribe language.\n"
+        f"
+ENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}"
+        f"
+Use the mechanic naturally if it fits. Never sound like engagement bait."
+        f"
+Suggested spoken interaction: {engagement['spoken_prompt']}"
+        "
+Do not add generic like/subscribe language.
+"
     )
 
     print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS")
@@ -308,7 +315,16 @@ def run(dry_run=False):
         thumbnail_path=thumbnail_path,
         engagement_comment=engagement_comment,
     )
-    # upload_video() returns the authoritative YouTube video ID string. Topic state is\n    # committed only after a successful upload, then the already-reserved teaser topic\n    # is kept as the single pending topic for the following Short.\n    video_id = str(upload_result or "").strip()\n    if not video_id:\n        raise RuntimeError("Upload succeeded without a video ID; refusing to mutate topic state.")\n    record_topic(topic, title=title, video_id=video_id, workdir=workdir, status="published")\n    save_next_short(next_topic)\n    commit_topic(topic)\n    write_continuation_manifest(topic, next_topic, "published", workdir)
+    # upload_video() returns the authoritative YouTube video ID string. Topic state is
+    # committed only after a successful upload, then the already-reserved teaser topic
+    # is kept as the single pending topic for the following Short.
+    video_id = str(upload_result or "").strip()
+    if not video_id:
+        raise RuntimeError("Upload succeeded without a video ID; refusing to mutate topic state.")
+    record_topic(topic, title=title, video_id=video_id, workdir=workdir, status="published")
+    save_next_short(next_topic)
+    commit_topic(topic)
+    write_continuation_manifest(topic, next_topic, "published", workdir)
 
 
 if __name__ == "__main__":

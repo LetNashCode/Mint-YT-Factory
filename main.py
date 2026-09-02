@@ -245,16 +245,12 @@ def run(dry_run=False):
         print(f"⚠️ Engagement experiment setup skipped: {type(error).__name__}: {error}")
 
     learning_context = load_learning_context()
+    learning_context = load_learning_context()
     engagement_feedback = (
-        f"
-ENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}"
-        f"
-Use the mechanic naturally if it fits. Never sound like engagement bait."
-        f"
-Suggested spoken interaction: {engagement['spoken_prompt']}"
-        "
-Do not add generic like/subscribe language.
-"
+        f"\nENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}"
+        f"\nUse the mechanic naturally if it fits. Never sound like engagement bait."
+        f"\nSuggested spoken interaction: {engagement['spoken_prompt']}"
+        "\nDo not add generic like/subscribe language.\n"
     )
 
     print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS")

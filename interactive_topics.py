@@ -3,18 +3,32 @@ import json,re,random
 from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 HISTORY=ROOT/"interactive_topic_history.json"
-TOPICS={"impossible_choices":["Would you press a button that gives you one million dollars but harms a stranger?","Would you erase your happiest memory to forget your worst day?","Would you save your best friend or five strangers?","Would you know the exact day you die if you could?"],"solve_the_mystery":["A locked room, one body, and no way out: who is lying?","Three suspects tell three stories: can you spot the contradiction?","A missing phone, one timestamp, and one impossible clue","A room full of clues, but the smallest detail changes everything"],"psychological_scenarios":["You find a wallet with no ID but enough cash to change your month","Everyone agrees on something you know is false: what do you do?","You can hear one person's thoughts for ten minutes: who do you choose?","You can learn one painful truth about yourself instantly"]}
+RIDDLES=[
+("classic","The more you take, the more you leave behind. What am I?","footsteps"),
+("wordplay","What has keys but cannot open locks?","a piano"),
+("logic","I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?","an echo"),
+("trick","What gets wetter the more it dries?","a towel"),
+("observation","What has many teeth but cannot bite?","a comb"),
+("classic","What can travel around the world while staying in one corner?","a stamp"),
+("logic","What has one eye but cannot see?","a needle"),
+("wordplay","What comes once in a minute, twice in a moment, but never in a thousand years?","the letter M"),
+("trick","What has hands but cannot clap?","a clock"),
+("classic","What goes up but never comes down?","your age"),
+]
 def _n(x): return re.sub(r"[^a-z0-9]+"," ",str(x or "").lower()).strip()
 def _load():
  try:
   x=json.loads(HISTORY.read_text(encoding="utf-8")); return x if isinstance(x,list) else []
  except Exception:return []
 def get_next_topic():
- used={_n(x.get("topic","")) for x in _load() if isinstance(x,dict)}
- pool=[(p,t) for p,ts in TOPICS.items() for t in ts if _n(t) not in used]
- if not pool: raise RuntimeError("Interactive topic pool exhausted.")
- return random.choice(pool)
-def record_topic(topic,pillar,title="",video_id="",workdir=""):
- rows=_load()
- if _n(topic) not in {_n(x.get("topic","")) for x in rows if isinstance(x,dict)}: rows.append({"topic":topic,"pillar":pillar,"title":title,"video_id":video_id,"workdir":workdir})
+ rows=_load(); used_q={_n(x.get("topic","")) for x in rows if isinstance(x,dict)}; used_a={_n(x.get("answer","")) for x in rows if isinstance(x,dict)}
+ pool=[(p,q,a) for p,q,a in RIDDLES if _n(q) not in used_q and _n(a) not in used_a]
+ if not pool: raise RuntimeError("Riddle pool exhausted. Add new unique riddles before publishing.")
+ pillar,question,answer=random.choice(pool)
+ return pillar,question,answer
+def record_topic(topic,pillar,title="",video_id="",workdir="",answer=""):
+ rows=_load(); nq=_n(topic); na=_n(answer)
+ if nq in {_n(x.get("topic","")) for x in rows if isinstance(x,dict)}: return
+ if na and na in {_n(x.get("answer","")) for x in rows if isinstance(x,dict)}: return
+ rows.append({"topic":topic,"answer":answer,"pillar":pillar,"title":title,"video_id":video_id,"workdir":workdir})
  HISTORY.write_text(json.dumps(rows,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")

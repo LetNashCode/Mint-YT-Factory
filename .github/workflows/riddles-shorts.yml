@@ -52,7 +52,8 @@ jobs:
           git add interactive_topic_history.json pending_riddle.json riddle_counter.json analytics/interactive_videos.json analytics/interactive_comparison.json
           if ! git diff --cached --quiet; then
             git commit -m "Persist Riddles Shorts sequence state"
-            git push
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
 
       - name: Upload production artifacts

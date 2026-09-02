@@ -233,6 +233,9 @@ what should be shown on screen for each spoken beat.
 
 CRITICAL PRINCIPLE:
 The narration can be playful or metaphorical. The visual must be literal.
+
+RIDDLE / PUZZLE ANSWER-SPOILER LOCK:
+If a riddle answer and reveal scene are supplied, the answer is forbidden from every pre-reveal shot. Before the reveal, use neutral thinking/suspense visuals only: a thinking person, puzzled expression, brainstorming, generic question context, or countdown context. Do NOT show the answer, an identifiable representation of it, or an answer-related object. The answer becomes allowed only at and after the reveal.
 Translate the meaning into a real physical scene a camera could actually capture.
 
 For every scene create EXACTLY TWO distinct shots.
@@ -373,7 +376,28 @@ def _validate_entertainment(script, topic):
     return total
 
 
+def _apply_riddle_spoiler_lock(visual_plan, entertainment):
+    riddle = entertainment.get("riddle") or {}
+    answer = _clean(riddle.get("answer")).lower()
+    reveal = int(riddle.get("answer_reveal_scene") or 0)
+    terms = {t for t in re.findall(r"[a-z0-9]+", answer) if len(t) >= 3}
+    if not answer or not terms or not (1 <= reveal <= SCENE_COUNT):
+        return
+    for scene_index, scene in enumerate(visual_plan.get("scene_plan") or [], start=1):
+        if scene_index >= reveal:
+            continue
+        for shot_index, visual in enumerate(scene.get("visuals") or []):
+            blob = " ".join([_clean(visual.get("visual_focus")), _clean(visual.get("visual_action")), _clean(visual.get("image_prompt")), " ".join(map(str, visual.get("must_show") or []))]).lower()
+            if answer in blob or any(re.search(r"\b" + re.escape(t) + r"\b", blob) for t in terms):
+                visual["visual_focus"] = "thinking person"
+                visual["visual_action"] = "person pauses and thinks about the riddle"
+                visual["must_show"] = ["thoughtful human expression", "neutral setting", "no answer object"]
+                visual["must_not_show"] = list(dict.fromkeys((visual.get("must_not_show") or []) + [answer]))[:8]
+                visual["image_prompt"] = "cinematic thinking person with hand on chin, considering a difficult riddle, suspenseful neutral atmosphere, realistic camera footage, no answer clue or answer object"
+                print(f"🔒 Riddle answer spoiler removed from Scene {scene_index} Shot {shot_index + 1}")
+
 def _validate_visuals(visual_plan, entertainment, topic):
+    _apply_riddle_spoiler_lock(visual_plan, entertainment)
     scenes = visual_plan.get("scene_plan")
     if not isinstance(scenes, list) or len(scenes) != 7:
         raise RuntimeError("Visual director must return exactly 7 scenes.")
@@ -481,6 +505,7 @@ def _merge(entertainment, visual, topic):
         "visual_continuity": continuity,
         "retention_self_check": {"weakest_scene": 4, "reason": "The story escalates from curiosity to physical explanation and payoff."},
         "next_short": next_short,
+        "riddle": entertainment.get("riddle") or {},
         "scene_plan": scenes,
         "publishing": {
             "research_verified": False,

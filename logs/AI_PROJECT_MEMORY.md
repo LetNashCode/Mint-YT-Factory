@@ -133,6 +133,16 @@ Automation: `.github/workflows/`.
 6. Check workflow logs after deployment.
 7. Append problem, root cause, fix, files changed, validation, and regression rule to this file.
 
+## 2026-09-02 stabilization fix
+- Problem: Publish workflow was blocked before generation by an unterminated string literal in `main.py` metadata hashtag formatting.
+- Root cause: a literal newline was written inside a Python string instead of escaped `\\n\\n`.
+- Fix: repaired `build_youtube_metadata()` so hashtags append with a valid escaped newline sequence.
+- Problem: workflow topic-state sync contained literal escaped `\\n` tokens inside embedded Python.
+- Fix: rewrote that block as normal Python lines so pending-topic merge logic can execute.
+- Files changed: `main.py`, `.github/workflows/publish.yml`.
+- Validation required: GitHub Actions must pass syntax verification and complete a production run before considering this fix fully proven.
+- Regression rule: after editing embedded Python or string literals, run Python compilation/syntax checks before deployment.
+
 ## Current status
 Implemented: separate pipelines, 7-scene/14-visual contract, stock-provider priority, visual verification, narration-authoritative assembly, encoded-duration verification, final quality validation, authoritative upload IDs, current-topic-only descriptions, canonical next-topic locking, topic reservation/commit architecture, bounded transient retries, analytics/learning, and engagement experiments that should not invalidate upload success.
 

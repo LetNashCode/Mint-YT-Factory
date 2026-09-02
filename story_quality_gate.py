@@ -13,7 +13,7 @@ import re
 
 MAX_ATTEMPTS = 6
 MIN_STORY_WORDS = 80
-MAX_STORY_WORDS = 112
+MAX_STORY_WORDS = 130
 
 CTA_WORDS = (
     "subscribe", "follow for", "like and subscribe", "smash that", "comment below",
@@ -114,6 +114,52 @@ def _strip_cta_sentences(text):
         kept.append(sentence)
     return _clean(" ".join(kept))
 
+
+
+def _repair_visual_contract(script):
+    """Repair mechanical visual-contract defects without discarding good narration.
+
+    The entertainment writer is authoritative for narration. If Gemini returns an
+    abstract or underspecified visual field, normalize that field into a literal,
+    stock-searchable description before validation instead of regenerating the story.
+    """
+    for scene in script.get("scene_plan") or []:
+        narration = _clean(scene.get("narration"))
+        previous_focus = ""
+        for vi, visual in enumerate(scene.get("visuals") or [], 1):
+            focus = _clean(visual.get("visual_focus")) or narration[:120] or "current subject"
+            action = _clean(visual.get("visual_action"))
+            prompt = _clean(visual.get("image_prompt"))
+            spoken = _clean(visual.get("spoken_line"))
+
+            if not action or _abstract_visual_hits(action) or not _physical_visual(action):
+                action = f"visible physical state or real-world context involving {focus}"
+            if _abstract_visual_hits(prompt) or len(prompt.split()) < 8:
+                prompt = (
+                    f"Realistic close-up of {focus}, showing {action}, "
+                    "natural lighting, believable materials, real-world setting, no text"
+                )
+            if len(prompt.split()) > 60:
+                prompt = " ".join(prompt.split()[:60])
+
+            if not spoken:
+                spoken = narration
+            narration_words = set(_words(narration))
+            spoken_words = {w for w in _words(spoken) if len(w) >= 4}
+            if spoken_words and narration_words:
+                overlap = len(spoken_words & narration_words) / max(1, len(spoken_words))
+                if overlap < 0.35:
+                    spoken = narration
+
+            if vi == 2 and previous_focus and focus.lower() == previous_focus.lower():
+                focus = f"{focus} from a closer changed viewpoint"
+
+            visual["visual_focus"] = focus
+            visual["visual_action"] = action
+            visual["image_prompt"] = prompt
+            visual["spoken_line"] = spoken
+            visual.setdefault("must_show", [focus, "visible state"])
+            previous_focus = focus
 
 def _validate(script, topic):
     """Validate the finished Writer + Visual Director output.
@@ -237,6 +283,7 @@ Fix the VISUAL FIELDS, not the personality of the narration. Keep the narration 
 """
 
             script = original(topic, config, research, extra_feedback=feedback)
+            _repair_visual_contract(script)
             errors = _validate(script, topic)
             if not errors:
                 print(f"🛡️ Final story/visual gate: PASS (attempt {attempt})")

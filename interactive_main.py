@@ -40,6 +40,13 @@ def run():
     previous = get_pending_riddle()
     pillar, topic, answer = get_next_topic()
     number = next_riddle_number()
+
+    # A new Short must always continue the durable sequence.
+    if previous and number <= int(previous.get("number", 0)):
+        raise RuntimeError(
+            f"Invalid riddle sequence state: next #{number} must follow pending "
+            f"Riddle #{previous.get('number')}."
+        )
     print(f"🧩 RIDDLE SHORT #{number} | {pillar} | {topic}")
 
     reveal = ""
@@ -78,8 +85,16 @@ Create an entertaining 7-scene spoken riddle short. Clearly ask the complete rid
     result=upload_video(final,title,desc,config,engagement_comment=script["engagement"]["comment"])
     vid=result if isinstance(result,str) else str(result.get("video_id") or result.get("id") or "") if isinstance(result,dict) else ""
     if not vid: raise RuntimeError("Riddle upload returned no video ID; pending state was not advanced.")
-    save_pending_riddle(pillar,topic,answer,number)
+
+    # Persist sequence state before analytics so the next workflow can never
+    # accidentally restart at #1 after a later non-critical failure.
     record_topic(topic,pillar,title,vid,workdir,answer=answer)
+    save_pending_riddle(pillar,topic,answer,number)
+
+    # Verify durable state before allowing this run to complete successfully.
+    persisted = get_pending_riddle()
+    if not persisted or int(persisted.get("number", 0)) != number:
+        raise RuntimeError("Failed to persist the current riddle sequence state.")
     record_analytics(vid,topic,pillar,title,workdir)
     print("📊 Comparison:",json.dumps(build_comparison(),ensure_ascii=False))
 

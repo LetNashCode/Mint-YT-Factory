@@ -49,18 +49,42 @@ Visual rule: never show the NEW answer while asking the riddle or during countdo
             total=sum(len(_base._words(s.get("narration",""))) for s in scenes)
             if not 20<=total<=260: raise RuntimeError(f"Riddle narration length {total} outside flexible 20-260 range.")
 
-            # A reveal is not optional once interactive_main passes a previous riddle.
-            # Validate it here so Gemini cannot silently omit the answer from Riddle #2+.
+            # The previous answer must be revealed at the START of the next Short,
+            # not somewhere later in the narration. Make this deterministic instead
+            # of trusting Gemini to place it correctly.
             previous_answer=""
+            previous_number=None
             import re as _re
-            m=_re.search(r'Reveal Riddle #\d+ answer naturally: "([^"]+)"', str(extra_feedback or ""), _re.I)
+            m=_re.search(r'Reveal Riddle #(\d+) answer naturally: "([^"]+)"', str(extra_feedback or ""), _re.I)
             if m:
-                previous_answer=_base._clean(m.group(1))
-                narration=" ".join(_base._clean(s.get("narration","")) for s in scenes)
-                if previous_answer.lower() not in narration.lower():
-                    raise RuntimeError(f"Previous riddle answer reveal missing from narration: {previous_answer!r}")
+                previous_number=int(m.group(1))
+                previous_answer=_base._clean(m.group(2))
+                first=scenes[0]
+                first_narration=_base._clean(first.get("narration",""))
 
-            print(f"🧩 Riddles Shorts narration validated: {total} words" + (" + previous answer reveal" if previous_answer else ""))
+                if previous_answer.lower() not in first_narration.lower():
+                    reveal_line=(
+                        f"Before today's challenge, here's the answer to Riddle #{previous_number}: "
+                        f"{previous_answer}. Did you get it right? "
+                    )
+                    first["narration"]=_base._clean(reveal_line + first_narration)
+
+                # Hard validation: the answer must be in Scene 1.
+                first_narration=_base._clean(scenes[0].get("narration",""))
+                if previous_answer.lower() not in first_narration.lower():
+                    raise RuntimeError(
+                        f"Previous riddle answer must be revealed in Scene 1: {previous_answer!r}"
+                    )
+
+                # Recalculate after deterministic insertion.
+                total=sum(len(_base._words(s.get("narration",""))) for s in scenes)
+                if total>260:
+                    raise RuntimeError(f"Riddle narration length {total} outside flexible 20-260 range after reveal insertion.")
+
+            print(
+                f"🧩 Riddles Shorts narration validated: {total} words"
+                + (f" + Riddle #{previous_number} answer revealed in Scene 1" if previous_answer else "")
+            )
             return result
         except Exception as e:
             last_error=f"{type(e).__name__}: {e}";attempts+=1

@@ -52,7 +52,10 @@ def _patch_tts_duration(main):
                 clip.close()
 
             print(f"🎯 TTS duration gate: {duration:.2f}s")
-            # Allow a small measured-duration tolerance. The canonical production\n            # contract is 43.9s, but container/audio probing can differ by frames.\n            if MIN_NARRATION_SECONDS <= duration <= MAX_NARRATION_SECONDS:\n                return audio
+            # Allow a small measured-duration tolerance. The canonical production
+            # contract is 43.9s, but container/audio probing can differ by frames.
+            if MIN_NARRATION_SECONDS <= duration <= MAX_NARRATION_SECONDS:
+                return audio
 
             if attempt >= MAX_SHORT_TTS_REGEN:
                 raise RuntimeError(
@@ -78,7 +81,13 @@ def _patch_tts_duration(main):
                 "Write only the current-topic story. Do not add any continuation sentence; the pipeline appends the preview separately after generation."
             )
 
-            try:\n                candidate = main.generate_script(topic, config, None, extra_feedback=feedback)\n            except Exception as exc:\n                # Never discard an otherwise valid production run because the\n                # optional duration rewrite violates a strict Scene 7 contract.\n                print(f"⚠️ TTS regeneration failed; keeping original script/audio: {exc}")\n                return audio
+            try:
+                candidate = main.generate_script(topic, config, None, extra_feedback=feedback)
+            except Exception as exc:
+                # Never discard an otherwise valid production run because the
+                # optional duration rewrite violates a strict Scene 7 contract.
+                print(f"⚠️ TTS regeneration failed; keeping original script/audio: {exc}")
+                return audio
             candidate["topic"] = topic
             candidate["next_short"] = dict(candidate.get("next_short") or {})
             candidate["next_short"]["topic"] = current_next

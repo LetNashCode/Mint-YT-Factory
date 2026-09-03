@@ -79,33 +79,14 @@ def save_pending_riddle(pillar, topic, answer, number):
                                    "number": number}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 def next_riddle_number():
-    """Return the next durable sequence number.
-
-    History and pending state are treated as recovery sources so a stale or
-    missing counter cannot reset the channel back to Riddle #1.
-    """
-    last_values = []
-
-    try:
-        data = json.loads(COUNTER.read_text(encoding="utf-8"))
-        last_values.append(int(data.get("last", 0)))
-    except Exception:
-        pass
-
-    for row in _load():
-        if isinstance(row, dict):
-            title = str(row.get("title", ""))
-            m = re.search(r"Riddle\s*#\s*(\d+)", title, re.I)
-            if m:
-                last_values.append(int(m.group(1)))
-
+    """Return the next number without advancing durable state."""
     pending = get_pending_riddle()
     if pending:
-        try:
-            last_values.append(int(pending.get("number", 0)))
-        except Exception:
-            pass
-
-    n = max(last_values or [0]) + 1
-    COUNTER.write_text(json.dumps({"last": n}, indent=2) + "\n", encoding="utf-8")
-    return n
+        return int(pending["number"]) + 1
+    last = 0
+    for row in _load():
+        if isinstance(row, dict):
+            m = re.search(r"Riddle\s*#\s*(\d+)", str(row.get("title", "")), re.I)
+            if m:
+                last = max(last, int(m.group(1)))
+    return last + 1

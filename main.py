@@ -118,12 +118,80 @@ def _lock_canonical_topic(script, current_topic, locked_topic=None):
     script.setdefault("next_short", {})["topic"] = candidate
     return candidate
 
+def _strip_model_continuation_from_scene7(final_scene, stale_topics):
+    """Remove any model-authored next-topic teaser before appending the one canonical bridge.
+
+    Script generation historically allowed Gemini to put a continuation topic into Scene 7.
+    Production then locks/reserves a canonical topic later. If the two topics differ, both
+    can survive in the final narration and visual prompts. Scene 7 must therefore be reset
+    to CURRENT-topic payoff before the production bridge is appended.
+    """
+    narration = str(final_scene.get("narration", "")).strip()
+    sentences = _split_sentences(narration)
+    stale_keys = [
+        _normalise_topic_text(topic)
+        for topic in stale_topics
+        if _normalise_topic_text(topic)
+    ]
+
+    kept = []
+    removed = False
+    for sentence in sentences:
+        sentence_key = _normalise_topic_text(sentence)
+        if any(key and key in sentence_key for key in stale_keys):
+            removed = True
+            continue
+        kept.append(sentence)
+
+    # Keep the current-topic payoff only. If no stale sentence matched, preserve the
+    # existing narration; the later canonical bridge is still appended exactly once.
+    payoff = " ".join(kept).strip() if removed else narration
+    payoff = payoff.rstrip()
+
+    if removed:
+        print("🧹 Removed model-authored continuation from Scene 7 before canonical lock")
+
+    # Scene 7 visuals must never keep the removed topic. Rebind every visual to the
+    # current payoff so stock search cannot receive stale onion/other-topic prompts.
+    if payoff:
+        payoff_for_visual = payoff.rstrip(".!? ").strip()
+        for visual in final_scene.get("visuals") or []:
+            if not isinstance(visual, dict):
+                continue
+            visual["spoken_line"] = payoff
+            visual["visual_focus"] = payoff_for_visual[:180]
+            visual["visual_action"] = f"Show the exact physical payoff described by: {payoff_for_visual}."
+            visual["must_show"] = list(_content_words(payoff_for_visual))[:6]
+            visual["must_not_show"] = [
+                "unrelated second topic",
+                "different object",
+                "new mystery",
+                "continuation topic",
+            ]
+            visual["image_prompt"] = (
+                "Realistic cinematic close-up showing the exact physical payoff: "
+                + payoff_for_visual
+                + ". Keep the same subject and environment as the current story, "
+                  "natural lighting, believable materials, no text."
+            )[:900]
+
+    return payoff
+
+
 def lock_next_topic(script, current_topic, locked_topic=None):
-    """Lock metadata and append the preview separately from story generation."""
+    """Reserve exactly one canonical continuation and append it exactly once."""
+    previous_model_topic = str((script.get("next_short") or {}).get("topic") or "").strip()
     canonical = _lock_canonical_topic(script, current_topic, locked_topic=locked_topic)
     final_scene = script["scene_plan"][-1]
+
+    # Remove any Gemini-authored continuation first. This prevents two topics from
+    # appearing in Scene 7 when the reserved production topic differs from the model topic.
+    payoff = _strip_model_continuation_from_scene7(
+        final_scene,
+        stale_topics=[previous_model_topic, canonical],
+    )
+
     bridge = _generate_natural_bridge(current_topic, canonical)
-    payoff = str(final_scene.get("narration", "")).strip()
     if payoff and not payoff.endswith((".", "!", "?")):
         payoff += "."
     final_scene["narration"] = (payoff + " " + bridge).strip()

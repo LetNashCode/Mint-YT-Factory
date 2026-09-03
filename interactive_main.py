@@ -45,7 +45,7 @@ def run():
     reveal = ""
     if previous:
         print(f"🔓 Revealing Riddle #{previous['number']} answer: {previous['answer']}")
-        reveal = f'Reveal Riddle #{previous["number"]} answer naturally: "{previous["answer"]}". Ask briefly whether viewers got it right before introducing the new riddle.'
+        reveal = f'Reveal Riddle #{previous["number"]} answer naturally: "{previous["answer"]}". This reveal MUST be the opening of Scene 1, before any greeting, hook, new riddle, countdown, or other narration. Ask briefly whether viewers got it right, then introduce the new riddle.'
     else:
         reveal = "No previous riddle exists. Start directly with the new challenge."
 

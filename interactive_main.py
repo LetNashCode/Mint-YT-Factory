@@ -10,6 +10,7 @@ from music import download_music
 from sfx import generate_sfx
 from assemble import assemble_video
 from upload_youtube import upload_video
+from social_publish import publish_social_reels
 from validate_video import validate_final_video
 
 def load_config():
@@ -85,6 +86,13 @@ Create an entertaining 7-scene spoken riddle short. Clearly ask the complete rid
     result=upload_video(final,title,desc,config,engagement_comment=script["engagement"]["comment"])
     vid=result if isinstance(result,str) else str(result.get("video_id") or result.get("id") or "") if isinstance(result,dict) else ""
     if not vid: raise RuntimeError("Riddle upload returned no video ID; pending state was not advanced.")
+
+    social_result = publish_social_reels(final, title, desc, config, workdir)
+    print("📱 Riddle social publish summary:", json.dumps({
+        name: (payload or {}).get("status")
+        for name, payload in social_result.items()
+        if name in {"instagram", "facebook"}
+    }, ensure_ascii=False))
 
     # Persist sequence state before analytics so the next workflow can never
     # accidentally restart at #1 after a later non-critical failure.

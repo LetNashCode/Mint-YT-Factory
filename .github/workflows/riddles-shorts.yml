@@ -34,7 +34,7 @@ jobs:
 
       - name: Verify pipeline
         run: |
-          python -m py_compile interactive_main.py interactive_topics.py interactive_analytics.py generate_script/interactive.py whisper_align.py
+          python -m py_compile interactive_main.py interactive_topics.py interactive_analytics.py generate_script/interactive.py whisper_align.py social_publish.py
 
       - name: Generate and publish Riddles Shorts
         env:
@@ -42,6 +42,12 @@ jobs:
           YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          FACEBOOK_PAGE_ID: ${{ secrets.FACEBOOK_PAGE_ID }}
+          FACEBOOK_PAGE_ACCESS_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
+          META_GRAPH_API_VERSION: ${{ secrets.META_GRAPH_API_VERSION }}
+          SOCIAL_PUBLISH_STRICT: ${{ secrets.SOCIAL_PUBLISH_STRICT }}
         run: python -u interactive_main.py
 
       - name: Persist Riddle sequence state

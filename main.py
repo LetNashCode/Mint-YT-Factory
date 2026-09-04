@@ -359,7 +359,7 @@ def run(dry_run=False):
         engagement.setdefault("share_prompt", "")
 
     if not resumed:
-    learning_context = load_learning_context()
+        learning_context = load_learning_context()
         engagement_feedback = (
             f"\nENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}"
             f"\nUse the mechanic naturally if it fits. Never sound like engagement bait."

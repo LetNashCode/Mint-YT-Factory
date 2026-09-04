@@ -152,7 +152,7 @@ def main_entry():
     print("Visual verification: ENABLED — Gemini inspects stock candidates")
     print("Visual verification threshold: 7.5/10")
     print("Fallback: provider fallback only; no unrelated-media fallback")
-    print("Continuation: Gemini-authored seamless Scene 7 preview + locked metadata topic")
+    print("Continuation: production-owned canonical Scene 7 bridge + locked metadata topic")
     print("Transient Gemini 503/429 failures: retry without consuming script attempt")
     print("Pexels API key:", "AVAILABLE" if os.environ.get("PEXELS_API_KEY") else "NOT CONFIGURED")
     print("Pixabay API key:", "AVAILABLE" if os.environ.get("PIXABAY_API_KEY") else "NOT CONFIGURED")

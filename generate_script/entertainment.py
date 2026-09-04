@@ -58,15 +58,13 @@ STORY ARC:
 4) 15–22s: concrete demonstration/example.
 5) 22–30s: reframe what the viewer thought was happening.
 6) 30–38s: strongest twist/payoff.
-7) 38–45s: satisfying ending, then ONE new curiosity topic as the final sentence only.
+7) 38–45s: satisfying ending that completes the CURRENT TOPIC only.
 
-The current story must feel complete before the continuation sentence. The continuation topic must not appear in the title, description, or Scenes 1–6.
+CONTINUATION OWNERSHIP: Do NOT write any next-topic teaser, preview, CTA, continuation bridge, second mystery, or future-topic sentence anywhere in the narration. The production pipeline alone reserves the next topic and appends exactly one canonical continuation after the current story passes quality gates.
 
-SCENE 7 HARD RULE: Scene 7 must contain ONLY the payoff/ending of the CURRENT topic plus the final continuation sentence. Do not introduce a second fact, second mystery, unrelated object, new animal, new invention, or a mini-story before the continuation sentence.
+SCENE 7 HARD RULE: Scene 7 must contain ONLY the payoff/ending of the CURRENT topic. Do not introduce a second fact, second mystery, unrelated object, new animal, new invention, mini-story, or future question.
 
-NATURAL CONTINUATION BRIDGE: Gemini itself must write the final bridge sentence. Do NOT use a reusable template, fixed phrase, canned transition, or repeated sentence pattern. The bridge should grow naturally out of the current story and make the viewer curious about the next topic. The exact next_short.topic must appear once in that final sentence. NEVER start it with "And next", "Then comes", "Coming next", "Stay tuned", "Part 2", "Have you ever wondered", "Ever wondered", "Wonder why", "Curious why", "Why do", "Why does", "How do", "How does", "What makes", or another generic question opener.
-
-IMPORTANT FORMAT: Scene 7 must contain two spoken sentences: a satisfying payoff sentence, followed by the natural continuation bridge sentence. If Gemini accidentally combines them into one sentence, the pipeline may safely insert the sentence boundary immediately before the final-topic clause; it must never replace the bridge with a canned template.
+IMPORTANT FORMAT: Finish Scene 7 with a satisfying payoff sentence for the CURRENT TOPIC. next_short.topic is optional metadata only and must never appear in narration or visual fields.
 
 VISUAL DIRECTOR RULE: Every image must literally depict the exact physical beat being spoken. Illustrate the action, not the general topic. If narration describes an invisible phenomenon, use a truthful visible physical proxy. Never use random people, generic laboratories, microscopes, diagrams, arrows, equations, glowing particles, abstract science art, generic blue backgrounds, concept art, text, labels, logos, UI or watermarks unless narration explicitly requires them.
 

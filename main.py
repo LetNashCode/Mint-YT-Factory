@@ -9,6 +9,7 @@ from music import download_music
 from sfx import generate_sfx
 from assemble import assemble_video
 from upload_youtube import upload_video
+from pathlib import Path
 from social_publish import publish_social_reels
 from validate_video import validate_final_video
 from learning_context import load_learning_context
@@ -289,73 +290,116 @@ missing continuation metadata after the current story passes its quality gates.
         f"Could not generate a valid current-topic story after {MAX_SCRIPT_ATTEMPTS} attempts: {last_error}"
     )
 
+def _find_pending_resume():
+    candidates = sorted(Path("output").glob("*/final.mp4"), key=lambda p: p.stat().st_mtime, reverse=True)
+    for video in candidates:
+        workdir = video.parent
+        manifest = workdir / "publish_state.json"
+        script_path = workdir / "script.json"
+        if manifest.exists() and script_path.exists():
+            try:
+                state = json.loads(manifest.read_text(encoding="utf-8"))
+                if state.get("status") == "ready_for_upload" and not state.get("uploaded"):
+                    return workdir, video, json.loads(script_path.read_text(encoding="utf-8")), state
+            except Exception:
+                pass
+    return None
+
+def _save_publish_state(workdir, state):
+    save_json(state, os.path.join(workdir, "publish_state.json"))
+
 def run(dry_run=False):
     config = load_config()
+    resumed = _find_pending_resume()
+    if resumed:
+        workdir_path, video_path, script, publish_state = resumed
+        workdir = str(workdir_path)
+        final_video = str(video_path)
+        topic = str(script.get("topic", ""))
+        next_topic = str((script.get("next_short") or {}).get("topic", ""))
+        print(f"♻️ RESUMING UNPUBLISHED FINAL VIDEO: {final_video}")
+        print("⏭️ Skipping generation, narration, visuals and rendering.")
+    else:
+        workdir = None
+        final_video = None
     print("=" * 80)
     print("🚀 MINT-YT-FACTORY — ENTERTAINMENT-FIRST + SELF-LEARNING + SFX")
     print("=" * 80)
     print("🧠 Self-learning: ENABLED")
     print("💬 Engagement learning: sequential comment/share experiments ENABLED")
 
-    refresh_learning_before_generation()
-    topic = get_next_topic()
-    if topic:
+    if not resumed:
+        refresh_learning_before_generation()
+        topic = get_next_topic()
+    if not resumed and topic:
         decision = score_candidate_topic(topic, get_playbook())
         print(f"🧠 Learning topic score: {decision['score']} | features={decision['features']}")
         if decision.get('reasons'): print("🧠 Learning signals: " + "; ".join(decision['reasons']))
-    if not topic:
+    if not resumed and not topic:
         raise RuntimeError("No topic available.")
     print(f"🎯 CURRENT TOPIC: {topic}")
 
-    try:
+    if not resumed:
+      try:
         from engagement_experiments import assign, summarize
         engagement = assign(topic)
         print(f"🧪 Engagement experiment: {engagement['experiment']} | phase={engagement['phase']}")
         print(f"💬 Planned comment: {engagement['comment']}")
         print(f"🔄 Share trigger: {engagement['share_prompt']}")
         print(f"📊 Existing experiment results: {json.dumps(summarize(), ensure_ascii=False)}")
-    except Exception as error:
+      except Exception as error:
         engagement = {"experiment": "none", "phase": "disabled", "spoken_prompt": "", "comment": "", "share_prompt": ""}
         print(f"⚠️ Engagement experiment setup skipped: {type(error).__name__}: {error}")
+    else:
+        engagement = dict((script.get("engagement") or {}))
+        engagement.setdefault("comment", "")
+        engagement.setdefault("experiment", "resume")
+        engagement.setdefault("phase", "resume")
+        engagement.setdefault("spoken_prompt", "")
+        engagement.setdefault("share_prompt", "")
 
+    if not resumed:
     learning_context = load_learning_context()
-    engagement_feedback = (
-        f"\nENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}"
-        f"\nUse the mechanic naturally if it fits. Never sound like engagement bait."
-        f"\nSuggested spoken interaction: {engagement['spoken_prompt']}"
-        "\nDo not add generic like/subscribe language.\n"
-    )
-
-    print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS")
-    script = _generate_valid_script(topic, config, learning_context, engagement_feedback)
-    next_topic = reserve_next_short(str((script.get("next_short") or {}).get("topic") or ""), current_topic=topic)
-    script["next_short"] = dict(script.get("next_short") or {})
-    script["next_short"]["topic"] = next_topic
-    script, next_topic = lock_next_topic(script, topic, locked_topic=next_topic)
-    script["engagement"] = {
-        "experiment": engagement["experiment"],
-        "phase": engagement["phase"],
-        "spoken_prompt": engagement["spoken_prompt"],
-        "comment": engagement["comment"],
-        "share_prompt": engagement["share_prompt"],
-    }
-
-    workdir = os.path.join("output", str(int(time.time())))
-    os.makedirs(workdir, exist_ok=True)
-    save_json(script, os.path.join(workdir, "script.json"))
-    write_continuation_manifest(topic, next_topic, "locked", workdir)
-    print(f"✅ Script ready: {workdir}/script.json")
-
-    if dry_run:
-        print("✅ DRY RUN COMPLETE")
-        return
-
-    audio = synthesize_script(script, config, os.path.join(workdir, "audio"))
-    visuals = generate_media(script, os.path.join(workdir, "visuals"), config)
-    sfx = generate_sfx(script, os.path.join(workdir, "sfx"))
-    music = download_music(script, os.path.join(workdir, "music"))
-    final_video = os.path.join(workdir, "final.mp4")
-    assemble_video(script, audio, visuals, music, sfx, config, final_video)
+        engagement_feedback = (
+            f"\nENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}"
+            f"\nUse the mechanic naturally if it fits. Never sound like engagement bait."
+            f"\nSuggested spoken interaction: {engagement['spoken_prompt']}"
+            "\nDo not add generic like/subscribe language.\n"
+        )
+    
+        print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS")
+        script = _generate_valid_script(topic, config, learning_context, engagement_feedback)
+        next_topic = reserve_next_short(str((script.get("next_short") or {}).get("topic") or ""), current_topic=topic)
+        script["next_short"] = dict(script.get("next_short") or {})
+        script["next_short"]["topic"] = next_topic
+        script, next_topic = lock_next_topic(script, topic, locked_topic=next_topic)
+        script["engagement"] = {
+            "experiment": engagement["experiment"],
+            "phase": engagement["phase"],
+            "spoken_prompt": engagement["spoken_prompt"],
+            "comment": engagement["comment"],
+            "share_prompt": engagement["share_prompt"],
+        }
+    
+        workdir = os.path.join("output", str(int(time.time())))
+        os.makedirs(workdir, exist_ok=True)
+        save_json(script, os.path.join(workdir, "script.json"))
+        write_continuation_manifest(topic, next_topic, "locked", workdir)
+        print(f"✅ Script ready: {workdir}/script.json")
+    
+        if dry_run:
+            print("✅ DRY RUN COMPLETE")
+            return
+    
+    if not resumed:
+        audio = synthesize_script(script, config, os.path.join(workdir, "audio"))
+    if not resumed:
+        visuals = generate_media(script, os.path.join(workdir, "visuals"), config)
+        sfx = generate_sfx(script, os.path.join(workdir, "sfx"))
+        music = download_music(script, os.path.join(workdir, "music"))
+        final_video = os.path.join(workdir, "final.mp4")
+        assemble_video(script, audio, visuals, music, sfx, config, final_video)
+        _save_publish_state(workdir, {"status": "ready_for_upload", "uploaded": False, "topic": topic, "next_topic": next_topic})
 
     if not os.path.exists(final_video):
         raise RuntimeError("Final video was not created.")
@@ -403,6 +447,7 @@ def run(dry_run=False):
         if name in {"instagram", "facebook"}
     }, ensure_ascii=False))
 
+    _save_publish_state(workdir, {"status": "uploaded", "uploaded": True, "topic": topic, "next_topic": next_topic, "video_id": video_id})
     record_topic(topic, title=title, video_id=video_id, workdir=workdir, status="published")
     try:
         from youtube_analytics import record_upload

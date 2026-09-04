@@ -9,6 +9,7 @@ from music import download_music
 from sfx import generate_sfx
 from assemble import assemble_video
 from upload_youtube import upload_video
+from social_publish import publish_social_reels
 from validate_video import validate_final_video
 from learning_context import load_learning_context
 from learning_engine import refresh_playbook, get_playbook, score_candidate_topic
@@ -386,6 +387,16 @@ def run(dry_run=False):
     video_id = str(upload_result or "").strip()
     if not video_id:
         raise RuntimeError("Upload succeeded without a video ID; refusing to mutate topic state.")
+
+    social_result = publish_social_reels(
+        final_video, title, description, config, workdir
+    )
+    print("📱 Social publish summary:", json.dumps({
+        name: (payload or {}).get("status")
+        for name, payload in social_result.items()
+        if name in {"instagram", "facebook"}
+    }, ensure_ascii=False))
+
     record_topic(topic, title=title, video_id=video_id, workdir=workdir, status="published")
     try:
         from youtube_analytics import record_upload

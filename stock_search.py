@@ -594,14 +594,23 @@ def generate_media(script, output_dir, config, gim=None):
                     "Pexels/Pixabay returned no candidate with sufficient subject evidence."
                 )
 
-            url = _url(selected, selected_provider, selected_video)
-            used.add(url)
             ext = "mp4" if selected_video else "jpg"
             path = os.path.join(output_dir, f"scene_{si}_shot_{vi}.{ext}")
-            if not _download_file(url, path):
+
+            recovered = _download_with_candidate_recovery(
+                d=d,
+                initial=(selected, selected_provider, selected_video, selected_query),
+                output_path=path,
+                used_urls=used,
+            )
+            if not recovered:
                 raise RuntimeError(
-                    f"Failed downloading selected {selected_provider} asset for Scene {si} Shot {vi}."
+                    f"No downloadable visually relevant stock asset found for Scene {si} Shot {vi} "
+                    f"after retrying the selected asset and fallback candidates."
                 )
+
+            selected, selected_provider, selected_video, selected_query, url = recovered
+            used.add(url)
             groups.append({
                 "scene": si,
                 "shot": vi,
@@ -617,15 +626,113 @@ def generate_media(script, output_dir, config, gim=None):
     return groups
 
 
+def _download_with_candidate_recovery(d, initial, output_path: str, used_urls: set[str]):
+    """Download a selected asset, then recover using other relevant candidates.
+
+    A stock API can return a valid-looking candidate whose CDN URL is stale,
+    temporarily unavailable, or blocked in GitHub Actions. Download failure must
+    therefore not kill the entire Short after selection succeeds.
+    """
+    failed_urls: set[str] = set()
+    queue = [initial]
+    queued_urls: set[str] = set()
+
+    while queue:
+        item, provider, video, query = queue.pop(0)
+        url = _url(item, provider, video)
+        if not url or url in used_urls or url in failed_urls:
+            continue
+        queued_urls.add(url)
+
+        if _download_file(url, output_path):
+            return item, provider, video, query, url
+
+        failed_urls.add(url)
+        print(
+            f"      ⚠️ Download failed for selected {provider} "
+            f"{'VIDEO' if video else 'PHOTO'}; trying another relevant candidate..."
+        )
+
+        # Search the complete practical ladder and rank every candidate by the
+        # existing conservative relevance score. This keeps fallback media tied
+        # to the spoken beat instead of substituting unrelated footage.
+        for entry in d.get("search_ladder", []):
+            q = entry.get("query", "")
+            if not q:
+                continue
+            for next_provider, next_video in (
+                ("Pexels", True), ("Pixabay", True),
+                ("Pexels", False), ("Pixabay", False),
+            ):
+                items = (
+                    pexels(q, next_video)
+                    if next_provider == "Pexels"
+                    else pixabay(q, next_video)
+                )
+                ranked = sorted(
+                    items,
+                    key=lambda x: _deterministic_score(
+                        d, x, next_provider, next_video, q
+                    ),
+                    reverse=True,
+                )
+                for candidate in ranked:
+                    score = _deterministic_score(
+                        d, candidate, next_provider, next_video, q
+                    )
+                    if score < 2.5:
+                        break
+                    candidate_url = _url(candidate, next_provider, next_video)
+                    if (
+                        not candidate_url
+                        or candidate_url in used_urls
+                        or candidate_url in failed_urls
+                        or candidate_url in queued_urls
+                    ):
+                        continue
+                    queue.append((candidate, next_provider, next_video, q))
+                    queued_urls.add(candidate_url)
+
+    return None
+
+
 def _download_file(url: str, path: str) -> bool:
-    try:
-        with requests.get(url, headers={"User-Agent": USER_AGENT}, stream=True, timeout=TIMEOUT) as r:
-            if r.status_code != 200:
-                return False
-            with open(path, "wb") as f:
-                for chunk in r.iter_content(1024 * 1024):
-                    if chunk:
-                        f.write(chunk)
-        return os.path.getsize(path) > 0
-    except Exception:
-        return False
+    """Download with retries and atomic replacement of the target file."""
+    temp_path = path + ".part"
+    for attempt in range(1, 4):
+        try:
+            if os.path.exists(temp_path):
+                os.remove(temp_path)
+            with requests.get(
+                url,
+                headers={
+                    "User-Agent": USER_AGENT,
+                    "Accept": "*/*",
+                },
+                stream=True,
+                timeout=(10, TIMEOUT),
+            ) as r:
+                if r.status_code != 200:
+                    raise RuntimeError(f"HTTP {r.status_code}")
+                with open(temp_path, "wb") as f:
+                    for chunk in r.iter_content(1024 * 1024):
+                        if chunk:
+                            f.write(chunk)
+
+            if os.path.getsize(temp_path) > 0:
+                os.replace(temp_path, path)
+                return True
+        except Exception as exc:
+            print(
+                f"      ⚠️ Asset download attempt {attempt}/3 failed: "
+                f"{type(exc).__name__}: {exc}"
+            )
+            if attempt < 3:
+                time.sleep(1.5 * attempt)
+        finally:
+            if os.path.exists(temp_path):
+                try:
+                    os.remove(temp_path)
+                except OSError:
+                    pass
+    return False

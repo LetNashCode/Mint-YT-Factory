@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import os
+from pathlib import Path
 
 from runtime_overrides import patch_continuation, patch_tts_result
 from quality_overrides import patch_story_quality
@@ -52,8 +53,6 @@ def _patch_tts_duration(main):
                 clip.close()
 
             print(f"🎯 TTS duration gate: {duration:.2f}s")
-            # Allow a small measured-duration tolerance. The canonical production
-            # contract is 43.9s, but container/audio probing can differ by frames.
             if MIN_NARRATION_SECONDS <= duration <= MAX_NARRATION_SECONDS:
                 return audio
 
@@ -84,8 +83,6 @@ def _patch_tts_duration(main):
             try:
                 candidate = main.generate_script(topic, config, None, extra_feedback=feedback)
             except Exception as exc:
-                # Never discard an otherwise valid production run because the
-                # optional duration rewrite violates a strict Scene 7 contract.
                 print(f"⚠️ TTS regeneration failed; keeping original script/audio: {exc}")
                 return audio
             candidate["topic"] = topic
@@ -117,9 +114,6 @@ def _patch_tts_duration(main):
 
 
 def _patch_assemble_video_media():
-    # assemble.py v8.3 already natively supports both still images and stock
-    # video through make_visual_clip(). Keep this entrypoint compatible with
-    # future versions without referencing the removed make_image_clip symbol.
     import assemble
 
     if not hasattr(assemble, "make_visual_clip"):
@@ -128,6 +122,85 @@ def _patch_assemble_video_media():
         )
 
     print("🛡️ Assembly media compatibility: native make_visual_clip() handles stock VIDEO + IMAGE")
+
+
+def _load_state(workdir):
+    path = Path(workdir) / "publish_state.json"
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else {}
+    except Exception:
+        return {}
+
+
+def _save_state(workdir, state):
+    path = Path(workdir) / "publish_state.json"
+    state["updated_at"] = int(__import__("time").time())
+    path.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def _patch_publish_resume(main):
+    """Make Publish Shorts resume artifacts across ephemeral GitHub runners.
+
+    A failed run can leave YouTube and/or one Meta destination already published.
+    The next run reuses the final.mp4 and retries only unfinished destinations.
+    """
+    original_find = main._find_pending_resume
+    if not getattr(original_find, "_mint_cross_run_resume", False):
+        def find_pending_resume():
+            candidates = sorted(Path("output").glob("*/final.mp4"), key=lambda p: p.stat().st_mtime, reverse=True)
+            for video in candidates:
+                workdir = video.parent
+                manifest = workdir / "publish_state.json"
+                script_path = workdir / "script.json"
+                if not manifest.exists() or not script_path.exists():
+                    continue
+                try:
+                    state = json.loads(manifest.read_text(encoding="utf-8"))
+                    status = str(state.get("status") or "").lower()
+                    if status in {"completed", "uploaded"} and all(
+                        str((state.get(name) or {}).get("status") or "").lower() in {"published", "skipped"}
+                        for name in ("youtube", "instagram", "facebook")
+                        if (state.get(name) or {}).get("enabled", True)
+                    ):
+                        continue
+                    if status in {"ready_for_upload", "partial", "uploading", "uploaded"} or state.get("youtube") or state.get("instagram") or state.get("facebook"):
+                        return workdir, video, json.loads(script_path.read_text(encoding="utf-8")), state
+                except Exception:
+                    continue
+            return original_find()
+        find_pending_resume._mint_cross_run_resume = True
+        main._find_pending_resume = find_pending_resume
+
+    original_upload = main.upload_video
+    if getattr(original_upload, "_mint_resume_upload", False):
+        return
+
+    def resumable_upload(final_video, title, description, config, *args, **kwargs):
+        workdir = Path(final_video).parent
+        state = _load_state(workdir)
+        youtube = state.get("youtube") or {}
+        existing_id = str(youtube.get("video_id") or "").strip()
+        if str(youtube.get("status") or "").lower() == "published" and existing_id:
+            print(f"♻️ YOUTUBE ALREADY PUBLISHED | video_id={existing_id} — skipping duplicate upload")
+            return existing_id
+
+        state.setdefault("youtube", {"status": "uploading", "enabled": True})
+        state["status"] = "uploading"
+        _save_state(workdir, state)
+        result = original_upload(final_video, title, description, config, *args, **kwargs)
+        video_id = str(result or "").strip()
+        if not video_id:
+            raise RuntimeError("Upload succeeded without a video ID; refusing to mark YouTube complete.")
+        state = _load_state(workdir)
+        state["youtube"] = {"status": "published", "enabled": True, "video_id": video_id}
+        state["status"] = "partial"
+        _save_state(workdir, state)
+        print(f"💾 Durable Publish Shorts state: YouTube complete ({video_id})")
+        return video_id
+
+    resumable_upload._mint_resume_upload = True
+    main.upload_video = resumable_upload
 
 
 def main_entry():
@@ -141,6 +214,7 @@ def main_entry():
     _patch_script_model_resilience(main)
     _patch_tts_duration(main)
     _patch_assemble_video_media()
+    _patch_publish_resume(main)
 
     print("=" * 80)
     print("🚀 MINT-YT-FACTORY STARTED")
@@ -160,6 +234,7 @@ def main_entry():
     print("Story: TTS-authoritative 35-43.9 seconds (44.95s measured tolerance)")
     print("Captions: Whisper word timing → deterministic fallback if Whisper fails")
     print("TTS duration guard: ENABLED")
+    print("Publish Shorts resume: cross-run artifact recovery + per-platform deduplication ENABLED")
     print("=" * 80)
 
     main.run(dry_run=False)

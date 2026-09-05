@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
   group: mint-yt-factory-publish
@@ -115,6 +116,61 @@ jobs:
           print("Stock media pipeline import OK")
           PY
 
+      - name: Restore previous failed Publish Shorts video
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          echo "=========================================="
+          echo "♻️ CHECKING FOR PREVIOUS FAILED PUBLISH RUN"
+          echo "=========================================="
+
+          rm -rf /tmp/mint-resume
+          mkdir -p /tmp/mint-resume
+          found=""
+
+          mapfile -t runs < <(gh api \
+            "repos/${GITHUB_REPOSITORY}/actions/workflows/publish.yml/runs?branch=main&per_page=20" \
+            --jq '.workflow_runs[] | select(.id != ('"$GITHUB_RUN_ID"')) | select(.conclusion != null) | select(.conclusion != "success") | [.id,.conclusion,.created_at] | @tsv')
+
+          for row in "${runs[@]}"; do
+            run_id="${row%%$'\t'*}"
+            rest="${row#*$'\t'}"
+            conclusion="${rest%%$'\t'*}"
+            echo "🔎 Checking previous run $run_id ($conclusion)"
+
+            artifact_name="$(gh api \
+              "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/artifacts?per_page=100" \
+              --jq '.artifacts[] | select(.expired == false) | select(.name | startswith("publish-resume-")) | .name' \
+              | head -n 1 || true)"
+
+            if [ -z "$artifact_name" ]; then
+              continue
+            fi
+
+            echo "📦 Downloading resume artifact: $artifact_name"
+            rm -rf /tmp/mint-resume/*
+            gh run download "$run_id" -n "$artifact_name" -D /tmp/mint-resume
+
+            if find /tmp/mint-resume -type f -name final.mp4 -print -quit | grep -q . && \
+               find /tmp/mint-resume -type f -name script.json -print -quit | grep -q . && \
+               find /tmp/mint-resume -type f -name publish_state.json -print -quit | grep -q .; then
+              found="$run_id"
+              break
+            fi
+
+            echo "⚠️ Artifact did not contain a complete resume package; checking older failed run."
+          done
+
+          if [ -n "$found" ]; then
+            echo "✅ Found resumable Publish Shorts run: $found"
+            cp -a /tmp/mint-resume/output/. output/ 2>/dev/null || true
+            find output -maxdepth 2 -type f \( -name final.mp4 -o -name script.json -o -name publish_state.json \) -print | sort || true
+          else
+            echo "ℹ️ No resumable failed Publish Shorts artifact found. A fresh video will be generated."
+          fi
+
       - name: Write YouTube client credentials
         shell: bash
         env:
@@ -148,6 +204,21 @@ jobs:
           date
           python --version
           python -u production_entry.py
+
+      - name: Upload Publish Shorts resume package
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: publish-resume-${{ github.run_id }}
+          path: |
+            output/**/final.mp4
+            output/**/script.json
+            output/**/publish_state.json
+            output/**/social_reel.mp4
+            output/**/validation.json
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 7
 
       - name: Upload final video
         if: always()
@@ -239,9 +310,6 @@ jobs:
           local_pending = [x for x in generated if isinstance(x, str) and x.startswith(pending_prefix)]
           remote_pending = [x for x in remote if isinstance(x, str) and x.startswith(pending_prefix)]
 
-          # The successful runner is authoritative for the next reservation.
-          # Remote state is only a fallback when this runner produced no pending topic.
-          # This prevents an old reservation from overriding the freshly reserved topic.
           if local_pending:
               if remote_pending and local_pending[-1] != remote_pending[-1]:
                   print("Replacing consumed remote pending topic with new reservation:", local_pending[-1])

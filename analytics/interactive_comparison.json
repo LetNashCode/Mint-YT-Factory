@@ -26,5 +26,12 @@
     "avg_comments": 0.0,
     "avg_shares": 0.0,
     "avg_likes": 0.0
+  },
+  "wordplay": {
+    "videos": 1,
+    "avg_views": 0.0,
+    "avg_comments": 0.0,
+    "avg_shares": 0.0,
+    "avg_likes": 0.0
   }
 }

@@ -143,7 +143,9 @@ def _patch_publish_resume(main):
     """Make Publish Shorts resume artifacts across ephemeral GitHub runners.
 
     A failed run can leave YouTube and/or one Meta destination already published.
-    The next run reuses the final.mp4 and retries only unfinished destinations.
+    The next run reuses final.mp4 and retries only unfinished destinations. A failed
+    run whose platforms are already complete is also resumed once so topic-state
+    bookkeeping can finish instead of generating a duplicate Short.
     """
     original_find = main._find_pending_resume
     if not getattr(original_find, "_mint_cross_run_resume", False):
@@ -158,13 +160,12 @@ def _patch_publish_resume(main):
                 try:
                     state = json.loads(manifest.read_text(encoding="utf-8"))
                     status = str(state.get("status") or "").lower()
-                    if status in {"completed", "uploaded"} and all(
-                        str((state.get(name) or {}).get("status") or "").lower() in {"published", "skipped"}
-                        for name in ("youtube", "instagram", "facebook")
-                        if (state.get(name) or {}).get("enabled", True)
-                    ):
-                        continue
-                    if status in {"ready_for_upload", "partial", "uploading", "uploaded"} or state.get("youtube") or state.get("instagram") or state.get("facebook"):
+                    # Do not skip a restored artifact merely because all uploads
+                    # succeeded. The previous run may have failed while committing
+                    # continuation/topic state, as happened after social publishing.
+                    # Successful workflow runs are never restored by publish.yml, so
+                    # this is safe and prevents a duplicate generation on recovery.
+                    if status in {"ready_for_upload", "partial", "uploading", "uploaded", "completed"} or state.get("youtube") or state.get("instagram") or state.get("facebook"):
                         return workdir, video, json.loads(script_path.read_text(encoding="utf-8")), state
                 except Exception:
                     continue

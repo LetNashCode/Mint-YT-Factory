@@ -53,10 +53,7 @@ def _error(response: requests.Response, context: str) -> RuntimeError:
 
 
 def _post(url, *, data=None, headers=None, files=None, timeout=REQUEST_TIMEOUT):
-    response = requests.post(
-        url, data=data, headers=headers, files=files,
-        timeout=timeout,
-    )
+    response = requests.post(url, data=data, headers=headers, files=files, timeout=timeout)
     if not response.ok:
         raise _error(response, url)
     return response.json()
@@ -83,17 +80,14 @@ def _clean_caption(title: str, description: str, config: dict | None = None, lim
 
 
 def prepare_social_video(video_path: str, output_dir: str) -> str:
-    """Create an Instagram/Facebook-friendly 1080x1920 H.264/AAC copy.
-
-    The production master is 2160x3840 at a very high bitrate. Instagram Reels
-    publishing is more reliable with a <=1920-wide H.264 MP4 and a moderate
-    bitrate, so social platforms receive a separate derivative while YouTube
-    keeps the untouched 4K master.
-    """
+    """Create an Instagram/Facebook-friendly 1080x1920 H.264/AAC copy."""
     source = Path(video_path)
     if not source.is_file():
         raise RuntimeError(f"Social source video not found: {source}")
     out = Path(output_dir) / "social_reel.mp4"
+    if out.is_file() and out.stat().st_size >= 1024:
+        print(f"♻️ Reusing existing social derivative: {out}")
+        return str(out)
     out.parent.mkdir(parents=True, exist_ok=True)
     cmd = [
         "ffmpeg", "-y", "-i", str(source),
@@ -127,13 +121,8 @@ def _upload_instagram(video_path: str, title: str, description: str, config: dic
     print("📸 Instagram Reel: creating resumable media container")
     container = _post(
         f"{graph}/{user_id}/media",
-        data={
-            "media_type": "REELS",
-            "upload_type": "resumable",
-            "caption": caption,
-            "share_to_feed": "true",
-            "access_token": token,
-        },
+        data={"media_type": "REELS", "upload_type": "resumable", "caption": caption,
+              "share_to_feed": "true", "access_token": token},
     )
     container_id = str(container.get("id") or "").strip()
     upload_url = str(container.get("uri") or container.get("upload_url") or "").strip()
@@ -146,14 +135,9 @@ def _upload_instagram(video_path: str, title: str, description: str, config: dic
     print("📤 Instagram Reel: uploading video binary")
     with open(video_path, "rb") as handle:
         response = requests.post(
-            upload_url,
-            data=handle,
-            headers={
-                "Authorization": f"OAuth {token}",
-                "offset": "0",
-                "file_size": str(size),
-                "Content-Type": "video/mp4",
-            },
+            upload_url, data=handle,
+            headers={"Authorization": f"OAuth {token}", "offset": "0", "file_size": str(size),
+                     "Content-Type": "video/mp4"},
             timeout=REQUEST_TIMEOUT,
         )
     if not response.ok:
@@ -162,10 +146,7 @@ def _upload_instagram(video_path: str, title: str, description: str, config: dic
     print("⏳ Instagram Reel: waiting for processing")
     status = ""
     for _ in range(POLL_ATTEMPTS):
-        payload = _get(
-            f"{graph}/{container_id}",
-            params={"fields": "status_code,status", "access_token": token},
-        )
+        payload = _get(f"{graph}/{container_id}", params={"fields": "status_code,status", "access_token": token})
         status = str(payload.get("status_code") or "").upper()
         if status == "FINISHED":
             break
@@ -175,10 +156,7 @@ def _upload_instagram(video_path: str, title: str, description: str, config: dic
     else:
         raise RuntimeError(f"Instagram container did not finish processing; last status={status!r}")
 
-    published = _post(
-        f"{graph}/{user_id}/media_publish",
-        data={"creation_id": container_id, "access_token": token},
-    )
+    published = _post(f"{graph}/{user_id}/media_publish", data={"creation_id": container_id, "access_token": token})
     media_id = str(published.get("id") or "").strip()
     if not media_id:
         raise RuntimeError("Instagram publish returned no media ID.")
@@ -197,10 +175,7 @@ def _upload_facebook(video_path: str, title: str, description: str, config: dict
     caption = _clean_caption(title, description, config)
 
     print("📘 Facebook Reel: starting upload session")
-    session = _post(
-        f"{graph}/{page_id}/video_reels",
-        data={"upload_phase": "start", "access_token": token},
-    )
+    session = _post(f"{graph}/{page_id}/video_reels", data={"upload_phase": "start", "access_token": token})
     video_id = str(session.get("video_id") or "").strip()
     upload_url = str(session.get("upload_url") or "").strip()
     if not video_id or not upload_url:
@@ -210,14 +185,9 @@ def _upload_facebook(video_path: str, title: str, description: str, config: dict
     print("📤 Facebook Reel: uploading video binary")
     with open(video_path, "rb") as handle:
         response = requests.post(
-            upload_url,
-            data=handle,
-            headers={
-                "Authorization": f"OAuth {token}",
-                "offset": "0",
-                "file_size": str(size),
-                "Content-Type": "application/octet-stream",
-            },
+            upload_url, data=handle,
+            headers={"Authorization": f"OAuth {token}", "offset": "0", "file_size": str(size),
+                     "Content-Type": "application/octet-stream"},
             timeout=REQUEST_TIMEOUT,
         )
     if not response.ok:
@@ -226,22 +196,39 @@ def _upload_facebook(video_path: str, title: str, description: str, config: dict
     print("📘 Facebook Reel: publishing")
     finished = _post(
         f"{graph}/{page_id}/video_reels",
-        data={
-            "video_id": video_id,
-            "upload_phase": "finish",
-            "video_state": "PUBLISHED",
-            "title": str(title or "")[:255],
-            "description": caption,
-            "access_token": token,
-        },
+        data={"video_id": video_id, "upload_phase": "finish", "video_state": "PUBLISHED",
+              "title": str(title or "")[:255], "description": caption, "access_token": token},
     )
     reel_id = str(finished.get("id") or finished.get("video_id") or video_id).strip()
     print(f"✅ FACEBOOK REEL PUBLISHED | video_id={reel_id}")
     return {"status": "published", "video_id": reel_id}
 
 
+def _state_path(output_dir: str) -> Path:
+    return Path(output_dir) / "publish_state.json"
+
+
+def _load_publish_state(output_dir: str) -> dict:
+    path = _state_path(output_dir)
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else {}
+    except Exception:
+        return {}
+
+
+def _save_publish_state(output_dir: str, state: dict) -> None:
+    state["updated_at"] = int(time.time())
+    _state_path(output_dir).write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
 def publish_social_reels(video_path: str, title: str, description: str, config: dict, output_dir: str) -> dict:
-    """Publish enabled Meta destinations without exposing secrets in logs."""
+    """Publish enabled Meta destinations, resuming only unfinished platforms."""
+    state = _load_publish_state(output_dir)
+    state.setdefault("youtube", {"status": "pending"})
+    state.setdefault("instagram", {"status": "pending"})
+    state.setdefault("facebook", {"status": "pending"})
+
     result = {
         "instagram": None,
         "facebook": None,
@@ -255,10 +242,15 @@ def publish_social_reels(video_path: str, title: str, description: str, config: 
         print("📱 Meta social publishing: DISABLED (no Instagram/Facebook credentials configured)")
         result["instagram"] = {"status": "skipped", "reason": "not configured"}
         result["facebook"] = {"status": "skipped", "reason": "not configured"}
+        state["instagram"] = result["instagram"]
+        state["facebook"] = result["facebook"]
+        _save_publish_state(output_dir, state)
         return result
 
     social_video = prepare_social_video(video_path, output_dir)
     result["social_video"] = social_video
+    state["social_video"] = social_video
+    _save_publish_state(output_dir, state)
 
     failures = []
     for name, fn, enabled in (
@@ -267,12 +259,25 @@ def publish_social_reels(video_path: str, title: str, description: str, config: 
     ):
         if not enabled:
             result[name] = {"status": "skipped", "reason": "not configured"}
+            state[name] = result[name]
+            _save_publish_state(output_dir, state)
             continue
+
+        previous = state.get(name) or {}
+        if str(previous.get("status") or "").lower() == "published":
+            print(f"♻️ {name.title()} already published; skipping duplicate upload.")
+            result[name] = previous
+            continue
+
         try:
             result[name] = fn(social_video, title, description, config)
+            state[name] = result[name]
+            _save_publish_state(output_dir, state)
         except Exception as exc:
             result[name] = {"status": "failed", "error": f"{type(exc).__name__}: {exc}"}
+            state[name] = result[name]
             failures.append(name)
+            _save_publish_state(output_dir, state)
             print(f"⚠️ {name.title()} publishing failed: {type(exc).__name__}: {exc}")
 
     status_path = Path(output_dir) / "social_publish_status.json"

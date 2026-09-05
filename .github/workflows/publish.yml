@@ -153,20 +153,53 @@ jobs:
             rm -rf /tmp/mint-resume/*
             gh run download "$run_id" -n "$artifact_name" -D /tmp/mint-resume
 
-            if find /tmp/mint-resume -type f -name final.mp4 -print -quit | grep -q . && \
-               find /tmp/mint-resume -type f -name script.json -print -quit | grep -q . && \
-               find /tmp/mint-resume -type f -name publish_state.json -print -quit | grep -q .; then
+            final_file="$(find /tmp/mint-resume -type f -name final.mp4 -print -quit || true)"
+            script_file="$(find /tmp/mint-resume -type f -name script.json -print -quit || true)"
+            state_file="$(find /tmp/mint-resume -type f -name publish_state.json -print -quit || true)"
+
+            if [ -z "$final_file" ] || [ -z "$script_file" ] || [ -z "$state_file" ]; then
+              echo "⚠️ Artifact did not contain final.mp4 + script.json + publish_state.json; checking older failed run."
+              continue
+            fi
+
+            final_dir="$(dirname "$final_file")"
+            script_dir="$(dirname "$script_file")"
+            state_dir="$(dirname "$state_file")"
+
+            if [ "$final_dir" != "$script_dir" ] || [ "$final_dir" != "$state_dir" ]; then
+              echo "⚠️ Resume files are not from the same workdir; checking older failed run."
+              continue
+            fi
+
+            workdir_name="$(basename "$final_dir")"
+            if [ -z "$workdir_name" ] || [ "$workdir_name" = "." ] || [ "$workdir_name" = "/" ]; then
+              echo "⚠️ Invalid restored workdir; checking older failed run."
+              continue
+            fi
+
+            rm -rf "output/$workdir_name"
+            mkdir -p output
+            cp -a "$final_dir" "output/"
+
+            restored_final="output/$workdir_name/final.mp4"
+            restored_script="output/$workdir_name/script.json"
+            restored_state="output/$workdir_name/publish_state.json"
+
+            if [ -f "$restored_final" ] && [ -f "$restored_script" ] && [ -f "$restored_state" ]; then
+              echo "✅ Restored Publish Shorts workdir from failed run $run_id"
+              echo "   Workdir: output/$workdir_name"
+              echo "   Final video: $restored_final"
+              echo "   Publish state: $restored_state"
               found="$run_id"
               break
             fi
 
-            echo "⚠️ Artifact did not contain a complete resume package; checking older failed run."
+            rm -rf "output/$workdir_name"
+            echo "⚠️ Restore verification failed; checking older failed run."
           done
 
           if [ -n "$found" ]; then
-            echo "✅ Found resumable Publish Shorts run: $found"
-            cp -a /tmp/mint-resume/output/. output/ 2>/dev/null || true
-            find output -maxdepth 2 -type f \( -name final.mp4 -o -name script.json -o -name publish_state.json \) -print | sort || true
+            echo "♻️ Resume mode is ready. production_entry.py will reuse the final video and platform state."
           else
             echo "ℹ️ No resumable failed Publish Shorts artifact found. A fresh video will be generated."
           fi

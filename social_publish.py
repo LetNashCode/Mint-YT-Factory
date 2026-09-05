@@ -80,7 +80,14 @@ def _clean_caption(title: str, description: str, config: dict | None = None, lim
 
 
 def prepare_social_video(video_path: str, output_dir: str) -> str:
-    """Create an Instagram/Facebook-friendly 1080x1920 H.264/AAC copy."""
+    """Create a conservative Instagram/Facebook-friendly 1080x1920 H.264/AAC copy.
+
+    The production master is 2160x3840/60fps. Instagram's media processor is
+    stricter than Facebook's and can reject otherwise valid high-resolution
+    derivatives with a generic ProcessingFailedError. A 1080x1920/30fps H.264
+    Level 4.1 derivative stays within the H.264 level limits while remaining
+    native 9:16 and well inside Reel delivery requirements.
+    """
     source = Path(video_path)
     if not source.is_file():
         raise RuntimeError(f"Social source video not found: {source}")
@@ -93,14 +100,14 @@ def prepare_social_video(video_path: str, output_dir: str) -> str:
         "ffmpeg", "-y", "-i", str(source),
         "-vf", "scale=1080:1920:flags=lanczos",
         "-c:v", "libx264", "-preset", "medium",
-        "-pix_fmt", "yuv420p", "-profile:v", "high",
-        "-level:v", "4.2", "-r", "60",
-        "-b:v", "12M", "-maxrate", "16M", "-bufsize", "24M",
+        "-pix_fmt", "yuv420p", "-profile:v", "main",
+        "-level:v", "4.1", "-r", "30",
+        "-b:v", "8M", "-maxrate", "10M", "-bufsize", "20M",
         "-c:a", "aac", "-ar", "48000", "-b:a", "128k",
         "-movflags", "+faststart",
         str(out),
     ]
-    print("📱 Preparing 1080x1920 Meta Reel derivative")
+    print("📱 Preparing conservative 1080x1920/30fps Meta Reel derivative")
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0 or not out.is_file() or out.stat().st_size < 1024:
         raise RuntimeError("Social video transcode failed: " + (result.stderr or result.stdout)[-1500:])

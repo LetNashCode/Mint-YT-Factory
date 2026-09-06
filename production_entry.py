@@ -158,13 +158,17 @@ def _record_completed_publications():
     """Persist terminal publications so an old failed Actions artifact cannot resurrect them."""
     entries = _load_completed_publications()
     by_key = {
-        (str(x.get("workdir") or ""), str(x.get("video_id") or "")):
-        for x in entries if isinstance(x, dict)
+        (str(x.get("workdir") or ""), str(x.get("video_id") or ""))
+        for x in entries
+        if isinstance(x, dict)
     }
     added = 0
     for state_path in Path("output").glob("*/publish_state.json"):
         try:
-            state = _normalise_resume_state(state_path.parent, json.loads(state_path.read_text(encoding="utf-8")))
+            state = _normalise_resume_state(
+                state_path.parent,
+                json.loads(state_path.read_text(encoding="utf-8")),
+            )
         except Exception:
             continue
         if not _state_is_complete(state):
@@ -176,12 +180,14 @@ def _record_completed_publications():
         key = (workdir, video_id)
         if key in by_key:
             continue
-        entries.append({
-            "workdir": workdir,
-            "video_id": video_id,
-            "topic": str(state.get("topic") or ""),
-            "completed_at": int(time.time()),
-        })
+        entries.append(
+            {
+                "workdir": workdir,
+                "video_id": video_id,
+                "topic": str(state.get("topic") or ""),
+                "completed_at": int(time.time()),
+            }
+        )
         by_key.add(key)
         added += 1
     if added:
@@ -265,7 +271,6 @@ def _patch_publish_resume(main):
                     return workdir, video, script, state
                 except Exception:
                     continue
-            # Never call main's legacy scanner here.
             return None
 
         find_pending_resume._mint_cross_run_resume = True

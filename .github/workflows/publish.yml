@@ -98,65 +98,110 @@ jobs:
         run: |
           set -euo pipefail
           echo "=========================================="
-          echo "♻️ CHECKING FOR PREVIOUS FAILED PUBLISH RUN"
+          echo "♻️ CHECKING FOR THE MOST RECENT FAILED PUBLISH RUN"
           echo "=========================================="
           rm -rf /tmp/mint-resume
           mkdir -p /tmp/mint-resume
           found=""
-          mapfile -t runs < <(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/publish.yml/runs?branch=main&per_page=20" --jq '.workflow_runs[] | select(.id != ('"$GITHUB_RUN_ID"')) | select(.conclusion != null) | select(.conclusion != "success") | [.id,.conclusion,.created_at] | @tsv')
-          for row in "${runs[@]}"; do
-            run_id="${row%%$'\t'*}"
-            rest="${row#*$'\t'}"
+
+          # IMPORTANT: Only inspect the single most recent failed run.
+          # Older failed artifacts are historical snapshots and must never be
+          # allowed to resurrect an already-completed Short indefinitely.
+          latest_row="$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/publish.yml/runs?branch=main&per_page=20" --jq '.workflow_runs[] | select(.id != ('"$GITHUB_RUN_ID"')) | select(.conclusion != null) | select(.conclusion != "success") | [.id,.conclusion,.created_at] | @tsv' | head -n 1 || true)"
+
+          if [ -n "$latest_row" ]; then
+            run_id="${latest_row%%$'\t'*}"
+            rest="${latest_row#*$'\t'}"
             conclusion="${rest%%$'\t'*}"
-            echo "🔎 Checking previous run $run_id ($conclusion)"
+            echo "🔎 Checking ONLY latest previous failed run $run_id ($conclusion)"
+
             artifact_name="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/artifacts?per_page=100" --jq '.artifacts[] | select(.expired == false) | select(.name | startswith("publish-resume-")) | .name' | head -n 1 || true)"
-            [ -n "$artifact_name" ] || continue
-            rm -rf /tmp/mint-resume/*
-            gh run download "$run_id" -n "$artifact_name" -D /tmp/mint-resume
-            final_file="$(find /tmp/mint-resume -type f -name final.mp4 -print -quit || true)"
-            script_file="$(find /tmp/mint-resume -type f -name script.json -print -quit || true)"
-            state_file="$(find /tmp/mint-resume -type f -name publish_state.json -print -quit || true)"
-            [ -n "$final_file" ] && [ -n "$script_file" ] && [ -n "$state_file" ] || continue
-            final_dir="$(dirname "$final_file")"; script_dir="$(dirname "$script_file")"; state_dir="$(dirname "$state_file")"
-            [ "$final_dir" = "$script_dir" ] && [ "$final_dir" = "$state_dir" ] || continue
-            if ! python - "$state_file" <<'PY'
+            if [ -n "$artifact_name" ]; then
+              rm -rf /tmp/mint-resume/*
+              gh run download "$run_id" -n "$artifact_name" -D /tmp/mint-resume
+
+              final_file="$(find /tmp/mint-resume -type f -name final.mp4 -print -quit || true)"
+              script_file="$(find /tmp/mint-resume -type f -name script.json -print -quit || true)"
+              state_file="$(find /tmp/mint-resume -type f -name publish_state.json -print -quit || true)"
+
+              if [ -n "$final_file" ] && [ -n "$script_file" ] && [ -n "$state_file" ]; then
+                final_dir="$(dirname "$final_file")"
+                script_dir="$(dirname "$script_file")"
+                state_dir="$(dirname "$state_file")"
+
+                if [ "$final_dir" = "$script_dir" ] && [ "$final_dir" = "$state_dir" ]; then
+                  if python - "$state_file" <<'PY'
           import json, sys
           p = sys.argv[1]
           try:
               s = json.load(open(p, encoding="utf-8"))
           except Exception:
               raise SystemExit(1)
+
           status = str(s.get("status") or "").lower()
           youtube_id = str(s.get("video_id") or ((s.get("youtube") or {}).get("video_id") or "")).strip()
           uploaded = bool(s.get("uploaded"))
           instagram = s.get("instagram") or {}
           facebook = s.get("facebook") or {}
+
           legacy_youtube_social_resume = status == "youtube_published" and uploaded and bool(youtube_id) and (
               str(instagram.get("status") or "").lower() not in {"published", "skipped"} or
               str(facebook.get("status") or "").lower() not in {"published", "skipped"}
           )
+
           if status not in {"ready_for_upload", "partial", "uploading"} and not legacy_youtube_social_resume:
               raise SystemExit(1)
-          platforms = [p for p in ("youtube", "instagram", "facebook") if (s.get(p) or {}).get("enabled", True)]
+
+          platforms = [
+              p for p in ("youtube", "instagram", "facebook")
+              if (s.get(p) or {}).get("enabled", True)
+          ]
           if legacy_youtube_social_resume:
-              platforms = [p for p in ("instagram", "facebook") if (s.get(p) or {}).get("enabled", True)]
-          if platforms and all(str((s.get(p) or {}).get("status") or "").lower() in {"published", "skipped"} for p in platforms):
+              platforms = [
+                  p for p in ("instagram", "facebook")
+                  if (s.get(p) or {}).get("enabled", True)
+              ]
+
+          if platforms and all(
+              str((s.get(p) or {}).get("status") or "").lower() in {"published", "skipped"}
+              for p in platforms
+          ):
               raise SystemExit(1)
+
           print(f"Resumable state: {status} | youtube_id={youtube_id or 'none'}")
           PY
-            then
-              echo "⏭️ Artifact $run_id is already complete; refusing to restore it."
-              continue
+                  then
+                    workdir_name="$(basename "$final_dir")"
+                    rm -rf "output/$workdir_name"
+                    mkdir -p output
+                    cp -a "$final_dir" "output/"
+                    if [ -f "output/$workdir_name/final.mp4" ] && [ -f "output/$workdir_name/script.json" ] && [ -f "output/$workdir_name/publish_state.json" ]; then
+                      echo "✅ Restored Publish Shorts workdir from latest failed run $run_id"
+                      found="$run_id"
+                    else
+                      rm -rf "output/$workdir_name"
+                    fi
+                  else
+                    echo "⏭️ Latest failed run $run_id has no incomplete publication state; refusing to restore it."
+                  fi
+                else
+                  echo "⏭️ Latest failed artifact has mismatched workdir contents; refusing to restore it."
+                fi
+              else
+                echo "⏭️ Latest failed artifact is incomplete; refusing to restore it."
+              fi
+            else
+              echo "ℹ️ Latest failed run has no Publish Shorts resume artifact."
             fi
-            workdir_name="$(basename "$final_dir")"
-            rm -rf "output/$workdir_name"; mkdir -p output; cp -a "$final_dir" "output/"
-            if [ -f "output/$workdir_name/final.mp4" ] && [ -f "output/$workdir_name/script.json" ] && [ -f "output/$workdir_name/publish_state.json" ]; then
-              echo "✅ Restored Publish Shorts workdir from failed run $run_id"
-              found="$run_id"; break
-            fi
-            rm -rf "output/$workdir_name"
-          done
-          if [ -n "$found" ]; then echo "♻️ Resume mode is ready."; else echo "ℹ️ No resumable failed Publish Shorts artifact found. A fresh video will be generated."; fi
+          else
+            echo "ℹ️ No previous failed Publish Shorts run found."
+          fi
+
+          if [ -n "$found" ]; then
+            echo "♻️ Resume mode is ready."
+          else
+            echo "ℹ️ No resumable latest failed Publish Shorts artifact found. A fresh video will be generated."
+          fi
       - name: Write YouTube client credentials
         shell: bash
         env:

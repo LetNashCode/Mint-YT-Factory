@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import os
+import time
 from pathlib import Path
 
 from runtime_overrides import patch_continuation, patch_tts_result
@@ -12,6 +13,7 @@ from story_quality_gate import patch_story_generation
 MIN_NARRATION_SECONDS = 35.0
 MAX_NARRATION_SECONDS = 44.95
 MAX_SHORT_TTS_REGEN = 1
+COMPLETED_PUBLICATIONS = Path("completed_publications.json")
 
 
 def _patch_script_model_resilience(main):
@@ -111,7 +113,7 @@ def _load_state(workdir):
 
 def _save_state(workdir, state):
     path = Path(workdir) / "publish_state.json"
-    state["updated_at"] = int(__import__("time").time())
+    state["updated_at"] = int(time.time())
     path.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
@@ -129,17 +131,83 @@ def _state_is_complete(state):
     )
 
 
+def _load_completed_publications():
+    try:
+        data = json.loads(COMPLETED_PUBLICATIONS.read_text(encoding="utf-8"))
+        return data if isinstance(data, list) else []
+    except Exception:
+        return []
+
+
+def _is_tombstoned(workdir, state):
+    workdir_text = str(workdir).replace("\\", "/")
+    youtube_id = str(
+        state.get("video_id") or ((state.get("youtube") or {}).get("video_id") or "")
+    ).strip()
+    for item in _load_completed_publications():
+        if not isinstance(item, dict):
+            continue
+        if str(item.get("workdir") or "").replace("\\", "/") == workdir_text:
+            return True
+        if youtube_id and str(item.get("video_id") or "").strip() == youtube_id:
+            return True
+    return False
+
+
+def _record_completed_publications():
+    """Persist terminal publications so an old failed Actions artifact cannot resurrect them."""
+    entries = _load_completed_publications()
+    by_key = {
+        (str(x.get("workdir") or ""), str(x.get("video_id") or "")):
+        for x in entries if isinstance(x, dict)
+    }
+    added = 0
+    for state_path in Path("output").glob("*/publish_state.json"):
+        try:
+            state = _normalise_resume_state(state_path.parent, json.loads(state_path.read_text(encoding="utf-8")))
+        except Exception:
+            continue
+        if not _state_is_complete(state):
+            continue
+        workdir = str(state_path.parent).replace("\\", "/")
+        video_id = str(
+            state.get("video_id") or ((state.get("youtube") or {}).get("video_id") or "")
+        ).strip()
+        key = (workdir, video_id)
+        if key in by_key:
+            continue
+        entries.append({
+            "workdir": workdir,
+            "video_id": video_id,
+            "topic": str(state.get("topic") or ""),
+            "completed_at": int(time.time()),
+        })
+        by_key.add(key)
+        added += 1
+    if added:
+        COMPLETED_PUBLICATIONS.write_text(
+            json.dumps(entries[-100:], indent=2, ensure_ascii=False) + "\n",
+            encoding="utf-8",
+        )
+        print(f"🪦 Publication tombstones recorded: {added}")
+
+
 def _normalise_resume_state(workdir, state):
     """Repair legacy state and promote fully published artifacts to terminal."""
     changed = False
     youtube_id = str(state.get("video_id") or "").strip()
     youtube = state.get("youtube") or {}
 
-    # Older artifacts persisted YouTube only at top level. Repair them so the
-    # resume scanner can make a correct terminal/incomplete decision.
     if youtube_id and bool(state.get("uploaded")):
-        if str(youtube.get("status") or "").lower() != "published" or str(youtube.get("video_id") or "").strip() != youtube_id:
-            state["youtube"] = {"status": "published", "enabled": True, "video_id": youtube_id}
+        if (
+            str(youtube.get("status") or "").lower() != "published"
+            or str(youtube.get("video_id") or "").strip() != youtube_id
+        ):
+            state["youtube"] = {
+                "status": "published",
+                "enabled": True,
+                "video_id": youtube_id,
+            }
             youtube = state["youtube"]
             changed = True
 
@@ -164,12 +232,7 @@ def _normalise_resume_state(workdir, state):
 
 
 def _patch_publish_resume(main):
-    """Resume only genuinely incomplete publication work.
-
-    Completed artifacts are terminal and are never handed back to main.py.
-    This deliberately does not fall back to main._find_pending_resume(), whose
-    older scanner can resurrect stale artifacts after this scanner rejects them.
-    """
+    """Resume only genuinely incomplete publication work; never resurrect completed work."""
     original_find = main._find_pending_resume
     if not getattr(original_find, "_mint_cross_run_resume", False):
         def find_pending_resume():
@@ -189,33 +252,20 @@ def _patch_publish_resume(main):
                     if not isinstance(raw_state, dict):
                         continue
                     state = _normalise_resume_state(workdir, raw_state)
-
+                    if _is_tombstoned(workdir, state):
+                        print(f"⏭️ Completed publication tombstone ignored: {workdir}")
+                        continue
                     if _state_is_complete(state):
                         print(f"⏭️ Completed publication artifact ignored: {workdir}")
                         continue
-
                     status = str(state.get("status") or "").lower()
                     if status not in {"ready_for_upload", "partial", "uploading"}:
                         continue
-
-                    enabled_platforms = [
-                        p for p in ("youtube", "instagram", "facebook")
-                        if (state.get(p) or {}).get("enabled", True)
-                    ]
-                    if enabled_platforms and all(
-                        str((state.get(p) or {}).get("status") or "").lower() in {"published", "skipped"}
-                        for p in enabled_platforms
-                    ):
-                        print(f"⏭️ Terminal platform state ignored: {workdir}")
-                        continue
-
                     script = json.loads(script_path.read_text(encoding="utf-8"))
                     return workdir, video, script, state
                 except Exception:
                     continue
-
-            # IMPORTANT: no original_find() fallback. If every local artifact
-            # is complete or invalid, main.run() must generate a fresh topic.
+            # Never call main's legacy scanner here.
             return None
 
         find_pending_resume._mint_cross_run_resume = True
@@ -267,6 +317,14 @@ def main_entry():
     _patch_tts_duration(main)
     _patch_assemble_video_media()
     _patch_publish_resume(main)
+    original_run = main.run
+    if not getattr(original_run, "_mint_completion_tombstones", False):
+        def run_with_completion_tombstones(*args, **kwargs):
+            result = original_run(*args, **kwargs)
+            _record_completed_publications()
+            return result
+        run_with_completion_tombstones._mint_completion_tombstones = True
+        main.run = run_with_completion_tombstones
     print("=" * 80)
     print("🚀 MINT-YT-FACTORY STARTED")
     print("=" * 80)
@@ -285,7 +343,7 @@ def main_entry():
     print("Story: TTS-authoritative 35-43.9 seconds (44.95s measured tolerance)")
     print("Captions: Whisper word timing → deterministic fallback if Whisper fails")
     print("TTS duration guard: ENABLED")
-    print("Publish Shorts resume: cross-run artifact recovery + terminal-completion protection ENABLED")
+    print("Publish Shorts resume: cross-run recovery + terminal-completion tombstones ENABLED")
     print("=" * 80)
     main.run(dry_run=False)
 

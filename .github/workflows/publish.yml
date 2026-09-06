@@ -11,10 +11,6 @@ permissions:
   contents: write
   actions: read
 
-concurrency:
-  group: mint-yt-factory-publish
-  cancel-in-progress: false
-
 env:
   IMAGEMAGICK_BINARY: /usr/bin/convert
 
@@ -104,9 +100,9 @@ jobs:
           mkdir -p /tmp/mint-resume
           found=""
 
-          # IMPORTANT: Only inspect the single most recent failed run.
-          # Older failed artifacts are historical snapshots and must never be
-          # allowed to resurrect an already-completed Short indefinitely.
+          # Only inspect the single most recent failed run. Additionally, a
+          # completed_publications.json tombstone blocks a failed artifact that
+          # was already successfully resumed by a later run.
           latest_row="$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/publish.yml/runs?branch=main&per_page=20" --jq '.workflow_runs[] | select(.id != ('"$GITHUB_RUN_ID"')) | select(.conclusion != null) | select(.conclusion != "success") | [.id,.conclusion,.created_at] | @tsv' | head -n 1 || true)"
 
           if [ -n "$latest_row" ]; then
@@ -132,6 +128,8 @@ jobs:
                 if [ "$final_dir" = "$script_dir" ] && [ "$final_dir" = "$state_dir" ]; then
                   if python - "$state_file" <<'PY'
           import json, sys
+          from pathlib import Path
+
           p = sys.argv[1]
           try:
               s = json.load(open(p, encoding="utf-8"))
@@ -143,6 +141,28 @@ jobs:
           uploaded = bool(s.get("uploaded"))
           instagram = s.get("instagram") or {}
           facebook = s.get("facebook") or {}
+
+          # A successful later run writes this registry and the commit step
+          # persists it to main. This is the cross-run source of truth that an
+          # old failed Actions artifact has already been consumed.
+          tombstones = []
+          try:
+              registry = json.loads(Path("completed_publications.json").read_text(encoding="utf-8"))
+              if isinstance(registry, list):
+                  tombstones = registry
+          except Exception:
+              pass
+
+          workdir_name = Path(p).parent.name
+          for item in tombstones:
+              if not isinstance(item, dict):
+                  continue
+              if str(item.get("workdir") or "").replace("\\", "/").rstrip("/").endswith("/" + workdir_name):
+                  print(f"⏭️ Resume blocked by completed publication tombstone: {workdir_name}")
+                  raise SystemExit(1)
+              if youtube_id and str(item.get("video_id") or "").strip() == youtube_id:
+                  print(f"⏭️ Resume blocked by completed YouTube publication tombstone: {youtube_id}")
+                  raise SystemExit(1)
 
           legacy_youtube_social_resume = status == "youtube_published" and uploaded and bool(youtube_id) and (
               str(instagram.get("status") or "").lower() not in {"published", "skipped"} or
@@ -243,21 +263,21 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           mkdir -p /tmp/mint-topic-state
-          for f in used_topics.json analytics_registry.json learning_playbook.json; do
+          for f in used_topics.json analytics_registry.json learning_playbook.json completed_publications.json; do
             if [ -f "$f" ]; then cp -f "$f" "/tmp/mint-topic-state/$f"; fi
           done
           git fetch origin main
           git checkout main
           git reset --hard origin/main
           changed=""
-          for f in used_topics.json analytics_registry.json learning_playbook.json; do
+          for f in used_topics.json analytics_registry.json learning_playbook.json completed_publications.json; do
             if [ -f "/tmp/mint-topic-state/$f" ]; then cp -f "/tmp/mint-topic-state/$f" "$f"; git add "$f"; changed="yes"; fi
           done
           if ! git diff --cached --quiet; then
-            git commit -m "chore: sync publish topic state" || true
+            git commit -m "chore: sync publish state" || true
             git push origin HEAD:main || true
           else
-            echo "ℹ️ No topic/learning state changes to commit."
+            echo "ℹ️ No topic/learning/publication state changes to commit."
           fi
       - name: Upload Publish Shorts resume package
         if: always()

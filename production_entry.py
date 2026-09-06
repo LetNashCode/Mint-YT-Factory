@@ -115,18 +115,50 @@ def _save_state(workdir, state):
     path.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+def _state_is_complete(state):
+    """Return True only when every enabled publication destination is terminal."""
+    enabled_platforms = [
+        p for p in ("youtube", "instagram", "facebook")
+        if (state.get(p) or {}).get("enabled", True)
+    ]
+    if not enabled_platforms:
+        return False
+    return all(
+        str((state.get(p) or {}).get("status") or "").lower() in {"published", "skipped"}
+        for p in enabled_platforms
+    )
+
+
 def _normalise_resume_state(workdir, state):
-    """Repair legacy artifacts where YouTube was saved only at top level."""
+    """Repair legacy state and promote fully published artifacts to terminal."""
+    changed = False
     youtube_id = str(state.get("video_id") or "").strip()
+    youtube = state.get("youtube") or {}
+
+    # Older artifacts persisted YouTube only at top level. Repair them so the
+    # resume scanner can make a correct terminal/incomplete decision.
     if youtube_id and bool(state.get("uploaded")):
-        youtube = state.get("youtube") or {}
-        if str(youtube.get("status") or "").lower() != "published":
+        if str(youtube.get("status") or "").lower() != "published" or str(youtube.get("video_id") or "").strip() != youtube_id:
             state["youtube"] = {"status": "published", "enabled": True, "video_id": youtube_id}
+            youtube = state["youtube"]
+            changed = True
+
+    if _state_is_complete(state) and str(state.get("status") or "").lower() != "uploaded":
+        state["status"] = "uploaded"
+        state["uploaded"] = True
+        changed = True
+    elif youtube and str(youtube.get("status") or "").lower() == "published":
         instagram = state.get("instagram") or {}
         facebook = state.get("facebook") or {}
-        social_incomplete = str(instagram.get("status") or "").lower() not in {"published", "skipped"} or str(facebook.get("status") or "").lower() not in {"published", "skipped"}
+        social_incomplete = (
+            str(instagram.get("status") or "").lower() not in {"published", "skipped"}
+            or str(facebook.get("status") or "").lower() not in {"published", "skipped"}
+        )
         if social_incomplete and str(state.get("status") or "").lower() == "youtube_published":
             state["status"] = "partial"
+            changed = True
+
+    if changed:
         _save_state(workdir, state)
     return state
 
@@ -134,14 +166,18 @@ def _normalise_resume_state(workdir, state):
 def _patch_publish_resume(main):
     """Resume only genuinely incomplete publication work.
 
-    Completed artifacts must never be selected as the next run's input. Legacy
-    artifacts from before per-platform state was persisted are repaired here so
-    a successful YouTube upload followed by a social failure remains resumable.
+    Completed artifacts are terminal and are never handed back to main.py.
+    This deliberately does not fall back to main._find_pending_resume(), whose
+    older scanner can resurrect stale artifacts after this scanner rejects them.
     """
     original_find = main._find_pending_resume
     if not getattr(original_find, "_mint_cross_run_resume", False):
         def find_pending_resume():
-            candidates = sorted(Path("output").glob("*/final.mp4"), key=lambda p: p.stat().st_mtime, reverse=True)
+            candidates = sorted(
+                Path("output").glob("*/final.mp4"),
+                key=lambda p: p.stat().st_mtime,
+                reverse=True,
+            )
             for video in candidates:
                 workdir = video.parent
                 manifest = workdir / "publish_state.json"
@@ -149,13 +185,19 @@ def _patch_publish_resume(main):
                 if not manifest.exists() or not script_path.exists():
                     continue
                 try:
-                    state = _normalise_resume_state(workdir, json.loads(manifest.read_text(encoding="utf-8")))
+                    raw_state = json.loads(manifest.read_text(encoding="utf-8"))
+                    if not isinstance(raw_state, dict):
+                        continue
+                    state = _normalise_resume_state(workdir, raw_state)
+
+                    if _state_is_complete(state):
+                        print(f"⏭️ Completed publication artifact ignored: {workdir}")
+                        continue
+
                     status = str(state.get("status") or "").lower()
-                    youtube = state.get("youtube") or {}
-                    instagram = state.get("instagram") or {}
-                    facebook = state.get("facebook") or {}
                     if status not in {"ready_for_upload", "partial", "uploading"}:
                         continue
+
                     enabled_platforms = [
                         p for p in ("youtube", "instagram", "facebook")
                         if (state.get(p) or {}).get("enabled", True)
@@ -164,11 +206,18 @@ def _patch_publish_resume(main):
                         str((state.get(p) or {}).get("status") or "").lower() in {"published", "skipped"}
                         for p in enabled_platforms
                     ):
+                        print(f"⏭️ Terminal platform state ignored: {workdir}")
                         continue
-                    return workdir, video, json.loads(script_path.read_text(encoding="utf-8")), state
+
+                    script = json.loads(script_path.read_text(encoding="utf-8"))
+                    return workdir, video, script, state
                 except Exception:
                     continue
-            return original_find()
+
+            # IMPORTANT: no original_find() fallback. If every local artifact
+            # is complete or invalid, main.run() must generate a fresh topic.
+            return None
+
         find_pending_resume._mint_cross_run_resume = True
         main._find_pending_resume = find_pending_resume
 
@@ -236,7 +285,7 @@ def main_entry():
     print("Story: TTS-authoritative 35-43.9 seconds (44.95s measured tolerance)")
     print("Captions: Whisper word timing → deterministic fallback if Whisper fails")
     print("TTS duration guard: ENABLED")
-    print("Publish Shorts resume: cross-run artifact recovery + per-platform deduplication ENABLED")
+    print("Publish Shorts resume: cross-run artifact recovery + terminal-completion protection ENABLED")
     print("=" * 80)
     main.run(dry_run=False)
 

@@ -3,17 +3,13 @@
 Publishes the same finished Short as an Instagram Reel and Facebook Page Reel.
 Credentials are supplied only through environment variables / GitHub Actions secrets.
 
-Required Instagram variables:
-  INSTAGRAM_USER_ID
-  INSTAGRAM_ACCESS_TOKEN
-
-Required Facebook variables:
-  FACEBOOK_PAGE_ID
-  FACEBOOK_PAGE_ACCESS_TOKEN
-
-Optional:
-  META_GRAPH_API_VERSION (default: v23.0)
-  SOCIAL_PUBLISH_STRICT=true to fail the pipeline if an enabled social upload fails.
+Social policy:
+  - YouTube is the primary publication and is handled by main.py.
+  - Each enabled Meta destination gets up to 3 total attempts (initial + 2 retries).
+  - A failure on Instagram never prevents Facebook from being attempted.
+  - A failure on Facebook never prevents Instagram from being attempted.
+  - In strict mode, the workflow fails only after all attempts for the failed
+    enabled destinations are exhausted. Successful destinations are never retried.
 """
 from __future__ import annotations
 
@@ -29,6 +25,7 @@ DEFAULT_API_VERSION = "v23.0"
 REQUEST_TIMEOUT = 180
 POLL_SECONDS = 5
 POLL_ATTEMPTS = 60
+MAX_SOCIAL_ATTEMPTS = 3
 
 
 def _env(name: str) -> str:
@@ -79,38 +76,53 @@ def _clean_caption(title: str, description: str, config: dict | None = None, lim
     return caption[:limit]
 
 
-def prepare_social_video(video_path: str, output_dir: str) -> str:
-    """Create a conservative Instagram/Facebook-friendly 1080x1920 H.264/AAC copy.
+def prepare_social_video(video_path: str, output_dir: str, attempt: int = 1, force: bool = False) -> str:
+    """Create a conservative Meta-compatible Reel derivative.
 
-    The production master is 2160x3840/60fps. Instagram's media processor is
-    stricter than Facebook's and can reject otherwise valid high-resolution
-    derivatives with a generic ProcessingFailedError. A 1080x1920/30fps H.264
-    Level 4.1 derivative stays within the H.264 level limits while remaining
-    native 9:16 and well inside Reel delivery requirements.
+    Attempt 1 uses a normal 1080x1920 H.264 Main encode. Retries deliberately
+    regenerate the file rather than blindly uploading the exact same binary.
+    Later attempts use a lower bitrate and Baseline profile to give Meta a
+    materially different, simpler input when its processor rejects the first
+    encode with ProcessingFailedError.
     """
     source = Path(video_path)
     if not source.is_file():
         raise RuntimeError(f"Social source video not found: {source}")
     out = Path(output_dir) / "social_reel.mp4"
-    if out.is_file() and out.stat().st_size >= 1024:
+    if out.is_file() and out.stat().st_size >= 1024 and not force:
         print(f"♻️ Reusing existing social derivative: {out}")
         return str(out)
+
     out.parent.mkdir(parents=True, exist_ok=True)
+    if attempt <= 1:
+        profile, level, bitrate, maxrate, preset = "main", "4.1", "8M", "10M", "medium"
+    elif attempt == 2:
+        profile, level, bitrate, maxrate, preset = "baseline", "4.0", "6M", "8M", "fast"
+    else:
+        profile, level, bitrate, maxrate, preset = "baseline", "4.0", "5M", "7M", "fast"
+
+    tmp = out.with_name(f"social_reel.attempt{attempt}.tmp.mp4")
     cmd = [
         "ffmpeg", "-y", "-i", str(source),
         "-vf", "scale=1080:1920:flags=lanczos",
-        "-c:v", "libx264", "-preset", "medium",
-        "-pix_fmt", "yuv420p", "-profile:v", "main",
-        "-level:v", "4.1", "-r", "30",
-        "-b:v", "8M", "-maxrate", "10M", "-bufsize", "20M",
+        "-c:v", "libx264", "-preset", preset,
+        "-pix_fmt", "yuv420p", "-profile:v", profile,
+        "-level:v", level, "-r", "30",
+        "-b:v", bitrate, "-maxrate", maxrate, "-bufsize", "16M",
         "-c:a", "aac", "-ar", "48000", "-b:a", "128k",
         "-movflags", "+faststart",
-        str(out),
+        str(tmp),
     ]
-    print("📱 Preparing conservative 1080x1920/30fps Meta Reel derivative")
+    print(f"📱 Preparing Meta Reel derivative | attempt {attempt}/{MAX_SOCIAL_ATTEMPTS} | {profile} {level} | {bitrate} video")
     result = subprocess.run(cmd, capture_output=True, text=True)
-    if result.returncode != 0 or not out.is_file() or out.stat().st_size < 1024:
+    if result.returncode != 0 or not tmp.is_file() or tmp.stat().st_size < 1024:
+        try:
+            tmp.unlink(missing_ok=True)
+        except Exception:
+            pass
         raise RuntimeError("Social video transcode failed: " + (result.stderr or result.stdout)[-1500:])
+
+    tmp.replace(out)
     return str(out)
 
 
@@ -229,8 +241,45 @@ def _save_publish_state(output_dir: str, state: dict) -> None:
     _state_path(output_dir).write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+def _attempt_social(name: str, fn, video_path: str, title: str, description: str, config: dict, output_dir: str, state: dict) -> dict:
+    """Attempt one social destination up to three total times."""
+    previous = state.get(name) or {}
+    if str(previous.get("status") or "").lower() == "published":
+        print(f"♻️ {name.title()} already published; skipping duplicate upload.")
+        return previous
+
+    last_error = None
+    for attempt in range(1, MAX_SOCIAL_ATTEMPTS + 1):
+        try:
+            if attempt == 1:
+                social_video = prepare_social_video(video_path, output_dir, attempt=1, force=False)
+            else:
+                print(f"🔁 {name.title()} retry {attempt - 1}/2 — regenerating Meta video derivative")
+                social_video = prepare_social_video(video_path, output_dir, attempt=attempt, force=True)
+            state["social_video"] = social_video
+            _save_publish_state(output_dir, state)
+            result = fn(social_video, title, description, config)
+            state[name] = result
+            _save_publish_state(output_dir, state)
+            return result
+        except Exception as exc:
+            last_error = exc
+            state[name] = {
+                "status": "failed",
+                "attempt": attempt,
+                "max_attempts": MAX_SOCIAL_ATTEMPTS,
+                "error": f"{type(exc).__name__}: {exc}",
+            }
+            _save_publish_state(output_dir, state)
+            print(f"⚠️ {name.title()} attempt {attempt}/{MAX_SOCIAL_ATTEMPTS} failed: {type(exc).__name__}: {exc}")
+            if attempt < MAX_SOCIAL_ATTEMPTS:
+                time.sleep(3)
+
+    raise RuntimeError(f"{name.title()} failed after {MAX_SOCIAL_ATTEMPTS} attempts: {last_error}")
+
+
 def publish_social_reels(video_path: str, title: str, description: str, config: dict, output_dir: str) -> dict:
-    """Publish enabled Meta destinations, resuming only unfinished platforms."""
+    """Publish enabled Meta destinations with two retries per destination."""
     state = _load_publish_state(output_dir)
     state.setdefault("youtube", {"status": "pending"})
     state.setdefault("instagram", {"status": "pending"})
@@ -254,11 +303,6 @@ def publish_social_reels(video_path: str, title: str, description: str, config: 
         _save_publish_state(output_dir, state)
         return result
 
-    social_video = prepare_social_video(video_path, output_dir)
-    result["social_video"] = social_video
-    state["social_video"] = social_video
-    _save_publish_state(output_dir, state)
-
     failures = []
     for name, fn, enabled in (
         ("instagram", _upload_instagram, ig_enabled),
@@ -270,22 +314,17 @@ def publish_social_reels(video_path: str, title: str, description: str, config: 
             _save_publish_state(output_dir, state)
             continue
 
-        previous = state.get(name) or {}
-        if str(previous.get("status") or "").lower() == "published":
-            print(f"♻️ {name.title()} already published; skipping duplicate upload.")
-            result[name] = previous
-            continue
-
         try:
-            result[name] = fn(social_video, title, description, config)
-            state[name] = result[name]
-            _save_publish_state(output_dir, state)
+            result[name] = _attempt_social(name, fn, video_path, title, description, config, output_dir, state)
         except Exception as exc:
-            result[name] = {"status": "failed", "error": f"{type(exc).__name__}: {exc}"}
-            state[name] = result[name]
             failures.append(name)
-            _save_publish_state(output_dir, state)
-            print(f"⚠️ {name.title()} publishing failed: {type(exc).__name__}: {exc}")
+            result[name] = state.get(name) or {
+                "status": "failed",
+                "error": f"{type(exc).__name__}: {exc}",
+            }
+            print(f"🛑 {name.title()} exhausted all {MAX_SOCIAL_ATTEMPTS} attempts.")
+            # Continue to the other social destination; one platform's failure
+            # must not prevent the other from getting its full retry budget.
 
     status_path = Path(output_dir) / "social_publish_status.json"
     try:
@@ -294,7 +333,7 @@ def publish_social_reels(video_path: str, title: str, description: str, config: 
         print(f"⚠️ Could not save social publish status: {exc}")
 
     if failures and result["strict"]:
-        raise RuntimeError("Strict social publishing failed for: " + ", ".join(failures))
+        raise RuntimeError("Strict social publishing failed after 2 retries for: " + ", ".join(failures))
     if failures:
-        print("⚠️ Social publishing had failures but YouTube publication remains successful.")
+        print("⚠️ Social publishing had failures after 2 retries but YouTube publication remains successful.")
     return result

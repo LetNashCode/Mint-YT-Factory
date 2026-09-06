@@ -2,7 +2,7 @@
 tts.py
 Mint-YT-Factory
 
-Version 12.2 — SINGLE-PASS KOKORO PRIMARY + EDGE FALLBACK
+Version 12.3 — SINGLE-PASS KOKORO PRIMARY + EDGE FALLBACK
 
 Narration is synthesized as one continuous request with Kokoro-82M using
  the af_heart American-English voice. Kokoro itself may internally split long
@@ -17,6 +17,7 @@ import time
 
 import numpy as np
 from moviepy.editor import AudioFileClip
+from moviepy.audio.AudioClip import AudioArrayClip
 
 SAMPLE_RATE = 44100
 KOKORO_SAMPLE_RATE = 24000
@@ -25,11 +26,13 @@ MIN_PLAYBACK_SPEED = 0.95
 MAX_PLAYBACK_SPEED = 1.10
 TTS_RETRIES = 2
 
-# Remove provider-generated dead air so the visual timeline never continues
-# for several seconds after the last spoken word.
+# Keep a short natural tail after the final spoken sample. This prevents the
+# MP3 writer / AAC mux from making the final phoneme feel hard-cut while still
+# avoiding the several seconds of provider-generated dead air that we remove.
 TRAILING_SILENCE_THRESHOLD = 0.006
 TRAILING_SILENCE_KEEP_SECONDS = 0.18
 TRAILING_SILENCE_MIN_SECONDS = 0.35
+NARRATION_END_PADDING_SECONDS = 0.22
 
 KOKORO_ENABLED = os.environ.get("MINT_KOKORO_TTS", "1").strip().lower() not in {"0", "false", "no"}
 KOKORO_VOICE = os.environ.get("MINT_KOKORO_VOICE", "af_heart").strip() or "af_heart"
@@ -85,16 +88,16 @@ def apply_narration_speed(clip):
         duration = float(getattr(clip, "duration", 0.0) or 0.0)
         speed = 1.0
 
-    # Keep a tiny source-side margin because the reader can report a duration
-    # fractionally beyond the final readable sample/frame.
-    safety_margin = min(0.10, max(0.0, duration * 0.002))
-    safe_duration = max(0.01, duration - safety_margin)
+    # Do not discard a fixed 100 ms from the source. That margin was intended
+    # to protect MoviePy's reader but can shave the final phoneme. The rendered
+    # narration receives an explicit silence tail below instead.
+    safe_duration = max(0.01, duration)
 
     if abs(speed - 1.0) < 0.001:
         safe_clip = clip.set_duration(safe_duration)
         print(
             f"✅ Narration speed adjustment not needed "
-            f"({duration:.2f}s; safe source duration {safe_duration:.2f}s)"
+            f"({duration:.2f}s; full source duration preserved)"
         )
         return safe_clip
 
@@ -117,7 +120,7 @@ def apply_narration_speed(clip):
         print(
             f"✅ Adaptive narration speed: "
             f"{speed:.3f}x "
-            f"({duration:.2f}s → {transformed_duration:.2f}s)"
+            f"({duration:.2f}s → {transformed_duration:.2f}s; full ending preserved)"
         )
         return transformed
     except Exception as error:
@@ -155,8 +158,6 @@ def _trim_trailing_silence(audio, sample_rate):
     """Trim only meaningful dead air from the end of generated narration.
 
     TTS providers can return several seconds of silence after the final word.
-    The assembler correctly trusts narration.duration, so that dead air would
-    otherwise leave visuals, music and SFX playing with no spoken narration.
     Keep a tiny natural tail, but remove long silent endings.
     """
     audio = np.asarray(audio, dtype=np.float32).reshape(-1)
@@ -320,8 +321,10 @@ def synthesize_narration(text, config, out_path):
     print("Adaptive narration speed: ENABLED")
     print("Artificial gaps: DISABLED")
     print("Crossfade: DISABLED")
+    print(f"Natural narration end padding: {NARRATION_END_PADDING_SECONDS:.2f}s")
 
     processed = None
+    final_narration = None
     try:
         _synthesize_once(tts_text, voice_config, raw_path)
 
@@ -329,8 +332,20 @@ def synthesize_narration(text, config, out_path):
         try:
             print(f"Raw narration duration: {clip.duration:.2f}s")
             processed = apply_narration_speed(clip)
-            print(f"Final narration duration: {processed.duration:.2f}s")
-            processed.write_audiofile(
+            print(f"Processed narration duration: {processed.duration:.2f}s")
+
+            # Add a short true-silence tail after the final spoken sample. This
+            # is deliberately audio, not just a visual tail, so the final word
+            # can release naturally instead of hitting an exact timeline edge.
+            sample_count = max(1, int(round(NARRATION_END_PADDING_SECONDS * SAMPLE_RATE)))
+            silence = np.zeros((sample_count, 2), dtype=np.float32)
+            silence_clip = AudioArrayClip(silence, fps=SAMPLE_RATE)
+            final_narration = __import__("moviepy.editor", fromlist=["concatenate_audioclips"]).concatenate_audioclips(
+                [processed, silence_clip]
+            )
+            print(f"Final narration duration: {final_narration.duration:.2f}s (includes natural end tail)")
+
+            final_narration.write_audiofile(
                 out_path,
                 fps=SAMPLE_RATE,
                 codec="libmp3lame",
@@ -339,6 +354,11 @@ def synthesize_narration(text, config, out_path):
                 logger=None,
             )
         finally:
+            if final_narration is not None:
+                try:
+                    final_narration.close()
+                except Exception:
+                    pass
             if processed is not None and processed is not clip:
                 try:
                     processed.close()

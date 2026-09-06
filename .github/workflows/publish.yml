@@ -127,12 +127,22 @@ jobs:
           except Exception:
               raise SystemExit(1)
           status = str(s.get("status") or "").lower()
-          if status not in {"ready_for_upload", "partial", "uploading"}:
+          youtube_id = str(s.get("video_id") or ((s.get("youtube") or {}).get("video_id") or "")).strip()
+          uploaded = bool(s.get("uploaded"))
+          instagram = s.get("instagram") or {}
+          facebook = s.get("facebook") or {}
+          legacy_youtube_social_resume = status == "youtube_published" and uploaded and bool(youtube_id) and (
+              str(instagram.get("status") or "").lower() not in {"published", "skipped"} or
+              str(facebook.get("status") or "").lower() not in {"published", "skipped"}
+          )
+          if status not in {"ready_for_upload", "partial", "uploading"} and not legacy_youtube_social_resume:
               raise SystemExit(1)
           platforms = [p for p in ("youtube", "instagram", "facebook") if (s.get(p) or {}).get("enabled", True)]
+          if legacy_youtube_social_resume:
+              platforms = [p for p in ("instagram", "facebook") if (s.get(p) or {}).get("enabled", True)]
           if platforms and all(str((s.get(p) or {}).get("status") or "").lower() in {"published", "skipped"} for p in platforms):
               raise SystemExit(1)
-          print(f"Resumable state: {status}")
+          print(f"Resumable state: {status} | youtube_id={youtube_id or 'none'}")
           PY
             then
               echo "⏭️ Artifact $run_id is already complete; refusing to restore it."

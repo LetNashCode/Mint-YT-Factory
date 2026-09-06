@@ -18,7 +18,6 @@ def _patch_script_model_resilience(main):
     original = main.generate_script
     if getattr(original, "_mint_model_resilient", False):
         return
-
     globals_dict = getattr(original, "__globals__", {})
     primary = "gemini-flash-lite-latest"
     globals_dict["MODEL_NAME"] = primary
@@ -43,7 +42,6 @@ def _patch_tts_duration(main):
     def synthesize(script, config, out_dir):
         current_next = ((script.get("next_short") or {}).get("topic") or "").strip()
         topic = str(script.get("topic", "")).strip()
-
         for attempt in range(MAX_SHORT_TTS_REGEN + 1):
             audio = original(script, config, out_dir)
             clip = AudioFileClip(audio)
@@ -51,35 +49,23 @@ def _patch_tts_duration(main):
                 duration = float(clip.duration)
             finally:
                 clip.close()
-
             print(f"🎯 TTS duration gate: {duration:.2f}s")
             if MIN_NARRATION_SECONDS <= duration <= MAX_NARRATION_SECONDS:
                 return audio
-
             if attempt >= MAX_SHORT_TTS_REGEN:
                 raise RuntimeError(
-                    f"Narration duration remained outside production range after "
-                    f"{MAX_SHORT_TTS_REGEN} regeneration attempts: {duration:.2f}s "
+                    f"Narration duration remained outside production range after {MAX_SHORT_TTS_REGEN} regeneration attempts: {duration:.2f}s "
                     f"(allowed {MIN_NARRATION_SECONDS:.2f}-{MAX_NARRATION_SECONDS:.2f}s)."
                 )
-
-            if duration > MAX_NARRATION_SECONDS:
-                direction = (
-                    f"The previous narration rendered at {duration:.2f} seconds and is TOO LONG. "
-                    "Rewrite it shorter. Remove filler and repeated explanation while keeping the hook, escalation, and payoff."
-                )
-            else:
-                direction = (
-                    f"The previous narration rendered at {duration:.2f} seconds and is TOO SHORT. "
-                    "Add concrete everyday details and escalation, not scientific filler."
-                )
-
+            direction = (
+                f"The previous narration rendered at {duration:.2f} seconds and is TOO LONG. Rewrite it shorter. Remove filler and repeated explanation while keeping the hook, escalation, and payoff."
+                if duration > MAX_NARRATION_SECONDS
+                else f"The previous narration rendered at {duration:.2f} seconds and is TOO SHORT. Add concrete everyday details and escalation, not scientific filler."
+            )
             feedback = (
-                f"{direction} CURRENT TOPIC: {topic!r}. "
-                f"The canonical next topic is locked as metadata: {current_next!r}. "
+                f"{direction} CURRENT TOPIC: {topic!r}. The canonical next topic is locked as metadata: {current_next!r}. "
                 "Write only the current-topic story. Do not add any continuation sentence; the pipeline appends the preview separately after generation."
             )
-
             try:
                 candidate = main.generate_script(topic, config, None, extra_feedback=feedback)
             except Exception as exc:
@@ -88,16 +74,11 @@ def _patch_tts_duration(main):
             candidate["topic"] = topic
             candidate["next_short"] = dict(candidate.get("next_short") or {})
             candidate["next_short"]["topic"] = current_next
-
             candidate, locked_next = main.lock_next_topic(candidate, topic)
             if locked_next != current_next:
-                raise RuntimeError(
-                    f"TTS regeneration changed locked next topic: {locked_next!r} != {current_next!r}"
-                )
-
+                raise RuntimeError(f"TTS regeneration changed locked next topic: {locked_next!r} != {current_next!r}")
             script.clear()
             script.update(candidate)
-
             workdir = os.path.dirname(os.path.dirname(os.path.abspath(out_dir)))
             try:
                 with open(os.path.join(workdir, "script.json"), "w", encoding="utf-8") as handle:
@@ -106,7 +87,6 @@ def _patch_tts_duration(main):
                     main.write_continuation_manifest(topic, current_next, "locked", workdir)
             except Exception as exc:
                 print(f"⚠️ Could not refresh regenerated script artifact: {exc}")
-
         return audio
 
     synthesize._mint_duration_guard = True
@@ -115,12 +95,8 @@ def _patch_tts_duration(main):
 
 def _patch_assemble_video_media():
     import assemble
-
     if not hasattr(assemble, "make_visual_clip"):
-        raise RuntimeError(
-            "assemble.py is missing make_visual_clip(); cannot enable stock-video assembly."
-        )
-
+        raise RuntimeError("assemble.py is missing make_visual_clip(); cannot enable stock-video assembly.")
     print("🛡️ Assembly media compatibility: native make_visual_clip() handles stock VIDEO + IMAGE")
 
 
@@ -140,12 +116,11 @@ def _save_state(workdir, state):
 
 
 def _patch_publish_resume(main):
-    """Make Publish Shorts resume artifacts across ephemeral GitHub runners.
+    """Resume only genuinely incomplete publication work.
 
-    A failed run can leave YouTube and/or one Meta destination already published.
-    The next run reuses final.mp4 and retries only unfinished destinations. A failed
-    run whose platforms are already complete is also resumed once so topic-state
-    bookkeeping can finish instead of generating a duplicate Short.
+    Completed artifacts must never be selected as the next run's input. The old
+    implementation treated ``uploaded``/``completed`` artifacts as resumable,
+    which caused the same already-published Short to run again forever.
     """
     original_find = main._find_pending_resume
     if not getattr(original_find, "_mint_cross_run_resume", False):
@@ -160,13 +135,23 @@ def _patch_publish_resume(main):
                 try:
                     state = json.loads(manifest.read_text(encoding="utf-8"))
                     status = str(state.get("status") or "").lower()
-                    # Do not skip a restored artifact merely because all uploads
-                    # succeeded. The previous run may have failed while committing
-                    # continuation/topic state, as happened after social publishing.
-                    # Successful workflow runs are never restored by publish.yml, so
-                    # this is safe and prevents a duplicate generation on recovery.
-                    if status in {"ready_for_upload", "partial", "uploading", "uploaded", "completed"} or state.get("youtube") or state.get("instagram") or state.get("facebook"):
-                        return workdir, video, json.loads(script_path.read_text(encoding="utf-8")), state
+                    youtube = state.get("youtube") or {}
+                    instagram = state.get("instagram") or {}
+                    facebook = state.get("facebook") or {}
+                    # Only these states can represent unfinished work. In
+                    # particular, NEVER resume uploaded/completed artifacts.
+                    if status not in {"ready_for_upload", "partial", "uploading"}:
+                        continue
+                    enabled_platforms = [
+                        p for p in ("youtube", "instagram", "facebook")
+                        if (state.get(p) or {}).get("enabled", True)
+                    ]
+                    if enabled_platforms and all(
+                        str((state.get(p) or {}).get("status") or "").lower() in {"published", "skipped"}
+                        for p in enabled_platforms
+                    ):
+                        continue
+                    return workdir, video, json.loads(script_path.read_text(encoding="utf-8")), state
                 except Exception:
                     continue
             return original_find()
@@ -185,7 +170,6 @@ def _patch_publish_resume(main):
         if str(youtube.get("status") or "").lower() == "published" and existing_id:
             print(f"♻️ YOUTUBE ALREADY PUBLISHED | video_id={existing_id} — skipping duplicate upload")
             return existing_id
-
         state.setdefault("youtube", {"status": "uploading", "enabled": True})
         state["status"] = "uploading"
         _save_state(workdir, state)
@@ -206,17 +190,14 @@ def _patch_publish_resume(main):
 
 def main_entry():
     import main
-
     patch_continuation(main)
     patch_tts_result(main)
     patch_story_quality(main)
     patch_story_generation(main)
-
     _patch_script_model_resilience(main)
     _patch_tts_duration(main)
     _patch_assemble_video_media()
     _patch_publish_resume(main)
-
     print("=" * 80)
     print("🚀 MINT-YT-FACTORY STARTED")
     print("=" * 80)
@@ -237,7 +218,6 @@ def main_entry():
     print("TTS duration guard: ENABLED")
     print("Publish Shorts resume: cross-run artifact recovery + per-platform deduplication ENABLED")
     print("=" * 80)
-
     main.run(dry_run=False)
 
 

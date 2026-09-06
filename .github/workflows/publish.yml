@@ -119,6 +119,25 @@ jobs:
             [ -n "$final_file" ] && [ -n "$script_file" ] && [ -n "$state_file" ] || continue
             final_dir="$(dirname "$final_file")"; script_dir="$(dirname "$script_file")"; state_dir="$(dirname "$state_file")"
             [ "$final_dir" = "$script_dir" ] && [ "$final_dir" = "$state_dir" ] || continue
+            if ! python - "$state_file" <<'PY'
+          import json, sys
+          p = sys.argv[1]
+          try:
+              s = json.load(open(p, encoding="utf-8"))
+          except Exception:
+              raise SystemExit(1)
+          status = str(s.get("status") or "").lower()
+          if status not in {"ready_for_upload", "partial", "uploading"}:
+              raise SystemExit(1)
+          platforms = [p for p in ("youtube", "instagram", "facebook") if (s.get(p) or {}).get("enabled", True)]
+          if platforms and all(str((s.get(p) or {}).get("status") or "").lower() in {"published", "skipped"} for p in platforms):
+              raise SystemExit(1)
+          print(f"Resumable state: {status}")
+          PY
+            then
+              echo "⏭️ Artifact $run_id is already complete; refusing to restore it."
+              continue
+            fi
             workdir_name="$(basename "$final_dir")"
             rm -rf "output/$workdir_name"; mkdir -p output; cp -a "$final_dir" "output/"
             if [ -f "output/$workdir_name/final.mp4" ] && [ -f "output/$workdir_name/script.json" ] && [ -f "output/$workdir_name/publish_state.json" ]; then
@@ -168,13 +187,17 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p /tmp/mint-topic-state
+          for f in used_topics.json analytics_registry.json learning_playbook.json; do
+            if [ -f "$f" ]; then cp -f "$f" "/tmp/mint-topic-state/$f"; fi
+          done
           git fetch origin main
           git checkout main
           git reset --hard origin/main
           changed=""
-          if [ -f used_topics.json ]; then git add used_topics.json; changed="yes"; fi
-          if [ -f analytics_registry.json ]; then git add analytics_registry.json; changed="yes"; fi
-          if [ -f learning_playbook.json ]; then git add learning_playbook.json; changed="yes"; fi
+          for f in used_topics.json analytics_registry.json learning_playbook.json; do
+            if [ -f "/tmp/mint-topic-state/$f" ]; then cp -f "/tmp/mint-topic-state/$f" "$f"; git add "$f"; changed="yes"; fi
+          done
           if ! git diff --cached --quiet; then
             git commit -m "chore: sync publish topic state" || true
             git push origin HEAD:main || true

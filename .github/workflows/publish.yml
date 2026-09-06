@@ -2,9 +2,9 @@ name: Publish Short
 
 on:
   schedule:
-    - cron: "0 2 * * *"       # 07:30 IST
-    - cron: "30 7 * * *"      # 13:00 IST
-    - cron: "30 13 * * *"     # 19:00 IST
+    - cron: "0 2 * * *"
+    - cron: "30 7 * * *"
+    - cron: "30 13 * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -22,75 +22,53 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     timeout-minutes: 60
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: true
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: pip
           cache-dependency-path: requirements.txt
-
       - name: Cache Whisper tiny.en model
         uses: actions/cache@v4
         with:
           path: ~/.cache/whisper
           key: whisper-tiny-en-v2
-
       - name: Cache Kokoro model
         uses: actions/cache@v4
         with:
           path: ~/.cache/huggingface
           key: kokoro-82m-v1
-
       - name: Install system tools
         shell: bash
         run: |
           set -euo pipefail
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends ffmpeg imagemagick tesseract-ocr espeak-ng
-
-          if [ -f /etc/ImageMagick-6/policy.xml ]; then
-            sudo sed -i 's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' /etc/ImageMagick-6/policy.xml || true
-          fi
-          if [ -f /etc/ImageMagick-7/policy.xml ]; then
-            sudo sed -i 's/rights="none" pattern="@\*"/rights="read|write" pattern="@*"/' /etc/ImageMagick-7/policy.xml || true
-          fi
-
+          if [ -f /etc/ImageMagick-6/policy.xml ]; then sudo sed -i 's/rights="none" pattern="@\*"/rights="read|write" pattern="@*/' /etc/ImageMagick-6/policy.xml || true; fi
+          if [ -f /etc/ImageMagick-7/policy.xml ]; then sudo sed -i 's/rights="none" pattern="@\*"/rights="read|write" pattern="@*/' /etc/ImageMagick-7/policy.xml || true; fi
           test -x "$IMAGEMAGICK_BINARY"
           ffmpeg -version | head -n 1
           "$IMAGEMAGICK_BINARY" --version | head -n 1
           tesseract --version | head -n 1
           espeak-ng --version | head -n 1
-
       - name: Install Python dependencies
         shell: bash
         run: |
           set -euo pipefail
           python -m pip install --upgrade pip
           python -m pip install --prefer-binary -r requirements.txt
-
       - name: Verify environment
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
-          import whisper
-          import torch
-          import moviepy
-          import yaml
-          import google.genai
-          import ffmpeg
-          import pytesseract
-          import requests
-          import soundfile
-          import kokoro
+          import whisper, torch, moviepy, yaml, google.genai, ffmpeg, pytesseract, requests, soundfile, kokoro
           print("Python environment OK")
           print("Torch:", torch.__version__)
           print("CUDA available:", torch.cuda.is_available())
@@ -99,7 +77,6 @@ jobs:
           print("SoundFile:", soundfile.__version__)
           print("Kokoro: available")
           PY
-
           test -f main.py
           test -f assemble.py
           test -f tts.py
@@ -109,13 +86,11 @@ jobs:
           test -f production_entry.py
           test -f stock_search.py
           test -f stock_media_resilient.py
-
           python -m py_compile main.py production_entry.py stock_search.py stock_media_resilient.py tts.py social_publish.py
           python - <<'PY'
           import stock_media_resilient
           print("Stock media pipeline import OK")
           PY
-
       - name: Restore previous failed Publish Shorts video
         shell: bash
         env:
@@ -125,85 +100,34 @@ jobs:
           echo "=========================================="
           echo "♻️ CHECKING FOR PREVIOUS FAILED PUBLISH RUN"
           echo "=========================================="
-
           rm -rf /tmp/mint-resume
           mkdir -p /tmp/mint-resume
           found=""
-
-          mapfile -t runs < <(gh api \
-            "repos/${GITHUB_REPOSITORY}/actions/workflows/publish.yml/runs?branch=main&per_page=20" \
-            --jq '.workflow_runs[] | select(.id != ('"$GITHUB_RUN_ID"')) | select(.conclusion != null) | select(.conclusion != "success") | [.id,.conclusion,.created_at] | @tsv')
-
+          mapfile -t runs < <(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/publish.yml/runs?branch=main&per_page=20" --jq '.workflow_runs[] | select(.id != ('"$GITHUB_RUN_ID"')) | select(.conclusion != null) | select(.conclusion != "success") | [.id,.conclusion,.created_at] | @tsv')
           for row in "${runs[@]}"; do
             run_id="${row%%$'\t'*}"
             rest="${row#*$'\t'}"
             conclusion="${rest%%$'\t'*}"
             echo "🔎 Checking previous run $run_id ($conclusion)"
-
-            artifact_name="$(gh api \
-              "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/artifacts?per_page=100" \
-              --jq '.artifacts[] | select(.expired == false) | select(.name | startswith("publish-resume-")) | .name' \
-              | head -n 1 || true)"
-
-            if [ -z "$artifact_name" ]; then
-              continue
-            fi
-
-            echo "📦 Downloading resume artifact: $artifact_name"
+            artifact_name="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/artifacts?per_page=100" --jq '.artifacts[] | select(.expired == false) | select(.name | startswith("publish-resume-")) | .name' | head -n 1 || true)"
+            [ -n "$artifact_name" ] || continue
             rm -rf /tmp/mint-resume/*
             gh run download "$run_id" -n "$artifact_name" -D /tmp/mint-resume
-
             final_file="$(find /tmp/mint-resume -type f -name final.mp4 -print -quit || true)"
             script_file="$(find /tmp/mint-resume -type f -name script.json -print -quit || true)"
             state_file="$(find /tmp/mint-resume -type f -name publish_state.json -print -quit || true)"
-
-            if [ -z "$final_file" ] || [ -z "$script_file" ] || [ -z "$state_file" ]; then
-              echo "⚠️ Artifact did not contain final.mp4 + script.json + publish_state.json; checking older failed run."
-              continue
-            fi
-
-            final_dir="$(dirname "$final_file")"
-            script_dir="$(dirname "$script_file")"
-            state_dir="$(dirname "$state_file")"
-
-            if [ "$final_dir" != "$script_dir" ] || [ "$final_dir" != "$state_dir" ]; then
-              echo "⚠️ Resume files are not from the same workdir; checking older failed run."
-              continue
-            fi
-
+            [ -n "$final_file" ] && [ -n "$script_file" ] && [ -n "$state_file" ] || continue
+            final_dir="$(dirname "$final_file")"; script_dir="$(dirname "$script_file")"; state_dir="$(dirname "$state_file")"
+            [ "$final_dir" = "$script_dir" ] && [ "$final_dir" = "$state_dir" ] || continue
             workdir_name="$(basename "$final_dir")"
-            if [ -z "$workdir_name" ] || [ "$workdir_name" = "." ] || [ "$workdir_name" = "/" ]; then
-              echo "⚠️ Invalid restored workdir; checking older failed run."
-              continue
-            fi
-
-            rm -rf "output/$workdir_name"
-            mkdir -p output
-            cp -a "$final_dir" "output/"
-
-            restored_final="output/$workdir_name/final.mp4"
-            restored_script="output/$workdir_name/script.json"
-            restored_state="output/$workdir_name/publish_state.json"
-
-            if [ -f "$restored_final" ] && [ -f "$restored_script" ] && [ -f "$restored_state" ]; then
+            rm -rf "output/$workdir_name"; mkdir -p output; cp -a "$final_dir" "output/"
+            if [ -f "output/$workdir_name/final.mp4" ] && [ -f "output/$workdir_name/script.json" ] && [ -f "output/$workdir_name/publish_state.json" ]; then
               echo "✅ Restored Publish Shorts workdir from failed run $run_id"
-              echo "   Workdir: output/$workdir_name"
-              echo "   Final video: $restored_final"
-              echo "   Publish state: $restored_state"
-              found="$run_id"
-              break
+              found="$run_id"; break
             fi
-
             rm -rf "output/$workdir_name"
-            echo "⚠️ Restore verification failed; checking older failed run."
           done
-
-          if [ -n "$found" ]; then
-            echo "♻️ Resume mode is ready. production_entry.py will reuse the final video and platform state."
-          else
-            echo "ℹ️ No resumable failed Publish Shorts artifact found. A fresh video will be generated."
-          fi
-
+          if [ -n "$found" ]; then echo "♻️ Resume mode is ready."; else echo "ℹ️ No resumable failed Publish Shorts artifact found. A fresh video will be generated."; fi
       - name: Write YouTube client credentials
         shell: bash
         env:
@@ -213,8 +137,8 @@ jobs:
           test -n "$YOUTUBE_CLIENT_SECRET_JSON"
           printf '%s' "$YOUTUBE_CLIENT_SECRET_JSON" > client_secret.json
           test -s client_secret.json
-
       - name: Run Mint-YT-Factory
+        id: run_factory
         shell: bash
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -237,7 +161,26 @@ jobs:
           date
           python --version
           python -u production_entry.py
-
+      - name: Commit used topics safely
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin main
+          git checkout main
+          git reset --hard origin/main
+          changed=""
+          if [ -f used_topics.json ]; then git add used_topics.json; changed="yes"; fi
+          if [ -f analytics_registry.json ]; then git add analytics_registry.json; changed="yes"; fi
+          if [ -f learning_playbook.json ]; then git add learning_playbook.json; changed="yes"; fi
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: sync publish topic state" || true
+            git push origin HEAD:main || true
+          else
+            echo "ℹ️ No topic/learning state changes to commit."
+          fi
       - name: Upload Publish Shorts resume package
         if: always()
         uses: actions/upload-artifact@v4
@@ -252,154 +195,11 @@ jobs:
           include-hidden-files: true
           if-no-files-found: warn
           retention-days: 7
-
       - name: Upload final video
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: final-video-${{ github.run_id }}
           path: output/**/final.mp4
-          include-hidden-files: true
-          if-no-files-found: warn
+          if-no-files-found: ignore
           retention-days: 7
-
-      - name: Upload generated stock media
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: generated-media-${{ github.run_id }}
-          path: output/**/visuals/
-          if-no-files-found: warn
-          retention-days: 7
-
-      - name: Upload research package
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: research-${{ github.run_id }}
-          path: output/**/research.json
-          if-no-files-found: warn
-          retention-days: 7
-
-      - name: Upload generated script
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: script-${{ github.run_id }}
-          path: |
-            output/**/script.json
-            output/**/publish_state.json
-          if-no-files-found: warn
-          retention-days: 7
-
-      - name: Commit used topics safely
-        if: success()
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          git config user.name "auto-publish-bot"
-          git config user.email "actions@github.com"
-
-          cp used_topics.json /tmp/generated_used_topics.json
-          mkdir -p /tmp/generated_analytics
-          cp analytics/topic_history.json /tmp/generated_analytics/topic_history.json 2>/dev/null || echo "[]" > /tmp/generated_analytics/topic_history.json
-
-          for attempt in 1 2 3; do
-            echo "=========================================="
-            echo "📝 TOPIC STATE SYNC — ATTEMPT $attempt"
-            echo "=========================================="
-
-            git fetch origin main
-            git reset --hard origin/main
-
-            cp /tmp/generated_used_topics.json /tmp/generated.json
-            cp /tmp/generated_analytics/topic_history.json /tmp/generated_topic_history.json
-
-            python - <<'PY'
-          import json
-          from pathlib import Path
-
-          remote_path = Path("used_topics.json")
-          generated_path = Path("/tmp/generated.json")
-
-          remote = json.loads(remote_path.read_text(encoding="utf-8")) if remote_path.exists() else []
-          generated = json.loads(generated_path.read_text(encoding="utf-8"))
-
-          if not isinstance(remote, list) or not isinstance(generated, list):
-              raise SystemExit("used_topics.json must contain a JSON array")
-
-          pending_prefix = "__MINT_PENDING_NEXT_TOPIC__::"
-          merged = []
-          seen = set()
-
-          for item in remote + generated:
-              if not isinstance(item, str) or item.startswith(pending_prefix):
-                  continue
-              if item not in seen:
-                  seen.add(item)
-                  merged.append(item)
-
-          local_pending = [x for x in generated if isinstance(x, str) and x.startswith(pending_prefix)]
-          remote_pending = [x for x in remote if isinstance(x, str) and x.startswith(pending_prefix)]
-
-          if local_pending:
-              if remote_pending and local_pending[-1] != remote_pending[-1]:
-                  print("Replacing consumed remote pending topic with new reservation:", local_pending[-1])
-              merged.append(local_pending[-1])
-          elif remote_pending:
-              merged.append(remote_pending[-1])
-
-          remote_path.write_text(json.dumps(merged, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-          print("Merged topic state:", len(merged), "records")
-          print("Pending continuation:", local_pending[-1] if local_pending else (remote_pending[-1] if remote_pending else "NONE"))
-          PY
-
-            python - <<'PY'
-          import json
-          from pathlib import Path
-          p=Path("analytics/topic_history.json"); local=Path("/tmp/generated_topic_history.json")
-          def load(x):
-              try:
-                  d=json.loads(x.read_text(encoding="utf-8")); return d if isinstance(d,list) else []
-              except Exception:return []
-          merged=[]; seen=set()
-          for item in load(p)+load(local):
-              if not isinstance(item,dict): continue
-              key=str(item.get("normalized") or item.get("topic") or "").strip().lower()
-              if not key or key in seen: continue
-              seen.add(key); merged.append(item)
-          p.parent.mkdir(parents=True,exist_ok=True)
-          p.write_text(json.dumps(merged,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
-          print("Merged published topic history:",len(merged),"records")
-          PY
-
-            git add used_topics.json analytics/topic_history.json
-
-            if git diff --cached --quiet; then
-              echo "No topic changes to commit."
-              exit 0
-            fi
-
-            git commit -m "Update topic registry [skip ci]"
-
-            if git push origin HEAD:main; then
-              echo "✅ Topic state pushed successfully."
-              exit 0
-            fi
-
-            echo "⚠️ Remote changed during push. Retrying with latest main..."
-            git reset --hard origin/main
-          done
-
-          echo "❌ Could not safely synchronize used_topics.json after 3 attempts."
-          exit 1
-
-      - name: Pipeline complete
-        if: success()
-        shell: bash
-        run: |
-          echo "=========================================="
-          echo "🎉 MINT-YT-FACTORY COMPLETE"
-          echo "=========================================="
-          date

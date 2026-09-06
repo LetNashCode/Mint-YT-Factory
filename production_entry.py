@@ -115,12 +115,28 @@ def _save_state(workdir, state):
     path.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+def _normalise_resume_state(workdir, state):
+    """Repair legacy artifacts where YouTube was saved only at top level."""
+    youtube_id = str(state.get("video_id") or "").strip()
+    if youtube_id and bool(state.get("uploaded")):
+        youtube = state.get("youtube") or {}
+        if str(youtube.get("status") or "").lower() != "published":
+            state["youtube"] = {"status": "published", "enabled": True, "video_id": youtube_id}
+        instagram = state.get("instagram") or {}
+        facebook = state.get("facebook") or {}
+        social_incomplete = str(instagram.get("status") or "").lower() not in {"published", "skipped"} or str(facebook.get("status") or "").lower() not in {"published", "skipped"}
+        if social_incomplete and str(state.get("status") or "").lower() == "youtube_published":
+            state["status"] = "partial"
+        _save_state(workdir, state)
+    return state
+
+
 def _patch_publish_resume(main):
     """Resume only genuinely incomplete publication work.
 
-    Completed artifacts must never be selected as the next run's input. The old
-    implementation treated ``uploaded``/``completed`` artifacts as resumable,
-    which caused the same already-published Short to run again forever.
+    Completed artifacts must never be selected as the next run's input. Legacy
+    artifacts from before per-platform state was persisted are repaired here so
+    a successful YouTube upload followed by a social failure remains resumable.
     """
     original_find = main._find_pending_resume
     if not getattr(original_find, "_mint_cross_run_resume", False):
@@ -133,13 +149,11 @@ def _patch_publish_resume(main):
                 if not manifest.exists() or not script_path.exists():
                     continue
                 try:
-                    state = json.loads(manifest.read_text(encoding="utf-8"))
+                    state = _normalise_resume_state(workdir, json.loads(manifest.read_text(encoding="utf-8")))
                     status = str(state.get("status") or "").lower()
                     youtube = state.get("youtube") or {}
                     instagram = state.get("instagram") or {}
                     facebook = state.get("facebook") or {}
-                    # Only these states can represent unfinished work. In
-                    # particular, NEVER resume uploaded/completed artifacts.
                     if status not in {"ready_for_upload", "partial", "uploading"}:
                         continue
                     enabled_platforms = [
@@ -164,11 +178,15 @@ def _patch_publish_resume(main):
 
     def resumable_upload(final_video, title, description, config, *args, **kwargs):
         workdir = Path(final_video).parent
-        state = _load_state(workdir)
+        state = _normalise_resume_state(workdir, _load_state(workdir))
         youtube = state.get("youtube") or {}
-        existing_id = str(youtube.get("video_id") or "").strip()
+        existing_id = str(youtube.get("video_id") or state.get("video_id") or "").strip()
         if str(youtube.get("status") or "").lower() == "published" and existing_id:
-            print(f"♻️ YOUTUBE ALREADY PUBLISHED | video_id={existing_id} — skipping duplicate upload")
+            print(f"♻️ YOUTUBE STATUS: PUBLISHED | video_id={existing_id} — skipping duplicate upload")
+            state["youtube"] = {"status": "published", "enabled": True, "video_id": existing_id}
+            state["status"] = "partial"
+            state["uploaded"] = True
+            _save_state(workdir, state)
             return existing_id
         state.setdefault("youtube", {"status": "uploading", "enabled": True})
         state["status"] = "uploading"
@@ -180,6 +198,8 @@ def _patch_publish_resume(main):
         state = _load_state(workdir)
         state["youtube"] = {"status": "published", "enabled": True, "video_id": video_id}
         state["status"] = "partial"
+        state["uploaded"] = True
+        state["video_id"] = video_id
         _save_state(workdir, state)
         print(f"💾 Durable Publish Shorts state: YouTube complete ({video_id})")
         return video_id

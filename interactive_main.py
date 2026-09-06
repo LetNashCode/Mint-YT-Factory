@@ -4,6 +4,7 @@ import json, os, time, yaml
 from interactive_topics import get_next_topic, record_topic, get_pending_riddle, save_pending_riddle, next_riddle_number
 from interactive_analytics import record as record_analytics, build_comparison
 from generate_script.interactive import generate_script
+from riddle_narration import polish_riddle_script
 from tts import synthesize_script
 from stock_media_resilient import generate_media
 from music import download_music
@@ -42,7 +43,6 @@ def run():
     pillar, topic, answer = get_next_topic()
     number = next_riddle_number()
 
-    # A new Short must always continue the durable sequence.
     if previous and number <= int(previous.get("number", 0)):
         raise RuntimeError(
             f"Invalid riddle sequence state: next #{number} must follow pending "
@@ -50,20 +50,37 @@ def run():
         )
     print(f"🧩 RIDDLE SHORT #{number} | {pillar} | {topic}")
 
-    reveal = ""
     if previous:
         print(f"🔓 Revealing Riddle #{previous['number']} answer: {previous['answer']}")
-        reveal = f'Reveal Riddle #{previous["number"]} answer naturally: "{previous["answer"]}". This reveal MUST be the opening of Scene 1, before any greeting, hook, new riddle, countdown, or other narration. Ask briefly whether viewers got it right, then introduce the new riddle.'
+        reveal = (
+            f'Previous answer: "{previous["answer"]}". '
+            "This reveal must be the very first spoken beat of Scene 1. "
+            "Make it playful and conversational, ask briefly if viewers got it right, then pivot into the new challenge."
+        )
     else:
-        reveal = "No previous riddle exists. Start directly with the new challenge."
+        reveal = "No previous riddle exists. Start directly with a high-energy challenge hook."
 
     feedback = f"""RIDDLE SHORT #{number}.
 {reveal}
 NEW exact riddle: "{topic}"
 NEW answer is locked internally: "{answer}".
-Create an entertaining 7-scene spoken riddle short. Clearly ask the complete riddle, invite viewers to comment their answer, then perform a suspenseful spoken countdown from 10 to 1. NEVER reveal, display, explain, or strongly hint at the NEW answer. During the new riddle and countdown use thinking, suspense, curiosity, clocks, neutral clue imagery or people reasoning; never show the answer itself. End naturally with: "The answer to Riddle #{number} will be revealed in the next Riddle Short." Do not use Publish Shorts continuation or topic-teaser language. Narration length is flexible."""
+Create an entertaining 7-scene spoken riddle short.
+RETENTION STRUCTURE:
+- Scene 1: pay off the previous riddle immediately, then pivot into the new challenge. No greeting or generic intro.
+- Scenes 2-3: deliver the new riddle in short punchy beats with a curiosity gap and one playful misdirection.
+- Scenes 4-5: make the viewer actively think; react to likely wrong guesses without revealing the answer.
+- Scene 6: create pressure and anticipation; use only a short spoken countdown ending in 3…2…1, not a long robotic 10-to-1 recital.
+- Scene 7: finish the current challenge with a memorable cliffhanger that makes the viewer want the next episode.
+Do not make every episode sound structurally identical. Vary the reveal mood, transitions, misdirection and final cliffhanger.
+NEVER reveal, display, explain, spell out, or strongly hint at the NEW answer. During the new riddle and countdown use thinking, suspense, neutral clue imagery or people reasoning; never show the answer itself.
+The previous answer reveal is allowed ONLY because it belongs to the prior episode. Do not accidentally reveal the NEW answer while explaining the previous one.
+Do not use generic phrases such as "welcome back", "today's riddle", "here's today's riddle", "stay tuned", or "don't forget to like and subscribe".
+Do not use Publish Shorts continuation or topic-teaser language.
+The ending must NOT be the same canned sentence every time. It must promise the NEW answer is coming next, but in a natural, varied way.
+Narration length is flexible."""
     script = generate_script(topic, config, None, extra_feedback=feedback)
     script.update({"topic":topic,"riddle_number":number,"previous_riddle":previous,"interactive_pillar":pillar})
+    script = polish_riddle_script(script, previous, number)
     script["engagement"]={"comment":f"Comment your answer to Riddle #{number} 👇 Did you solve it?"}
 
     workdir=os.path.join("output","interactive",str(int(time.time())))
@@ -94,12 +111,8 @@ Create an entertaining 7-scene spoken riddle short. Clearly ask the complete rid
         if name in {"instagram", "facebook"}
     }, ensure_ascii=False))
 
-    # Persist sequence state before analytics so the next workflow can never
-    # accidentally restart at #1 after a later non-critical failure.
     record_topic(topic,pillar,title,vid,workdir,answer=answer)
     save_pending_riddle(pillar,topic,answer,number)
-
-    # Verify durable state before allowing this run to complete successfully.
     persisted = get_pending_riddle()
     if not persisted or int(persisted.get("number", 0)) != number:
         raise RuntimeError("Failed to persist the current riddle sequence state.")

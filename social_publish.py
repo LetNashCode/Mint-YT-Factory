@@ -10,6 +10,8 @@ Social policy:
   - A failure on Facebook never prevents Instagram from being attempted.
   - In strict mode, the workflow fails only after all attempts for the failed
     enabled destinations are exhausted. Successful destinations are never retried.
+  - YouTube publication state is preserved when Meta publishing fails so a later
+    workflow run resumes the social work instead of regenerating the Short.
 """
 from __future__ import annotations
 
@@ -281,7 +283,22 @@ def _attempt_social(name: str, fn, video_path: str, title: str, description: str
 def publish_social_reels(video_path: str, title: str, description: str, config: dict, output_dir: str) -> dict:
     """Publish enabled Meta destinations with two retries per destination."""
     state = _load_publish_state(output_dir)
-    state.setdefault("youtube", {"status": "pending"})
+
+    # main.py writes a compact top-level state immediately after YouTube upload.
+    # Promote that durable fact into the per-platform state without overwriting
+    # anything already known about Instagram/Facebook.
+    existing_youtube_id = str(state.get("video_id") or "").strip()
+    if existing_youtube_id and bool(state.get("uploaded")):
+        state["youtube"] = {
+            "status": "published",
+            "enabled": True,
+            "video_id": existing_youtube_id,
+        }
+        state["status"] = "partial"
+        _save_publish_state(output_dir, state)
+    else:
+        state.setdefault("youtube", {"status": "pending", "enabled": True})
+
     state.setdefault("instagram", {"status": "pending"})
     state.setdefault("facebook", {"status": "pending"})
 
@@ -300,6 +317,7 @@ def publish_social_reels(video_path: str, title: str, description: str, config: 
         result["facebook"] = {"status": "skipped", "reason": "not configured"}
         state["instagram"] = result["instagram"]
         state["facebook"] = result["facebook"]
+        state["status"] = "uploaded"
         _save_publish_state(output_dir, state)
         return result
 
@@ -332,8 +350,18 @@ def publish_social_reels(video_path: str, title: str, description: str, config: 
     except Exception as exc:
         print(f"⚠️ Could not save social publish status: {exc}")
 
-    if failures and result["strict"]:
-        raise RuntimeError("Strict social publishing failed after 2 retries for: " + ", ".join(failures))
     if failures:
+        # Keep the artifact resumable whenever any enabled social destination
+        # is still failed. YouTube stays durably marked as published.
+        state["status"] = "partial"
+        state["uploaded"] = True
+        _save_publish_state(output_dir, state)
+        if result["strict"]:
+            raise RuntimeError("Strict social publishing failed after 2 retries for: " + ", ".join(failures))
         print("⚠️ Social publishing had failures after 2 retries but YouTube publication remains successful.")
+        return result
+
+    state["status"] = "uploaded"
+    state["uploaded"] = True
+    _save_publish_state(output_dir, state)
     return result

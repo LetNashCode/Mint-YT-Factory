@@ -139,9 +139,12 @@ def generate_sfx(script, output_dir):
 
     paths, plan = [], []
     for index, scene in enumerate(scenes):
-        # Scene 7 is the canonical next-topic bridge. Never place a reaction,
-        # stinger, or generated sound underneath it; voice must own this handoff.
         if index == 6:
+            # Keep a real silent asset in the seven-slot return list so legacy
+            # assembly code can safely iterate paths without ever adding audio.
+            path = os.path.join(output_dir, "scene_7_continuation_silent.wav")
+            if not os.path.exists(path):
+                _write_wav(path, [0.0] * int(0.10 * SAMPLE_RATE))
             cue = {
                 "enabled": False,
                 "type": "none",
@@ -153,7 +156,7 @@ def generate_sfx(script, output_dir):
                 "intensity": "none",
             }
             scene["sfx_cue"] = cue
-            paths.append(None)
+            paths.append(path)
             plan.append({"scene": index + 1, **cue})
             print("Scene 7: NONE [disabled_for_continuation] — protected next-topic bridge")
             continue

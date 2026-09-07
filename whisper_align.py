@@ -1,8 +1,8 @@
 """Reliable word-level caption timing for Mint-YT-Factory.
 
-Whisper provides spoken-word anchors. The aligner then reconstructs the full
-script word sequence between those anchors, so a missed Whisper word can never
-make captions silently disappear or jump ahead of the narration.
+Captions are generated from the exact script narration, while Whisper supplies
+only timing anchors. This prevents transcription mistakes from changing what
+is displayed on screen.
 """
 from __future__ import annotations
 
@@ -14,8 +14,10 @@ import wave
 
 import whisper
 
-WHISPER_MODEL_NAME = "tiny.en"
-WHISPER_RETRY_MODEL_NAME = None
+# `base.en` is materially more reliable than `tiny.en` for word boundaries.
+# The exact script text remains authoritative; Whisper is used only for timing.
+WHISPER_MODEL_NAME = "base.en"
+WHISPER_RETRY_MODEL_NAME = "tiny.en"
 _model = None
 _retry_model = None
 _WORD_RE = re.compile(r"[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*")
@@ -23,7 +25,7 @@ _WORD_RE = re.compile(r"[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*")
 
 def _get_model(name=WHISPER_MODEL_NAME):
     global _model, _retry_model
-    if WHISPER_RETRY_MODEL_NAME and name == WHISPER_RETRY_MODEL_NAME:
+    if name == WHISPER_RETRY_MODEL_NAME:
         if _retry_model is None:
             print(f"🎙️ Loading Whisper retry model: {name}")
             _retry_model = whisper.load_model(name)
@@ -46,7 +48,11 @@ def _load_expected_words(audio_path):
         script_path = os.path.join(run_dir, "script.json")
         with open(script_path, "r", encoding="utf-8") as handle:
             script = json.load(handle)
-        text = " ".join(str(scene.get("narration", "")) for scene in script.get("scene_plan", []) if isinstance(scene, dict))
+        text = " ".join(
+            str(scene.get("narration", ""))
+            for scene in script.get("scene_plan", [])
+            if isinstance(scene, dict)
+        )
         return _WORD_RE.findall(text)
     except Exception as error:
         print(f"⚠️ Could not load expected narration words: {error}")
@@ -81,7 +87,10 @@ def _extract_whisper_words(result):
                 continue
             try:
                 start = max(segment_start, float(item.get("start", segment_start)))
-                end = min(segment_end, max(start + 0.04, float(item.get("end", start + 0.04))))
+                end = min(
+                    segment_end,
+                    max(start + 0.04, float(item.get("end", start + 0.04))),
+                )
                 observed.append({"word": word, "start": start, "end": end})
             except Exception:
                 continue
@@ -93,7 +102,7 @@ def _finalize(words, duration):
     previous_end = 0.0
     for item in words:
         start = max(0.0, min(float(item["start"]), duration))
-        end = max(start + 0.04, min(float(item["end"]), duration))
+        end = min(duration, max(start + 0.04, float(item["end"])))
         if start < previous_end:
             start = previous_end
             end = max(start + 0.04, end)
@@ -101,12 +110,23 @@ def _finalize(words, duration):
             start = max(0.0, duration - 0.04)
             end = duration
         end = min(duration, end)
-        result.append({"word": str(item["word"]).strip(), "start": start, "end": max(start + 0.04, end)})
+        result.append({
+            "word": str(item["word"]).strip(),
+            "start": start,
+            "end": max(start + 0.04, end),
+        })
         previous_end = result[-1]["end"]
     return result
 
 
 def _alignment(expected, observed):
+    """Find only exact word matches; never anchor on fuzzy partial matches.
+
+    The old prefix matching could treat different words as anchors and then
+    stretch an entire caption block around the wrong timestamp. Exact matches
+    are safer because missing/misheard words are reconstructed between trusted
+    anchors from the real narration text.
+    """
     if not expected or not observed:
         return [], 0.0
     n, m = len(expected), len(observed)
@@ -115,24 +135,39 @@ def _alignment(expected, observed):
         a = _clean_word(expected[i])
         for j in range(m):
             b = _clean_word(observed[j]["word"])
-            match = 4 if a == b else (1 if len(a) >= 4 and len(b) >= 4 and a[:4] == b[:4] else -2)
-            dp[i + 1][j + 1] = max(dp[i][j + 1] - 1, dp[i + 1][j] - 1, dp[i][j] + match)
+            match = 4 if a == b else -2
+            dp[i + 1][j + 1] = max(
+                dp[i][j + 1] - 1,
+                dp[i + 1][j] - 1,
+                dp[i][j] + match,
+            )
+
     pairs = []
     i, j = n, m
     while i and j:
-        a = _clean_word(expected[i - 1]); b = _clean_word(observed[j - 1]["word"])
-        match = 4 if a == b else (1 if len(a) >= 4 and len(b) >= 4 and a[:4] == b[:4] else -2)
+        a = _clean_word(expected[i - 1])
+        b = _clean_word(observed[j - 1]["word"])
+        match = 4 if a == b else -2
         score = dp[i][j]
         if score == dp[i - 1][j - 1] + match:
-            if a == b or (len(a) >= 4 and len(b) >= 4 and a[:4] == b[:4]):
+            if a == b:
                 pairs.append((i - 1, j - 1))
-            i -= 1; j -= 1
+            i -= 1
+            j -= 1
         elif score == dp[i - 1][j] - 1:
             i -= 1
         else:
             j -= 1
     pairs.reverse()
-    mapped = [{"expected_index": a, "word": expected[a], "start": observed[b]["start"], "end": observed[b]["end"]} for a, b in pairs]
+    mapped = [
+        {
+            "expected_index": a,
+            "word": expected[a],
+            "start": observed[b]["start"],
+            "end": observed[b]["end"],
+        }
+        for a, b in pairs
+    ]
     return mapped, len(mapped) / float(max(1, n))
 
 
@@ -152,12 +187,17 @@ def _fill_gap(expected, left_index, right_index, left_time, right_time, output):
     span = max(0.04, right_time - left_time)
     for index, weight in zip(indexes, weights):
         word_span = span * weight / total
-        output.append({"expected_index": index, "word": expected[index], "start": cursor, "end": min(right_time, cursor + word_span)})
+        output.append({
+            "expected_index": index,
+            "word": expected[index],
+            "start": cursor,
+            "end": min(right_time, cursor + word_span),
+        })
         cursor += word_span
 
 
 def _reconstruct_full_timeline(expected, anchors, duration):
-    """Keep Whisper's real anchors while filling every missed script word."""
+    """Keep Whisper's trusted anchors while filling every script word."""
     if not expected:
         return []
     if not anchors:
@@ -175,10 +215,27 @@ def _reconstruct_full_timeline(expected, anchors, duration):
     output = []
     first = anchors[0]
     _fill_gap(expected, 0, first["expected_index"], 0.0, first["start"], output)
-    output.append({"expected_index": first["expected_index"], "word": first["word"], "start": first["start"], "end": first["end"]})
+    output.append({
+        "expected_index": first["expected_index"],
+        "word": first["word"],
+        "start": first["start"],
+        "end": first["end"],
+    })
     for current, following in zip(anchors, anchors[1:]):
-        _fill_gap(expected, current["expected_index"] + 1, following["expected_index"], current["end"], following["start"], output)
-        output.append({"expected_index": following["expected_index"], "word": following["word"], "start": following["start"], "end": following["end"]})
+        _fill_gap(
+            expected,
+            current["expected_index"] + 1,
+            following["expected_index"],
+            current["end"],
+            following["start"],
+            output,
+        )
+        output.append({
+            "expected_index": following["expected_index"],
+            "word": following["word"],
+            "start": following["start"],
+            "end": following["end"],
+        })
     last = anchors[-1]
     _fill_gap(expected, last["expected_index"] + 1, len(expected), last["end"], duration, output)
     output.sort(key=lambda item: item["expected_index"])
@@ -186,15 +243,27 @@ def _reconstruct_full_timeline(expected, anchors, duration):
 
 
 def _transcribe(model, audio_path, strong=False):
-    return model.transcribe(audio_path, language="en", task="transcribe", word_timestamps=True, fp16=False, temperature=0,
-                            best_of=3 if strong else 1, beam_size=5 if strong else 1, condition_on_previous_text=False,
-                            compression_ratio_threshold=2.8, logprob_threshold=-1.2, no_speech_threshold=0.35,
-                            initial_prompt=None, verbose=False)
+    return model.transcribe(
+        audio_path,
+        language="en",
+        task="transcribe",
+        word_timestamps=True,
+        fp16=False,
+        temperature=0,
+        best_of=3 if strong else 1,
+        beam_size=5 if strong else 1,
+        condition_on_previous_text=False,
+        compression_ratio_threshold=2.8,
+        logprob_threshold=-1.2,
+        no_speech_threshold=0.35,
+        initial_prompt=None,
+        verbose=False,
+    )
 
 
 def transcribe(audio_path):
-    print("🎙️ Starting FULL-SEQUENCE Whisper caption timing")
-    print(f"   Fast model: {WHISPER_MODEL_NAME}; deterministic reconstruction is the fallback")
+    print("🎙️ Starting SCRIPT-LOCKED Whisper caption timing")
+    print(f"   Primary model: {WHISPER_MODEL_NAME}; exact narration text is authoritative")
     expected = _load_expected_words(audio_path)
     duration = _audio_duration(audio_path)
     if not expected:
@@ -202,12 +271,21 @@ def transcribe(audio_path):
 
     best_anchors = []
     best_coverage = 0.0
-    for model_name, strong in ((WHISPER_MODEL_NAME, False),):
+    # Prefer the stronger model. Tiny remains a fallback so a model download or
+    # runtime problem cannot break the entire Short.
+    for model_name, strong in (
+        (WHISPER_MODEL_NAME, True),
+        (WHISPER_RETRY_MODEL_NAME, False),
+    ):
+        if not model_name:
+            continue
         try:
             result = _transcribe(_get_model(model_name), audio_path, strong)
             observed = _extract_whisper_words(result)
             anchors, coverage = _alignment(expected, observed)
-            print(f"🔎 Whisper {model_name}: {len(anchors)}/{len(expected)} anchors ({coverage:.0%})")
+            print(
+                f"🔎 Whisper {model_name}: {len(anchors)}/{len(expected)} exact anchors ({coverage:.0%})"
+            )
             if coverage > best_coverage:
                 best_anchors, best_coverage = anchors, coverage
             if coverage >= 0.90:
@@ -217,9 +295,14 @@ def transcribe(audio_path):
 
     timeline = _reconstruct_full_timeline(expected, best_anchors, duration)
     if len(timeline) != len(expected):
-        raise RuntimeError(f"Caption reconstruction failed: expected {len(expected)} words, got {len(timeline)}")
+        raise RuntimeError(
+            f"Caption reconstruction failed: expected {len(expected)} words, got {len(timeline)}"
+        )
     if best_coverage < 0.90:
-        print(f"⚠️ Whisper anchor coverage {best_coverage:.0%}; reconstructed all {len(timeline)} captions between speech anchors.")
+        print(
+            f"⚠️ Whisper exact-anchor coverage {best_coverage:.0%}; reconstructed all "
+            f"{len(timeline)} captions between trusted speech anchors."
+        )
     else:
-        print(f"✅ Whisper timing locked: all {len(timeline)} script words have timestamps.")
+        print(f"✅ Script-locked timing: all {len(timeline)} narration words have timestamps.")
     return timeline

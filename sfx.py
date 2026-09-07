@@ -139,14 +139,31 @@ def generate_sfx(script, output_dir):
 
     paths, plan = [], []
     for index, scene in enumerate(scenes):
+        # Scene 7 is the canonical next-topic bridge. Never place a reaction,
+        # stinger, or generated sound underneath it; voice must own this handoff.
+        if index == 6:
+            cue = {
+                "enabled": False,
+                "type": "none",
+                "category": "none",
+                "source": "disabled_for_continuation",
+                "at_ms": 0,
+                "timing": "disabled",
+                "meme_only": True,
+                "intensity": "none",
+            }
+            scene["sfx_cue"] = cue
+            paths.append(None)
+            plan.append({"scene": index + 1, **cue})
+            print("Scene 7: NONE [disabled_for_continuation] — protected next-topic bridge")
+            continue
+
         kind = _category(scene, index)
         duration = _scene_duration(scene, index)
         at_ms = _beat_position(scene, duration)
         path = real[index] if index < len(real) else None
         source = "local_meme_clip"
 
-        # FAAA is a reaction category. Prefer a user-supplied local meme file;
-        # otherwise keep the existing generated reaction as a production fallback.
         if kind == "faaa" and not path and reactions.get("faaa"):
             path = reactions["faaa"]; source = "reaction_fallback"
 

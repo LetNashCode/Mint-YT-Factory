@@ -118,5 +118,13 @@
     "title": "Riddle #15: Can You Solve This? 🧩",
     "video_id": "SPZpSzrVU0k",
     "workdir": "output/interactive/1788879333"
+  },
+  {
+    "topic": "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?",
+    "answer": "an echo",
+    "pillar": "logic",
+    "title": "Riddle #16: Can You Solve This? 🧩",
+    "video_id": "ArwmUk80qks",
+    "workdir": "output/interactive/1788900732"
   }
 ]

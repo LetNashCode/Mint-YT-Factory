@@ -4,41 +4,47 @@
     "avg_views": 498.47,
     "avg_comments": 0.0,
     "avg_shares": 0.0,
-    "avg_likes": 9.67
+    "avg_likes": 9.67,
+    "avg_view_percentage": 0.0
   },
   "observation": {
     "videos": 3,
-    "avg_views": 0.0,
-    "avg_comments": 0.0,
+    "avg_views": 153.67,
+    "avg_comments": 1.67,
     "avg_shares": 0.0,
-    "avg_likes": 0.0
+    "avg_likes": 2.67,
+    "avg_view_percentage": 53.67
   },
   "classic": {
     "videos": 5,
-    "avg_views": 0.0,
+    "avg_views": 229.2,
     "avg_comments": 0.0,
     "avg_shares": 0.0,
-    "avg_likes": 0.0
+    "avg_likes": 3.8,
+    "avg_view_percentage": 42.4
   },
   "logic": {
-    "videos": 3,
-    "avg_views": 0.0,
+    "videos": 4,
+    "avg_views": 326.75,
     "avg_comments": 0.0,
     "avg_shares": 0.0,
-    "avg_likes": 0.0
+    "avg_likes": 3.5,
+    "avg_view_percentage": 31.9
   },
   "wordplay": {
     "videos": 2,
-    "avg_views": 0.0,
-    "avg_comments": 0.0,
+    "avg_views": 365.5,
+    "avg_comments": 0.5,
     "avg_shares": 0.0,
-    "avg_likes": 0.0
+    "avg_likes": 5.5,
+    "avg_view_percentage": 21.48
   },
   "trick": {
     "videos": 2,
-    "avg_views": 0.0,
+    "avg_views": 197.0,
     "avg_comments": 0.0,
     "avg_shares": 0.0,
-    "avg_likes": 0.0
+    "avg_likes": 0.0,
+    "avg_view_percentage": 22.95
   }
 }

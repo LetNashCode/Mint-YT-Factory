@@ -82,7 +82,7 @@ GitHub Actions failed because the code attempted to fall back from `gemini-flash
 ### Implementation rule
 - Gemini is not an image-generation provider in the Mint-YT-Factory media pipeline.
 - No `txt2img`, image-generation API, generative image model, or third-party AI image service may be added as a media fallback.
-- The existing Pexels/Pixabay-only media-provider restriction remains authoritative for both photos and videos.
+- The existing Pexels/Pixabay-only production media-provider restriction remains authoritative for both photos and videos.
 - Gemini, where still used by the project, may only perform non-generation tasks such as script/reasoning/search-direction/visual-analysis functions explicitly permitted by the project architecture.
 
 ### Decision
@@ -260,6 +260,47 @@ For every future Mint-YT-Factory request:
 8. Never silently delete or rewrite historical entries.
 9. If a new request conflicts with a logged requirement, explicitly identify the conflict before changing behavior.
 10. When a bug is fixed, record both the root cause and the architectural fix so future work does not regress to the old solution.
+
+---
+
+## 2026-09-09 — Riddles Shorts narration-first retention upgrade
+
+### User requirement
+- Implement the Riddles Shorts retention upgrade while keeping the riddle entirely solvable through narration.
+- Stock videos/images must not be required as clues or puzzle components.
+- Replace the previous "answer in tomorrow's Short" language with a subscribe/follow loop: viewers should be told the answer will be revealed in the next Short, without promising a publishing day.
+
+### Files changed
+- `generate_script/interactive.py`
+- `riddle_narration.py`
+- `interactive_main.py`
+- `CHANGELOG_MINT_YT_FACTORY.md`
+
+### Implementation
+- Added a narration-first script contract with a 7-scene mini-game arc:
+  1. Immediate pattern interrupt / previous-answer payoff.
+  2. Fast, clear riddle statement.
+  3. First interpretation / curiosity gap.
+  4. Spoken misdirection or second interpretation.
+  5. Explicit first-answer commitment.
+  6. Short conversational 3…2…1 pressure beat.
+  7. New-answer payoff gap plus subscribe/follow CTA.
+- Explicitly prohibited visual-puzzle dependency, visual inspection, on-screen clues, and stock footage as a required part of solving.
+- Added deterministic narration cleanup to replace visual-dependent phrases such as "look at this" with narration-led wording where possible.
+- Replaced the previous ending contract with varied CTAs that say **subscribe/follow for the answer in the next Short** and never mention tomorrow/next day.
+- Changed the engagement comment to ask viewers to lock in their **FIRST answer**, increasing commitment and comment intent.
+- Preserved the previous-answer reveal at the start of Scene 1 and the hard secrecy of the current riddle answer.
+- Preserved Kokoro `am_michael`, exactly 7 scenes, flexible narration length, the existing stock-media pipeline, and Riddles/Publish isolation.
+
+### Important behavior
+- A viewer can solve the riddle with the phone face-down; visuals are atmospheric/contextual only.
+- The current answer is never intentionally revealed in the challenge/countdown.
+- The next episode can reveal the previous answer immediately, then start the new challenge.
+- The CTA no longer promises a specific day.
+- Gemini remains `gemini-flash-lite-latest` only; production media remains Pexels/Pixabay only.
+
+### Remaining limitation
+- The current riddle analytics/selection layer still needs deeper per-mechanic learning (hook/mechanic/length/CTA performance) beyond its existing candidate/pillar scoring. This upgrade intentionally focused the creative contract and narration loop first.
 
 ---
 

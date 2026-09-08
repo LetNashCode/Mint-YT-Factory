@@ -47,8 +47,6 @@ def run():
     config["voice"] = voice
     print("🎙️ Riddles Shorts voice: am_michael (Kokoro)")
 
-    # Refresh performance before selecting the next riddle. This is intentionally
-    # best-effort so a temporary YouTube/Analytics outage never destroys the pipeline.
     refresh_live_metrics()
 
     previous = get_pending_riddle()
@@ -70,30 +68,34 @@ def run():
             "Make it playful and conversational, ask briefly if viewers got it right, then pivot into the new challenge."
         )
     else:
-        reveal = "No previous riddle exists. Start directly with a high-energy challenge hook."
+        reveal = "No previous riddle exists. Start directly with a high-energy spoken challenge hook."
 
-    feedback = f"""RIDDLE SHORT #{number}.
+    feedback = f"""RIDDLE SHORT #{number} — NARRATION-FIRST RETENTION.
 {reveal}
 NEW exact riddle: "{topic}"
 NEW answer is locked internally: "{answer}".
-Create an entertaining 7-scene spoken riddle short.
+Create an entertaining 7-scene spoken mini-game. The viewer must be able to solve everything with the phone face-down. Stock footage/images are atmosphere only, never a clue.
 RETENTION STRUCTURE:
-- Scene 1: pay off the previous riddle immediately, then pivot into the new challenge. No greeting or generic intro.
-- Scenes 2-3: deliver the new riddle in short punchy beats with a curiosity gap and one playful misdirection.
-- Scenes 4-5: make the viewer actively think; react to likely wrong guesses without revealing the answer.
-- Scene 6: create pressure and anticipation; use only a short spoken countdown ending in 3…2…1, not a long robotic 10-to-1 recital.
-- Scene 7: finish the current challenge with a memorable cliffhanger that makes the viewer want the next episode.
-Do not make every episode sound structurally identical. Vary the reveal mood, transitions, misdirection and final cliffhanger.
-NEVER reveal, display, explain, spell out, or strongly hint at the NEW answer. During the new riddle and countdown use thinking, suspense, neutral clue imagery or people reasoning; never show the answer itself.
-The previous answer reveal is allowed ONLY because it belongs to the prior episode. Do not accidentally reveal the NEW answer while explaining the previous one.
+- Scene 1: immediate pattern interrupt; if there is a previous riddle, reveal its answer first, then pivot immediately. No greeting.
+- Scene 2: state the NEW riddle clearly and quickly. No unnecessary setup.
+- Scene 3: create the obvious first interpretation and a spoken curiosity gap.
+- Scene 4: introduce a second interpretation, wording trap, assumption, or expectation reversal. Do not reveal the answer.
+- Scene 5: force commitment: ask viewers to lock in their FIRST answer. Keep it punchy.
+- Scene 6: brief pressure and conversational 3…2…1 countdown. No 10-to-1 countdown.
+- Scene 7: preserve the NEW answer as a payoff gap and end with a subscribe/follow CTA promising the answer in the next Short. Never say tomorrow or next day.
+Vary the underlying riddle mechanic and phrasing between episodes: wording traps, double meanings, obvious-answer traps, lateral thinking, expectation reversals, tiny logic mysteries, misconceptions and psychological traps.
+Never depend on visuals, on-screen text, a diagram, or a stock object being recognizable for the solution.
+NEVER reveal, display, spell out, or strongly hint at the NEW answer, including through examples of possible answers.
 Do not use generic phrases such as "welcome back", "today's riddle", "here's today's riddle", "stay tuned", or "don't forget to like and subscribe".
-Do not use Publish Shorts continuation or topic-teaser language.
-The ending must NOT be the same canned sentence every time. It must promise the NEW answer is coming next, but in a natural, varied way.
+The final CTA must use the subscribe/follow → answer in the next Short loop. Do not promise a publishing day.
 Narration length is flexible."""
+
     script = generate_script(topic, config, None, extra_feedback=feedback)
     script.update({"topic": topic, "riddle_number": number, "previous_riddle": previous, "interactive_pillar": pillar})
     script = polish_riddle_script(script, previous, number)
-    script["engagement"] = {"comment": f"Comment your answer to Riddle #{number} 👇 Did you solve it?"}
+    script["engagement"] = {
+        "comment": f"Lock in your FIRST answer to Riddle #{number} 👇 What was your guess?"
+    }
 
     workdir = os.path.join("output", "interactive", str(int(time.time())))
     os.makedirs(workdir, exist_ok=True)
@@ -112,7 +114,7 @@ Narration length is flexible."""
         raise RuntimeError("Riddle final video validation failed.")
 
     title = f"Riddle #{number}: Can You Solve This? 🧩"
-    desc = f"Riddle #{number}: {topic}\n\nComment your answer before the reveal in the next Riddle Short.\n\n#Riddle #BrainTeaser #Shorts"
+    desc = f"Riddle #{number}: {topic}\n\nLock in your first answer. Subscribe and follow for the answer in the next Riddle Short.\n\n#Riddle #BrainTeaser #Shorts"
     result = upload_video(final, title, desc, config, engagement_comment=script["engagement"]["comment"])
     vid = result if isinstance(result, str) else str(result.get("video_id") or result.get("id") or "") if isinstance(result, dict) else ""
     if not vid:

@@ -144,9 +144,27 @@ def _mark_topic_bookkeeping(script,topic,next_topic,video_id,title,workdir):
     record_topic(topic,title=title,video_id=video_id,workdir=workdir,status="published")
     try:
         from youtube_analytics import record_upload
-        production_metadata={"topic_category":str(script.get("category","")),"hook_type":str((script.get("scene_plan") or [{}])[0].get("purpose","")),"story_structure":"7_scene_entertainment","visual_style":str((script.get("visual_identity") or {}).get("style","")),"music_type":str((script.get("music") or {}).get("search","")),"voice":str((script.get("voice_style") or {}).get("tone","")),"engagement_experiment":str((script.get("engagement") or {}).get("experiment",""))}; record_upload(video_id,topic,title,workdir=workdir,production_metadata=production_metadata); print("🧠 Published creative metadata recorded for future learning.")
+        production_metadata={"topic_category":str(script.get("category","")),"hook_type":str((script.get("scene_plan") or [{}])[0].get("purpose","")),"story_structure":"7_scene_entertainment","visual_style":str((script.get("visual_identity") or {}).get("style","")),"music_type":str((script.get("music") or {}).get("search","")),"voice":str((script.get("voice_style") or {}).get("tone","")),"engagement_experiment":str((script.get("engagement") or {}).get("experiment","")),"audio_duration_seconds":float(script.get("audio_duration_seconds",0) or 0),"words_per_second":float(script.get("words_per_second",0) or 0)}; record_upload(video_id,topic,title,workdir=workdir,production_metadata=production_metadata); print("🧠 Published creative metadata recorded for future learning.")
     except Exception as error: print(f"⚠️ Learning metadata recording skipped: {type(error).__name__}: {error}")
     save_next_short(next_topic); commit_topic(topic); write_continuation_manifest(topic,next_topic,"published",workdir); print(f"✅ TOPIC PROGRESSION COMMITTED | current={topic} | next={next_topic}")
+
+def _record_audio_timing(script, audio_path):
+    """Persist the actual rendered narration duration so learning uses real pacing."""
+    try:
+        from moviepy.editor import AudioFileClip
+        clip=AudioFileClip(audio_path)
+        try:
+            duration=float(clip.duration or 0.0)
+        finally:
+            clip.close()
+        narration=" ".join(str(scene.get("narration","")) for scene in (script.get("scene_plan") or []) if isinstance(scene,dict))
+        words=_word_count(narration)
+        script["audio_duration_seconds"]=round(duration,3)
+        script["narration_word_count"]=words
+        script["words_per_second"]=round(words/duration,3) if duration>0 else 0.0
+        print(f"⏱️ Actual narration timing: {duration:.2f}s | words={words} | WPS={script['words_per_second']:.2f}")
+    except Exception as error:
+        print(f"⚠️ Could not record narration timing: {type(error).__name__}: {error}")
 
 def run(dry_run=False):
     config=load_config(); resumed=_find_pending_resume()
@@ -170,7 +188,7 @@ def run(dry_run=False):
         learning_context=load_learning_context(); engagement_feedback=f"\nENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}\nUse the mechanic naturally if it fits. Never sound like engagement bait.\nSuggested spoken interaction: {engagement['spoken_prompt']}\nDo not add generic like/subscribe language.\n"; print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS"); script=_generate_valid_script(topic,config,learning_context,engagement_feedback); next_topic=reserve_next_short(str((script.get("next_short") or {}).get("topic") or ""),current_topic=topic); script["next_short"]=dict(script.get("next_short") or {}); script["next_short"]["topic"]=next_topic; script,next_topic=lock_next_topic(script,topic,locked_topic=next_topic); script["engagement"]={"experiment":engagement["experiment"],"phase":engagement["phase"],"spoken_prompt":engagement["spoken_prompt"],"comment":engagement["comment"],"share_prompt":engagement["share_prompt"]}; workdir=os.path.join("output",str(int(time.time()))); os.makedirs(workdir,exist_ok=True); save_json(script,os.path.join(workdir,"script.json")); write_continuation_manifest(topic,next_topic,"locked",workdir); print(f"✅ Script ready: {workdir}/script.json");
         if dry_run: print("✅ DRY RUN COMPLETE"); return
     if not resumed:
-        audio=synthesize_script(script,config,os.path.join(workdir,"audio")); visuals=generate_media(script,os.path.join(workdir,"visuals"),config); sfx=generate_sfx(script,os.path.join(workdir,"sfx")); music=download_music(script,os.path.join(workdir,"music")); final_video=os.path.join(workdir,"final.mp4"); assemble_video(script,audio,visuals,music,sfx,config,final_video); _save_publish_state(workdir,{"status":"ready_for_upload","uploaded":False,"topic":topic,"next_topic":next_topic})
+        audio=synthesize_script(script,config,os.path.join(workdir,"audio")); _record_audio_timing(script,audio); save_json(script,os.path.join(workdir,"script.json")); visuals=generate_media(script,os.path.join(workdir,"visuals"),config); sfx=generate_sfx(script,os.path.join(workdir,"sfx")); music=download_music(script,os.path.join(workdir,"music")); final_video=os.path.join(workdir,"final.mp4"); assemble_video(script,audio,visuals,music,sfx,config,final_video); _save_publish_state(workdir,{"status":"ready_for_upload","uploaded":False,"topic":topic,"next_topic":next_topic})
     if not os.path.exists(final_video): raise RuntimeError("Final video was not created.")
     quality=validate_final_video(final_video,expected_bitrate_mbps=EXPECTED_UPLOAD_BITRATE_MBPS); save_json(quality,os.path.join(workdir,"validation.json"))
     if not quality.get("ok",False): raise RuntimeError("Final video validation failed.")

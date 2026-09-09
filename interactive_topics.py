@@ -1,5 +1,5 @@
 from __future__ import annotations
-import json, re, random, math, os, time
+import json, re, random, math
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -8,8 +8,6 @@ PENDING = ROOT / "pending_riddle.json"
 COUNTER = ROOT / "riddle_counter.json"
 CANDIDATES = ROOT / "interactive_riddle_candidates.json"
 
-# Seed inventory remains available as a safety net. New episodes are no longer
-# required to consume this list in random order.
 RIDDLES = [
 ("classic","The more you take, the more you leave behind. What am I?","footsteps"),
 ("wordplay","What has keys but cannot open locks?","a piano"),
@@ -97,31 +95,64 @@ def _performance_by_pillar():
     return out
 
 
-def _creative_score(pillar, question, answer, performance):
+def _performance_by_topic():
+    """Return historical performance for the exact riddle/question when available."""
+    try:
+        rows = json.loads((ROOT / "analytics" / "interactive_videos.json").read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    out = {}
+    for row in rows if isinstance(rows, list) else []:
+        if not isinstance(row, dict):
+            continue
+        key = _n(row.get("topic", ""))
+        if not key:
+            continue
+        latest = row.get("latest") or {}
+        out[key] = {
+            "views": float(latest.get("views", 0) or 0),
+            "retention": float(latest.get("average_view_percentage", 0) or 0),
+            "comments": float(latest.get("comments", 0) or 0),
+            "shares": float(latest.get("shares", 0) or 0),
+            "engagement": float(latest.get("engagement_rate", 0) or 0),
+        }
+    return out
+
+
+def _creative_score(pillar, question, answer, performance, topic_performance=None):
     q = str(question).lower()
-    a = str(answer).lower()
     score = 0.0
-    # Curiosity / surprise / comment potential heuristics.
     score += min(len(question), 115) / 115 * 14
     score += 8 if "?" in question else 0
     score += 7 if any(w in q for w in ("what", "which", "why", "can", "how")) else 0
     score += 6 if any(w in q for w in ("really", "actually", "secret", "never", "only", "without")) else 0
-    score += 5 if len(answer.split()) <= 4 else 2
+    score += 5 if len(str(answer).split()) <= 4 else 2
     score += 5 if any(w in q for w in ("but", "without", "never", "more", "less", "one", "two")) else 0
-    score += random.uniform(0, 2.5)  # exploration prevents permanent exploitation of one style
+
     p = performance.get(pillar)
     if p:
-        # Normalize each signal softly; retention is intentionally weighted highest.
         score += min(p["retention"] / 100, 1.5) * 18
         score += math.log1p(p["views"]) * 0.7
         score += math.log1p(p["shares"]) * 1.8
         score += math.log1p(p["comments"]) * 1.2
         score += min(p["engagement"], 10) * 1.0
+
+    # Exact-topic history is a stronger signal than pillar averages. This prevents
+    # a weak individual format from being selected just because its pillar is hot.
+    exact = (topic_performance or {}).get(_n(question))
+    if exact:
+        if exact["retention"]:
+            score += max(-16.0, min(12.0, (exact["retention"] - 50.0) * 0.45))
+        if exact["comments"] or exact["shares"]:
+            score += math.log1p(exact["comments"]) * 2.0 + math.log1p(exact["shares"]) * 2.5
+        # A previously published question should normally already be excluded, but
+        # this guard makes the scorer safe if history and candidate state drift.
+        score -= 30.0
+
     return round(score, 3)
 
 
 def _generate_original_candidates(count=8):
-    """Ask the canonical Gemini model for fresh, answer-locked riddle ideas."""
     try:
         from google import genai
         from google.genai import types
@@ -130,10 +161,11 @@ def _generate_original_candidates(count=8):
         prompt = f"""Create {count} ORIGINAL short-form riddles for a YouTube Shorts channel.
 They must not be famous/common classic riddles and must not paraphrase the usual 'piano, towel, echo, age, map, comb' inventory.
 Optimize for immediate curiosity, surprise, solvability, comments and replay value.
-Use everyday objects, visual situations, word tricks, counterintuitive logic or tiny mysteries.
+Use everyday objects, spoken wording traps, counterintuitive logic or tiny mysteries.
 Each must have one precise answer and be explainable in one sentence.
 Return JSON only as an array of objects with keys: pillar, question, answer, hook, difficulty.
 Allowed pillar values: classic, wordplay, logic, trick, observation, visual.
+For this narration-first channel, NEVER require a visual clue, image inspection, screen text, or a recognizable stock object to solve it.
 Do not include unsafe, political, sexual or medical topics."""
         response = client.models.generate_content(
             model=MODEL_NAME,
@@ -152,7 +184,7 @@ Do not include unsafe, political, sexual or medical topics."""
             q, a = str(item.get("question", "")).strip(), str(item.get("answer", "")).strip()
             if not q or not a or _n(q) in used or _n(q) in existing:
                 continue
-            if len(q) < 15 or len(q) > 220 or len(a) > 100:
+            if len(q) < 15 or len(q) > 180 or len(a) > 80:
                 continue
             fresh.append({
                 "pillar": str(item.get("pillar", "logic")).strip().lower(),
@@ -174,7 +206,6 @@ def _ensure_candidate_pool():
     rows = [x for x in rows if isinstance(x, dict) and _n(x.get("question", "")) not in used]
     if len(rows) < 5:
         rows.extend(_generate_original_candidates(10))
-    # De-duplicate and retain a manageable rolling bank.
     seen = set(); clean = []
     for row in rows:
         q = _n(row.get("question", ""))
@@ -189,29 +220,40 @@ def get_next_topic():
     rows = _load()
     used_q = {_n(x.get("topic", "")) for x in rows if isinstance(x, dict)}
     performance = _performance_by_pillar()
+    topic_performance = _performance_by_topic()
     candidates = _ensure_candidate_pool()
 
-    # Combine fresh original candidates with unused seed riddles. Performance changes
-    # the ranking, while a small exploration term keeps the system from overfitting.
+    # Avoid publishing the same pillar repeatedly. We still allow a hot pillar to
+    # win when it clearly outperforms the alternatives, but recent repetition costs points.
+    recent_pillars = [str(x.get("pillar", "")) for x in rows[-3:] if isinstance(x, dict)]
+
     pool = []
     for item in candidates:
         q, a = item.get("question", "").strip(), item.get("answer", "").strip()
         if q and a and _n(q) not in used_q:
             pillar = item.get("pillar", "logic")
-            pool.append((pillar, q, a, _creative_score(pillar, q, a, performance), "original"))
+            score = _creative_score(pillar, q, a, performance, topic_performance)
+            score -= recent_pillars.count(pillar) * 5.0
+            pool.append((pillar, q, a, round(score, 3), "original"))
     for pillar, q, a in RIDDLES:
         if _n(q) not in used_q:
-            pool.append((pillar, q, a, _creative_score(pillar, q, a, performance), "seed"))
+            score = _creative_score(pillar, q, a, performance, topic_performance)
+            score -= recent_pillars.count(pillar) * 5.0
+            pool.append((pillar, q, a, round(score, 3), "seed"))
+
     if not pool:
         raise RuntimeError("Riddle candidate pool exhausted. Generate new original riddles before publishing.")
 
     pool.sort(key=lambda x: x[3], reverse=True)
-    # Explore among the top five instead of always selecting rank #1.
-    shortlist = pool[:min(5, len(pool))]
-    chosen = random.choice(shortlist)
+    shortlist = pool[:min(6, len(pool))]
+    # Weighted exploration: stronger candidates are more likely, but rank #1 is not
+    # guaranteed. This keeps creative testing alive instead of collapsing to one format.
+    weights = [max(0.25, (len(shortlist) - i) ** 1.7) for i in range(len(shortlist))]
+    chosen = random.choices(shortlist, weights=weights, k=1)[0]
     print("🧠 Riddle creative selection:", json.dumps({
         "selected_pillar": chosen[0], "source": chosen[4], "score": chosen[3],
-        "shortlist_scores": [round(x[3], 2) for x in shortlist]
+        "recent_pillars": recent_pillars,
+        "shortlist": [{"pillar": x[0], "score": x[3], "source": x[4]} for x in shortlist]
     }, ensure_ascii=False))
     return chosen[0], chosen[1], chosen[2]
 

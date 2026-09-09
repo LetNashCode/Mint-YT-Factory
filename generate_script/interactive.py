@@ -2,9 +2,9 @@
 from __future__ import annotations
 from . import entertainment as _base
 
-
-MIN_WORDS = 50
-MAX_WORDS = 85
+MIN_WORDS = 60
+MAX_WORDS = 95
+SCENE_WORD_BUDGETS = ((8, 14), (10, 18), (8, 14), (8, 14), (8, 12), (5, 8), (13, 15))
 
 
 def _feedback(extra=""):
@@ -14,8 +14,7 @@ def _feedback(extra=""):
         "Do not require a visual clue, visual inspection, on-screen text, or an object in the footage to solve the NEW riddle. "
         "A previous riddle answer may be revealed, but the NEW answer must remain locked. "
         "The ending must ask viewers to subscribe and follow for the NEW answer in the next Short; never say tomorrow, next day, or imply a fixed schedule. "
-        f"Target a compact {MIN_WORDS}-{MAX_WORDS} total narration word count. Every sentence must earn its place. "
-        "Narration length must never be forced into the Publish Shorts word contract. "
+        f"Target {MIN_WORDS}-{MAX_WORDS} total spoken words, with strict scene pacing bands. Every sentence must earn its place. "
         + str(extra or "")
     )
 
@@ -34,17 +33,17 @@ CURRENT RIDDLE: {topic}
 Create exactly 7 scenes. Return the normal production JSON schema.
 
 The Short must work as a spoken mini-game. The narration is the product; stock media is only mood/context and must never be needed to understand or solve the riddle.
-Target {MIN_WORDS}-{MAX_WORDS} total spoken words. Aim for roughly 18-25 seconds at a natural energetic pace. Do not pad to fill time.
-Use this retention arc, while varying the actual wording and mechanic:
-- Scene 1: immediate pattern-interrupt hook. If a previous answer exists, reveal it in one short sentence, then pivot immediately. No greeting.
-- Scene 2: state the NEW riddle clearly. Get to the actual question as fast as possible.
-- Scene 3: create the obvious first interpretation with one short spoken curiosity gap.
-- Scene 4: introduce one second interpretation, wording trap, assumption, or expectation reversal. Do not add a long explanation.
-- Scene 5: force commitment. Ask viewers to lock in their FIRST answer. One or two punchy sentences maximum.
-- Scene 6: apply brief pressure and finish with a conversational 3…2…1 countdown. Never use 10-to-1.
-- Scene 7: preserve the payoff gap. Do not reveal the NEW answer. Use a short subscribe/follow CTA for the answer in the next Short. Never mention tomorrow.
+Target {MIN_WORDS}-{MAX_WORDS} total spoken words. Aim for roughly 19-30 seconds at a natural energetic pace. Do not pad for length.
+SCENE PACING BANDS — these are maximum/minimum guidance, not filler targets:
+- Scene 1: 8-14 words. Immediate hook; if a previous answer exists, reveal it in one short sentence and pivot.
+- Scene 2: 10-18 words. State the NEW riddle clearly. Reach the actual question immediately.
+- Scene 3: 8-14 words. Trigger the obvious first interpretation with one curiosity gap.
+- Scene 4: 8-14 words. One spoken trap, reversal, or assumption break. No explanation dump.
+- Scene 5: 8-12 words. Force the viewer to lock in their FIRST answer.
+- Scene 6: 5-8 words. Brief pressure ending with conversational 3…2…1. Never 10-to-1.
+- Scene 7: 13-15 words. Preserve the NEW answer payoff gap and use a short subscribe/follow CTA for the answer in the next Short.
 
-Choose narration mechanics such as wording trap, double meaning, obvious-answer trap, lateral thinking, expectation reversal, tiny logic mystery, misconception, or psychological trap. Do not force a mechanic that does not fit the riddle.
+Vary the mechanic across episodes: wording traps, double meanings, obvious-answer traps, lateral thinking, expectation reversals, tiny logic mysteries, misconceptions and psychological traps. Use only a mechanic that genuinely fits the riddle.
 Keep every clue solvable from spoken words alone. Avoid visual-puzzle formats and phrases like "look at this", "you can see", "notice the picture", or clues that depend on footage.
 Do not reveal, spell out, strongly hint at, or explain the NEW answer. Do not accidentally leak it through examples or hypothetical guesses.
 Avoid generic filler: "welcome back", "today's riddle", "here's today's riddle", "stay tuned", "guys", "don't forget to like and subscribe".
@@ -85,6 +84,10 @@ Avoid generic filler: "welcome back", "today's riddle", "here's today's riddle",
             total = sum(len(_base._words(s.get("narration", ""))) for s in scenes)
             if not MIN_WORDS <= total <= MAX_WORDS:
                 raise RuntimeError(f"Riddle narration length {total} outside optimized {MIN_WORDS}-{MAX_WORDS} range.")
+            for index, (low, high) in enumerate(SCENE_WORD_BUDGETS):
+                count = len(_base._words(scenes[index].get("narration", "")))
+                if count < low or count > high:
+                    raise RuntimeError(f"Riddle Scene {index + 1} has {count} words; expected {low}-{high} for pacing.")
 
             previous_answer = ""
             previous_number = None
@@ -105,10 +108,7 @@ Avoid generic filler: "welcome back", "today's riddle", "here's today's riddle",
                 if total > MAX_WORDS:
                     raise RuntimeError(f"Riddle narration length {total} outside optimized {MIN_WORDS}-{MAX_WORDS} range after reveal insertion.")
 
-            print(
-                f"🧩 Riddles Shorts narration validated: {total} words"
-                + (f" + Riddle #{previous_number} answer revealed in Scene 1" if previous_answer else "")
-            )
+            print(f"🧩 Riddles Shorts narration validated: {total} words" + (f" + Riddle #{previous_number} answer revealed in Scene 1" if previous_answer else ""))
             return result
         except Exception as e:
             last_error = f"{type(e).__name__}: {e}"

@@ -1,7 +1,7 @@
 """Self-learning decision engine for Mint-YT-Factory.
 
-V3 learns combinations of creative choices from published Shorts instead of
-only ranking isolated features. It keeps the existing main.py API intact.
+V3 learns combinations of creative choices from published Shorts and now
+selects an explicit 70/20/10 creative strategy for each new Short.
 """
 from __future__ import annotations
 
@@ -119,6 +119,9 @@ def _creative_features(record: dict) -> dict[str, str]:
     question_count = narration.count("?")
     purposes = [str(s.get("purpose", "")).strip() for s in scenes if s.get("purpose")]
     retention = [str(s.get("retention_purpose", "")).strip() for s in scenes if s.get("retention_purpose")]
+    experiment = script.get("learning_experiment") or {}
+    if not isinstance(experiment, dict):
+        experiment = {}
 
     hook_text = str(first.get("narration", ""))
     hook_lower = hook_text.lower()
@@ -151,6 +154,8 @@ def _creative_features(record: dict) -> dict[str, str]:
         "visual_style": str((script.get("visual_identity") or {}).get("style", "")).strip()[:80] or "unknown",
         "voice": str((script.get("voice_style") or {}).get("tone", "")).strip()[:50] or "unknown",
         "engagement_experiment": str((script.get("engagement") or {}).get("experiment", "")).strip() or "none",
+        "creative_strategy": str(experiment.get("strategy", "")).strip() or "unassigned",
+        "creative_experiment_id": str(experiment.get("experiment_id", "")).strip() or "unassigned",
     }
 
 
@@ -180,8 +185,8 @@ def _rows(records: list[dict], features: dict[str, str]) -> dict[str, list[float
     for record in records:
         values = _creative_features(record)
         score = _performance(record)
-        key = " + ".join(f"{name}:{values.get(name)}" for name in features if values.get(name) not in (None, "", "unknown"))
-        if key and all(values.get(name) not in (None, "", "unknown") for name in features):
+        key = " + ".join(f"{name}:{values.get(name)}" for name in features if values.get(name) not in (None, "", "unknown", "unassigned"))
+        if key and all(values.get(name) not in (None, "", "unknown", "unassigned") for name in features):
             out[key].append(score)
     return out
 
@@ -193,6 +198,58 @@ def _rank(rows: dict[str, list[float]], minimum: int = 1) -> list[dict]:
             continue
         result.append({"pattern": pattern, "score": round(sum(values) / len(values), 3), "sample_size": len(values)})
     return sorted(result, key=lambda x: (x["score"], x["sample_size"]), reverse=True)
+
+
+def select_creative_strategy(playbook: dict | None = None) -> dict:
+    """Select the next creative experiment using an exact 70/20/10 schedule.
+
+    The slot is derived from the number of published videos, so no mutable
+    counter is required and the distribution survives retries/resumes.
+    """
+    pb = playbook or get_playbook()
+    video_count = max(0, int(pb.get("video_count", 0) or 0))
+    slot = video_count % 10
+    cycle = video_count // 10 + 1
+    combinations = [
+        row for row in (pb.get("winning_combinations") or [])
+        if int(row.get("sample_size", 0) or 0) >= MIN_PATTERN_EVIDENCE
+    ]
+    pairs = [
+        row for row in (pb.get("winning_hook_payoff_pairs") or [])
+        if int(row.get("sample_size", 0) or 0) >= MIN_PATTERN_EVIDENCE
+    ]
+
+    if slot <= 6 and combinations:
+        strategy = "proven"
+        selected = combinations[(video_count // 10) % len(combinations)]
+        guidance = "Use this repeated winning combination as the structural baseline, while writing an entirely original story."
+    elif slot <= 6 and pairs:
+        strategy = "proven_pair"
+        selected = pairs[(video_count // 10) % len(pairs)]
+        guidance = "Use this repeated winning hook/payoff pair as the structural baseline, while keeping the story original."
+    elif slot <= 8 and pairs:
+        strategy = "adjacent"
+        selected = pairs[(video_count // 10) % len(pairs)]
+        guidance = "Keep the winning hook/payoff relationship, but deliberately change one major creative dimension such as story format, explanation timing, payoff timing, or narration pace."
+    else:
+        strategy = "wild"
+        selected = None
+        guidance = "Do not rely on learned combinations. Try a genuinely new hook, story structure, pacing choice, or payoff pattern that still serves the topic."
+
+    experiment_id = f"creative_v3_{strategy}_cycle{cycle}_slot{slot + 1}"
+    return {
+        "strategy": strategy,
+        "experiment_id": experiment_id,
+        "slot": slot + 1,
+        "cycle": cycle,
+        "target_mix": {"proven": EXPLOITATION, "adjacent": ADJACENT_EXPLORATION, "wild": WILD_EXPLORATION},
+        "selected_pattern": (selected or {}).get("pattern", "") if selected else "",
+        "selected_score": float((selected or {}).get("score", 0) or 0) if selected else 0.0,
+        "selected_sample_size": int((selected or {}).get("sample_size", 0) or 0) if selected else 0,
+        "guidance": guidance,
+        "learning_ready": bool(pb.get("learning_ready")),
+        "evidence_based": bool(selected),
+    }
 
 
 def build_playbook(records: list[dict]) -> dict:
@@ -211,6 +268,7 @@ def build_playbook(records: list[dict]) -> dict:
     weak_patterns = _rank(_rows(losers, {x:x for x in isolated_features}), 2)[:30] if has_live_metrics else []
     winning_combinations = _rank(_rows(winners, {x:x for x in combo_features}), 2)[:20] if has_live_metrics else []
     winning_hook_payoff_pairs = _rank(_rows(winners, {x:x for x in pair_features}), 2)[:12] if has_live_metrics else []
+    creative_strategy_results = _rank(_rows(usable, {"creative_strategy":"creative_strategy"}), 2)[:10] if has_live_metrics else []
 
     topics = [_norm_topic(r.get("topic", "")) for r in usable if r.get("topic")]
     return {
@@ -225,12 +283,14 @@ def build_playbook(records: list[dict]) -> dict:
         "weak_patterns": weak_patterns,
         "winning_combinations": winning_combinations,
         "winning_hook_payoff_pairs": winning_hook_payoff_pairs,
+        "creative_strategy_results": creative_strategy_results,
         "winning_topics": [r.get("topic", "") for r in winners if r.get("topic")][:10] if has_live_metrics else [],
         "avoid_topics": [r.get("topic", "") for r in losers if r.get("topic")][:10] if has_live_metrics else [],
         "used_topic_count": len(set(topics)),
         "rules": [
             "Learn combinations, not templates; never copy winning topics literally.",
             "Only repeated creative evidence with n>=2 is considered a proven pattern.",
+            "Use the explicit 70/20/10 creative selector for future Shorts when evidence is available.",
             "Use one winning combination at a time so future performance remains interpretable.",
             "Use adjacent and wild exploration to avoid creative lock-in.",
             "Retention is primary; shares and subscriber conversion are stronger growth signals than likes.",
@@ -273,6 +333,7 @@ def refresh_playbook() -> dict:
     print(f"🧠 Learning engine: {'READY' if playbook.get('learning_ready') else 'WARMING UP'}")
     print(f"🧠 Creative learning: {playbook.get('creative_learning_version', 'v1')}")
     print(f"🧠 Winning combinations: {len(playbook.get('winning_combinations', []))}")
+    print(f"🧠 Creative strategy results: {len(playbook.get('creative_strategy_results', []))}")
     print(f"🧠 Playbook saved: {PLAYBOOK_PATH}")
     return playbook
 

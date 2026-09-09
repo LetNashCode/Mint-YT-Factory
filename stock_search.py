@@ -6,6 +6,7 @@ Goals:
 - Verify the ACTUAL candidate thumbnails with Gemini Vision when available.
 - Never fail an entire production merely because Gemini verification is temporarily unavailable.
 - Never silently substitute an unrelated object.
+- Never reuse a previously selected production asset across Publish Shorts.
 
 Production media remains Pexels/Pixabay only.
 """
@@ -31,7 +32,11 @@ SEARCH_PROMPTS = 8
 CANDIDATES_PER_SEARCH = 8
 VERIFY_CANDIDATES = 6
 TIMEOUT = 25
-USER_AGENT = "Mint-YT-Factory/StockSearch/15.0"
+USER_AGENT = "Mint-YT-Factory/StockSearch/15.1"
+
+# Persistent cross-Short media registry. The Publish workflow commits this file
+# after every run so future Actions runs inherit the no-reuse constraint.
+MEDIA_HISTORY_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "media_history.json")
 
 # Words that tend to produce beautiful but useless stock results.
 BAD_QUERY_WORDS = {
@@ -46,7 +51,6 @@ def clean(value: Any, maximum: int = 700) -> str:
 
 
 def _key() -> str:
-    # Gemini is optional for stock search. Local fallback keeps production running.
     return os.getenv("GEMINI_API_KEY", "").strip()
 
 
@@ -111,6 +115,64 @@ def _gemini(prompt: str, temperature: float = 0.15, parts: list[Any] | None = No
     raise RuntimeError(f"Gemini stock call failed: {type(last).__name__}: {last}") from last
 
 
+def _load_media_history() -> dict:
+    try:
+        data = json.loads(open(MEDIA_HISTORY_PATH, encoding="utf-8").read())
+        if isinstance(data, dict):
+            return data
+    except Exception:
+        pass
+    return {"assets": []}
+
+
+def _save_media_history(data: dict) -> None:
+    assets = data.get("assets") if isinstance(data, dict) else None
+    if not isinstance(assets, list):
+        assets = []
+    tmp = MEDIA_HISTORY_PATH + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as handle:
+        json.dump({"assets": assets}, handle, indent=2, ensure_ascii=False)
+        handle.write("\n")
+    os.replace(tmp, MEDIA_HISTORY_PATH)
+
+
+def _asset_key(item: dict, provider: str, video: bool, url: str = "") -> str:
+    """Stable provider asset identity, independent of CDN rendition URL."""
+    raw_id = item.get("id") or item.get("video_id") or item.get("picture_id")
+    if raw_id:
+        return f"{provider.lower()}:{'video' if video else 'photo'}:{raw_id}"
+    return f"{provider.lower()}:{'video' if video else 'photo'}:url:{url.strip()}"
+
+
+def _historical_asset_keys() -> set[str]:
+    data = _load_media_history()
+    result = set()
+    for item in data.get("assets", []):
+        if isinstance(item, dict) and item.get("asset_key"):
+            result.add(str(item["asset_key"]))
+    return result
+
+
+def _record_media_asset(item: dict, provider: str, video: bool, url: str, scene: int, shot: int, query: str) -> None:
+    key = _asset_key(item, provider, video, url)
+    data = _load_media_history()
+    assets = data.setdefault("assets", [])
+    if any(isinstance(x, dict) and x.get("asset_key") == key for x in assets):
+        return
+    assets.append({
+        "asset_key": key,
+        "provider": provider,
+        "type": "video" if video else "photo",
+        "source_url": url,
+        "scene": scene,
+        "shot": shot,
+        "query": query,
+        "recorded_at": int(time.time()),
+    })
+    _save_media_history(data)
+    print(f"      📚 MEDIA HISTORY RECORDED: {key}")
+
+
 def _normalize_ladder(data: dict, anchors: list[str]) -> list[dict]:
     ladder: list[dict] = []
     seen: set[str] = set()
@@ -126,7 +188,6 @@ def _normalize_ladder(data: dict, anchors: list[str]) -> list[dict]:
             continue
         if words & BAD_QUERY_WORDS:
             continue
-        # A stock query must retain at least one concrete anchor from the visual brief.
         if anchor_words and not (words & anchor_words):
             continue
         seen.add(key)
@@ -135,7 +196,6 @@ def _normalize_ladder(data: dict, anchors: list[str]) -> list[dict]:
 
 
 def _anchor_terms(spoken: str, focus: str, action: str, must: list[str]) -> list[str]:
-    """Extract concrete nouns likely to be useful in stock search."""
     text = " ".join([spoken, focus, action, *must]).lower()
     replacements = {
         "popcorn kernels": "popcorn kernel", "kernels": "kernel", "maize": "corn",
@@ -144,10 +204,10 @@ def _anchor_terms(spoken: str, focus: str, action: str, must: list[str]) -> list
     for old, new in replacements.items():
         text = text.replace(old, new)
     stop = {
-        "the", "and", "with", "from", "that", "this", "into", "under", "inside",
-        "over", "when", "your", "their", "same", "visible", "showing", "shows",
-        "because", "like", "really", "actually", "tiny", "little", "hard", "white",
-        "yellow", "single", "physical", "object", "thing", "surface", "state",
+        "the", "and", "with", "from", "that", "this", "into", "under", "over",
+        "when", "your", "their", "same", "visible", "showing", "shows", "because",
+        "like", "really", "actually", "tiny", "little", "hard", "white", "yellow",
+        "single", "physical", "object", "thing", "surface", "state",
     }
     words = re.findall(r"[a-z][a-z-]{2,}", text)
     ranked: list[str] = []
@@ -167,8 +227,6 @@ def direct(scene_no: int, shot_no: int, scene: dict, visual: dict, failed_querie
     avoid = [clean(x, 180) for x in visual.get("must_not_show", []) if clean(x)]
     failed = [clean(x, 100) for x in (failed_queries or []) if clean(x)]
     anchors = _anchor_terms(spoken, focus, action, must)
-    # Prefer explicit visual brief nouns over fragmented narration words. This
-    # prevents queries like "thief never" when the narration itself is abstract.
     subject_text = " ".join([focus, action, *must]).lower()
     subject_words = [
         w for w in re.findall(r"[a-z][a-z-]{2,}", subject_text)
@@ -204,33 +262,14 @@ RULES:
   popping, steaming, frying, falling, opening, stretching, spilling, etc.
 - If the exact microscopic/invisible mechanism cannot be filmed, search for the
   closest visible state change of the SAME physical subject.
-- Never replace the subject with a related object. A popcorn story needs popcorn,
-  kernels, a popcorn pan, or popped popcorn—not a random kitchen, generic food,
-  generic science footage, a laboratory, or a diagram.
+- Never replace the subject with a related object.
 - Never use the words science, concept, mechanism, mystery, educational, experiment,
   cinematic, futuristic, abstract, laboratory, microscopic, molecular, physics, chemistry.
-- Do not merely add camera words such as closeup, macro, cinematic, footage.
 - Do not invent visual metaphors.
 - Queries should become progressively more practical if earlier searches fail.
 
-Return ONLY JSON:
-{{
-  "search_ladder": [
-    {{"query":"exact concrete subject","strategy":"literal"}},
-    {{"query":"common stock phrase","strategy":"everyday"}},
-    {{"query":"visible action","strategy":"action"}},
-    {{"query":"visible state change","strategy":"state-result"}},
-    {{"query":"alternate common noun","strategy":"alternate-noun"}},
-    {{"query":"useful viewpoint phrase","strategy":"viewpoint"}},
-    {{"query":"real-world setting","strategy":"context"}},
-    {{"query":"visible consequence","strategy":"causal"}}
-  ],
-  "casting_brief":"one sentence describing the ideal literal shot",
-  "must_match":["concrete visible requirements"],
-  "avoid":["likely wrong results"]
-}}'''
+Return ONLY JSON with a search_ladder, casting_brief, must_match and avoid fields.'''
 
-    # Gemini improves query phrasing, but must never be a production dependency.
     data = {}
     try:
         data = _gemini(prompt, 0.25)
@@ -238,11 +277,7 @@ Return ONLY JSON:
         print(f"🛡️ Gemini stock director unavailable — local deterministic fallback: {type(exc).__name__}")
     ladder = _normalize_ladder(data, anchors) if data else []
 
-    # Deterministic practical queries guarantee that a poor Gemini answer cannot
-    # turn the whole search into exotic/non-searchable language.
     if anchors:
-        # Use a meaningful concrete subject phrase only. Never manufacture a
-        # search query from arbitrary narration fragments.
         subject = " ".join(anchors[:2])
         if len(subject.split()) < 1 or subject in {"never", "cannot", "unless", "being", "onto"}:
             subject = ""
@@ -264,7 +299,6 @@ Return ONLY JSON:
                 existing.add(q)
 
     if len(ladder) < 4:
-        # Never fail production merely because Gemini is unavailable.
         base = subject if 'subject' in locals() and subject else (" ".join(anchors[:2]) or "person thinking")
         existing = {x["query"] for x in ladder}
         for q in [base, f"{base} close up", f"{base} indoors", f"{base} reaction", f"{base} hands"]:
@@ -371,7 +405,6 @@ def _url(item, provider, video):
                 w = int(f.get("width") or 0)
                 h = int(f.get("height") or 0)
                 if u:
-                    # Prefer landscape 720-ish sources. Portrait is also valid.
                     portrait_penalty = 0 if h >= w else 1
                     choices.append((portrait_penalty, abs(w * h - 720 * 1280), u))
             return sorted(choices)[0][2] if choices else ""
@@ -397,9 +430,7 @@ def _download_bytes(url: str) -> bytes:
 
 
 def _image_part(data: bytes):
-    """Create a Gemini image Part from arbitrary JPEG/PNG thumbnail bytes."""
     from google.genai import types
-    # Normalize to small JPEG to keep verification cheap and reliable.
     image = Image.open(io.BytesIO(data)).convert("RGB")
     image.thumbnail((768, 768))
     out = io.BytesIO()
@@ -441,15 +472,13 @@ Score 0-10. Use 7+ only for genuinely relevant imagery. Use 0 when none match.''
 
 
 def verify_actual(d, items, provider, video, query, strategy):
-    """Verify actual thumbnails, not URLs-as-text. Returns item or None.
-
-    If Gemini is unavailable, return None so deterministic scoring can decide.
-    """
     candidates = []
     parts = []
+    historical = _historical_asset_keys()
     for item in items[:VERIFY_CANDIDATES]:
         preview = _preview_url(item, provider, video)
-        if not preview:
+        url = _url(item, provider, video)
+        if not preview or not url or _asset_key(item, provider, video, url) in historical:
             continue
         try:
             raw = _download_bytes(preview)
@@ -471,7 +500,6 @@ def verify_actual(d, items, provider, video, query, strategy):
 
 
 def _deterministic_score(d, item, provider, video, query):
-    """Safe outage fallback. It ranks metadata/query alignment but never claims Vision."""
     hay = " ".join([
         query,
         str(item.get("alt", "")),
@@ -486,26 +514,27 @@ def _deterministic_score(d, item, provider, video, query):
         if term and term.lower() in hay:
             hits += 1
     score += min(hits * 1.5, 5.0)
-    # Exact query terms are useful metadata evidence.
     qwords = [w for w in re.findall(r"[a-z0-9]+", query.lower()) if len(w) > 2]
     score += min(sum(1 for w in qwords if w in hay) * 0.5, 2.5)
-    # A candidate with a preview/downloadable media URL is preferable.
     if _url(item, provider, video):
         score += 1.0
     return score
 
 
 def _select_without_vision(d, items, provider, video, query):
+    historical = _historical_asset_keys()
     ranked = sorted(
-        items,
+        [
+            x for x in items
+            if _url(x, provider, video)
+            and _asset_key(x, provider, video, _url(x, provider, video)) not in historical
+        ],
         key=lambda x: _deterministic_score(d, x, provider, video, query),
         reverse=True,
     )
     if not ranked:
         return None
     score = _deterministic_score(d, ranked[0], provider, video, query)
-    # Conservative: only accept a metadata-backed match. This is a resilience
-    # path, not permission to select random media.
     return ranked[0] if score >= 2.5 else None
 
 
@@ -516,6 +545,7 @@ def generate_media(script, output_dir, config, gim=None):
     groups = []
     vision_available = True
     print(f"📚 STOCK SEARCH {GEMINI_MODEL} | Pexels/Pixabay only | actual-thumbnail verification")
+    print(f"🚫 CROSS-SHORT MEDIA REUSE: BLOCKED | historical assets: {len(_historical_asset_keys())}")
 
     for si, shots in enumerate(plan, 1):
         for vi, d in enumerate(shots, 1):
@@ -545,7 +575,6 @@ def generate_media(script, output_dir, config, gim=None):
                         except Exception as exc:
                             vision_failures += 1
                             print(f"      ⚠️ Vision verification unavailable: {type(exc).__name__}")
-                            # Don't hammer a failing Gemini endpoint for every provider.
                             if vision_failures >= 3:
                                 vision_available = False
                                 print("      🛡️ Vision circuit breaker OPEN — deterministic fallback enabled")
@@ -557,20 +586,19 @@ def generate_media(script, output_dir, config, gim=None):
 
                     if item:
                         url = _url(item, provider, video)
-                        if url and url not in used:
+                        key = _asset_key(item, provider, video, url) if url else ""
+                        if url and key not in _historical_asset_keys() and url not in used:
                             selected = item
                             selected_provider = provider
                             selected_video = video
                             selected_query = q
                             break
-                    print(f"      ↪️ {provider} {'VIDEO' if video else 'PHOTO'}: no acceptable match")
+                    print(f"      ↪️ {provider} {'VIDEO' if video else 'PHOTO'}: no acceptable match (including reuse guard)")
 
                 if selected:
                     break
 
             if not selected:
-                # One final deterministic pass over all practical queries, with a
-                # lower bar only when the candidate has explicit subject metadata.
                 for entry in d["search_ladder"]:
                     q = entry["query"]
                     for provider, video in (("Pexels", False), ("Pixabay", False), ("Pexels", True), ("Pixabay", True)):
@@ -578,7 +606,8 @@ def generate_media(script, output_dir, config, gim=None):
                         item = _select_without_vision(d, items, provider, video, q) if items else None
                         if item:
                             url = _url(item, provider, video)
-                            if url and url not in used:
+                            key = _asset_key(item, provider, video, url) if url else ""
+                            if url and key not in _historical_asset_keys() and url not in used:
                                 selected = item
                                 selected_provider = provider
                                 selected_video = video
@@ -590,8 +619,8 @@ def generate_media(script, output_dir, config, gim=None):
 
             if not selected:
                 raise RuntimeError(
-                    f"No visually relevant stock asset found for Scene {si} Shot {vi}. "
-                    "Pexels/Pixabay returned no candidate with sufficient subject evidence."
+                    f"No new visually relevant stock asset found for Scene {si} Shot {vi}. "
+                    "Pexels/Pixabay returned no candidate that passed relevance and cross-Short reuse guards."
                 )
 
             ext = "mp4" if selected_video else "jpg"
@@ -605,12 +634,13 @@ def generate_media(script, output_dir, config, gim=None):
             )
             if not recovered:
                 raise RuntimeError(
-                    f"No downloadable visually relevant stock asset found for Scene {si} Shot {vi} "
+                    f"No downloadable visually relevant NEW stock asset found for Scene {si} Shot {vi} "
                     f"after retrying the selected asset and fallback candidates."
                 )
 
             selected, selected_provider, selected_video, selected_query, url = recovered
             used.add(url)
+            _record_media_asset(selected, selected_provider, selected_video, url, si, vi, selected_query)
             groups.append({
                 "scene": si,
                 "shot": vi,
@@ -619,20 +649,15 @@ def generate_media(script, output_dir, config, gim=None):
                 "provider": selected_provider,
                 "creator": _creator(selected, selected_provider),
                 "query": selected_query,
+                "asset_key": _asset_key(selected, selected_provider, selected_video, url),
                 "score": 8.0,
             })
-            print(f"      ✅ SELECTED {selected_provider} {'VIDEO' if selected_video else 'PHOTO'}: {selected_query}")
+            print(f"      ✅ SELECTED NEW {selected_provider} {'VIDEO' if selected_video else 'PHOTO'}: {selected_query}")
 
     return groups
 
 
 def _download_with_candidate_recovery(d, initial, output_path: str, used_urls: set[str]):
-    """Download a selected asset, then recover using other relevant candidates.
-
-    A stock API can return a valid-looking candidate whose CDN URL is stale,
-    temporarily unavailable, or blocked in GitHub Actions. Download failure must
-    therefore not kill the entire Short after selection succeeds.
-    """
     failed_urls: set[str] = set()
     queue = [initial]
     queued_urls: set[str] = set()
@@ -640,7 +665,8 @@ def _download_with_candidate_recovery(d, initial, output_path: str, used_urls: s
     while queue:
         item, provider, video, query = queue.pop(0)
         url = _url(item, provider, video)
-        if not url or url in used_urls or url in failed_urls:
+        key = _asset_key(item, provider, video, url) if url else ""
+        if not url or url in used_urls or url in failed_urls or key in _historical_asset_keys():
             continue
         queued_urls.add(url)
 
@@ -653,9 +679,6 @@ def _download_with_candidate_recovery(d, initial, output_path: str, used_urls: s
             f"{'VIDEO' if video else 'PHOTO'}; trying another relevant candidate..."
         )
 
-        # Search the complete practical ladder and rank every candidate by the
-        # existing conservative relevance score. This keeps fallback media tied
-        # to the spoken beat instead of substituting unrelated footage.
         for entry in d.get("search_ladder", []):
             q = entry.get("query", "")
             if not q:
@@ -664,30 +687,24 @@ def _download_with_candidate_recovery(d, initial, output_path: str, used_urls: s
                 ("Pexels", True), ("Pixabay", True),
                 ("Pexels", False), ("Pixabay", False),
             ):
-                items = (
-                    pexels(q, next_video)
-                    if next_provider == "Pexels"
-                    else pixabay(q, next_video)
-                )
+                items = pexels(q, next_video) if next_provider == "Pexels" else pixabay(q, next_video)
                 ranked = sorted(
                     items,
-                    key=lambda x: _deterministic_score(
-                        d, x, next_provider, next_video, q
-                    ),
+                    key=lambda x: _deterministic_score(d, x, next_provider, next_video, q),
                     reverse=True,
                 )
                 for candidate in ranked:
-                    score = _deterministic_score(
-                        d, candidate, next_provider, next_video, q
-                    )
+                    score = _deterministic_score(d, candidate, next_provider, next_video, q)
                     if score < 2.5:
                         break
                     candidate_url = _url(candidate, next_provider, next_video)
+                    candidate_key = _asset_key(candidate, next_provider, next_video, candidate_url) if candidate_url else ""
                     if (
                         not candidate_url
                         or candidate_url in used_urls
                         or candidate_url in failed_urls
                         or candidate_url in queued_urls
+                        or candidate_key in _historical_asset_keys()
                     ):
                         continue
                     queue.append((candidate, next_provider, next_video, q))
@@ -697,7 +714,6 @@ def _download_with_candidate_recovery(d, initial, output_path: str, used_urls: s
 
 
 def _download_file(url: str, path: str) -> bool:
-    """Download with retries and atomic replacement of the target file."""
     temp_path = path + ".part"
     for attempt in range(1, 4):
         try:
@@ -705,10 +721,7 @@ def _download_file(url: str, path: str) -> bool:
                 os.remove(temp_path)
             with requests.get(
                 url,
-                headers={
-                    "User-Agent": USER_AGENT,
-                    "Accept": "*/*",
-                },
+                headers={"User-Agent": USER_AGENT, "Accept": "*/*"},
                 stream=True,
                 timeout=(10, TIMEOUT),
             ) as r:
@@ -723,10 +736,7 @@ def _download_file(url: str, path: str) -> bool:
                 os.replace(temp_path, path)
                 return True
         except Exception as exc:
-            print(
-                f"      ⚠️ Asset download attempt {attempt}/3 failed: "
-                f"{type(exc).__name__}: {exc}"
-            )
+            print(f"      ⚠️ Asset download attempt {attempt}/3 failed: {type(exc).__name__}: {exc}")
             if attempt < 3:
                 time.sleep(1.5 * attempt)
         finally:

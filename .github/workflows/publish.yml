@@ -169,15 +169,54 @@ jobs:
           print(f"Resumable state: {status} | youtube_id={youtube_id or 'none'}")
           PY
                   then
-                    workdir_name="$(basename "$final_dir")"
-                    rm -rf "output/$workdir_name"
-                    mkdir -p output
-                    cp -a "$final_dir" "output/"
-                    if [ -f "output/$workdir_name/final.mp4" ] && [ -f "output/$workdir_name/script.json" ] && [ -f "output/$workdir_name/publish_state.json" ]; then
-                      echo "✅ Restored Publish Shorts workdir from latest failed run $run_id"
-                      found="$run_id"
-                    else
+                    echo "🔍 Validating restored candidate master before copying it into output/"
+                    if python - "$final_file" <<'PY'
+          import json
+          import subprocess
+          import sys
+          from pathlib import Path
+          video = Path(sys.argv[1])
+          try:
+              probe = subprocess.run(
+                  [
+                      "ffprobe", "-v", "error",
+                      "-select_streams", "v:0",
+                      "-show_entries", "stream=width,height,r_frame_rate,codec_name,pix_fmt,bit_rate",
+                      "-of", "json", str(video),
+                  ],
+                  check=True, capture_output=True, text=True,
+              )
+              stream = (json.loads(probe.stdout).get("streams") or [])[0]
+              bitrate = float(stream.get("bit_rate") or 0.0)
+              width = int(stream.get("width") or 0)
+              height = int(stream.get("height") or 0)
+              fps = float(eval(str(stream.get("r_frame_rate") or "0/1")))
+              codec = str(stream.get("codec_name") or "")
+              pix_fmt = str(stream.get("pix_fmt") or "")
+          except Exception as exc:
+              print(f"⏭️ Resume candidate validation failed: {exc}")
+              raise SystemExit(1)
+          bitrate_mbps = bitrate / 1_000_000.0
+          print(f"Resume candidate: {width}x{height} {fps:.3f}fps {codec}/{pix_fmt} {bitrate_mbps:.2f} Mbps")
+          if width != 2160 or height != 3840 or abs(fps - 60.0) > 0.05 or codec != "h264" or pix_fmt != "yuv420p":
+              print("⏭️ Resume candidate rejected: master format does not match production contract.")
+              raise SystemExit(1)
+          if bitrate_mbps < 80.0:
+              print(f"⏭️ Resume candidate rejected: measured bitrate {bitrate_mbps:.2f} Mbps is below the 80 Mbps production floor.")
+              raise SystemExit(1)
+          print("✅ Resume candidate passes production format/bitrate floor; restoring it.")
+          PY
+                    then
+                      workdir_name="$(basename "$final_dir")"
                       rm -rf "output/$workdir_name"
+                      mkdir -p output
+                      cp -a "$final_dir" "output/"
+                      if [ -f "output/$workdir_name/final.mp4" ] && [ -f "output/$workdir_name/script.json" ] && [ -f "output/$workdir_name/publish_state.json" ]; then
+                        echo "✅ Restored Publish Shorts workdir from latest failed run $run_id"
+                        found="$run_id"
+                      else
+                        rm -rf "output/$workdir_name"
+                      fi
                     fi
                   else
                     echo "⏭️ Latest failed run $run_id has no incomplete publication state; refusing to restore it."

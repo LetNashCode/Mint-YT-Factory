@@ -49,8 +49,13 @@ def _validate_retention_contract(script, answer):
     answer = str(answer or "").strip()
     if not narration:
         raise RuntimeError("Riddle narration is empty.")
-    if answer and re.search(rf"\b{re.escape(answer)}\b", narration, re.I):
-        raise RuntimeError("NEW riddle answer leaked into narration; rejecting script.")
+
+    # Check the NEW answer only before the final CTA. This avoids false positives for
+    # perfectly valid answers such as "short", which naturally appears in "next Short".
+    challenge_narration = " ".join(str(s.get("narration", "")) for s in scenes[:6]).strip()
+    if answer and re.search(rf"\b{re.escape(answer)}\b", challenge_narration, re.I):
+        raise RuntimeError("NEW riddle answer leaked into challenge narration; rejecting script.")
+
     if not re.search(r"\b(first answer|first guess|lock|commit|pick|choose|guess)\b", str(scenes[4].get("narration", "")), re.I):
         raise RuntimeError("Scene 5 must force the viewer to commit to a first answer.")
     if not re.search(r"three[.… ]+two[.… ]+one|3[.… ]*2[.… ]*1", str(scenes[5].get("narration", "")), re.I):
@@ -63,8 +68,6 @@ def _validate_retention_contract(script, answer):
 
 
 def _title(number, pillar):
-    # Keep the title short and challenge-led. The actual riddle remains in the
-    # spoken opening instead of spending the title on a generic series label.
     variants = {
         "wordplay": "Can You Outsmart This Word Riddle? 🧩",
         "logic": "This Riddle Tricks Your Brain 🧩",

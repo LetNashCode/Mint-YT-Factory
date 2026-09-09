@@ -11,6 +11,14 @@ permissions:
   contents: write
   actions: read
 
+# Serialize Publish Shorts runs so the persistent media-history registry is
+# checked and updated atomically from the workflow's point of view. This avoids
+# two scheduled runs starting from the same checkout and selecting the same
+# stock asset before either run can commit its history.
+concurrency:
+  group: publish-shorts-main
+  cancel-in-progress: false
+
 env:
   IMAGEMAGICK_BINARY: /usr/bin/convert
 
@@ -99,52 +107,37 @@ jobs:
           rm -rf /tmp/mint-resume
           mkdir -p /tmp/mint-resume
           found=""
-
-          # Only inspect the single most recent failed run. Additionally, a
-          # completed_publications.json tombstone blocks a failed artifact that
-          # was already successfully resumed by a later run.
           latest_row="$(gh api "repos/${GITHUB_REPOSITORY}/actions/workflows/publish.yml/runs?branch=main&per_page=20" --jq '.workflow_runs[] | select(.id != ('"$GITHUB_RUN_ID"')) | select(.conclusion != null) | select(.conclusion != "success") | [.id,.conclusion,.created_at] | @tsv' | head -n 1 || true)"
-
           if [ -n "$latest_row" ]; then
             run_id="${latest_row%%$'\t'*}"
             rest="${latest_row#*$'\t'}"
             conclusion="${rest%%$'\t'*}"
             echo "🔎 Checking ONLY latest previous failed run $run_id ($conclusion)"
-
             artifact_name="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/artifacts?per_page=100" --jq '.artifacts[] | select(.expired == false) | select(.name | startswith("publish-resume-")) | .name' | head -n 1 || true)"
             if [ -n "$artifact_name" ]; then
               rm -rf /tmp/mint-resume/*
               gh run download "$run_id" -n "$artifact_name" -D /tmp/mint-resume
-
               final_file="$(find /tmp/mint-resume -type f -name final.mp4 -print -quit || true)"
               script_file="$(find /tmp/mint-resume -type f -name script.json -print -quit || true)"
               state_file="$(find /tmp/mint-resume -type f -name publish_state.json -print -quit || true)"
-
               if [ -n "$final_file" ] && [ -n "$script_file" ] && [ -n "$state_file" ]; then
                 final_dir="$(dirname "$final_file")"
                 script_dir="$(dirname "$script_file")"
                 state_dir="$(dirname "$state_file")"
-
                 if [ "$final_dir" = "$script_dir" ] && [ "$final_dir" = "$state_dir" ]; then
                   if python - "$state_file" <<'PY'
           import json, sys
           from pathlib import Path
-
           p = sys.argv[1]
           try:
               s = json.load(open(p, encoding="utf-8"))
           except Exception:
               raise SystemExit(1)
-
           status = str(s.get("status") or "").lower()
           youtube_id = str(s.get("video_id") or ((s.get("youtube") or {}).get("video_id") or "")).strip()
           uploaded = bool(s.get("uploaded"))
           instagram = s.get("instagram") or {}
           facebook = s.get("facebook") or {}
-
-          # A successful later run writes this registry and the commit step
-          # persists it to main. This is the cross-run source of truth that an
-          # old failed Actions artifact has already been consumed.
           tombstones = []
           try:
               registry = json.loads(Path("completed_publications.json").read_text(encoding="utf-8"))
@@ -152,7 +145,6 @@ jobs:
                   tombstones = registry
           except Exception:
               pass
-
           workdir_name = Path(p).parent.name
           for item in tombstones:
               if not isinstance(item, dict):
@@ -163,31 +155,17 @@ jobs:
               if youtube_id and str(item.get("video_id") or "").strip() == youtube_id:
                   print(f"⏭️ Resume blocked by completed YouTube publication tombstone: {youtube_id}")
                   raise SystemExit(1)
-
           legacy_youtube_social_resume = status == "youtube_published" and uploaded and bool(youtube_id) and (
               str(instagram.get("status") or "").lower() not in {"published", "skipped"} or
               str(facebook.get("status") or "").lower() not in {"published", "skipped"}
           )
-
           if status not in {"ready_for_upload", "partial", "uploading"} and not legacy_youtube_social_resume:
               raise SystemExit(1)
-
-          platforms = [
-              p for p in ("youtube", "instagram", "facebook")
-              if (s.get(p) or {}).get("enabled", True)
-          ]
+          platforms = [p for p in ("youtube", "instagram", "facebook") if (s.get(p) or {}).get("enabled", True)]
           if legacy_youtube_social_resume:
-              platforms = [
-                  p for p in ("instagram", "facebook")
-                  if (s.get(p) or {}).get("enabled", True)
-              ]
-
-          if platforms and all(
-              str((s.get(p) or {}).get("status") or "").lower() in {"published", "skipped"}
-              for p in platforms
-          ):
+              platforms = [p for p in ("instagram", "facebook") if (s.get(p) or {}).get("enabled", True)]
+          if platforms and all(str((s.get(p) or {}).get("status") or "").lower() in {"published", "skipped"} for p in platforms):
               raise SystemExit(1)
-
           print(f"Resumable state: {status} | youtube_id={youtube_id or 'none'}")
           PY
                   then
@@ -216,12 +194,7 @@ jobs:
           else
             echo "ℹ️ No previous failed Publish Shorts run found."
           fi
-
-          if [ -n "$found" ]; then
-            echo "♻️ Resume mode is ready."
-          else
-            echo "ℹ️ No resumable latest failed Publish Shorts artifact found. A fresh video will be generated."
-          fi
+          if [ -n "$found" ]; then echo "♻️ Resume mode is ready."; else echo "ℹ️ No resumable latest failed Publish Shorts artifact found. A fresh video will be generated."; fi
       - name: Write YouTube client credentials
         shell: bash
         env:
@@ -255,7 +228,7 @@ jobs:
           date
           python --version
           python -u production_entry.py
-      - name: Commit used topics safely
+      - name: Commit used topics and media safely
         if: always()
         shell: bash
         run: |
@@ -263,21 +236,21 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           mkdir -p /tmp/mint-topic-state
-          for f in used_topics.json analytics_registry.json learning_playbook.json completed_publications.json; do
+          for f in used_topics.json analytics_registry.json learning_playbook.json completed_publications.json media_history.json; do
             if [ -f "$f" ]; then cp -f "$f" "/tmp/mint-topic-state/$f"; fi
           done
           git fetch origin main
           git checkout main
           git reset --hard origin/main
           changed=""
-          for f in used_topics.json analytics_registry.json learning_playbook.json completed_publications.json; do
+          for f in used_topics.json analytics_registry.json learning_playbook.json completed_publications.json media_history.json; do
             if [ -f "/tmp/mint-topic-state/$f" ]; then cp -f "/tmp/mint-topic-state/$f" "$f"; git add "$f"; changed="yes"; fi
           done
           if ! git diff --cached --quiet; then
-            git commit -m "chore: sync publish state" || true
-            git push origin HEAD:main || true
+            git commit -m "chore: sync publish state"
+            git push origin HEAD:main
           else
-            echo "ℹ️ No topic/learning/publication state changes to commit."
+            echo "ℹ️ No topic/learning/publication/media state changes to commit."
           fi
       - name: Upload Publish Shorts resume package
         if: always()

@@ -1,6 +1,6 @@
 """Independent Riddles Shorts pipeline. Does not modify Publish Shorts workflows."""
 from __future__ import annotations
-import json, os, time, yaml
+import json, os, time, re, yaml
 from interactive_topics import get_next_topic, record_topic, get_pending_riddle, save_pending_riddle, next_riddle_number
 from interactive_analytics import record as record_analytics, build_comparison, refresh_live_metrics
 from generate_script.interactive import generate_script
@@ -21,7 +21,9 @@ def load_config():
 
 
 def save(x, p):
-    os.makedirs(os.path.dirname(p), exist_ok=True)
+    directory = os.path.dirname(p)
+    if directory:
+        os.makedirs(directory, exist_ok=True)
     with open(p, "w", encoding="utf-8") as f:
         json.dump(x, f, indent=2, ensure_ascii=False)
 
@@ -37,6 +39,41 @@ def _resolve_narration_path(value):
     if not os.path.isfile(path) or os.path.getsize(path) < 1024:
         raise RuntimeError(f"Riddle narration file invalid: {path!r}")
     return path
+
+
+def _validate_retention_contract(script, answer):
+    scenes = script.get("scene_plan") or []
+    if len(scenes) != 7:
+        raise RuntimeError("Riddle retention contract requires exactly 7 scenes.")
+    narration = " ".join(str(s.get("narration", "")) for s in scenes).strip()
+    answer = str(answer or "").strip()
+    if not narration:
+        raise RuntimeError("Riddle narration is empty.")
+    if answer and re.search(rf"\b{re.escape(answer)}\b", narration, re.I):
+        raise RuntimeError("NEW riddle answer leaked into narration; rejecting script.")
+    if not re.search(r"\b(first answer|first guess|lock|commit|pick|choose|guess)\b", str(scenes[4].get("narration", "")), re.I):
+        raise RuntimeError("Scene 5 must force the viewer to commit to a first answer.")
+    if not re.search(r"three[.… ]+two[.… ]+one|3[.… ]*2[.… ]*1", str(scenes[5].get("narration", "")), re.I):
+        raise RuntimeError("Scene 6 must contain a compact 3-2-1 countdown.")
+    final = str(scenes[-1].get("narration", ""))
+    if not re.search(r"subscribe", final, re.I) or not re.search(r"follow", final, re.I) or not re.search(r"next short", final, re.I):
+        raise RuntimeError("Scene 7 must contain the subscribe/follow answer-loop CTA.")
+    if re.search(r"\btomorrow\b|\bnext day\b", final, re.I):
+        raise RuntimeError("Riddle CTA must not promise a publishing day.")
+
+
+def _title(number, pillar):
+    # Keep the title short and challenge-led. The actual riddle remains in the
+    # spoken opening instead of spending the title on a generic series label.
+    variants = {
+        "wordplay": "Can You Outsmart This Word Riddle? 🧩",
+        "logic": "This Riddle Tricks Your Brain 🧩",
+        "trick": "Don't Trust Your First Answer 🧩",
+        "observation": "Your First Guess Is Probably Wrong 🧩",
+        "classic": "You Have 5 Seconds to Solve This 🧩",
+        "visual": "Solve This Without Looking 🧩",
+    }
+    return f"Riddle #{number}: {variants.get(pillar, 'Can You Solve This? 🧩')}"
 
 
 def run():
@@ -64,37 +101,37 @@ def run():
         print(f"🔓 Revealing Riddle #{previous['number']} answer: {previous['answer']}")
         reveal = (
             f'Previous answer: "{previous["answer"]}". '
-            "This reveal must be the very first spoken beat of Scene 1. "
-            "Make it playful and conversational, ask briefly if viewers got it right, then pivot into the new challenge."
+            "Make this the very first spoken beat of Scene 1. Reveal it quickly, ask briefly if viewers got it right, then pivot immediately."
         )
     else:
         reveal = "No previous riddle exists. Start directly with a high-energy spoken challenge hook."
 
-    feedback = f"""RIDDLE SHORT #{number} — NARRATION-FIRST RETENTION.
+    feedback = f"""RIDDLE SHORT #{number} — RETENTION OPTIMIZED, NARRATION FIRST.
 {reveal}
 NEW exact riddle: "{topic}"
 NEW answer is locked internally: "{answer}".
 Create an entertaining 7-scene spoken mini-game. The viewer must be able to solve everything with the phone face-down. Stock footage/images are atmosphere only, never a clue.
+TARGET: 50-85 spoken words total, roughly 18-25 seconds at a natural energetic pace. Never pad for length.
 RETENTION STRUCTURE:
-- Scene 1: immediate pattern interrupt; if there is a previous riddle, reveal its answer first, then pivot immediately. No greeting.
-- Scene 2: state the NEW riddle clearly and quickly. No unnecessary setup.
-- Scene 3: create the obvious first interpretation and a spoken curiosity gap.
-- Scene 4: introduce a second interpretation, wording trap, assumption, or expectation reversal. Do not reveal the answer.
-- Scene 5: force commitment: ask viewers to lock in their FIRST answer. Keep it punchy.
-- Scene 6: brief pressure and conversational 3…2…1 countdown. No 10-to-1 countdown.
-- Scene 7: preserve the NEW answer as a payoff gap and end with a subscribe/follow CTA promising the answer in the next Short. Never say tomorrow or next day.
-Vary the underlying riddle mechanic and phrasing between episodes: wording traps, double meanings, obvious-answer traps, lateral thinking, expectation reversals, tiny logic mysteries, misconceptions and psychological traps.
-Never depend on visuals, on-screen text, a diagram, or a stock object being recognizable for the solution.
+- Scene 1: pattern interrupt immediately. If a previous riddle exists, reveal its answer in one short sentence, then pivot.
+- Scene 2: state the NEW riddle clearly and quickly. No setup paragraph.
+- Scene 3: trigger the obvious first interpretation with one curiosity gap.
+- Scene 4: give one spoken trap/reversal. No long explanation.
+- Scene 5: force the viewer to lock in their FIRST answer.
+- Scene 6: brief pressure, then conversational 3…2…1. Never 10-to-1.
+- Scene 7: preserve the NEW answer payoff gap and use a short subscribe/follow CTA for the answer in the next Short. Never say tomorrow or next day.
+Vary the mechanic across episodes: wording traps, double meanings, obvious-answer traps, lateral thinking, expectation reversals, tiny logic mysteries, misconceptions and psychological traps.
+Never depend on visuals, on-screen text, diagrams, or recognizable stock objects for the solution.
 NEVER reveal, display, spell out, or strongly hint at the NEW answer, including through examples of possible answers.
-Do not use generic phrases such as "welcome back", "today's riddle", "here's today's riddle", "stay tuned", or "don't forget to like and subscribe".
-The final CTA must use the subscribe/follow → answer in the next Short loop. Do not promise a publishing day.
-Narration length is flexible."""
+Avoid generic phrases such as "welcome back", "today's riddle", "here's today's riddle", "stay tuned", or "don't forget to like and subscribe".
+"""
 
     script = generate_script(topic, config, None, extra_feedback=feedback)
     script.update({"topic": topic, "riddle_number": number, "previous_riddle": previous, "interactive_pillar": pillar})
     script = polish_riddle_script(script, previous, number)
+    _validate_retention_contract(script, answer)
     script["engagement"] = {
-        "comment": f"Lock in your FIRST answer to Riddle #{number} 👇 What was your guess?"
+        "comment": f"Riddle #{number}: what was your FIRST answer? Lock it in 👇"
     }
 
     workdir = os.path.join("output", "interactive", str(int(time.time())))
@@ -113,7 +150,7 @@ Narration length is flexible."""
     if not q.get("ok"):
         raise RuntimeError("Riddle final video validation failed.")
 
-    title = f"Riddle #{number}: Can You Solve This? 🧩"
+    title = _title(number, pillar)
     desc = f"Riddle #{number}: {topic}\n\nLock in your first answer. Subscribe and follow for the answer in the next Riddle Short.\n\n#Riddle #BrainTeaser #Shorts"
     result = upload_video(final, title, desc, config, engagement_comment=script["engagement"]["comment"])
     vid = result if isinstance(result, str) else str(result.get("video_id") or result.get("id") or "") if isinstance(result, dict) else ""

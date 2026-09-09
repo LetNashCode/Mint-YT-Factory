@@ -58,7 +58,10 @@ video:
   resolution: [2160, 3840]
   orientation: portrait
   fps: 60
-  bitrate: 100M
+  # libx264 can undershoot a nominal ABR target on simple stock-heavy footage.
+  # 120M provides headroom so the measured master remains safely above the
+  # 80 Mbps production floor while validation continues to target 100 Mbps.
+  bitrate: 120M
   codec: libx264
   audio_codec: aac
   audio_bitrate: 384k

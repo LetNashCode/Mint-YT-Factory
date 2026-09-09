@@ -304,6 +304,32 @@ For every future Mint-YT-Factory request:
 
 ---
 
+## 2026-09-09 — Publish Shorts master bitrate validation failure hardening
+
+### User report
+- A Publish Shorts render completed successfully at 2160×3840, 60 fps, H.264/yuv420p, but final validation rejected it because the measured video bitrate was **79.64 Mbps**, just below the configured **80 Mbps** production floor.
+
+### Root cause
+- `assemble.py` passes the configured `100M` bitrate to libx264 as a nominal average-bitrate target.
+- On this stock-heavy render, libx264 produced an actual measured stream bitrate of 79.64 Mbps, so the configured 100 Mbps target did not guarantee staying above the 80 Mbps validation floor.
+- The validation gate itself was behaving correctly: it rejected the artifact rather than allowing a master below the production floor to publish.
+
+### Change made
+- `config.yaml`
+  - Increased the Publish master encoder bitrate from `100M` to `120M` to provide practical encoder headroom.
+  - Added an explanatory comment documenting why the render target is intentionally above the 100 Mbps validation target.
+  - Kept the validation contract unchanged at **100 Mbps target / 80 Mbps minimum accepted**.
+
+### Expected behavior
+- Future Publish master renders have substantially more bitrate headroom and should remain above the 80 Mbps floor even when libx264 undershoots its nominal ABR target on simple footage.
+- The production quality gate remains strict; we did **not** weaken validation to hide the issue.
+- No Riddles Shorts files or behavior were changed.
+
+### Remaining limitation
+- This is a pragmatic bitrate-headroom fix, not true CBR enforcement. If future renders still fall below 80 Mbps, the next architectural step should be adding explicit x264 VBV/CBR controls (`minrate`/`maxrate`/`bufsize`) in the render call rather than lowering the validation floor.
+
+---
+
 ## Change-log operating rule
 
 For future Mint-YT-Factory changes:

@@ -2,12 +2,11 @@
 tts.py
 Mint-YT-Factory
 
-Version 12.5 — SINGLE-PASS KOKORO PRIMARY + EDGE FALLBACK
+Version 12.6 — SINGLE-PASS KOKORO PRIMARY + EDGE FALLBACK + RIDDLE PERSONALITIES
 
-Narration is synthesized as one continuous request with Kokoro-82M using
- the af_heart American-English voice. Mint-YT-Factory protects a separately
- rendered continuation bridge, so callers may provide a dynamic core-duration
- budget when the bridge duration is known.
+Narration is synthesized as one continuous request with Kokoro-82M using the
+configured voice. Riddles Shorts can automatically select a performance
+personality for each episode, changing voice, speed, and delivery direction.
 """
 
 import asyncio
@@ -19,8 +18,6 @@ import numpy as np
 from moviepy.editor import AudioFileClip
 from moviepy.audio.AudioClip import AudioArrayClip
 
-# Safe default for callers that do not have a protected bridge. The Publish
-# Shorts bridge path overrides this with an exact bridge-aware budget.
 TARGET_MAX_DURATION = 36.80
 MIN_PLAYBACK_SPEED = 0.95
 MAX_PLAYBACK_SPEED = 1.10
@@ -159,9 +156,14 @@ def _generate_kokoro(text, voice_config, output_path):
         raise RuntimeError("soundfile is not installed") from error
     voice = str(voice_config.get("voice_name") or KOKORO_VOICE).strip() or KOKORO_VOICE
     lang = str(voice_config.get("kokoro_lang") or KOKORO_LANG).strip() or KOKORO_LANG
+    try:
+        speed = float(voice_config.get("speed", 1.0))
+    except Exception:
+        speed = 1.0
+    speed = min(1.10, max(0.90, speed))
     pipeline = _get_kokoro_pipeline(lang)
     try:
-        generator = pipeline(text, voice=voice, speed=1.0, split_pattern=r"\n+")
+        generator = pipeline(text, voice=voice, speed=speed, split_pattern=r"\n+")
         audio_parts = []
         for result in generator:
             audio = result[2] if isinstance(result, tuple) else result.audio
@@ -184,7 +186,7 @@ def _generate_kokoro(text, voice_config, output_path):
     sf.write(output_path, audio, KOKORO_SAMPLE_RATE, subtype="PCM_16")
     if not os.path.exists(output_path) or os.path.getsize(output_path) < 1024:
         raise RuntimeError("Kokoro returned an empty audio file")
-    print(f"✅ Kokoro synthesis succeeded | voice={voice} | sample_rate={KOKORO_SAMPLE_RATE}")
+    print(f"✅ Kokoro synthesis succeeded | voice={voice} | speed={speed:.2f}x | sample_rate={KOKORO_SAMPLE_RATE}")
     return output_path
 
 
@@ -297,6 +299,42 @@ def _script_narration(script):
     return clean_text(" ".join(str(scene.get("narration", "")) for scene in scenes if isinstance(scene, dict)))
 
 
+def _apply_riddle_personality(script, config):
+    """Apply an episode-specific performance personality without changing the script text."""
+    if not isinstance(script, dict):
+        return config
+    # Only activate for the Riddles pipeline; Publish Shorts keeps its existing voice behavior.
+    if not str(script.get("riddle_creative_profile", "")).strip():
+        return config
+    try:
+        from riddle_personality import choose_personality
+        personality = choose_personality(
+            str(script.get("topic", "")),
+            str(script.get("answer", "")),
+            script.get("number"),
+        )
+    except Exception as error:
+        print(f"⚠️ Riddle personality selection skipped: {type(error).__name__}: {error}")
+        return config
+
+    effective = dict(config or {})
+    voice = dict(effective.get("voice") or {})
+    for key in ("voice_name", "kokoro_lang", "edge_voice", "speed"):
+        if personality.get(key) is not None:
+            voice[key] = personality[key]
+    voice["personality"] = personality["name"]
+    voice["personality_direction"] = personality["direction"]
+    effective["voice"] = voice
+    script["riddle_personality"] = personality["name"]
+    script["riddle_personality_direction"] = personality["direction"]
+    script["riddle_personality_version"] = "v1_rotating_performance"
+    print(
+        f"🎭 Riddle narration personality: {personality['name']} | "
+        f"voice={personality.get('voice_name')} | speed={float(personality.get('speed', 1.0)):.2f}x"
+    )
+    return effective
+
+
 def synthesize_script(script, config, out_dir):
     if not isinstance(script, dict):
         raise RuntimeError("Script must be a dictionary")
@@ -305,4 +343,5 @@ def synthesize_script(script, config, out_dir):
         raise RuntimeError("Script contains no narration")
     os.makedirs(out_dir, exist_ok=True)
     output_path = os.path.join(out_dir, "story.mp3")
-    return synthesize_narration(narration, config, output_path)
+    effective_config = _apply_riddle_personality(script, config)
+    return synthesize_narration(narration, effective_config, output_path)

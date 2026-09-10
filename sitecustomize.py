@@ -238,24 +238,20 @@ def _patch_stock_query_expander(module):
 
 
 def _patch_riddle_interactive(module):
-    # Riddle narration is intentionally conversational. Gemini can produce a
-    # perfectly usable scene that is one or two words shorter/longer than an
-    # arbitrary scene floor, and rejecting it burns all bounded retries. Keep
-    # the real quality gate at the episode level (60-95 spoken words) while
-    # retaining only lightweight per-scene safety bounds so no scene becomes
-    # empty or disproportionately long.
+    # Riddles are narration-first. Scene lengths are deliberately flexible;
+    # the episode-level 50-85 word contract is the real pacing gate.
     module.SCENE_WORD_BUDGETS = (
-        (3, 18),
-        (5, 22),
-        (3, 18),
-        (3, 18),
-        (3, 16),
+        (4, 18),
+        (7, 20),
+        (5, 16),
+        (5, 16),
+        (5, 12),
         (3, 8),
-        (8, 20),
+        (12, 26),
     )
-    module.MIN_WORDS = 60
-    module.MAX_WORDS = 95
-    print("🧩 Riddle pacing runtime: natural scene bands ENABLED | total=60-95 words")
+    module.MIN_WORDS = 50
+    module.MAX_WORDS = 85
+    print("🧩 Riddle pacing runtime: unified natural scene bands ENABLED | total=50-85 words")
 
 
 def _patch(module):

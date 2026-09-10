@@ -1,3 +1,84 @@
 {
-  "assets": []
+  "assets": [
+    {
+      "asset_key": "pexels:video:34740373",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34740373/14727123_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "zippers stuck",
+      "recorded_at": 1788999650
+    },
+    {
+      "asset_key": "pixabay:photo:3915533",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/ge96caae9e28eac7c9bba706e88cb710769ae93d0069ff8c5c5fae8b86d4e290380f2d47465f6c184636a115eb7122378e94c813645fff1f267ff11fd93a854ed_1280.jpg",
+      "scene": 1,
+      "shot": 2,
+      "query": "stuck brass",
+      "recorded_at": 1788999818
+    },
+    {
+      "asset_key": "pexels:video:27095041",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/27095041/12069865_1280_720_50fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "zippers stuck",
+      "recorded_at": 1788999822
+    },
+    {
+      "asset_key": "pexels:photo:10844021",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/10844021/pexels-photo-10844021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 2,
+      "shot": 2,
+      "query": "zippers stuck",
+      "recorded_at": 1788999870
+    },
+    {
+      "asset_key": "pexels:photo:6802484",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/6802484/pexels-photo-6802484.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 3,
+      "shot": 1,
+      "query": "zippers stuck being used",
+      "recorded_at": 1789000061
+    },
+    {
+      "asset_key": "pexels:photo:219633",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/219633/pexels-photo-219633.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 3,
+      "shot": 2,
+      "query": "zippers stuck",
+      "recorded_at": 1789000329
+    },
+    {
+      "asset_key": "pixabay:photo:980770",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g8783e7f385d5c8cb54dd0b2cae1aab642dcc0c74bb2e559e338e9d4a6a6cddffcb0325c828d32548eb8098d30cf79cf0c0ebef3d1e3210b0675981ce35516bd0_1280.jpg",
+      "scene": 4,
+      "shot": 1,
+      "query": "zippers stuck in real life",
+      "recorded_at": 1789000767
+    },
+    {
+      "asset_key": "pexels:photo:38221857",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/38221857/pexels-photo-38221857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 4,
+      "shot": 2,
+      "query": "zippers stuck in real life",
+      "recorded_at": 1789000949
+    }
+  ]
 }

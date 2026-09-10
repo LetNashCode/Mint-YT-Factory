@@ -238,24 +238,24 @@ def _patch_stock_query_expander(module):
 
 
 def _patch_riddle_interactive(module):
-    # Gemini is producing good narration, but the previous validator rejected
-    # otherwise usable scripts when a scene landed 1-2 words under an arbitrary
-    # per-scene floor. This caused the whole Riddle Shorts job to fail after all
-    # bounded retries. Keep the total 60-95 word contract, but make scene floors
-    # realistic for natural spoken pacing. Scene 6 intentionally permits a
-    # compact "three, two, one" countdown.
+    # Riddle narration is intentionally conversational. Gemini can produce a
+    # perfectly usable scene that is one or two words shorter/longer than an
+    # arbitrary scene floor, and rejecting it burns all bounded retries. Keep
+    # the real quality gate at the episode level (60-95 spoken words) while
+    # retaining only lightweight per-scene safety bounds so no scene becomes
+    # empty or disproportionately long.
     module.SCENE_WORD_BUDGETS = (
-        (7, 14),
-        (9, 18),
-        (7, 14),
-        (7, 14),
-        (6, 12),
+        (3, 18),
+        (5, 22),
+        (3, 18),
+        (3, 18),
+        (3, 16),
         (3, 8),
-        (12, 16),
+        (8, 20),
     )
     module.MIN_WORDS = 60
     module.MAX_WORDS = 95
-    print("🧩 Riddle pacing runtime: tolerant scene floors ENABLED | total=60-95 words")
+    print("🧩 Riddle pacing runtime: natural scene bands ENABLED | total=60-95 words")
 
 
 def _patch(module):

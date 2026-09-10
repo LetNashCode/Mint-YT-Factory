@@ -72,7 +72,6 @@ def _emoji_for_word(word):
 
 
 def _patch_assemble(module):
-    # IMPORTANT: keep assemble.py as the single source of truth for captions.
     print("📝 Caption runtime: canonical assemble.py renderer ENABLED")
     module.DEFAULT_RESOLUTION = (2160, 3840)
     module.DEFAULT_FPS = 60
@@ -114,17 +113,9 @@ def _patch_video_quality(module):
 
 
 def _patch_stock_search(module):
-    # Single-model policy: every Gemini call in Mint-YT-Factory must use
-    # gemini-flash-lite-latest. Never configure or invoke a model fallback.
     module.GEMINI_MODEL = "gemini-flash-lite-latest"
     module.GEMINI_FALLBACK_MODEL = None
 
-    # ------------------------------------------------------------------
-    # Publish stock-media resilience
-    # ------------------------------------------------------------------
-    # The old policy permanently blocked every asset ever used. That makes
-    # common subjects eventually impossible to source. Keep same-Short
-    # uniqueness, but only cool down the most recently used assets.
     RECENT_MEDIA_COOLDOWN = 15
 
     original_history = getattr(module, "_historical_asset_keys", None)
@@ -149,12 +140,6 @@ def _patch_stock_search(module):
         module._historical_asset_keys = recent_history_keys
         module.MEDIA_REUSE_COOLDOWN = RECENT_MEDIA_COOLDOWN
 
-    # ------------------------------------------------------------------
-    # Topic-anchored query resilience
-    # ------------------------------------------------------------------
-    # Gemini can occasionally emit malformed but technically anchored queries
-    # such as "empty revolving". Normalize the completed plan so every query
-    # remains tied to the video's actual topic subject.
     original_build_plan = getattr(module, "build_plan", None)
     if original_build_plan and not getattr(original_build_plan, "_mint_topic_lock", False):
         import re
@@ -168,8 +153,8 @@ def _patch_stock_search(module):
             "state", "thing", "object", "stuff", "look", "looks", "happen", "happens",
         }
         bad_query_words = {
-            "empty", "random", "generic", "thing", "stuff", "being", "changing",
-            "state", "concept", "mechanism", "mystery", "educational", "experiment",
+            "empty", "random", "generic", "thing", "stuff", "being", "changing", "state",
+            "concept", "mechanism", "mystery", "educational", "experiment",
         }
 
         def topic_subject(topic):
@@ -205,12 +190,7 @@ def _patch_stock_search(module):
                         query = str(entry.get("query", "")).strip().lower()
                         words = re.findall(r"[a-z0-9-]+", query)
                         suffix = [w for w in words if w not in subject_words and w not in generic_suffix_words]
-                        if not any(w in words for w in subject_words):
-                            query = " ".join([subject, *suffix[:5]])
-                        else:
-                            # Rebuild around the exact subject so malformed
-                            # adjective+noun fragments cannot survive.
-                            query = " ".join([subject, *suffix[:5]])
+                        query = " ".join([subject, *suffix[:5]])
                         query = " ".join(query.split())
                         if len(query.split()) < 2:
                             query = f"{subject} {safe_suffixes[len(normalized) % len(safe_suffixes)]}"
@@ -257,6 +237,27 @@ def _patch_stock_query_expander(module):
     module.GEMINI_FALLBACK_MODEL = None
 
 
+def _patch_riddle_interactive(module):
+    # Gemini is producing good narration, but the previous validator rejected
+    # otherwise usable scripts when a scene landed 1-2 words under an arbitrary
+    # per-scene floor. This caused the whole Riddle Shorts job to fail after all
+    # bounded retries. Keep the total 60-95 word contract, but make scene floors
+    # realistic for natural spoken pacing. Scene 6 intentionally permits a
+    # compact "three, two, one" countdown.
+    module.SCENE_WORD_BUDGETS = (
+        (7, 14),
+        (9, 18),
+        (7, 14),
+        (7, 14),
+        (6, 12),
+        (3, 8),
+        (12, 16),
+    )
+    module.MIN_WORDS = 60
+    module.MAX_WORDS = 95
+    print("🧩 Riddle pacing runtime: tolerant scene floors ENABLED | total=60-95 words")
+
+
 def _patch(module):
     name = getattr(module, "__name__", "")
     if name == "assemble":
@@ -270,6 +271,8 @@ def _patch(module):
         _patch_stock_media_resilient(module)
     elif name == "stock_query_expander":
         _patch_stock_query_expander(module)
+    elif name == "generate_script.interactive":
+        _patch_riddle_interactive(module)
 
 
 class _Loader(importlib.abc.Loader):
@@ -286,7 +289,7 @@ class _Loader(importlib.abc.Loader):
 
 
 class _Finder(importlib.abc.MetaPathFinder):
-    TARGETS = {"tts", "assemble", "stock_search", "stock_media_resilient", "stock_query_expander"}
+    TARGETS = {"tts", "assemble", "stock_search", "stock_media_resilient", "stock_query_expander", "generate_script.interactive"}
 
     def find_spec(self, fullname, path=None, target=None):
         if fullname not in self.TARGETS:

@@ -1,19 +1,75 @@
 """Retention-focused narration polish for narration-led Riddles Shorts."""
 from __future__ import annotations
+import hashlib
 import re
 
-# Riddle Shorts should feel like a fast spoken mini-game rather than a compressed
-# long-form script. The range corresponds roughly to 19-30 seconds at a natural pace.
 MIN_WORDS = 60
 MAX_WORDS = 95
-SCENE_WORD_BUDGETS = (
-    (8, 14),   # hook / previous-answer reveal
-    (10, 18),  # new riddle
-    (8, 14),   # first interpretation
-    (8, 14),   # trap / reversal
-    (8, 12),   # forced commitment
-    (5, 8),    # countdown pressure
-    (13, 15),  # payoff gap + CTA
+SCENE_WORD_BUDGETS = ((8, 14), (10, 18), (8, 14), (8, 14), (8, 12), (5, 8), (13, 15))
+
+REVEAL_STYLES = (
+    "answer_check",
+    "quick_payoff",
+    "listener_score",
+    "confidence_check",
+    "clean_reveal",
+    "retro_reveal",
+    "challenge_reveal",
+    "curiosity_reveal",
+)
+
+REVEAL_LINES = {
+    "answer_check": (
+        "Quick answer check: {answer}. Did you have it?",
+        "Let's settle the last one: {answer}. Were you right?",
+    ),
+    "quick_payoff": (
+        "The mystery from the last Short? {answer}.",
+        "That last puzzle had a simple answer: {answer}.",
+    ),
+    "listener_score": (
+        "Score one if you said {answer}.",
+        "If you guessed {answer}, give yourself the point.",
+    ),
+    "confidence_check": (
+        "Be honest—the last answer was {answer}.",
+        "Your last guess was either {answer}… or nowhere close.",
+    ),
+    "clean_reveal": (
+        "For the last riddle, the answer was {answer}.",
+        "The answer we left hanging was {answer}.",
+    ),
+    "retro_reveal": (
+        "Before we move on, reveal time: {answer}.",
+        "One loose end first: the previous answer was {answer}.",
+    ),
+    "challenge_reveal": (
+        "Did you beat the last puzzle? The answer was {answer}.",
+        "Last round's answer: {answer}. Did your brain catch that?",
+    ),
+    "curiosity_reveal": (
+        "Remember that last puzzle? Its answer was {answer}.",
+        "That little mystery we left open? It was {answer}.",
+    ),
+}
+
+BRIDGE_LINES = {
+    "answer_check": ("Now earn the next point.", "Here's a fresh one.",),
+    "quick_payoff": ("But we're not done yet.", "And this one plays differently.",),
+    "listener_score": ("Keep that score going.", "Your next test starts now.",),
+    "confidence_check": ("Now forget that answer and reset.", "Don't let that guess help you now.",),
+    "clean_reveal": ("Now for a completely new puzzle.", "Let's switch gears.",),
+    "retro_reveal": ("Loose end tied. New puzzle.", "That's settled. Try this one.",),
+    "challenge_reveal": ("Round two starts now.", "Think faster this time.",),
+    "curiosity_reveal": ("And now, another mystery.", "That one's done. This one isn't.",),
+}
+
+ENDING_LINES = (
+    "Lock in your answer. Subscribe and follow for the reveal in the next Short.",
+    "Keep your first guess. Follow and subscribe to find out if you were right in the next Short.",
+    "Don't change it now. Subscribe and follow for the answer in the next Short.",
+    "Answer locked. Follow and subscribe for the reveal in the next Short.",
+    "Got your guess? Subscribe and follow for the answer in the next Short.",
 )
 
 
@@ -32,37 +88,26 @@ def _sync_visuals(scene):
     scene["subtitle_text"] = narration
 
 
+def _variant(topic, number, answer):
+    seed = f"{topic}|{number}|{answer}"
+    digest = hashlib.sha256(seed.encode("utf-8")).digest()
+    return int.from_bytes(digest[:4], "big") % len(REVEAL_STYLES)
+
+
 def _reveal_line(number, answer, variant):
-    lines = (
-        f"Last answer: {answer}. Did you get it?",
-        f"Quick reveal: Riddle #{number - 1} was {answer}. Nailed it?",
-        f"The last answer was {answer}. Be honest—did you get it?",
-        f"Riddle #{number - 1} was {answer}. Nice catch if you had it.",
-        f"Answer check: {answer}. Did your first guess match?",
-    )
-    return lines[variant % len(lines)]
+    style = REVEAL_STYLES[variant % len(REVEAL_STYLES)]
+    lines = REVEAL_LINES[style]
+    text = lines[(variant // len(REVEAL_STYLES)) % len(lines)].format(answer=answer)
+    return text, style
 
 
-def _bridge_line(variant):
-    lines = (
-        "Now this one is sneakier.",
-        "Forget that one. New challenge.",
-        "New puzzle. Trust your ears.",
-        "Now don't trust your first instinct.",
-        "Alright—new puzzle. Listen closely.",
-    )
-    return lines[variant % len(lines)]
+def _bridge_line(variant, style):
+    lines = BRIDGE_LINES[style]
+    return lines[(variant // 2) % len(lines)]
 
 
 def _ending_line(variant):
-    lines = (
-        "Lock it in. Subscribe and follow for the answer in the next Short.",
-        "Keep your first answer. Subscribe and follow for the reveal in the next Short.",
-        "Don't change your guess. Follow and subscribe for the answer in the next Short.",
-        "Answer locked. Subscribe and follow to see if you were right in the next Short.",
-        "Got your answer? Follow and subscribe for the answer in the next Short.",
-    )
-    return lines[variant % len(lines)]
+    return ENDING_LINES[variant % len(ENDING_LINES)]
 
 
 def _replace_canned_ending(text):
@@ -113,15 +158,16 @@ def _compact_scene(scene):
 
 
 def polish_riddle_script(script, previous, number):
-    """Enforce the short, narration-first retention contract after Gemini generation."""
+    """Enforce narration-first pacing while making the previous-answer reveal vary per episode."""
     scenes = script.get("scene_plan") or []
     if len(scenes) != 7:
         raise RuntimeError("Riddle script must contain exactly 7 scenes before narration polish.")
-    variant = (sum(ord(c) for c in str(script.get("topic", ""))) + number * 17) % 5
+    variant = _variant(str(script.get("topic", "")), number, str((previous or {}).get("answer", "")))
 
     for scene in scenes:
         _compact_scene(scene)
 
+    reveal_style = "none"
     if previous:
         answer = str(previous.get("answer", "")).strip()
         previous_number = int(previous.get("number", number - 1))
@@ -134,14 +180,12 @@ def polish_riddle_script(script, previous, number):
                 existing,
                 flags=re.I,
             )
-            reveal = _reveal_line(previous_number + 1, answer, variant)
-            transition = _bridge_line(variant + 1)
+            reveal, reveal_style = _reveal_line(previous_number + 1, answer, variant)
+            transition = _bridge_line(variant, reveal_style)
             first["narration"] = f"{reveal} {transition} {existing}".strip()
             first["purpose"] = "hook"
             first["retention_purpose"] = "pattern_break_and_payoff"
 
-    # Hard-code the two pacing-critical beats rather than trusting a generated scene
-    # to spend the right amount of time there.
     scenes[4]["narration"] = _trim_low_value_filler(str(scenes[4].get("narration", "")).strip())
     if not re.search(r"\b(first answer|first guess|lock|commit|pick|choose|guess)\b", scenes[4]["narration"], re.I):
         scenes[4]["narration"] = "Lock in your first answer. Don't change it."
@@ -175,8 +219,6 @@ def polish_riddle_script(script, previous, number):
     if total < MIN_WORDS or total > MAX_WORDS:
         raise RuntimeError(f"Riddle narration length {total} outside optimized {MIN_WORDS}-{MAX_WORDS} range.")
 
-    # Prevent one scene from becoming a hidden retention sink. These are validation
-    # bands, not targets to pad toward; the generator must naturally fit them.
     for index, (low, high) in enumerate(SCENE_WORD_BUDGETS):
         count = len(_words(scenes[index].get("narration", "")))
         if count < low or count > high:
@@ -184,8 +226,9 @@ def polish_riddle_script(script, previous, number):
                 f"Riddle Scene {index + 1} has {count} words; expected {low}-{high} for pacing."
             )
 
-    script["riddle_narration_version"] = "retention_v5_paced_narration"
-    script["riddle_reveal_style"] = variant
+    script["riddle_narration_version"] = "retention_v6_unique_reveals"
+    script["riddle_reveal_style"] = reveal_style
+    script["riddle_reveal_variant"] = variant
     script["riddle_word_target"] = {"min": MIN_WORDS, "max": MAX_WORDS}
     script["riddle_scene_word_budgets"] = [list(x) for x in SCENE_WORD_BUDGETS]
     script["estimated_narration_seconds"] = round(total / 3.2, 1)

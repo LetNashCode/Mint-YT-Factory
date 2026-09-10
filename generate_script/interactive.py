@@ -44,14 +44,34 @@ def _validate_internal_novelty(scenes):
  if [g for g,v in grams.items() if len(v)>=2]:raise RuntimeError("Riddle narration repeats a 4-word phrase across scenes; regenerate with a different structure.")
  if sum(str(s.get("narration","")).count("?") for s in scenes)>2:raise RuntimeError("Riddle contains too many repeated question beats.")
 
+def _remove_next_topic_leak(scenes,next_topic):
+ """Remove an obvious future-topic sentence from Scenes 1-6 without weakening the hard boundary guard."""
+ key=_base._clean(next_topic).lower()
+ if not key:return False
+ key_norm=re.sub(r"[^a-z0-9]+"," ",key).strip()
+ future=re.compile(r"\b(next|coming|later|after this|afterwards|up next|following|future|we(?:'ll| will) see|you(?:'ll| will) see|stay tuned|part 2|next short|next video|tomorrow)\b",re.I)
+ changed=False
+ for scene in scenes[:6]:
+  text=_base._clean(scene.get("narration","")); sentences=[s.strip() for s in re.split(r"(?<=[.!?])\s+",text) if s.strip()]
+  kept=[]; removed=False
+  for sentence in sentences:
+   sentence_norm=re.sub(r"[^a-z0-9]+"," ",sentence.lower()).strip()
+   if key_norm and key_norm in sentence_norm and (future.search(sentence) or len(sentences)>1):
+    removed=True; changed=True; continue
+   kept.append(sentence)
+  if removed:
+   repaired=_base._clean(" ".join(kept))
+   if repaired:
+    scene["narration"]=repaired; scene["subtitle_text"]=repaired
+   else:return False
+ return changed
+
 def generate_script(topic,config,research=None,extra_feedback=""):
  from google import genai
  from google.genai import types
  import time
- try:
-  from riddle_personality import choose_personality
- except Exception:
-  choose_personality=None
+ try: from riddle_personality import choose_personality
+ except Exception: choose_personality=None
  topic=_base._clean(topic)
  if not topic:raise RuntimeError("Riddle topic is empty.")
  recent=_load_recent_history(); number_hint=len(recent)+1; profile=_profile_for(topic,number_hint)
@@ -106,9 +126,16 @@ Avoid generic filler and greetings. Do not use visual-dependent clues.
    if m:
     previous_number=int(m.group(1)); previous_answer=_base._clean(m.group(2)); first=scenes[0]; first_narration=_base._clean(first.get("narration",""))
     if previous_answer.lower() not in first_narration.lower(): first["narration"]=_base._clean(f"Last answer: {previous_answer}. Did you get it? "+first_narration)
-    if previous_answer.lower() not in _base._clean(scenes[0].get("narration","" )).lower():raise RuntimeError(f"Previous riddle answer must be revealed in Scene 1: {previous_answer!r}")
+    if previous_answer.lower() not in _base._clean(scenes[0].get("narration","")).lower():raise RuntimeError(f"Previous riddle answer must be revealed in Scene 1: {previous_answer!r}")
     total=sum(len(_base._words(s.get("narration",""))) for s in scenes)
     if total>MAX_WORDS:raise RuntimeError(f"Riddle narration length {total} outside optimized {MIN_WORDS}-{MAX_WORDS} range after reveal insertion.")
+   next_topic=_base._clean((result.get("next_short") or {}).get("topic"))
+   if _remove_next_topic_leak(scenes,next_topic):
+    total=sum(len(_base._words(s.get("narration",""))) for s in scenes)
+   next_key=re.sub(r"[^a-z0-9 ]"," ",next_topic.lower()).strip()
+   for scene in scenes[:6]:
+    if next_key and next_key in re.sub(r"[^a-z0-9 ]"," ",scene["narration"].lower()):raise RuntimeError("Next topic appeared before Scene 7.")
+   if not MIN_WORDS<=total<=MAX_WORDS:raise RuntimeError(f"Riddle narration length {total} outside optimized {MIN_WORDS}-{MAX_WORDS} range after continuation cleanup.")
    _validate_internal_novelty(scenes)
    result["riddle_creative_profile"]=profile["name"]; result["riddle_mechanic_policy"]="rotating_mechanic"; result["riddle_novelty_guard"]="internal_phrase_and_structure"; result["riddle_recent_topic_context"]=recent_topics[-12:]
    result["riddle_personality"]=dict(personality); result["riddle_personality_name"]=personality["name"]; result["riddle_personality_direction"]=personality["direction"]; result["riddle_personality_version"]="v2_prompt_and_tts"

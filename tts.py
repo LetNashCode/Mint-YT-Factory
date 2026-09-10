@@ -2,12 +2,12 @@
 tts.py
 Mint-YT-Factory
 
-Version 12.3 — SINGLE-PASS KOKORO PRIMARY + EDGE FALLBACK
+Version 12.4 — SINGLE-PASS KOKORO PRIMARY + EDGE FALLBACK
 
 Narration is synthesized as one continuous request with Kokoro-82M using
- the af_heart American-English voice. Kokoro itself may internally split long
-text for inference, but Mint-YT-Factory no longer creates/stitches TTS chunks.
-There is no API key or third-party TikTok endpoint in the primary path.
+ the af_heart American-English voice. Mint-YT-Factory protects a separately
+ rendered continuation bridge, so the core story must leave enough room for
+ that bridge inside the production duration ceiling.
 """
 
 import asyncio
@@ -19,12 +19,16 @@ import numpy as np
 from moviepy.editor import AudioFileClip
 from moviepy.audio.AudioClip import AudioArrayClip
 
-SAMPLE_RATE = 44100
-KOKORO_SAMPLE_RATE = 24000
-TARGET_MAX_DURATION = 43.70
+# The final Short also contains a separately rendered ~7s continuation bridge
+# plus a small natural tail. Keep the CURRENT-TOPIC narration around 35–36.8s
+# so the combined protected narration normally lands safely below 44.95s.
+TARGET_MAX_DURATION = 36.80
 MIN_PLAYBACK_SPEED = 0.95
 MAX_PLAYBACK_SPEED = 1.10
 TTS_RETRIES = 2
+
+SAMPLE_RATE = 44100
+KOKORO_SAMPLE_RATE = 24000
 
 # Keep a short natural tail after the final spoken sample. This prevents the
 # MP3 writer / AAC mux from making the final phoneme feel hard-cut while still
@@ -88,9 +92,6 @@ def apply_narration_speed(clip):
         duration = float(getattr(clip, "duration", 0.0) or 0.0)
         speed = 1.0
 
-    # Do not discard a fixed 100 ms from the source. That margin was intended
-    # to protect MoviePy's reader but can shave the final phoneme. The rendered
-    # narration receives an explicit silence tail below instead.
     safe_duration = max(0.01, duration)
 
     if abs(speed - 1.0) < 0.001:
@@ -155,11 +156,7 @@ def _get_kokoro_pipeline(lang):
 
 
 def _trim_trailing_silence(audio, sample_rate):
-    """Trim only meaningful dead air from the end of generated narration.
-
-    TTS providers can return several seconds of silence after the final word.
-    Keep a tiny natural tail, but remove long silent endings.
-    """
+    """Trim only meaningful dead air from the end of generated narration."""
     audio = np.asarray(audio, dtype=np.float32).reshape(-1)
     if audio.size == 0 or sample_rate <= 0:
         return audio, 0.0
@@ -317,7 +314,8 @@ def synthesize_narration(text, config, out_path):
     print("Edge fallback: " + ("ENABLED" if EDGE_ENABLED else "DISABLED"))
     print(f"Original characters: {len(original_text)}")
     print(f"TTS characters: {len(tts_text)}")
-    print(f"Target max duration: {TARGET_MAX_DURATION:.2f}s")
+    print(f"Target max core duration: {TARGET_MAX_DURATION:.2f}s")
+    print("Protected bridge budget: approximately 7s")
     print("Adaptive narration speed: ENABLED")
     print("Artificial gaps: DISABLED")
     print("Crossfade: DISABLED")
@@ -334,9 +332,6 @@ def synthesize_narration(text, config, out_path):
             processed = apply_narration_speed(clip)
             print(f"Processed narration duration: {processed.duration:.2f}s")
 
-            # Add a short true-silence tail after the final spoken sample. This
-            # is deliberately audio, not just a visual tail, so the final word
-            # can release naturally instead of hitting an exact timeline edge.
             sample_count = max(1, int(round(NARRATION_END_PADDING_SECONDS * SAMPLE_RATE)))
             silence = np.zeros((sample_count, 2), dtype=np.float32)
             silence_clip = AudioArrayClip(silence, fps=SAMPLE_RATE)
@@ -396,6 +391,7 @@ def synthesize_script(script, config, out_dir):
         raise RuntimeError("Script must be a dictionary")
     narration = _script_narration(script)
     if not narration:
-        raise RuntimeError("Script contains no scene narration")
+        raise RuntimeError("Script contains no narration")
     os.makedirs(out_dir, exist_ok=True)
-    return synthesize_narration(narration, config, os.path.join(out_dir, "story.mp3"))
+    output_path = os.path.join(out_dir, "story.mp3")
+    return synthesize_narration(narration, config, output_path)

@@ -6,8 +6,10 @@ import re
 from pathlib import Path
 from . import entertainment as _base
 
-MIN_WORDS=60; MAX_WORDS=95
-SCENE_WORD_BUDGETS=((8,14),(10,18),(8,14),(8,14),(8,12),(5,8),(13,15))
+# One episode-level contract for the whole Riddles pipeline. Scene bands are
+# intentionally flexible; the total word budget is the real pacing gate.
+MIN_WORDS=50; MAX_WORDS=85
+SCENE_WORD_BUDGETS=((4,18),(7,20),(5,16),(5,16),(5,12),(3,8),(12,26))
 CREATIVE_PROFILES=(
  {"name":"cold_open_challenge","hook":"Open with a provocative claim or challenge before stating the riddle.","flow":"challenge -> question -> obvious answer -> contradiction -> commitment -> countdown -> CTA"},
  {"name":"tiny_story","hook":"Begin with a tiny everyday situation that naturally creates the puzzle.","flow":"micro-scenario -> question -> first interpretation -> twist -> commitment -> countdown -> CTA"},
@@ -21,7 +23,7 @@ CREATIVE_PROFILES=(
 GENERIC_OPENERS=re.compile(r"^(?:today(?:'s| is)? riddle|here(?:'s| is) (?:today(?:'s)? )?riddle|welcome back|hey guys|guys|listen up|okay guys|alright guys)",re.I)
 
 def _feedback(extra=""):
- return ("RIDDLES SHORTS ONLY. This is an audio/narration-led puzzle, not a visual puzzle. The viewer must be able to solve the riddle with the phone face-down; stock visuals are atmosphere only and must never carry a required clue. Do not require a visual clue, visual inspection, on-screen text, or an object in the footage to solve the NEW riddle. A previous riddle answer may be revealed, but the NEW answer must remain locked. The ending must ask viewers to subscribe and follow for the NEW answer in the next Short; never say tomorrow, next day, or imply a fixed schedule. " + f"Target {MIN_WORDS}-{MAX_WORDS} total spoken words, with strict scene pacing bands. Every sentence must earn its place. Every episode must feel like a different mini-game, not a synonym rewrite of the previous episode. "+str(extra or ""))
+ return ("RIDDLES SHORTS ONLY. This is an audio/narration-led puzzle, not a visual puzzle. The viewer must be able to solve the riddle with the phone face-down; stock visuals are atmosphere only and must never carry a required clue. Do not require a visual clue, visual inspection, on-screen text, or an object in the footage to solve the NEW riddle. A previous riddle answer may be revealed, but the NEW answer must remain locked. The ending must ask viewers to subscribe and follow for the NEW answer in the next Short; never say tomorrow, next day, or imply a fixed schedule. " + f"Target {MIN_WORDS}-{MAX_WORDS} total spoken words, with flexible scene pacing bands. Every sentence must earn its place. Every episode must feel like a different mini-game, not a synonym rewrite of the previous episode. "+str(extra or ""))
 
 def _load_recent_history(limit=20):
  path=Path(__file__).resolve().parent.parent/"interactive_topic_history.json"
@@ -91,8 +93,9 @@ Write the actual spoken wording so the personality is audible even before TTS pr
 
 Create exactly 7 scenes. Return the normal production JSON schema.
 The Short must work as a spoken mini-game. Stock media is only mood/context and must never be needed to solve the riddle.
-Target {MIN_WORDS}-{MAX_WORDS} total spoken words. Aim roughly 19-30 seconds at a natural energetic pace. Do not pad.
-SCENE BANDS: Scene 1 8-14 words; Scene 2 10-18; Scene 3 8-14; Scene 4 8-14; Scene 5 8-12; Scene 6 5-8 with conversational 3…2…1; Scene 7 13-15 with the answer gap and subscribe/follow CTA for the answer in the next Short.
+Target {MIN_WORDS}-{MAX_WORDS} total spoken words. Aim roughly 18-25 seconds at a natural energetic pace. Do not pad.
+SCENE BANDS: Scene 1 4-18 words; Scene 2 7-20; Scene 3 5-16; Scene 4 5-16; Scene 5 5-12; Scene 6 3-8 with conversational 3…2…1; Scene 7 12-26 and MUST preserve a short answer gap plus subscribe/follow CTA for the answer in the next Short.
+IMPORTANT: Scene 7 may be longer than the other scenes because it owns the retention CTA. Never reject a good script merely because Scene 7 needs 20-26 words.
 MECHANIC DIVERSITY: Rotate wording traps, double meanings, lateral logic, expectation reversals, misconception traps, causal misdirection, category shifts, temporal ambiguity, and psychological assumptions. Do not default to the same mechanic.
 LANGUAGE DIVERSITY: Avoid the repeated pattern "Can you solve this? ... Most people think ... But ... Lock in your answer ... Three, two, one." Use personality-specific sentence shapes and rhythm.
 RECENT TOPICS — avoid conceptual neighbors:
@@ -106,7 +109,7 @@ Avoid generic filler and greetings. Do not use visual-dependent clues.
  last_error=None; attempts=0
  while attempts<_base.MAX_ATTEMPTS:
   try:
-   retry=f"\nFix previous error: {last_error}. Change wording AND structural approach while preserving the selected personality." if last_error else ""
+   retry=f"\nFix previous error: {last_error}. Change wording AND structural approach while preserving the selected personality. Keep total spoken words between {MIN_WORDS} and {MAX_WORDS}." if last_error else ""
    response=client.models.generate_content(model=_base.MODEL_NAME,contents=prompt+retry,config=types.GenerateContentConfig(system_instruction=_base.SYSTEM_PROMPT,response_mime_type="application/json",response_json_schema=_base._build_schema(),temperature=0.95))
    raw=getattr(response,"text",None)
    if not raw:raise RuntimeError("Gemini returned an empty riddle script.")

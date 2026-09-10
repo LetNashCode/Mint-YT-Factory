@@ -359,6 +359,116 @@
       "shot": 2,
       "query": "umbrellas flip in real life",
       "recorded_at": 1789036596
+    },
+    {
+      "asset_key": "pexels:video:5321786",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5321786/5321786-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "revolving doors",
+      "recorded_at": 1789042871
+    },
+    {
+      "asset_key": "pexels:photo:20025161",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/20025161/pexels-photo-20025161.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 1,
+      "shot": 2,
+      "query": "revolving doors",
+      "recorded_at": 1789042878
+    },
+    {
+      "asset_key": "pexels:video:5636777",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5636777/5636777-hd_720_1280_24fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "revolving doors",
+      "recorded_at": 1789042881
+    },
+    {
+      "asset_key": "pexels:photo:18196798",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/18196798/pexels-photo-18196798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 2,
+      "shot": 2,
+      "query": "revolving doors",
+      "recorded_at": 1789042886
+    },
+    {
+      "asset_key": "pexels:photo:19277716",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/19277716/pexels-photo-19277716.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 3,
+      "shot": 1,
+      "query": "empty revolving",
+      "recorded_at": 1789042895
+    },
+    {
+      "asset_key": "pixabay:photo:4645662",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g292e9610d34b9c3d4321cf91c74a4307bf4f54d3b440267e4ef4598bad277a7edb6142a555f6e93b9dacf2d016a8b38122a1cfae4c6524b4e5613647e682aa1a_1280.jpg",
+      "scene": 3,
+      "shot": 2,
+      "query": "revolving doors",
+      "recorded_at": 1789042903
+    },
+    {
+      "asset_key": "pixabay:photo:82613",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/gbde01f2f7737aac556618e014b1c5f1b8e03291ccc862251953dbd8499d7a0c2bf2ee12147cace34567d8278c54e83ee_1280.jpg",
+      "scene": 4,
+      "shot": 1,
+      "query": "revolving doors",
+      "recorded_at": 1789042910
+    },
+    {
+      "asset_key": "pexels:video:5321788",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5321788/5321788-hd_1280_720_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "revolving doors close up",
+      "recorded_at": 1789042922
+    },
+    {
+      "asset_key": "pexels:video:9206570",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9206570/9206570-hd_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "revolving doors",
+      "recorded_at": 1789042925
+    },
+    {
+      "asset_key": "pixabay:photo:992235",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g08b9b0ee85742a6e557b971346fff94fda2d4faaeff2fc3a36369411a6552368961714d6ed532f5855e981c0852a087440b37971ba32043b2d137ad692af3382_1280.jpg",
+      "scene": 5,
+      "shot": 2,
+      "query": "revolving doors",
+      "recorded_at": 1789042938
+    },
+    {
+      "asset_key": "pexels:video:18514339",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/18514339/18514339-hd_1280_720_60fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "revolving doors action",
+      "recorded_at": 1789042979
     }
   ]
 }

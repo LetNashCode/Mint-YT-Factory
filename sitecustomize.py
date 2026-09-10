@@ -73,26 +73,10 @@ def _emoji_for_word(word):
 
 def _patch_assemble(module):
     # IMPORTANT: keep assemble.py as the single source of truth for captions.
-    #
-    # A previous runtime override replaced build_captions() with an alternate
-    # renderer that randomly varied word size, alternated colours by index and
-    # injected emoji overlays. That bypassed the canonical scene-aware
-    # highlighting, shadow styling and timeline logic in assemble.py and made
-    # captions visually inconsistent from one Short to the next.
-    #
-    # Do not monkey-patch build_captions here. The canonical renderer already
-    # owns:
-    #   - Whisper/script word timing
-    #   - min/max caption durations
-    #   - scene-aware semantic highlights
-    #   - font, outline and shadow styling
-    #   - one-word kinetic caption mode
     print("📝 Caption runtime: canonical assemble.py renderer ENABLED")
-
-    # Video defaults remain production-quality settings; caption behaviour is
-    # intentionally not overridden at runtime.
     module.DEFAULT_RESOLUTION = (2160, 3840)
     module.DEFAULT_FPS = 60
+
 
 def _patch_video_quality(module):
     try:
@@ -134,7 +118,127 @@ def _patch_stock_search(module):
     # gemini-flash-lite-latest. Never configure or invoke a model fallback.
     module.GEMINI_MODEL = "gemini-flash-lite-latest"
     module.GEMINI_FALLBACK_MODEL = None
-    print("🛡️ Stock-search Gemini: gemini-flash-lite-latest ONLY — no fallback model")
+
+    # ------------------------------------------------------------------
+    # Publish stock-media resilience
+    # ------------------------------------------------------------------
+    # The old policy permanently blocked every asset ever used. That makes
+    # common subjects eventually impossible to source. Keep same-Short
+    # uniqueness, but only cool down the most recently used assets.
+    RECENT_MEDIA_COOLDOWN = 15
+
+    original_history = getattr(module, "_historical_asset_keys", None)
+    if original_history and not getattr(original_history, "_mint_cooldown", False):
+        def recent_history_keys():
+            try:
+                data = module._load_media_history()
+                assets = data.get("assets", []) if isinstance(data, dict) else []
+                records = [x for x in assets if isinstance(x, dict) and x.get("asset_key")]
+                records.sort(key=lambda x: float(x.get("recorded_at", 0) or 0))
+                keys = {str(x["asset_key"]) for x in records[-RECENT_MEDIA_COOLDOWN:]}
+                print(
+                    f"📚 MEDIA COOLDOWN: blocking {len(keys)} most recent assets "
+                    f"(window={RECENT_MEDIA_COOLDOWN}); older relevant assets may be reused"
+                )
+                return keys
+            except Exception as exc:
+                print(f"⚠️ Media cooldown lookup failed; preserving safety fallback: {exc}")
+                return original_history()
+
+        recent_history_keys._mint_cooldown = True
+        module._historical_asset_keys = recent_history_keys
+        module.MEDIA_REUSE_COOLDOWN = RECENT_MEDIA_COOLDOWN
+
+    # ------------------------------------------------------------------
+    # Topic-anchored query resilience
+    # ------------------------------------------------------------------
+    # Gemini can occasionally emit malformed but technically anchored queries
+    # such as "empty revolving". Normalize the completed plan so every query
+    # remains tied to the video's actual topic subject.
+    original_build_plan = getattr(module, "build_plan", None)
+    if original_build_plan and not getattr(original_build_plan, "_mint_topic_lock", False):
+        import re
+
+        ignored = {
+            "why", "how", "what", "when", "where", "who", "does", "do", "did",
+            "is", "are", "can", "will", "would", "could", "should", "the", "a", "an",
+            "to", "of", "for", "in", "on", "at", "with", "from", "and", "or", "so",
+            "very", "really", "actually", "just", "this", "that", "these", "those",
+            "fast", "quickly", "quick", "slow", "slowly", "empty", "being", "changing",
+            "state", "thing", "object", "stuff", "look", "looks", "happen", "happens",
+        }
+        bad_query_words = {
+            "empty", "random", "generic", "thing", "stuff", "being", "changing",
+            "state", "concept", "mechanism", "mystery", "educational", "experiment",
+        }
+
+        def topic_subject(topic):
+            words = re.findall(r"[a-z][a-z-]{2,}", str(topic or "").lower())
+            subject = []
+            for word in words:
+                if word in ignored:
+                    continue
+                if word not in subject:
+                    subject.append(word)
+                if len(subject) >= 2:
+                    break
+            return " ".join(subject)
+
+        def normalize_plan(script):
+            plan = original_build_plan(script)
+            subject = topic_subject(script.get("topic", ""))
+            if not subject:
+                return plan
+            subject_words = set(subject.split())
+            generic_suffix_words = {
+                "empty", "random", "generic", "being", "changing", "state", "thing", "stuff",
+                "mechanism", "concept", "mystery", "educational", "experiment",
+            }
+            safe_suffixes = ("close up", "inside", "in motion", "entrance", "people using", "detail")
+
+            for shots in plan:
+                for shot in shots:
+                    ladder = shot.get("search_ladder", [])
+                    normalized = []
+                    seen = set()
+                    for entry in ladder:
+                        query = str(entry.get("query", "")).strip().lower()
+                        words = re.findall(r"[a-z0-9-]+", query)
+                        suffix = [w for w in words if w not in subject_words and w not in generic_suffix_words]
+                        if not any(w in words for w in subject_words):
+                            query = " ".join([subject, *suffix[:5]])
+                        else:
+                            # Rebuild around the exact subject so malformed
+                            # adjective+noun fragments cannot survive.
+                            query = " ".join([subject, *suffix[:5]])
+                        query = " ".join(query.split())
+                        if len(query.split()) < 2:
+                            query = f"{subject} {safe_suffixes[len(normalized) % len(safe_suffixes)]}"
+                        query = " ".join(query.split()[:7])
+                        if query and query not in seen:
+                            seen.add(query)
+                            normalized.append({"query": query, "strategy": entry.get("strategy", "topic-lock")})
+
+                    if len(normalized) < 4:
+                        for suffix in safe_suffixes:
+                            query = f"{subject} {suffix}"
+                            if query not in seen and len(normalized) < 8:
+                                seen.add(query)
+                                normalized.append({"query": query, "strategy": "topic-lock-fallback"})
+
+                    shot["search_ladder"] = normalized[:8]
+                    shot["queries"] = [x["query"] for x in normalized[:8]]
+
+            print(f"🔒 STOCK TOPIC LOCK: subject='{subject}' | queries normalized for every shot")
+            return plan
+
+        normalize_plan._mint_topic_lock = True
+        module.build_plan = normalize_plan
+
+    print(
+        "🛡️ Stock-search Gemini: gemini-flash-lite-latest ONLY | "
+        f"media cooldown={RECENT_MEDIA_COOLDOWN} | topic lock=ON"
+    )
 
 
 def _patch_stock_media_resilient(module):

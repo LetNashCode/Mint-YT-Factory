@@ -24,17 +24,17 @@ PERSONALITY_GUIDANCE = {
 
 REVEAL_STYLES = ("answer_check","quick_payoff","listener_score","confidence_check","clean_reveal","retro_reveal","challenge_reveal","curiosity_reveal")
 REVEAL_LINES = {
- "answer_check": ("Quick answer check: {answer}. Did you have it?","Let's settle the last one: {answer}. Were you right?"),
- "quick_payoff": ("The mystery from the last Short? {answer}.","That last puzzle had a simple answer: {answer}."),
- "listener_score": ("Score one if you said {answer}.","If you guessed {answer}, give yourself the point."),
- "confidence_check": ("Be honest—the last answer was {answer}.","Your last guess was either {answer}… or nowhere close."),
- "clean_reveal": ("For the last riddle, the answer was {answer}.","The answer we left hanging was {answer}."),
- "retro_reveal": ("Before we move on, reveal time: {answer}.","One loose end first: the previous answer was {answer}."),
- "challenge_reveal": ("Did you beat the last puzzle? The answer was {answer}.","Last round's answer: {answer}. Did your brain catch that?"),
- "curiosity_reveal": ("Remember that last puzzle? Its answer was {answer}.","That little mystery we left open? It was {answer}."),
+ "answer_check": ("Last answer: {answer}.","The last answer was {answer}."),
+ "quick_payoff": ("Last puzzle: {answer}.","The mystery answer was {answer}."),
+ "listener_score": ("Point if you said {answer}.","Got {answer}? Take the point."),
+ "confidence_check": ("Be honest: {answer}.","Last time, it was {answer}."),
+ "clean_reveal": ("Last riddle answer: {answer}.","The answer we left hanging: {answer}."),
+ "retro_reveal": ("Reveal time: {answer}.","One loose end: {answer}."),
+ "challenge_reveal": ("Last round: {answer}.","Did you get {answer}?"),
+ "curiosity_reveal": ("Remember the last one? {answer}.","That little mystery? {answer}."),
 }
 BRIDGE_LINES = {s:(a,b) for s,a,b in [
- ("answer_check","Now earn the next point.","Here's a fresh one."),("quick_payoff","But we're not done yet.","And this one plays differently."),("listener_score","Keep that score going.","Your next test starts now."),("confidence_check","Now forget that answer and reset.","Don't let that guess help you now."),("clean_reveal","Now for a completely new puzzle.","Let's switch gears."),("retro_reveal","Loose end tied. New puzzle.","That's settled. Try this one."),("challenge_reveal","Round two starts now.","Think faster this time."),("curiosity_reveal","And now, another mystery.","That one's done. This one isn't.") ]}
+ ("answer_check","New puzzle.","Try this one."),("quick_payoff","Fresh puzzle.","This one changes gears."),("listener_score","Next test.","Your next challenge starts now."),("confidence_check","Reset.","Forget that guess."),("clean_reveal","New puzzle.","Let's switch gears."),("retro_reveal","That's settled.","New puzzle."),("challenge_reveal","Round two.","Try this one."),("curiosity_reveal","New mystery.","This one isn't done yet.") ]}
 ENDING_LINES=("Lock in your answer. Subscribe and follow for the reveal in the next Short.","Keep your first guess. Follow and subscribe to find out if you were right in the next Short.","Don't change it now. Subscribe and follow for the answer in the next Short.","Answer locked. Follow and subscribe for the reveal in the next Short.","Got your guess? Subscribe and follow for the answer in the next Short.")
 
 def _words(text): return re.findall(r"\b[\w'-]+\b",str(text or ""))
@@ -68,6 +68,27 @@ def _trim_low_value_filler(text):
     return out
 def _compact_scene(scene): scene["narration"]=_trim_low_value_filler(_remove_visual_dependency(scene.get("narration","")))
 
+def _fit_scene1(text, max_words=14):
+    """Keep the previous-answer reveal while preserving a compact new-riddle hook."""
+    text=_trim_low_value_filler(text)
+    words=_words(text)
+    if len(words)<=max_words:
+        return text
+    sentences=[s.strip() for s in re.split(r"(?<=[.!?])\s+",text) if s.strip()]
+    if not sentences:
+        return " ".join(words[:max_words]).rstrip(" ,;:-") + "."
+    kept=[]; total=0
+    for sentence in sentences:
+        n=len(_words(sentence))
+        if not kept or total+n<=max_words:
+            kept.append(sentence); total+=n
+        if total>=max_words:
+            break
+    result=" ".join(kept).strip()
+    if len(_words(result))<=max_words:
+        return result
+    return " ".join(_words(result)[:max_words]).rstrip(" ,;:-") + "."
+
 def polish_riddle_script(script,previous,number):
     scenes=script.get("scene_plan") or []
     if len(scenes)!=7: raise RuntimeError("Riddle script must contain exactly 7 scenes before narration polish.")
@@ -81,7 +102,13 @@ def polish_riddle_script(script,previous,number):
         if answer:
             first=scenes[0]; existing=str(first.get("narration","")).strip()
             existing=re.sub(rf"^(?:before today.?s challenge,?\s*)?(?:here.?s|here is|the answer to)?\s*riddle\s*#?{previous_number}[^.?!]*[.?!]\s*","",existing,flags=re.I)
-            reveal,reveal_style=_reveal_line(previous_number+1,answer,variant); first["narration"]=f"{reveal} {_bridge_line(variant,reveal_style)} {existing}".strip(); first["purpose"]="hook"; first["retention_purpose"]="pattern_break_and_payoff"
+            reveal,reveal_style=_reveal_line(previous_number+1,answer,variant)
+            bridge=_bridge_line(variant,reveal_style)
+            # The old implementation prepended a full reveal + full bridge + full
+            # Gemini hook, which could inflate Scene 1 to 20-30 words and then fail
+            # the pacing gate. Build the combined hook first, then fit it to Scene 1.
+            first["narration"]=_fit_scene1(f"{reveal} {bridge} {existing}", max_words=SCENE_WORD_BUDGETS[0][1])
+            first["purpose"]="hook"; first["retention_purpose"]="pattern_break_and_payoff"
     scenes[4]["narration"]=_trim_low_value_filler(scenes[4].get("narration",""))
     if not re.search(r"\b(first answer|first guess|lock|commit|pick|choose|guess)\b",scenes[4]["narration"],re.I): scenes[4]["narration"]="Lock in your first answer. Don't change it."
     scenes[4]["retention_purpose"]="forced_commitment"
@@ -95,5 +122,5 @@ def polish_riddle_script(script,previous,number):
     for index,(low,high) in enumerate(SCENE_WORD_BUDGETS):
         count=len(_words(scenes[index].get("narration","")))
         if count<low or count>high: raise RuntimeError(f"Riddle Scene {index+1} has {count} words; expected {low}-{high} for pacing.")
-    script["riddle_narration_version"]="retention_v7_personality_performance"; script["riddle_reveal_style"]=reveal_style; script["riddle_reveal_variant"]=variant; script["riddle_personality_name"]=personality_name or "dynamic"; script["riddle_personality_guidance"]=PERSONALITY_GUIDANCE.get(personality_name,""); script["riddle_word_target"]={"min":MIN_WORDS,"max":MAX_WORDS}; script["riddle_scene_word_budgets"]=[list(x) for x in SCENE_WORD_BUDGETS]; script["estimated_narration_seconds"]=round(total/3.2,1); script["visual_dependency"]="none"
+    script["riddle_narration_version"]="retention_v8_compact_reveal"; script["riddle_reveal_style"]=reveal_style; script["riddle_reveal_variant"]=variant; script["riddle_personality_name"]=personality_name or "dynamic"; script["riddle_personality_guidance"]=PERSONALITY_GUIDANCE.get(personality_name,""); script["riddle_word_target"]={"min":MIN_WORDS,"max":MAX_WORDS}; script["riddle_scene_word_budgets"]=[list(x) for x in SCENE_WORD_BUDGETS]; script["estimated_narration_seconds"]=round(total/3.2,1); script["visual_dependency"]="none"
     return script

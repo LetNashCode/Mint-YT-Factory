@@ -2,12 +2,12 @@
 tts.py
 Mint-YT-Factory
 
-Version 12.4 — SINGLE-PASS KOKORO PRIMARY + EDGE FALLBACK
+Version 12.5 — SINGLE-PASS KOKORO PRIMARY + EDGE FALLBACK
 
 Narration is synthesized as one continuous request with Kokoro-82M using
  the af_heart American-English voice. Mint-YT-Factory protects a separately
- rendered continuation bridge, so the core story must leave enough room for
- that bridge inside the production duration ceiling.
+ rendered continuation bridge, so callers may provide a dynamic core-duration
+ budget when the bridge duration is known.
 """
 
 import asyncio
@@ -19,9 +19,8 @@ import numpy as np
 from moviepy.editor import AudioFileClip
 from moviepy.audio.AudioClip import AudioArrayClip
 
-# The final Short also contains a separately rendered ~7s continuation bridge
-# plus a small natural tail. Keep the CURRENT-TOPIC narration around 35–36.8s
-# so the combined protected narration normally lands safely below 44.95s.
+# Safe default for callers that do not have a protected bridge. The Publish
+# Shorts bridge path overrides this with an exact bridge-aware budget.
 TARGET_MAX_DURATION = 36.80
 MIN_PLAYBACK_SPEED = 0.95
 MAX_PLAYBACK_SPEED = 1.10
@@ -30,9 +29,6 @@ TTS_RETRIES = 2
 SAMPLE_RATE = 44100
 KOKORO_SAMPLE_RATE = 24000
 
-# Keep a short natural tail after the final spoken sample. This prevents the
-# MP3 writer / AAC mux from making the final phoneme feel hard-cut while still
-# avoiding the several seconds of provider-generated dead air that we remove.
 TRAILING_SILENCE_THRESHOLD = 0.006
 TRAILING_SILENCE_KEEP_SECONDS = 0.18
 TRAILING_SILENCE_MIN_SECONDS = 0.35
@@ -75,18 +71,13 @@ def build_tts_pronunciation_text(text):
     return clean_text(result)
 
 
-def apply_narration_speed(clip):
-    """
-    Apply adaptive playback speed without allowing MoviePy to request a
-    source frame beyond the readable end of the generated WAV.
-
-    MoviePy's audio writer can pass a NumPy array of timestamps into the
-    fl_time() mapping function. Therefore the time mapping MUST be vectorized;
-    Python's built-in min()/max() cannot safely compare timestamp arrays.
-    """
+def apply_narration_speed(clip, target_duration=None):
+    """Adapt playback speed while preserving the complete generated ending."""
     try:
         duration = float(clip.duration)
-        required = duration / TARGET_MAX_DURATION if TARGET_MAX_DURATION > 0 else 1.0
+        target = float(target_duration) if target_duration is not None else TARGET_MAX_DURATION
+        target = max(0.10, target)
+        required = duration / target
         speed = min(MAX_PLAYBACK_SPEED, max(MIN_PLAYBACK_SPEED, required))
     except Exception:
         duration = float(getattr(clip, "duration", 0.0) or 0.0)
@@ -96,31 +87,20 @@ def apply_narration_speed(clip):
 
     if abs(speed - 1.0) < 0.001:
         safe_clip = clip.set_duration(safe_duration)
-        print(
-            f"✅ Narration speed adjustment not needed "
-            f"({duration:.2f}s; full source duration preserved)"
-        )
+        print(f"✅ Narration speed adjustment not needed ({duration:.2f}s; full source duration preserved)")
         return safe_clip
 
     try:
         source_limit = max(0.0, safe_duration - 0.001)
 
         def _safe_time_map(t):
-            # MoviePy may supply either a scalar or a NumPy timestamp array.
-            # np.minimum handles both forms without ambiguous truth-value errors.
             return np.minimum(np.asarray(t) / speed, source_limit)
 
-        transformed = clip.fl_time(
-            _safe_time_map,
-            apply_to=["audio"],
-        )
-
+        transformed = clip.fl_time(_safe_time_map, apply_to=["audio"])
         transformed_duration = safe_duration / speed
         transformed = transformed.set_duration(transformed_duration)
-
         print(
-            f"✅ Adaptive narration speed: "
-            f"{speed:.3f}x "
+            f"✅ Adaptive narration speed: {speed:.3f}x "
             f"({duration:.2f}s → {transformed_duration:.2f}s; full ending preserved)"
         )
         return transformed
@@ -135,44 +115,34 @@ _KOKORO_PIPELINE_LANG = None
 
 def _get_kokoro_pipeline(lang):
     global _KOKORO_PIPELINE, _KOKORO_PIPELINE_LANG
-
     if _KOKORO_PIPELINE is not None and _KOKORO_PIPELINE_LANG == lang:
         return _KOKORO_PIPELINE
-
     try:
         from kokoro import KPipeline
     except ImportError as error:
         raise RuntimeError("kokoro is not installed") from error
-
     print(f"🧠 Loading Kokoro-82M | lang={lang} | voice={KOKORO_VOICE}")
     try:
         _KOKORO_PIPELINE = KPipeline(lang_code=lang)
     except Exception as error:
         raise RuntimeError(f"Kokoro pipeline initialization failed: {error}") from error
-
     _KOKORO_PIPELINE_LANG = lang
     print("✅ Kokoro-82M pipeline ready")
     return _KOKORO_PIPELINE
 
 
 def _trim_trailing_silence(audio, sample_rate):
-    """Trim only meaningful dead air from the end of generated narration."""
     audio = np.asarray(audio, dtype=np.float32).reshape(-1)
     if audio.size == 0 or sample_rate <= 0:
         return audio, 0.0
-
-    threshold = float(TRAILING_SILENCE_THRESHOLD)
-    audible = np.flatnonzero(np.abs(audio) >= threshold)
+    audible = np.flatnonzero(np.abs(audio) >= float(TRAILING_SILENCE_THRESHOLD))
     if audible.size == 0:
         return audio, 0.0
-
     last_audible = int(audible[-1])
     trailing_samples = max(0, audio.size - last_audible - 1)
     trailing_seconds = trailing_samples / float(sample_rate)
-
     if trailing_seconds < TRAILING_SILENCE_MIN_SECONDS:
         return audio, 0.0
-
     keep_samples = int(TRAILING_SILENCE_KEEP_SECONDS * sample_rate)
     end = min(audio.size, last_audible + 1 + keep_samples)
     trimmed = audio[:end]
@@ -183,17 +153,13 @@ def _trim_trailing_silence(audio, sample_rate):
 def _generate_kokoro(text, voice_config, output_path):
     if not KOKORO_ENABLED:
         raise RuntimeError("Kokoro is disabled")
-
     try:
         import soundfile as sf
     except ImportError as error:
         raise RuntimeError("soundfile is not installed") from error
-
     voice = str(voice_config.get("voice_name") or KOKORO_VOICE).strip() or KOKORO_VOICE
     lang = str(voice_config.get("kokoro_lang") or KOKORO_LANG).strip() or KOKORO_LANG
-
     pipeline = _get_kokoro_pipeline(lang)
-
     try:
         generator = pipeline(text, voice=voice, speed=1.0, split_pattern=r"\n+")
         audio_parts = []
@@ -208,20 +174,16 @@ def _generate_kokoro(text, voice_config, output_path):
                 audio_parts.append(audio)
     except Exception as error:
         raise RuntimeError(f"Kokoro generation failed: {error}") from error
-
     if not audio_parts:
         raise RuntimeError("Kokoro returned no usable audio")
-
     audio = np.concatenate(audio_parts)
     audio, removed_silence = _trim_trailing_silence(audio, KOKORO_SAMPLE_RATE)
     if removed_silence > 0:
         print(f"✂️ Trimmed {removed_silence:.2f}s of trailing TTS silence")
     os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
     sf.write(output_path, audio, KOKORO_SAMPLE_RATE, subtype="PCM_16")
-
     if not os.path.exists(output_path) or os.path.getsize(output_path) < 1024:
         raise RuntimeError("Kokoro returned an empty audio file")
-
     print(f"✅ Kokoro synthesis succeeded | voice={voice} | sample_rate={KOKORO_SAMPLE_RATE}")
     return output_path
 
@@ -244,27 +206,21 @@ def _generate_edge(text, voice_config, output_path):
         import edge_tts
     except ImportError as error:
         raise RuntimeError("edge-tts is not installed") from error
-
     voice = _edge_voice(voice_config)
     rate = _edge_rate(voice_config)
     os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
-
     async def _save():
         communicator = edge_tts.Communicate(text, voice, rate=rate)
         await communicator.save(output_path)
-
     asyncio.run(_save())
-
     if not os.path.exists(output_path) or os.path.getsize(output_path) < 1024:
         raise RuntimeError("Edge TTS returned no usable audio")
-
     print(f"✅ Edge TTS fallback succeeded | voice={voice} | rate={rate}")
     return output_path
 
 
 def _synthesize_once(text, voice_config, out_path):
     last_error = None
-
     for attempt in range(1, TTS_RETRIES + 1):
         try:
             return _generate_kokoro(text, voice_config, out_path)
@@ -273,7 +229,6 @@ def _synthesize_once(text, voice_config, out_path):
             print(f"⚠️ Kokoro attempt {attempt}/{TTS_RETRIES} failed: {type(error).__name__}: {error}")
             if attempt < TTS_RETRIES:
                 time.sleep(attempt)
-
     if EDGE_ENABLED:
         for attempt in range(1, TTS_RETRIES + 1):
             try:
@@ -283,107 +238,63 @@ def _synthesize_once(text, voice_config, out_path):
                 print(f"⚠️ Edge fallback attempt {attempt}/{TTS_RETRIES} failed: {type(error).__name__}: {error}")
                 if attempt < TTS_RETRIES:
                     time.sleep(attempt)
-
     raise RuntimeError("All configured TTS providers failed") from last_error
 
 
-def synthesize_narration(text, config, out_path):
+def synthesize_narration(text, config, out_path, target_duration=None):
     original_text = clean_text(text)
     if not original_text:
         raise RuntimeError("Cannot synthesize empty narration")
-
     tts_text = build_tts_pronunciation_text(original_text)
     voice_config = config.get("voice", {}) if isinstance(config, dict) else {}
     if not isinstance(voice_config, dict):
         voice_config = {}
-
     os.makedirs(os.path.dirname(os.path.abspath(out_path)), exist_ok=True)
     raw_path = os.path.abspath(out_path + ".raw.wav")
-
+    effective_target = float(target_duration) if target_duration is not None else TARGET_MAX_DURATION
     print("\n" + "=" * 80)
     print("🎙️ KOKORO TTS — SINGLE-PASS CONTINUOUS NARRATION")
     print("=" * 80)
     print(f"Provider: {voice_config.get('provider', 'kokoro')}")
     print(f"Voice: {voice_config.get('voice_name', KOKORO_VOICE)}")
-    print(f"Language: {voice_config.get('kokoro_lang', KOKORO_LANG)}")
-    print("Primary backend: Kokoro-82M (local, keyless)")
-    print("API key: NOT REQUIRED")
-    print("Session ID: NOT REQUIRED")
-    print("TTS requests: 1 continuous narration")
-    print("Chunking: DISABLED")
-    print("Edge fallback: " + ("ENABLED" if EDGE_ENABLED else "DISABLED"))
-    print(f"Original characters: {len(original_text)}")
-    print(f"TTS characters: {len(tts_text)}")
-    print(f"Target max core duration: {TARGET_MAX_DURATION:.2f}s")
-    print("Protected bridge budget: approximately 7s")
+    print(f"Target max core duration: {effective_target:.2f}s")
     print("Adaptive narration speed: ENABLED")
-    print("Artificial gaps: DISABLED")
-    print("Crossfade: DISABLED")
-    print(f"Natural narration end padding: {NARRATION_END_PADDING_SECONDS:.2f}s")
-
     processed = None
     final_narration = None
     try:
         _synthesize_once(tts_text, voice_config, raw_path)
-
         clip = AudioFileClip(raw_path)
         try:
             print(f"Raw narration duration: {clip.duration:.2f}s")
-            processed = apply_narration_speed(clip)
+            processed = apply_narration_speed(clip, target_duration=effective_target)
             print(f"Processed narration duration: {processed.duration:.2f}s")
-
             sample_count = max(1, int(round(NARRATION_END_PADDING_SECONDS * SAMPLE_RATE)))
             silence = np.zeros((sample_count, 2), dtype=np.float32)
             silence_clip = AudioArrayClip(silence, fps=SAMPLE_RATE)
-            final_narration = __import__("moviepy.editor", fromlist=["concatenate_audioclips"]).concatenate_audioclips(
-                [processed, silence_clip]
-            )
+            final_narration = __import__("moviepy.editor", fromlist=["concatenate_audioclips"]).concatenate_audioclips([processed, silence_clip])
             print(f"Final narration duration: {final_narration.duration:.2f}s (includes natural end tail)")
-
-            final_narration.write_audiofile(
-                out_path,
-                fps=SAMPLE_RATE,
-                codec="libmp3lame",
-                bitrate="192k",
-                verbose=False,
-                logger=None,
-            )
+            final_narration.write_audiofile(out_path, fps=SAMPLE_RATE, codec="libmp3lame", bitrate="192k", verbose=False, logger=None)
         finally:
             if final_narration is not None:
-                try:
-                    final_narration.close()
-                except Exception:
-                    pass
+                try: final_narration.close()
+                except Exception: pass
             if processed is not None and processed is not clip:
-                try:
-                    processed.close()
-                except Exception:
-                    pass
-            try:
-                clip.close()
-            except Exception:
-                pass
-
+                try: processed.close()
+                except Exception: pass
+            try: clip.close()
+            except Exception: pass
         return out_path
     finally:
         try:
-            if os.path.exists(raw_path):
-                os.remove(raw_path)
-        except Exception:
-            pass
+            if os.path.exists(raw_path): os.remove(raw_path)
+        except Exception: pass
 
 
 def _script_narration(script):
     scenes = script.get("scene_plan", []) if isinstance(script, dict) else []
     if not isinstance(scenes, list):
         return ""
-    return clean_text(
-        " ".join(
-            str(scene.get("narration", ""))
-            for scene in scenes
-            if isinstance(scene, dict)
-        )
-    )
+    return clean_text(" ".join(str(scene.get("narration", "")) for scene in scenes if isinstance(scene, dict)))
 
 
 def synthesize_script(script, config, out_dir):

@@ -219,6 +219,146 @@
       "shot": 2,
       "query": "pencils break in real life",
       "recorded_at": 1789033572
+    },
+    {
+      "asset_key": "pexels:video:5584497",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5584497/5584497-hd_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "umbrellas flip",
+      "recorded_at": 1789036386
+    },
+    {
+      "asset_key": "pixabay:video:45802",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/07/28/45802-446930959_medium.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "umbrellas flip",
+      "recorded_at": 1789036390
+    },
+    {
+      "asset_key": "pexels:photo:38399140",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/38399140/pexels-photo-38399140.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 2,
+      "shot": 1,
+      "query": "umbrellas flip",
+      "recorded_at": 1789036397
+    },
+    {
+      "asset_key": "pixabay:photo:4425160",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g2aba55871834d4dc447db3acc5d12a283a2f3eba3fd0e3e39f25491ffa02a6e941c5f95cac423ae66de4c98b8185f1df3d9b2ccd2fc2f52afbc708c5f3cb5bd7_1280.jpg",
+      "scene": 2,
+      "shot": 2,
+      "query": "umbrellas flip",
+      "recorded_at": 1789036407
+    },
+    {
+      "asset_key": "pexels:video:27695382",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/27695382/12207307_720_1280_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "umbrellas flip",
+      "recorded_at": 1789036410
+    },
+    {
+      "asset_key": "pexels:photo:14663518",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/14663518/pexels-photo-14663518.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 3,
+      "shot": 2,
+      "query": "umbrellas flip",
+      "recorded_at": 1789036416
+    },
+    {
+      "asset_key": "pixabay:photo:8026749",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/gc6e466d586c3552920b06b82ba6f02d30adf5335b09a745e6ca91a4475f76008011fda7c49185eb5d616bd83ecb40be69846a750b23e1b5eee3619eb5c86d50b_1280.jpg",
+      "scene": 4,
+      "shot": 1,
+      "query": "umbrellas flip",
+      "recorded_at": 1789036428
+    },
+    {
+      "asset_key": "pexels:photo:31215155",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/31215155/pexels-photo-31215155.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 4,
+      "shot": 2,
+      "query": "umbrellas flip close up",
+      "recorded_at": 1789036450
+    },
+    {
+      "asset_key": "pexels:video:6302989",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6302989/6302989-hd_1280_720_24fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "umbrellas flip being used",
+      "recorded_at": 1789036474
+    },
+    {
+      "asset_key": "pexels:photo:27572796",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/27572796/pexels-photo-27572796.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 5,
+      "shot": 2,
+      "query": "umbrellas flip",
+      "recorded_at": 1789036479
+    },
+    {
+      "asset_key": "pixabay:video:12740",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/11/03/12740-241674224_medium.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "umbrellas flip being used",
+      "recorded_at": 1789036505
+    },
+    {
+      "asset_key": "pexels:photo:39304950",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/39304950/pexels-photo-39304950.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 6,
+      "shot": 2,
+      "query": "umbrellas flip being used",
+      "recorded_at": 1789036529
+    },
+    {
+      "asset_key": "pixabay:photo:3369140",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g9a87c558648e55bee8e2a165e0343f7b34747be917a1878db89e19935419709dfd8f900329ce0597f3a9f0f35fb653d085fbd04c5349bef50eb41b8898cb2be2_1280.jpg",
+      "scene": 7,
+      "shot": 1,
+      "query": "umbrellas flip being used",
+      "recorded_at": 1789036564
+    },
+    {
+      "asset_key": "pexels:video:39445829",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39445829/16798981_720_1280_55fps.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "umbrellas flip in real life",
+      "recorded_at": 1789036596
     }
   ]
 }

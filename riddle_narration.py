@@ -89,6 +89,26 @@ def _fit_scene1(text, max_words=14):
         return result
     return " ".join(_words(result)[:max_words]).rstrip(" ,;:-") + "."
 
+def _fit_total_word_budget(scenes):
+    """Trim only surplus words from flexible middle scenes so polish cannot overflow 95 words."""
+    total=sum(len(_words(s.get("narration",""))) for s in scenes)
+    overflow=total-MAX_WORDS
+    if overflow<=0:
+        return
+    for index in (1,2,3,4,0):
+        if overflow<=0:
+            break
+        low,high=SCENE_WORD_BUDGETS[index]
+        text=str(scenes[index].get("narration","")).strip()
+        words=_words(text)
+        removable=len(words)-low
+        if removable<=0:
+            continue
+        cut=min(overflow,removable)
+        kept=words[:-cut]
+        scenes[index]["narration"]=" ".join(kept).rstrip(" ,;:-") + ("." if kept else "")
+        overflow-=cut
+
 def polish_riddle_script(script,previous,number):
     scenes=script.get("scene_plan") or []
     if len(scenes)!=7: raise RuntimeError("Riddle script must contain exactly 7 scenes before narration polish.")
@@ -104,9 +124,6 @@ def polish_riddle_script(script,previous,number):
             existing=re.sub(rf"^(?:before today.?s challenge,?\s*)?(?:here.?s|here is|the answer to)?\s*riddle\s*#?{previous_number}[^.?!]*[.?!]\s*","",existing,flags=re.I)
             reveal,reveal_style=_reveal_line(previous_number+1,answer,variant)
             bridge=_bridge_line(variant,reveal_style)
-            # The old implementation prepended a full reveal + full bridge + full
-            # Gemini hook, which could inflate Scene 1 to 20-30 words and then fail
-            # the pacing gate. Build the combined hook first, then fit it to Scene 1.
             first["narration"]=_fit_scene1(f"{reveal} {bridge} {existing}", max_words=SCENE_WORD_BUDGETS[0][1])
             first["purpose"]="hook"; first["retention_purpose"]="pattern_break_and_payoff"
     scenes[4]["narration"]=_trim_low_value_filler(scenes[4].get("narration",""))
@@ -116,11 +133,13 @@ def polish_riddle_script(script,previous,number):
     if not re.search(r"three[.… ]+two[.… ]+one|3[.… ]*2[.… ]*1",pressure,re.I): pressure="Final guess. Three… two… one."
     scenes[5]["narration"]=pressure; scenes[5]["retention_purpose"]="countdown_pressure"
     last=scenes[-1]; text=_replace_canned_ending(last.get("narration","")); text=text.rstrip(" .!?"); ending=_ending_line(variant+2); last["narration"]=f"{text}. {ending}" if text else ending; last["purpose"]="ending"; last["retention_purpose"]="answer_loop_subscribe_follow"
-    for scene in scenes: _compact_scene(scene); _sync_visuals(scene)
+    for scene in scenes: _compact_scene(scene)
+    _fit_total_word_budget(scenes)
+    for scene in scenes: _sync_visuals(scene)
     total=sum(len(_words(s.get("narration",""))) for s in scenes)
     if total<MIN_WORDS or total>MAX_WORDS: raise RuntimeError(f"Riddle narration length {total} outside optimized {MIN_WORDS}-{MAX_WORDS} range.")
     for index,(low,high) in enumerate(SCENE_WORD_BUDGETS):
         count=len(_words(scenes[index].get("narration","")))
         if count<low or count>high: raise RuntimeError(f"Riddle Scene {index+1} has {count} words; expected {low}-{high} for pacing.")
-    script["riddle_narration_version"]="retention_v8_compact_reveal"; script["riddle_reveal_style"]=reveal_style; script["riddle_reveal_variant"]=variant; script["riddle_personality_name"]=personality_name or "dynamic"; script["riddle_personality_guidance"]=PERSONALITY_GUIDANCE.get(personality_name,""); script["riddle_word_target"]={"min":MIN_WORDS,"max":MAX_WORDS}; script["riddle_scene_word_budgets"]=[list(x) for x in SCENE_WORD_BUDGETS]; script["estimated_narration_seconds"]=round(total/3.2,1); script["visual_dependency"]="none"
+    script["riddle_narration_version"]="retention_v9_total_budget_guard"; script["riddle_reveal_style"]=reveal_style; script["riddle_reveal_variant"]=variant; script["riddle_personality_name"]=personality_name or "dynamic"; script["riddle_personality_guidance"]=PERSONALITY_GUIDANCE.get(personality_name,""); script["riddle_word_target"]={"min":MIN_WORDS,"max":MAX_WORDS}; script["riddle_scene_word_budgets"]=[list(x) for x in SCENE_WORD_BUDGETS]; script["estimated_narration_seconds"]=round(total/3.2,1); script["visual_dependency"]="none"
     return script

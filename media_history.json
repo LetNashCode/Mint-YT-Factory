@@ -609,6 +609,146 @@
       "shot": 2,
       "query": "elevator doors close up",
       "recorded_at": 1789049754
+    },
+    {
+      "asset_key": "pexels:video:8045174",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8045174/8045174-hd_720_1280_50fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "sliding glass",
+      "recorded_at": 1789060333
+    },
+    {
+      "asset_key": "pixabay:video:189290",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2023/11/16/189290-885321799_medium.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "sliding glass",
+      "recorded_at": 1789060343
+    },
+    {
+      "asset_key": "pexels:video:7292447",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7292447/7292447-hd_1280_720_24fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "sliding glass edge",
+      "recorded_at": 1789060360
+    },
+    {
+      "asset_key": "pixabay:video:1383",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2015/11/26/1383-147055496_medium.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "sliding glass",
+      "recorded_at": 1789060363
+    },
+    {
+      "asset_key": "pexels:photo:16530122",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/16530122/pexels-photo-16530122.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 3,
+      "shot": 1,
+      "query": "sliding glass",
+      "recorded_at": 1789060385
+    },
+    {
+      "asset_key": "pixabay:photo:8246151",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/gb2f26f7da93d1e6cc591d8668c29af88276a4064493b7a63887d2d6f7d684007347ea071969abb43ea0bb80e2108d6ae71c596d4a6ee95dfce5af6750513b5d9_1280.jpg",
+      "scene": 3,
+      "shot": 2,
+      "query": "sliding glass",
+      "recorded_at": 1789060418
+    },
+    {
+      "asset_key": "pexels:video:32386592",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/32386592/13814728_1280_720_100fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "sliding glass close up",
+      "recorded_at": 1789060469
+    },
+    {
+      "asset_key": "pexels:video:3846651",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3846651/3846651-hd_1280_720_50fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "sliding glass close up",
+      "recorded_at": 1789060497
+    },
+    {
+      "asset_key": "pexels:photo:8134753",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/8134753/pexels-photo-8134753.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 5,
+      "shot": 1,
+      "query": "sliding glass edge",
+      "recorded_at": 1789060507
+    },
+    {
+      "asset_key": "pixabay:video:211771",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2024/05/13/211771_medium.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "sliding glass close up",
+      "recorded_at": 1789060577
+    },
+    {
+      "asset_key": "pexels:video:36408448",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/36408448/15438808_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "sliding glass used",
+      "recorded_at": 1789060664
+    },
+    {
+      "asset_key": "pexels:video:34237018",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34237018/14509357_720_1280_24fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "sliding glass",
+      "recorded_at": 1789060681
+    },
+    {
+      "asset_key": "pexels:photo:30559963",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/30559963/pexels-photo-30559963.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 7,
+      "shot": 1,
+      "query": "sliding glass locked",
+      "recorded_at": 1789060705
+    },
+    {
+      "asset_key": "pexels:photo:7587855",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/7587855/pexels-photo-7587855.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 7,
+      "shot": 2,
+      "query": "sliding glass door",
+      "recorded_at": 1789060725
     }
   ]
 }

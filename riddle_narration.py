@@ -86,13 +86,12 @@ def _fit_scene1(text,max_words=18):
     return result if len(_words(result))<=max_words else " ".join(words[:max_words]).rstrip(" ,;:-")+"."
 
 def _fit_scene_words(text,low,high):
-    """Compact a scene without deleting its final retention sentence when possible."""
+    """Compact a scene while preserving its final retention sentence when possible."""
     text=_trim_low_value_filler(text); words=_words(text)
     if len(words)<=high:return text
     sentences=[s.strip() for s in re.split(r"(?<=[.!?])\s+",text) if s.strip()]
     if len(sentences)>1:
-        tail=sentences[-1]
-        tail_words=len(_words(tail))
+        tail=sentences[-1]; tail_words=len(_words(tail))
         if tail_words<=high:
             prefix=[]; total=tail_words
             for sentence in sentences[:-1]:
@@ -103,36 +102,38 @@ def _fit_scene_words(text,low,high):
             if len(_words(result))<=high:return result
     return " ".join(words[:high]).rstrip(" ,;:-")+"."
 
+def _trim_scene7_prefix(text,overflow):
+    """Remove expendable Scene 7 setup while never cutting the CTA."""
+    if overflow<=0:return text,0
+    sentences=[s.strip() for s in re.split(r"(?<=[.!?])\s+",str(text or "").strip()) if s.strip()]
+    if not sentences:return text,overflow
+    cta_index=None
+    for i in range(len(sentences)-1,-1,-1):
+        if re.search(r"\bsubscribe\b",sentences[i],re.I) and re.search(r"\bfollow\b",sentences[i],re.I):
+            cta_index=i; break
+    if cta_index is None:return text,overflow
+    cta=sentences[cta_index]
+    prefix=sentences[:cta_index]
+    prefix_words=_words(" ".join(prefix)); remove=min(overflow,len(prefix_words))
+    if remove:
+        kept_words=prefix_words[:-remove]
+        prefix_text=" ".join(kept_words).rstrip(" ,;:-")
+        candidate=(prefix_text+". " if prefix_text else "")+cta
+        return candidate,overflow-remove
+    return text,overflow
+
 def _fit_total_word_budget(scenes):
-    """Enforce only the episode ceiling; preserve Scene 7 CTA and trim expendable middle prose first."""
+    """Enforce the episode ceiling while protecting the Scene 7 continuation CTA."""
     total=sum(len(_words(s.get("narration",""))) for s in scenes); overflow=total-MAX_WORDS
     if overflow<=0:return
-    # Scene 7 is last-resort because its CTA is the continuation loop.
-    for index in (1,2,3,4,0,6):
+    for index in (1,2,3,4,0):
         if overflow<=0:break
-        low,high=SCENE_WORD_BUDGETS[index]; text=str(scenes[index].get("narration","")).strip(); words=_words(text)
-        removable=len(words)-low
+        low,_=SCENE_WORD_BUDGETS[index]; words=_words(scenes[index].get("narration","")); removable=len(words)-low
         if removable<=0:continue
-        cut=min(overflow,removable)
-        if index==6:
-            ending=ENDING_LINES[0] if "subscribe" not in text.lower() else None
-            if ending and len(_words(ending))<len(words):
-                prefix=text[:max(0,text.lower().rfind(ending.lower()))].strip(" .!? ")
-                candidate=(prefix+". " if prefix else "")+ending
-                if len(_words(candidate))<=high: text=candidate; words=_words(text); removable=len(words)-low
-            # Never cut the CTA itself; compact prefix around it instead.
-            sentences=[s.strip() for s in re.split(r"(?<=[.!?])\s+",text) if s.strip()]
-            if len(sentences)>1:
-                cta=sentences[-1]; cta_n=len(_words(cta)); keep=[cta]; used=cta_n
-                for sentence in reversed(sentences[:-1]):
-                    n=len(_words(sentence))
-                    if used+n<=high: keep.insert(0,sentence); used+=n
-                candidate=" ".join(keep)
-                if len(_words(candidate))<len(words): text=candidate; words=_words(text); removable=len(words)-low
-        cut=min(overflow,max(0,removable))
-        if cut:
-            scenes[index]["narration"]=" ".join(words[:-cut]).rstrip(" ,;:-")+"."
-            overflow-=cut
+        cut=min(overflow,removable); kept=words[:-cut]; scenes[index]["narration"]=" ".join(kept).rstrip(" ,;:-")+"."; overflow-=cut
+    if overflow>0:
+        text,remaining=_trim_scene7_prefix(scenes[6].get("narration",""),overflow); scenes[6]["narration"]=text; overflow=remaining
+    if overflow>0:raise RuntimeError(f"Riddle narration cannot fit {MAX_WORDS} words without cutting required retention CTA.")
 
 def polish_riddle_script(script,previous,number):
     scenes=script.get("scene_plan") or []
@@ -155,12 +156,9 @@ def polish_riddle_script(script,previous,number):
     if not re.search(r"three[.… ]+two[.… ]+one|3[.… ]*2[.… ]*1",pressure,re.I):pressure="Final guess. Three… two… one."
     scenes[5]["narration"]=pressure; scenes[5]["retention_purpose"]="countdown_pressure"
     last=scenes[-1]; text=_replace_canned_ending(last.get("narration","")); text=text.rstrip(" .!?"); ending=_ending_line(variant+2); last["narration"]=f"{text}. {ending}" if text else ending; last["purpose"]="ending"; last["retention_purpose"]="answer_loop_subscribe_follow"
-    # Compact individual scenes after structural edits, but preserve Scene 7's CTA.
     for index,scene in enumerate(scenes):
         low,high=SCENE_WORD_BUDGETS[index]
         scene["narration"]=_fit_scene_words(scene.get("narration",""),low,high) if index!=0 else _fit_scene1(scene.get("narration",""),high)
-    # If a long Scene 7 pushed the episode over the ceiling, remove only its
-    # expendable prefix first while preserving the final subscribe/follow CTA.
     _fit_total_word_budget(scenes)
     for scene in scenes:_sync_visuals(scene)
     total=sum(len(_words(s.get("narration",""))) for s in scenes)
@@ -168,5 +166,5 @@ def polish_riddle_script(script,previous,number):
     for index,(low,high) in enumerate(SCENE_WORD_BUDGETS):
         count=len(_words(scenes[index].get("narration","")))
         if count<low or count>high:raise RuntimeError(f"Riddle Scene {index+1} has {count} words; expected {low}-{high} for pacing.")
-    script["riddle_narration_version"]="retention_v10_unified_pacing"; script["riddle_reveal_style"]=reveal_style; script["riddle_reveal_variant"]=variant; script["riddle_personality_name"]=personality_name or "dynamic"; script["riddle_personality_guidance"]=PERSONALITY_GUIDANCE.get(personality_name,""); script["riddle_word_target"]={"min":MIN_WORDS,"max":MAX_WORDS}; script["riddle_scene_word_budgets"]=[list(x) for x in SCENE_WORD_BUDGETS]; script["estimated_narration_seconds"]=round(total/3.2,1); script["visual_dependency"]="none"
+    script["riddle_narration_version"]="retention_v11_cta_safe_pacing"; script["riddle_reveal_style"]=reveal_style; script["riddle_reveal_variant"]=variant; script["riddle_personality_name"]=personality_name or "dynamic"; script["riddle_personality_guidance"]=PERSONALITY_GUIDANCE.get(personality_name,""); script["riddle_word_target"]={"min":MIN_WORDS,"max":MAX_WORDS}; script["riddle_scene_word_budgets"]=[list(x) for x in SCENE_WORD_BUDGETS]; script["estimated_narration_seconds"]=round(total/3.2,1); script["visual_dependency"]="none"
     return script

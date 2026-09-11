@@ -156,25 +156,114 @@ def _patch_stock_search(module):
             "empty", "random", "generic", "thing", "stuff", "being", "changing", "state",
             "concept", "mechanism", "mystery", "educational", "experiment",
         }
+        verb_words = {
+            "flatten", "spin", "feel", "feels", "make", "makes", "cause", "causes", "melt",
+            "freeze", "break", "breaks", "pop", "pops", "crack", "cracks", "open", "opens",
+            "close", "closes", "move", "moves", "fall", "falls", "rise", "rises", "turn",
+            "turns", "work", "works", "disappear", "disappears", "change", "changes", "grow",
+            "grows", "stick", "sticks", "bounce", "bounces", "float", "floats", "sink", "sinks",
+            "boil", "boils", "burn", "burns", "stretch", "stretches", "shrink", "shrinks",
+            "squeeze", "squeezes", "compress", "compresses", "absorb", "absorbs", "reflect",
+            "reflects", "reverse", "reverses", "ring", "rings", "echo", "echoes", "sound",
+            "sounds", "smell", "smells", "taste", "tastes", "shine", "shines", "glow", "glows",
+        }
 
         def topic_subject(topic):
             words = re.findall(r"[a-z][a-z-]{2,}", str(topic or "").lower())
-            subject = []
+            candidates = []
             for word in words:
-                if word in ignored:
+                if word in ignored or word in bad_query_words:
                     continue
-                if word not in subject:
-                    subject.append(word)
-                if len(subject) >= 2:
+                if word not in candidates:
+                    candidates.append(word)
+
+            # The old lock treated the first two content words as the subject,
+            # turning "Why do pillows flatten" into the subject "pillows flatten".
+            # Keep the physical noun phrase, but do not bake the explanation/action
+            # into every stock query.
+            subject = []
+            for word in candidates:
+                if word in verb_words and subject:
                     break
+                subject.append(word)
+                if len(subject) >= 3:
+                    break
+            if not subject and candidates:
+                subject = candidates[:1]
             return " ".join(subject)
+
+        def _scene_terms(shot):
+            # Recover concrete per-shot variation from the director output instead
+            # of forcing every scene into the exact same query. This is still topic
+            # locked because the physical subject is prepended to every query.
+            text = " ".join([
+                str(shot.get("spoken_beat", "")),
+                str(shot.get("visual_focus", "")),
+                str(shot.get("visual_action", "")),
+                " ".join(str(x) for x in shot.get("anchor_terms", []) or []),
+            ]).lower()
+            ignored_local = ignored | bad_query_words | {
+                "show", "showing", "visible", "camera", "shot", "scene", "people", "person",
+                "ordinary", "photographer", "uploaded", "stock", "image", "video", "footage",
+                "realistically", "search", "same", "primary", "physical", "subject", "related",
+                "objects", "object", "state", "visible", "focus", "action", "create", "atmosphere",
+                "spoken", "beat", "never", "only", "current", "answer", "required", "clue",
+            }
+            terms = []
+            for word in re.findall(r"[a-z][a-z-]{2,}", text):
+                if word in ignored_local or word in verb_words:
+                    continue
+                if word not in terms:
+                    terms.append(word)
+            return terms[:8]
+
+        def _query_variants(subject, shot, original_ladder):
+            subject_words = set(subject.split())
+            variants = []
+            seen = set()
+
+            def add(suffix_words, strategy):
+                suffix = []
+                for word in suffix_words:
+                    word = str(word).lower().strip()
+                    if not word or word in subject_words or word in bad_query_words:
+                        continue
+                    if word not in suffix:
+                        suffix.append(word)
+                    if len(suffix) >= 5:
+                        break
+                query = " ".join([subject, *suffix]).strip()
+                query = " ".join(query.split()[:7])
+                if len(query.split()) >= 2 and query not in seen:
+                    seen.add(query)
+                    variants.append({"query": query, "strategy": strategy})
+
+            # First preserve useful Gemini-directed query terms, but do not allow
+            # a generic repeated query to consume the whole ladder.
+            for entry in original_ladder or []:
+                qwords = re.findall(r"[a-z0-9-]+", str(entry.get("query", "")).lower())
+                add(qwords, entry.get("strategy", "topic-lock"))
+
+            # Then deliberately create scene-specific practical variants from the
+            # spoken/visual beat. This prevents seven scenes from hammering one API
+            # query such as "pillows flatten".
+            terms = _scene_terms(shot)
+            for offset in range(0, len(terms), 2):
+                add(terms[offset:offset + 4], "scene-variation")
+                if len(variants) >= 8:
+                    break
+
+            # Deterministic fallbacks remain topic-locked but are used only after
+            # scene-specific terms have been exhausted.
+            safe_suffixes = ("close up", "bedroom", "being used", "compressed", "side view", "texture")
+            for suffix in safe_suffixes:
+                add(suffix.split(), "topic-lock-fallback")
+                if len(variants) >= 8:
+                    break
+            return variants[:8]
 
         def normalize_plan(script):
             plan = original_build_plan(script)
-            # Riddles use a spoken-atmosphere visual director. The riddle itself is
-            # often phrased as a question, so extracting the first two topic words
-            # (e.g. "wear no") produces terrible stock queries. Preserve Gemini's
-            # per-scene visual direction instead of forcing the generic topic lock.
             if script.get("riddle_number") or script.get("riddle_visual_mode"):
                 print("🎭 RIDDLE VISUAL LOCK: preserving per-scene atmosphere queries; topic lock bypassed")
                 return plan
@@ -182,42 +271,16 @@ def _patch_stock_search(module):
             subject = topic_subject(script.get("topic", ""))
             if not subject:
                 return plan
-            subject_words = set(subject.split())
-            generic_suffix_words = {
-                "empty", "random", "generic", "being", "changing", "state", "thing", "stuff",
-                "mechanism", "concept", "mystery", "educational", "experiment",
-            }
-            safe_suffixes = ("close up", "inside", "in motion", "entrance", "people using", "detail")
 
             for shots in plan:
                 for shot in shots:
-                    ladder = shot.get("search_ladder", [])
-                    normalized = []
-                    seen = set()
-                    for entry in ladder:
-                        query = str(entry.get("query", "")).strip().lower()
-                        words = re.findall(r"[a-z0-9-]+", query)
-                        suffix = [w for w in words if w not in subject_words and w not in generic_suffix_words]
-                        query = " ".join([subject, *suffix[:5]])
-                        query = " ".join(query.split())
-                        if len(query.split()) < 2:
-                            query = f"{subject} {safe_suffixes[len(normalized) % len(safe_suffixes)]}"
-                        query = " ".join(query.split()[:7])
-                        if query and query not in seen:
-                            seen.add(query)
-                            normalized.append({"query": query, "strategy": entry.get("strategy", "topic-lock")})
+                    shot["search_ladder"] = _query_variants(subject, shot, shot.get("search_ladder", []))
+                    shot["queries"] = [x["query"] for x in shot["search_ladder"]]
 
-                    if len(normalized) < 4:
-                        for suffix in safe_suffixes:
-                            query = f"{subject} {suffix}"
-                            if query not in seen and len(normalized) < 8:
-                                seen.add(query)
-                                normalized.append({"query": query, "strategy": "topic-lock-fallback"})
-
-                    shot["search_ladder"] = normalized[:8]
-                    shot["queries"] = [x["query"] for x in normalized[:8]]
-
-            print(f"🔒 STOCK TOPIC LOCK: subject='{subject}' | queries normalized for every shot")
+            print(
+                f"🔒 STOCK TOPIC LOCK: subject='{subject}' | "
+                "per-scene visual query variation ENABLED | max 8 queries/shot"
+            )
             return plan
 
         normalize_plan._mint_topic_lock = True
@@ -225,7 +288,7 @@ def _patch_stock_search(module):
 
     print(
         "🛡️ Stock-search Gemini: gemini-flash-lite-latest ONLY | "
-        f"media cooldown={RECENT_MEDIA_COOLDOWN} | topic lock=ON"
+        f"media cooldown={RECENT_MEDIA_COOLDOWN} | topic lock=ON | scene variation=ON"
     )
 
 

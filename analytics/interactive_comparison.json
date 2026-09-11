@@ -16,35 +16,35 @@
     "avg_view_percentage": 53.67
   },
   "classic": {
-    "videos": 5,
-    "avg_views": 229.2,
+    "videos": 6,
+    "avg_views": 190.67,
     "avg_comments": 0.0,
     "avg_shares": 0.0,
-    "avg_likes": 3.8,
-    "avg_view_percentage": 42.4
+    "avg_likes": 3.17,
+    "avg_view_percentage": 35.37
   },
   "logic": {
     "videos": 4,
-    "avg_views": 326.75,
+    "avg_views": 549.25,
     "avg_comments": 0.0,
     "avg_shares": 0.0,
-    "avg_likes": 3.5,
-    "avg_view_percentage": 31.9
+    "avg_likes": 5.75,
+    "avg_view_percentage": 65.11
   },
   "wordplay": {
     "videos": 2,
-    "avg_views": 365.5,
+    "avg_views": 366.5,
     "avg_comments": 0.5,
     "avg_shares": 0.0,
     "avg_likes": 5.5,
-    "avg_view_percentage": 21.48
+    "avg_view_percentage": 41.77
   },
   "trick": {
     "videos": 2,
-    "avg_views": 197.0,
+    "avg_views": 198.0,
     "avg_comments": 0.0,
     "avg_shares": 0.0,
     "avg_likes": 0.0,
-    "avg_view_percentage": 22.95
+    "avg_view_percentage": 44.32
   }
 }

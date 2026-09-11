@@ -10,7 +10,7 @@
       "likes": 7,
       "comments": 5,
       "engagement_rate": 4.1379,
-      "checked_at": "2026-09-08T20:51:55.309016+00:00",
+      "checked_at": "2026-09-11T14:53:24.638719+00:00",
       "analytics_views": 300,
       "analytics_likes": 7,
       "analytics_comments": 2,
@@ -37,6 +37,22 @@
         "subscribers_gained": 2,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 23.0
+      },
+      {
+        "views": 290,
+        "likes": 7,
+        "comments": 5,
+        "engagement_rate": 4.1379,
+        "checked_at": "2026-09-11T14:53:24.638719+00:00",
+        "analytics_views": 300,
+        "analytics_likes": 7,
+        "analytics_comments": 2,
+        "shares": 0,
+        "average_view_duration": 11.0,
+        "average_view_percentage": 66.05,
+        "subscribers_gained": 2,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 23.0
       }
     ]
   },
@@ -51,7 +67,7 @@
       "likes": 6,
       "comments": 0,
       "engagement_rate": 1.2903,
-      "checked_at": "2026-09-08T20:51:55.309016+00:00",
+      "checked_at": "2026-09-11T14:53:24.638719+00:00",
       "analytics_views": 481,
       "analytics_likes": 6,
       "analytics_comments": 0,
@@ -78,6 +94,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 26.0
+      },
+      {
+        "views": 465,
+        "likes": 6,
+        "comments": 0,
+        "engagement_rate": 1.2903,
+        "checked_at": "2026-09-11T14:53:24.638719+00:00",
+        "analytics_views": 481,
+        "analytics_likes": 6,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 10.0,
+        "average_view_percentage": 40.48,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 26.0
       }
     ]
   },
@@ -92,7 +124,7 @@
       "likes": 6,
       "comments": 0,
       "engagement_rate": 1.5915,
-      "checked_at": "2026-09-08T20:51:55.309016+00:00",
+      "checked_at": "2026-09-11T14:53:24.638719+00:00",
       "analytics_views": 394,
       "analytics_likes": 6,
       "analytics_comments": 0,
@@ -119,6 +151,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 24.0
+      },
+      {
+        "views": 377,
+        "likes": 6,
+        "comments": 0,
+        "engagement_rate": 1.5915,
+        "checked_at": "2026-09-11T14:53:24.638719+00:00",
+        "analytics_views": 394,
+        "analytics_likes": 6,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 12.0,
+        "average_view_percentage": 48.08,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 24.0
       }
     ]
   },
@@ -133,7 +181,7 @@
       "likes": 2,
       "comments": 0,
       "engagement_rate": 2.5,
-      "checked_at": "2026-09-08T20:51:55.309016+00:00",
+      "checked_at": "2026-09-11T14:53:24.638719+00:00",
       "analytics_views": 80,
       "analytics_likes": 2,
       "analytics_comments": 0,
@@ -160,6 +208,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 6.0
+      },
+      {
+        "views": 80,
+        "likes": 2,
+        "comments": 0,
+        "engagement_rate": 2.5,
+        "checked_at": "2026-09-11T14:53:24.638719+00:00",
+        "analytics_views": 80,
+        "analytics_likes": 2,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 9.0,
+        "average_view_percentage": 38.48,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 6.0
       }
     ]
   },
@@ -174,7 +238,7 @@
       "likes": 1,
       "comments": 0,
       "engagement_rate": 1.8182,
-      "checked_at": "2026-09-08T20:51:55.309016+00:00",
+      "checked_at": "2026-09-11T14:53:24.638719+00:00",
       "analytics_views": 55,
       "analytics_likes": 1,
       "analytics_comments": 0,
@@ -201,6 +265,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 3.0
+      },
+      {
+        "views": 55,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 1.8182,
+        "checked_at": "2026-09-11T14:53:24.638719+00:00",
+        "analytics_views": 55,
+        "analytics_likes": 1,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 61.11,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 3.0
       }
     ]
   },
@@ -215,7 +295,7 @@
       "likes": 0,
       "comments": 0,
       "engagement_rate": 0.0,
-      "checked_at": "2026-09-08T20:51:55.309016+00:00",
+      "checked_at": "2026-09-11T14:53:24.638719+00:00",
       "analytics_views": 117,
       "analytics_likes": 0,
       "analytics_comments": 0,
@@ -242,6 +322,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 4.0
+      },
+      {
+        "views": 116,
+        "likes": 0,
+        "comments": 0,
+        "engagement_rate": 0.0,
+        "checked_at": "2026-09-11T14:53:24.638719+00:00",
+        "analytics_views": 117,
+        "analytics_likes": 0,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 8.0,
+        "average_view_percentage": 33.84,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 4.0
       }
     ]
   },
@@ -252,12 +348,12 @@
     "title": "Riddle #7: Can You Solve This? 🧩",
     "workdir": "output/interactive/1788560654",
     "latest": {
-      "views": 342,
+      "views": 340,
       "likes": 7,
       "comments": 0,
-      "engagement_rate": 2.0468,
-      "checked_at": "2026-09-08T20:51:55.309016+00:00",
-      "analytics_views": 343,
+      "engagement_rate": 2.0588,
+      "checked_at": "2026-09-11T14:53:24.638719+00:00",
+      "analytics_views": 344,
       "analytics_likes": 7,
       "analytics_comments": 0,
       "shares": 0,
@@ -283,6 +379,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 23.0
+      },
+      {
+        "views": 340,
+        "likes": 7,
+        "comments": 0,
+        "engagement_rate": 2.0588,
+        "checked_at": "2026-09-11T14:53:24.638719+00:00",
+        "analytics_views": 344,
+        "analytics_likes": 7,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 13.0,
+        "average_view_percentage": 61.03999999999999,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 23.0
       }
     ]
   },
@@ -297,8 +409,8 @@
       "likes": 7,
       "comments": 1,
       "engagement_rate": 1.6807,
-      "checked_at": "2026-09-08T20:51:55.309016+00:00",
-      "analytics_views": 481,
+      "checked_at": "2026-09-11T14:53:24.638719+00:00",
+      "analytics_views": 482,
       "analytics_likes": 7,
       "analytics_comments": 1,
       "shares": 0,
@@ -324,6 +436,22 @@
         "subscribers_gained": 2,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 28.0
+      },
+      {
+        "views": 476,
+        "likes": 7,
+        "comments": 1,
+        "engagement_rate": 1.6807,
+        "checked_at": "2026-09-11T14:53:24.638719+00:00",
+        "analytics_views": 482,
+        "analytics_likes": 7,
+        "analytics_comments": 1,
+        "shares": 0,
+        "average_view_duration": 9.0,
+        "average_view_percentage": 42.96,
+        "subscribers_gained": 2,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 28.0
       }
     ]
   },
@@ -334,12 +462,12 @@
     "title": "Riddle #9: Can You Solve This? 🧩",
     "workdir": "output/interactive/1788615817",
     "latest": {
-      "views": 135,
+      "views": 134,
       "likes": 5,
       "comments": 0,
-      "engagement_rate": 3.7037,
-      "checked_at": "2026-09-08T20:51:55.309016+00:00",
-      "analytics_views": 134,
+      "engagement_rate": 3.7313,
+      "checked_at": "2026-09-11T14:53:24.638719+00:00",
+      "analytics_views": 135,
       "analytics_likes": 5,
       "analytics_comments": 0,
       "shares": 0,
@@ -365,6 +493,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 8.0
+      },
+      {
+        "views": 134,
+        "likes": 5,
+        "comments": 0,
+        "engagement_rate": 3.7313,
+        "checked_at": "2026-09-11T14:53:24.638719+00:00",
+        "analytics_views": 135,
+        "analytics_likes": 5,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 11.0,
+        "average_view_percentage": 49.06,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 8.0
       }
     ]
   },
@@ -379,13 +523,13 @@
       "likes": 0,
       "comments": 0,
       "engagement_rate": 0.0,
-      "checked_at": "2026-09-08T20:51:55.309016+00:00",
-      "analytics_views": 96,
+      "checked_at": "2026-09-11T14:53:24.638719+00:00",
+      "analytics_views": 104,
       "analytics_likes": 0,
       "analytics_comments": 0,
       "shares": 0,
-      "average_view_duration": 15.0,
-      "average_view_percentage": 66.57,
+      "average_view_duration": 14.0,
+      "average_view_percentage": 64.42,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "estimated_minutes_watched": 6.0
@@ -406,6 +550,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 6.0
+      },
+      {
+        "views": 103,
+        "likes": 0,
+        "comments": 0,
+        "engagement_rate": 0.0,
+        "checked_at": "2026-09-11T14:53:24.638719+00:00",
+        "analytics_views": 104,
+        "analytics_likes": 0,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 64.42,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 6.0
       }
     ]
   },
@@ -420,8 +580,8 @@
       "likes": 0,
       "comments": 0,
       "engagement_rate": 0.0,
-      "checked_at": "2026-09-08T20:51:55.309016+00:00",
-      "analytics_views": 231,
+      "checked_at": "2026-09-11T14:53:24.638719+00:00",
+      "analytics_views": 235,
       "analytics_likes": 0,
       "analytics_comments": 0,
       "shares": 0,
@@ -447,6 +607,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 13.0
+      },
+      {
+        "views": 235,
+        "likes": 0,
+        "comments": 0,
+        "engagement_rate": 0.0,
+        "checked_at": "2026-09-11T14:53:24.638719+00:00",
+        "analytics_views": 235,
+        "analytics_likes": 0,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 45.89,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 13.0
       }
     ]
   },
@@ -457,20 +633,20 @@
     "title": "Riddle #12: Can You Solve This? 🧩",
     "workdir": "output/interactive/1788703343",
     "latest": {
-      "views": 89,
+      "views": 88,
       "likes": 0,
       "comments": 0,
       "engagement_rate": 0.0,
-      "checked_at": "2026-09-08T20:51:55.309016+00:00",
-      "analytics_views": 85,
+      "checked_at": "2026-09-11T14:53:24.638719+00:00",
+      "analytics_views": 89,
       "analytics_likes": 0,
       "analytics_comments": 0,
       "shares": 0,
       "average_view_duration": 14.0,
-      "average_view_percentage": 35.9,
+      "average_view_percentage": 36.1,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "estimated_minutes_watched": 3.0
+      "estimated_minutes_watched": 4.0
     },
     "snapshots": [
       {
@@ -488,6 +664,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 3.0
+      },
+      {
+        "views": 88,
+        "likes": 0,
+        "comments": 0,
+        "engagement_rate": 0.0,
+        "checked_at": "2026-09-11T14:53:24.638719+00:00",
+        "analytics_views": 89,
+        "analytics_likes": 0,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 36.1,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 4.0
       }
     ]
   },
@@ -502,7 +694,16 @@
       "likes": 7,
       "comments": 0,
       "engagement_rate": 0.8121,
-      "checked_at": "2026-09-08T20:51:55.309016+00:00"
+      "checked_at": "2026-09-11T14:53:24.638719+00:00",
+      "analytics_views": 860,
+      "analytics_likes": 7,
+      "analytics_comments": 0,
+      "shares": 0,
+      "average_view_duration": 51.0,
+      "average_view_percentage": 113.55,
+      "subscribers_gained": 1,
+      "subscribers_lost": 0,
+      "estimated_minutes_watched": 255.0
     },
     "snapshots": [
       {
@@ -511,6 +712,22 @@
         "comments": 0,
         "engagement_rate": 0.8121,
         "checked_at": "2026-09-08T20:51:55.309016+00:00"
+      },
+      {
+        "views": 862,
+        "likes": 7,
+        "comments": 0,
+        "engagement_rate": 0.8121,
+        "checked_at": "2026-09-11T14:53:24.638719+00:00",
+        "analytics_views": 860,
+        "analytics_likes": 7,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 51.0,
+        "average_view_percentage": 113.55,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 255.0
       }
     ]
   },
@@ -521,11 +738,20 @@
     "title": "Riddle #14: Can You Solve This? 🧩",
     "workdir": "output/interactive/1788797955",
     "latest": {
-      "views": 255,
+      "views": 257,
       "likes": 4,
       "comments": 0,
-      "engagement_rate": 1.5686,
-      "checked_at": "2026-09-08T20:51:55.309016+00:00"
+      "engagement_rate": 1.5564,
+      "checked_at": "2026-09-11T14:53:24.638719+00:00",
+      "analytics_views": 254,
+      "analytics_likes": 4,
+      "analytics_comments": 0,
+      "shares": 0,
+      "average_view_duration": 16.0,
+      "average_view_percentage": 40.58,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "estimated_minutes_watched": 16.0
     },
     "snapshots": [
       {
@@ -534,6 +760,22 @@
         "comments": 0,
         "engagement_rate": 1.5686,
         "checked_at": "2026-09-08T20:51:55.309016+00:00"
+      },
+      {
+        "views": 257,
+        "likes": 4,
+        "comments": 0,
+        "engagement_rate": 1.5564,
+        "checked_at": "2026-09-11T14:53:24.638719+00:00",
+        "analytics_views": 254,
+        "analytics_likes": 4,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 16.0,
+        "average_view_percentage": 40.58,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 16.0
       }
     ]
   },
@@ -544,11 +786,20 @@
     "title": "Riddle #15: Can You Solve This? 🧩",
     "workdir": "output/interactive/1788879333",
     "latest": {
-      "views": 159,
+      "views": 161,
       "likes": 0,
       "comments": 0,
       "engagement_rate": 0.0,
-      "checked_at": "2026-09-08T20:51:55.309016+00:00"
+      "checked_at": "2026-09-11T14:53:24.638719+00:00",
+      "analytics_views": 164,
+      "analytics_likes": 0,
+      "analytics_comments": 0,
+      "shares": 0,
+      "average_view_duration": 17.0,
+      "average_view_percentage": 42.75,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "estimated_minutes_watched": 11.0
     },
     "snapshots": [
       {
@@ -557,6 +808,22 @@
         "comments": 0,
         "engagement_rate": 0.0,
         "checked_at": "2026-09-08T20:51:55.309016+00:00"
+      },
+      {
+        "views": 161,
+        "likes": 0,
+        "comments": 0,
+        "engagement_rate": 0.0,
+        "checked_at": "2026-09-11T14:53:24.638719+00:00",
+        "analytics_views": 164,
+        "analytics_likes": 0,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 42.75,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 11.0
       }
     ]
   },
@@ -566,6 +833,47 @@
     "pillar": "logic",
     "title": "Riddle #16: Can You Solve This? 🧩",
     "workdir": "output/interactive/1788900732",
+    "latest": {
+      "views": 892,
+      "likes": 9,
+      "comments": 0,
+      "engagement_rate": 1.009,
+      "checked_at": "2026-09-11T14:53:24.638719+00:00",
+      "analytics_views": 838,
+      "analytics_likes": 9,
+      "analytics_comments": 0,
+      "shares": 0,
+      "average_view_duration": 9.0,
+      "average_view_percentage": 21.44,
+      "subscribers_gained": 3,
+      "subscribers_lost": 0,
+      "estimated_minutes_watched": 44.0
+    },
+    "snapshots": [
+      {
+        "views": 892,
+        "likes": 9,
+        "comments": 0,
+        "engagement_rate": 1.009,
+        "checked_at": "2026-09-11T14:53:24.638719+00:00",
+        "analytics_views": 838,
+        "analytics_likes": 9,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 9.0,
+        "average_view_percentage": 21.44,
+        "subscribers_gained": 3,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 44.0
+      }
+    ]
+  },
+  {
+    "video_id": "8J98CWv7U0c",
+    "topic": "What travels through solid wooden walls with absolute ease, but leaves behind a permanent scar the exact moment it exits?",
+    "pillar": "classic",
+    "title": "Riddle #17: You Have 5 Seconds to Solve This 🧩",
+    "workdir": "output/interactive/1789138426",
     "latest": {},
     "snapshots": []
   }

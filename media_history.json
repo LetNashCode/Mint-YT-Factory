@@ -1079,6 +1079,106 @@
       "shot": 2,
       "query": "heavy wool blankets steady pressure grounds you",
       "recorded_at": 1789148965
+    },
+    {
+      "asset_key": "pexels:video:7624649",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7624649/7624649-hd_1280_720_60fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "zipper teeth sudden jolt your jacket",
+      "recorded_at": 1789164275
+    },
+    {
+      "asset_key": "pexels:video:7297817",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7297817/7297817-hd_1280_720_30fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "zipper teeth you yank harder but",
+      "recorded_at": 1789164302
+    },
+    {
+      "asset_key": "pixabay:video:13022",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/11/20/13022-244124709_medium.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "zipper teeth lock together like angry",
+      "recorded_at": 1789164312
+    },
+    {
+      "asset_key": "pexels:video:9222684",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9222684/9222684-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "zipper teeth single tooth tilts fraction",
+      "recorded_at": 1789164376
+    },
+    {
+      "asset_key": "pixabay:photo:1268554",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g190e37435bd0e39fb30f9531728c09a7fa803cad106f07c91ef983239bfefb9d70aaf32d9d0512575fa6b0cab64dd53dd9fb6f59c867bac25ddc2e053951ae98_1280.jpg",
+      "scene": 4,
+      "shot": 2,
+      "query": "zipper teeth acts like tiny wedge",
+      "recorded_at": 1789164394
+    },
+    {
+      "asset_key": "pexels:video:34740346",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34740346/14727213_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "zipper teeth you probably blame loose",
+      "recorded_at": 1789164442
+    },
+    {
+      "asset_key": "pixabay:photo:4802469",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g5edc2f8df1e15c272077b3568737d00f0bc9d303ce8ca7d4d3e5f71e9d533f84fb2c2366d40f4b7e031d615d9720d305b75c209c00368dbfa7e943e59f38b1af_1280.jpg",
+      "scene": 5,
+      "shot": 2,
+      "query": "zipper teeth but slider itself creates",
+      "recorded_at": 1789164486
+    },
+    {
+      "asset_key": "pixabay:photo:2952852",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g3301db82aa097b8f7e618825c5fde39d1433bcb89d4c34c76bb6b315eda36f8430e14f8cedcce9825f78f9eed5e7f25aa73f2a354bbbe655382667a06f449d4d_1280.png",
+      "scene": 6,
+      "shot": 1,
+      "query": "zipper teeth instead guiding them apart",
+      "recorded_at": 1789164524
+    },
+    {
+      "asset_key": "pexels:video:6967714",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6967714/6967714-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "zipper teeth trap crooked permanent",
+      "recorded_at": 1789164532
+    },
+    {
+      "asset_key": "pexels:photo:9965135",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/9965135/pexels-photo-9965135.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 7,
+      "shot": 2,
+      "query": "zipper teeth geometry explains your jacket",
+      "recorded_at": 1789164559
     }
   ]
 }

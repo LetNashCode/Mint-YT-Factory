@@ -231,13 +231,20 @@ def _patch_stock_search(module):
                     seen.add(query)
                     variants.append({"query": query, "strategy": strategy})
 
-            for entry in original_ladder or []:
-                qwords = re.findall(r"[a-z0-9-]+", str(entry.get("query", "")).lower())
-                add(qwords, entry.get("strategy", "topic-lock"))
-
+            # Scene-specific searches come FIRST. The old implementation placed the
+            # same topic query first for every shot, so the first few scenes consumed
+            # the same provider result pool and later scenes hit the reuse guard.
             terms = _scene_terms(shot)
             for offset in range(0, len(terms), 2):
                 add(terms[offset:offset + 4], "scene-variation")
+                if len(variants) >= 6:
+                    break
+
+            # Preserve Gemini's directed search terms as a second layer. They remain
+            # useful, but should not dominate every scene when the topic is broad.
+            for entry in original_ladder or []:
+                qwords = re.findall(r"[a-z0-9-]+", str(entry.get("query", "")).lower())
+                add(qwords, entry.get("strategy", "topic-lock"))
                 if len(variants) >= 8:
                     break
 
@@ -265,7 +272,7 @@ def _patch_stock_search(module):
 
             print(
                 f"🔒 STOCK TOPIC LOCK: subject='{subject}' | "
-                "per-scene visual query variation ENABLED | max 8 queries/shot"
+                "per-scene visual query variation ENABLED | scene variants prioritized | max 8 queries/shot"
             )
             return plan
 

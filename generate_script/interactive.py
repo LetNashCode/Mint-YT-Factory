@@ -42,21 +42,17 @@ def _validate_internal_novelty(scenes):
    if len(set(gram))<2:continue
    grams.setdefault(gram,set()).add(index)
  if [g for g,v in grams.items() if len(v)>=2]:raise RuntimeError("Riddle narration repeats a 4-word phrase across scenes; regenerate with a different structure.")
- # Multiple distinct questions are valid in a spoken riddle. Only an exact
- # duplicate question sentence is considered a real repetition failure.
+ # Distinct question beats are valid in a spoken riddle; only an exact duplicate is a failure.
  question_sentences=[]
  for sentence in re.split(r"(?<=[.!?])\s+",all_text):
   sentence=re.sub(r"\s+"," ",sentence).strip().lower()
   if sentence.endswith("?") and len(_normalized_words(sentence))>=3:question_sentences.append(sentence)
- if len(question_sentences)!=len(set(question_sentences)):
-  raise RuntimeError("Riddle narration repeats an identical question sentence.")
+ if len(question_sentences)!=len(set(question_sentences)):raise RuntimeError("Riddle narration repeats an identical question sentence.")
 
 def _remove_next_topic_leak(scenes,next_topic):
  key=_base._clean(next_topic).lower()
  if not key:return False
- key_norm=re.sub(r"[^a-z0-9]+"," ",key).strip()
- future=re.compile(r"\b(next|coming|later|after this|afterwards|up next|following|future|we(?:'ll| will) see|you(?:'ll| will) see|stay tuned|part 2|next short|next video|tomorrow)\b",re.I)
- changed=False
+ key_norm=re.sub(r"[^a-z0-9]+"," ",key).strip(); future=re.compile(r"\b(next|coming|later|after this|afterwards|up next|following|future|we(?:'ll| will) see|you(?:'ll| will) see|stay tuned|part 2|next short|next video|tomorrow)\b",re.I); changed=False
  for scene in scenes[:6]:
   text=_base._clean(scene.get("narration","")); sentences=[s.strip() for s in re.split(r"(?<=[.!?])\s+",text) if s.strip()]; kept=[]; removed=False
   for sentence in sentences:
@@ -77,8 +73,7 @@ def generate_script(topic,config,research=None,extra_feedback=""):
  except Exception: choose_personality=None
  topic=_base._clean(topic)
  if not topic:raise RuntimeError("Riddle topic is empty.")
- recent=_load_recent_history(); number_hint=len(recent)+1; profile=_profile_for(topic,number_hint)
- recent_topics=[str(x.get("topic","")).strip() for x in recent if x.get("topic")]; recent_answers=[str(x.get("answer","")).strip() for x in recent[-10:] if x.get("answer")]
+ recent=_load_recent_history(); number_hint=len(recent)+1; profile=_profile_for(topic,number_hint); recent_topics=[str(x.get("topic","")).strip() for x in recent if x.get("topic")]; recent_answers=[str(x.get("answer","")).strip() for x in recent[-10:] if x.get("answer")]
  personality=choose_personality(topic,"",number_hint) if choose_personality else {"name":"dynamic","direction":"Use a distinctive conversational performance without changing the riddle's logic.","speed":1.0}
  client=genai.Client(api_key=_base._api_key()); recent_block="\n".join(f"- {x}" for x in recent_topics[-12:]) or "- none available"; answer_block=", ".join(recent_answers[-8:]) or "none available"
  prompt=f"""RIDDLES SHORTS MODE — NARRATION FIRST.

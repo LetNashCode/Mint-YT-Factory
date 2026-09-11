@@ -39,19 +39,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Mary Anning",
-    "premise": "The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
-    "hook": "Selling curiosities on the cliffs of Dorset to survive, she uncovered complete dinosaur skeletons while formal scientists refused to credit her.",
-    "key_facts": [
-      "Resided in Lyme Regis, England, where her family sold fossils to tourists for income.",
-      "Discovered the first correctly identified Ichthyosaur skeleton at age twelve.",
-      "Unearthed the first complete Plesiosaur and important Pterosaur specimens.",
-      "Faced exclusion from the Geological Society of London due to her gender and social class."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "rise_from_nothing",
     "person": "Mary Kom",
     "premise": "From a Farmer's Daughter in Rural Manipur to Six-Time World Boxing Champion.",

@@ -6,6 +6,30 @@
     "person": "Harland Sanders",
     "title": "Story #1: The Moment Everything Changed: Harland Sanders",
     "workdir": "output/interactive/1789155158",
+    "latest": {
+      "views": 737,
+      "likes": 15,
+      "comments": 0,
+      "engagement_rate": 2.0353,
+      "checked_at": "2026-09-11T22:00:47.586504+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 737,
+        "likes": 15,
+        "comments": 0,
+        "engagement_rate": 2.0353,
+        "checked_at": "2026-09-11T22:00:47.586504+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "vs-e7hCj9eM",
+    "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
+    "pillar": "impossible_odds",
+    "person": "Mary Anning",
+    "title": "Against Impossible Odds: Mary Anning",
+    "workdir": "output/interactive/1789164082",
     "latest": {},
     "snapshots": []
   }

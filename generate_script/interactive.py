@@ -6,8 +6,6 @@ import re
 from pathlib import Path
 from . import entertainment as _base
 
-# One episode-level contract for the whole Riddles pipeline. Scene bands are
-# intentionally flexible; the total word budget is the real pacing gate.
 MIN_WORDS=50; MAX_WORDS=85
 SCENE_WORD_BUDGETS=((4,18),(7,20),(5,16),(5,16),(5,12),(3,8),(12,26))
 CREATIVE_PROFILES=(
@@ -44,10 +42,18 @@ def _validate_internal_novelty(scenes):
    if len(set(gram))<2:continue
    grams.setdefault(gram,set()).add(index)
  if [g for g,v in grams.items() if len(v)>=2]:raise RuntimeError("Riddle narration repeats a 4-word phrase across scenes; regenerate with a different structure.")
- if sum(str(s.get("narration","")).count("?") for s in scenes)>2:raise RuntimeError("Riddle contains too many repeated question beats.")
+ # Question marks are punctuation, not a reliable measure of repeated question
+ # beats. A spoken riddle may naturally contain several rhetorical questions.
+ # Reject only identical short question sentences, which are genuinely repetitive.
+ question_sentences=[]
+ for sentence in re.split(r"(?<=[.!?])\s+",all_text):
+  sentence=re.sub(r"\s+"," ",sentence).strip().lower()
+  if sentence.endswith("?") and len(_normalized_words(sentence))>=3:
+   question_sentences.append(sentence)
+ if len(question_sentences)!=len(set(question_sentences)):
+  raise RuntimeError("Riddle narration repeats an identical question sentence.")
 
 def _remove_next_topic_leak(scenes,next_topic):
- """Remove an obvious future-topic sentence from Scenes 1-6 without weakening the hard boundary guard."""
  key=_base._clean(next_topic).lower()
  if not key:return False
  key_norm=re.sub(r"[^a-z0-9]+"," ",key).strip()

@@ -171,6 +171,14 @@ def _patch_stock_search(module):
 
         def normalize_plan(script):
             plan = original_build_plan(script)
+            # Riddles use a spoken-atmosphere visual director. The riddle itself is
+            # often phrased as a question, so extracting the first two topic words
+            # (e.g. "wear no") produces terrible stock queries. Preserve Gemini's
+            # per-scene visual direction instead of forcing the generic topic lock.
+            if script.get("riddle_number") or script.get("riddle_visual_mode"):
+                print("🎭 RIDDLE VISUAL LOCK: preserving per-scene atmosphere queries; topic lock bypassed")
+                return plan
+
             subject = topic_subject(script.get("topic", ""))
             if not subject:
                 return plan

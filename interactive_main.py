@@ -6,6 +6,7 @@ from interactive_topics import get_next_topic, record_topic, get_pending_story, 
 from interactive_analytics import record as record_analytics, build_comparison, refresh_live_metrics
 from generate_script.interactive import generate_script
 from tts import synthesize_script
+from stock_media_resilient import generate_media
 from music import download_music
 from sfx import generate_sfx
 from assemble import assemble_video
@@ -35,17 +36,8 @@ def _validate_story_contract(script):
     if "subscribe" not in final.lower() or "follow" not in final.lower(): raise RuntimeError("Story Scene 7 must contain subscribe and follow CTA.")
 
 def _generate_story_script(topic,config,feedback):
-    """Run shared normalization while disabling the Publish-only continuation bridge contract."""
-    base=generate_script.__globals__["_base"]
-    original_boundary=base._ensure_scene7_boundary
-    original_bridge=base._validate_natural_bridge
-    try:
-        base._ensure_scene7_boundary=lambda text,next_topic: text
-        base._validate_natural_bridge=lambda text,next_topic: (base._sentence_parts(text)[-1] if base._sentence_parts(text) else "story complete")
-        return generate_script(topic,config,None,extra_feedback=feedback)
-    finally:
-        base._ensure_scene7_boundary=original_boundary
-        base._validate_natural_bridge=original_bridge
+    """Generate a standalone Story Short without applying the Publish-only continuation bridge."""
+    return generate_script(topic,config,None,extra_feedback=feedback)
 
 def run():
     config=dict(load_config() or {})

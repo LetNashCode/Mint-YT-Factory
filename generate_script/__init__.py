@@ -87,6 +87,175 @@ def build_user_prompt(topic, config=None, research=None):
     return str(topic or "")
 
 
+# ---------------------------------------------------------------------------
+# RIDDLES SHORTS RUNTIME POLISH
+# ---------------------------------------------------------------------------
+# These patches deliberately live at the package boundary so the independent
+# Riddles pipeline can improve its presentation without changing Publish Shorts.
+
+_RIDDLE_CAPTION_STOPWORDS = {
+    "the", "and", "that", "this", "with", "from", "your", "you", "have",
+    "what", "when", "where", "which", "will", "would", "could", "should",
+    "into", "over", "under", "then", "than", "just", "like", "does", "dont",
+    "don't", "they", "them", "their", "there", "here", "were", "been", "being",
+    "answer", "guess", "riddle", "next", "short", "follow", "subscribe",
+}
+
+
+def _riddle_caption_highlights(narration: str):
+    words = re.findall(r"[A-Za-z][A-Za-z'-]{3,}", str(narration or ""))
+    result = []
+    for word in words:
+        key = word.lower().strip("'\"")
+        if key in _RIDDLE_CAPTION_STOPWORDS or key in result:
+            continue
+        result.append(key)
+        if len(result) >= 2:
+            break
+    return result
+
+
+def _riddle_caption_phrases(words):
+    """Build natural 2-4 word caption beats instead of one-word karaoke."""
+    normalized = []
+    for item in words or []:
+        if not isinstance(item, dict):
+            continue
+        text = str(item.get("word", "")).strip()
+        if not text:
+            continue
+        try:
+            start = max(0.0, float(item.get("start", 0.0)))
+            end = max(start + 0.05, float(item.get("end", start + 0.05)))
+        except Exception:
+            continue
+        normalized.append({"word": text, "start": start, "end": end})
+
+    phrases = []
+    index = 0
+    while index < len(normalized):
+        first = normalized[index]
+        chunk = [first]
+        chars = len(first["word"])
+        cursor = index + 1
+
+        while cursor < len(normalized) and len(chunk) < 4:
+            candidate = normalized[cursor]
+            candidate_text = candidate["word"]
+            # Keep chunks compact enough for a phone screen and break naturally
+            # after strong punctuation.
+            if chars + 1 + len(candidate_text) > 28:
+                break
+            previous = chunk[-1]["word"]
+            chunk.append(candidate)
+            chars += 1 + len(candidate_text)
+            cursor += 1
+            if re.search(r"[.!?]$", previous):
+                break
+
+        start = chunk[0]["start"]
+        end = chunk[-1]["end"]
+        if cursor < len(normalized):
+            end = min(end, normalized[cursor]["start"])
+        if end <= start:
+            end = start + 0.08
+
+        phrases.append({
+            "text": " ".join(x["word"] for x in chunk),
+            "words": [x["word"] for x in chunk],
+            "start": start,
+            "duration": min(1.35, max(0.12, end - start)),
+        })
+        index = cursor
+
+    return phrases
+
+
+def _patch_riddle_narration(module):
+    original = getattr(module, "polish_riddle_script", None)
+    if original is None or getattr(original, "_mint_riddle_runtime", False):
+        return
+
+    def polished(script, previous, number):
+        result = original(script, previous, number)
+        scenes = result.get("scene_plan") or []
+        for index, scene in enumerate(scenes):
+            narration = str(scene.get("narration", "")).strip()
+            scene["caption_highlights"] = [
+                {"word": word} for word in _riddle_caption_highlights(narration)
+            ]
+            if scene["caption_highlights"]:
+                scene["emphasis_word"] = scene["caption_highlights"][0]["word"]
+            scene["visual_dependency"] = "none"
+            for visual in scene.get("visuals") or []:
+                if isinstance(visual, dict):
+                    visual["spoken_line"] = narration
+                    visual["visual_focus"] = narration[:180]
+                    visual["visual_action"] = (
+                        "Create atmosphere for the spoken beat only. "
+                        "Never show a required clue or the current answer."
+                    )
+        result["riddle_visual_mode"] = "narration_atmosphere_v2"
+        result["riddle_caption_mode"] = "phrase_beats_v2"
+        return result
+
+    polished._mint_riddle_runtime = True
+    module.polish_riddle_script = polished
+    print("🎬 Riddle runtime polish: atmosphere-only visuals + phrase caption metadata ENABLED")
+
+
+def _patch_assemble(module):
+    """Improve Riddle captions while leaving the shared renderer architecture intact."""
+    module.CAPTION_MAX_WORDS = 4
+    module.CAPTION_MAX_CHARS = 28
+    module.CAPTION_MIN_DURATION = 0.12
+    module.CAPTION_MAX_DURATION = 1.35
+    module.CAPTION_VERTICAL_POSITION = 0.64
+    original = getattr(module, "_build_caption_phrases", None)
+    if original is None or getattr(original, "_mint_riddle_phrases", False):
+        return
+    module._build_caption_phrases = _riddle_caption_phrases
+    module._build_caption_phrases._mint_riddle_phrases = True
+    print("📝 Riddle captions: natural 2-4 word phrase beats ENABLED")
+
+
+class _RiddleRuntimeFinder(importlib.abc.MetaPathFinder):
+    TARGETS = {"assemble", "riddle_narration"}
+
+    def find_spec(self, fullname, path=None, target=None):
+        if fullname not in self.TARGETS:
+            return None
+        try:
+            sys.meta_path.remove(self)
+            spec = importlib.machinery.PathFinder.find_spec(fullname, path)
+        finally:
+            sys.meta_path.insert(0, self)
+        if spec is None or spec.loader is None:
+            return None
+        spec.loader = _RiddleRuntimeLoader(spec.loader)
+        return spec
+
+
+class _RiddleRuntimeLoader(importlib.abc.Loader):
+    def __init__(self, loader):
+        self.loader = loader
+
+    def create_module(self, spec):
+        creator = getattr(self.loader, "create_module", None)
+        return creator(spec) if creator else None
+
+    def exec_module(self, module):
+        self.loader.exec_module(module)
+        if module.__name__ == "assemble":
+            _patch_assemble(module)
+        elif module.__name__ == "riddle_narration":
+            _patch_riddle_narration(module)
+
+
+if not any(isinstance(x, _RiddleRuntimeFinder) for x in sys.meta_path):
+    sys.meta_path.insert(0, _RiddleRuntimeFinder())
+
+
 class _RiddleQualityFinder(importlib.abc.MetaPathFinder):
     """Patch non-critical riddle novelty checks when generate_script.interactive loads."""
 

@@ -177,10 +177,6 @@ def _patch_stock_search(module):
                 if word not in candidates:
                     candidates.append(word)
 
-            # The old lock treated the first two content words as the subject,
-            # turning "Why do pillows flatten" into the subject "pillows flatten".
-            # Keep the physical noun phrase, but do not bake the explanation/action
-            # into every stock query.
             subject = []
             for word in candidates:
                 if word in verb_words and subject:
@@ -193,9 +189,6 @@ def _patch_stock_search(module):
             return " ".join(subject)
 
         def _scene_terms(shot):
-            # Recover concrete per-shot variation from the director output instead
-            # of forcing every scene into the exact same query. This is still topic
-            # locked because the physical subject is prepended to every query.
             text = " ".join([
                 str(shot.get("spoken_beat", "")),
                 str(shot.get("visual_focus", "")),
@@ -211,7 +204,7 @@ def _patch_stock_search(module):
             }
             terms = []
             for word in re.findall(r"[a-z][a-z-]{2,}", text):
-                if word in ignored_local or word in verb_words:
+                if word in ignored_local:
                     continue
                 if word not in terms:
                     terms.append(word)
@@ -238,23 +231,16 @@ def _patch_stock_search(module):
                     seen.add(query)
                     variants.append({"query": query, "strategy": strategy})
 
-            # First preserve useful Gemini-directed query terms, but do not allow
-            # a generic repeated query to consume the whole ladder.
             for entry in original_ladder or []:
                 qwords = re.findall(r"[a-z0-9-]+", str(entry.get("query", "")).lower())
                 add(qwords, entry.get("strategy", "topic-lock"))
 
-            # Then deliberately create scene-specific practical variants from the
-            # spoken/visual beat. This prevents seven scenes from hammering one API
-            # query such as "pillows flatten".
             terms = _scene_terms(shot)
             for offset in range(0, len(terms), 2):
                 add(terms[offset:offset + 4], "scene-variation")
                 if len(variants) >= 8:
                     break
 
-            # Deterministic fallbacks remain topic-locked but are used only after
-            # scene-specific terms have been exhausted.
             safe_suffixes = ("close up", "bedroom", "being used", "compressed", "side view", "texture")
             for suffix in safe_suffixes:
                 add(suffix.split(), "topic-lock-fallback")

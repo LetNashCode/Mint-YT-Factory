@@ -46,15 +46,9 @@ def _production_bridge_validator(text, next_topic):
     return sentences[-1] if sentences else ""
 
 
-# IMPORTANT: generate_script is the function object loaded from entertainment.py,
-# so its __globals__ points at that module's namespace. Patching these two legacy
-# helpers here removes the stale pre-production bridge gate without duplicating
-# the generator or changing the active model.
 _original_globals = getattr(_original.generate_script, "__globals__", {})
 _original_globals["_ensure_scene7_boundary"] = _production_scene7_boundary_passthrough
 _original_globals["_validate_natural_bridge"] = _production_bridge_validator
-
-# Keep the model's next-topic metadata available, but make the ownership explicit.
 _original_globals["CONTINUATION_OWNER"] = "main.py"
 
 generate_script = _original.generate_script
@@ -92,6 +86,15 @@ def build_user_prompt(topic, config=None, research=None):
 # ---------------------------------------------------------------------------
 # These patches deliberately live at the package boundary so the independent
 # Riddles pipeline can improve its presentation without changing Publish Shorts.
+
+_RIDDLE_HOOKS = (
+    "Don't trust your first guess.",
+    "Your first answer? Probably wrong.",
+    "Think you know it? Wait.",
+    "This one punishes quick guesses.",
+    "Lock in nothing yet.",
+    "Your brain wants the easy answer. Don't give it one.",
+)
 
 _RIDDLE_CAPTION_STOPWORDS = {
     "the", "and", "that", "this", "with", "from", "your", "you", "have",
@@ -169,6 +172,31 @@ def _riddle_caption_phrases(words):
     return phrases
 
 
+def _strengthen_riddle_hook(result, previous, number):
+    scenes = result.get("scene_plan") or []
+    if not scenes:
+        return
+    first = scenes[0]
+    current = str(first.get("narration", "")).strip()
+    hook = _RIDDLE_HOOKS[(int(number or 0) - 1) % len(_RIDDLE_HOOKS)]
+
+    if previous:
+        answer = str(previous.get("answer", "")).strip()
+        if answer:
+            reveal = f"Last answer: {answer}."
+            # Keep the previous-answer reveal immediate, then make the new challenge
+            # unmistakable. Scene 2 owns the actual new riddle.
+            first["narration"] = f"{reveal} {hook}"
+            first["subtitle_text"] = first["narration"]
+            return
+
+    # If there is no previous answer, only replace a weak/generic opener.
+    weak = re.match(r"^(?:today(?:'s| is)? riddle|here(?:'s| is).*?riddle|welcome back|hey guys|guys|listen up|okay guys|alright guys)\b", current, re.I)
+    if weak or not current:
+        first["narration"] = hook
+        first["subtitle_text"] = hook
+
+
 def _patch_riddle_narration(module):
     original = getattr(module, "polish_riddle_script", None)
     if original is None or getattr(original, "_mint_riddle_runtime", False):
@@ -176,6 +204,7 @@ def _patch_riddle_narration(module):
 
     def polished(script, previous, number):
         result = original(script, previous, number)
+        _strengthen_riddle_hook(result, previous, number)
         scenes = result.get("scene_plan") or []
         for scene in scenes:
             narration = str(scene.get("narration", "")).strip()
@@ -187,8 +216,6 @@ def _patch_riddle_narration(module):
             scene["visual_dependency"] = "none"
             for visual in scene.get("visuals") or []:
                 if isinstance(visual, dict):
-                    # Preserve Gemini's concrete visual focus; only replace it
-                    # when the storyboard failed to provide one.
                     visual["spoken_line"] = narration
                     if not str(visual.get("visual_focus", "")).strip():
                         visual["visual_focus"] = narration[:180]
@@ -198,11 +225,12 @@ def _patch_riddle_narration(module):
                     )
         result["riddle_visual_mode"] = "narration_atmosphere_v2"
         result["riddle_caption_mode"] = "phrase_beats_v2"
+        result["riddle_hook_mode"] = "hard_pattern_interrupt_v1"
         return result
 
     polished._mint_riddle_runtime = True
     module.polish_riddle_script = polished
-    print("🎬 Riddle runtime polish: atmosphere-only visuals + phrase caption metadata ENABLED")
+    print("🎬 Riddle runtime polish: stronger hooks + atmosphere-only visuals + phrase captions ENABLED")
 
 
 def _patch_assemble(module):

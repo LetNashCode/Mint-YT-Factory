@@ -42,13 +42,12 @@ def _validate_internal_novelty(scenes):
    if len(set(gram))<2:continue
    grams.setdefault(gram,set()).add(index)
  if [g for g,v in grams.items() if len(v)>=2]:raise RuntimeError("Riddle narration repeats a 4-word phrase across scenes; regenerate with a different structure.")
- # Question marks are allowed: spoken riddles naturally use rhetorical questions.
- # Only reject a genuinely duplicated question sentence, not multiple distinct beats.
+ # Multiple distinct questions are valid in a spoken riddle. Only an exact
+ # duplicate question sentence is considered a real repetition failure.
  question_sentences=[]
  for sentence in re.split(r"(?<=[.!?])\s+",all_text):
   sentence=re.sub(r"\s+"," ",sentence).strip().lower()
-  if sentence.endswith("?") and len(_normalized_words(sentence))>=3:
-   question_sentences.append(sentence)
+  if sentence.endswith("?") and len(_normalized_words(sentence))>=3:question_sentences.append(sentence)
  if len(question_sentences)!=len(set(question_sentences)):
   raise RuntimeError("Riddle narration repeats an identical question sentence.")
 
@@ -59,17 +58,14 @@ def _remove_next_topic_leak(scenes,next_topic):
  future=re.compile(r"\b(next|coming|later|after this|afterwards|up next|following|future|we(?:'ll| will) see|you(?:'ll| will) see|stay tuned|part 2|next short|next video|tomorrow)\b",re.I)
  changed=False
  for scene in scenes[:6]:
-  text=_base._clean(scene.get("narration","")); sentences=[s.strip() for s in re.split(r"(?<=[.!?])\s+",text) if s.strip()]
-  kept=[]; removed=False
+  text=_base._clean(scene.get("narration","")); sentences=[s.strip() for s in re.split(r"(?<=[.!?])\s+",text) if s.strip()]; kept=[]; removed=False
   for sentence in sentences:
    sentence_norm=re.sub(r"[^a-z0-9]+"," ",sentence.lower()).strip()
-   if key_norm and key_norm in sentence_norm and (future.search(sentence) or len(sentences)>1):
-    removed=True; changed=True; continue
+   if key_norm and key_norm in sentence_norm and (future.search(sentence) or len(sentences)>1):removed=True; changed=True; continue
    kept.append(sentence)
   if removed:
    repaired=_base._clean(" ".join(kept))
-   if repaired:
-    scene["narration"]=repaired; scene["subtitle_text"]=repaired
+   if repaired:scene["narration"]=repaired; scene["subtitle_text"]=repaired
    else:return False
  return changed
 
@@ -120,8 +116,8 @@ Avoid generic filler and greetings. Do not use visual-dependent clues.
    if not raw:raise RuntimeError("Gemini returned an empty riddle script.")
    data=_base._parse(raw); data.setdefault("next_short",{"topic":"riddle answer reveal","teaser":"answer reveal"})
    original_boundary=_base._ensure_scene7_boundary; original_bridge=_base._validate_natural_bridge; _base._ensure_scene7_boundary=lambda narration,next_topic:_base._clean(narration); _base._validate_natural_bridge=lambda narration,next_topic:"riddle continuation"
-   try: result=_base._normalize(data,topic,enforce_word_contract=False)
-   finally: _base._ensure_scene7_boundary=original_boundary; _base._validate_natural_bridge=original_bridge
+   try:result=_base._normalize(data,topic,enforce_word_contract=False)
+   finally:_base._ensure_scene7_boundary=original_boundary; _base._validate_natural_bridge=original_bridge
    scenes=result.get("scene_plan") or []
    if len(scenes)!=7:raise RuntimeError("Riddle script must contain exactly 7 scenes.")
    total=sum(len(_base._words(s.get("narration",""))) for s in scenes)
@@ -129,16 +125,15 @@ Avoid generic filler and greetings. Do not use visual-dependent clues.
    for index,(low,high) in enumerate(SCENE_WORD_BUDGETS):
     count=len(_base._words(scenes[index].get("narration","")))
     if count<low or count>high:raise RuntimeError(f"Riddle Scene {index+1} has {count} words; expected {low}-{high} for pacing.")
-   previous_answer=""; previous_number=None
-   m=re.search(r'Reveal Riddle #(\d+) answer naturally: "([^"]+)"',str(extra_feedback or ""),re.I)
+   previous_answer=""; previous_number=None; m=re.search(r'Reveal Riddle #(\d+) answer naturally: "([^"]+)"',str(extra_feedback or ""),re.I)
    if m:
     previous_number=int(m.group(1)); previous_answer=_base._clean(m.group(2)); first=scenes[0]; first_narration=_base._clean(first.get("narration",""))
-    if previous_answer.lower() not in first_narration.lower(): first["narration"]=_base._clean(f"Last answer: {previous_answer}. Did you get it? "+first_narration)
+    if previous_answer.lower() not in first_narration.lower():first["narration"]=_base._clean(f"Last answer: {previous_answer}. Did you get it? "+first_narration)
     if previous_answer.lower() not in _base._clean(scenes[0].get("narration","")).lower():raise RuntimeError(f"Previous riddle answer must be revealed in Scene 1: {previous_answer!r}")
     total=sum(len(_base._words(s.get("narration",""))) for s in scenes)
     if total>MAX_WORDS:raise RuntimeError(f"Riddle narration length {total} outside optimized {MIN_WORDS}-{MAX_WORDS} range after reveal insertion.")
    next_topic=_base._clean((result.get("next_short") or {}).get("topic"))
-   if _remove_next_topic_leak(scenes,next_topic): total=sum(len(_base._words(s.get("narration",""))) for s in scenes)
+   if _remove_next_topic_leak(scenes,next_topic):total=sum(len(_base._words(s.get("narration",""))) for s in scenes)
    next_key=re.sub(r"[^a-z0-9 ]"," ",next_topic.lower()).strip()
    for scene in scenes[:6]:
     if next_key and next_key in re.sub(r"[^a-z0-9 ]"," ",scene["narration"].lower()):raise RuntimeError("Next topic appeared before Scene 7.")
@@ -146,8 +141,7 @@ Avoid generic filler and greetings. Do not use visual-dependent clues.
    _validate_internal_novelty(scenes)
    result["riddle_creative_profile"]=profile["name"]; result["riddle_mechanic_policy"]="rotating_mechanic"; result["riddle_novelty_guard"]="internal_phrase_and_structure"; result["riddle_recent_topic_context"]=recent_topics[-12:]
    result["riddle_personality"]=dict(personality); result["riddle_personality_name"]=personality["name"]; result["riddle_personality_direction"]=personality["direction"]; result["riddle_personality_version"]="v2_prompt_and_tts"
-   print(f"🧩 Riddles Shorts narration validated: {total} words | profile={profile['name']} | personality={personality['name']} | personality_prompt=ACTIVE | novelty_guard=PASS"+(f" | Riddle #{previous_number} answer revealed in Scene 1" if previous_answer else ""))
-   return result
+   print(f"🧩 Riddles Shorts narration validated: {total} words | profile={profile['name']} | personality={personality['name']} | personality_prompt=ACTIVE | novelty_guard=PASS"+(f" | Riddle #{previous_number} answer revealed in Scene 1" if previous_answer else "")); return result
   except Exception as e:
    last_error=f"{type(e).__name__}: {e}"; attempts+=1
    if attempts<_base.MAX_ATTEMPTS:print(f"⚠️ Riddle script attempt {attempts} rejected: {last_error}"); time.sleep(2)

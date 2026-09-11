@@ -749,6 +749,86 @@
       "shot": 2,
       "query": "sliding glass door",
       "recorded_at": 1789060725
+    },
+    {
+      "asset_key": "pexels:photo:29963763",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/29963763/pexels-photo-29963763.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 1,
+      "shot": 2,
+      "query": "sliding door",
+      "recorded_at": 1789109854
+    },
+    {
+      "asset_key": "pexels:photo:10091248",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/10091248/pexels-photo-10091248.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 2,
+      "shot": 1,
+      "query": "sliding door",
+      "recorded_at": 1789109858
+    },
+    {
+      "asset_key": "pexels:video:35999369",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35999369/15264730_1280_720_60fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "sliding door close up",
+      "recorded_at": 1789109888
+    },
+    {
+      "asset_key": "pexels:video:5903738",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5903738/5903738-hd_720_1366_25fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "sliding door roller",
+      "recorded_at": 1789109892
+    },
+    {
+      "asset_key": "pixabay:photo:7591351",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g3d2a72a616e84d3f09eace0b2a256c735cc00aeb423111986dd9bf04e197dfa438900213741e8f51c1b97bd3874052c8ad69cdcb974b9e0f484c7135469f76fa_1280.jpg",
+      "scene": 4,
+      "shot": 1,
+      "query": "sliding door",
+      "recorded_at": 1789109912
+    },
+    {
+      "asset_key": "pexels:video:8561462",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8561462/8561462-hd_720_1366_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "sliding door close up",
+      "recorded_at": 1789109933
+    },
+    {
+      "asset_key": "pexels:photo:7300479",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/7300479/pexels-photo-7300479.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 5,
+      "shot": 1,
+      "query": "sliding door close up",
+      "recorded_at": 1789109956
+    },
+    {
+      "asset_key": "pixabay:video:126849",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/08/05/126849-737028205_medium.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "sliding door your",
+      "recorded_at": 1789110057
     }
   ]
 }

@@ -42,9 +42,6 @@ def _validate_internal_novelty(scenes):
    if len(set(gram))<2:continue
    grams.setdefault(gram,set()).add(index)
  if [g for g,v in grams.items() if len(v)>=2]:raise RuntimeError("Riddle narration repeats a 4-word phrase across scenes; regenerate with a different structure.")
- # Question marks are punctuation, not a reliable measure of repeated question
- # beats. A spoken riddle may naturally contain several rhetorical questions.
- # Reject only identical short question sentences, which are genuinely repetitive.
  question_sentences=[]
  for sentence in re.split(r"(?<=[.!?])\s+",all_text):
   sentence=re.sub(r"\s+"," ",sentence).strip().lower()
@@ -139,8 +136,7 @@ Avoid generic filler and greetings. Do not use visual-dependent clues.
     total=sum(len(_base._words(s.get("narration",""))) for s in scenes)
     if total>MAX_WORDS:raise RuntimeError(f"Riddle narration length {total} outside optimized {MIN_WORDS}-{MAX_WORDS} range after reveal insertion.")
    next_topic=_base._clean((result.get("next_short") or {}).get("topic"))
-   if _remove_next_topic_leak(scenes,next_topic):
-    total=sum(len(_base._words(s.get("narration",""))) for s in scenes)
+   if _remove_next_topic_leak(scenes,next_topic): total=sum(len(_base._words(s.get("narration",""))) for s in scenes)
    next_key=re.sub(r"[^a-z0-9 ]"," ",next_topic.lower()).strip()
    for scene in scenes[:6]:
     if next_key and next_key in re.sub(r"[^a-z0-9 ]"," ",scene["narration"].lower()):raise RuntimeError("Next topic appeared before Scene 7.")

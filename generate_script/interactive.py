@@ -42,6 +42,8 @@ def _validate_internal_novelty(scenes):
    if len(set(gram))<2:continue
    grams.setdefault(gram,set()).add(index)
  if [g for g,v in grams.items() if len(v)>=2]:raise RuntimeError("Riddle narration repeats a 4-word phrase across scenes; regenerate with a different structure.")
+ # Question marks are allowed: spoken riddles naturally use rhetorical questions.
+ # Only reject a genuinely duplicated question sentence, not multiple distinct beats.
  question_sentences=[]
  for sentence in re.split(r"(?<=[.!?])\s+",all_text):
   sentence=re.sub(r"\s+"," ",sentence).strip().lower()

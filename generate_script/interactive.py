@@ -50,6 +50,16 @@ def _clean_scenes(scenes):
                 visual["spoken_line"]=narration; visual["visual_action"]="Support the spoken story emotionally and contextually; the narration carries the story."; visual["visual_dependency"]="none"
     return scenes
 
+def _normalize_story(result,topic):
+    """Story-specific normalization; deliberately bypasses Publish-only continuation logic."""
+    if not isinstance(result,dict):
+        raise RuntimeError("Gemini story response was not an object.")
+    result["topic"]=_base._clean(topic)
+    scenes=result.get("scene_plan")
+    if not isinstance(scenes,list):
+        raise RuntimeError("Gemini story response is missing scene_plan.")
+    return result
+
 def generate_script(topic,config,research=None,extra_feedback=""):
     from google import genai
     from google.genai import types
@@ -108,7 +118,10 @@ Return the normal production JSON schema. Put the person's name in the topic/tit
             response=client.models.generate_content(model=_base.MODEL_NAME,contents=prompt+retry,config=types.GenerateContentConfig(system_instruction=_base.SYSTEM_PROMPT,response_mime_type="application/json",response_json_schema=_base._build_schema(),temperature=.9))
             raw=getattr(response,"text",None)
             if not raw:raise RuntimeError("Gemini returned an empty story script.")
-            result=_base._normalize(_base._parse(raw),topic,enforce_word_contract=False)
+            # IMPORTANT: do not call _base._normalize here. That function owns the
+            # Publish Shorts continuation/Scene 7 contract and was truncating Story
+            # Scene 7 or demanding a next-topic bridge.
+            result=_normalize_story(_base._parse(raw),topic)
             scenes=_clean_scenes(result.get("scene_plan") or []); _validate_story(scenes); result["scene_plan"]=scenes
             result["story_format"]=story_format["name"]; result["story_format_direction"]=story_format["direction"]; result["story_visual_mode"]="narration_atmosphere_v1"; result["story_factuality_policy"]="real-person-facts-no-invented-dialogue"; result["story_word_target"]={"min":STORY_MIN_WORDS,"max":STORY_MAX_WORDS}; result["visual_dependency"]="none"
             total=sum(len(_words(s.get("narration",""))) for s in scenes); print(f"📖 Story Shorts narration validated: {total} words | format={story_format['name']}"); return result

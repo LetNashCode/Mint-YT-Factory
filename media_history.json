@@ -947,78 +947,78 @@
       "source_url": "https://cdn.pixabay.com/video/2022/06/19/120739-724673230_medium.mp4",
       "scene": 1,
       "shot": 1,
-      "query": "heavy wool blankets throw folded",
-      "recorded_at": 1789146850
+      "query": "heavy wool blankets tossing blanket",
+      "recorded_at": 1789148831
     },
     {
-      "asset_key": "pexels:photo:33980190",
+      "asset_key": "pexels:video:6570519",
       "provider": "Pexels",
-      "type": "photo",
-      "source_url": "https://images.pexels.com/photos/33980190/pexels-photo-33980190.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6570519/6570519-hd_720_1280_25fps.mp4",
       "scene": 1,
       "shot": 2,
-      "query": "heavy wool blankets feels like warm hug",
-      "recorded_at": 1789146889
+      "query": "heavy wool blankets feels like instant hug",
+      "recorded_at": 1789148836
     },
     {
-      "asset_key": "pexels:video:6646786",
-      "provider": "Pexels",
-      "type": "video",
-      "source_url": "https://videos.pexels.com/video-files/6646786/6646786-hd_1280_720_25fps.mp4",
-      "scene": 2,
-      "shot": 1,
-      "query": "heavy wool blankets not about staying warm",
-      "recorded_at": 1789146904
-    },
-    {
-      "asset_key": "pexels:video:36330618",
-      "provider": "Pexels",
-      "type": "video",
-      "source_url": "https://videos.pexels.com/video-files/36330618/15408446_720_1280_30fps.mp4",
-      "scene": 2,
-      "shot": 2,
-      "query": "heavy wool blankets something bizarre your nervous",
-      "recorded_at": 1789146923
-    },
-    {
-      "asset_key": "pexels:video:29853741",
-      "provider": "Pexels",
-      "type": "video",
-      "source_url": "https://videos.pexels.com/video-files/29853741/12819309_1280_720_25fps.mp4",
-      "scene": 3,
-      "shot": 1,
-      "query": "heavy wool blankets your skin packed tiny",
-      "recorded_at": 1789146937
-    },
-    {
-      "asset_key": "pexels:photo:5984614",
+      "asset_key": "pexels:photo:5789582",
       "provider": "Pexels",
       "type": "photo",
-      "source_url": "https://images.pexels.com/photos/5984614/pexels-photo-5984614.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      "scene": 3,
-      "shot": 2,
-      "query": "heavy wool blankets read gravity like emergency",
-      "recorded_at": 1789147100
-    },
-    {
-      "asset_key": "pexels:video:19901086",
-      "provider": "Pexels",
-      "type": "video",
-      "source_url": "https://videos.pexels.com/video-files/19901086/19901086-hd_720_1280_30fps.mp4",
-      "scene": 4,
+      "source_url": "https://images.pexels.com/photos/5789582/pexels-photo-5789582.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 2,
       "shot": 1,
-      "query": "heavy wool blankets think like laying",
-      "recorded_at": 1789147134
+      "query": "heavy wool blankets your brain instantly shifts",
+      "recorded_at": 1789148845
     },
     {
       "asset_key": "pexels:photo:20155814",
       "provider": "Pexels",
       "type": "photo",
       "source_url": "https://images.pexels.com/photos/20155814/pexels-photo-20155814.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 2,
+      "shot": 2,
+      "query": "heavy wool blankets second extra weight presses",
+      "recorded_at": 1789148858
+    },
+    {
+      "asset_key": "pixabay:photo:10238586",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g381b549674cb823ad6718c2c1e480f86fedf9814e6b98e74b4c5b365d42d5c516e89425ca7d40b12188fc1994554a832c194f01b96e36a4325173b4b18f6203c_1280.jpg",
+      "scene": 3,
+      "shot": 1,
+      "query": "heavy wool blankets tricks your nervous system",
+      "recorded_at": 1789148876
+    },
+    {
+      "asset_key": "pexels:video:6646786",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6646786/6646786-hd_1280_720_25fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "heavy wool blankets into believing you safely",
+      "recorded_at": 1789148881
+    },
+    {
+      "asset_key": "pixabay:video:107635",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/02/13/107635-678971100_medium.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "heavy wool blankets gentle press your arm",
+      "recorded_at": 1789148899
+    },
+    {
+      "asset_key": "pexels:video:4988911",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4988911/4988911-hd_1366_720_24fps.mp4",
       "scene": 4,
       "shot": 2,
-      "query": "heavy wool blankets extra load forces everything",
-      "recorded_at": 1789147206
+      "query": "heavy wool blankets stops your daily racing",
+      "recorded_at": 1789148904
     },
     {
       "asset_key": "pexels:photo:37583646",
@@ -1027,38 +1027,38 @@
       "source_url": "https://images.pexels.com/photos/37583646/pexels-photo-37583646.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
       "scene": 5,
       "shot": 1,
-      "query": "heavy wool blankets you assumed warmth was",
-      "recorded_at": 1789147330
+      "query": "heavy wool blankets you might think warmth",
+      "recorded_at": 1789148911
     },
     {
-      "asset_key": "pixabay:video:105853",
-      "provider": "Pixabay",
-      "type": "video",
-      "source_url": "https://cdn.pixabay.com/video/2022/01/28/105853-671593394_medium.mp4",
-      "scene": 5,
-      "shot": 2,
-      "query": "heavy wool blankets but deep down your",
-      "recorded_at": 1789147342
-    },
-    {
-      "asset_key": "pixabay:photo:10238586",
-      "provider": "Pixabay",
-      "type": "photo",
-      "source_url": "https://pixabay.com/get/gb3ac6da93ca260ee3a4b75db507078d8eac03e41659842283940808c31e0141d57ac2c1c957ddfba4a513c3da748d54a6086b917762d7e4790bff7d7dd8ed71d_1280.jpg",
-      "scene": 6,
-      "shot": 1,
-      "query": "heavy wool blankets steady pressure tells your",
-      "recorded_at": 1789147397
-    },
-    {
-      "asset_key": "pexels:video:6689162",
+      "asset_key": "pexels:video:7280329",
       "provider": "Pexels",
       "type": "video",
-      "source_url": "https://videos.pexels.com/video-files/6689162/6689162-hd_1280_720_25fps.mp4",
+      "source_url": "https://videos.pexels.com/video-files/7280329/7280329-hd_1366_720_24fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "heavy wool blankets fold thick roll",
+      "recorded_at": 1789148942
+    },
+    {
+      "asset_key": "pexels:photo:6994938",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/6994938/pexels-photo-6994938.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 6,
+      "shot": 1,
+      "query": "heavy wool blankets every extra ounce acts",
+      "recorded_at": 1789148950
+    },
+    {
+      "asset_key": "pixabay:video:47623",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/08/19/47623-451623962_medium.mp4",
       "scene": 6,
       "shot": 2,
-      "query": "heavy wool blankets instantly dialing down stress",
-      "recorded_at": 1789147401
+      "query": "heavy wool blankets your wandering mind peaceful",
+      "recorded_at": 1789148958
     },
     {
       "asset_key": "pexels:video:6619259",
@@ -1067,18 +1067,18 @@
       "source_url": "https://videos.pexels.com/video-files/6619259/6619259-hd_1280_720_25fps.mp4",
       "scene": 7,
       "shot": 1,
-      "query": "heavy wool blankets you simply hugging gravity",
-      "recorded_at": 1789147435
+      "query": "heavy wool blankets steady pressure grounds you",
+      "recorded_at": 1789148962
     },
     {
-      "asset_key": "pexels:photo:5788498",
+      "asset_key": "pexels:video:6639474",
       "provider": "Pexels",
-      "type": "photo",
-      "source_url": "https://images.pexels.com/photos/5788498/pexels-photo-5788498.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6639474/6639474-hd_1366_720_25fps.mp4",
       "scene": 7,
       "shot": 2,
-      "query": "heavy wool blankets you simply hugging gravity",
-      "recorded_at": 1789147503
+      "query": "heavy wool blankets steady pressure grounds you",
+      "recorded_at": 1789148965
     }
   ]
 }

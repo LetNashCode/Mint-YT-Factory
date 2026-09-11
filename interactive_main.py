@@ -23,9 +23,16 @@ def save(x,p):
     if directory: os.makedirs(directory,exist_ok=True)
     with open(p,"w",encoding="utf-8") as f: json.dump(x,f,indent=2,ensure_ascii=False)
 
-def _title(number,pillar,person):
-    labels={"rise_from_nothing":"The Impossible Comeback","one_decision":"One Decision Changed Everything","before_they_were_famous":"Before They Were Famous","impossible_odds":"Against Impossible Odds","strange_turning_point":"The Moment Everything Changed"}
-    return f"Story #{number}: {labels.get(pillar,'A Remarkable Life')}: {person}"
+def _title(pillar,person):
+    labels={
+        "rise_from_nothing":"The Impossible Comeback",
+        "one_decision":"The Decision That Changed Everything",
+        "before_they_were_famous":"Before the Fame",
+        "impossible_odds":"Against Impossible Odds",
+        "strange_turning_point":"The Moment Everything Changed",
+    }
+    label=labels.get(pillar,"A Remarkable Story")
+    return f"{label}: {person}"
 
 def _validate_story_contract(script):
     scenes=script.get("scene_plan") or []
@@ -74,7 +81,8 @@ Do not create or mention a next-topic teaser; this Story Shorts line is standalo
     assemble_video(script,[audio],visuals,music,sfx,config,final)
     q=validate_final_video(final,expected_bitrate_mbps=100.0); save(q,os.path.join(workdir,"validation.json"))
     if not q.get("ok"): raise RuntimeError("Story final video validation failed.")
-    title=_title(number,pillar,person); desc=f"{title}\n\nA remarkable story about {person}. Subscribe and follow for more stories about people who changed their lives and the world around them.\n\n#Story #TrueStory #Shorts"
+    title=_title(pillar,person)
+    desc=f"A remarkable true story about {person} — the struggle, turning point, and moment that changed everything.\n\nWhat would you have done in {person}'s situation? 👇\n\nSubscribe and follow for more powerful stories about people who faced setbacks, made difficult choices, and changed their lives.\n\n#StoryShorts #TrueStory #Inspiration #Shorts"
     result=upload_video(final,title,desc,config,engagement_comment=script["engagement"]["comment"])
     vid=result if isinstance(result,str) else str(result.get("video_id") or result.get("id") or "") if isinstance(result,dict) else ""
     if not vid: raise RuntimeError("Story upload returned no video ID; sequence state was not advanced.")

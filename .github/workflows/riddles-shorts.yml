@@ -1,4 +1,4 @@
-name: Riddles Shorts
+name: Story Shorts
 
 on:
   schedule:
@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: mint-yt-factory-riddles
+  group: mint-yt-factory-story-shorts
   cancel-in-progress: false
 
 jobs:
@@ -36,7 +36,7 @@ jobs:
         run: |
           python -m py_compile interactive_main.py interactive_topics.py interactive_analytics.py generate_script/interactive.py whisper_align.py social_publish.py
 
-      - name: Generate and publish Riddles Shorts
+      - name: Generate and publish Story Short
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
@@ -50,18 +50,14 @@ jobs:
           SOCIAL_PUBLISH_STRICT: ${{ vars.SOCIAL_PUBLISH_STRICT }}
         run: python -u interactive_main.py
 
-      - name: Persist Riddle sequence state
+      - name: Persist Story sequence state
         if: success()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add interactive_topic_history.json pending_riddle.json riddle_counter.json analytics/interactive_videos.json analytics/interactive_comparison.json
+          git add story_topic_history.json pending_story.json story_counter.json story_candidates.json analytics/story_videos.json analytics/story_comparison.json
           if ! git diff --cached --quiet; then
-            git commit -m "Persist Riddles Shorts sequence state"
-            # The pipeline may leave tracked runtime files modified. Rebase with
-            # autostash so those unrelated changes cannot block state persistence.
-            # Riddles already serializes its own runs via the workflow concurrency
-            # group, while this also handles races with other workflows updating main.
+            git commit -m "Persist Story Shorts sequence state"
             git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
@@ -70,7 +66,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: riddles-shorts-${{ github.run_id }}
+          name: story-shorts-${{ github.run_id }}
           path: output/interactive/**
           if-no-files-found: warn
           retention-days: 7

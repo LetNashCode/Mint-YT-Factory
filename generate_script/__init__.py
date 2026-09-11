@@ -142,8 +142,6 @@ def _riddle_caption_phrases(words):
         while cursor < len(normalized) and len(chunk) < 4:
             candidate = normalized[cursor]
             candidate_text = candidate["word"]
-            # Keep chunks compact enough for a phone screen and break naturally
-            # after strong punctuation.
             if chars + 1 + len(candidate_text) > 28:
                 break
             previous = chunk[-1]["word"]
@@ -179,7 +177,7 @@ def _patch_riddle_narration(module):
     def polished(script, previous, number):
         result = original(script, previous, number)
         scenes = result.get("scene_plan") or []
-        for index, scene in enumerate(scenes):
+        for scene in scenes:
             narration = str(scene.get("narration", "")).strip()
             scene["caption_highlights"] = [
                 {"word": word} for word in _riddle_caption_highlights(narration)
@@ -189,8 +187,11 @@ def _patch_riddle_narration(module):
             scene["visual_dependency"] = "none"
             for visual in scene.get("visuals") or []:
                 if isinstance(visual, dict):
+                    # Preserve Gemini's concrete visual focus; only replace it
+                    # when the storyboard failed to provide one.
                     visual["spoken_line"] = narration
-                    visual["visual_focus"] = narration[:180]
+                    if not str(visual.get("visual_focus", "")).strip():
+                        visual["visual_focus"] = narration[:180]
                     visual["visual_action"] = (
                         "Create atmosphere for the spoken beat only. "
                         "Never show a required clue or the current answer."

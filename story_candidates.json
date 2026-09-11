@@ -1,0 +1,119 @@
+[
+  {
+    "format": "rise_from_nothing",
+    "person": "Boman Irani",
+    "premise": "How a Wafer Shop Manager and Waiter Became a Bollywood Star at Age 42.",
+    "hook": "He served tables and managed his family's bakery shop well into his 30s before ever stepping on a film set.",
+    "key_facts": [
+      "Worked at Mumbai's famous The Taj Mahal Palace hotel as a waiter and room service attendant.",
+      "Ran his family's ancestral bakery and wafer shop in Grant Road, Mumbai.",
+      "Pursued professional theater in his late 30s before making his feature film debut at age 42.",
+      "Achieved mainstream recognition with the 2003 film Munna Bhai M.B.B.S."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Srinivasa Ramanujan",
+    "premise": "The Unemployed Clerk Who Mailed His Math Notebook to Cambridge.",
+    "hook": "Working as a low-level shipping port clerk with no university degree, he mailed dense mathematical formulas to a stranger 5,000 miles away.",
+    "key_facts": [
+      "Failed his college exams due to neglecting every subject except mathematics.",
+      "Worked as a routine shipping port clerk in Madras to support his family.",
+      "Mailed unsolicited mathematical theorems to British mathematician G. H. Hardy in 1913.",
+      "Was invited to Trinity College, Cambridge, based on the brilliance of his unproven formulas."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "J.K. Rowling",
+    "premise": "Living on State Benefits While Writing in Edinburgh Cafes.",
+    "hook": "Before selling millions of books, she wrote manuscript chapters in cafes while relying on state welfare to pay rent.",
+    "key_facts": [
+      "Worked as a researcher and bilingual secretary for Amnesty International.",
+      "Conceived the idea for a boy wizard during a delayed train journey from Manchester to London in 1990.",
+      "Relied on state benefits while raising her infant daughter in Edinburgh.",
+      "Had her initial manuscript rejected by multiple publishing houses before acceptance."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Mary Anning",
+    "premise": "The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
+    "hook": "Selling curiosities on the cliffs of Dorset to survive, she uncovered complete dinosaur skeletons while formal scientists refused to credit her.",
+    "key_facts": [
+      "Resided in Lyme Regis, England, where her family sold fossils to tourists for income.",
+      "Discovered the first correctly identified Ichthyosaur skeleton at age twelve.",
+      "Unearthed the first complete Plesiosaur and important Pterosaur specimens.",
+      "Faced exclusion from the Geological Society of London due to her gender and social class."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Mary Kom",
+    "premise": "From a Farmer's Daughter in Rural Manipur to Six-Time World Boxing Champion.",
+    "hook": "Growing up in a remote village with no sports infrastructure, she trained in secret to avoid her parents' disapproval.",
+    "key_facts": [
+      "Born to tenant farmers in Churachandpur district, Manipur.",
+      "Initially practiced athletics before switching to boxing following the success of Dingko Singh.",
+      "Concealed her boxing training from her family during her early years in the sport.",
+      "Secured six gold medals at the AIBA Women's World Boxing Championships."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Phil Knight",
+    "premise": "A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes.",
+    "hook": "While working as an accountant, he decided to start a shoe-importing business out of the trunk of his green Plymouth.",
+    "key_facts": [
+      "Ran middle distance track at the University of Oregon under coach Bill Bowerman.",
+      "Wrote a college paper exploring the economic viability of importing high-quality Japanese track shoes.",
+      "Traveled to Japan in 1962 to secure distribution rights for Onitsuka Tiger shoes.",
+      "Sold shoes out of his automobile at local track meets before founding Nike."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Jim Carrey",
+    "premise": "Dropping Out at Age 15 to Work as a Factory Janitor in Canada.",
+    "hook": "Before starring in blockbuster comedies, he worked eight-hour shifts cleaning floors to help his family avoid homelessness.",
+    "key_facts": [
+      "Experienced severe financial distress when his father lost his accounting job in Ontario.",
+      "Dropped out of high school at age 15 to work full-time as a factory janitor and security guard.",
+      "Performed unpaid stand-up comedy sets at local Toronto clubs during his teenage years.",
+      "Relocated to Los Angeles in his late teens to pursue professional comedy."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Ernest Shackleton",
+    "premise": "Surviving 500 Days on the Antarctic Ice After Their Ship Was Crushed.",
+    "hook": "Trapped in pack ice that completely destroyed their vessel, 28 men survived months on floating ice floes.",
+    "key_facts": [
+      "Embarked on the Imperial Trans-Antarctic Expedition aboard the ship Endurance in 1914.",
+      "Watched the Endurance become trapped and crushed by shifting pack ice in the Weddell Sea.",
+      "Camped on floating ice floes for months with limited rations and extreme weather.",
+      "Navigated an open lifeboat 800 miles across heavy seas to reach South Georgia Island for rescue."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Alan Turing",
+    "premise": "A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",
+    "hook": "While designing early computers and breaking wartime ciphers, he frequently repaired his own bicycle because the local chain kept slipping.",
+    "key_facts": [
+      "Studied mathematics at King's College, Cambridge, and Princeton University.",
+      "Played a central role at Bletchley Park in decrypting intercepted coded messages during World War II.",
+      "Competed at a high level in marathon running, occasionally running the 40 miles between London and Bletchley for meetings.",
+      "Formulated the theoretical basis for modern computing through the concept of the Turing machine."
+    ],
+    "source": "gemini_original"
+  }
+]

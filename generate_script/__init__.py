@@ -172,6 +172,29 @@ def _riddle_caption_phrases(words):
     return phrases
 
 
+def _fit_riddle_hook(text, hook, max_words=18):
+    words = str(text or "").strip().split()
+    hook_words = hook.split()
+    if len(words) + len(hook_words) <= max_words:
+        return f"{text.rstrip(' .!?')} {hook}".strip()
+
+    # Preserve the first/reveal sentence and use the hook as the final beat.
+    sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", str(text or "")) if s.strip()]
+    kept = []
+    total = 0
+    for sentence in sentences:
+        n = len(sentence.split())
+        if total + n + len(hook_words) <= max_words:
+            kept.append(sentence)
+            total += n
+        else:
+            break
+    base = " ".join(kept).strip()
+    if base:
+        return f"{base.rstrip(' .!?')} {hook}".strip()
+    return " ".join(hook_words[:max_words]).rstrip(" ,;:-") + "."
+
+
 def _strengthen_riddle_hook(result, previous, number):
     scenes = result.get("scene_plan") or []
     if not scenes:
@@ -181,16 +204,13 @@ def _strengthen_riddle_hook(result, previous, number):
     hook = _RIDDLE_HOOKS[(int(number or 0) - 1) % len(_RIDDLE_HOOKS)]
 
     if previous:
-        answer = str(previous.get("answer", "")).strip()
-        if answer:
-            reveal = f"Last answer: {answer}."
-            # Keep the previous-answer reveal immediate, then make the new challenge
-            # unmistakable. Scene 2 owns the actual new riddle.
-            first["narration"] = f"{reveal} {hook}"
+        # Preserve the existing reveal and any useful setup, then append a short
+        # pattern interrupt. This avoids collapsing the episode's word budget.
+        if not re.search(r"first guess|first answer|probably wrong|quick guess|easy answer|lock in", current, re.I):
+            first["narration"] = _fit_riddle_hook(current, hook, max_words=18)
             first["subtitle_text"] = first["narration"]
-            return
+        return
 
-    # If there is no previous answer, only replace a weak/generic opener.
     weak = re.match(r"^(?:today(?:'s| is)? riddle|here(?:'s| is).*?riddle|welcome back|hey guys|guys|listen up|okay guys|alright guys)\b", current, re.I)
     if weak or not current:
         first["narration"] = hook

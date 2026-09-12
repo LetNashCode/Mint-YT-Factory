@@ -50,18 +50,5 @@
       "Navigated an open lifeboat 800 miles across heavy seas to reach South Georgia Island for rescue."
     ],
     "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Alan Turing",
-    "premise": "A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",
-    "hook": "While designing early computers and breaking wartime ciphers, he frequently repaired his own bicycle because the local chain kept slipping.",
-    "key_facts": [
-      "Studied mathematics at King's College, Cambridge, and Princeton University.",
-      "Played a central role at Bletchley Park in decrypting intercepted coded messages during World War II.",
-      "Competed at a high level in marathon running, occasionally running the 40 miles between London and Bletchley for meetings.",
-      "Formulated the theoretical basis for modern computing through the concept of the Turing machine."
-    ],
-    "source": "gemini_original"
   }
 ]

@@ -11,7 +11,7 @@
       "likes": 13,
       "comments": 0,
       "engagement_rate": 1.496,
-      "checked_at": "2026-09-12T13:52:19.560046+00:00"
+      "checked_at": "2026-09-12T23:03:05.934406+00:00"
     },
     "snapshots": [
       {
@@ -41,6 +41,13 @@
         "comments": 0,
         "engagement_rate": 1.496,
         "checked_at": "2026-09-12T13:52:19.560046+00:00"
+      },
+      {
+        "views": 869,
+        "likes": 13,
+        "comments": 0,
+        "engagement_rate": 1.496,
+        "checked_at": "2026-09-12T23:03:05.934406+00:00"
       }
     ]
   },
@@ -56,7 +63,7 @@
       "likes": 1,
       "comments": 0,
       "engagement_rate": 0.2404,
-      "checked_at": "2026-09-12T13:52:19.560046+00:00"
+      "checked_at": "2026-09-12T23:03:05.934406+00:00"
     },
     "snapshots": [
       {
@@ -79,6 +86,13 @@
         "comments": 0,
         "engagement_rate": 0.2404,
         "checked_at": "2026-09-12T13:52:19.560046+00:00"
+      },
+      {
+        "views": 416,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 0.2404,
+        "checked_at": "2026-09-12T23:03:05.934406+00:00"
       }
     ]
   },
@@ -90,11 +104,11 @@
     "title": "The Impossible Comeback: Mary Kom",
     "workdir": "output/interactive/1789203465",
     "latest": {
-      "views": 730,
-      "likes": 14,
+      "views": 1111,
+      "likes": 15,
       "comments": 0,
-      "engagement_rate": 1.9178,
-      "checked_at": "2026-09-12T13:52:19.560046+00:00"
+      "engagement_rate": 1.3501,
+      "checked_at": "2026-09-12T23:03:05.934406+00:00"
     },
     "snapshots": [
       {
@@ -110,6 +124,13 @@
         "comments": 0,
         "engagement_rate": 1.9178,
         "checked_at": "2026-09-12T13:52:19.560046+00:00"
+      },
+      {
+        "views": 1111,
+        "likes": 15,
+        "comments": 0,
+        "engagement_rate": 1.3501,
+        "checked_at": "2026-09-12T23:03:05.934406+00:00"
       }
     ]
   },
@@ -121,11 +142,11 @@
     "title": "The Decision That Changed Everything: Phil Knight",
     "workdir": "output/interactive/1789208199",
     "latest": {
-      "views": 752,
-      "likes": 11,
+      "views": 1125,
+      "likes": 13,
       "comments": 0,
-      "engagement_rate": 1.4628,
-      "checked_at": "2026-09-12T13:52:19.560046+00:00"
+      "engagement_rate": 1.1556,
+      "checked_at": "2026-09-12T23:03:05.934406+00:00"
     },
     "snapshots": [
       {
@@ -134,6 +155,13 @@
         "comments": 0,
         "engagement_rate": 1.4628,
         "checked_at": "2026-09-12T13:52:19.560046+00:00"
+      },
+      {
+        "views": 1125,
+        "likes": 13,
+        "comments": 0,
+        "engagement_rate": 1.1556,
+        "checked_at": "2026-09-12T23:03:05.934406+00:00"
       }
     ]
   },
@@ -144,6 +172,30 @@
     "person": "Jim Carrey",
     "title": "Before the Fame: Jim Carrey",
     "workdir": "output/interactive/1789221177",
+    "latest": {
+      "views": 1090,
+      "likes": 15,
+      "comments": 0,
+      "engagement_rate": 1.3761,
+      "checked_at": "2026-09-12T23:03:05.934406+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 1090,
+        "likes": 15,
+        "comments": 0,
+        "engagement_rate": 1.3761,
+        "checked_at": "2026-09-12T23:03:05.934406+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "XyZRedw8lEA",
+    "topic": "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",
+    "pillar": "strange_turning_point",
+    "person": "Alan Turing",
+    "title": "The Moment Everything Changed: Alan Turing",
+    "workdir": "output/interactive/1789254203",
     "latest": {},
     "snapshots": []
   }

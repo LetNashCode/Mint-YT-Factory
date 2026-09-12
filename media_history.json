@@ -1459,6 +1459,146 @@
       "shot": 2,
       "query": "sneakers squeak floors every your footwear",
       "recorded_at": 1789213469
+    },
+    {
+      "asset_key": "pexels:video:7308171",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7308171/7308171-hd_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "cardboard boxes tear you try open",
+      "recorded_at": 1789230625
+    },
+    {
+      "asset_key": "pexels:video:7205601",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7205601/7205601-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "cardboard boxes tear instantly betrays you jagged",
+      "recorded_at": 1789230628
+    },
+    {
+      "asset_key": "pixabay:video:8686",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/04/13/8686-213189350_medium.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "cardboard boxes tear you wanted straight edge",
+      "recorded_at": 1789230635
+    },
+    {
+      "asset_key": "pexels:photo:9168813",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/9168813/pexels-photo-9168813.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 2,
+      "shot": 2,
+      "query": "cardboard boxes tear you got chaotic diagonal",
+      "recorded_at": 1789230650
+    },
+    {
+      "asset_key": "pexels:photo:27666126",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/27666126/pexels-photo-27666126.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 3,
+      "shot": 1,
+      "query": "cardboard boxes tear blame secret highway",
+      "recorded_at": 1789230657
+    },
+    {
+      "asset_key": "pexels:photo:4553267",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/4553267/pexels-photo-4553267.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 3,
+      "shot": 2,
+      "query": "cardboard boxes tear hidden right beneath your",
+      "recorded_at": 1789230666
+    },
+    {
+      "asset_key": "pexels:photo:5482134",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/5482134/pexels-photo-5482134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 4,
+      "shot": 1,
+      "query": "cardboard boxes tear wood pulp acts like",
+      "recorded_at": 1789230675
+    },
+    {
+      "asset_key": "pexels:video:7721291",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7721291/7721291-hd_720_1366_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "cardboard boxes tear lined single direction fiber",
+      "recorded_at": 1789230681
+    },
+    {
+      "asset_key": "pexels:photo:7309212",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/7309212/pexels-photo-7309212.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 5,
+      "shot": 1,
+      "query": "cardboard boxes tear you pull your",
+      "recorded_at": 1789230688
+    },
+    {
+      "asset_key": "pexels:photo:4592995",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/4592995/pexels-photo-4592995.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 5,
+      "shot": 2,
+      "query": "cardboard boxes tear slides right between parallel",
+      "recorded_at": 1789230694
+    },
+    {
+      "asset_key": "pexels:photo:7464698",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/7464698/pexels-photo-7464698.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 6,
+      "shot": 1,
+      "query": "cardboard boxes tear breaking individual fibers takes",
+      "recorded_at": 1789230704
+    },
+    {
+      "asset_key": "pexels:photo:4498122",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/4498122/pexels-photo-4498122.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 6,
+      "shot": 2,
+      "query": "cardboard boxes tear slipping between them effortless",
+      "recorded_at": 1789230709
+    },
+    {
+      "asset_key": "pexels:video:32938070",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/32938070/14038291_1280_720_24fps.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "cardboard boxes tear your box refuses straight",
+      "recorded_at": 1789230714
+    },
+    {
+      "asset_key": "pexels:photo:7203957",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/7203957/pexels-photo-7203957.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 7,
+      "shot": 2,
+      "query": "cardboard boxes tear your box refuses straight",
+      "recorded_at": 1789230720
     }
   ]
 }

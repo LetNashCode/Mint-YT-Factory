@@ -39,19 +39,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "rise_from_nothing",
-    "person": "Mary Kom",
-    "premise": "From a Farmer's Daughter in Rural Manipur to Six-Time World Boxing Champion.",
-    "hook": "Growing up in a remote village with no sports infrastructure, she trained in secret to avoid her parents' disapproval.",
-    "key_facts": [
-      "Born to tenant farmers in Churachandpur district, Manipur.",
-      "Initially practiced athletics before switching to boxing following the success of Dingko Singh.",
-      "Concealed her boxing training from her family during her early years in the sport.",
-      "Secured six gold medals at the AIBA Women's World Boxing Championships."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "one_decision",
     "person": "Phil Knight",
     "premise": "A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes.",

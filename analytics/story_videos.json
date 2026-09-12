@@ -7,11 +7,11 @@
     "title": "Story #1: The Moment Everything Changed: Harland Sanders",
     "workdir": "output/interactive/1789155158",
     "latest": {
-      "views": 737,
-      "likes": 15,
+      "views": 869,
+      "likes": 13,
       "comments": 0,
-      "engagement_rate": 2.0353,
-      "checked_at": "2026-09-11T22:00:47.586504+00:00"
+      "engagement_rate": 1.496,
+      "checked_at": "2026-09-12T08:56:49.511325+00:00"
     },
     "snapshots": [
       {
@@ -20,6 +20,13 @@
         "comments": 0,
         "engagement_rate": 2.0353,
         "checked_at": "2026-09-11T22:00:47.586504+00:00"
+      },
+      {
+        "views": 869,
+        "likes": 13,
+        "comments": 0,
+        "engagement_rate": 1.496,
+        "checked_at": "2026-09-12T08:56:49.511325+00:00"
       }
     ]
   },
@@ -30,6 +37,30 @@
     "person": "Mary Anning",
     "title": "Against Impossible Odds: Mary Anning",
     "workdir": "output/interactive/1789164082",
+    "latest": {
+      "views": 416,
+      "likes": 0,
+      "comments": 0,
+      "engagement_rate": 0.0,
+      "checked_at": "2026-09-12T08:56:49.511325+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 416,
+        "likes": 0,
+        "comments": 0,
+        "engagement_rate": 0.0,
+        "checked_at": "2026-09-12T08:56:49.511325+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "V4St4b322QA",
+    "topic": "Mary Kom: From a Farmer's Daughter in Rural Manipur to Six-Time World Boxing Champion.",
+    "pillar": "rise_from_nothing",
+    "person": "Mary Kom",
+    "title": "The Impossible Comeback: Mary Kom",
+    "workdir": "output/interactive/1789203465",
     "latest": {},
     "snapshots": []
   }

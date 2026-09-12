@@ -9,13 +9,21 @@
   },
   "strange_turning_point": {
     "videos": 1,
-    "avg_views": 737.0,
+    "avg_views": 869.0,
     "avg_comments": 0.0,
     "avg_shares": 0.0,
-    "avg_likes": 15.0,
+    "avg_likes": 13.0,
     "avg_view_percentage": 0.0
   },
   "impossible_odds": {
+    "videos": 1,
+    "avg_views": 416.0,
+    "avg_comments": 0.0,
+    "avg_shares": 0.0,
+    "avg_likes": 0.0,
+    "avg_view_percentage": 0.0
+  },
+  "rise_from_nothing": {
     "videos": 1,
     "avg_views": 0.0,
     "avg_comments": 0.0,

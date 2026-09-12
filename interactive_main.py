@@ -7,6 +7,7 @@ from interactive_analytics import record as record_analytics, build_comparison, 
 from generate_script.interactive import generate_script
 from tts import synthesize_script
 from stock_media_resilient import generate_media
+from story_person_media import generate_person_media, apply_person_media
 from music import download_music
 from sfx import generate_sfx
 from assemble import assemble_video
@@ -46,6 +47,17 @@ def _generate_story_script(topic,config,feedback):
     """Generate a standalone Story Short without applying the Publish-only continuation bridge."""
     return generate_script(topic,config,None,extra_feedback=feedback)
 
+def _person_credits(person_media):
+    lines=[]
+    for item in (person_media or {}).get("credits",[]):
+        if not isinstance(item,dict): continue
+        source=item.get("source_url") or ""
+        title=item.get("asset_title") or "Wikimedia Commons media"
+        creator=item.get("creator") or "Unknown creator"
+        license_name=item.get("license") or "license shown on source page"
+        if source: lines.append(f"{title} — {creator} — {license_name} — {source}")
+    return lines
+
 def run():
     config=dict(load_config() or {})
     voice=dict(config.get("voice") or {})
@@ -67,7 +79,7 @@ Do not turn the ending into a motivational lecture. The final CTA should be natu
 Do not create or mention a next-topic teaser; this Story Shorts line is standalone.
 """
     script=_generate_story_script(topic,config,feedback)
-    script.update({"topic":topic,"story_number":number,"story_person":person,"interactive_pillar":pillar,"story_visual_mode":"narration_atmosphere_v1"})
+    script.update({"topic":topic,"story_number":number,"story_person":person,"interactive_pillar":pillar,"story_visual_mode":"real_person_plus_atmosphere_v1"})
     _validate_story_contract(script)
     script["engagement"]={"comment":f"What would you have done in {person}'s situation? 👇"}
     workdir=os.path.join("output","interactive",str(int(time.time()))); os.makedirs(workdir,exist_ok=True); save(script,os.path.join(workdir,"script.json"))
@@ -76,13 +88,26 @@ Do not create or mention a next-topic teaser; this Story Shorts line is standalo
     elif isinstance(audio,(tuple,list)): audio=next((x for x in audio if isinstance(x,(str,os.PathLike)) and os.path.isfile(os.fspath(x))),audio[0] if audio else None)
     if not isinstance(audio,(str,os.PathLike)) or not os.path.isfile(os.fspath(audio)): raise RuntimeError(f"Story narration file invalid: {audio!r}")
     audio=os.path.abspath(os.fspath(audio)); print(f"🎙️ Story narration ready: {audio}")
+    person_media=generate_person_media(script,os.path.join(workdir,"person_media"),person)
     visuals=generate_media(script,os.path.join(workdir,"visuals"),config)
+    visuals=apply_person_media(visuals,person_media)
+    real_count=sum(1 for x in visuals if x.get("person_visual"))
+    print(f"👤 Story real-person visuals applied: {real_count}/{len((person_media or {}).get('assets',[]))} verified assets")
+    script["story_person_media"]={
+        "source":"Wikimedia Commons",
+        "verified_assets":real_count,
+        "target_scenes":[1,2,4,6,7],
+        "credits":_person_credits(person_media),
+    }
+    save(script,os.path.join(workdir,"script.json"))
     sfx=generate_sfx(script,os.path.join(workdir,"sfx")); music=download_music(script,os.path.join(workdir,"music")); final=os.path.join(workdir,"final.mp4")
     assemble_video(script,[audio],visuals,music,sfx,config,final)
     q=validate_final_video(final,expected_bitrate_mbps=100.0); save(q,os.path.join(workdir,"validation.json"))
     if not q.get("ok"): raise RuntimeError("Story final video validation failed.")
     title=_title(pillar,person)
-    desc=f"A remarkable true story about {person} — the struggle, turning point, and moment that changed everything.\n\nWhat would you have done in {person}'s situation? 👇\n\nSubscribe and follow for more powerful stories about people who faced setbacks, made difficult choices, and changed their lives.\n\n#StoryShorts #TrueStory #Inspiration #Shorts"
+    credits=_person_credits(person_media)
+    credit_block=("\n\nReal-person media credits:\n"+"\n".join(credits)) if credits else ""
+    desc=f"A remarkable true story about {person} — the struggle, turning point, and moment that changed everything.\n\nWhat would you have done in {person}'s situation? 👇\n\nSubscribe and follow for more powerful stories about people who faced setbacks, made difficult choices, and changed their lives.\n\n#StoryShorts #TrueStory #Inspiration #Shorts"+credit_block
     result=upload_video(final,title,desc,config,engagement_comment=script["engagement"]["comment"])
     vid=result if isinstance(result,str) else str(result.get("video_id") or result.get("id") or "") if isinstance(result,dict) else ""
     if not vid: raise RuntimeError("Story upload returned no video ID; sequence state was not advanced.")

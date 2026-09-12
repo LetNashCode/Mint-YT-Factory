@@ -52,7 +52,7 @@ def _person_credits(person_media):
     for item in (person_media or {}).get("credits",[]):
         if not isinstance(item,dict): continue
         source=item.get("source_url") or ""
-        title=item.get("asset_title") or "Wikimedia Commons media"
+        title=item.get("title") or "Wikimedia Commons media"
         creator=item.get("creator") or "Unknown creator"
         license_name=item.get("license") or "license shown on source page"
         if source: lines.append(f"{title} — {creator} — {license_name} — {source}")
@@ -73,7 +73,7 @@ SUBJECT: {topic}
 PERSON: {person}
 FORMAT: {pillar}
 Create a self-contained story. Do not mention the previous story or tease a future specific person.
-The viewer should understand the emotional arc with the phone face-down. Stock visuals are atmosphere/context only.
+The viewer should understand the emotional arc with the phone face-down. Real-person photos/footage may be used for key scenes; supporting stock visuals must remain atmosphere/context only.
 Use a hard hook, concrete stakes, an obstacle, a meaningful decision or turning point, escalation, and a satisfying payoff.
 Do not turn the ending into a motivational lecture. The final CTA should be natural: subscribe and follow for another remarkable story.
 Do not create or mention a next-topic teaser; this Story Shorts line is standalone.

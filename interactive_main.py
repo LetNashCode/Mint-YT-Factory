@@ -1,6 +1,6 @@
 """Independent Story Shorts pipeline. Replaces the former Riddles Shorts line and does not modify Publish Shorts."""
 from __future__ import annotations
-import json, os, time
+import json, os, re, time
 import yaml
 from moviepy.editor import AudioFileClip
 from interactive_topics import get_next_topic, record_topic, get_pending_story, save_pending_story, next_story_number
@@ -36,6 +36,14 @@ def _title(pillar,person):
     label=labels.get(pillar,"A Remarkable Story")
     return f"{label}: {person}"
 
+def _content_words(text):
+    stop={"the","a","an","and","or","but","so","to","of","in","on","at","for","with","from","was","were","is","are","this","that","it","he","she","they","his","her","their","had","have","has","as","by","not","what","when","who","how","then","just","one","more","because","after","before","into","than","very","would","could","did","do","does"}
+    return {w.lower().strip(".,!?;:'\"()[]{}") for w in re.findall(r"\b[\w'-]+\b",str(text or "")) if w.lower() not in stop and len(w)>2}
+
+def _last_sentence(text):
+    parts=[x.strip() for x in re.split(r"(?<=[.!?])\s+",str(text or "").strip()) if x.strip()]
+    return parts[-1] if parts else str(text or "").strip()
+
 def _validate_story_contract(script):
     scenes=script.get("scene_plan") or []
     if len(scenes)!=7: raise RuntimeError("Story contract requires exactly 7 scenes.")
@@ -43,9 +51,16 @@ def _validate_story_contract(script):
     if not narration: raise RuntimeError("Story narration is empty.")
     final=str(scenes[-1].get("narration",""))
     if "subscribe" not in final.lower() or "follow" not in final.lower(): raise RuntimeError("Story Scene 7 must contain subscribe and follow CTA.")
+    opening_hook=_last_sentence(str(scenes[0].get("narration","")))
+    closing_loop=_last_sentence(final)
+    overlap=_content_words(opening_hook) & _content_words(closing_loop)
+    if len(overlap)<2: raise RuntimeError("Story contract loop seam is too weak: Scene 7 must echo at least two opening-hook words.")
+    cta_positions=[m.end() for m in re.finditer(r"\b(?:subscribe|follow)\b",final,re.I)]
+    if cta_positions and not final[max(cta_positions):].strip(" .,!?:;-—"): raise RuntimeError("Story contract requires the loop-closing sentence after the CTA.")
+    print(f"🔁 Story contract loop validated: echo={', '.join(sorted(overlap)[:5])}")
 
 def _generate_story_script(topic,config,feedback):
-    """Generate a standalone Story Short without applying the Publish-only continuation bridge."""
+    """Generate a standalone looping Story Short without applying the Publish-only continuation bridge."""
     return generate_script(topic,config,None,extra_feedback=feedback)
 
 def _person_credits(person_media):
@@ -97,16 +112,18 @@ def run():
     previous=get_pending_story(); pillar,topic,person=get_next_topic(); number=next_story_number()
     if previous and number<=int(previous.get("number",0)): raise RuntimeError(f"Invalid story sequence state: next #{number} must follow pending Story #{previous.get('number')}.")
     print(f"📖 STORY SHORT #{number} | {pillar} | {person}")
-    feedback=f"""STORY SHORT #{number} — RETENTION-FIRST REAL-PERSON STORY.
+    feedback=f"""STORY SHORT #{number} — RETENTION-FIRST REAL-PERSON LOOP STORY.
 SUBJECT: {topic}
 PERSON: {person}
 FORMAT: {pillar}
 Create a self-contained story. Do not mention the previous story or tease a future specific person.
 The viewer must hear the COMPLETE story from hook through payoff before the CTA. Never omit, truncate, or compress away the final story beat just to meet a preferred duration.
-The viewer should understand the emotional arc with the phone face-down. Real-person photos/footage may be used for key scenes; supporting stock visuals must remain atmosphere/context only.
+This Short MUST use a spoken loop: Scene 1 opens with a distinctive hook; Scene 7 ends with a natural sentence that echoes that hook so the restart feels like the continuation of the ending.
+The viewer should understand the emotional arc with the phone face-down. Real-person photos/footage may be used for key identity moments; supporting stock visuals must remain atmosphere/context only.
 Use a hard hook, concrete stakes, an obstacle, a meaningful decision or turning point, escalation, and a satisfying payoff.
-Do not turn the ending into a motivational lecture. The final CTA should be natural: subscribe and follow for another remarkable story.
-Do not create or mention a next-topic teaser; this Story Shorts line is standalone.
+The final CTA must be concise and come BEFORE the final loop-closing sentence. Do not make the CTA the last spoken thought.
+Do not turn the ending into a motivational lecture. Do not create or mention a next-topic teaser; this Story Shorts line is standalone.
+Do not expose the loop with words like replay, loop, watch again, or back to the beginning.
 """
     script=_generate_story_script(topic,config,feedback)
     script.update({"topic":topic,"story_number":number,"story_person":person,"interactive_pillar":pillar,"story_visual_mode":"real_person_plus_atmosphere_v1"})

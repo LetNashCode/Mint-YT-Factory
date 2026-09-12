@@ -7,11 +7,11 @@ from pathlib import Path
 from . import entertainment as _base
 
 STORY_MIN_WORDS = 80
-STORY_MAX_WORDS = 125
+STORY_MAX_WORDS = 120
 # Keep scene bands flexible enough for natural storytelling. The total-word
 # contract is the primary pacing guard; Scene 7 is intentionally larger so the
 # payoff, CTA, and spoken loop seam can all survive.
-STORY_SCENE_WORD_BUDGETS = ((6,20),(7,20),(7,20),(7,20),(7,20),(7,20),(12,30))
+STORY_SCENE_WORD_BUDGETS = ((6,20),(7,20),(7,20),(7,20),(7,20),(7,20),(12,28))
 STORY_FORMATS = (
     {"name":"rise_from_nothing","direction":"Show the person before success, the obstacle, the decisive attempt, and the consequence. Never turn it into a generic motivational speech."},
     {"name":"one_decision","direction":"Build around one decision that changed the person's direction. Delay the consequence until late in the Short."},
@@ -47,17 +47,26 @@ def _last_sentence(text):
 
 
 def _ensure_story7_cta(text):
-    """Insert a short CTA before the authored loop sentence when Gemini omits it."""
+    """Guarantee a single CTA sentence immediately before the final loop sentence."""
     text=_base._clean(text)
-    if re.search(r"\bsubscribe\b",text,re.I) and re.search(r"\bfollow\b",text,re.I):
-        return text
     sentences=[x.strip() for x in re.split(r"(?<=[.!?])\s+",text) if x.strip()]
     if not sentences:
         return "Subscribe and follow for more remarkable stories."
+
+    # Remove any existing CTA sentence(s) so Gemini cannot accidentally place
+    # the CTA after the loop sentence. Preserve every non-CTA story sentence.
+    story_sentences=[]
+    for sentence in sentences:
+        has_subscribe=bool(re.search(r"\bsubscribe\b",sentence,re.I))
+        has_follow=bool(re.search(r"\bfollow\b",sentence,re.I))
+        if has_subscribe or has_follow:
+            continue
+        story_sentences.append(sentence)
+
     cta="Subscribe and follow for more remarkable stories."
-    if len(sentences)>=2:
-        return " ".join(sentences[:-1]+[cta,sentences[-1]])
-    return f"{cta} {sentences[0]}"
+    if len(story_sentences)>=1:
+        return " ".join(story_sentences[:-1]+[cta,story_sentences[-1]])
+    return cta
 
 
 def _validate_loop(scenes):
@@ -129,8 +138,15 @@ FORMAT DIRECTION: {story_format['direction']}
 
 Create exactly 7 scenes for a vertical YouTube Short about this person.
 The story must stand on narration alone. Real-person photos/footage may be used for key identity or historical moments when available; supporting stock footage/images are atmosphere and context only. Viewers must never need a particular image, face, object, map, screenshot, or on-screen text to understand the story.
-TARGET: {STORY_MIN_WORDS}-{STORY_MAX_WORDS} spoken words, naturally paced for roughly 32-44 seconds. Do not pad the story just to hit a number. Every line must move the story forward.
-SCENE BANDS: 1={STORY_SCENE_WORD_BUDGETS[0][0]}-{STORY_SCENE_WORD_BUDGETS[0][1]}, 2={STORY_SCENE_WORD_BUDGETS[1][0]}-{STORY_SCENE_WORD_BUDGETS[1][1]}, 3={STORY_SCENE_WORD_BUDGETS[2][0]}-{STORY_SCENE_WORD_BUDGETS[2][1]}, 4={STORY_SCENE_WORD_BUDGETS[3][0]}-{STORY_SCENE_WORD_BUDGETS[3][1]}, 5={STORY_SCENE_WORD_BUDGETS[4][0]}-{STORY_SCENE_WORD_BUDGETS[4][1]}, 6={STORY_SCENE_WORD_BUDGETS[5][0]}-{STORY_SCENE_WORD_BUDGETS[5][1]}, 7={STORY_SCENE_WORD_BUDGETS[6][0]}-{STORY_SCENE_WORD_BUDGETS[6][1]}.
+TARGET: 80-120 spoken words. Aim for 95-110 words, not the upper limit. Naturally paced for roughly 32-44 seconds. Do not pad the story just to hit a number. Every line must move the story forward.
+SCENE BANDS: 1=6-20, 2=7-20, 3=7-20, 4=7-20, 5=7-20, 6=7-20, 7=12-28.
+
+WORD-BUDGET RULE — CRITICAL:
+- Write the complete story first, then make it concise.
+- Prefer 95-110 words total.
+- Never exceed 120 words.
+- If a sentence can be shorter without losing a factual story beat, shorten it.
+- Do not add adjectives, setup, or repeated explanations merely to increase word count.
 
 LOOP STORY RULE — CRITICAL:
 - The Short must feel satisfying when played once AND when it immediately restarts.
@@ -185,8 +201,10 @@ Return the normal production JSON schema. Put the person's name in the topic/tit
     last_error=None
     for attempt in range(_base.MAX_ATTEMPTS):
         try:
-            retry=f"\nFix this validation error without changing the subject. Preserve the complete story and keep the CTA before the final loop sentence: {last_error}" if last_error else ""
-            response=client.models.generate_content(model=_base.MODEL_NAME,contents=prompt+retry,config=types.GenerateContentConfig(system_instruction=_base.SYSTEM_PROMPT,response_mime_type="application/json",response_json_schema=_base._build_schema(),temperature=.9))
+            retry=""
+            if last_error:
+                retry=f"\nRETRY {attempt+1}: Rewrite the narration to fix the validation error. Do not merely append text. Preserve every essential factual story beat. Keep the complete story, but make it concise. Aim for 95-110 total words and never exceed 120. Scene 7 must have exactly one short CTA sentence containing both subscribe and follow, placed immediately before the final loop sentence. The final loop sentence must remain the last sentence and must echo two distinctive hook words. Previous error: {last_error}"
+            response=client.models.generate_content(model=_base.MODEL_NAME,contents=prompt+retry,config=types.GenerateContentConfig(system_instruction=_base.SYSTEM_PROMPT,response_mime_type="application/json",response_json_schema=_base._build_schema(),temperature=.65))
             raw=getattr(response,"text",None)
             if not raw: raise RuntimeError("Gemini returned an empty story script.")
             result=_normalize_story(_base._parse(raw),topic)

@@ -11,7 +11,7 @@
       "likes": 13,
       "comments": 0,
       "engagement_rate": 1.496,
-      "checked_at": "2026-09-12T10:16:05.612840+00:00"
+      "checked_at": "2026-09-12T13:52:19.560046+00:00"
     },
     "snapshots": [
       {
@@ -34,6 +34,13 @@
         "comments": 0,
         "engagement_rate": 1.496,
         "checked_at": "2026-09-12T10:16:05.612840+00:00"
+      },
+      {
+        "views": 869,
+        "likes": 13,
+        "comments": 0,
+        "engagement_rate": 1.496,
+        "checked_at": "2026-09-12T13:52:19.560046+00:00"
       }
     ]
   },
@@ -46,10 +53,10 @@
     "workdir": "output/interactive/1789164082",
     "latest": {
       "views": 416,
-      "likes": 0,
+      "likes": 1,
       "comments": 0,
-      "engagement_rate": 0.0,
-      "checked_at": "2026-09-12T10:16:05.612840+00:00"
+      "engagement_rate": 0.2404,
+      "checked_at": "2026-09-12T13:52:19.560046+00:00"
     },
     "snapshots": [
       {
@@ -65,6 +72,13 @@
         "comments": 0,
         "engagement_rate": 0.0,
         "checked_at": "2026-09-12T10:16:05.612840+00:00"
+      },
+      {
+        "views": 416,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 0.2404,
+        "checked_at": "2026-09-12T13:52:19.560046+00:00"
       }
     ]
   },
@@ -76,11 +90,11 @@
     "title": "The Impossible Comeback: Mary Kom",
     "workdir": "output/interactive/1789203465",
     "latest": {
-      "views": 262,
-      "likes": 2,
+      "views": 730,
+      "likes": 14,
       "comments": 0,
-      "engagement_rate": 0.7634,
-      "checked_at": "2026-09-12T10:16:05.612840+00:00"
+      "engagement_rate": 1.9178,
+      "checked_at": "2026-09-12T13:52:19.560046+00:00"
     },
     "snapshots": [
       {
@@ -89,6 +103,13 @@
         "comments": 0,
         "engagement_rate": 0.7634,
         "checked_at": "2026-09-12T10:16:05.612840+00:00"
+      },
+      {
+        "views": 730,
+        "likes": 14,
+        "comments": 0,
+        "engagement_rate": 1.9178,
+        "checked_at": "2026-09-12T13:52:19.560046+00:00"
       }
     ]
   },
@@ -99,6 +120,30 @@
     "person": "Phil Knight",
     "title": "The Decision That Changed Everything: Phil Knight",
     "workdir": "output/interactive/1789208199",
+    "latest": {
+      "views": 752,
+      "likes": 11,
+      "comments": 0,
+      "engagement_rate": 1.4628,
+      "checked_at": "2026-09-12T13:52:19.560046+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 752,
+        "likes": 11,
+        "comments": 0,
+        "engagement_rate": 1.4628,
+        "checked_at": "2026-09-12T13:52:19.560046+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "IcKrCshqe3Q",
+    "topic": "Jim Carrey: Dropping Out at Age 15 to Work as a Factory Janitor in Canada.",
+    "pillar": "before_they_were_famous",
+    "person": "Jim Carrey",
+    "title": "Before the Fame: Jim Carrey",
+    "workdir": "output/interactive/1789221177",
     "latest": {},
     "snapshots": []
   }

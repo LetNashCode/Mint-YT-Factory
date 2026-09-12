@@ -20,18 +20,26 @@
     "avg_views": 416.0,
     "avg_comments": 0.0,
     "avg_shares": 0.0,
-    "avg_likes": 0.0,
+    "avg_likes": 1.0,
     "avg_view_percentage": 0.0
   },
   "rise_from_nothing": {
     "videos": 1,
-    "avg_views": 262.0,
+    "avg_views": 730.0,
     "avg_comments": 0.0,
     "avg_shares": 0.0,
-    "avg_likes": 2.0,
+    "avg_likes": 14.0,
     "avg_view_percentage": 0.0
   },
   "one_decision": {
+    "videos": 1,
+    "avg_views": 752.0,
+    "avg_comments": 0.0,
+    "avg_shares": 0.0,
+    "avg_likes": 11.0,
+    "avg_view_percentage": 0.0
+  },
+  "before_they_were_famous": {
     "videos": 1,
     "avg_views": 0.0,
     "avg_comments": 0.0,

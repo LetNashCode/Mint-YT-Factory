@@ -39,19 +39,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "before_they_were_famous",
-    "person": "Jim Carrey",
-    "premise": "Dropping Out at Age 15 to Work as a Factory Janitor in Canada.",
-    "hook": "Before starring in blockbuster comedies, he worked eight-hour shifts cleaning floors to help his family avoid homelessness.",
-    "key_facts": [
-      "Experienced severe financial distress when his father lost his accounting job in Ontario.",
-      "Dropped out of high school at age 15 to work full-time as a factory janitor and security guard.",
-      "Performed unpaid stand-up comedy sets at local Toronto clubs during his teenage years.",
-      "Relocated to Los Angeles in his late teens to pursue professional comedy."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "impossible_odds",
     "person": "Ernest Shackleton",
     "premise": "Surviving 500 Days on the Antarctic Ice After Their Ship Was Crushed.",

@@ -2,11 +2,11 @@
 tts.py
 Mint-YT-Factory
 
-Version 12.6 — SINGLE-PASS KOKORO PRIMARY + EDGE FALLBACK + RIDDLE PERSONALITIES
+Version 12.7 — SINGLE-PASS KOKORO PRIMARY + EDGE FALLBACK + STORY-FULL-NARRATION GUARD
 
 Narration is synthesized as one continuous request with Kokoro-82M using the
-configured voice. Riddles Shorts can automatically select a performance
-personality for each episode, changing voice, speed, and delivery direction.
+configured voice. Story Shorts use a wider duration budget so the complete
+narrative and CTA are preserved instead of being aggressively compressed.
 """
 
 import asyncio
@@ -19,6 +19,7 @@ from moviepy.editor import AudioFileClip
 from moviepy.audio.AudioClip import AudioArrayClip
 
 TARGET_MAX_DURATION = 36.80
+STORY_TARGET_MAX_DURATION = 44.20
 MIN_PLAYBACK_SPEED = 0.95
 MAX_PLAYBACK_SPEED = 1.10
 TTS_RETRIES = 2
@@ -69,7 +70,7 @@ def build_tts_pronunciation_text(text):
 
 
 def apply_narration_speed(clip, target_duration=None):
-    """Adapt playback speed while preserving the complete generated ending."""
+    """Adapt playback speed without dropping any generated audio samples."""
     try:
         duration = float(clip.duration)
         target = float(target_duration) if target_duration is not None else TARGET_MAX_DURATION
@@ -299,11 +300,20 @@ def _script_narration(script):
     return clean_text(" ".join(str(scene.get("narration", "")) for scene in scenes if isinstance(scene, dict)))
 
 
+def _is_story_script(script):
+    if not isinstance(script, dict):
+        return False
+    return bool(
+        str(script.get("story_person", "")).strip()
+        or str(script.get("interactive_pillar", "")).strip()
+        or str(script.get("story_visual_mode", "")).strip()
+    )
+
+
 def _apply_riddle_personality(script, config):
     """Apply an episode-specific performance personality without changing the script text."""
     if not isinstance(script, dict):
         return config
-    # Only activate for the Riddles pipeline; Publish Shorts keeps its existing voice behavior.
     if not str(script.get("riddle_creative_profile", "")).strip():
         return config
     try:
@@ -344,4 +354,6 @@ def synthesize_script(script, config, out_dir):
     os.makedirs(out_dir, exist_ok=True)
     output_path = os.path.join(out_dir, "story.mp3")
     effective_config = _apply_riddle_personality(script, config)
-    return synthesize_narration(narration, effective_config, output_path)
+    target = STORY_TARGET_MAX_DURATION if _is_story_script(script) else TARGET_MAX_DURATION
+    print(f"🎬 TTS narration mode: {'STORY FULL-NARRATION' if _is_story_script(script) else 'STANDARD'} | target={target:.2f}s")
+    return synthesize_narration(narration, effective_config, output_path, target_duration=target)

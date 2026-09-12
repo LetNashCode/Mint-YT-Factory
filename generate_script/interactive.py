@@ -47,7 +47,7 @@ def _clean_scenes(scenes):
         scene["narration"]=narration; scene["subtitle_text"]=narration; scene["visual_dependency"]="none"
         for visual in scene.get("visuals") or []:
             if isinstance(visual,dict):
-                visual["spoken_line"]=narration; visual["visual_action"]="Support the spoken story emotionally and contextually; the narration carries the story."; visual["visual_dependency"]="none"
+                visual["spoken_line"]=narration; visual["visual_action"]="Use a real-person photo or footage for key identity moments when available; otherwise use relevant atmosphere/context stock footage."; visual["visual_dependency"]="none"
     return scenes
 
 def _normalize_story(result,topic):
@@ -75,7 +75,7 @@ STORY FORMAT: {story_format['name']}
 FORMAT DIRECTION: {story_format['direction']}
 
 Create exactly 7 scenes for a vertical YouTube Short about this person.
-The story must stand on narration alone. Stock footage/images are atmosphere and context only; viewers must never need a particular image, face, object, map, screenshot, or on-screen text to understand the story.
+The story must stand on narration alone. Real-person photos/footage may be used for key identity or historical moments when available; supporting stock footage/images are atmosphere and context only. Viewers must never need a particular image, face, object, map, screenshot, or on-screen text to understand the story.
 TARGET: {STORY_MIN_WORDS}-{STORY_MAX_WORDS} spoken words, naturally paced for roughly 28-38 seconds. Every line must move the story forward.
 SCENE BANDS: 1={STORY_SCENE_WORD_BUDGETS[0][0]}-{STORY_SCENE_WORD_BUDGETS[0][1]}, 2={STORY_SCENE_WORD_BUDGETS[1][0]}-{STORY_SCENE_WORD_BUDGETS[1][1]}, 3={STORY_SCENE_WORD_BUDGETS[2][0]}-{STORY_SCENE_WORD_BUDGETS[2][1]}, 4={STORY_SCENE_WORD_BUDGETS[3][0]}-{STORY_SCENE_WORD_BUDGETS[3][1]}, 5={STORY_SCENE_WORD_BUDGETS[4][0]}-{STORY_SCENE_WORD_BUDGETS[4][1]}, 6={STORY_SCENE_WORD_BUDGETS[5][0]}-{STORY_SCENE_WORD_BUDGETS[5][1]}, 7={STORY_SCENE_WORD_BUDGETS[6][0]}-{STORY_SCENE_WORD_BUDGETS[6][1]}.
 
@@ -118,12 +118,9 @@ Return the normal production JSON schema. Put the person's name in the topic/tit
             response=client.models.generate_content(model=_base.MODEL_NAME,contents=prompt+retry,config=types.GenerateContentConfig(system_instruction=_base.SYSTEM_PROMPT,response_mime_type="application/json",response_json_schema=_base._build_schema(),temperature=.9))
             raw=getattr(response,"text",None)
             if not raw:raise RuntimeError("Gemini returned an empty story script.")
-            # IMPORTANT: do not call _base._normalize here. That function owns the
-            # Publish Shorts continuation/Scene 7 contract and was truncating Story
-            # Scene 7 or demanding a next-topic bridge.
             result=_normalize_story(_base._parse(raw),topic)
             scenes=_clean_scenes(result.get("scene_plan") or []); _validate_story(scenes); result["scene_plan"]=scenes
-            result["story_format"]=story_format["name"]; result["story_format_direction"]=story_format["direction"]; result["story_visual_mode"]="narration_atmosphere_v1"; result["story_factuality_policy"]="real-person-facts-no-invented-dialogue"; result["story_word_target"]={"min":STORY_MIN_WORDS,"max":STORY_MAX_WORDS}; result["visual_dependency"]="none"
+            result["story_format"]=story_format["name"]; result["story_format_direction"]=story_format["direction"]; result["story_visual_mode"]="real_person_plus_atmosphere_v1"; result["story_factuality_policy"]="real-person-facts-no-invented-dialogue"; result["story_word_target"]={"min":STORY_MIN_WORDS,"max":STORY_MAX_WORDS}; result["visual_dependency"]="none"
             total=sum(len(_words(s.get("narration",""))) for s in scenes); print(f"📖 Story Shorts narration validated: {total} words | format={story_format['name']}"); return result
         except Exception as exc:
             last_error=f"{type(exc).__name__}: {exc}"

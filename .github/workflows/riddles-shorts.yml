@@ -34,7 +34,7 @@ jobs:
 
       - name: Verify pipeline
         run: |
-          python -m py_compile interactive_main.py interactive_topics.py interactive_analytics.py generate_script/interactive.py whisper_align.py social_publish.py
+          python -m py_compile interactive_main.py interactive_topics.py interactive_analytics.py generate_script/interactive.py whisper_align.py social_publish.py media_frame_guard.py
 
       - name: Generate and publish Story Short
         env:
@@ -48,7 +48,7 @@ jobs:
           FACEBOOK_PAGE_ACCESS_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
           META_GRAPH_API_VERSION: ${{ vars.META_GRAPH_API_VERSION }}
           SOCIAL_PUBLISH_STRICT: ${{ vars.SOCIAL_PUBLISH_STRICT }}
-        run: python -u interactive_main.py
+        run: python -c "from media_frame_guard import patch_assemble_rgb; patch_assemble_rgb(); import runpy; runpy.run_path('interactive_main.py', run_name='__main__')"
 
       - name: Persist Story sequence state
         if: success()

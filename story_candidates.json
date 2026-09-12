@@ -39,19 +39,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Phil Knight",
-    "premise": "A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes.",
-    "hook": "While working as an accountant, he decided to start a shoe-importing business out of the trunk of his green Plymouth.",
-    "key_facts": [
-      "Ran middle distance track at the University of Oregon under coach Bill Bowerman.",
-      "Wrote a college paper exploring the economic viability of importing high-quality Japanese track shoes.",
-      "Traveled to Japan in 1962 to secure distribution rights for Onitsuka Tiger shoes.",
-      "Sold shoes out of his automobile at local track meets before founding Nike."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Jim Carrey",
     "premise": "Dropping Out at Age 15 to Work as a Factory Janitor in Canada.",

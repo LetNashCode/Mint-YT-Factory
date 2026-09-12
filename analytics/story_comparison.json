@@ -25,6 +25,14 @@
   },
   "rise_from_nothing": {
     "videos": 1,
+    "avg_views": 262.0,
+    "avg_comments": 0.0,
+    "avg_shares": 0.0,
+    "avg_likes": 2.0,
+    "avg_view_percentage": 0.0
+  },
+  "one_decision": {
+    "videos": 1,
     "avg_views": 0.0,
     "avg_comments": 0.0,
     "avg_shares": 0.0,

@@ -11,7 +11,7 @@
       "likes": 13,
       "comments": 0,
       "engagement_rate": 1.496,
-      "checked_at": "2026-09-12T08:56:49.511325+00:00"
+      "checked_at": "2026-09-12T10:16:05.612840+00:00"
     },
     "snapshots": [
       {
@@ -27,6 +27,13 @@
         "comments": 0,
         "engagement_rate": 1.496,
         "checked_at": "2026-09-12T08:56:49.511325+00:00"
+      },
+      {
+        "views": 869,
+        "likes": 13,
+        "comments": 0,
+        "engagement_rate": 1.496,
+        "checked_at": "2026-09-12T10:16:05.612840+00:00"
       }
     ]
   },
@@ -42,7 +49,7 @@
       "likes": 0,
       "comments": 0,
       "engagement_rate": 0.0,
-      "checked_at": "2026-09-12T08:56:49.511325+00:00"
+      "checked_at": "2026-09-12T10:16:05.612840+00:00"
     },
     "snapshots": [
       {
@@ -51,6 +58,13 @@
         "comments": 0,
         "engagement_rate": 0.0,
         "checked_at": "2026-09-12T08:56:49.511325+00:00"
+      },
+      {
+        "views": 416,
+        "likes": 0,
+        "comments": 0,
+        "engagement_rate": 0.0,
+        "checked_at": "2026-09-12T10:16:05.612840+00:00"
       }
     ]
   },
@@ -61,6 +75,30 @@
     "person": "Mary Kom",
     "title": "The Impossible Comeback: Mary Kom",
     "workdir": "output/interactive/1789203465",
+    "latest": {
+      "views": 262,
+      "likes": 2,
+      "comments": 0,
+      "engagement_rate": 0.7634,
+      "checked_at": "2026-09-12T10:16:05.612840+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 262,
+        "likes": 2,
+        "comments": 0,
+        "engagement_rate": 0.7634,
+        "checked_at": "2026-09-12T10:16:05.612840+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "kW3x0znSFbM",
+    "topic": "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes.",
+    "pillar": "one_decision",
+    "person": "Phil Knight",
+    "title": "The Decision That Changed Everything: Phil Knight",
+    "workdir": "output/interactive/1789208199",
     "latest": {},
     "snapshots": []
   }

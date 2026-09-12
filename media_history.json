@@ -1319,6 +1319,146 @@
       "shot": 2,
       "query": "tape rolls invisible grip strong even",
       "recorded_at": 1789195774
+    },
+    {
+      "asset_key": "pexels:video:3873102",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3873102/3873102-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "sneakers squeak floors obnoxious echoing down",
+      "recorded_at": 1789213385
+    },
+    {
+      "asset_key": "pexels:photo:7500610",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/7500610/pexels-photo-7500610.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 1,
+      "shot": 2,
+      "query": "sneakers squeak floors isn annoying rubber tread",
+      "recorded_at": 1789213400
+    },
+    {
+      "asset_key": "pexels:video:5481292",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5481292/5481292-hd_1280_720_24fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "sneakers squeak floors tiny acoustic instrument sneaker",
+      "recorded_at": 1789213405
+    },
+    {
+      "asset_key": "pexels:video:8472547",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8472547/8472547-hd_1366_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "sneakers squeak floors hidden right under your",
+      "recorded_at": 1789213408
+    },
+    {
+      "asset_key": "pexels:photo:7193626",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/7193626/pexels-photo-7193626.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 3,
+      "shot": 1,
+      "query": "sneakers squeak floors every single time you",
+      "recorded_at": 1789213415
+    },
+    {
+      "asset_key": "pexels:photo:6322602",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/6322602/pexels-photo-6322602.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 3,
+      "shot": 2,
+      "query": "sneakers squeak floors slips motion rubber edge",
+      "recorded_at": 1789213421
+    },
+    {
+      "asset_key": "pexels:video:19538619",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/19538619/19538619-hd_1280_720_24fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "sneakers squeak floors think like dragging wet",
+      "recorded_at": 1789213424
+    },
+    {
+      "asset_key": "pexels:photo:9226331",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/9226331/pexels-photo-9226331.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 4,
+      "shot": 2,
+      "query": "sneakers squeak floors across rim crystal glass",
+      "recorded_at": 1789213431
+    },
+    {
+      "asset_key": "pexels:photo:3375910",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/3375910/pexels-photo-3375910.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 5,
+      "shot": 1,
+      "query": "sneakers squeak floors instead sliding smoothly rubber",
+      "recorded_at": 1789213439
+    },
+    {
+      "asset_key": "pexels:photo:2738177",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/2738177/pexels-photo-2738177.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 5,
+      "shot": 2,
+      "query": "sneakers squeak floors snaps back repeats hundreds",
+      "recorded_at": 1789213446
+    },
+    {
+      "asset_key": "pexels:photo:38154586",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/38154586/pexels-photo-38154586.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 6,
+      "shot": 1,
+      "query": "sneakers squeak floors rapid stick slip creates",
+      "recorded_at": 1789213452
+    },
+    {
+      "asset_key": "pixabay:video:3171",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/05/12/3171-166338953_medium.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "sneakers squeak floors turn your shoe into",
+      "recorded_at": 1789213455
+    },
+    {
+      "asset_key": "pexels:photo:11946030",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/11946030/pexels-photo-11946030.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 7,
+      "shot": 1,
+      "query": "sneakers squeak floors every your footwear",
+      "recorded_at": 1789213461
+    },
+    {
+      "asset_key": "pixabay:photo:1011596",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/ga83ba5c34245088bff3318f6581d39e7635e21ee655d8976fef85e5d19eaf2d1152e7eca74648da86739c290cc31f9abdd0c6a0d75955007395b4d944f9f2950_1280.jpg",
+      "scene": 7,
+      "shot": 2,
+      "query": "sneakers squeak floors every your footwear",
+      "recorded_at": 1789213469
     }
   ]
 }

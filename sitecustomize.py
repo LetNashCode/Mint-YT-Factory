@@ -248,7 +248,7 @@ def _patch_stock_search(module):
                 if len(variants) >= 8:
                     break
 
-            safe_suffixes = ("close up", "bedroom", "being used", "compressed", "side view", "texture")
+            safe_suffixes = ("close up", "wide shot", "outdoor", "action", "walking", "hands")
             for suffix in safe_suffixes:
                 add(suffix.split(), "topic-lock-fallback")
                 if len(variants) >= 8:
@@ -257,6 +257,20 @@ def _patch_stock_search(module):
 
         def normalize_plan(script):
             plan = original_build_plan(script)
+
+            # Story Shorts are scene-driven. Their topic can be a person's name or
+            # generation metadata, which is not a useful stock-search subject.
+            # Keep the per-scene Gemini/deterministic visual ladder intact instead of
+            # forcing every shot through one topic prefix.
+            is_story = bool(
+                str(script.get("story_person", "")).strip()
+                or str(script.get("interactive_pillar", "")).strip()
+                or str(script.get("story_visual_mode", "")).strip()
+            )
+            if is_story:
+                print("📖 STORY VISUAL LOCK: preserving per-scene concrete queries; topic lock bypassed")
+                return plan
+
             if script.get("riddle_number") or script.get("riddle_visual_mode"):
                 print("🎭 RIDDLE VISUAL LOCK: preserving per-scene atmosphere queries; topic lock bypassed")
                 return plan

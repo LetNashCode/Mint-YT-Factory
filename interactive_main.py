@@ -48,20 +48,16 @@ def _last_sentence(text):
     return parts[-1] if parts else str(text or "").strip()
 
 def _validate_story_contract(script):
+    """Validate the complete seven-scene story and spoken loop; no CTA is part of the narration."""
     scenes=script.get("scene_plan") or []
     if len(scenes)!=7: raise RuntimeError("Story contract requires exactly 7 scenes.")
     narration=" ".join(str(s.get("narration","")) for s in scenes).strip()
     if not narration: raise RuntimeError("Story narration is empty.")
-    final=str(scenes[-1].get("narration",""))
-    if "subscribe" not in final.lower() or "follow" not in final.lower(): raise RuntimeError("Story Scene 7 must contain subscribe and follow CTA.")
     opening_hook=_last_sentence(str(scenes[0].get("narration","")))
-    closing_loop=_last_sentence(final)
+    closing_loop=_last_sentence(str(scenes[-1].get("narration","")))
     overlap=_content_words(opening_hook) & _content_words(closing_loop)
     if len(overlap)<2: raise RuntimeError("Story contract loop seam is too weak: Scene 7 must echo at least two opening-hook words.")
-    final_sentences=[x.strip() for x in re.split(r"(?<=[.!?])\s+",final) if x.strip()]
-    cta_sentences=[s for s in final_sentences if "subscribe" in s.lower() and "follow" in s.lower()]
-    if not cta_sentences or final_sentences[-1] in cta_sentences: raise RuntimeError("Story contract requires the loop-closing sentence after the CTA.")
-    print(f"🔁 Story contract loop validated: echo={', '.join(sorted(overlap)[:5])}")
+    print(f"🔁 Story contract loop validated: echo={', '.join(sorted(overlap)[:5])} | CTA=OFF")
 
 def _generate_story_script(topic,config,feedback):
     """Generate a standalone looping Story Short without applying the Publish-only continuation bridge."""
@@ -135,11 +131,11 @@ SUBJECT: {topic}
 PERSON: {person}
 FORMAT: {pillar}
 Create a self-contained story. Do not mention the previous story or tease a future specific person.
-The viewer must hear the COMPLETE story from hook through payoff before the CTA. Never omit, truncate, or compress away the final story beat just to meet a preferred duration.
+The viewer must hear the COMPLETE story from hook through payoff. Never omit, truncate, or compress away the final story beat just to meet a preferred duration.
 This Short MUST use a spoken loop: Scene 1 opens with a distinctive hook; Scene 7 ends with a natural sentence that echoes that hook so the restart feels like the continuation of the ending.
 The viewer should understand the emotional arc with the phone face-down. Real-person photos/footage may be used for key identity moments; supporting stock visuals must remain atmosphere/context only.
 Use a hard hook, concrete stakes, an obstacle, a meaningful decision or turning point, escalation, and a satisfying payoff.
-The final CTA must be concise and come BEFORE the final loop-closing sentence. Do not make the CTA the last spoken thought.
+Do NOT include a subscribe/follow CTA in the narration. End the spoken story on the natural loop-closing sentence.
 Do not turn the ending into a motivational lecture. Do not create or mention a next-topic teaser; this Story Shorts line is standalone.
 Do not expose the loop with words like replay, loop, watch again, or back to the beginning.
 """
@@ -175,22 +171,7 @@ Do not expose the loop with words like replay, loop, watch again, or back to the
     result=upload_video(final,title,desc,config,engagement_comment=script["engagement"]["comment"])
     vid=result if isinstance(result,str) else str(result.get("video_id") or result.get("id") or "") if isinstance(result,dict) else ""
     if not vid: raise RuntimeError("Story upload returned no video ID; sequence state was not advanced.")
-
-    _save_social_queue({
-        "schema_version": 1,
-        "run_id": str(os.environ.get("GITHUB_RUN_ID") or ""),
-        "artifact_name": f"story-shorts-{os.environ.get('GITHUB_RUN_ID','')}",
-        "workdir": workdir,
-        "final_relative": os.path.relpath(final, "."),
-        "video_id": vid,
-        "topic": topic,
-        "pillar": pillar,
-        "person": person,
-        "number": number,
-        "title": title,
-        "description": desc,
-    })
-
+    _save_social_queue({"schema_version":1,"run_id":str(os.environ.get("GITHUB_RUN_ID") or ""),"artifact_name":f"story-shorts-{os.environ.get('GITHUB_RUN_ID','')}","workdir":workdir,"final_relative":os.path.relpath(final,"."),"video_id":vid,"topic":topic,"pillar":pillar,"person":person,"number":number,"title":title,"description":desc})
     social_result=publish_social_reels(final,title,desc,config,workdir)
     print("📱 Story social publish summary:",json.dumps({name:(payload or {}).get("status") for name,payload in social_result.items() if name in {"instagram","facebook"}},ensure_ascii=False))
     if not _social_has_failures(social_result): _clear_social_queue()

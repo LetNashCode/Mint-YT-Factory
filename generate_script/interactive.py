@@ -113,6 +113,8 @@ WORD-BUDGET RULE — CRITICAL:
 - Never exceed 120 words.
 - If a sentence can be shorter without losing a factual story beat, shorten it.
 - Do not add filler merely to increase word count.
+- Before returning JSON, internally count every narration word. The seven scene narrations together MUST be between 80 and 120 words.
+- A response outside 80-120 words is invalid and must be rewritten before returning JSON.
 
 LOOP STORY RULE — CRITICAL:
 - The Short must feel satisfying when played once AND when it immediately restarts.
@@ -133,7 +135,7 @@ STORY ARC:
 - Scene 4: show the decision, action, encounter, or attempt that changed the trajectory.
 - Scene 5: escalate. Give one concrete consequence or setback before the payoff.
 - Scene 6: reveal the turning point and what it led to. Avoid a generic motivational lecture.
-- Scene 7: give the emotional payoff, then end on a single short loop-closing sentence that echoes the opening hook.
+- Scene 7: give the emotional payoff, then end with a single short loop-closing sentence that echoes the opening hook.
 
 FACTUALITY:
 - This is a factual story about a real person. Do not invent dialogue, private thoughts, dates, locations, achievements, causes, or dramatic details.
@@ -160,12 +162,17 @@ RECENT STORY SUBJECTS — avoid repeating or closely mirroring:
 Return the normal production JSON schema. Put the person's name in the topic/title metadata where appropriate, but keep the narration story-first.
 {extra_feedback}"""
     last_error=None
-    for attempt in range(_base.MAX_ATTEMPTS):
+    # Story generation gets a larger bounded retry budget than the shared
+    # entertainment generator. Story validation has several independent hard
+    # contracts (word count, seven scene bands, factuality shape, and loop seam),
+    # so a single creative miss should not terminate an otherwise healthy run.
+    story_attempts=max(int(getattr(_base,"MAX_ATTEMPTS",3)),5)
+    for attempt in range(story_attempts):
         try:
             retry=""
             if last_error:
-                retry=f"\nRETRY {attempt+1}: Rewrite the narration to fix the validation error. Do not merely append text. Preserve every essential factual story beat. Keep the complete story, but make it concise. Aim for 95-110 total words and never exceed 120. Scene 7 must contain NO subscribe/follow CTA. Its final sentence must echo two distinctive hook words and remain the final spoken sentence. Previous error: {last_error}"
-            response=client.models.generate_content(model=_base.MODEL_NAME,contents=prompt+retry,config=types.GenerateContentConfig(system_instruction=_base.SYSTEM_PROMPT,response_mime_type="application/json",response_json_schema=_base._build_schema(),temperature=.65))
+                retry=f"\nRETRY {attempt+1}: Rewrite the narration to fix the validation error. Do not merely append text. Preserve every essential factual story beat. Keep the complete story concise. TARGET EXACTLY 95-110 WORDS TOTAL; HARD LIMIT 80-120. Count all seven scene narrations before returning. If over 120, remove redundant wording rather than deleting an essential beat. If under 80, add one concise factual detail that advances the story. Scene 7 must contain NO subscribe/follow CTA. Its final sentence must echo two distinctive hook words and remain the final spoken sentence. Previous error: {last_error}"
+            response=client.models.generate_content(model=_base.MODEL_NAME,contents=prompt+retry,config=types.GenerateContentConfig(system_instruction=_base.SYSTEM_PROMPT,response_mime_type="application/json",response_json_schema=_base._build_schema(),temperature=.55))
             raw=getattr(response,"text",None)
             if not raw: raise RuntimeError("Gemini returned an empty story script.")
             result=_normalize_story(_base._parse(raw),topic)
@@ -174,5 +181,5 @@ Return the normal production JSON schema. Put the person's name in the topic/tit
             total=sum(len(_words(s.get("narration",""))) for s in scenes); print(f"📖 Story Shorts narration validated: {total} words | format={story_format['name']} | loop=ON | CTA=OFF"); return result
         except Exception as exc:
             last_error=f"{type(exc).__name__}: {exc}"
-            if attempt+1<_base.MAX_ATTEMPTS: print(f"⚠️ Story script attempt {attempt+1} rejected: {last_error}"); time.sleep(2)
+            if attempt+1<story_attempts: print(f"⚠️ Story script attempt {attempt+1} rejected: {last_error}"); time.sleep(2)
     raise RuntimeError(f"STORY SCRIPT GENERATION FAILED after bounded retries. Last error: {last_error}")

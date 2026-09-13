@@ -15,6 +15,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Install system media tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          ffprobe -version | head -n 1
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Compile Story Shorts runtime
@@ -58,7 +63,7 @@ jobs:
         if: always()
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot].com"
           git add story_topic_history.json pending_story.json story_counter.json story_candidates.json story_social_queue.json interactive_analytics.json interactive_analytics_history.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "Persist Story Shorts state"
           git pull --rebase --autostash origin "${GITHUB_REF_NAME}"

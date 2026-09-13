@@ -9,12 +9,15 @@ from generate_script.interactive import generate_script
 from tts import synthesize_script
 from stock_media_resilient import generate_media
 from story_person_media import generate_person_media, apply_person_media
+from story_media_preflight import validate_story_media
 from music import download_music
 from sfx import generate_sfx
 from assemble import assemble_video
 from upload_youtube import upload_video
 from social_publish import publish_social_reels
 from validate_video import validate_final_video
+
+SOCIAL_QUEUE_PATH = "story_social_queue.json"
 
 
 def load_config():
@@ -55,8 +58,9 @@ def _validate_story_contract(script):
     closing_loop=_last_sentence(final)
     overlap=_content_words(opening_hook) & _content_words(closing_loop)
     if len(overlap)<2: raise RuntimeError("Story contract loop seam is too weak: Scene 7 must echo at least two opening-hook words.")
-    cta_positions=[m.end() for m in re.finditer(r"\b(?:subscribe|follow)\b",final,re.I)]
-    if cta_positions and not final[max(cta_positions):].strip(" .,!?:;-—"): raise RuntimeError("Story contract requires the loop-closing sentence after the CTA.")
+    final_sentences=[x.strip() for x in re.split(r"(?<=[.!?])\s+",final) if x.strip()]
+    cta_sentences=[s for s in final_sentences if "subscribe" in s.lower() and "follow" in s.lower()]
+    if not cta_sentences or final_sentences[-1] in cta_sentences: raise RuntimeError("Story contract requires the loop-closing sentence after the CTA.")
     print(f"🔁 Story contract loop validated: echo={', '.join(sorted(overlap)[:5])}")
 
 def _generate_story_script(topic,config,feedback):
@@ -87,20 +91,34 @@ def _audio_duration(path):
 def _assert_complete_story_audio(audio_path, minimum_expected_seconds=0.0):
     """Fail before assembly/upload if the narration file is unexpectedly short."""
     duration=_audio_duration(audio_path)
-    if duration <= 0.05:
-        raise RuntimeError(f"Story narration has invalid duration: {duration:.2f}s")
-    if minimum_expected_seconds and duration + 0.05 < minimum_expected_seconds:
-        raise RuntimeError(f"Story narration is shorter than expected: {duration:.2f}s < {minimum_expected_seconds:.2f}s")
+    if duration <= 0.05: raise RuntimeError(f"Story narration has invalid duration: {duration:.2f}s")
+    if minimum_expected_seconds and duration + 0.05 < minimum_expected_seconds: raise RuntimeError(f"Story narration is shorter than expected: {duration:.2f}s < {minimum_expected_seconds:.2f}s")
     print(f"🛡️ COMPLETE STORY AUDIO CHECK: {duration:.2f}s — full narration file present")
     return duration
 
 def _assert_final_audio_contains_story(final_path, narration_duration):
     """Verify the encoded MP4 still contains the complete narration before upload."""
     duration=_audio_duration(final_path)
-    if duration + 0.05 < narration_duration:
-        raise RuntimeError(f"Final MP4 audio is shorter than source narration: {duration:.2f}s < {narration_duration:.2f}s")
+    if duration + 0.05 < narration_duration: raise RuntimeError(f"Final MP4 audio is shorter than source narration: {duration:.2f}s < {narration_duration:.2f}s")
     print(f"🛡️ FINAL STORY AUDIO CHECK: {duration:.2f}s >= narration {narration_duration:.2f}s")
     return duration
+
+def _save_social_queue(data):
+    save(data,SOCIAL_QUEUE_PATH)
+    print(f"💾 Story social recovery queued | run={data.get('run_id')} | artifact={data.get('artifact_name')}")
+
+def _clear_social_queue():
+    try:
+        os.remove(SOCIAL_QUEUE_PATH)
+        print("✅ Story social recovery queue cleared")
+    except FileNotFoundError:
+        pass
+
+def _social_has_failures(result):
+    for payload in (result or {}).values():
+        if isinstance(payload,dict) and str(payload.get("status") or "").lower()=="failed":
+            return True
+    return False
 
 def run():
     config=dict(load_config() or {})
@@ -138,14 +156,12 @@ Do not expose the loop with words like replay, loop, watch again, or back to the
     person_media=generate_person_media(script,os.path.join(workdir,"person_media"),person)
     visuals=generate_media(script,os.path.join(workdir,"visuals"),config)
     visuals=apply_person_media(visuals,person_media)
+    media_paths=[str(item.get("path")) for item in visuals if isinstance(item,dict) and item.get("path")]
+    media_paths += [str(item.get("path")) for item in (person_media or {}).get("assets",[]) if isinstance(item,dict) and item.get("path")]
+    validate_story_media(media_paths)
     real_count=sum(1 for x in visuals if x.get("person_visual"))
     print(f"👤 Story real-person visuals applied: {real_count}/{len((person_media or {}).get('assets',[]))} verified assets")
-    script["story_person_media"]={
-        "source":"Wikimedia Commons",
-        "verified_assets":real_count,
-        "target_scenes":[1,2,4,6,7],
-        "credits":_person_credits(person_media),
-    }
+    script["story_person_media"]={"source":"Wikimedia Commons","verified_assets":real_count,"target_scenes":[1,2,4,6,7],"credits":_person_credits(person_media)}
     save(script,os.path.join(workdir,"script.json"))
     sfx=generate_sfx(script,os.path.join(workdir,"sfx")); music=download_music(script,os.path.join(workdir,"music")); final=os.path.join(workdir,"final.mp4")
     assemble_video(script,[audio],visuals,music,sfx,config,final)
@@ -159,11 +175,26 @@ Do not expose the loop with words like replay, loop, watch again, or back to the
     result=upload_video(final,title,desc,config,engagement_comment=script["engagement"]["comment"])
     vid=result if isinstance(result,str) else str(result.get("video_id") or result.get("id") or "") if isinstance(result,dict) else ""
     if not vid: raise RuntimeError("Story upload returned no video ID; sequence state was not advanced.")
+
+    _save_social_queue({
+        "schema_version": 1,
+        "run_id": str(os.environ.get("GITHUB_RUN_ID") or ""),
+        "artifact_name": f"story-shorts-{os.environ.get('GITHUB_RUN_ID','')}",
+        "workdir": workdir,
+        "final_relative": os.path.relpath(final, "."),
+        "video_id": vid,
+        "topic": topic,
+        "pillar": pillar,
+        "person": person,
+        "number": number,
+        "title": title,
+        "description": desc,
+    })
+
     social_result=publish_social_reels(final,title,desc,config,workdir)
     print("📱 Story social publish summary:",json.dumps({name:(payload or {}).get("status") for name,payload in social_result.items() if name in {"instagram","facebook"}},ensure_ascii=False))
+    if not _social_has_failures(social_result): _clear_social_queue()
     record_topic(topic,pillar,title,vid,workdir,person=person); save_pending_story(pillar,topic,person,number)
-    persisted=get_pending_story()
-    if not persisted or int(persisted.get("number",0))!=number: raise RuntimeError("Failed to persist Story Shorts sequence state.")
     record_analytics(vid,topic,pillar,title,workdir,person=person); print("📊 Story comparison:",json.dumps(build_comparison(),ensure_ascii=False))
 
 if __name__=="__main__": run()

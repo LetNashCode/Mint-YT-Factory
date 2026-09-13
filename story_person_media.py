@@ -95,12 +95,7 @@ def _search_commons(query: str) -> list[dict]:
         "origin": "*",
     }
     try:
-        response = requests.get(
-            COMMONS_API,
-            params=params,
-            headers={"User-Agent": USER_AGENT},
-            timeout=TIMEOUT,
-        )
+        response = requests.get(COMMONS_API, params=params, headers={"User-Agent": USER_AGENT}, timeout=TIMEOUT)
         response.raise_for_status()
         pages = (response.json().get("query") or {}).get("pages") or {}
     except Exception as exc:
@@ -122,18 +117,16 @@ def _search_commons(query: str) -> list[dict]:
         artist = ext.get("Artist") or {}
         creator = artist.get("value") if isinstance(artist, dict) else artist
         license_name = _license_text(info)
-        result.append(
-            {
-                "title": title,
-                "url": url,
-                "thumburl": thumb,
-                "mime": mime,
-                "license": license_name,
-                "license_preference": _license_preference(license_name),
-                "source_page": f"https://commons.wikimedia.org/wiki/{title.replace(' ', '_')}",
-                "creator": _clean(creator, 250),
-            }
-        )
+        result.append({
+            "title": title,
+            "url": url,
+            "thumburl": thumb,
+            "mime": mime,
+            "license": license_name,
+            "license_preference": _license_preference(license_name),
+            "source_page": f"https://commons.wikimedia.org/wiki/{title.replace(' ', '_')}",
+            "creator": _clean(creator, 250),
+        })
     return result
 
 
@@ -144,16 +137,11 @@ def _gemini_verify(person: str, scene_narration: str, candidates: list[dict]) ->
     try:
         from google import genai
         from google.genai import types
-
         parts = []
         usable = []
         for item in candidates[:VERIFY_CANDIDATES]:
             try:
-                raw = requests.get(
-                    item["thumburl"],
-                    headers={"User-Agent": USER_AGENT},
-                    timeout=TIMEOUT,
-                ).content
+                raw = requests.get(item["thumburl"], headers={"User-Agent": USER_AGENT}, timeout=TIMEOUT).content
                 image = Image.open(io.BytesIO(raw)).convert("RGB")
                 image.thumbnail((768, 768))
                 out = io.BytesIO()
@@ -177,14 +165,10 @@ atmosphere image. File names alone are not sufficient evidence.
 Return ONLY JSON: {{\"best_index\": 0, \"score\": 0, \"reason\": \"short reason\"}}
 Score identity confidence from 0-10. Accept 6.5+ when the person's identity
 is reasonably clear. best_index is 1-based."""
-
         response = genai.Client(api_key=key).models.generate_content(
             model="gemini-flash-lite-latest",
             contents=[prompt, *parts],
-            config=types.GenerateContentConfig(
-                temperature=0.05,
-                response_mime_type="application/json",
-            ),
+            config=types.GenerateContentConfig(temperature=0.05, response_mime_type="application/json"),
         )
         payload = _json(getattr(response, "text", "") or "")
         index = int(payload.get("best_index", 0) or 0) - 1
@@ -198,12 +182,7 @@ is reasonably clear. best_index is 1-based."""
 
 def _scene_query(person: str, narration: str) -> str:
     words = re.findall(r"[a-zA-Z][a-zA-Z'-]{3,}", narration)
-    stop = {
-        "that", "this", "with", "from", "they", "their", "were", "when",
-        "what", "then", "into", "about", "because", "after", "before",
-        "would", "could", "there", "have", "been", "while", "just", "than",
-        "more", "very", "story", "person", "people", "life",
-    }
+    stop = {"that", "this", "with", "from", "they", "their", "were", "when", "what", "then", "into", "about", "because", "after", "before", "would", "could", "there", "have", "been", "while", "just", "than", "more", "very", "story", "person", "people", "life"}
     useful = []
     person_words = set(person.lower().split())
     for word in words:
@@ -214,20 +193,13 @@ def _scene_query(person: str, narration: str) -> str:
 
 
 def _rank_candidates(candidates: list[dict]) -> list[dict]:
-    # Keep identity search broad. Rights metadata is a preference only and
-    # never replaces identity verification.
     return sorted(candidates, key=lambda x: x.get("license_preference", 0), reverse=True)
 
 
 def _download(url: str, path: str) -> bool:
     tmp = f"{path}.part"
     try:
-        with requests.get(
-            url,
-            headers={"User-Agent": USER_AGENT, "Accept": "*/*"},
-            stream=True,
-            timeout=(10, TIMEOUT),
-        ) as response:
+        with requests.get(url, headers={"User-Agent": USER_AGENT, "Accept": "*/*"}, stream=True, timeout=(10, TIMEOUT)) as response:
             response.raise_for_status()
             with open(tmp, "wb") as handle:
                 for chunk in response.iter_content(1024 * 1024):
@@ -258,7 +230,6 @@ def generate_person_media(script: dict, output_dir: str, person: str) -> dict:
     person = _clean(person, 180)
     if not person:
         return {"assets": [], "credits": []}
-
     os.makedirs(output_dir, exist_ok=True)
     scenes = script.get("scene_plan") or []
     assets = []
@@ -271,16 +242,11 @@ def generate_person_media(script: dict, output_dir: str, person: str) -> dict:
             continue
         narration = _clean(scenes[scene_no - 1].get("narration"), 500)
         query = _scene_query(person, narration)
-
-        # First search the person + scene context, then the person's name alone.
-        # This makes the person's identity the search anchor instead of generic
-        # visual keywords.
         candidates = _search_commons(query)
         if not candidates:
             candidates = _search_commons(person)
         candidates = [x for x in candidates if x.get("title") not in seen_titles]
         candidates = _rank_candidates(candidates)
-
         if not candidates:
             print(f"   ↪️ Scene {scene_no}: no real-person candidates found")
             continue
@@ -290,24 +256,19 @@ def generate_person_media(script: dict, output_dir: str, person: str) -> dict:
             batch = remaining[:VERIFY_CANDIDATES]
             chosen_index = _gemini_verify(person, narration, batch)
             if chosen_index is None:
-                # Try the next candidate batch instead of immediately falling
-                # back to generic stock media.
                 remaining = remaining[VERIFY_CANDIDATES:]
                 if remaining:
                     print(f"      ↪️ Scene {scene_no}: trying next person-media candidate batch")
                     continue
                 print(f"   ↪️ Scene {scene_no}: no confidently verified real-person asset")
                 break
-
             chosen = batch.pop(chosen_index)
             remaining = remaining[VERIFY_CANDIDATES:]
             seen_titles.add(chosen["title"])
             path = os.path.join(output_dir, _safe_filename(len(assets) + 1, chosen["mime"]))
-
             if not _download(chosen["url"], path):
                 print(f"      ↪️ Trying another verified person-media candidate for Scene {scene_no}")
                 continue
-
             asset = {
                 "scene": scene_no,
                 "path": path,
@@ -322,27 +283,14 @@ def generate_person_media(script: dict, output_dir: str, person: str) -> dict:
             }
             assets.append(asset)
             credits.append(asset)
-            print(
-                f"   ✅ Scene {scene_no}: VERIFIED {asset['type'].upper()} — "
-                f"{asset['title']} | rights metadata: {asset['license']}"
-            )
+            print(f"   ✅ Scene {scene_no}: VERIFIED {asset['type'].upper()} — {asset['title']} | rights metadata: {asset['license']}")
             break
 
-    return {
-        "assets": assets,
-        "credits": credits,
-        "person": person,
-        "priority": "real_person_first",
-        "generated_at": int(time.time()),
-    }
+    return {"assets": assets, "credits": credits, "person": person, "priority": "real_person_first", "generated_at": int(time.time())}
 
 
 def apply_person_media(visuals: list, person_media: dict) -> list:
-    assets = {
-        int(x.get("scene")): x
-        for x in (person_media or {}).get("assets", [])
-        if isinstance(x, dict) and x.get("path")
-    }
+    assets = {int(x.get("scene")): x for x in (person_media or {}).get("assets", []) if isinstance(x, dict) and x.get("path")}
     for group in visuals or []:
         scene = int(group.get("scene", 0) or 0)
         if scene not in assets:
@@ -350,18 +298,6 @@ def apply_person_media(visuals: list, person_media: dict) -> list:
         asset = assets[scene]
         if not os.path.isfile(asset["path"]):
             continue
-        group.update(
-            {
-                "path": asset["path"],
-                "type": asset["type"],
-                "provider": asset["provider"],
-                "creator": asset.get("creator", ""),
-                "query": asset.get("query", ""),
-                "source_url": asset.get("source_url", ""),
-                "license": asset.get("license", "Unknown / not supplied"),
-                "person_visual": True,
-                "asset_title": asset.get("title", ""),
-            }
-        )
+        group.update({"path": asset["path"], "type": asset["type"], "provider": asset["provider"], "creator": asset.get("creator", ""), "query": asset.get("query", ""), "source_url": asset.get("source_url", ""), "license": asset.get("license", "Unknown / not supplied"), "person_visual": True, "asset_title": asset.get("title", "")})
         assets.pop(scene, None)
     return visuals

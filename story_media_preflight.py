@@ -21,14 +21,16 @@ def _normalize_image(path: Path) -> None:
         image.load()
         if image.width <= 0 or image.height <= 0:
             raise RuntimeError(f"Image has invalid dimensions: {path}")
-        # MoviePy/PIL can expose grayscale, palette, CMYK, or RGBA frames.
-        # Normalize to RGB on disk so the render stage receives a predictable
-        # HxWx3-compatible image regardless of the source format.
-        if image.mode != "RGB":
-            rgb = image.convert("RGB")
-            tmp = path.with_name(path.name + ".rgb.tmp.jpg")
-            rgb.save(tmp, format="JPEG", quality=95, optimize=True)
-            os.replace(tmp, path)
+        if image.mode == "RGB":
+            return
+        rgb = image.convert("RGB")
+        suffix = path.suffix.lower()
+        formats = {".jpg": "JPEG", ".jpeg": "JPEG", ".png": "PNG", ".webp": "WEBP", ".bmp": "BMP", ".tif": "TIFF", ".tiff": "TIFF"}
+        fmt = formats.get(suffix, "PNG")
+        tmp = path.with_name(path.name + ".rgb.tmp")
+        save_kwargs = {"quality": 95, "optimize": True} if fmt == "JPEG" else {}
+        rgb.save(tmp, format=fmt, **save_kwargs)
+        os.replace(tmp, path)
 
 
 def _validate_video(path: Path) -> None:

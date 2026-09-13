@@ -8,16 +8,26 @@ from __future__ import annotations
 import contextlib
 import json
 import re
+import traceback
 import wave
 from pathlib import Path
 
+import torch
 import whisper
+from whisper.audio import SAMPLE_RATE, N_SAMPLES, log_mel_spectrogram, pad_or_trim
+from whisper.decoding import DecodingOptions
 
 MODEL_NAME = "base.en"
 RETRY_MODEL_NAME = "tiny.en"
 MIN_COVERAGE = 0.90
 MIN_SCENE_COVERAGE = 0.80
 MAX_MISSING_RUN = 7
+# Decode directly in fixed Whisper windows instead of using whisper.transcribe().
+# This content gate does not need timestamps, and direct decoding avoids fragile
+# timestamp/segment bookkeeping in some Whisper builds when a window produces
+# only special/timestamp tokens.
+DECODE_WINDOW_SECONDS = 30.0
+DECODE_OVERLAP_SECONDS = 2.0
 _model = None
 _retry_model = None
 _WORD_RE = re.compile(r"[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*")
@@ -49,20 +59,49 @@ def _audio_duration(path):
         return 0.0
 
 
-def _observed(result):
-    # The content gate only needs transcript text. Word-level timestamps are
-    # deliberately disabled because Whisper's optional alignment path is more
-    # fragile than ordinary transcription and adds no value to this check.
-    words = []
-    for seg in result.get("segments", []) or []:
-        text = str(seg.get("text") or "")
-        tokens = _WORD_RE.findall(text)
-        if tokens:
-            words.extend(x.lower() for x in tokens)
-    if not words:
-        text = str(result.get("text") or "")
-        words = [w.lower() for w in _WORD_RE.findall(text)]
-    return words
+def _decode_window(model, audio, start_sample, end_sample):
+    """Decode one fixed Whisper window without invoking whisper.transcribe()."""
+    segment = audio[start_sample:end_sample]
+    segment = pad_or_trim(segment, N_SAMPLES)
+    mel = log_mel_spectrogram(segment, model.dims.n_mels)
+    options = DecodingOptions(
+        language="en",
+        task="transcribe",
+        temperature=0.0,
+        beam_size=1,
+        best_of=None,
+        without_timestamps=True,
+        fp16=False,
+        suppress_tokens="-1",
+    )
+    result = model.decode(mel.to(model.device), options)
+    return str(getattr(result, "text", "") or "").strip()
+
+
+def _direct_decode(model, audio_path):
+    """Return transcript text using deterministic fixed-window decoding."""
+    audio = whisper.load_audio(str(audio_path))
+    total = len(audio)
+    if total <= 0:
+        return ""
+    window = int(DECODE_WINDOW_SECONDS * SAMPLE_RATE)
+    overlap = int(DECODE_OVERLAP_SECONDS * SAMPLE_RATE)
+    step = max(1, window - overlap)
+    texts = []
+    start = 0
+    while start < total:
+        end = min(total, start + window)
+        text = _decode_window(model, audio, start, end)
+        if text:
+            texts.append(text)
+        if end >= total:
+            break
+        start += step
+    return " ".join(texts).strip()
+
+
+def _observed_text(text):
+    return [w.lower() for w in _WORD_RE.findall(str(text or ""))]
 
 
 def _norm(word):
@@ -76,8 +115,6 @@ def _align(expected, observed):
     n, m = len(expected), len(observed)
     if not n or not m:
         return set()
-    # Bounded banded LCS-like alignment. Exact words are preferred; small
-    # filler differences do not erase the fact that a whole phrase is absent.
     prev = [0] * (m + 1)
     rows = []
     for i in range(n):
@@ -112,22 +149,18 @@ def verify_narration(audio_path: str, script_path: str, *, log_prefix="🎙️")
     best_model = None
     for name in (MODEL_NAME, RETRY_MODEL_NAME):
         try:
-            result = _get_model(name).transcribe(
-                str(audio_path), language="en", task="transcribe", word_timestamps=False,
-                fp16=False, temperature=0, best_of=3 if name == MODEL_NAME else 1,
-                beam_size=5 if name == MODEL_NAME else 1,
-                condition_on_previous_text=False, compression_ratio_threshold=2.8,
-                logprob_threshold=-1.2, no_speech_threshold=0.35, verbose=False,
-            )
-            observed = _observed(result)
+            transcript = _direct_decode(_get_model(name), audio_path)
+            observed = _observed_text(transcript)
             matched = _align(expected, observed)
             if len(matched) > len(best):
                 best, observed_count, best_model = matched, len(observed), name
             coverage = len(matched) / max(1, len(expected))
+            print(f"{log_prefix} Whisper {name}: observed={len(observed)} words | matched={len(matched)} ({coverage:.0%})")
             if coverage >= MIN_COVERAGE:
                 break
         except Exception as exc:
             print(f"⚠️ Narration content check {name} failed: {type(exc).__name__}: {exc}")
+            traceback.print_exc()
 
     missing = [i for i in range(len(expected)) if i not in best]
     longest_run = 0

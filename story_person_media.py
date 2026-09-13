@@ -24,7 +24,19 @@ TIMEOUT = 25
 VERIFY_CANDIDATES = 6
 VERIFY_THRESHOLD = 6.5
 TARGET_SCENES = (1, 2, 3, 4, 5, 6, 7)
-PERSON_UA = "Mint-YT-Factory/StoryPersonMedia/1.6"
+PERSON_UA = "Mint-YT-Factory/StoryPersonMedia/1.7"
+
+# Titles containing these terms are not safe identity evidence. This is
+# intentionally conservative: a correct-looking image of a relative, namesake,
+# memorial, place, or fictional character is worse than falling back to stock.
+IDENTITY_BLOCK_TERMS = {
+    "daughter", "son", "wife", "husband", "father", "mother", "brother", "sister",
+    "relative", "family", "granddaughter", "grandson", "parent", "parents",
+    "statue", "monument", "residence", "house", "home", "road", "street",
+    "school", "museum", "memorial", "tribute", "painting", "sculpture",
+    "grave", "tomb", "plaque", "theatre", "theater", "station", "airport",
+    "trainor", "tribute", "impersonator", "lookalike", "fictional", "character",
+}
 
 
 def _clean(value: Any, maximum: int = 500) -> str:
@@ -57,6 +69,27 @@ def _json(text: str) -> dict:
 def _candidate_image(item: dict) -> str:
     """Prefer provider thumbnails; original Wikimedia files can trigger 429s."""
     return str(item.get("thumburl") or item.get("url") or "").strip()
+
+
+def _identity_candidate_allowed(person: str, item: dict) -> bool:
+    """Reject obvious indirect/related-person candidates before vision or fallback."""
+    title = _clean(item.get("title"), 500).lower()
+    creator = _clean(item.get("creator"), 250).lower()
+    haystack = f"{title} {creator}"
+    if any(re.search(rf"\b{re.escape(term)}\b", haystack) for term in IDENTITY_BLOCK_TERMS):
+        return False
+
+    # Explicitly reject common namesakes/fictional people. In particular,
+    # Tenzing Norgay Trainor must never be treated as Tenzing Norgay.
+    requested = " ".join(re.findall(r"[a-z][a-z'-]{2,}", person.lower()))
+    if requested and "trainor" in haystack:
+        return False
+
+    # If a title contains a clearly different full person name after the
+    # requested name, don't let a loose archival search turn that into identity.
+    if requested and re.search(rf"\b{re.escape(requested)}\b", title):
+        return True
+    return True
 
 
 def _gemini_verify(person: str, scene_narration: str, candidates: list[dict]) -> int | None:
@@ -92,14 +125,13 @@ Candidates are supplied in order from archival/photo/video sources.
 REAL PERSON IDENTITY IS THE TOP PRIORITY. Select the clearest unmistakable
 photo or video frame of the requested person. Prefer authentic historical
 photos, interviews, events, work, performances, or other footage where the
-person is visibly identifiable. Do not select logos, statues, paintings,
-unrelated people, or generic stock imagery.
+person is visibly identifiable. Do not select relatives, namesakes, statues,
+memorials, paintings, logos, or generic stock imagery. If no candidate clearly
+shows the requested person, return best_index 0 and identity_score 0.
 Return ONLY JSON: {{\"best_index\": 1, \"identity_score\": 0, \"relevance_score\": 0, \"reason\": \"short reason\"}}
 Score identity and scene relevance from 0-10. Accept identity 6.5+.
 The best_index is 1-based."""
 
-    # A fresh client per attempt prevents a closed SDK transport from poisoning
-    # the remaining Story person-media run.
     last_exc = None
     for attempt in range(1, 3):
         try:
@@ -135,27 +167,19 @@ def _metadata_fallback_index(person: str, candidates: list[dict]) -> int | None:
         return None
     full_name = " ".join(person_words)
     surname = person_words[-1]
-    forbidden = {
-        "daughter", "son", "wife", "husband", "brother", "sister", "family",
-        "statue", "monument", "residence", "house", "road", "street", "school",
-        "museum", "memorial", "trainor", "tribute", "painting", "portrait of statue",
-    }
     best = None
     best_score = 0
     for index, item in enumerate(candidates[:VERIFY_CANDIDATES]):
         title = _clean(item.get("title"), 500).lower()
         source = _clean(item.get("source"), 120).lower()
-        hay = f"{title} {_clean(item.get('creator'), 250).lower()}"
+        if not _identity_candidate_allowed(person, item):
+            continue
         if not ("wikimedia" in source or "archive" in source or "europeana" in source):
             continue
-        if any(re.search(rf"\b{re.escape(word)}\b", title) for word in forbidden):
-            continue
-        # Require the requested full name to appear together in the title, not
-        # merely the surname or a related person's title.
         if not re.search(rf"\b{re.escape(full_name)}\b", title):
             continue
         score = 5
-        if re.search(rf"\b{re.escape(surname)}\b", hay):
+        if re.search(rf"\b{re.escape(surname)}\b", title):
             score += 1
         if "wikimedia" in source:
             score += 1
@@ -210,9 +234,17 @@ def generate_person_media(script: dict, output_dir: str, person: str) -> dict:
         if scene_no > len(scenes):
             continue
         narration = _clean(scenes[scene_no - 1].get("narration"), 500)
-        candidates = [x for x in search_person_media(person, narration) if (x.get("source_url") or x.get("url")) not in seen]
+        raw_candidates = search_person_media(person, narration)
+        candidates = [
+            x for x in raw_candidates
+            if (x.get("source_url") or x.get("url")) not in seen
+            and _identity_candidate_allowed(person, x)
+        ]
+        filtered = len(raw_candidates) - len(candidates)
+        if filtered:
+            print(f"      🛡️ Scene {scene_no}: rejected {filtered} obvious non-person/related candidates before verification")
         if not candidates:
-            print(f"   ↪️ Scene {scene_no}: no person-media candidates found")
+            print(f"   ↪️ Scene {scene_no}: no safe person-media candidates found")
             continue
         remaining = list(candidates)
         while remaining:
@@ -240,9 +272,6 @@ def generate_person_media(script: dict, output_dir: str, person: str) -> dict:
             chosen = batch[chosen_index]
             source_key = chosen.get("source_url") or chosen.get("url")
             seen.add(source_key)
-            # Images use the provider thumbnail for the actual download too.
-            # This avoids Wikimedia original-file 429s while preserving the
-            # source URL and license metadata for attribution.
             download_url = chosen.get("thumburl") or chosen.get("url")
             path = os.path.join(output_dir, _safe_filename(len(assets) + 1, chosen.get("mime", "image/jpeg")))
             if not _download(download_url, path):

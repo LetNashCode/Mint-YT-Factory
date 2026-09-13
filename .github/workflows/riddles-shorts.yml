@@ -44,7 +44,16 @@ jobs:
           META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
           FLICKR_API_KEY: ${{ secrets.FLICKR_API_KEY }}
           EUROPEANA_API_KEY: ${{ secrets.EUROPEANA_API_KEY }}
-        run: python -c "from media_frame_guard import patch_assemble_rgb; patch_assemble_rgb(); import runpy; runpy.run_path('interactive_main.py', run_name='__main__')"
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+        run: |
+          set -euo pipefail
+          echo "🔐 Story stock provider credentials:"
+          echo "   Pexels: ${PEXELS_API_KEY:+AVAILABLE}"
+          echo "   Pixabay: ${PIXABAY_API_KEY:+AVAILABLE}"
+          test -n "$PEXELS_API_KEY" || { echo "❌ Missing GitHub secret PEXELS_API_KEY"; exit 1; }
+          test -n "$PIXABAY_API_KEY" || { echo "❌ Missing GitHub secret PIXABAY_API_KEY"; exit 1; }
+          python -c "from media_frame_guard import patch_assemble_rgb; patch_assemble_rgb(); import runpy; runpy.run_path('interactive_main.py', run_name='__main__')"
       - name: Persist Story Shorts state
         if: always()
         run: |

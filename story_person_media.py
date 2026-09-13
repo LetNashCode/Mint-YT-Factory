@@ -2,8 +2,9 @@
 
 Uses Wikimedia Commons as the first-party/publicly licensed source for real
 photos and video of the story subject. Candidates are identity-checked with
-Gemini Vision when available and only permissive/reusable licenses are used.
-The module is Story Shorts-only and does not touch Publish Shorts state.
+Gemini Vision when available and only explicitly commercial-compatible
+licenses are accepted. The module is Story Shorts-only and does not touch
+Publish Shorts state.
 """
 from __future__ import annotations
 
@@ -19,15 +20,26 @@ import requests
 from PIL import Image
 
 COMMONS_API = "https://commons.wikimedia.org/w/api.php"
-USER_AGENT = "Mint-YT-Factory/StoryPersonMedia/1.0 (YouTube Story Shorts)"
+USER_AGENT = "Mint-YT-Factory/StoryPersonMedia/1.1 (YouTube Story Shorts)"
 TIMEOUT = 25
 MAX_RESULTS = 12
 VERIFY_CANDIDATES = 6
 VERIFY_THRESHOLD = 7.0
 TARGET_SCENES = (1, 2, 4, 6, 7)
-ALLOWED_LICENSE_TOKENS = (
-    "cc by", "cc by-sa", "cc0", "public domain", "pdm", "pd-us", "pd-old",
-)
+
+# Exact/normalized license families that are suitable for commercial reuse.
+# Do NOT use substring matching for "CC BY" because it also matches
+# CC BY-NC / CC BY-ND variants.
+ALLOWED_LICENSE_NAMES = {
+    "cc by",
+    "cc by-sa",
+    "cc0",
+    "public domain",
+    "pdm",
+    "pd-us",
+    "pd-old",
+}
+REJECTED_LICENSE_MARKERS = ("noncommercial", "non-commercial", "no derivatives", "no-derivatives", "nc", "nd")
 
 
 def _clean(value: Any, maximum: int = 500) -> str:
@@ -65,7 +77,6 @@ def _gemini_verify(person: str, scene_narration: str, candidates: list[dict]) ->
     try:
         from google import genai
         from google.genai import types
-
         parts = []
         usable = []
         for item in candidates[:VERIFY_CANDIDATES]:
@@ -119,8 +130,15 @@ def _license_text(metadata: dict) -> str:
 
 
 def _license_allowed(metadata: dict) -> bool:
-    text = _license_text(metadata).lower()
-    return bool(text) and any(token in text for token in ALLOWED_LICENSE_TOKENS)
+    text = _license_text(metadata).lower().strip()
+    if not text:
+        return False
+    normalized = re.sub(r"[^a-z0-9]+", " ", text).strip()
+    if any(marker in normalized.split() for marker in ("nc", "nd")):
+        return False
+    if "noncommercial" in normalized or "non commercial" in normalized or "no derivatives" in normalized or "no derivative" in normalized:
+        return False
+    return normalized in ALLOWED_LICENSE_NAMES
 
 
 def _search_commons(query: str) -> list[dict]:
@@ -137,7 +155,6 @@ def _search_commons(query: str) -> list[dict]:
     except Exception as exc:
         print(f"      ⚠️ Wikimedia Commons search failed: {type(exc).__name__}")
         return []
-
     result = []
     for page in pages.values():
         info = (page.get("imageinfo") or [{}])[0]
@@ -152,10 +169,7 @@ def _search_commons(query: str) -> list[dict]:
         if not _license_allowed(info):
             continue
         result.append({
-            "title": title,
-            "url": url,
-            "thumburl": thumb,
-            "mime": mime,
+            "title": title, "url": url, "thumburl": thumb, "mime": mime,
             "license": _license_text(info),
             "source_page": f"https://commons.wikimedia.org/wiki/{title.replace(' ', '_')}",
             "creator": _clean(((info.get("extmetadata") or {}).get("Artist") or {}).get("value", ""), 250),
@@ -197,9 +211,10 @@ def _scene_query(person: str, narration: str) -> str:
     words = re.findall(r"[a-zA-Z][a-zA-Z'-]{3,}", narration)
     stop = {"that", "this", "with", "from", "they", "their", "were", "when", "what", "then", "into", "about", "because", "after", "before", "would", "could", "there", "have", "been", "while", "just", "than", "more", "very"}
     useful = []
+    person_words = set(person.lower().split())
     for word in words:
         w = word.lower()
-        if w not in stop and w not in useful and w not in person.lower().split():
+        if w not in stop and w not in useful and w not in person_words:
             useful.append(w)
     return _clean(f"{person} {' '.join(useful[:3])}", 180)
 
@@ -207,9 +222,8 @@ def _scene_query(person: str, narration: str) -> str:
 def generate_person_media(script: dict, output_dir: str, person: str) -> dict:
     """Return verified real-person assets keyed by scene number.
 
-    The result is intentionally small: one real-person visual for up to five
-    high-value scenes. Missing/uncertain assets are simply omitted so the
-    normal stock pipeline can fill those scenes.
+    Several verified candidates are retained so a transient download failure
+    can fall through to the next valid source instead of losing the scene.
     """
     person = _clean(person, 180)
     if not person:
@@ -234,30 +248,29 @@ def generate_person_media(script: dict, output_dir: str, person: str) -> dict:
             print(f"   ↪️ Scene {scene_no}: no reusable Commons candidates")
             continue
 
-        chosen_index = _gemini_verify(person, narration, candidates)
-        if chosen_index is None:
-            print(f"   ↪️ Scene {scene_no}: no confidently verified real-person asset")
-            continue
-        chosen = candidates[chosen_index]
-        seen_titles.add(chosen["title"])
-        path = os.path.join(output_dir, _safe_filename(len(assets) + 1, chosen["mime"]))
-        if not _download(chosen["url"], path):
-            continue
-        asset = {
-            "scene": scene_no,
-            "path": path,
-            "type": "video" if chosen["mime"].startswith("video/") else "photo",
-            "provider": "Wikimedia Commons",
-            "creator": chosen.get("creator", ""),
-            "license": chosen.get("license", ""),
-            "source_url": chosen.get("source_page", ""),
-            "query": query,
-            "title": chosen.get("title", ""),
-        }
-        assets.append(asset)
-        credits.append(asset)
-        print(f"   ✅ Scene {scene_no}: VERIFIED {asset['type'].upper()} — {asset['title']} ({asset['license']})")
-
+        remaining = list(candidates[:VERIFY_CANDIDATES])
+        while remaining:
+            chosen_index = _gemini_verify(person, narration, remaining)
+            if chosen_index is None:
+                print(f"   ↪️ Scene {scene_no}: no confidently verified real-person asset")
+                break
+            chosen = remaining.pop(chosen_index)
+            seen_titles.add(chosen["title"])
+            path = os.path.join(output_dir, _safe_filename(len(assets) + 1, chosen["mime"]))
+            if not _download(chosen["url"], path):
+                print(f"      ↪️ Trying next verified Commons candidate for Scene {scene_no}")
+                continue
+            asset = {
+                "scene": scene_no, "path": path,
+                "type": "video" if chosen["mime"].startswith("video/") else "photo",
+                "provider": "Wikimedia Commons", "creator": chosen.get("creator", ""),
+                "license": chosen.get("license", ""), "source_url": chosen.get("source_page", ""),
+                "query": query, "title": chosen.get("title", ""),
+            }
+            assets.append(asset)
+            credits.append(asset)
+            print(f"   ✅ Scene {scene_no}: VERIFIED {asset['type'].upper()} — {asset['title']} ({asset['license']})")
+            break
     return {"assets": assets, "credits": credits, "person": person, "generated_at": int(time.time())}
 
 
@@ -272,15 +285,10 @@ def apply_person_media(visuals: list, person_media: dict) -> list:
         if not os.path.isfile(asset["path"]):
             continue
         group.update({
-            "path": asset["path"],
-            "type": asset["type"],
-            "provider": asset["provider"],
-            "creator": asset.get("creator", ""),
-            "query": asset.get("query", ""),
-            "source_url": asset.get("source_url", ""),
-            "license": asset.get("license", ""),
-            "person_visual": True,
-            "asset_title": asset.get("title", ""),
+            "path": asset["path"], "type": asset["type"], "provider": asset["provider"],
+            "creator": asset.get("creator", ""), "query": asset.get("query", ""),
+            "source_url": asset.get("source_url", ""), "license": asset.get("license", ""),
+            "person_visual": True, "asset_title": asset.get("title", ""),
         })
         assets.pop(scene, None)
     return visuals

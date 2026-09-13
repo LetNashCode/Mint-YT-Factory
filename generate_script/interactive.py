@@ -8,10 +8,7 @@ from . import entertainment as _base
 
 STORY_MIN_WORDS = 80
 STORY_MAX_WORDS = 120
-# Keep scene bands flexible enough for natural storytelling. The total-word
-# contract is the primary pacing guard; Scene 7 is intentionally larger so the
-# payoff, CTA, and spoken loop seam can all survive.
-STORY_SCENE_WORD_BUDGETS = ((6,20),(7,20),(7,20),(7,20),(7,20),(7,20),(12,28))
+STORY_SCENE_WORD_BUDGETS = ((6,20),(7,20),(7,20),(7,20),(7,20),(7,20),(10,28))
 STORY_FORMATS = (
     {"name":"rise_from_nothing","direction":"Show the person before success, the obstacle, the decisive attempt, and the consequence. Never turn it into a generic motivational speech."},
     {"name":"one_decision","direction":"Build around one decision that changed the person's direction. Delay the consequence until late in the Short."},
@@ -46,31 +43,8 @@ def _last_sentence(text):
     return parts[-1] if parts else str(text or "").strip()
 
 
-def _ensure_story7_cta(text):
-    """Guarantee a single CTA sentence immediately before the final loop sentence."""
-    text=_base._clean(text)
-    sentences=[x.strip() for x in re.split(r"(?<=[.!?])\s+",text) if x.strip()]
-    if not sentences:
-        return "Subscribe and follow for more remarkable stories."
-
-    # Remove any existing CTA sentence(s) so Gemini cannot accidentally place
-    # the CTA after the loop sentence. Preserve every non-CTA story sentence.
-    story_sentences=[]
-    for sentence in sentences:
-        has_subscribe=bool(re.search(r"\bsubscribe\b",sentence,re.I))
-        has_follow=bool(re.search(r"\bfollow\b",sentence,re.I))
-        if has_subscribe or has_follow:
-            continue
-        story_sentences.append(sentence)
-
-    cta="Subscribe and follow for more remarkable stories."
-    if len(story_sentences)>=1:
-        return " ".join(story_sentences[:-1]+[cta,story_sentences[-1]])
-    return cta
-
-
 def _validate_loop(scenes):
-    """Require a spoken loop seam while allowing the CTA immediately before it."""
+    """Require the final spoken sentence to naturally echo the opening hook."""
     opening=str(scenes[0].get("narration","")).strip()
     ending=str(scenes[-1].get("narration","")).strip()
     if not opening or not ending: raise RuntimeError("Story loop requires opening and ending narration.")
@@ -79,10 +53,6 @@ def _validate_loop(scenes):
     overlap=opening_terms & closing_terms
     if len(overlap)<2:
         raise RuntimeError("Story loop seam is too weak: final sentence must echo at least two distinctive opening-hook words.")
-    final_sentences=[x.strip() for x in re.split(r"(?<=[.!?])\s+",ending) if x.strip()]
-    cta_present=any(re.search(r"\bsubscribe\b",s,re.I) and re.search(r"\bfollow\b",s,re.I) for s in final_sentences[:-1])
-    if not cta_present:
-        raise RuntimeError("Story Scene 7 CTA must come before the final loop sentence.")
     return sorted(overlap)
 
 
@@ -95,17 +65,13 @@ def _validate_story(scenes):
         if count<low or count>high: raise RuntimeError(f"Story Scene {i+1} has {count} words; expected {low}-{high}.")
     all_text=" ".join(str(s.get("narration","")) for s in scenes)
     if GENERIC_OPENERS.search(all_text): raise RuntimeError("Story script contains a generic social-media opener.")
-    final=scenes[-1].get("narration","")
-    if not re.search(r"\bsubscribe\b",final,re.I) or not re.search(r"\bfollow\b",final,re.I):
-        raise RuntimeError("Story Scene 7 must contain subscribe and follow CTA.")
     loop_terms=_validate_loop(scenes)
     print(f"🔁 Story loop seam validated: opening/ending echo={', '.join(loop_terms[:5])}")
 
 
 def _clean_scenes(scenes):
-    for i,scene in enumerate(scenes):
+    for scene in scenes:
         narration=_base._clean(scene.get("narration","")); narration=re.sub(r"^(?:today|welcome back|hey guys|guys),?\s+","",narration,flags=re.I)
-        if i==6: narration=_ensure_story7_cta(narration)
         scene["narration"]=narration; scene["subtitle_text"]=narration; scene["visual_dependency"]="none"
         for visual in scene.get("visuals") or []:
             if isinstance(visual,dict):
@@ -131,39 +97,34 @@ def generate_script(topic,config,research=None,extra_feedback=""):
     recent=_load_recent_history(); number_hint=len(recent)+1; story_format=_format_for(topic,number_hint)
     recent_topics=[str(x.get("topic","")).strip() for x in recent if x.get("topic")]; recent_people=[str(x.get("person","")).strip() for x in recent if x.get("person")]
     client=genai.Client(api_key=_base._api_key())
-    prompt=f"""STORY SHORTS MODE — NARRATION FIRST + LOOP STORY.
+    prompt=f"""STORY SHORTS MODE — NARRATION FIRST + SPOKEN LOOP.
 SUBJECT: {topic}
 STORY FORMAT: {story_format['name']}
 FORMAT DIRECTION: {story_format['direction']}
 
 Create exactly 7 scenes for a vertical YouTube Short about this person.
 The story must stand on narration alone. Real-person photos/footage may be used for key identity or historical moments when available; supporting stock footage/images are atmosphere and context only. Viewers must never need a particular image, face, object, map, screenshot, or on-screen text to understand the story.
-TARGET: 80-120 spoken words. Aim for 95-110 words, not the upper limit. Naturally paced for roughly 32-44 seconds. Do not pad the story just to hit a number. Every line must move the story forward.
-SCENE BANDS: 1=6-20, 2=7-20, 3=7-20, 4=7-20, 5=7-20, 6=7-20, 7=12-28.
+TARGET: 80-120 spoken words. Aim for 95-110 words, not the upper limit. Naturally paced. Do not pad the story just to hit a number. Every line must move the story forward.
+SCENE BANDS: 1=6-20, 2=7-20, 3=7-20, 4=7-20, 5=7-20, 6=7-20, 7=10-28.
 
 WORD-BUDGET RULE — CRITICAL:
 - Write the complete story first, then make it concise.
 - Prefer 95-110 words total.
 - Never exceed 120 words.
 - If a sentence can be shorter without losing a factual story beat, shorten it.
-- Do not add adjectives, setup, or repeated explanations merely to increase word count.
+- Do not add filler merely to increase word count.
 
 LOOP STORY RULE — CRITICAL:
 - The Short must feel satisfying when played once AND when it immediately restarts.
 - Scene 1 must open with a distinctive hook containing 2-4 memorable content words or a short phrase that can be echoed later.
 - Scenes 2-6 tell the complete factual story and build to the payoff.
-- Scene 7 must contain the concise subscribe/follow CTA BEFORE the final loop sentence.
+- Scene 7 gives the emotional payoff and ends with one natural loop-closing sentence.
 - The FINAL SPOKEN SENTENCE of Scene 7 must naturally call back to the opening hook so that, when the video restarts, Scene 1 feels like the continuation of that final thought.
 - Echo at least TWO distinctive words from the opening hook in the final sentence. Do not simply repeat the entire hook verbatim.
 - Do not say "watch again," "replay," "loop," "back to the beginning," or anything that exposes the editing trick.
 - Do not use a next-topic teaser.
 - The loop must be created through narration/story wording, not captions or visuals.
-
-IMPORTANT CTA RULE:
-- Scene 7 MUST contain both the words "subscribe" and "follow".
-- Put that CTA in a short sentence BEFORE the final loop sentence.
-- The final loop sentence is NOT the CTA; it is the story's natural closing thought.
-- Do not place the CTA after the loop sentence.
+- Do NOT include a subscribe/follow CTA anywhere in the narration. The story should end on the loop sentence.
 
 STORY ARC:
 - Scene 1: hard hook. Start inside the most surprising moment or contradiction. Do not start with the person's name as a biography introduction unless the name itself creates curiosity. Make the hook distinctive enough to echo in Scene 7.
@@ -172,7 +133,7 @@ STORY ARC:
 - Scene 4: show the decision, action, encounter, or attempt that changed the trajectory.
 - Scene 5: escalate. Give one concrete consequence or setback before the payoff.
 - Scene 6: reveal the turning point and what it led to. Avoid a generic motivational lecture.
-- Scene 7: give the emotional payoff, place a short natural subscribe/follow CTA, then end on a single loop-closing sentence that echoes the opening hook.
+- Scene 7: give the emotional payoff, then end on a single short loop-closing sentence that echoes the opening hook.
 
 FACTUALITY:
 - This is a factual story about a real person. Do not invent dialogue, private thoughts, dates, locations, achievements, causes, or dramatic details.
@@ -203,14 +164,14 @@ Return the normal production JSON schema. Put the person's name in the topic/tit
         try:
             retry=""
             if last_error:
-                retry=f"\nRETRY {attempt+1}: Rewrite the narration to fix the validation error. Do not merely append text. Preserve every essential factual story beat. Keep the complete story, but make it concise. Aim for 95-110 total words and never exceed 120. Scene 7 must have exactly one short CTA sentence containing both subscribe and follow, placed immediately before the final loop sentence. The final loop sentence must remain the last sentence and must echo two distinctive hook words. Previous error: {last_error}"
+                retry=f"\nRETRY {attempt+1}: Rewrite the narration to fix the validation error. Do not merely append text. Preserve every essential factual story beat. Keep the complete story, but make it concise. Aim for 95-110 total words and never exceed 120. Scene 7 must contain NO subscribe/follow CTA. Its final sentence must echo two distinctive hook words and remain the final spoken sentence. Previous error: {last_error}"
             response=client.models.generate_content(model=_base.MODEL_NAME,contents=prompt+retry,config=types.GenerateContentConfig(system_instruction=_base.SYSTEM_PROMPT,response_mime_type="application/json",response_json_schema=_base._build_schema(),temperature=.65))
             raw=getattr(response,"text",None)
             if not raw: raise RuntimeError("Gemini returned an empty story script.")
             result=_normalize_story(_base._parse(raw),topic)
             scenes=_clean_scenes(result.get("scene_plan") or []); _validate_story(scenes); result["scene_plan"]=scenes
-            result["story_format"]=story_format["name"]; result["story_format_direction"]=story_format["direction"]; result["story_visual_mode"]="real_person_plus_atmosphere_v1"; result["story_factuality_policy"]="real-person-facts-no-invented-dialogue"; result["story_word_target"]={"min":STORY_MIN_WORDS,"max":STORY_MAX_WORDS}; result["story_loop_mode"]="spoken_hook_callback_v2"; result["visual_dependency"]="none"
-            total=sum(len(_words(s.get("narration",""))) for s in scenes); print(f"📖 Story Shorts narration validated: {total} words | format={story_format['name']} | loop=ON | CTA=SAFE"); return result
+            result["story_format"]=story_format["name"]; result["story_format_direction"]=story_format["direction"]; result["story_visual_mode"]="real_person_plus_atmosphere_v1"; result["story_factuality_policy"]="real-person-facts-no-invented-dialogue"; result["story_word_target"]={"min":STORY_MIN_WORDS,"max":STORY_MAX_WORDS}; result["story_loop_mode"]="spoken_hook_callback_v3_no_cta"; result["visual_dependency"]="none"
+            total=sum(len(_words(s.get("narration",""))) for s in scenes); print(f"📖 Story Shorts narration validated: {total} words | format={story_format['name']} | loop=ON | CTA=OFF"); return result
         except Exception as exc:
             last_error=f"{type(exc).__name__}: {exc}"
             if attempt+1<_base.MAX_ATTEMPTS: print(f"⚠️ Story script attempt {attempt+1} rejected: {last_error}"); time.sleep(2)

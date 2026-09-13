@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Compile Story Shorts runtime
-        run: python -m py_compile interactive_main.py interactive_topics.py interactive_analytics.py generate_script/interactive.py whisper_align.py social_publish.py story_person_media.py story_person_sources.py story_media_preflight.py story_social_resume.py tts.py assemble.py stock_media_resilient.py upload_youtube.py validate_video.py music.py sfx.py media_frame_guard.py
+        run: python -m py_compile interactive_main.py interactive_topics.py interactive_analytics.py generate_script/interactive.py whisper_align.py social_publish.py story_person_media.py story_person_sources.py story_media_preflight.py story_social_resume.py youtube_auth_preflight.py tts.py assemble.py stock_media_resilient.py upload_youtube.py validate_video.py music.py sfx.py media_frame_guard.py
       - name: Resume pending Story social publication
         id: resume
         env:
@@ -58,6 +58,8 @@ jobs:
           echo "   Pixabay: ${PIXABAY_API_KEY:+AVAILABLE}"
           test -n "$PEXELS_API_KEY" || { echo "❌ Missing GitHub secret PEXELS_API_KEY"; exit 1; }
           test -n "$PIXABAY_API_KEY" || { echo "❌ Missing GitHub secret PIXABAY_API_KEY"; exit 1; }
+          echo "🔐 Validating YouTube OAuth before rendering..."
+          python -u youtube_auth_preflight.py
           python -c "from media_frame_guard import patch_assemble_rgb; patch_assemble_rgb(); import runpy; runpy.run_path('interactive_main.py', run_name='__main__')"
       - name: Persist Story Shorts state
         if: always()

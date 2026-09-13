@@ -1739,6 +1739,146 @@
       "shot": 2,
       "query": "ice cubes physics forces tear",
       "recorded_at": 1789302165
+    },
+    {
+      "asset_key": "pexels:video:6658146",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6658146/6658146-hd_1366_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "ice cream gives frozen spoonful feels amazing",
+      "recorded_at": 1789303855
+    },
+    {
+      "asset_key": "pexels:video:6412525",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6412525/6412525-hd_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "ice cream gives until your skull stages",
+      "recorded_at": 1789303861
+    },
+    {
+      "asset_key": "pexels:video:8576589",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8576589/8576589-hd_1280_720_60fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "ice cream gives you ate",
+      "recorded_at": 1789303866
+    },
+    {
+      "asset_key": "pexels:video:6658144",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6658144/6658144-hd_720_1366_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "ice cream gives your forehead feel like",
+      "recorded_at": 1789303870
+    },
+    {
+      "asset_key": "pexels:video:6183097",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6183097/6183097-hd_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "ice cream gives your mouth roof gets",
+      "recorded_at": 1789303874
+    },
+    {
+      "asset_key": "pixabay:video:7951",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/02/26/7951-205810607_medium.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "ice cream gives chilling major blood vessel",
+      "recorded_at": 1789303878
+    },
+    {
+      "asset_key": "pixabay:video:7558",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/01/28/7558-201447783_medium.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "ice cream gives think like icy garden",
+      "recorded_at": 1789303882
+    },
+    {
+      "asset_key": "pixabay:video:7141",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/01/07/7141-198606872_medium.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "ice cream gives suddenly contracting blast freezing",
+      "recorded_at": 1789303886
+    },
+    {
+      "asset_key": "pexels:photo:2262048",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/2262048/pexels-photo-2262048.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 5,
+      "shot": 1,
+      "query": "ice cream gives rapid squeeze panics your",
+      "recorded_at": 1789303892
+    },
+    {
+      "asset_key": "pexels:photo:9887878",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/9887878/pexels-photo-9887878.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 5,
+      "shot": 2,
+      "query": "ice cream gives into screaming hot alarm",
+      "recorded_at": 1789303899
+    },
+    {
+      "asset_key": "pexels:photo:20683708",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/20683708/pexels-photo-20683708.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 6,
+      "shot": 1,
+      "query": "ice cream gives your brain thinks freezing",
+      "recorded_at": 1789303911
+    },
+    {
+      "asset_key": "pixabay:photo:2239377",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g050f59b79531aa6f49385b3dceb56749d30a79baca6ef19e438c7347e3ddc1cfe43933d504d942b9333d1cd00f796fd7495cc62f1e1a8f00a4938e1dcf4b2230_1280.jpg",
+      "scene": 6,
+      "shot": 2,
+      "query": "ice cream gives fabricates phantom pain right",
+      "recorded_at": 1789303928
+    },
+    {
+      "asset_key": "pexels:photo:8734105",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/8734105/pexels-photo-8734105.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 7,
+      "shot": 1,
+      "query": "ice cream gives eating too tricks your",
+      "recorded_at": 1789303939
+    },
+    {
+      "asset_key": "pexels:video:4961801",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4961801/4961801-hd_1280_720_25fps.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "ice cream gives eating too tricks your",
+      "recorded_at": 1789303942
     }
   ]
 }

@@ -4,6 +4,7 @@ Actual-person identity is the primary visual objective. Candidates are collected
 from archival/photo sources, then Gemini verifies identity. If Gemini vision is
 temporarily unavailable, only strongly person-matching archival metadata may be
 used as a controlled fallback; generic images are never promoted as person media.
+Story Shorts only; Publish Shorts is untouched.
 """
 from __future__ import annotations
 
@@ -23,6 +24,7 @@ TIMEOUT = 25
 VERIFY_CANDIDATES = 6
 VERIFY_THRESHOLD = 6.5
 TARGET_SCENES = (1, 2, 3, 4, 5, 6, 7)
+PERSON_UA = "Mint-YT-Factory/StoryPersonMedia/1.6"
 
 
 def _clean(value: Any, maximum: int = 500) -> str:
@@ -52,33 +54,38 @@ def _json(text: str) -> dict:
     return {}
 
 
+def _candidate_image(item: dict) -> str:
+    """Prefer provider thumbnails; original Wikimedia files can trigger 429s."""
+    return str(item.get("thumburl") or item.get("url") or "").strip()
+
+
 def _gemini_verify(person: str, scene_narration: str, candidates: list[dict]) -> int | None:
     key = _key()
     if not key or not candidates:
         return None
-    try:
-        from google import genai
-        from google.genai import types
-        parts, usable = [], []
-        for item in candidates[:VERIFY_CANDIDATES]:
-            try:
-                raw = requests.get(
-                    item["thumburl"],
-                    headers={"User-Agent": "Mint-YT-Factory/StoryPersonMedia/1.5"},
-                    timeout=TIMEOUT,
-                ).content
-                image = Image.open(io.BytesIO(raw)).convert("RGB")
-                image.thumbnail((512, 512))
-                out = io.BytesIO()
-                image.save(out, format="JPEG", quality=76, optimize=True)
-                parts.append(types.Part.from_bytes(data=out.getvalue(), mime_type="image/jpeg"))
-                usable.append(item)
-            except Exception:
-                continue
-        if not usable:
-            return None
+    parts, usable = [], []
+    for item in candidates[:VERIFY_CANDIDATES]:
+        try:
+            raw_response = requests.get(
+                _candidate_image(item),
+                headers={"User-Agent": PERSON_UA, "Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8"},
+                timeout=(10, TIMEOUT),
+            )
+            raw_response.raise_for_status()
+            image = Image.open(io.BytesIO(raw_response.content)).convert("RGB")
+            image.thumbnail((512, 512))
+            out = io.BytesIO()
+            image.save(out, format="JPEG", quality=76, optimize=True)
+            from google import genai
+            from google.genai import types
+            parts.append(types.Part.from_bytes(data=out.getvalue(), mime_type="image/jpeg"))
+            usable.append(item)
+        except Exception as exc:
+            print(f"      ⚠️ Person candidate preview failed: {type(exc).__name__}: {_clean(exc, 180)}")
+    if not usable:
+        return None
 
-        prompt = f"""You are the identity and scene-relevance verifier for a factual YouTube Story Short.
+    prompt = f"""You are the identity and scene-relevance verifier for a factual YouTube Story Short.
 Requested real person: {person}
 Scene narration: {scene_narration}
 Candidates are supplied in order from archival/photo/video sources.
@@ -90,49 +97,78 @@ unrelated people, or generic stock imagery.
 Return ONLY JSON: {{\"best_index\": 1, \"identity_score\": 0, \"relevance_score\": 0, \"reason\": \"short reason\"}}
 Score identity and scene relevance from 0-10. Accept identity 6.5+.
 The best_index is 1-based."""
-        response = genai.Client(api_key=key).models.generate_content(
-            model="gemini-flash-lite-latest",
-            contents=[prompt, *parts],
-            config=types.GenerateContentConfig(temperature=0.05, response_mime_type="application/json"),
-        )
-        payload = _json(getattr(response, "text", "") or "")
-        index = int(payload.get("best_index", 0) or 0) - 1
-        score = float(payload.get("identity_score", payload.get("score", 0)) or 0)
-        if 0 <= index < len(usable) and score >= VERIFY_THRESHOLD:
-            return candidates.index(usable[index])
-        print(f"      ⚠️ Person vision rejected candidates: best_index={index + 1} identity={score:.1f}")
-    except Exception as exc:
-        # Include the actual exception. The previous RuntimeError-only log made
-        # API/model/payload failures impossible to diagnose from Actions output.
-        print(f"      ⚠️ Person identity verification unavailable: {type(exc).__name__}: {_clean(exc, 500)}")
+
+    # A fresh client per attempt prevents a closed SDK transport from poisoning
+    # the remaining Story person-media run.
+    last_exc = None
+    for attempt in range(1, 3):
+        try:
+            from google import genai
+            from google.genai import types
+            client = genai.Client(api_key=key)
+            response = client.models.generate_content(
+                model="gemini-flash-lite-latest",
+                contents=[prompt, *parts],
+                config=types.GenerateContentConfig(temperature=0.05, response_mime_type="application/json"),
+            )
+            payload = _json(getattr(response, "text", "") or "")
+            index = int(payload.get("best_index", 0) or 0) - 1
+            score = float(payload.get("identity_score", payload.get("score", 0)) or 0)
+            if 0 <= index < len(usable) and score >= VERIFY_THRESHOLD:
+                return candidates.index(usable[index])
+            print(f"      ⚠️ Person vision rejected candidates: best_index={index + 1} identity={score:.1f}")
+            return None
+        except Exception as exc:
+            last_exc = exc
+            if attempt < 2:
+                time.sleep(1.0)
+                continue
+    if last_exc:
+        print(f"      ⚠️ Person identity verification unavailable: {type(last_exc).__name__}: {_clean(last_exc, 500)}")
     return None
 
 
 def _metadata_fallback_index(person: str, candidates: list[dict]) -> int | None:
-    """Use only an explicit-name archival match when vision is unavailable."""
-    names = [x.lower() for x in re.findall(r"[a-z][a-z'-]{2,}", person.lower())]
-    if not names:
+    """Use only a highly explicit archival name match when vision is unavailable."""
+    person_words = re.findall(r"[a-z][a-z'-]{2,}", person.lower())
+    if len(person_words) < 2:
         return None
+    full_name = " ".join(person_words)
+    surname = person_words[-1]
+    forbidden = {
+        "daughter", "son", "wife", "husband", "brother", "sister", "family",
+        "statue", "monument", "residence", "house", "road", "street", "school",
+        "museum", "memorial", "trainor", "tribute", "painting", "portrait of statue",
+    }
     best = None
     best_score = 0
     for index, item in enumerate(candidates[:VERIFY_CANDIDATES]):
-        title = _clean(item.get("title"), 400).lower()
+        title = _clean(item.get("title"), 500).lower()
         source = _clean(item.get("source"), 120).lower()
-        query = _clean(item.get("query"), 300).lower()
-        hay = f"{title} {source} {query}"
-        score = sum(1 for name in names if name in hay)
-        # Require the person's surname/full name to be present in metadata and
-        # prefer archival sources. Never fall back to an arbitrary stock person.
-        if score > best_score and ("wikimedia" in source or "archive" in source or "europeana" in source):
+        hay = f"{title} {_clean(item.get('creator'), 250).lower()}"
+        if not ("wikimedia" in source or "archive" in source or "europeana" in source):
+            continue
+        if any(re.search(rf"\b{re.escape(word)}\b", title) for word in forbidden):
+            continue
+        # Require the requested full name to appear together in the title, not
+        # merely the surname or a related person's title.
+        if not re.search(rf"\b{re.escape(full_name)}\b", title):
+            continue
+        score = 5
+        if re.search(rf"\b{re.escape(surname)}\b", hay):
+            score += 1
+        if "wikimedia" in source:
+            score += 1
+        if score > best_score:
             best = index
             best_score = score
-    return best if best_score >= 1 else None
+    return best if best_score >= 6 else None
 
 
 def _download(url: str, path: str) -> bool:
     tmp = f"{path}.part"
     try:
-        with requests.get(url, headers={"User-Agent": "Mint-YT-Factory/StoryPersonMedia/1.5", "Accept": "*/*"}, stream=True, timeout=(10, TIMEOUT)) as response:
+        with requests.get(url, headers={"User-Agent": PERSON_UA, "Accept": "*/*"}, stream=True, timeout=(10, TIMEOUT)) as response:
             response.raise_for_status()
             with open(tmp, "wb") as handle:
                 for chunk in response.iter_content(1024 * 1024):
@@ -202,9 +238,14 @@ def generate_person_media(script: dict, output_dir: str, person: str) -> dict:
                 break
 
             chosen = batch[chosen_index]
-            seen.add(chosen.get("source_url") or chosen.get("url"))
+            source_key = chosen.get("source_url") or chosen.get("url")
+            seen.add(source_key)
+            # Images use the provider thumbnail for the actual download too.
+            # This avoids Wikimedia original-file 429s while preserving the
+            # source URL and license metadata for attribution.
+            download_url = chosen.get("thumburl") or chosen.get("url")
             path = os.path.join(output_dir, _safe_filename(len(assets) + 1, chosen.get("mime", "image/jpeg")))
-            if not _download(chosen["url"], path):
+            if not _download(download_url, path):
                 remaining = remaining[chosen_index + 1:]
                 print(f"      ↪️ Scene {scene_no}: download failed, trying another candidate")
                 continue

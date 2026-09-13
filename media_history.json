@@ -1599,6 +1599,146 @@
       "shot": 2,
       "query": "cardboard boxes tear your box refuses straight",
       "recorded_at": 1789230720
+    },
+    {
+      "asset_key": "pexels:video:3958716",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3958716/3958716-hd_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "ice cubes sharp ping you hear",
+      "recorded_at": 1789302104
+    },
+    {
+      "asset_key": "pexels:video:30211454",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30211454/12952952_720_1280_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "ice cubes you drop cube",
+      "recorded_at": 1789302107
+    },
+    {
+      "asset_key": "pexels:video:36810630",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/36810630/15598292_1280_720_30fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "ice cubes fractures inside out",
+      "recorded_at": 1789302110
+    },
+    {
+      "asset_key": "pixabay:video:209665",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2024/04/27/209665_medium.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "ice cubes splitting apart right before",
+      "recorded_at": 1789302115
+    },
+    {
+      "asset_key": "pexels:video:4718397",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4718397/4718397-hd_1280_720_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "ice cubes culprit brutal freezer cold",
+      "recorded_at": 1789302117
+    },
+    {
+      "asset_key": "pexels:video:8676906",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8676906/8676906-hd_720_1280_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "ice cubes temperature shock thermometer contrast",
+      "recorded_at": 1789302121
+    },
+    {
+      "asset_key": "pexels:photo:12987481",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/12987481/pexels-photo-12987481.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 4,
+      "shot": 1,
+      "query": "ice cubes outside skin panics",
+      "recorded_at": 1789302128
+    },
+    {
+      "asset_key": "pexels:video:8518236",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8518236/8518236-hd_1280_720_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "ice cubes tries expand second hits",
+      "recorded_at": 1789302132
+    },
+    {
+      "asset_key": "pexels:video:4667208",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4667208/4667208-hd_1366_720_50fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "ice cubes meanwhile frozen core stays",
+      "recorded_at": 1789302135
+    },
+    {
+      "asset_key": "pexels:video:14461053",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/14461053/14461053-hd_720_1280_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "ice cubes refuses budge rigid center",
+      "recorded_at": 1789302139
+    },
+    {
+      "asset_key": "pexels:video:7593544",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7593544/7593544-hd_1366_658_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "ice cubes tug-of-war between hot outer",
+      "recorded_at": 1789302142
+    },
+    {
+      "asset_key": "pexels:photo:7254237",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/7254237/pexels-photo-7254237.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 6,
+      "shot": 2,
+      "query": "ice cubes snaps crystal apart sudden",
+      "recorded_at": 1789302148
+    },
+    {
+      "asset_key": "pexels:photo:34927438",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/34927438/pexels-photo-34927438.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 7,
+      "shot": 1,
+      "query": "ice cubes physics forces tear",
+      "recorded_at": 1789302154
+    },
+    {
+      "asset_key": "pixabay:photo:6215207",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g91f41cb2762053bc1282c097097c3143cf26d00f03b090ecb3f02ce1f7fa8e6a11e91baaf35d6eb683d80a9da1e287721073f1bd76eabf3ef0b98b82d867a6e4_1280.jpg",
+      "scene": 7,
+      "shot": 2,
+      "query": "ice cubes physics forces tear",
+      "recorded_at": 1789302165
     }
   ]
 }

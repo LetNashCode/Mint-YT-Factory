@@ -50,15 +50,17 @@ def _audio_duration(path):
 
 
 def _observed(result):
+    # The content gate only needs transcript text. Word-level timestamps are
+    # deliberately disabled because Whisper's optional alignment path is more
+    # fragile than ordinary transcription and adds no value to this check.
     words = []
     for seg in result.get("segments", []) or []:
-        for item in seg.get("words") or []:
-            word = str(item.get("word") or "").lower()
-            tokens = _WORD_RE.findall(word)
-            if tokens:
-                words.extend(x.lower() for x in tokens)
+        text = str(seg.get("text") or "")
+        tokens = _WORD_RE.findall(text)
+        if tokens:
+            words.extend(x.lower() for x in tokens)
     if not words:
-        text = " ".join(str(s.get("text") or "") for s in result.get("segments", []) or [])
+        text = str(result.get("text") or "")
         words = [w.lower() for w in _WORD_RE.findall(text)]
     return words
 
@@ -111,7 +113,7 @@ def verify_narration(audio_path: str, script_path: str, *, log_prefix="🎙️")
     for name in (MODEL_NAME, RETRY_MODEL_NAME):
         try:
             result = _get_model(name).transcribe(
-                str(audio_path), language="en", task="transcribe", word_timestamps=True,
+                str(audio_path), language="en", task="transcribe", word_timestamps=False,
                 fp16=False, temperature=0, best_of=3 if name == MODEL_NAME else 1,
                 beam_size=5 if name == MODEL_NAME else 1,
                 condition_on_previous_text=False, compression_ratio_threshold=2.8,

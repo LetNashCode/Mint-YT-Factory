@@ -14,7 +14,8 @@ import requests
 
 TIMEOUT = 25
 PER_SOURCE_LIMIT = 50
-USER_AGENT = "Mint-YT-Factory/StoryPersonSources/1.0"
+USER_AGENT = "Mint-YT-Factory/StoryPersonSources/1.1"
+_PERSON_POOL_CACHE: dict[str, list[dict]] = {}
 
 
 def _clean(value: Any, maximum: int = 300) -> str:
@@ -27,7 +28,9 @@ def _get(url: str, params: dict) -> dict:
         response.raise_for_status()
         return response.json()
     except Exception as exc:
-        print(f"      ⚠️ Person source request failed: {type(exc).__name__}")
+        status = getattr(getattr(exc, "response", None), "status_code", None)
+        suffix = f" HTTP {status}" if status else ""
+        print(f"      ⚠️ Person source request failed: {type(exc).__name__}{suffix}: {_clean(exc, 220)}")
         return {}
 
 
@@ -35,7 +38,7 @@ def _commons(person: str, query: str) -> list[dict]:
     data = _get("https://commons.wikimedia.org/w/api.php", {
         "action": "query", "generator": "search", "gsrsearch": f"File:{person} {query}",
         "gsrnamespace": 6, "gsrlimit": PER_SOURCE_LIMIT, "prop": "imageinfo",
-        "iiprop": "url|mime|extmetadata", "iiurlwidth": 1400, "format": "json", "origin": "*"
+        "iiprop": "url|mime|extmetadata", "iiurlwidth": 800, "format": "json", "origin": "*"
     })
     result = []
     for page in ((data.get("query") or {}).get("pages") or {}).values():
@@ -79,7 +82,6 @@ def _archive(person: str, query: str) -> list[dict]:
 
 
 def _europeana(person: str, query: str) -> list[dict]:
-    # Europeana requires an API key; gracefully skip when not configured.
     import os
     key = os.getenv("EUROPEANA_API_KEY", "").strip()
     if not key:
@@ -140,8 +142,20 @@ def build_person_queries(person: str, scene_narration: str = "") -> list[str]:
 
 
 def search_person_media(person: str, scene_narration: str = "") -> list[dict]:
-    """Return a large deduplicated candidate pool across configured sources."""
+    """Return a cached, deduplicated candidate pool across configured sources.
+
+    The old implementation repeated up to 7 searches per source for every
+    scene, which quickly triggered Wikimedia 429s and made the person layer
+    slower without materially improving identity coverage. One pool per person
+    is enough because Gemini performs the scene-specific selection.
+    """
     person = _clean(person, 180)
+    cache_key = person.lower()
+    if cache_key in _PERSON_POOL_CACHE:
+        candidates = _PERSON_POOL_CACHE[cache_key]
+        print(f"      🔎 Person media pool: {len(candidates)} cached candidates")
+        return list(candidates)
+
     candidates = []
     seen = set()
     for query in build_person_queries(person, scene_narration):
@@ -151,5 +165,6 @@ def search_person_media(person: str, scene_narration: str = "") -> list[dict]:
                 if key and key not in seen:
                     seen.add(key)
                     candidates.append(item)
+    _PERSON_POOL_CACHE[cache_key] = list(candidates)
     print(f"      🔎 Person media pool: {len(candidates)} candidates across available sources")
-    return candidates
+    return list(candidates)

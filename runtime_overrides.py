@@ -85,9 +85,16 @@ def patch_tts_result(main):
 
     def _refresh_script_artifact(script, workdir):
         path = Path(workdir) / "script.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(script, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     def synthesize_script(script, config, workdir):
+        # main.run persists script.json only after TTS returns. The content gate
+        # runs inside this call, so publish scripts must be materialized first.
+        # This also ensures the gate always verifies the exact script instance
+        # that was handed to the TTS engine, before any audio can proceed.
+        if _is_publish(script):
+            _refresh_script_artifact(script, workdir)
         result = original(script, config, workdir)
         audio_path = str(result[0] if isinstance(result, (list, tuple)) and result else result)
         if not _is_publish(script):

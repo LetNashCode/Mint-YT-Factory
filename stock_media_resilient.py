@@ -24,7 +24,10 @@ def _patch_story_context():
             for phrase in phrases:
                 phrase = " ".join(str(phrase).lower().split()).strip()
                 if phrase and phrase not in terms: terms.append(phrase)
-        if re.search(r"tenzing|norgay|sherpa", text): add("mountain climbing", "mountain climber", "Himalayan expedition")
+        # Person-specific domains improve search quality without inventing
+        # visuals. These are search anchors only; Gemini still verifies assets.
+        if re.search(r"schwarzenegger|terminator|conan|bodybuild|actor|hollywood|movie|film|cinema", text): add("actor", "bodybuilder", "Hollywood actor", "film actor", "bodybuilding")
+        elif re.search(r"tenzing|norgay|sherpa", text): add("mountain climbing", "mountain climber", "Himalayan expedition")
         elif re.search(r"wade|jordan|lebron|kobe|curry", text): add("basketball player", "basketball court")
         elif re.search(r"bose|einstein|tesla|curie|newton|ramanujan", text): add("scientist", "researcher writing")
         if re.search(r"everest|himalaya|mountain|climb|climbing|summit|expedition|sherpa|nepal|snow|glacier|oxygen|rope|camp|tent|peak", text): add("mountain climbing", "mountain climber", "Himalayan expedition", "snow mountain", "Everest climber", "mountain expedition", "Sherpa climbing", "mountain camp")
@@ -54,19 +57,32 @@ def _patch_story_context():
 
 
 def _patch_story_query_ladder():
-    """Add provider-friendly Story queries and remove unusable modifier variants."""
+    """Prioritize exact-person and beat-specific Pexels/Pixabay searches for Story."""
     original = getattr(stock_search, "build_plan", None)
     if not original or getattr(original, "_mint_story_query_ladder", False): return
     def story_query_ladder(script):
         plan = original(script); is_story = isinstance(script, dict) and bool(str(script.get("story_person") or "").strip() or str(script.get("interactive_pillar") or "").strip() or str(script.get("story_visual_mode") or "").strip())
         if not is_story: return plan
-        for scene_shots in plan:
+        person = " ".join(str(script.get("story_person") or "").split()).strip().lower()
+        scenes = script.get("scene_plan") or []
+        for scene_index, scene_shots in enumerate(plan, start=1):
+            narration = ""
+            if scene_index <= len(scenes) and isinstance(scenes[scene_index-1], dict): narration = str(scenes[scene_index-1].get("narration") or "").strip().lower()
             for shot in scene_shots:
                 queries = [str(x.get("query") or "").strip().lower() for x in shot.get("search_ladder", []) if isinstance(x, dict)]; anchors = [str(x).strip().lower() for x in shot.get("anchor_terms", []) if str(x).strip()]; expanded: list[dict] = []; seen: set[str] = set()
                 def add(query: str, strategy: str):
                     query = " ".join(query.split())
                     if query and query not in seen and 1 <= len(query.split()) <= 7: seen.add(query); expanded.append({"query": query, "strategy": strategy})
-                joined = " ".join(anchors + queries)
+                # Identity moments should first try the actual person on the
+                # allowed providers. If unavailable, the next queries are
+                # concrete contextual beats rather than generic filler.
+                if person and scene_index in (1,2,3,4,6,7):
+                    add(person, "story-exact-person")
+                    for suffix in ("portrait", "interview", "event"):
+                        add(f"{person} {suffix}", "story-exact-person")
+                joined = " ".join(anchors + queries + [narration])
+                if re.search(r"schwarzenegger|terminator|conan|bodybuild|actor|hollywood|movie|film|cinema", joined):
+                    for query in ("Arnold Schwarzenegger", "Arnold Schwarzenegger young", "Arnold Schwarzenegger bodybuilding", "bodybuilder training", "Hollywood actor", "film set"): add(query.lower(), "story-provider-fallback")
                 if re.search(r"everest|himalaya|mountain|climb|climbing|summit|expedition|sherpa|nepal|snow|glacier|oxygen|rope|camp|tent|peak", joined):
                     for query in ("mountain climbing", "mountain climber", "Himalayan mountains", "Himalayan expedition", "snow mountain", "Everest climber", "mountain expedition", "mountain camp"): add(query.lower(), "story-provider-fallback")
                 if re.search(r"basketball|court|arena|game|team|nba|dribble|dunk|hoop", joined):
@@ -76,9 +92,9 @@ def _patch_story_query_ladder():
                     if not bad_suffix.search(query): add(query, "story-directed")
                 for anchor in anchors:
                     if anchor not in seen and not re.search(r"\b(historical person|person|scientist|athlete training)\b", anchor): add(anchor, "story-anchor")
-                    if len(expanded) >= 8: break
-                shot["search_ladder"] = expanded[:8]; shot["queries"] = [x["query"] for x in shot["search_ladder"]]
-        print("🛡️ Story provider query ladder: concrete aliases prioritized; modifier-only queries removed"); return plan
+                    if len(expanded) >= 10: break
+                shot["search_ladder"] = expanded[:10]; shot["queries"] = [x["query"] for x in shot["search_ladder"]]
+        print("🛡️ Story provider query ladder: exact-person + concrete beat queries prioritized; generic filler suppressed"); return plan
     story_query_ladder._mint_story_query_ladder = True; stock_search.build_plan = story_query_ladder
 
 

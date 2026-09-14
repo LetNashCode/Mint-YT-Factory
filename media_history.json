@@ -2019,6 +2019,146 @@
       "shot": 2,
       "query": "plastic bags rustle explosive release trapped energy",
       "recorded_at": 1789396331
+    },
+    {
+      "asset_key": "pexels:video:6343756",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6343756/6343756-hd_720_1366_30fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "paper coffee cups puddle under wooden table",
+      "recorded_at": 1789399699
+    },
+    {
+      "asset_key": "pexels:video:7317025",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7317025/7317025-hd_720_1280_50fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "paper coffee cups your morning cup",
+      "recorded_at": 1789399706
+    },
+    {
+      "asset_key": "pixabay:video:233024",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2024/09/24/233024_medium.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "paper coffee cups you bought waterproof cup",
+      "recorded_at": 1789399710
+    },
+    {
+      "asset_key": "pexels:photo:36160358",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/36160358/pexels-photo-36160358.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 2,
+      "shot": 2,
+      "query": "paper coffee cups but twenty minutes later",
+      "recorded_at": 1789399719
+    },
+    {
+      "asset_key": "pexels:video:7316977",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7316977/7316977-hd_720_1280_50fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "paper coffee cups container isn plastic",
+      "recorded_at": 1789399726
+    },
+    {
+      "asset_key": "pixabay:video:251",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2015/08/10/251-135872129_medium.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "paper coffee cups lined super thin plastic",
+      "recorded_at": 1789399727
+    },
+    {
+      "asset_key": "pexels:photo:4349942",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/4349942/pexels-photo-4349942.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 4,
+      "shot": 1,
+      "query": "paper coffee cups heat makes plastic skin",
+      "recorded_at": 1789399728
+    },
+    {
+      "asset_key": "pexels:photo:2019859",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/2019859/pexels-photo-2019859.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 4,
+      "shot": 2,
+      "query": "paper coffee cups expand faster than",
+      "recorded_at": 1789399729
+    },
+    {
+      "asset_key": "pexels:video:6343567",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6343567/6343567-hd_720_1366_30fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "paper coffee cups microscopic cracks fracture right",
+      "recorded_at": 1789399730
+    },
+    {
+      "asset_key": "pixabay:photo:2139592",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g84f23c81352088a3f1c1ff9ac3d10638a4e29b915944d9a01deb3757576b2e348f241e0991805266221b4cf6ed88c0c7fd4220960ee20c889cbd8b7179986408_1280.jpg",
+      "scene": 5,
+      "shot": 2,
+      "query": "paper coffee cups folds tiny gap",
+      "recorded_at": 1789399732
+    },
+    {
+      "asset_key": "pexels:video:36037192",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/36037192/15283311_1280_720_24fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "paper coffee cups liquid gravity finds every",
+      "recorded_at": 1789399733
+    },
+    {
+      "asset_key": "pexels:video:6343676",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6343676/6343676-hd_1366_720_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "paper coffee cups into soggy sieve bottom",
+      "recorded_at": 1789399737
+    },
+    {
+      "asset_key": "pexels:photo:9200525",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/9200525/pexels-photo-9200525.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 7,
+      "shot": 1,
+      "query": "paper coffee cups next time yours leaks",
+      "recorded_at": 1789399739
+    },
+    {
+      "asset_key": "pexels:photo:15483363",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/15483363/pexels-photo-15483363.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 7,
+      "shot": 2,
+      "query": "paper coffee cups blame restless plastic skin",
+      "recorded_at": 1789399742
     }
   ]
 }

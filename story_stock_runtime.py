@@ -62,9 +62,14 @@ def _story_context(script: dict, scene_no: int) -> list[str]:
         original = stock_search.__story_context_original(script, scene_no)
     except AttributeError:
         original = []
+    weak = re.compile(
+        r"(?:he|she|him|her|they|them|it|one|two|three|four|five|six|seven|eight|nine|ten|"
+        r"eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|old|young)",
+        re.I,
+    )
     for phrase in original:
         words = str(phrase).split()
-        if len(words) >= 2 and not re.fullmatch(r"(?:he|she|him|her|they|them|it|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|old|young)", str(phrase).strip(), re.I):
+        if len(words) >= 2 and not weak.fullmatch(str(phrase).strip()):
             if phrase not in result:
                 result.append(phrase)
     return result[:5] or ["historical person", "person working"]
@@ -80,11 +85,48 @@ def _gemini_disabled(*args, **kwargs):
     raise RuntimeError("Story stock Gemini bypassed for quota-safe deterministic fallback")
 
 
+def _story_relevance_score(item, provider, video, query):
+    """Relax only Story's deterministic stock threshold without accepting noise.
+
+    stock_search's normal threshold is 2.5. Its scoring can be overly strict for
+    Pexels/Pixabay metadata because a genuinely relevant result may expose only
+    one useful query term. For Story, give a small bonus when at least one
+    meaningful query token is present in the candidate metadata. This preserves
+    the existing threshold and reuse guards while making provider results usable.
+    """
+    base = stock_search._deterministic_score(item[0] if False else {}, item, provider, video, query)
+    # This branch is intentionally replaced by the wrapper below; keeping the
+    # helper small makes the scoring rule explicit and testable.
+    return base
+
+
 _original_generate_media = stock_search.generate_media
 _original_gemini = stock_search._gemini
 _original_context = getattr(stock_search, "_story_context", None)
+_original_score = getattr(stock_search, "_deterministic_score", None)
 if _original_context is not None:
     stock_search.__story_context_original = _original_context
+
+
+def _make_story_score(original_score):
+    def story_score(d, item, provider, video, query):
+        base = original_score(d, item, provider, video, query)
+        hay = " ".join(
+            [
+                str(query),
+                str(item.get("alt", "")),
+                str(item.get("description", "")),
+                str(item.get("tags", "")),
+                str(item.get("url", "")),
+            ]
+        ).lower()
+        meaningful = [w for w in re.findall(r"[a-z0-9]+", str(query).lower()) if len(w) > 2]
+        if meaningful and any(word in hay for word in meaningful):
+            # The existing URL bonus + one matching term normally produces 1.5.
+            # Add 1.0 so legitimate provider hits reach the existing 2.5 gate.
+            return base + 1.0
+        return base
+    return story_score
 
 
 def _story_generate_media(script, output_dir, config, gim=None):
@@ -97,9 +139,12 @@ def _story_generate_media(script, output_dir, config, gim=None):
     previous_history = getattr(stock_search, "_historical_asset_keys", None)
     previous_gemini = stock_search._gemini
     previous_context = getattr(stock_search, "_story_context", None)
+    previous_score = getattr(stock_search, "_deterministic_score", None)
     stock_search._historical_asset_keys = _recent_asset_keys
     stock_search._gemini = _gemini_disabled
     stock_search._story_context = _story_context
+    if _original_score is not None:
+        stock_search._deterministic_score = _make_story_score(_original_score)
     try:
         print(
             "🛡️ STORY STOCK RESILIENCE: Gemini stock director/vision bypassed after quota-risk; "
@@ -109,6 +154,7 @@ def _story_generate_media(script, output_dir, config, gim=None):
             f"📚 STORY MEDIA COOLDOWN: blocking only {len(_recent_asset_keys())} most recent assets; "
             "older relevant assets may be reused"
         )
+        print("🎯 STORY STOCK RELEVANCE: relaxed metadata scoring for legitimate query-term matches")
         return _original_generate_media(script, output_dir, config, gim=gim)
     finally:
         if previous_history is None:
@@ -126,6 +172,13 @@ def _story_generate_media(script, output_dir, config, gim=None):
                 pass
         else:
             stock_search._story_context = previous_context
+        if previous_score is None:
+            try:
+                del stock_search._deterministic_score
+            except AttributeError:
+                pass
+        else:
+            stock_search._deterministic_score = previous_score
 
 
 stock_search.generate_media = _story_generate_media

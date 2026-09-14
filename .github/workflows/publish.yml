@@ -88,10 +88,11 @@ jobs:
           test -f production_entry_runner.py
           test -f stock_search.py
           test -f stock_media_resilient.py
-          python -m py_compile main.py production_entry.py production_entry_runner.py stock_search.py stock_media_resilient.py tts.py tts_content_guard.py social_publish.py runtime_overrides.py
+          test -f youtube_auth_preflight.py
+          python -m py_compile main.py production_entry.py production_entry_runner.py stock_search.py stock_media_resilient.py tts.py tts_content_guard.py social_publish.py runtime_overrides.py youtube_auth_preflight.py
           python - <<'PY'
-          import stock_media_resilient, tts_content_guard
-          print("Stock media + TTS content guard imports OK")
+          import stock_media_resilient, tts_content_guard, youtube_auth_preflight
+          print("Stock media + TTS content guard + YouTube auth preflight imports OK")
           PY
       - name: Restore previous failed Publish Shorts video
         shell: bash
@@ -127,30 +128,26 @@ jobs:
           import json, sys
           from pathlib import Path
           p = sys.argv[1]
-          try:
-              s = json.load(open(p, encoding="utf-8"))
-          except Exception:
-              raise SystemExit(1)
+          try: s = json.load(open(p, encoding="utf-8"))
+          except Exception: raise SystemExit(1)
           status = str(s.get("status") or "").lower()
           youtube_id = str(s.get("video_id") or ((s.get("youtube") or {}).get("video_id") or "")).strip()
-          uploaded = bool(s.get("uploaded"))
-          instagram = s.get("instagram") or {}
-          facebook = s.get("facebook") or {}
-          tombstones = []
+          uploaded = bool(s.get("uploaded")); instagram = s.get("instagram") or {}; facebook = s.get("facebook") or {}
+          tombstones=[]
           try:
-              registry = json.loads(Path("completed_publications.json").read_text(encoding="utf-8"))
-              if isinstance(registry, list): tombstones = registry
+              registry=json.loads(Path("completed_publications.json").read_text(encoding="utf-8"))
+              if isinstance(registry,list): tombstones=registry
           except Exception: pass
-          workdir_name = Path(p).parent.name
+          workdir_name=Path(p).parent.name
           for item in tombstones:
-              if not isinstance(item, dict): continue
-              if str(item.get("workdir") or "").replace("\\", "/").rstrip("/").endswith("/" + workdir_name): raise SystemExit(1)
-              if youtube_id and str(item.get("video_id") or "").strip() == youtube_id: raise SystemExit(1)
-          legacy = status == "youtube_published" and uploaded and bool(youtube_id) and (str(instagram.get("status") or "").lower() not in {"published", "skipped"} or str(facebook.get("status") or "").lower() not in {"published", "skipped"})
-          if status not in {"ready_for_upload", "partial", "uploading"} and not legacy: raise SystemExit(1)
-          platforms = [p for p in ("youtube", "instagram", "facebook") if (s.get(p) or {}).get("enabled", True)]
-          if legacy: platforms = [p for p in ("instagram", "facebook") if (s.get(p) or {}).get("enabled", True)]
-          if platforms and all(str((s.get(p) or {}).get("status") or "").lower() in {"published", "skipped"} for p in platforms): raise SystemExit(1)
+              if not isinstance(item,dict): continue
+              if str(item.get("workdir") or "").replace("\\","/").rstrip("/").endswith("/"+workdir_name): raise SystemExit(1)
+              if youtube_id and str(item.get("video_id") or "").strip()==youtube_id: raise SystemExit(1)
+          legacy=status=="youtube_published" and uploaded and bool(youtube_id) and (str(instagram.get("status") or "").lower() not in {"published","skipped"} or str(facebook.get("status") or "").lower() not in {"published","skipped"})
+          if status not in {"ready_for_upload","partial","uploading"} and not legacy: raise SystemExit(1)
+          platforms=[p for p in ("youtube","instagram","facebook") if (s.get(p) or {}).get("enabled",True)]
+          if legacy: platforms=[p for p in ("instagram","facebook") if (s.get(p) or {}).get("enabled",True)]
+          if platforms and all(str((s.get(p) or {}).get("status") or "").lower() in {"published","skipped"} for p in platforms): raise SystemExit(1)
           print(f"Resumable state: {status} | youtube_id={youtube_id or 'none'}")
           PY
                   then
@@ -158,26 +155,20 @@ jobs:
                     if python - "$final_file" <<'PY'
           import json, subprocess, sys
           from pathlib import Path
-          video = Path(sys.argv[1])
+          video=Path(sys.argv[1])
           try:
-              probe = subprocess.run(["ffprobe","-v","error","-select_streams","v:0","-show_entries","stream=width,height,r_frame_rate,codec_name,pix_fmt,bit_rate","-of","json",str(video)],check=True,capture_output=True,text=True)
+              probe=subprocess.run(["ffprobe","-v","error","-select_streams","v:0","-show_entries","stream=width,height,r_frame_rate,codec_name,pix_fmt,bit_rate","-of","json",str(video)],check=True,capture_output=True,text=True)
               stream=(json.loads(probe.stdout).get("streams") or [])[0]
               bitrate=float(stream.get("bit_rate") or 0); width=int(stream.get("width") or 0); height=int(stream.get("height") or 0); fps=float(eval(str(stream.get("r_frame_rate") or "0/1"))); codec=str(stream.get("codec_name") or ""); pix_fmt=str(stream.get("pix_fmt") or "")
-          except Exception as exc:
-              print(f"⏭️ Resume candidate validation failed: {exc}"); raise SystemExit(1)
+          except Exception as exc: print(f"⏭️ Resume candidate validation failed: {exc}"); raise SystemExit(1)
           bitrate_mbps=bitrate/1_000_000.0
           print(f"Resume candidate: {width}x{height} {fps:.3f}fps {codec}/{pix_fmt} {bitrate_mbps:.2f} Mbps")
-          if width != 2160 or height != 3840 or abs(fps-60.0)>0.05 or codec != "h264" or pix_fmt != "yuv420p" or bitrate_mbps < 80.0: raise SystemExit(1)
+          if width!=2160 or height!=3840 or abs(fps-60.0)>0.05 or codec!="h264" or pix_fmt!="yuv420p" or bitrate_mbps<80.0: raise SystemExit(1)
           print("✅ Resume candidate passes production format/bitrate floor; restoring it.")
           PY
                     then
-                      workdir_name="$(basename "$final_dir")"
-                      rm -rf "output/$workdir_name"
-                      mkdir -p output
-                      cp -a "$final_dir" "output/"
-                      if [ -f "output/$workdir_name/final.mp4" ] && [ -f "output/$workdir_name/script.json" ] && [ -f "output/$workdir_name/publish_state.json" ]; then
-                        echo "✅ Restored Publish Shorts workdir from latest failed run $run_id"; found="$run_id"
-                      else rm -rf "output/$workdir_name"; fi
+                      workdir_name="$(basename "$final_dir")"; rm -rf "output/$workdir_name"; mkdir -p output; cp -a "$final_dir" "output/"
+                      if [ -f "output/$workdir_name/final.mp4" ] && [ -f "output/$workdir_name/script.json" ] && [ -f "output/$workdir_name/publish_state.json" ]; then echo "✅ Restored Publish Shorts workdir from latest failed run $run_id"; found="$run_id"; else rm -rf "output/$workdir_name"; fi
                     fi
                   fi
                 fi
@@ -194,6 +185,14 @@ jobs:
           test -n "$YOUTUBE_CLIENT_SECRET_JSON"
           printf '%s' "$YOUTUBE_CLIENT_SECRET_JSON" > client_secret.json
           test -s client_secret.json
+      - name: YouTube OAuth preflight
+        shell: bash
+        env:
+          YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
+        run: |
+          set -euo pipefail
+          test -n "$YOUTUBE_TOKEN_JSON"
+          python -u youtube_auth_preflight.py
       - name: Run Mint-YT-Factory
         id: run_factory
         shell: bash

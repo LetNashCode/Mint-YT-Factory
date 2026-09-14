@@ -56,8 +56,6 @@ def _story_context(script: dict, scene_no: int) -> list[str]:
                 if phrase not in result:
                     result.append(phrase)
 
-    # If the scene has no domain cue, use the existing broad context only when
-    # it is concrete. Never allow single-word numbers/pronouns as stock queries.
     try:
         original = stock_search.__story_context_original(script, scene_no)
     except AttributeError:
@@ -76,28 +74,8 @@ def _story_context(script: dict, scene_no: int) -> list[str]:
 
 
 def _gemini_disabled(*args, **kwargs):
-    """Story stock does not burn quota on repeated 429 retries.
-
-    Script generation and real-person verification retain their own Gemini
-    calls. Only the stock-search director/thumbnail verifier is bypassed here;
-    deterministic concrete ladders remain active.
-    """
+    """Disable only Story stock-search Gemini calls after quota-risk."""
     raise RuntimeError("Story stock Gemini bypassed for quota-safe deterministic fallback")
-
-
-def _story_relevance_score(item, provider, video, query):
-    """Relax only Story's deterministic stock threshold without accepting noise.
-
-    stock_search's normal threshold is 2.5. Its scoring can be overly strict for
-    Pexels/Pixabay metadata because a genuinely relevant result may expose only
-    one useful query term. For Story, give a small bonus when at least one
-    meaningful query token is present in the candidate metadata. This preserves
-    the existing threshold and reuse guards while making provider results usable.
-    """
-    base = stock_search._deterministic_score(item[0] if False else {}, item, provider, video, query)
-    # This branch is intentionally replaced by the wrapper below; keeping the
-    # helper small makes the scoring rule explicit and testable.
-    return base
 
 
 _original_generate_media = stock_search.generate_media
@@ -111,9 +89,10 @@ if _original_context is not None:
 def _make_story_score(original_score):
     def story_score(d, item, provider, video, query):
         base = original_score(d, item, provider, video, query)
+        # Do NOT include the query itself in the haystack; otherwise every
+        # candidate would appear to match merely because the query is present.
         hay = " ".join(
             [
-                str(query),
                 str(item.get("alt", "")),
                 str(item.get("description", "")),
                 str(item.get("tags", "")),
@@ -122,8 +101,9 @@ def _make_story_score(original_score):
         ).lower()
         meaningful = [w for w in re.findall(r"[a-z0-9]+", str(query).lower()) if len(w) > 2]
         if meaningful and any(word in hay for word in meaningful):
-            # The existing URL bonus + one matching term normally produces 1.5.
-            # Add 1.0 so legitimate provider hits reach the existing 2.5 gate.
+            # The normal scorer can produce 1.5 for a valid result with one
+            # matching term + URL bonus. Give that legitimate match a small
+            # Story-only boost so it reaches the existing 2.5 acceptance gate.
             return base + 1.0
         return base
     return story_score

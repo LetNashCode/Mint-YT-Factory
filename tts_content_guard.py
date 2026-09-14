@@ -64,24 +64,31 @@ def _norm(word):
 
 
 def _align(expected,observed):
-    """Return LCS word indexes without the previous backtracking boundary bug."""
+    """Return LCS word indexes using a full (n+1) x (m+1) DP table."""
     n,m=len(expected),len(observed)
     if not n or not m: return set()
-    prev=[0]*(m+1)
-    rows=[]
-    for i in range(n):
-        cur=[0]*(m+1); a=_norm(expected[i])
-        for j in range(m):
-            b=_norm(observed[j])
-            if a and a==b: cur[j+1]=prev[j]+1
-            else: cur[j+1]=max(prev[j+1],cur[j])
-        rows.append(cur); prev=cur
+
+    # Keep row 0 and column 0.  The previous implementation stored only n
+    # rows and then accessed rows[n] while backtracking from (n, m), causing
+    # the IndexError that made every valid Whisper transcript look like 0%.
+    rows=[[0]*(m+1) for _ in range(n+1)]
+    for i in range(1,n+1):
+        a=_norm(expected[i-1])
+        for j in range(1,m+1):
+            b=_norm(observed[j-1])
+            if a and a==b:
+                rows[i][j]=rows[i-1][j-1]+1
+            else:
+                rows[i][j]=max(rows[i-1][j],rows[i][j-1])
+
     matched=set(); i,j=n,m
     while i>0 and j>0:
-        if _norm(expected[i-1]) and _norm(expected[i-1])==_norm(observed[j-1]) and rows[i-1][j-1]+1==rows[i-1][j-1]+1 and rows[i][j]==rows[i-1][j-1]+1:
+        if _norm(expected[i-1]) and _norm(expected[i-1])==_norm(observed[j-1]) and rows[i][j]==rows[i-1][j-1]+1:
             matched.add(i-1); i-=1; j-=1
-        elif rows[i-1][j]>=rows[i][j-1]: i-=1
-        else: j-=1
+        elif rows[i-1][j]>=rows[i][j-1]:
+            i-=1
+        else:
+            j-=1
     return matched
 
 

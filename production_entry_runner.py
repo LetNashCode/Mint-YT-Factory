@@ -9,6 +9,22 @@ from __future__ import annotations
 import re
 
 import production_entry as production
+import stock_search
+
+
+# Compatibility repair for stock_search.py versions where the media-history
+# helper was accidentally removed. Keep the implementation in the already
+# loaded stock_search module so both Publish and Story use the same history.
+if not hasattr(stock_search, "_historical_asset_keys"):
+    def _historical_asset_keys() -> set[str]:
+        return {
+            str(item["asset_key"])
+            for item in stock_search._load_media_history().get("assets", [])
+            if isinstance(item, dict) and item.get("asset_key")
+        }
+
+    stock_search._historical_asset_keys = _historical_asset_keys
+    print("🛡️ Stock media-history guard: compatibility helper restored")
 
 
 def _patch_script_topic_coherence_fixed(main):

@@ -83,6 +83,26 @@ def get_next_topic():
     raise RuntimeError("Story topic generator could not produce a globally unused topic after 30 attempts.")
 
 
+def release_reservation(pillar=None, topic=None, person=None):
+    """Clear a failed script reservation without marking the topic as published/used."""
+    pending = interactive_topics.get_pending_story()
+    if not isinstance(pending, dict) or str(pending.get("status", "")).lower() != "reserved":
+        return False
+    if person and _norm(pending.get("person")) != _norm(person):
+        return False
+    if topic and _norm(pending.get("topic")) != _norm(topic):
+        return False
+    interactive_topics._save(PENDING, {
+        "pillar": pending.get("pillar") or pillar or "",
+        "topic": pending.get("topic") or topic or "",
+        "person": pending.get("person") or person or "",
+        "number": 0,
+        "status": "released",
+    })
+    print(f"↩️ STORY TOPIC RESERVATION RELEASED: {pending.get('person')} | script generation failed")
+    return True
+
+
 def save_pending_story(pillar, topic, person, number):
     interactive_topics._save(PENDING, {
         "pillar": pillar,

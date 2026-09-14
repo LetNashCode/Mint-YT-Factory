@@ -6,8 +6,6 @@ import numpy as np
 from moviepy.editor import AudioFileClip, concatenate_audioclips
 from moviepy.audio.AudioClip import AudioArrayClip
 
-# Production gate allows up to 44.95s. Reserve explicit room for MP3 timing
-# tolerance so the measured output does not fail on a rounding/mux boundary.
 MAX_FINAL_NARRATION_SECONDS = 44.95
 FINAL_DURATION_SAFETY_MARGIN_SECONDS = 0.15
 PROTECTED_PAUSE_SECONDS = 0.035
@@ -48,7 +46,6 @@ def _trim_edges(clip, threshold=0.006, keep=0.035):
 
 
 def _core_budget(bridge_duration):
-    """Return the maximum core duration that leaves a safe final budget."""
     bridge_duration = max(0.0, float(bridge_duration or 0.0))
     return max(
         0.10,
@@ -78,17 +75,13 @@ def patch(main):
         final_path = os.path.join(workdir, "story.mp3")
         core = bridge = core_done = None
         try:
-            # Synthesize the bridge first so its actual duration determines the
-            # core budget. This removes the old fixed ~7s assumption.
             tts._synthesize_once(tts.build_tts_pronunciation_text(bridge_text), voice, bridge_raw)
             bridge = _trim_edges(AudioFileClip(bridge_raw))
             bridge_duration = float(bridge.duration or 0.0)
             target_core = _core_budget(bridge_duration)
             print(
-                f"🎯 Dynamic protected narration budget | "
-                f"bridge={bridge_duration:.2f}s | "
-                f"core_target={target_core:.2f}s | "
-                f"final_ceiling={MAX_FINAL_NARRATION_SECONDS:.2f}s | "
+                f"🎯 Dynamic protected narration budget | bridge={bridge_duration:.2f}s | "
+                f"core_target={target_core:.2f}s | final_ceiling={MAX_FINAL_NARRATION_SECONDS:.2f}s | "
                 f"safety={FINAL_DURATION_SAFETY_MARGIN_SECONDS:.2f}s"
             )
 
@@ -103,7 +96,6 @@ def patch(main):
             core = None
 
             core = _trim_edges(AudioFileClip(core_mp3))
-            # The protected bridge is deliberately separated by only a tiny edit-safe gap.
             pause = AudioArrayClip(
                 np.zeros((int(PROTECTED_PAUSE_SECONDS * tts.SAMPLE_RATE), 2), dtype=np.float32),
                 fps=tts.SAMPLE_RATE,
@@ -112,13 +104,18 @@ def patch(main):
                 np.zeros((int(tts.NARRATION_END_PADDING_SECONDS * tts.SAMPLE_RATE), 2), dtype=np.float32),
                 fps=tts.SAMPLE_RATE,
             )
+            final_duration = float(core.duration or 0.0) + PROTECTED_PAUSE_SECONDS + float(bridge.duration or 0.0) + tts.NARRATION_END_PADDING_SECONDS
+            if final_duration > MAX_FINAL_NARRATION_SECONDS + 0.01:
+                raise RuntimeError(
+                    f"Publish narration is too long to preserve completely: final={final_duration:.2f}s "
+                    f"> ceiling={MAX_FINAL_NARRATION_SECONDS:.2f}s. Regenerate a shorter script; audio will not be truncated."
+                )
             joined = concatenate_audioclips([core, pause, bridge, tail])
             try:
                 joined.write_audiofile(final_path, fps=tts.SAMPLE_RATE, codec="libmp3lame", bitrate="192k", verbose=False, logger=None)
                 print(
-                    f"🔒 Continuation bridge protected | edge-trimmed | "
-                    f"bridge={bridge.duration:.2f}s | core={core.duration:.2f}s | "
-                    f"final={joined.duration:.2f}s"
+                    f"🔒 Continuation bridge protected | edge-trimmed | bridge={bridge.duration:.2f}s | "
+                    f"core={core.duration:.2f}s | final={joined.duration:.2f}s"
                 )
             finally:
                 joined.close(); core.close(); bridge.close(); pause.close(); tail.close()

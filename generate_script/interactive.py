@@ -8,7 +8,9 @@ from . import entertainment as _base
 
 STORY_MIN_WORDS = 80
 STORY_MAX_WORDS = 120
-STORY_SCENE_WORD_BUDGETS = ((6,20),(7,20),(7,20),(7,20),(7,20),(7,20),(10,28))
+# Scene 7 can be a short payoff + loop sentence. Requiring 10 words made
+# otherwise valid endings fail for purely mechanical reasons.
+STORY_SCENE_WORD_BUDGETS = ((6,20),(7,20),(7,20),(7,20),(7,20),(7,20),(6,28))
 STORY_FORMATS = (
     {"name":"rise_from_nothing","direction":"Show the person before success, the obstacle, the decisive attempt, and the consequence. Never turn it into a generic motivational speech."},
     {"name":"one_decision","direction":"Build around one decision that changed the person's direction. Delay the consequence until late in the Short."},
@@ -43,17 +45,42 @@ def _last_sentence(text):
     return parts[-1] if parts else str(text or "").strip()
 
 
+def _first_sentence(text):
+    parts=[x.strip() for x in re.split(r"(?<=[.!?])\s+",str(text or "").strip()) if x.strip()]
+    return parts[0] if parts else str(text or "").strip()
+
+
+def _stem(word):
+    """Small lexical normalization so natural variants count as the same hook idea."""
+    word=re.sub(r"[^a-z0-9]","",str(word or "").lower())
+    if len(word)<5: return word
+    for suffix in ("ingly","edly","ation","ments","ment","ness","less","ing","ers","ies","ied","ed","es","s"):
+        if word.endswith(suffix) and len(word)-len(suffix)>=4:
+            return word[:-len(suffix)]
+    return word
+
+
+def _loop_overlap(opening,ending):
+    opening_terms={w for w in _content_words(opening) if len(w)>3}
+    closing_terms={w for w in _content_words(ending) if len(w)>3}
+    exact=opening_terms & closing_terms
+    if len(exact)>=2: return sorted(exact)
+    stemmed={_stem(w):w for w in closing_terms}
+    matches=[]
+    for w in opening_terms:
+        if _stem(w) in stemmed: matches.append(stemmed[_stem(w)])
+    return sorted(set(matches))
+
+
 def _validate_loop(scenes):
-    """Require the final spoken sentence to naturally echo the opening hook."""
-    opening=str(scenes[0].get("narration","")).strip()
-    ending=str(scenes[-1].get("narration","")).strip()
+    """Require the final spoken sentence to naturally echo the actual opening hook."""
+    opening=_first_sentence(str(scenes[0].get("narration","")).strip())
+    ending=_last_sentence(str(scenes[-1].get("narration","")).strip())
     if not opening or not ending: raise RuntimeError("Story loop requires opening and ending narration.")
-    opening_terms=set(_content_words(_last_sentence(opening)))
-    closing_terms=set(_content_words(_last_sentence(ending)))
-    overlap=opening_terms & closing_terms
+    overlap=_loop_overlap(opening,ending)
     if len(overlap)<2:
         raise RuntimeError("Story loop seam is too weak: final sentence must echo at least two distinctive opening-hook words.")
-    return sorted(overlap)
+    return overlap
 
 
 def _validate_story(scenes):
@@ -105,31 +132,29 @@ FORMAT DIRECTION: {story_format['direction']}
 Create exactly 7 scenes for a vertical YouTube Short about this person.
 The story must stand on narration alone. Real-person photos/footage may be used for key identity or historical moments when available; supporting stock footage/images are atmosphere and context only. Viewers must never need a particular image, face, object, map, screenshot, or on-screen text to understand the story.
 TARGET: 80-120 spoken words. Aim for 95-110 words, not the upper limit. Naturally paced. Do not pad the story just to hit a number. Every line must move the story forward.
-SCENE BANDS: 1=6-20, 2=7-20, 3=7-20, 4=7-20, 5=7-20, 6=7-20, 7=10-28.
+SCENE BANDS: 1=6-20, 2=7-20, 3=7-20, 4=7-20, 5=7-20, 6=7-20, 7=6-28.
 
 WORD-BUDGET RULE — CRITICAL:
 - Write the complete story first, then make it concise.
 - Prefer 95-110 words total.
 - Never exceed 120 words.
-- If a sentence can be shorter without losing a factual story beat, shorten it.
 - Do not add filler merely to increase word count.
 - Before returning JSON, internally count every narration word. The seven scene narrations together MUST be between 80 and 120 words.
-- A response outside 80-120 words is invalid and must be rewritten before returning JSON.
+- If under 80, add one concise factual story detail that advances the story; never add motivational filler.
 
 LOOP STORY RULE — CRITICAL:
-- The Short must feel satisfying when played once AND when it immediately restarts.
-- Scene 1 must open with a distinctive hook containing 2-4 memorable content words or a short phrase that can be echoed later.
+- Scene 1's FIRST spoken sentence is the opening hook. Make it distinctive with 2-4 memorable content words.
 - Scenes 2-6 tell the complete factual story and build to the payoff.
 - Scene 7 gives the emotional payoff and ends with one natural loop-closing sentence.
-- The FINAL SPOKEN SENTENCE of Scene 7 must naturally call back to the opening hook so that, when the video restarts, Scene 1 feels like the continuation of that final thought.
-- Echo at least TWO distinctive words from the opening hook in the final sentence. Do not simply repeat the entire hook verbatim.
+- The FINAL SPOKEN SENTENCE of Scene 7 must naturally call back to the FIRST SENTENCE of Scene 1 so the restart feels like the continuation of the ending.
+- Echo at least TWO distinctive words from that opening sentence in the final sentence. Natural grammatical variants of a word are acceptable.
+- Do not simply repeat the entire hook verbatim.
 - Do not say "watch again," "replay," "loop," "back to the beginning," or anything that exposes the editing trick.
 - Do not use a next-topic teaser.
-- The loop must be created through narration/story wording, not captions or visuals.
 - Do NOT include a subscribe/follow CTA anywhere in the narration. The story should end on the loop sentence.
 
 STORY ARC:
-- Scene 1: hard hook. Start inside the most surprising moment or contradiction. Do not start with the person's name as a biography introduction unless the name itself creates curiosity. Make the hook distinctive enough to echo in Scene 7.
+- Scene 1: hard hook. Start inside the most surprising moment or contradiction. Do not start with the person's name as a biography introduction unless the name itself creates curiosity. Make the first sentence distinctive enough to echo in Scene 7.
 - Scene 2: establish who the person was and what was at stake.
 - Scene 3: introduce the obstacle, rejection, failure, or impossible situation.
 - Scene 4: show the decision, action, encounter, or attempt that changed the trajectory.
@@ -162,22 +187,18 @@ RECENT STORY SUBJECTS — avoid repeating or closely mirroring:
 Return the normal production JSON schema. Put the person's name in the topic/title metadata where appropriate, but keep the narration story-first.
 {extra_feedback}"""
     last_error=None
-    # Story generation gets a larger bounded retry budget than the shared
-    # entertainment generator. Story validation has several independent hard
-    # contracts (word count, seven scene bands, factuality shape, and loop seam),
-    # so a single creative miss should not terminate an otherwise healthy run.
-    story_attempts=max(int(getattr(_base,"MAX_ATTEMPTS",3)),5)
+    story_attempts=max(int(getattr(_base,"MAX_ATTEMPTS",3)),8)
     for attempt in range(story_attempts):
         try:
             retry=""
             if last_error:
-                retry=f"\nRETRY {attempt+1}: Rewrite the narration to fix the validation error. Do not merely append text. Preserve every essential factual story beat. Keep the complete story concise. TARGET EXACTLY 95-110 WORDS TOTAL; HARD LIMIT 80-120. Count all seven scene narrations before returning. If over 120, remove redundant wording rather than deleting an essential beat. If under 80, add one concise factual detail that advances the story. Scene 7 must contain NO subscribe/follow CTA. Its final sentence must echo two distinctive hook words and remain the final spoken sentence. Previous error: {last_error}"
+                retry=f"\nRETRY {attempt+1}: Rewrite the narration to fix the validation error. Do not merely append filler. Preserve every essential factual story beat. Keep the complete story concise. TARGET 95-110 WORDS TOTAL; HARD LIMIT 80-120. Count all seven scene narrations before returning. Scene 7 may be as short as 6 words, but it must still contain the emotional payoff and the final loop sentence. Scene 7 must contain NO subscribe/follow CTA. The FINAL sentence of Scene 7 must echo TWO distinctive content words from the FIRST sentence of Scene 1. Use the same idea/wording naturally rather than forcing unrelated words. Previous error: {last_error}"
             response=client.models.generate_content(model=_base.MODEL_NAME,contents=prompt+retry,config=types.GenerateContentConfig(system_instruction=_base.SYSTEM_PROMPT,response_mime_type="application/json",response_json_schema=_base._build_schema(),temperature=.55))
             raw=getattr(response,"text",None)
             if not raw: raise RuntimeError("Gemini returned an empty story script.")
             result=_normalize_story(_base._parse(raw),topic)
             scenes=_clean_scenes(result.get("scene_plan") or []); _validate_story(scenes); result["scene_plan"]=scenes
-            result["story_format"]=story_format["name"]; result["story_format_direction"]=story_format["direction"]; result["story_visual_mode"]="real_person_plus_atmosphere_v1"; result["story_factuality_policy"]="real-person-facts-no-invented-dialogue"; result["story_word_target"]={"min":STORY_MIN_WORDS,"max":STORY_MAX_WORDS}; result["story_loop_mode"]="spoken_hook_callback_v3_no_cta"; result["visual_dependency"]="none"
+            result["story_format"]=story_format["name"]; result["story_format_direction"]=story_format["direction"]; result["story_visual_mode"]="real_person_plus_atmosphere_v1"; result["story_factuality_policy"]="real-person-facts-no-invented-dialogue"; result["story_word_target"]={"min":STORY_MIN_WORDS,"max":STORY_MAX_WORDS}; result["story_loop_mode"]="spoken_hook_callback_v4_first_sentence_no_cta"; result["visual_dependency"]="none"
             total=sum(len(_words(s.get("narration",""))) for s in scenes); print(f"📖 Story Shorts narration validated: {total} words | format={story_format['name']} | loop=ON | CTA=OFF"); return result
         except Exception as exc:
             last_error=f"{type(exc).__name__}: {exc}"

@@ -15,8 +15,7 @@ class AudioPath(list):
 def patch_continuation(main):
     """Make Publish continuation production-owned and transactional."""
     original_lock = main.lock_next_topic
-    if getattr(original_lock, "_mint_scene7_continuation_guard", False):
-        return
+    if getattr(original_lock, "_mint_scene7_continuation_guard", False): return
     import topics
     def _clean(value): return topics._clean_topic(value)
     def _validate_and_hold(next_topic, current_topic):
@@ -88,17 +87,45 @@ def patch_tts_result(main):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(script, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
+    def _core_word_count(script):
+        scenes = script.get("scene_plan") or []
+        full = " ".join(str(s.get("narration") or "") for s in scenes if isinstance(s, dict)).strip()
+        bridge = str((script.get("next_short") or {}).get("teaser") or "").strip()
+        if bridge and full.endswith(bridge):
+            full = full[:-len(bridge)].strip()
+        return len(re.findall(r"[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*", full))
+
+    def _regenerate_shorter(script, config, feedback):
+        current_topic = str(script.get("topic") or "").strip()
+        locked_next = str((script.get("next_short") or {}).get("topic") or "").strip()
+        candidate = main.generate_script(current_topic, config, None, extra_feedback=feedback)
+        candidate["topic"] = current_topic
+        candidate["next_short"] = dict(candidate.get("next_short") or {})
+        candidate["next_short"]["topic"] = locked_next
+        if hasattr(main, "lock_next_topic"):
+            candidate, locked = main.lock_next_topic(candidate, current_topic)
+            if locked_next and locked != locked_next:
+                raise RuntimeError(f"TTS content regeneration changed locked next topic: {locked!r} != {locked_next!r}")
+        script.clear(); script.update(candidate)
+        return script
+
     def synthesize_script(script, config, workdir):
-        # main.run persists script.json only after TTS returns. The content gate
-        # runs inside this call, so publish scripts must be materialized first.
-        # This also ensures the gate always verifies the exact script instance
-        # that was handed to the TTS engine, before any audio can proceed.
         if _is_publish(script):
             _refresh_script_artifact(script, workdir)
+            core_words = _core_word_count(script)
+            if core_words > 112:
+                print(f"⚠️ Publish core narration too long before TTS: {core_words} words; regenerating shorter narration")
+                _regenerate_shorter(
+                    script, config,
+                    "HARD LENGTH REQUIREMENT: keep the CURRENT TOPIC, locked continuation, all important facts and payoff, "
+                    "but make the core narration 95-105 words and never exceed 112 words. Every sentence must remain fully speakable. "
+                    "Do not add another topic or omit the core explanation."
+                )
+                _refresh_script_artifact(script, workdir)
+                print(f"✅ Publish core narration compacted to {_core_word_count(script)} words before TTS")
         result = original(script, config, workdir)
         audio_path = str(result[0] if isinstance(result, (list, tuple)) and result else result)
-        if not _is_publish(script):
-            return AudioPath(audio_path)
+        if not _is_publish(script): return AudioPath(audio_path)
         try:
             from tts_content_guard import verify_narration
             script_path = Path(workdir) / "script.json"
@@ -111,20 +138,10 @@ def patch_tts_result(main):
             feedback = (
                 "HARD AUDIO REQUIREMENT: the previous TTS audio did not contain every part of the generated script. "
                 "Rewrite the CURRENT TOPIC narration so every scene is concise, natural, and fully speakable. "
-                "Do not remove any important fact or payoff. Do not add a new topic. Preserve the locked continuation metadata, "
-                "but keep any continuation sentence in the exact place required by the production pipeline."
+                "Target 95-105 core narration words and never exceed 112 core words. Do not remove any important fact or payoff. "
+                "Do not add a new topic. Preserve the locked continuation metadata, but keep the continuation sentence in the exact place required by the production pipeline."
             )
-            current_topic = str(script.get("topic") or "").strip()
-            locked_next = str((script.get("next_short") or {}).get("topic") or "").strip()
-            candidate = main.generate_script(current_topic, config, None, extra_feedback=feedback)
-            candidate["topic"] = current_topic
-            candidate["next_short"] = dict(candidate.get("next_short") or {})
-            candidate["next_short"]["topic"] = locked_next
-            if hasattr(main, "lock_next_topic"):
-                candidate, locked = main.lock_next_topic(candidate, current_topic)
-                if locked_next and locked != locked_next:
-                    raise RuntimeError(f"TTS content regeneration changed locked next topic: {locked!r} != {locked_next!r}")
-            script.clear(); script.update(candidate)
+            _regenerate_shorter(script, config, feedback)
             _refresh_script_artifact(script, workdir)
             retry_result = original(script, config, workdir)
             retry_audio = str(retry_result[0] if isinstance(retry_result, (list, tuple)) and retry_result else retry_result)

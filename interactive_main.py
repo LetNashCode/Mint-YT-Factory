@@ -8,7 +8,6 @@ from interactive_analytics import record as record_analytics, build_comparison, 
 from generate_script.interactive import generate_script
 from tts import synthesize_script
 from stock_media_resilient import generate_media
-from story_person_media import generate_person_media, apply_person_media
 from story_media_preflight import validate_story_media
 from music import download_music
 from sfx import generate_sfx
@@ -57,13 +56,6 @@ def _validate_story_contract(script):
     if len(overlap)<2: raise RuntimeError("Story contract loop seam is too weak: Scene 7 must echo at least two opening-hook words.")
     print(f"🔁 Story contract loop validated: echo={', '.join(sorted(overlap)[:5])} | CTA=OFF")
 def _generate_story_script(topic,config,feedback): return generate_script(topic,config,None,extra_feedback=feedback)
-def _person_credits(person_media):
-    lines=[]
-    for item in (person_media or {}).get("credits",[]):
-        if not isinstance(item,dict): continue
-        source=item.get("source_url") or ""; title=item.get("title") or "Wikimedia Commons media"; creator=item.get("creator") or "Unknown creator"; license_name=item.get("license") or "license shown on source page"
-        if source: lines.append(f"{title} — {creator} — {license_name} — {source}")
-    return lines
 def _audio_duration(path):
     clip=None
     try:
@@ -101,14 +93,15 @@ FORMAT: {pillar}
 Create a self-contained story. Do not mention the previous story or tease a future specific person.
 The viewer must hear the COMPLETE story from hook through payoff. Never omit, truncate, or compress away the final story beat just to meet a preferred duration.
 This Short MUST use a spoken loop: Scene 1 opens with a distinctive hook; Scene 7 ends with a natural sentence that echoes that hook so the restart feels like the continuation of the ending.
-The viewer should understand the emotional arc with the phone face-down. Real-person photos/footage may be used for key identity moments; supporting stock visuals must remain atmosphere/context only.
+The viewer should understand the emotional arc with the phone face-down.
+ALL PRODUCTION MEDIA MUST COME FROM PEXELS OR PIXABAY ONLY. Prefer an exact real-person match from those providers when available for identity moments. Supporting stock visuals must remain atmosphere/context only.
 Use a hard hook, concrete stakes, an obstacle, a meaningful decision or turning point, escalation, and a satisfying payoff.
 Do NOT include a subscribe/follow CTA in the narration. End the spoken story on the natural loop-closing sentence.
 Do not turn the ending into a motivational lecture. Do not create or mention a next-topic teaser; this Story Shorts line is standalone.
 Do not expose the loop with words like replay, loop, watch again, or back to the beginning.
 """
     try:
-        script=_generate_story_script(topic,config,feedback); script.update({"topic":topic,"story_number":number,"story_person":person,"interactive_pillar":pillar,"story_visual_mode":"real_person_plus_atmosphere_v1"}); _validate_story_contract(script)
+        script=_generate_story_script(topic,config,feedback); script.update({"topic":topic,"story_number":number,"story_person":person,"interactive_pillar":pillar,"story_visual_mode":"person_first_pexels_pixabay_v2"}); _validate_story_contract(script)
     except Exception:
         try:
             from story_topic_runtime import release_reservation
@@ -121,15 +114,18 @@ Do not expose the loop with words like replay, loop, watch again, or back to the
     elif isinstance(audio,(tuple,list)): audio=next((x for x in audio if isinstance(x,(str,os.PathLike)) and os.path.isfile(os.fspath(x))),audio[0] if audio else None)
     if not isinstance(audio,(str,os.PathLike)) or not os.path.isfile(os.fspath(audio)): raise RuntimeError(f"Story narration file invalid: {audio!r}")
     audio=os.path.abspath(os.fspath(audio)); narration_duration=_assert_complete_story_audio(audio); print(f"🎙️ Story narration ready: {audio}")
-    person_media=generate_person_media(script,os.path.join(workdir,"person_media"),person); visuals=generate_media(script,os.path.join(workdir,"visuals"),config); visuals=apply_person_media(visuals,person_media)
-    media_paths=[str(item.get("path")) for item in visuals if isinstance(item,dict) and item.get("path")]; media_paths += [str(item.get("path")) for item in (person_media or {}).get("assets",[]) if isinstance(item,dict) and item.get("path")]; validate_story_media(media_paths)
-    real_count=sum(1 for x in visuals if x.get("person_visual")); print(f"👤 Story real-person visuals applied: {real_count}/{len((person_media or {}).get('assets',[]))} verified assets")
-    script["story_person_media"]={"source":"Wikimedia Commons","verified_assets":real_count,"target_scenes":[1,2,4,6,7],"credits":_person_credits(person_media)}; save(script,os.path.join(workdir,"script.json"))
+    visuals=generate_media(script,os.path.join(workdir,"visuals"),config)
+    media_paths=[str(item.get("path")) for item in visuals if isinstance(item,dict) and item.get("path")]
+    validate_story_media(media_paths)
+    if len(visuals)!=14: raise RuntimeError(f"Story visual contract requires 14 provider assets; received {len(visuals)}.")
+    non_provider=[x for x in visuals if str(x.get("provider","")).strip().lower() not in {"pexels","pixabay"}]
+    if non_provider: raise RuntimeError(f"Story media provider isolation failed: {len(non_provider)} non-Pexels/Pixabay assets returned.")
+    real_count=sum(1 for x in visuals if x.get("person_match") or x.get("person_visual")); print(f"👤 Story exact-person/provider visuals applied: {real_count}/{len(visuals)} assets flagged as person matches")
+    script["story_person_media"]={"source":"Pexels/Pixabay only","verified_assets":real_count,"target_scenes":[1,2,3,4,5,6,7]}; save(script,os.path.join(workdir,"script.json"))
     sfx=generate_sfx(script,os.path.join(workdir,"sfx")); music=download_music(script,os.path.join(workdir,"music")); final=os.path.join(workdir,"final.mp4"); assemble_video(script,[audio],visuals,music,sfx,config,final)
     _assert_final_audio_contains_story(final,narration_duration); q=validate_final_video(final,expected_bitrate_mbps=100.0); save(q,os.path.join(workdir,"validation.json"))
     if not q.get("ok"): raise RuntimeError("Story final video validation failed.")
-    title=_title(pillar,person); credits=_person_credits(person_media); credit_block=("\n\nReal-person media credits:\n"+"\n".join(credits)) if credits else ""
-    desc=f"A remarkable true story about {person} — the struggle, turning point, and moment that changed everything.\n\nWhat would you have done in {person}'s situation? 👇\n\nSubscribe and follow for more powerful stories about people who faced setbacks, made difficult choices, and changed their lives.\n\n#StoryShorts #TrueStory #Inspiration #Shorts"+credit_block
+    title=_title(pillar,person); desc=f"A remarkable true story about {person} — the struggle, turning point, and moment that changed everything.\n\nWhat would you have done in {person}'s situation? 👇\n\nSubscribe and follow for more powerful stories about people who faced setbacks, made difficult choices, and changed their lives.\n\n#StoryShorts #TrueStory #Inspiration #Shorts"
     engagement=(script.get("engagement") or {}).get("comment") or f"What would you have done in {person}'s situation? 👇"
     script["engagement"]={"comment":engagement}; save(script,os.path.join(workdir,"script.json"))
     result=upload_video(final,title,desc,config,engagement_comment=engagement)

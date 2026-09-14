@@ -43,9 +43,28 @@ def _content_words(text):
     stop={"the","a","an","and","or","but","so","to","of","in","on","at","for","with","from","was","were","is","are","this","that","it","he","she","they","his","her","their","had","have","has","as","by","not","what","when","who","how","then","just","one","more","because","after","before","into","than","very","would","could","did","do","does"}
     return {w.lower().strip(".,!?;:'\"()[]{}") for w in re.findall(r"\b[\w'-]+\b",str(text or "")) if w.lower() not in stop and len(w)>2}
 
+def _first_sentence(text):
+    parts=[x.strip() for x in re.split(r"(?<=[.!?])\s+",str(text or "").strip()) if x.strip()]
+    return parts[0] if parts else str(text or "").strip()
+
 def _last_sentence(text):
     parts=[x.strip() for x in re.split(r"(?<=[.!?])\s+",str(text or "").strip()) if x.strip()]
     return parts[-1] if parts else str(text or "").strip()
+
+def _stem(word):
+    word=re.sub(r"[^a-z0-9]","",str(word or "").lower())
+    if len(word)<5: return word
+    for suffix in ("ingly","edly","ation","ments","ment","ness","less","ing","ers","ies","ied","ed","es","s"):
+        if word.endswith(suffix) and len(word)-len(suffix)>=4: return word[:-len(suffix)]
+    return word
+
+def _loop_overlap(opening,ending):
+    opening_terms={w for w in _content_words(opening) if len(w)>3}
+    closing_terms={w for w in _content_words(ending) if len(w)>3}
+    exact=opening_terms & closing_terms
+    if len(exact)>=2: return exact
+    closing_stems={_stem(w):w for w in closing_terms}
+    return {closing_stems[_stem(w)] for w in opening_terms if _stem(w) in closing_stems}
 
 def _validate_story_contract(script):
     """Validate the complete seven-scene story and spoken loop; no CTA is part of the narration."""
@@ -53,9 +72,9 @@ def _validate_story_contract(script):
     if len(scenes)!=7: raise RuntimeError("Story contract requires exactly 7 scenes.")
     narration=" ".join(str(s.get("narration","")) for s in scenes).strip()
     if not narration: raise RuntimeError("Story narration is empty.")
-    opening_hook=_last_sentence(str(scenes[0].get("narration","")))
+    opening_hook=_first_sentence(str(scenes[0].get("narration","")))
     closing_loop=_last_sentence(str(scenes[-1].get("narration","")))
-    overlap=_content_words(opening_hook) & _content_words(closing_loop)
+    overlap=_loop_overlap(opening_hook,closing_loop)
     if len(overlap)<2: raise RuntimeError("Story contract loop seam is too weak: Scene 7 must echo at least two opening-hook words.")
     print(f"🔁 Story contract loop validated: echo={', '.join(sorted(overlap)[:5])} | CTA=OFF")
 
@@ -85,7 +104,6 @@ def _audio_duration(path):
             except Exception: pass
 
 def _assert_complete_story_audio(audio_path, minimum_expected_seconds=0.0):
-    """Fail before assembly/upload if the narration file is unexpectedly short."""
     duration=_audio_duration(audio_path)
     if duration <= 0.05: raise RuntimeError(f"Story narration has invalid duration: {duration:.2f}s")
     if minimum_expected_seconds and duration + 0.05 < minimum_expected_seconds: raise RuntimeError(f"Story narration is shorter than expected: {duration:.2f}s < {minimum_expected_seconds:.2f}s")
@@ -93,7 +111,6 @@ def _assert_complete_story_audio(audio_path, minimum_expected_seconds=0.0):
     return duration
 
 def _assert_final_audio_contains_story(final_path, narration_duration):
-    """Verify the encoded MP4 still contains the complete narration before upload."""
     duration=_audio_duration(final_path)
     if duration + 0.05 < narration_duration: raise RuntimeError(f"Final MP4 audio is shorter than source narration: {duration:.2f}s < {narration_duration:.2f}s")
     print(f"🛡️ FINAL STORY AUDIO CHECK: {duration:.2f}s >= narration {narration_duration:.2f}s")
@@ -107,13 +124,11 @@ def _clear_social_queue():
     try:
         os.remove(SOCIAL_QUEUE_PATH)
         print("✅ Story social recovery queue cleared")
-    except FileNotFoundError:
-        pass
+    except FileNotFoundError: pass
 
 def _social_has_failures(result):
     for payload in (result or {}).values():
-        if isinstance(payload,dict) and str(payload.get("status") or "").lower()=="failed":
-            return True
+        if isinstance(payload,dict) and str(payload.get("status") or "").lower()=="failed": return True
     return False
 
 def run():
@@ -139,10 +154,20 @@ Do NOT include a subscribe/follow CTA in the narration. End the spoken story on 
 Do not turn the ending into a motivational lecture. Do not create or mention a next-topic teaser; this Story Shorts line is standalone.
 Do not expose the loop with words like replay, loop, watch again, or back to the beginning.
 """
-    script=_generate_story_script(topic,config,feedback)
-    script.update({"topic":topic,"story_number":number,"story_person":person,"interactive_pillar":pillar,"story_visual_mode":"real_person_plus_atmosphere_v1"})
-    _validate_story_contract(script)
-    script["engagement"]={"comment":f"What would you have done in {person}'s situation? 👇"}
+    # The topic runtime durably reserves a candidate before generation. If the
+    # script contract fails, explicitly release that reservation so a bad
+    # creative response never strands a topic or blocks the next run.
+    try:
+        script=_generate_story_script(topic,config,feedback)
+        script.update({"topic":topic,"story_number":number,"story_person":person,"interactive_pillar":pillar,"story_visual_mode":"real_person_plus_atmosphere_v1"})
+        _validate_story_contract(script)
+    except Exception:
+        try:
+            from story_topic_runtime import release_reservation
+            release_reservation(pillar,topic,person)
+        except Exception as release_error:
+            print(f"⚠️ Story reservation release failed: {type(release_error).__name__}: {release_error}")
+        raise
     workdir=os.path.join("output","interactive",str(int(time.time()))); os.makedirs(workdir,exist_ok=True); save(script,os.path.join(workdir,"script.json"))
     audio=synthesize_script(script,config,os.path.join(workdir,"audio"))
     if isinstance(audio,dict): audio=audio.get("audio_path") or audio.get("path") or audio.get("output_path")

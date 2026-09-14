@@ -19,125 +19,78 @@ from validate_video import validate_final_video
 
 SOCIAL_QUEUE_PATH = "story_social_queue.json"
 
-
 def load_config():
     with open("config.yaml", encoding="utf-8") as f: return yaml.safe_load(f)
-
 def save(x,p):
     directory=os.path.dirname(p)
     if directory: os.makedirs(directory,exist_ok=True)
     with open(p,"w",encoding="utf-8") as f: json.dump(x,f,indent=2,ensure_ascii=False)
-
 def _title(pillar,person):
-    labels={
-        "rise_from_nothing":"The Impossible Comeback",
-        "one_decision":"The Decision That Changed Everything",
-        "before_they_were_famous":"Before the Fame",
-        "impossible_odds":"Against Impossible Odds",
-        "strange_turning_point":"The Moment Everything Changed",
-    }
-    label=labels.get(pillar,"A Remarkable Story")
-    return f"{label}: {person}"
-
+    labels={"rise_from_nothing":"The Impossible Comeback","one_decision":"The Decision That Changed Everything","before_they_were_famous":"Before the Fame","impossible_odds":"Against Impossible Odds","strange_turning_point":"The Moment Everything Changed"}
+    return f"{labels.get(pillar,'A Remarkable Story')}: {person}"
 def _content_words(text):
     stop={"the","a","an","and","or","but","so","to","of","in","on","at","for","with","from","was","were","is","are","this","that","it","he","she","they","his","her","their","had","have","has","as","by","not","what","when","who","how","then","just","one","more","because","after","before","into","than","very","would","could","did","do","does"}
     return {w.lower().strip(".,!?;:'\"()[]{}") for w in re.findall(r"\b[\w'-]+\b",str(text or "")) if w.lower() not in stop and len(w)>2}
-
 def _first_sentence(text):
     parts=[x.strip() for x in re.split(r"(?<=[.!?])\s+",str(text or "").strip()) if x.strip()]
     return parts[0] if parts else str(text or "").strip()
-
 def _last_sentence(text):
     parts=[x.strip() for x in re.split(r"(?<=[.!?])\s+",str(text or "").strip()) if x.strip()]
     return parts[-1] if parts else str(text or "").strip()
-
 def _stem(word):
     word=re.sub(r"[^a-z0-9]","",str(word or "").lower())
     if len(word)<5: return word
     for suffix in ("ingly","edly","ation","ments","ment","ness","less","ing","ers","ies","ied","ed","es","s"):
         if word.endswith(suffix) and len(word)-len(suffix)>=4: return word[:-len(suffix)]
     return word
-
 def _loop_overlap(opening,ending):
-    opening_terms={w for w in _content_words(opening) if len(w)>3}
-    closing_terms={w for w in _content_words(ending) if len(w)>3}
-    exact=opening_terms & closing_terms
+    opening_terms={w for w in _content_words(opening) if len(w)>3}; closing_terms={w for w in _content_words(ending) if len(w)>3}; exact=opening_terms & closing_terms
     if len(exact)>=2: return exact
     closing_stems={_stem(w):w for w in closing_terms}
     return {closing_stems[_stem(w)] for w in opening_terms if _stem(w) in closing_stems}
-
 def _validate_story_contract(script):
-    """Validate the complete seven-scene story and spoken loop; no CTA is part of the narration."""
     scenes=script.get("scene_plan") or []
     if len(scenes)!=7: raise RuntimeError("Story contract requires exactly 7 scenes.")
     narration=" ".join(str(s.get("narration","")) for s in scenes).strip()
     if not narration: raise RuntimeError("Story narration is empty.")
-    opening_hook=_first_sentence(str(scenes[0].get("narration","")))
-    closing_loop=_last_sentence(str(scenes[-1].get("narration","")))
-    overlap=_loop_overlap(opening_hook,closing_loop)
+    opening_hook=_first_sentence(str(scenes[0].get("narration",""))); closing_loop=_last_sentence(str(scenes[-1].get("narration",""))); overlap=_loop_overlap(opening_hook,closing_loop)
     if len(overlap)<2: raise RuntimeError("Story contract loop seam is too weak: Scene 7 must echo at least two opening-hook words.")
     print(f"🔁 Story contract loop validated: echo={', '.join(sorted(overlap)[:5])} | CTA=OFF")
-
-def _generate_story_script(topic,config,feedback):
-    """Generate a standalone looping Story Short without applying the Publish-only continuation bridge."""
-    return generate_script(topic,config,None,extra_feedback=feedback)
-
+def _generate_story_script(topic,config,feedback): return generate_script(topic,config,None,extra_feedback=feedback)
 def _person_credits(person_media):
     lines=[]
     for item in (person_media or {}).get("credits",[]):
         if not isinstance(item,dict): continue
-        source=item.get("source_url") or ""
-        title=item.get("title") or "Wikimedia Commons media"
-        creator=item.get("creator") or "Unknown creator"
-        license_name=item.get("license") or "license shown on source page"
+        source=item.get("source_url") or ""; title=item.get("title") or "Wikimedia Commons media"; creator=item.get("creator") or "Unknown creator"; license_name=item.get("license") or "license shown on source page"
         if source: lines.append(f"{title} — {creator} — {license_name} — {source}")
     return lines
-
 def _audio_duration(path):
     clip=None
     try:
-        clip=AudioFileClip(path)
-        return float(clip.duration or 0.0)
+        clip=AudioFileClip(path); return float(clip.duration or 0.0)
     finally:
         if clip is not None:
             try: clip.close()
             except Exception: pass
-
 def _assert_complete_story_audio(audio_path, minimum_expected_seconds=0.0):
     duration=_audio_duration(audio_path)
-    if duration <= 0.05: raise RuntimeError(f"Story narration has invalid duration: {duration:.2f}s")
-    if minimum_expected_seconds and duration + 0.05 < minimum_expected_seconds: raise RuntimeError(f"Story narration is shorter than expected: {duration:.2f}s < {minimum_expected_seconds:.2f}s")
-    print(f"🛡️ COMPLETE STORY AUDIO CHECK: {duration:.2f}s — full narration file present")
-    return duration
-
-def _assert_final_audio_contains_story(final_path, narration_duration):
+    if duration<=0.05: raise RuntimeError(f"Story narration has invalid duration: {duration:.2f}s")
+    if minimum_expected_seconds and duration+0.05<minimum_expected_seconds: raise RuntimeError(f"Story narration is shorter than expected: {duration:.2f}s < {minimum_expected_seconds:.2f}s")
+    print(f"🛡️ COMPLETE STORY AUDIO CHECK: {duration:.2f}s — full narration file present"); return duration
+def _assert_final_audio_contains_story(final_path,narration_duration):
     duration=_audio_duration(final_path)
-    if duration + 0.05 < narration_duration: raise RuntimeError(f"Final MP4 audio is shorter than source narration: {duration:.2f}s < {narration_duration:.2f}s")
-    print(f"🛡️ FINAL STORY AUDIO CHECK: {duration:.2f}s >= narration {narration_duration:.2f}s")
-    return duration
-
+    if duration+0.05<narration_duration: raise RuntimeError(f"Final MP4 audio is shorter than source narration: {duration:.2f}s < {narration_duration:.2f}s")
+    print(f"🛡️ FINAL STORY AUDIO CHECK: {duration:.2f}s >= narration {narration_duration:.2f}s"); return duration
 def _save_social_queue(data):
-    save(data,SOCIAL_QUEUE_PATH)
-    print(f"💾 Story social recovery queued | run={data.get('run_id')} | artifact={data.get('artifact_name')}")
-
+    save(data,SOCIAL_QUEUE_PATH); print(f"💾 Story social recovery queued | run={data.get('run_id')} | artifact={data.get('artifact_name')}")
 def _clear_social_queue():
-    try:
-        os.remove(SOCIAL_QUEUE_PATH)
-        print("✅ Story social recovery queue cleared")
+    try: os.remove(SOCIAL_QUEUE_PATH); print("✅ Story social recovery queue cleared")
     except FileNotFoundError: pass
-
 def _social_has_failures(result):
-    for payload in (result or {}).values():
-        if isinstance(payload,dict) and str(payload.get("status") or "").lower()=="failed": return True
-    return False
-
+    return any(isinstance(payload,dict) and str(payload.get("status") or "").lower()=="failed" for payload in (result or {}).values())
 def run():
-    config=dict(load_config() or {})
-    voice=dict(config.get("voice") or {})
-    voice.update({"provider":"kokoro","voice_name":"am_michael","kokoro_lang":"a","tone":"cinematic, warm, conversational storyteller"})
-    config["voice"]=voice
-    print("🎙️ Story Shorts voice: am_michael (Kokoro)")
-    refresh_live_metrics()
+    config=dict(load_config() or {}); voice=dict(config.get("voice") or {}); voice.update({"provider":"kokoro","voice_name":"am_michael","kokoro_lang":"a","tone":"cinematic, warm, conversational storyteller"}); config["voice"]=voice
+    print("🎙️ Story Shorts voice: am_michael (Kokoro)"); refresh_live_metrics()
     previous=get_pending_story(); pillar,topic,person=get_next_topic(); number=next_story_number()
     if previous and number<=int(previous.get("number",0)): raise RuntimeError(f"Invalid story sequence state: next #{number} must follow pending Story #{previous.get('number')}.")
     print(f"📖 STORY SHORT #{number} | {pillar} | {person}")
@@ -154,19 +107,13 @@ Do NOT include a subscribe/follow CTA in the narration. End the spoken story on 
 Do not turn the ending into a motivational lecture. Do not create or mention a next-topic teaser; this Story Shorts line is standalone.
 Do not expose the loop with words like replay, loop, watch again, or back to the beginning.
 """
-    # The topic runtime durably reserves a candidate before generation. If the
-    # script contract fails, explicitly release that reservation so a bad
-    # creative response never strands a topic or blocks the next run.
     try:
-        script=_generate_story_script(topic,config,feedback)
-        script.update({"topic":topic,"story_number":number,"story_person":person,"interactive_pillar":pillar,"story_visual_mode":"real_person_plus_atmosphere_v1"})
-        _validate_story_contract(script)
+        script=_generate_story_script(topic,config,feedback); script.update({"topic":topic,"story_number":number,"story_person":person,"interactive_pillar":pillar,"story_visual_mode":"real_person_plus_atmosphere_v1"}); _validate_story_contract(script)
     except Exception:
         try:
             from story_topic_runtime import release_reservation
             release_reservation(pillar,topic,person)
-        except Exception as release_error:
-            print(f"⚠️ Story reservation release failed: {type(release_error).__name__}: {release_error}")
+        except Exception as release_error: print(f"⚠️ Story reservation release failed: {type(release_error).__name__}: {release_error}")
         raise
     workdir=os.path.join("output","interactive",str(int(time.time()))); os.makedirs(workdir,exist_ok=True); save(script,os.path.join(workdir,"script.json"))
     audio=synthesize_script(script,config,os.path.join(workdir,"audio"))
@@ -174,33 +121,22 @@ Do not expose the loop with words like replay, loop, watch again, or back to the
     elif isinstance(audio,(tuple,list)): audio=next((x for x in audio if isinstance(x,(str,os.PathLike)) and os.path.isfile(os.fspath(x))),audio[0] if audio else None)
     if not isinstance(audio,(str,os.PathLike)) or not os.path.isfile(os.fspath(audio)): raise RuntimeError(f"Story narration file invalid: {audio!r}")
     audio=os.path.abspath(os.fspath(audio)); narration_duration=_assert_complete_story_audio(audio); print(f"🎙️ Story narration ready: {audio}")
-    person_media=generate_person_media(script,os.path.join(workdir,"person_media"),person)
-    visuals=generate_media(script,os.path.join(workdir,"visuals"),config)
-    visuals=apply_person_media(visuals,person_media)
-    media_paths=[str(item.get("path")) for item in visuals if isinstance(item,dict) and item.get("path")]
-    media_paths += [str(item.get("path")) for item in (person_media or {}).get("assets",[]) if isinstance(item,dict) and item.get("path")]
-    validate_story_media(media_paths)
-    real_count=sum(1 for x in visuals if x.get("person_visual"))
-    print(f"👤 Story real-person visuals applied: {real_count}/{len((person_media or {}).get('assets',[]))} verified assets")
-    script["story_person_media"]={"source":"Wikimedia Commons","verified_assets":real_count,"target_scenes":[1,2,4,6,7],"credits":_person_credits(person_media)}
-    save(script,os.path.join(workdir,"script.json"))
-    sfx=generate_sfx(script,os.path.join(workdir,"sfx")); music=download_music(script,os.path.join(workdir,"music")); final=os.path.join(workdir,"final.mp4")
-    assemble_video(script,[audio],visuals,music,sfx,config,final)
-    _assert_final_audio_contains_story(final,narration_duration)
-    q=validate_final_video(final,expected_bitrate_mbps=100.0); save(q,os.path.join(workdir,"validation.json"))
+    person_media=generate_person_media(script,os.path.join(workdir,"person_media"),person); visuals=generate_media(script,os.path.join(workdir,"visuals"),config); visuals=apply_person_media(visuals,person_media)
+    media_paths=[str(item.get("path")) for item in visuals if isinstance(item,dict) and item.get("path")]; media_paths += [str(item.get("path")) for item in (person_media or {}).get("assets",[]) if isinstance(item,dict) and item.get("path")]; validate_story_media(media_paths)
+    real_count=sum(1 for x in visuals if x.get("person_visual")); print(f"👤 Story real-person visuals applied: {real_count}/{len((person_media or {}).get('assets',[]))} verified assets")
+    script["story_person_media"]={"source":"Wikimedia Commons","verified_assets":real_count,"target_scenes":[1,2,4,6,7],"credits":_person_credits(person_media)}; save(script,os.path.join(workdir,"script.json"))
+    sfx=generate_sfx(script,os.path.join(workdir,"sfx")); music=download_music(script,os.path.join(workdir,"music")); final=os.path.join(workdir,"final.mp4"); assemble_video(script,[audio],visuals,music,sfx,config,final)
+    _assert_final_audio_contains_story(final,narration_duration); q=validate_final_video(final,expected_bitrate_mbps=100.0); save(q,os.path.join(workdir,"validation.json"))
     if not q.get("ok"): raise RuntimeError("Story final video validation failed.")
-    title=_title(pillar,person)
-    credits=_person_credits(person_media)
-    credit_block=("\n\nReal-person media credits:\n"+"\n".join(credits)) if credits else ""
+    title=_title(pillar,person); credits=_person_credits(person_media); credit_block=("\n\nReal-person media credits:\n"+"\n".join(credits)) if credits else ""
     desc=f"A remarkable true story about {person} — the struggle, turning point, and moment that changed everything.\n\nWhat would you have done in {person}'s situation? 👇\n\nSubscribe and follow for more powerful stories about people who faced setbacks, made difficult choices, and changed their lives.\n\n#StoryShorts #TrueStory #Inspiration #Shorts"+credit_block
-    result=upload_video(final,title,desc,config,engagement_comment=script["engagement"]["comment"])
+    engagement=(script.get("engagement") or {}).get("comment") or f"What would you have done in {person}'s situation? 👇"
+    script["engagement"]={"comment":engagement}; save(script,os.path.join(workdir,"script.json"))
+    result=upload_video(final,title,desc,config,engagement_comment=engagement)
     vid=result if isinstance(result,str) else str(result.get("video_id") or result.get("id") or "") if isinstance(result,dict) else ""
     if not vid: raise RuntimeError("Story upload returned no video ID; sequence state was not advanced.")
     _save_social_queue({"schema_version":1,"run_id":str(os.environ.get("GITHUB_RUN_ID") or ""),"artifact_name":f"story-shorts-{os.environ.get('GITHUB_RUN_ID','')}","workdir":workdir,"final_relative":os.path.relpath(final,"."),"video_id":vid,"topic":topic,"pillar":pillar,"person":person,"number":number,"title":title,"description":desc})
-    social_result=publish_social_reels(final,title,desc,config,workdir)
-    print("📱 Story social publish summary:",json.dumps({name:(payload or {}).get("status") for name,payload in social_result.items() if name in {"instagram","facebook"}},ensure_ascii=False))
+    social_result=publish_social_reels(final,title,desc,config,workdir); print("📱 Story social publish summary:",json.dumps({name:(payload or {}).get("status") for name,payload in social_result.items() if name in {"instagram","facebook"}},ensure_ascii=False))
     if not _social_has_failures(social_result): _clear_social_queue()
-    record_topic(topic,pillar,title,vid,workdir,person=person); save_pending_story(pillar,topic,person,number)
-    record_analytics(vid,topic,pillar,title,workdir,person=person); print("📊 Story comparison:",json.dumps(build_comparison(),ensure_ascii=False))
-
+    record_topic(topic,pillar,title,vid,workdir,person=person); save_pending_story(pillar,topic,person,number); record_analytics(vid,topic,pillar,title,workdir,person=person); print("📊 Story comparison:",json.dumps(build_comparison(),ensure_ascii=False))
 if __name__=="__main__": run()

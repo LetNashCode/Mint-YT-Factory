@@ -399,6 +399,36 @@ The next Story Shorts run passed the previously missing `_sentence_parts()` help
 
 ---
 
+## 2026-09-15 — Story Shorts video-only visual pipeline
+
+### User requirement
+- Story Shorts must use **videos only** for production visuals.
+- Do not download, select, recover, or assemble any still/photo/image asset in the Story pipeline.
+- Keep the existing Pexels/Pixabay-only provider restriction and do not change Publish Shorts behavior.
+
+### Files changed
+- `stock_search.py`
+- `CHANGELOG_MINT_YT_FACTORY.md`
+
+### Implementation
+- Added a Story-specific video-only routing lock inside `stock_search.generate_media()`.
+- Story searches now query only `Pexels VIDEO` and `Pixabay VIDEO`; the Story path never calls the photo endpoints for candidate selection.
+- Story candidate recovery is also video-only, so a failed video download cannot fall back to a photo.
+- Added hard runtime assertions before and after recovery to reject any non-video asset in Story generation.
+- Story output therefore remains the existing 14-asset contract, but every asset is an MP4 video from Pexels or Pixabay.
+- Publish Shorts retains its existing video/image provider behavior and was not changed.
+
+### Important behavior
+- Gemini still uses `gemini-flash-lite-latest` only for search direction and thumbnail-based visual verification.
+- The attached verification frames are previews of video assets; they are not production still-image assets.
+- Cross-Short media reuse protection remains active.
+- If no relevant NEW video can be found/downloaded for a Story shot, the Story run fails rather than silently using an image.
+
+### Remaining limitation
+- A successful end-to-end Story run is still required to validate that the available Pexels/Pixabay video inventory can satisfy all 14 beat-specific shots without excessive repetition.
+
+---
+
 ## Change-log operating rule
 
 For future Mint-YT-Factory changes:

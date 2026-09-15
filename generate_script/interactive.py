@@ -43,6 +43,10 @@ def _first_sentence(text):
     parts=[x.strip() for x in re.split(r"(?<=[.!?])\s+",str(text or "").strip()) if x.strip()]
     return parts[0] if parts else str(text or "").strip()
 
+def _sentence_parts(text):
+    """Split narration into spoken sentences for deterministic scene validation."""
+    return [x.strip() for x in re.split(r"(?<=[.!?])\s+",str(text or "").strip()) if x.strip()]
+
 def _stem(word):
     word=re.sub(r"[^a-z0-9]","",str(word or "").lower())
     if len(word)<5: return word

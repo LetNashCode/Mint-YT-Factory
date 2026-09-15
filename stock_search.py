@@ -1,8 +1,8 @@
 """Production stock-media director for Mint-YT-Factory.
 
-Pexels/Pixabay only. Gemini directs searches and verifies actual candidate
-thumbnails when available. Story Shorts use safe per-scene concrete queries and
-never inherit Publish topic-lock metadata.
+Pexels/Pixabay only. Gemini directs stock searches and verifies actual candidate
+thumbnails when available. Story Shorts use video-only stock assets and never
+inherit Publish topic-lock metadata.
 """
 from __future__ import annotations
 
@@ -188,15 +188,13 @@ def build_plan(script):
     scenes = script.get("scene_plan")
     if not isinstance(scenes, list) or len(scenes) != 7: raise RuntimeError("Stock search requires exactly 7 scenes.")
     plan = []; is_story = isinstance(script, dict) and bool(script.get("story_person") or script.get("interactive_pillar") or script.get("story_visual_mode"))
-    if is_story: print("📖 STORY VISUAL LOCK: preserving per-scene concrete queries; topic lock bypassed")
+    if is_story: print("📖 STORY VISUAL LOCK: preserving per-scene concrete video queries; photo assets disabled")
     else: print(f"🧠 STOCK SEARCH DIRECTOR — {GEMINI_MODEL} — practical search ladder")
     for si, scene in enumerate(scenes, 1):
         visuals = scene.get("visuals")
         if not isinstance(visuals, list) or len(visuals) != 2: raise RuntimeError(f"Scene {si} must contain exactly 2 visuals.")
         shots = []
         for vi, visual in enumerate(visuals, 1):
-            # Publish compatibility: legacy direct() wrappers may not accept the
-            # Story-only keyword. Pass it only when this is actually a Story Short.
             if is_story:
                 directed = direct(si, vi, scene, visual, story_script=script)
             else:
@@ -270,8 +268,9 @@ def _image_part(data: bytes):
 
 def _verification_prompt(d, query, strategy, count):
     return f'''You are the strict visual-match judge for a YouTube Short.
-You are looking at {count} actual stock thumbnails attached after this prompt.
-Judge only what is visibly present.
+You are looking at {count} actual stock video thumbnails attached after this prompt.
+The thumbnails are previews of VIDEO assets that may be selected for production.
+Judge only what is visibly present in the video preview.
 SPOKEN BEAT: {d['spoken_beat']}
 VISUAL FOCUS: {d['visual_focus']}
 VISUAL ACTION: {d['visual_action']}
@@ -279,10 +278,10 @@ SEARCH QUERY: {query}
 IDEAL SHOT: {d['casting_brief']}
 MUST MATCH: {json.dumps(d.get('must_match', []), ensure_ascii=False)}
 ANCHORS: {json.dumps(d.get('anchor_terms', []), ensure_ascii=False)}
-Choose ONE thumbnail or reject all. The primary subject must be visibly present.
+Choose ONE video thumbnail or reject all. The primary subject must be visibly present.
 Reject unrelated people, objects, symbols, diagrams, generic scenery, and metaphorical imagery.
 Return ONLY JSON: {{"best_index": 0, "score": 0, "reason": "short reason"}}
-Use 7+ only for genuinely relevant imagery.'''
+Use 7+ only for genuinely relevant video imagery.'''
 
 def verify_actual(d, items, provider, video, query, strategy):
     candidates, parts = [], []; historical = _historical_asset_keys()
@@ -328,17 +327,19 @@ def _download_file(url: str, path: str) -> bool:
                 except OSError: pass
     return False
 
-def _download_with_candidate_recovery(d, initial, output_path, used_urls):
+def _download_with_candidate_recovery(d, initial, output_path, used_urls, video_only=False):
     failed_urls, queue, queued = set(), [initial], set()
     while queue:
         item, provider, video, query = queue.pop(0); url = _url(item, provider, video); key = _asset_key(item, provider, video, url) if url else ""
+        if video_only and not video: continue
         if not url or url in used_urls or url in failed_urls or key in _historical_asset_keys(): continue
         queued.add(url)
         if _download_file(url, output_path): return item, provider, video, query, url
         failed_urls.add(url)
         for entry in d.get("search_ladder", []):
             query2 = entry.get("query", "")
-            for provider2, video2 in (("Pexels", True), ("Pixabay", True), ("Pexels", False), ("Pixabay", False)):
+            providers = (("Pexels", True), ("Pixabay", True)) if video_only else (("Pexels", True), ("Pixabay", True), ("Pexels", False), ("Pixabay", False))
+            for provider2, video2 in providers:
                 items = pexels(query2, video2) if provider2 == "Pexels" else pixabay(query2, video2)
                 for candidate in sorted(items, key=lambda x: _deterministic_score(d, x, provider2, video2, query2), reverse=True):
                     if _deterministic_score(d, candidate, provider2, video2, query2) < 2.5: break
@@ -351,20 +352,21 @@ def generate_media(script, output_dir, config, gim=None):
     os.makedirs(output_dir, exist_ok=True); plan = build_plan(script); used = set(); groups = []; vision_available = True; vision_failures = 0
     is_story = isinstance(script, dict) and bool(script.get("story_person") or script.get("interactive_pillar") or script.get("story_visual_mode"))
     print(f"📚 STOCK SEARCH {GEMINI_MODEL} | Pexels/Pixabay only | actual-thumbnail verification"); print(f"🚫 CROSS-SHORT MEDIA REUSE: BLOCKED | historical assets: {len(_historical_asset_keys())}")
-    if is_story: print("🛡️ Story stock routing: scene-specific concrete queries first; Publish topic lock bypassed")
+    if is_story: print("🛡️ Story stock routing: VIDEO-ONLY | Pexels/Pixabay video endpoints; photo assets disabled")
     for scene_no, shots in enumerate(plan, 1):
         for shot_no, directed in enumerate(shots, 1):
             selected = selected_provider = selected_video = selected_query = None
             for entry in directed["search_ladder"]:
                 query = entry["query"]; strategy = entry["strategy"]; print(f"   🔎 Scene {scene_no} Shot {shot_no}: [{strategy}] {query}")
-                for provider, video in (("Pexels", True), ("Pixabay", True), ("Pexels", False), ("Pixabay", False)):
+                providers = (("Pexels", True), ("Pixabay", True)) if is_story else (("Pexels", True), ("Pixabay", True), ("Pexels", False), ("Pixabay", False))
+                for provider, video in providers:
                     items = pexels(query, video) if provider == "Pexels" else pixabay(query, video)
                     if not items: print(f"      ↪️ {provider} {'VIDEO' if video else 'PHOTO'}: no assets"); continue
                     item = None
                     if vision_available:
                         try:
                             item = verify_actual(directed, items, provider, video, query, strategy)
-                            if item: print("      👁️ Vision verified actual thumbnail")
+                            if item: print("      👁️ Vision verified actual video thumbnail")
                         except Exception as exc:
                             vision_failures += 1; print(f"      ⚠️ Vision verification unavailable: {type(exc).__name__}: {exc}")
                             if vision_failures >= 3: vision_available = False; print("      🛡️ Vision circuit breaker OPEN — deterministic fallback enabled")
@@ -374,11 +376,14 @@ def generate_media(script, output_dir, config, gim=None):
                         url = _url(item, provider, video); key = _asset_key(item, provider, video, url) if url else ""
                         if url and url not in used and key not in _historical_asset_keys(): selected, selected_provider, selected_video, selected_query = item, provider, video, query; break
                 if selected: break
-            if not selected: raise RuntimeError(f"No new visually relevant stock asset found for Scene {scene_no} Shot {shot_no}. Pexels/Pixabay returned no candidate that passed relevance and cross-Short reuse guards.")
+            if not selected: raise RuntimeError(f"No new visually relevant stock {'video' if is_story else 'stock'} asset found for Scene {scene_no} Shot {shot_no}. Pexels/Pixabay returned no candidate that passed relevance and cross-Short reuse guards.")
+            if is_story and not selected_video: raise RuntimeError(f"Story video-only contract violated: Scene {scene_no} Shot {shot_no} selected a non-video asset.")
             extension = "mp4" if selected_video else "jpg"; path = os.path.join(output_dir, f"scene_{scene_no}_shot_{shot_no}.{extension}")
-            recovered = _download_with_candidate_recovery(directed, (selected, selected_provider, selected_video, selected_query), path, used)
-            if not recovered: raise RuntimeError(f"No downloadable visually relevant NEW stock asset found for Scene {scene_no} Shot {shot_no} after candidate recovery.")
-            selected, selected_provider, selected_video, selected_query, url = recovered; used.add(url); _record_media_asset(selected, selected_provider, selected_video, url, scene_no, shot_no, selected_query)
+            recovered = _download_with_candidate_recovery(directed, (selected, selected_provider, selected_video, selected_query), path, used, video_only=is_story)
+            if not recovered: raise RuntimeError(f"No downloadable visually relevant NEW stock {'video' if is_story else 'stock'} asset found for Scene {scene_no} Shot {shot_no} after candidate recovery.")
+            selected, selected_provider, selected_video, selected_query, url = recovered
+            if is_story and not selected_video: raise RuntimeError(f"Story video-only recovery violated: Scene {scene_no} Shot {shot_no} recovered a non-video asset.")
+            used.add(url); _record_media_asset(selected, selected_provider, selected_video, url, scene_no, shot_no, selected_query)
             groups.append({"scene": scene_no, "shot": shot_no, "path": path, "type": "video" if selected_video else "photo", "provider": selected_provider, "creator": _creator(selected, selected_provider), "query": selected_query, "asset_key": _asset_key(selected, selected_provider, selected_video, url), "score": 8.0})
             print(f"      ✅ SELECTED NEW {selected_provider} {'VIDEO' if selected_video else 'PHOTO'}: {selected_query}")
     return groups

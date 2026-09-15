@@ -2299,6 +2299,146 @@
       "shot": 2,
       "query": "window panes rattle",
       "recorded_at": 1789412719
+    },
+    {
+      "asset_key": "pexels:video:5995502",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5995502/5995502-hd_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "glasses fog stepping inside eyeglasses lens",
+      "recorded_at": 1789456066
+    },
+    {
+      "asset_key": "pixabay:video:328740",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2026/01/19/328740_medium.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "glasses fog turns your lenses into",
+      "recorded_at": 1789456071
+    },
+    {
+      "asset_key": "pexels:photo:1383416",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/1383416/pexels-photo-1383416.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 2,
+      "shot": 1,
+      "query": "glasses fog you not spill water",
+      "recorded_at": 1789456080
+    },
+    {
+      "asset_key": "pexels:photo:6664984",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/6664984/pexels-photo-6664984.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 2,
+      "shot": 2,
+      "query": "glasses fog yet they act like",
+      "recorded_at": 1789456095
+    },
+    {
+      "asset_key": "pixabay:video:283923",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2025/06/06/283923_medium.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "glasses fog invisible moisture air warm",
+      "recorded_at": 1789456099
+    },
+    {
+      "asset_key": "pexels:video:5105465",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5105465/5105465-hd_1366_576_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "glasses fog crashes against cold glass",
+      "recorded_at": 1789456104
+    },
+    {
+      "asset_key": "pixabay:photo:926141",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g1da7e4ff3feaa962e6280023744215587d474b71817c29c068c9a4e0d73dea07c26e3a11a55b72478633e2ba8da0ac0a7e55d7882c37e3ade22266b140787aeb_1280.jpg",
+      "scene": 4,
+      "shot": 1,
+      "query": "glasses fog your lenses act like",
+      "recorded_at": 1789456129
+    },
+    {
+      "asset_key": "pixabay:video:96962",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2021/11/13/96962-649760943_medium.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "glasses fog freezing floating vapor into",
+      "recorded_at": 1789456134
+    },
+    {
+      "asset_key": "pexels:video:9244489",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9244489/9244489-hd_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "glasses fog blame smudge marks microscopic",
+      "recorded_at": 1789456152
+    },
+    {
+      "asset_key": "pexels:video:30084947",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30084947/12903209_1280_720_60fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "glasses fog but real villain simple",
+      "recorded_at": 1789456157
+    },
+    {
+      "asset_key": "pixabay:video:331030",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2026/01/28/331030_medium.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "glasses fog microscopic droplets scatter light",
+      "recorded_at": 1789456161
+    },
+    {
+      "asset_key": "pixabay:video:21114",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2019/02/01/21114-315191258_medium.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "glasses fog blinding your vision opaque",
+      "recorded_at": 1789456166
+    },
+    {
+      "asset_key": "pexels:photo:39192370",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/39192370/pexels-photo-39192370.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 7,
+      "shot": 1,
+      "query": "glasses fog well you cannot see",
+      "recorded_at": 1789456233
+    },
+    {
+      "asset_key": "pixabay:photo:3101151",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g86287f7672614e70a444d9fe53478ea4d0bc311528d836b9b5f4fd3844aafc1e23aaa28f89041ae9278b9631a6659b46df4a3cc5570bdf992912706b0aa00269_1280.jpg",
+      "scene": 7,
+      "shot": 2,
+      "query": "glasses fog well you cannot see",
+      "recorded_at": 1789456367
     }
   ]
 }

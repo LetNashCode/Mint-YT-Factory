@@ -120,7 +120,7 @@ Primary flow is centered in `main.py` and runs roughly:
 
 Important Publish Shorts behavior:
 - Current topic and next topic are treated as separate canonical states.
-- Scene 7 is supposed to finish the current topic before the deterministic continuation bridge.
+- Scene 7 is supposed to finish the current topic before the deterministic bridge.
 - The description is for the current topic only; it must not describe the next topic.
 - Topic progression is committed only after successful YouTube publication/bookkeeping.
 - Failed social publication must preserve the generated YouTube-ready artifact so a later run can resume social work rather than regenerate the Short.
@@ -140,7 +140,7 @@ Files/logic involved include `main.py`, `topics.py`, `production_entry.py`, and 
 - `tts_bridge.py` separately protects the final continuation bridge and trims near-silence at clip edges to reduce perceived dead air/cutoff.
 - The continuation bridge is intentionally short and voice-priority.
 - The repository has an in-progress narration-duration requirement: the user requested **30–60 seconds**, but the current `production_entry.py` guard may still contain the older 35.0–44.95 second values and `tts.py` may still target 43.70 seconds. This is a known pending implementation item and must not be described as completed until verified on `main`.
-- The previously reported ending problem was not merely missing silence: the continuation sentence could be audibly chopped before completing. The bridge protection work was implemented to address this end-to-end.
+- The previously reported ending problem was not merely missing silence: the bridge could be audibly chopped before completing. The bridge protection work was implemented to address this end-to-end.
 
 ### 5. Publish Shorts — caption synchronization
 Current caption architecture is:
@@ -366,6 +366,39 @@ The failure occurred before TTS, stock retrieval, rendering, or upload. YouTube 
 
 ---
 
+## 2026-09-15 — Story script contract retry hardening
+
+### User report
+The next Story Shorts run passed the previously missing `_sentence_parts()` helper but still exhausted its bounded script retries. Failures were now genuine creative-contract misses: Scene 7 sometimes had only one sentence, while other attempts exceeded a per-scene word cap such as Scene 4 at 21 words or Scene 2 at 21 words. One attempt also contained a forbidden subscribe/follow CTA in Scene 3.
+
+### Root cause
+- The Story contract was too narrow at the scene level for natural Gemini narration: a 21-word scene was rejected even though the overall story remained within the 80–120-word contract.
+- Scene 7's payoff-plus-loop requirement was not explicit enough for Gemini to consistently produce two separate spoken sentences.
+- The retry instruction repeated the general requirements but did not make the exact Scene 7 structure or targeted repair behavior strong enough.
+
+### Files changed
+- `generate_script/interactive.py`
+- `CHANGELOG_MINT_YT_FACTORY.md`
+
+### Implementation
+- Widened Scenes 2–6 from a 19-word maximum to 22 words while retaining the global 80–120-word ceiling.
+- Raised Scene 7's minimum from 6 to 10 words so there is room for both a payoff and a short loop sentence; Scene 7 remains capped at 28 words.
+- Updated the Gemini prompt and retry instruction to require Scene 7 to contain **exactly two spoken sentences**: payoff first, loop callback second.
+- The retry instruction now explicitly says to shorten or redistribute wording for word-count failures instead of adding filler.
+- Updated the Story loop metadata version to `spoken_hook_callback_v6_exact_two_sentences_no_cta`.
+- Preserved the Pexels/Pixabay-only media rule, Gemini single-model rule, and Publish Shorts isolation.
+
+### Expected behavior
+- Natural 20–22-word Story scenes are no longer rejected solely because of an overly tight per-scene cap.
+- Scene 7 should reliably reserve enough words for both payoff and loop closure.
+- The global 80–120-word contract remains the hard narration-length boundary.
+- The next failed response should be much more informative: it should represent a genuine factual/creative contract problem rather than an avoidable structural constraint.
+
+### Remaining limitation
+- This is a script-contract robustness improvement; a successful end-to-end Story run is still required to validate the downstream TTS, Pexels/Pixabay media relevance, 14-shot assembly, final quality validation, and YouTube upload path.
+
+---
+
 ## Change-log operating rule
 
 For future Mint-YT-Factory changes:
@@ -378,4 +411,4 @@ For future Mint-YT-Factory changes:
    - important behavior/constraints,
    - any relevant bugs or decisions.
 4. Never silently overwrite or remove historical entries.
-5. If a new request conflicts with an existing logged requirement, ask/confirm which requirement should take precedence rather than silently changing behavior.
+5. If a new request conflicts with a logged requirement, ask/confirm which requirement should take precedence rather than silently changing behavior.

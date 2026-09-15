@@ -56,7 +56,18 @@ def _direct_decode(model, audio_path):
 
 
 def _observed_text(text):
-    return [w.lower() for w in _WORD_RE.findall(str(text or ""))]
+    """Tokenize Whisper text while expanding hyphenated compounds.
+
+    Whisper commonly returns words such as ``spring-loaded`` as one token,
+    while the authoritative script tokenizes the same phrase as ``spring``
+    and ``loaded``. Expanding hyphenated observations prevents a false content
+    failure without relaxing the actual word-order/coverage gate.
+    """
+    observed = []
+    for word in _WORD_RE.findall(str(text or "")):
+        parts = re.split(r"[-–—]", word)
+        observed.extend(part.lower() for part in parts if part)
+    return observed
 
 
 def _norm(word):

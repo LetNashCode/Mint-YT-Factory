@@ -20,44 +20,35 @@ GENERIC_OPENERS=re.compile(r"^(?:today|here(?:'s| is)|welcome back|hey guys|guys
 CAPTION_STOP={"the","a","an","and","or","but","so","to","of","in","on","at","for","with","from","was","were","is","are","this","that","it","he","she","they","his","her","their","had","have","has","as","by","not","what","when","who","how","then","just","one","more","because","after","before","into","than","very","would","could","did","do","does","its","their","there","where","which","while","than"}
 CAPTION_PRIORITY={"rejected":10,"rejection":10,"failed":10,"failure":10,"broke":10,"poor":9,"unknown":9,"ignored":9,"mocked":10,"accent":10,"foreign":10,"impossible":10,"risk":9,"risky":9,"decision":9,"choice":9,"refused":9,"denied":9,"struggle":9,"struggled":9,"obstacle":9,"chance":8,"opportunity":8,"changed":10,"turning":10,"moment":8,"secret":8,"survived":9,"won":10,"victory":10,"champion":10,"famous":9,"star":9,"dominated":9,"became":8,"finally":8,"against":8,"nothing":9,"dream":7}
 
-
 def _load_recent_history(limit=30):
     path=Path(__file__).resolve().parent.parent/"story_topic_history.json"
     try:
         rows=json.loads(path.read_text(encoding="utf-8")); return [x for x in rows[-limit:] if isinstance(x,dict)] if isinstance(rows,list) else []
     except Exception:return []
 
-
 def _format_for(topic,number_hint=0):
     digest=hashlib.sha256(f"{topic}|{number_hint}".encode()).digest(); return STORY_FORMATS[int.from_bytes(digest[:4],"big")%len(STORY_FORMATS)]
 
-
 def _words(text): return re.findall(r"\b[\w'-]+\b",str(text or ""))
-
 
 def _content_words(text):
     stop={"the","a","an","and","or","but","so","to","of","in","on","at","for","with","from","was","were","is","are","this","that","it","he","she","they","his","her","their","had","have","has","as","by","not","what","when","who","how","then","just","one","more","because","after","before","into","than","very","would","could","did","do","does"}
     return [w.lower().strip(".,!?;:'\"()[]{}") for w in _words(text) if w.lower() not in stop and len(w)>2]
 
-
 def _last_sentence(text):
     parts=[x.strip() for x in re.split(r"(?<=[.!?])\s+",str(text or "").strip()) if x.strip()]
     return parts[-1] if parts else str(text or "").strip()
-
 
 def _first_sentence(text):
     parts=[x.strip() for x in re.split(r"(?<=[.!?])\s+",str(text or "").strip()) if x.strip()]
     return parts[0] if parts else str(text or "").strip()
 
-
 def _stem(word):
     word=re.sub(r"[^a-z0-9]","",str(word or "").lower())
     if len(word)<5: return word
     for suffix in ("ingly","edly","ation","ments","ment","ness","less","ing","ers","ies","ied","ed","es","s"):
-        if word.endswith(suffix) and len(word)-len(suffix)>=4:
-            return word[:-len(suffix)]
+        if word.endswith(suffix) and len(word)-len(suffix)>=4: return word[:-len(suffix)]
     return word
-
 
 def _loop_overlap(opening,ending):
     opening_terms={w for w in _content_words(opening) if len(w)>3}
@@ -70,22 +61,16 @@ def _loop_overlap(opening,ending):
         if _stem(w) in stemmed: matches.append(stemmed[_stem(w)])
     return sorted(set(matches))
 
-
 def _validate_loop(scenes):
-    """Require the final spoken sentence to naturally echo the actual opening hook."""
     opening=_first_sentence(str(scenes[0].get("narration","")).strip())
     ending=_last_sentence(str(scenes[-1].get("narration","")).strip())
     if not opening or not ending: raise RuntimeError("Story loop requires opening and ending narration.")
     overlap=_loop_overlap(opening,ending)
-    if len(overlap)<2:
-        raise RuntimeError("Story loop seam is too weak: final sentence must echo at least two distinctive opening-hook words.")
+    if len(overlap)<2: raise RuntimeError("Story loop seam is too weak: final sentence must echo at least two distinctive opening-hook words.")
     return overlap
 
-
 def _caption_highlights(narration, scene_index):
-    """Choose one visually punchy spoken word for the existing word-by-word caption system."""
-    words=_words(narration)
-    candidates=[]
+    words=_words(narration); candidates=[]
     for position,raw in enumerate(words):
         word=raw.lower().strip(".,!?;:'\"()[]{}")
         if len(word)<4 or word in CAPTION_STOP: continue
@@ -95,9 +80,7 @@ def _caption_highlights(narration, scene_index):
         if word.isupper(): score+=1
         candidates.append((score,-position,word))
     if not candidates: return []
-    candidates.sort(reverse=True)
-    return [candidates[0][2]]
-
+    candidates.sort(reverse=True); return [candidates[0][2]]
 
 def _visual_role(scene_index, story_format):
     roles=(
@@ -111,7 +94,6 @@ def _visual_role(scene_index, story_format):
     )
     return roles[min(scene_index,len(roles)-1)]
 
-
 def _clean_scenes(scenes, story_format_name=""):
     for index,scene in enumerate(scenes):
         narration=_base._clean(scene.get("narration","")); narration=re.sub(r"^(?:today|welcome back|hey guys|guys),?\s+","",narration,flags=re.I)
@@ -123,23 +105,43 @@ def _clean_scenes(scenes, story_format_name=""):
         scene["visual_change_priority"]="high" if index in (0,2,4,6) else "medium"
         for visual_index,visual in enumerate(scene.get("visuals") or []):
             if isinstance(visual,dict):
-                visual["spoken_line"]=narration
-                visual["visual_dependency"]="none"
-                visual["visual_role"]=_visual_role(index,story_format_name)
+                visual["spoken_line"]=narration; visual["visual_dependency"]="none"; visual["visual_role"]=_visual_role(index,story_format_name)
                 visual["visual_priority"]="identity_or_story_critical" if index in (0,1,2,5,6) else "story_support"
                 visual["visual_action"]=("Use authentic real-person media when available for identity moments. Otherwise use Pexels/Pixabay footage or photos that directly depict the narrated event, era, occupation, location, or action. Never use generic filler, unrelated people, empty venues, or decorative footage. Shot 2 must advance or reframe the beat rather than duplicate Shot 1." if visual_index==1 else "Use authentic real-person media when available. Otherwise use Pexels/Pixabay footage or photos that concretely establish the narrated beat. Avoid generic portraits, unrelated people, and decorative backgrounds.")
                 visual["must_not_show"]=["generic filler","unrelated people","empty stadium or office unless explicitly narrated","decorative cinematic background","duplicate of shot 1"]
     return scenes
 
-
 def _normalize_story(result,topic):
-    """Story-specific normalization; deliberately bypasses Publish-only continuation logic."""
     if not isinstance(result,dict): raise RuntimeError("Gemini story response was not an object.")
-    result["topic"]=_base._clean(topic)
-    scenes=result.get("scene_plan")
+    result["topic"]=_base._clean(topic); scenes=result.get("scene_plan")
     if not isinstance(scenes,list): raise RuntimeError("Gemini story response is missing scene_plan.")
     return result
 
+def _validate_story(scenes):
+    """Validate the Story Shorts creative contract before expensive TTS/media work."""
+    if not isinstance(scenes,list) or len(scenes)!=7:
+        raise RuntimeError("Story contract requires exactly 7 scenes.")
+    total=0
+    for index,scene in enumerate(scenes):
+        if not isinstance(scene,dict): raise RuntimeError(f"Story scene {index+1} is not an object.")
+        narration=_base._clean(scene.get("narration",""))
+        count=len(_words(narration)); total+=count
+        low,high=STORY_SCENE_WORD_BUDGETS[index]
+        if count<low or count>high:
+            raise RuntimeError(f"Story scene {index+1} word count {count} outside {low}-{high}.")
+        if index==0 and GENERIC_OPENERS.search(narration):
+            raise RuntimeError("Story Scene 1 uses a generic opener; require a curiosity hook.")
+        if re.search(r"\b(?:subscribe|follow|like and subscribe|follow us|hit the follow)\b",narration,re.I):
+            raise RuntimeError(f"Story scene {index+1} contains a CTA; narration must remain story-only.")
+        if index==6 and len(_sentence_parts(narration))<2:
+            raise RuntimeError("Story Scene 7 must contain payoff plus a natural loop sentence.")
+        visuals=scene.get("visuals")
+        if visuals is not None and not isinstance(visuals,list):
+            raise RuntimeError(f"Story scene {index+1} visuals must be a list.")
+    if total<STORY_MIN_WORDS or total>STORY_MAX_WORDS:
+        raise RuntimeError(f"Story narration total {total} words outside {STORY_MIN_WORDS}-{STORY_MAX_WORDS}.")
+    _validate_loop(scenes)
+    return total
 
 def generate_script(topic,config,research=None,extra_feedback=""):
     from google import genai
@@ -161,9 +163,9 @@ TARGET: 80-120 spoken words. Aim for 95-110 words. Naturally paced. Every line m
 SCENE BANDS: 1=8-18, 2=7-19, 3=7-19, 4=7-19, 5=7-19, 6=7-19, 7=6-28.
 
 RETENTION ARCHITECTURE — CRITICAL:
-- Scene 1 first 1-2 seconds must be a scroll-stopping contradiction, risk, rejection, mystery, or surprising claim. Do NOT open with "{topic}" as a biography introduction.
+- Scene 1 first 1-2 seconds must be a scroll-stopping contradiction, risk, rejection, mystery, or surprising claim. Do NOT open with the subject as a biography introduction.
 - Make the first sentence short, concrete, and memorable. Prefer 2-4 distinctive content words that can be echoed naturally at the end.
-- For BEFORE_THE_FAME stories, delay the famous identity reveal until curiosity is established. The viewer should initially think "Who is this?" rather than "Here is a biography of X."
+- For BEFORE_THE_FAME stories, delay the famous identity reveal until curiosity is established.
 - Scene 2 creates the curiosity gap and establishes stakes.
 - Scene 3 makes the obstacle/rejection/failure concrete.
 - Scene 4 shows a decision or action.
@@ -174,7 +176,7 @@ RETENTION ARCHITECTURE — CRITICAL:
 - Build a clear visual opportunity into each scene: person, era, location, occupation, object, action, or event that a stock search can actually depict.
 
 VISUAL DIRECTION FIELDS:
-For every visual object, provide a concrete visual_focus, visual_action, must_show and must_not_show. The visual must be useful even without captions. Shot 1 establishes the beat; Shot 2 advances/reframes it. Never request generic "cinematic" filler. Never use empty stadiums, random offices, unrelated horses, generic business people, or decorative landscapes unless the narration explicitly makes them relevant.
+For every visual object, provide a concrete visual_focus, visual_action, must_show and must_not_show. The visual must be useful even without captions. Shot 1 establishes the beat; Shot 2 advances/reframes it. Never request generic cinematic filler. Never use empty stadiums, random offices, unrelated horses, generic business people, or decorative landscapes unless the narration explicitly makes them relevant.
 
 CAPTION DIRECTION:
 Provide caption_highlights and emphasis_word for each scene. Highlights must be words that are actually spoken in that scene. Prefer high-impact words such as rejection, accent, broke, impossible, decision, failed, changed, champion, or the story's most concrete equivalent. Do not highlight articles, pronouns, filler, or random nouns just because they are available.
@@ -219,8 +221,7 @@ RECENT STORY SUBJECTS — avoid repeating or closely mirroring:
 
 Return the normal production JSON schema. Put the person's name in the topic/title metadata where appropriate, but keep the narration story-first.
 {extra_feedback}"""
-    last_error=None
-    story_attempts=max(int(getattr(_base,"MAX_ATTEMPTS",3)),8)
+    last_error=None; story_attempts=max(int(getattr(_base,"MAX_ATTEMPTS",3)),8)
     for attempt in range(story_attempts):
         try:
             retry=""

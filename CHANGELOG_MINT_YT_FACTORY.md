@@ -429,16 +429,29 @@ The next Story Shorts run passed the previously missing `_sentence_parts()` help
 
 ---
 
-## Change-log operating rule
+## 2026-09-15 — Publish Shorts TTS content-gate false-negative hardening
 
-For future Mint-YT-Factory changes:
-1. **Read this file before making project changes.**
-2. Treat the accumulated requirements and decisions here as persistent project constraints unless the user explicitly changes them.
-3. After implementing a requested change, append a dated entry describing:
-   - the user's requirement,
-   - files changed,
-   - what was changed,
-   - important behavior/constraints,
-   - any relevant bugs or decisions.
-4. Never silently overwrite or remove historical entries.
-5. If a new request conflicts with a logged requirement, ask/confirm which requirement should take precedence rather than silently changing behavior.
+### User report
+A Publish Shorts run generated valid narration and reached the TTS content gate, but Whisper rejected the audio after regeneration because it transcribed a hyphenated spoken phrase such as `spring-loaded` as one token while the authoritative script tokenizer expected `spring` and `loaded` separately.
+
+### Root cause
+- `tts_content_guard.py` uses an LCS comparison between authoritative script words and Whisper transcript words.
+- The expected script tokenizer treats hyphenated words as a single regex token containing the hyphen, while the comparison path can encounter Whisper compound forms that do not align cleanly with the expected word boundaries.
+- This produced a false scene-level failure despite very high overall transcription coverage (98.3% on the retry).
+
+### Files changed
+- `tts_content_guard.py`
+- `CHANGELOG_MINT_YT_FACTORY.md`
+
+### Implementation
+- `_observed_text()` now expands hyphenated/compound Whisper tokens into their component words before LCS alignment.
+- The change preserves the hard content gate: it does **not** lower coverage thresholds, remove scene-level checks, or permit arbitrary missing narration.
+- The guard still requires global coverage, maximum missing-run limits, and per-scene coverage.
+
+### Expected behavior
+- Phrases such as `spring-loaded` can correctly match authoritative `spring loaded` without forcing a needless TTS regeneration.
+- Genuine omitted narration remains a hard failure.
+- Publish Shorts behavior only; Story Shorts is unaffected.
+
+### Remaining limitation
+- Whisper can still occasionally misrecognize a genuinely spoken word or short phrase. If that occurs after compound-word normalization, the gate should continue to fail rather than publishing incomplete narration.

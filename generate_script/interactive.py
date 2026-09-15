@@ -8,7 +8,7 @@ from . import entertainment as _base
 
 STORY_MIN_WORDS = 80
 STORY_MAX_WORDS = 120
-STORY_SCENE_WORD_BUDGETS = ((8,18),(7,19),(7,19),(7,19),(7,19),(7,19),(6,28))
+STORY_SCENE_WORD_BUDGETS = ((8,18),(7,22),(7,22),(7,22),(7,22),(7,22),(10,28))
 STORY_FORMATS = (
     {"name":"rise_from_nothing","direction":"Show the person before success, the obstacle, the decisive attempt, and the consequence. Never turn it into a generic motivational speech."},
     {"name":"one_decision","direction":"Build around one decision that changed the person's direction. Delay the consequence until late in the Short."},
@@ -164,7 +164,7 @@ FORMAT DIRECTION: {story_format['direction']}
 Create exactly 7 scenes for a vertical YouTube Short about this person.
 The story must stand on narration alone. Real-person photos/footage may be used for key identity or historical moments when available; supporting Pexels/Pixabay stock footage/images are atmosphere and context only. Viewers must never need a particular image, face, map, screenshot, or caption to understand the story.
 TARGET: 80-120 spoken words. Aim for 95-110 words. Naturally paced. Every line must move the story forward.
-SCENE BANDS: 1=8-18, 2=7-19, 3=7-19, 4=7-19, 5=7-19, 6=7-19, 7=6-28.
+SCENE BANDS: 1=8-18, 2=7-22, 3=7-22, 4=7-22, 5=7-22, 6=7-22, 7=10-28.
 
 RETENTION ARCHITECTURE — CRITICAL:
 - Scene 1 first 1-2 seconds must be a scroll-stopping contradiction, risk, rejection, mystery, or surprising claim. Do NOT open with the subject as a biography introduction.
@@ -175,7 +175,7 @@ RETENTION ARCHITECTURE — CRITICAL:
 - Scene 4 shows a decision or action.
 - Scene 5 escalates with a consequence, second setback, or higher stake. Do not merely restate Scene 3.
 - Scene 6 delivers the turning point and starts the payoff.
-- Scene 7 gives the emotional payoff and then one short natural loop-closing sentence.
+- Scene 7 MUST contain EXACTLY TWO short spoken sentences: first sentence = emotional payoff/result; second sentence = natural loop callback. The second sentence must echo at least TWO distinctive content words from Scene 1's FIRST sentence. Do not make Scene 7 one long sentence joined by commas or semicolons.
 - Every scene must add a new piece of information or change the viewer's understanding. No filler, generic inspiration, or repeated biography facts.
 - Build a clear visual opportunity into each scene: person, era, location, occupation, object, action, or event that a stock search can actually depict.
 
@@ -230,14 +230,14 @@ Return the normal production JSON schema. Put the person's name in the topic/tit
         try:
             retry=""
             if last_error:
-                retry=f"\nRETRY {attempt+1}: Rewrite the narration to fix the validation error. Preserve essential factual beats. TARGET 95-110 WORDS TOTAL; HARD LIMIT 80-120. Scene 1 must be a hard curiosity hook, not a biography opener. Scene 7 must contain the payoff plus a short final loop sentence. Scene 7 must contain NO subscribe/follow CTA. The FINAL sentence of Scene 7 must echo TWO distinctive content words from the FIRST sentence of Scene 1. Do not add filler. Previous error: {last_error}"
+                retry=f"\nRETRY {attempt+1}: Rewrite ONLY the parts necessary to fix the validation error while preserving the strongest factual beats. TARGET 95-110 WORDS TOTAL; HARD LIMIT 80-120. Scene 1 must be a hard curiosity hook, not a biography opener. Scene 7 MUST be EXACTLY TWO spoken sentences: payoff first, loop callback second. The second sentence MUST echo TWO distinctive content words from Scene 1's FIRST sentence. Scene 7 must contain NO subscribe/follow CTA. Keep every scene within its stated word band. If the previous error is a scene word-count error, shorten or redistribute wording instead of adding filler. Previous error: {last_error}"
             response=client.models.generate_content(model=_base.MODEL_NAME,contents=prompt+retry,config=types.GenerateContentConfig(system_instruction=_base.SYSTEM_PROMPT,response_mime_type="application/json",response_json_schema=_base._build_schema(),temperature=.55))
             raw=getattr(response,"text",None)
             if not raw: raise RuntimeError("Gemini returned an empty story script.")
             result=_normalize_story(_base._parse(raw),topic)
             scenes=_clean_scenes(result.get("scene_plan") or [],story_format["name"]); _validate_story(scenes)
             result["scene_plan"]=scenes
-            result["story_format"]=story_format["name"]; result["story_format_direction"]=story_format["direction"]; result["story_visual_mode"]="real_person_plus_atmosphere_v2"; result["story_factuality_policy"]="real-person-facts-no-invented-dialogue"; result["story_word_target"]={"min":STORY_MIN_WORDS,"max":STORY_MAX_WORDS}; result["story_loop_mode"]="spoken_hook_callback_v5_first_sentence_no_cta"; result["story_retention_mode"]="hook_gap_obstacle_decision_escalation_payoff_v1"; result["story_visual_change_mode"]="beat_specific_14_shots_v1"; result["visual_dependency"]="none"
+            result["story_format"]=story_format["name"]; result["story_format_direction"]=story_format["direction"]; result["story_visual_mode"]="real_person_plus_atmosphere_v2"; result["story_factuality_policy"]="real-person-facts-no-invented-dialogue"; result["story_word_target"]={"min":STORY_MIN_WORDS,"max":STORY_MAX_WORDS}; result["story_loop_mode"]="spoken_hook_callback_v6_exact_two_sentences_no_cta"; result["story_retention_mode"]="hook_gap_obstacle_decision_escalation_payoff_v1"; result["story_visual_change_mode"]="beat_specific_14_shots_v1"; result["visual_dependency"]="none"
             total=sum(len(_words(s.get("narration",""))) for s in scenes); print(f"📖 Story Shorts narration validated: {total} words | format={story_format['name']} | retention=ON | loop=ON | CTA=OFF"); return result
         except Exception as exc:
             last_error=f"{type(exc).__name__}: {exc}"

@@ -19,7 +19,8 @@ MODEL_NAME = "gemini-flash-lite-latest"
 ROOT = Path(__file__).resolve().parent
 OUTPUT_DIR = ROOT / os.getenv("REDDIT_HORROR_OUTPUT_DIR", "artifacts/reddit-horror")
 SUBREDDITS = ["ScaryVideos", "creepy", "Paranormal", "Ghosts", "OddlyTerrifying"]
-USER_AGENT = "Mint-YT-Factory/1.2"
+USER_AGENT = "Mint-YT-Factory/1.3"
+ATOM = "{http://www.w3.org/2005/Atom}"
 
 
 def clean(value: object, limit: int = 4000) -> str:
@@ -31,24 +32,38 @@ def run(command: list[str]) -> None:
     subprocess.run(command, check=True)
 
 
+def extract_media_links(entry: ET.Element) -> list[str]:
+    raw = " ".join(entry.itertext())
+    links = re.findall(r"https?://[^\s<>\"']+", raw)
+    for node in entry.findall(f"{ATOM}link"):
+        href = node.attrib.get("href", "")
+        if href:
+            links.append(href)
+    result: list[str] = []
+    for link in links:
+        link = link.rstrip(".,);\"]'")
+        if "v.redd.it/" in link or re.search(r"\.(?:mp4|webm|mov)(?:\?|$)", link, re.I):
+            if link not in result:
+                result.append(link)
+    return result
+
+
 def rss_candidates() -> list[dict]:
     headers = {"User-Agent": USER_AGENT, "Accept": "application/rss+xml, application/xml"}
     posts: list[dict] = []
     for subreddit in SUBREDDITS:
-        url = f"https://www.reddit.com/r/{subreddit}/.rss?limit=50"
         try:
-            response = requests.get(url, headers=headers, timeout=30)
+            response = requests.get(f"https://www.reddit.com/r/{subreddit}/.rss?limit=50", headers=headers, timeout=30)
             response.raise_for_status()
             root = ET.fromstring(response.content)
-            ns = "{http://www.w3.org/2005/Atom}"
-            for entry in root.findall(f"{ns}entry"):
-                title = entry.findtext(f"{ns}title", "")
-                link_node = entry.find(f"{ns}link")
+            for entry in root.findall(f"{ATOM}entry"):
+                title = entry.findtext(f"{ATOM}title", "")
+                link_node = entry.find(f"{ATOM}link")
                 link = link_node.attrib.get("href", "") if link_node is not None else ""
-                entry_id = entry.findtext(f"{ns}id", "")
-                updated = entry.findtext(f"{ns}updated", "")
+                entry_id = entry.findtext(f"{ATOM}id", "")
+                updated = entry.findtext(f"{ATOM}updated", "") or ""
                 if title and link:
-                    posts.append({"id": entry_id or link, "title": clean(title, 800), "subreddit": subreddit, "source_url": link, "score": 0, "updated": updated, "author": "[unknown]"})
+                    posts.append({"id": entry_id or link, "title": clean(title, 800), "subreddit": subreddit, "source_url": link, "media_urls": extract_media_links(entry), "score": 0, "updated": updated, "author": "[unknown]"})
             print(f"📡 RSS loaded for r/{subreddit}")
         except Exception as exc:
             print(f"⚠️ RSS request failed for r/{subreddit}: {type(exc).__name__}: {exc}")
@@ -66,26 +81,20 @@ def json_candidates() -> list[dict]:
                 if data.get("stickied"):
                     continue
                 permalink = data.get("permalink", "")
-                posts.append({**data, "source_url": f"https://www.reddit.com{permalink}" if permalink else data.get("url", ""), "score": int(data.get("score", 0) or 0)})
+                posts.append({**data, "source_url": f"https://www.reddit.com{permalink}" if permalink else data.get("url", "")})
         except Exception as exc:
             print(f"⚠️ JSON request failed for r/{subreddit}: {type(exc).__name__}: {exc}")
     return posts
 
 
-def choose_post() -> dict:
+def reddit_candidates() -> list[dict]:
     posts = rss_candidates()
     if not posts:
         posts = json_candidates()
-    posts.sort(key=lambda p: (int(p.get("score", 0) or 0), p.get("updated", "")), reverse=True)
-    for post in posts:
-        if post.get("source_url"):
-            print(f"📈 Selected Reddit post candidate: r/{post.get('subreddit')} title={post.get('title')}")
-            return post
-    raise RuntimeError("No Reddit posts were discovered through RSS or JSON.")
+    return sorted(posts, key=lambda p: (int(p.get("score", 0) or 0), p.get("updated", "")), reverse=True)
 
 
 def parse_gemini_json(text: str) -> dict:
-    """Parse Gemini JSON defensively; models may emit raw control characters in strings."""
     text = text.strip()
     text = re.sub(r"^```(?:json)?\s*", "", text, flags=re.I)
     text = re.sub(r"\s*```$", "", text)
@@ -93,7 +102,6 @@ def parse_gemini_json(text: str) -> dict:
         return json.loads(text)
     except json.JSONDecodeError as first_error:
         try:
-            # strict=False permits literal newlines/tabs inside JSON strings.
             return json.loads(text, strict=False)
         except json.JSONDecodeError:
             match = re.search(r"\{.*\}", text, flags=re.S)
@@ -110,8 +118,7 @@ def generate_commentary(post: dict) -> dict:
     if not key:
         raise RuntimeError("GEMINI_API_KEY is required.")
     prompt = f"""Create an original, suspenseful, transformative commentary script for a 45-60 second English YouTube Short about this Reddit horror video. Do not claim footage is authentic or paranormal as fact. Use a strong first-second hook, explain what viewers should watch for, add thoughtful commentary, and end with a question. Return JSON only with these fields: video_title, hook, narration, description_intro, tags. Keep narration 75-120 words. Reddit title: {clean(post.get('title'), 800)}. Subreddit: r/{clean(post.get('subreddit'), 100)}. Post URL: {post.get('source_url')}"""
-    client = genai.Client(api_key=key)
-    response = client.models.generate_content(model=MODEL_NAME, contents=prompt, config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0.75))
+    response = genai.Client(api_key=key).models.generate_content(model=MODEL_NAME, contents=prompt, config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0.75))
     text = getattr(response, "text", "")
     if not text:
         raise RuntimeError("Gemini returned no commentary script.")
@@ -122,10 +129,34 @@ def generate_commentary(post: dict) -> dict:
     return result
 
 
-def download_video(post_url: str, destination: Path) -> None:
-    run(["yt-dlp", "--no-playlist", "--merge-output-format", "mp4", "-o", str(destination), post_url])
-    if not destination.exists() or destination.stat().st_size < 10_000:
-        raise RuntimeError("yt-dlp did not produce a usable Reddit video.")
+def download_direct(url: str, destination: Path) -> bool:
+    try:
+        response = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=60, stream=True)
+        response.raise_for_status()
+        if "text/html" in response.headers.get("content-type", "").lower():
+            return False
+        with destination.open("wb") as handle:
+            for chunk in response.iter_content(chunk_size=1024 * 1024):
+                if chunk:
+                    handle.write(chunk)
+        return destination.exists() and destination.stat().st_size > 10_000
+    except Exception as exc:
+        print(f"⚠️ Direct media download failed for {url}: {type(exc).__name__}: {exc}")
+        return False
+
+
+def download_video(post: dict, destination: Path) -> None:
+    for media_url in post.get("media_urls", []):
+        if download_direct(media_url, destination):
+            print(f"🎞️ Downloaded direct media URL: {media_url}")
+            return
+    try:
+        run(["yt-dlp", "--no-playlist", "--merge-output-format", "mp4", "-o", str(destination), post["source_url"]])
+        if destination.exists() and destination.stat().st_size > 10_000:
+            return
+    except subprocess.CalledProcessError as exc:
+        print(f"⚠️ yt-dlp could not access Reddit post: exit {exc.returncode}")
+    raise RuntimeError("Unable to download Reddit media. Reddit blocked direct media and yt-dlp extraction.")
 
 
 def render(script: dict, source: Path, audio: Path, output: Path, work: Path) -> None:
@@ -161,15 +192,29 @@ def render(script: dict, source: Path, audio: Path, output: Path, work: Path) ->
 
 def main() -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    post = choose_post(); script = generate_commentary(post)
+    posts = reddit_candidates()
+    if not posts:
+        raise RuntimeError("No Reddit posts were discovered through RSS or JSON.")
     with tempfile.TemporaryDirectory(prefix="reddit-horror-") as temp:
-        work = Path(temp); source = work / "reddit-source.mp4"
-        download_video(post["source_url"], source)
+        work = Path(temp)
+        selected = None; script = None; source = work / "reddit-source.mp4"
+        for post in posts[:20]:
+            try:
+                print(f"📈 Trying Reddit candidate: r/{post.get('subreddit')} title={post.get('title')}")
+                download_video(post, source)
+                selected = post
+                script = generate_commentary(post)
+                break
+            except Exception as exc:
+                print(f"⚠️ Skipping candidate: {type(exc).__name__}: {exc}")
+                if source.exists(): source.unlink()
+        if not selected or not script:
+            raise RuntimeError("No downloadable Reddit video was found among the discovered candidates.")
         audio = work / "narration.mp3"
-        synthesize_narration(clean(script["narration"], 6000), {"voice": {"provider": "kokoro", "voice_name": "af_heart", "kokoro_lang": "a", "speed": 1.0}}, str(audio), target_duration=50.0)
+        synthesize_narration(clean(script["narration"], 6000), {"voice": {"provider": "kokoro", "voice_name": os.getenv("MINT_KOKORO_VOICE", "af_heart"), "kokoro_lang": os.getenv("MINT_KOKORO_LANG", "a"), "speed": 1.0}}, str(audio), target_duration=50.0)
         output = OUTPUT_DIR / "reddit-horror-commentary.mp4"; render(script, source, audio, output, work)
-    description = f"{script['description_intro']}\n\nOriginal Reddit post: {post['source_url']}\nOriginal creator: u/{post.get('author') or '[unknown]'}\n\nCommentary and editing added by our channel."
-    metadata = {"video_title": script["video_title"], "reddit_post": post["source_url"], "subreddit": post.get("subreddit"), "score": post.get("score"), "description": description, "gemini_model": MODEL_NAME, "generated_at": int(time.time())}
+    description = f"{script['description_intro']}\n\nOriginal Reddit post: {selected['source_url']}\nOriginal creator: u/{selected.get('author') or '[unknown]'}\n\nCommentary and editing added by our channel."
+    metadata = {"video_title": script["video_title"], "reddit_post": selected["source_url"], "subreddit": selected.get("subreddit"), "score": selected.get("score", 0), "description": description, "gemini_model": MODEL_NAME, "generated_at": int(time.time())}
     (OUTPUT_DIR / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
     if os.getenv("REDDIT_HORROR_AUTO_UPLOAD", "true").lower() in {"1", "true", "yes"}:
         from upload_youtube import upload_video

@@ -67,3 +67,12 @@
 - Added `ffprobe` validation to confirm that the downloaded file contains a readable video stream.
 - Invalid downloads are deleted and rejected before they reach FFmpeg normalization.
 - The pipeline now continues to other queries when a candidate response is invalid instead of treating it as a usable clip.
+
+## 2026-09-17 — Added PlayPhrase Movie Meme Shorts line
+
+- Added `movie_memes_main.py` as a separate production line for relatable “When...” movie-dialogue memes.
+- Gemini now generates a comedic setup, narration, short PlayPhrase search phrases, clip labels, and YouTube metadata.
+- The renderer assembles a hook card and up to three validated PlayPhrase dialogue clips into a vertical 9:16 Short.
+- Kokoro remains the narration engine, and the existing YouTube uploader is reused.
+- Added `.github/workflows/movie-memes.yml` with a daily schedule and manual dispatch, using only `GEMINI_API_KEY` and `YOUTUBE_TOKEN_JSON`.
+- Existing Movie Trivia, Publish Shorts, and Story Shorts workflows remain isolated and unchanged.

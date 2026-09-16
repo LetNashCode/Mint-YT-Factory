@@ -40,3 +40,8 @@
 - Removed the restrictive requirement that RSS entries expose `is_video` or `post_hint` fields.
 - Changed media acquisition to pass the original Reddit post URL to `yt-dlp`, allowing yt-dlp to resolve Reddit-hosted video variants instead of relying on guessed direct media URLs.
 - Added a Pillow font fallback to avoid failures when the DejaVu font path is unavailable.
+
+## 2026-09-17 — Hardened Gemini JSON parsing
+
+- Added defensive parsing for Gemini responses, including fenced JSON, embedded JSON objects, and literal control characters inside generated strings.
+- Converts malformed Gemini output into a clear runtime error instead of exposing a raw `JSONDecodeError` traceback.

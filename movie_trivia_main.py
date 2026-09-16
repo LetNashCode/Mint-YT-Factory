@@ -108,11 +108,7 @@ follow request. Return JSON only with this exact shape:
 
 
 def capture_playphrase_clip(query: str, output_path: Path) -> bool:
-    """Capture the first playable MP4 response from PlayPhrase's browser session.
-
-    PlayPhrase is a browser application rather than a documented API. This adapter deliberately
-    fails closed if no playable media response is observed; it never substitutes another source.
-    """
+    """Capture the first playable MP4 response from PlayPhrase's browser session."""
     try:
         from playwright.sync_api import sync_playwright
     except ImportError as error:
@@ -148,7 +144,10 @@ def capture_playphrase_clip(query: str, output_path: Path) -> bool:
         page.goto(search_url, wait_until="domcontentloaded", timeout=60_000)
         page.wait_for_timeout(8_000)
         if not media_payload.get("body"):
-            source = page.locator("video").first.get_attribute("src", timeout=5_000)
+            try:
+                source = page.locator("video").first.get_attribute("src", timeout=5_000)
+            except Exception:
+                source = None
             if source and source.startswith("http"):
                 try:
                     response = context.request.get(source, timeout=30_000)
@@ -169,12 +168,59 @@ def capture_playphrase_clip(query: str, output_path: Path) -> bool:
 
 
 def make_title_card(text: str, output: Path, duration: float = 2.5) -> None:
-    safe = text.replace("\\", "\\\\").replace(":", "\\:").replace("'", "\\'")
+    """Create a title card without relying on FFmpeg's optional drawtext filter.
+
+    Some GitHub Actions FFmpeg builds report that drawtext is unavailable even when
+    other text-related libraries are present. Pillow renders the text into a PNG,
+    and FFmpeg only has to turn that image into a video.
+    """
+    try:
+        from PIL import Image, ImageDraw, ImageFont
+    except ImportError as error:
+        raise RuntimeError("Pillow is required to render the Movie Trivia hook card.") from error
+
+    width, height = 1080, 1920
+    image = Image.new("RGB", (width, height), "black")
+    draw = ImageDraw.Draw(image)
+    font = None
+    for candidate in (
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+        "/usr/share/fonts/truetype/liberation2/LiberationSans-Bold.ttf",
+    ):
+        if Path(candidate).exists():
+            font = ImageFont.truetype(candidate, 66)
+            break
+    if font is None:
+        font = ImageFont.load_default()
+
+    words = clean_text(text, 180).split()
+    lines: list[str] = []
+    current = ""
+    max_width = width - 140
+    for word in words:
+        candidate = f"{current} {word}".strip()
+        if current and draw.textbbox((0, 0), candidate, font=font)[2] > max_width:
+            lines.append(current)
+            current = word
+        else:
+            current = candidate
+    if current:
+        lines.append(current)
+
+    line_height = 86
+    total_height = len(lines) * line_height
+    y = (height - total_height) // 2
+    for line in lines:
+        bbox = draw.textbbox((0, 0), line, font=font)
+        x = (width - (bbox[2] - bbox[0])) // 2
+        draw.text((x, y), line, fill="white", font=font)
+        y += line_height
+
+    image_path = output.with_suffix(".png")
+    image.save(image_path)
     run([
-        "ffmpeg", "-y", "-f", "lavfi", "-i", "color=c=black:s=1080x1920:r=30",
-        "-t", str(duration),
-        "-vf", f"drawtext=text='{safe}':fontcolor=white:fontsize=66:x=(w-text_w)/2:y=(h-text_h)/2:line_spacing=18",
-        "-an", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(output),
+        "ffmpeg", "-y", "-loop", "1", "-i", str(image_path), "-t", str(duration),
+        "-r", "30", "-an", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(output),
     ])
 
 
@@ -199,7 +245,6 @@ def build_video(episode: dict, clip_paths: list[Path], narration_audio: Path, ou
     concat_file.write_text("\n".join(f"file '{path.as_posix()}'" for path in normalized), encoding="utf-8")
     joined = work / "joined.mp4"
     run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat_file), "-c", "copy", str(joined)])
-    # Loop the short visual reel until the full Kokoro narration has finished.
     run([
         "ffmpeg", "-y", "-stream_loop", "-1", "-i", str(joined), "-i", str(narration_audio),
         "-map", "0:v:0", "-map", "1:a:0",

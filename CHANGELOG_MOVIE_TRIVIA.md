@@ -32,3 +32,11 @@
 - The new line uses the existing `GEMINI_API_KEY` and `YOUTUBE_TOKEN_JSON` secrets.
 - Existing Publish Shorts, Story Shorts, Movie Trivia source files, and Movie Meme Shorts remain untouched; only the former Movie Trivia workflow is repurposed.
 - The operator remains responsible for independently clearing the rights to any selected footage before publication.
+
+## 2026-09-17 — Fixed Reddit discovery after HTTP 403 responses
+
+- Added Reddit RSS discovery as the primary source because Reddit JSON endpoints can return HTTP 403 from GitHub Actions runners.
+- Retained Reddit JSON as a best-effort fallback when RSS is unavailable.
+- Removed the restrictive requirement that RSS entries expose `is_video` or `post_hint` fields.
+- Changed media acquisition to pass the original Reddit post URL to `yt-dlp`, allowing yt-dlp to resolve Reddit-hosted video variants instead of relying on guessed direct media URLs.
+- Added a Pillow font fallback to avoid failures when the DejaVu font path is unavailable.

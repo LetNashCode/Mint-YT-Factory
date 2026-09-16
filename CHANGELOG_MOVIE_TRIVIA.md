@@ -68,3 +68,12 @@
 - Added explicit `Accept`, `Referer`, and `Origin` headers for media requests.
 - Added cleanup for invalid or undersized downloaded files.
 - Kept redirect protection and the existing candidate-retry behavior.
+
+## 2026-09-17 — Switched to Reddit OAuth and official media metadata
+
+- Replaced RSS discovery and guessed CDN filenames with Reddit OAuth API discovery.
+- Added required `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`, and `REDDIT_USER_AGENT` configuration.
+- Reads Reddit's official `reddit_video` metadata fields: `dash_url`, `hls_url`, and `fallback_url`.
+- Uses FFmpeg on DASH/HLS manifests so separate Reddit audio and video streams can be combined.
+- Retains fallback URL handling, candidate retries, Gemini commentary, Kokoro narration, and YouTube publishing.
+- Updated the GitHub Actions workflow to inject and validate the Reddit OAuth secrets.

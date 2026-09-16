@@ -229,9 +229,6 @@ def maybe_upload(output: Path, episode: dict) -> str | None:
 
 
 def main() -> None:
-    if os.getenv("PLAYPHRASE_LICENSE_ACK", "").strip().lower() != "true":
-        raise RuntimeError("Set PLAYPHRASE_LICENSE_ACK=true only after confirming the required clip rights.")
-
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     episode = generate_episode()
     with tempfile.TemporaryDirectory(prefix="movie-trivia-") as temp_dir:
@@ -259,7 +256,7 @@ def main() -> None:
         "clip_queries": episode["clip_queries"],
         "narration_provider": "Kokoro via tts.py",
         "gemini_model": MODEL_NAME,
-        "rights_acknowledged": True,
+        "rights_notice": "Clip rights must be confirmed by the operator before public publishing.",
         "fact_basis": episode["fact_basis"],
         "generated_at": int(time.time()),
     }

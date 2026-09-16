@@ -42,3 +42,12 @@
 - Remaining Gemini-generated PlayPhrase queries are still attempted.
 - The pipeline remains fail-closed: if no playable clip can be captured, the run ends with a clear error and does not substitute unrelated media.
 - Updated `.github/workflows/movie-trivia.yml` to use the resilient runner.
+
+## 2026-09-17 — Improved PlayPhrase media discovery
+
+- Added support for both the current Clip Search route and the legacy search route.
+- Added browser-language headers and a Chromium automation compatibility flag.
+- Added network-response discovery for MP4, WebM, and M4V media.
+- Added DOM discovery for `video`, `source`, and downloadable media links.
+- Removed the fragile `locator("video").first.get_attribute(..., timeout=...)` call that caused the reported timeout.
+- Individual query failures remain isolated; the pipeline still stops safely if no playable clip is found.

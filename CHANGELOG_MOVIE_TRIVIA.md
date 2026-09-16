@@ -38,7 +38,7 @@
 ## 2026-09-17 — Resilient PlayPhrase query handling
 
 - Added `movie_trivia_runner.py` as the workflow entry point.
-- PlayPhrase browser timeouts and other per-query capture errors are now logged and skipped instead of immediately terminating the entire job.
+- PlayPhrase browser timeouts and other per-query capture errors are now logged and skipped instead of immediately terminating the job.
 - Remaining Gemini-generated PlayPhrase queries are still attempted.
 - The pipeline remains fail-closed: if no playable clip can be captured, the run ends with a clear error and does not substitute unrelated media.
 - Updated `.github/workflows/movie-trivia.yml` to use the resilient runner.
@@ -59,3 +59,11 @@
 - FFmpeg now converts the generated hook-card PNG into a video, avoiding dependence on the optional `drawtext` filter.
 - Added `Pillow` to the Movie Trivia workflow dependencies.
 - Existing Publish Shorts and Story Shorts pipelines were not changed.
+
+## 2026-09-17 — Validate PlayPhrase media before rendering
+
+- PlayPhrase returned a large response that was not a valid MP4; FFmpeg reported `moov atom not found` during normalization.
+- Added byte-signature validation for MP4/WebM files.
+- Added `ffprobe` validation to confirm that the downloaded file contains a readable video stream.
+- Invalid downloads are deleted and rejected before they reach FFmpeg normalization.
+- The pipeline now continues to other queries when a candidate response is invalid instead of treating it as a usable clip.

@@ -51,3 +51,11 @@
 - Added DOM discovery for `video`, `source`, and downloadable media links.
 - Removed the fragile `locator("video").first.get_attribute(..., timeout=...)` call that caused the reported timeout.
 - Individual query failures remain isolated; the pipeline still stops safely if no playable clip is found.
+
+## 2026-09-17 — Replaced FFmpeg drawtext hook rendering
+
+- The workflow failed because the installed FFmpeg build reported `No such filter: 'drawtext'`.
+- Replaced FFmpeg text rendering with Pillow-based PNG generation.
+- FFmpeg now converts the generated hook-card PNG into a video, avoiding dependence on the optional `drawtext` filter.
+- Added `Pillow` to the Movie Trivia workflow dependencies.
+- Existing Publish Shorts and Story Shorts pipelines were not changed.

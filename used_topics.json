@@ -342,5 +342,7 @@
   "Why do keys stick in locks",
   "__MINT_ANALYTICS__::{\"video_id\":\"4tcbCwaxx6g\",\"topic\":\"Why do door hinges squeak\",\"title\":\"Why Do Door Hinges Squeak\",\"workdir\":\"output/1789517314\",\"published_at\":\"2026-09-16T00:34:27.525198+00:00\",\"topic_category\":\"Science & Education\",\"hook_type\":\"hook\",\"story_structure\":\"7_scene_entertainment\",\"visual_style\":\"cinematic macro photography\",\"music_type\":\"quirky jazz pizzicato bass upbeat\",\"voice\":\"playful\",\"engagement_experiment\":\"\",\"audio_duration_seconds\":44.72,\"words_per_second\":2.795,\"creative_strategy\":\"\",\"creative_experiment_id\":\"\",\"creative_selected_pattern\":\"\"}",
   "Why do door hinges squeak",
-  "__MINT_PENDING_NEXT_TOPIC__::Why do old keys stick in locks"
+  "__MINT_ANALYTICS__::{\"video_id\":\"EGhz9uxYOrY\",\"topic\":\"Why do old keys stick in locks\",\"title\":\"Why Do Old Keys Stick in Locks\",\"workdir\":\"output/1789542410\",\"published_at\":\"2026-09-16T07:34:19.198841+00:00\",\"topic_category\":\"Science & Education\",\"hook_type\":\"hook\",\"story_structure\":\"7_scene_entertainment\",\"visual_style\":\"cinematic macro photography\",\"music_type\":\"quirky jazz pizzicato bass mystery\",\"voice\":\"curious and playful\",\"engagement_experiment\":\"prediction\",\"audio_duration_seconds\":36.49,\"words_per_second\":2.795,\"creative_strategy\":\"proven\",\"creative_experiment_id\":\"creative_v3_proven_cycle8_slot5\",\"creative_selected_pattern\":\"hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + narration_pace:natural\"}",
+  "Why do old keys stick in locks",
+  "__MINT_PENDING_NEXT_TOPIC__::Why do door handles sag over time"
 ]

@@ -148,7 +148,6 @@ def capture_playphrase_clip(query: str, output_path: Path) -> bool:
         page.goto(search_url, wait_until="domcontentloaded", timeout=60_000)
         page.wait_for_timeout(8_000)
         if not media_payload.get("body"):
-            # Some versions expose the CDN URL only as a video element source.
             source = page.locator("video").first.get_attribute("src", timeout=5_000)
             if source and source.startswith("http"):
                 try:
@@ -170,7 +169,6 @@ def capture_playphrase_clip(query: str, output_path: Path) -> bool:
 
 
 def make_title_card(text: str, output: Path, duration: float = 2.5) -> None:
-    # Use drawtext with a conservative escaped string; no user-provided shell interpolation is used.
     safe = text.replace("\\", "\\\\").replace(":", "\\:").replace("'", "\\'")
     run([
         "ffmpeg", "-y", "-f", "lavfi", "-i", "color=c=black:s=1080x1920:r=30",
@@ -201,8 +199,9 @@ def build_video(episode: dict, clip_paths: list[Path], narration_audio: Path, ou
     concat_file.write_text("\n".join(f"file '{path.as_posix()}'" for path in normalized), encoding="utf-8")
     joined = work / "joined.mp4"
     run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat_file), "-c", "copy", str(joined)])
+    # Loop the short visual reel until the full Kokoro narration has finished.
     run([
-        "ffmpeg", "-y", "-i", str(joined), "-i", str(narration_audio),
+        "ffmpeg", "-y", "-stream_loop", "-1", "-i", str(joined), "-i", str(narration_audio),
         "-map", "0:v:0", "-map", "1:a:0",
         "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920",
         "-t", "60", "-r", "30", "-c:v", "libx264", "-preset", "veryfast",
@@ -219,7 +218,7 @@ def maybe_upload(output: Path, episode: dict) -> str | None:
         "upload": {"privacy_status": os.getenv("MOVIE_PRIVACY_STATUS", "public"), "category_id": "24"},
         "seo": {"hashtags": episode.get("tags", [])},
     }
-    comment = f"What movie should we decode next? 🎬"
+    comment = "What movie should we decode next? 🎬"
     return upload_video(
         str(output),
         clean_text(episode["video_title"], 90),

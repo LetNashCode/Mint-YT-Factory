@@ -2859,6 +2859,146 @@
       "shot": 2,
       "query": "old keys little graphite powder smooths",
       "recorded_at": 1789542674
+    },
+    {
+      "asset_key": "pexels:photo:30281096",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/30281096/pexels-photo-30281096.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 1,
+      "shot": 1,
+      "query": "door handles sag handle used point",
+      "recorded_at": 1789551960
+    },
+    {
+      "asset_key": "pexels:video:6136988",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6136988/6136988-hd_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "door handles sag now slumps like sad",
+      "recorded_at": 1789551966
+    },
+    {
+      "asset_key": "pexels:photo:9788371",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/9788371/pexels-photo-9788371.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 2,
+      "shot": 1,
+      "query": "door handles sag every time you press",
+      "recorded_at": 1789551972
+    },
+    {
+      "asset_key": "pexels:video:7318813",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7318813/7318813-hd_720_1280_30fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "door handles sag gravity wins tiny invisible",
+      "recorded_at": 1789551973
+    },
+    {
+      "asset_key": "pexels:video:29038650",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/29038650/12553707_1280_720_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "door handles sag inside metal neck disassembled",
+      "recorded_at": 1789551974
+    },
+    {
+      "asset_key": "pexels:photo:22885084",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/22885084/pexels-photo-22885084.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 3,
+      "shot": 2,
+      "query": "door handles sag coiled spring all heavy",
+      "recorded_at": 1789551975
+    },
+    {
+      "asset_key": "pixabay:photo:4833820",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g1eee0be7098f392a4a3957577388f496e5f9f1a9177848c89a55f9b22b1fbb4f610fa252d5c53cbedf5e82be94af6b34d08f341113e31eea7e9c9bf1888fcb48_1280.jpg",
+      "scene": 4,
+      "shot": 1,
+      "query": "door handles sag bend paperclip back forth",
+      "recorded_at": 1789551976
+    },
+    {
+      "asset_key": "pixabay:video:110719",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/03/14/110719-688648628_medium.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "door handles sag until metal gets tired",
+      "recorded_at": 1789551977
+    },
+    {
+      "asset_key": "pixabay:photo:1152242",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/gb2028dcb0e740547deeb28d3f9a246d3bb7030aac5a03ba3721fb404b37b28cb2a2494e65a8855e5a57e75b8efb82527282553559ed07326cdd96842a948b519_1280.jpg",
+      "scene": 5,
+      "shot": 1,
+      "query": "door handles sag spring experiences thousands coiled",
+      "recorded_at": 1789551979
+    },
+    {
+      "asset_key": "pixabay:photo:2180013",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/gc7fc5368091768e10ae7d379d540d9325e69d88d83405a60a1d1415ee259facbd84878d925677e8186d107eae8a929c6403e717231fd50117015cd5de14c7fb2_1280.jpg",
+      "scene": 5,
+      "shot": 2,
+      "query": "door handles sag every single year close-up",
+      "recorded_at": 1789551982
+    },
+    {
+      "asset_key": "pexels:photo:18700356",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/18700356/pexels-photo-18700356.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 6,
+      "shot": 1,
+      "query": "door handles sag eventually metal permanently stretches",
+      "recorded_at": 1789551983
+    },
+    {
+      "asset_key": "pixabay:photo:2700283",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/gbe8c2dca2b563fe4b24b033a8125ad2c2b2643f83302b0f91757d6f08397448d11836f752ad30685c3c24688e7249467767437741accf5f60a64fe3062398aac_1280.jpg",
+      "scene": 6,
+      "shot": 2,
+      "query": "door handles sag",
+      "recorded_at": 1789551989
+    },
+    {
+      "asset_key": "pexels:photo:16739057",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/16739057/pexels-photo-16739057.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 7,
+      "shot": 1,
+      "query": "door handles sag gravity outlived steel proving",
+      "recorded_at": 1789551990
+    },
+    {
+      "asset_key": "pixabay:photo:4569242",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g46ffb6b1bada7a954b0603164ea741289bef257666e20fd1cd20087411c6066e28a76a9faa236cd16c26b46c445a80fa25d6b86fcbb26e306d64ad5fd6616860_1280.jpg",
+      "scene": 7,
+      "shot": 2,
+      "query": "door handles sag gravity outlived steel proving",
+      "recorded_at": 1789551991
     }
   ]
 }

@@ -12,8 +12,7 @@ permissions:
 concurrency:
   group: movie-trivia-production
   cancel-in-progress: false
-
-jobs:
+\ njobs:
   build-and-publish-movie-trivia:
     runs-on: ubuntu-latest
     timeout-minutes: 45
@@ -53,7 +52,7 @@ jobs:
           test -n "$YOUTUBE_TOKEN_JSON" || (echo "Missing YOUTUBE_TOKEN_JSON" && exit 1)
 
       - name: Generate, render, validate and publish Movie Trivia Short
-        run: python movie_trivia_main.py
+        run: python movie_trivia_runner.py
 
       - name: Upload production artifact
         if: always()

@@ -34,3 +34,11 @@
 - The setting was not a PlayPhrase credential or API requirement; it was only an internal safety gate.
 - The pipeline now uses the existing `GEMINI_API_KEY` and `YOUTUBE_TOKEN_JSON` secrets already used by the other production lines.
 - Metadata now records a rights notice instead of falsely marking rights as programmatically acknowledged.
+
+## 2026-09-17 — Resilient PlayPhrase query handling
+
+- Added `movie_trivia_runner.py` as the workflow entry point.
+- PlayPhrase browser timeouts and other per-query capture errors are now logged and skipped instead of immediately terminating the entire job.
+- Remaining Gemini-generated PlayPhrase queries are still attempted.
+- The pipeline remains fail-closed: if no playable clip can be captured, the run ends with a clear error and does not substitute unrelated media.
+- Updated `.github/workflows/movie-trivia.yml` to use the resilient runner.

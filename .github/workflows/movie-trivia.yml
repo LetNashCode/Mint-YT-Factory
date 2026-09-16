@@ -1,0 +1,65 @@
+name: Movie Trivia Shorts
+
+on:
+  workflow_dispatch:
+    inputs:
+      movie_title:
+        description: "Movie title"
+        required: true
+        type: string
+      hook:
+        description: "Opening hook"
+        required: true
+        default: "Did you notice this detail?"
+        type: string
+      narration:
+        description: "Complete narration for the Short"
+        required: true
+        type: string
+      playphrase_clip_urls:
+        description: "Comma-separated, rights-cleared direct clip URLs"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  build-movie-trivia:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PLAYPHRASE_LICENSE_ACK: ${{ secrets.PLAYPHRASE_LICENSE_ACK }}
+      MOVIE_TITLE: ${{ inputs.movie_title }}
+      MOVIE_HOOK: ${{ inputs.hook }}
+      MOVIE_NARRATION: ${{ inputs.narration }}
+      PLAYPHRASE_CLIP_URLS: ${{ inputs.playphrase_clip_urls }}
+      MINT_KOKORO_VOICE: af_heart
+      MINT_KOKORO_LANG: a
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install ffmpeg
+        uses: FedericoCarboni/setup-ffmpeg@v3
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build Movie Trivia Short
+        run: python movie_trivia_main.py
+
+      - name: Upload generated Short
+        uses: actions/upload-artifact@v4
+        with:
+          name: movie-trivia-short
+          path: artifacts/movie-trivia/
+          if-no-files-found: error
+          retention-days: 7

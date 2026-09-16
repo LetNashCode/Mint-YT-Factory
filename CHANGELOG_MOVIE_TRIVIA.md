@@ -60,3 +60,11 @@
 - Prevents automatic redirects into the blocked `/video/` endpoint.
 - Rejects HTML and JSON responses as invalid media files.
 - Preserves candidate retry behavior when Reddit blocks a media source.
+
+## 2026-09-17 — Retried Reddit CDN requests with fallback parameters
+
+- Updated the Reddit CDN request headers to resemble a normal browser request.
+- Added `?source=fallback` to Reddit DASH and HLS media URLs.
+- Added explicit `Accept`, `Referer`, and `Origin` headers for media requests.
+- Added cleanup for invalid or undersized downloaded files.
+- Kept redirect protection and the existing candidate-retry behavior.

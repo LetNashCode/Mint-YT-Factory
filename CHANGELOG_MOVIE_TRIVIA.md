@@ -45,3 +45,10 @@
 
 - Added defensive parsing for Gemini responses, including fenced JSON, embedded JSON objects, and literal control characters inside generated strings.
 - Converts malformed Gemini output into a clear runtime error instead of exposing a raw `JSONDecodeError` traceback.
+
+## 2026-09-17 — Added Reddit media fallback and candidate retries
+
+- Extracts direct `v.redd.it` or media-file links exposed in RSS entries before attempting `yt-dlp`.
+- Handles Reddit authentication blocks from `yt-dlp` without an immediate unhandled traceback.
+- Tries up to 20 discovered candidates and skips unavailable or non-downloadable posts.
+- Uses the configured `MINT_KOKORO_VOICE` and `MINT_KOKORO_LANG` environment variables for narration.

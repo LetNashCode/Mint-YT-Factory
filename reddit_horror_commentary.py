@@ -1,0 +1,171 @@
+"""Automatic Reddit horror-video commentary Shorts pipeline.
+
+Selects a high-engagement Reddit video post, downloads its public media with yt-dlp,
+asks Gemini for transformative commentary, adds Kokoro narration, and renders a
+vertical Short. The operator is responsible for independently clearing media rights.
+"""
+from __future__ import annotations
+
+import json
+import os
+import re
+import subprocess
+import tempfile
+import time
+from pathlib import Path
+
+import requests
+from google import genai
+from google.genai import types
+from tts import synthesize_narration
+
+MODEL_NAME = "gemini-flash-lite-latest"
+ROOT = Path(__file__).resolve().parent
+OUTPUT_DIR = ROOT / os.getenv("REDDIT_HORROR_OUTPUT_DIR", "artifacts/reddit-horror")
+SUBREDDITS = ["ScaryVideos", "creepy", "Paranormal", "Ghosts", "OddlyTerrifying"]
+
+
+def clean(value: object, limit: int = 4000) -> str:
+    return re.sub(r"\s+", " ", str(value or "")).strip()[:limit]
+
+
+def run(command: list[str]) -> None:
+    print("$", " ".join(map(str, command)))
+    subprocess.run(command, check=True)
+
+
+def reddit_candidates() -> list[dict]:
+    headers = {"User-Agent": "Mint-YT-Factory/1.0 Reddit horror research bot"}
+    posts: list[dict] = []
+    for subreddit in SUBREDDITS:
+        url = f"https://www.reddit.com/r/{subreddit}/top.json?t=week&limit=25"
+        try:
+            response = requests.get(url, headers=headers, timeout=30)
+            response.raise_for_status()
+            children = response.json().get("data", {}).get("children", [])
+            for child in children:
+                data = child.get("data", {})
+                if data.get("stickied") or data.get("is_video") or data.get("post_hint") == "hosted:video":
+                    posts.append(data)
+        except Exception as exc:  # noqa: BLE001
+            print(f"⚠️ Reddit request failed for r/{subreddit}: {type(exc).__name__}: {exc}")
+    unique = {str(post.get("id")): post for post in posts if post.get("id")}
+    return sorted(unique.values(), key=lambda item: int(item.get("score", 0)), reverse=True)
+
+
+def choose_post() -> dict:
+    posts = reddit_candidates()
+    if not posts:
+        raise RuntimeError("No Reddit video posts were found.")
+    for post in posts:
+        url = post.get("url_overridden_by_dest") or post.get("url") or ""
+        if url:
+            post["source_url"] = f"https://www.reddit.com{post.get('permalink', '')}"
+            post["media_url"] = url
+            print(f"📈 Selected Reddit post: r/{post.get('subreddit')} score={post.get('score')} title={post.get('title')}")
+            return post
+    raise RuntimeError("Reddit posts had no usable media URLs.")
+
+
+def generate_commentary(post: dict) -> dict:
+    key = os.getenv("GEMINI_API_KEY", "").strip()
+    if not key:
+        raise RuntimeError("GEMINI_API_KEY is required.")
+    prompt = f"""
+Create an original, suspenseful, transformative commentary script for a 45-60 second English YouTube Short about this Reddit horror video.
+Do not claim the footage is authentic or paranormal as a fact. Clearly frame uncertain interpretations as possibilities.
+Use a strong first-second hook, describe what viewers should watch for, add thoughtful commentary, and end with a question.
+Do not mention licensing. Return JSON only:
+{{
+  "video_title": "clickable title",
+  "hook": "very short hook text",
+  "narration": "75-120 word narration with natural pauses",
+  "description_intro": "2-3 sentence description",
+  "tags": ["reddit horror", "scary videos", "paranormal"]
+}}
+
+Reddit title: {clean(post.get('title'), 800)}
+Subreddit: r/{clean(post.get('subreddit'), 100)}
+Post score: {post.get('score', 0)}
+Post URL: {post.get('source_url')}
+"""
+    client = genai.Client(api_key=key)
+    response = client.models.generate_content(
+        model=MODEL_NAME,
+        contents=prompt,
+        config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0.75),
+    )
+    text = getattr(response, "text", "")
+    if not text:
+        raise RuntimeError("Gemini returned no commentary script.")
+    text = re.sub(r"^```(?:json)?|```$", "", text.strip(), flags=re.I).strip()
+    result = json.loads(text)
+    for field in ("video_title", "hook", "narration", "description_intro", "tags"):
+        if field not in result:
+            raise RuntimeError(f"Commentary is missing {field!r}.")
+    return result
+
+
+def download_video(url: str, destination: Path) -> None:
+    run(["yt-dlp", "--no-playlist", "--merge-output-format", "mp4", "-o", str(destination), url])
+    if not destination.exists() or destination.stat().st_size < 10_000:
+        raise RuntimeError("yt-dlp did not produce a usable Reddit video.")
+
+
+def render(post: dict, script: dict, source: Path, audio: Path, output: Path, work: Path) -> None:
+    hook = work / "hook.txt"
+    hook.write_text(clean(script["hook"], 180), encoding="utf-8")
+    # Pillow creates the hook card so the pipeline does not depend on FFmpeg drawtext.
+    from PIL import Image, ImageDraw, ImageFont
+    image = Image.new("RGB", (1080, 1920), "black")
+    draw = ImageDraw.Draw(image)
+    font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 66)
+    words = clean(script["hook"], 180).split(); lines: list[str] = []; current = ""
+    for word in words:
+        candidate = f"{current} {word}".strip()
+        if current and draw.textbbox((0, 0), candidate, font=font)[2] > 940:
+            lines.append(current); current = word
+        else: current = candidate
+    if current: lines.append(current)
+    y = (1920 - len(lines) * 90) // 2
+    for line in lines:
+        box = draw.textbbox((0, 0), line, font=font)
+        draw.text(((1080 - (box[2] - box[0])) // 2, y), line, fill="white", font=font); y += 90
+    png = work / "hook.png"; image.save(png)
+    hook_video = work / "hook.mp4"
+    run(["ffmpeg", "-y", "-loop", "1", "-i", str(png), "-t", "2.5", "-r", "30", "-an", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(hook_video)])
+    normalized = work / "source.mp4"
+    run(["ffmpeg", "-y", "-i", str(source), "-t", "55", "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30", "-an", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", str(normalized)])
+    concat = work / "concat.txt"
+    concat.write_text(f"file '{hook_video.as_posix()}'\nfile '{normalized.as_posix()}'\n", encoding="utf-8")
+    joined = work / "joined.mp4"
+    run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat), "-c", "copy", str(joined)])
+    run(["ffmpeg", "-y", "-stream_loop", "-1", "-i", str(joined), "-i", str(audio), "-map", "0:v:0", "-map", "1:a:0", "-t", "60", "-r", "30", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-shortest", str(output)])
+
+
+def main() -> None:
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    post = choose_post()
+    script = generate_commentary(post)
+    with tempfile.TemporaryDirectory(prefix="reddit-horror-") as temp:
+        work = Path(temp)
+        source = work / "reddit-source.mp4"
+        download_video(post["media_url"], source)
+        audio = work / "narration.mp3"
+        synthesize_narration(clean(script["narration"], 6000), {"voice": {"provider": "kokoro", "voice_name": "af_heart", "kokoro_lang": "a", "speed": 1.0}}, str(audio), target_duration=50.0)
+        output = OUTPUT_DIR / "reddit-horror-commentary.mp4"
+        render(post, script, source, audio, output, work)
+    description = f"{script['description_intro']}\n\nOriginal Reddit post: {post['source_url']}\nOriginal creator: u/{post.get('author') or '[deleted]'}\n\nCommentary and editing added by our channel."
+    metadata = {"video_title": script["video_title"], "reddit_post": post["source_url"], "subreddit": post.get("subreddit"), "score": post.get("score"), "description": description, "gemini_model": MODEL_NAME, "generated_at": int(time.time())}
+    (OUTPUT_DIR / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
+    if os.getenv("REDDIT_HORROR_AUTO_UPLOAD", "true").lower() in {"1", "true", "yes"}:
+        from upload_youtube import upload_video
+        config = {"upload": {"privacy_status": os.getenv("REDDIT_HORROR_PRIVACY_STATUS", "public"), "category_id": "24"}, "seo": {"hashtags": script["tags"]}}
+        video_id = upload_video(str(output), clean(script["video_title"], 90), description, config, engagement_comment="Was this video paranormal, unexplained, or something else?")
+        metadata["youtube_video_id"] = video_id
+        (OUTPUT_DIR / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"REDDIT_HORROR_OUTPUT={output}")
+
+
+if __name__ == "__main__":
+    main()

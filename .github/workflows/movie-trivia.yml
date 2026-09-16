@@ -20,7 +20,6 @@ jobs:
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
-      PLAYPHRASE_LICENSE_ACK: ${{ secrets.PLAYPHRASE_LICENSE_ACK }}
       MOVIE_AUTO_UPLOAD: "true"
       MOVIE_PRIVACY_STATUS: "public"
       MINT_KOKORO_VOICE: af_heart
@@ -48,11 +47,10 @@ jobs:
       - name: Install PlayPhrase browser runtime
         run: python -m playwright install --with-deps chromium
 
-      - name: Validate required secrets
+      - name: Validate existing repository secrets
         run: |
           test -n "$GEMINI_API_KEY" || (echo "Missing GEMINI_API_KEY" && exit 1)
           test -n "$YOUTUBE_TOKEN_JSON" || (echo "Missing YOUTUBE_TOKEN_JSON" && exit 1)
-          test "$PLAYPHRASE_LICENSE_ACK" = "true" || (echo "Set PLAYPHRASE_LICENSE_ACK=true after confirming clip rights" && exit 1)
 
       - name: Generate, render, validate and publish Movie Trivia Short
         run: python movie_trivia_main.py

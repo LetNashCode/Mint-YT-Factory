@@ -52,3 +52,11 @@
 - Handles Reddit authentication blocks from `yt-dlp` without an immediate unhandled traceback.
 - Tries up to 20 discovered candidates and skips unavailable or non-downloadable posts.
 - Uses the configured `MINT_KOKORO_VOICE` and `MINT_KOKORO_LANG` environment variables for narration.
+
+## 2026-09-17 — Added Reddit media-variant download attempts
+
+- Extracts the Reddit media ID from `v.redd.it` links.
+- Tries Reddit-hosted `DASH_720`, `DASH_480`, `DASH_360`, and `HLSPlaylist` media variants before falling back to `yt-dlp`.
+- Prevents automatic redirects into the blocked `/video/` endpoint.
+- Rejects HTML and JSON responses as invalid media files.
+- Preserves candidate retry behavior when Reddit blocks a media source.

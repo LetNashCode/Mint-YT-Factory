@@ -21,10 +21,16 @@
 ### Required one-time repository secrets
 - `GEMINI_API_KEY`
 - `YOUTUBE_TOKEN_JSON`
-- `PLAYPHRASE_LICENSE_ACK=true`
 
 ### Isolation and limitations
 - This is a separate Movie Trivia production line and does not modify Publish Shorts or Story Shorts behavior.
 - The pipeline does not use stock media or AI-generated production visuals.
 - PlayPhrase is accessed through a browser because it does not provide a documented public API; site changes or anti-automation controls may cause a run to fail rather than silently use unrelated media.
 - Clip rights must be independently confirmed before enabling automatic public publishing.
+
+## 2026-09-16 — Removed redundant PlayPhrase acknowledgment secret
+
+- Removed the custom `PLAYPHRASE_LICENSE_ACK` GitHub secret requirement from the workflow and Python entry point.
+- The setting was not a PlayPhrase credential or API requirement; it was only an internal safety gate.
+- The pipeline now uses the existing `GEMINI_API_KEY` and `YOUTUBE_TOKEN_JSON` secrets already used by the other production lines.
+- Metadata now records a rights notice instead of falsely marking rights as programmatically acknowledged.

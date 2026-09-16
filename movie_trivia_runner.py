@@ -1,15 +1,42 @@
 """Resilient PlayPhrase adapter for the automatic Movie Trivia pipeline.
 
-PlayPhrase is a dynamic browser application. This runner uses several compatible
-page routes and discovers media from network responses and rendered media elements.
-Each query is isolated: a browser failure skips that query instead of aborting the job.
+This adapter discovers candidate media and validates the downloaded bytes before
+allowing the main pipeline to use them. PlayPhrase may return non-video responses
+with a video-looking URL or content type, so byte-size checks alone are unsafe.
 """
 from __future__ import annotations
 
+import subprocess
 from pathlib import Path
 from urllib.parse import quote
 
 import movie_trivia_main as pipeline
+
+
+def _is_valid_video(path: Path) -> bool:
+    """Require both an MP4/WebM signature and FFmpeg-readable media."""
+    try:
+        header = path.read_bytes()[:64]
+    except OSError:
+        return False
+
+    # ISO-BMFF/MP4 files contain the `ftyp` box near the beginning.
+    looks_like_mp4 = len(header) >= 12 and header[4:8] == b"ftyp"
+    looks_like_webm = header.startswith(b"\x1a\x45\xdf\xa3")
+    if not (looks_like_mp4 or looks_like_webm):
+        return False
+
+    probe = subprocess.run(
+        [
+            "ffprobe", "-v", "error", "-select_streams", "v:0",
+            "-show_entries", "stream=codec_type", "-of", "csv=p=0", str(path),
+        ],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+        check=False,
+    )
+    return probe.returncode == 0 and "video" in probe.stdout.lower()
 
 
 def _capture_playphrase_clip(query: str, output_path: Path) -> bool:
@@ -54,7 +81,7 @@ def _capture_playphrase_clip(query: str, output_path: Path) -> bool:
                         media_body = body
                         media_url = response.url
                 except Exception:
-                    return
+                    pass
 
         page.on("response", inspect_response)
         print(f"🎞️ Searching PlayPhrase: {query}")
@@ -70,8 +97,6 @@ def _capture_playphrase_clip(query: str, output_path: Path) -> bool:
             if media_body is not None:
                 break
 
-            # Do not call get_attribute() on a missing locator: that was the original
-            # failure mode. Inspect the DOM without waiting for a video element.
             try:
                 candidates = page.evaluate(
                     """() => Array.from(document.querySelectorAll('video, video source, a[href], source'))
@@ -104,11 +129,18 @@ def _capture_playphrase_clip(query: str, output_path: Path) -> bool:
         return False
 
     output_path.write_bytes(media_body)
-    print(f"✅ Captured PlayPhrase clip: {output_path.name} ({len(media_body)} bytes) from {media_url}")
+    if not _is_valid_video(output_path):
+        print(
+            f"⚠️ Rejected invalid PlayPhrase media for {query!r}; "
+            f"URL={media_url} bytes={len(media_body)}"
+        )
+        output_path.unlink(missing_ok=True)
+        return False
+
+    print(f"✅ Captured and validated PlayPhrase clip: {output_path.name} ({len(media_body)} bytes) from {media_url}")
     return True
 
 
-# Override the original adapter with the more defensive implementation above.
 pipeline.capture_playphrase_clip = _capture_playphrase_clip
 
 

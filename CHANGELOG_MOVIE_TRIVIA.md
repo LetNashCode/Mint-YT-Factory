@@ -76,4 +76,10 @@
 - Reads Reddit's official `reddit_video` metadata fields: `dash_url`, `hls_url`, and `fallback_url`.
 - Uses FFmpeg on DASH/HLS manifests so separate Reddit audio and video streams can be combined.
 - Retains fallback URL handling, candidate retries, Gemini commentary, Kokoro narration, and YouTube publishing.
-- Updated the GitHub Actions workflow to inject and validate the Reddit OAuth secrets.
+
+## 2026-09-17 — Fixed protected Publish Shorts narration overflow
+
+- Diagnosed the failure as a narration-duration overflow caused by the protected Scene 7 continuation bridge consuming part of the final narration budget.
+- Added a bridge-specific core-duration fitting routine that can increase playback speed up to 1.25x only when required to fit the protected narration ceiling.
+- Preserved the complete narration and continuation bridge; no audio truncation was introduced.
+- Kept the existing global TTS speed limits unchanged for other production lines.

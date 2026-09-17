@@ -1,8 +1,8 @@
-"""Create a narrated mystery-footage Short from a manually curated catalog item.
+"""Create a narrated mystery-footage Short from a catalog item.
 
-The catalog is intentionally allowlisted: an item must explicitly have
-rights_verified=true and a public-domain or commercial-use license before it
-can be downloaded. This avoids treating archive availability as permission.
+Rights verification is intentionally configurable during development. Before
+real production use, populate the catalog with a real footage item and review
+its usage terms.
 """
 from __future__ import annotations
 import json, os, re, subprocess, tempfile, time
@@ -29,9 +29,19 @@ def run(command):
 
 def load_item():
     data = json.loads(CATALOG.read_text(encoding="utf-8"))
-    eligible = [x for x in data.get("items", []) if x.get("rights_verified") is True and x.get("video_url") and x.get("source_url")]
+    allow_unverified = os.getenv("MYSTERY_FOOTAGE_ALLOW_UNVERIFIED", "false").lower() in {"1", "true", "yes"}
+    eligible = [
+        x for x in data.get("items", [])
+        if x.get("video_url") and x.get("source_url")
+        and (allow_unverified or x.get("rights_verified") is True)
+        and "REPLACE_ME" not in str(x.get("video_url"))
+        and "REPLACE_ME" not in str(x.get("source_url"))
+    ]
     if not eligible:
-        raise RuntimeError("No rights-verified catalog item is available. Add a real item and verify its license first.")
+        raise RuntimeError(
+            "No usable catalog item is available. Add a real item to "
+            "mystery_footage_catalog.json with source_url and video_url."
+        )
     requested = os.getenv("MYSTERY_FOOTAGE_ITEM_ID", "").strip()
     if requested:
         for item in eligible:
@@ -42,7 +52,7 @@ def load_item():
 
 
 def parse_json(text):
-    text = re.sub(r"^```(?:json)?\\s*|\\s*```$", "", text.strip(), flags=re.I)
+    text = re.sub(r"^```(?:json)?\s*|\s*```$", "", text.strip(), flags=re.I)
     try:
         return json.loads(text)
     except json.JSONDecodeError:
@@ -98,7 +108,7 @@ def main():
         synthesize_narration(clean(script["narration"]), {"voice": {"provider": "kokoro", "voice_name": os.getenv("MINT_KOKORO_VOICE", "af_heart"), "kokoro_lang": os.getenv("MINT_KOKORO_LANG", "a"), "speed": 1.0}}, str(audio), target_duration=50.0)
         output = OUTPUT_DIR / "mystery-footage-short.mp4"
         render(script, source, audio, output, work)
-    description = f"{script['description_intro']}\n\nSource footage: {item['source_url']}\nLicense: {item.get('license')}\nAttribution: {item.get('attribution', 'See source page for attribution requirements.')}\n\nThis video adds original narration and editing."
+    description = f"{script['description_intro']}\n\nSource footage: {item['source_url']}\nLicense: {item.get('license', 'Not specified')}\nAttribution: {item.get('attribution', 'See source page for attribution requirements.')}\n\nThis video adds original narration and editing."
     metadata = {"video_title": script["video_title"], "catalog_item_id": item["id"], "source_url": item["source_url"], "license": item.get("license"), "rights_verified": item.get("rights_verified"), "description": description, "gemini_model": MODEL_NAME, "generated_at": int(time.time())}
     (OUTPUT_DIR / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
     if os.getenv("MYSTERY_FOOTAGE_AUTO_UPLOAD", "false").lower() in {"1", "true", "yes"}:

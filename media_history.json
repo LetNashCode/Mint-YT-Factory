@@ -3569,6 +3569,146 @@
       "shot": 2,
       "query": "soap bubbles form nature simplest shortcut total",
       "recorded_at": 1789661613
+    },
+    {
+      "asset_key": "pixabay:video:17013",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2018/07/02/17013-278400948_medium.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "wet towels you pulled straight hot",
+      "recorded_at": 1789677421
+    },
+    {
+      "asset_key": "pixabay:video:217844",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2024/06/23/217844_medium.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "wet towels yet smells like swamp",
+      "recorded_at": 1789677428
+    },
+    {
+      "asset_key": "pixabay:video:5278",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/09/14/5278-182817488_medium.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "wet towels survived scorching suds tumbling",
+      "recorded_at": 1789677436
+    },
+    {
+      "asset_key": "pixabay:video:10885",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/07/23/10885-226635374_medium.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "wet towels but funk remains hanging",
+      "recorded_at": 1789677440
+    },
+    {
+      "asset_key": "pexels:photo:8774382",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/8774382/pexels-photo-8774382.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 3,
+      "shot": 1,
+      "query": "wet towels you not battling dirt",
+      "recorded_at": 1789677455
+    },
+    {
+      "asset_key": "pixabay:video:370918",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2026/08/17/370918_medium.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "wet towels you hosting underground forest",
+      "recorded_at": 1789677472
+    },
+    {
+      "asset_key": "pixabay:video:28236",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2019/10/24/28236-368501609_medium.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "wet towels every cotton loop microscopic",
+      "recorded_at": 1789677476
+    },
+    {
+      "asset_key": "pixabay:video:37088",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/04/24/37088-413229662_medium.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "wet towels holding onto your old",
+      "recorded_at": 1789677480
+    },
+    {
+      "asset_key": "pexels:photo:8535619",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/8535619/pexels-photo-8535619.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 5,
+      "shot": 1,
+      "query": "wet towels you hang hanging",
+      "recorded_at": 1789677489
+    },
+    {
+      "asset_key": "pixabay:photo:7523796",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g865efc659f0335a884525cc0097683eac3c775a2081d44ea52a1f148df8d3cb58098a2a6f8aa8340a9761d136794436b5a3a600bb0a3650bfdf2ce755329dfd2_1280.jpg",
+      "scene": 5,
+      "shot": 2,
+      "query": "wet towels invisible spores feast hidden",
+      "recorded_at": 1789677521
+    },
+    {
+      "asset_key": "pixabay:video:42902",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/06/22/42902-432450943_medium.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "wet towels they breathe moisture steam",
+      "recorded_at": 1789677532
+    },
+    {
+      "asset_key": "pixabay:video:4006",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/07/26/4006-176282263_medium.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "wet towels exhale smelly gases right",
+      "recorded_at": 1789677536
+    },
+    {
+      "asset_key": "pixabay:video:43637",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/07/02/43637-436237664_medium.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "wet towels your towel isn dirty",
+      "recorded_at": 1789677541
+    },
+    {
+      "asset_key": "pexels:photo:8774576",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/8774576/pexels-photo-8774576.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 7,
+      "shot": 2,
+      "query": "wet towels your towel isn dirty",
+      "recorded_at": 1789677550
     }
   ]
 }

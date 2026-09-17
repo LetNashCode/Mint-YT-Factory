@@ -1,9 +1,4 @@
-"""Create a narrated mystery-footage Short from a catalog item.
-
-Rights verification is intentionally configurable during development. Before
-real production use, populate the catalog with a real footage item and review
-its usage terms.
-"""
+"""Create a narrated mystery-footage Short from a catalog item or auto-discovered candidate."""
 from __future__ import annotations
 import json, os, re, subprocess, tempfile, time
 from pathlib import Path
@@ -30,25 +25,20 @@ def run(command):
 def load_item():
     data = json.loads(CATALOG.read_text(encoding="utf-8"))
     allow_unverified = os.getenv("MYSTERY_FOOTAGE_ALLOW_UNVERIFIED", "false").lower() in {"1", "true", "yes"}
-    eligible = [
-        x for x in data.get("items", [])
-        if x.get("video_url") and x.get("source_url")
-        and (allow_unverified or x.get("rights_verified") is True)
-        and "REPLACE_ME" not in str(x.get("video_url"))
-        and "REPLACE_ME" not in str(x.get("source_url"))
-    ]
-    if not eligible:
-        raise RuntimeError(
-            "No usable catalog item is available. Add a real item to "
-            "mystery_footage_catalog.json with source_url and video_url."
-        )
+    eligible = [x for x in data.get("items", []) if x.get("video_url") and x.get("source_url") and (allow_unverified or x.get("rights_verified") is True) and "REPLACE_ME" not in str(x.get("video_url")) and "REPLACE_ME" not in str(x.get("source_url"))]
     requested = os.getenv("MYSTERY_FOOTAGE_ITEM_ID", "").strip()
     if requested:
         for item in eligible:
             if item.get("id") == requested:
                 return item
         raise RuntimeError(f"No eligible catalog item matches MYSTERY_FOOTAGE_ITEM_ID={requested!r}.")
-    return eligible[0]
+    if eligible:
+        return eligible[0]
+    if os.getenv("MYSTERY_FOOTAGE_AUTO_DISCOVER", "true").lower() in {"1", "true", "yes"}:
+        from mystery_footage_discovery import discover_item
+        print("No catalog footage found; asking Gemini for a search direction and discovering a candidate.")
+        return discover_item()
+    raise RuntimeError("No usable catalog item is available and automatic discovery is disabled.")
 
 
 def parse_json(text):
@@ -66,12 +56,8 @@ def generate_script(item):
     key = os.getenv("GEMINI_API_KEY", "").strip()
     if not key:
         raise RuntimeError("GEMINI_API_KEY is required.")
-    prompt = f"""Create an original, factual, 75-110 word English YouTube Shorts narration about this documented mystery-footage item. Clearly distinguish verified facts from allegations and theories. Do not present paranormal claims as fact. Do not invent dates, locations, identities, or evidence. Start with a strong hook and end with a question. Return JSON only with video_title, narration, description_intro, tags.\nItem title: {item.get('title')}\nTopic: {item.get('topic')}\nSource notes: {item.get('rights_notes')}"""
-    response = genai.Client(api_key=key).models.generate_content(
-        model=MODEL_NAME,
-        contents=prompt,
-        config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0.55),
-    )
+    prompt = f"""Create an original, factual, entertaining 75-110 word English YouTube Shorts narration about this documented mystery or archival footage candidate. Use a strong first-second hook, escalating curiosity, concise visual-independent storytelling, and a final question. Clearly distinguish verified facts from allegations and theories. Do not present paranormal claims as fact. Do not invent dates, locations, identities, or evidence. Return JSON only with video_title, narration, description_intro, tags.\nItem title: {item.get('title')}\nTopic: {item.get('topic')}\nSource notes: {item.get('rights_notes')}\nSource URL: {item.get('source_url')}"""
+    response = genai.Client(api_key=key).models.generate_content(model=MODEL_NAME, contents=prompt, config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0.55))
     data = parse_json(getattr(response, "text", ""))
     for field in ("video_title", "narration", "description_intro", "tags"):
         if not data.get(field):

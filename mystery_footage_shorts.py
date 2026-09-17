@@ -57,7 +57,8 @@ def generate_script(item):
     if not key:
         raise RuntimeError("GEMINI_API_KEY is required.")
     prompt = f"""Create an original, factual, entertaining 75-110 word English YouTube Shorts narration about this documented mystery or archival footage candidate. Use a strong first-second hook, escalating curiosity, concise visual-independent storytelling, and a final question. Clearly distinguish verified facts from allegations and theories. Do not present paranormal claims as fact. Do not invent dates, locations, identities, or evidence. Return JSON only with video_title, narration, description_intro, tags.\nItem title: {item.get('title')}\nTopic: {item.get('topic')}\nSource notes: {item.get('rights_notes')}\nSource URL: {item.get('source_url')}"""
-    response = genai.Client(api_key=key).models.generate_content(model=MODEL_NAME, contents=prompt, config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0.55))
+    with genai.Client(api_key=key) as client:
+        response = client.models.generate_content(model=MODEL_NAME, contents=prompt, config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0.55))
     data = parse_json(getattr(response, "text", ""))
     for field in ("video_title", "narration", "description_intro", "tags"):
         if not data.get(field):

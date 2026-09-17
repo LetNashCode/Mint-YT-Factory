@@ -3379,6 +3379,16 @@
       "shot": 2,
       "query": "soap bubbles form but",
       "recorded_at": 1789639697
+    },
+    {
+      "asset_key": "pixabay:video:136084",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/10/22/136084-764371390_medium.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "soap bubbles form you blow wildly misshapen",
+      "recorded_at": 1789649050
     }
   ]
 }

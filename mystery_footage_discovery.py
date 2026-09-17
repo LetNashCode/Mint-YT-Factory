@@ -37,11 +37,16 @@ def _search_direction() -> dict[str, Any]:
         "Do not request copyrighted movies, graphic violence, or fabricated events. "
         "Return JSON only: {\"topic\": string, \"search_query\": string}."
     )
-    response = genai.Client(api_key=key).models.generate_content(
-        model=MODEL_NAME,
-        contents=prompt,
-        config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0.7),
-    )
+    # Keep the client alive for the complete request. Creating it inline can let
+    # it be finalized before the SDK finishes its internal HTTP operation.
+    with genai.Client(api_key=key) as client:
+        response = client.models.generate_content(
+            model=MODEL_NAME,
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json", temperature=0.7
+            ),
+        )
     return _json(getattr(response, "text", ""))
 
 
@@ -68,7 +73,15 @@ def discover_item() -> dict[str, Any]:
         if not meta.ok:
             continue
         files = meta.json().get("files", [])
-        video = next((f for f in files if str(f.get("name", "")).lower().endswith((".mp4", ".webm", ".ogv")) and int(f.get("size", 0) or 0) > 10000), None)
+        video = next(
+            (
+                f
+                for f in files
+                if str(f.get("name", "")).lower().endswith((".mp4", ".webm", ".ogv"))
+                and int(f.get("size", 0) or 0) > 10000
+            ),
+            None,
+        )
         if not video:
             continue
         filename = video["name"]

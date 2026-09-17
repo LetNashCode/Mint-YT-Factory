@@ -1,4 +1,4 @@
-"""Protect the Publish Shorts next-topic bridge from TTS truncation."""
+"""Protect the Publish Shorts continuation bridge without truncating narration."""
 from __future__ import annotations
 import os
 import re
@@ -9,6 +9,7 @@ from moviepy.audio.AudioClip import AudioArrayClip
 MAX_FINAL_NARRATION_SECONDS = 44.95
 FINAL_DURATION_SAFETY_MARGIN_SECONDS = 0.15
 PROTECTED_PAUSE_SECONDS = 0.035
+PROTECTED_MAX_PLAYBACK_SPEED = 1.25
 
 
 def _clean(value):
@@ -23,12 +24,11 @@ def _split(script):
 
 
 def _trim_edges(clip, threshold=0.006, keep=0.035):
-    """Remove accidental leading/trailing near-silence without touching speech."""
     duration = float(clip.duration or 0)
     if duration <= 0.05:
         return clip
-    fps = 24000
     try:
+        fps = 24000
         samples = np.asarray(clip.to_soundarray(fps=fps))
         if samples.ndim == 1:
             samples = samples[:, None]
@@ -46,15 +46,24 @@ def _trim_edges(clip, threshold=0.006, keep=0.035):
 
 
 def _core_budget(bridge_duration):
-    bridge_duration = max(0.0, float(bridge_duration or 0.0))
-    return max(
-        0.10,
-        MAX_FINAL_NARRATION_SECONDS
-        - bridge_duration
-        - PROTECTED_PAUSE_SECONDS
-        - 0.22
-        - FINAL_DURATION_SAFETY_MARGIN_SECONDS,
-    )
+    return max(0.10, MAX_FINAL_NARRATION_SECONDS - max(0.0, float(bridge_duration or 0.0)) - PROTECTED_PAUSE_SECONDS - 0.22 - FINAL_DURATION_SAFETY_MARGIN_SECONDS)
+
+
+def _fit_core_duration(clip, target_duration):
+    """Speed up only the story core when the protected bridge leaves less room."""
+    duration = float(clip.duration or 0.0)
+    target = max(0.10, float(target_duration))
+    if duration <= target + 0.02:
+        return clip.set_duration(duration)
+    speed = min(PROTECTED_MAX_PLAYBACK_SPEED, max(1.0, duration / target))
+    source_limit = max(0.0, duration - 0.001)
+
+    def time_map(t):
+        return np.minimum(np.asarray(t) / speed, source_limit)
+
+    fitted = clip.fl_time(time_map, apply_to=["audio"]).set_duration(duration / speed)
+    print(f"✅ Protected core speed: {speed:.3f}x ({duration:.2f}s → {fitted.duration:.2f}s)")
+    return fitted
 
 
 def patch(main):
@@ -77,46 +86,24 @@ def patch(main):
         try:
             tts._synthesize_once(tts.build_tts_pronunciation_text(bridge_text), voice, bridge_raw)
             bridge = _trim_edges(AudioFileClip(bridge_raw))
-            bridge_duration = float(bridge.duration or 0.0)
-            target_core = _core_budget(bridge_duration)
-            print(
-                f"🎯 Dynamic protected narration budget | bridge={bridge_duration:.2f}s | "
-                f"core_target={target_core:.2f}s | final_ceiling={MAX_FINAL_NARRATION_SECONDS:.2f}s | "
-                f"safety={FINAL_DURATION_SAFETY_MARGIN_SECONDS:.2f}s"
-            )
-
+            target_core = _core_budget(bridge.duration)
+            print(f"🎯 Dynamic protected narration budget | bridge={bridge.duration:.2f}s | core_target={target_core:.2f}s | final_ceiling={MAX_FINAL_NARRATION_SECONDS:.2f}s")
             tts._synthesize_once(tts.build_tts_pronunciation_text(story), voice, core_raw)
             core = _trim_edges(AudioFileClip(core_raw))
-            core_done = tts.apply_narration_speed(core, target_duration=target_core)
-            core_done = _trim_edges(core_done)
+            core_done = _fit_core_duration(core, target_core)
             core_done.write_audiofile(core_mp3, fps=tts.SAMPLE_RATE, codec="libmp3lame", bitrate="192k", verbose=False, logger=None)
-            core_done.close()
-            core_done = None
-            core.close()
-            core = None
-
+            core_done.close(); core_done = None
+            core.close(); core = None
             core = _trim_edges(AudioFileClip(core_mp3))
-            pause = AudioArrayClip(
-                np.zeros((int(PROTECTED_PAUSE_SECONDS * tts.SAMPLE_RATE), 2), dtype=np.float32),
-                fps=tts.SAMPLE_RATE,
-            )
-            tail = AudioArrayClip(
-                np.zeros((int(tts.NARRATION_END_PADDING_SECONDS * tts.SAMPLE_RATE), 2), dtype=np.float32),
-                fps=tts.SAMPLE_RATE,
-            )
+            pause = AudioArrayClip(np.zeros((int(PROTECTED_PAUSE_SECONDS * tts.SAMPLE_RATE), 2), dtype=np.float32), fps=tts.SAMPLE_RATE)
+            tail = AudioArrayClip(np.zeros((int(tts.NARRATION_END_PADDING_SECONDS * tts.SAMPLE_RATE), 2), dtype=np.float32), fps=tts.SAMPLE_RATE)
             final_duration = float(core.duration or 0.0) + PROTECTED_PAUSE_SECONDS + float(bridge.duration or 0.0) + tts.NARRATION_END_PADDING_SECONDS
             if final_duration > MAX_FINAL_NARRATION_SECONDS + 0.01:
-                raise RuntimeError(
-                    f"Publish narration is too long to preserve completely: final={final_duration:.2f}s "
-                    f"> ceiling={MAX_FINAL_NARRATION_SECONDS:.2f}s. Regenerate a shorter script; audio will not be truncated."
-                )
+                raise RuntimeError(f"Protected narration still exceeds ceiling: final={final_duration:.2f}s > ceiling={MAX_FINAL_NARRATION_SECONDS:.2f}s")
             joined = concatenate_audioclips([core, pause, bridge, tail])
             try:
                 joined.write_audiofile(final_path, fps=tts.SAMPLE_RATE, codec="libmp3lame", bitrate="192k", verbose=False, logger=None)
-                print(
-                    f"🔒 Continuation bridge protected | edge-trimmed | bridge={bridge.duration:.2f}s | "
-                    f"core={core.duration:.2f}s | final={joined.duration:.2f}s"
-                )
+                print(f"🔒 Continuation bridge protected | bridge={bridge.duration:.2f}s | core={core.duration:.2f}s | final={joined.duration:.2f}s")
             finally:
                 joined.close(); core.close(); bridge.close(); pause.close(); tail.close()
             return final_path
@@ -125,9 +112,9 @@ def patch(main):
                 if clip is not None:
                     try: clip.close()
                     except Exception: pass
-            for p in (core_raw, bridge_raw, core_mp3):
+            for path in (core_raw, bridge_raw, core_mp3):
                 try:
-                    if os.path.exists(p): os.remove(p)
+                    if os.path.exists(path): os.remove(path)
                 except Exception: pass
 
     synthesize._mint_bridge_protected = True

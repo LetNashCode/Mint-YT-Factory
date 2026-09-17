@@ -10,8 +10,6 @@ import production_entry as production
 import stock_search
 
 
-# Compatibility repair for stock_search.py versions where the media-history
-# helper was accidentally removed.
 if not hasattr(stock_search, "_historical_asset_keys"):
     def _historical_asset_keys() -> set[str]:
         return {
@@ -25,12 +23,7 @@ if not hasattr(stock_search, "_historical_asset_keys"):
 
 
 def _patch_stock_quota_resilience() -> None:
-    """Disable vision for the current media run after a confirmed quota error.
-
-    The production topic-lock wrapper is installed by production.main_entry(),
-    so this repair wraps that installer and then replaces the module-level
-    verifier/fallback functions used by the active generate_media closure.
-    """
+    """Disable vision for the current media run after a confirmed quota error."""
     original_installer = production._patch_stock_media_quality
     if getattr(original_installer, "_mint_quota_resilience", False):
         return
@@ -45,8 +38,7 @@ def _patch_stock_quota_resilience() -> None:
         def quota_error(exc: BaseException) -> bool:
             text = str(exc).lower()
             return any(token in text for token in (
-                "429", "resource_exhausted", "resource exhausted",
-                "quota exceeded", "ratelimitexceeded",
+                "429", "resource_exhausted", "resource exhausted", "quota exceeded", "ratelimitexceeded",
             ))
 
         def verify(d, items, provider, video, query, strategy):
@@ -68,8 +60,11 @@ def _patch_stock_quota_resilience() -> None:
             ranked = []
             for item in items:
                 url = stock_search._url(item, provider, video)
-                key = stock_search._asset_key(item, provider, video, url) if url else ""
-                if not url or key in historical:
+                if not url:
+                    continue
+                key_builder = getattr(stock_search, "_asset_key", None)
+                key = key_builder(item, provider, video, url) if callable(key_builder) else f"{provider}:{url}"
+                if key in historical:
                     continue
                 hay = " ".join(str(item.get(k, "")) for k in ("alt", "description", "tags")).lower()
                 if topic_terms and not any(re.search(r"\b" + re.escape(term) + r"s?\b", hay) for term in topic_terms):
@@ -102,19 +97,34 @@ def _patch_script_topic_coherence_fixed(main):
         return
 
     def guarded(topic, config, research=None, extra_feedback=""):
-        result = original(topic, config, research, extra_feedback=extra_feedback)
+        # The TTS compaction path previously asked for 95–105 *core* words,
+        # while the generator validates the complete narration against a
+        # 90–135-word contract. That ambiguity could produce an under-length
+        # retry. Make the regeneration request explicit and preserve the
+        # current topic/continuation contract.
+        feedback = extra_feedback or ""
+        if "95-105 core narration words" in feedback:
+            feedback = feedback.replace(
+                "make the core narration 95-105 words and never exceed 112 words",
+                "make the complete narration 100-110 words including the locked continuation; keep the core narration concise and never exceed 112 core words",
+            )
+        if "Target 95-105 core narration words" in feedback:
+            feedback = feedback.replace(
+                "Target 95-105 core narration words and never exceed 112 core words.",
+                "Target 100-110 complete narration words including the locked continuation, with 90-105 core words and never more than 112 core words.",
+            )
+        result = original(topic, config, research, extra_feedback=feedback)
         current = str(topic or "").strip()
         sentences = []
         for scene in result.get("scene_plan") or []:
             if isinstance(scene, dict):
                 sentences.extend(re.split(r"(?<=[.!?])\s+", str(scene.get("narration") or "")))
-
         onion_mentions = []
         onion_subject = False
         comparison_markers = re.compile(r"\b(?:like|unlike|similar to|same as|just like|as with|compared with|compared to)\b", re.I)
         subject_patterns = (
             r"\bonions?\b[^.!?]{0,90}\b(?:make|makes|cause|causes|release|releases|trigger|triggers|irritate|irritates)\b",
-            r"\b(?:cutting|chopping|slicing)\s+onions?\b[^.!?]{0,90}\b(?:make|makes|cause|causes|trigger|triggers|release|releases|irritate|irritates)\b",
+            r"\b(?:cutting|chopping|slicing)\s+onions?\b[^.!?]{0,90}\b(?:make|makes|cause|causes|trigger|triggers|irritate|irritates)\b",
             r"\bonions?\b[^.!?]{0,90}\b(?:cry|tears|tear|eyes?\s+water|water(?:ing|ed)?)\b",
         )
         for sentence in sentences:

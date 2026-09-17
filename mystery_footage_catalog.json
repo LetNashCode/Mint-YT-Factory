@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "example-item",
+      "title": "Replace with a verified mystery or archival video",
+      "topic": "Documented mystery footage",
+      "source_url": "https://archive.org/details/REPLACE_ME",
+      "video_url": "https://archive.org/download/REPLACE_ME/REPLACE_ME.mp4",
+      "license": "public-domain",
+      "rights_verified": false,
+      "rights_notes": "Replace this example. Only set rights_verified to true after checking the individual item's rights and commercial reuse conditions.",
+      "attribution": "Required attribution, if any"
+    }
+  ]
+}

@@ -6,7 +6,7 @@ on:
     - cron: "30 13 * * 2,5"
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: mystery-footage-production
@@ -24,6 +24,7 @@ jobs:
       MINT_KOKORO_LANG: a
       MYSTERY_FOOTAGE_ALLOW_UNVERIFIED: "false"
       MYSTERY_FOOTAGE_AUTO_DISCOVER: "true"
+      MYSTERY_FOOTAGE_SKIP_IF_NO_ELIGIBLE: "true"
       MYSTERY_FOOTAGE_AUTO_UPLOAD: "true"
       MYSTERY_FOOTAGE_PRIVACY_STATUS: private
       PYTHONUNBUFFERED: "1"
@@ -51,6 +52,17 @@ jobs:
         run: python mystery_footage_youtube_discovery.py
       - name: Generate and publish mystery footage Short
         run: python mystery_footage_shorts.py
+      - name: Commit discovery candidates for review
+        run: |
+          if git diff --quiet -- mystery_footage_catalog.json; then
+            echo "No new discovery candidate to commit."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add mystery_footage_catalog.json
+            git commit -m "Record discovered mystery footage candidate"
+            git push
+          fi
       - name: Upload production artifact
         if: always()
         uses: actions/upload-artifact@v4

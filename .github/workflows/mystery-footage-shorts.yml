@@ -23,6 +23,8 @@ jobs:
       MINT_KOKORO_LANG: a
       MYSTERY_FOOTAGE_ALLOW_UNVERIFIED: "true"
       MYSTERY_FOOTAGE_AUTO_DISCOVER: "true"
+      MYSTERY_FOOTAGE_REQUIRE_STORY_SCREEN: "true"
+      MYSTERY_FOOTAGE_MIN_STORY_SCORE: "6"
       MYSTERY_FOOTAGE_SKIP_IF_NO_ELIGIBLE: "true"
       MYSTERY_FOOTAGE_AUTO_UPLOAD: "true"
       MYSTERY_FOOTAGE_PRIVACY_STATUS: private
@@ -55,6 +57,8 @@ jobs:
           test -n "$YOUTUBE_TOKEN_JSON" || (echo "Missing YOUTUBE_TOKEN_JSON" && exit 1)
       - name: Discover archive footage candidates
         run: python mystery_footage_multisource_discovery.py
+      - name: Screen footage quality and story potential
+        run: python mystery_footage_screening.py
       - name: Generate mystery footage demo Short
         run: python mystery_footage_shorts.py
       - name: Add one-word captions
@@ -63,15 +67,15 @@ jobs:
             --input artifacts/mystery-footage/mystery-footage-short.mp4 \
             --output artifacts/mystery-footage/mystery-footage-captioned.mp4
           mv artifacts/mystery-footage/mystery-footage-captioned.mp4 artifacts/mystery-footage/mystery-footage-short.mp4
-      - name: Commit discovery candidates for review
+      - name: Commit discovery and screening results for review
         run: |
           if git diff --quiet -- mystery_footage_catalog.json; then
-            echo "No new discovery candidate to commit."
+            echo "No catalog changes to commit."
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add mystery_footage_catalog.json
-            git commit -m "Record discovered archive mystery footage candidate"
+            git commit -m "Record and screen archive mystery footage candidate"
             git push
           fi
       - name: Upload production artifact

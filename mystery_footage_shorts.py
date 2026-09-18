@@ -46,7 +46,11 @@ def normalize_demo_case(item):
 
 
 def validate_case(item):
-    missing = [field for field in REQUIRED_CASE_FIELDS if not item.get(field)]
+    missing = [
+        field
+        for field in REQUIRED_CASE_FIELDS
+        if field not in item or item[field] is None or (not isinstance(item[field], list) and not item[field])
+    ]
     if missing:
         raise RuntimeError(f"Catalog case {item.get('id', '<unknown>')} is missing required fields: {', '.join(missing)}")
     if "REPLACE_ME" in json.dumps(item):

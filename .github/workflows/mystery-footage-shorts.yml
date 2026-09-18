@@ -60,10 +60,13 @@ jobs:
       - name: Screen footage quality and story potential
         run: python mystery_footage_screening.py
       - name: Verify production candidate eligibility
+        id: gate
         run: python mystery_footage_screening_gate.py
       - name: Generate mystery footage demo Short
+        if: steps.gate.outputs.eligible == 'true'
         run: python mystery_footage_shorts.py
       - name: Add one-word captions
+        if: steps.gate.outputs.eligible == 'true'
         run: |
           python mystery_footage_caption_overlay.py \
             --input artifacts/mystery-footage/mystery-footage-short.mp4 \

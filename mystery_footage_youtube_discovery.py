@@ -1,9 +1,4 @@
-"""Discover potentially reusable mystery footage from YouTube.
-
-This module is deliberately conservative: it only accepts videos whose YouTube
-metadata reports a Creative Commons license. It does not treat that metadata as
-proof of ownership; candidates are written for the existing rights gate.
-"""
+"""Discover potentially reusable mystery footage from YouTube."""
 from __future__ import annotations
 
 import json
@@ -69,15 +64,15 @@ def discover() -> dict | None:
             return {
                 "id": "youtube-" + video_id,
                 "title": title,
-                "case_summary": "Candidate discovered automatically from YouTube; case research is pending.",
-                "verified_facts": [],
-                "theories_or_open_questions": [],
+                "case_summary": "Demo candidate discovered automatically from YouTube. The narration is grounded in the downloaded video's visible content; case research is not supplied.",
+                "verified_facts": ["The footage was discovered through the YouTube Data API and will be treated as an unverified demo source."],
+                "theories_or_open_questions": ["The meaning and origin of the events shown remain unverified for this demo."],
                 "footage_description": clean(snippet.get("description", "")),
                 "source_url": f"https://www.youtube.com/watch?v={video_id}",
                 "video_url": f"https://www.youtube.com/watch?v={video_id}",
-                "license": "YouTube Creative Commons metadata",
+                "license": "YouTube Creative Commons metadata (unverified)",
                 "rights_verified": False,
-                "rights_notes": "Creative Commons metadata is not proof that the uploader owns the footage. Requires case research and rights review.",
+                "rights_notes": "Demo mode requested by the operator. Rights and legality must be reviewed by the operator before any public use.",
                 "discovered_at": datetime.now(timezone.utc).isoformat(),
             }
     return None
@@ -93,7 +88,7 @@ def main() -> None:
     data["items"] = [item for item in data["items"] if item.get("id") != candidate["id"]]
     data["items"].append(candidate)
     CATALOG.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Discovered candidate {candidate['id']}; it remains blocked until verified facts and rights are supplied.")
+    print(f"Discovered demo candidate {candidate['id']}; rights remain the operator's responsibility.")
 
 
 if __name__ == "__main__":

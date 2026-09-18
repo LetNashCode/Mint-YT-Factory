@@ -22,7 +22,7 @@ jobs:
       YOUTUBE_DATA_API_KEY: ${{ secrets.YOUTUBE_DATA_API_KEY }}
       MINT_KOKORO_VOICE: af_heart
       MINT_KOKORO_LANG: a
-      MYSTERY_FOOTAGE_ALLOW_UNVERIFIED: "false"
+      MYSTERY_FOOTAGE_ALLOW_UNVERIFIED: "true"
       MYSTERY_FOOTAGE_AUTO_DISCOVER: "true"
       MYSTERY_FOOTAGE_SKIP_IF_NO_ELIGIBLE: "true"
       MYSTERY_FOOTAGE_AUTO_UPLOAD: "true"
@@ -48,9 +48,9 @@ jobs:
           test -n "$GEMINI_API_KEY" || (echo "Missing GEMINI_API_KEY" && exit 1)
           test -n "$YOUTUBE_TOKEN_JSON" || (echo "Missing YOUTUBE_TOKEN_JSON" && exit 1)
           test -n "$YOUTUBE_DATA_API_KEY" || (echo "Missing YOUTUBE_DATA_API_KEY" && exit 1)
-      - name: Discover YouTube candidates
+      - name: Discover YouTube demo footage
         run: python mystery_footage_youtube_discovery.py
-      - name: Generate and publish mystery footage Short
+      - name: Generate and publish mystery footage demo Short
         run: python mystery_footage_shorts.py
       - name: Commit discovery candidates for review
         run: |

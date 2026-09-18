@@ -3849,6 +3849,146 @@
       "shot": 2,
       "query": "clothes your didn shrink",
       "recorded_at": 1789715643
+    },
+    {
+      "asset_key": "pixabay:video:2347",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/02/29/2347-157269979_medium.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "zippers jam fabric your zipper metal teeth",
+      "recorded_at": 1789734191
+    },
+    {
+      "asset_key": "pixabay:video:87884",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2021/09/09/87884-602894619_medium.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "zippers jam fabric declared war jammed slider",
+      "recorded_at": 1789734195
+    },
+    {
+      "asset_key": "pixabay:video:140078",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/11/22/140078-774032962_medium.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "zippers jam fabric instantly swallows your favorite",
+      "recorded_at": 1789734201
+    },
+    {
+      "asset_key": "pixabay:video:31787",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/01/30/31787-388997508_medium.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "zippers jam fabric like starving metal monster",
+      "recorded_at": 1789734206
+    },
+    {
+      "asset_key": "pexels:photo:4109757",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/4109757/pexels-photo-4109757.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 3,
+      "shot": 1,
+      "query": "zippers jam fabric tiny metal slider scoop",
+      "recorded_at": 1789734217
+    },
+    {
+      "asset_key": "pixabay:video:9398",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/05/29/9398-219552669_medium.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "zippers jam fabric hungers loose threads stray",
+      "recorded_at": 1789734223
+    },
+    {
+      "asset_key": "pexels:photo:12032821",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/12032821/pexels-photo-12032821.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 4,
+      "shot": 1,
+      "query": "zippers jam fabric you pull upward loose",
+      "recorded_at": 1789734231
+    },
+    {
+      "asset_key": "pixabay:video:88921",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2021/09/18/88921-608445975_medium.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "zippers jam fabric gets sucked right into",
+      "recorded_at": 1789734234
+    },
+    {
+      "asset_key": "pexels:photo:4109761",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/4109761/pexels-photo-4109761.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 5,
+      "shot": 1,
+      "query": "zippers jam fabric you probably think zipper",
+      "recorded_at": 1789734246
+    },
+    {
+      "asset_key": "pexels:photo:15391106",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/15391106/pexels-photo-15391106.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 5,
+      "shot": 2,
+      "query": "zippers jam fabric but doing its job",
+      "recorded_at": 1789734253
+    },
+    {
+      "asset_key": "pexels:photo:30300871",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/30300871/pexels-photo-30300871.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 6,
+      "shot": 1,
+      "query": "zippers jam fabric grabs anything loose slider",
+      "recorded_at": 1789734261
+    },
+    {
+      "asset_key": "pixabay:photo:7021320",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g46bf6204dc8041d08a357ee193b3c1c5f6aaa955c0b8dde387943a93741c3e184323b2fac3a1dbc0085b59888659922a8ac593e5a8e2526ea2a74e7555bad81c_1280.jpg",
+      "scene": 6,
+      "shot": 2,
+      "query": "zippers jam fabric because inner channel leaves",
+      "recorded_at": 1789734272
+    },
+    {
+      "asset_key": "pixabay:video:23712",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2019/05/15/23712-337108764_medium.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "zippers jam fabric tight mechanical squeeze explains",
+      "recorded_at": 1789734276
+    },
+    {
+      "asset_key": "pixabay:video:30951",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/01/06/30951-383991408_medium.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "zippers jam fabric tight mechanical squeeze explains",
+      "recorded_at": 1789734279
     }
   ]
 }

@@ -32,6 +32,19 @@ def run(command):
     subprocess.run(command, check=True)
 
 
+def normalize_demo_case(item):
+    """Repair older auto-discovery records without inventing case facts."""
+    if not (str(item.get("id", "")).startswith("youtube-") and os.getenv("MYSTERY_FOOTAGE_ALLOW_UNVERIFIED", "false").lower() in TRUE_VALUES):
+        return item
+    if not item.get("footage_description"):
+        item["footage_description"] = "Downloaded source footage; the video frames must be inspected before narration is written."
+    if not isinstance(item.get("verified_facts"), list) or not item["verified_facts"]:
+        item["verified_facts"] = ["This is an automatically discovered, unverified demo candidate."]
+    if not isinstance(item.get("theories_or_open_questions"), list):
+        item["theories_or_open_questions"] = []
+    return item
+
+
 def validate_case(item):
     missing = [field for field in REQUIRED_CASE_FIELDS if not item.get(field)]
     if missing:
@@ -50,7 +63,8 @@ def load_item():
     data = json.loads(CATALOG.read_text(encoding="utf-8"))
     allow = os.getenv("MYSTERY_FOOTAGE_ALLOW_UNVERIFIED", "false").lower() in TRUE_VALUES
     eligible = []
-    for item in data.get("items", []):
+    for raw_item in data.get("items", []):
+        item = normalize_demo_case(raw_item)
         if not item.get("video_url") or not item.get("source_url") or "REPLACE_ME" in json.dumps(item):
             continue
         if not allow and item.get("rights_verified") is not True:
@@ -114,13 +128,7 @@ def download(item, destination):
 
         download_dir = destination.parent
         template = str(download_dir / "youtube-source.%(ext)s")
-        options = {
-            "format": "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/b",
-            "outtmpl": template,
-            "merge_output_format": "mp4",
-            "noplaylist": True,
-            "restrictfilenames": True,
-        }
+        options = {"format": "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/b", "outtmpl": template, "merge_output_format": "mp4", "noplaylist": True, "restrictfilenames": True}
         with YoutubeDL(options) as downloader:
             downloader.download([source_url])
         candidates = sorted(download_dir.glob("youtube-source.*"))
@@ -153,7 +161,6 @@ def main():
             print(f"MYSTERY_FOOTAGE_SKIPPED={exc}")
             return
         raise
-
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="mystery-footage-") as temp:
         work = Path(temp)
@@ -164,7 +171,6 @@ def main():
         synthesize_narration(clean(script["narration"]), {"voice": {"provider": "kokoro", "voice_name": os.getenv("MINT_KOKORO_VOICE", "af_heart"), "kokoro_lang": os.getenv("MINT_KOKORO_LANG", "a"), "speed": 1.0}}, str(audio), target_duration=50.0)
         output = OUTPUT_DIR / "mystery-footage-short.mp4"
         render(source, audio, output, work)
-
     description = f"{script['description_intro']}\n\nCase: {item['title']}\nSource footage: {item['source_url']}\nLicense: {item.get('license', 'Not specified')}\nAttribution: {item.get('attribution', 'See source page for attribution requirements.')}\n\nThis video adds original narration and editing."
     metadata = {"video_title": script["video_title"], "catalog_item_id": item["id"], "source_url": item["source_url"], "license": item.get("license"), "rights_verified": item.get("rights_verified"), "description": description, "gemini_model": MODEL_NAME, "generated_at": int(time.time())}
     (OUTPUT_DIR / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")

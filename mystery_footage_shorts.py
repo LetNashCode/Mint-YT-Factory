@@ -8,6 +8,7 @@ import subprocess
 import tempfile
 import time
 from pathlib import Path
+from urllib.parse import urlparse
 
 import requests
 from google import genai
@@ -106,12 +107,34 @@ def generate_script(item, source, work):
 
 
 def download(item, destination):
-    response = requests.get(item["video_url"], timeout=120, stream=True)
-    response.raise_for_status()
-    with destination.open("wb") as handle:
-        for chunk in response.iter_content(chunk_size=1024 * 1024):
-            if chunk:
-                handle.write(chunk)
+    source_url = item["video_url"]
+    host = urlparse(source_url).netloc.lower().split(":", 1)[0]
+    if host in {"youtube.com", "www.youtube.com", "m.youtube.com", "youtu.be", "www.youtu.be"}:
+        from yt_dlp import YoutubeDL
+
+        download_dir = destination.parent
+        template = str(download_dir / "youtube-source.%(ext)s")
+        options = {
+            "format": "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/b",
+            "outtmpl": template,
+            "merge_output_format": "mp4",
+            "noplaylist": True,
+            "restrictfilenames": True,
+        }
+        with YoutubeDL(options) as downloader:
+            downloader.download([source_url])
+        candidates = sorted(download_dir.glob("youtube-source.*"))
+        if not candidates:
+            raise RuntimeError("yt-dlp did not produce a downloadable YouTube video.")
+        selected = next((path for path in candidates if path.suffix.lower() == ".mp4"), candidates[0])
+        selected.replace(destination)
+    else:
+        response = requests.get(source_url, timeout=120, stream=True)
+        response.raise_for_status()
+        with destination.open("wb") as handle:
+            for chunk in response.iter_content(chunk_size=1024 * 1024):
+                if chunk:
+                    handle.write(chunk)
     if destination.stat().st_size < 10000:
         raise RuntimeError("Downloaded footage is unexpectedly small.")
 

@@ -1,11 +1,18 @@
-"""Fail the workflow when no screened candidate is safe to process."""
+"""Report whether mystery footage is ready without failing empty scheduled runs."""
 from __future__ import annotations
 
 import json
-import sys
+import os
 from pathlib import Path
 
 CATALOG = Path(__file__).resolve().parent / "mystery_footage_catalog.json"
+
+
+def write_output(eligible: bool) -> None:
+    output_path = os.getenv("GITHUB_OUTPUT")
+    if output_path:
+        with open(output_path, "a", encoding="utf-8") as handle:
+            handle.write(f"eligible={'true' if eligible else 'false'}\n")
 
 
 def main() -> None:
@@ -17,12 +24,15 @@ def main() -> None:
         if screening.get("eligible") is True:
             eligible.append(item.get("id"))
             continue
-        # Preserve manually curated, rights-verified cases.
         if item.get("rights_verified") is True:
             eligible.append(item.get("id"))
+
     if not eligible:
-        print("No screened or rights-verified mystery footage candidate is available.", file=sys.stderr)
-        raise SystemExit(1)
+        write_output(False)
+        print("No screened or rights-verified mystery footage candidate is available; skipping production for this run.")
+        return
+
+    write_output(True)
     print(f"Screening gate passed with {len(eligible)} eligible candidate(s): {', '.join(eligible)}")
 
 

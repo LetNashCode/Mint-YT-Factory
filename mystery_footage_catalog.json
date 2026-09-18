@@ -1,4 +1,19 @@
 {
   "version": 2,
-  "items": []
+  "items": [
+    {
+      "id": "youtube-ZQC-AX6INOw",
+      "title": "Unexplained mysteries! ghost action caught on camera!",
+      "case_summary": "Candidate discovered automatically from YouTube; case research is pending.",
+      "verified_facts": [],
+      "theories_or_open_questions": [],
+      "footage_description": "",
+      "source_url": "https://www.youtube.com/watch?v=ZQC-AX6INOw",
+      "video_url": "https://www.youtube.com/watch?v=ZQC-AX6INOw",
+      "license": "YouTube Creative Commons metadata",
+      "rights_verified": false,
+      "rights_notes": "Creative Commons metadata is not proof that the uploader owns the footage. Requires case research and rights review.",
+      "discovered_at": "2026-09-18T16:06:17.441733+00:00"
+    }
+  ]
 }

@@ -20,7 +20,7 @@ jobs:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
       YOUTUBE_DATA_API_KEY: ${{ secrets.YOUTUBE_DATA_API_KEY }}
-      MINT_KOKORO_VOICE: af_heart
+      MINT_KOKORO_VOICE: am_michael
       MINT_KOKORO_LANG: a
       MYSTERY_FOOTAGE_ALLOW_UNVERIFIED: "true"
       MYSTERY_FOOTAGE_AUTO_DISCOVER: "true"
@@ -50,8 +50,14 @@ jobs:
           test -n "$YOUTUBE_DATA_API_KEY" || (echo "Missing YOUTUBE_DATA_API_KEY" && exit 1)
       - name: Discover YouTube demo footage
         run: python mystery_footage_youtube_discovery.py
-      - name: Generate and publish mystery footage demo Short
+      - name: Generate mystery footage demo Short
         run: python mystery_footage_shorts.py
+      - name: Add one-word captions
+        run: |
+          python mystery_footage_caption_overlay.py \
+            --input artifacts/mystery-footage/mystery-footage-short.mp4 \
+            --output artifacts/mystery-footage/mystery-footage-captioned.mp4
+          mv artifacts/mystery-footage/mystery-footage-captioned.mp4 artifacts/mystery-footage/mystery-footage-short.mp4
       - name: Commit discovery candidates for review
         run: |
           if git diff --quiet -- mystery_footage_catalog.json; then

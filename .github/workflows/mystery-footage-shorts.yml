@@ -19,7 +19,6 @@ jobs:
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
-      YOUTUBE_DATA_API_KEY: ${{ secrets.YOUTUBE_DATA_API_KEY }}
       MINT_KOKORO_VOICE: am_michael
       MINT_KOKORO_LANG: a
       MYSTERY_FOOTAGE_ALLOW_UNVERIFIED: "true"
@@ -54,9 +53,8 @@ jobs:
         run: |
           test -n "$GEMINI_API_KEY" || (echo "Missing GEMINI_API_KEY" && exit 1)
           test -n "$YOUTUBE_TOKEN_JSON" || (echo "Missing YOUTUBE_TOKEN_JSON" && exit 1)
-          test -n "$YOUTUBE_DATA_API_KEY" || (echo "Missing YOUTUBE_DATA_API_KEY" && exit 1)
-      - name: Discover YouTube demo footage
-        run: python mystery_footage_youtube_discovery.py
+      - name: Discover archive footage candidates
+        run: python mystery_footage_multisource_discovery.py
       - name: Generate mystery footage demo Short
         run: python mystery_footage_shorts.py
       - name: Add one-word captions
@@ -73,7 +71,7 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add mystery_footage_catalog.json
-            git commit -m "Record discovered mystery footage candidate"
+            git commit -m "Record discovered archive mystery footage candidate"
             git push
           fi
       - name: Upload production artifact

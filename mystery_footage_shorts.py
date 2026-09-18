@@ -128,7 +128,14 @@ def download(item, destination):
 
         download_dir = destination.parent
         template = str(download_dir / "youtube-source.%(ext)s")
-        options = {"format": "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/b", "outtmpl": template, "merge_output_format": "mp4", "noplaylist": True, "restrictfilenames": True}
+        options = {
+            "format": "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/b",
+            "outtmpl": template,
+            "merge_output_format": "mp4",
+            "noplaylist": True,
+            "restrictfilenames": True,
+            "remote_components": "ejs:github",
+        }
         with YoutubeDL(options) as downloader:
             downloader.download([source_url])
         candidates = sorted(download_dir.glob("youtube-source.*"))

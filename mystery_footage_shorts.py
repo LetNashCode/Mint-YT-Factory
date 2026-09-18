@@ -78,7 +78,8 @@ def download(item, destination):
 
 
 def render(script, source, audio, output, work):
-    normalized = work / "source.mp4"
+    # Never use the input path as the FFmpeg output path: FFmpeg cannot edit files in place.
+    normalized = work / "normalized-source.mp4"
     run(["ffmpeg", "-y", "-i", str(source), "-t", "55", "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30", "-an", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", str(normalized)])
     run(["ffmpeg", "-y", "-stream_loop", "-1", "-i", str(normalized), "-i", str(audio), "-map", "0:v:0", "-map", "1:a:0", "-t", "60", "-r", "30", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-shortest", str(output)])
 

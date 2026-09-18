@@ -1,7 +1,14 @@
 """Create a narrated mystery-footage Short from a catalog item or auto-discovered candidate."""
 from __future__ import annotations
-import json, os, re, subprocess, tempfile, time
+
+import json
+import os
+import re
+import subprocess
+import tempfile
+import time
 from pathlib import Path
+
 import requests
 from google import genai
 from google.genai import types
@@ -52,13 +59,37 @@ def parse_json(text):
         return json.loads(match.group(0))
 
 
-def generate_script(item):
+def inspect_video_frames(source: Path, work: Path) -> list[bytes]:
+    """Extract representative frames from the downloaded footage."""
+    frames_dir = work / "analysis-frames"
+    frames_dir.mkdir(parents=True, exist_ok=True)
+    pattern = frames_dir / "frame-%02d.jpg"
+    run(["ffmpeg", "-y", "-i", str(source), "-vf", "fps=1/5,scale=768:-2", "-frames:v", "8", "-q:v", "3", str(pattern)])
+    return [path.read_bytes() for path in sorted(frames_dir.glob("frame-*.jpg"))]
+
+
+def generate_script(item, source: Path, work: Path):
     key = os.getenv("GEMINI_API_KEY", "").strip()
     if not key:
         raise RuntimeError("GEMINI_API_KEY is required.")
-    prompt = f"""Create an original, factual, entertaining 75-110 word English YouTube Shorts narration about this documented mystery or archival footage candidate. Use a strong first-second hook, escalating curiosity, concise visual-independent storytelling, and a final question. Clearly distinguish verified facts from allegations and theories. Do not present paranormal claims as fact. Do not invent dates, locations, identities, or evidence. Return JSON only with video_title, narration, description_intro, tags.\nItem title: {item.get('title')}\nTopic: {item.get('topic')}\nSource notes: {item.get('rights_notes')}\nSource URL: {item.get('source_url')}"""
+    frames = inspect_video_frames(source, work)
+    if not frames:
+        raise RuntimeError("Could not extract frames for story grounding.")
+    prompt = f"""You are writing narration ONLY AFTER inspecting the supplied video frames.
+Create an original, factual, entertaining 75-110 word English YouTube Shorts narration about what is visibly happening in this footage.
+The footage is the primary source. Do not invent a different story, event, location, date, identity, or mystery.
+Use a strong first-second hook, escalating curiosity, concise narration, and a final question.
+Describe only details supported by the frames and supplied metadata. If the footage cannot support a mystery claim, frame it as an intriguing archival scene instead.
+Clearly distinguish verified facts from allegations and theories. Do not present paranormal claims as fact.
+Return JSON only with video_title, narration, description_intro, tags.
+Catalog title: {item.get('title')}
+Catalog topic: {item.get('topic')}
+Source notes: {item.get('rights_notes')}
+Source URL: {item.get('source_url')}"""
+    contents = [prompt]
+    contents.extend(types.Part.from_bytes(data=frame, mime_type="image/jpeg") for frame in frames)
     with genai.Client(api_key=key) as client:
-        response = client.models.generate_content(model=MODEL_NAME, contents=prompt, config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0.55))
+        response = client.models.generate_content(model=MODEL_NAME, contents=contents, config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0.35))
     data = parse_json(getattr(response, "text", ""))
     for field in ("video_title", "narration", "description_intro", "tags"):
         if not data.get(field):
@@ -77,8 +108,7 @@ def download(item, destination):
         raise RuntimeError("Downloaded footage is unexpectedly small.")
 
 
-def render(script, source, audio, output, work):
-    # Never use the input path as the FFmpeg output path: FFmpeg cannot edit files in place.
+def render(source, audio, output, work):
     normalized = work / "normalized-source.mp4"
     run(["ffmpeg", "-y", "-i", str(source), "-t", "55", "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30", "-an", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", str(normalized)])
     run(["ffmpeg", "-y", "-stream_loop", "-1", "-i", str(normalized), "-i", str(audio), "-map", "0:v:0", "-map", "1:a:0", "-t", "60", "-r", "30", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-shortest", str(output)])
@@ -86,16 +116,17 @@ def render(script, source, audio, output, work):
 
 def main():
     item = load_item()
-    script = generate_script(item)
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="mystery-footage-") as temp_dir:
         work = Path(temp_dir)
         source = work / "source.mp4"
         download(item, source)
+        print("Footage downloaded; inspecting frames before writing the narration.")
+        script = generate_script(item, source, work)
         audio = work / "narration.mp3"
         synthesize_narration(clean(script["narration"]), {"voice": {"provider": "kokoro", "voice_name": os.getenv("MINT_KOKORO_VOICE", "af_heart"), "kokoro_lang": os.getenv("MINT_KOKORO_LANG", "a"), "speed": 1.0}}, str(audio), target_duration=50.0)
         output = OUTPUT_DIR / "mystery-footage-short.mp4"
-        render(script, source, audio, output, work)
+        render(source, audio, output, work)
     description = f"{script['description_intro']}\n\nSource footage: {item['source_url']}\nLicense: {item.get('license', 'Not specified')}\nAttribution: {item.get('attribution', 'See source page for attribution requirements.')}\n\nThis video adds original narration and editing."
     metadata = {"video_title": script["video_title"], "catalog_item_id": item["id"], "source_url": item["source_url"], "license": item.get("license"), "rights_verified": item.get("rights_verified"), "description": description, "gemini_model": MODEL_NAME, "generated_at": int(time.time())}
     (OUTPUT_DIR / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")

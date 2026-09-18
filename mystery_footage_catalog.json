@@ -13,7 +13,383 @@
       "license": "YouTube Creative Commons metadata",
       "rights_verified": false,
       "rights_notes": "Creative Commons metadata is not proof that the uploader owns the footage. Requires case research and rights review.",
-      "discovered_at": "2026-09-18T16:06:17.441733+00:00"
+      "discovered_at": "2026-09-18T16:06:17.441733+00:00",
+      "screening": {
+        "eligible": false,
+        "screening_status": "failed",
+        "screening_notes": "Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size:stream=width,height,codec_type', '-of', 'json', '/tmp/mystery-screen-rbmgcwu3/source']' returned non-zero exit status 1.",
+        "screened_at": "2026-09-18T21:49:37.600710+00:00"
+      }
+    },
+    {
+      "id": "internet-archive-youtube-SIvfIlPMkPY",
+      "title": "Highlight Reel #320 - Battlegrounds Player Weed_Man Dies The Sickest Death",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "Highlight Reel is Kotaku's regular roundup of amazing plays, stunts, records, and other great moments from around the gaming world. Please check out the original videos in the links below, and send us your favorite clips to highlightreel@kotaku.com. To submit, either send us a link to your video on YouTube, a game DVR, Streamable, Twitch, or just send us the raw file (YouTube links are preferred, as they allow us to attribute credit. For the sake of privacy/ease on our end, please avoid Facebook video and Google Drive). Please also give a description of your moment, and confirm that you recorded it.<br /><br />Wondering how to capture footage on your console or computer? Here's our guide on how to do it:<br /><br />http://kotaku.com/how-to-capture-game-video-on-ps4-xbox-one-pc-and-mac-1659764485<br /><br />You can follow Chris Person (the editor and voice of Highlight Reel) over at twitter.com/papapishu. If you have any questions or concerns about the show, please contact Chris.<br /><br />Sources:<br />1. Fortnite - UFO Teleporter Bug - piranhi<br />https://youtu.be/BYfLvNoh_KU<br />In Fortnite, big teleporter much?<br /><br />2. DCS World - [DCS World] is a hyper-realistic simula",
+      "source_url": "https://archive.org/details/youtube-SIvfIlPMkPY",
+      "video_url": "https://archive.org/download/youtube-SIvfIlPMkPY/SIvfIlPMkPY.mp4",
+      "direct_download_url": "https://archive.org/download/youtube-SIvfIlPMkPY/SIvfIlPMkPY.mp4",
+      "license": "Internet Archive metadata; review required",
+      "rights_verified": false,
+      "rights_notes": "Discovery metadata is not proof of ownership or commercial reuse rights. Review the item license, provenance, and attribution requirements before publication.",
+      "attribution": "Kotaku",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-18T21:49:27.988961+00:00",
+      "screening": {
+        "duration_seconds": 285.01,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 28506984,
+        "hook_score": 3,
+        "story_score": 2,
+        "usable_visuals": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The footage consists of standard, low-resolution video game gameplay clips from a gaming compilation show (Kotaku's Highlight Reel), featuring UI overlays and standard game bugs. It lacks any real-world mystery, unusual anomalous phenomena, or factual documentary value.",
+        "screened_at": "2026-09-18T21:50:09.120222+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-youtube--t92l12kZUU",
+      "title": "UFO HYSTERIA, ISIS in Bakhmut, new Generals, Turkey blames USA, Iran v. Israel, & MORE! WWN Ep. 19",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "In this huge episode we cover the latest UFO hysteria and analyze it from an Orthodox perspective referencing Fr. Seraphim Rose & St. Gabriel Urgebadze. We also discuss the presence of ISIS veterans fighting in Ukraine, the latest on America’s crumbling infrastructure and chemical warfare against white America, the many new General appointed to the SMO, Erdogan’s allies blaming the earthquake on the US, Iran v. Israel, and so much more! Be sure to subscribe to the World War Now Substack to never miss an article or episode: https://worldwarnow.substack.com<br /><br />🛸⚡️Read Conrad’s in depth UFO thread HERE: https://rdacian.blogspot.com/2021/12/twitter-thread-by-rad-on-alien-deception.html<br /><br />🔮 Be sure to subscribe to this channel! Please give us a like and share as well, it really helps us out!<br /><br />⚡️You can also find us on Telegram & Twitter below:<br /><br />Conrad: https://twitter.com/GnomeRad<br />Dmitriy: https://twitter.com/OCanonist<br />WWN Twitter: https://twitter.com/WorldWarNow_<br />WWN Telegram: https://t.me/WorldWarNowTele<br /><br />⏰ Timestamps<br />0:00 – Intro & UFOs<br />10:23 – Apostates and Occultism<br />16:40 – “Haunted” Places & Mt. Athos<br ",
+      "source_url": "https://archive.org/details/youtube--t92l12kZUU",
+      "video_url": "https://archive.org/download/youtube--t92l12kZUU/-t92l12kZUU.webm",
+      "direct_download_url": "https://archive.org/download/youtube--t92l12kZUU/-t92l12kZUU.webm",
+      "license": "Internet Archive metadata; review required",
+      "rights_verified": false,
+      "rights_notes": "Discovery metadata is not proof of ownership or commercial reuse rights. Review the item license, provenance, and attribution requirements before publication.",
+      "attribution": "World War Now",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-18T21:49:29.013734+00:00",
+      "screening": {
+        "eligible": false,
+        "screening_status": "failed",
+        "screening_notes": "source file exceeds screening size limit",
+        "screened_at": "2026-09-18T21:50:10.287851+00:00"
+      }
+    },
+    {
+      "id": "internet-archive-youtube-u9qe9QsyNK4",
+      "title": "Lockheed Skunkworks Had Technology That Could Take E.T. Home 😳",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "Join this channel to get access to perks:<br />https://www.youtube.com/channel/UCkoujZQZatbqy4KGcgjpVxQ/join<br /><br />Support the Shawn Ryan Show for $5 and get the chance to watch the shows AD FREE, with the exception of Shawn's personal reads, before they release!! Sign up here: https://www.patreon.com/VigilanceElite<br /><br />Please leave us a review on Apple/Spotify Podcasts:<br />Apple - https://podcasts.apple.com/us/podcast/shawn-ryan-show/id1492492083<br />Spotify - https://open.spotify.com/show/5eodRZd3qR9VT1ip1wI7xQ?si=59f9d106e56a4509<br /><br />#PODCAST #SHORTS #TECHNOLOGY<br /><br />Vigilance Elite/Shawn Ryan Links:<br />Website - https://www.vigilanceelite.com<br />Patreon - https://www.patreon.com/VigilanceElite<br />TikTok - https://www.tiktok.com/@shawnryanshow<br />Instagram - https://www.instagram.com/shawnryan762",
+      "source_url": "https://archive.org/details/youtube-u9qe9QsyNK4",
+      "video_url": "https://archive.org/download/youtube-u9qe9QsyNK4/u9qe9QsyNK4.mp4",
+      "direct_download_url": "https://archive.org/download/youtube-u9qe9QsyNK4/u9qe9QsyNK4.mp4",
+      "license": "Internet Archive metadata; review required",
+      "rights_verified": false,
+      "rights_notes": "Discovery metadata is not proof of ownership or commercial reuse rights. Review the item license, provenance, and attribution requirements before publication.",
+      "attribution": "Shawn Ryan Show",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-18T21:49:29.827080+00:00",
+      "screening": {
+        "duration_seconds": 52.4,
+        "width": 270,
+        "height": 480,
+        "size_bytes": 5304448,
+        "hook_score": 6,
+        "story_score": 5,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video features podcast interview footage discussing Lockheed Skunkworks technology and historical aircraft visuals, but lacks clear verifiable evidence or primary source footage of unusual moments, relying instead on talking head commentary.",
+        "screened_at": "2026-09-18T21:50:50.901670+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-who-should-you-believe-regarding-current-events-the-9-d-arcturian-council-channeled-daniel-scranton",
+      "title": "Who Should You Believe Regarding Current Events ∞ The 9 D Arcturian Council Channeled Daniel Scranton",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "<div>In this video, Daniel Scranton channels the Arcturian Council. The Arcturian Council are a non-physical group of beings from the Arcturus Star System. </div><div><br /></div><div>https://www.youtube.com/watch?v=UNRDNEtHbGs<br /></div><div><br /></div><div><span style=\"color:rgb(3,3,3);font-family:Roboto, Arial, sans-serif;font-size:14px;white-space:pre-wrap;background-color:rgb(249,249,249);\">“Greetings. We are the Arcturian Council. We are pleased to connect with all of you. We are listening to the rhetoric that is being passed along there on Earth at all times, and we want all of you to know that whether you are getting your perspective from someone who is an anchor on a mainstream media news channel, or you are getting it from someone on social media or YouTube, you are only getting their perspective. You get one person’s angle on something, and you can accept that as fact, as truth, if you want to, but you don’t have to accept just one opinion, one point of view. You can pull back from the entire situation and look at it from all the angles to have a more bird’s eye type view of whatever the topic is. You don’t have to give all of your power away to one person or one group",
+      "source_url": "https://archive.org/details/who-should-you-believe-regarding-current-events-the-9-d-arcturian-council-channeled-daniel-scranton",
+      "video_url": "https://archive.org/download/who-should-you-believe-regarding-current-events-the-9-d-arcturian-council-channeled-daniel-scranton/Who%20Should%20You%20Believe%20Regarding%20Current%20Events%20%E2%88%9EThe%209D%20Arcturian%20Council%20Channeled%20Daniel%20Scranton.mp4",
+      "direct_download_url": "https://archive.org/download/who-should-you-believe-regarding-current-events-the-9-d-arcturian-council-channeled-daniel-scranton/Who%20Should%20You%20Believe%20Regarding%20Current%20Events%20%E2%88%9EThe%209D%20Arcturian%20Council%20Channeled%20Daniel%20Scranton.mp4",
+      "license": "Internet Archive metadata; review required",
+      "rights_verified": false,
+      "rights_notes": "Discovery metadata is not proof of ownership or commercial reuse rights. Review the item license, provenance, and attribution requirements before publication.",
+      "attribution": "Daniel Scranton",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-18T21:49:30.541959+00:00",
+      "screening": {
+        "duration_seconds": 1074.13,
+        "width": 1280,
+        "height": 720,
+        "size_bytes": 68491977,
+        "hook_score": 1,
+        "story_score": 1,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video shows a man speaking directly to the camera and gesturing with his hands in an indoor setting. It lacks a clear factual mystery, unexpected anomaly, or verifiable event, making it unsuitable for a factual mystery Short.",
+        "screened_at": "2026-09-18T21:51:05.340764+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-jason-mc-clellan-discusses-the-billy-meier-ufo-case-open-minds-radio",
+      "title": "Jason Mc Clellan Discusses The Billy Meier UFO Case Open Minds Radio",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "Jason McClellan discusses the Billy Meier UFO case Open Minds Radio -",
+      "source_url": "https://archive.org/details/jason-mc-clellan-discusses-the-billy-meier-ufo-case-open-minds-radio",
+      "video_url": "https://archive.org/download/jason-mc-clellan-discusses-the-billy-meier-ufo-case-open-minds-radio/Jason%20McClellan%20discusses%20the%20Billy%20Meier%20UFO%20case%20%20%20Open%20Minds%20Radio%20-.mp4",
+      "direct_download_url": "https://archive.org/download/jason-mc-clellan-discusses-the-billy-meier-ufo-case-open-minds-radio/Jason%20McClellan%20discusses%20the%20Billy%20Meier%20UFO%20case%20%20%20Open%20Minds%20Radio%20-.mp4",
+      "license": "Internet Archive metadata; review required",
+      "rights_verified": false,
+      "rights_notes": "Discovery metadata is not proof of ownership or commercial reuse rights. Review the item license, provenance, and attribution requirements before publication.",
+      "attribution": "",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-18T21:49:31.114909+00:00",
+      "screening": {
+        "duration_seconds": 1199.5,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 117283976,
+        "hook_score": 1,
+        "story_score": 2,
+        "usable_visuals": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "Talking head podcast format discussing UFO cases; lacks unique primary archive footage or visually compelling moments suitable for a short.",
+        "screened_at": "2026-09-18T21:51:25.970456+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-a-huge-step-toward-joining-the-galactic-community-9-d-arcturian-council-channeled-by-daniel-scran",
+      "title": "A Huge Step Toward Joining The Galactic Community 9 D Arcturian Council Channeled By Daniel Scran",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "<div>In this video, Daniel Scranton channels the Arcturian Council. The Arcturian Council are a non-physical group of beings from the Arcturus Star System. <br /></div><div><br /></div><div>https://www.youtube.com/watch?v=F7Mrfz5nPQw<br /></div><div><br /></div><div><br /></div><div><span style=\"color:rgb(3,3,3);font-family:Roboto, Arial, sans-serif;font-size:14px;letter-spacing:0.2px;white-space:pre-wrap;background-color:rgb(249,249,249);\"> “Greetings. We are the Arcturian Council. We are pleased to connect with all of you. We are so very capable of seeing the patterns as they emerge on your world, and right now we can see that the patterns are indicating a greater awareness of your place within the galactic community, especially amongst those who have been non-believers in extra-terrestrials for their entire lives. The way their newfound beliefs manifest is in their willingness to investigate, their willingness to go further than they have ever gone before with a sense of curiosity about who or what else exists in this universe. Skepticism is healthy to a certain degree, because it allows you to tap in to your discernment abilities, which you need, but when someone is skeptical w",
+      "source_url": "https://archive.org/details/a-huge-step-toward-joining-the-galactic-community-9-d-arcturian-council-channeled-by-daniel-scran",
+      "video_url": "https://archive.org/download/a-huge-step-toward-joining-the-galactic-community-9-d-arcturian-council-channeled-by-daniel-scran/A%20Huge%20Step%20Toward%20Joining%20the%20Galactic%20Community%209D%20Arcturian%20Council%20Channeled%20by%20Daniel%20Scran.mp4",
+      "direct_download_url": "https://archive.org/download/a-huge-step-toward-joining-the-galactic-community-9-d-arcturian-council-channeled-by-daniel-scran/A%20Huge%20Step%20Toward%20Joining%20the%20Galactic%20Community%209D%20Arcturian%20Council%20Channeled%20by%20Daniel%20Scran.mp4",
+      "license": "Internet Archive metadata; review required",
+      "rights_verified": false,
+      "rights_notes": "Discovery metadata is not proof of ownership or commercial reuse rights. Review the item license, provenance, and attribution requirements before publication.",
+      "attribution": "Daniel Scranton",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-18T21:49:31.750973+00:00",
+      "screening": {
+        "duration_seconds": 846.83,
+        "width": 480,
+        "height": 360,
+        "size_bytes": 40094948,
+        "hook_score": 1,
+        "story_score": 1,
+        "usable_visuals": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video shows a man speaking to the camera and gesturing while claiming to channel non-physical beings from the Arcturus Star System. There are no unusual moments, factual mysteries, or verifiable historical events supported by the footage, making it unsuitable for a factual mystery short.",
+        "screened_at": "2026-09-18T21:51:38.239225+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-youtube--eMKbS80MOs",
+      "title": "UPDATE: \"I Received a Creepy E-mail w/ Leaked UFO Footage\" (New Footage)",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "This is an update from the original video here:<br />https://youtu.be/HO2OIJzpqLY",
+      "source_url": "https://archive.org/details/youtube--eMKbS80MOs",
+      "video_url": "https://archive.org/download/youtube--eMKbS80MOs/-eMKbS80MOs.mp4",
+      "direct_download_url": "https://archive.org/download/youtube--eMKbS80MOs/-eMKbS80MOs.mp4",
+      "license": "Internet Archive metadata; review required",
+      "rights_verified": false,
+      "rights_notes": "Discovery metadata is not proof of ownership or commercial reuse rights. Review the item license, provenance, and attribution requirements before publication.",
+      "attribution": "Strange Mysteries",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-18T21:49:32.325034+00:00",
+      "screening": {
+        "duration_seconds": 1731.54,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 166937680,
+        "hook_score": 3,
+        "story_score": 4,
+        "usable_visuals": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video primarily consists of a creator talking over a displayed email document, lacking the direct visual evidence required for a standalone short.",
+        "screened_at": "2026-09-18T21:51:49.390378+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-anunnaki-genesis-shocking-creation-of-mankind-mind-blowing-documentary",
+      "title": "Extraterrestre //// Actualité //// L'humanité a été génétiquement créée par une colonisation extraterrestre //// YouTube : «The 5th Kind» ---» Anunnaki genesis....Shocking creation of mankind mind blo",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "<p class=\"MsoNormal\" style=\"margin:0cm;font-family:Calibri, sans-serif;text-align:justify;\"><b><span style=\"font-size:14pt;color:rgb(0,176,240);background:#FFFFFF;\">Falsification de l’histoire par les extraterrestres colonisateurs </span></b><b><span style=\"font-size:14pt;color:rgb(148,55,255);background:#FFFFFF;\">(<a href=\"https://paixsurterre.org/video-de-presentation/\" style=\"color:rgb(149,79,114);\" rel=\"ugc nofollow\"><span style=\"color:rgb(148,55,255);\">https://paixsurterre.org/video-de-presentation/</span></a>) </span></b><b><span style=\"font-size:14pt;color:rgb(0,176,240);background:#FFFFFF;\">qui se servent des sociétés secrètes (templiers francs-maçons jésuites) au service du Quatrième Reich Nazi (familles royales), et ceci, pour réussir à cacher leur présence….Ils utilisent ces sociétés secrètes pour infiltrer (diriger) tous les gouvernements, toutes les universités, tous les médias, tous les tribunaux, tous les corps militaires, tous les corps de police, et ceci, pour assurer de mettre sous hypnose les êtres humains, soit pour assurer leur colonisation extraterrestre….La falsification de l’histoire permet d’assurer leur colonisation, en ayant des esclaves dociles et facile",
+      "source_url": "https://archive.org/details/anunnaki-genesis-shocking-creation-of-mankind-mind-blowing-documentary",
+      "video_url": "https://archive.org/download/anunnaki-genesis-shocking-creation-of-mankind-mind-blowing-documentary/Anunnaki%20Genesis%20%20Shocking%20Creation%20of%20Mankind%20-%20Mind%20Blowing%20Documentary%21.ia.mp4",
+      "direct_download_url": "https://archive.org/download/anunnaki-genesis-shocking-creation-of-mankind-mind-blowing-documentary/Anunnaki%20Genesis%20%20Shocking%20Creation%20of%20Mankind%20-%20Mind%20Blowing%20Documentary%21.ia.mp4",
+      "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "rights_verified": false,
+      "rights_notes": "Discovery metadata is not proof of ownership or commercial reuse rights. Review the item license, provenance, and attribution requirements before publication.",
+      "attribution": "Rock Larochelle",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-18T21:49:33.323350+00:00",
+      "screening": {
+        "duration_seconds": 1049.94,
+        "width": 1280,
+        "height": 720,
+        "size_bytes": 256360079,
+        "hook_score": 1,
+        "story_score": 1,
+        "usable_visuals": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The provided visuals consist entirely of generic 3D stock animations (DNA strands, digital human silhouettes, brain graphics, and wireframe grids) accompanied by sensationalized conspiracy text. There is no genuine found footage or factual mystery to investigate.",
+        "screened_at": "2026-09-18T21:52:02.115401+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-youtube-DUXh-aO-JtQ",
+      "title": "Are Aliens Totalitarians? | The Richard Dolan Show",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "Our world has seen an upsurge in discussion about UAP (once known as UFOs). But there has hardly been any conversation about who or what the intelligences behind the phenomenon might be. One important matter to consider is whether alien species, whether \"out there\" or right here, believe in concepts like individual freedom -- or not. Richard Dolan speculates about this. He also suggests that our notion of \"progress\" may be clouding our judgement. Freedom may not always go hand in hand with advanced science and technology. <br /><br />Join MEMBERSHIPS here on YouTube<br />https://www.youtube.com/channel/UCnaIeNm-jSa1l8yHrn7PlQg/join<br /><br />Stop in at the Official Richard Dolan Store for autographed items, unique limited supply, and items not available anywhere else. http://bit.ly/DolanShop<br /><br />Richard Dolan is one of the world’s leading researchers and writers on the subject of UFOs and believes that they constitute the greatest mystery of our time. He is the author of two volumes of history, UFOs and the National Security State, both ground-breaking works which together provide the most factually complete and accessible narrative of the UFO subject available anywhere. He",
+      "source_url": "https://archive.org/details/youtube-DUXh-aO-JtQ",
+      "video_url": "https://archive.org/download/youtube-DUXh-aO-JtQ/DUXh-aO-JtQ.webm",
+      "direct_download_url": "https://archive.org/download/youtube-DUXh-aO-JtQ/DUXh-aO-JtQ.webm",
+      "license": "Internet Archive metadata; review required",
+      "rights_verified": false,
+      "rights_notes": "Discovery metadata is not proof of ownership or commercial reuse rights. Review the item license, provenance, and attribution requirements before publication.",
+      "attribution": "Richard Dolan Intelligent Disclosure",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-18T21:49:34.064056+00:00",
+      "screening": {
+        "duration_seconds": 3271.83,
+        "width": 1280,
+        "height": 720,
+        "size_bytes": 264434944,
+        "hook_score": 3,
+        "story_score": 2,
+        "usable_visuals": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The visual consists entirely of a static talking-head interview setup with a speaker discussing speculative philosophy about extraterrestrials. There are no unusual moments or actionable footage for a factual mystery short.",
+        "screened_at": "2026-09-18T21:52:14.394841+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-youtube-V5FXUMktFQA",
+      "title": "“TOO BIG TO MOVE!” New HIDDEN UFO Under Popular LANDMARK?! - #172 - Stay Free PREVIEW",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "Join us here for a PREVIEW of our daily one-hour RUMBLE show.<br />To continue watching the show in full, join me live and exclusively over on RUMBLE: <br />https://bit.ly/stayfree-172-hidden-UFOs<br /><br />Get ready for an electrifying episode as we dive headfirst into a lineup of mind-blowing revelations that will leave you questioning the boundaries of reality and politics. Our friend of the show, Ross Coulthart, has dropped a bombshell: there’s a colossal spaceship that is so massive it can’t be moved. Is this the most significant UFO disclosure yet? But wait, there’s more! We’ll uncover the latest on Hunter Biden, as shocking reports reveal special treatment from the FBI. Plus, a seismic shift in the world of US politics is on the horizon, with a staggering 45% of Democratic voters expressing openness to a third-party candidate. Are we witnessing the winds of change sweeping through the political landscape?<br /><br />--------------------------------------------------------------------------------------------------------------------------<br /><br />FOLLOW and WATCH me LIVE weekdays on Rumble https://rumble.com/russellbrand<br />5:00PM BST | 12:00 PM EDT | 9:00AM PDT<br /><br",
+      "source_url": "https://archive.org/details/youtube-V5FXUMktFQA",
+      "video_url": "https://archive.org/download/youtube-V5FXUMktFQA/V5FXUMktFQA.mp4",
+      "direct_download_url": "https://archive.org/download/youtube-V5FXUMktFQA/V5FXUMktFQA.mp4",
+      "license": "Internet Archive metadata; review required",
+      "rights_verified": false,
+      "rights_notes": "Discovery metadata is not proof of ownership or commercial reuse rights. Review the item license, provenance, and attribution requirements before publication.",
+      "attribution": "Russell Brand",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-18T21:49:34.750953+00:00",
+      "screening": {
+        "duration_seconds": 884.44,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 90435560,
+        "hook_score": 2,
+        "story_score": 1,
+        "usable_visuals": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video is a standard studio talk show/podcast featuring a host talking to a guest and discussing various topics, including internet rumors. There is no unique, verifiable footage of an unusual moment or mystery; it is purely commentary and talking heads.",
+        "screened_at": "2026-09-18T21:52:36.990787+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-youtube-KhGNJ_ZU-6k",
+      "title": "Fighting Men of Rhodesia ep47 | Mike Norton 3rd Talk",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "Welcome to a series of interviews with the Fighting Men of Rhodesia as Hannes Wessels & I try to record the war stories of these outstanding warriors. <br />The Rhodesian forces produced some of the finest fighting soldiers and airmen of the era and Mike Norton, who served with the BSAP Special Branch is one of those men. <br /> <br />For those who wish to obtain the book mentioned in this video please check out:<br />https://www.warbooks.co.za/products/operation-enterprise-the-battle-for-salisbury-rhodesia-nick-skipworth-michell?variant=31839610044506<br /><br />And for Hannes' books:<br />https://exmontibusmedia.co.za/<br />Or check out his blog at:<br />https://africaunauthorised.com/<br /><br />For excellent Rhodesian cammo clothing please contact:<br />https://www.facebook.com/Rhodesian-Brushstroke-109269907527854<br /><br />Music by Epidemic Sound:<br />https://www.epidemicsound.com/referral/7iur36/<br /><br />If you enjoyed this video please consider subscribing (it's free)<br />You can support this channel here ...🙏<br />https://www.paypal.com/paypalme/johnvzyl<br />Join us on Patreon - https://www.patreon.com/johnvanzyl",
+      "source_url": "https://archive.org/details/youtube-KhGNJ_ZU-6k",
+      "video_url": "https://archive.org/download/youtube-KhGNJ_ZU-6k/KhGNJ_ZU-6k.mp4",
+      "direct_download_url": "https://archive.org/download/youtube-KhGNJ_ZU-6k/KhGNJ_ZU-6k.mp4",
+      "license": "Internet Archive metadata; review required",
+      "rights_verified": false,
+      "rights_notes": "Discovery metadata is not proof of ownership or commercial reuse rights. Review the item license, provenance, and attribution requirements before publication.",
+      "attribution": "John van Zyl",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-18T21:49:35.403723+00:00",
+      "screening": {
+        "duration_seconds": 3013.68,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 291316145,
+        "hook_score": 3,
+        "story_score": 4,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video features historical interviews and archival newspaper clippings regarding a payroll murder trial involving Field Reservist Michael Norton in Rhodesia. While historical documents and vintage photos provide some context, the visual material consists mostly of static articles and modern web interfaces, limiting its utility for an engaging short.",
+        "screened_at": "2026-09-18T21:53:12.216823+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-youtube-t2VZG5972rc",
+      "title": "False UFO Disclosure 2023 | The Grusch Psyop (Pt 2)",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "Power Chat - https://powerchat.live/pressresetearth<br />Patreon - https://www.patreon.com/PressResetEarth <br />Paypal - https://www.paypal.com/paypalme2/PressResetEarth <br /><br />Bitcoin: 1LFKBoWLaBEQbNawKgtkbkdzNQ9y7Vrwxd<br />Ether: 0x66FeA2e8D9fc354F958976e09FBC60d28F271DDa<br />Litecoin: LMiWBjrX9aN8cqcaxDHfKWkGJf9avWEvPE<br /><br />Subscribe on Odysee - https://odysee.com/@ResistingTheReset<br />Subscribe on Bitchute - https://www.bitchute.com/resistingthereset/ <br />Subscribe on Rumble - https://rumble.com/user/ResistingTheReset<br />Subscribe on YouTube - https://www.youtube.com/pressresetearth<br /><br />Telegram - t.me/resistingthereset <br />Gab - https://gab.ai/PressResetEarth <br />Twitter - https://twitter.com/PressResetEarth",
+      "source_url": "https://archive.org/details/youtube-t2VZG5972rc",
+      "video_url": "https://archive.org/download/youtube-t2VZG5972rc/t2VZG5972rc.mp4",
+      "direct_download_url": "https://archive.org/download/youtube-t2VZG5972rc/t2VZG5972rc.mp4",
+      "license": "https://creativecommons.org/licenses/by/3.0/",
+      "rights_verified": false,
+      "rights_notes": "Discovery metadata is not proof of ownership or commercial reuse rights. Review the item license, provenance, and attribution requirements before publication.",
+      "attribution": "RESISTING THE RESET",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-18T21:49:36.107242+00:00",
+      "screening": {
+        "eligible": false,
+        "screening_status": "failed",
+        "screening_notes": "source file exceeds screening size limit",
+        "screened_at": "2026-09-18T21:53:13.375121+00:00"
+      }
     }
   ]
 }

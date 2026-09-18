@@ -134,7 +134,7 @@ def download(item, destination):
             "merge_output_format": "mp4",
             "noplaylist": True,
             "restrictfilenames": True,
-            "remote_components": "ejs:github",
+            "remote_components": ["ejs:github"],
         }
         with YoutubeDL(options) as downloader:
             downloader.download([source_url])

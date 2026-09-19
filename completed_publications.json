@@ -232,5 +232,11 @@
     "video_id": "O1G5xgFhPLk",
     "topic": "Why does a toilet swirl",
     "completed_at": 1789820532
+  },
+  {
+    "workdir": "output/1789836242",
+    "video_id": "m7BbEPN1154",
+    "topic": "Why sinks drain without swirling",
+    "completed_at": 1789837373
   }
 ]

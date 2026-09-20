@@ -1,4 +1,4 @@
-"""Create a narrated found-footage mystery Short from a screened catalog."""
+"""Create a narrated mystery video while preserving the complete source frame."""
 from __future__ import annotations
 
 import json
@@ -19,6 +19,7 @@ MODEL_NAME = "gemini-flash-lite-latest"
 ROOT = Path(__file__).resolve().parent
 CATALOG = ROOT / "mystery_footage_catalog.json"
 OUTPUT_DIR = ROOT / os.getenv("MYSTERY_FOOTAGE_OUTPUT_DIR", "artifacts/mystery-footage")
+HISTORY_FILE = ROOT / "mystery_footage_history.json"
 TRUE_VALUES = {"1", "true", "yes"}
 REQUIRED_CASE_FIELDS = ("id", "title", "case_summary", "verified_facts", "theories_or_open_questions", "footage_description", "source_url", "video_url")
 
@@ -32,46 +33,55 @@ def run(command):
     subprocess.run(command, check=True)
 
 
-def normalize_demo_case(item):
-    if not str(item.get("id", "")).startswith("youtube-"):
-        return item
-    item.setdefault("footage_description", "Downloaded source footage; inspect the video before narration is written.")
-    if not isinstance(item.get("verified_facts"), list) or not item["verified_facts"]:
-        item["verified_facts"] = ["This is an automatically discovered demo candidate."]
-    if not isinstance(item.get("theories_or_open_questions"), list):
-        item["theories_or_open_questions"] = []
-    return item
-
-
 def validate_case(item):
-    missing = [field for field in REQUIRED_CASE_FIELDS if field not in item or item[field] is None or (not isinstance(item[field], list) and not item[field])]
+    missing = [f for f in REQUIRED_CASE_FIELDS if f not in item or item[f] is None or (not isinstance(item[f], list) and not item[f])]
     if missing:
-        raise RuntimeError(f"Catalog case {item.get('id', '<unknown>')} is missing required fields: {', '.join(missing)}")
+        raise RuntimeError(f"Catalog case {item.get('id', '<unknown>')} is missing: {', '.join(missing)}")
     if "REPLACE_ME" in json.dumps(item):
-        raise RuntimeError(f"Catalog case {item['id']} still contains a REPLACE_ME placeholder.")
+        raise RuntimeError(f"Catalog case {item['id']} contains REPLACE_ME.")
     if not isinstance(item.get("verified_facts"), list) or not item["verified_facts"]:
-        raise RuntimeError(f"Catalog case {item['id']} must contain verified facts.")
+        raise RuntimeError(f"Catalog case {item['id']} has no verified facts.")
     if not isinstance(item.get("theories_or_open_questions"), list):
-        raise RuntimeError(f"Catalog case {item['id']} must contain theories_or_open_questions.")
+        raise RuntimeError(f"Catalog case {item['id']} has invalid theories_or_open_questions.")
+
+
+def load_history():
+    if not HISTORY_FILE.exists():
+        return {"version": 1, "used": []}
+    try:
+        data = json.loads(HISTORY_FILE.read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else {"version": 1, "used": []}
+    except json.JSONDecodeError:
+        return {"version": 1, "used": []}
+
+
+def save_history(history):
+    HISTORY_FILE.write_text(json.dumps(history, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+def source_key(item):
+    return clean(item.get("direct_download_url") or item.get("video_url") or item.get("source_url"), 2000)
 
 
 def load_items():
     data = json.loads(CATALOG.read_text(encoding="utf-8"))
     require_screening = os.getenv("MYSTERY_FOOTAGE_REQUIRE_STORY_SCREEN", "true").lower() in TRUE_VALUES
+    history = load_history()
+    used = {str(x.get("source_key")) for x in history.get("used", []) if isinstance(x, dict)}
     eligible = []
-    for raw_item in data.get("items", []):
-        item = normalize_demo_case(raw_item)
+    for item in data.get("items", []):
         if not item.get("video_url") or not item.get("source_url") or "REPLACE_ME" in json.dumps(item):
             continue
         if require_screening and (item.get("screening") or {}).get("eligible") is not True:
             continue
         validate_case(item)
+        if source_key(item) in used:
+            print(f"Skipping previously used footage: {item.get('id')}")
+            continue
         eligible.append(item)
     requested = os.getenv("MYSTERY_FOOTAGE_ITEM_ID", "").strip()
     if requested:
-        eligible = [item for item in eligible if item.get("id") == requested]
-        if not eligible:
-            raise RuntimeError(f"No eligible curated case matches MYSTERY_FOOTAGE_ITEM_ID={requested!r}.")
+        eligible = [x for x in eligible if x.get("id") == requested]
     return eligible
 
 
@@ -99,18 +109,18 @@ def generate_script(item, source, work):
         raise RuntimeError("GEMINI_API_KEY is required.")
     frames = inspect_video_frames(source, work)
     if not frames:
-        raise RuntimeError("Could not extract frames for story grounding.")
+        raise RuntimeError("No frames extracted.")
     facts = "\n".join(f"- {x}" for x in item["verified_facts"])
     theories = "\n".join(f"- {x}" for x in item["theories_or_open_questions"]) or "- None supplied"
-    prompt = f"""Create a respectful documentary-style found-footage mystery Short. Inspect the supplied frames first. Write an original factual 75-110 word English narration with a strong hook, escalating curiosity, and a final question. Do not claim anything not visible. Do not invent facts. Clearly label theories and unresolved questions. Return JSON only with video_title, narration, description_intro, tags. Case: {item['title']}\nSummary: {item['case_summary']}\nFootage: {item['footage_description']}\nVerified facts:\n{facts}\nTheories:\n{theories}\nSource: {item['source_url']}"""
+    prompt = f"""Create a respectful documentary-style mystery video narration. Inspect the supplied frames first. Write an original factual 75-110 word English narration with a strong hook, escalating curiosity, and a final question. Do not invent facts or claim anything not visible. Clearly label theories and unresolved questions. Return JSON only with video_title, narration, description_intro, tags. Case: {item['title']}\nSummary: {item['case_summary']}\nFootage: {item['footage_description']}\nVerified facts:\n{facts}\nTheories:\n{theories}"""
     contents = [prompt] + [types.Part.from_bytes(data=f, mime_type="image/jpeg") for f in frames]
     with genai.Client(api_key=key) as client:
         response = client.models.generate_content(model=MODEL_NAME, contents=contents, config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0.3))
-    data = parse_json(getattr(response, "text", ""))
+    result = parse_json(getattr(response, "text", ""))
     for field in ("video_title", "narration", "description_intro", "tags"):
-        if not data.get(field):
-            raise RuntimeError(f"Generated script is missing {field!r}.")
-    return data
+        if not result.get(field):
+            raise RuntimeError(f"Generated script is missing {field}.")
+    return result
 
 
 def download(item, destination):
@@ -119,52 +129,40 @@ def download(item, destination):
         raise RuntimeError("Candidate has no downloadable source URL.")
     host = urlparse(source_url).netloc.lower().split(":", 1)[0]
     if host in {"youtube.com", "www.youtube.com", "m.youtube.com", "youtu.be", "www.youtu.be"}:
-        from yt_dlp import YoutubeDL
-        template = str(destination.parent / "youtube-source.%(ext)s")
-        options = {"format": "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/b", "outtmpl": template, "merge_output_format": "mp4", "noplaylist": True, "restrictfilenames": True, "remote_components": ["ejs:github"], "retries": 2}
-        with YoutubeDL(options) as downloader:
-            downloader.download([source_url])
-        candidates = sorted(destination.parent.glob("youtube-source.*"))
-        if not candidates:
-            raise RuntimeError("yt-dlp did not produce a downloadable video.")
-        selected = next((path for path in candidates if path.suffix.lower() == ".mp4"), candidates[0])
-        selected.replace(destination)
-    else:
-        headers = {"User-Agent": "Mozilla/5.0"}
-        response = requests.get(source_url, headers=headers, timeout=120, stream=True)
-        response.raise_for_status()
-        content_type = response.headers.get("content-type", "").lower()
-        if "text/html" in content_type:
-            raise RuntimeError("Source URL returned an HTML page instead of a media file.")
-        with destination.open("wb") as handle:
-            for chunk in response.iter_content(chunk_size=1024 * 1024):
-                if chunk:
-                    handle.write(chunk)
+        raise RuntimeError("YouTube footage is disabled.")
+    response = requests.get(source_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=120, stream=True)
+    response.raise_for_status()
+    if "text/html" in response.headers.get("content-type", "").lower():
+        raise RuntimeError("Source URL returned HTML instead of media.")
+    with destination.open("wb") as handle:
+        for chunk in response.iter_content(chunk_size=1024 * 1024):
+            if chunk:
+                handle.write(chunk)
     if not destination.exists() or destination.stat().st_size < 10000:
         raise RuntimeError("Downloaded footage is unexpectedly small.")
 
 
 def render(source, audio, output, work):
+    # Keep the entire source video visible. No center crop and no forced portrait conversion.
     normalized = work / "normalized-source.mp4"
-    run(["ffmpeg", "-y", "-i", str(source), "-t", "55", "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30", "-an", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", str(normalized)])
+    run(["ffmpeg", "-y", "-i", str(source), "-t", "55", "-vf", "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30", "-an", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", str(normalized)])
     run(["ffmpeg", "-y", "-stream_loop", "-1", "-i", str(normalized), "-i", str(audio), "-map", "0:v:0", "-map", "1:a:0", "-t", "60", "-r", "30", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-shortest", str(output)])
 
 
+def record_used(item, script, output):
+    history = load_history()
+    history.setdefault("used", []).append({"catalog_item_id": item.get("id"), "source_key": source_key(item), "source_url": item.get("source_url"), "video_title": script.get("video_title"), "output": str(output), "used_at": int(time.time())})
+    save_history(history)
+
+
 def main():
-    try:
-        items = load_items()
-    except RuntimeError as exc:
-        if os.getenv("MYSTERY_FOOTAGE_SKIP_IF_NO_ELIGIBLE", "false").lower() in TRUE_VALUES and "No eligible" in str(exc):
-            print(f"MYSTERY_FOOTAGE_SKIPPED={exc}")
-            return
-        raise
+    items = load_items()
     if not items:
-        message = "No eligible curated found-footage case is available."
+        message = "No unused eligible curated found-footage case is available."
         if os.getenv("MYSTERY_FOOTAGE_SKIP_IF_NO_ELIGIBLE", "false").lower() in TRUE_VALUES:
             print(f"MYSTERY_FOOTAGE_SKIPPED={message}")
             return
         raise RuntimeError(message)
-
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     last_error = None
     for index, item in enumerate(items, start=1):
@@ -182,6 +180,7 @@ def main():
             description = f"{script['description_intro']}\n\nCase: {item['title']}\nSource footage: {item['source_url']}\n\nThis video adds original narration and editing."
             metadata = {"video_title": script["video_title"], "catalog_item_id": item["id"], "source_url": item["source_url"], "description": description, "gemini_model": MODEL_NAME, "generated_at": int(time.time())}
             (OUTPUT_DIR / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
+            record_used(item, script, output)
             if os.getenv("MYSTERY_FOOTAGE_AUTO_UPLOAD", "false").lower() in TRUE_VALUES:
                 from upload_youtube import upload_video
                 config = {"upload": {"privacy_status": os.getenv("MYSTERY_FOOTAGE_PRIVACY_STATUS", "private"), "category_id": "24"}, "seo": {"hashtags": script["tags"]}}

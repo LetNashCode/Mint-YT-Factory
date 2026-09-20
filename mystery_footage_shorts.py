@@ -1,4 +1,4 @@
-"""Create a narrated mystery video while preserving the complete source frame."""
+"""Create a narrated mystery video with one-word captions."""
 from __future__ import annotations
 
 import json
@@ -66,8 +66,7 @@ def source_key(item):
 def load_items():
     data = json.loads(CATALOG.read_text(encoding="utf-8"))
     require_screening = os.getenv("MYSTERY_FOOTAGE_REQUIRE_STORY_SCREEN", "true").lower() in TRUE_VALUES
-    history = load_history()
-    used = {str(x.get("source_key")) for x in history.get("used", []) if isinstance(x, dict)}
+    used = {str(x.get("source_key")) for x in load_history().get("used", []) if isinstance(x, dict)}
     eligible = []
     for item in data.get("items", []):
         if not item.get("video_url") or not item.get("source_url") or "REPLACE_ME" in json.dumps(item):
@@ -80,9 +79,7 @@ def load_items():
             continue
         eligible.append(item)
     requested = os.getenv("MYSTERY_FOOTAGE_ITEM_ID", "").strip()
-    if requested:
-        eligible = [x for x in eligible if x.get("id") == requested]
-    return eligible
+    return [x for x in eligible if not requested or x.get("id") == requested]
 
 
 def parse_json(text):
@@ -142,11 +139,34 @@ def download(item, destination):
         raise RuntimeError("Downloaded footage is unexpectedly small.")
 
 
-def render(source, audio, output, work):
-    # Keep the entire source video visible. No center crop and no forced portrait conversion.
+def _srt_time(seconds):
+    millis = max(0, int(seconds * 1000))
+    hours, millis = divmod(millis, 3600000)
+    minutes, millis = divmod(millis, 60000)
+    secs, millis = divmod(millis, 1000)
+    return f"{hours:02d}:{minutes:02d}:{secs:02d},{millis:03d}"
+
+
+def write_one_word_srt(narration, path, duration=60.0):
+    words = re.findall(r"[A-Za-z0-9][A-Za-z0-9'’-]*", narration)
+    if not words:
+        raise RuntimeError("Cannot create captions from empty narration.")
+    slot = min(0.72, max(0.28, duration / len(words)))
+    lines = []
+    for index, word in enumerate(words):
+        start = index * slot
+        end = min(duration, (index + 1) * slot)
+        lines.append(f"{index + 1}\n{_srt_time(start)} --> {_srt_time(end)}\n{word.upper()}\n")
+    path.write_text("\n".join(lines), encoding="utf-8")
+
+
+def render(source, audio, output, work, narration):
     normalized = work / "normalized-source.mp4"
+    captions = work / "captions.srt"
+    write_one_word_srt(narration, captions, duration=60.0)
     run(["ffmpeg", "-y", "-i", str(source), "-t", "55", "-vf", "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30", "-an", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", str(normalized)])
-    run(["ffmpeg", "-y", "-stream_loop", "-1", "-i", str(normalized), "-i", str(audio), "-map", "0:v:0", "-map", "1:a:0", "-t", "60", "-r", "30", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-shortest", str(output)])
+    subtitle_filter = f"subtitles={str(captions).replace(':', '\\:')} :force_style='FontName=Arial,FontSize=18,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BorderStyle=1,Outline=3,Shadow=1,Alignment=2,MarginV=110'".replace("} :", "}:")
+    run(["ffmpeg", "-y", "-stream_loop", "-1", "-i", str(normalized), "-i", str(audio), "-map", "0:v:0", "-map", "1:a:0", "-vf", subtitle_filter, "-t", "60", "-r", "30", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-shortest", str(output)])
 
 
 def record_used(item, script, output):
@@ -176,7 +196,7 @@ def main():
                 audio = work / "narration.mp3"
                 synthesize_narration(clean(script["narration"]), {"voice": {"provider": "kokoro", "voice_name": os.getenv("MINT_KOKORO_VOICE", "af_heart"), "kokoro_lang": os.getenv("MINT_KOKORO_LANG", "a"), "speed": 1.0}}, str(audio), target_duration=50.0)
                 output = OUTPUT_DIR / "mystery-footage-short.mp4"
-                render(source, audio, output, work)
+                render(source, audio, output, work, script["narration"])
             description = f"{script['description_intro']}\n\nCase: {item['title']}\nSource footage: {item['source_url']}\n\nThis video adds original narration and editing."
             metadata = {"video_title": script["video_title"], "catalog_item_id": item["id"], "source_url": item["source_url"], "description": description, "gemini_model": MODEL_NAME, "generated_at": int(time.time())}
             (OUTPUT_DIR / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")

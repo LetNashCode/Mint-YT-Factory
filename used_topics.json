@@ -372,5 +372,7 @@
   "Why does a spoon feel colder",
   "__MINT_ANALYTICS__::{\"video_id\":\"Lk9PwfWHZmQ\",\"topic\":\"Why does soap get slippery\",\"title\":\"Why Soap Gets Slippery\",\"workdir\":\"output/1789923516\",\"published_at\":\"2026-09-20T17:11:17.973858+00:00\",\"topic_category\":\"Science & Education\",\"hook_type\":\"hook\",\"story_structure\":\"7_scene_entertainment\",\"visual_style\":\"cinematic macro photography\",\"music_type\":\"quirky upbeat acoustic pizzicato\",\"voice\":\"playful and curious\",\"engagement_experiment\":\"prediction\",\"audio_duration_seconds\":39.86,\"words_per_second\":2.835,\"creative_strategy\":\"adjacent\",\"creative_experiment_id\":\"creative_v3_adjacent_cycle9_slot9\",\"creative_selected_pattern\":\"hook_type:curiosity_claim_hook + payoff_position:mid\"}",
   "Why does soap get slippery",
-  "__MINT_PENDING_NEXT_TOPIC__::Why wet fingers wrinkle in water"
+  "__MINT_ANALYTICS__::{\"video_id\":\"0XJL8KBfy1A\",\"topic\":\"Why wet fingers wrinkle in water\",\"title\":\"Why Your Fingers Wrinkle in Water\",\"workdir\":\"output/1789937358\",\"published_at\":\"2026-09-20T21:13:31.284369+00:00\",\"topic_category\":\"Education\",\"hook_type\":\"hook\",\"story_structure\":\"7_scene_entertainment\",\"visual_style\":\"cinematic macro photography\",\"music_type\":\"quirky acoustic upbeat indie mystery\",\"voice\":\"playful\",\"engagement_experiment\":\"prediction\",\"audio_duration_seconds\":40.96,\"words_per_second\":2.637,\"creative_strategy\":\"wild\",\"creative_experiment_id\":\"creative_v3_wild_cycle9_slot10\",\"creative_selected_pattern\":\"\"}",
+  "Why wet fingers wrinkle in water",
+  "__MINT_PENDING_NEXT_TOPIC__::Why do sponges hold water"
 ]

@@ -11,9 +11,9 @@ def main():
     p=argparse.ArgumentParser(); p.add_argument('--input',required=True); p.add_argument('--output',required=True); p.add_argument('--keywords',required=True); a=p.parse_args()
     source=Path(a.input); output=Path(a.output); wav=output.with_suffix('.wav'); ass=output.with_suffix('.ass')
     subprocess.run(['ffmpeg','-y','-i',str(source),'-vn','-ac','1','-ar','16000',str(wav)],check=True)
-    words=set()
-    for item in json.loads(Path(a.keywords).read_text(encoding='utf-8')):
-        words.add(re.sub(r'[^a-z0-9]+','',str(item).lower()))
+    data=json.loads(Path(a.keywords).read_text(encoding='utf-8'))
+    keyword_list=data.get('highlighted_keywords',[]) if isinstance(data,dict) else data
+    words={re.sub(r'[^a-z0-9]+','',str(item).lower()) for item in keyword_list}
     result=whisper.load_model('base.en').transcribe(str(wav),language='en',word_timestamps=True,fp16=False,verbose=False)
     events=[]
     for seg in result.get('segments',[]):

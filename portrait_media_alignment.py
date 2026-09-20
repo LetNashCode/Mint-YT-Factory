@@ -1,15 +1,15 @@
-"""Full-frame portrait alignment for Story Shorts source videos.
+"""Full-frame portrait alignment for video media.
 
-Landscape archive/stock videos are contained inside the 9:16 canvas instead of
-being center-cropped. Video motion effects are disabled for contained videos so
-important subjects remain fully visible.
+All source videos are scaled to cover the complete 9:16 canvas and centrally
+cropped. This prevents landscape footage from appearing as a small contained
+rectangle with black bars inside a Short.
 """
 from __future__ import annotations
 
 import math
 import os
 
-from moviepy.editor import VideoFileClip, ColorClip, CompositeVideoClip, concatenate_videoclips
+from moviepy.editor import VideoFileClip, concatenate_videoclips
 
 
 VIDEO_EXTENSIONS = {".mp4", ".mov", ".m4v", ".webm", ".avi", ".mkv"}
@@ -20,7 +20,7 @@ def _is_video(path):
 
 
 def install(assemble_module):
-    """Patch the live assembly module once."""
+    """Patch the live assembly module once with full-frame video cropping."""
     if getattr(assemble_module, "_mint_portrait_alignment", False):
         return
 
@@ -45,20 +45,23 @@ def install(assemble_module):
         else:
             clip = clip.subclip(0, min(duration, original_duration))
 
-        # Contain the entire source frame. Never crop the person or the edges.
-        scale = min(width / float(clip.w), height / float(clip.h))
-        contained = clip.resize(scale)
-        background = ColorClip(size=(width, height), color=(0, 0, 0)).set_duration(duration)
-        aligned = CompositeVideoClip(
-            [background, contained.set_position(("center", "center"))],
-            size=(width, height),
+        # Cover the complete portrait frame; never add a black background.
+        scale = max(width / float(clip.w), height / float(clip.h))
+        covered = clip.resize(scale)
+        crop_x = max(0, int((covered.w - width) / 2))
+        crop_y = max(0, int((covered.h - height) / 2))
+        aligned = covered.crop(
+            x1=crop_x,
+            y1=crop_y,
+            x2=crop_x + width,
+            y2=crop_y + height,
         ).set_duration(duration)
-        print(f"   🎞️ VIDEO CONTAIN: {os.path.basename(media_path)} | full frame preserved")
+        print(f"   🎞️ VIDEO COVER-CROP: {os.path.basename(media_path)} | full 9:16 frame")
         return aligned
 
     def build_animated_image(media_path, duration, frame_size, scene, visual):
-        # Contained videos must not receive zoom/pan/rotation transforms, since
-        # those transforms can crop the subject after it has been aligned.
+        # Keep video framing stable after the cover crop. The crop itself fills
+        # the complete portrait canvas, so no containment layer can introduce bars.
         if _is_video(media_path):
             return make_visual_clip(media_path, frame_size, duration).set_position("center")
         return original_build_animated_image(media_path, duration, frame_size, scene, visual)
@@ -66,4 +69,4 @@ def install(assemble_module):
     assemble_module.make_visual_clip = make_visual_clip
     assemble_module.build_animated_image = build_animated_image
     assemble_module._mint_portrait_alignment = True
-    print("🛡️ Portrait video alignment: ACTIVE | contain/full-frame/no-crop mode")
+    print("🛡️ Portrait video alignment: ACTIVE | cover-crop/full-frame mode")

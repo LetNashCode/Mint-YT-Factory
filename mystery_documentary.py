@@ -1,10 +1,8 @@
-"""Build a full-length, source-footage-only mystery documentary.
+"""Build a full-length, landscape mystery documentary from approved source footage.
 
-The source clip remains the visual backbone: it is shown once in order, with
-its original audio retained. Gemini creates a detailed narration plan from
-sampled frames and supplied case research. The renderer extends the final
-frame only when narration runs beyond the source duration; it never inserts
-outside visuals.
+The selected source clip is the only visual source. The complete clip is shown in
+sequence; narration explains what is visible, while the source audio is retained
+at a low background level so it cannot compete with narration.
 """
 from __future__ import annotations
 
@@ -26,6 +24,7 @@ ROOT = Path(__file__).resolve().parent
 CATALOG = ROOT / "mystery_footage_catalog.json"
 OUT = ROOT / os.getenv("MYSTERY_DOCUMENTARY_OUTPUT_DIR", "artifacts/mystery-documentary")
 TRUE = {"1", "true", "yes"}
+MIN_SOURCE_SECONDS = float(os.getenv("MYSTERY_FOOTAGE_MIN_SOURCE_SECONDS", "90"))
 
 
 def run(args):
@@ -33,9 +32,15 @@ def run(args):
     subprocess.run([str(x) for x in args], check=True)
 
 
-def duration(path):
-    result = subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=nw=1:nk=1", str(path)], text=True)
-    return float(result.strip())
+def probe(path):
+    result = subprocess.check_output([
+        "ffprobe", "-v", "error", "-show_entries", "format=duration:stream=width,height,codec_type",
+        "-of", "json", str(path)
+    ], text=True)
+    data = json.loads(result)
+    duration_value = float((data.get("format") or {}).get("duration") or 0)
+    video = next((s for s in data.get("streams", []) if s.get("codec_type") == "video"), {})
+    return duration_value, int(video.get("width") or 0), int(video.get("height") or 0)
 
 
 def parse_json(text):
@@ -73,7 +78,7 @@ def make_script(item, source, work):
     images = frames(source, work)
     facts = "\n".join(f"- {x}" for x in item.get("verified_facts", []))
     theories = "\n".join(f"- {x}" for x in item.get("theories_or_open_questions", []))
-    prompt = f"""Create a detailed, entertaining full-length mystery documentary narration based ONLY on the supplied source footage and the case information below. Do not invent details. The documentary must explain the footage in sequence, explicitly describe what viewers are seeing, identify quiet or uneventful sections, and propose multiple clearly labeled theories while separating confirmed facts, visible observations, reported claims, and speculation. Use this structure: cold open, orientation, chronological walkthrough of the complete footage, pauses/replays to explain important moments, context and timeline, audio/visual clues, theories with evidence for and against, limitations, and conclusion. There is no word or duration limit; write as much as necessary for a complete explanation. Return JSON with: video_title, narration, description_intro, tags, highlighted_keywords. highlighted_keywords must be a list of important words or short phrases for caption emphasis.
+    prompt = f"""Create a detailed, entertaining full-length mystery documentary narration based ONLY on the supplied source footage and the case information below. Do not invent details and do not create a new story from the existence of the video. The selected footage is the subject of the documentary. Explain the footage in its actual sequence, explicitly describe what viewers are seeing, identify quiet or uneventful sections, and propose multiple clearly labeled theories while separating confirmed facts, visible observations, reported claims, and speculation. Use this structure: cold open, orientation, chronological walkthrough of the complete footage, pauses/replays to explain important moments, context and timeline, audio/visual clues, theories with evidence for and against, limitations, and conclusion. There is no word or duration limit; write as much as necessary for a complete explanation. Return JSON with: video_title, narration, description_intro, tags, highlighted_keywords. highlighted_keywords must be a list of important words or short phrases for caption emphasis.
 CASE TITLE: {item.get('title')}
 CASE SUMMARY: {item.get('case_summary')}
 FOOTAGE DESCRIPTION: {item.get('footage_description')}
@@ -90,16 +95,16 @@ OPEN QUESTIONS/THEORIES:\n{theories}"""
 
 
 def render(source, narration_audio, output, work):
-    source_duration = duration(source)
-    narration_duration = duration(narration_audio)
+    source_duration, _, _ = probe(source)
+    narration_duration, _, _ = probe(narration_audio)
     total = max(source_duration, narration_duration)
     prepared = work / "prepared-source.mp4"
-    # Preserve the entire source in order. If narration is longer, hold the
-    # final frame rather than inserting unrelated visuals or looping footage.
-    run(["ffmpeg", "-y", "-i", source, "-vf", "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30,tpad=stop_mode=clone:stop_duration=" + str(max(0, total - source_duration)), "-an", "-t", str(total), "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", prepared])
-    # Keep original audio audible while narration plays. The original track is
-    # gently reduced rather than removed; narration is mixed over it.
-    run(["ffmpeg", "-y", "-i", prepared, "-i", source, "-i", narration_audio, "-filter_complex", "[1:a]volume=0.38[original];[2:a]volume=1.0[voice];[original][voice]amix=inputs=2:duration=longest:dropout_transition=2[a]", "-map", "0:v:0", "-map", "[a]", "-t", str(total), "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest", output])
+    # Force a true 16:9 landscape canvas. Crop to fill instead of padding a
+    # portrait source into a portrait-looking frame with side bars.
+    run(["ffmpeg", "-y", "-i", source, "-vf", "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1,fps=30,tpad=stop_mode=clone:stop_duration=" + str(max(0, total - source_duration)), "-an", "-t", str(total), "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", prepared])
+    # The original audio is retained but heavily ducked. This prevents source
+    # speech/noise from competing with the single generated narration track.
+    run(["ffmpeg", "-y", "-i", prepared, "-i", source, "-i", narration_audio, "-filter_complex", "[1:a]volume=0.08[original];[2:a]volume=1.0[voice];[original][voice]amix=inputs=2:duration=longest:dropout_transition=2[a]", "-map", "0:v:0", "-map", "[a]", "-t", str(total), "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", output])
 
 
 def main():
@@ -119,18 +124,22 @@ def main():
         work = Path(temp)
         source = work / "source.mp4"
         download(item, source)
+        source_duration, source_width, source_height = probe(source)
+        if source_duration < MIN_SOURCE_SECONDS:
+            raise RuntimeError(f"Rejected short-form source footage: {source_duration:.1f}s; minimum is {MIN_SOURCE_SECONDS:.1f}s")
+        if source_width and source_height and source_height > source_width:
+            raise RuntimeError(f"Rejected portrait source footage: {source_width}x{source_height}; Mystery Documentary requires landscape source footage")
         script = make_script(item, source, work)
         narration_audio = work / "narration.mp3"
         synthesize_narration(script["narration"], {"voice": {"provider": "kokoro", "voice_name": os.getenv("MINT_KOKORO_VOICE", "am_michael"), "kokoro_lang": os.getenv("MINT_KOKORO_LANG", "a"), "speed": 1.0}}, str(narration_audio))
         output = OUT / "mystery-documentary.mp4"
         render(source, narration_audio, output, work)
     metadata = {"video_title": script["video_title"], "description": script["description_intro"] + "\n\nCase: " + item["title"] + "\nSource footage: " + item["source_url"], "tags": script["tags"], "highlighted_keywords": script.get("highlighted_keywords", []), "catalog_item_id": item["id"], "source_url": item["source_url"], "generated_at": int(time.time())}
-    (OUT / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
     if os.getenv("MYSTERY_FOOTAGE_AUTO_UPLOAD", "false").lower() in TRUE:
         from upload_youtube import upload_video
         config = {"upload": {"privacy_status": os.getenv("MYSTERY_FOOTAGE_PRIVACY_STATUS", "private"), "category_id": "24"}, "seo": {"hashtags": script["tags"]}}
         metadata["youtube_video_id"] = upload_video(str(output), script["video_title"][:90], metadata["description"], config)
-        (OUT / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
+    (OUT / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"MYSTERY_DOCUMENTARY_OUTPUT={output}")
 
 

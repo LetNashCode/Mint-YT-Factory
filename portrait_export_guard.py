@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 import subprocess
 from pathlib import Path
 
@@ -23,12 +24,50 @@ def _probe(path: Path) -> dict:
     return streams[0]
 
 
-def ensure_portrait_export(path: str | Path) -> Path:
-    """Export a video as 2160x3840 portrait without cropping the main content.
+def _detect_embedded_black_bars(source: Path) -> tuple[int, int, int, int] | None:
+    """Detect letterbox/pillarbox borders in the source using FFmpeg cropdetect.
 
-    The original frame is fitted inside a 9:16 canvas and centered. A blurred,
-    enlarged copy of the source fills the remaining canvas area, so landscape
-    footage remains fully visible without black bars or distorted subjects.
+    A conservative threshold is used and the detected crop is accepted only when
+    it removes a meaningful border while leaving a valid frame.
+    """
+    command = [
+        "ffmpeg", "-hide_banner", "-ss", "0", "-i", str(source),
+        "-t", "8", "-vf", ""cropdetect=24:16:0"", "-an", "-f", "null", "-",
+    ]
+    result = subprocess.run(command, capture_output=True, text=True)
+    text = (result.stderr or "") + (result.stdout or "")
+    matches = re.findall(r"crop=(\d+):(\d+):(\d+):(\d+)", text)
+    if not matches:
+        return None
+
+    # Use the most frequently reported crop to avoid reacting to one noisy frame.
+    counts: dict[str, int] = {}
+    for match in matches:
+        key = ":".join(match)
+        counts[key] = counts.get(key, 0) + 1
+    width, height, x, y = map(int, max(counts, key=counts.get).split(":"))
+    original = _probe(source)
+    source_width = int(original.get("width") or 0)
+    source_height = int(original.get("height") or 0)
+    if not source_width or not source_height:
+        return None
+
+    removed_fraction = 1.0 - ((width * height) / float(source_width * source_height))
+    # Only accept a crop when it removes a small-to-moderate border area. This
+    # avoids accidentally cutting genuine scene content.
+    if width <= 0 or height <= 0 or removed_fraction < 0.01 or removed_fraction > 0.30:
+        return None
+    if x + width > source_width or y + height > source_height:
+        return None
+    return width, height, x, y
+
+
+def ensure_portrait_export(path: str | Path) -> Path:
+    """Export a video as 2160x3840 portrait without black borders.
+
+    Embedded letterbox/pillarbox bars are detected and cropped first. The cleaned
+    source is then used for both a blurred full-canvas background and a centered
+    foreground, so landscape footage fills the 9:16 canvas without black areas.
     """
     source = Path(path)
     if not source.is_file():
@@ -40,11 +79,21 @@ def ensure_portrait_export(path: str | Path) -> Path:
     if width <= 0 or height <= 0:
         raise RuntimeError(f"Invalid video dimensions: {width}x{height}")
 
+    crop = _detect_embedded_black_bars(source)
+    crop_filter = ""
+    if crop:
+        crop_w, crop_h, crop_x, crop_y = crop
+        crop_filter = f"crop={crop_w}:{crop_h}:{crop_x}:{crop_y},"
+        print(f"🧹 Removing embedded black borders with crop={crop_w}:{crop_h}:{crop_x}:{crop_y}")
+    else:
+        print("ℹ️ No reliable embedded black-border crop detected; preserving source frame.")
+
     temp = source.with_name(source.stem + ".portrait.tmp.mp4")
     filter_complex = (
-        f"[0:v]scale={TARGET_WIDTH}:{TARGET_HEIGHT}:force_original_aspect_ratio=increase,"
+        f"[0:v]{crop_filter}split=2[bgsrc][fgsrc];"
+        f"[bgsrc]scale={TARGET_WIDTH}:{TARGET_HEIGHT}:force_original_aspect_ratio=increase,"
         f"crop={TARGET_WIDTH}:{TARGET_HEIGHT},boxblur=30:10[background];"
-        f"[0:v]scale={TARGET_WIDTH}:{TARGET_HEIGHT}:force_original_aspect_ratio=decrease,"
+        f"[fgsrc]scale={TARGET_WIDTH}:{TARGET_HEIGHT}:force_original_aspect_ratio=decrease,"
         f"setsar=1[foreground];"
         f"[background][foreground]overlay=(W-w)/2:(H-h)/2,setsar=1[v]"
     )

@@ -89,10 +89,11 @@ jobs:
           test -f stock_search.py
           test -f stock_media_resilient.py
           test -f youtube_auth_preflight.py
-          python -m py_compile main.py production_entry.py production_entry_runner.py stock_search.py stock_media_resilient.py tts.py tts_content_guard.py social_publish.py runtime_overrides.py youtube_auth_preflight.py
+          test -f portrait_export_guard.py
+          python -m py_compile main.py production_entry.py production_entry_runner.py stock_search.py stock_media_resilient.py tts.py tts_content_guard.py social_publish.py runtime_overrides.py youtube_auth_preflight.py portrait_export_guard.py
           python - <<'PY'
-          import stock_media_resilient, tts_content_guard, youtube_auth_preflight
-          print("Stock media + TTS content guard + YouTube auth preflight imports OK")
+          import stock_media_resilient, tts_content_guard, youtube_auth_preflight, portrait_export_guard
+          print("Stock media + TTS content guard + YouTube auth preflight + portrait guard imports OK")
           PY
       - name: Restore previous failed Publish Shorts video
         shell: bash
@@ -154,13 +155,10 @@ jobs:
                     echo "🔍 Validating restored candidate master before copying it into output/"
                     if python - "$final_file" <<'PY'
           import json, subprocess, sys
-          from pathlib import Path
-          video=Path(sys.argv[1])
-          try:
-              probe=subprocess.run(["ffprobe","-v","error","-select_streams","v:0","-show_entries","stream=width,height,r_frame_rate,codec_name,pix_fmt,bit_rate","-of","json",str(video)],check=True,capture_output=True,text=True)
-              stream=(json.loads(probe.stdout).get("streams") or [])[0]
-              bitrate=float(stream.get("bit_rate") or 0); width=int(stream.get("width") or 0); height=int(stream.get("height") or 0); fps=float(eval(str(stream.get("r_frame_rate") or "0/1"))); codec=str(stream.get("codec_name") or ""); pix_fmt=str(stream.get("pix_fmt") or "")
-          except Exception as exc: print(f"⏭️ Resume candidate validation failed: {exc}"); raise SystemExit(1)
+          video=sys.argv[1]
+          probe=subprocess.run(["ffprobe","-v","error","-select_streams","v:0","-show_entries","stream=width,height,r_frame_rate,codec_name,pix_fmt,bit_rate","-of","json",video],check=True,capture_output=True,text=True)
+          stream=(json.loads(probe.stdout).get("streams") or [])[0]
+          bitrate=float(stream.get("bit_rate") or 0); width=int(stream.get("width") or 0); height=int(stream.get("height") or 0); fps=float(eval(str(stream.get("r_frame_rate") or "0/1"))); codec=str(stream.get("codec_name") or ""); pix_fmt=str(stream.get("pix_fmt") or "")
           bitrate_mbps=bitrate/1_000_000.0
           print(f"Resume candidate: {width}x{height} {fps:.3f}fps {codec}/{pix_fmt} {bitrate_mbps:.2f} Mbps")
           if width!=2160 or height!=3840 or abs(fps-60.0)>0.05 or codec!="h264" or pix_fmt!="yuv420p" or bitrate_mbps<80.0: raise SystemExit(1)
@@ -217,6 +215,18 @@ jobs:
           date
           python --version
           python -u production_entry_runner.py
+      - name: Enforce final portrait video
+        shell: bash
+        run: |
+          set -euo pipefail
+          final_file="$(find output -type f -name final.mp4 -print -quit || true)"
+          test -n "$final_file"
+          python -u - "$final_file" <<'PY'
+          import sys
+          from portrait_export_guard import ensure_portrait_export
+          result = ensure_portrait_export(sys.argv[1])
+          print(f"✅ Mandatory portrait export verified: {result}")
+          PY
       - name: Commit used topics and media safely
         if: always()
         shell: bash

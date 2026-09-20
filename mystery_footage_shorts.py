@@ -1,4 +1,4 @@
-"""Create a narrated found-footage mystery Short from a curated case catalog."""
+"""Create a narrated found-footage mystery Short from a screened catalog."""
 from __future__ import annotations
 
 import json
@@ -33,24 +33,18 @@ def run(command):
 
 
 def normalize_demo_case(item):
-    """Repair older auto-discovery records without inventing case facts."""
     if not str(item.get("id", "")).startswith("youtube-"):
         return item
-    if not item.get("footage_description"):
-        item["footage_description"] = "Downloaded source footage; the video frames must be inspected before narration is written."
+    item.setdefault("footage_description", "Downloaded source footage; inspect the video before narration is written.")
     if not isinstance(item.get("verified_facts"), list) or not item["verified_facts"]:
-        item["verified_facts"] = ["This is an automatically discovered, unverified demo candidate."]
+        item["verified_facts"] = ["This is an automatically discovered demo candidate."]
     if not isinstance(item.get("theories_or_open_questions"), list):
         item["theories_or_open_questions"] = []
     return item
 
 
 def validate_case(item):
-    missing = [
-        field
-        for field in REQUIRED_CASE_FIELDS
-        if field not in item or item[field] is None or (not isinstance(item[field], list) and not item[field])
-    ]
+    missing = [field for field in REQUIRED_CASE_FIELDS if field not in item or item[field] is None or (not isinstance(item[field], list) and not item[field])]
     if missing:
         raise RuntimeError(f"Catalog case {item.get('id', '<unknown>')} is missing required fields: {', '.join(missing)}")
     if "REPLACE_ME" in json.dumps(item):
@@ -61,7 +55,7 @@ def validate_case(item):
         raise RuntimeError(f"Catalog case {item['id']} must contain theories_or_open_questions.")
 
 
-def load_item():
+def load_items():
     data = json.loads(CATALOG.read_text(encoding="utf-8"))
     require_screening = os.getenv("MYSTERY_FOOTAGE_REQUIRE_STORY_SCREEN", "true").lower() in TRUE_VALUES
     eligible = []
@@ -75,13 +69,10 @@ def load_item():
         eligible.append(item)
     requested = os.getenv("MYSTERY_FOOTAGE_ITEM_ID", "").strip()
     if requested:
-        for item in eligible:
-            if item.get("id") == requested:
-                return item
-        raise RuntimeError(f"No eligible curated case matches MYSTERY_FOOTAGE_ITEM_ID={requested!r}.")
-    if eligible:
-        return eligible[0]
-    raise RuntimeError("No eligible curated found-footage case is available. Automatic discovery may have found a candidate, but it is blocked until it passes footage screening and has usable downloadable footage.")
+        eligible = [item for item in eligible if item.get("id") == requested]
+        if not eligible:
+            raise RuntimeError(f"No eligible curated case matches MYSTERY_FOOTAGE_ITEM_ID={requested!r}.")
+    return eligible
 
 
 def parse_json(text):
@@ -123,36 +114,33 @@ def generate_script(item, source, work):
 
 
 def download(item, destination):
-    source_url = item.get("direct_download_url") or item["video_url"]
+    source_url = item.get("direct_download_url") or item.get("video_url")
+    if not source_url:
+        raise RuntimeError("Candidate has no downloadable source URL.")
     host = urlparse(source_url).netloc.lower().split(":", 1)[0]
     if host in {"youtube.com", "www.youtube.com", "m.youtube.com", "youtu.be", "www.youtu.be"}:
         from yt_dlp import YoutubeDL
-
-        download_dir = destination.parent
-        template = str(download_dir / "youtube-source.%(ext)s")
-        options = {
-            "format": "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/b",
-            "outtmpl": template,
-            "merge_output_format": "mp4",
-            "noplaylist": True,
-            "restrictfilenames": True,
-            "remote_components": ["ejs:github"],
-        }
+        template = str(destination.parent / "youtube-source.%(ext)s")
+        options = {"format": "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/b", "outtmpl": template, "merge_output_format": "mp4", "noplaylist": True, "restrictfilenames": True, "remote_components": ["ejs:github"], "retries": 2}
         with YoutubeDL(options) as downloader:
             downloader.download([source_url])
-        candidates = sorted(download_dir.glob("youtube-source.*"))
+        candidates = sorted(destination.parent.glob("youtube-source.*"))
         if not candidates:
-            raise RuntimeError("yt-dlp did not produce a downloadable YouTube video.")
+            raise RuntimeError("yt-dlp did not produce a downloadable video.")
         selected = next((path for path in candidates if path.suffix.lower() == ".mp4"), candidates[0])
         selected.replace(destination)
     else:
-        response = requests.get(source_url, timeout=120, stream=True)
+        headers = {"User-Agent": "Mozilla/5.0"}
+        response = requests.get(source_url, headers=headers, timeout=120, stream=True)
         response.raise_for_status()
+        content_type = response.headers.get("content-type", "").lower()
+        if "text/html" in content_type:
+            raise RuntimeError("Source URL returned an HTML page instead of a media file.")
         with destination.open("wb") as handle:
             for chunk in response.iter_content(chunk_size=1024 * 1024):
                 if chunk:
                     handle.write(chunk)
-    if destination.stat().st_size < 10000:
+    if not destination.exists() or destination.stat().st_size < 10000:
         raise RuntimeError("Downloaded footage is unexpectedly small.")
 
 
@@ -164,31 +152,48 @@ def render(source, audio, output, work):
 
 def main():
     try:
-        item = load_item()
+        items = load_items()
     except RuntimeError as exc:
-        if os.getenv("MYSTERY_FOOTAGE_SKIP_IF_NO_ELIGIBLE", "false").lower() in TRUE_VALUES and "No eligible curated found-footage case" in str(exc):
+        if os.getenv("MYSTERY_FOOTAGE_SKIP_IF_NO_ELIGIBLE", "false").lower() in TRUE_VALUES and "No eligible" in str(exc):
             print(f"MYSTERY_FOOTAGE_SKIPPED={exc}")
             return
         raise
+    if not items:
+        message = "No eligible curated found-footage case is available."
+        if os.getenv("MYSTERY_FOOTAGE_SKIP_IF_NO_ELIGIBLE", "false").lower() in TRUE_VALUES:
+            print(f"MYSTERY_FOOTAGE_SKIPPED={message}")
+            return
+        raise RuntimeError(message)
+
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    with tempfile.TemporaryDirectory(prefix="mystery-footage-") as temp:
-        work = Path(temp)
-        source = work / "source.mp4"
-        download(item, source)
-        script = generate_script(item, source, work)
-        audio = work / "narration.mp3"
-        synthesize_narration(clean(script["narration"]), {"voice": {"provider": "kokoro", "voice_name": os.getenv("MINT_KOKORO_VOICE", "af_heart"), "kokoro_lang": os.getenv("MINT_KOKORO_LANG", "a"), "speed": 1.0}}, str(audio), target_duration=50.0)
-        output = OUTPUT_DIR / "mystery-footage-short.mp4"
-        render(source, audio, output, work)
-    description = f"{script['description_intro']}\n\nCase: {item['title']}\nSource footage: {item['source_url']}\nLicense: {item.get('license', 'Not specified')}\nAttribution: {item.get('attribution', 'See source page for attribution requirements.')}\n\nThis video adds original narration and editing."
-    metadata = {"video_title": script["video_title"], "catalog_item_id": item["id"], "source_url": item["source_url"], "license": item.get("license"), "description": description, "gemini_model": MODEL_NAME, "generated_at": int(time.time())}
-    (OUTPUT_DIR / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
-    if os.getenv("MYSTERY_FOOTAGE_AUTO_UPLOAD", "false").lower() in TRUE_VALUES:
-        from upload_youtube import upload_video
-        config = {"upload": {"privacy_status": os.getenv("MYSTERY_FOOTAGE_PRIVACY_STATUS", "private"), "category_id": "24"}, "seo": {"hashtags": script["tags"]}}
-        metadata["youtube_video_id"] = upload_video(str(output), clean(script["video_title"], 90), description, config, engagement_comment="What detail in this footage stands out to you?")
-        (OUTPUT_DIR / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"MYSTERY_FOOTAGE_OUTPUT={output}")
+    last_error = None
+    for index, item in enumerate(items, start=1):
+        print(f"Trying mystery footage candidate {index}/{len(items)}: {item.get('id')}")
+        try:
+            with tempfile.TemporaryDirectory(prefix="mystery-footage-") as temp:
+                work = Path(temp)
+                source = work / "source.mp4"
+                download(item, source)
+                script = generate_script(item, source, work)
+                audio = work / "narration.mp3"
+                synthesize_narration(clean(script["narration"]), {"voice": {"provider": "kokoro", "voice_name": os.getenv("MINT_KOKORO_VOICE", "af_heart"), "kokoro_lang": os.getenv("MINT_KOKORO_LANG", "a"), "speed": 1.0}}, str(audio), target_duration=50.0)
+                output = OUTPUT_DIR / "mystery-footage-short.mp4"
+                render(source, audio, output, work)
+            description = f"{script['description_intro']}\n\nCase: {item['title']}\nSource footage: {item['source_url']}\n\nThis video adds original narration and editing."
+            metadata = {"video_title": script["video_title"], "catalog_item_id": item["id"], "source_url": item["source_url"], "description": description, "gemini_model": MODEL_NAME, "generated_at": int(time.time())}
+            (OUTPUT_DIR / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
+            if os.getenv("MYSTERY_FOOTAGE_AUTO_UPLOAD", "false").lower() in TRUE_VALUES:
+                from upload_youtube import upload_video
+                config = {"upload": {"privacy_status": os.getenv("MYSTERY_FOOTAGE_PRIVACY_STATUS", "private"), "category_id": "24"}, "seo": {"hashtags": script["tags"]}}
+                metadata["youtube_video_id"] = upload_video(str(output), clean(script["video_title"], 90), description, config, engagement_comment="What detail in this footage stands out to you?")
+                (OUTPUT_DIR / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
+            print(f"MYSTERY_FOOTAGE_OUTPUT={output}")
+            return
+        except Exception as exc:
+            last_error = exc
+            print(f"Candidate {item.get('id')} failed: {type(exc).__name__}: {exc}")
+            print("Trying the next eligible candidate.")
+    raise RuntimeError(f"All eligible mystery footage candidates failed. Last error: {last_error}")
 
 
 if __name__ == "__main__":

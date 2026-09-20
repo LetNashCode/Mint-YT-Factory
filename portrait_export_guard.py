@@ -24,10 +24,11 @@ def _probe(path: Path) -> dict:
 
 
 def ensure_portrait_export(path: str | Path) -> Path:
-    """Normalize a video to full-frame 9:16 and reject non-portrait output.
+    """Export a video as 2160x3840 portrait without cropping the main content.
 
-    The source is scaled to fit entirely inside the portrait canvas; padding is
-    used instead of cropping, so landscape footage remains fully visible.
+    The original frame is fitted inside a 9:16 canvas and centered. A blurred,
+    enlarged copy of the source fills the remaining canvas area, so landscape
+    footage remains fully visible without black bars or distorted subjects.
     """
     source = Path(path)
     if not source.is_file():
@@ -40,15 +41,21 @@ def ensure_portrait_export(path: str | Path) -> Path:
         raise RuntimeError(f"Invalid video dimensions: {width}x{height}")
 
     temp = source.with_name(source.stem + ".portrait.tmp.mp4")
-    vf = (
-        f"scale={TARGET_WIDTH}:{TARGET_HEIGHT}:force_original_aspect_ratio=decrease:"
-        f"force_divisible_by=2,pad={TARGET_WIDTH}:{TARGET_HEIGHT}:(ow-iw)/2:(oh-ih)/2:color=black"
+    filter_complex = (
+        f"[0:v]scale={TARGET_WIDTH}:{TARGET_HEIGHT}:force_original_aspect_ratio=increase,"
+        f"crop={TARGET_WIDTH}:{TARGET_HEIGHT},boxblur=30:10[background];"
+        f"[0:v]scale={TARGET_WIDTH}:{TARGET_HEIGHT}:force_original_aspect_ratio=decrease,"
+        f"setsar=1[foreground];"
+        f"[background][foreground]overlay=(W-w)/2:(H-h)/2,setsar=1[v]"
     )
-    subprocess.run([
-        "ffmpeg", "-y", "-i", str(source), "-vf", vf,
+    command = [
+        "ffmpeg", "-y", "-i", str(source),
+        "-filter_complex", filter_complex,
+        "-map", "[v]", "-map", "0:a?",
         "-c:v", "libx264", "-pix_fmt", "yuv420p", "-r", "60",
         "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", str(temp),
-    ], check=True)
+    ]
+    subprocess.run(command, check=True)
     temp.replace(source)
 
     final_probe = _probe(source)

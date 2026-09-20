@@ -29,7 +29,7 @@ def _title(pillar,person):
     return f"{labels.get(pillar,'A Remarkable Story')}: {person}"
 def _content_words(text):
     stop={"the","a","an","and","or","but","so","to","of","in","on","at","for","with","from","was","were","is","are","this","that","it","he","she","they","his","her","their","had","have","has","as","by","not","what","when","who","how","then","just","one","more","because","after","before","into","than","very","would","could","did","do","does"}
-    return {w.lower().strip(".,!?;:'\"()[]{}") for w in re.findall(r"\b[\w'-]+\b",str(text or "")) if w.lower() not in stop and len(w)>2}
+    return {w.lower().strip(".,!?;:'\\\"()[]{}") for w in re.findall(r"\b[\w'-]+\b",str(text or "")) if w.lower() not in stop and len(w)>2}
 def _first_sentence(text):
     parts=[x.strip() for x in re.split(r"(?<=[.!?])\s+",str(text or "").strip()) if x.strip()]
     return parts[0] if parts else str(text or "").strip()
@@ -94,14 +94,14 @@ Create a self-contained story. Do not mention the previous story or tease a futu
 The viewer must hear the COMPLETE story from hook through payoff. Never omit, truncate, or compress away the final story beat just to meet a preferred duration.
 This Short MUST use a spoken loop: Scene 1 opens with a distinctive hook; Scene 7 ends with a natural sentence that echoes that hook so the restart feels like the continuation of the ending.
 The viewer should understand the emotional arc with the phone face-down.
-ALL PRODUCTION MEDIA MUST COME FROM PEXELS OR PIXABAY ONLY. Prefer an exact real-person match from those providers when available for identity moments. Supporting stock visuals must remain atmosphere/context only.
+ALL PRODUCTION MEDIA MUST COME FROM THE STORY ARCHIVAL MEDIA ADAPTER. Prefer real-person archival videos first, then archival photographs when suitable video is unavailable. Do not use generic commercial stock footage or generic stock images for identity moments.
 Use a hard hook, concrete stakes, an obstacle, a meaningful decision or turning point, escalation, and a satisfying payoff.
 Do NOT include a subscribe/follow CTA in the narration. End the spoken story on the natural loop-closing sentence.
 Do not turn the ending into a motivational lecture. Do not create or mention a next-topic teaser; this Story Shorts line is standalone.
 Do not expose the loop with words like replay, loop, watch again, or back to the beginning.
 """
     try:
-        script=_generate_story_script(topic,config,feedback); script.update({"topic":topic,"story_number":number,"story_person":person,"interactive_pillar":pillar,"story_visual_mode":"person_first_pexels_pixabay_v2"}); _validate_story_contract(script)
+        script=_generate_story_script(topic,config,feedback); script.update({"topic":topic,"story_number":number,"story_person":person,"interactive_pillar":pillar,"story_visual_mode":"person_first_archival_video_first"}); _validate_story_contract(script)
     except Exception:
         try:
             from story_topic_runtime import release_reservation
@@ -118,10 +118,8 @@ Do not expose the loop with words like replay, loop, watch again, or back to the
     media_paths=[str(item.get("path")) for item in visuals if isinstance(item,dict) and item.get("path")]
     validate_story_media(media_paths)
     if len(visuals)!=14: raise RuntimeError(f"Story visual contract requires 14 provider assets; received {len(visuals)}.")
-    non_provider=[x for x in visuals if str(x.get("provider","")).strip().lower() not in {"pexels","pixabay"}]
-    if non_provider: raise RuntimeError(f"Story media provider isolation failed: {len(non_provider)} non-Pexels/Pixabay assets returned.")
-    real_count=sum(1 for x in visuals if x.get("person_match") or x.get("person_visual")); print(f"👤 Story exact-person/provider visuals applied: {real_count}/{len(visuals)} assets flagged as person matches")
-    script["story_person_media"]={"source":"Pexels/Pixabay only","verified_assets":real_count,"target_scenes":[1,2,3,4,5,6,7]}; save(script,os.path.join(workdir,"script.json"))
+    print(f"👤 Story archival visuals applied: {len(visuals)} assets validated")
+    script["story_person_media"]={"source":"Story archival media adapter","verified_assets":len(visuals),"target_scenes":[1,2,3,4,5,6,7]}; save(script,os.path.join(workdir,"script.json"))
     sfx=generate_sfx(script,os.path.join(workdir,"sfx")); music=download_music(script,os.path.join(workdir,"music")); final=os.path.join(workdir,"final.mp4"); assemble_video(script,[audio],visuals,music,sfx,config,final)
     _assert_final_audio_contains_story(final,narration_duration); q=validate_final_video(final,expected_bitrate_mbps=100.0); save(q,os.path.join(workdir,"validation.json"))
     if not q.get("ok"): raise RuntimeError("Story final video validation failed.")

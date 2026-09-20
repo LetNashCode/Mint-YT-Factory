@@ -5,6 +5,7 @@ import runpy
 
 import story_identity_media
 import story_topic_uniqueness
+from interactive_topics import validate_story_sequence_state
 
 
 def _patch_story_portrait_export() -> None:
@@ -31,6 +32,11 @@ def _patch_story_portrait_export() -> None:
 
 
 def main() -> None:
+    # Hard-stop before topic generation, candidate-pool mutation, or person reservation.
+    # A corrupt/stale sequence state must never trigger a search for another person.
+    next_number = validate_story_sequence_state()
+    print(f"🔐 Story sequence preflight passed: next Story #{next_number}")
+
     story_topic_uniqueness.install()
     _patch_story_portrait_export()
 

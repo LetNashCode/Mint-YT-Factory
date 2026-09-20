@@ -64,16 +64,17 @@ jobs:
             --input artifacts/mystery-footage/mystery-footage-short.mp4 \
             --output artifacts/mystery-footage/mystery-footage-captioned.mp4
           mv artifacts/mystery-footage/mystery-footage-captioned.mp4 artifacts/mystery-footage/mystery-footage-short.mp4
-      - name: Commit discovery and screening results for review
+      - name: Commit discovery, screening, and video history
         run: |
-          if git diff --quiet -- mystery_footage_catalog.json; then
-            echo "No catalog changes to commit."
+          if git diff --quiet -- mystery_footage_catalog.json mystery_footage_history.json; then
+            echo "No catalog or history changes to commit."
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add mystery_footage_catalog.json
-            git commit -m "Record and screen archive mystery footage candidate"
-            git push
+            git add mystery_footage_catalog.json mystery_footage_history.json
+            git commit -m "Record archive footage and video history"
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi
       - name: Upload production artifact
         if: always()

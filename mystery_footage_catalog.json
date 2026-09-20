@@ -17,8 +17,8 @@
       "screening": {
         "eligible": false,
         "screening_status": "failed",
-        "screening_notes": "Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size:stream=width,height,codec_type', '-of', 'json', '/tmp/mystery-screen-0clhygkb/source']' returned non-zero exit status 1.",
-        "screened_at": "2026-09-20T19:10:20.827782+00:00"
+        "screening_notes": "Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size:stream=width,height,codec_type', '-of', 'json', '/tmp/mystery-screen-i2_a2k4l/source']' returned non-zero exit status 1.",
+        "screened_at": "2026-09-20T20:13:39.277645+00:00"
       }
     },
     {
@@ -46,10 +46,10 @@
         "size_bytes": 28506984,
         "hook_score": 3,
         "story_score": 2,
-        "usable_visuals": false,
+        "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The footage shows standard gameplay clips from video games featured in a Kotaku Highlight Reel compilation. It lacks a real-world factual mystery or unusual standalone event suitable for a factual mystery short.",
-        "screened_at": "2026-09-20T19:10:32.760675+00:00",
+        "screening_notes": "Contains gameplay footage from Fortnite showing a glitch or bug involving a teleporter, but lacks a compelling narrative mystery or unusual event suitable for a factual mystery short.",
+        "screened_at": "2026-09-20T20:13:50.504910+00:00",
         "eligible": false
       }
     },
@@ -75,7 +75,7 @@
         "eligible": false,
         "screening_status": "failed",
         "screening_notes": "source file exceeds screening size limit",
-        "screened_at": "2026-09-20T19:10:38.662048+00:00"
+        "screened_at": "2026-09-20T20:13:51.823910+00:00"
       }
     },
     {
@@ -137,8 +137,8 @@
         "story_score": 1,
         "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video features a person speaking directly to the camera and gesturing while claiming to channel non-physical beings. Lacks an unusual, verifiable, or fact-based mystery moment suitable for a factual mystery short.",
-        "screened_at": "2026-09-20T19:10:46.313257+00:00",
+        "screening_notes": "The footage features a person speaking directly to the camera and gesturing while claiming to channel non-physical beings. It lacks a factual mystery or an unusual moment that requires an investigative or explanatory short, serving instead as standard talking-head spiritual content.",
+        "screened_at": "2026-09-20T20:13:57.691644+00:00",
         "eligible": false
       }
     },
@@ -169,8 +169,8 @@
         "story_score": 3,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video consists entirely of a podcast interview discussing the Billy Meier UFO case with Jason McClellan. There are no unusual moments, mystery footage, or compelling visual evidence, making it unsuitable for a factual mystery Short.",
-        "screened_at": "2026-09-20T19:10:53.967563+00:00",
+        "screening_notes": "The footage consists entirely of podcast or radio interview segments featuring a speaker in front of a microphone and title graphics. It lacks the on-location documentary footage, unique primary evidence, or visually compelling moments needed for a factual mystery short.",
+        "screened_at": "2026-09-20T20:14:05.119990+00:00",
         "eligible": false
       }
     },
@@ -197,12 +197,12 @@
         "width": 480,
         "height": 360,
         "size_bytes": 40094948,
-        "hook_score": 2,
+        "hook_score": 1,
         "story_score": 1,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The footage shows a man speaking directly to the camera and gesturing while claiming to channel non-physical beings, lacking an unusual, verifiable factual mystery or tangible anomaly suitable for a factual short.",
-        "screened_at": "2026-09-20T19:10:59.718548+00:00",
+        "screening_notes": "The video features a person speaking to the camera and gesturing while claiming to channel non-physical beings from the Arcturus Star System. There is no verifiable factual mystery or unusual physical moment to investigate; it is purely internet esoteric content.",
+        "screened_at": "2026-09-20T20:14:10.967761+00:00",
         "eligible": false
       }
     },
@@ -230,11 +230,11 @@
         "height": 480,
         "size_bytes": 166937680,
         "hook_score": 3,
-        "story_score": 3,
+        "story_score": 2,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video consists of talking head commentary overlaid on a still screenshot of an email text. There is no unique historical footage or direct visual evidence shown within the frames, making it unsuitable as standalone found-footage for a short.",
-        "screened_at": "2026-09-20T19:11:14.316420+00:00",
+        "screening_notes": "The video consists of a creator talking over a screenshot of an email, lacking strong standalone visuals or a clear hook for a short-form mystery.",
+        "screened_at": "2026-09-20T20:14:21.870435+00:00",
         "eligible": false
       }
     },
@@ -265,8 +265,8 @@
         "story_score": 1,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The visuals consist entirely of generic 3D motion graphics, stock CGI (DNA strands, holographic humans, brains), and text overlays promoting conspiracy theories. There is no genuine found footage or factual mystery documentation present.",
-        "screened_at": "2026-09-20T19:11:49.021370+00:00",
+        "screening_notes": "The visuals consist entirely of generic 3D motion graphics and CGI stock footage (DNA strands, wireframe models, glowing brains) with no real archival footage, investigation, or factual mystery elements.",
+        "screened_at": "2026-09-20T20:14:31.122955+00:00",
         "eligible": false
       }
     },
@@ -293,12 +293,12 @@
         "width": 1280,
         "height": 720,
         "size_bytes": 264434944,
-        "hook_score": 3,
+        "hook_score": 2,
         "story_score": 2,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video consists entirely of a talking head in an office setting discussing philosophical concepts regarding extraterrestrial intelligence. There are no unusual moments, archival evidence, or visually dynamic elements suitable for a factual mystery Short.",
-        "screened_at": "2026-09-20T19:12:04.619957+00:00",
+        "screening_notes": "The video consists entirely of a talking head in an indoor setting discussing speculative concepts about aliens and totalitarianism. There are no unusual moments, archival footage, or verifiable factual mystery elements suitable for a Short.",
+        "screened_at": "2026-09-20T20:14:42.773928+00:00",
         "eligible": false
       }
     },
@@ -325,12 +325,12 @@
         "width": 854,
         "height": 480,
         "size_bytes": 90435560,
-        "hook_score": 1,
+        "hook_score": 2,
         "story_score": 1,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video is a studio-based talk show/podcast preview featuring hosts discussing various topics including politics and media claims. It lacks primary found-footage, archival mystery moments, or usable factual mystery visuals.",
-        "screened_at": "2026-09-20T19:12:24.729559+00:00",
+        "screening_notes": "The video consists entirely of a podcast studio talk show setup featuring hosts speaking to the camera and to each other. There is no verifiable factual mystery footage, physical evidence, or unusual objective visual moment to build a factual mystery short around.",
+        "screened_at": "2026-09-20T20:14:48.969085+00:00",
         "eligible": false
       }
     },
@@ -353,10 +353,17 @@
       "discovery_provider": "Internet Archive",
       "discovered_at": "2026-09-18T21:49:35.403723+00:00",
       "screening": {
-        "eligible": false,
-        "screening_status": "failed",
-        "screening_notes": "500 Server Error: Internal Server Error for url: https://dn720400.ca.archive.org/0/items/youtube-KhGNJ_ZU-6k/KhGNJ_ZU-6k.mp4",
-        "screened_at": "2026-09-20T19:12:33.400305+00:00"
+        "duration_seconds": 3013.68,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 291316145,
+        "hook_score": 3,
+        "story_score": 4,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video consists of historical interviews accompanied by vintage newspaper clippings and archival photos regarding a payroll murder trial in Rhodesia. While historical documents are visible, the content is specialized and lacks a broad factual mystery hook for a general audience.",
+        "screened_at": "2026-09-20T20:14:58.608871+00:00",
+        "eligible": false
       }
     },
     {
@@ -380,8 +387,8 @@
       "screening": {
         "eligible": false,
         "screening_status": "failed",
-        "screening_notes": "500 Server Error: Internal Server Error for url: https://dn710206.ca.archive.org/0/items/youtube-t2VZG5972rc/t2VZG5972rc.mp4",
-        "screened_at": "2026-09-20T19:12:39.267456+00:00"
+        "screening_notes": "source file exceeds screening size limit",
+        "screened_at": "2026-09-20T20:14:59.843674+00:00"
       }
     },
     {
@@ -397,7 +404,7 @@
       "video_url": "https://archive.org/download/youtube-_zxbjmRTkfY/_zxbjmRTkfY.mp4",
       "direct_download_url": "https://archive.org/download/youtube-_zxbjmRTkfY/_zxbjmRTkfY.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T19:09:33.239750+00:00",
+      "discovered_at": "2026-09-20T20:12:43.697972+00:00",
       "screening": {
         "duration_seconds": 95.57,
         "width": 854,
@@ -425,18 +432,18 @@
       "video_url": "https://archive.org/download/twitter-1826000556483342752/1826000499952197632.ia.mp4",
       "direct_download_url": "https://archive.org/download/twitter-1826000556483342752/1826000499952197632.ia.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T01:46:03.418267+00:00",
+      "discovered_at": "2026-09-20T20:12:45.356682+00:00",
       "screening": {
         "duration_seconds": 33.0,
         "width": 720,
         "height": 1280,
         "size_bytes": 2370864,
-        "hook_score": 6,
+        "hook_score": 7,
         "story_score": 4,
         "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "CCTV footage shows a narrow street scene suddenly impacted by an explosion filling the frame with dust and smoke. While visually clear regarding the event, the subject matter involves sensitive geopolitical conflict and graphic context, making it less suitable for standard factual mystery content formats.",
-        "screened_at": "2026-09-20T19:12:45.579317+00:00",
+        "screening_notes": "Security camera footage captures an explosion in a narrow street causing a sudden cloud of dust and debris, though the actual impact point is obscured.",
+        "screened_at": "2026-09-20T20:15:03.760536+00:00",
         "eligible": false
       }
     },
@@ -453,7 +460,7 @@
       "video_url": "https://archive.org/download/youtube-E4WlPdNhzjM/E4WlPdNhzjM.ia.mp4",
       "direct_download_url": "https://archive.org/download/youtube-E4WlPdNhzjM/E4WlPdNhzjM.ia.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T01:46:03.736771+00:00",
+      "discovered_at": "2026-09-20T20:12:46.990242+00:00",
       "screening": {
         "duration_seconds": 73.75,
         "width": 640,
@@ -481,7 +488,7 @@
       "video_url": "https://archive.org/download/twitter-1611059322234048512/1611059215459618836.mp4",
       "direct_download_url": "https://archive.org/download/twitter-1611059322234048512/1611059215459618836.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T01:46:04.090479+00:00",
+      "discovered_at": "2026-09-20T20:12:55.861979+00:00",
       "screening": {
         "duration_seconds": 103.91,
         "width": 320,
@@ -509,18 +516,18 @@
       "video_url": "https://archive.org/download/youtube-4iFHwRbONSc/4iFHwRbONSc.webm",
       "direct_download_url": "https://archive.org/download/youtube-4iFHwRbONSc/4iFHwRbONSc.webm",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T01:46:04.369046+00:00",
+      "discovered_at": "2026-09-20T20:13:02.837803+00:00",
       "screening": {
         "duration_seconds": 57.26,
         "width": 720,
         "height": 1280,
         "size_bytes": 3354333,
         "hook_score": 6,
-        "story_score": 5,
+        "story_score": 4,
         "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "Security camera footage shows a nighttime raid involving individuals identifiable as police/security forces and a confrontation. While the footage captures the event, the grainy black-and-white quality and distance make specific details of actions hard to discern without context.",
-        "screened_at": "2026-09-20T19:12:56.363334+00:00",
+        "screening_notes": "Security camera footage clearly shows an altercation and arrest taking place, but the video quality is grainy, distant, and partially obscured. While it works as news documentation, it lacks the clarity or mystery element needed for a strong narrative Short.",
+        "screened_at": "2026-09-20T20:15:08.646165+00:00",
         "eligible": false
       }
     },
@@ -537,7 +544,7 @@
       "video_url": "https://archive.org/download/youtube-HUd1TDgofS4/HUd1TDgofS4.mp4",
       "direct_download_url": "https://archive.org/download/youtube-HUd1TDgofS4/HUd1TDgofS4.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T19:10:03.692346+00:00",
+      "discovered_at": "2026-09-20T20:13:07.138347+00:00",
       "screening": {
         "duration_seconds": 43.17,
         "width": 854,
@@ -547,8 +554,8 @@
         "story_score": 6,
         "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video covers news footage of a protest and a family calling for the release of security footage regarding a fatal police shooting. While it contains clear stills and protest footage, it functions more as a news report than a self-contained factual mystery with a distinct unravelling narrative.",
-        "screened_at": "2026-09-20T19:13:05.305662+00:00",
+        "screening_notes": "The video contains news clips and protest footage regarding the killing of Iyad Hallak, but lacks primary surveillance footage of the incident itself, focusing instead on interviews and demonstrations.",
+        "screened_at": "2026-09-20T20:15:12.159670+00:00",
         "eligible": false
       }
     },
@@ -565,7 +572,7 @@
       "video_url": "https://archive.org/download/youtube-31zdJT5Ohyk/31zdJT5Ohyk.mp4",
       "direct_download_url": "https://archive.org/download/youtube-31zdJT5Ohyk/31zdJT5Ohyk.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T01:46:05.004361+00:00",
+      "discovered_at": "2026-09-20T20:13:12.975814+00:00",
       "screening": {
         "duration_seconds": 786.05,
         "width": 854,
@@ -575,8 +582,8 @@
         "story_score": 1,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The provided CCTV frames show a static, unmoving parking lot at night with no visible helicopters, wind, or unusual activity. The visuals are completely unremarkable and do not support the claims in the description.",
-        "screened_at": "2026-09-20T19:13:17.869204+00:00",
+        "screening_notes": "The footage consists of static, low-quality nighttime security camera views of an empty parking lot with no visible helicopters, crowds, or distinctive events occurring across the frames.",
+        "screened_at": "2026-09-20T20:15:17.983454+00:00",
         "eligible": false
       }
     },
@@ -593,12 +600,19 @@
       "video_url": "https://archive.org/download/youtube-Zd3Dgv7xyco/Zd3Dgv7xyco.webm",
       "direct_download_url": "https://archive.org/download/youtube-Zd3Dgv7xyco/Zd3Dgv7xyco.webm",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T01:46:05.313731+00:00",
+      "discovered_at": "2026-09-20T20:13:26.298321+00:00",
       "screening": {
-        "eligible": false,
-        "screening_status": "failed",
-        "screening_notes": "500 Server Error: Internal Server Error for url: https://dn710209.ca.archive.org/0/items/youtube-Zd3Dgv7xyco/Zd3Dgv7xyco.webm",
-        "screened_at": "2026-09-20T19:13:27.887421+00:00"
+        "duration_seconds": 191.82,
+        "width": 640,
+        "height": 480,
+        "size_bytes": 4159486,
+        "hook_score": 4,
+        "story_score": 5,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "Security camera footage is grainy and distant, showing nighttime military vehicle movement and a flash. While historical and documented, the visual clarity of the specific shooting incident is low, making it less ideal for a punchy visual Short.",
+        "screened_at": "2026-09-20T20:15:22.826036+00:00",
+        "eligible": false
       }
     },
     {
@@ -614,7 +628,7 @@
       "video_url": "https://archive.org/download/youtube-2ImHlTWaUWs/2ImHlTWaUWs.mp4",
       "direct_download_url": "https://archive.org/download/youtube-2ImHlTWaUWs/2ImHlTWaUWs.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T19:09:32.268269+00:00",
+      "discovered_at": "2026-09-20T20:13:33.018666+00:00",
       "screening": {
         "duration_seconds": 311.2,
         "width": 854,
@@ -624,8 +638,8 @@
         "story_score": 1,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video consists entirely of a standard two-person talking-head interview or podcast recording. There are no unusual moments, mystery elements, or unique archival footage presented in the frames, making it unsuitable for a factual mystery short.",
-        "screened_at": "2026-09-20T19:13:36.638511+00:00",
+        "screening_notes": "The video consists entirely of talking heads in a podcast/interview format discussing security camera footage, with no direct or unusual archival footage shown in the frames provided.",
+        "screened_at": "2026-09-20T20:15:30.430990+00:00",
         "eligible": false
       }
     },
@@ -642,18 +656,18 @@
       "video_url": "https://archive.org/download/youtube-kGanJoLLAMM/kGanJoLLAMM.webm",
       "direct_download_url": "https://archive.org/download/youtube-kGanJoLLAMM/kGanJoLLAMM.webm",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T01:46:06.013235+00:00",
+      "discovered_at": "2026-09-20T20:13:34.672317+00:00",
       "screening": {
         "duration_seconds": 515.74,
         "width": 1920,
         "height": 1080,
         "size_bytes": 12263328,
-        "hook_score": 3,
+        "hook_score": 2,
         "story_score": 4,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video frames are extremely dark, blurry, and featureless, offering virtually no discernible visual information or understandable moments to support a factual mystery short.",
-        "screened_at": "2026-09-20T19:13:47.481749+00:00",
+        "screening_notes": "The video frames are extremely dark, blurry, and featureless night footage where no discernible actions, subjects, or details can be made out.",
+        "screened_at": "2026-09-20T20:15:35.587706+00:00",
         "eligible": false
       }
     },
@@ -670,12 +684,19 @@
       "video_url": "https://archive.org/download/20210514_20210514_2206/%E7%9F%B3%E5%B7%BB%E5%B8%82%E3%83%BB%E6%97%A7%E5%8C%97%E4%B8%8A%E5%B7%9D%E3%82%92%E9%81%A1%E4%B8%8A%E3%81%99%E3%82%8B%E6%B4%A5%E6%B3%A2%20%E3%80%90%E6%9D%B1%E5%8C%97%E5%9C%B0%E6%96%B9%E6%95%B4%E5%82%99%E5%B1%80%E6%8F%90%E4%BE%9B%E6%98%A0%E5%83%8F%E3%80%91.mp4",
       "direct_download_url": "https://archive.org/download/20210514_20210514_2206/%E7%9F%B3%E5%B7%BB%E5%B8%82%E3%83%BB%E6%97%A7%E5%8C%97%E4%B8%8A%E5%B7%9D%E3%82%92%E9%81%A1%E4%B8%8A%E3%81%99%E3%82%8B%E6%B4%A5%E6%B3%A2%20%E3%80%90%E6%9D%B1%E5%8C%97%E5%9C%B0%E6%96%B9%E6%95%B4%E5%82%99%E5%B1%80%E6%8F%90%E4%BE%9B%E6%98%A0%E5%83%8F%E3%80%91.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T01:46:06.271876+00:00",
+      "discovered_at": "2026-09-20T20:13:36.355418+00:00",
       "screening": {
-        "eligible": false,
-        "screening_status": "failed",
-        "screening_notes": "500 Server Error: Internal Server Error for url: https://dn720409.ca.archive.org/0/items/20210514_20210514_2206/%E7%9F%B3%E5%B7%BB%E5%B8%82%E3%83%BB%E6%97%A7%E5%8C%97%E4%B8%8A%E5%B7%9D%E3%82%92%E9%81%A1%E4%B8%8A%E3%81%99%E3%82%8B%E6%B4%A5%E6%B3%A2%20%E3%80%90%E6%9D%B1%E5%8C%97%E5%9C%B0%E6%96%B9%E6%95%B4%E5%82%99%E5%B1%80%E6%8F%90%E4%BE%9B%E6%98%A0%E5%83%8F%E3%80%91.mp4",
-        "screened_at": "2026-09-20T19:14:00.732923+00:00"
+        "duration_seconds": 362.88,
+        "width": 1280,
+        "height": 720,
+        "size_bytes": 21943964,
+        "hook_score": 7,
+        "story_score": 6,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "Security camera footage showing the 2011 tsunami surging upstream in the former Kitakami River in Ishinomaki City. Clear visual documentation of the event, suitable for historical context.",
+        "screened_at": "2026-09-20T20:15:41.116375+00:00",
+        "eligible": true
       }
     },
     {
@@ -691,18 +712,18 @@
       "video_url": "https://archive.org/download/JamesNReynoldsjrsepiabirds/jr_sepiabirds_512kb.mp4",
       "direct_download_url": "https://archive.org/download/JamesNReynoldsjrsepiabirds/jr_sepiabirds_512kb.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T19:10:19.427643+00:00",
+      "discovered_at": "2026-09-20T20:13:38.001871+00:00",
       "screening": {
         "duration_seconds": 13.15,
         "width": 320,
         "height": 240,
         "size_bytes": 936808,
-        "hook_score": 2,
+        "hook_score": 1,
         "story_score": 1,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "Extremely washed out, low-quality time-lapse footage with heavy overexposure and sepia filtering. No unusual moments or clear subjects like birds are discernible.",
-        "screened_at": "2026-09-20T19:14:04.260379+00:00",
+        "screening_notes": "Extremely low quality, washed out security camera footage showing a stationary car and blown-out lighting shifts. No clear unusual moments or birds visible.",
+        "screened_at": "2026-09-20T20:15:43.963702+00:00",
         "eligible": false
       }
     },
@@ -721,10 +742,17 @@
       "discovery_provider": "Internet Archive",
       "discovered_at": "2026-09-20T19:09:39.306426+00:00",
       "screening": {
-        "eligible": false,
-        "screening_status": "failed",
-        "screening_notes": "500 Server Error: Internal Server Error for url: https://dn710900.ca.archive.org/0/items/New_Security_Camera_Technology_for_SDPD/New_Security_Camera_Technology_for_SDPD.mp4",
-        "screened_at": "2026-09-20T19:14:14.216149+00:00"
+        "duration_seconds": 1010.18,
+        "width": 640,
+        "height": 360,
+        "size_bytes": 105036446,
+        "hook_score": 2,
+        "story_score": 3,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "Promotional press conference video about security camera technology rather than a factual mystery or unexplained footage. Lacks an engaging hook or mystery element.",
+        "screened_at": "2026-09-20T20:16:05.257458+00:00",
+        "eligible": false
       }
     },
     {
@@ -806,8 +834,8 @@
         "story_score": 3,
         "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "Grainy black-and-white security camera footage showing a standard retail store interior with a timestamp. While clear enough to show movement, it depicts a routine theft incident lacking a distinct or unusual factual mystery beyond typical surveillance footage.",
-        "screened_at": "2026-09-20T19:14:39.470187+00:00",
+        "screening_notes": "Grainy black-and-white security camera footage showing a standard retail store interior with a timestamp. Visually understandable as mundane surveillance, lacking a strong hook or unusual mystery beyond a simple reported theft.",
+        "screened_at": "2026-09-20T20:16:07.969142+00:00",
         "eligible": false
       }
     },
@@ -859,11 +887,11 @@
         "height": 360,
         "size_bytes": 15097905,
         "hook_score": 5,
-        "story_score": 6,
+        "story_score": 4,
         "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "Local news report covering the arrest of a serial burglar with surveillance stills, mugshot, and neighborhood interviews. Usable for standard true crime storytelling.",
-        "screened_at": "2026-09-20T19:14:47.833087+00:00",
+        "screening_notes": "Local news broadcast reporting on the arrest of a serial burglar with accompanying home security footage and neighborhood interviews. Suitable for local crime reporting segments.",
+        "screened_at": "2026-09-20T20:16:11.510645+00:00",
         "eligible": false
       }
     },
@@ -890,8 +918,8 @@
         "story_score": 5,
         "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "Security camera footage documenting an alleged police confrontation in East Jerusalem. The visuals are somewhat clear CCTV frames showing domestic/residential spaces, but the narrative relies heavily on explanatory text rather than an inherent standalone mystery. Usable for informational shorts, but lacks a traditional narrative hook.",
-        "screened_at": "2026-09-20T19:14:55.427765+00:00",
+        "screening_notes": "The footage consists of standard home security camera angles showing a residential driveway and individuals arriving. While authentic and tied to a documented human rights incident, the visuals lack a strong standalone mystery hook or high-impact action in the provided frames, functioning more as evidentiary documentation.",
+        "screened_at": "2026-09-20T20:16:15.876004+00:00",
         "eligible": false
       }
     },
@@ -913,7 +941,7 @@
         "eligible": false,
         "screening_status": "failed",
         "screening_notes": "401 Client Error: Unauthorized for url: https://dn710700.ca.archive.org/0/items/funny_or_die_video_4391/funny_or_die_video_4391.mp4",
-        "screened_at": "2026-09-20T19:15:02.026141+00:00"
+        "screened_at": "2026-09-20T20:16:16.938516+00:00"
       }
     }
   ]

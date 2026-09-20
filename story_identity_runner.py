@@ -1,9 +1,10 @@
-"""Run Story Shorts with identity-first archival media routing enabled."""
+"""Run Story Shorts with identity-first media routing and topic uniqueness protection."""
 from __future__ import annotations
 
 import runpy
 
 import story_identity_media
+import story_topic_uniqueness
 
 
 def _patch_story_portrait_export() -> None:
@@ -19,7 +20,6 @@ def _patch_story_portrait_export() -> None:
         result = original_assemble(*args, **kwargs)
         output_path = kwargs.get("output_path")
         if output_path is None and args:
-            # assemble_video's output path is the final positional argument.
             output_path = args[-1]
         if output_path:
             ensure_portrait_export(output_path)
@@ -31,6 +31,7 @@ def _patch_story_portrait_export() -> None:
 
 
 def main() -> None:
+    story_topic_uniqueness.install()
     _patch_story_portrait_export()
 
     import stock_media_resilient

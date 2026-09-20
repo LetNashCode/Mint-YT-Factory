@@ -1,9 +1,4 @@
-"""Build a full-length, landscape mystery documentary from approved source footage.
-
-The selected source clip is the only visual source. The complete clip is shown in
-sequence; narration explains what is visible, while the source audio is retained
-at a low background level so it cannot compete with narration.
-"""
+"""Build a full-length, landscape mystery documentary from approved source footage."""
 from __future__ import annotations
 
 import json
@@ -17,6 +12,7 @@ from pathlib import Path
 import requests
 from google import genai
 from google.genai import types
+from mystery_audio_analysis import analyze_audio
 from tts import synthesize_narration
 
 MODEL = "gemini-flash-lite-latest"
@@ -71,14 +67,26 @@ def frames(source, work):
     return sorted(frame_dir.glob("*.jpg"))
 
 
-def make_script(item, source, work):
+def make_script(item, source, work, audio_timeline):
     key = os.getenv("GEMINI_API_KEY", "").strip()
     if not key:
         raise RuntimeError("GEMINI_API_KEY is required")
     images = frames(source, work)
     facts = "\n".join(f"- {x}" for x in item.get("verified_facts", []))
     theories = "\n".join(f"- {x}" for x in item.get("theories_or_open_questions", []))
-    prompt = f"""Create a detailed, entertaining full-length mystery documentary narration based ONLY on the supplied source footage and the case information below. Do not invent details and do not create a new story from the existence of the video. The selected footage is the subject of the documentary. Explain the footage in its actual sequence, explicitly describe what viewers are seeing, identify quiet or uneventful sections, and propose multiple clearly labeled theories while separating confirmed facts, visible observations, reported claims, and speculation. Use this structure: cold open, orientation, chronological walkthrough of the complete footage, pauses/replays to explain important moments, context and timeline, audio/visual clues, theories with evidence for and against, limitations, and conclusion. There is no word or duration limit; write as much as necessary for a complete explanation. Return JSON with: video_title, narration, description_intro, tags, highlighted_keywords. highlighted_keywords must be a list of important words or short phrases for caption emphasis.
+    transcript = audio_timeline.get("transcript", "") or "[No speech detected]"
+    protected = json.dumps(audio_timeline.get("protected_intervals", []), ensure_ascii=False)
+    prompt = f"""Create a detailed, entertaining full-length mystery documentary narration based ONLY on the supplied source footage and the case information below. Do not invent details and do not create a new story from the existence of the video. The selected footage is the subject of the documentary. Explain the footage in its actual sequence, explicitly describe what viewers are seeing, identify quiet or uneventful sections, and propose multiple clearly labeled theories while separating confirmed facts, visible observations, reported claims, and speculation.
+
+A timestamped Whisper analysis of the original audio is provided below. Original speech must be preserved: plan narration only for genuinely quiet or visual-only portions, never over the protected intervals. Do not rewrite, paraphrase, or narrate over the original spoken words. If a section contains speech, instruct the editor to pause narration and let the source audio play.
+
+WHISPER TRANSCRIPT:
+{transcript}
+
+PROTECTED SPEECH INTERVALS:
+{protected}
+
+Use this structure: cold open, orientation, chronological walkthrough of the complete footage, pauses/replays to explain important moments, context and timeline, audio/visual clues, theories with evidence for and against, limitations, and conclusion. There is no word or duration limit; write as much as necessary for a complete explanation. Return JSON with: video_title, narration, description_intro, tags, highlighted_keywords. highlighted_keywords must be a list of important words or short phrases for caption emphasis.
 CASE TITLE: {item.get('title')}
 CASE SUMMARY: {item.get('case_summary')}
 FOOTAGE DESCRIPTION: {item.get('footage_description')}
@@ -99,11 +107,7 @@ def render(source, narration_audio, output, work):
     narration_duration, _, _ = probe(narration_audio)
     total = max(source_duration, narration_duration)
     prepared = work / "prepared-source.mp4"
-    # Force a true 16:9 landscape canvas. Crop to fill instead of padding a
-    # portrait source into a portrait-looking frame with side bars.
     run(["ffmpeg", "-y", "-i", source, "-vf", "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1,fps=30,tpad=stop_mode=clone:stop_duration=" + str(max(0, total - source_duration)), "-an", "-t", str(total), "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", prepared])
-    # The original audio is retained but heavily ducked. This prevents source
-    # speech/noise from competing with the single generated narration track.
     run(["ffmpeg", "-y", "-i", prepared, "-i", source, "-i", narration_audio, "-filter_complex", "[1:a]volume=0.08[original];[2:a]volume=1.0[voice];[original][voice]amix=inputs=2:duration=longest:dropout_transition=2[a]", "-map", "0:v:0", "-map", "[a]", "-t", str(total), "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", output])
 
 
@@ -129,7 +133,9 @@ def main():
             raise RuntimeError(f"Rejected short-form source footage: {source_duration:.1f}s; minimum is {MIN_SOURCE_SECONDS:.1f}s")
         if source_width and source_height and source_height > source_width:
             raise RuntimeError(f"Rejected portrait source footage: {source_width}x{source_height}; Mystery Documentary requires landscape source footage")
-        script = make_script(item, source, work)
+        audio_timeline = analyze_audio(source, work)
+        (OUT / "audio_timeline.json").write_text(json.dumps(audio_timeline, indent=2, ensure_ascii=False), encoding="utf-8")
+        script = make_script(item, source, work, audio_timeline)
         narration_audio = work / "narration.mp3"
         synthesize_narration(script["narration"], {"voice": {"provider": "kokoro", "voice_name": os.getenv("MINT_KOKORO_VOICE", "am_michael"), "kokoro_lang": os.getenv("MINT_KOKORO_LANG", "a"), "speed": 1.0}}, str(narration_audio))
         output = OUT / "mystery-documentary.mp4"

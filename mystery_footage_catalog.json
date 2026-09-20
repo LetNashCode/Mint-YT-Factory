@@ -17,8 +17,8 @@
       "screening": {
         "eligible": false,
         "screening_status": "failed",
-        "screening_notes": "Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size:stream=width,height,codec_type', '-of', 'json', '/tmp/mystery-screen-lhpt_imr/source']' returned non-zero exit status 1.",
-        "screened_at": "2026-09-20T01:46:07.970088+00:00"
+        "screening_notes": "Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size:stream=width,height,codec_type', '-of', 'json', '/tmp/mystery-screen-9c9q0ik6/source']' returned non-zero exit status 1.",
+        "screened_at": "2026-09-20T12:33:26.868393+00:00"
       }
     },
     {
@@ -46,10 +46,10 @@
         "size_bytes": 28506984,
         "hook_score": 3,
         "story_score": 2,
-        "usable_visuals": false,
+        "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The footage consists of standard, low-resolution video game gameplay (Fortnite) sourced from a compilation reel. There is no real-world mystery, factual event, or unique documentary subject; it is purely commercial/gaming entertainment content unsuited for a factual mystery short.",
-        "screened_at": "2026-09-20T01:46:12.989668+00:00",
+        "screening_notes": "The footage shows standard gameplay clips compiled from a gaming roundup show (Highlight Reel). It features minor glitches and bugs in video games like Fortnite, which lack the narrative depth or mystery needed for a factual mystery Short.",
+        "screened_at": "2026-09-20T12:33:32.166591+00:00",
         "eligible": false
       }
     },
@@ -75,7 +75,7 @@
         "eligible": false,
         "screening_status": "failed",
         "screening_notes": "source file exceeds screening size limit",
-        "screened_at": "2026-09-20T01:46:14.136633+00:00"
+        "screened_at": "2026-09-20T12:33:33.203199+00:00"
       }
     },
     {
@@ -101,13 +101,13 @@
         "width": 270,
         "height": 480,
         "size_bytes": 5304448,
-        "hook_score": 6,
-        "story_score": 4,
+        "hook_score": 8,
+        "story_score": 6,
         "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "Podcast clip features standard talking-head interview footage mixed with archival photos of aircraft like the F-117. The sensational title references E.T., but the video relies on interview discussion rather than unique or unusual physical evidence.",
-        "screened_at": "2026-09-20T01:46:18.821634+00:00",
-        "eligible": false
+        "screening_notes": "The video features a podcast interview discussing Skunkworks and classified aerospace history alongside archival aircraft photos, making it potentially usable for a short mystery or history narrative.",
+        "screened_at": "2026-09-20T12:33:40.902681+00:00",
+        "eligible": true
       }
     },
     {
@@ -137,8 +137,8 @@
         "story_score": 1,
         "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The footage shows a man speaking directly to the camera and gesturing with his hands in an indoor setting. It lacks an unusual factual mystery moment or tangible anomaly, consisting entirely of standard talking-head content related to channeled spiritual rhetoric.",
-        "screened_at": "2026-09-20T01:46:24.880385+00:00",
+        "screening_notes": "The video features a person speaking directly to the camera and gesturing while claiming to channel non-physical beings. It lacks a factual mystery or an unusual moment that requires an objective explanation, as it is standard spiritual/channeling content.",
+        "screened_at": "2026-09-20T12:33:46.886983+00:00",
         "eligible": false
       }
     },
@@ -165,12 +165,12 @@
         "width": 854,
         "height": 480,
         "size_bytes": 117283976,
-        "hook_score": 2,
-        "story_score": 3,
+        "hook_score": 1,
+        "story_score": 2,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video consists of standard talking-head podcast footage discussing a UFO case, lacking unusual or compelling standalone visual moments suitable for a mystery Short.",
-        "screened_at": "2026-09-20T01:46:31.892150+00:00",
+        "screening_notes": "The video consists of a podcast or radio interview featuring a host talking about UFO cases in front of static title cards and a simple studio background. It lacks dynamic, unusual, or compelling visual evidence necessary for a factual mystery short.",
+        "screened_at": "2026-09-20T12:33:54.217535+00:00",
         "eligible": false
       }
     },
@@ -197,12 +197,12 @@
         "width": 480,
         "height": 360,
         "size_bytes": 40094948,
-        "hook_score": 1,
+        "hook_score": 2,
         "story_score": 1,
-        "usable_visuals": false,
+        "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video features a person talking to the camera and gesturing while claiming to channel extraterrestrial beings. There is no factual mystery, unusual physical event, or tangible evidence to investigate.",
-        "screened_at": "2026-09-20T01:46:36.729227+00:00",
+        "screening_notes": "The video features a man talking about channeling extraterrestrial beings with stock space footage and talking-head framing. Lacks factual mystery substance or verifiable anomalous events.",
+        "screened_at": "2026-09-20T12:34:03.503332+00:00",
         "eligible": false
       }
     },
@@ -233,8 +233,8 @@
         "story_score": 2,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video is primarily a creator reacting to and reading emails about previously discussed UFO/UAP footage rather than showing primary, self-contained mystery footage. Visuals consist of static text and a talking head.",
-        "screened_at": "2026-09-20T01:46:45.124170+00:00",
+        "screening_notes": "The video consists of a talking head reacting to an email text overlaid on screen. There is no original found footage visible in the frames, making it unsuitable as a standalone visual mystery short.",
+        "screened_at": "2026-09-20T12:34:16.888646+00:00",
         "eligible": false
       }
     },
@@ -265,8 +265,8 @@
         "story_score": 1,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The candidate consists of standard motion graphics, 3D renders of DNA, a brain, and digital human models, combined with conspiratorial text about extraterrestrial colonization and secret societies. It lacks factual mystery elements and real archive footage.",
-        "screened_at": "2026-09-20T01:46:55.153799+00:00",
+        "screening_notes": "The candidate consists of standard stock CGI graphics (Earth, DNA strands, digital human/brain wireframes) promoting fringe conspiracy theories. There is no genuine found footage, unusual archival material, or verifiable factual mystery content.",
+        "screened_at": "2026-09-20T12:34:27.215152+00:00",
         "eligible": false
       }
     },
@@ -297,8 +297,8 @@
         "story_score": 3,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video consists of a talking head in an interior setting discussing speculative philosophical ideas regarding UFOs and totalitarianism. There are no unusual moments, archival evidence, or visually dynamic elements to support a factual mystery Short.",
-        "screened_at": "2026-09-20T01:47:05.616860+00:00",
+        "screening_notes": "The video consists entirely of a talking head in an office setting discussing philosophical concepts regarding extraterrestrial intelligence, lacking dynamic visuals or actionable mystery footage suitable for a Short.",
+        "screened_at": "2026-09-20T12:34:38.299743+00:00",
         "eligible": false
       }
     },
@@ -321,17 +321,10 @@
       "discovery_provider": "Internet Archive",
       "discovered_at": "2026-09-18T21:49:34.750953+00:00",
       "screening": {
-        "duration_seconds": 884.44,
-        "width": 854,
-        "height": 480,
-        "size_bytes": 90435560,
-        "hook_score": 1,
-        "story_score": 1,
-        "usable_visuals": false,
-        "screening_status": "gemini-reviewed",
-        "screening_notes": "The video is a studio-recorded podcast or commentary show featuring a host talking into a microphone. It does not contain any archival, eyewitness, or found-footage mystery elements suitable for a factual mystery Short.",
-        "screened_at": "2026-09-20T01:47:11.151558+00:00",
-        "eligible": false
+        "eligible": false,
+        "screening_status": "failed",
+        "screening_notes": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-3.5-flash-lite\\nPlease retry in 17.661871192s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.5-flash-lite'},",
+        "screened_at": "2026-09-20T12:34:42.350384+00:00"
       }
     },
     {
@@ -357,12 +350,12 @@
         "width": 854,
         "height": 480,
         "size_bytes": 291316145,
-        "hook_score": 4,
-        "story_score": 5,
+        "hook_score": 3,
+        "story_score": 4,
         "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video features historical newspaper clippings and interview stills related to a murder trial in Rhodesia involving a payroll ambush. While visually archival documents and stills are present, the subject matter is niche and requires historical context, resulting in a moderate score for a short-form mystery.",
-        "screened_at": "2026-09-20T01:47:21.597148+00:00",
+        "screening_notes": "The video consists of historical interviews accompanied by vintage newspaper clippings and archival photos regarding a payroll murder trial in Rhodesia. While historical documents and news clippings are visually legible, the content is specialized and lacks a broad narrative hook for a general short-form audience.",
+        "screened_at": "2026-09-20T12:34:51.885652+00:00",
         "eligible": false
       }
     },
@@ -388,7 +381,7 @@
         "eligible": false,
         "screening_status": "failed",
         "screening_notes": "source file exceeds screening size limit",
-        "screened_at": "2026-09-20T01:47:22.931834+00:00"
+        "screened_at": "2026-09-20T12:34:53.622948+00:00"
       }
     },
     {
@@ -404,19 +397,19 @@
       "video_url": "https://archive.org/download/youtube-_zxbjmRTkfY/_zxbjmRTkfY.mp4",
       "direct_download_url": "https://archive.org/download/youtube-_zxbjmRTkfY/_zxbjmRTkfY.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T01:46:03.161727+00:00",
+      "discovered_at": "2026-09-20T12:33:18.694096+00:00",
       "screening": {
         "duration_seconds": 95.57,
         "width": 854,
         "height": 480,
         "size_bytes": 7807040,
-        "hook_score": 4,
-        "story_score": 5,
+        "hook_score": 7,
+        "story_score": 6,
         "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "Security camera footage shows nighttime activity at a plant nursery, but the grainy overhead angle and lack of clear action limit its visual impact for a fast-paced short.",
-        "screened_at": "2026-09-20T01:47:27.199623+00:00",
-        "eligible": false
+        "screening_notes": "CCTV footage shows a nighttime incident at a plant nursery with a vehicle parked and individuals present. Visuals are understandable and supported by metadata detailing an alleged theft and confrontation, though action is distant and grainy.",
+        "screened_at": "2026-09-20T12:34:57.760184+00:00",
+        "eligible": true
       }
     },
     {
@@ -439,11 +432,11 @@
         "height": 1280,
         "size_bytes": 2370864,
         "hook_score": 6,
-        "story_score": 4,
+        "story_score": 3,
         "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "CCTV footage shows a street scene moments before an explosion fills the area with dust and smoke. While visually clear, the event is a standard news/conflict occurrence rather than an investigative or factual mystery suited for standalone shorts.",
-        "screened_at": "2026-09-20T01:47:31.034147+00:00",
+        "screening_notes": "Security camera footage captures an explosion in a street causing dust and sudden disruption. While visually clear and dramatic, it depicts a sensitive geopolitical conflict event rather than a factual mystery suitable for standard short formats.",
+        "screened_at": "2026-09-20T12:35:02.586393+00:00",
         "eligible": false
       }
     },
@@ -526,8 +519,8 @@
         "story_score": 5,
         "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "Surveillance footage shows figures interacting in a courtyard setting, but the video is low quality, distant, and heavily relies on on-screen text to explain the context of the event.",
-        "screened_at": "2026-09-20T01:47:42.443055+00:00",
+        "screening_notes": "Security camera footage shows a confrontation and arrest during a dawn raid in Jerusalem. The visuals are somewhat grainy and distant, but clearly document the incident as described.",
+        "screened_at": "2026-09-20T12:35:08.883181+00:00",
         "eligible": false
       }
     },
@@ -544,18 +537,18 @@
       "video_url": "https://archive.org/download/youtube-HUd1TDgofS4/HUd1TDgofS4.mp4",
       "direct_download_url": "https://archive.org/download/youtube-HUd1TDgofS4/HUd1TDgofS4.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T01:46:04.687277+00:00",
+      "discovered_at": "2026-09-20T12:33:25.053437+00:00",
       "screening": {
         "duration_seconds": 43.17,
         "width": 854,
         "height": 480,
         "size_bytes": 4132348,
-        "hook_score": 3,
-        "story_score": 4,
+        "hook_score": 4,
+        "story_score": 5,
         "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video discusses a real-world news event regarding the killing of Iyad Hallak and protests demanding footage. It lacks a true 'mystery' format or unusual anomalous moment suited for short-form factual mystery content, functioning primarily as a news report and protest segment.",
-        "screened_at": "2026-09-20T01:47:46.712801+00:00",
+        "screening_notes": "The video discusses a tragic news event involving protests and demands for security footage, but lacks the specific investigative depth or unfolding mystery elements typically needed for a factual mystery short.",
+        "screened_at": "2026-09-20T12:35:13.157896+00:00",
         "eligible": false
       }
     },
@@ -578,12 +571,12 @@
         "width": 854,
         "height": 480,
         "size_bytes": 80396868,
-        "hook_score": 2,
+        "hook_score": 1,
         "story_score": 1,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The provided frames show a static nighttime parking lot security camera with no visible helicopters, crowd movement, or distinctive action. The imagery is extremely dark, monotonous, and visually uninformative, making it entirely unsuitable for a factual mystery Short.",
-        "screened_at": "2026-09-20T01:48:06.056935+00:00",
+        "screening_notes": "The provided frames show static security camera footage of a parking lot at night with no visible helicopters, wind, or unusual activity. The visuals are uninformative and do not support the claims in the description.",
+        "screened_at": "2026-09-20T12:35:20.552622+00:00",
         "eligible": false
       }
     },
@@ -602,17 +595,10 @@
       "discovery_provider": "Internet Archive",
       "discovered_at": "2026-09-20T01:46:05.313731+00:00",
       "screening": {
-        "duration_seconds": 191.82,
-        "width": 640,
-        "height": 480,
-        "size_bytes": 4159486,
-        "hook_score": 4,
-        "story_score": 5,
-        "usable_visuals": true,
-        "screening_status": "gemini-reviewed",
-        "screening_notes": "Security camera footage is grainy and distant, showing nighttime military vehicle movements and obscured action. While documented by B'Tselem, the visual detail is too low and ambiguous for an engaging visual-first short mystery.",
-        "screened_at": "2026-09-20T01:48:09.643227+00:00",
-        "eligible": false
+        "eligible": false,
+        "screening_status": "failed",
+        "screening_notes": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-3.5-flash-lite\\nPlease retry in 37.223798306s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.5-flash-lite'},",
+        "screened_at": "2026-09-20T12:35:22.785045+00:00"
       }
     },
     {
@@ -628,19 +614,12 @@
       "video_url": "https://archive.org/download/youtube-2ImHlTWaUWs/2ImHlTWaUWs.mp4",
       "direct_download_url": "https://archive.org/download/youtube-2ImHlTWaUWs/2ImHlTWaUWs.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T01:46:05.768959+00:00",
+      "discovered_at": "2026-09-20T12:33:17.696443+00:00",
       "screening": {
-        "duration_seconds": 311.2,
-        "width": 854,
-        "height": 480,
-        "size_bytes": 30232174,
-        "hook_score": 2,
-        "story_score": 2,
-        "usable_visuals": false,
-        "screening_status": "gemini-reviewed",
-        "screening_notes": "The footage consists entirely of two talking heads in a video podcast or interview format. There are no unusual moments, mystery elements, or compelling visual evidence shown in the frames, making it unsuitable for a factual mystery Short.",
-        "screened_at": "2026-09-20T01:48:15.983456+00:00",
-        "eligible": false
+        "eligible": false,
+        "screening_status": "failed",
+        "screening_notes": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-3.5-flash-lite\\nPlease retry in 33.548663213s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.5-flash-lite'},",
+        "screened_at": "2026-09-20T12:35:26.460421+00:00"
       }
     },
     {
@@ -662,12 +641,12 @@
         "width": 1920,
         "height": 1080,
         "size_bytes": 12263328,
-        "hook_score": 2,
-        "story_score": 3,
+        "hook_score": 3,
+        "story_score": 4,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video frames are extremely dark, blurry, and featureless night footage where no clear subjects, actions, or details can be discerned, making it unsuitable for visual storytelling.",
-        "screened_at": "2026-09-20T01:48:20.378616+00:00",
+        "screening_notes": "The provided video frames are extremely dark and underexposed, offering almost no discernible visual information about the incident. While the metadata describes a serious geopolitical event involving a car collision and subsequent shooting, the visual quality is too poor to support a factual mystery short.",
+        "screened_at": "2026-09-20T12:35:31.412913+00:00",
         "eligible": false
       }
     },
@@ -686,17 +665,10 @@
       "discovery_provider": "Internet Archive",
       "discovered_at": "2026-09-20T01:46:06.271876+00:00",
       "screening": {
-        "duration_seconds": 362.88,
-        "width": 1280,
-        "height": 720,
-        "size_bytes": 21943964,
-        "hook_score": 6,
-        "story_score": 5,
-        "usable_visuals": true,
-        "screening_status": "gemini-reviewed",
-        "screening_notes": "Security camera footage showing the tsunami moving upstream on the former Kitakami River in Ishinomaki City on 3/11. The visuals clearly show the water level rapidly rising and overflowing the banks, but lacks a traditional narrative mystery element beyond documenting a known historical disaster.",
-        "screened_at": "2026-09-20T01:48:25.674676+00:00",
-        "eligible": false
+        "eligible": false,
+        "screening_status": "failed",
+        "screening_notes": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-3.5-flash-lite\\nPlease retry in 24.941748424s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.5-flash-lite'},",
+        "screened_at": "2026-09-20T12:35:35.067175+00:00"
       }
     },
     {
@@ -712,19 +684,208 @@
       "video_url": "https://archive.org/download/JamesNReynoldsjrsepiabirds/jr_sepiabirds_512kb.mp4",
       "direct_download_url": "https://archive.org/download/JamesNReynoldsjrsepiabirds/jr_sepiabirds_512kb.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T01:46:06.714977+00:00",
+      "discovered_at": "2026-09-20T12:33:25.261809+00:00",
       "screening": {
-        "duration_seconds": 13.15,
+        "eligible": false,
+        "screening_status": "failed",
+        "screening_notes": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-3.5-flash-lite\\nPlease retry in 23.921742992s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.5-flash-lite'},",
+        "screened_at": "2026-09-20T12:35:36.085502+00:00"
+      }
+    },
+    {
+      "id": "internet-archive-New_Security_Camera_Technology_for_SDPD",
+      "title": "New Security Camera Technology for SDPD",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "Operation Secure feeds private security camera footage to SDPD Vehicles.",
+      "source_url": "https://archive.org/details/New_Security_Camera_Technology_for_SDPD",
+      "video_url": "https://archive.org/download/New_Security_Camera_Technology_for_SDPD/New_Security_Camera_Technology_for_SDPD.mp4",
+      "direct_download_url": "https://archive.org/download/New_Security_Camera_Technology_for_SDPD/New_Security_Camera_Technology_for_SDPD.mp4",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T12:33:19.962094+00:00",
+      "screening": {
+        "eligible": false,
+        "screening_status": "failed",
+        "screening_notes": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-3.5-flash-lite\\nPlease retry in 19.977609778s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.5-flash-lite'},",
+        "screened_at": "2026-09-20T12:35:40.035959+00:00"
+      }
+    },
+    {
+      "id": "internet-archive-youtube-B1d5sanf-TI",
+      "title": "Israeli forces shot and killed 10-year-old Sadam Rajeb in his doorway, Tulkarm, 27 Jan. 2025",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "On 27 January 2025, military, Border Police, and Shin Bet forces raided the city of Tulkarm and nearby refugee camps as part of Operation Iron Wall, which was announced by Israel on 21 January and initially focused on the Jenin area. On 28 January, at around 6:30 P.M., Iyad Rajeb, 41, was socializing with neighbors on the third floor of their apartment building in central Tulkarm when his son Sadam, 10, went out to the building’s front entrance to speak to his mother on the phone. Security camera footage documented Sadam standing at the doorway with a phone in his hand, and then sustaining a shot and falling down, screaming and writhing in pain. About two minutes later, his father hobbled over on crutches, which he was using after surgery, and with the help of other residents, dragged Sadam a few meters away to protect him from the continued shooting continued. By then, Sadam had stopped moving. <br /><br />A paramedic and a Palestinian ambulance called by a neighbor soon arrived. Just after Sadam was put inside it, Israeli forces arrived and allowed the ambulance to drive off, heading to Thabet Thabet Hospital. The forces then raided the building and detained Iyad Rajeb and the ot",
+      "source_url": "https://archive.org/details/youtube-B1d5sanf-TI",
+      "video_url": "https://archive.org/download/youtube-B1d5sanf-TI/B1d5sanf-TI.webm",
+      "direct_download_url": "https://archive.org/download/youtube-B1d5sanf-TI/B1d5sanf-TI.webm",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T12:33:20.506439+00:00",
+      "screening": {
+        "eligible": false,
+        "screening_status": "failed",
+        "screening_notes": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-3.5-flash-lite\\nPlease retry in 17.468149576s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-3.5-flash-lite'},",
+        "screened_at": "2026-09-20T12:35:42.539891+00:00"
+      }
+    },
+    {
+      "id": "internet-archive-guatemalan-immigrant-ricardo-alfonso-cerna-commits-suicide-in-police-station-to-avoid-prison",
+      "title": "Guatemalan Immigrant Ricardo Alfonso Cerna Commits Suicide In Police Station To Avoid Prison [GRAPHIC]",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "<p>Ricardo Alfonso Cerna, a 47-year-old immigrant from Guatemala, was stopped by San Bernardino County police officer Michael Parham at 9:30 a.m for a traffic violation in Muscoy on December 19, 2003. He attempted to escape in his car and then on foot. During the chase he shot Parham twice in the abdomen, but the wound was not fatal. Cerna was arrested shortly afterward. </p><p>The San Bernardino County Sheriff’s Department, and the California Highway Patrol were involved in the chase, but during his arrest, no one made sure he was properly booked. Surveillance footage showed Cerna entering the interrogation room at approximately 10:46 a.m and asking chief homicide investigator Officer Bobby Dean for a bottle of water. When Cerna received the water, Dean left the room. As this was his third felony strike, Cerna pulled a concealed .45-caliber handgun from under his pants, held the gun to his head, and shot himself to avoid life in prison. Cerna died instantly. </p> The San Bernardino County Sheriff’s Department showed the security camera footage to the media the next day. To avoid sensationalism, only a limited number of select reporters were allowed to view it. Although police trie",
+      "source_url": "https://archive.org/details/guatemalan-immigrant-ricardo-alfonso-cerna-commits-suicide-in-police-station-to-avoid-prison",
+      "video_url": "https://archive.org/download/guatemalan-immigrant-ricardo-alfonso-cerna-commits-suicide-in-police-station-to-avoid-prison/Guatemalan_Immigrant_Ricardo_Alfonso_Cerna_Commits_Suicide_In_Police_Station_To_Avoid_Prison.mp4",
+      "direct_download_url": "https://archive.org/download/guatemalan-immigrant-ricardo-alfonso-cerna-commits-suicide-in-police-station-to-avoid-prison/Guatemalan_Immigrant_Ricardo_Alfonso_Cerna_Commits_Suicide_In_Police_Station_To_Avoid_Prison.mp4",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T12:33:20.844829+00:00",
+      "screening": {
+        "eligible": false,
+        "screening_status": "failed",
+        "screening_notes": "429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 15, model: gemini-3.5-flash-lite\\nPlease retry in 16.071116845s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-3.5-flash-lite', 'location': 'global'},",
+        "screened_at": "2026-09-20T12:35:43.937091+00:00"
+      }
+    },
+    {
+      "id": "internet-archive-5-25-06-roy-ashburn_202007",
+      "title": "Old Theft Security Camera Footage",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "Some security camera footage of theft in a store between 2004 and 2006 retrieved from a Zip Disk.",
+      "source_url": "https://archive.org/details/5-25-06-roy-ashburn_202007",
+      "video_url": "https://archive.org/download/5-25-06-roy-ashburn_202007/cam03_20060902160729.mp4",
+      "direct_download_url": "https://archive.org/download/5-25-06-roy-ashburn_202007/cam03_20060902160729.mp4",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T12:33:21.548856+00:00",
+      "screening": {
+        "duration_seconds": 3.4,
+        "width": 352,
+        "height": 240,
+        "size_bytes": 287397,
+        "hook_score": 3,
+        "story_score": 3,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "Grainy black-and-white security camera footage showing a retail store interior with date stamp. Visually clear enough as surveillance footage, but depicts a mundane retail theft lacking a distinct factual mystery.",
+        "screened_at": "2026-09-20T12:35:46.902497+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-youtube-bapUohJn1E8",
+      "title": "Judicial Watch 9/11 Doubletree Video",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "This is previously unreleased footage obtained by Judicial Watch from the Federal Bureau of Investigation (FBI) shows security camera recording taken from the Doubletree Hotel in Arlington, Virginia that shows the 9/11 attack on the Pentagon. For more information go to www.judicialwatch.org",
+      "source_url": "https://archive.org/details/youtube-bapUohJn1E8",
+      "video_url": "https://archive.org/download/youtube-bapUohJn1E8/bapUohJn1E8.webm",
+      "direct_download_url": "https://archive.org/download/youtube-bapUohJn1E8/bapUohJn1E8.webm",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T12:33:22.422320+00:00",
+      "screening": {
+        "duration_seconds": 28.21,
         "width": 320,
         "height": 240,
-        "size_bytes": 936808,
-        "hook_score": 1,
-        "story_score": 1,
-        "usable_visuals": false,
+        "size_bytes": 550181,
+        "hook_score": 7,
+        "story_score": 6,
+        "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The footage is extremely washed out, low resolution, and lacks any discernible mystery or unusual events beyond cars parked outside and extreme glare.",
-        "screened_at": "2026-09-20T01:48:28.665277+00:00",
+        "screening_notes": "Security camera footage showing the Pentagon attack from the Doubletree Hotel. Visual quality is grainy and low-resolution CCTV, but historically significant and compelling for a short mystery/history format.",
+        "screened_at": "2026-09-20T12:35:50.307283+00:00",
+        "eligible": true
+      }
+    },
+    {
+      "id": "internet-archive-Man_Suspected_in_More_than_50_Burglaries_Arrested",
+      "title": "Man Suspected in More than 50 Burglaries Arrested",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "COON RAPIDS, Minn. -- After months of investigating, police arrested a man they say is involved in stealing valuables from more than 50 homes in the metro area.<br /><br />Thirty-eight-year-old Brian Hudy of Coon Rapids is charged with first degree burglary after being arrested last week.<br /><br />Some of those burglaries happened while people were sleeping inside the home.<br /><br />“(My wife) could see footprints all over in our yard that he was peering into our windows down here on the lower level,” TJ Dimke of Blaine said.<br /><br />Dimke said he's taking extra precautions after a burglar stole a purse from a home next door.<br /><br />His neighbor, Shawn Bellendorf, who had just moved into the neighborhood, said that last week, his wife noticed the glove boxes of both their vehicles open and her purse was missing, with her credit card, ID, and both of their social security cards inside.<br /><br />“Unfortunately somebody had come into the house and taken it,” Lt. Dan Pelkey with the Blaine Police Department said.<br /><br />After checking their security cameras, the Bellendorfs noticed footage of a man going into their cars, and entering their home. Shawn said he felt viol",
+      "source_url": "https://archive.org/details/Man_Suspected_in_More_than_50_Burglaries_Arrested",
+      "video_url": "https://archive.org/download/Man_Suspected_in_More_than_50_Burglaries_Arrested/Man_Suspected_in_More_than_50_Burglaries_Arrested.mp4",
+      "direct_download_url": "https://archive.org/download/Man_Suspected_in_More_than_50_Burglaries_Arrested/Man_Suspected_in_More_than_50_Burglaries_Arrested.mp4",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T12:33:22.941388+00:00",
+      "screening": {
+        "duration_seconds": 145.19,
+        "width": 640,
+        "height": 360,
+        "size_bytes": 15097905,
+        "hook_score": 6,
+        "story_score": 5,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "Local news report covering the arrest of a serial burglar with accompanying surveillance stills and neighborhood interviews. Usable for standard crime reporting segments.",
+        "screened_at": "2026-09-20T12:35:54.991286+00:00",
         "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-youtube-of1GwJsmmsc",
+      "title": "Arbitrary and violent: Israeli police conduct in East Jerusalem",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "On 10 January 2019, plain-clothed Israeli police arrived at Dr. Karim Hussein’s home in Jabal al-Mukabber, East Jerusalem. They demanded he hand over security camera footage, even though they had explicitly arranged to collect it the next day from his brother’s home. The officers insisted on coming inside, despite refusing to present a search warrant. A confrontation ensued between the police and other family members who arrived on the scene and thought that civilians were assaulting their relatives. One officer beat Dr. Hussein on the head and he lost consciousness. This incident is but another example of the violent, arbitrary police conduct that has long since become part of the daily life in East Jerusalem.<br />For the full, uncut footage, see: https://www.youtube.com/watch?v=0pEM47adzNE<br />For further details, see : https://www.btselem.org/video/20190131_police_assault_hussein_family_members_in_jab_al_mukkaber",
+      "source_url": "https://archive.org/details/youtube-of1GwJsmmsc",
+      "video_url": "https://archive.org/download/youtube-of1GwJsmmsc/of1GwJsmmsc.mp4",
+      "direct_download_url": "https://archive.org/download/youtube-of1GwJsmmsc/of1GwJsmmsc.mp4",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T12:33:23.664372+00:00",
+      "screening": {
+        "duration_seconds": 110.29,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 9132701,
+        "hook_score": 6,
+        "story_score": 5,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "CCTV footage captures a home encounter involving plainclothes officers and family members, with clear date/time stamps. The visual narrative relies on text cards to explain context, but the raw security camera perspective offers concrete evidence suitable for a factual short.",
+        "screened_at": "2026-09-20T12:36:05.036217+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-funny_or_die_video_4391",
+      "title": "Funny or Die Video 4391: Coffee Pot Sh*tter",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "Breakroom security camera footage from the office I work in.",
+      "source_url": "https://archive.org/details/funny_or_die_video_4391",
+      "video_url": "https://archive.org/download/funny_or_die_video_4391/funny_or_die_video_4391.mp4",
+      "direct_download_url": "https://archive.org/download/funny_or_die_video_4391/funny_or_die_video_4391.mp4",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T12:33:24.314140+00:00",
+      "screening": {
+        "eligible": false,
+        "screening_status": "failed",
+        "screening_notes": "401 Client Error: Unauthorized for url: https://dn710700.ca.archive.org/0/items/funny_or_die_video_4391/funny_or_die_video_4391.mp4",
+        "screened_at": "2026-09-20T12:36:05.940718+00:00"
       }
     }
   ]

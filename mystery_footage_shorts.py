@@ -165,7 +165,8 @@ def render(source, audio, output, work, narration):
     captions = work / "captions.srt"
     write_one_word_srt(narration, captions, duration=60.0)
     run(["ffmpeg", "-y", "-i", str(source), "-t", "55", "-vf", "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30", "-an", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", str(normalized)])
-    subtitle_filter = f"subtitles={str(captions).replace(':', '\\:')} :force_style='FontName=Arial,FontSize=18,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BorderStyle=1,Outline=3,Shadow=1,Alignment=2,MarginV=110'".replace("} :", "}:")
+    escaped_captions = str(captions).replace("\\", "\\\\").replace(":", "\\:").replace("'", "\\'")
+    subtitle_filter = f"subtitles='{escaped_captions}':force_style='FontName=Arial,FontSize=18,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BorderStyle=1,Outline=3,Shadow=1,Alignment=2,MarginV=110'"
     run(["ffmpeg", "-y", "-stream_loop", "-1", "-i", str(normalized), "-i", str(audio), "-map", "0:v:0", "-map", "1:a:0", "-vf", subtitle_filter, "-t", "60", "-r", "30", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-shortest", str(output)])
 
 

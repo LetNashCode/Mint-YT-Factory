@@ -17,8 +17,8 @@
       "screening": {
         "eligible": false,
         "screening_status": "failed",
-        "screening_notes": "Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size:stream=width,height,codec_type', '-of', 'json', '/tmp/mystery-screen-rbmgcwu3/source']' returned non-zero exit status 1.",
-        "screened_at": "2026-09-18T21:49:37.600710+00:00"
+        "screening_notes": "Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size:stream=width,height,codec_type', '-of', 'json', '/tmp/mystery-screen-lhpt_imr/source']' returned non-zero exit status 1.",
+        "screened_at": "2026-09-20T01:46:07.970088+00:00"
       }
     },
     {
@@ -48,8 +48,8 @@
         "story_score": 2,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The footage consists of standard, low-resolution video game gameplay clips from a gaming compilation show (Kotaku's Highlight Reel), featuring UI overlays and standard game bugs. It lacks any real-world mystery, unusual anomalous phenomena, or factual documentary value.",
-        "screened_at": "2026-09-18T21:50:09.120222+00:00",
+        "screening_notes": "The footage consists of standard, low-resolution video game gameplay (Fortnite) sourced from a compilation reel. There is no real-world mystery, factual event, or unique documentary subject; it is purely commercial/gaming entertainment content unsuited for a factual mystery short.",
+        "screened_at": "2026-09-20T01:46:12.989668+00:00",
         "eligible": false
       }
     },
@@ -75,7 +75,7 @@
         "eligible": false,
         "screening_status": "failed",
         "screening_notes": "source file exceeds screening size limit",
-        "screened_at": "2026-09-18T21:50:10.287851+00:00"
+        "screened_at": "2026-09-20T01:46:14.136633+00:00"
       }
     },
     {
@@ -102,11 +102,11 @@
         "height": 480,
         "size_bytes": 5304448,
         "hook_score": 6,
-        "story_score": 5,
+        "story_score": 4,
         "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video features podcast interview footage discussing Lockheed Skunkworks technology and historical aircraft visuals, but lacks clear verifiable evidence or primary source footage of unusual moments, relying instead on talking head commentary.",
-        "screened_at": "2026-09-18T21:50:50.901670+00:00",
+        "screening_notes": "Podcast clip features standard talking-head interview footage mixed with archival photos of aircraft like the F-117. The sensational title references E.T., but the video relies on interview discussion rather than unique or unusual physical evidence.",
+        "screened_at": "2026-09-20T01:46:18.821634+00:00",
         "eligible": false
       }
     },
@@ -137,8 +137,8 @@
         "story_score": 1,
         "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video shows a man speaking directly to the camera and gesturing with his hands in an indoor setting. It lacks a clear factual mystery, unexpected anomaly, or verifiable event, making it unsuitable for a factual mystery Short.",
-        "screened_at": "2026-09-18T21:51:05.340764+00:00",
+        "screening_notes": "The footage shows a man speaking directly to the camera and gesturing with his hands in an indoor setting. It lacks an unusual factual mystery moment or tangible anomaly, consisting entirely of standard talking-head content related to channeled spiritual rhetoric.",
+        "screened_at": "2026-09-20T01:46:24.880385+00:00",
         "eligible": false
       }
     },
@@ -165,12 +165,12 @@
         "width": 854,
         "height": 480,
         "size_bytes": 117283976,
-        "hook_score": 1,
-        "story_score": 2,
+        "hook_score": 2,
+        "story_score": 3,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "Talking head podcast format discussing UFO cases; lacks unique primary archive footage or visually compelling moments suitable for a short.",
-        "screened_at": "2026-09-18T21:51:25.970456+00:00",
+        "screening_notes": "The video consists of standard talking-head podcast footage discussing a UFO case, lacking unusual or compelling standalone visual moments suitable for a mystery Short.",
+        "screened_at": "2026-09-20T01:46:31.892150+00:00",
         "eligible": false
       }
     },
@@ -201,8 +201,8 @@
         "story_score": 1,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video shows a man speaking to the camera and gesturing while claiming to channel non-physical beings from the Arcturus Star System. There are no unusual moments, factual mysteries, or verifiable historical events supported by the footage, making it unsuitable for a factual mystery short.",
-        "screened_at": "2026-09-18T21:51:38.239225+00:00",
+        "screening_notes": "The video features a person talking to the camera and gesturing while claiming to channel extraterrestrial beings. There is no factual mystery, unusual physical event, or tangible evidence to investigate.",
+        "screened_at": "2026-09-20T01:46:36.729227+00:00",
         "eligible": false
       }
     },
@@ -230,11 +230,11 @@
         "height": 480,
         "size_bytes": 166937680,
         "hook_score": 3,
-        "story_score": 4,
+        "story_score": 2,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video primarily consists of a creator talking over a displayed email document, lacking the direct visual evidence required for a standalone short.",
-        "screened_at": "2026-09-18T21:51:49.390378+00:00",
+        "screening_notes": "The video is primarily a creator reacting to and reading emails about previously discussed UFO/UAP footage rather than showing primary, self-contained mystery footage. Visuals consist of static text and a talking head.",
+        "screened_at": "2026-09-20T01:46:45.124170+00:00",
         "eligible": false
       }
     },
@@ -265,8 +265,8 @@
         "story_score": 1,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The provided visuals consist entirely of generic 3D stock animations (DNA strands, digital human silhouettes, brain graphics, and wireframe grids) accompanied by sensationalized conspiracy text. There is no genuine found footage or factual mystery to investigate.",
-        "screened_at": "2026-09-18T21:52:02.115401+00:00",
+        "screening_notes": "The candidate consists of standard motion graphics, 3D renders of DNA, a brain, and digital human models, combined with conspiratorial text about extraterrestrial colonization and secret societies. It lacks factual mystery elements and real archive footage.",
+        "screened_at": "2026-09-20T01:46:55.153799+00:00",
         "eligible": false
       }
     },
@@ -293,12 +293,12 @@
         "width": 1280,
         "height": 720,
         "size_bytes": 264434944,
-        "hook_score": 3,
-        "story_score": 2,
+        "hook_score": 2,
+        "story_score": 3,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The visual consists entirely of a static talking-head interview setup with a speaker discussing speculative philosophy about extraterrestrials. There are no unusual moments or actionable footage for a factual mystery short.",
-        "screened_at": "2026-09-18T21:52:14.394841+00:00",
+        "screening_notes": "The video consists of a talking head in an interior setting discussing speculative philosophical ideas regarding UFOs and totalitarianism. There are no unusual moments, archival evidence, or visually dynamic elements to support a factual mystery Short.",
+        "screened_at": "2026-09-20T01:47:05.616860+00:00",
         "eligible": false
       }
     },
@@ -325,12 +325,12 @@
         "width": 854,
         "height": 480,
         "size_bytes": 90435560,
-        "hook_score": 2,
+        "hook_score": 1,
         "story_score": 1,
         "usable_visuals": false,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video is a standard studio talk show/podcast featuring a host talking to a guest and discussing various topics, including internet rumors. There is no unique, verifiable footage of an unusual moment or mystery; it is purely commentary and talking heads.",
-        "screened_at": "2026-09-18T21:52:36.990787+00:00",
+        "screening_notes": "The video is a studio-recorded podcast or commentary show featuring a host talking into a microphone. It does not contain any archival, eyewitness, or found-footage mystery elements suitable for a factual mystery Short.",
+        "screened_at": "2026-09-20T01:47:11.151558+00:00",
         "eligible": false
       }
     },
@@ -357,12 +357,12 @@
         "width": 854,
         "height": 480,
         "size_bytes": 291316145,
-        "hook_score": 3,
-        "story_score": 4,
+        "hook_score": 4,
+        "story_score": 5,
         "usable_visuals": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video features historical interviews and archival newspaper clippings regarding a payroll murder trial involving Field Reservist Michael Norton in Rhodesia. While historical documents and vintage photos provide some context, the visual material consists mostly of static articles and modern web interfaces, limiting its utility for an engaging short.",
-        "screened_at": "2026-09-18T21:53:12.216823+00:00",
+        "screening_notes": "The video features historical newspaper clippings and interview stills related to a murder trial in Rhodesia involving a payroll ambush. While visually archival documents and stills are present, the subject matter is niche and requires historical context, resulting in a moderate score for a short-form mystery.",
+        "screened_at": "2026-09-20T01:47:21.597148+00:00",
         "eligible": false
       }
     },
@@ -388,7 +388,343 @@
         "eligible": false,
         "screening_status": "failed",
         "screening_notes": "source file exceeds screening size limit",
-        "screened_at": "2026-09-18T21:53:13.375121+00:00"
+        "screened_at": "2026-09-20T01:47:22.931834+00:00"
+      }
+    },
+    {
+      "id": "internet-archive-youtube-_zxbjmRTkfY",
+      "title": "Israeli settlers steal from plant nursery, a-Sawiyah, Nablus District, 27 Nov. 202",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "Muhammad Mahamid (29), a father of two from a-Sawiyah, Nablus District, has a plant nursery by Route 60, at the entrance to the village. On 27 November 2020, at around 2:00 A.M., before going to bed, he checked the nursery’s security camera and saw people loading seedlings onto a car. According to Mahamid, settlers had broken into the nursery and stolen items four times prior to that, most recently in early November. Mahamid got into his car and sped to the nursery, where he rammed into the settlers’ parked car. The settlers got out and fled towards the settlement of Rehelim, which lies about a kilometer and a half from the nursery.<br />Mahamid called the Israel Police, and about 15 minutes later, officers arrived along with 10 military jeeps. The officers photographed the scene, and took fingerprints from the settlers’ car and from the items they had loaded onto it. A few hours later, the officers drove Mahamid to the Ariel police station, where he filed a complaint and gave his statement.<br />The video was edited by B'Tselem. For the uncut footage: https://www.youtube.com/watch?v=0Mdr5KAceHQ&feature=youtu.be<br /><br /><br />מתנחלים גונבים פריטים ממשתלה בפעם החמישית מאז נפתחה ב",
+      "source_url": "https://archive.org/details/youtube-_zxbjmRTkfY",
+      "video_url": "https://archive.org/download/youtube-_zxbjmRTkfY/_zxbjmRTkfY.mp4",
+      "direct_download_url": "https://archive.org/download/youtube-_zxbjmRTkfY/_zxbjmRTkfY.mp4",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T01:46:03.161727+00:00",
+      "screening": {
+        "duration_seconds": 95.57,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 7807040,
+        "hook_score": 4,
+        "story_score": 5,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "Security camera footage shows nighttime activity at a plant nursery, but the grainy overhead angle and lack of clear action limit its visual impact for a fast-paced short.",
+        "screened_at": "2026-09-20T01:47:27.199623+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-twitter-1826000556483342752",
+      "title": "TIMES OF GAZA - Security camera footage shows the moment when a central market in Deir al-Balah was bombed by lsraeli missiles earlier today.",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "Security camera footage shows the moment when a central market in Deir al-Balah was bombed by lsraeli missiles earlier today. https://t.co/A0jdfxQNG6",
+      "source_url": "https://archive.org/details/twitter-1826000556483342752",
+      "video_url": "https://archive.org/download/twitter-1826000556483342752/1826000499952197632.ia.mp4",
+      "direct_download_url": "https://archive.org/download/twitter-1826000556483342752/1826000499952197632.ia.mp4",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T01:46:03.418267+00:00",
+      "screening": {
+        "duration_seconds": 33.0,
+        "width": 720,
+        "height": 1280,
+        "size_bytes": 2370864,
+        "hook_score": 6,
+        "story_score": 4,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "CCTV footage shows a street scene moments before an explosion fills the area with dust and smoke. While visually clear, the event is a standard news/conflict occurrence rather than an investigative or factual mystery suited for standalone shorts.",
+        "screened_at": "2026-09-20T01:47:31.034147+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-youtube-E4WlPdNhzjM",
+      "title": "RAW VIDEO: Federal Officers Hold Disabled Veteran and Wife at Gunpoint & Threaten K-9 Attack",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "This is the official security camera footage from the traumatic raid on our home on May 5, 2025. The raid was executed based on an arrest warrant that our lawsuit proves was fraudulent and based on fabricated evidence. <br /><br />This video shows multiple U.S. Marshals holding my husband, a 100% disabled combat veteran with a TBI, and me at gunpoint and threatening us with a K-9 unit. Our lawsuit details the impossible situation my husband has been forced into. He is certified as 100% disabled and unable to work by the VA and Social Security Administration, yet his supervision conditions absurdly mandate that he work full-time. <br /><br />This is the latest chapter in a multi-year pattern of retaliatory prosecution by federal officials, which began after my husband refused to help them decrypt Tor traffic he was hosting for journalists and activists.<br /><br />OUR STORY:<br />This is the official security camera footage from the traumatic raid on our home on May 5, 2025. The raid was executed based on an arrest warrant that our lawsuit proves was fraudulent and based on fabricated evidence. This video shows multiple U.S. Marshals holding my husband, a 100% disabled combat vetera",
+      "source_url": "https://archive.org/details/youtube-E4WlPdNhzjM",
+      "video_url": "https://archive.org/download/youtube-E4WlPdNhzjM/E4WlPdNhzjM.ia.mp4",
+      "direct_download_url": "https://archive.org/download/youtube-E4WlPdNhzjM/E4WlPdNhzjM.ia.mp4",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T01:46:03.736771+00:00",
+      "screening": {
+        "duration_seconds": 73.75,
+        "width": 640,
+        "height": 480,
+        "size_bytes": 7180749,
+        "hook_score": 7,
+        "story_score": 6,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "Security camera footage clearly shows law enforcement vehicles pulling up and individuals raising their hands outside a vehicle, aligning with the description of a tense raid situation.",
+        "screened_at": "2026-09-20T01:47:34.357852+00:00",
+        "eligible": true
+      }
+    },
+    {
+      "id": "internet-archive-twitter-1611059322234048512",
+      "title": "BlackBoxDown - Security camera footage comparing a normal aircraft deceleration with the accident aircraft.",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "Security camera footage comparing a normal aircraft deceleration with the accident aircraft. https://t.co/MUnvdoXZCH",
+      "source_url": "https://archive.org/details/twitter-1611059322234048512",
+      "video_url": "https://archive.org/download/twitter-1611059322234048512/1611059215459618836.mp4",
+      "direct_download_url": "https://archive.org/download/twitter-1611059322234048512/1611059215459618836.mp4",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T01:46:04.090479+00:00",
+      "screening": {
+        "duration_seconds": 103.91,
+        "width": 320,
+        "height": 240,
+        "size_bytes": 1016518,
+        "hook_score": 8,
+        "story_score": 9,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "CCTV security camera footage showing comparative aircraft landing/deceleration sequences. Visual quality is low resolution and dark, but offers clear comparative investigative value for an aviation incident.",
+        "screened_at": "2026-09-20T01:47:38.481909+00:00",
+        "eligible": true
+      }
+    },
+    {
+      "id": "internet-archive-youtube-4iFHwRbONSc",
+      "title": "Israeli police beat Jerusalem man during dawn raid",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "WATCH: Security camera footage documents Israeli police beating and arresting Mohammad al-Daqqaq after raiding his house in the Silwan neighbourhood of East Jerusalem<br /><br />Subscribe to our channel: http://ow.ly/AVlW30n1OWH<br /><br />Middle East Eye Website: https://middleeasteye.net<br />Like us on Facebook: https://facebook.com/MiddleEastEye<br />Follow us on Twitter: https://twitter.com/MiddleEastEye<br />Follow us on Instagram: https://instagram.com/MiddleEastEye",
+      "source_url": "https://archive.org/details/youtube-4iFHwRbONSc",
+      "video_url": "https://archive.org/download/youtube-4iFHwRbONSc/4iFHwRbONSc.webm",
+      "direct_download_url": "https://archive.org/download/youtube-4iFHwRbONSc/4iFHwRbONSc.webm",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T01:46:04.369046+00:00",
+      "screening": {
+        "duration_seconds": 57.26,
+        "width": 720,
+        "height": 1280,
+        "size_bytes": 3354333,
+        "hook_score": 6,
+        "story_score": 5,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "Surveillance footage shows figures interacting in a courtyard setting, but the video is low quality, distant, and heavily relies on on-screen text to explain the context of the event.",
+        "screened_at": "2026-09-20T01:47:42.443055+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-youtube-HUd1TDgofS4",
+      "title": "Family of slain autistic Palestinian calls on Israel to release security camera footage",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "The family of Iyad Hallak, an unarmed autistic Palestinian who was killed by Israeli police, called on authorities to release security camera footage of the incident.<br />Read more: http://tiny.cc/qv2rqz<br /><br />The New Arab Website: https://www.alaraby.co.uk/english<br />Like us on Facebook: https://www.facebook.com/AlAraby.en<br />Follow us on Twitter: https://twitter.com/The_newarab<br />Follow us on Instagram: https://twitter.com/The_NewArab<br />#Palestine #IyadHallak",
+      "source_url": "https://archive.org/details/youtube-HUd1TDgofS4",
+      "video_url": "https://archive.org/download/youtube-HUd1TDgofS4/HUd1TDgofS4.mp4",
+      "direct_download_url": "https://archive.org/download/youtube-HUd1TDgofS4/HUd1TDgofS4.mp4",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T01:46:04.687277+00:00",
+      "screening": {
+        "duration_seconds": 43.17,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 4132348,
+        "hook_score": 3,
+        "story_score": 4,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video discusses a real-world news event regarding the killing of Iyad Hallak and protests demanding footage. It lacks a true 'mystery' format or unusual anomalous moment suited for short-form factual mystery content, functioning primarily as a news report and protest segment.",
+        "screened_at": "2026-09-20T01:47:46.712801+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-youtube-31zdJT5Ohyk",
+      "title": "Las Vegas Shooting Security Camera footage📹",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "Two Helicopters Involved Las Vegas Shooting Massacre.<br />Newly released footage of the Las Vegas Massacre, captured by a private surveillance camera.<br /><br />Over the last month multiple videos have been released that many believe show helicopters either conducting an attack on the Vegas Strip or attempting to stop those that were and now, with this latest evidence release, that possibility seems all the more plausible.<br /><br /><br />Footage is presumed to have been captured by a nearby business’s southward facing security camera which is located approximately 780 feet due east of the venue where the Route 91 Harvest Music Festival was held on Oct. 1.<br /><br />Amazingly, the surveillance camera captured what seems to show a “large amount” of wind and debris being kicked up by a nearby helicopter hovering above the attack and or taking part in it.<br /><br />“Astonishingly, between the times of 10:13 and 10:16 a good amount of debris can be seen being pushed downward and sideways in front of the camera” <br /><br />By 10:14 much larger crowds of people can be seen streaming through the area to escape the massacre going on, You can see a large amount of wind and debris, app",
+      "source_url": "https://archive.org/details/youtube-31zdJT5Ohyk",
+      "video_url": "https://archive.org/download/youtube-31zdJT5Ohyk/31zdJT5Ohyk.mp4",
+      "direct_download_url": "https://archive.org/download/youtube-31zdJT5Ohyk/31zdJT5Ohyk.mp4",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T01:46:05.004361+00:00",
+      "screening": {
+        "duration_seconds": 786.05,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 80396868,
+        "hook_score": 2,
+        "story_score": 1,
+        "usable_visuals": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The provided frames show a static nighttime parking lot security camera with no visible helicopters, crowd movement, or distinctive action. The imagery is extremely dark, monotonous, and visually uninformative, making it entirely unsuitable for a factual mystery Short.",
+        "screened_at": "2026-09-20T01:48:06.056935+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-youtube-Zd3Dgv7xyco",
+      "title": "Israeli security forces shoot and kill Ahmad Zidani, Beit Rima, 18 Dec. 2016",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "On the night of 18 Dec. 2016 four Israeli military and Border Police jeeps arrived at Beit Rima. In clashes that ensued, a member of the security forces shot and killed 17-year-old Ahmad Zidani. A security camera captured the moment Zidani was shot. The video was edited by B’Tselem.<br />Link to the unedited security camera footage:<br />https://www.youtube.com/watch?v=CkdF9KCQUNY<br />אנשי כוחות הביטחון יורים באחמד זידאני למוות, בית רימא, 18 בדצמבר 2016.<br /><br />בליל ה-18 בדצמבר 2016 נכנסו ארבעה ג'יפים של משמר הגבול והצבא לבית רימא. במהלך עימותים שהתפתחו במקום, ירה אחד מאנשי כוחות הביטחון באחמד זידאני, בן 17, והרג אותו. בתיעוד וידיאו של מצלמת אבטחה ניתן לראות את רגע הירי. הסרטון נערך בידי בצלם. <br />לינק לווידיאו המלא: <br />https://www.youtube.com/watch?v=CkdF9KCQUNY",
+      "source_url": "https://archive.org/details/youtube-Zd3Dgv7xyco",
+      "video_url": "https://archive.org/download/youtube-Zd3Dgv7xyco/Zd3Dgv7xyco.webm",
+      "direct_download_url": "https://archive.org/download/youtube-Zd3Dgv7xyco/Zd3Dgv7xyco.webm",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T01:46:05.313731+00:00",
+      "screening": {
+        "duration_seconds": 191.82,
+        "width": 640,
+        "height": 480,
+        "size_bytes": 4159486,
+        "hook_score": 4,
+        "story_score": 5,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "Security camera footage is grainy and distant, showing nighttime military vehicle movements and obscured action. While documented by B'Tselem, the visual detail is too low and ambiguous for an engaging visual-first short mystery.",
+        "screened_at": "2026-09-20T01:48:09.643227+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-youtube-2ImHlTWaUWs",
+      "title": "AG Merrick Garland & the Jan 6th security camera footage",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "Merrick Garland & the Jan 6th security camera footage<br />#Jan6thInsurrection #Jan6Justice",
+      "source_url": "https://archive.org/details/youtube-2ImHlTWaUWs",
+      "video_url": "https://archive.org/download/youtube-2ImHlTWaUWs/2ImHlTWaUWs.mp4",
+      "direct_download_url": "https://archive.org/download/youtube-2ImHlTWaUWs/2ImHlTWaUWs.mp4",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T01:46:05.768959+00:00",
+      "screening": {
+        "duration_seconds": 311.2,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 30232174,
+        "hook_score": 2,
+        "story_score": 2,
+        "usable_visuals": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The footage consists entirely of two talking heads in a video podcast or interview format. There are no unusual moments, mystery elements, or compelling visual evidence shown in the frames, making it unsuitable for a factual mystery Short.",
+        "screened_at": "2026-09-20T01:48:15.983456+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-youtube-kGanJoLLAMM",
+      "title": "Shooting of Yusef ‘Anqawi and Amir Dar Daraj, Kafr Ni’ma, 4 March 2019",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "Interval between time Palestinian car hit Israeli troops near village of Kafr Ni’ma and the fatal shooting of two of the car’s passengers raises grave concerns (video)<br /><br />On Mon., 4 March 2019, at around 2:30 A.M., a Palestinian car hit a military jeep. The car also hit an officer, seriously injuring him, and a Border Police officer, who sustained mild injuries. Two of the three Palestinians in the car, Yusef ‘Anqawi and Amir Dar Daraj, were fatally shot and the third was arrested. Video footage of the incident reveals that the two men were shot only four and a half minutes after the collision. This time gap, the IDF Spokesperson’s refusal to explain it, and the confiscation of footage from a nearby security camera all raise grave concerns as to the circumstances in which the two men were killed.<br /><br /> פער הזמנים בין דריסת אנשי כוחות הביטחון ליד כפר ניעמה לבין הירי הקטלני בשניים מנוסעי הרכב הפלסטינים מעורר חשדות כבדים (וידיאו)<br /><br />ביום שני, 4.3.19, בסביבות השעה 2:30, התנגשה מכונית פלסטינית בג'יפ צבאי ופגעה בקצין, שנפצע קשה ובשוטר מג\"ב, שנפצע קל. במכונית ישבו שלושה פלסטינים, שניים מהם – יוסף ענקאווי אמיר דאר דראג' – נורו למוות והשלישי נעצר. תיעוד וידיאו חושף כי ",
+      "source_url": "https://archive.org/details/youtube-kGanJoLLAMM",
+      "video_url": "https://archive.org/download/youtube-kGanJoLLAMM/kGanJoLLAMM.webm",
+      "direct_download_url": "https://archive.org/download/youtube-kGanJoLLAMM/kGanJoLLAMM.webm",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T01:46:06.013235+00:00",
+      "screening": {
+        "duration_seconds": 515.74,
+        "width": 1920,
+        "height": 1080,
+        "size_bytes": 12263328,
+        "hook_score": 2,
+        "story_score": 3,
+        "usable_visuals": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video frames are extremely dark, blurry, and featureless night footage where no clear subjects, actions, or details can be discerned, making it unsuitable for visual storytelling.",
+        "screened_at": "2026-09-20T01:48:20.378616+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-20210514_20210514_2206",
+      "title": "View from security camera at former Kitakami river in Ishinomaki City",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "<div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><font color=\"#030303\" face=\"Roboto, Arial, sans-serif\"><span style=\"white-space:pre-wrap;\">Part of the 3/11 tsunami footage map</span></font></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><a href=\"https://drive.google.com/open?id=1caLBVPL6o8RgXsCS7q4MVGmBGQ0SSOzH\" style=\"color:rgb(75,100,255);\" rel=\"ugc nofollow\">https://drive.google.com/open?id=1caLBVPL6o8RgXsCS7q4MVGmBGQ0SSOzH</a></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><ul style=\"margin:0px;list-style:none;padding:4px 0px 0px;height:29px;font-family:Roboto, Arial, sans-serif;font-size:13px;\"><li><ul style=\"margin:0px;list-style:none;padding:4px 0px 0px;height:29px;color:rgb(0,0,0);\"><li><ul style=\"margin:0px;list-style:none;padding:4px 0px 0px;height:29px;\"><li><ul style=\"margin:0px;list-style:none;padding:4px 0px 0px;height:29px;\"><li><ul style=\"margin:0px;list-style:none;padding:4px ",
+      "source_url": "https://archive.org/details/20210514_20210514_2206",
+      "video_url": "https://archive.org/download/20210514_20210514_2206/%E7%9F%B3%E5%B7%BB%E5%B8%82%E3%83%BB%E6%97%A7%E5%8C%97%E4%B8%8A%E5%B7%9D%E3%82%92%E9%81%A1%E4%B8%8A%E3%81%99%E3%82%8B%E6%B4%A5%E6%B3%A2%20%E3%80%90%E6%9D%B1%E5%8C%97%E5%9C%B0%E6%96%B9%E6%95%B4%E5%82%99%E5%B1%80%E6%8F%90%E4%BE%9B%E6%98%A0%E5%83%8F%E3%80%91.mp4",
+      "direct_download_url": "https://archive.org/download/20210514_20210514_2206/%E7%9F%B3%E5%B7%BB%E5%B8%82%E3%83%BB%E6%97%A7%E5%8C%97%E4%B8%8A%E5%B7%9D%E3%82%92%E9%81%A1%E4%B8%8A%E3%81%99%E3%82%8B%E6%B4%A5%E6%B3%A2%20%E3%80%90%E6%9D%B1%E5%8C%97%E5%9C%B0%E6%96%B9%E6%95%B4%E5%82%99%E5%B1%80%E6%8F%90%E4%BE%9B%E6%98%A0%E5%83%8F%E3%80%91.mp4",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T01:46:06.271876+00:00",
+      "screening": {
+        "duration_seconds": 362.88,
+        "width": 1280,
+        "height": 720,
+        "size_bytes": 21943964,
+        "hook_score": 6,
+        "story_score": 5,
+        "usable_visuals": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "Security camera footage showing the tsunami moving upstream on the former Kitakami River in Ishinomaki City on 3/11. The visuals clearly show the water level rapidly rising and overflowing the banks, but lacks a traditional narrative mystery element beyond documenting a known historical disaster.",
+        "screened_at": "2026-09-20T01:48:25.674676+00:00",
+        "eligible": false
+      }
+    },
+    {
+      "id": "internet-archive-JamesNReynoldsjrsepiabirds",
+      "title": "STock Footage-jr_sepiabirds",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "This is a time-lapse video of birds in mybackyard using a cheap security camera then filtered with sepia tone.",
+      "source_url": "https://archive.org/details/JamesNReynoldsjrsepiabirds",
+      "video_url": "https://archive.org/download/JamesNReynoldsjrsepiabirds/jr_sepiabirds_512kb.mp4",
+      "direct_download_url": "https://archive.org/download/JamesNReynoldsjrsepiabirds/jr_sepiabirds_512kb.mp4",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-20T01:46:06.714977+00:00",
+      "screening": {
+        "duration_seconds": 13.15,
+        "width": 320,
+        "height": 240,
+        "size_bytes": 936808,
+        "hook_score": 1,
+        "story_score": 1,
+        "usable_visuals": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The footage is extremely washed out, low resolution, and lacks any discernible mystery or unusual events beyond cars parked outside and extreme glare.",
+        "screened_at": "2026-09-20T01:48:28.665277+00:00",
+        "eligible": false
       }
     }
   ]

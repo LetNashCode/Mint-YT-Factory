@@ -130,7 +130,14 @@ def record_topic(topic,pillar,title,video_id,workdir,person=""):
     rows=_load_history(); rows.append({"topic":topic,"pillar":pillar,"person":person,"title":title,"video_id":video_id,"workdir":workdir}); _save(HISTORY,rows[-200:])
 
 def next_story_number():
-    data=_load(COUNTER,{}); number=int(data.get("number",0) or 0)+1; _save(COUNTER,{"number":number}); return number
+    """Return the next monotonic Story Shorts number, accounting for a pending story."""
+    data = _load(COUNTER, {})
+    counter_number = int(data.get("number", 0) or 0)
+    pending = _load(PENDING, {})
+    pending_number = int(pending.get("number", 0) or 0) if isinstance(pending, dict) else 0
+    number = max(counter_number, pending_number) + 1
+    _save(COUNTER, {"number": number})
+    return number
 
 def get_pending_story():
     data=_load(PENDING,{})

@@ -78,7 +78,7 @@ def make_script(item, source, work, audio_timeline):
     protected = json.dumps(audio_timeline.get("protected_intervals", []), ensure_ascii=False)
     prompt = f"""Create a detailed, entertaining full-length mystery documentary narration based ONLY on the supplied source footage and the case information below. Do not invent details and do not create a new story from the existence of the video. The selected footage is the subject of the documentary. Explain the footage in its actual sequence, explicitly describe what viewers are seeing, identify quiet or uneventful sections, and propose multiple clearly labeled theories while separating confirmed facts, visible observations, reported claims, and speculation.
 
-A timestamped Whisper analysis of the original audio is provided below. Original speech must be preserved: plan narration only for genuinely quiet or visual-only portions, never over the protected intervals. Do not rewrite, paraphrase, or narrate over the original spoken words. If a section contains speech, instruct the editor to pause narration and let the source audio play.
+A timestamped Whisper analysis of the original audio is provided below. Original speech must be preserved: plan narration only for genuinely quiet or visual-only portions, never over the protected intervals. Do not rewrite, paraphrase, or narrate over the original spoken words. If a section contains speech, instruct the editor to pause narration and let the source audio play. Keep narration sentences short enough to tolerate brief protected-audio interruptions.
 
 WHISPER TRANSCRIPT:
 {transcript}
@@ -102,13 +102,49 @@ OPEN QUESTIONS/THEORIES:\n{theories}"""
     return result
 
 
-def render(source, narration_audio, output, work):
+def _ffmpeg_volume_expression(intervals, inside_value, outside_value):
+    """Build a volume expression that changes level inside protected intervals."""
+    if not intervals:
+        return str(outside_value)
+    clauses = []
+    for interval in intervals:
+        start = max(0.0, float(interval.get("start", 0.0)))
+        end = max(start, float(interval.get("end", start)))
+        clauses.append(f"between(t,{start:.3f},{end:.3f})")
+    condition = "+".join(clauses)
+    return f"if({condition},{inside_value},{outside_value})"
+
+
+def render(source, narration_audio, output, work, audio_timeline):
     source_duration, _, _ = probe(source)
     narration_duration, _, _ = probe(narration_audio)
     total = max(source_duration, narration_duration)
     prepared = work / "prepared-source.mp4"
-    run(["ffmpeg", "-y", "-i", source, "-vf", "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1,fps=30,tpad=stop_mode=clone:stop_duration=" + str(max(0, total - source_duration)), "-an", "-t", str(total), "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p", prepared])
-    run(["ffmpeg", "-y", "-i", prepared, "-i", source, "-i", narration_audio, "-filter_complex", "[1:a]volume=0.08[original];[2:a]volume=1.0[voice];[original][voice]amix=inputs=2:duration=longest:dropout_transition=2[a]", "-map", "0:v:0", "-map", "[a]", "-t", str(total), "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", output])
+    protected = audio_timeline.get("protected_intervals", [])
+
+    run([
+        "ffmpeg", "-y", "-i", source,
+        "-vf", "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1,fps=30",
+        "-t", str(total), "-an", "-c:v", "libx264", "-preset", "veryfast",
+        "-pix_fmt", "yuv420p", prepared,
+    ])
+
+    # During protected intervals, preserve the original audio and mute the
+    # generated narration. Outside those intervals, duck the source audio and
+    # allow narration to play. This prevents narration from covering dialogue.
+    original_expr = _ffmpeg_volume_expression(protected, "1.0", "0.08")
+    voice_expr = _ffmpeg_volume_expression(protected, "0.0", "1.0")
+    filter_complex = (
+        f"[1:a]volume='{original_expr}':eval=frame[original];"
+        f"[2:a]volume='{voice_expr}':eval=frame[voice];"
+        "[original][voice]amix=inputs=2:duration=longest:dropout_transition=2[a]"
+    )
+    run([
+        "ffmpeg", "-y", "-i", prepared, "-i", source, "-i", narration_audio,
+        "-filter_complex", filter_complex,
+        "-map", "0:v:0", "-map", "[a]", "-t", str(total),
+        "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", output,
+    ])
 
 
 def main():
@@ -139,8 +175,17 @@ def main():
         narration_audio = work / "narration.mp3"
         synthesize_narration(script["narration"], {"voice": {"provider": "kokoro", "voice_name": os.getenv("MINT_KOKORO_VOICE", "am_michael"), "kokoro_lang": os.getenv("MINT_KOKORO_LANG", "a"), "speed": 1.0}}, str(narration_audio))
         output = OUT / "mystery-documentary.mp4"
-        render(source, narration_audio, output, work)
-    metadata = {"video_title": script["video_title"], "description": script["description_intro"] + "\n\nCase: " + item["title"] + "\nSource footage: " + item["source_url"], "tags": script["tags"], "highlighted_keywords": script.get("highlighted_keywords", []), "catalog_item_id": item["id"], "source_url": item["source_url"], "generated_at": int(time.time())}
+        render(source, narration_audio, output, work, audio_timeline)
+    metadata = {
+        "video_title": script["video_title"],
+        "description": script["description_intro"] + "\n\nCase: " + item["title"] + "\nSource footage: " + item["source_url"],
+        "tags": script["tags"],
+        "highlighted_keywords": script.get("highlighted_keywords", []),
+        "catalog_item_id": item["id"],
+        "source_url": item["source_url"],
+        "protected_audio_intervals": audio_timeline.get("protected_intervals", []),
+        "generated_at": int(time.time()),
+    }
     if os.getenv("MYSTERY_FOOTAGE_AUTO_UPLOAD", "false").lower() in TRUE:
         from upload_youtube import upload_video
         config = {"upload": {"privacy_status": os.getenv("MYSTERY_FOOTAGE_PRIVACY_STATUS", "private"), "category_id": "24"}, "seo": {"hashtags": script["tags"]}}

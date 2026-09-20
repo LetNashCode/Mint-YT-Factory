@@ -5,6 +5,7 @@ import runpy
 
 import story_identity_media
 import story_topic_uniqueness
+import interactive_topics
 from interactive_topics import validate_story_sequence_state
 
 
@@ -36,6 +37,15 @@ def main() -> None:
     # A corrupt/stale sequence state must never trigger a search for another person.
     next_number = validate_story_sequence_state()
     print(f"🔐 Story sequence preflight passed: next Story #{next_number}")
+
+    # Make the validated number authoritative for the entire run. This prevents
+    # interactive_main.py from independently deriving a stale number after other
+    # startup hooks have run.
+    def validated_next_story_number() -> int:
+        return next_number
+
+    validated_next_story_number._mint_validated_sequence_number = True
+    interactive_topics.next_story_number = validated_next_story_number
 
     story_topic_uniqueness.install()
     _patch_story_portrait_export()

@@ -6,7 +6,33 @@ import runpy
 import story_identity_media
 
 
+def _patch_story_portrait_export() -> None:
+    """Apply the shared border-free portrait export after Story Shorts assembly."""
+    import assemble
+    from portrait_export_guard import ensure_portrait_export
+
+    original_assemble = getattr(assemble, "assemble_video", None)
+    if original_assemble is None or getattr(original_assemble, "_mint_story_portrait_guard", False):
+        return
+
+    def guarded_assemble_video(*args, **kwargs):
+        result = original_assemble(*args, **kwargs)
+        output_path = kwargs.get("output_path")
+        if output_path is None and args:
+            # assemble_video's output path is the final positional argument.
+            output_path = args[-1]
+        if output_path:
+            ensure_portrait_export(output_path)
+        return result
+
+    guarded_assemble_video._mint_story_portrait_guard = True
+    assemble.assemble_video = guarded_assemble_video
+    print("📱 Story portrait guard: full-frame 9:16 crop enabled")
+
+
 def main() -> None:
+    _patch_story_portrait_export()
+
     import stock_media_resilient
 
     original = stock_media_resilient.generate_media
@@ -23,6 +49,7 @@ def main() -> None:
             if is_story:
                 story_identity_media.end_story()
 
+    identity_generate_media._mint_story_identity_wrapper = True
     stock_media_resilient.generate_media = identity_generate_media
     runpy.run_path("interactive_main.py", run_name="__main__")
 

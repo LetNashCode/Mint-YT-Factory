@@ -54,7 +54,13 @@ def _detect_embedded_black_bars(source: Path) -> tuple[int, int, int, int] | Non
 
 
 def ensure_portrait_export(path: str | Path) -> Path:
-    """Export 2160x3840 portrait video while removing embedded black borders."""
+    """Export a full-frame 2160x3840 portrait crop without blur or borders.
+
+    Embedded black borders are removed when reliably detected. The cleaned source
+    is then scaled to cover the complete 9:16 canvas and centrally cropped. This
+    intentionally fills every pixel of the portrait frame, preserving the middle
+    of the source rather than adding a background layer.
+    """
     source = Path(path)
     if not source.is_file():
         raise FileNotFoundError(source)
@@ -75,13 +81,12 @@ def ensure_portrait_export(path: str | Path) -> Path:
         print("ℹ️ No reliable embedded black-border crop detected; preserving source frame.")
 
     temp = source.with_name(source.stem + ".portrait.tmp.mp4")
+    # Cover-and-crop: no blurred layer, no padding, no black borders.
     filter_complex = (
-        f"[0:v]{crop_filter}split=2[bgsrc][fgsrc];"
-        f"[bgsrc]scale={TARGET_WIDTH}:{TARGET_HEIGHT}:force_original_aspect_ratio=increase,"
-        f"crop={TARGET_WIDTH}:{TARGET_HEIGHT},boxblur=30:10[background];"
-        f"[fgsrc]scale={TARGET_WIDTH}:{TARGET_HEIGHT}:force_original_aspect_ratio=decrease,"
-        f"setsar=1[foreground];"
-        f"[background][foreground]overlay=(W-w)/2:(H-h)/2,setsar=1[v]"
+        f"[0:v]{crop_filter}"
+        f"scale={TARGET_WIDTH}:{TARGET_HEIGHT}:force_original_aspect_ratio=increase,"
+        f"crop={TARGET_WIDTH}:{TARGET_HEIGHT}:(iw-{TARGET_WIDTH})/2:(ih-{TARGET_HEIGHT})/2,"
+        f"setsar=1[v]"
     )
     command = [
         "ffmpeg", "-y", "-i", str(source), "-filter_complex", filter_complex,

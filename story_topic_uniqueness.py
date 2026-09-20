@@ -39,9 +39,92 @@ def _read_json(path: Path, default):
         return default
 
 
+def _write_json(path: Path, value) -> None:
+    import json
+    path.write_text(json.dumps(value, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def _history_people() -> set[str]:
+    used = set()
+    for row in _read_json(HISTORY, []):
+        if isinstance(row, dict):
+            used.update(_person_keys(row.get("person", "")))
+    return used
+
+
+def _is_used(person: str, used: set[str]) -> bool:
+    return bool(_person_keys(person) & used)
+
+
+def _replacement_from_candidates(used: set[str]):
+    """Return the first unused candidate, or None when no candidate is available."""
+    candidates_path = ROOT / "story_candidates.json"
+    candidates = _read_json(candidates_path, [])
+    for item in candidates:
+        if not isinstance(item, dict):
+            continue
+        person = str(item.get("person", "")).strip()
+        premise = str(item.get("premise", "")).strip()
+        if not person or not premise or _is_used(person, used):
+            continue
+        return item
+    return None
+
+
+def repair_pending_story() -> None:
+    """Replace a stale pending story when its person already exists in history."""
+    pending = _read_json(PENDING, {})
+    if not isinstance(pending, dict) or not pending:
+        return
+
+    used = _history_people()
+    pending_person = str(pending.get("person", "")).strip()
+    if not pending_person or not _is_used(pending_person, used):
+        return
+
+    replacement = _replacement_from_candidates(used)
+    if replacement is None:
+        raise RuntimeError(
+            f"Pending story is a duplicate ({pending_person}), and no unused replacement is available."
+        )
+
+    replacement_person = str(replacement["person"]).strip()
+    replacement_format = str(
+        replacement.get("format") or pending.get("pillar") or "strange_turning_point"
+    ).strip().lower()
+    replacement_premise = str(replacement.get("premise", "")).strip()
+    number = pending.get("number")
+
+    repaired = {
+        "pillar": replacement_format,
+        "topic": f"{replacement_person}: {replacement_premise}",
+        "person": replacement_person,
+        "number": number,
+    }
+    _write_json(PENDING, repaired)
+
+    # Remove the replacement from the candidate pool so it cannot be selected twice.
+    candidates_path = ROOT / "story_candidates.json"
+    candidates = _read_json(candidates_path, [])
+    _write_json(
+        candidates_path,
+        [
+            item for item in candidates
+            if not isinstance(item, dict)
+            or not _person_keys(item.get("person", "")) & _person_keys(replacement_person)
+        ],
+    )
+    print(
+        f"🔧 Story uniqueness repair: replaced duplicate pending person "
+        f"'{pending_person}' with '{replacement_person}'"
+    )
+
+
 def install() -> None:
     """Patch topic selection with a durable, alias-tolerant uniqueness guard."""
     import interactive_topics
+
+    repair_pending_story()
 
     original = interactive_topics.get_next_topic
     if getattr(original, "_mint_uniqueness_guard", False):

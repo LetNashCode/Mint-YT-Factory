@@ -56,9 +56,9 @@ jobs:
         run: python mystery_footage_screening_gate.py
       - name: Generate full-length Mystery Documentary
         if: steps.gate.outputs.eligible == 'true'
-        run: python mystery_documentary.py
+        run: python mystery_documentary_runner.py
       - name: Add hybrid documentary captions
-        if: steps.gate.outputs.eligible == 'true'
+        if: steps.gate.outputs.eligible == 'true' && hashFiles('artifacts/mystery-documentary/mystery-documentary.mp4') != ''
         run: |
           python mystery_documentary_captions.py \
             --input artifacts/mystery-documentary/mystery-documentary.mp4 \
@@ -66,7 +66,7 @@ jobs:
             --keywords artifacts/mystery-documentary/metadata.json
           mv artifacts/mystery-documentary/mystery-documentary-captioned.mp4 artifacts/mystery-documentary/mystery-documentary.mp4
       - name: Upload documentary privately to YouTube
-        if: steps.gate.outputs.eligible == 'true'
+        if: steps.gate.outputs.eligible == 'true' && hashFiles('artifacts/mystery-documentary/mystery-documentary.mp4') != ''
         run: |
           python - <<'PY'
           import json
@@ -81,6 +81,7 @@ jobs:
           (root / 'metadata.json').write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding='utf-8')
           PY
       - name: Commit discovery, screening, and video history
+        if: always()
         run: |
           if git diff --quiet -- mystery_footage_catalog.json mystery_footage_history.json; then
             echo "No catalog or history changes to commit."

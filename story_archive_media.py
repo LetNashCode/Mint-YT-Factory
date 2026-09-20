@@ -1,7 +1,7 @@
 """Archive-media and story-topic history helpers for Story Shorts.
 
-This module deliberately has no licensing decision logic. It only discovers
-public archive records and prevents reuse of previously recorded topics/assets.
+This module deliberately has no licensing decision logic. It discovers public
+archive records, resolves downloadable video files, and tracks reuse.
 """
 from __future__ import annotations
 
@@ -19,8 +19,9 @@ import requests
 ROOT = Path(__file__).resolve().parent
 HISTORY_PATH = ROOT / "story_media_history.json"
 TOPICS_PATH = ROOT / "story_topic_history.json"
-UA = "Mint-YT-Factory/StoryArchiveMedia/1.0"
+UA = "Mint-YT-Factory/StoryArchiveMedia/1.1"
 TIMEOUT = 25
+VIDEO_EXTENSIONS = (".mp4", ".webm", ".mov", ".m4v", ".ogv", ".avi", ".mkv")
 
 
 def _load(path: Path, default: dict[str, Any]) -> dict[str, Any]:
@@ -90,8 +91,8 @@ def search_wikimedia(person: str, limit: int = 20) -> list[dict[str, Any]]:
         info = (page.get("imageinfo") or [{}])[0]
         url = info.get("url") or ""
         mime = info.get("mime") or ""
-        if url and (mime.startswith("video/") or mime.startswith("image/")):
-            results.append({"provider": "Wikimedia Commons", "id": str(page.get("pageid", "")), "title": page.get("title", ""), "source_url": "https://commons.wikimedia.org/wiki?curid=" + str(page.get("pageid", "")), "media_url": url, "mime": mime})
+        if url and mime.startswith("video/"):
+            results.append({"provider": "Wikimedia Commons", "id": str(page.get("pageid", "")), "title": page.get("title", ""), "source_url": "https://commons.wikimedia.org/wiki?curid=" + str(page.get("pageid", "")), "media_url": url, "mime": mime, "video": True})
     return results
 
 
@@ -103,6 +104,55 @@ def search_internet_archive(person: str, limit: int = 20) -> list[dict[str, Any]
         if identifier:
             results.append({"provider": "Internet Archive", "id": identifier, "title": doc.get("title", ""), "source_url": f"https://archive.org/details/{quote(str(identifier))}", "media_url": f"https://archive.org/download/{quote(str(identifier))}/", "mediatype": doc.get("mediatype", "")})
     return results
+
+
+def resolve_video_url(record: dict[str, Any]) -> str:
+    """Return a direct downloadable video URL for a discovered archive record."""
+    provider = str(record.get("provider") or "")
+    media_url = str(record.get("media_url") or "")
+    if provider == "Wikimedia Commons":
+        return media_url if media_url.lower().split("?", 1)[0].endswith(VIDEO_EXTENSIONS) else ""
+    if provider != "Internet Archive":
+        return ""
+    identifier = str(record.get("id") or "").strip()
+    if not identifier:
+        return ""
+    try:
+        metadata = _get(f"https://archive.org/metadata/{quote(identifier)}", {})
+        files = metadata.get("files") or []
+        candidates = []
+        for item in files:
+            name = str(item.get("name") or "")
+            fmt = str(item.get("format") or "").lower()
+            source = str(item.get("source") or "").lower()
+            if name.lower().endswith(VIDEO_EXTENSIONS) or "mpeg" in fmt or "video" in fmt or "movie" in source:
+                if any(token in name.lower() for token in ("_files.xml", ".torrent", "meta.xml")):
+                    continue
+                size = int(item.get("size") or 0) if str(item.get("size") or "").isdigit() else 0
+                candidates.append((0 if name.lower().endswith(".mp4") else 1, size, name))
+        if not candidates:
+            return ""
+        name = sorted(candidates, key=lambda value: (value[0], value[1] if value[1] else 10**18))[0][2]
+        return f"https://archive.org/download/{quote(identifier)}/{quote(name)}"
+    except Exception as exc:
+        print(f"Archive video resolution failed for {identifier}: {type(exc).__name__}: {exc}")
+        return ""
+
+
+def discover_person_video_records(person: str, limit: int = 20) -> list[dict[str, Any]]:
+    records = discover_person_media(person, limit)
+    resolved = []
+    for record in records:
+        url = resolve_video_url(record)
+        if not url:
+            continue
+        item = dict(record)
+        item["media_url"] = url
+        item["video"] = True
+        item["asset_key"] = asset_key(item["provider"], item.get("id", ""), url)
+        if not asset_seen(item["asset_key"]):
+            resolved.append(item)
+    return resolved
 
 
 def discover_person_media(person: str, limit: int = 20) -> list[dict[str, Any]]:

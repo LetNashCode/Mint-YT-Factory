@@ -9,6 +9,15 @@ import re
 import production_entry as production
 import stock_search
 import story_archive_integration
+import portrait_media_alignment
+
+# Install the portrait alignment patch before the production entrypoint starts
+# rendering. Landscape and archive videos will be contained in the 9:16 canvas.
+try:
+    import assemble
+    portrait_media_alignment.install(assemble)
+except Exception as exc:
+    raise RuntimeError(f"Could not install portrait video alignment: {exc}") from exc
 
 
 if not hasattr(stock_search, "_historical_asset_keys"):

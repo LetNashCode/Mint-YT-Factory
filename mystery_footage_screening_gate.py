@@ -1,4 +1,4 @@
-"""Report whether mystery footage is ready without failing empty scheduled runs."""
+"""Report whether mystery footage passed the required screening gate."""
 from __future__ import annotations
 
 import json
@@ -18,18 +18,19 @@ def write_output(eligible: bool) -> None:
 def main() -> None:
     data = json.loads(CATALOG.read_text(encoding="utf-8"))
     items = data.get("items", [])
+    require_screening = os.getenv("MYSTERY_FOOTAGE_REQUIRE_STORY_SCREEN", "true").lower() in {"1", "true", "yes"}
     eligible = []
+
     for item in items:
         screening = item.get("screening") or {}
         if screening.get("eligible") is True:
             eligible.append(item.get("id"))
-            continue
-        if item.get("rights_verified") is True:
+        elif not require_screening and item.get("rights_verified") is True:
             eligible.append(item.get("id"))
 
     if not eligible:
         write_output(False)
-        print("No screened or rights-verified mystery footage candidate is available; skipping production for this run.")
+        print("No mystery footage candidate passed the required screening gate; skipping production for this run.")
         return
 
     write_output(True)

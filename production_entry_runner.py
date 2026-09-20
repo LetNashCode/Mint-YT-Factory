@@ -8,6 +8,7 @@ import re
 
 import production_entry as production
 import stock_search
+import story_archive_integration
 
 
 if not hasattr(stock_search, "_historical_asset_keys"):
@@ -20,6 +21,11 @@ if not hasattr(stock_search, "_historical_asset_keys"):
 
     stock_search._historical_asset_keys = _historical_asset_keys
     print("🛡️ Stock media-history guard: compatibility helper restored")
+
+
+# Install the Story-specific topic/archive layer before production applies its
+# stock-media monkeypatches. The wrapper then remains part of the live path.
+story_archive_integration.install(production)
 
 
 def _patch_stock_quota_resilience() -> None:
@@ -97,11 +103,6 @@ def _patch_script_topic_coherence_fixed(main):
         return
 
     def guarded(topic, config, research=None, extra_feedback=""):
-        # The TTS compaction path previously asked for 95–105 *core* words,
-        # while the generator validates the complete narration against a
-        # 90–135-word contract. That ambiguity could produce an under-length
-        # retry. Make the regeneration request explicit and preserve the
-        # current topic/continuation contract.
         feedback = extra_feedback or ""
         if "95-105 core narration words" in feedback:
             feedback = feedback.replace(
@@ -124,7 +125,7 @@ def _patch_script_topic_coherence_fixed(main):
         comparison_markers = re.compile(r"\b(?:like|unlike|similar to|same as|just like|as with|compared with|compared to)\b", re.I)
         subject_patterns = (
             r"\bonions?\b[^.!?]{0,90}\b(?:make|makes|cause|causes|release|releases|trigger|triggers|irritate|irritates)\b",
-            r"\b(?:cutting|chopping|slicing)\s+onions?\b[^.!?]{0,90}\b(?:make|makes|cause|causes|trigger|triggers|irritate|irritates)\b",
+            r"\b(?:cutting|chopping|slicing)\s+onions?\b[^.!?]{0,90}\b(?:make|makes|cause|causes|trigger|triggers)\b",
             r"\bonions?\b[^.!?]{0,90}\b(?:cry|tears|tear|eyes?\s+water|water(?:ing|ed)?)\b",
         )
         for sentence in sentences:

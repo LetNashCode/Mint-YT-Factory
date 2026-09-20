@@ -1,7 +1,6 @@
 """Discover multiple mystery-footage candidates from public archives.
 
-Discovery is not rights clearance. Every candidate must still be reviewed before
-publication. The producer can screen the candidates and choose a usable one.
+Discovery supplies candidate footage for editorial and technical screening.
 """
 from __future__ import annotations
 
@@ -74,9 +73,8 @@ def get_json(url: str, params: dict[str, Any]) -> dict[str, Any]:
 
 
 def base_candidate(*, candidate_id: str, title: str, summary: str,
-                    source_url: str, video_url: str, license_name: str,
-                    provider: str, description: str = "",
-                    attribution: str = "") -> dict[str, Any]:
+                    source_url: str, video_url: str, provider: str,
+                    description: str = "") -> dict[str, Any]:
     return {
         "id": candidate_id,
         "title": clean(title, 200) or "Untitled mystery footage",
@@ -87,13 +85,6 @@ def base_candidate(*, candidate_id: str, title: str, summary: str,
         "source_url": source_url,
         "video_url": video_url,
         "direct_download_url": video_url,
-        "license": clean(license_name, 300) or "Provider metadata; review required",
-        "rights_verified": False,
-        "rights_notes": (
-            "Discovery metadata is not proof of ownership or commercial reuse rights. "
-            "Review the item license, provenance, and attribution requirements before publication."
-        ),
-        "attribution": clean(attribution, 800),
         "discovery_provider": provider,
         "discovered_at": datetime.now(timezone.utc).isoformat(),
     }
@@ -156,10 +147,8 @@ def discover_internet_archive(limit: int) -> list[dict[str, Any]]:
                     summary="Candidate discovered from Internet Archive; the footage and event context require factual review.",
                     source_url=f"https://archive.org/details/{quote(identifier)}",
                     video_url=chosen["url"],
-                    license_name=meta.get("licenseurl") or meta.get("license") or "Internet Archive metadata; review required",
                     provider="Internet Archive",
                     description=final_description,
-                    attribution=meta.get("creator") or meta.get("contributor") or "",
                 ))
                 print(f"Archive footage candidate found: {identifier}")
                 if len(found) >= limit:
@@ -194,18 +183,14 @@ def discover_wikimedia(limit: int) -> list[dict[str, Any]]:
             if not is_footage_candidate(title, description):
                 print(f"Filtered non-footage Wikimedia item: {page_id}")
                 continue
-            license_name = (extmetadata.get("LicenseShortName") or {}).get("value", "")
-            creator = (extmetadata.get("Artist") or {}).get("value", "")
             found.append(base_candidate(
                 candidate_id=f"wikimedia-{page_id}",
                 title=title,
                 summary="Candidate discovered from Wikimedia Commons; the footage and event context require factual review.",
                 source_url="https://commons.wikimedia.org/wiki/" + quote(page_title.replace(" ", "_")),
                 video_url=url,
-                license_name=license_name or "Wikimedia Commons metadata; review required",
                 provider="Wikimedia Commons",
                 description=description,
-                attribution=creator,
             ))
             print(f"Wikimedia footage candidate found: {page_id}")
             if len(found) >= limit:
@@ -242,7 +227,7 @@ def main() -> None:
         print("No archive footage candidates found; leaving catalog unchanged.")
         return
     save_candidates(candidates)
-    print(f"Discovered {len(candidates)} archive footage candidate(s); rights remain unverified.")
+    print(f"Discovered {len(candidates)} archive footage candidate(s).")
 
 
 if __name__ == "__main__":

@@ -32,15 +32,31 @@ def _patch_story_portrait_export() -> None:
     print("📱 Story portrait guard: full-frame 9:16 crop enabled")
 
 
+def _patch_story_titles() -> None:
+    """Replace generic Story Shorts titles with curiosity-driven titles."""
+    import upload_youtube
+    from story_title_optimizer import optimize_title
+
+    original_upload = getattr(upload_youtube, "upload_video", None)
+    if original_upload is None or getattr(original_upload, "_mint_story_title_optimizer", False):
+        return
+
+    def optimized_upload(video_path, title, description, config, *args, **kwargs):
+        optimized = optimize_title(title, "", "", "")
+        print(f"🎯 Story title optimized: {optimized}")
+        return original_upload(video_path, optimized, description, config, *args, **kwargs)
+
+    optimized_upload._mint_story_title_optimizer = True
+    upload_youtube.upload_video = optimized_upload
+
+
 def main() -> None:
     # Hard-stop before topic generation, candidate-pool mutation, or person reservation.
     # A corrupt/stale sequence state must never trigger a search for another person.
     next_number = validate_story_sequence_state()
     print(f"🔐 Story sequence preflight passed: next Story #{next_number}")
 
-    # Make the validated number authoritative for the entire run. This prevents
-    # interactive_main.py from independently deriving a stale number after other
-    # startup hooks have run.
+    # Make the validated number authoritative for the entire run.
     def validated_next_story_number() -> int:
         return next_number
 
@@ -49,6 +65,7 @@ def main() -> None:
 
     story_topic_uniqueness.install()
     _patch_story_portrait_export()
+    _patch_story_titles()
 
     import stock_media_resilient
 

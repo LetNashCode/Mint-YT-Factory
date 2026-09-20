@@ -34,7 +34,7 @@ def run(command):
 
 def normalize_demo_case(item):
     """Repair older auto-discovery records without inventing case facts."""
-    if not (str(item.get("id", "")).startswith("youtube-") and os.getenv("MYSTERY_FOOTAGE_ALLOW_UNVERIFIED", "false").lower() in TRUE_VALUES):
+    if not str(item.get("id", "")).startswith("youtube-"):
         return item
     if not item.get("footage_description"):
         item["footage_description"] = "Downloaded source footage; the video frames must be inspected before narration is written."
@@ -59,19 +59,17 @@ def validate_case(item):
         raise RuntimeError(f"Catalog case {item['id']} must contain verified facts.")
     if not isinstance(item.get("theories_or_open_questions"), list):
         raise RuntimeError(f"Catalog case {item['id']} must contain theories_or_open_questions.")
-    if not item.get("rights_verified") and os.getenv("MYSTERY_FOOTAGE_ALLOW_UNVERIFIED", "false").lower() not in TRUE_VALUES:
-        raise RuntimeError(f"Catalog case {item['id']} is not rights-verified; refusing to publish it.")
 
 
 def load_item():
     data = json.loads(CATALOG.read_text(encoding="utf-8"))
-    allow = os.getenv("MYSTERY_FOOTAGE_ALLOW_UNVERIFIED", "false").lower() in TRUE_VALUES
+    require_screening = os.getenv("MYSTERY_FOOTAGE_REQUIRE_STORY_SCREEN", "true").lower() in TRUE_VALUES
     eligible = []
     for raw_item in data.get("items", []):
         item = normalize_demo_case(raw_item)
         if not item.get("video_url") or not item.get("source_url") or "REPLACE_ME" in json.dumps(item):
             continue
-        if not allow and item.get("rights_verified") is not True:
+        if require_screening and (item.get("screening") or {}).get("eligible") is not True:
             continue
         validate_case(item)
         eligible.append(item)
@@ -83,7 +81,7 @@ def load_item():
         raise RuntimeError(f"No eligible curated case matches MYSTERY_FOOTAGE_ITEM_ID={requested!r}.")
     if eligible:
         return eligible[0]
-    raise RuntimeError("No eligible curated found-footage case is available. Automatic discovery may have found a candidate, but it is blocked until verified facts, case-specific downloadable footage, and rights metadata are supplied.")
+    raise RuntimeError("No eligible curated found-footage case is available. Automatic discovery may have found a candidate, but it is blocked until it passes footage screening and has usable downloadable footage.")
 
 
 def parse_json(text):
@@ -125,7 +123,7 @@ def generate_script(item, source, work):
 
 
 def download(item, destination):
-    source_url = item["video_url"]
+    source_url = item.get("direct_download_url") or item["video_url"]
     host = urlparse(source_url).netloc.lower().split(":", 1)[0]
     if host in {"youtube.com", "www.youtube.com", "m.youtube.com", "youtu.be", "www.youtu.be"}:
         from yt_dlp import YoutubeDL
@@ -183,7 +181,7 @@ def main():
         output = OUTPUT_DIR / "mystery-footage-short.mp4"
         render(source, audio, output, work)
     description = f"{script['description_intro']}\n\nCase: {item['title']}\nSource footage: {item['source_url']}\nLicense: {item.get('license', 'Not specified')}\nAttribution: {item.get('attribution', 'See source page for attribution requirements.')}\n\nThis video adds original narration and editing."
-    metadata = {"video_title": script["video_title"], "catalog_item_id": item["id"], "source_url": item["source_url"], "license": item.get("license"), "rights_verified": item.get("rights_verified"), "description": description, "gemini_model": MODEL_NAME, "generated_at": int(time.time())}
+    metadata = {"video_title": script["video_title"], "catalog_item_id": item["id"], "source_url": item["source_url"], "license": item.get("license"), "description": description, "gemini_model": MODEL_NAME, "generated_at": int(time.time())}
     (OUTPUT_DIR / "metadata.json").write_text(json.dumps(metadata, indent=2, ensure_ascii=False), encoding="utf-8")
     if os.getenv("MYSTERY_FOOTAGE_AUTO_UPLOAD", "false").lower() in TRUE_VALUES:
         from upload_youtube import upload_video

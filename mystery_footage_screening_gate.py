@@ -18,15 +18,11 @@ def write_output(eligible: bool) -> None:
 def main() -> None:
     data = json.loads(CATALOG.read_text(encoding="utf-8"))
     items = data.get("items", [])
-    require_screening = os.getenv("MYSTERY_FOOTAGE_REQUIRE_STORY_SCREEN", "true").lower() in {"1", "true", "yes"}
-    eligible = []
-
-    for item in items:
-        screening = item.get("screening") or {}
-        if screening.get("eligible") is True:
-            eligible.append(item.get("id"))
-        elif not require_screening and item.get("rights_verified") is True:
-            eligible.append(item.get("id"))
+    eligible = [
+        item.get("id")
+        for item in items
+        if (item.get("screening") or {}).get("eligible") is True
+    ]
 
     if not eligible:
         write_output(False)

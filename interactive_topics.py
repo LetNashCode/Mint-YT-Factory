@@ -129,13 +129,28 @@ def get_next_topic():
 def record_topic(topic,pillar,title,video_id,workdir,person=""):
     rows=_load_history(); rows.append({"topic":topic,"pillar":pillar,"person":person,"title":title,"video_id":video_id,"workdir":workdir}); _save(HISTORY,rows[-200:])
 
-def next_story_number():
-    """Return the next monotonic Story Shorts number, accounting for a pending story."""
+def peek_next_story_number():
+    """Read the next story number without mutating durable sequence state."""
     data = _load(COUNTER, {})
     counter_number = int(data.get("number", 0) or 0)
     pending = _load(PENDING, {})
     pending_number = int(pending.get("number", 0) or 0) if isinstance(pending, dict) else 0
-    number = max(counter_number, pending_number) + 1
+    return max(counter_number, pending_number) + 1
+
+def validate_story_sequence_state():
+    """Validate sequence state before any topic search, reservation, or person selection."""
+    pending = get_pending_story()
+    if not pending:
+        return peek_next_story_number()
+    number = peek_next_story_number()
+    pending_number = int(pending.get("number", 0) or 0)
+    if number <= pending_number:
+        raise RuntimeError(f"Invalid story sequence state: next #{number} must follow pending Story #{pending_number}.")
+    return number
+
+def next_story_number():
+    """Return the next monotonic Story Shorts number, accounting for a pending story."""
+    number = peek_next_story_number()
     _save(COUNTER, {"number": number})
     return number
 

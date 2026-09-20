@@ -59,7 +59,7 @@ jobs:
         run: python mystery_footage_multisource_discovery.py
       - name: Screen footage quality and story potential
         run: python mystery_footage_screening.py
-      - name: Verify production candidate eligibility
+      - name: Check production candidate eligibility
         id: gate
         run: python mystery_footage_screening_gate.py
       - name: Generate mystery footage demo Short

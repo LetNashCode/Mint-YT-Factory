@@ -13,6 +13,8 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import ResumableUploadError
 from googleapiclient.http import MediaFileUpload
 
+from portrait_export_guard import ensure_portrait_export
+
 MAX_YOUTUBE_DESCRIPTION_BYTES = 5000
 MAX_YOUTUBE_TITLE_BYTES = 100
 
@@ -97,12 +99,7 @@ def set_thumbnail(video_id, thumbnail_path, youtube=None):
 
 
 def post_top_level_comment(video_id, comment, youtube=None):
-    """Post a topic-specific top-level engagement comment.
-
-    Returns the created comment ID on success and raises on failure. Pinning is
-    intentionally manual because the standard YouTube Data API has no supported
-    pin-comment endpoint.
-    """
+    """Post a topic-specific top-level engagement comment."""
     text = _sanitize_youtube_text(comment, max_bytes=10000)
     if not text: return None
     youtube = youtube or build("youtube","v3",credentials=_get_credentials())
@@ -126,6 +123,9 @@ def _persist_comment_status(video_path, posted, comment_id):
 
 
 def upload_video(video_path,title,description,config,thumbnail_path=None,engagement_comment=None):
+    # Mandatory pre-upload gate: normalize the actual final MP4 and verify 9:16.
+    video_path = str(ensure_portrait_export(video_path))
+    print(f"📐 Pre-upload portrait validation passed: {video_path}")
     creds=_get_credentials(); youtube=build("youtube","v3",credentials=creds); upload=config["upload"]; hashtags=config["seo"]["hashtags"]
     body=_build_upload_body(title,description,hashtags,upload)
     config["_last_engagement_comment_posted"]=False

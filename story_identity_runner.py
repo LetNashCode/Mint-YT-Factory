@@ -1,4 +1,4 @@
-"""Run Story Shorts with identity-first media routing and topic uniqueness protection."""
+"""Run Story Shorts with identity-first archival media and topic uniqueness protection."""
 from __future__ import annotations
 
 import runpy
@@ -57,33 +57,17 @@ def main() -> None:
     _patch_story_portrait_export()
     _patch_story_titles()
 
-    # IMPORTANT: stock_media_resilient intentionally routes Story scripts back
-    # to Wikimedia archival media. For the emergency fallback we must call the
-    # underlying stock director directly; otherwise the supposed fallback simply
-    # invokes the same archival adapter again and can never recover.
-    import stock_search
-    stock_fallback = stock_search.generate_media
-
+    # Story Shorts are intentionally archival-only. Do not silently route to
+    # commercial stock when Commons search/download fails: unrelated stock is
+    # exactly the visual failure this production line is designed to prevent.
     def identity_generate_media(script, output_dir, config, gim=None):
         is_story = isinstance(script, dict) and bool(str(script.get("story_person") or "").strip())
         person = str(script.get("story_person") or "").strip() if is_story else ""
         if is_story:
-            print(f"📚 Direct archival Story media routing: {person}")
-            try:
-                return story_archival_media.generate_media(script, output_dir, config, gim=gim)
-            except Exception as archival_error:
-                print(
-                    "⚠️ Archival media unavailable; activating subject-specific "
-                    f"stock fallback for {person}: {type(archival_error).__name__}: {archival_error}"
-                )
-                try:
-                    return stock_fallback(script, output_dir, config, gim=gim)
-                except Exception as stock_error:
-                    raise RuntimeError(
-                        f"Both archival and subject-specific stock media failed for {person}. "
-                        f"Archival error: {archival_error}; Stock error: {stock_error}"
-                    ) from stock_error
-        return stock_fallback(script, output_dir, config, gim=gim)
+            print(f"📚 Archival-only Story media routing: {person}")
+            return story_archival_media.generate_media(script, output_dir, config, gim=gim)
+        import stock_search
+        return stock_search.generate_media(script, output_dir, config, gim=gim)
 
     identity_generate_media._mint_story_identity_wrapper = True
     import stock_media_resilient

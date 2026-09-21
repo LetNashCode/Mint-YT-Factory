@@ -1,6 +1,6 @@
 """Recover and publish a completed Story render restored from a prior workflow artifact."""
 from __future__ import annotations
-import glob, json, os
+import glob, json, os, sys
 from interactive_main import load_config, _title, save
 from upload_youtube import upload_video
 from social_publish import publish_social_reels
@@ -40,7 +40,6 @@ def recover() -> bool:
     _, workdir, script, final, person = sorted(candidates, reverse=True)[0]
     pillar = script.get("interactive_pillar") or "impossible_odds"
     topic = script.get("topic") or f"The story of {person}"
-    number = int(script.get("story_number") or 0)
     title = _title(pillar, person)
     description = f"A remarkable true story about {person} — the struggle, turning point, and moment that changed everything.\n\nWhat would you have done in {person}'s situation? 👇\n\nSubscribe and follow for more powerful stories about people who faced setbacks, made difficult choices, and changed their lives.\n\n#StoryShorts #TrueStory #Inspiration #Shorts"
     engagement = (script.get("engagement") or {}).get("comment") or f"What would you have done in {person}'s situation? 👇"
@@ -60,4 +59,7 @@ def recover() -> bool:
 
 
 if __name__ == "__main__":
-    recover()
+    # A clean "no recovery needed" result must be non-zero so the workflow's
+    # fallback branch runs the normal generation/publishing path. A recovered
+    # and uploaded video returns zero; upload failures raise and fail the job.
+    sys.exit(0 if recover() else 1)

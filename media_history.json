@@ -5249,6 +5249,146 @@
       "shot": 2,
       "query": "sponges hold water hidden trap exact reason",
       "recorded_at": 1789942020
+    },
+    {
+      "asset_key": "pixabay:video:213748",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2024/05/26/213748_medium.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "egg shell fragile breakfast brown",
+      "recorded_at": 1789949381
+    },
+    {
+      "asset_key": "pixabay:video:290890",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2025/07/12/290890_medium.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "egg shell easily support heavy book",
+      "recorded_at": 1789949388
+    },
+    {
+      "asset_key": "pixabay:video:3012",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/05/04/3012-165457856_medium.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "egg shell yet tiny chick inside",
+      "recorded_at": 1789949389
+    },
+    {
+      "asset_key": "pixabay:video:126185",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/07/31/126185-735667236_medium.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "egg shell snaps exact wide",
+      "recorded_at": 1789949390
+    },
+    {
+      "asset_key": "pixabay:video:246644",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2024/12/14/246644_medium.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "egg shell arch shape distributes outside",
+      "recorded_at": 1789949391
+    },
+    {
+      "asset_key": "pixabay:video:220476",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2024/07/10/220476_medium.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "egg shell across entire curve smooth",
+      "recorded_at": 1789949392
+    },
+    {
+      "asset_key": "pixabay:video:76609",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2021/06/06/76609-559757927_medium.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "egg shell try crushing one your",
+      "recorded_at": 1789949392
+    },
+    {
+      "asset_key": "pixabay:video:11636",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/08/29/11636-231758676_medium.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "egg shell you cannot squeeze flat",
+      "recorded_at": 1789949394
+    },
+    {
+      "asset_key": "pexels:photo:6979366",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/6979366/pexels-photo-6979366.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 5,
+      "shot": 1,
+      "query": "egg shell your hand wraps forces",
+      "recorded_at": 1789949395
+    },
+    {
+      "asset_key": "pexels:photo:32240875",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/32240875/pexels-photo-32240875.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 5,
+      "shot": 2,
+      "query": "egg shell stopping any single spot",
+      "recorded_at": 1789949396
+    },
+    {
+      "asset_key": "pexels:photo:7696933",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/7696933/pexels-photo-7696933.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 6,
+      "shot": 1,
+      "query": "egg shell push inside however interior",
+      "recorded_at": 1789949398
+    },
+    {
+      "asset_key": "pexels:photo:30648978",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/30648978/pexels-photo-30648978.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 6,
+      "shot": 2,
+      "query": "egg shell you target one tiny",
+      "recorded_at": 1789949399
+    },
+    {
+      "asset_key": "pexels:photo:6545975",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/6545975/pexels-photo-6545975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 7,
+      "shot": 1,
+      "query": "egg shell exterior arches block outside",
+      "recorded_at": 1789949401
+    },
+    {
+      "asset_key": "pexels:photo:6294265",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/6294265/pexels-photo-6294265.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 7,
+      "shot": 2,
+      "query": "egg shell exterior arches block outside",
+      "recorded_at": 1789949402
     }
   ]
 }

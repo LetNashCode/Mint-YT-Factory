@@ -10,6 +10,7 @@ from __future__ import annotations
 import mimetypes
 import os
 import re
+import time
 from typing import Any
 from urllib.parse import urlparse
 
@@ -17,7 +18,7 @@ import requests
 
 API = "https://commons.wikimedia.org/w/api.php"
 TIMEOUT = 30
-UA = "Mint-YT-Factory/StoryArchivalMedia/2.0"
+UA = "Mint-YT-Factory/StoryArchivalMedia/2.1"
 VIDEO_MIMES = {"video/mp4", "video/webm", "video/ogg", "video/quicktime", "video/x-msvideo"}
 VIDEO_EXTENSIONS = {".mp4", ".webm", ".ogv", ".mov", ".avi", ".m4v"}
 
@@ -83,17 +84,36 @@ def _search(query: str, want_video: bool) -> list[dict]:
 
 
 def _download(url: str, path: str) -> None:
+    """Download an archival asset with bounded retries for transient failures."""
     temp = path + ".part"
+    last_error: Exception | None = None
     try:
-        with requests.get(url, headers={"User-Agent": UA}, stream=True, timeout=TIMEOUT) as response:
-            response.raise_for_status()
-            with open(temp, "wb") as handle:
-                for chunk in response.iter_content(1024 * 1024):
-                    if chunk:
-                        handle.write(chunk)
-        if not os.path.exists(temp) or os.path.getsize(temp) == 0:
-            raise RuntimeError("Downloaded media file is empty")
-        os.replace(temp, path)
+        for attempt in range(1, 4):
+            try:
+                with requests.get(
+                    url,
+                    headers={"User-Agent": UA},
+                    stream=True,
+                    timeout=(15, 90),
+                ) as response:
+                    if response.status_code in {408, 425, 429, 500, 502, 503, 504}:
+                        raise RuntimeError(f"Transient HTTP {response.status_code}")
+                    response.raise_for_status()
+                    with open(temp, "wb") as handle:
+                        for chunk in response.iter_content(1024 * 1024):
+                            if chunk:
+                                handle.write(chunk)
+                if not os.path.exists(temp) or os.path.getsize(temp) == 0:
+                    raise RuntimeError("Downloaded media file is empty")
+                os.replace(temp, path)
+                return
+            except Exception as exc:
+                last_error = exc
+                if attempt < 3:
+                    delay = 2 ** (attempt - 1)
+                    print(f"      ⚠️ Archival download retry {attempt}/2 for {url}: {type(exc).__name__}: {exc}")
+                    time.sleep(delay)
+        raise RuntimeError(f"Archival download failed after 3 attempts: {last_error}") from last_error
     finally:
         if os.path.exists(temp):
             try:
@@ -134,7 +154,6 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None) -> lis
     used: set[str] = set()
     groups: list[dict] = []
     for scene_no, scene in enumerate(scenes, 1):
-        # Video is always attempted first, independently for each shot.
         video_candidates = _candidate_pool(script, scene, want_video=True)
         image_candidates: list[dict] = []
         for shot_no in range(1, 3):
@@ -159,7 +178,6 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None) -> lis
                 used.discard(url)
                 if media_type == "video":
                     video_candidates = [candidate for candidate in video_candidates if candidate["url"] != url]
-                    # Retry this shot with another video before using an image.
                     replacement = next((candidate for candidate in video_candidates if candidate["url"] not in used), None)
                     if replacement is not None:
                         item = replacement
@@ -167,21 +185,24 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None) -> lis
                         used.add(url)
                         extension = _extension(item, True)
                         path = os.path.join(output_dir, f"scene_{scene_no}_shot_{shot_no}{extension}")
-                        _download(url, path)
-                        media_type = "video"
-                    else:
+                        try:
+                            _download(url, path)
+                            media_type = "video"
+                        except Exception as replacement_exc:
+                            print(f"      ⚠️ Replacement archival video failed: {type(replacement_exc).__name__}: {replacement_exc}")
+                            used.discard(url)
+                            replacement = None
+                    if replacement is None:
                         if not image_candidates:
                             image_candidates = _candidate_pool(script, scene, want_video=False)
                         item = next((candidate for candidate in image_candidates if candidate["url"] not in used), None)
                         if item is None:
-                            raise
+                            raise RuntimeError(f"No downloadable archival fallback for Story scene {scene_no}, shot {shot_no}.") from exc
                         media_type = "photo"
                         url = item["url"]
                         used.add(url)
                         path = os.path.join(output_dir, f"scene_{scene_no}_shot_{shot_no}.jpg")
                         _download(url, path)
-                else:
-                    raise
 
             groups.append({
                 "scene": scene_no,

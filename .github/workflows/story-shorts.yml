@@ -24,7 +24,11 @@ jobs:
           sudo apt-get install -y ffmpeg jq unzip curl
           ffprobe -version | head -n 1
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
+          pip install pytest
+      - name: Run Story quality tests
+        run: pytest -q tests/test_story_media_quality.py
       - name: Restore latest previous Story render artifact
         env:
           GH_TOKEN: ${{ github.token }}
@@ -37,15 +41,13 @@ jobs:
           artifacts_json="$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" "${artifacts_url}")"
           artifact_id="$(jq -r --arg current "${CURRENT_RUN_ID}" '[.artifacts[] | select((.name // "") | startswith("story-shorts-")) | select(.expired == false) | select((.workflow_run.id // 0) != ($current | tonumber))] | sort_by(.created_at) | reverse | .[0].id // empty' <<< "${artifacts_json}")"
           if [ -n "${artifact_id}" ]; then
-            echo "♻️ Restoring Story render artifact ${artifact_id}"
             curl -fsSL -L -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${artifact_id}/zip" -o /tmp/story-render.zip
             unzip -oq /tmp/story-render.zip -d .
-            echo "✅ Previous Story render files restored"
           else
             echo "ℹ️ No previous Story render artifact available"
           fi
-      - name: Compile Story Shorts runtime
-        run: python -m py_compile interactive_main.py story_render_recovery.py interactive_topics.py story_topic_runtime.py story_topic_media_lock.py interactive_analytics.py generate_script/interactive.py whisper_align.py social_publish.py story_person_media.py story_person_sources.py story_media_preflight.py story_social_resume.py story_stock_runtime.py story_identity_media.py story_identity_runner.py youtube_auth_preflight.py tts.py assemble.py stock_media_resilient.py upload_youtube.py validate_video.py music.py sfx.py media_frame_guard.py
+      - name: Compile Story Shorts runtime and quality gates
+        run: python -m py_compile interactive_main.py story_render_recovery.py story_social_resume.py story_identity_runner.py story_archival_media.py story_media_quality.py final_video_quality_gate.py publication_state.py social_retry_state.py upload_youtube.py validate_video.py assemble.py
       - name: Recover completed Story render before starting a new render
         id: recover
         env:
@@ -89,7 +91,6 @@ jobs:
         run: |
           set -euo pipefail
           echo "📚 Story media route: Wikimedia Commons archival assets"
-          echo "🔐 Validating YouTube OAuth before rendering..."
           python -u youtube_auth_preflight.py
           python -c "from media_frame_guard import patch_assemble_rgb; patch_assemble_rgb(); import story_topic_runtime; import story_stock_runtime; import story_topic_media_lock; import story_identity_runner; story_identity_runner.main()"
       - name: Persist Story Shorts state

@@ -44,6 +44,24 @@ def _patch_story_titles() -> None:
     upload_youtube.upload_video = optimized_upload
 
 
+def _patch_story_visual_director() -> None:
+    """Enrich generated scenes with concrete, person-specific visual evidence briefs."""
+    import generate_script.interactive as story_generator
+    from story_visual_director import direct_story_visuals
+    original_generate_script = getattr(story_generator, "generate_script", None)
+    if original_generate_script is None or getattr(original_generate_script, "_mint_story_visual_director", False):
+        return
+
+    def directed_generate_script(*args, **kwargs):
+        result = original_generate_script(*args, **kwargs)
+        directed = direct_story_visuals(result)
+        print("🎬 Story visual director: concrete evidence briefs attached to scene plan")
+        return directed
+
+    directed_generate_script._mint_story_visual_director = True
+    story_generator.generate_script = directed_generate_script
+
+
 def main() -> None:
     next_number = validate_story_sequence_state()
     print(f"🔐 Story sequence preflight passed: next Story #{next_number}")
@@ -56,6 +74,7 @@ def main() -> None:
     story_topic_uniqueness.install()
     _patch_story_portrait_export()
     _patch_story_titles()
+    _patch_story_visual_director()
 
     # Story Shorts are intentionally archival-only. Do not silently route to
     # commercial stock when Commons search/download fails: unrelated stock is

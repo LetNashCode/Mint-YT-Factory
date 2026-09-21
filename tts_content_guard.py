@@ -34,11 +34,10 @@ def _expected(script_path):
 def _direct_decode(model, audio_path):
     """Transcribe the complete file using Whisper's native sliding-window path.
 
-    Whisper's public transcribe() API is specifically designed to process audio
-    longer than one 30-second decoder window and stitch the windows together.
-    We deliberately keep word_timestamps=False: the content gate needs text
-    coverage, not timestamp reconstruction, and the timestamp path was the
-    source of the earlier IndexError failures.
+    Keep previous-text conditioning enabled so the decoder maintains context
+    across the 30-second window boundary and does not silently lose a late
+    scene or continuation bridge. The content gate validates the audio text;
+    it must not mistake a context-reset transcription gap for missing speech.
     """
     result = model.transcribe(
         str(audio_path),
@@ -49,20 +48,14 @@ def _direct_decode(model, audio_path):
         temperature=0.0,
         beam_size=5,
         best_of=5,
-        condition_on_previous_text=False,
+        condition_on_previous_text=True,
         verbose=False,
     )
     return str(result.get("text") or "").strip()
 
 
 def _observed_text(text):
-    """Tokenize Whisper text while expanding hyphenated compounds.
-
-    Whisper commonly returns words such as ``spring-loaded`` as one token,
-    while the authoritative script tokenizes the same phrase as ``spring``
-    and ``loaded``. Expanding hyphenated observations prevents a false content
-    failure without relaxing the actual word-order/coverage gate.
-    """
+    """Tokenize Whisper text while expanding hyphenated compounds."""
     observed = []
     for word in _WORD_RE.findall(str(text or "")):
         parts = re.split(r"[-–—]", word)

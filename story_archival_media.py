@@ -1,14 +1,15 @@
 """Person-specific archival media retrieval for Story Shorts.
 
 Wikimedia Commons is treated as a best-effort source. Rate-limited or invalid
-candidates are skipped immediately; a single unavailable asset must not abort
-the complete candidate pool. The caller receives a clear failure only after
-all eligible candidates have been exhausted.
+candidates are skipped immediately. If Wikimedia cannot provide a second unique
+asset, an already downloaded person-specific archival asset is reused so the
+render can complete instead of failing after partial generation.
 """
 from __future__ import annotations
 
 import os
 import re
+import shutil
 from typing import Any
 from urllib.parse import quote, urlparse
 
@@ -17,7 +18,7 @@ import requests
 API = "https://commons.wikimedia.org/w/api.php"
 SEARCH_TIMEOUT = 20
 DOWNLOAD_TIMEOUT = (10, 60)
-UA = "Mint-YT-Factory/StoryArchivalMedia/2.4"
+UA = "Mint-YT-Factory/StoryArchivalMedia/2.5"
 VIDEO_MIMES = {"video/mp4", "video/webm", "video/ogg", "video/quicktime", "video/x-msvideo"}
 VIDEO_EXTENSIONS = {".mp4", ".webm", ".ogv", ".mov", ".avi", ".m4v", ".mkv"}
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
@@ -101,20 +102,12 @@ def _download(url: str, path: str) -> None:
     status = _download_once(url, path)
     if status == 200:
         return
-
-    # GitHub-hosted runners can be rate-limited by upload.wikimedia.org. For
-    # images only, retry through wsrv.nl rather than hammering Wikimedia again.
-    # Video files are not sent through the image proxy.
     extension = os.path.splitext(urlparse(url).path)[1].lower()
     if "upload.wikimedia.org" in url and extension in IMAGE_EXTENSIONS:
         proxy_url = "https://images.weserv.nl/?url=" + quote(url, safe="")
         print("      ⚠️ Wikimedia returned HTTP 429; trying image proxy")
-        proxy_status = _download_once(proxy_url, path)
-        if proxy_status == 200:
+        if _download_once(proxy_url, path) == 200:
             return
-        if proxy_status == 429:
-            raise RuntimeError("HTTP 429 from Wikimedia and image proxy")
-
     raise RuntimeError("HTTP 429 from Wikimedia Commons; candidate skipped")
 
 
@@ -153,6 +146,27 @@ def _try_download_candidates(candidates: list[dict], used: set[str], output_path
     return None
 
 
+def _reuse_archival_asset(groups: list[dict], output_path: str, scene_no: int, shot_no: int) -> tuple[dict, str] | None:
+    """Reuse a downloaded person-specific asset when no new Commons asset is available."""
+    for previous in reversed(groups):
+        source = str(previous.get("path") or "")
+        if not source or not os.path.exists(source):
+            continue
+        try:
+            shutil.copyfile(source, output_path)
+            item = {
+                "id": previous.get("asset_key"),
+                "title": previous.get("query", "") + " (reused)",
+                "descriptionurl": previous.get("source_url", ""),
+                "artist": previous.get("creator", ""),
+            }
+            print(f"      ⚠️ Reusing person-specific archival {previous.get('type', 'media')} for Scene {scene_no} Shot {shot_no}")
+            return item, str(previous.get("source_url") or previous.get("asset_key") or source)
+        except OSError as exc:
+            print(f"      ⚠️ Could not reuse archival asset {source}: {exc}")
+    return None
+
+
 def generate_media(script: dict, output_dir: str, config: dict, gim=None) -> list[dict]:
     os.makedirs(output_dir, exist_ok=True)
     scenes = script.get("scene_plan")
@@ -175,9 +189,12 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None) -> lis
                 selected = _try_download_candidates(image_candidates, used, image_path, "image")
                 media_type, path = "photo", image_path
             if selected is None:
+                selected = _reuse_archival_asset(groups, path, scene_no, shot_no)
+                if selected is not None:
+                    media_type = "video" if path.endswith(".mp4") else "photo"
+            if selected is None:
                 raise RuntimeError(f"No downloadable archival video or image found for Story scene {scene_no}, shot {shot_no} ({person}). Wikimedia may be rate-limited; no stock fallback is permitted.")
             item, url = selected
-            used.add(url)
             groups.append({"scene": scene_no, "shot": shot_no, "path": path, "type": media_type,
                            "provider": "Wikimedia Commons", "creator": item.get("artist", ""),
                            "query": item.get("title", ""), "source_url": item.get("descriptionurl", ""),

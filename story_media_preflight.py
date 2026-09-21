@@ -25,7 +25,10 @@ def _normalize_image(path: Path) -> None:
             return
         rgb = image.convert("RGB")
         suffix = path.suffix.lower()
-        formats = {".jpg": "JPEG", ".jpeg": "JPEG", ".png": "PNG", ".webp": "WEBP", ".bmp": "BMP", ".tif": "TIFF", ".tiff": "TIFF"}
+        formats = {
+            ".jpg": "JPEG", ".jpeg": "JPEG", ".png": "PNG",
+            ".webp": "WEBP", ".bmp": "BMP", ".tif": "TIFF", ".tiff": "TIFF",
+        }
         fmt = formats.get(suffix, "PNG")
         tmp = path.with_name(path.name + ".rgb.tmp")
         save_kwargs = {"quality": 95, "optimize": True} if fmt == "JPEG" else {}
@@ -33,10 +36,24 @@ def _normalize_image(path: Path) -> None:
         os.replace(tmp, path)
 
 
+def _probe_numeric(value: str | None) -> float | None:
+    """Convert ffprobe values safely; ffprobe may report N/A for WebM streams."""
+    if value is None:
+        return None
+    value = str(value).strip()
+    if not value or value.upper() in {"N/A", "NA", "NULL", "-"}:
+        return None
+    try:
+        number = float(value)
+    except (TypeError, ValueError):
+        return None
+    return number if number > 0 else None
+
+
 def _validate_video(path: Path) -> None:
     command = [
         "ffprobe", "-v", "error", "-select_streams", "v:0",
-        "-show_entries", "stream=width,height,duration,codec_name,pix_fmt",
+        "-show_entries", "stream=width,height,duration,codec_name,pix_fmt:format=duration",
         "-of", "default=noprint_wrappers=1:nokey=0", str(path),
     ]
     result = subprocess.run(command, check=True, capture_output=True, text=True)
@@ -45,10 +62,23 @@ def _validate_video(path: Path) -> None:
         if "=" in line:
             key, value = line.split("=", 1)
             values[key.strip()] = value.strip()
-    if int(values.get("width", "0") or 0) <= 0 or int(values.get("height", "0") or 0) <= 0:
+
+    try:
+        width = int(values.get("width", "0") or 0)
+        height = int(values.get("height", "0") or 0)
+    except ValueError as exc:
+        raise RuntimeError(f"Video has invalid dimensions metadata: {path}") from exc
+
+    if width <= 0 or height <= 0:
         raise RuntimeError(f"Video has invalid dimensions: {path}")
-    if float(values.get("duration", "0") or 0) <= 0:
-        raise RuntimeError(f"Video has invalid duration: {path}")
+
+    # Some WebM files expose stream duration as N/A while format duration is
+    # available. Prefer stream duration, then fall back to container duration.
+    duration = _probe_numeric(values.get("duration"))
+    if duration is None:
+        duration = _probe_numeric(values.get("format.duration"))
+    if duration is None:
+        raise RuntimeError(f"Video has no usable duration metadata: {path}")
 
 
 def validate_story_media(visual_paths) -> int:

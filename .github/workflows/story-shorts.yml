@@ -34,7 +34,7 @@ jobs:
           set -euo pipefail
           mkdir -p output/interactive
           artifacts_url="https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts?per_page=100"
-          artifact_id="$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" "${artifacts_url}" | jq -r --arg current "${CURRENT_RUN_ID}" '[.artifacts[] | select(.name | startswith("story-shorts-")) | select(.expired == false) | select(..workflow_run.id != ($current | tonumber))] | sort_by(.created_at) | reverse | .[0].id // empty')"
+          artifact_id="$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" "${artifacts_url}" | jq -r --arg current "${CURRENT_RUN_ID}" '[.artifacts[] | select(.name | startswith("story-shorts-")) | select(.expired == false) | select(.workflow_run.id != ($current | tonumber))] | sort_by(.created_at) | reverse | .[0].id // empty')"
           if [ -n "${artifact_id}" ]; then
             echo "♻️ Restoring Story render artifact ${artifact_id}"
             curl -fsSL -L -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${artifact_id}/zip" -o /tmp/story-render.zip

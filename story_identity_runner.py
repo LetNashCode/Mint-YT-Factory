@@ -1,10 +1,8 @@
 """Run Story Shorts with identity-first media routing and topic uniqueness protection."""
 from __future__ import annotations
 
-import re
 import runpy
 
-import story_identity_media
 import story_archival_media
 import story_topic_uniqueness
 import interactive_topics
@@ -64,22 +62,17 @@ def main() -> None:
 
     def identity_generate_media(script, output_dir, config, gim=None):
         is_story = isinstance(script, dict) and bool(str(script.get("story_person") or "").strip())
-        if is_story:
-            person = str(script.get("story_person") or "").strip()
-            story_identity_media.begin_story(person)
-            print(f"👤 Identity-first Story routing enabled for: {person}")
+        person = str(script.get("story_person") or "").strip() if is_story else ""
         try:
-            # sitecustomize may replace stock_media_resilient.generate_media with a
+            # sitecustomize can replace stock_media_resilient.generate_media with a
             # stock_search-only compatibility wrapper. Story Shorts must bypass that
-            # wrapper completely: it can re-enable Pexels/Pixabay and trigger 401/503
-            # failures after the archival provider has already supplied candidates.
+            # wrapper completely so Pexels/Pixabay cannot re-enter the Story pipeline.
             if is_story:
                 print(f"📚 Direct archival Story media routing: {person}")
                 return story_archival_media.generate_media(script, output_dir, config, gim=gim)
             return patched_adapter(script, output_dir, config, gim=gim)
         finally:
-            if is_story:
-                story_identity_media.end_story()
+            pass
 
     identity_generate_media._mint_story_identity_wrapper = True
     stock_media_resilient.generate_media = identity_generate_media

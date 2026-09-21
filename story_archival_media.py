@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import os
 import re
-import shutil
 from typing import Any
 from urllib.parse import quote, urlparse
 
@@ -13,7 +12,7 @@ from story_media_quality import relevance_score
 API = "https://commons.wikimedia.org/w/api.php"
 SEARCH_TIMEOUT = 20
 DOWNLOAD_TIMEOUT = (10, 60)
-UA = "Mint-YT-Factory/StoryArchivalMedia/2.8"
+UA = "Mint-YT-Factory/StoryArchivalMedia/2.9"
 VIDEO_MIMES = {"video/mp4", "video/webm", "video/ogg", "video/quicktime", "video/x-msvideo"}
 VIDEO_EXTENSIONS = {".mp4", ".webm", ".ogv", ".mov", ".avi", ".m4v", ".mkv"}
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
@@ -26,28 +25,40 @@ def _clean(value: Any, limit: int = 300) -> str:
 
 
 def _terms(script: dict, scene: dict) -> list[str]:
+    """Return explicit scene queries first, with conservative fallbacks."""
     person = _clean(script.get("story_person"), 120)
-    narration = _clean(scene.get("narration"), 220)
+    queries: list[str] = []
     visuals = scene.get("visuals") or []
-    focus_terms: list[str] = []
     if isinstance(visuals, list):
         for visual in visuals:
             if not isinstance(visual, dict):
                 continue
-            for key in ("visual_focus", "must_show", "visual_action"):
-                value = visual.get(key)
-                if isinstance(value, list):
-                    focus_terms.extend(_clean(x, 100) for x in value[:2])
-                elif value:
-                    focus_terms.append(_clean(value, 160))
-    raw = [f"{person} {' '.join(focus_terms[:2])}".strip(), f"{person} historical photograph", f"{person} video", person, narration]
-    result: list[str] = []
-    for query in raw:
-        query = re.sub(r"[^\w\s-]", " ", query).strip()
-        query = re.sub(r"\s+", " ", query)
-        if query and query not in result:
-            result.append(query)
-    return result
+            explicit = _clean(visual.get("search_query"), 180)
+            if explicit and explicit not in queries:
+                queries.append(explicit)
+    if not queries and person:
+        queries.append(f"{person} historical photograph")
+    if person:
+        fallback = f"{person} archival photograph"
+        if fallback not in queries:
+            queries.append(fallback)
+    return [re.sub(r"\s+", " ", re.sub(r"[^\w\s-]", " ", query)).strip() for query in queries if query.strip()]
+
+
+def _scene_cues(scene: dict) -> list[str]:
+    cues: list[str] = []
+    visuals = scene.get("visuals") or []
+    for visual in visuals if isinstance(visuals, list) else []:
+        if not isinstance(visual, dict):
+            continue
+        for key in ("visual_focus", "must_show", "visual_action"):
+            value = visual.get(key)
+            values = value if isinstance(value, list) else [value]
+            for item in values:
+                cleaned = _clean(item, 120)
+                if cleaned and cleaned not in cues:
+                    cues.append(cleaned)
+    return cues[:8]
 
 
 def _search(query: str, want_video: bool) -> list[dict]:
@@ -92,33 +103,40 @@ def _download_once(url: str, path: str) -> int:
         return 200
     finally:
         if os.path.exists(temp):
-            try: os.remove(temp)
-            except OSError: pass
+            try:
+                os.remove(temp)
+            except OSError:
+                pass
 
 
 def _download(url: str, path: str) -> None:
     status = _download_once(url, path)
-    if status == 200: return
+    if status == 200:
+        return
     extension = os.path.splitext(urlparse(url).path)[1].lower()
     if "upload.wikimedia.org" in url and extension in IMAGE_EXTENSIONS:
         proxy_url = "https://images.weserv.nl/?url=" + quote(url, safe="")
-        if _download_once(proxy_url, path) == 200: return
-    raise RuntimeError("HTTP 429 from Wikimedia Commons; candidate skipped")
+        if _download_once(proxy_url, path) == 200:
+            return
+    raise RuntimeError("Wikimedia download failed; candidate skipped")
 
 
 def _candidate_pool(script: dict, scene: dict, want_video: bool) -> list[dict]:
     person = _clean(script.get("story_person"), 120)
+    cues = _scene_cues(scene)
     candidates: list[dict] = []
     seen: set[str] = set()
     for query in _terms(script, scene):
-        try: found = _search(query, want_video)
+        try:
+            found = _search(query, want_video)
         except Exception as exc:
             print(f"      ⚠️ Wikimedia search failed for {query!r}: {type(exc).__name__}: {exc}")
             continue
         for item in found:
             key = str(item.get("id") or item.get("url") or "")
-            if not key or key in seen: continue
-            score = relevance_score(person, query, item.get("title"), item.get("description"), item.get("artist"))
+            if not key or key in seen:
+                continue
+            score = relevance_score(person, query, item.get("title"), item.get("description"), item.get("artist"), cues)
             if score < MIN_RELEVANCE_SCORE:
                 continue
             item["relevance_score"] = score
@@ -132,7 +150,8 @@ def _try_download_candidates(candidates: list[dict], used: set[str], output_path
     for item in candidates:
         url = str(item.get("url") or "")
         asset_key = str(item.get("id") or url)
-        if not url or url in used or asset_key in used: continue
+        if not url or url in used or asset_key in used:
+            continue
         try:
             _download(url, output_path)
             used.update((url, asset_key))
@@ -140,8 +159,10 @@ def _try_download_candidates(candidates: list[dict], used: set[str], output_path
         except Exception as exc:
             print(f"      ⚠️ Skipping archival {media_type} {url}: {type(exc).__name__}: {exc}")
             try:
-                if os.path.exists(output_path): os.remove(output_path)
-            except OSError: pass
+                if os.path.exists(output_path):
+                    os.remove(output_path)
+            except OSError:
+                pass
     return None
 
 
@@ -155,7 +176,8 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None) -> lis
     if not isinstance(scenes, list) or len(scenes) != 7:
         raise RuntimeError("Story archival media requires exactly 7 scenes.")
     person = _clean(script.get("story_person"), 120)
-    used: set[str] = set(); groups: list[dict] = []
+    used: set[str] = set()
+    groups: list[dict] = []
     for scene_no, scene in enumerate(scenes, 1):
         video_candidates = _candidate_pool(script, scene, True)
         image_candidates = None
@@ -164,14 +186,15 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None) -> lis
             selected = _try_download_candidates(video_candidates, used, video_path, "video")
             media_type, path = "video", video_path
             if selected is None:
-                if image_candidates is None: image_candidates = _candidate_pool(script, scene, False)
+                if image_candidates is None:
+                    image_candidates = _candidate_pool(script, scene, False)
                 image_path = os.path.join(output_dir, f"scene_{scene_no}_shot_{shot_no}.jpg")
                 selected = _try_download_candidates(image_candidates, used, image_path, "image")
                 media_type, path = "photo", image_path
             if selected is None:
                 raise RuntimeError(f"No relevant downloadable archival media found for scene {scene_no}, shot {shot_no} ({person}).")
-            item, url = selected
+            item, _ = selected
             groups.append({"scene": scene_no, "shot": shot_no, "path": path, "type": media_type, "provider": "Wikimedia Commons",
                            "creator": item.get("artist", ""), "query": item.get("title", ""), "source_url": item.get("descriptionurl", ""),
-                           "asset_key": f"wikimedia:{media_type}:{item.get('id') or url}", "score": float(item.get("relevance_score", 0))})
+                           "asset_key": f"wikimedia:{media_type}:{item.get('id') or item.get('url')}", "score": float(item.get("relevance_score", 0))})
     return groups

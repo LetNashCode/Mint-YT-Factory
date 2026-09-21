@@ -57,8 +57,12 @@ def main() -> None:
     _patch_story_portrait_export()
     _patch_story_titles()
 
-    import stock_media_resilient
-    patched_adapter = stock_media_resilient.generate_media
+    # IMPORTANT: stock_media_resilient intentionally routes Story scripts back
+    # to Wikimedia archival media. For the emergency fallback we must call the
+    # underlying stock director directly; otherwise the supposed fallback simply
+    # invokes the same archival adapter again and can never recover.
+    import stock_search
+    stock_fallback = stock_search.generate_media
 
     def identity_generate_media(script, output_dir, config, gim=None):
         is_story = isinstance(script, dict) and bool(str(script.get("story_person") or "").strip())
@@ -68,19 +72,21 @@ def main() -> None:
             try:
                 return story_archival_media.generate_media(script, output_dir, config, gim=gim)
             except Exception as archival_error:
-                # Some people have no usable Wikimedia Commons assets, and Commons
-                # can also rate-limit searches. Do not lose a fully rendered story
-                # merely because the archival provider is unavailable. The existing
-                # resilient stock adapter applies the subject-specific Gemini/media
-                # lock and provider fallbacks before returning media.
                 print(
                     "⚠️ Archival media unavailable; activating subject-specific "
                     f"stock fallback for {person}: {type(archival_error).__name__}: {archival_error}"
                 )
-                return patched_adapter(script, output_dir, config, gim=gim)
-        return patched_adapter(script, output_dir, config, gim=gim)
+                try:
+                    return stock_fallback(script, output_dir, config, gim=gim)
+                except Exception as stock_error:
+                    raise RuntimeError(
+                        f"Both archival and subject-specific stock media failed for {person}. "
+                        f"Archival error: {archival_error}; Stock error: {stock_error}"
+                    ) from stock_error
+        return stock_fallback(script, output_dir, config, gim=gim)
 
     identity_generate_media._mint_story_identity_wrapper = True
+    import stock_media_resilient
     stock_media_resilient.generate_media = identity_generate_media
     runpy.run_path("interactive_main.py", run_name="__main__")
 

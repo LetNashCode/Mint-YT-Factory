@@ -103,7 +103,6 @@ def repair_pending_story() -> None:
     }
     _write_json(PENDING, repaired)
 
-    # Remove the replacement from the candidate pool so it cannot be selected twice.
     candidates_path = ROOT / "story_candidates.json"
     candidates = _read_json(candidates_path, [])
     _write_json(
@@ -118,6 +117,20 @@ def repair_pending_story() -> None:
         f"🔧 Story uniqueness repair: replaced duplicate pending person "
         f"'{pending_person}' with '{replacement_person}'"
     )
+
+
+def _remove_person_from_pool(person: str, candidates_path: Path) -> int:
+    """Remove every candidate matching a rejected person and return removals."""
+    candidates = _read_json(candidates_path, [])
+    person_keys = _person_keys(person)
+    filtered = [
+        item for item in candidates
+        if not isinstance(item, dict) or not (_person_keys(item.get("person", "")) & person_keys)
+    ]
+    removed = len(candidates) - len(filtered)
+    if removed:
+        _write_json(candidates_path, filtered)
+    return removed
 
 
 def install() -> None:
@@ -140,23 +153,37 @@ def install() -> None:
         if isinstance(pending, dict):
             used.update(_person_keys(pending.get("person", "")))
 
-        # Remove known-used candidates before the original scorer can select one.
-        candidates = _read_json(interactive_topics.CANDIDATES, [])
-        filtered = [
-            row for row in candidates
-            if isinstance(row, dict)
-            and not (_person_keys(row.get("person", "")) & used)
-        ]
-        interactive_topics._save(interactive_topics.CANDIDATES, filtered)
+        candidates_path = Path(interactive_topics.CANDIDATES)
+        max_attempts = 12
+        rejected = []
 
-        result = original()
-        person = result[2] if isinstance(result, tuple) and len(result) >= 3 else ""
-        if _person_keys(person) & used:
-            raise RuntimeError(
-                f"Story uniqueness guard blocked previously used person: {person}"
+        for attempt in range(1, max_attempts + 1):
+            candidates = _read_json(candidates_path, [])
+            filtered = [
+                row for row in candidates
+                if isinstance(row, dict) and not (_person_keys(row.get("person", "")) & used)
+            ]
+            _write_json(candidates_path, filtered)
+
+            result = original()
+            person = result[2] if isinstance(result, tuple) and len(result) >= 3 else ""
+            if not (_person_keys(person) & used):
+                print(f"🔒 Story uniqueness guard: approved new person — {person}")
+                if rejected:
+                    print(f"🔁 Story uniqueness guard: skipped duplicates — {', '.join(rejected)}")
+                return result
+
+            rejected.append(str(person))
+            removed = _remove_person_from_pool(str(person), candidates_path)
+            print(
+                f"⚠️ Story uniqueness guard: rejected previously used person "
+                f"'{person}' (attempt {attempt}/{max_attempts}); removed {removed} candidate(s), retrying"
             )
-        print(f"🔒 Story uniqueness guard: approved new person — {person}")
-        return result
+
+        raise RuntimeError(
+            "Story uniqueness guard could not find an unused person after "
+            f"{max_attempts} attempts. Rejected: {', '.join(rejected) or 'none'}"
+        )
 
     guarded_get_next_topic._mint_uniqueness_guard = True
     interactive_topics.get_next_topic = guarded_get_next_topic

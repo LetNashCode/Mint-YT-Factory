@@ -3,12 +3,14 @@ from __future__ import annotations
 
 import re
 import runpy
+from pathlib import Path
 
 import story_archival_media
 import story_topic_uniqueness
 import interactive_topics
 from interactive_topics import validate_story_sequence_state
 from story_media_quality_gate import validate_groups
+from story_media_quality import write_audit_report
 
 
 def _patch_story_portrait_export() -> None:
@@ -90,9 +92,34 @@ def _patch_archival_media_contract() -> None:
     def strict_generate_media(script, output_dir, config, gim=None):
         groups = original_generate_media(script, output_dir, config, gim=gim)
         validate_groups(groups, expected=14)
+        audit_rows = []
+        for group in groups:
+            audit_rows.append({key: group.get(key) for key in ("scene", "shot", "type", "provider", "query", "source_url", "asset_key", "score")})
+        write_audit_report(audit_rows, str(Path(output_dir) / "story_media_audit.json"))
         print("✅ Story visual quality gate passed: 14 distinct archival assets")
         return groups
     story_archival_media.generate_media = strict_generate_media
+
+
+def _validate_final_videos() -> None:
+    from final_video_quality_gate import validate_video
+    roots = [Path("output/interactive"), Path("output")]
+    videos = []
+    for root in roots:
+        if root.exists():
+            videos.extend(root.rglob("final.mp4"))
+    unique = []
+    seen = set()
+    for video in videos:
+        resolved = str(video.resolve())
+        if resolved not in seen:
+            seen.add(resolved)
+            unique.append(video)
+    if not unique:
+        raise RuntimeError("Final video quality gate could not find final.mp4")
+    target = max(unique, key=lambda path: path.stat().st_mtime)
+    validate_video(str(target))
+    print(f"✅ Final video quality gate passed: {target}")
 
 
 def main() -> None:
@@ -120,6 +147,7 @@ def main() -> None:
     import stock_media_resilient
     stock_media_resilient.generate_media = identity_generate_media
     runpy.run_path("interactive_main.py", run_name="__main__")
+    _validate_final_videos()
 
 
 if __name__ == "__main__":

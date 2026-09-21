@@ -182,3 +182,14 @@ def test_real_ffmpeg_transcodes_and_samples_video(tmp_path):
     samples = media.frames(target, duration)
     assert len(samples) == 3 and len(set(samples)) == 3
     assert all(base64.b64decode(sample).startswith(b"\xff\xd8") for sample in samples)
+
+
+def test_verification_samples_the_rendered_opening_not_later_frames(monkeypatch):
+    commands = []
+    def fake_command(args, timeout=90):
+        commands.append(args)
+        return SimpleNamespace(stdout=b"jpeg")
+    monkeypatch.setattr(media, "command", fake_command)
+    assert len(media.frames("clip.mp4", 8.0)) == 3
+    times = [float(args[args.index("-ss") + 1]) for args in commands]
+    assert times == [0.0, 0.4, 0.9]

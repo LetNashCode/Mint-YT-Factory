@@ -63,12 +63,17 @@ jobs:
           accepted = False
           try:
               pool = media.discover(person, audit['providers'])
-              for item in pool[:16]:
+              buckets = [[item for item in pool if item['provider'] == provider][:8] for provider in ('Wikimedia Commons', 'Internet Archive', 'YouTube')]
+              pool = [bucket[i] for i in range(8) for bucket in buckets if i < len(bucket)]
+              for item in pool:
                   try:
+                      stage = 'resolve'
                       url, duration = media.resolve(item)
                       for start, length in media.windows(duration)[:3]:
                           path = root / 'preview.mp4'
+                          stage = 'extract'
                           actual = media.extract(url, start, length, path)
+                          stage = 'verify'
                           verdict = media.verify(person, {'narration': person + ' speaking about their life'}, item, media.frames(path, actual))
                           audit['attempts'].append({'source': item['source_url'], 'start': start, 'verification': verdict})
                           if media.verification_passes(verdict):
@@ -76,7 +81,7 @@ jobs:
                               audit['accepted'] = {'source': item['source_url'], 'start': start, 'end': start + length}
                               break
                   except Exception as exc:
-                      audit['attempts'].append({'source': item['source_url'], 'error': type(exc).__name__})
+                      audit['attempts'].append({'source': item['source_url'], 'stage': stage, 'error': type(exc).__name__, 'status': getattr(getattr(exc, 'response', None), 'status_code', None), 'detail': str(exc) if isinstance(exc, RuntimeError) else ''})
                   if accepted:
                       break
               if not accepted:

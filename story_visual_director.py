@@ -1,4 +1,4 @@
-"""Create concise, evidence-led visual briefs for real-person Story Shorts."""
+"""Create scene-aware, evidence-led visual briefs for real-person Story Shorts."""
 from __future__ import annotations
 
 import re
@@ -8,12 +8,18 @@ _GENERIC = {
     "inspiring", "success", "motivation", "motivational", "person", "people",
     "story", "life", "journey", "dream", "challenge", "struggle", "achievement",
     "cinematic", "dramatic", "beautiful", "powerful", "storyteller", "everything",
+    "show", "real", "authentic", "documented", "specific", "related", "matching",
+    "visual", "image", "footage", "archival", "historical", "photograph",
 }
 
 
 def _tokens(value: Any) -> List[str]:
-    return [x for x in re.findall(r"[A-Za-z][A-Za-z0-9'-]{2,}", str(value or ""))
-            if x.lower() not in _GENERIC]
+    words = re.findall(r"[A-Za-z][A-Za-z0-9'-]{2,}", str(value or ""))
+    result: List[str] = []
+    for word in words:
+        if word.lower() not in _GENERIC and word.lower() not in {x.lower() for x in result}:
+            result.append(word)
+    return result
 
 
 def _person(script: Dict[str, Any]) -> str:
@@ -22,63 +28,98 @@ def _person(script: Dict[str, Any]) -> str:
 
 def _narration(scene: Dict[str, Any]) -> str:
     for key in ("narration", "voiceover", "spoken_line", "text", "script"):
-        if scene.get(key):
-            return str(scene[key]).strip()
+        value = scene.get(key)
+        if value:
+            return str(value).strip()
     return ""
 
 
-def _cue(scene: Dict[str, Any]) -> str:
-    """Extract a compact search cue without injecting long instruction text."""
-    candidates = [scene.get("visual_focus"), scene.get("visual_action"), scene.get("must_show"), _narration(scene)]
+def _scene_cues(scene: Dict[str, Any]) -> List[str]:
+    """Extract factual cues, avoiding instruction-heavy visual descriptions."""
+    candidates = []
+    for key in (
+        "event", "event_name", "location", "place", "occupation", "job",
+        "obstacle", "setback", "action", "turning_point", "achievement",
+        "visual_subject", "visual_focus", "visual_action",
+    ):
+        value = scene.get(key)
+        if value:
+            candidates.append(value)
+
+    # Narration is only a fallback; use a small keyword slice rather than the
+    # entire sentence, which often contains CTA or production instructions.
+    if not candidates:
+        candidates.append(_narration(scene))
+
     words: List[str] = []
     for value in candidates:
         for word in _tokens(value):
-            lower = word.lower()
-            if lower not in {w.lower() for w in words} and len(words) < 8:
+            if len(words) >= 6:
+                return words
+            if word.lower() not in {x.lower() for x in words}:
                 words.append(word)
-    return " ".join(words)
+    return words
 
 
 def _role(index: int) -> str:
     return (
-        "recognisable identity and opening hook",
+        "opening identity",
         "early life or starting circumstances",
-        "specific documented obstacle or setback",
+        "documented obstacle or setback",
         "decision or concrete action",
-        "work, persistence, or conflict in progress",
+        "work or persistence in progress",
         "turning point or breakthrough",
         "documented result and lasting lesson",
     )[min(index, 6)]
 
 
+def _query(person: str, cues: List[str], index: int, identity: bool = False) -> str:
+    if identity:
+        return f"{person} historical photograph".strip()
+    suffix = " ".join(cues[:5]).strip()
+    return f"{person} {suffix}".strip() if suffix else f"{person} historical photograph".strip()
+
+
+def _base_brief(person: str, role: str, query: str, identity: bool) -> Dict[str, Any]:
+    return {
+        "shot_purpose": "identity evidence" if identity else "specific narrative context",
+        "visual_focus": f"{person} — {role}",
+        "visual_action": (
+            f"Use a clearly identified archival image or footage of {person}."
+            if identity else
+            f"Show a documented place, event, occupation, action, or circumstance connected to {person}'s {role} stage."
+        ),
+        "must_show": f"Evidence relevant to {person} and the story stage: {role}.",
+        "must_not_show": (
+            "Unrelated models, generic motivational stock, anonymous business people, random landscapes, "
+            "symbolic filler, or visuals that only match the mood."
+        ),
+        "search_query": query,
+        "visual_evidence_required": True,
+        "identity_critical": identity,
+    }
+
+
 def _briefs(script: Dict[str, Any], scene: Dict[str, Any], index: int) -> List[Dict[str, Any]]:
     person = _person(script)
-    cue = _cue(scene)
     role = _role(index)
-    identity_query = f"{person} historical photograph".strip()
-    event_query = f"{person} {cue}".strip() or identity_query
-    return [
-        {
-            "shot_purpose": "identity evidence" if index in (0, 1, 6) else "person-specific context",
-            "visual_focus": f"Authentic archival image or footage of {person}",
-            "visual_action": f"Show the real {person} or a documented moment connected to the {role}.",
-            "must_show": f"{person}; authentic archival source; clear connection to the story stage: {role}.",
-            "must_not_show": "Unrelated models, generic motivational stock, anonymous business people, random landscapes, or symbolic filler.",
-            "search_query": identity_query,
-            "visual_evidence_required": True,
-            "identity_critical": index in (0, 1, 6),
-        },
-        {
-            "shot_purpose": "specific narrative event",
-            "visual_focus": f"Documented event or setting related to {person}: {cue or role}",
-            "visual_action": f"Depict the concrete event, occupation, place, obstacle, or action for the {role} stage.",
-            "must_show": f"A directly relevant archival image or footage matching: {event_query}.",
-            "must_not_show": "Visuals that only match the mood without depicting the narrated facts.",
-            "search_query": event_query,
-            "visual_evidence_required": True,
-            "identity_critical": False,
-        },
-    ]
+    cues = _scene_cues(scene)
+
+    # Identity searches are limited to scenes where a recognisable portrait is
+    # useful. Other scenes must search using the scene's factual cues.
+    first_is_identity = index in (0, 1, 6)
+    identity_query = _query(person, [], index, identity=True)
+    context_query = _query(person, cues, index, identity=False)
+
+    first = _base_brief(person, role, identity_query if first_is_identity else context_query, first_is_identity)
+    second = _base_brief(person, role, context_query, False)
+    second["shot_purpose"] = "specific narrative event or setting"
+    second["visual_focus"] = f"Documented context for {person}: {' '.join(cues[:5]) or role}"
+    second["must_show"] = (
+        f"A directly relevant archival asset connected to {person} and these factual cues: "
+        f"{' '.join(cues[:5]) or role}."
+    )
+    return [first, second]
 
 
 def direct_story_visuals(script: Any) -> Any:
@@ -87,11 +128,15 @@ def direct_story_visuals(script: Any) -> Any:
     scenes = script.get("scene_plan") or script.get("scenes")
     if not isinstance(scenes, list):
         return script
+
     for index, scene in enumerate(scenes[:7]):
-        if isinstance(scene, dict):
-            briefs = _briefs(script, scene, index)
-            scene["visual_evidence_required"] = True
-            scene["visual_role"] = _role(index)
-            scene["visuals"] = briefs
-            scene["visual_briefs"] = briefs
+        if not isinstance(scene, dict):
+            continue
+        briefs = _briefs(script, scene, index)
+        scene["visual_evidence_required"] = True
+        scene["visual_role"] = _role(index)
+        # Keep both keys for downstream compatibility. The archival adapter
+        # consumes search_query directly through story_identity_runner.
+        scene["visuals"] = briefs
+        scene["visual_briefs"] = briefs
     return script

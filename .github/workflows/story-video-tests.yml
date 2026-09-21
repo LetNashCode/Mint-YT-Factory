@@ -1,0 +1,92 @@
+name: Story Video Tests
+on:
+  pull_request:
+    paths:
+      - 'story_real_video_media.py'
+      - 'story_identity_runner.py'
+      - 'tests/test_story_real_video_media.py'
+      - '.github/workflows/story-shorts.yml'
+      - '.github/workflows/story-video-tests.yml'
+  workflow_dispatch:
+    inputs:
+      person:
+        description: 'Optional live footage preview (no publishing); leave blank for offline tests'
+        required: false
+        default: ''
+        type: string
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install pytest requests PyYAML
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Story regression and real FFmpeg integration
+        run: python -m pytest -q tests/test_story_media_quality.py tests/test_story_real_video_media.py
+      - name: Compile Story and protected production entry points
+        run: python -m py_compile story_real_video_media.py story_identity_runner.py interactive_main.py production_entry.py production_entry_runner.py mystery_documentary.py mystery_documentary_runner.py
+  live-preview:
+    needs: regression
+    if: github.event_name == 'workflow_dispatch' && inputs.person != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install requests 'yt-dlp[default]'
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Retrieve and verify one real-person video preview without publishing
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          STORY_PREVIEW_PERSON: ${{ inputs.person }}
+          STORY_VIDEO_VERIFY_MODEL: ${{ vars.STORY_VIDEO_VERIFY_MODEL || 'gemini-2.5-flash' }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          import story_real_video_media as media
+          person = media.clean(os.environ['STORY_PREVIEW_PERSON'])
+          root = Path('output/story-video-preview')
+          root.mkdir(parents=True, exist_ok=True)
+          audit = {'person': person, 'providers': [], 'attempts': []}
+          accepted = False
+          try:
+              pool = media.discover(person, audit['providers'])
+              for item in pool[:16]:
+                  try:
+                      url, duration = media.resolve(item)
+                      for start, length in media.windows(duration)[:3]:
+                          path = root / 'preview.mp4'
+                          actual = media.extract(url, start, length, path)
+                          verdict = media.verify(person, {'narration': person + ' speaking about their life'}, item, media.frames(path, actual))
+                          audit['attempts'].append({'source': item['source_url'], 'start': start, 'verification': verdict})
+                          if media.verification_passes(verdict):
+                              accepted = True
+                              audit['accepted'] = {'source': item['source_url'], 'start': start, 'end': start + length}
+                              break
+                  except Exception as exc:
+                      audit['attempts'].append({'source': item['source_url'], 'error': type(exc).__name__})
+                  if accepted:
+                      break
+              if not accepted:
+                  raise RuntimeError('No verified preview found; inspect audit.json')
+          finally:
+              (root / 'audit.json').write_text(json.dumps(audit, indent=2), encoding='utf-8')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: story-video-preview
+          path: output/story-video-preview/
+          retention-days: 7

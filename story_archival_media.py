@@ -1,9 +1,9 @@
 """Person-specific archival media retrieval for Story Shorts.
 
-Wikimedia Commons is treated as a best-effort source. Rate-limited or invalid
-candidates are skipped immediately. If Wikimedia cannot provide a second unique
-asset, an already downloaded person-specific archival asset is reused so the
-render can complete instead of failing after partial generation.
+Wikimedia Commons is treated as a best-effort source. Candidates are filtered
+for usable media and each downloaded source is used at most once per render.
+Story Shorts must fail clearly when person-specific archival media cannot be
+found rather than silently producing unrelated filler visuals.
 """
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ import requests
 API = "https://commons.wikimedia.org/w/api.php"
 SEARCH_TIMEOUT = 20
 DOWNLOAD_TIMEOUT = (10, 60)
-UA = "Mint-YT-Factory/StoryArchivalMedia/2.6"
+UA = "Mint-YT-Factory/StoryArchivalMedia/2.7"
 VIDEO_MIMES = {"video/mp4", "video/webm", "video/ogg", "video/quicktime", "video/x-msvideo"}
 VIDEO_EXTENSIONS = {".mp4", ".webm", ".ogv", ".mov", ".avi", ".m4v", ".mkv"}
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
@@ -30,20 +30,37 @@ def _clean(value: Any, limit: int = 300) -> str:
 
 
 def _terms(script: dict, scene: dict) -> list[str]:
+    """Build short Commons queries from identity and concrete scene cues.
+
+    Long narration sentences perform poorly as Commons queries. Prefer the
+    person name plus the scene's explicit visual focus/action, then use the
+    narration only as a final fallback.
+    """
     person = _clean(script.get("story_person"), 120)
-    narration = _clean(scene.get("narration"), 300)
+    narration = _clean(scene.get("narration"), 220)
     visuals = scene.get("visuals") or []
-    focus = ""
+    focus_terms: list[str] = []
     if isinstance(visuals, list):
         for visual in visuals:
-            if isinstance(visual, dict):
-                focus = _clean(visual.get("visual_focus") or visual.get("spoken_line"), 180)
-                if focus:
-                    break
-    raw = [f"{person} {focus}", f"{person} video", person, narration]
+            if not isinstance(visual, dict):
+                continue
+            for key in ("visual_focus", "must_show", "visual_action"):
+                value = visual.get(key)
+                if isinstance(value, list):
+                    focus_terms.extend(_clean(x, 100) for x in value[:2])
+                elif value:
+                    focus_terms.append(_clean(value, 160))
+    raw = [
+        f"{person} {' '.join(focus_terms[:2])}".strip(),
+        f"{person} historical photograph",
+        f"{person} video",
+        person,
+        narration,
+    ]
     result: list[str] = []
     for query in raw:
         query = re.sub(r"[^\w\s-]", " ", query).strip()
+        query = re.sub(r"\s+", " ", query)
         if query and query not in result:
             result.append(query)
     return result
@@ -66,9 +83,12 @@ def _search(query: str, want_video: bool) -> list[dict]:
         if not url or (want_video and not is_video) or (not want_video and not is_image):
             continue
         meta = info.get("extmetadata") or {}
-        results.append({"id": page.get("pageid"), "title": page.get("title"), "url": url,
+        title = _clean(page.get("title"), 240)
+        description = _clean((meta.get("ImageDescription") or {}).get("value"), 300)
+        results.append({"id": page.get("pageid"), "title": title, "url": url,
                         "descriptionurl": info.get("descriptionurl") or "", "mime": mime,
-                        "is_video": is_video, "artist": _clean((meta.get("Artist") or {}).get("value"))})
+                        "is_video": is_video, "artist": _clean((meta.get("Artist") or {}).get("value")),
+                        "description": description})
     return results
 
 
@@ -120,8 +140,9 @@ def _candidate_pool(script: dict, scene: dict, want_video: bool) -> list[dict]:
             print(f"      ⚠️ Wikimedia {'video' if want_video else 'image'} search failed for {query!r}: {type(exc).__name__}: {exc}")
             continue
         for item in found:
-            if item["url"] not in seen:
-                seen.add(item["url"])
+            key = str(item.get("id") or item.get("url") or "")
+            if key and key not in seen:
+                seen.add(key)
                 candidates.append(item)
     return candidates
 
@@ -129,14 +150,19 @@ def _candidate_pool(script: dict, scene: dict, want_video: bool) -> list[dict]:
 def _try_download_candidates(candidates: list[dict], used: set[str], output_path: str, media_type: str) -> tuple[dict, str] | None:
     for item in candidates:
         url = str(item.get("url") or "")
-        if not url or url in used:
+        asset_key = str(item.get("id") or url)
+        if not url or url in used or asset_key in used:
             continue
         try:
             _download(url, output_path)
+            # The previous implementation forgot to record successful assets.
+            # That allowed the first search result to be downloaded repeatedly
+            # for every shot, creating visually repetitive Shorts.
+            used.add(url)
+            used.add(asset_key)
             return item, url
         except Exception as exc:
             print(f"      ⚠️ Skipping unavailable archival {media_type} {url}: {type(exc).__name__}: {exc}")
-            used.discard(url)
             try:
                 if os.path.exists(output_path):
                     os.remove(output_path)
@@ -199,7 +225,7 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None) -> lis
                 if selected is not None:
                     media_type, path = "photo", image_path
             if selected is None:
-                raise RuntimeError(f"No downloadable archival video or image found for Story scene {scene_no}, shot {shot_no} ({person}). Wikimedia may be rate-limited; no stock fallback is permitted.")
+                raise RuntimeError(f"No downloadable archival video or image found for Story scene {scene_no}, shot {shot_no} ({person}). Wikimedia may be rate-limited; no unrelated stock fallback is permitted.")
             item, url = selected
             groups.append({"scene": scene_no, "shot": shot_no, "path": path, "type": media_type,
                            "provider": "Wikimedia Commons", "creator": item.get("artist", ""),

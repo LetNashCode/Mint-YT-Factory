@@ -34,7 +34,7 @@ jobs:
           set -euo pipefail
           mkdir -p output/interactive
           artifacts_url="https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts?per_page=100"
-          artifact_id="$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" "${artifacts_url}" | jq -r --arg current "${CURRENT_RUN_ID}" '[.artifacts[] | select(.name | startswith("story-shorts-")) | select(.expired == false) | select(.workflow_run.id != ($current | tonumber))] | sort_by(.created_at) | reverse | .[0].id // empty')"
+          artifact_id="$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" "${artifacts_url}" | jq -r --arg current "${CURRENT_RUN_ID}" '[.artifacts[] | select(.name | startswith("story-shorts-")) | select(.expired == false) | select(..workflow_run.id != ($current | tonumber))] | sort_by(.created_at) | reverse | .[0].id // empty')"
           if [ -n "${artifact_id}" ]; then
             echo "♻️ Restoring Story render artifact ${artifact_id}"
             curl -fsSL -L -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/${artifact_id}/zip" -o /tmp/story-render.zip
@@ -44,9 +44,25 @@ jobs:
             echo "ℹ️ No previous Story render artifact available"
           fi
       - name: Compile Story Shorts runtime
-        run: python -m py_compile interactive_main.py interactive_topics.py story_topic_runtime.py story_topic_media_lock.py interactive_analytics.py generate_script/interactive.py whisper_align.py social_publish.py story_person_media.py story_person_sources.py story_media_preflight.py story_social_resume.py story_stock_runtime.py story_identity_media.py story_identity_runner.py youtube_auth_preflight.py tts.py assemble.py stock_media_resilient.py upload_youtube.py validate_video.py music.py sfx.py media_frame_guard.py
+        run: python -m py_compile interactive_main.py story_render_recovery.py interactive_topics.py story_topic_runtime.py story_topic_media_lock.py interactive_analytics.py generate_script/interactive.py whisper_align.py social_publish.py story_person_media.py story_person_sources.py story_media_preflight.py story_social_resume.py story_stock_runtime.py story_identity_media.py story_identity_runner.py youtube_auth_preflight.py tts.py assemble.py stock_media_resilient.py upload_youtube.py validate_video.py music.py sfx.py media_frame_guard.py
+      - name: Recover completed Story render before starting a new render
+        id: recover
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          YOUTUBE_CLIENT_SECRET_JSON: ${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}
+          YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+        run: |
+          set -euo pipefail
+          if python -u story_render_recovery.py; then
+            echo "recovered=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "recovered=false" >> "$GITHUB_OUTPUT"
+          fi
       - name: Resume pending Story social publication
         id: resume
+        if: steps.recover.outputs.recovered != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
@@ -61,7 +77,7 @@ jobs:
             echo "resumed=false" >> "$GITHUB_OUTPUT"
           fi
       - name: Generate and publish Story Short
-        if: steps.resume.outputs.resumed != 'true'
+        if: steps.recover.outputs.recovered != 'true' && steps.resume.outputs.resumed != 'true'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           YOUTUBE_CLIENT_SECRET_JSON: ${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}

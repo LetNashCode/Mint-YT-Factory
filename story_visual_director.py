@@ -1,6 +1,7 @@
 """Create scene-aware, evidence-led visual briefs for real-person Story Shorts."""
 from __future__ import annotations
 
+import copy
 import re
 from typing import Any, Dict, List
 
@@ -15,9 +16,10 @@ _GENERIC = {
 
 def _tokens(value: Any) -> List[str]:
     words = re.findall(r"[A-Za-z][A-Za-z0-9'-]{2,}", str(value or ""))
+    generic = {x.lower() for x in _GENERIC}
     result: List[str] = []
     for word in words:
-        if word.lower() not in _GENERIC and word.lower() not in {x.lower() for x in result}:
+        if word.lower() not in generic and word.lower() not in {x.lower() for x in result}:
             result.append(word)
     return result
 
@@ -46,8 +48,6 @@ def _scene_cues(scene: Dict[str, Any]) -> List[str]:
         if value:
             candidates.append(value)
 
-    # Narration is only a fallback; use a small keyword slice rather than the
-    # entire sentence, which often contains CTA or production instructions.
     if not candidates:
         candidates.append(_narration(scene))
 
@@ -100,13 +100,28 @@ def _base_brief(person: str, role: str, query: str, identity: bool) -> Dict[str,
     }
 
 
+def _preserved_plan(scene: Dict[str, Any]) -> Any:
+    """Return the original visual plan without mutating or discarding it."""
+    for key in ("visuals", "visual_briefs", "visual_plan", "visual_description", "visual_prompt"):
+        value = scene.get(key)
+        if value:
+            return copy.deepcopy(value)
+    return None
+
+
+def _merge_original_context(brief: Dict[str, Any], original_plan: Any) -> Dict[str, Any]:
+    """Keep model-generated visual context available to downstream/debug tooling."""
+    if original_plan is not None:
+        brief["original_visual_plan"] = original_plan
+    return brief
+
+
 def _briefs(script: Dict[str, Any], scene: Dict[str, Any], index: int) -> List[Dict[str, Any]]:
     person = _person(script)
     role = _role(index)
     cues = _scene_cues(scene)
+    original_plan = _preserved_plan(scene)
 
-    # Identity searches are limited to scenes where a recognisable portrait is
-    # useful. Other scenes must search using the scene's factual cues.
     first_is_identity = index in (0, 1, 6)
     identity_query = _query(person, [], index, identity=True)
     context_query = _query(person, cues, index, identity=False)
@@ -119,7 +134,11 @@ def _briefs(script: Dict[str, Any], scene: Dict[str, Any], index: int) -> List[D
         f"A directly relevant archival asset connected to {person} and these factual cues: "
         f"{' '.join(cues[:5]) or role}."
     )
-    return [first, second]
+
+    return [
+        _merge_original_context(first, original_plan),
+        _merge_original_context(second, original_plan),
+    ]
 
 
 def direct_story_visuals(script: Any) -> Any:
@@ -135,8 +154,8 @@ def direct_story_visuals(script: Any) -> Any:
         briefs = _briefs(script, scene, index)
         scene["visual_evidence_required"] = True
         scene["visual_role"] = _role(index)
-        # Keep both keys for downstream compatibility. The archival adapter
-        # consumes search_query directly through story_identity_runner.
+        # Preserve the original model-generated plan in each enriched brief,
+        # while exposing the normalized two-shot structure downstream expects.
         scene["visuals"] = briefs
         scene["visual_briefs"] = briefs
     return script

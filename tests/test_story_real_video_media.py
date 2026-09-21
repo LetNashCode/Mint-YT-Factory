@@ -193,3 +193,21 @@ def test_verification_samples_the_rendered_opening_not_later_frames(monkeypatch)
     assert len(media.frames("clip.mp4", 8.0)) == 3
     times = [float(args[args.index("-ss") + 1]) for args in commands]
     assert times == [0.0, 0.4, 0.9]
+
+
+def test_retired_verifier_model_falls_back_once_and_caches(monkeypatch):
+    monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
+    monkeypatch.setenv("STORY_VIDEO_VERIFY_MODEL", "retired-model")
+    monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
+    calls = []
+    def post(url, **kwargs):
+        calls.append(url)
+        return SimpleNamespace(status_code=404 if len(calls) == 1 else 200,
+            raise_for_status=lambda: None,
+            json=lambda: {"candidates": [{"content": {"parts": [{"text": json.dumps(GOOD)}]}}]})
+    monkeypatch.setattr(media.requests, "post", post)
+    for _ in range(2):
+        assert media.verification_passes(media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"]))
+    assert len(calls) == 3
+    assert "retired-model" in calls[0]
+    assert all("gemini-3.8-flash" in url for url in calls[1:])

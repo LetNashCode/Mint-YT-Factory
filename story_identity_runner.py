@@ -63,16 +63,22 @@ def main() -> None:
     def identity_generate_media(script, output_dir, config, gim=None):
         is_story = isinstance(script, dict) and bool(str(script.get("story_person") or "").strip())
         person = str(script.get("story_person") or "").strip() if is_story else ""
-        try:
-            # sitecustomize can replace stock_media_resilient.generate_media with a
-            # stock_search-only compatibility wrapper. Story Shorts must bypass that
-            # wrapper completely so Pexels/Pixabay cannot re-enter the Story pipeline.
-            if is_story:
-                print(f"📚 Direct archival Story media routing: {person}")
+        if is_story:
+            print(f"📚 Direct archival Story media routing: {person}")
+            try:
                 return story_archival_media.generate_media(script, output_dir, config, gim=gim)
-            return patched_adapter(script, output_dir, config, gim=gim)
-        finally:
-            pass
+            except Exception as archival_error:
+                # Some people have no usable Wikimedia Commons assets, and Commons
+                # can also rate-limit searches. Do not lose a fully rendered story
+                # merely because the archival provider is unavailable. The existing
+                # resilient stock adapter applies the subject-specific Gemini/media
+                # lock and provider fallbacks before returning media.
+                print(
+                    "⚠️ Archival media unavailable; activating subject-specific "
+                    f"stock fallback for {person}: {type(archival_error).__name__}: {archival_error}"
+                )
+                return patched_adapter(script, output_dir, config, gim=gim)
+        return patched_adapter(script, output_dir, config, gim=gim)
 
     identity_generate_media._mint_story_identity_wrapper = True
     stock_media_resilient.generate_media = identity_generate_media

@@ -10,14 +10,14 @@ from __future__ import annotations
 import os
 import re
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import quote, urlparse
 
 import requests
 
 API = "https://commons.wikimedia.org/w/api.php"
 SEARCH_TIMEOUT = 20
 DOWNLOAD_TIMEOUT = (10, 60)
-UA = "Mint-YT-Factory/StoryArchivalMedia/2.3"
+UA = "Mint-YT-Factory/StoryArchivalMedia/2.4"
 VIDEO_MIMES = {"video/mp4", "video/webm", "video/ogg", "video/quicktime", "video/x-msvideo"}
 VIDEO_EXTENSIONS = {".mp4", ".webm", ".ogv", ".mov", ".avi", ".m4v", ".mkv"}
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
@@ -71,13 +71,12 @@ def _search(query: str, want_video: bool) -> list[dict]:
     return results
 
 
-def _download(url: str, path: str) -> None:
-    """Download once; do not repeatedly hammer a rate-limited archive host."""
+def _download_once(url: str, path: str) -> int:
     temp = path + ".part"
     try:
         with requests.get(url, headers={"User-Agent": UA}, stream=True, timeout=DOWNLOAD_TIMEOUT) as response:
             if response.status_code == 429:
-                raise RuntimeError("HTTP 429 from Wikimedia Commons; candidate skipped")
+                return 429
             if response.status_code in TRANSIENT_STATUS:
                 raise RuntimeError(f"Transient HTTP {response.status_code}; candidate skipped")
             response.raise_for_status()
@@ -88,12 +87,35 @@ def _download(url: str, path: str) -> None:
         if not os.path.exists(temp) or os.path.getsize(temp) == 0:
             raise RuntimeError("Downloaded media file is empty")
         os.replace(temp, path)
+        return 200
     finally:
         if os.path.exists(temp):
             try:
                 os.remove(temp)
             except OSError:
                 pass
+
+
+def _download(url: str, path: str) -> None:
+    """Download an asset, using a read-only image proxy if Wikimedia rate-limits."""
+    status = _download_once(url, path)
+    if status == 200:
+        return
+
+    # GitHub-hosted runners can be rate-limited by upload.wikimedia.org. For
+    # images only, retry through wsrv.nl rather than hammering Wikimedia again.
+    # Video files are not sent through the image proxy.
+    extension = os.path.splitext(urlparse(url).path)[1].lower()
+    if "upload.wikimedia.org" in url and extension in IMAGE_EXTENSIONS:
+        proxy_url = "https://images.weserv.nl/?url=" + quote(url, safe="")
+        print("      ⚠️ Wikimedia returned HTTP 429; trying image proxy")
+        proxy_status = _download_once(proxy_url, path)
+        if proxy_status == 200:
+            return
+        if proxy_status == 429:
+            raise RuntimeError("HTTP 429 from Wikimedia and image proxy")
+
+    raise RuntimeError("HTTP 429 from Wikimedia Commons; candidate skipped")
 
 
 def _candidate_pool(script: dict, scene: dict, want_video: bool) -> list[dict]:

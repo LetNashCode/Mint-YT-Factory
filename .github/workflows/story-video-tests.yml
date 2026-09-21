@@ -83,6 +83,7 @@ jobs:
                   raise RuntimeError('No verified preview found; inspect audit.json')
           finally:
               (root / 'audit.json').write_text(json.dumps(audit, indent=2), encoding='utf-8')
+              print(json.dumps(audit, indent=2), flush=True)
           PY
       - uses: actions/upload-artifact@v4
         if: always()

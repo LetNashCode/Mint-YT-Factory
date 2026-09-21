@@ -71,6 +71,7 @@ jobs:
           META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
           META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
         run: |
+          set -euo pipefail
           if [ -f story_social_queue.json ]; then
             python -u story_social_resume.py
             echo "resumed=true" >> "$GITHUB_OUTPUT"
@@ -85,17 +86,9 @@ jobs:
           YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
           META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
           META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
-          FLICKR_API_KEY: ${{ secrets.FLICKR_API_KEY }}
-          EUROPEANA_API_KEY: ${{ secrets.EUROPEANA_API_KEY }}
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
         run: |
           set -euo pipefail
-          echo "🔐 Story stock provider credentials:"
-          echo "   Pexels: ${PEXELS_API_KEY:+AVAILABLE}"
-          echo "   Pixabay: ${PIXABAY_API_KEY:+AVAILABLE}"
-          test -n "$PEXELS_API_KEY" || { echo "❌ Missing GitHub secret PEXELS_API_KEY"; exit 1; }
-          test -n "$PIXABAY_API_KEY" || { echo "❌ Missing GitHub secret PIXABAY_API_KEY"; exit 1; }
+          echo "📚 Story media route: Wikimedia Commons archival assets"
           echo "🔐 Validating YouTube OAuth before rendering..."
           python -u youtube_auth_preflight.py
           python -c "from media_frame_guard import patch_assemble_rgb; patch_assemble_rgb(); import story_topic_runtime; import story_stock_runtime; import story_topic_media_lock; import story_identity_runner; story_identity_runner.main()"

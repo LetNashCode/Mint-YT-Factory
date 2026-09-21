@@ -1,16 +1,13 @@
 """Run Story Shorts with identity-first archival media and topic uniqueness protection."""
 from __future__ import annotations
 
-import re
 import runpy
 from pathlib import Path
 
-import story_archival_media
+import story_real_video_media
 import story_topic_uniqueness
 import interactive_topics
 from interactive_topics import validate_story_sequence_state
-from story_media_quality_gate import validate_groups
-from story_media_quality import write_audit_report
 
 
 def _patch_story_portrait_export() -> None:
@@ -41,6 +38,7 @@ def _patch_story_titles() -> None:
         person = raw_title.split(":", 1)[1].strip() if ":" in raw_title else ""
         optimized = optimize_title(raw_title, person, raw_title, "")
         print(f"🎯 Story title optimized: {optimized}")
+        description = str(description or "") + story_real_video_media.source_credits()
         return original_upload(video_path, optimized, description, config, *args, **kwargs)
     optimized_upload._mint_story_title_optimizer = True
     upload_youtube.upload_video = optimized_upload
@@ -59,46 +57,6 @@ def _patch_story_visual_director() -> None:
         return directed
     directed_generate_script._mint_story_visual_director = True
     story_generator.generate_script = directed_generate_script
-
-
-def _compact_query(value: object) -> str:
-    query = re.sub(r"[^\w\s-]", " ", str(value or ""))
-    query = re.sub(r"\s+", " ", query).strip()
-    return " ".join(query.split()[:12])
-
-
-def _patch_archival_media_contract() -> None:
-    """Use explicit visual queries and prohibit duplicate/reused assets."""
-    def strict_terms(script, scene):
-        queries = []
-        visuals = scene.get("visuals") if isinstance(scene, dict) else []
-        for visual in visuals or []:
-            if not isinstance(visual, dict):
-                continue
-            query = _compact_query(visual.get("search_query"))
-            if query and query not in queries:
-                queries.append(query)
-        if queries:
-            return queries
-        person = _compact_query((script or {}).get("story_person"))
-        return [f"{person} historical photograph".strip()] if person else []
-    story_archival_media._terms = strict_terms
-
-    def never_reuse(*args, **kwargs):
-        return None
-    story_archival_media._reuse_archival_asset = never_reuse
-
-    original_generate_media = story_archival_media.generate_media
-    def strict_generate_media(script, output_dir, config, gim=None):
-        groups = original_generate_media(script, output_dir, config, gim=gim)
-        validate_groups(groups, expected=14)
-        audit_rows = []
-        for group in groups:
-            audit_rows.append({key: group.get(key) for key in ("scene", "shot", "type", "provider", "query", "source_url", "asset_key", "score")})
-        write_audit_report(audit_rows, str(Path(output_dir) / "story_media_audit.json"))
-        print("✅ Story visual quality gate passed: 14 distinct archival assets")
-        return groups
-    story_archival_media.generate_media = strict_generate_media
 
 
 def _validate_final_videos() -> None:
@@ -133,14 +91,13 @@ def main() -> None:
     _patch_story_portrait_export()
     _patch_story_titles()
     _patch_story_visual_director()
-    _patch_archival_media_contract()
 
     def identity_generate_media(script, output_dir, config, gim=None):
         is_story = isinstance(script, dict) and bool(str(script.get("story_person") or "").strip())
         person = str(script.get("story_person") or "").strip() if is_story else ""
         if is_story:
-            print(f"📚 Archival-only Story media routing: {person}")
-            return story_archival_media.generate_media(script, output_dir, config, gim=gim)
+            print(f"🎬 Verified real-video Story media routing: {person}")
+            return story_real_video_media.generate_media(script, output_dir, config, gim=gim)
         import stock_search
         return stock_search.generate_media(script, output_dir, config, gim=gim)
     identity_generate_media._mint_story_identity_wrapper = True

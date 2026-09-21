@@ -18,7 +18,7 @@ import requests
 API = "https://commons.wikimedia.org/w/api.php"
 SEARCH_TIMEOUT = 20
 DOWNLOAD_TIMEOUT = (10, 60)
-UA = "Mint-YT-Factory/StoryArchivalMedia/2.5"
+UA = "Mint-YT-Factory/StoryArchivalMedia/2.6"
 VIDEO_MIMES = {"video/mp4", "video/webm", "video/ogg", "video/quicktime", "video/x-msvideo"}
 VIDEO_EXTENSIONS = {".mp4", ".webm", ".ogv", ".mov", ".avi", ".m4v", ".mkv"}
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
@@ -98,7 +98,6 @@ def _download_once(url: str, path: str) -> int:
 
 
 def _download(url: str, path: str) -> None:
-    """Download an asset, using a read-only image proxy if Wikimedia rate-limits."""
     status = _download_once(url, path)
     if status == 200:
         return
@@ -146,9 +145,12 @@ def _try_download_candidates(candidates: list[dict], used: set[str], output_path
     return None
 
 
-def _reuse_archival_asset(groups: list[dict], output_path: str, scene_no: int, shot_no: int) -> tuple[dict, str] | None:
-    """Reuse a downloaded person-specific asset when no new Commons asset is available."""
+def _reuse_archival_asset(groups: list[dict], output_path: str, scene_no: int, shot_no: int, media_type: str) -> tuple[dict, str] | None:
+    """Reuse only an already downloaded asset of the same media type."""
+    wanted_video = media_type == "video"
     for previous in reversed(groups):
+        if (previous.get("type") == "video") != wanted_video:
+            continue
         source = str(previous.get("path") or "")
         if not source or not os.path.exists(source):
             continue
@@ -160,7 +162,7 @@ def _reuse_archival_asset(groups: list[dict], output_path: str, scene_no: int, s
                 "descriptionurl": previous.get("source_url", ""),
                 "artist": previous.get("creator", ""),
             }
-            print(f"      ⚠️ Reusing person-specific archival {previous.get('type', 'media')} for Scene {scene_no} Shot {shot_no}")
+            print(f"      ⚠️ Reusing person-specific archival {media_type} for Scene {scene_no} Shot {shot_no}")
             return item, str(previous.get("source_url") or previous.get("asset_key") or source)
         except OSError as exc:
             print(f"      ⚠️ Could not reuse archival asset {source}: {exc}")
@@ -189,9 +191,13 @@ def generate_media(script: dict, output_dir: str, config: dict, gim=None) -> lis
                 selected = _try_download_candidates(image_candidates, used, image_path, "image")
                 media_type, path = "photo", image_path
             if selected is None:
-                selected = _reuse_archival_asset(groups, path, scene_no, shot_no)
+                selected = _reuse_archival_asset(groups, video_path, scene_no, shot_no, "video")
                 if selected is not None:
-                    media_type = "video" if path.endswith(".mp4") else "photo"
+                    media_type, path = "video", video_path
+            if selected is None:
+                selected = _reuse_archival_asset(groups, image_path, scene_no, shot_no, "photo")
+                if selected is not None:
+                    media_type, path = "photo", image_path
             if selected is None:
                 raise RuntimeError(f"No downloadable archival video or image found for Story scene {scene_no}, shot {shot_no} ({person}). Wikimedia may be rate-limited; no stock fallback is permitted.")
             item, url = selected

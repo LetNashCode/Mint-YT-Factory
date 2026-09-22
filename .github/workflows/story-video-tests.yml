@@ -43,9 +43,11 @@ jobs:
               headers={'x-goog-api-key': os.environ['GEMINI_API_KEY']}, params={'pageSize': 1000}, timeout=(10, 30))
           if response.status_code != 200:
               raise RuntimeError(f'Model catalog HTTP {response.status_code}')
-          for model in response.json().get('models', []):
-              if 'generateContent' in model.get('supportedGenerationMethods', []) and 'flash' in model.get('name', '').lower():
-                  print(model['name'], '|', model.get('displayName', ''))
+          data = response.json()
+          models = data.get('models', [])
+          print('Catalog fields:', sorted(data), '| model count:', len(models), '| more pages:', bool(data.get('nextPageToken')))
+          for model in models:
+              print(model.get('name', ''), '|', model.get('displayName', ''), '|', model.get('supportedGenerationMethods', []))
           PY
       - name: Story regression and real FFmpeg integration
         run: python -m pytest -q tests/test_story_media_quality.py tests/test_story_real_video_media.py

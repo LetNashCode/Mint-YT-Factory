@@ -261,3 +261,30 @@ def test_topic_preflight_skips_empty_subject_but_preserves_provider_outage(monke
     else:
         assert runner.interactive_topics.get_next_topic()[2] == "Second Person"
         assert released == [("one_decision", "No film", "First Person")]
+
+
+def test_one_long_verified_source_can_supply_distinct_story_segments(monkeypatch, tmp_path):
+    stub_pipeline(monkeypatch)
+    monkeypatch.setattr(media, "discover", lambda *args: [candidate()])
+    groups = media.generate_media(story(), str(tmp_path), {})
+    assert len(groups) == 14
+    assert len({row["source_id"] for row in groups}) == 1
+    media.validate_segments(groups)
+
+
+@pytest.mark.parametrize("status,allowed", [("reserved", True), ("released", True), ("published", False)])
+def test_reserved_person_is_not_treated_as_published_duplicate(monkeypatch, status, allowed):
+    import interactive_topics
+    import story_topic_uniqueness as guard
+    monkeypatch.setattr(guard, "repair_pending_story", lambda: None)
+    def read(path, default):
+        return {"person": "Neil Armstrong", "status": status} if path == guard.PENDING else []
+    monkeypatch.setattr(guard, "_read_json", read)
+    monkeypatch.setattr(guard, "_write_json", lambda *args: None)
+    monkeypatch.setattr(interactive_topics, "get_next_topic", lambda: ("one_decision", "Moon mission", "Neil Armstrong"))
+    guard.install()
+    if allowed:
+        assert interactive_topics.get_next_topic()[2] == "Neil Armstrong"
+    else:
+        with pytest.raises(RuntimeError, match="unused person"):
+            interactive_topics.get_next_topic()

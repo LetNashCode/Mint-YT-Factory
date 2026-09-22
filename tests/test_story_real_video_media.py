@@ -97,8 +97,8 @@ def test_generate_fourteen_distinct_video_intervals(monkeypatch, tmp_path):
     media.validate_segments(result)
     assert len(result) == len({row["asset_key"] for row in result}) == 14
     assert set(row["type"] for row in result) == {"video"}
-    assert max(Counter(row["source_id"] for row in result).values()) <= 6
-    assert len({row["origin_url"] for row in result}) == 3
+    assert max(Counter(row["source_id"] for row in result).values()) < 14
+    assert len({row["origin_url"] for row in result}) == 2
     audit = json.loads((tmp_path / "story_video_audit.json").read_text())
     assert len(audit["selected"]) == 14
     assert media.source_credits().count("https://example.org/film/0") == 1
@@ -343,3 +343,16 @@ def test_runtime_verifier_quota_is_not_swallowed(monkeypatch, tmp_path):
     with pytest.raises(RuntimeError, match="verifier HTTP 429"):
         media.generate_media(story(), str(tmp_path), {})
     assert len(calls) == 1
+
+
+def test_verified_sources_are_reused_before_unseen_sources(monkeypatch, tmp_path):
+    stub_pipeline(monkeypatch)
+    seen = []
+    def resolve(item):
+        seen.append(item["id"])
+        return item["url"], 160
+    monkeypatch.setattr(media, "resolve", resolve)
+    groups = media.generate_media(story(), str(tmp_path), {})
+    assert len(groups) == 14
+    assert set(seen) == {"source:0", "source:1"}
+    media.validate_segments(groups)

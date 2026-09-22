@@ -207,7 +207,7 @@ def verify(person, scene, item, samples):
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
         raise RuntimeError("GEMINI_API_KEY is required for Story video verification")
-    requested_model = os.environ.get("STORY_VIDEO_VERIFY_MODEL", "gemini-2.5-flash-lite").removeprefix("models/")
+    requested_model = os.environ.get("STORY_VIDEO_VERIFY_MODEL", "gemini-3.8-flash").removeprefix("models/")
     model = _VERIFIER_MODELS.get(requested_model, requested_model)
     prompt = (
         "Evaluate three ordered frames from the OPENING SECOND of a candidate video segment for a biography Short. "
@@ -228,7 +228,7 @@ def verify(person, scene, item, samples):
         "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}}
     # Pinned lightweight models confirmed by the authenticated model catalog.
     # Try each at most once; never accept unchecked frames on quota/network failure.
-    models = list(dict.fromkeys([model, "gemini-2.5-flash-lite", "gemini-3.1-flash-lite", "gemini-3.5-flash-lite"]))[:3]
+    models = list(dict.fromkeys([model, "gemini-3.8-flash", "gemini-3.1-flash-lite", "gemini-3.5-flash-lite"]))[:3]
     last_error = "unknown"
     for model in models:
         try:

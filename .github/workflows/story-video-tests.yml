@@ -14,6 +14,11 @@ on:
         required: false
         default: ''
         type: string
+      list_models:
+        description: 'List available Gemini verifier models (no media generation or publishing)'
+        required: false
+        default: false
+        type: boolean
 permissions:
   contents: read
 jobs:
@@ -27,6 +32,21 @@ jobs:
           python-version: '3.11'
       - run: pip install pytest requests PyYAML
       - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: List available Gemini verifier models
+        if: github.event_name == 'workflow_dispatch' && inputs.list_models
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python -u - <<'PY'
+          import os, requests
+          response = requests.get('https://generativelanguage.googleapis.com/v1beta/models',
+              headers={'x-goog-api-key': os.environ['GEMINI_API_KEY']}, params={'pageSize': 1000}, timeout=(10, 30))
+          if response.status_code != 200:
+              raise RuntimeError(f'Model catalog HTTP {response.status_code}')
+          for model in response.json().get('models', []):
+              if 'generateContent' in model.get('supportedGenerationMethods', []) and 'flash' in model.get('name', '').lower():
+                  print(model['name'], '|', model.get('displayName', ''))
+          PY
       - name: Story regression and real FFmpeg integration
         run: python -m pytest -q tests/test_story_media_quality.py tests/test_story_real_video_media.py
       - name: Compile Story and protected production entry points

@@ -1,18 +1,5 @@
 [
   {
-    "format": "rise_from_nothing",
-    "person": "Boman Irani",
-    "premise": "How a Wafer Shop Manager and Waiter Became a Bollywood Star at Age 42.",
-    "hook": "He served tables and managed his family's bakery shop well into his 30s before ever stepping on a film set.",
-    "key_facts": [
-      "Worked at Mumbai's famous The Taj Mahal Palace hotel as a waiter and room service attendant.",
-      "Ran his family's ancestral bakery and wafer shop in Grant Road, Mumbai.",
-      "Pursued professional theater in his late 30s before making his feature film debut at age 42.",
-      "Achieved mainstream recognition with the 2003 film Munna Bhai M.B.B.S."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "one_decision",
     "person": "Srinivasa Ramanujan",
     "premise": "The Unemployed Clerk Who Mailed His Math Notebook to Cambridge.",
@@ -39,15 +26,92 @@
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "Surviving 500 Days on the Antarctic Ice After Their Ship Was Crushed.",
-    "hook": "Trapped in pack ice that completely destroyed their vessel, 28 men survived months on floating ice floes.",
+    "format": "rise_from_nothing",
+    "person": "MS Dhoni",
+    "premise": "How a ticket collector at a railway station became one of India's most successful cricket captains.",
+    "hook": "He spent his days checking train tickets, but his nights belonged to a cricket dream nobody believed in.",
     "key_facts": [
-      "Embarked on the Imperial Trans-Antarctic Expedition aboard the ship Endurance in 1914.",
-      "Watched the Endurance become trapped and crushed by shifting pack ice in the Weddell Sea.",
-      "Camped on floating ice floes for months with limited rations and extreme weather.",
-      "Navigated an open lifeboat 800 miles across heavy seas to reach South Georgia Island for rescue."
+      "Worked as a Travelling Ticket Examiner (TTE) for South Eastern Railway at Kharagpur railway station.",
+      "Played tennis-ball cricket and developed his trademark unorthodox helicopter shot.",
+      "Made his international debut for India in 2004 after consistent domestic performances.",
+      "Led India to victory in the 2007 T20 World Cup and the 2011 ICC Cricket World Cup."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Dwayne Johnson",
+    "premise": "The NFL rejection and eviction that preceded a legendary career in professional wrestling and cinema.",
+    "hook": "He had just seven dollars in his pocket and no future after football slammed the door in his face.",
+    "key_facts": [
+      "Suffered severe injuries that ended his college football career at the University of Miami.",
+      "Was cut from the Calgary Stampeders in the Canadian Football League, leaving him with seven dollars.",
+      "Transitioned to professional wrestling in the WWF, adopting the persona 'The Rock'.",
+      "Became one of the highest-grossing box office film stars globally."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Walt Disney",
+    "premise": "Losing the rights to his first major cartoon character forced the creation of a mouse.",
+    "hook": "After losing the rights to his very first creation, he sketched a replacement on a long train ride home.",
+    "key_facts": [
+      "Created Oswald the Lucky Rabbit, only to lose the intellectual property rights to his distributor in 1928.",
+      "Conceived Mickey Mouse on a train journey back to California following the business loss.",
+      "Released 'Steamboat Willie' in 1928, featuring synchronized sound and introducing Mickey Mouse.",
+      "Built a global entertainment and media enterprise from subsequent animated features."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Kalpana Chawla",
+    "premise": "A young girl growing up in a small town in northern India who reached the stars.",
+    "hook": "In a town where girls rarely pursued aerospace engineering, she stared at the night sky and refused to look away.",
+    "key_facts": [
+      "Grew up in Karnal, Haryana, completing her schooling before earning an aeronautical engineering degree in Punjab.",
+      "Moved to the United States to earn master's and doctoral degrees in aerospace engineering.",
+      "Joined NASA in 1988 as a researcher and was selected as an astronaut candidate in 1994.",
+      "Became the first woman of Indian origin to fly in space, serving as a mission specialist on STS-87."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Alex Honnold",
+    "premise": "The choice to attempt the first free solo climb of El Capitan without a rope.",
+    "hook": "He stood at the base of a 3,000-foot vertical granite wall and decided to climb it with zero ropes or safety gear.",
+    "key_facts": [
+      "Spent years preparing and studying Yosemite's El Capitan before attempting to climb it free solo.",
+      "Successfully completed the first free solo ascent of the Freerider route on El Capitan in 2017.",
+      "The climb was documented in the Academy Award-winning film 'Free Solo'."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Rajinikanth",
+    "premise": "A Bangalore bus conductor who discovered a passion for acting in local stage plays.",
+    "hook": "Passengers handed him their bus tickets every day, unaware he was destined to become South India's biggest cinematic icon.",
+    "key_facts": [
+      "Worked various odd jobs including carpentry and as a bus conductor for the Bangalore Transport Service.",
+      "Participated in mythological stage plays during his employment.",
+      "Enrolled in the Madras Film Institute to receive formal acting training.",
+      "Made his film debut in K. Balachander's 1975 Tamil drama 'Apoorva Raagangal'."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Alexander Fleming",
+    "premise": "A messy laboratory and a stray spore led to the accidental discovery of penicillin.",
+    "hook": "He left a petri dish uncovered on his messy laboratory bench before going on holiday, altering the course of medicine.",
+    "key_facts": [
+      "Returned from a holiday in 1928 to find a Petri dish of Staphylococcus bacteria contaminated by a fungus.",
+      "Noticed that the fungus had destroyed the surrounding bacteria colonies.",
+      "Identified the mold as Penicillium notatum and published his initial findings on penicillin.",
+      "His discovery laid the groundwork for the development of mass-produced antibiotics by later scientists."
     ],
     "source": "gemini_original"
   }

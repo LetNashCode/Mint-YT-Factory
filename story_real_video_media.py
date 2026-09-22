@@ -62,7 +62,8 @@ def search_commons(person):
     for _ in range(2):
         data = get_json("https://commons.wikimedia.org/w/api.php", action="query", format="json",
                         generator="search", gsrsearch=f'"{person}" filetype:video',
-                        gsrnamespace=6, gsrlimit=40, prop="imageinfo",
+                        gsrnamespace=6, gsrlimit=40, prop="imageinfo|categories",
+                        clcategories="Category:Videos of " + person,
                         iiprop="url|mime|extmetadata", **continuation)
         for page in (data.get("query", {}).get("pages", {}) or {}).values():
             info = (page.get("imageinfo") or [{}])[0]
@@ -75,7 +76,8 @@ def search_commons(person):
                 results.append({"id": f"commons:{page['pageid']}", "provider": "Wikimedia Commons",
                                 "url": info["url"], "source_url": info.get("descriptionurl") or info["url"],
                                 "title": clean(page.get("title")), "description": field("ImageDescription"),
-                                "creator": field("Artist"), "license": field("LicenseShortName")})
+                                "creator": field("Artist"), "license": field("LicenseShortName"),
+                                "direct_subject": any(c.get("title") == "Category:Videos of " + person for c in page.get("categories", []))})
         continuation = data.get("continue") or {}
         if not continuation:
             break
@@ -229,8 +231,16 @@ def verify(person, scene, item, samples):
     # move once to the lightweight multimodal verifier, then retry transient failures.
     fallback_model = "gemini-flash-lite-latest"
     for attempt in range(3):
-        response = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{quote(model, safe='')}:generateContent",
-                                 headers={"x-goog-api-key": key}, json=payload, timeout=(10, 60))
+        try:
+            response = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{quote(model, safe='')}:generateContent",
+                                     headers={"x-goog-api-key": key}, json=payload, timeout=(10, 60))
+        except (requests.Timeout, requests.ConnectionError):
+            if attempt == 2:
+                raise RuntimeError("Story verifier unavailable after network retries") from None
+            model = "gemini-3.8-flash" if model != "gemini-3.8-flash" else fallback_model
+            _VERIFIER_MODELS[requested_model] = model
+            print(f"Story verifier network timeout; retrying with {model}", flush=True)
+            continue
         if response.status_code == 404:
             if model != "gemini-3.8-flash":
                 model = "gemini-3.8-flash"
@@ -316,6 +326,7 @@ def generate_media(script, output_dir, config, gim=None):
                 ranked = sorted(pool, key=lambda item: (
                                 0 if len(counts) >= 2 and counts[item["id"]] else 1,
                                 counts[item["id"]],
+                                not item.get("direct_subject", False),
                                 not person_match(person, {"title": item.get("title", "")}),
                                 -len(cues & words(item.get("title", "") + " " + item.get("description", "")))))
                 chosen = None
@@ -331,7 +342,13 @@ def generate_media(script, output_dir, config, gim=None):
                             audit["attempts"].append({"source": item["source_url"], "error": type(exc).__name__, "stage": "resolve"})
                             continue
                     url, duration = resolved[sid]
-                    for start, length in windows(duration, limit=24):
+                    intervals = windows(duration, limit=24)
+                    if not counts[sid] and intervals:
+                        # Probe across the recording before scanning chronologically;
+                        # long speeches often start with several minutes of introductions.
+                        order = dict.fromkeys([len(intervals) // 2, 3 * len(intervals) // 4, len(intervals) // 4, 0] + list(range(len(intervals))))
+                        intervals = [intervals[index] for index in order]
+                    for start, length in intervals:
                         identity = (sid, start)
                         if identity in used or identity in rejected:
                             continue

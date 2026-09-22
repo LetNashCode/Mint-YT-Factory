@@ -223,7 +223,34 @@ def _generate_edge(text, voice_config, output_path):
 
 
 def _synthesize_once(text, voice_config, out_path):
+    """Synthesize once, honoring an explicit provider override for recovery runs."""
     last_error = None
+    forced = os.environ.get("MINT_TTS_PROVIDER", "").strip().lower()
+
+    if forced == "edge":
+        if not EDGE_ENABLED:
+            raise RuntimeError("Edge TTS is disabled but MINT_TTS_PROVIDER=edge was requested")
+        for attempt in range(1, TTS_RETRIES + 1):
+            try:
+                return _generate_edge(text, voice_config, out_path)
+            except Exception as error:
+                last_error = error
+                print(f"⚠️ Forced Edge TTS attempt {attempt}/{TTS_RETRIES} failed: {type(error).__name__}: {error}")
+                if attempt < TTS_RETRIES:
+                    time.sleep(attempt)
+        raise RuntimeError("Forced Edge TTS synthesis failed") from last_error
+
+    if forced == "kokoro":
+        for attempt in range(1, TTS_RETRIES + 1):
+            try:
+                return _generate_kokoro(text, voice_config, out_path)
+            except Exception as error:
+                last_error = error
+                print(f"⚠️ Forced Kokoro TTS attempt {attempt}/{TTS_RETRIES} failed: {type(error).__name__}: {error}")
+                if attempt < TTS_RETRIES:
+                    time.sleep(attempt)
+        raise RuntimeError("Forced Kokoro TTS synthesis failed") from last_error
+
     for attempt in range(1, TTS_RETRIES + 1):
         try:
             return _generate_kokoro(text, voice_config, out_path)

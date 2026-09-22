@@ -207,7 +207,7 @@ def verify(person, scene, item, samples):
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
         raise RuntimeError("GEMINI_API_KEY is required for Story video verification")
-    requested_model = os.environ.get("STORY_VIDEO_VERIFY_MODEL", "gemini-3.8-flash").removeprefix("models/")
+    requested_model = os.environ.get("STORY_VIDEO_VERIFY_MODEL", "gemini-2.5-flash-lite").removeprefix("models/")
     model = _VERIFIER_MODELS.get(requested_model, requested_model)
     prompt = (
         "Evaluate three ordered frames from the OPENING SECOND of a candidate video segment for a biography Short. "
@@ -226,52 +226,28 @@ def verify(person, scene, item, samples):
     payload = {"contents": [{"parts": [{"text": prompt}] + [
         {"inline_data": {"mime_type": "image/jpeg", "data": sample}} for sample in samples]}],
         "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}}
-    # Gemini can return 429 when a model's per-model quota is exhausted even though
-    # the API key itself is valid.  Do not fail the whole Story render in that case:
-    # move once to the lightweight multimodal verifier, then retry transient failures.
-    fallback_model = "gemini-flash-lite-latest"
-    for attempt in range(3):
+    # Pinned lightweight models confirmed by the authenticated model catalog.
+    # Try each at most once; never accept unchecked frames on quota/network failure.
+    models = list(dict.fromkeys([model, "gemini-2.5-flash-lite", "gemini-3.1-flash-lite", "gemini-3.5-flash-lite"]))[:3]
+    last_error = "unknown"
+    for model in models:
         try:
             response = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{quote(model, safe='')}:generateContent",
                                      headers={"x-goog-api-key": key}, json=payload, timeout=(10, 60))
         except (requests.Timeout, requests.ConnectionError):
-            if attempt == 2:
-                raise RuntimeError("Story verifier unavailable after network retries") from None
-            model = "gemini-3.8-flash" if model != "gemini-3.8-flash" else fallback_model
-            _VERIFIER_MODELS[requested_model] = model
-            print(f"Story verifier network timeout; retrying with {model}", flush=True)
+            last_error = "network timeout"
+            print(f"Story verifier network timeout: {model}; trying next pinned model", flush=True)
             continue
-        if response.status_code == 404:
-            if model != "gemini-3.8-flash":
-                model = "gemini-3.8-flash"
-                _VERIFIER_MODELS[requested_model] = model
-                continue
-            if model != fallback_model:
-                model = fallback_model
-                _VERIFIER_MODELS[requested_model] = model
-                continue
-        if response.status_code == 429:
-            if model != fallback_model:
-                model = fallback_model
-                _VERIFIER_MODELS[requested_model] = model
-                print("Story visual verifier quota hit; switching to gemini-flash-lite-latest")
-                continue
-            retry_after = 0.0
-            try:
-                retry_after = float(response.headers.get("Retry-After", "0") or 0)
-            except (TypeError, ValueError):
-                retry_after = 0.0
-            if attempt < 2:
-                time.sleep(min(max(retry_after, 2.0), 20.0) * (attempt + 1))
-                continue
-            raise RuntimeError("Story visual verifier HTTP 429") from None
-        if response.status_code in (500, 502, 503, 504) and attempt < 2:
-            time.sleep(2 ** (attempt + 1))
+        if response.status_code in (404, 429, 500, 502, 503, 504):
+            last_error = f"HTTP {response.status_code}"
+            print(f"Story verifier {model}: {last_error}; trying next pinned model", flush=True)
             continue
         response.raise_for_status()
         parts = response.json().get("candidates", [{}])[0].get("content", {}).get("parts", [])
-        return json.loads("".join(p.get("text", "") for p in parts))
-    raise RuntimeError("Story verifier unavailable")
+        result = json.loads("".join(p.get("text", "") for p in parts))
+        _VERIFIER_MODELS[requested_model] = model
+        return result
+    raise RuntimeError(f"Story verifier unavailable after network retries/model fallback: {last_error}")
 
 
 def validate_segments(groups, expected=14):

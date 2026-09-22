@@ -224,14 +224,38 @@ def verify(person, scene, item, samples):
     payload = {"contents": [{"parts": [{"text": prompt}] + [
         {"inline_data": {"mime_type": "image/jpeg", "data": sample}} for sample in samples]}],
         "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}}
+    # Gemini can return 429 when a model's per-model quota is exhausted even though
+    # the API key itself is valid.  Do not fail the whole Story render in that case:
+    # move once to the lightweight multimodal verifier, then retry transient failures.
+    fallback_model = "gemini-flash-lite-latest"
     for attempt in range(3):
         response = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{quote(model, safe='')}:generateContent",
                                  headers={"x-goog-api-key": key}, json=payload, timeout=(10, 60))
-        if response.status_code == 404 and model != "gemini-3.8-flash":
-            model = "gemini-3.8-flash"
-            _VERIFIER_MODELS[requested_model] = model
-            continue
-        if response.status_code in (429, 500, 502, 503, 504) and attempt < 2:
+        if response.status_code == 404:
+            if model != "gemini-3.8-flash":
+                model = "gemini-3.8-flash"
+                _VERIFIER_MODELS[requested_model] = model
+                continue
+            if model != fallback_model:
+                model = fallback_model
+                _VERIFIER_MODELS[requested_model] = model
+                continue
+        if response.status_code == 429:
+            if model != fallback_model:
+                model = fallback_model
+                _VERIFIER_MODELS[requested_model] = model
+                print("Story visual verifier quota hit; switching to gemini-flash-lite-latest")
+                continue
+            retry_after = 0.0
+            try:
+                retry_after = float(response.headers.get("Retry-After", "0") or 0)
+            except (TypeError, ValueError):
+                retry_after = 0.0
+            if attempt < 2:
+                time.sleep(min(max(retry_after, 2.0), 20.0) * (attempt + 1))
+                continue
+            raise RuntimeError("Story visual verifier HTTP 429") from None
+        if response.status_code in (500, 502, 503, 504) and attempt < 2:
             time.sleep(2 ** (attempt + 1))
             continue
         response.raise_for_status()

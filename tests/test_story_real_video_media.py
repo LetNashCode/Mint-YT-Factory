@@ -238,3 +238,26 @@ def test_youtube_provider_rejected_even_with_other_url(monkeypatch):
     monkeypatch.setattr(media, "command", lambda *a, **k: pytest.fail("No command may run for YouTube"))
     with pytest.raises(RuntimeError, match="YouTube downloads are disabled"):
         media.resolve({"provider": "YouTube", "url": "https://example.org/video.mp4"})
+
+@pytest.mark.parametrize("outage", [False, True])
+def test_topic_preflight_skips_empty_subject_but_preserves_provider_outage(monkeypatch, outage):
+    import sys
+    import story_identity_runner as runner
+    topics = iter([("one_decision", "No film", "First Person"), ("one_decision", "Filmed life", "Second Person")])
+    released = []
+    monkeypatch.setattr(runner.interactive_topics, "get_next_topic", lambda: next(topics))
+    monkeypatch.setitem(sys.modules, "story_topic_runtime", SimpleNamespace(release_reservation=lambda *args: released.append(args)))
+    def discover(person, audit):
+        if outage:
+            audit.extend([{"error": "Timeout"}, {"error": "Timeout"}])
+            return []
+        return [] if person == "First Person" else [candidate()]
+    monkeypatch.setattr(media, "discover", discover)
+    runner._patch_story_video_topics()
+    if outage:
+        with pytest.raises(RuntimeError, match="providers unavailable"):
+            runner.interactive_topics.get_next_topic()
+        assert released == []
+    else:
+        assert runner.interactive_topics.get_next_topic()[2] == "Second Person"
+        assert released == [("one_decision", "No film", "First Person")]

@@ -356,3 +356,57 @@ def test_verified_sources_are_reused_before_unseen_sources(monkeypatch, tmp_path
     assert len(groups) == 14
     assert set(seen) == {"source:0", "source:1"}
     media.validate_segments(groups)
+
+
+@pytest.mark.parametrize("failure", [requests.ReadTimeout, requests.ConnectionError])
+def test_verifier_network_failure_uses_model_fallback(monkeypatch, failure):
+    monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
+    monkeypatch.setenv("STORY_VIDEO_VERIFY_MODEL", "gemini-flash-lite-latest")
+    monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
+    calls = []
+    def post(url, **kwargs):
+        calls.append(url)
+        if len(calls) == 1:
+            raise failure()
+        return SimpleNamespace(status_code=200, raise_for_status=lambda: None,
+            json=lambda: {"candidates": [{"content": {"parts": [{"text": json.dumps(GOOD)}]}}]})
+    monkeypatch.setattr(media.requests, "post", post)
+    assert media.verification_passes(media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"]))
+    assert len(calls) == 2 and "gemini-3.8-flash" in calls[1]
+
+
+def test_verifier_network_outage_fails_closed_after_three_attempts(monkeypatch):
+    monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
+    monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
+    calls = []
+    def post(*args, **kwargs):
+        calls.append(1)
+        raise requests.ReadTimeout()
+    monkeypatch.setattr(media.requests, "post", post)
+    with pytest.raises(RuntimeError, match="unavailable after network retries"):
+        media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
+    assert len(calls) == 3
+
+
+def test_direct_subject_category_is_retained(monkeypatch):
+    def fetch(url, **params):
+        assert params["clcategories"] == "Category:Videos of Nelson Mandela"
+        return {"query": {"pages": {"1": {"pageid": 1, "title": "Nelson Mandela speech",
+            "categories": [{"title": "Category:Videos of Nelson Mandela"}],
+            "imageinfo": [{"url": "https://example.org/video.webm", "mime": "video/webm"}]}}}}
+    monkeypatch.setattr(media, "get_json", fetch)
+    assert media.search_commons("Nelson Mandela")[0]["direct_subject"] is True
+
+
+def test_first_identity_sample_comes_from_middle_of_recording(monkeypatch, tmp_path):
+    stub_pipeline(monkeypatch)
+    monkeypatch.setattr(media, "discover", lambda *args: [candidate()])
+    starts = []
+    def extract(url, start, length, path):
+        starts.append(start)
+        return length
+    monkeypatch.setattr(media, "extract", extract)
+    groups = media.generate_media(story(), str(tmp_path), {})
+    intervals = media.windows(160, limit=24)
+    assert starts[0] == intervals[len(intervals) // 2][0]
+    media.validate_segments(groups)

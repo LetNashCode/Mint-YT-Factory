@@ -103,6 +103,27 @@ def _patch_story_video_topics() -> None:
     interactive_topics.get_next_topic = video_ready_topic
 
 
+def _apply_requested_story() -> None:
+    """Optional manual subject; keep the same history and reservation safeguards."""
+    import os
+    import re
+    person = os.environ.get("STORY_PERSON", "").strip()
+    topic = os.environ.get("STORY_TOPIC", "").strip()
+    if not person and not topic:
+        return
+    if not person or not topic:
+        raise RuntimeError("Manual Story selection requires both person and topic")
+    normalize = lambda value: re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
+    used = {normalize(row.get("person")) for row in interactive_topics._load_history() if isinstance(row, dict)}
+    if normalize(person) in used:
+        raise RuntimeError(f"Manual Story subject already published: {person}")
+    interactive_topics._save(interactive_topics.PENDING, {
+        "pillar": "impossible_odds", "topic": f"{person}: {topic}",
+        "person": person, "number": 0, "status": "reserved",
+    })
+    print(f"Manual Story subject reserved: {person}", flush=True)
+
+
 def main() -> None:
     next_number = validate_story_sequence_state()
     print(f"🔐 Story sequence preflight passed: next Story #{next_number}")
@@ -110,6 +131,7 @@ def main() -> None:
         return next_number
     validated_next_story_number._mint_validated_sequence_number = True
     interactive_topics.next_story_number = validated_next_story_number
+    _apply_requested_story()
     story_topic_uniqueness.install()
     _patch_story_video_topics()
     _patch_story_portrait_export()

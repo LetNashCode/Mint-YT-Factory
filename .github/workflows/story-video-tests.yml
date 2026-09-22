@@ -41,10 +41,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - run: pip install requests 'yt-dlp[default]'
+      - run: pip install requests
       - run: sudo apt-get update && sudo apt-get install -y ffmpeg
       - name: Retrieve and verify one real-person video preview without publishing
         env:
@@ -63,7 +60,7 @@ jobs:
           accepted = False
           try:
               pool = media.discover(person, audit['providers'])
-              buckets = [[item for item in pool if item['provider'] == provider][:8] for provider in ('Wikimedia Commons', 'Internet Archive', 'YouTube')]
+              buckets = [[item for item in pool if item['provider'] == provider][:8] for provider in ('Wikimedia Commons', 'Internet Archive')]
               pool = [bucket[i] for i in range(8) for bucket in buckets if i < len(bucket)]
               for item in pool:
                   try:

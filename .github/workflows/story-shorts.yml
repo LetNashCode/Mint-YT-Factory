@@ -89,7 +89,7 @@ jobs:
           YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
           META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
           META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
-          STORY_VIDEO_VERIFY_MODEL: ${{ vars.STORY_VIDEO_VERIFY_MODEL || 'gemini-2.5-flash' }}
+          STORY_VIDEO_VERIFY_MODEL: ${{ vars.STORY_VIDEO_VERIFY_MODEL || 'gemini-flash-lite-latest' }}
         run: |
           set -euo pipefail
           echo "🎬 Story media route: verified real-person video segments (Commons, Internet Archive; no YouTube downloads)"

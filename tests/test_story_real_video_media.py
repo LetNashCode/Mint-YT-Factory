@@ -288,3 +288,58 @@ def test_reserved_person_is_not_treated_as_published_duplicate(monkeypatch, stat
     else:
         with pytest.raises(RuntimeError, match="unused person"):
             interactive_topics.get_next_topic()
+
+
+@pytest.mark.parametrize("person,topic,duplicate", [("Nelson Mandela", "Prison to president", False), ("Nelson Mandela", "Prison to president", True), ("Nelson Mandela", "", False)])
+def test_manual_story_subject_keeps_history_protection(monkeypatch, person, topic, duplicate):
+    import story_identity_runner as runner
+    monkeypatch.setenv("STORY_PERSON", person)
+    monkeypatch.setenv("STORY_TOPIC", topic)
+    monkeypatch.setattr(runner.interactive_topics, "_load_history", lambda: [{"person": person}] if duplicate else [])
+    writes = []
+    monkeypatch.setattr(runner.interactive_topics, "_save", lambda path, data: writes.append(data))
+    if duplicate or not topic:
+        with pytest.raises(RuntimeError):
+            runner._apply_requested_story()
+        assert writes == []
+    else:
+        runner._apply_requested_story()
+        assert writes[0]["person"] == person and writes[0]["status"] == "reserved"
+
+
+def test_unrelated_source_stops_after_four_identity_rejections(monkeypatch, tmp_path):
+    stub_pipeline(monkeypatch)
+    monkeypatch.setattr(media, "discover", lambda *args: [candidate()])
+    calls = []
+    def reject(*args):
+        calls.append(1)
+        return {**GOOD, "person_visible": False}
+    monkeypatch.setattr(media, "verify", reject)
+    with pytest.raises(RuntimeError, match="Insufficient verified"):
+        media.generate_media(story(), str(tmp_path), {})
+    assert len(calls) == 4
+
+
+def test_repeated_extraction_failure_is_bounded(monkeypatch, tmp_path):
+    stub_pipeline(monkeypatch)
+    monkeypatch.setattr(media, "discover", lambda *args: [candidate()])
+    calls = []
+    def fail(*args):
+        calls.append(1)
+        raise RuntimeError("ffmpeg unavailable source")
+    monkeypatch.setattr(media, "extract", fail)
+    with pytest.raises(RuntimeError, match="Insufficient verified"):
+        media.generate_media(story(), str(tmp_path), {})
+    assert len(calls) == 3
+
+
+def test_runtime_verifier_quota_is_not_swallowed(monkeypatch, tmp_path):
+    stub_pipeline(monkeypatch)
+    calls = []
+    def fail(*args):
+        calls.append(1)
+        raise RuntimeError("Story visual verifier HTTP 429")
+    monkeypatch.setattr(media, "verify", fail)
+    with pytest.raises(RuntimeError, match="verifier HTTP 429"):
+        media.generate_media(story(), str(tmp_path), {})
+    assert len(calls) == 1

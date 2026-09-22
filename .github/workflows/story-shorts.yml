@@ -94,7 +94,32 @@ jobs:
           set -euo pipefail
           echo "🎬 Story media route: verified real-person video segments (Commons, Internet Archive; no YouTube downloads)"
           python -u youtube_auth_preflight.py
-          python -c "from media_frame_guard import patch_assemble_rgb; patch_assemble_rgb(); import story_topic_runtime; import story_stock_runtime; import story_topic_media_lock; import story_identity_runner; story_identity_runner.main()"
+          python -u - <<'PY'
+          import sys, traceback
+          try:
+              from media_frame_guard import patch_assemble_rgb
+              patch_assemble_rgb()
+              import story_topic_runtime, story_stock_runtime, story_topic_media_lock
+              import story_identity_runner
+              story_identity_runner.main()
+          except Exception:
+              traceback.print_exc(file=sys.stdout)
+              raise SystemExit(1)
+          PY
+      - name: Report Story media diagnostics
+        if: failure()
+        run: |
+          python -u - <<'PY'
+          import json
+          from pathlib import Path
+          audits = sorted(Path('output/interactive').rglob('story_video_audit.json'), key=lambda p: p.stat().st_mtime)
+          if audits:
+              data = json.loads(audits[-1].read_text())
+              print(json.dumps({'person': data.get('person'), 'providers': data.get('providers'),
+                  'selected_count': len(data.get('selected', [])), 'last_attempts': data.get('attempts', [])[-20:]}, indent=2))
+          else:
+              print('No Story media audit was created before the failure.')
+          PY
       - name: Persist Story Shorts state
         if: always()
         run: |

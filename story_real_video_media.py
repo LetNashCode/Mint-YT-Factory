@@ -1,7 +1,7 @@
 """Real video segments for Story Shorts only; no import-time patches or publication.
 
-Sources: video-only Commons search, Internet Archive movies, public YouTube
-search through yt-dlp. Source availability is not a grant of reuse rights.
+Sources: video-only Commons search and Internet Archive movies only.
+YouTube discovery and downloads are disabled. Source availability is not a grant of reuse rights.
 Every selected segment carries source metadata and a sampled-frame audit.
 """
 from __future__ import annotations
@@ -14,12 +14,11 @@ import math
 import os
 import re
 import subprocess
-import sys
 import time
 import unicodedata
 from collections import Counter
 from pathlib import Path
-from urllib.parse import quote
+from urllib.parse import quote, urlparse
 
 import requests
 
@@ -110,26 +109,9 @@ def search_archive(person):
     return results
 
 
-def search_youtube(person):
-    results = []
-    for suffix in ("interview original footage", "speech archive footage"):
-        data = json.loads(command([sys.executable, "-m", "yt_dlp", "--ignore-config", "--flat-playlist",
-                                   "--dump-single-json", "--no-warnings", "--socket-timeout", "15",
-                                   "--retries", "1", f"ytsearch6:{person} {suffix}"], timeout=90).stdout)
-        for item in data.get("entries") or []:
-            if not item or not re.fullmatch(r"[A-Za-z0-9_-]{11}", str(item.get("id", ""))):
-                continue
-            url = "https://www.youtube.com/watch?v=" + item["id"]
-            results.append({"id": "youtube:" + item["id"], "provider": "YouTube", "url": url,
-                            "source_url": url, "title": clean(item.get("title")),
-                            "description": clean(item.get("description")), "creator": clean(item.get("uploader")),
-                            "duration": item.get("duration"), "license": "See original source"})
-    return results
-
-
 def discover(person, audit):
     pool, seen = [], set()
-    for search in (search_commons, search_archive, search_youtube):
+    for search in (search_commons, search_archive):
         try:
             found = search(person)
             accepted = 0
@@ -146,6 +128,7 @@ def discover(person, audit):
 
 
 def probe(path):
+    reject_youtube_url(path)
     data = json.loads(command(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries",
                                "stream=width,height,duration:format=duration", "-of", "json"] + (["-user_agent", UA] if str(path).startswith(("http://", "https://")) else []) + [str(path)], timeout=45).stdout)
     stream = (data.get("streams") or [{}])[0]
@@ -156,20 +139,17 @@ def probe(path):
     return duration
 
 
+def reject_youtube_url(url):
+    host = (urlparse(str(url)).hostname or "").lower().rstrip(".")
+    if any(host == domain or host.endswith("." + domain) for domain in
+           ("youtube.com", "youtu.be", "youtube-nocookie.com", "googlevideo.com")):
+        raise RuntimeError("YouTube downloads are disabled for Story Shorts")
+
+
 def resolve(item):
-    if item["provider"] == "YouTube":
-        data = json.loads(command([sys.executable, "-m", "yt_dlp", "--ignore-config", "--no-playlist",
-                                   "--skip-download", "--dump-single-json", "--no-warnings", "--socket-timeout", "15",
-                                   "--retries", "1", "--js-runtimes", "node", "-f",
-                                   "bestvideo[height<=1080][protocol=https]/best[height<=1080][protocol=https]/bestvideo[height<=1080]/best[height<=1080]",
-                                   item["url"]], timeout=90).stdout)
-        if data.get("is_live") or data.get("live_status") == "is_upcoming":
-            raise RuntimeError("Live and upcoming sources are not stable footage")
-        url = data.get("url")
-        duration = float(data.get("duration") or 0)
-        if not url or not math.isfinite(duration) or duration < 10:
-            raise RuntimeError("No usable public video format")
-        return url, duration
+    if item.get("provider") == "YouTube":
+        raise RuntimeError("YouTube downloads are disabled for Story Shorts")
+    reject_youtube_url(item["url"])
     return item["url"], probe(item["url"])
 
 
@@ -184,6 +164,7 @@ def windows(duration, length=8.0, limit=8):
 
 
 def extract(url, start, length, path):
+    reject_youtube_url(url)
     # Decode only the chosen interval and actually transcode WebM/OGV into MP4.
     command(["ffmpeg", "-nostdin", "-hide_banner", "-loglevel", "error", "-y",
              "-rw_timeout", "20000000"] + (["-user_agent", UA] if str(url).startswith(("http://", "https://")) else []) + ["-ss", str(start), "-i", str(url), "-t", str(length),

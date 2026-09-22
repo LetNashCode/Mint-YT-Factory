@@ -300,6 +300,7 @@ def generate_media(script, output_dir, config, gim=None):
     audit = {"person": person, "providers": [], "attempts": [], "selected": []}
     groups, resolved, blocked, used, cached = [], {}, set(), set(), {}
     rejected = set()
+    source_rejections, source_errors = Counter(), Counter()
     deadline = time.monotonic() + 1500
     def save_audit():
         (root / "story_video_audit.json").write_text(json.dumps(audit, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -345,7 +346,12 @@ def generate_media(script, output_dir, config, gim=None):
                             if not verification_passes(verdict):
                                 if any(verdict.get(key) is not True for key in ("person_visible", "real_footage", "usable")):
                                     rejected.add(identity)
+                                    source_rejections[sid] += 1
                                 print(f"Story clip rejected: {item['provider']} {start}s | {clean(verdict.get('reason'))}", flush=True)
+                                if counts[sid] == 0 and source_rejections[sid] >= 4:
+                                    blocked.add(sid)
+                                    print(f"Skipping source after four unusable identity samples: {item['source_url']}", flush=True)
+                                    break
                                 continue
                             end = round(start + length, 2)
                             chosen = {"scene": scene_no, "shot": shot_no, "path": str(clip), "type": "video",
@@ -363,7 +369,14 @@ def generate_media(script, output_dir, config, gim=None):
                                 raise RuntimeError(f"Story visual verifier HTTP {exc.response.status_code}") from None
                             audit["attempts"].append({"source": item["source_url"], "start": start, "error": type(exc).__name__})
                         except Exception as exc:
+                            if str(exc).startswith(("Story visual verifier", "Story verifier unavailable")):
+                                raise
+                            source_errors[sid] += 1
                             audit["attempts"].append({"source": item["source_url"], "start": start, "error": type(exc).__name__})
+                            print(f"Story clip extraction/check failed: {item['provider']} {start}s ({type(exc).__name__})", flush=True)
+                            if source_errors[sid] >= 3:
+                                blocked.add(sid)
+                                break
                     if chosen:
                         break
                 if chosen is None:

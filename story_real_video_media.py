@@ -313,7 +313,10 @@ def generate_media(script, output_dir, config, gim=None):
             for shot_no in (1, 2):
                 counts = Counter(g["source_id"] for g in groups)
                 cues = words(scene.get("narration", "")) - words(person)
-                ranked = sorted(pool, key=lambda item: (counts[item["id"]],
+                ranked = sorted(pool, key=lambda item: (
+                                0 if len(counts) >= 2 and counts[item["id"]] else 1,
+                                counts[item["id"]],
+                                not person_match(person, {"title": item.get("title", "")}),
                                 -len(cues & words(item.get("title", "") + " " + item.get("description", "")))))
                 chosen = None
                 for item in ranked:

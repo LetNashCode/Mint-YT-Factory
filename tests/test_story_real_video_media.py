@@ -209,7 +209,7 @@ def test_retired_verifier_model_falls_back_once_and_caches(monkeypatch):
         assert media.verification_passes(media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"]))
     assert len(calls) == 3
     assert "retired-model" in calls[0]
-    assert all("gemini-2.5-flash-lite" in url for url in calls[1:])
+    assert all("gemini-3.8-flash" in url for url in calls[1:])
 
 @pytest.mark.parametrize("url", ["https://www.youtube.com/watch?v=abc", "https://youtu.be/abc",
     "https://www.youtube-nocookie.com/embed/abc", "https://rr1.googlevideo.com/videoplayback"])
@@ -372,7 +372,7 @@ def test_verifier_network_failure_uses_model_fallback(monkeypatch, failure):
             json=lambda: {"candidates": [{"content": {"parts": [{"text": json.dumps(GOOD)}]}}]})
     monkeypatch.setattr(media.requests, "post", post)
     assert media.verification_passes(media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"]))
-    assert len(calls) == 2 and "gemini-2.5-flash-lite" in calls[1]
+    assert len(calls) == 2 and "gemini-3.8-flash" in calls[1]
 
 
 def test_verifier_network_outage_fails_closed_after_three_attempts(monkeypatch):
@@ -424,4 +424,4 @@ def test_quota_or_server_error_moves_to_pinned_model(monkeypatch, status):
             json=lambda: {"candidates": [{"content": {"parts": [{"text": json.dumps(GOOD)}]}}]})
     monkeypatch.setattr(media.requests, "post", post)
     assert media.verification_passes(media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"]))
-    assert len(calls) == 2 and "gemini-2.5-flash-lite" in calls[1]
+    assert len(calls) == 2 and "gemini-3.1-flash-lite" in calls[1]

@@ -6089,6 +6089,146 @@
       "shot": 2,
       "query": "popcorn every burst tiny edible",
       "recorded_at": 1790017774
+    },
+    {
+      "asset_key": "pixabay:video:201766",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2024/02/24/201766-916357972_medium.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "shampoo foam you pump dollop",
+      "recorded_at": 1790061292
+    },
+    {
+      "asset_key": "pixabay:video:182970",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2023/09/30/182970-869947284_medium.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "shampoo foam suddenly your hand holding",
+      "recorded_at": 1790061296
+    },
+    {
+      "asset_key": "pixabay:video:24515",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2019/06/17/24515-343454414_medium.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "shampoo foam water alone slides right",
+      "recorded_at": 1790061301
+    },
+    {
+      "asset_key": "pixabay:video:183960",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2023/10/07/183960-872226574_medium.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "shampoo foam your greasy hair like",
+      "recorded_at": 1790061305
+    },
+    {
+      "asset_key": "pixabay:video:19609",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2018/11/28/19609-303404131_medium.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "shampoo foam molecules act like",
+      "recorded_at": 1790061309
+    },
+    {
+      "asset_key": "pixabay:video:62249",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2021/01/18/62249-503297067_medium.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "shampoo foam one end hugs water",
+      "recorded_at": 1790061313
+    },
+    {
+      "asset_key": "pexels:photo:3993454",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/3993454/pexels-photo-3993454.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 4,
+      "shot": 1,
+      "query": "shampoo foam they swarm grease trap",
+      "recorded_at": 1790061321
+    },
+    {
+      "asset_key": "pexels:photo:5241036",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/5241036/pexels-photo-5241036.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 4,
+      "shot": 2,
+      "query": "shampoo foam lift right off your",
+      "recorded_at": 1790061327
+    },
+    {
+      "asset_key": "pixabay:video:20451",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2019/01/04/20451-309694501_medium.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "shampoo foam here plot twist all",
+      "recorded_at": 1790061331
+    },
+    {
+      "asset_key": "pexels:photo:3993461",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/3993461/pexels-photo-3993461.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 5,
+      "shot": 2,
+      "query": "shampoo foam has zero cleaning your",
+      "recorded_at": 1790061338
+    },
+    {
+      "asset_key": "pixabay:video:99551",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2021/12/02/99551-653120318_medium.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "shampoo foam suds trapped air marketing",
+      "recorded_at": 1790061343
+    },
+    {
+      "asset_key": "pixabay:video:136512",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/10/25/136512-764417303_medium.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "shampoo foam liquid heavy lifting all",
+      "recorded_at": 1790061347
+    },
+    {
+      "asset_key": "pixabay:video:83533",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2021/08/01/83533-584851222_medium.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "shampoo foam your hair gets clean",
+      "recorded_at": 1790061351
+    },
+    {
+      "asset_key": "pixabay:video:3142",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/05/12/3142-166335943_medium.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "shampoo foam your hair gets clean",
+      "recorded_at": 1790061354
     }
   ]
 }

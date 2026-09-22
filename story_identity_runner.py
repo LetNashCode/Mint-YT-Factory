@@ -80,6 +80,29 @@ def _validate_final_videos() -> None:
     print(f"✅ Final video quality gate passed: {target}")
 
 
+def _patch_story_video_topics() -> None:
+    """Reject subjects with no real-video candidates before script/TTS generation."""
+    original = interactive_topics.get_next_topic
+    if getattr(original, "_mint_video_topic_preflight", False):
+        return
+    def video_ready_topic():
+        from story_topic_runtime import release_reservation
+        for attempt in range(8):
+            pillar, topic, person = original()
+            audit = []
+            candidates = story_real_video_media.discover(person, audit)
+            print(f"Story footage preflight: {person} | candidates={len(candidates)} | providers={audit}", flush=True)
+            if candidates:
+                return pillar, topic, person
+            if audit and all("error" in row for row in audit):
+                raise RuntimeError("Story video providers unavailable; reserved topic preserved for retry")
+            release_reservation(pillar, topic, person)
+            print(f"Skipping Story subject without accessible video candidates ({attempt + 1}/8): {person}", flush=True)
+        raise RuntimeError("No unused Story subject with real-video candidates found in eight attempts")
+    video_ready_topic._mint_video_topic_preflight = True
+    interactive_topics.get_next_topic = video_ready_topic
+
+
 def main() -> None:
     next_number = validate_story_sequence_state()
     print(f"🔐 Story sequence preflight passed: next Story #{next_number}")
@@ -88,6 +111,7 @@ def main() -> None:
     validated_next_story_number._mint_validated_sequence_number = True
     interactive_topics.next_story_number = validated_next_story_number
     story_topic_uniqueness.install()
+    _patch_story_video_topics()
     _patch_story_portrait_export()
     _patch_story_titles()
     _patch_story_visual_director()

@@ -150,7 +150,7 @@ def install() -> None:
         for row in history:
             if isinstance(row, dict):
                 used.update(_person_keys(row.get("person", "")))
-        if isinstance(pending, dict):
+        if isinstance(pending, dict) and pending.get("status", "published") not in {"reserved", "released"}:
             used.update(_person_keys(pending.get("person", "")))
 
         candidates_path = Path(interactive_topics.CANDIDATES)

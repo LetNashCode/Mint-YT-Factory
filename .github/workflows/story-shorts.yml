@@ -4,6 +4,17 @@ on:
     - cron: '0 5 * * *'
     - cron: '0 11 * * *'
   workflow_dispatch:
+    inputs:
+      story_person:
+        description: "Optional person (provide the story premise too)"
+        required: false
+        default: ""
+        type: string
+      story_topic:
+        description: "Optional factual story premise for that person"
+        required: false
+        default: ""
+        type: string
 permissions:
   contents: write
   actions: read
@@ -84,6 +95,8 @@ jobs:
         timeout-minutes: 60
         if: steps.recover.outputs.recovered != 'true' && steps.resume.outputs.resumed != 'true'
         env:
+          STORY_PERSON: ${{ inputs.story_person || '' }}
+          STORY_TOPIC: ${{ inputs.story_topic || '' }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           YOUTUBE_CLIENT_SECRET_JSON: ${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}
           YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}

@@ -6229,6 +6229,106 @@
       "shot": 2,
       "query": "shampoo foam your hair gets clean",
       "recorded_at": 1790061354
+    },
+    {
+      "asset_key": "pexels:photo:13812403",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/13812403/pexels-photo-13812403.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 1,
+      "shot": 1,
+      "query": "soap removes grease water bounces droplet single",
+      "recorded_at": 1790100207
+    },
+    {
+      "asset_key": "pexels:photo:10573242",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/10573242/pexels-photo-10573242.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 1,
+      "shot": 2,
+      "query": "soap removes grease off like angry",
+      "recorded_at": 1790100282
+    },
+    {
+      "asset_key": "pexels:photo:7262423",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/7262423/pexels-photo-7262423.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 2,
+      "shot": 1,
+      "query": "soap removes grease you blast hot tap",
+      "recorded_at": 1790100913
+    },
+    {
+      "asset_key": "pixabay:photo:817098",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/gabb2266fec2f3a4c92f6de9ae2856da6b5091f8441ffb1d500d1d5c5bf8835b52259e4475cec16d4388b41c5b306f621f71508d1bae145a53e299329b13eb9af_1280.jpg",
+      "scene": 2,
+      "shot": 2,
+      "query": "soap removes grease all afternoon stubborn stain",
+      "recorded_at": 1790101098
+    },
+    {
+      "asset_key": "pexels:photo:10221849",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/10221849/pexels-photo-10221849.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 3,
+      "shot": 1,
+      "query": "soap removes grease water molecules love each",
+      "recorded_at": 1790101219
+    },
+    {
+      "asset_key": "pixabay:video:34818",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/04/02/34818-403432727_medium.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "soap removes grease they hold hands tight",
+      "recorded_at": 1790101242
+    },
+    {
+      "asset_key": "pixabay:photo:2337697",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/gf80ccf84cabb582f11792fbf67e443611a60435a44f5f7ce527a2d4972ee4cce7c98ec90deb5df2d5d9340a1fda15ee24f4f1285c1a5b7aadb75be94bb94a15e_1280.jpg",
+      "scene": 4,
+      "shot": 1,
+      "query": "soap removes grease enter acts like",
+      "recorded_at": 1790101284
+    },
+    {
+      "asset_key": "pexels:photo:6690197",
+      "provider": "Pexels",
+      "type": "photo",
+      "source_url": "https://images.pexels.com/photos/6690197/pexels-photo-6690197.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "scene": 4,
+      "shot": 2,
+      "query": "soap removes grease wearing two different disguises",
+      "recorded_at": 1790101311
+    },
+    {
+      "asset_key": "pixabay:photo:824550",
+      "provider": "Pixabay",
+      "type": "photo",
+      "source_url": "https://pixabay.com/get/g803751ca239fef53778eb95261cb4ae2dca04102f7a76a76d8f0e24266801846779d210143b08d60db920eb41827130be2ba91b4d2a3bf8d4707a0b3969789af_1280.jpg",
+      "scene": 5,
+      "shot": 1,
+      "query": "soap removes grease one end grabs water",
+      "recorded_at": 1790101607
+    },
+    {
+      "asset_key": "pixabay:video:220649",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2024/07/11/220649_medium.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "soap removes grease other end grabs",
+      "recorded_at": 1790102064
     }
   ]
 }

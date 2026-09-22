@@ -86,7 +86,6 @@ def test_provider_outage_does_not_block_other_sources(monkeypatch):
         raise requests.Timeout()
     monkeypatch.setattr(media, "search_commons", unavailable)
     monkeypatch.setattr(media, "search_archive", lambda person: [candidate(), candidate()])
-    monkeypatch.setattr(media, "search_youtube", lambda person: [])
     audit = []
     assert len(media.discover("Nelson Mandela", audit)) == 1
     assert audit[0]["error"] == "Timeout"
@@ -211,3 +210,27 @@ def test_retired_verifier_model_falls_back_once_and_caches(monkeypatch):
     assert len(calls) == 3
     assert "retired-model" in calls[0]
     assert all("gemini-3.8-flash" in url for url in calls[1:])
+
+@pytest.mark.parametrize("url", ["https://www.youtube.com/watch?v=abc", "https://youtu.be/abc",
+    "https://www.youtube-nocookie.com/embed/abc", "https://rr1.googlevideo.com/videoplayback"])
+def test_youtube_urls_rejected_before_media_commands(monkeypatch, tmp_path, url):
+    monkeypatch.setattr(media, "command", lambda *a, **k: pytest.fail("No command may run for YouTube"))
+    for action in (lambda: media.resolve({"provider": "Wikimedia Commons", "url": url}),
+                   lambda: media.probe(url), lambda: media.extract(url, 0, 8, tmp_path / "clip.mp4")):
+        with pytest.raises(RuntimeError, match="YouTube downloads are disabled"):
+            action()
+
+
+def test_discovery_has_no_youtube_provider(monkeypatch):
+    monkeypatch.setattr(media, "search_commons", lambda person: [])
+    monkeypatch.setattr(media, "search_archive", lambda person: [])
+    assert not hasattr(media, "search_youtube")
+    audit = []
+    assert media.discover("Nelson Mandela", audit) == []
+    assert [entry["provider"] for entry in audit] == ["search_commons", "search_archive"]
+
+
+def test_youtube_provider_rejected_even_with_other_url(monkeypatch):
+    monkeypatch.setattr(media, "command", lambda *a, **k: pytest.fail("No command may run for YouTube"))
+    with pytest.raises(RuntimeError, match="YouTube downloads are disabled"):
+        media.resolve({"provider": "YouTube", "url": "https://example.org/video.mp4"})

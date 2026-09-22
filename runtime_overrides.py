@@ -5,6 +5,8 @@ import os
 import re
 from pathlib import Path
 
+MAX_PUBLISH_CONTENT_REGEN = 3
+
 class AudioPath(list):
     def __init__(self, path: str): super().__init__([path])
     def __fspath__(self): return self[0]
@@ -96,18 +98,51 @@ def patch_tts_result(main):
         return len(re.findall(r"[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*", full))
 
     def _regenerate_shorter(script, config, feedback):
+        """Regenerate a complete current-topic script without letting one bad Gemini response abort recovery."""
         current_topic = str(script.get("topic") or "").strip()
         locked_next = str((script.get("next_short") or {}).get("topic") or "").strip()
-        candidate = main.generate_script(current_topic, config, None, extra_feedback=feedback)
-        candidate["topic"] = current_topic
-        candidate["next_short"] = dict(candidate.get("next_short") or {})
-        candidate["next_short"]["topic"] = locked_next
-        if hasattr(main, "lock_next_topic"):
-            candidate, locked = main.lock_next_topic(candidate, current_topic)
-            if locked_next and locked != locked_next:
-                raise RuntimeError(f"TTS content regeneration changed locked next topic: {locked!r} != {locked_next!r}")
-        script.clear(); script.update(candidate)
-        return script
+        last_error = None
+        for attempt in range(1, MAX_PUBLISH_CONTENT_REGEN + 1):
+            try:
+                retry_feedback = (
+                    f"{feedback}\n"
+                    "RECOVERY CONTRACT: Generate a COMPLETE 7-scene current-topic narration. "
+                    "Target 105-120 total spoken words INCLUDING the final continuation bridge; "
+                    "never return fewer than 100 or more than 125 words. "
+                    "Keep the current-topic payoff substantial. Do not mention any retired topic, "
+                    "especially onions. Do not invent or reuse facts from an older Short. "
+                    f"LOCKED CURRENT TOPIC: {current_topic!r}. "
+                    f"LOCKED NEXT TOPIC: {locked_next!r}."
+                )
+                if last_error:
+                    retry_feedback += f"\nPREVIOUS RECOVERY ERROR: {last_error}"
+                print(f"🔁 Publish narration regeneration {attempt}/{MAX_PUBLISH_CONTENT_REGEN}")
+                candidate = main.generate_script(current_topic, config, None, extra_feedback=retry_feedback)
+                candidate["topic"] = current_topic
+                candidate["next_short"] = dict(candidate.get("next_short") or {})
+                candidate["next_short"]["topic"] = locked_next
+                if hasattr(main, "lock_next_topic"):
+                    candidate, locked = main.lock_next_topic(candidate, current_topic)
+                    if locked_next and locked != locked_next:
+                        raise RuntimeError(
+                            f"TTS content regeneration changed locked next topic: {locked!r} != {locked_next!r}"
+                        )
+                total_words = sum(
+                    len(re.findall(r"[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*", str(s.get("narration") or "")))
+                    for s in candidate.get("scene_plan") or []
+                    if isinstance(s, dict)
+                )
+                if total_words < 90 or total_words > 135:
+                    raise RuntimeError(f"Recovered narration has {total_words} words; expected 90-135.")
+                script.clear()
+                script.update(candidate)
+                return script
+            except Exception as exc:
+                last_error = f"{type(exc).__name__}: {exc}"
+                print(f"⚠️ Publish narration regeneration {attempt}/{MAX_PUBLISH_CONTENT_REGEN} failed: {last_error}")
+        raise RuntimeError(
+            f"Publish narration recovery exhausted after {MAX_PUBLISH_CONTENT_REGEN} attempts: {last_error}"
+        )
 
     def synthesize_script(script, config, workdir):
         if _is_publish(script):
@@ -134,20 +169,45 @@ def patch_tts_result(main):
             return AudioPath(audio_path)
         except Exception as first_error:
             print(f"🚨 PUBLISH TTS CONTENT GATE FAILED: {first_error}")
-            print("🔁 Regenerating Publish narration once; incomplete narration will never be published.")
+            print("🔁 Starting bounded Publish narration recovery; incomplete narration will never be published.")
             feedback = (
                 "HARD AUDIO REQUIREMENT: the previous TTS audio did not contain every part of the generated script. "
-                "Rewrite the CURRENT TOPIC narration so every scene is concise, natural, and fully speakable. "
-                "Target 95-105 core narration words and never exceed 112 core words. Do not remove any important fact or payoff. "
-                "Do not add a new topic. Preserve the locked continuation metadata, but keep the continuation sentence in the exact place required by the production pipeline."
+                "Rewrite the COMPLETE CURRENT TOPIC narration so every scene is concise, natural, and fully speakable. "
+                "Target 105-120 total spoken words INCLUDING the final continuation bridge. "
+                "Do not remove the core explanation or payoff. Do not add a new topic. "
+                "Preserve the locked continuation metadata and make the final bridge the only continuation sentence."
             )
-            _regenerate_shorter(script, config, feedback)
-            _refresh_script_artifact(script, workdir)
-            retry_result = original(script, config, workdir)
-            retry_audio = str(retry_result[0] if isinstance(retry_result, (list, tuple)) and retry_result else retry_result)
-            verify_narration(retry_audio, str(Path(workdir) / "script.json"))
-            print("✅ PUBLISH TTS CONTENT GATE: PASSED AFTER ONE REGENERATION")
-            return AudioPath(retry_audio)
+            last_error = first_error
+            for attempt in range(1, MAX_PUBLISH_CONTENT_REGEN + 1):
+                try:
+                    _regenerate_shorter(script, config, feedback + f"\nCONTENT GATE ERROR: {last_error}")
+                    _refresh_script_artifact(script, workdir)
+
+                    # A content mismatch can be caused by a TTS provider producing
+                    # an anomalous/hallucinated tail. For recovery, force a clean
+                    # Edge-TTS synthesis instead of repeating the same Kokoro render.
+                    previous_provider = os.environ.get("MINT_TTS_PROVIDER")
+                    os.environ["MINT_TTS_PROVIDER"] = "edge"
+                    try:
+                        retry_result = original(script, config, workdir)
+                    finally:
+                        if previous_provider is None:
+                            os.environ.pop("MINT_TTS_PROVIDER", None)
+                        else:
+                            os.environ["MINT_TTS_PROVIDER"] = previous_provider
+
+                    retry_audio = str(
+                        retry_result[0] if isinstance(retry_result, (list, tuple)) and retry_result else retry_result
+                    )
+                    verify_narration(retry_audio, str(Path(workdir) / "script.json"))
+                    print(f"✅ PUBLISH TTS CONTENT GATE: PASSED AFTER RECOVERY ATTEMPT {attempt}")
+                    return AudioPath(retry_audio)
+                except Exception as exc:
+                    last_error = exc
+                    print(f"⚠️ Publish narration recovery attempt {attempt}/{MAX_PUBLISH_CONTENT_REGEN} failed: {type(exc).__name__}: {exc}")
+            raise RuntimeError(
+                f"Publish TTS content recovery exhausted after {MAX_PUBLISH_CONTENT_REGEN} attempts: {last_error}"
+            ) from last_error
 
     synthesize_script._mint_content_gate = True
     main.synthesize_script = synthesize_script

@@ -299,11 +299,13 @@ def generate_media(script, output_dir, config, gim=None):
     root.mkdir(parents=True, exist_ok=True)
     audit = {"person": person, "providers": [], "attempts": [], "selected": []}
     groups, resolved, blocked, used, cached = [], {}, set(), set(), {}
+    rejected = set()
     deadline = time.monotonic() + 1500
     def save_audit():
         (root / "story_video_audit.json").write_text(json.dumps(audit, indent=2, ensure_ascii=False), encoding="utf-8")
     try:
         pool = discover(person, audit["providers"])
+        print(f"Story video discovery: {person} | candidates={len(pool)} | providers={audit['providers']}", flush=True)
         if not pool:
             raise RuntimeError(f"No real video candidates found for {person}; no photo or generic-stock fallback")
         for scene_no, scene in enumerate(scenes, 1):
@@ -315,7 +317,7 @@ def generate_media(script, output_dir, config, gim=None):
                 chosen = None
                 for item in ranked:
                     sid = item["id"]
-                    if sid in blocked or counts[sid] >= 6:
+                    if sid in blocked:
                         continue
                     if sid not in resolved:
                         try:
@@ -325,9 +327,9 @@ def generate_media(script, output_dir, config, gim=None):
                             audit["attempts"].append({"source": item["source_url"], "error": type(exc).__name__, "stage": "resolve"})
                             continue
                     url, duration = resolved[sid]
-                    for start, length in windows(duration):
+                    for start, length in windows(duration, limit=24):
                         identity = (sid, start)
-                        if identity in used:
+                        if identity in used or identity in rejected:
                             continue
                         if time.monotonic() > deadline or len(audit["attempts"]) >= 84:
                             raise RuntimeError("Story video search budget exhausted; see story_video_audit.json")
@@ -341,6 +343,9 @@ def generate_media(script, output_dir, config, gim=None):
                             audit["attempts"].append({"scene": scene_no, "shot": shot_no, "source": item["source_url"],
                                                       "start": start, "verification": verdict})
                             if not verification_passes(verdict):
+                                if any(verdict.get(key) is not True for key in ("person_visible", "real_footage", "usable")):
+                                    rejected.add(identity)
+                                print(f"Story clip rejected: {item['provider']} {start}s | {clean(verdict.get('reason'))}", flush=True)
                                 continue
                             end = round(start + length, 2)
                             chosen = {"scene": scene_no, "shot": shot_no, "path": str(clip), "type": "video",

@@ -222,8 +222,12 @@ def test_youtube_urls_rejected_before_media_commands(monkeypatch, tmp_path, url)
 
 
 def test_discovery_has_no_youtube_provider(monkeypatch):
-    monkeypatch.setattr(media, "search_commons", lambda person: [])
-    monkeypatch.setattr(media, "search_archive", lambda person: [])
+    def search_commons(person):
+        return []
+    def search_archive(person):
+        return []
+    monkeypatch.setattr(media, "search_commons", search_commons)
+    monkeypatch.setattr(media, "search_archive", search_archive)
     assert not hasattr(media, "search_youtube")
     audit = []
     assert media.discover("Nelson Mandela", audit) == []

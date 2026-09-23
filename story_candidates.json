@@ -78,18 +78,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Alex Honnold",
-    "premise": "The choice to attempt the first free solo climb of El Capitan without a rope.",
-    "hook": "He stood at the base of a 3,000-foot vertical granite wall and decided to climb it with zero ropes or safety gear.",
-    "key_facts": [
-      "Spent years preparing and studying Yosemite's El Capitan before attempting to climb it free solo.",
-      "Successfully completed the first free solo ascent of the Freerider route on El Capitan in 2017.",
-      "The climb was documented in the Academy Award-winning film 'Free Solo'."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Rajinikanth",
     "premise": "A Bangalore bus conductor who discovered a passion for acting in local stage plays.",

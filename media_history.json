@@ -7079,6 +7079,26 @@
       "shot": 1,
       "query": "pasta noodles close up",
       "recorded_at": 1790151006
+    },
+    {
+      "asset_key": "pixabay:video:47158",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/08/14/47158-450995605_medium.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "index fingers wrinkle finger",
+      "recorded_at": 1790151514
+    },
+    {
+      "asset_key": "pixabay:video:3160",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/05/12/3160-166338886_medium.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "index fingers",
+      "recorded_at": 1790151524
     }
   ]
 }

@@ -50,9 +50,11 @@ def _patch_topic_retirement_guard():
             "why does onion make you cry",
             "why do onions make your eyes water",
             "why does onion make your eyes water",
+            "why do ice cube crack when you pour warm water on them",
+            "why do ice cubes crack when you pour warm water on them",
         }
     )
-    print("🛡️ Retired-topic guard: onion topic permanently blocked")
+    print("🛡️ Retired-topic guard: onion + unwanted ice-cube continuation topics permanently blocked")
 
 
 def _patch_script_topic_coherence(main):

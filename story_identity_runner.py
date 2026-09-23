@@ -150,6 +150,9 @@ def main() -> None:
     import stock_media_resilient
     stock_media_resilient.generate_media = identity_generate_media
     runpy.run_path("interactive_main.py", run_name="__main__")
+    if Path(".story_gemini_quota_deferred").exists():
+        print("⏸️ Story Shorts deferred because Gemini quota is exhausted; no final video is expected in this run.")
+        return
     _validate_final_videos()
 
 

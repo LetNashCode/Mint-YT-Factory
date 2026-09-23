@@ -187,7 +187,14 @@ def run(dry_run=False):
         workdir_path,video_path,script,publish_state=resumed; workdir=str(workdir_path); final_video=str(video_path); topic=str(script.get("topic","")); next_topic=str((script.get("next_short") or {}).get("topic","")); print(f"♻️ RESUMING UNPUBLISHED FINAL VIDEO: {final_video}"); print("⏭️ Skipping generation, narration, visuals and rendering.")
     else: workdir=None; final_video=None
     print("="*80); print("🚀 MINT-YT-FACTORY — ENTERTAINMENT-FIRST + SELF-LEARNING + SFX"); print("="*80); print("🧠 Self-learning: ENABLED"); print("💬 Engagement learning: sequential comment/share experiments ENABLED")
-    if not resumed: refresh_learning_before_generation(); topic=get_next_topic()
+    if not resumed:
+        # Topic selection is the first production decision. Do not spend time
+        # on learning, engagement, creative strategy, scripts, or media until
+        # the topic has passed the full NEW + UNIQUE gate.
+        print("🎯 TOPIC SELECTION — VERIFYING NEW + UNIQUE BEFORE ANY PRODUCTION WORK")
+        topic=get_next_topic()
+        print(f"🔐 VERIFIED TOPIC: {topic}")
+        refresh_learning_before_generation()
     if not resumed and topic:
         decision=score_candidate_topic(topic,get_playbook()); print(f"🧠 Learning topic score: {decision['score']} | features={decision['features']}");
         if decision.get("reasons"): print("🧠 Learning signals: "+"; ".join(decision["reasons"]))
@@ -203,12 +210,16 @@ def run(dry_run=False):
         playbook=get_playbook(); creative_strategy=select_creative_strategy(playbook); print(f"🧪 Creative strategy: {creative_strategy['strategy']} | mix={creative_strategy['slot']}/10 | id={creative_strategy['experiment_id']}")
         try:
             from creative_memory import topic_is_novel, build_generation_context
+            # Defensive re-check only. get_next_topic() already guarantees the
+            # topic passed the full originality gate before any production work.
             novelty, novelty_reason = topic_is_novel(topic)
             if not novelty:
-                raise RuntimeError(f"Publish topic originality gate rejected {topic!r}: {novelty_reason}")
+                raise RuntimeError(
+                    f"Topic changed or became invalid after selection: {topic!r}: {novelty_reason}"
+                )
             creative_memory_context = build_generation_context()
         except Exception as error:
-            if "originality gate rejected" in str(error):
+            if "Topic changed or became invalid after selection" in str(error):
                 raise
             creative_memory_context = "Creative memory unavailable; maximize originality."
         print("🧠 Creative memory loaded before writing.")

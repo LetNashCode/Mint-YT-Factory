@@ -9,7 +9,12 @@ from topic_history import find_duplicate, is_new_topic, published_topics
 _ROOT=Path(__file__).resolve().parent.parent
 _USED_TOPICS_PATH=_ROOT/"used_topics.json"
 _PENDING_PREFIX="__MINT_PENDING_NEXT_TOPIC__::"
-_RETIRED_TOPIC_KEYS={"why do onions make you cry","why onions make you cry"}
+_RETIRED_TOPIC_KEYS={
+    "why do onions make you cry",
+    "why onions make you cry",
+    "why do ice cube crack when you pour warm water on them",
+    "why do ice cubes crack when you pour warm water on them",
+}
 MODEL="gemini-flash-lite-latest"
 
 _BANNED=("permafrost","tundra","tectonic","geological","geology","quantum","particle physics","astrophysics","cosmology","black hole","neutron star","supernova","dark matter","dark energy","subduction","plate boundary","ice wedge","brine pocket","crystal lattice","electromagnetic field","entropy","thermodynamics","microcrack","gravitational wave","neutrino","gene expression","chromosome","mitochondria","atmospheric circulation","ocean current","radiative forcing","fracture mechanics","thermal cracks","material fatigue","periglacial","seismic","magnetohydrodynamic","fluid dynamics","cryogenic","crystallography","geophysical","cell tower","cellular positioning","gps positioning","rf positioning","triangulation","trilateration")

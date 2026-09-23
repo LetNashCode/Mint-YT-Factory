@@ -110,8 +110,19 @@ def _patch_stock_media_quality():
             stock_search._mint_active_topic_terms = []
             stock_search._mint_active_topic = ""
 
-    def direct(scene_no, shot_no, scene, visual, failed_queries=None, round_no=1):
-        result = original_direct(scene_no, shot_no, scene, visual, failed_queries, round_no)
+    def direct(scene_no, shot_no, scene, visual, failed_queries=None, round_no=1, story_script=None):
+        # Keep this compatibility wrapper signature aligned with stock_search.direct.
+        # Recovery rounds now pass story_script so the director can preserve
+        # scene-specific story context while generating fresh queries.
+        result = original_direct(
+            scene_no,
+            shot_no,
+            scene,
+            visual,
+            failed_queries=failed_queries,
+            round_no=round_no,
+            story_script=story_script,
+        )
         topic_terms = list(getattr(stock_search, "_mint_active_topic_terms", []))
         if topic_terms:
             result["topic_terms"] = topic_terms

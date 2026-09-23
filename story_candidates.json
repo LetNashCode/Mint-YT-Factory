@@ -50,5 +50,102 @@
       "His discovery laid the groundwork for the development of mass-produced antibiotics by later scientists."
     ],
     "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Ramanujan",
+    "premise": "An impoverished Indian clerk with no formal university training mails complex mathematical theorems to a Cambridge professor.",
+    "hook": "He didn't have a college degree, yet top mathematicians thought his letters were a hoax.",
+    "key_facts": [
+      "Worked as a routine shipping clerk in Madras without a university degree.",
+      "Mailed notebooks filled with advanced mathematical formulas to G.H. Hardy in 1913.",
+      "Recognized by Cambridge mathematicians as a self-taught mathematical genius.",
+      "Elected a Fellow of the Royal Society at a remarkably young age."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Keanu Reeves",
+    "premise": "An established Hollywood star agrees to slash his upfront salary significantly to secure Al Pacino for a thriller.",
+    "hook": "He gave up millions of dollars of his own paycheck just to work with one specific actor.",
+    "key_facts": [
+      "Star of the 1997 film 'The Devil's Advocate'.",
+      "Voluntarily deferred a large portion of his salary so the budget could afford Al Pacino.",
+      "Demonstrated a consistent pattern of prioritizing artistic collaboration over massive paydays throughout his career."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Arnold Schwarzenegger",
+    "premise": "A young Austrian bodybuilder arrives in America barely speaking English and determined to conquer three distinct industries.",
+    "hook": "People laughed at his thick accent and impossible bodybuilding dreams in 1968.",
+    "key_facts": [
+      "Imigrated to the United States from Austria in his early twenties.",
+      "Won multiple Mr. Universe and Mr. Olympia titles before starting his acting career.",
+      "Overcame severe linguistic and cultural barriers to become a top Hollywood box office draw."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Tenzing Norgay",
+    "premise": "An experienced Sherpa guide makes his seventh attempt to reach the highest peak on Earth after decades of being a supporting climber.",
+    "hook": "He spent his entire life helping other climbers reach the summit, until it was finally his turn.",
+    "key_facts": [
+      "Participated in multiple Himalayan expeditions as a high-altitude porter and guide.",
+      "Reached the summit of Mount Everest alongside Edmund Hillary on May 29, 1953.",
+      "Achieved international recognition as one of the first two individuals to stand on the highest point on Earth."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "J.K. Rowling",
+    "premise": "A struggling single mother writes chapters of a fantasy novel on scraps of paper in Edinburgh cafes during her daughter's naps.",
+    "hook": "Her manuscript was rejected by a dozen publishers before a small publishing house finally took a chance.",
+    "key_facts": [
+      "Wrote the early drafts of her debut novel while living on state benefits in Scotland.",
+      "Faced numerous rejections from major publishing houses over several years.",
+      "Bloomsbury Publishing eventually accepted the manuscript, leading to unprecedented global literary success."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Akio Toyoda",
+    "premise": "The executive faces massive corporate resistance when deciding to pivot a traditional manufacturing giant toward electric and hydrogen technologies.",
+    "hook": "He risked the legacy of his family's century-old car company to completely rewrite their future.",
+    "key_facts": [
+      "Great-grandson of the founder of Toyota Motor Corporation.",
+      "Assumed the role of president during a major global recession and massive vehicle recalls.",
+      "Spearheaded investments in alternative fuel sources and automated driving systems."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Ernest Shackleton",
+    "premise": "An Antarctic expedition leader watches his ship get crushed by pack ice, stranding his entire crew on drifting ice floes for months.",
+    "hook": "His ship was completely destroyed, yet he managed to bring every single crew member back alive.",
+    "key_facts": [
+      "Led the Imperial Trans-Antarctic Expedition aboard the ship Endurance in 1914.",
+      "Endured months of isolation on floating ice after the ship sank.",
+      "Sailed an open lifeboat 800 miles across treacherous seas to fetch rescue from South Georgia Island."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Hedy Lamarr",
+    "premise": "A glamorous Hollywood actress during the Golden Age secretly invents and patents a radio guidance system for allied torpedoes.",
+    "hook": "Movie studios marketed her purely for her beauty, while she spent her nights designing military communication technology.",
+    "key_facts": [
+      "Achieved international fame as a leading Hollywood actress in the 1930s and 1940s.",
+      "Co-invented a frequency-hopping spread spectrum communication system during World War II.",
+      "Her foundational patent later contributed to the development of modern Wi-Fi and Bluetooth technologies."
+    ],
+    "source": "gemini_original"
   }
 ]

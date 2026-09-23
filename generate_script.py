@@ -90,6 +90,10 @@ def _entertainment_schema():
             "title": {"type": "string"},
             "tags": {"type": "array", "items": {"type": "string"}},
             "category": {"type": "string"},
+            "hook_type": {"type": "string"},
+            "story_format": {"type": "string"},
+            "payoff_type": {"type": "string"},
+            "tease_type": {"type": "string"},
             "next_short": {
                 "type": "object",
                 "properties": {
@@ -107,7 +111,7 @@ def _entertainment_schema():
             },
             "scene_plan": {"type": "array", "items": scene},
         },
-        "required": ["title", "tags", "category", "next_short", "voice_style", "scene_plan"],
+        "required": ["title", "tags", "category", "hook_type", "story_format", "payoff_type", "tease_type", "next_short", "voice_style", "scene_plan"],
     }
 
 
@@ -194,8 +198,23 @@ STORY:
 6. Scene 6: strongest "WAIT, WHAT?" reveal or reframe.
 7. Scene 7: satisfying payoff for the CURRENT topic. Do not start another story.
 
-The story must be one chain of curiosity -> discovery -> escalation -> payoff.
-Do not make a list of facts. Every 1–2 sentences should either reveal something,
+The story must be one chain of curiosity -> discovery -> escalation -> reversal -> mindblowing-but-true payoff.
+Do not make a list of facts.
+
+ORIGINALITY:
+- Every hook must be creatively distinct from recent channel hooks, not merely reworded.
+- Rotate hook mechanisms: contradiction, challenge, impossible observation, mini-story, prediction, confession, visual mystery, counterintuitive claim, consequence-first, or pattern-break.
+- Never reuse the same opening structure or first 6–8 meaningful words from a recent Short.
+- Never recycle a previous topic, near-duplicate topic, or the same underlying fact with cosmetic wording changes.
+
+PAYOFF:
+- Design the strongest surprising TRUE payoff first, then build the story toward it.
+- The payoff should change the viewer’s mental model or reveal an unexpectedly important consequence.
+- Avoid fake sensationalism. The underlying fact must be accurate and defensible.
+
+ENDING:
+- Scene 7 must finish the CURRENT topic.
+- Return tease_type describing a natural bridge mechanism for the next Short. The production layer owns the exact bridge. Every 1–2 sentences should either reveal something,
 change the viewer's mental model, create a new question, or deliver a consequence.
 
 ENTERTAINMENT RULES:
@@ -312,10 +331,105 @@ Make the opening strong enough to stop a scroll. The first sentence should creat
 immediate "wait, what?" reaction without announcing the topic like a school lesson.
 Build the explanation only after curiosity has been created.
 
+CREATIVE REQUIREMENTS:
+- hook_type must identify the actual hook mechanism.
+- story_format must describe the narrative mechanism, not simply "seven_scene_story".
+- payoff_type must identify the actual payoff mechanism.
+- tease_type must identify the ending bridge mechanism.
+- Optimize for retention and shareability: the viewer should feel compelled to finish and tell someone else.
+
 The CURRENT TOPIC is the only subject of the story.
 Do not create a second story or a list of unrelated facts.
 {feedback}
 """
+
+
+def _critic_schema():
+    return {
+        "type": "object",
+        "properties": {
+            "overall_score": {"type": "integer"},
+            "hook_score": {"type": "integer"},
+            "curiosity_score": {"type": "integer"},
+            "escalation_score": {"type": "integer"},
+            "payoff_score": {"type": "integer"},
+            "originality_score": {"type": "integer"},
+            "ending_score": {"type": "integer"},
+            "shareability_score": {"type": "integer"},
+            "major_problem": {"type": "string"},
+            "rewrite_instruction": {"type": "string"},
+            "approved": {"type": "boolean"},
+        },
+        "required": [
+            "overall_score","hook_score","curiosity_score","escalation_score",
+            "payoff_score","originality_score","ending_score","shareability_score",
+            "major_problem","rewrite_instruction","approved",
+        ],
+    }
+
+
+CRITIC_SYSTEM = r"""
+You are the RETENTION + VIRALITY CRITIC for a YouTube Shorts channel.
+Judge a finished narration ruthlessly from the viewer's perspective.
+
+This is not a prediction that a video will go viral. It is a pre-publish creative quality gate.
+
+Reject scripts that:
+- open generically or explain before creating curiosity
+- reuse a recent hook mechanism too closely
+- repeat a recent topic or underlying fact
+- move from setup to explanation without escalation
+- reveal the interesting answer too early
+- use fake sensationalism instead of a genuinely surprising fact
+- have a weak, obvious, or forgettable payoff
+- end like a generic educational video
+- sound like an AI, textbook, or documentary
+- contain filler or repeated facts
+
+A strong script should create an unanswered question immediately, repeatedly change the viewer's mental model,
+build toward a surprising true reveal, and finish with a memorable payoff.
+
+Score each category 0-10.
+Approve only if:
+overall >= 8,
+hook >= 8,
+curiosity >= 8,
+payoff >= 8,
+originality >= 8,
+ending >= 7,
+shareability >= 7,
+and there is no major problem.
+
+Return ONLY JSON.
+"""
+
+
+def _critic_script(client, topic, entertainment, recent_context):
+    prompt = f"""
+CURRENT TOPIC:
+{topic}
+
+RECENT CHANNEL CREATIVE MEMORY:
+{_clean(recent_context, 6000)}
+
+CANDIDATE SCRIPT:
+{json.dumps(entertainment, ensure_ascii=False)}
+
+Evaluate the candidate. Compare the hook and topic against recent memory at the IDEA level,
+not just exact wording. A cosmetic rewrite of a recent hook or topic is not original.
+
+If it fails, give one concrete rewrite instruction that targets the biggest weakness.
+Do not ask for a completely different topic unless the current topic itself is duplicated.
+"""
+    return _call_json(client, CRITIC_SYSTEM, prompt, _critic_schema(), 0.25)
+
+
+def _recent_creative_context():
+    try:
+        from creative_memory import build_generation_context
+        return build_generation_context()
+    except Exception:
+        return "Creative memory unavailable; use maximum originality and avoid generic hooks."
 
 
 def _visual_prompt(topic, entertainment):
@@ -544,6 +658,27 @@ def generate_script(topic, config, research=None, extra_feedback=""):
             )
             word_count = _validate_entertainment(entertainment, topic)
             print(f"🎭 Entertainment writer pass: {word_count} words")
+
+            # PASS 1.5: retention/originality critic
+            recent_context = _recent_creative_context()
+            critique = _critic_script(client, topic, entertainment, recent_context)
+            print("🧠 Creative critic: overall=%s hook=%s payoff=%s originality=%s approved=%s" % (
+                critique.get("overall_score"), critique.get("hook_score"),
+                critique.get("payoff_score"), critique.get("originality_score"),
+                critique.get("approved")
+            ))
+            thresholds = {
+                "overall_score": 8, "hook_score": 8, "curiosity_score": 8,
+                "payoff_score": 8, "originality_score": 8, "ending_score": 7,
+                "shareability_score": 7,
+            }
+            failed = [key for key, minimum in thresholds.items() if int(critique.get(key, 0) or 0) < minimum]
+            if not bool(critique.get("approved")) or failed:
+                raise RuntimeError(
+                    "Creative quality gate rejected narration: "
+                    + ", ".join(f"{key}<{thresholds[key]}" for key in failed)
+                    + f". {critique.get('rewrite_instruction') or critique.get('major_problem') or 'Rewrite for stronger retention.'}"
+                )
 
             # PASS 2 ---------------------------------------------------------
             # Only the finished narration crosses into the visual domain.

@@ -76,12 +76,12 @@ def install(production_module) -> None:
 
             original_pexels = stock_search.pexels
 
-            def archive_first_pexels(query, video):
+            def archive_first_pexels(query, video, page=1):
                 if person and video and archive_candidates:
                     available = [item for item in archive_candidates if not archive.asset_seen(archive.asset_key(item["_archive_provider"], item["_archive_record"].get("id", ""), item["_archive_record"].get("media_url", "")))]
                     if available:
                         return available[:8]
-                return original_pexels(query, video)
+                return original_pexels(query, video, page=page)
 
             stock_search.pexels = archive_first_pexels
             try:

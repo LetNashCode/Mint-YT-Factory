@@ -171,18 +171,33 @@ def _patch_stock_media_quality():
                 if str(term).strip()
             ]
             recovery_terms = []
+            ignored_recovery = {
+                "the", "and", "with", "from", "into", "that", "this", "there",
+                "has", "have", "had", "being", "used", "real", "life", "show",
+                "shows", "scene", "shot", "visual", "focus", "action", "camera",
+                "same", "thing", "object", "ordinary", "only", "current",
+            }
             for term in anchors:
-                if term not in topic_vocab and term not in recovery_terms:
+                term = str(term).strip().lower()
+                if (
+                    term
+                    and term not in topic_vocab
+                    and term not in ignored_recovery
+                    and len(term) >= 4
+                    and term not in recovery_terms
+                ):
                     recovery_terms.append(term)
-            recovery_terms = recovery_terms[:6]
+            recovery_terms = recovery_terms[:5]
 
             deterministic_queries = [
                 topic_phrase,
                 f"{topic_phrase} close up",
-                f"{topic_phrase} hands",
-                f"{topic_phrase} being used",
-                f"{topic_phrase} action",
-                f"{topic_phrase} in real life",
+                f"{topic_phrase} cracks",
+                f"{topic_phrase} pavement",
+                f"{topic_phrase} weeds",
+                f"{topic_phrase} grass",
+                f"{topic_phrase} plants",
+                f"{topic_phrase} nature",
             ]
             for term in recovery_terms:
                 deterministic_queries.extend(
@@ -227,6 +242,10 @@ def _patch_stock_media_quality():
             "finger": {"finger", "fingers", "hand", "hands"},
             "water": {"water", "wet", "liquid"},
             "mirror": {"mirror", "reflection"},
+            "sidewalk": {"sidewalk", "pavement", "walkway", "footpath", "concrete", "paving", "street"},
+            "crack": {"crack", "cracks", "crevice", "crevices", "fissure"},
+            "cracks": {"crack", "cracks", "crevice", "crevices", "fissure"},
+            "grow": {"grow", "growing", "growth", "plant", "plants", "weed", "weeds", "grass", "sprout", "sprouts"},
         }
 
         topic_vocab = set()

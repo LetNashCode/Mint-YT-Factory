@@ -110,7 +110,14 @@ Do not expose the loop with words like replay, loop, watch again, or back to the
 """
     try:
         script=_generate_story_script(topic,config,feedback); script.update({"topic":topic,"story_number":number,"story_person":person,"interactive_pillar":pillar,"story_visual_mode":"person_first_archival_video_first"}); _validate_story_contract(script)
-    except Exception:
+    except Exception as error:
+        if str(error).startswith("STORY_GEMINI_QUOTA_DEFERRED:"):
+            Path(".story_gemini_quota_deferred").write_text(
+                "STORY_GEMINI_QUOTA_DEFERRED\\n",
+                encoding="utf-8",
+            )
+            print("⏸️ Story Shorts production intentionally deferred; reserved subject remains authoritative for the next run.")
+            return
         try:
             from story_topic_runtime import release_reservation
             release_reservation(pillar,topic,person)

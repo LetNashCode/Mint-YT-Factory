@@ -259,6 +259,13 @@ def run(dry_run=False):
             if str(error).startswith("GEMINI_QUOTA_DEFERRED:"):
                 print("🛑 Gemini project/day quota exhausted — deferring this production run without consuming the topic.");
                 print("🔁 The verified continuation topic remains authoritative for the next run.");
+                # Tell the GitHub Actions wrapper this was an intentional no-op.
+                # Without this marker, the downstream final-video guard would
+                # mistake a quota-deferred run for a broken production run.
+                os.makedirs("output", exist_ok=True)
+                Path("output/.mint_deferred").write_text(
+                    "GEMINI_QUOTA_DEFERRED\\n", encoding="utf-8"
+                )
                 return
             raise
         script["learning_experiment"]={"strategy":creative_strategy["strategy"],"experiment_id":creative_strategy["experiment_id"],"slot":creative_strategy["slot"],"cycle":creative_strategy["cycle"],"target_mix":creative_strategy["target_mix"],"selected_pattern":creative_strategy.get("selected_pattern",""),"selected_score":creative_strategy.get("selected_score",0.0),"selected_sample_size":creative_strategy.get("selected_sample_size",0),"evidence_based":creative_strategy.get("evidence_based",False)}; next_topic=reserve_next_short(str((script.get("next_short") or {}).get("topic") or ""),current_topic=topic); script["next_short"]=dict(script.get("next_short") or {}); script["next_short"]["topic"]=next_topic; script,next_topic=lock_next_topic(script,topic,locked_topic=next_topic); script["engagement"]={"experiment":engagement["experiment"],"phase":engagement["phase"],"spoken_prompt":engagement["spoken_prompt"],"comment":engagement["comment"],"share_prompt":engagement["share_prompt"]}; workdir=os.path.join("output",str(int(time.time()))); os.makedirs(workdir,exist_ok=True); save_json(script,os.path.join(workdir,"script.json")); write_continuation_manifest(topic,next_topic,"locked",workdir); print(f"✅ Script ready: {workdir}/script.json");

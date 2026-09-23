@@ -121,6 +121,18 @@ def _normalize_story(result,topic):
     if not isinstance(scenes,list): raise RuntimeError("Gemini story response is missing scene_plan.")
     return result
 
+def _is_gemini_quota_error(error):
+    text = str(error or "").lower()
+    return (
+        "resource_exhausted" in text
+        or "quota exceeded" in text
+        or "generaterequestsperday" in text
+        or "quota_id" in text
+        or "rate limit" in text
+        or "429" in text
+    )
+
+
 def _validate_story(scenes):
     """Validate the Story Shorts creative contract before expensive TTS/media work."""
     if not isinstance(scenes,list) or len(scenes)!=7:
@@ -241,5 +253,8 @@ Return the normal production JSON schema. Put the person's name in the topic/tit
             total=sum(len(_words(s.get("narration",""))) for s in scenes); print(f"📖 Story Shorts narration validated: {total} words | format={story_format['name']} | retention=ON | loop=ON | CTA=OFF"); return result
         except Exception as exc:
             last_error=f"{type(exc).__name__}: {exc}"
+            if _is_gemini_quota_error(exc):
+                print("🛑 Gemini project/day quota exhausted — deferring Story Shorts generation without consuming the reserved subject.")
+                raise RuntimeError(f"{STORY_GEMINI_QUOTA_DEFERRED}: Gemini project/day quota is exhausted; Story Shorts will resume on the next successful run.") from exc
             if attempt+1<story_attempts: print(f"⚠️ Story script attempt {attempt+1} rejected: {last_error}"); time.sleep(2)
     raise RuntimeError(f"STORY SCRIPT GENERATION FAILED after bounded retries. Last error: {last_error}")

@@ -258,7 +258,7 @@ def _patch_stock_media_quality():
             return 0.0
 
         score = 0.0
-        score += min(topic_hits * 3.0, 6.0)
+        score += min(topic_hits * 4.0, 6.0)
         score += min(anchor_hits * 1.25, 4.0)
         score += min(query_hits * 0.75, 3.0)
         if stock_search._url(item, provider, video):

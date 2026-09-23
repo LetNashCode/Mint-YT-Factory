@@ -386,7 +386,7 @@ def generate_media(script, output_dir, config, gim=None):
                     providers = (("Pexels", True), ("Pixabay", True)) if video_only else (("Pexels", True), ("Pixabay", True), ("Pexels", False), ("Pixabay", False))
                     for provider, video in providers:
                         provider_page = min(round_no, 6)
-                    items = pexels(query, video, page=provider_page) if provider == "Pexels" else pixabay(query, video, page=provider_page)
+                        items = pexels(query, video, page=provider_page) if provider == "Pexels" else pixabay(query, video, page=provider_page)
                         if not items:
                             print(f"      ↪️ {provider} {'VIDEO' if video else 'PHOTO'}: no assets")
                             continue

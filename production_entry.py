@@ -169,18 +169,23 @@ def _patch_stock_media_quality():
                 if len(w) >= 3
             )
 
-            def query_is_topic_locked(query):
+            def query_has_topic_evidence(query):
                 words = set(re.findall(r"[a-z0-9]+", str(query or "").lower()))
-                return bool(words & topic_vocab_expanded) or bool(words & anchor_words)
+                return bool(words & topic_vocab_expanded)
 
-            # Preserve Gemini's concrete scene-specific queries when they still
-            # contain the current topic, a narrow synonym, or a concrete scene anchor.
+            # Only topic-bearing Gemini queries are allowed to occupy the primary
+            # ladder. Anchor-only queries such as "roll packing" are useful hints,
+            # but are NOT sufficient evidence for the current physical subject.
+            topic_ladder = []
+            anchor_ladder = []
             for entry in result.get("search_ladder") or []:
                 query = str(entry.get("query") or "").strip().lower()
-                if query and query_is_topic_locked(query):
-                    ladder.append(entry)
-
-            existing = {str(x.get("query") or "") for x in ladder}
+                if not query:
+                    continue
+                if query_has_topic_evidence(query):
+                    topic_ladder.append(entry)
+                elif bool(set(re.findall(r"[a-z0-9]+", query)) & anchor_words):
+                    anchor_ladder.append(entry)
 
             # Deterministic recovery ladder. Never inject unrelated vocabulary such
             # as "cracks/pavement/weeds" into an arbitrary topic; recovery terms come
@@ -209,15 +214,25 @@ def _patch_stock_media_quality():
                     recovery_terms.append(term)
             recovery_terms = recovery_terms[:6]
 
+            # Start with topic-bearing Gemini queries, then deterministic
+            # topic+scene queries. This guarantees that a quota outage cannot
+            # replace a valid topic with an anchor-only query.
+            ladder = []
+            existing = set()
+
+            def add_entry(entry):
+                query = " ".join(str(entry.get("query") or "").lower().split())
+                if not query or query in existing or not 1 <= len(query.split()) <= 7:
+                    return
+                ladder.append({"query": query, "strategy": entry.get("strategy", "topic-lock")})
+                existing.add(query)
+
+            for entry in topic_ladder:
+                add_entry(entry)
+
             deterministic_queries = [
                 topic_phrase,
                 f"{topic_phrase} close up",
-                f"{topic_phrase} wet",
-                f"{topic_phrase} bathroom",
-                f"{topic_phrase} laundry",
-                f"{topic_phrase} fabric",
-                f"{topic_phrase} moisture",
-                f"{topic_phrase} odor",
             ]
             for term in recovery_terms:
                 deterministic_queries.extend(
@@ -227,11 +242,33 @@ def _patch_stock_media_quality():
                     ]
                 )
 
+            # Add a few semantic topic variants when they are genuinely part of
+            # this topic's vocabulary. Do not use unrelated generic suffixes.
+            semantic_suffixes = []
+            for term in sorted(topic_vocab_expanded):
+                if term in topic_terms:
+                    continue
+                if term not in semantic_suffixes and len(term.split()) <= 3:
+                    semantic_suffixes.append(term)
+            for suffix in semantic_suffixes[:4]:
+                deterministic_queries.append(f"{topic_phrase} {suffix}")
+
             for query in deterministic_queries:
                 query = " ".join(query.split())
                 if 1 <= len(query.split()) <= 7 and query not in existing:
                     ladder.append({"query": query, "strategy": "topic-recovery"})
                     existing.add(query)
+
+            # Anchor-only Gemini queries are a last resort and must be prefixed
+            # with the actual topic so they cannot drift into unrelated searches.
+            for entry in anchor_ladder:
+                query = " ".join(str(entry.get("query") or "").lower().split())
+                if query and query not in existing:
+                    prefixed = f"{topic_phrase} {query}"
+                    if len(prefixed.split()) <= 7:
+                        add_entry({"query": prefixed, "strategy": "scene-variation-locked"})
+                if len(ladder) >= 8:
+                    break
 
             result["search_ladder"] = ladder[:8]
         return result

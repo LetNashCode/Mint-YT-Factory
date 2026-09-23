@@ -105,7 +105,17 @@ def _generate_topic(used, exclude_topics=None):
             if not _candidate_is_new(candidate, used, exclude_topics=exclude_topics): print("⚠️ Rejected: invalid, duplicate, near-duplicate, or current-topic candidate."); continue
             return candidate
         except Exception as error:
+            error_text = str(error).lower()
             print(f"⚠️ Topic attempt failed: {error}")
+            # A project/day quota exhaustion is not transient. Retrying ten more
+            # times only burns workflow time while producing the same 429s.
+            # Switch immediately to the deterministic originality-gated pool.
+            if any(marker in error_text for marker in (
+                "resource_exhausted", "quota exceeded", "generaterequestsperday",
+                "rate limit", "too many requests",
+            )) or "429" in error_text:
+                print("🛡️ Gemini topic quota exhausted — disabling topic generation retries for this run.")
+                return _deterministic_fallback(used, exclude_topics=exclude_topics)
             if attempt<10:time.sleep(min(2*attempt,8))
     print("⚠️ Gemini topic generation exhausted 10 attempts; switching to deterministic unused-topic fallback.")
     return _deterministic_fallback(used, exclude_topics=exclude_topics)

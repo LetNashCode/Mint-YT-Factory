@@ -221,7 +221,14 @@ jobs:
         run: |
           set -euo pipefail
           final_file="$(find output -type f -name final.mp4 -print -quit || true)"
-          test -n "$final_file"
+          if [ -z "$final_file" ]; then
+            if [ -f output/.mint_deferred ]; then
+              echo "⏸️ Production was intentionally deferred; no final video is expected in this run."
+              exit 0
+            fi
+            echo "❌ No final.mp4 was produced and no intentional-defer marker was found."
+            exit 1
+          fi
           python -u - "$final_file" <<'PY'
           import sys
           from portrait_export_guard import ensure_portrait_export

@@ -139,8 +139,11 @@ def _patch_stock_media_quality():
                 "adhesive": {"adhesive", "tape", "taping", "sealing"},
                 "car": {"car", "vehicle", "automobile"},
                 "phone": {"phone", "smartphone", "mobile", "cellphone"},
-                "finger": {"finger", "fingers", "hand", "hands"},
-                "water": {"water", "wet", "liquid", "moisture"},
+                "finger": {"finger", "fingers", "hand", "hands", "fingertip", "fingertips"},
+                "fingers": {"finger", "fingers", "hand", "hands", "fingertip", "fingertips"},
+                "wrinkle": {"wrinkle", "wrinkles", "wrinkled", "wrinkling", "pruney", "prune", "shrivel", "shriveled", "shrinkage", "skin folds"},
+                "wrinkles": {"wrinkle", "wrinkles", "wrinkled", "wrinkling", "pruney", "prune", "shrivel", "shriveled", "shrinkage", "skin folds"},
+                "water": {"water", "wet", "liquid", "moisture", "soaking", "submerged", "bath", "bathing"},
                 "mirror": {"mirror", "reflection"},
                 "damp": {"damp", "wet", "moist", "moisture"},
                 "towel": {"towel", "towels", "bath towel", "bathroom towel", "cloth", "fabric", "laundry"},
@@ -253,6 +256,16 @@ def _patch_stock_media_quality():
             for suffix in semantic_suffixes[:4]:
                 deterministic_queries.append(f"{topic_phrase} {suffix}")
 
+            # Broaden only within the current physical subject. Stock libraries
+            # often index wrinkled fingers as "pruney fingers", "wrinkled hands",
+            # or "fingers soaking in water" rather than the editorial title.
+            if any(t in topic_vocab_expanded for t in {"finger", "fingers", "fingertip", "fingertips"}):
+                for body in ("fingers", "hands", "fingertips"):
+                    for condition in ("wrinkled", "pruney", "wrinkling", "skin folds", "soaking", "wet", "water"):
+                        if condition in topic_vocab_expanded:
+                            deterministic_queries.append(f"{body} {condition}")
+                            deterministic_queries.append(f"{body} {condition} water")
+
             for query in deterministic_queries:
                 query = " ".join(query.split())
                 if 1 <= len(query.split()) <= 7 and query not in existing:
@@ -296,8 +309,11 @@ def _patch_stock_media_quality():
             "adhesive": {"adhesive", "tape", "taping", "sealing"},
             "car": {"car", "vehicle", "automobile"},
             "phone": {"phone", "smartphone", "mobile", "cellphone"},
-            "finger": {"finger", "fingers", "hand", "hands"},
-            "water": {"water", "wet", "liquid"},
+            "finger": {"finger", "fingers", "hand", "hands", "fingertip", "fingertips"},
+            "fingers": {"finger", "fingers", "hand", "hands", "fingertip", "fingertips"},
+            "wrinkle": {"wrinkle", "wrinkles", "wrinkled", "wrinkling", "pruney", "prune", "shrivel", "shriveled", "shrinkage", "skin folds"},
+            "wrinkles": {"wrinkle", "wrinkles", "wrinkled", "wrinkling", "pruney", "prune", "shrivel", "shriveled", "shrinkage", "skin folds"},
+            "water": {"water", "wet", "liquid", "moisture", "soaking", "submerged", "bath", "bathing"},
             "mirror": {"mirror", "reflection"},
             "sidewalk": {"sidewalk", "pavement", "walkway", "footpath", "concrete", "paving", "street"},
             "crack": {"crack", "cracks", "crevice", "crevices", "fissure"},

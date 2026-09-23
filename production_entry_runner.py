@@ -80,9 +80,25 @@ def _patch_stock_quota_resilience() -> None:
                 raise
 
         def fallback(d, items, provider, video, query):
+            """Choose a fresh candidate without requiring provider metadata to repeat the topic.
+
+            Pexels/Pixabay video metadata is often sparse. During a Gemini quota
+            outage the search query itself is the strongest semantic evidence because
+            it was already generated from the locked physical subject. The previous
+            runtime shim incorrectly required the full topic-term set to appear in
+            provider metadata, which rejected legitimate mirror videos even when the
+            query was explicitly "mirror reflection", "person facing mirror", etc.
+            """
             historical = stock_search._historical_asset_keys()
-            topic_terms = [str(x).lower() for x in getattr(stock_search, "_mint_active_topic_terms", []) if str(x).strip()]
             anchors = [str(x).lower() for x in d.get("anchor_terms", []) if str(x).strip()]
+            query_words = [
+                word for word in re.findall(r"[a-z0-9]+", str(query or "").lower())
+                if len(word) > 2
+            ]
+            topic_subjects = [
+                str(x).lower() for x in getattr(stock_search, "_mint_active_topic_terms", [])
+                if str(x).strip()
+            ]
             ranked = []
             for item in items:
                 url = stock_search._url(item, provider, video)
@@ -92,16 +108,59 @@ def _patch_stock_quota_resilience() -> None:
                 key = key_builder(item, provider, video, url) if callable(key_builder) else f"{provider}:{url}"
                 if key in historical:
                     continue
-                hay = " ".join(str(item.get(k, "")) for k in ("alt", "description", "tags")).lower()
-                if topic_terms and not any(re.search(r"\b" + re.escape(term) + r"s?\b", hay) for term in topic_terms):
-                    continue
-                topic_hits = sum(1 for term in topic_terms if re.search(r"\b" + re.escape(term) + r"s?\b", hay))
-                anchor_hits = sum(1 for term in anchors if term in hay)
-                query_hits = sum(1 for word in re.findall(r"[a-z0-9]+", query.lower()) if len(word) > 2 and word in hay)
-                score = topic_hits * 4.0 + min(anchor_hits, 4) + min(query_hits * 0.25, 1.5)
+                hay = " ".join(
+                    str(item.get(k, ""))
+                    for k in ("alt", "description", "tags", "name", "title")
+                ).lower()
+
+                # Query terms are deliberate camera-visible terms. Provider metadata
+                # is supplemental evidence, not a mandatory topic gate.
+                query_hits = sum(
+                    1 for word in query_words
+                    if re.search(r"\\b" + re.escape(word) + r"\\b", hay)
+                )
+                anchor_hits = sum(
+                    1 for term in anchors
+                    if re.search(r"\\b" + re.escape(term) + r"\\b", hay)
+                    or term in str(query or "").lower()
+                )
+                subject_hits = sum(
+                    1 for term in topic_subjects
+                    if re.search(r"\\b" + re.escape(term) + r"\\b", hay)
+                    or term in str(query or "").lower()
+                )
+
+                # The search query establishes the semantic floor. A physical
+                # subject present in the query gets an additional boost, while
+                # metadata matches improve ranking when available.
+                score = min(query_hits * 1.25, 4.0)
+                score += min(anchor_hits, 3.0)
+                score += min(subject_hits * 1.5, 3.0)
+                if any(
+                    term in str(query or "").lower()
+                    for term in ("mirror", "reflection", "looking in mirror", "facing mirror")
+                ):
+                    score += 1.5
+                score += 1.0  # usable downloadable asset
+
                 ranked.append((score, item))
+
             ranked.sort(key=lambda pair: pair[0], reverse=True)
-            return ranked[0][1] if ranked and ranked[0][0] >= 4.5 else None
+            if not ranked:
+                return None
+
+            best_score, best_item = ranked[0]
+            # Topic-locked deterministic queries are trusted at a lower floor than
+            # generic metadata-only matches, but never accept an asset with no
+            # usable URL or one blocked by the recent-15 reuse guard.
+            minimum = 2.5 if query_words else 4.5
+            if best_score < minimum:
+                return None
+            print(
+                f"      🧮 Deterministic fallback accepted: score={best_score:.2f} "
+                f"| query={query!r}"
+            )
+            return best_item
 
         def generate(script, output_dir, config, gim=None):
             state["vision_disabled"] = False

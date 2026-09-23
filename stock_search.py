@@ -25,6 +25,7 @@ SEARCH_PROMPTS = 8
 CANDIDATES_PER_SEARCH = 8
 VERIFY_CANDIDATES = 6
 MEDIA_REUSE_COOLDOWN = 15
+_GEMINI_DISABLED_FOR_RUN = False
 TIMEOUT = 25
 USER_AGENT = "Mint-YT-Factory/StockSearch/16.1"
 MEDIA_HISTORY_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "media_history.json")
@@ -62,6 +63,9 @@ def _is_transient_gemini_error(exc: Exception) -> bool:
     return any(x in text for x in ("503", "429", "500", "502", "504", "unavailable", "resource exhausted", "timeout", "temporarily"))
 
 def _gemini(prompt: str, temperature: float = 0.15, parts: list[Any] | None = None) -> dict:
+    global _GEMINI_DISABLED_FOR_RUN
+    if _GEMINI_DISABLED_FOR_RUN:
+        raise RuntimeError("Gemini stock director disabled for this media run after quota exhaustion")
     from google import genai
     from google.genai import types
     key = _key()
@@ -78,6 +82,10 @@ def _gemini(prompt: str, temperature: float = 0.15, parts: list[Any] | None = No
             if _is_transient_gemini_error(exc) and attempt < 3:
                 print(f"⚠️ {GEMINI_MODEL} temporary failure ({attempt}/3); retrying...")
                 time.sleep(1.5 * attempt); continue
+            text = str(exc).lower()
+            if any(x in text for x in ("429", "resource exhausted", "quota", "rate limit")):
+                _GEMINI_DISABLED_FOR_RUN = True
+                print("🛡️ Gemini stock quota exhausted — disabling Gemini for the remainder of this media run")
             break
     raise RuntimeError(f"Gemini stock call failed: {type(last).__name__}: {last}") from last
 

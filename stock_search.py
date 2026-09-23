@@ -208,10 +208,10 @@ def build_plan(script):
 def _provider_error(label: str, response: requests.Response) -> None:
     snippet = clean(response.text, 180).replace("\n", " "); print(f"      ⚠️ {label} HTTP {response.status_code}: {snippet or 'empty response'}")
 
-def pexels(query, video):
+def pexels(query, video, page=1):
     key = os.getenv("PEXELS_API_KEY", "").strip()
     if not key: return []
-    endpoint = "videos/search" if video else "search"; params = {"query": query, "per_page": CANDIDATES_PER_SEARCH}
+    endpoint = "videos/search" if video else "search"; params = {"query": query, "per_page": CANDIDATES_PER_SEARCH, "page": max(1, int(page or 1))}
     if video: params["size"] = "medium"
     try:
         response = requests.get(f"{PEXELS_API}/{endpoint}", headers={"Authorization": key, "User-Agent": USER_AGENT}, params=params, timeout=TIMEOUT)
@@ -220,10 +220,10 @@ def pexels(query, video):
     except Exception as exc:
         print(f"      ⚠️ Pexels {'VIDEO' if video else 'PHOTO'} request failed: {type(exc).__name__}: {exc}"); return []
 
-def pixabay(query, video):
+def pixabay(query, video, page=1):
     key = os.getenv("PIXABAY_API_KEY", "").strip()
     if not key: return []
-    endpoint = PIXABAY_VIDEO_API if video else PIXABAY_API; params = {"key": key, "q": query, "lang": "en", "per_page": CANDIDATES_PER_SEARCH, "safesearch": "true", "order": "popular"}
+    endpoint = PIXABAY_VIDEO_API if video else PIXABAY_API; page = max(1, int(page or 1)); params = {"key": key, "q": query, "lang": "en", "per_page": CANDIDATES_PER_SEARCH, "safesearch": "true", "order": "latest" if page > 1 else "popular", "page": page}
     if video: params["video_type"] = "film"
     else: params["image_type"] = "photo"
     try:
@@ -340,7 +340,8 @@ def _download_with_candidate_recovery(d, initial, output_path, used_urls, video_
             query2 = entry.get("query", "")
             providers = (("Pexels", True), ("Pixabay", True)) if video_only else (("Pexels", True), ("Pixabay", True), ("Pexels", False), ("Pixabay", False))
             for provider2, video2 in providers:
-                items = pexels(query2, video2) if provider2 == "Pexels" else pixabay(query2, video2)
+                provider_page = 1 + (abs(hash(query2)) % 5)
+                items = pexels(query2, video2, page=provider_page) if provider2 == "Pexels" else pixabay(query2, video2, page=provider_page)
                 for candidate in sorted(items, key=lambda x: _deterministic_score(d, x, provider2, video2, query2), reverse=True):
                     if _deterministic_score(d, candidate, provider2, video2, query2) < 2.5: break
                     candidate_url = _url(candidate, provider2, video2); candidate_key = _asset_key(candidate, provider2, video2, candidate_url) if candidate_url else ""
@@ -384,7 +385,8 @@ def generate_media(script, output_dir, config, gim=None):
                     print(f"   🔎 Scene {scene_no} Shot {shot_no}: [{strategy}] {query}")
                     providers = (("Pexels", True), ("Pixabay", True)) if video_only else (("Pexels", True), ("Pixabay", True), ("Pexels", False), ("Pixabay", False))
                     for provider, video in providers:
-                        items = pexels(query, video) if provider == "Pexels" else pixabay(query, video)
+                        provider_page = min(round_no, 6)
+                    items = pexels(query, video, page=provider_page) if provider == "Pexels" else pixabay(query, video, page=provider_page)
                         if not items:
                             print(f"      ↪️ {provider} {'VIDEO' if video else 'PHOTO'}: no assets")
                             continue

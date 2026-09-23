@@ -537,7 +537,8 @@ def main_entry():
     print("Script: entertainment-first + hard coherence gate + low-jargon contract")
     print("Visual/Search Director: Gemini")
     print("Media pipeline: stock_search.generate_media (authoritative)")
-    print("Media priority: Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO")
+    video_only = os.environ.get("MINT_PUBLISH_VIDEO_ONLY", "0").strip().lower() in {"1", "true", "yes"}
+    print("Media priority: Pexels VIDEO → Pixabay VIDEO (VIDEO-ONLY LOCK ACTIVE)" if video_only else "Media priority: Pexels VIDEO → Pixabay VIDEO → Pexels PHOTO → Pixabay PHOTO")
     print("Visual verification: ENABLED — Gemini inspects stock candidates")
     print("Visual verification threshold: 7.5/10")
     print("Fallback: provider fallback only; no unrelated-media fallback")

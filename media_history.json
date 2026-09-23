@@ -6529,6 +6529,66 @@
       "shot": 2,
       "query": "bread bags curl film texture",
       "recorded_at": 1790133870
+    },
+    {
+      "asset_key": "pixabay:video:107140",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/02/08/107140-675298840_medium.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "tape panicked second roll clear",
+      "recorded_at": 1790135985
+    },
+    {
+      "asset_key": "pixabay:video:107142",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/02/08/107142-675298847_medium.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "tape folds over instantly",
+      "recorded_at": 1790136010
+    },
+    {
+      "asset_key": "pixabay:video:8576",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/04/04/8576-211573992_medium.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "tape you try peel apart",
+      "recorded_at": 1790136013
+    },
+    {
+      "asset_key": "pixabay:video:8577",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/04/04/8577-211574007_medium.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "tape but acts like stubborn",
+      "recorded_at": 1790136016
+    },
+    {
+      "asset_key": "pixabay:video:8573",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/04/04/8573-211524870_medium.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "tape secret hides glue adhesive",
+      "recorded_at": 1790136020
+    },
+    {
+      "asset_key": "pixabay:video:3427",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/06/09/3427-170235981_medium.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "tape sticks",
+      "recorded_at": 1790136057
     }
   ]
 }

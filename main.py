@@ -87,7 +87,15 @@ def _lock_canonical_topic(script,current_topic,locked_topic=None):
 
 def _strip_model_continuation_from_scene7(final_scene,stale_topics):
     narration=str(final_scene.get("narration","")).strip(); sentences=_split_sentences(narration)
-    stale_keys=[_normalise_topic_text(x) for x in stale_topics if _normalise_topic_text(x)]
+    retired_topics=[
+        "Why do ice cube crack when you pour warm water on them",
+        "Why do ice cubes crack when you pour warm water on them",
+    ]
+    stale_keys=[
+        _normalise_topic_text(x)
+        for x in list(stale_topics or []) + retired_topics
+        if _normalise_topic_text(x)
+    ]
     kept=[]; removed=False
     for sentence in sentences:
         if any(k and k in _normalise_topic_text(sentence) for k in stale_keys): removed=True

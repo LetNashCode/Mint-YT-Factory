@@ -6609,6 +6609,136 @@
       "shot": 2,
       "query": "tape zero resistance",
       "recorded_at": 1790137752
+    },
+    {
+      "asset_key": "pixabay:video:168811",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2023/06/25/168811-839864556_medium.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "sidewalk stubborn weed green stem",
+      "recorded_at": 1790138564
+    },
+    {
+      "asset_key": "pixabay:video:31822",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/01/31/31822-389009323_medium.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "sidewalk has zero soil business",
+      "recorded_at": 1790138586
+    },
+    {
+      "asset_key": "pixabay:video:86746",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2021/08/29/86746-594416971_medium.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "sidewalk yet somehow microscopic traveler",
+      "recorded_at": 1790138609
+    },
+    {
+      "asset_key": "pixabay:video:36847",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/04/22/36847-412873746_medium.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "sidewalk cracks",
+      "recorded_at": 1790138694
+    },
+    {
+      "asset_key": "pixabay:video:31820",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/01/31/31820-389009325_medium.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "sidewalk city dust street grit",
+      "recorded_at": 1790138699
+    },
+    {
+      "asset_key": "pixabay:video:4757",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/08/22/4757-179739319_medium.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "sidewalk crack interior",
+      "recorded_at": 1790138715
+    },
+    {
+      "asset_key": "pixabay:video:86625",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2021/08/28/86625-594416691_medium.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "sidewalk wet surface real-world",
+      "recorded_at": 1790138773
+    },
+    {
+      "asset_key": "pixabay:video:143",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2015/08/08/143-135737226_medium.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "sidewalk tight",
+      "recorded_at": 1790138789
+    },
+    {
+      "asset_key": "pixabay:video:95185",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2021/11/09/95185-644716841_medium.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "sidewalk cracks in real life",
+      "recorded_at": 1790138867
+    },
+    {
+      "asset_key": "pixabay:video:74037",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2021/05/13/74037-549754717_medium.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "sidewalk locking sun dampness sprout",
+      "recorded_at": 1790138870
+    },
+    {
+      "asset_key": "pixabay:video:3153",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/05/12/3153-166336033_medium.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "sidewalk pulls",
+      "recorded_at": 1790138885
+    },
+    {
+      "asset_key": "pixabay:video:1023",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2015/10/16/1023-142621257_medium.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "sidewalk but accidental urban flowerpot",
+      "recorded_at": 1790138890
+    },
+    {
+      "asset_key": "pixabay:video:95193",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2021/11/09/95193-644716871_medium.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "sidewalk cracks in real life",
+      "recorded_at": 1790139003
     }
   ]
 }

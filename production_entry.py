@@ -347,10 +347,25 @@ def _patch_stock_media_quality():
             }
             available = [entry for entry in ladder if entry["query"] not in failed]
             if round_no > 1:
-                # Rotate by round so each retry enters a new vocabulary region even
-                # when Gemini returns identical queries.
-                offset = min((round_no - 1) * 8, max(0, len(available) - 1))
-                available = available[offset:] + available[:offset]
+                # Each recovery round gets a disjoint slice first. Only after the
+                # pool is exhausted may it wrap. This makes "fresh recovery"
+                # materially different instead of merely reordered.
+                block_size = 8
+                start = (round_no - 1) * block_size
+                if start < len(available):
+                    available = available[start:start + block_size]
+                else:
+                    # Keep the bounded retry useful even for unusually small
+                    # topic pools: derive additional combinations from the topic
+                    # vocabulary and scene anchors instead of repeating the same
+                    # failed ladder.
+                    tail = []
+                    for base in base_phrases:
+                        for suffix in ("person", "hands", "face", "reflection", "demonstration", "experiment", "surface", "glass"):
+                            q = " ".join(f"{base} {suffix}".split())
+                            if q not in failed and q not in existing and len(q.split()) <= 7:
+                                tail.append({"query": q, "strategy": "topic-recovery-expansion"})
+                    available = tail[:block_size]
             result["search_ladder"] = available[:8]
         return result
 

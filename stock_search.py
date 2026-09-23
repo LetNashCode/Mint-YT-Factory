@@ -24,6 +24,7 @@ VERIFY_THRESHOLD = 7.0
 SEARCH_PROMPTS = 8
 CANDIDATES_PER_SEARCH = 8
 VERIFY_CANDIDATES = 6
+MEDIA_REUSE_COOLDOWN = 15
 TIMEOUT = 25
 USER_AGENT = "Mint-YT-Factory/StockSearch/16.1"
 MEDIA_HISTORY_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "media_history.json")
@@ -88,6 +89,20 @@ def _load_media_history() -> dict:
     except Exception: pass
     return {"assets": []}
 
+def _historical_asset_keys() -> set[str]:
+    """Return only the recent media cooldown window."""
+    cooldown = 15
+    try:
+        data = _load_media_history()
+        assets = data.get("assets", []) if isinstance(data, dict) else []
+        records = [x for x in assets if isinstance(x, dict) and x.get("asset_key")]
+        records.sort(key=lambda x: float(x.get("recorded_at", 0) or 0))
+        keys = {str(x["asset_key"]) for x in records[-cooldown:]}
+        print(f"📚 MEDIA COOLDOWN: blocking {len(keys)} most recent assets (window={cooldown}); older relevant assets may be reused")
+        return keys
+    except Exception as exc:
+        print(f"⚠️ Media cooldown lookup failed: {type(exc).__name__}: {exc}")
+        return set()
 def _save_media_history(data: dict) -> None:
     assets = data.get("assets") if isinstance(data, dict) else None
     if not isinstance(assets, list): assets = []

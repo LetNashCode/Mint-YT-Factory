@@ -72,7 +72,15 @@ def _generate_natural_bridge(current_topic,next_topic):
 def _lock_canonical_topic(script,current_topic,locked_topic=None):
     used=[str(current_topic)]; used.extend(x for x in _read_used() if not str(x).startswith(_PENDING_PREFIX))
     candidate=str(locked_topic or (script.get("next_short") or {}).get("topic","")).strip()
-    if not validate_topic_for_pipeline(candidate,used=used,check_duplicate=True):
+    if locked_topic:
+        # reserve_next_short() is the authoritative validation point. Once it
+        # creates the pending reservation, Scene 7 must use that exact topic;
+        # re-running novelty validation here can reject or replace a perfectly
+        # valid reserved successor and break deterministic topic chaining.
+        candidate=str(locked_topic).strip()
+        if not validate_topic_for_pipeline(candidate,used=used,check_duplicate=False):
+            raise RuntimeError(f"Reserved continuation topic failed basic pipeline validation: {candidate!r}")
+    elif not validate_topic_for_pipeline(candidate,used=used,check_duplicate=True):
         candidate=_generate_topic(used); print("🛠️ Repaired invalid next_short.topic with topic engine: "+candidate)
     if _word_count(candidate)>7: raise RuntimeError("Generated next topic is too long for continuation metadata: "+candidate)
     script.setdefault("next_short",{})["topic"]=candidate; return candidate

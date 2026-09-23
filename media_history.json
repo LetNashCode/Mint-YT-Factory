@@ -7289,6 +7289,146 @@
       "shot": 1,
       "query": "mirrors flip object",
       "recorded_at": 1790169284
+    },
+    {
+      "asset_key": "pexels:video:6568124",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6568124/6568124-hd_1366_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "mirror hold page hands holding",
+      "recorded_at": 1790198179
+    },
+    {
+      "asset_key": "pexels:video:33350902",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/33350902/14201046_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "mirror reflection text notebook",
+      "recorded_at": 1790198181
+    },
+    {
+      "asset_key": "pexels:video:7119533",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7119533/7119533-hd_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "mirror letters reverse sideways instantly",
+      "recorded_at": 1790198184
+    },
+    {
+      "asset_key": "pexels:video:9196229",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9196229/9196229-hd_1366_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "mirror yet top stays bottom",
+      "recorded_at": 1790198185
+    },
+    {
+      "asset_key": "pexels:video:15976155",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/15976155/15976155-hd_720_1280_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "mirror mirrors not surface",
+      "recorded_at": 1790198186
+    },
+    {
+      "asset_key": "pexels:video:7196312",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7196312/7196312-hd_720_1280_50fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "mirror know left right hands",
+      "recorded_at": 1790198187
+    },
+    {
+      "asset_key": "pexels:video:8680236",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8680236/8680236-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "mirror they bounce light flashlight",
+      "recorded_at": 1790198188
+    },
+    {
+      "asset_key": "pexels:video:5999570",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5999570/5999570-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "mirror straight back your eyes",
+      "recorded_at": 1790198189
+    },
+    {
+      "asset_key": "pexels:video:9468049",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9468049/9468049-hd_1366_720_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "mirror think about hands holding",
+      "recorded_at": 1790198190
+    },
+    {
+      "asset_key": "pexels:video:18684571",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/18684571/18684571-hd_720_1280_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "mirror facing glass right now",
+      "recorded_at": 1790198191
+    },
+    {
+      "asset_key": "pexels:video:6941380",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6941380/6941380-hd_1366_720_25fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "mirror front your pushed inward",
+      "recorded_at": 1790198192
+    },
+    {
+      "asset_key": "pexels:video:4813384",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4813384/4813384-hd_720_1366_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "mirror back forced face you",
+      "recorded_at": 1790198193
+    },
+    {
+      "asset_key": "pexels:video:8643120",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8643120/8643120-hd_1366_720_25fps.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "mirror you not seeing left-right",
+      "recorded_at": 1790198194
+    },
+    {
+      "asset_key": "pexels:video:31901297",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/31901297/13588965_1280_720_30fps.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "mirror you not seeing left-right",
+      "recorded_at": 1790198195
     }
   ]
 }

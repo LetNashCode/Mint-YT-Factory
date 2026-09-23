@@ -113,8 +113,24 @@ def lock_next_topic(script,current_topic,locked_topic=None):
     script["tease_type"]=tease_type
     print("🔒 Canonical next topic: "+canonical); print("🗣️ NATURAL FINAL BRIDGE: "+bridge); print("🧪 Tease mechanism: "+tease_type); return script,canonical
 
+def _is_gemini_quota_error(error):
+    text=str(error or "").lower()
+    return (
+        "resource_exhausted" in text
+        or "quota exceeded" in text
+        or "generaterequestsperday" in text
+        or "quota_id" in text
+        or "rate limit" in text
+        or "429" in text
+    )
+
 def _is_transient_gemini_error(error):
-    text=str(error or "").lower(); return any(x in text for x in ("503","unavailable","high demand","resource exhausted","429","rate limit","deadline exceeded","timeout","temporarily"))
+    # Quota exhaustion is not a transient outage. Retrying only burns the
+    # workflow's time budget and cannot restore a daily/project quota.
+    if _is_gemini_quota_error(error):
+        return False
+    text=str(error or "").lower()
+    return any(x in text for x in ("503","unavailable","high demand","deadline exceeded","timeout","temporarily"))
 def write_continuation_manifest(current_topic,next_topic,status,workdir=""): save_json({"status":status,"current_topic":current_topic,"next_topic":next_topic,"workdir":workdir,"updated_at":int(time.time())},CONTINUATION_MANIFEST)
 def build_youtube_metadata(script):
     topic=str(script.get("topic","Wonder Minute curiosity")).strip(); title=str(script.get("title",topic or "Wonder Minute Short")).strip()[:100]; description=f"A quick look at {topic} and the everyday mystery behind it."; tags=script.get("tags",[]); hashtags=[]
@@ -144,6 +160,13 @@ Return next_short.topic as metadata when possible. The production pipeline can r
         try: script=generate_script(topic,config,None,extra_feedback=feedback); _lock_canonical_topic(script,topic); return script
         except Exception as error:
             last_error=error
+            if _is_gemini_quota_error(error):
+                # Preserve the verified/pending topic chain and end this run
+                # cleanly. A project/day quota cannot recover by retrying.
+                raise RuntimeError(
+                    "GEMINI_QUOTA_DEFERRED: Gemini project/day quota is exhausted; "
+                    "production will resume on the next successful run."
+                ) from error
             if _is_transient_gemini_error(error) and transient_attempt<MAX_TRANSIENT_GEMINI_RETRIES:
                 transient_attempt+=1; delay=min(45,5*transient_attempt); print(f"⏳ Transient Gemini failure — retrying without consuming script attempt ({transient_attempt}/{MAX_TRANSIENT_GEMINI_RETRIES}) in {delay}s: {error}"); time.sleep(delay); continue
             valid_attempt+=1; print(f"⚠️ Story generation failed ({valid_attempt}/{MAX_SCRIPT_ATTEMPTS}): {error}")
@@ -229,7 +252,16 @@ def run(dry_run=False):
             print(f"⚠️ Creative memory unavailable: {type(error).__name__}: {error}")
         print("🧠 Creative memory loaded before writing.")
         if creative_strategy.get("selected_pattern"): print(f"🧠 Selected learned pattern: {creative_strategy['selected_pattern']} | score={creative_strategy['selected_score']:.2f} | n={creative_strategy['selected_sample_size']}")
-        learning_context=load_learning_context(); creative_feedback=f"\nCREATIVE MEMORY — DO NOT REPEAT RECENT HOOKS OR TOPICS:\n{creative_memory_context}\n\nCREATIVE EXPERIMENT FOR THIS SHORT:\nStrategy: {creative_strategy['strategy']}\nExperiment ID: {creative_strategy['experiment_id']}\nTarget mix: 70% proven / 20% adjacent / 10% wild.\nSelected learned pattern: {creative_strategy.get('selected_pattern') or 'none'}\nExperiment guidance: {creative_strategy['guidance']}\nDo not copy any learned wording, topic, example, or visual concept. Preserve originality and story quality.\n"; engagement_feedback=f"\nENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}\nUse the mechanic naturally if it fits. Never sound like engagement bait.\nSuggested spoken interaction: {engagement['spoken_prompt']}\nDo not add generic like/subscribe language.\n"; print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS"); script=_generate_valid_script(topic,config,learning_context,creative_feedback+engagement_feedback); script["learning_experiment"]={"strategy":creative_strategy["strategy"],"experiment_id":creative_strategy["experiment_id"],"slot":creative_strategy["slot"],"cycle":creative_strategy["cycle"],"target_mix":creative_strategy["target_mix"],"selected_pattern":creative_strategy.get("selected_pattern",""),"selected_score":creative_strategy.get("selected_score",0.0),"selected_sample_size":creative_strategy.get("selected_sample_size",0),"evidence_based":creative_strategy.get("evidence_based",False)}; next_topic=reserve_next_short(str((script.get("next_short") or {}).get("topic") or ""),current_topic=topic); script["next_short"]=dict(script.get("next_short") or {}); script["next_short"]["topic"]=next_topic; script,next_topic=lock_next_topic(script,topic,locked_topic=next_topic); script["engagement"]={"experiment":engagement["experiment"],"phase":engagement["phase"],"spoken_prompt":engagement["spoken_prompt"],"comment":engagement["comment"],"share_prompt":engagement["share_prompt"]}; workdir=os.path.join("output",str(int(time.time()))); os.makedirs(workdir,exist_ok=True); save_json(script,os.path.join(workdir,"script.json")); write_continuation_manifest(topic,next_topic,"locked",workdir); print(f"✅ Script ready: {workdir}/script.json");
+        learning_context=load_learning_context(); creative_feedback=f"\nCREATIVE MEMORY — DO NOT REPEAT RECENT HOOKS OR TOPICS:\n{creative_memory_context}\n\nCREATIVE EXPERIMENT FOR THIS SHORT:\nStrategy: {creative_strategy['strategy']}\nExperiment ID: {creative_strategy['experiment_id']}\nTarget mix: 70% proven / 20% adjacent / 10% wild.\nSelected learned pattern: {creative_strategy.get('selected_pattern') or 'none'}\nExperiment guidance: {creative_strategy['guidance']}\nDo not copy any learned wording, topic, example, or visual concept. Preserve originality and story quality.\n"; engagement_feedback=f"\nENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}\nUse the mechanic naturally if it fits. Never sound like engagement bait.\nSuggested spoken interaction: {engagement['spoken_prompt']}\nDo not add generic like/subscribe language.\n"; print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS");
+        try:
+            script=_generate_valid_script(topic,config,learning_context,creative_feedback+engagement_feedback)
+        except RuntimeError as error:
+            if str(error).startswith("GEMINI_QUOTA_DEFERRED:"):
+                print("🛑 Gemini project/day quota exhausted — deferring this production run without consuming the topic.");
+                print("🔁 The verified continuation topic remains authoritative for the next run.");
+                return
+            raise
+        script["learning_experiment"]={"strategy":creative_strategy["strategy"],"experiment_id":creative_strategy["experiment_id"],"slot":creative_strategy["slot"],"cycle":creative_strategy["cycle"],"target_mix":creative_strategy["target_mix"],"selected_pattern":creative_strategy.get("selected_pattern",""),"selected_score":creative_strategy.get("selected_score",0.0),"selected_sample_size":creative_strategy.get("selected_sample_size",0),"evidence_based":creative_strategy.get("evidence_based",False)}; next_topic=reserve_next_short(str((script.get("next_short") or {}).get("topic") or ""),current_topic=topic); script["next_short"]=dict(script.get("next_short") or {}); script["next_short"]["topic"]=next_topic; script,next_topic=lock_next_topic(script,topic,locked_topic=next_topic); script["engagement"]={"experiment":engagement["experiment"],"phase":engagement["phase"],"spoken_prompt":engagement["spoken_prompt"],"comment":engagement["comment"],"share_prompt":engagement["share_prompt"]}; workdir=os.path.join("output",str(int(time.time()))); os.makedirs(workdir,exist_ok=True); save_json(script,os.path.join(workdir,"script.json")); write_continuation_manifest(topic,next_topic,"locked",workdir); print(f"✅ Script ready: {workdir}/script.json");
         if dry_run: print("✅ DRY RUN COMPLETE"); return
     if not resumed:
         audio=synthesize_script(script,config,os.path.join(workdir,"audio")); _record_audio_timing(script,audio); save_json(script,os.path.join(workdir,"script.json")); visuals=generate_media(script,os.path.join(workdir,"visuals"),config); sfx=generate_sfx(script,os.path.join(workdir,"sfx")); music=download_music(script,os.path.join(workdir,"music")); final_video=os.path.join(workdir,"final.mp4"); assemble_video(script,audio,visuals,music,sfx,config,final_video); _save_publish_state(workdir,{"status":"ready_for_upload","uploaded":False,"topic":topic,"next_topic":next_topic})

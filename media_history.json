@@ -6739,6 +6739,96 @@
       "shot": 1,
       "query": "sidewalk cracks in real life",
       "recorded_at": 1790139003
+    },
+    {
+      "asset_key": "pixabay:video:25310",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2019/07/18/25310-348803956_medium.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "damp towels you used navy blue",
+      "recorded_at": 1790141115
+    },
+    {
+      "asset_key": "pixabay:video:31610",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/01/26/31610-387688514_medium.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "damp towels towel once hanging wrinkles",
+      "recorded_at": 1790141119
+    },
+    {
+      "asset_key": "pixabay:video:236256",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2024/10/13/236256_medium.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "damp towels smell towel edge pans",
+      "recorded_at": 1790141122
+    },
+    {
+      "asset_key": "pixabay:video:27868",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2019/10/13/27868-366185215_medium.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "damp towels like wet swamp monster",
+      "recorded_at": 1790141129
+    },
+    {
+      "asset_key": "pixabay:video:11169",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/08/06/11169-228530159_medium.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "damp towels you didn dry off",
+      "recorded_at": 1790141129
+    },
+    {
+      "asset_key": "pixabay:video:118848",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/05/31/118848-716230848_medium.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "damp towels you harvested invisible indoor",
+      "recorded_at": 1790141130
+    },
+    {
+      "asset_key": "pixabay:video:375716",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2026/09/11/375716_medium.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "damp towels",
+      "recorded_at": 1790141133
+    },
+    {
+      "asset_key": "pixabay:video:28655",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2019/11/03/28655-370964572_medium.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "damp towels",
+      "recorded_at": 1790141136
+    },
+    {
+      "asset_key": "pixabay:video:23709",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2019/05/15/23709-337232367_medium.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "damp towels nature",
+      "recorded_at": 1790141144
     }
   ]
 }

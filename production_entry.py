@@ -295,6 +295,36 @@ def _patch_stock_media_quality():
                     ladder.append({"query": query, "strategy": "topic-recovery"})
                     existing.add(query)
 
+            # Build a bounded reserve of topic-locked query families. Recovery
+            # rounds must not recycle the same eight queries: a search miss is
+            # only useful if the next round explores a genuinely different
+            # stock-library vocabulary family.
+            contextual_suffixes = (
+                "real person", "person", "hands", "face", "close up",
+                "demonstration", "experiment", "example", "indoors",
+                "bathroom", "home", "everyday", "object", "detail",
+                "side view", "front view", "natural", "real life",
+                "looking", "standing", "holding", "touching", "using",
+                "reflection", "glass", "surface", "visual",
+            )
+            semantic_bases = []
+            for term in sorted(topic_vocab_expanded):
+                clean = " ".join(str(term).split())
+                if clean and clean not in topic_terms and len(clean.split()) <= 3:
+                    semantic_bases.append(clean)
+            # Prefer the editorial topic phrase, then semantic physical-subject
+            # phrases. Keep this deterministic so retries remain reproducible.
+            base_phrases = [topic_phrase]
+            for base in semantic_bases[:8]:
+                base_phrases.append(f"{base}")
+            for base in base_phrases:
+                for suffix in contextual_suffixes:
+                    query = f"{base} {suffix}".strip()
+                    query = " ".join(query.split())
+                    if 1 <= len(query.split()) <= 7 and query not in existing:
+                        ladder.append({"query": query, "strategy": "topic-recovery-variant"})
+                        existing.add(query)
+
             # Anchor-only Gemini queries are a last resort and must be prefixed
             # with the actual topic so they cannot drift into unrelated searches.
             for entry in anchor_ladder:
@@ -303,10 +333,25 @@ def _patch_stock_media_quality():
                     prefixed = f"{topic_phrase} {query}"
                     if len(prefixed.split()) <= 7:
                         add_entry({"query": prefixed, "strategy": "scene-variation-locked"})
-                if len(ladder) >= 8:
+                if len(ladder) >= 48:
                     break
 
-            result["search_ladder"] = ladder[:8]
+            # Exclude queries already attempted by earlier rounds, then select a
+            # different contiguous family for each recovery round. This prevents
+            # the old failure mode where rounds 2-4 returned the exact same ladder
+            # and stock_search exhausted four rounds without issuing new searches.
+            failed = {
+                " ".join(str(q).lower().split())
+                for q in (failed_queries or [])
+                if str(q).strip()
+            }
+            available = [entry for entry in ladder if entry["query"] not in failed]
+            if round_no > 1:
+                # Rotate by round so each retry enters a new vocabulary region even
+                # when Gemini returns identical queries.
+                offset = min((round_no - 1) * 8, max(0, len(available) - 1))
+                available = available[offset:] + available[:offset]
+            result["search_ladder"] = available[:8]
         return result
 
     def deterministic_score(d, item, provider, video, query):

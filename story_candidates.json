@@ -1,18 +1,5 @@
 [
   {
-    "format": "one_decision",
-    "person": "Srinivasa Ramanujan",
-    "premise": "The Unemployed Clerk Who Mailed His Math Notebook to Cambridge.",
-    "hook": "Working as a low-level shipping port clerk with no university degree, he mailed dense mathematical formulas to a stranger 5,000 miles away.",
-    "key_facts": [
-      "Failed his college exams due to neglecting every subject except mathematics.",
-      "Worked as a routine shipping port clerk in Madras to support his family.",
-      "Mailed unsolicited mathematical theorems to British mathematician G. H. Hardy in 1913.",
-      "Was invited to Trinity College, Cambridge, based on the brilliance of his unproven formulas."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "J.K. Rowling",
     "premise": "Living on State Benefits While Writing in Edinburgh Cafes.",
@@ -22,19 +9,6 @@
       "Conceived the idea for a boy wizard during a delayed train journey from Manchester to London in 1990.",
       "Relied on state benefits while raising her infant daughter in Edinburgh.",
       "Had her initial manuscript rejected by multiple publishing houses before acceptance."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
-    "person": "MS Dhoni",
-    "premise": "How a ticket collector at a railway station became one of India's most successful cricket captains.",
-    "hook": "He spent his days checking train tickets, but his nights belonged to a cricket dream nobody believed in.",
-    "key_facts": [
-      "Worked as a Travelling Ticket Examiner (TTE) for South Eastern Railway at Kharagpur railway station.",
-      "Played tennis-ball cricket and developed his trademark unorthodox helicopter shot.",
-      "Made his international debut for India in 2004 after consistent domestic performances.",
-      "Led India to victory in the 2007 T20 World Cup and the 2011 ICC Cricket World Cup."
     ],
     "source": "gemini_original"
   },

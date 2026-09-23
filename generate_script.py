@@ -424,6 +424,15 @@ Do not ask for a completely different topic unless the current topic itself is d
     return _call_json(client, CRITIC_SYSTEM, prompt, _critic_schema(), 0.25)
 
 
+def _creative_memory_validation(topic, entertainment):
+    try:
+        from creative_memory import validate_candidate
+        return validate_candidate(topic, entertainment)
+    except Exception as exc:
+        print(f"⚠️ Creative memory validation unavailable: {exc}")
+        return {"ok": True}
+
+
 def _recent_creative_context():
     try:
         from creative_memory import build_generation_context
@@ -658,6 +667,14 @@ def generate_script(topic, config, research=None, extra_feedback=""):
             )
             word_count = _validate_entertainment(entertainment, topic)
             print(f"🎭 Entertainment writer pass: {word_count} words")
+
+            # Hard originality gate before spending another model call on visuals.
+            memory_check = _creative_memory_validation(topic, entertainment)
+            if not memory_check.get("ok", True):
+                raise RuntimeError(
+                    "Creative memory rejected candidate: "
+                    f"topic={memory_check.get('topic_reason')} | hook={memory_check.get('hook_reason')}"
+                )
 
             # PASS 1.5: retention/originality critic
             recent_context = _recent_creative_context()

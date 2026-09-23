@@ -357,32 +357,76 @@ def generate_media(script, output_dir, config, gim=None):
     print(f"📚 STOCK SEARCH {GEMINI_MODEL} | Pexels/Pixabay only | actual-thumbnail verification"); print(f"🚫 CROSS-SHORT MEDIA REUSE: BLOCKED | historical assets: {len(_historical_asset_keys())}")
     if is_story: print("🛡️ Story stock routing: VIDEO-ONLY | Pexels/Pixabay video endpoints; photo assets disabled")
     for scene_no, shots in enumerate(plan, 1):
-        for shot_no, directed in enumerate(shots, 1):
+        for shot_no, initial_directed in enumerate(shots, 1):
+            # A stock search miss must trigger a NEW SEARCH, not a workflow failure.
+            # Keep the topic/scene locked, but ask the director for materially
+            # different, camera-visible queries while preserving the cross-Short
+            # reuse guard and the video-only contract.
+            directed = initial_directed
             selected = selected_provider = selected_video = selected_query = None
-            for entry in directed["search_ladder"]:
-                query = entry["query"]; strategy = entry["strategy"]; print(f"   🔎 Scene {scene_no} Shot {shot_no}: [{strategy}] {query}")
-                providers = (("Pexels", True), ("Pixabay", True)) if video_only else (("Pexels", True), ("Pixabay", True), ("Pexels", False), ("Pixabay", False))
-                for provider, video in providers:
-                    items = pexels(query, video) if provider == "Pexels" else pixabay(query, video)
-                    if not items: print(f"      ↪️ {provider} {'VIDEO' if video else 'PHOTO'}: no assets"); continue
-                    item = None
-                    if vision_available:
-                        try:
-                            item = verify_actual(directed, items, provider, video, query, strategy)
-                            if item: print("      👁️ Vision verified actual video thumbnail")
-                        except Exception as exc:
-                            vision_failures += 1; print(f"      ⚠️ Vision verification unavailable: {type(exc).__name__}: {exc}")
-                            if vision_failures >= 3: vision_available = False; print("      🛡️ Vision circuit breaker OPEN — deterministic fallback enabled")
-                    if item is None: item = _select_without_vision(directed, items, provider, video, query)
-                    if item and not vision_available: print("      🧮 Selected using conservative metadata fallback")
-                    if item:
-                        url = _url(item, provider, video); key = _asset_key(item, provider, video, url) if url else ""
-                        if url and url not in used and key not in _historical_asset_keys(): selected, selected_provider, selected_video, selected_query = item, provider, video, query; break
-                if selected: break
-            if not selected: raise RuntimeError(f"No new visually relevant stock {'video' if video_only else 'stock'} asset found for Scene {scene_no} Shot {shot_no}. Pexels/Pixabay returned no candidate that passed relevance and cross-Short reuse guards.")
-            if video_only and not selected_video: raise RuntimeError(f"Story video-only contract violated: Scene {scene_no} Shot {shot_no} selected a non-video asset.")
-            extension = "mp4" if selected_video else "jpg"; path = os.path.join(output_dir, f"scene_{scene_no}_shot_{shot_no}.{extension}")
-            recovered = _download_with_candidate_recovery(directed, (selected, selected_provider, selected_video, selected_query), path, used, video_only=video_only)
+            attempted_queries = []
+            search_rounds = 4
+            for round_no in range(1, search_rounds + 1):
+                if round_no > 1:
+                    print(f"   🔄 STOCK RECOVERY ROUND {round_no}/{search_rounds} — generating fresh queries for Scene {scene_no} Shot {shot_no}")
+                    scene = (script.get("scene_plan") or [])[scene_no - 1]
+                    visual = (scene.get("visuals") or [])[shot_no - 1]
+                    directed = direct(scene_no, shot_no, scene, visual, failed_queries=attempted_queries, round_no=round_no, story_script=script if is_story else None)
+                round_selected = None
+                for entry in directed["search_ladder"]:
+                    query = entry["query"]; strategy = entry["strategy"]
+                    if query in attempted_queries:
+                        continue
+                    attempted_queries.append(query)
+                    print(f"   🔎 Scene {scene_no} Shot {shot_no}: [{strategy}] {query}")
+                    providers = (("Pexels", True), ("Pixabay", True)) if video_only else (("Pexels", True), ("Pixabay", True), ("Pexels", False), ("Pixabay", False))
+                    for provider, video in providers:
+                        items = pexels(query, video) if provider == "Pexels" else pixabay(query, video)
+                        if not items:
+                            print(f"      ↪️ {provider} {'VIDEO' if video else 'PHOTO'}: no assets")
+                            continue
+                        item = None
+                        if vision_available:
+                            try:
+                                item = verify_actual(directed, items, provider, video, query, strategy)
+                                if item: print("      👁️ Vision verified actual video thumbnail")
+                            except Exception as exc:
+                                vision_failures += 1
+                                print(f"      ⚠️ Vision verification unavailable: {type(exc).__name__}: {exc}")
+                                if vision_failures >= 3:
+                                    vision_available = False
+                                    print("      🛡️ Vision circuit breaker OPEN — deterministic fallback enabled")
+                        if item is None:
+                            item = _select_without_vision(directed, items, provider, video, query)
+                        if item and not vision_available:
+                            print("      🧮 Selected using conservative metadata fallback")
+                        if item:
+                            url = _url(item, provider, video)
+                            key = _asset_key(item, provider, video, url) if url else ""
+                            if url and url not in used and key not in _historical_asset_keys():
+                                round_selected = (item, provider, video, query, url)
+                                break
+                    if round_selected:
+                        break
+                if round_selected:
+                    selected, selected_provider, selected_video, selected_query, selected_url = round_selected
+                    # Download is handled below through the same candidate-recovery path.
+                    selected = selected
+                    break
+            if not selected:
+                raise RuntimeError(
+                    f"No new visually relevant stock {'video' if video_only else 'stock'} asset found "
+                    f"for Scene {scene_no} Shot {shot_no} after {search_rounds} search rounds. "
+                    f"Topic lock and cross-Short reuse guard were preserved."
+                )
+            if video_only and not selected_video:
+                raise RuntimeError(f"Story video-only contract violated: Scene {scene_no} Shot {shot_no} selected a non-video asset.")
+            extension = "mp4" if selected_video else "jpg"
+            path = os.path.join(output_dir, f"scene_{scene_no}_shot_{shot_no}.{extension}")
+            recovered = _download_with_candidate_recovery(
+                directed, (selected, selected_provider, selected_video, selected_query),
+                path, used, video_only=video_only
+            )
             if not recovered: raise RuntimeError(f"No downloadable visually relevant NEW stock {'video' if is_story else 'stock'} asset found for Scene {scene_no} Shot {shot_no} after candidate recovery.")
             selected, selected_provider, selected_video, selected_query, url = recovered
             if is_story and not selected_video: raise RuntimeError(f"Story video-only recovery violated: Scene {scene_no} Shot {shot_no} recovered a non-video asset.")

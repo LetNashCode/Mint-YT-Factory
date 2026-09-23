@@ -70,10 +70,26 @@ def _consume_pending():
     return pending
 
 def _candidate_is_new(candidate, used):
+    """Apply every topic-level originality gate before a topic enters production."""
     if not _is_everyday_topic(candidate): return False
     pool=list(used or [])+published_topics()
     if any(_key(candidate)==_key(x) for x in pool): return False
-    return is_new_topic(candidate, threshold=0.82)
+    if not is_new_topic(candidate, threshold=0.82): return False
+
+    # The creative-memory gate catches durable historical duplicates that the
+    # topic engine's registry may not catch. Import lazily to avoid startup
+    # coupling and keep topic generation usable on its own.
+    try:
+        from creative_memory import topic_is_novel
+        novel, reason = topic_is_novel(candidate)
+        if not novel:
+            print(f"⚠️ Creative-memory originality rejection: {candidate!r} -> {reason}")
+            return False
+    except Exception as error:
+        # Topic generation must remain resilient if analytics memory is unavailable.
+        print(f"⚠️ Creative-memory topic check unavailable: {type(error).__name__}: {error}")
+
+    return True
 
 def _deterministic_fallback(used):
     start=(int(time.time())//60) % len(_FALLBACK_TOPICS)
@@ -101,13 +117,33 @@ def _generate_topic(used):
     return _deterministic_fallback(used)
 
 def get_next_topic():
-    items=_read_used(); pending=_repair_pending_state(items) or _consume_pending()
-    if pending and _is_everyday_topic(pending): return pending
+    """Select, verify, and return a topic that is genuinely new before production starts."""
+    items=_read_used()
+    pending=_repair_pending_state(items) or _consume_pending()
+
+    # A queued continuation is only reusable if it still passes the full
+    # originality gate. Never let a stale historical duplicate reach production.
     if pending:
-        print(f"⚠️ Discarding invalid continuation topic: {pending}")
-        items=[x for x in items if not (isinstance(x,str) and x.startswith(_PENDING_PREFIX))]; _write_used(items)
-    used=[_clean_topic(x[len(_PENDING_PREFIX):]) if isinstance(x,str) and x.startswith(_PENDING_PREFIX) else x for x in _read_used()]
-    used+=published_topics(); return _generate_topic(used)
+        pending_used=[_clean_topic(x[len(_PENDING_PREFIX):]) if isinstance(x,str) and x.startswith(_PENDING_PREFIX) else x
+                      for x in _read_used()]
+        if _candidate_is_new(pending, pending_used):
+            print(f"✅ Topic selection verified: {pending} | NEW + UNIQUE")
+            return pending
+        print(f"🔄 Queued topic failed originality verification: {pending} — generating a fresh topic.")
+        items=[x for x in items if not (isinstance(x,str) and x.startswith(_PENDING_PREFIX))]
+        _write_used(items)
+
+    used=[_clean_topic(x[len(_PENDING_PREFIX):]) if isinstance(x,str) and x.startswith(_PENDING_PREFIX) else x
+          for x in _read_used()]
+    used+=published_topics()
+
+    # _generate_topic already performs bounded retries and the deterministic
+    # fallback also uses the same _candidate_is_new gate.
+    topic=_generate_topic(used)
+    if not _candidate_is_new(topic, used):
+        raise RuntimeError(f"Topic engine returned an unverified topic: {topic}")
+    print(f"✅ Topic selection verified: {topic} | NEW + UNIQUE")
+    return topic
 
 def reserve_next_short(next_short,current_topic=""):
     topic=_clean_topic(next_short); raw_items=_read_used(); current_key=_key(current_topic)

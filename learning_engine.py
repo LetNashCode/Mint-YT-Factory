@@ -125,7 +125,10 @@ def _creative_features(record: dict) -> dict[str, str]:
 
     hook_text = str(first.get("narration", ""))
     hook_lower = hook_text.lower()
-    if "?" in hook_text:
+    explicit_hook = str(script.get("hook_type") or "").strip()
+    if explicit_hook:
+        hook_type = explicit_hook
+    elif "?" in hook_text:
         hook_type = "question_hook"
     elif re.search(r"\b(never|impossible|secret|actually|turns out|but here's|except)\b", hook_lower):
         hook_type = "contradiction_or_reveal_hook"
@@ -147,6 +150,8 @@ def _creative_features(record: dict) -> dict[str, str]:
         "story_format": story_format[:80],
         "curiosity_pattern": "+".join(dict.fromkeys(retention[:4]))[:80] or "open_loop",
         "payoff_position": "early" if payoff_index <= 3 else "mid" if payoff_index <= 5 else "late",
+        "payoff_type": str(script.get("payoff_type") or "").strip() or "unknown",
+        "tease_type": str(script.get("tease_type") or "").strip() or "unknown",
         "explanation_position": "early" if explanation_index <= 1 else "mid" if explanation_index <= 3 else "late",
         "script_length": "short" if word_count < 105 else "medium" if word_count <= 135 else "long",
         "question_density": "high" if question_count >= 3 else "medium" if question_count >= 1 else "low",
@@ -262,8 +267,8 @@ def build_playbook(records: list[dict]) -> dict:
     has_live_metrics = any(any(float((r.get("latest", {}) or {}).get(k, 0) or 0) > 0 for k in ("views","likes","comments","average_view_percentage","subscribers_gained","shares")) for r in usable)
 
     isolated_features = ("hook_type","story_format","payoff_position","explanation_position","script_length","narration_pace")
-    combo_features = ("hook_type","story_format","payoff_position","narration_pace")
-    pair_features = ("hook_type","payoff_position")
+    combo_features = ("hook_type","story_format","payoff_type","tease_type","narration_pace")
+    pair_features = ("hook_type","payoff_type","tease_type")
     winning_patterns = _rank(_rows(winners, {x:x for x in isolated_features}), 2)[:40] if has_live_metrics else []
     weak_patterns = _rank(_rows(losers, {x:x for x in isolated_features}), 2)[:30] if has_live_metrics else []
     winning_combinations = _rank(_rows(winners, {x:x for x in combo_features}), 2)[:20] if has_live_metrics else []
@@ -277,7 +282,7 @@ def build_playbook(records: list[dict]) -> dict:
         "learning_ready": count >= 3 and has_live_metrics,
         "metrics_available": has_live_metrics,
         "creative_learning_version": "v3",
-        "objective": "maximize retention, sustainable views, shares and subscriber growth while preserving originality",
+        "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
         "strategy": {"exploitation": EXPLOITATION, "adjacent_exploration": ADJACENT_EXPLORATION, "wild_exploration": WILD_EXPLORATION},
         "winning_patterns": winning_patterns,
         "weak_patterns": weak_patterns,

@@ -351,6 +351,9 @@ def _download_with_candidate_recovery(d, initial, output_path, used_urls, video_
 def generate_media(script, output_dir, config, gim=None):
     os.makedirs(output_dir, exist_ok=True); plan = build_plan(script); used = set(); groups = []; vision_available = True; vision_failures = 0
     is_story = isinstance(script, dict) and bool(script.get("story_person") or script.get("interactive_pillar") or script.get("story_visual_mode"))
+    video_only = is_story or os.environ.get("MINT_PUBLISH_VIDEO_ONLY", "0").strip().lower() in {"1", "true", "yes"}
+    if video_only and not is_story:
+        print("🛡️ PUBLISH VIDEO-ONLY LOCK: photo assets disabled; Pexels/Pixabay VIDEO endpoints only")
     print(f"📚 STOCK SEARCH {GEMINI_MODEL} | Pexels/Pixabay only | actual-thumbnail verification"); print(f"🚫 CROSS-SHORT MEDIA REUSE: BLOCKED | historical assets: {len(_historical_asset_keys())}")
     if is_story: print("🛡️ Story stock routing: VIDEO-ONLY | Pexels/Pixabay video endpoints; photo assets disabled")
     for scene_no, shots in enumerate(plan, 1):
@@ -358,7 +361,7 @@ def generate_media(script, output_dir, config, gim=None):
             selected = selected_provider = selected_video = selected_query = None
             for entry in directed["search_ladder"]:
                 query = entry["query"]; strategy = entry["strategy"]; print(f"   🔎 Scene {scene_no} Shot {shot_no}: [{strategy}] {query}")
-                providers = (("Pexels", True), ("Pixabay", True)) if is_story else (("Pexels", True), ("Pixabay", True), ("Pexels", False), ("Pixabay", False))
+                providers = (("Pexels", True), ("Pixabay", True)) if video_only else (("Pexels", True), ("Pixabay", True), ("Pexels", False), ("Pixabay", False))
                 for provider, video in providers:
                     items = pexels(query, video) if provider == "Pexels" else pixabay(query, video)
                     if not items: print(f"      ↪️ {provider} {'VIDEO' if video else 'PHOTO'}: no assets"); continue
@@ -376,10 +379,10 @@ def generate_media(script, output_dir, config, gim=None):
                         url = _url(item, provider, video); key = _asset_key(item, provider, video, url) if url else ""
                         if url and url not in used and key not in _historical_asset_keys(): selected, selected_provider, selected_video, selected_query = item, provider, video, query; break
                 if selected: break
-            if not selected: raise RuntimeError(f"No new visually relevant stock {'video' if is_story else 'stock'} asset found for Scene {scene_no} Shot {shot_no}. Pexels/Pixabay returned no candidate that passed relevance and cross-Short reuse guards.")
-            if is_story and not selected_video: raise RuntimeError(f"Story video-only contract violated: Scene {scene_no} Shot {shot_no} selected a non-video asset.")
+            if not selected: raise RuntimeError(f"No new visually relevant stock {'video' if video_only else 'stock'} asset found for Scene {scene_no} Shot {shot_no}. Pexels/Pixabay returned no candidate that passed relevance and cross-Short reuse guards.")
+            if video_only and not selected_video: raise RuntimeError(f"Story video-only contract violated: Scene {scene_no} Shot {shot_no} selected a non-video asset.")
             extension = "mp4" if selected_video else "jpg"; path = os.path.join(output_dir, f"scene_{scene_no}_shot_{shot_no}.{extension}")
-            recovered = _download_with_candidate_recovery(directed, (selected, selected_provider, selected_video, selected_query), path, used, video_only=is_story)
+            recovered = _download_with_candidate_recovery(directed, (selected, selected_provider, selected_video, selected_query), path, used, video_only=video_only)
             if not recovered: raise RuntimeError(f"No downloadable visually relevant NEW stock {'video' if is_story else 'stock'} asset found for Scene {scene_no} Shot {shot_no} after candidate recovery.")
             selected, selected_provider, selected_video, selected_query, url = recovered
             if is_story and not selected_video: raise RuntimeError(f"Story video-only recovery violated: Scene {scene_no} Shot {shot_no} recovered a non-video asset.")

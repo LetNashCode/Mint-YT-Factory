@@ -20,16 +20,27 @@ except Exception as exc:
     raise RuntimeError(f"Could not install portrait video alignment: {exc}") from exc
 
 
-if not hasattr(stock_search, "_historical_asset_keys"):
-    def _historical_asset_keys() -> set[str]:
-        return {
-            str(item["asset_key"])
-            for item in stock_search._load_media_history().get("assets", [])
+# Always enforce the canonical recent-media cooldown at runtime. Older versions
+# of the compatibility shim returned the entire media history, which turned the
+# intended 15-asset cooldown into a 726-asset hard block and made scarce topics
+# fail even when older relevant stock video was available.
+def _recent_historical_asset_keys() -> set[str]:
+    try:
+        data = stock_search._load_media_history()
+        assets = data.get("assets", []) if isinstance(data, dict) else []
+        records = [
+            item for item in assets
             if isinstance(item, dict) and item.get("asset_key")
-        }
+        ]
+        records.sort(key=lambda item: float(item.get("recorded_at", 0) or 0))
+        cooldown = int(getattr(stock_search, "MEDIA_REUSE_COOLDOWN", 15) or 15)
+        return {str(item["asset_key"]) for item in records[-cooldown:]}
+    except Exception as exc:
+        print(f"⚠️ Media cooldown lookup failed; using empty recent block: {type(exc).__name__}: {exc}")
+        return set()
 
-    stock_search._historical_asset_keys = _historical_asset_keys
-    print("🛡️ Stock media-history guard: compatibility helper restored")
+stock_search._historical_asset_keys = _recent_historical_asset_keys
+print("🛡️ Stock media-history guard: canonical recent-window helper active | window=15")
 
 
 # Install the Story-specific topic/archive layer before production applies its

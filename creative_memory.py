@@ -50,6 +50,9 @@ def _script(record):
     return _load(p,{}) if p.exists() else {}
 
 def _hook(record):
+    stored=str(record.get("hook_text") or "").strip()
+    if stored:
+        return stored
     script=_script(record)
     scenes=script.get("scene_plan") or []
     return str((scenes[0] if scenes else {}).get("narration") or "").strip()

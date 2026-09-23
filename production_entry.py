@@ -133,22 +133,71 @@ def _patch_stock_media_quality():
             result["anchor_terms"] = anchors[:10]
             ladder = []
             topic_phrase = " ".join(topic_terms[:2])
+
+            aliases = {
+                "tape": {"tape", "adhesive", "packing", "masking", "duct", "sealing", "taping"},
+                "adhesive": {"adhesive", "tape", "taping", "sealing"},
+                "car": {"car", "vehicle", "automobile"},
+                "phone": {"phone", "smartphone", "mobile", "cellphone"},
+                "finger": {"finger", "fingers", "hand", "hands"},
+                "water": {"water", "wet", "liquid"},
+                "mirror": {"mirror", "reflection"},
+            }
+            topic_vocab = set()
+            for term in topic_terms:
+                term = str(term).strip().lower()
+                topic_vocab.add(term)
+                topic_vocab.update(aliases.get(term, {term}))
+
+            def query_is_topic_locked(query):
+                words = set(re.findall(r"[a-z0-9]+", str(query or "").lower()))
+                return bool(words & topic_vocab)
+
+            # Preserve Gemini's concrete scene-specific queries when they still
+            # contain the current topic or a narrow stock-library synonym.
             for entry in result.get("search_ladder") or []:
                 query = str(entry.get("query") or "").strip().lower()
-                if query and any(term in query.split() for term in topic_terms):
+                if query and query_is_topic_locked(query):
                     ladder.append(entry)
+
             existing = {str(x.get("query") or "") for x in ladder}
-            for query in (
+
+            # Deterministic recovery ladder. This is important when Gemini is
+            # rate-limited: every retry must still get materially different,
+            # camera-visible queries instead of recycling five generic queries.
+            anchors = [
+                str(term).strip().lower()
+                for term in (result.get("anchor_terms") or [])
+                if str(term).strip()
+            ]
+            recovery_terms = []
+            for term in anchors:
+                if term not in topic_vocab and term not in recovery_terms:
+                    recovery_terms.append(term)
+            recovery_terms = recovery_terms[:6]
+
+            deterministic_queries = [
                 topic_phrase,
                 f"{topic_phrase} close up",
+                f"{topic_phrase} hands",
                 f"{topic_phrase} being used",
-                f"{topic_phrase} in real life",
                 f"{topic_phrase} action",
-            ):
+                f"{topic_phrase} in real life",
+            ]
+            for term in recovery_terms:
+                deterministic_queries.extend(
+                    [
+                        f"{topic_phrase} {term}",
+                        f"{topic_phrase} {term} hands",
+                    ]
+                )
+
+            for query in deterministic_queries:
                 query = " ".join(query.split())
                 if 1 <= len(query.split()) <= 7 and query not in existing:
-                    ladder.append({"query": query, "strategy": "topic-lock"})
+                    ladder.append({"query": query, "strategy": "topic-recovery"})
                     existing.add(query)
+
             result["search_ladder"] = ladder[:8]
         return result
 

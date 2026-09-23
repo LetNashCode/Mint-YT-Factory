@@ -209,19 +209,16 @@ def run(dry_run=False):
     if not resumed:
         playbook=get_playbook(); creative_strategy=select_creative_strategy(playbook); print(f"🧪 Creative strategy: {creative_strategy['strategy']} | mix={creative_strategy['slot']}/10 | id={creative_strategy['experiment_id']}")
         try:
-            from creative_memory import topic_is_novel, build_generation_context
-            # Defensive re-check only. get_next_topic() already guarantees the
-            # topic passed the full originality gate before any production work.
-            novelty, novelty_reason = topic_is_novel(topic)
-            if not novelty:
-                raise RuntimeError(
-                    f"Topic changed or became invalid after selection: {topic!r}: {novelty_reason}"
-                )
+            from creative_memory import build_generation_context
+            # get_next_topic() is the authoritative NEW + UNIQUE gate. Do not
+            # re-run topic novelty against mutable analytics/history here: the
+            # analytics refresh can legitimately add or reconcile records between
+            # selection and script generation, which can make the already-verified
+            # topic appear duplicated and abort a valid production run.
             creative_memory_context = build_generation_context()
         except Exception as error:
-            if "Topic changed or became invalid after selection" in str(error):
-                raise
             creative_memory_context = "Creative memory unavailable; maximize originality."
+            print(f"⚠️ Creative memory unavailable: {type(error).__name__}: {error}")
         print("🧠 Creative memory loaded before writing.")
         if creative_strategy.get("selected_pattern"): print(f"🧠 Selected learned pattern: {creative_strategy['selected_pattern']} | score={creative_strategy['selected_score']:.2f} | n={creative_strategy['selected_sample_size']}")
         learning_context=load_learning_context(); creative_feedback=f"\nCREATIVE MEMORY — DO NOT REPEAT RECENT HOOKS OR TOPICS:\n{creative_memory_context}\n\nCREATIVE EXPERIMENT FOR THIS SHORT:\nStrategy: {creative_strategy['strategy']}\nExperiment ID: {creative_strategy['experiment_id']}\nTarget mix: 70% proven / 20% adjacent / 10% wild.\nSelected learned pattern: {creative_strategy.get('selected_pattern') or 'none'}\nExperiment guidance: {creative_strategy['guidance']}\nDo not copy any learned wording, topic, example, or visual concept. Preserve originality and story quality.\n"; engagement_feedback=f"\nENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}\nUse the mechanic naturally if it fits. Never sound like engagement bait.\nSuggested spoken interaction: {engagement['spoken_prompt']}\nDo not add generic like/subscribe language.\n"; print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS"); script=_generate_valid_script(topic,config,learning_context,creative_feedback+engagement_feedback); script["learning_experiment"]={"strategy":creative_strategy["strategy"],"experiment_id":creative_strategy["experiment_id"],"slot":creative_strategy["slot"],"cycle":creative_strategy["cycle"],"target_mix":creative_strategy["target_mix"],"selected_pattern":creative_strategy.get("selected_pattern",""),"selected_score":creative_strategy.get("selected_score",0.0),"selected_sample_size":creative_strategy.get("selected_sample_size",0),"evidence_based":creative_strategy.get("evidence_based",False)}; next_topic=reserve_next_short(str((script.get("next_short") or {}).get("topic") or ""),current_topic=topic); script["next_short"]=dict(script.get("next_short") or {}); script["next_short"]["topic"]=next_topic; script,next_topic=lock_next_topic(script,topic,locked_topic=next_topic); script["engagement"]={"experiment":engagement["experiment"],"phase":engagement["phase"],"spoken_prompt":engagement["spoken_prompt"],"comment":engagement["comment"],"share_prompt":engagement["share_prompt"]}; workdir=os.path.join("output",str(int(time.time()))); os.makedirs(workdir,exist_ok=True); save_json(script,os.path.join(workdir,"script.json")); write_continuation_manifest(topic,next_topic,"locked",workdir); print(f"✅ Script ready: {workdir}/script.json");

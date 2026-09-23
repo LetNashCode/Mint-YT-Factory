@@ -184,6 +184,20 @@ def _patch_stock_search(module):
                 subject.append(word)
                 if len(subject) >= 3:
                     break
+            # Use the physical thing a stock library can actually index.
+            # Editorial mechanics such as "flip horizontally" are poor search
+            # subjects and were producing queries like "mirrors flip horizontally
+            # refuses", which rapidly exhausted the relevant inventory.
+            if any(word in {"mirror", "mirrors"} for word in candidates):
+                return "mirror"
+            if any(word in {"finger", "fingers", "hand", "hands", "fingertip", "fingertips"} for word in candidates):
+                return "fingers"
+            if any(word in {"towel", "towels"} for word in candidates):
+                return "towel"
+            if any(word in {"car", "vehicle", "automobile"} for word in candidates):
+                return "car"
+            if any(word in {"phone", "smartphone", "mobile", "cellphone"} for word in candidates):
+                return "phone"
             if not subject and candidates:
                 subject = candidates[:1]
             return " ".join(subject)

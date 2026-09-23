@@ -69,20 +69,13 @@ def _consume_pending():
     if pending: print("🔗 CONTINUING FROM PREVIOUS SHORT"); print(f"Next topic: {pending}")
     return pending
 
-def _candidate_is_new(candidate, used):
-    """Apply every topic-level originality gate before a topic enters production.
-
-    The caller may pass a pending continuation only when that reservation is
-    excluded from the duplicate pool; pending means reserved, not published.
-    """
+def _candidate_is_new(candidate, used, exclude_topics=None):
     if not _is_everyday_topic(candidate): return False
+    excluded = {_key(x) for x in (exclude_topics or []) if _key(x)}
+    if _key(candidate) in excluded: return False
     pool=list(used or [])+published_topics()
     if any(_key(candidate)==_key(x) for x in pool): return False
     if not is_new_topic(candidate, threshold=0.82): return False
-
-    # The creative-memory gate catches durable historical duplicates that the
-    # topic engine's registry may not catch. Import lazily to avoid startup
-    # coupling and keep topic generation usable on its own.
     try:
         from creative_memory import topic_is_novel
         novel, reason = topic_is_novel(candidate)
@@ -90,35 +83,32 @@ def _candidate_is_new(candidate, used):
             print(f"⚠️ Creative-memory originality rejection: {candidate!r} -> {reason}")
             return False
     except Exception as error:
-        # Topic generation must remain resilient if analytics memory is unavailable.
         print(f"⚠️ Creative-memory topic check unavailable: {type(error).__name__}: {error}")
-
     return True
-
-def _deterministic_fallback(used):
+def _deterministic_fallback(used, exclude_topics=None):
     start=(int(time.time())//60) % len(_FALLBACK_TOPICS)
     for offset in range(len(_FALLBACK_TOPICS)):
         candidate=_clean_topic(_FALLBACK_TOPICS[(start+offset)%len(_FALLBACK_TOPICS)])
-        if _candidate_is_new(candidate, used):
+        if _candidate_is_new(candidate, used, exclude_topics=exclude_topics):
             print(f"🛟 Topic fallback selected: {candidate}")
             return candidate
     raise RuntimeError("Topic engine exhausted its deterministic fallback pool; manual topic maintenance is required.")
 
-def _generate_topic(used):
+def _generate_topic(used, exclude_topics=None):
     key=os.environ.get("GEMINI_API_KEY")
-    if not key: return _deterministic_fallback(used)
-    client=genai.Client(api_key=key); prompt=_PROMPT.format(previous="\n".join(used[-30:]) or "(none)")
+    if not key: return _deterministic_fallback(used, exclude_topics=exclude_topics)
+    client=genai.Client(api_key=key); prompt=_PROMPT.format(previous="\n".join(used[-30:]) or "(none)") + "\nCURRENT TOPIC TO EXCLUDE: " + ", ".join(_clean_topic(x) for x in (exclude_topics or []) if _clean_topic(x))
     for attempt in range(1,11):
         try:
             response=client.models.generate_content(model=MODEL,contents=prompt,config=types.GenerateContentConfig(temperature=1.1))
             candidate=_clean_topic(getattr(response,"text","")); print(f"🧠 Topic attempt {attempt}/10: {candidate}")
-            if not _candidate_is_new(candidate, used): print("⚠️ Rejected: invalid, duplicate, or near-duplicate topic."); continue
+            if not _candidate_is_new(candidate, used, exclude_topics=exclude_topics): print("⚠️ Rejected: invalid, duplicate, near-duplicate, or current-topic candidate."); continue
             return candidate
         except Exception as error:
             print(f"⚠️ Topic attempt failed: {error}")
             if attempt<10:time.sleep(min(2*attempt,8))
     print("⚠️ Gemini topic generation exhausted 10 attempts; switching to deterministic unused-topic fallback.")
-    return _deterministic_fallback(used)
+    return _deterministic_fallback(used, exclude_topics=exclude_topics)
 
 def get_next_topic():
     """Select, verify, and return a topic that is genuinely new before production starts."""
@@ -170,8 +160,8 @@ def reserve_next_short(next_short,current_topic=""):
     existing_pending=_pending_topics(raw_items); foreign_pending=next((x for x in existing_pending if _key(x)!=current_key),"")
     if foreign_pending: raise RuntimeError(f"Cannot reserve a new continuation while one is pending: {foreign_pending}")
     committed=[x for x in raw_items if not (isinstance(x,str) and x.startswith(_PENDING_PREFIX))]; used=[current_topic]; used.extend(committed)
-    if not validate_topic_for_pipeline(topic,used=used,check_duplicate=True):
-        topic=_generate_topic(used); print(f"🛠️ Repaired and reserved continuation topic: {topic}")
+    if not validate_topic_for_pipeline(topic,used=used,check_duplicate=True) or _key(topic)==current_key:
+        topic=_generate_topic(used, exclude_topics=[current_topic]); print(f"🛠️ Repaired and reserved continuation topic: {topic}")
     if existing_pending and all(_key(x)==current_key for x in existing_pending):
         _write_used(committed); print(f"🔓 Consumed current pending topic before reserving next: {current_topic}")
     return save_next_short(topic)

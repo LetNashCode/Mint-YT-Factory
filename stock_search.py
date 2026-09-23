@@ -365,7 +365,10 @@ def generate_media(script, output_dir, config, gim=None):
             directed = initial_directed
             selected = selected_provider = selected_video = selected_query = None
             attempted_queries = []
-            search_rounds = 4
+            # Give the recovery engine enough bounded rounds to traverse
+            # distinct query families. Four rounds was too shallow when a topic
+            # has scarce fresh VIDEO inventory in both providers.
+            search_rounds = 6
             for round_no in range(1, search_rounds + 1):
                 if round_no > 1:
                     print(f"   🔄 STOCK RECOVERY ROUND {round_no}/{search_rounds} — generating fresh queries for Scene {scene_no} Shot {shot_no}")

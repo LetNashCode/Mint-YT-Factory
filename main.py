@@ -47,19 +47,28 @@ def _content_words(value):
 def _bridge_matches_topic(bridge,topic): return bool(_content_words(topic)&_content_words(bridge)) if _content_words(topic) else True
 
 def _generate_natural_bridge(current_topic,next_topic):
-    """Create a natural spoken handoff while keeping the exact locked topic."""
+    """Create a varied spoken handoff; rotate tease mechanisms using creative memory."""
     current=str(current_topic or "").strip().rstrip(".!?")
     nxt=str(next_topic or "").strip().rstrip(".!?")
     if not nxt: raise RuntimeError("Continuation topic is empty.")
-    variants=(
-        f"And once you notice that, there's another everyday mystery hiding in plain sight: {nxt}?",
-        f"So now you know the trick behind {current.lower()}; here's another one you'll probably notice today: {nxt}?",
-        f"And that's the fun part of everyday life—one mystery solved, another waiting for you: {nxt}?",
-        f"Now that little mystery makes sense. But here's one more you can't unsee once you notice it: {nxt}?",
-    )
-    seed=sum(ord(c) for c in current+"|"+nxt)
-    return variants[seed%len(variants)]+""
-
+    try:
+        from creative_memory import choose_tease_type
+        tease_type=choose_tease_type(current,nxt)
+    except Exception:
+        tease_type="curiosity_connection"
+    variants={
+        "curiosity_connection": f"And once you know that, there's another everyday mystery hiding in plain sight: {nxt}?",
+        "unexpected_consequence": f"But that isn't the only strange consequence. Wait until you see what happens with {nxt}.",
+        "pattern_connection": f"And here's where it gets even stranger: the same idea shows up in {nxt}.",
+        "challenge": f"Next time you see this, test yourself with one more mystery: {nxt}.",
+        "observation_prompt": f"Keep an eye out for this one too—you've probably noticed it without realizing why: {nxt}?",
+        "hidden_connection": f"There's a completely different everyday thing hiding the same kind of trick: {nxt}.",
+        "unanswered_question": f"Okay, but that leaves one question worth chasing next: {nxt}?",
+        "contrast": f"If that surprised you, the opposite happens for a very different reason: {nxt}.",
+        "everyday_reveal": f"And there's another ordinary thing with an equally strange explanation: {nxt}.",
+        "mystery_escalation": f"One mystery down. The next one gets even harder to explain: {nxt}?",
+    }
+    return variants.get(tease_type,variants["curiosity_connection"]),tease_type
 def _lock_canonical_topic(script,current_topic,locked_topic=None):
     used=[str(current_topic)]; used.extend(x for x in _read_used() if not str(x).startswith(_PENDING_PREFIX))
     candidate=str(locked_topic or (script.get("next_short") or {}).get("topic","")).strip()
@@ -86,10 +95,15 @@ def _strip_model_continuation_from_scene7(final_scene,stale_topics):
 
 def lock_next_topic(script,current_topic,locked_topic=None):
     previous=str((script.get("next_short") or {}).get("topic") or "").strip(); canonical=_lock_canonical_topic(script,current_topic,locked_topic=locked_topic); final_scene=script["scene_plan"][-1]
-    payoff=_strip_model_continuation_from_scene7(final_scene,[previous,canonical]); bridge=_generate_natural_bridge(current_topic,canonical)
+    payoff=_strip_model_continuation_from_scene7(final_scene,[previous,canonical])
+    bridge_result=_generate_natural_bridge(current_topic,canonical)
+    bridge,tease_type=bridge_result if isinstance(bridge_result,tuple) else (str(bridge_result), "curiosity_connection")
     if payoff and not payoff.endswith((".","!","?")): payoff+="."
-    final_scene["narration"]=(payoff+" "+bridge).strip(); final_scene["subtitle_text"]=final_scene["narration"]; script.setdefault("next_short",{})["teaser"]=bridge
-    print("🔒 Canonical next topic: "+canonical); print("🗣️ NATURAL FINAL BRIDGE: "+bridge); return script,canonical
+    final_scene["narration"]=(payoff+" "+bridge).strip()
+    final_scene["subtitle_text"]=final_scene["narration"]
+    script.setdefault("next_short",{})["teaser"]=bridge
+    script["tease_type"]=tease_type
+    print("🔒 Canonical next topic: "+canonical); print("🗣️ NATURAL FINAL BRIDGE: "+bridge); print("🧪 Tease mechanism: "+tease_type); return script,canonical
 
 def _is_transient_gemini_error(error):
     text=str(error or "").lower(); return any(x in text for x in ("503","unavailable","high demand","resource exhausted","429","rate limit","deadline exceeded","timeout","temporarily"))
@@ -145,7 +159,7 @@ def _mark_topic_bookkeeping(script,topic,next_topic,video_id,title,workdir):
     try:
         from youtube_analytics import record_upload
         experiment=script.get("learning_experiment") or {}
-        production_metadata={"topic_category":str(script.get("category","")),"hook_type":str((script.get("scene_plan") or [{}])[0].get("purpose","")),"story_structure":"7_scene_entertainment","visual_style":str((script.get("visual_identity") or {}).get("style","")),"music_type":str((script.get("music") or {}).get("search","")),"voice":str((script.get("voice_style") or {}).get("tone","")),"engagement_experiment":str((script.get("engagement") or {}).get("experiment","")),"audio_duration_seconds":float(script.get("audio_duration_seconds",0) or 0),"words_per_second":float(script.get("words_per_second",0) or 0),"creative_strategy":str(experiment.get("strategy","")),"creative_experiment_id":str(experiment.get("experiment_id","")),"creative_selected_pattern":str(experiment.get("selected_pattern",""))}; record_upload(video_id,topic,title,workdir=workdir,production_metadata=production_metadata); print("🧠 Published creative metadata recorded for future learning.")
+        production_metadata={"topic_category":str(script.get("category","")),"hook_type":str(script.get("hook_type") or (script.get("scene_plan") or [{}])[0].get("purpose","")),"story_format":str(script.get("story_format","")),"payoff_type":str(script.get("payoff_type","")),"tease_type":str(script.get("tease_type","")),"story_structure":"7_scene_entertainment","visual_style":str((script.get("visual_identity") or {}).get("style","")),"music_type":str((script.get("music") or {}).get("search","")),"voice":str((script.get("voice_style") or {}).get("tone","")),"engagement_experiment":str((script.get("engagement") or {}).get("experiment","")),"audio_duration_seconds":float(script.get("audio_duration_seconds",0) or 0),"words_per_second":float(script.get("words_per_second",0) or 0),"creative_strategy":str(experiment.get("strategy","")),"creative_experiment_id":str(experiment.get("experiment_id","")),"creative_selected_pattern":str(experiment.get("selected_pattern",""))}; record_upload(video_id,topic,title,workdir=workdir,production_metadata=production_metadata); print("🧠 Published creative metadata recorded for future learning.")
     except Exception as error: print(f"⚠️ Learning metadata recording skipped: {type(error).__name__}: {error}")
     save_next_short(next_topic); commit_topic(topic); write_continuation_manifest(topic,next_topic,"published",workdir); print(f"✅ TOPIC PROGRESSION COMMITTED | current={topic} | next={next_topic}")
 
@@ -186,9 +200,20 @@ def run(dry_run=False):
     else:
         engagement=dict((script.get("engagement") or {})); engagement.setdefault("comment",""); engagement.setdefault("experiment","resume"); engagement.setdefault("phase","resume"); engagement.setdefault("spoken_prompt",""); engagement.setdefault("share_prompt","")
     if not resumed:
-        playbook=get_playbook(); creative_strategy=select_creative_strategy(playbook); print(f"🧪 Creative strategy: {creative_strategy['strategy']} | mix={creative_strategy['slot']}/10 | id={creative_strategy['experiment_id']}");
+        playbook=get_playbook(); creative_strategy=select_creative_strategy(playbook); print(f"🧪 Creative strategy: {creative_strategy['strategy']} | mix={creative_strategy['slot']}/10 | id={creative_strategy['experiment_id']}")
+        try:
+            from creative_memory import topic_is_novel, build_generation_context
+            novelty, novelty_reason = topic_is_novel(topic)
+            if not novelty:
+                raise RuntimeError(f"Publish topic originality gate rejected {topic!r}: {novelty_reason}")
+            creative_memory_context = build_generation_context()
+        except Exception as error:
+            if "originality gate rejected" in str(error):
+                raise
+            creative_memory_context = "Creative memory unavailable; maximize originality."
+        print("🧠 Creative memory loaded before writing.")
         if creative_strategy.get("selected_pattern"): print(f"🧠 Selected learned pattern: {creative_strategy['selected_pattern']} | score={creative_strategy['selected_score']:.2f} | n={creative_strategy['selected_sample_size']}")
-        learning_context=load_learning_context(); creative_feedback=f"\nCREATIVE EXPERIMENT FOR THIS SHORT:\nStrategy: {creative_strategy['strategy']}\nExperiment ID: {creative_strategy['experiment_id']}\nTarget mix: 70% proven / 20% adjacent / 10% wild.\nSelected learned pattern: {creative_strategy.get('selected_pattern') or 'none'}\nExperiment guidance: {creative_strategy['guidance']}\nDo not copy any learned wording, topic, example, or visual concept. Preserve originality and story quality.\n"; engagement_feedback=f"\nENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}\nUse the mechanic naturally if it fits. Never sound like engagement bait.\nSuggested spoken interaction: {engagement['spoken_prompt']}\nDo not add generic like/subscribe language.\n"; print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS"); script=_generate_valid_script(topic,config,learning_context,creative_feedback+engagement_feedback); script["learning_experiment"]={"strategy":creative_strategy["strategy"],"experiment_id":creative_strategy["experiment_id"],"slot":creative_strategy["slot"],"cycle":creative_strategy["cycle"],"target_mix":creative_strategy["target_mix"],"selected_pattern":creative_strategy.get("selected_pattern",""),"selected_score":creative_strategy.get("selected_score",0.0),"selected_sample_size":creative_strategy.get("selected_sample_size",0),"evidence_based":creative_strategy.get("evidence_based",False)}; next_topic=reserve_next_short(str((script.get("next_short") or {}).get("topic") or ""),current_topic=topic); script["next_short"]=dict(script.get("next_short") or {}); script["next_short"]["topic"]=next_topic; script,next_topic=lock_next_topic(script,topic,locked_topic=next_topic); script["engagement"]={"experiment":engagement["experiment"],"phase":engagement["phase"],"spoken_prompt":engagement["spoken_prompt"],"comment":engagement["comment"],"share_prompt":engagement["share_prompt"]}; workdir=os.path.join("output",str(int(time.time()))); os.makedirs(workdir,exist_ok=True); save_json(script,os.path.join(workdir,"script.json")); write_continuation_manifest(topic,next_topic,"locked",workdir); print(f"✅ Script ready: {workdir}/script.json");
+        learning_context=load_learning_context(); creative_feedback=f"\nCREATIVE MEMORY — DO NOT REPEAT RECENT HOOKS OR TOPICS:\n{creative_memory_context}\n\nCREATIVE EXPERIMENT FOR THIS SHORT:\nStrategy: {creative_strategy['strategy']}\nExperiment ID: {creative_strategy['experiment_id']}\nTarget mix: 70% proven / 20% adjacent / 10% wild.\nSelected learned pattern: {creative_strategy.get('selected_pattern') or 'none'}\nExperiment guidance: {creative_strategy['guidance']}\nDo not copy any learned wording, topic, example, or visual concept. Preserve originality and story quality.\n"; engagement_feedback=f"\nENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}\nUse the mechanic naturally if it fits. Never sound like engagement bait.\nSuggested spoken interaction: {engagement['spoken_prompt']}\nDo not add generic like/subscribe language.\n"; print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS"); script=_generate_valid_script(topic,config,learning_context,creative_feedback+engagement_feedback); script["learning_experiment"]={"strategy":creative_strategy["strategy"],"experiment_id":creative_strategy["experiment_id"],"slot":creative_strategy["slot"],"cycle":creative_strategy["cycle"],"target_mix":creative_strategy["target_mix"],"selected_pattern":creative_strategy.get("selected_pattern",""),"selected_score":creative_strategy.get("selected_score",0.0),"selected_sample_size":creative_strategy.get("selected_sample_size",0),"evidence_based":creative_strategy.get("evidence_based",False)}; next_topic=reserve_next_short(str((script.get("next_short") or {}).get("topic") or ""),current_topic=topic); script["next_short"]=dict(script.get("next_short") or {}); script["next_short"]["topic"]=next_topic; script,next_topic=lock_next_topic(script,topic,locked_topic=next_topic); script["engagement"]={"experiment":engagement["experiment"],"phase":engagement["phase"],"spoken_prompt":engagement["spoken_prompt"],"comment":engagement["comment"],"share_prompt":engagement["share_prompt"]}; workdir=os.path.join("output",str(int(time.time()))); os.makedirs(workdir,exist_ok=True); save_json(script,os.path.join(workdir,"script.json")); write_continuation_manifest(topic,next_topic,"locked",workdir); print(f"✅ Script ready: {workdir}/script.json");
         if dry_run: print("✅ DRY RUN COMPLETE"); return
     if not resumed:
         audio=synthesize_script(script,config,os.path.join(workdir,"audio")); _record_audio_timing(script,audio); save_json(script,os.path.join(workdir,"script.json")); visuals=generate_media(script,os.path.join(workdir,"visuals"),config); sfx=generate_sfx(script,os.path.join(workdir,"sfx")); music=download_music(script,os.path.join(workdir,"music")); final_video=os.path.join(workdir,"final.mp4"); assemble_video(script,audio,visuals,music,sfx,config,final_video); _save_publish_state(workdir,{"status":"ready_for_upload","uploaded":False,"topic":topic,"next_topic":next_topic})

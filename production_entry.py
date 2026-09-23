@@ -144,7 +144,9 @@ def _patch_stock_media_quality():
                 "wrinkle": {"wrinkle", "wrinkles", "wrinkled", "wrinkling", "pruney", "prune", "shrivel", "shriveled", "shrinkage", "skin folds"},
                 "wrinkles": {"wrinkle", "wrinkles", "wrinkled", "wrinkling", "pruney", "prune", "shrivel", "shriveled", "shrinkage", "skin folds"},
                 "water": {"water", "wet", "liquid", "moisture", "soaking", "submerged", "bath", "bathing"},
-                "mirror": {"mirror", "reflection"},
+                "mirror": {"mirror", "mirrors", "reflection", "reflective", "looking glass"},
+                "mirrors": {"mirror", "mirrors", "reflection", "reflective", "looking glass"},
+                "flip": {"flip", "flips", "flipped", "reversal", "reverse", "reversed", "left right", "left-right", "sideways"},
                 "damp": {"damp", "wet", "moist", "moisture"},
                 "towel": {"towel", "towels", "bath towel", "bathroom towel", "cloth", "fabric", "laundry"},
                 "towels": {"towel", "towels", "bath towel", "bathroom towel", "cloth", "fabric", "laundry"},
@@ -257,7 +259,28 @@ def _patch_stock_media_quality():
                 deterministic_queries.append(f"{topic_phrase} {suffix}")
 
             # Broaden only within the current physical subject. Stock libraries
-            # often index wrinkled fingers as "pruney fingers", "wrinkled hands",
+            # often index the same concept with different everyday wording.
+            # Mirrors are commonly tagged as reflection/looking-glass/left-right
+            # demonstrations rather than "flip horizontally", so add bounded
+            # semantic combinations before anchor-only fallbacks.
+            if any(t in topic_vocab_expanded for t in {"mirror", "mirrors", "reflection"}):
+                mirror_queries = (
+                    "mirror reflection",
+                    "mirror looking glass",
+                    "mirror reflection person",
+                    "mirror left right",
+                    "mirror left right hands",
+                    "mirror reversed reflection",
+                    "mirror reversal",
+                    "person looking mirror",
+                    "person facing mirror",
+                    "mirror demonstration",
+                    "mirror reflection face",
+                    "mirror reflection hands",
+                )
+                deterministic_queries.extend(mirror_queries)
+
+            # Fingers are commonly indexed as "pruney fingers", "wrinkled hands",
             # or "fingers soaking in water" rather than the editorial title.
             if any(t in topic_vocab_expanded for t in {"finger", "fingers", "fingertip", "fingertips"}):
                 for body in ("fingers", "hands", "fingertips"):

@@ -321,10 +321,38 @@ def verify_actual(d, items, provider, video, query, strategy):
     return candidates[index]
 
 def _deterministic_score(d, item, provider, video, query):
-    hay = " ".join([query, str(item.get("alt", "")), str(item.get("description", "")), str(item.get("tags", "")), str(item.get("url", ""))]).lower(); anchors = d.get("anchor_terms", []); score = min(sum(1 for term in anchors if term.lower() in hay) * 1.5, 5.0); score += min(sum(1 for word in re.findall(r"[a-z0-9]+", query.lower()) if len(word) > 2 and word in hay) * 0.5, 2.5)
-    if _url(item, provider, video): score += 1.0
-    return score
+    """Score a stock candidate conservatively when Gemini vision is unavailable.
 
+    The query itself is valid evidence of subject relevance: provider metadata often
+    contains little or no useful alt/description text, so the old scorer could reject
+    perfectly relevant videos during a Gemini-quota outage simply because the URL and
+    metadata did not repeat the search terms. Give exact topic/anchor matches meaningful
+    weight while still requiring a usable downloadable asset.
+    """
+    query_text = str(query or "").lower()
+    hay = " ".join([
+        query_text,
+        str(item.get("alt", "")),
+        str(item.get("description", "")),
+        str(item.get("tags", "")),
+        str(item.get("url", "")),
+    ]).lower()
+    query_words = [w for w in re.findall(r"[a-z0-9]+", query_text) if len(w) > 2]
+    anchors = [str(term).lower() for term in (d.get("anchor_terms") or []) if str(term).strip()]
+
+    # Query terms are deliberate camera-visible search terms, so they are stronger
+    # evidence than sparse provider metadata. Exact anchor matches add confidence.
+    score = min(sum(1.25 for word in query_words if word in hay), 4.0)
+    score += min(sum(1.0 for term in anchors if term in hay), 3.0)
+
+    # A direct physical-subject query is enough to establish a useful baseline when
+    # the provider gives minimal metadata. This is especially important for mirror,
+    # towel, finger, phone, car, etc. where stock metadata is inconsistent.
+    if query_words and any(word in {str(a).lower() for a in anchors} for word in query_words):
+        score += 1.5
+    if _url(item, provider, video):
+        score += 1.0
+    return score
 def _select_without_vision(d, items, provider, video, query):
     historical = _historical_asset_keys(); ranked = [item for item in items if _url(item, provider, video) and _asset_key(item, provider, video, _url(item, provider, video)) not in historical]; ranked.sort(key=lambda item: _deterministic_score(d, item, provider, video, query), reverse=True)
     if not ranked: return None

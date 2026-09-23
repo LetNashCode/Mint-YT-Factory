@@ -1,31 +1,5 @@
 [
   {
-    "format": "before_they_were_famous",
-    "person": "J.K. Rowling",
-    "premise": "Living on State Benefits While Writing in Edinburgh Cafes.",
-    "hook": "Before selling millions of books, she wrote manuscript chapters in cafes while relying on state welfare to pay rent.",
-    "key_facts": [
-      "Worked as a researcher and bilingual secretary for Amnesty International.",
-      "Conceived the idea for a boy wizard during a delayed train journey from Manchester to London in 1990.",
-      "Relied on state benefits while raising her infant daughter in Edinburgh.",
-      "Had her initial manuscript rejected by multiple publishing houses before acceptance."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
-    "person": "Dwayne Johnson",
-    "premise": "The NFL rejection and eviction that preceded a legendary career in professional wrestling and cinema.",
-    "hook": "He had just seven dollars in his pocket and no future after football slammed the door in his face.",
-    "key_facts": [
-      "Suffered severe injuries that ended his college football career at the University of Miami.",
-      "Was cut from the Calgary Stampeders in the Canadian Football League, leaving him with seven dollars.",
-      "Transitioned to professional wrestling in the WWF, adopting the persona 'The Rock'.",
-      "Became one of the highest-grossing box office film stars globally."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "strange_turning_point",
     "person": "Walt Disney",
     "premise": "Losing the rights to his first major cartoon character forced the creation of a mouse.",

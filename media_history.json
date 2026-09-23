@@ -6589,6 +6589,26 @@
       "shot": 2,
       "query": "tape sticks",
       "recorded_at": 1790136057
+    },
+    {
+      "asset_key": "pixabay:video:107898",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/02/16/107898-679600374_medium.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "tape real-world context",
+      "recorded_at": 1790137749
+    },
+    {
+      "asset_key": "pixabay:video:13785",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2018/01/14/13785-254542762_medium.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "tape zero resistance",
+      "recorded_at": 1790137752
     }
   ]
 }

@@ -140,8 +140,15 @@ def _patch_stock_media_quality():
                 "car": {"car", "vehicle", "automobile"},
                 "phone": {"phone", "smartphone", "mobile", "cellphone"},
                 "finger": {"finger", "fingers", "hand", "hands"},
-                "water": {"water", "wet", "liquid"},
+                "water": {"water", "wet", "liquid", "moisture"},
                 "mirror": {"mirror", "reflection"},
+                "damp": {"damp", "wet", "moist", "moisture"},
+                "towel": {"towel", "towels", "bath towel", "bathroom towel", "cloth", "fabric", "laundry"},
+                "towels": {"towel", "towels", "bath towel", "bathroom towel", "cloth", "fabric", "laundry"},
+                "smell": {"smell", "smells", "odor", "odour", "scent", "musty"},
+                "musty": {"musty", "odor", "odour", "smell", "scent"},
+                "skin": {"skin", "body", "face", "hands"},
+                "bacteria": {"bacteria", "microbes", "microorganisms", "germs"},
             }
             topic_vocab = set()
             for term in topic_terms:
@@ -149,12 +156,25 @@ def _patch_stock_media_quality():
                 topic_vocab.add(term)
                 topic_vocab.update(aliases.get(term, {term}))
 
+            # Topic lock must mean "same physical subject", not "literal topic words only".
+            # Stock libraries routinely use synonyms (wet -> damp, cloth -> towel, odor -> smell),
+            # while scene-specific queries may add camera-visible details such as bathroom, laundry,
+            # steam, skin, or bacteria. Preserve those queries when they still carry topic evidence.
+            topic_vocab_expanded = set(topic_vocab)
+            for term in list(topic_vocab):
+                topic_vocab_expanded.update(aliases.get(term, {term}))
+
+            anchor_words = set(
+                w for w in re.findall(r"[a-z0-9]+", " ".join(str(x) for x in (result.get("anchor_terms") or [])))
+                if len(w) >= 3
+            )
+
             def query_is_topic_locked(query):
                 words = set(re.findall(r"[a-z0-9]+", str(query or "").lower()))
-                return bool(words & topic_vocab)
+                return bool(words & topic_vocab_expanded) or bool(words & anchor_words)
 
             # Preserve Gemini's concrete scene-specific queries when they still
-            # contain the current topic or a narrow stock-library synonym.
+            # contain the current topic, a narrow synonym, or a concrete scene anchor.
             for entry in result.get("search_ladder") or []:
                 query = str(entry.get("query") or "").strip().lower()
                 if query and query_is_topic_locked(query):
@@ -162,9 +182,9 @@ def _patch_stock_media_quality():
 
             existing = {str(x.get("query") or "") for x in ladder}
 
-            # Deterministic recovery ladder. This is important when Gemini is
-            # rate-limited: every retry must still get materially different,
-            # camera-visible queries instead of recycling five generic queries.
+            # Deterministic recovery ladder. Never inject unrelated vocabulary such
+            # as "cracks/pavement/weeds" into an arbitrary topic; recovery terms come
+            # from the actual scene's camera-visible anchors.
             anchors = [
                 str(term).strip().lower()
                 for term in (result.get("anchor_terms") or [])
@@ -181,23 +201,23 @@ def _patch_stock_media_quality():
                 term = str(term).strip().lower()
                 if (
                     term
-                    and term not in topic_vocab
+                    and term not in topic_vocab_expanded
                     and term not in ignored_recovery
                     and len(term) >= 4
                     and term not in recovery_terms
                 ):
                     recovery_terms.append(term)
-            recovery_terms = recovery_terms[:5]
+            recovery_terms = recovery_terms[:6]
 
             deterministic_queries = [
                 topic_phrase,
                 f"{topic_phrase} close up",
-                f"{topic_phrase} cracks",
-                f"{topic_phrase} pavement",
-                f"{topic_phrase} weeds",
-                f"{topic_phrase} grass",
-                f"{topic_phrase} plants",
-                f"{topic_phrase} nature",
+                f"{topic_phrase} wet",
+                f"{topic_phrase} bathroom",
+                f"{topic_phrase} laundry",
+                f"{topic_phrase} fabric",
+                f"{topic_phrase} moisture",
+                f"{topic_phrase} odor",
             ]
             for term in recovery_terms:
                 deterministic_queries.extend(

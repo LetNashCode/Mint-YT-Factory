@@ -70,7 +70,11 @@ def _consume_pending():
     return pending
 
 def _candidate_is_new(candidate, used):
-    """Apply every topic-level originality gate before a topic enters production."""
+    """Apply every topic-level originality gate before a topic enters production.
+
+    The caller may pass a pending continuation only when that reservation is
+    excluded from the duplicate pool; pending means reserved, not published.
+    """
     if not _is_everyday_topic(candidate): return False
     pool=list(used or [])+published_topics()
     if any(_key(candidate)==_key(x) for x in pool): return False
@@ -124,9 +128,25 @@ def get_next_topic():
     # A queued continuation is only reusable if it still passes the full
     # originality gate. Never let a stale historical duplicate reach production.
     if pending:
-        pending_used=[_clean_topic(x[len(_PENDING_PREFIX):]) if isinstance(x,str) and x.startswith(_PENDING_PREFIX) else x
-                      for x in _read_used()]
+        # A pending continuation is already the successor promised by the
+        # previous Short. Do NOT include the pending reservation itself in its
+        # duplicate pool: doing so makes every valid continuation look like a
+        # duplicate and silently discards the chain after a failed production run.
+        pending_used=[
+            _clean_topic(x[len(_PENDING_PREFIX):])
+            for x in _read_used()
+            if isinstance(x, str) and x.startswith(_PENDING_PREFIX) and _key(x[len(_PENDING_PREFIX):]) != _key(pending)
+        ]
+        pending_used += [
+            _clean_topic(x)
+            for x in _read_used()
+            if not (isinstance(x, str) and x.startswith(_PENDING_PREFIX))
+        ]
+        # Published/history records remain part of originality verification,
+        # but the reservation itself is never treated as already published.
+        pending_used += published_topics()
         if _candidate_is_new(pending, pending_used):
+            print(f"🔗 CONTINUING FROM PREVIOUS SHORT — authoritative successor: {pending}")
             print(f"✅ Topic selection verified: {pending} | NEW + UNIQUE")
             return pending
         print(f"🔄 Queued topic failed originality verification: {pending} — generating a fresh topic.")

@@ -90,7 +90,7 @@ jobs:
           test -f stock_media_resilient.py
           test -f youtube_auth_preflight.py
           test -f portrait_export_guard.py
-          python -m py_compile main.py production_entry.py production_entry_runner.py stock_search.py stock_media_resilient.py tts.py tts_content_guard.py social_publish.py runtime_overrides.py youtube_auth_preflight.py portrait_export_guard.py
+          python -m py_compile main.py generate_script.py creative_memory.py learning_engine.py production_entry.py production_entry_runner.py stock_search.py stock_media_resilient.py tts.py tts_content_guard.py social_publish.py runtime_overrides.py youtube_auth_preflight.py portrait_export_guard.py
           python - <<'PY'
           import stock_media_resilient, tts_content_guard, youtube_auth_preflight, portrait_export_guard
           print("Stock media + TTS content guard + YouTube auth preflight + portrait guard imports OK")

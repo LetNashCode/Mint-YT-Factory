@@ -22,7 +22,7 @@ def _topic_subject_terms(topic):
     text = re.sub(r"^\s*(why|how)\s+(does|do|did|is|are)\s+", "", str(topic or "").lower())
     text = re.sub(r"^\s*(why|how)\s+", "", text)
     stop = set(
-        "a an the and or but with from into under over your you they their make makes made get gets getting got go goes going move moves moving happen happens because really actually will can could should would".split()
+        "a an the and or but with from into under over your you they their make makes made get gets getting got go goes going move moves moving happen happens because really actually will can could should would not no never simply just being used use using action outdoors indoors".split()
     )
     words = [w for w in re.findall(r"[a-z]{3,}", text) if w not in stop]
     return words[:3]
@@ -133,6 +133,8 @@ def _patch_stock_media_quality():
             result["anchor_terms"] = anchors[:10]
             ladder = []
             topic_phrase = " ".join(topic_terms[:2])
+            # Stock libraries index the concrete physical subject better than editorial mechanics.
+            physical_subject = "mirror" if any(t in {"mirror", "mirrors"} for t in topic_terms) else topic_phrase
 
             aliases = {
                 "tape": {"tape", "adhesive", "packing", "masking", "duct", "sealing", "taping"},
@@ -203,6 +205,7 @@ def _patch_stock_media_quality():
             recovery_terms = []
             ignored_recovery = {
                 "the", "and", "with", "from", "into", "that", "this", "there",
+                "not", "no", "never", "simply", "just", "being", "used", "use", "using",
                 "has", "have", "had", "being", "used", "real", "life", "show",
                 "shows", "scene", "shot", "visual", "focus", "action", "camera",
                 "same", "thing", "object", "ordinary", "only", "current",
@@ -272,8 +275,16 @@ def _patch_stock_media_quality():
                     "mirror left right hands",
                     "mirror reversed reflection",
                     "mirror reversal",
-                    "person looking mirror",
+                    "person looking in mirror",
                     "person facing mirror",
+                    "woman looking in mirror",
+                    "man looking in mirror",
+                    "person mirror reflection",
+                    "bathroom mirror person",
+                    "bedroom mirror person",
+                    "mirror selfie",
+                    "checking reflection mirror",
+                    "looking at mirror",
                     "mirror demonstration",
                     "mirror reflection face",
                     "mirror reflection hands",
@@ -314,7 +325,7 @@ def _patch_stock_media_quality():
                     semantic_bases.append(clean)
             # Prefer the editorial topic phrase, then semantic physical-subject
             # phrases. Keep this deterministic so retries remain reproducible.
-            base_phrases = [topic_phrase]
+            base_phrases = [physical_subject, topic_phrase]
             for base in semantic_bases[:8]:
                 base_phrases.append(f"{base}")
             for base in base_phrases:

@@ -71,6 +71,19 @@ def ensure_portrait_export(path: str | Path) -> Path:
     if width <= 0 or height <= 0:
         raise RuntimeError(f"Invalid video dimensions: {width}x{height}")
 
+    # Fast path: a valid portrait export is already compliant. Re-encoding every
+    # run is wasteful and can fail on GitHub-hosted runners for very large 4K files.
+    # The guard's job here is to enforce the final frame geometry, not to transcode
+    # an already-valid master again.
+    codec = str(probe.get("codec_name") or "")
+    pix_fmt = str(probe.get("pix_fmt") or "")
+    if width == TARGET_WIDTH and height == TARGET_HEIGHT:
+        print(
+            f"✅ Portrait export already compliant: {width}x{height} "
+            f"{codec or 'unknown'}/{pix_fmt or 'unknown'}; skipping re-encode."
+        )
+        return source
+
     crop = _detect_embedded_black_bars(source)
     crop_filter = ""
     if crop:

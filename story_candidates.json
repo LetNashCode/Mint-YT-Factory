@@ -89,18 +89,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Tenzing Norgay",
-    "premise": "An experienced Sherpa guide makes his seventh attempt to reach the highest peak on Earth after decades of being a supporting climber.",
-    "hook": "He spent his entire life helping other climbers reach the summit, until it was finally his turn.",
-    "key_facts": [
-      "Participated in multiple Himalayan expeditions as a high-altitude porter and guide.",
-      "Reached the summit of Mount Everest alongside Edmund Hillary on May 29, 1953.",
-      "Achieved international recognition as one of the first two individuals to stand on the highest point on Earth."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "strange_turning_point",
     "person": "J.K. Rowling",
     "premise": "A struggling single mother writes chapters of a fantasy novel on scraps of paper in Edinburgh cafes during her daughter's naps.",

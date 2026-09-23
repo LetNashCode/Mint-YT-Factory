@@ -153,6 +153,9 @@ def _patch_stock_media_quality():
         return result
 
     def deterministic_score(d, item, provider, video, query):
+        # Vision can be temporarily unavailable (for example after a Gemini
+        # quota response). The metadata fallback must still find semantically
+        # relevant stock instead of requiring the exact literal topic word.
         hay = " ".join(
             [
                 str(item.get("alt", "")),
@@ -161,15 +164,54 @@ def _patch_stock_media_quality():
                 str(item.get("url", "")),
             ]
         ).lower()
+        query_text = str(query or "").lower()
         topic_terms = list(getattr(stock_search, "_mint_active_topic_terms", []))
-        if topic_terms and not any(re.search(r"\b" + re.escape(term) + r"s?\b", hay) for term in topic_terms):
-            return 0.0
         anchors = list(d.get("anchor_terms") or [])
+
+        # Common stock-library vocabulary can differ from the topic wording.
+        # Keep this deliberately narrow so topic lock remains meaningful.
+        aliases = {
+            "tape": {"tape", "adhesive", "packing", "masking", "duct", "sealing", "taping"},
+            "adhesive": {"adhesive", "tape", "taping", "sealing"},
+            "car": {"car", "vehicle", "automobile"},
+            "phone": {"phone", "smartphone", "mobile", "cellphone"},
+            "finger": {"finger", "fingers", "hand", "hands"},
+            "water": {"water", "wet", "liquid"},
+            "mirror": {"mirror", "reflection"},
+        }
+
+        topic_vocab = set()
+        for term in topic_terms:
+            term = str(term).strip().lower()
+            if not term:
+                continue
+            topic_vocab.add(term)
+            topic_vocab.update(aliases.get(term, {term}))
+
+        def hit(term, text):
+            term = str(term or "").strip().lower()
+            if not term:
+                return False
+            return bool(re.search(r"\b" + re.escape(term) + r"s?\b", text))
+
+        topic_hits = sum(1 for term in topic_vocab if hit(term, hay))
+        anchor_hits = sum(1 for term in anchors if hit(term, hay))
+        query_words = {
+            word for word in re.findall(r"[a-z]{3,}", query_text)
+            if word not in {"the", "and", "with", "being", "used", "real", "life", "close", "up", "action"}
+        }
+        query_hits = sum(1 for word in query_words if hit(word, hay))
+
+        # A candidate remains topic-locked when it matches the topic directly
+        # or a narrow topic synonym. Query/anchor matches provide additional
+        # evidence for practical stock-search vocabulary.
+        if topic_terms and topic_hits == 0 and anchor_hits == 0 and query_hits == 0:
+            return 0.0
+
         score = 0.0
-        topic_hits = sum(1 for term in topic_terms if re.search(r"\b" + re.escape(term) + r"s?\b", hay))
-        score += topic_hits * 4.0
-        anchor_hits = sum(1 for term in anchors if term and re.search(r"\b" + re.escape(term) + r"s?\b", hay))
-        score += min(anchor_hits * 1.0, 4.0)
+        score += min(topic_hits * 3.0, 6.0)
+        score += min(anchor_hits * 1.25, 4.0)
+        score += min(query_hits * 0.75, 3.0)
         if stock_search._url(item, provider, video):
             score += 0.5
         return score

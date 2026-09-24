@@ -73,10 +73,6 @@ def ai(p):
  for attempt in range(1,5):
   client=None
   try:
-   # Keep a strong reference to the Client for the complete request.  The
-   # google-genai SDK can otherwise surface "client has been closed" from its
-   # internal retry path when a temporary Client is chained directly into
-   # models.generate_content().
    client=genai.Client(api_key=k)
    r=client.models.generate_content(
     model=model,
@@ -99,6 +95,7 @@ def ai(p):
    print(f'⚠️ Gemini transient failure ({attempt}/4): {error}; retrying in {delay}s')
    time.sleep(delay)
  raise RuntimeError(f'Gemini generation failed: {last}')
+
 def search(q):
  out=[];pk=os.getenv('PEXELS_API_KEY','');xb=os.getenv('PIXABAY_API_KEY','')
  if pk:
@@ -114,6 +111,7 @@ def search(q):
     fs=sorted((v.get('videos') or {}).values(),key=lambda x:-float(x.get('width') or 0))
     if fs and fs[0].get('url'):out.append((f"pixabay:{v.get('id')}",fs[0]['url']))
  return out
+
 def run(c,msg):
  p=subprocess.run(c,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
  if p.returncode:
@@ -122,84 +120,42 @@ def run(c,msg):
   print(f'\\n❌ {msg}\\nCommand: {cmd}\\nReturn code: {p.returncode}\\nFFmpeg stderr:\\n{err[-12000:]}',flush=True)
   raise RuntimeError(f'{msg}: {err[-1200:] or "ffmpeg returned a non-zero exit code"}')
  return p.stdout.strip()
+
+def _word_count(text):
+ return len(re.findall(r"\b[\w'-]+\b",str(text or '')))
+
 def main():
  resume=_load_pending_resume()
  if resume:
   _resume_and_upload(resume)
   return
+
  p='''Create an original 54-second cinematic emotional Reel. Use intimate reflective quote-video pacing, but do not copy any creator or wording. The viewer should feel directly addressed. Build: immediate recognition, hidden pressure, escalation, turning point, relief, memorable close. No medical claims, diagnosis, crisis language, emojis, or "you are not alone" cliche.
 Return JSON with title, description, hashtags and exactly 9 scenes.
 Each scene has text (4-12 words) for the screen, narration (12-18 natural spoken words) that expands the same thought, and search (concrete visible stock-video query).
 Scene 1 text is a 4-8 word hook. Scene 9 is a memorable closing thought.
-Total narration should be about 120-145 words. Narration must flow as ONE continuous story, not nine disconnected quotes.'''
+Total narration should be about 120-145 words. Narration must flow as ONE continuous story, not nine disconnected quotes.
+IMPORTANT: Every narration word you generate is production-critical. Do not omit, summarize, truncate, rewrite, compact, or otherwise remove any narration content after this JSON is accepted. The exact concatenated scene narration is the script that must be spoken in full.'''
+
  d=None;scenes=None;narration=''
- last_candidate=None
- for attempt in range(1,6):
+ for attempt in range(1,9):
   candidate=ai(p);candidate_scenes=candidate.get('scenes')
   if not isinstance(candidate_scenes,list) or len(candidate_scenes)!=N:
-   print(f'⚠️ Emotional Reel script attempt {attempt}/5 rejected: need exactly {N} scenes',flush=True);continue
+   print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: need exactly {N} scenes',flush=True);continue
   candidate_narration=' '.join(str(s.get('narration','')).strip() for s in candidate_scenes).strip()
-  word_count=len(re.findall(r"\b[\w'-]+\b",candidate_narration))
-  last_candidate=(candidate,candidate_scenes,candidate_narration,word_count)
-  if 110 <= word_count <= 145:
+  word_count=_word_count(candidate_narration)
+  scene_counts=[_word_count(s.get('narration','')) for s in candidate_scenes]
+  if 120 <= word_count <= 145 and all(12 <= n <= 18 for n in scene_counts):
    d,scenes,narration=candidate,candidate_scenes,candidate_narration
+   print(f'✅ Complete narration script accepted: {word_count} words | scene counts={scene_counts}',flush=True)
    break
-  print(f'⚠️ Emotional Reel script attempt {attempt}/5 rejected: narration has {word_count} words; target is 110-145',flush=True)
-
- if d is None and last_candidate is not None:
-  candidate,candidate_scenes,candidate_narration,word_count=last_candidate
-  print(f'⚠️ No in-range script after 5 attempts; requesting one final compact rewrite from Gemini ({word_count} words)',flush=True)
-  compact_prompt="""Rewrite ONLY the narration fields of this 9-scene Emotional Reel.
-Keep the exact same story, emotional arc, facts, scene order, and meaning.
-Return JSON with exactly 9 scenes, preserving each scene's text and search fields.
-Make every narration 12-15 natural spoken words.
-Total narration MUST be 115-135 words.
-Do not add new ideas, disclaimers, emojis, or a CTA.
-Narration must remain one continuous story.
-
-SOURCE JSON:
-""" + json.dumps(candidate,ensure_ascii=False)
-  compact=None
-  try:
-   compact=ai(compact_prompt)
-  except Exception as compact_error:
-   print(f'⚠️ Gemini compact rewrite failed; using deterministic fallback: {compact_error}',flush=True)
-  compact_scenes=compact.get('scenes') if isinstance(compact,dict) else None
-  if isinstance(compact_scenes,list) and len(compact_scenes)==N:
-   compact_narration=' '.join(str(s.get('narration','')).strip() for s in compact_scenes).strip()
-   compact_words=len(re.findall(r"\b[\w'-]+\b",compact_narration))
-   compact_scene_counts=[len(re.findall(r"\b[\w'-]+\b",str(s.get('narration','')))) for s in compact_scenes]
-   if 110 <= compact_words <= 145 and all(12 <= n <= 18 for n in compact_scene_counts):
-    d,scenes,narration=compact,compact_scenes,compact_narration
-    print(f'✅ Compact narration rewrite accepted: {compact_words} words',flush=True)
-
- # Gemini can still occasionally ignore numeric word-count constraints. Do not
- # fail the entire production for that. Use a deterministic last-resort compactor
- # that preserves the selected story, scene order, text and searches.
- if d is None and last_candidate is not None:
-  candidate,candidate_scenes,_,_=last_candidate
-  fallback_scenes=[]
-  for scene in candidate_scenes:
-   raw_words=re.findall(r"\b[\w'-]+\b",str(scene.get('narration','')).strip())
-   raw_words=raw_words[:15]
-   fallback=dict(scene)
-   fallback['narration']=' '.join(raw_words).strip()
-   if fallback['narration'] and not fallback['narration'].endswith(('.', '!', '?')):
-    fallback['narration'] += '.'
-   fallback_scenes.append(fallback)
-  fallback_narration=' '.join(str(s.get('narration','')).strip() for s in fallback_scenes).strip()
-  fallback_words=len(re.findall(r"\b[\w'-]+\b",fallback_narration))
-  fallback_counts=[len(re.findall(r"\b[\w'-]+\b",str(s.get('narration','')))) for s in fallback_scenes]
-  if 110 <= fallback_words <= 145 and len(fallback_scenes)==N and all(1 <= n <= 15 for n in fallback_counts):
-   d=dict(candidate)
-   d['scenes']=fallback_scenes
-   scenes=fallback_scenes
-   narration=fallback_narration
-   print(f'⚠️ Gemini compact rewrite was out of budget; using deterministic narration compactor: {fallback_words} words',flush=True)
+  print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: total={word_count} words, scene counts={scene_counts}; requiring 120-145 total and 12-18 per scene',flush=True)
 
  if d is None:
-  raise RuntimeError('Could not generate a valid Emotional Reel narration after bounded retries, Gemini compaction, and deterministic fallback')
- (OUT/'script.json').write_text(json.dumps(d,indent=2,ensure_ascii=False),encoding='utf-8');(OUT/'narration.txt').write_text(narration,encoding='utf-8')
+  raise RuntimeError('Could not generate a valid full-length Emotional Reel narration after 8 bounded attempts. No narration was compacted or dropped.')
+
+ (OUT/'script.json').write_text(json.dumps(d,indent=2,ensure_ascii=False),encoding='utf-8')
+ (OUT/'narration.txt').write_text(narration,encoding='utf-8')
  used=set();rendered=[]
  for i,s in enumerate(scenes,1):
   cand=[x for x in search(s['search']) if x[0] not in used]
@@ -213,9 +169,8 @@ SOURCE JSON:
   words=str(s['text']).split();text=(' '.join(words[:len(words)//2])+'\n'+' '.join(words[len(words)//2:])) if len(words)>7 else str(s['text']);txt.write_text(text,encoding='utf-8')
   vf="scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,eq=brightness=-0.03:saturation=0.90"
   run(['ffmpeg','-y','-hide_banner','-loglevel','error','-stream_loop','-1','-i',str(raw),'-t',str(SEC),'-vf',vf,'-an','-r','30','-c:v','libx264','-preset','fast','-crf','19','-pix_fmt','yuv420p',str(out)],f'Scene {i} failed');rendered.append(out)
+
  manifest=OUT/'concat.txt'
- # Validate every rendered segment before assembly so bad media never reaches
- # concat as an opaque FFmpeg failure.
  for i,p in enumerate(rendered,1):
   if not p.exists() or p.stat().st_size < 4096:
    raise RuntimeError(f'Scene {i} output is missing or suspiciously small: {p}')
@@ -229,9 +184,7 @@ SOURCE JSON:
   if not stream or stream.get('codec_name')!='h264' or int(stream.get('width') or 0)!=1080 or int(stream.get('height') or 0)!=1920 or duration < SEC-0.15 or size < 4096:
    raise RuntimeError(f'Scene {i} has unexpected media properties: {probe.stdout}')
   print(f'✅ Scene {i} validated: {duration:.2f}s {stream.get("codec_name")} {stream.get("width")}x{stream.get("height")} {stream.get("pix_fmt")}',flush=True)
- # IMPORTANT: concat resolves relative file entries relative to concat.txt's
- # directory. Use absolute paths and real newline characters, not the literal
- # two-character sequence \\n.
+
  manifest.write_text('\n'.join("file '"+p.resolve().as_posix().replace("'","'\\\\''")+"'" for p in rendered)+'\n',encoding='utf-8')
  print(f'🎬 Concatenating {len(rendered)} validated scenes',flush=True)
  print(manifest.read_text(encoding='utf-8'),flush=True)
@@ -244,13 +197,18 @@ SOURCE JSON:
  if not silent.exists() or silent.stat().st_size < 4096:
   raise RuntimeError(f'Concat produced no usable output: {silent}')
  print(f'✅ Silent reel assembled: {silent.stat().st_size} bytes',flush=True)
+
  cfg=yaml.safe_load(Path('config.yaml').read_text());cfg['voice']=dict(cfg.get('voice') or {});cfg['voice'].update({'provider':'kokoro','voice_name':os.getenv('EMOTIONAL_REEL_KOKORO_VOICE','am_echo'),'kokoro_lang':'a','speed':float(os.getenv('EMOTIONAL_REEL_KOKORO_SPEED','0.92'))})
- os.environ['MINT_TTS_PROVIDER']='kokoro';narration_audio=OUT/'narration.mp3'
- synthesize_narration(narration,cfg,str(narration_audio),target_duration=50.0)
+ os.environ['MINT_TTS_PROVIDER']='kokoro'
+ narration_audio=OUT/'narration.mp3'
+ # Use the full 54-second reel as the hard narration budget. TTS may speed up
+ # the complete script, but it must never truncate or drop its ending.
+ synthesize_narration(narration,cfg,str(narration_audio),target_duration=53.5)
+
  music=download_music(d,str(OUT))
  if not music:raise RuntimeError('No music in assets/music')
  final=OUT/'final.mp4'
- # Hard audio gate: never publish a music-only Emotional Reel.
+
  probe=subprocess.run(['ffprobe','-v','error','-select_streams','a:0','-show_entries','stream=codec_name,duration,sample_rate','-of','json',str(narration_audio)],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
  if probe.returncode:
   raise RuntimeError(f'Voice narration ffprobe failed: {probe.stderr.strip()}')
@@ -260,7 +218,9 @@ SOURCE JSON:
   raise RuntimeError(f'Voice narration probe returned invalid data: {e}')
  if not audio_stream or voice_duration < 5.0:
   raise RuntimeError(f'Voice narration missing or too short: {probe.stdout}')
- print(f'🎙️ VOICE NARRATION VERIFIED | provider=Kokoro-82M | voice={cfg["voice"].get("voice_name")} | duration={voice_duration:.2f}s',flush=True)
+ if voice_duration > 53.5:
+  raise RuntimeError(f'Complete narration is {voice_duration:.2f}s after speed adaptation, which exceeds the 53.5s audio budget. Refusing to truncate the script.')
+ print(f'🎙️ VOICE NARRATION VERIFIED | provider=Kokoro-82M | voice={cfg["voice"].get("voice_name")} | duration={voice_duration:.2f}s | COMPLETE_SCRIPT_PRESERVED=YES',flush=True)
 
  print('🌈 BUILDING EMOTIONAL REEL CAPTIONS — SHARED MINT STYLE',flush=True)
  words=transcribe(str(narration_audio))
@@ -292,10 +252,6 @@ SOURCE JSON:
    try: clip.close()
    except Exception: pass
 
- # Mix music and narration into ONE AAC program track.
- # Mapping [m] and [n] separately creates multiple audio streams; many players
- # select only the first stream, which can make a successfully generated Kokoro
- # voice appear absent.
  mix='[1:a]volume=0.12,afade=t=in:st=0:d=1.2,afade=t=out:st=51:d=3[m];[2:a]volume=1.0[n];[m][n]amix=inputs=2:duration=longest:dropout_transition=0,aresample=async=1:first_pts=0[mixout]'
  run(['ffmpeg','-y','-hide_banner','-loglevel','error','-i',str(captioned_path),'-stream_loop','-1','-i',str(music),'-i',str(narration_audio),'-filter_complex',mix,'-map','0:v:0','-map','[mixout]','-t','54','-c:v','copy','-c:a','aac','-b:a','192k','-ac','2','-movflags','+faststart',str(final)],'Music and narration mix failed')
  if not final.exists() or final.stat().st_size < 4096:
@@ -304,11 +260,15 @@ SOURCE JSON:
  if final_probe.returncode:
   raise RuntimeError(f'Final Emotional Reel audio probe failed: {final_probe.stderr.strip()}')
  final_audio=json.loads(final_probe.stdout).get('streams') or []
- if not final_audio or float(final_audio[0].get('duration') or 0) < 5.0:
+ final_audio_duration=float(final_audio[0].get('duration') or 0) if final_audio else 0.0
+ if not final_audio or final_audio_duration < 5.0:
   raise RuntimeError('Final Emotional Reel has no usable audio track; upload blocked.')
- print(f'✅ FINAL REEL AUDIO VERIFIED | voice narration + music | duration={float(final_audio[0].get("duration") or 0):.2f}s',flush=True)
+ if final_audio_duration + 0.25 < voice_duration:
+  raise RuntimeError(f'Final mix is shorter than the complete narration ({final_audio_duration:.2f}s final vs {voice_duration:.2f}s voice); upload blocked to prevent narration truncation.')
+ print(f'✅ FINAL REEL AUDIO VERIFIED | complete voice narration + music | duration={final_audio_duration:.2f}s | COMPLETE_SCRIPT_PRESERVED=YES',flush=True)
+
  final_sha256=_file_sha256(final)
- resume_state={'status':'pending_upload','final_path':str(final),'final_sha256':final_sha256,'cache_key':f'emotional-reel-final-v2-{final_sha256[:32]}','title':d['title'],'description':d['description'],'hashtags':d.get('hashtags',[]),'engagement_comment':scenes[-1]['text'],'voice':cfg['voice'],'created_at':int(time.time())}
+ resume_state={'status':'pending_upload','final_path':str(final),'final_sha256':final_sha256,'cache_key':f'emotional-reel-final-v2-{final_sha256[:32]}','title':d['title'],'description':d['description'],'hashtags':d.get('hashtags',[]),'engagement_comment':scenes[-1]['text'],'voice':cfg['voice'],'created_at':int(time.time()),'narration_word_count':_word_count(narration),'complete_script_preserved':True}
  _write_resume_state(resume_state)
  print(f'💾 RENDER CHECKPOINT SAVED | sha256={final_sha256[:16]} | cache_key={resume_state["cache_key"]}',flush=True)
  cfg['seo']['hashtags']=d.get('hashtags',[]);cfg.setdefault('upload',{})['privacy_status']=os.getenv('EMOTIONAL_REEL_PRIVACY','public')

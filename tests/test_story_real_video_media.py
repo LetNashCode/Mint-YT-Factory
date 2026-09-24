@@ -67,24 +67,33 @@ def test_verification_fails_closed(change):
 
 def test_commons_search_filters_video_and_follows_continuation(monkeypatch):
     calls = []
+    seen_queries = {}
     def fetch(url, **params):
         calls.append(params)
+        query = params["gsrsearch"]
+        page_number = seen_queries.get(query, 0) + 1
+        seen_queries[query] = page_number
         page = {"pageid": len(calls), "title": "Nelson Mandela", "imageinfo": [
             {"url": "https://example.org/video.webm", "mime": "video/webm"}]}
         result = {"query": {"pages": {str(len(calls)): page}}}
-        if len(calls) == 1:
+        # Model the Commons API contract accurately: every discovery query has
+        # its own continuation token. This prevents the test from depending on
+        # a global call counter and catches regressions in per-query pagination.
+        if page_number == 1:
             result["continue"] = {"gsroffset": 40, "continue": "gsroffset||"}
         return result
     monkeypatch.setattr(media, "get_json", fetch)
     results = media.search_commons("Nelson Mandela")
-    # Three discovery queries are intentionally used; each follows Commons continuation.
-    # The important contract is that pagination is followed and every returned item is video.
-    assert len(results) == 4
+    # Three discovery queries are intentionally used; each must follow its own
+    # Commons continuation and every returned item must be video.
+    assert len(results) == 6
     assert all(item["provider"] == "Wikimedia Commons" for item in results)
     assert all(item["url"].endswith("video.webm") for item in results)
+    assert len(seen_queries) == 3
+    assert all(count == 2 for count in seen_queries.values())
     assert "filetype:video" in calls[0]["gsrsearch"]
     assert calls[1]["gsroffset"] == 40
-    assert len(calls) == 6
+    assert calls[3]["gsroffset"] == 40
 
 
 def test_provider_outage_does_not_block_other_sources(monkeypatch):

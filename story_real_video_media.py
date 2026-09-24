@@ -203,8 +203,15 @@ def frames(path, duration):
 def verification_passes(result):
     try:
         score = float(result.get("relevance", 0))
-        return (result.get("person_visible") is True and result.get("real_footage") is True
-                and result.get("usable") is True and math.isfinite(score) and 6 <= score <= 10)
+        direct_person = result.get("person_visible") is True
+        direct_event = str(result.get("usage", "")).strip().lower() == "direct_event"
+        return (
+            result.get("real_footage") is True
+            and result.get("usable") is True
+            and math.isfinite(score)
+            and 6 <= score <= 10
+            and (direct_person or (direct_event and score >= 7.0))
+        )
     except (TypeError, ValueError, AttributeError):
         return False
 
@@ -225,7 +232,9 @@ def verify(person, scene, item, samples):
         "Do not claim it is footage of a specific event unless supported. Reject a crop that would lose the subject "
         "in the central 9:16 region, severe watermarks or illegible/very poor footage. "
         "Return JSON with boolean person_visible, real_footage, usable; numeric relevance (0-10); "
-        "string reason; and usage ('direct_event' or 'biographical_illustration').\n" +
+        "string reason; and usage ('direct_event' or 'biographical_illustration'). "
+        "Use direct_event only when the actual moving footage materially depicts the narrated historical event/context; "
+        "otherwise use biographical_illustration."\n" +
         json.dumps({"person": person, "narration": scene.get("narration", ""),
                     "visuals": scene.get("visuals", []), "source_title": item.get("title"),
                     "source_description": item.get("description")}, ensure_ascii=False))

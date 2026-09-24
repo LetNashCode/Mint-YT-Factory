@@ -113,11 +113,13 @@ Total narration should be about 120-145 words. Narration must flow as ONE contin
   if not stream or stream.get('codec_name')!='h264' or int(stream.get('width') or 0)!=1080 or int(stream.get('height') or 0)!=1920 or duration < SEC-0.15 or size < 4096:
    raise RuntimeError(f'Scene {i} has unexpected media properties: {probe.stdout}')
   print(f'✅ Scene {i} validated: {duration:.2f}s {stream.get("codec_name")} {stream.get("width")}x{stream.get("height")} {stream.get("pix_fmt")}',flush=True)
- manifest.write_text('\\n'.join("file '"+p.as_posix()+"'" for p in rendered)+'\\n',encoding='utf-8')
+ # IMPORTANT: concat resolves relative file entries relative to concat.txt's
+ # directory. Use absolute paths and real newline characters, not the literal
+ # two-character sequence \\n.
+ manifest.write_text('\\n'.join("file '"+p.resolve().as_posix().replace("'","'\\\\''")+"'" for p in rendered)+'\\n',encoding='utf-8')
  print(f'🎬 Concatenating {len(rendered)} validated scenes',flush=True)
+ print(manifest.read_text(encoding='utf-8'),flush=True)
  silent=OUT/'silent.mp4'
- # Prefer stream-copy; automatically retry with a normalized H.264 encode if
- # concat metadata/timestamps are rejected.
  try:
   run(['ffmpeg','-y','-hide_banner','-loglevel','error','-f','concat','-safe','0','-i',str(manifest),'-c','copy','-movflags','+faststart',str(silent)],'Concat stream-copy failed')
  except RuntimeError as first_error:

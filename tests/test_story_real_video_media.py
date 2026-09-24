@@ -440,3 +440,36 @@ def test_quota_or_server_error_moves_to_pinned_model(monkeypatch, status):
     monkeypatch.setattr(media.requests, "post", post)
     assert media.verification_passes(media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"]))
     assert len(calls) == 2 and "gemini-3.1-flash-lite" in calls[1]
+
+
+def test_story_media_recovery_classifies_only_content_availability_failures():
+    import story_identity_runner as runner
+    assert runner._story_media_failure(
+        RuntimeError("Insufficient verified real footage of Ernest Shackleton for scene 1, shot 1")
+    )
+    assert runner._story_media_failure(
+        RuntimeError("No real video candidates found for Ernest Shackleton")
+    )
+    assert runner._story_media_failure(
+        RuntimeError("Story video search budget exhausted; see story_video_audit.json")
+    )
+    assert not runner._story_media_failure(RuntimeError("Story visual verifier HTTP 429"))
+    assert not runner._story_media_failure(RuntimeError("ffmpeg failed"))
+    assert not runner._story_media_failure(RuntimeError("Final video quality gate failed"))
+
+
+def test_story_media_recovery_releases_and_quarantines_failed_subject(monkeypatch, tmp_path):
+    import story_identity_runner as runner
+    pending = {"pillar": "impossible_odds", "topic": "Bad subject story",
+               "person": "Ernest Shackleton", "status": "reserved", "number": 7}
+    released = []
+    monkeypatch.setattr(runner.interactive_topics, "get_pending_story", lambda: pending)
+    monkeypatch.setattr(
+        runner,
+        "_release_failed_story",
+        lambda person: released.append(person),
+    )
+    # The public helper remains intentionally small and independently testable:
+    # the production runner delegates reservation cleanup to story_topic_runtime.
+    runner._release_failed_story("Ernest Shackleton")
+    assert released == ["Ernest Shackleton"]

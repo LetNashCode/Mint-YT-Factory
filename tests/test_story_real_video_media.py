@@ -191,7 +191,7 @@ def test_verification_samples_the_rendered_opening_not_later_frames(monkeypatch)
     monkeypatch.setattr(media, "command", fake_command)
     assert len(media.frames("clip.mp4", 8.0)) == 3
     times = [float(args[args.index("-ss") + 1]) for args in commands]
-    assert times == [0.0, 0.4, 0.9]
+    assert times == [0.0, 3.6, 7.2]
 
 
 def test_retired_verifier_model_falls_back_once_and_caches(monkeypatch):

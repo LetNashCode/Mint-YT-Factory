@@ -22,15 +22,35 @@ def _get_model(name=WHISPER_MODEL_NAME):
     return _model
 
 def _load_expected_words(audio_path):
-    run_dir = os.path.dirname(os.path.dirname(os.path.abspath(audio_path)))
-    script_path = os.path.join(run_dir, "script.json")
-    try:
-        with open(script_path, "r", encoding="utf-8") as f: script = json.load(f)
-        text = " ".join(str(s.get("narration", "")) for s in script.get("scene_plan", []) if isinstance(s, dict))
-        return _WORD_RE.findall(text)
-    except Exception as error:
-        print(f"⚠️ Could not load expected narration words: {error}")
-        return []
+    # Most pipelines keep script.json beside the narration file; legacy Publish
+    # runs keep it one directory above. Prefer the local artifact so workflows
+    # such as Emotional Reel can use the same caption aligner without copying
+    # files into the repository root.
+    audio_dir = os.path.dirname(os.path.abspath(audio_path))
+    run_dir = os.path.dirname(audio_dir)
+    candidates = [
+        os.path.join(audio_dir, "script.json"),
+        os.path.join(run_dir, "script.json"),
+    ]
+    last_error = None
+    for script_path in candidates:
+        try:
+            if not os.path.exists(script_path):
+                continue
+            with open(script_path, "r", encoding="utf-8") as f:
+                script = json.load(f)
+            text = " ".join(
+                str(s.get("narration", ""))
+                for s in script.get("scene_plan", [])
+                if isinstance(s, dict)
+            )
+            words = _WORD_RE.findall(text)
+            if words:
+                return words
+        except Exception as error:
+            last_error = error
+    print(f"⚠️ Could not load expected narration words: {last_error or candidates}")
+    return []
 
 def _audio_duration(path):
     try:

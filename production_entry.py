@@ -13,7 +13,7 @@ from story_quality_gate import patch_story_generation
 
 MIN_NARRATION_SECONDS = 35.0
 MAX_NARRATION_SECONDS = 44.95
-MAX_SHORT_TTS_REGEN = 1
+MAX_SHORT_TTS_REGEN = 3
 COMPLETED_PUBLICATIONS = Path("completed_publications.json")
 
 
@@ -548,13 +548,14 @@ def _patch_tts_duration(main):
                     f"(allowed {MIN_NARRATION_SECONDS:.2f}-{MAX_NARRATION_SECONDS:.2f}s)."
                 )
             direction = (
-                f"The previous narration rendered at {duration:.2f} seconds and is TOO LONG. Rewrite it shorter. Remove filler and repeated explanation while keeping the hook, escalation, and payoff."
+                f"The previous narration rendered at {duration:.2f} seconds and is TOO LONG. Keep the CURRENT TOPIC and payoff but tighten the core narration toward 105-120 core words plus the locked continuation bridge. Remove filler and repeated explanation."
                 if duration > MAX_NARRATION_SECONDS
-                else f"The previous narration rendered at {duration:.2f} seconds and is TOO SHORT. Add concrete everyday details and escalation, not scientific filler."
+                else f"The previous narration rendered at {duration:.2f} seconds and is TOO SHORT. Expand the CURRENT TOPIC explanation substantially: target roughly 105-120 core words plus the locked continuation bridge, for about 120-140 total spoken words. Add concrete everyday details, mechanism, escalation, and payoff; never add a second topic or filler."
             )
             feedback = (
                 f"{direction} CURRENT TOPIC: {topic!r}. The canonical next topic is locked as metadata: {current_next!r}. "
-                "Write only the current-topic story. Do not add any continuation sentence; the pipeline appends the preview separately after generation."
+                "Write only the current-topic story. Do not add any continuation sentence; the pipeline appends the preview separately after generation. "
+                "For a short-duration recovery, target enough substance to produce roughly 120-140 total spoken words after the canonical bridge is restored."
             )
             try:
                 candidate = main.generate_script(topic, config, None, extra_feedback=feedback)

@@ -7,6 +7,9 @@ from music import download_music
 from tts import synthesize_narration
 from upload_youtube import upload_video
 from social_publish import publish_social_reels
+from moviepy.editor import VideoFileClip, CompositeVideoClip
+from whisper_align import transcribe
+import assemble as caption_style
 
 OUT=Path('output/emotional_reel');OUT.mkdir(parents=True,exist_ok=True);N=9;SEC=6
 def _is_quota_error(error):
@@ -95,7 +98,7 @@ Total narration should be about 120-145 words. Narration must flow as ONE contin
     for b in r.iter_content(1024*1024):
      if b:f.write(b)
   words=str(s['text']).split();text=(' '.join(words[:len(words)//2])+'\n'+' '.join(words[len(words)//2:])) if len(words)>7 else str(s['text']);txt.write_text(text,encoding='utf-8')
-  vf="scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,eq=brightness=-0.03:saturation=0.90,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf:textfile='"+str(txt)+"':fontcolor=white:fontsize=56:line_spacing=10:x=(w-text_w)/2:y=h*0.61-text_h/2:shadowcolor=black@0.55:shadowx=1:shadowy=2"
+  vf="scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,eq=brightness=-0.03:saturation=0.90"
   run(['ffmpeg','-y','-hide_banner','-loglevel','error','-stream_loop','-1','-i',str(raw),'-t',str(SEC),'-vf',vf,'-an','-r','30','-c:v','libx264','-preset','fast','-crf','19','-pix_fmt','yuv420p',str(out)],f'Scene {i} failed');rendered.append(out)
  manifest=OUT/'concat.txt'
  # Validate every rendered segment before assembly so bad media never reaches
@@ -133,8 +136,58 @@ Total narration should be about 120-145 words. Narration must flow as ONE contin
  synthesize_narration(narration,cfg,str(narration_audio),target_duration=50.0)
  music=download_music(d,str(OUT))
  if not music:raise RuntimeError('No music in assets/music')
- final=OUT/'final.mp4';mix='[1:a]volume=0.12,afade=t=in:st=0:d=1.2,afade=t=out:st=51:d=3[m];[2:a]volume=1.0,apad=pad_dur=54[n]'
- run(['ffmpeg','-y','-hide_banner','-loglevel','error','-i',str(silent),'-stream_loop','-1','-i',str(music),'-i',str(narration_audio),'-filter_complex',mix,'-map','0:v:0','-map','[m]','-map','[n]','-t','54','-c:v','copy','-c:a','aac','-b:a','192k','-movflags','+faststart',str(final)],'Music and narration mix failed')
+ final=OUT/'final.mp4'
+ # Hard audio gate: never publish a music-only Emotional Reel.
+ probe=subprocess.run(['ffprobe','-v','error','-select_streams','a:0','-show_entries','stream=codec_name,duration,sample_rate','-of','json',str(narration_audio)],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+ if probe.returncode:
+  raise RuntimeError(f'Voice narration ffprobe failed: {probe.stderr.strip()}')
+ try:
+  audio_info=json.loads(probe.stdout); audio_stream=(audio_info.get('streams') or [])[0]; voice_duration=float(audio_stream.get('duration') or 0)
+ except Exception as e:
+  raise RuntimeError(f'Voice narration probe returned invalid data: {e}')
+ if not audio_stream or voice_duration < 5.0:
+  raise RuntimeError(f'Voice narration missing or too short: {probe.stdout}')
+ print(f'🎙️ VOICE NARRATION VERIFIED | provider=Kokoro-82M | voice={cfg["voice"].get("voice_name")} | duration={voice_duration:.2f}s',flush=True)
+
+ print('🌈 BUILDING EMOTIONAL REEL CAPTIONS — SHARED MINT STYLE',flush=True)
+ words=transcribe(str(narration_audio))
+ if not words:
+  raise RuntimeError('Whisper returned no usable narration timings for Emotional Reel captions')
+ video=VideoFileClip(str(silent),audio=False); captioned=None; caption_clips=[]
+ try:
+  frame_size=(int(video.w),int(video.h)); total_duration=min(54.0,float(video.duration))
+  scene_ranges=[{'start':i*SEC,'end':min((i+1)*SEC,total_duration),'scene':{'caption_highlights':[],'emphasis_word':''}} for i in range(N)]
+  phrases=caption_style._build_caption_phrases(words)
+  for phrase_index,phrase in enumerate(phrases):
+   scene_index=caption_style._get_scene_index_for_time(scene_ranges,phrase['start'])
+   scene=scene_ranges[scene_index]['scene']
+   fontsize,color=caption_style._caption_style(scene_index,scene,phrase,phrase_index)
+   position=caption_style.caption_position(frame_size)
+   text_clip=caption_style._make_caption_clip(phrase['text'],fontsize,color,frame_size).set_start(phrase['start']).set_duration(phrase['duration']).set_position(position)
+   shadow_clip=caption_style._make_caption_shadow(phrase['text'],fontsize,frame_size).set_start(phrase['start']).set_duration(phrase['duration']).set_position(('center',position[1]+caption_style.CAPTION_SHADOW_OFFSET)).set_opacity(caption_style.CAPTION_SHADOW_OPACITY)
+   caption_clips.extend([shadow_clip,text_clip])
+  captioned=CompositeVideoClip([video]+caption_clips,size=frame_size).set_duration(total_duration)
+  captioned_path=OUT/'captioned.mp4'
+  captioned.write_videofile(str(captioned_path),fps=30,codec='libx264',audio=False,preset='fast',bitrate='8M',verbose=False,logger=None)
+ finally:
+  if captioned is not None:
+   try: captioned.close()
+   except Exception: pass
+  try: video.close()
+  except Exception: pass
+  for clip in caption_clips:
+   try: clip.close()
+   except Exception: pass
+
+ mix='[1:a]volume=0.12,afade=t=in:st=0:d=1.2,afade=t=out:st=51:d=3[m];[2:a]volume=1.0,apad=pad_dur=54[n]'
+ run(['ffmpeg','-y','-hide_banner','-loglevel','error','-i',str(captioned_path),'-stream_loop','-1','-i',str(music),'-i',str(narration_audio),'-filter_complex',mix,'-map','0:v:0','-map','[m]','-map','[n]','-t','54','-c:v','copy','-c:a','aac','-b:a','192k','-movflags','+faststart',str(final)],'Music and narration mix failed')
+ final_probe=subprocess.run(['ffprobe','-v','error','-select_streams','a:0','-show_entries','stream=codec_name,duration','-of','json',str(final)],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+ if final_probe.returncode:
+  raise RuntimeError(f'Final Emotional Reel audio probe failed: {final_probe.stderr.strip()}')
+ final_audio=json.loads(final_probe.stdout).get('streams') or []
+ if not final_audio or float(final_audio[0].get('duration') or 0) < 5.0:
+  raise RuntimeError('Final Emotional Reel has no usable audio track; upload blocked.')
+ print(f'✅ FINAL REEL AUDIO VERIFIED | voice narration + music | duration={float(final_audio[0].get("duration") or 0):.2f}s',flush=True)
  cfg['seo']['hashtags']=d.get('hashtags',[]);cfg.setdefault('upload',{})['privacy_status']=os.getenv('EMOTIONAL_REEL_PRIVACY','public')
  yt=upload_video(str(final),d['title'],d['description'],cfg,engagement_comment=scenes[-1]['text']);social=publish_social_reels(str(final),d['title'],d['description'],cfg,str(OUT))
  (OUT/'publish_state.json').write_text(json.dumps({'status':'uploaded','video_id':yt,'social':social,'voice':cfg['voice'],'created_at':int(time.time())},indent=2),encoding='utf-8');print('EMOTIONAL_REEL_PUBLISHED',yt);print(json.dumps(social,indent=2))

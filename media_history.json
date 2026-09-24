@@ -7709,6 +7709,96 @@
       "shot": 2,
       "query": "steering wheels lock simple mechanical release turns",
       "recorded_at": 1790273382
+    },
+    {
+      "asset_key": "pexels:video:34740032",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34740032/14727238_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "zipper sliders jam instantly turns into medieval",
+      "recorded_at": 1790275867
+    },
+    {
+      "asset_key": "pexels:video:1157139",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/1157139/1157139-hd_1280_720_30fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "zipper sliders jam shouldn defeat hard metal",
+      "recorded_at": 1790275875
+    },
+    {
+      "asset_key": "pexels:video:4201553",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4201553/4201553-hd_1280_720_60fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "zipper sliders jam yet tiny moving wedge",
+      "recorded_at": 1790275883
+    },
+    {
+      "asset_key": "pexels:video:6651173",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6651173/6651173-hd_720_1366_25fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "zipper sliders jam acts like hungry little",
+      "recorded_at": 1790275893
+    },
+    {
+      "asset_key": "pexels:video:34740041",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34740041/14727248_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "zipper sliders jam inhales any stray thread",
+      "recorded_at": 1790275901
+    },
+    {
+      "asset_key": "pexels:video:7425480",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7425480/7425480-hd_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "zipper sliders jam wandering too close track",
+      "recorded_at": 1790275905
+    },
+    {
+      "asset_key": "pexels:video:7329808",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7329808/7329808-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "zipper sliders jam more internal wedge wedges",
+      "recorded_at": 1790275921
+    },
+    {
+      "asset_key": "pexels:video:32866095",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/32866095/14008612_720_1280_30fps.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "zipper sliders jam push slider backward instead",
+      "recorded_at": 1790275936
+    },
+    {
+      "asset_key": "pexels:video:3770196",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3770196/3770196-hd_1280_720_24fps.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "zipper sliders jam push slider backward instead",
+      "recorded_at": 1790275942
     }
   ]
 }

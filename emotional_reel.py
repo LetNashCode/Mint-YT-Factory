@@ -244,7 +244,7 @@ SOURCE JSON:
  if not silent.exists() or silent.stat().st_size < 4096:
   raise RuntimeError(f'Concat produced no usable output: {silent}')
  print(f'✅ Silent reel assembled: {silent.stat().st_size} bytes',flush=True)
- cfg=yaml.safe_load(Path('config.yaml').read_text());cfg['voice']=dict(cfg.get('voice') or {});cfg['voice'].update({'provider':'kokoro','voice_name':os.getenv('EMOTIONAL_REEL_KOKORO_VOICE','am_michael'),'kokoro_lang':'a','speed':float(os.getenv('EMOTIONAL_REEL_KOKORO_SPEED','0.92'))})
+ cfg=yaml.safe_load(Path('config.yaml').read_text());cfg['voice']=dict(cfg.get('voice') or {});cfg['voice'].update({'provider':'kokoro','voice_name':os.getenv('EMOTIONAL_REEL_KOKORO_VOICE','am_echo'),'kokoro_lang':'a','speed':float(os.getenv('EMOTIONAL_REEL_KOKORO_SPEED','0.92'))})
  os.environ['MINT_TTS_PROVIDER']='kokoro';narration_audio=OUT/'narration.mp3'
  synthesize_narration(narration,cfg,str(narration_audio),target_duration=50.0)
  music=download_music(d,str(OUT))

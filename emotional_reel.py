@@ -132,10 +132,18 @@ Return JSON with title, description, hashtags and exactly 9 scenes.
 Each scene has text (4-12 words) for the screen, narration (12-18 natural spoken words) that expands the same thought, and search (concrete visible stock-video query).
 Scene 1 text is a 4-8 word hook. Scene 9 is a memorable closing thought.
 Total narration should be about 120-145 words. Narration must flow as ONE continuous story, not nine disconnected quotes.'''
- d=ai(p);scenes=d.get('scenes')
- if not isinstance(scenes,list) or len(scenes)!=N:raise RuntimeError('Need exactly 9 scenes')
- narration=' '.join(str(s.get('narration','')).strip() for s in scenes).strip()
- if len(re.findall(r"\b[\w'-]+\b",narration))<110:raise RuntimeError('Narration too short')
+ d=None;scenes=None;narration=''
+ for attempt in range(1,4):
+  candidate=ai(p);candidate_scenes=candidate.get('scenes')
+  if not isinstance(candidate_scenes,list) or len(candidate_scenes)!=N:
+   print(f'⚠️ Emotional Reel script attempt {attempt}/3 rejected: need exactly {N} scenes',flush=True);continue
+  candidate_narration=' '.join(str(s.get('narration','')).strip() for s in candidate_scenes).strip()
+  word_count=len(re.findall(r"\b[\w'-]+\b",candidate_narration))
+  if word_count<110 or word_count>145:
+   print(f'⚠️ Emotional Reel script attempt {attempt}/3 rejected: narration has {word_count} words; target is 110-145',flush=True);continue
+  d,scenes,narration=candidate,candidate_scenes,candidate_narration
+  break
+ if d is None: raise RuntimeError('Could not generate a 110-145 word Emotional Reel narration after 3 attempts')
  (OUT/'script.json').write_text(json.dumps(d,indent=2,ensure_ascii=False),encoding='utf-8');(OUT/'narration.txt').write_text(narration,encoding='utf-8')
  used=set();rendered=[]
  for i,s in enumerate(scenes,1):

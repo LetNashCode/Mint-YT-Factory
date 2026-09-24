@@ -145,11 +145,11 @@ IMPORTANT: Every narration word you generate is production-critical. Do not omit
   candidate_narration=' '.join(str(s.get('narration','')).strip() for s in candidate_scenes).strip()
   word_count=_word_count(candidate_narration)
   scene_counts=[_word_count(s.get('narration','')) for s in candidate_scenes]
-  if 120 <= word_count <= 145 and all(12 <= n <= 18 for n in scene_counts):
+  if 120 <= word_count <= 160 and all(12 <= n <= 18 for n in scene_counts):
    d,scenes,narration=candidate,candidate_scenes,candidate_narration
    print(f'✅ Complete narration script accepted: {word_count} words | scene counts={scene_counts}',flush=True)
    break
-  print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: total={word_count} words, scene counts={scene_counts}; requiring 120-145 total and 12-18 per scene',flush=True)
+  print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: total={word_count} words, scene counts={scene_counts}; requiring 120-160 total and 12-18 per scene',flush=True)
 
  if d is None:
   raise RuntimeError('Could not generate a valid full-length Emotional Reel narration after 8 bounded attempts. No narration was compacted or dropped.')

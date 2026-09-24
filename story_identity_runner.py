@@ -125,12 +125,29 @@ def _apply_requested_story() -> None:
 
 
 def _story_media_failure(exc: Exception) -> bool:
-    """Return True only for failures that are safe to recover by choosing another subject."""
+    """Return True only for content-availability failures safe to recover with another subject."""
     text = str(exc or "").lower()
     markers = (
         "insufficient verified real footage",
         "no real video candidates found",
         "story video search budget exhausted",
+    )
+    return any(marker in text for marker in markers)
+
+
+def _story_defer_failure(exc: Exception) -> bool:
+    """Return True for temporary provider/verifier failures that must preserve the reservation."""
+    text = str(exc or "").lower()
+    markers = (
+        "story video providers unavailable",
+        "no unused story subject with real-video candidates",
+        "story candidate pool is empty",
+        "story visual verifier http 429",
+        "story visual verifier http 500",
+        "story visual verifier http 502",
+        "story visual verifier http 503",
+        "story visual verifier http 504",
+        "story verifier unavailable after network retries/model fallback",
     )
     return any(marker in text for marker in markers)
 
@@ -211,6 +228,9 @@ def main() -> None:
         except Exception as exc:
             if Path(".story_gemini_quota_deferred").exists():
                 print("⏸️ Story Shorts deferred because Gemini quota is exhausted; no final video is expected in this run.")
+                return
+            if _story_defer_failure(exc):
+                _defer_story(str(exc))
                 return
             if not _story_media_failure(exc):
                 raise

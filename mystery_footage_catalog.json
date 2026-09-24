@@ -17,8 +17,8 @@
       "screening": {
         "eligible": false,
         "screening_status": "failed",
-        "screening_notes": "Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size:stream=width,height,codec_type', '-of', 'json', '/tmp/mystery-screen-6s6a_1gy/source']' returned non-zero exit status 1.",
-        "screened_at": "2026-09-22T17:44:27.728351+00:00"
+        "screening_notes": "Command '['ffprobe', '-v', 'error', '-show_entries', 'format=duration,size:stream=width,height,codec_type', '-of', 'json', '/tmp/mystery-screen-2tbd01fr/source']' returned non-zero exit status 1.",
+        "screened_at": "2026-09-24T22:54:00.595602+00:00"
       }
     },
     {
@@ -40,10 +40,18 @@
       "discovery_provider": "Internet Archive",
       "discovered_at": "2026-09-18T21:49:27.988961+00:00",
       "screening": {
-        "eligible": false,
-        "screening_status": "failed",
-        "screening_notes": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "screened_at": "2026-09-22T17:45:08.456991+00:00"
+        "duration_seconds": 285.01,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 28506984,
+        "hook_score": 0,
+        "story_score": 0,
+        "usable_visuals": false,
+        "real_incident_supported": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "This video is a gaming compilation show (Kotaku's Highlight Reel) featuring gameplay footage from various video games such as Fortnite, DCS World, Counter-Strike, and Rocket League. It contains no real-world incidents, CCTV footage, or factual mystery elements. It is entirely fictional video game footage and compilation content, making it completely unsuitable for a factual mystery documentary.",
+        "screened_at": "2026-09-24T22:54:09.182117+00:00",
+        "eligible": false
       }
     },
     {
@@ -68,7 +76,7 @@
         "eligible": false,
         "screening_status": "failed",
         "screening_notes": "source exceeds screening size limit",
-        "screened_at": "2026-09-22T17:45:15.361102+00:00"
+        "screened_at": "2026-09-24T22:54:18.115475+00:00"
       }
     },
     {
@@ -122,10 +130,18 @@
       "discovery_provider": "Internet Archive",
       "discovered_at": "2026-09-18T21:49:30.541959+00:00",
       "screening": {
-        "eligible": false,
-        "screening_status": "failed",
-        "screening_notes": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "screened_at": "2026-09-22T17:45:28.012500+00:00"
+        "duration_seconds": 1074.13,
+        "width": 1280,
+        "height": 720,
+        "size_bytes": 68491977,
+        "hook_score": 1,
+        "story_score": 0,
+        "usable_visuals": false,
+        "real_incident_supported": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video features a person claiming to channel a non-physical group of beings known as the Arcturian Council. There is no evidence of a verifiable real-world incident, surveillance capture, or documented factual mystery. The content consists entirely of spiritual commentary and performance, making it unsuitable for a factual mystery documentary.",
+        "screened_at": "2026-09-24T22:54:26.104068+00:00",
+        "eligible": false
       }
     },
     {
@@ -147,10 +163,18 @@
       "discovery_provider": "Internet Archive",
       "discovered_at": "2026-09-18T21:49:31.114909+00:00",
       "screening": {
-        "eligible": false,
-        "screening_status": "failed",
-        "screening_notes": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "screened_at": "2026-09-22T17:46:00.770527+00:00"
+        "duration_seconds": 1199.5,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 117283976,
+        "hook_score": 1,
+        "story_score": 1,
+        "usable_visuals": false,
+        "real_incident_supported": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video is an interview/radio podcast episode featuring Jason McClellan discussing the Billy Meier UFO case. It consists entirely of a talking head in a studio setting discussing historical claims without primary surveillance footage, CCTV, or documented found footage of a real-world incident. Per instructions, podcasts and commentary discussions discussing claims are rejected.",
+        "screened_at": "2026-09-24T22:54:34.844596+00:00",
+        "eligible": false
       }
     },
     {
@@ -172,10 +196,18 @@
       "discovery_provider": "Internet Archive",
       "discovered_at": "2026-09-18T21:49:31.750973+00:00",
       "screening": {
-        "eligible": false,
-        "screening_status": "failed",
-        "screening_notes": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "screened_at": "2026-09-22T17:47:08.651802+00:00"
+        "duration_seconds": 846.83,
+        "width": 480,
+        "height": 360,
+        "size_bytes": 40094948,
+        "hook_score": 1,
+        "story_score": 0,
+        "usable_visuals": false,
+        "real_incident_supported": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video features a person claiming to channel non-physical extraterrestrial beings ('Arcturian Council'). There is no verifiable real-world incident, physical evidence, or factual mystery documented. The content relies entirely on unverified personal claims and spiritual commentary, making it completely unsuitable for a factual mystery documentary. Authenticity cannot be supported by metadata or frames.",
+        "screened_at": "2026-09-24T22:54:40.673716+00:00",
+        "eligible": false
       }
     },
     {
@@ -197,10 +229,18 @@
       "discovery_provider": "Internet Archive",
       "discovered_at": "2026-09-18T21:49:32.325034+00:00",
       "screening": {
-        "eligible": false,
-        "screening_status": "failed",
-        "screening_notes": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "screened_at": "2026-09-22T17:47:49.412539+00:00"
+        "duration_seconds": 1731.54,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 166937680,
+        "hook_score": 3,
+        "story_score": 2,
+        "usable_visuals": false,
+        "real_incident_supported": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video consists primarily of a commentary/reaction format discussing alleged leaked emails and UFO footage, relying on internet claims and text on screen rather than verifiable CCTV, surveillance, or documented real-world incident evidence. Rejected as commentary/discussion lacking verifiable primary evidence.",
+        "screened_at": "2026-09-24T22:54:50.544839+00:00",
+        "eligible": false
       }
     },
     {
@@ -222,10 +262,18 @@
       "discovery_provider": "Internet Archive",
       "discovered_at": "2026-09-18T21:49:33.323350+00:00",
       "screening": {
-        "eligible": false,
-        "screening_status": "failed",
-        "screening_notes": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "screened_at": "2026-09-22T17:48:36.668175+00:00"
+        "duration_seconds": 1049.94,
+        "width": 1280,
+        "height": 720,
+        "size_bytes": 256360079,
+        "hook_score": 2,
+        "story_score": 1,
+        "usable_visuals": false,
+        "real_incident_supported": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video presents conspiracy theories regarding extraterrestrial colonisation and secret societies without any factual evidence, relying instead on stock footage, CGI animations, and commentary. It fails to meet the criteria for a factual mystery documentary due to a lack of a supported real-world incident.",
+        "screened_at": "2026-09-24T22:55:02.887588+00:00",
+        "eligible": false
       }
     },
     {
@@ -247,10 +295,18 @@
       "discovery_provider": "Internet Archive",
       "discovered_at": "2026-09-18T21:49:34.064056+00:00",
       "screening": {
-        "eligible": false,
-        "screening_status": "failed",
-        "screening_notes": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "screened_at": "2026-09-22T17:49:00.809243+00:00"
+        "duration_seconds": 3271.83,
+        "width": 1280,
+        "height": 720,
+        "size_bytes": 264434944,
+        "hook_score": 3,
+        "story_score": 2,
+        "usable_visuals": false,
+        "real_incident_supported": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "This video is an opinion/commentary piece featuring a speaker discussing speculative ideas about UFOs and alien societies. It does not provide evidence of a real-world incident, CCTV footage, or verified found footage. It lacks usable visuals for a factual mystery documentary and falls under commentary and discussion, making it unsuitable for our requirements.",
+        "screened_at": "2026-09-24T22:55:14.705643+00:00",
+        "eligible": false
       }
     },
     {
@@ -272,10 +328,18 @@
       "discovery_provider": "Internet Archive",
       "discovered_at": "2026-09-18T21:49:34.750953+00:00",
       "screening": {
-        "eligible": false,
-        "screening_status": "failed",
-        "screening_notes": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "screened_at": "2026-09-22T17:49:59.076873+00:00"
+        "duration_seconds": 884.44,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 90435560,
+        "hook_score": 1,
+        "story_score": 1,
+        "usable_visuals": false,
+        "real_incident_supported": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "This video is a podcast/commentary preview episode featuring hosts discussing speculative claims and political news. It contains no primary source evidence, CCTV footage, or supported real-world incidents related to the claims discussed. It falls under rejected formats such as commentary and podcasts.",
+        "screened_at": "2026-09-24T22:55:22.872594+00:00",
+        "eligible": false
       }
     },
     {
@@ -297,10 +361,18 @@
       "discovery_provider": "Internet Archive",
       "discovered_at": "2026-09-18T21:49:35.403723+00:00",
       "screening": {
-        "eligible": false,
-        "screening_status": "failed",
-        "screening_notes": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "screened_at": "2026-09-22T17:50:15.728950+00:00"
+        "duration_seconds": 3013.68,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 291316145,
+        "hook_score": 3,
+        "story_score": 4,
+        "usable_visuals": false,
+        "real_incident_supported": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video is an interview/talk format discussing historical events and court cases from Rhodesia, backed by archival newspaper clippings. While historical incidents are documented through real newspaper articles (e.g., the trial and sentencing of Beric Christopher James), the content consists primarily of talking-head interviews and commentary rather than CCTV, surveillance, or authentic found footage. Therefore, it does not fit the criteria for a factual mystery documentary utilizing primary visual capture, and visual materials are mostly archival text and photos rather than usable video evidence.",
+        "screened_at": "2026-09-24T22:55:34.745860+00:00",
+        "eligible": false
       }
     },
     {
@@ -325,7 +397,7 @@
         "eligible": false,
         "screening_status": "failed",
         "screening_notes": "source exceeds screening size limit",
-        "screened_at": "2026-09-22T17:50:24.085010+00:00"
+        "screened_at": "2026-09-24T22:55:44.194736+00:00"
       }
     },
     {
@@ -341,7 +413,7 @@
       "video_url": "https://archive.org/download/youtube-_zxbjmRTkfY/_zxbjmRTkfY.mp4",
       "direct_download_url": "https://archive.org/download/youtube-_zxbjmRTkfY/_zxbjmRTkfY.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-22T17:44:18.573775+00:00",
+      "discovered_at": "2026-09-24T22:53:51.615761+00:00",
       "screening": {
         "duration_seconds": 95.57,
         "width": 854,
@@ -374,7 +446,7 @@
         "eligible": false,
         "screening_status": "failed",
         "screening_notes": "rejected short-form source: 33.0s; minimum 90s",
-        "screened_at": "2026-09-22T17:50:25.530252+00:00"
+        "screened_at": "2026-09-24T22:55:46.333952+00:00"
       }
     },
     {
@@ -451,7 +523,7 @@
         "eligible": false,
         "screening_status": "failed",
         "screening_notes": "rejected short-form source: 57.3s; minimum 90s",
-        "screened_at": "2026-09-22T17:50:26.981152+00:00"
+        "screened_at": "2026-09-24T22:55:48.909387+00:00"
       }
     },
     {
@@ -467,12 +539,12 @@
       "video_url": "https://archive.org/download/youtube-HUd1TDgofS4/HUd1TDgofS4.mp4",
       "direct_download_url": "https://archive.org/download/youtube-HUd1TDgofS4/HUd1TDgofS4.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-22T17:44:22.776037+00:00",
+      "discovered_at": "2026-09-24T22:53:57.243158+00:00",
       "screening": {
         "eligible": false,
         "screening_status": "failed",
         "screening_notes": "rejected short-form source: 43.2s; minimum 90s",
-        "screened_at": "2026-09-22T17:50:28.773789+00:00"
+        "screened_at": "2026-09-24T22:55:50.366562+00:00"
       }
     },
     {
@@ -490,10 +562,18 @@
       "discovery_provider": "Internet Archive",
       "discovered_at": "2026-09-22T17:44:23.318119+00:00",
       "screening": {
-        "eligible": false,
-        "screening_status": "failed",
-        "screening_notes": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "screened_at": "2026-09-22T17:51:21.950256+00:00"
+        "duration_seconds": 786.05,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 80396868,
+        "hook_score": 6,
+        "story_score": 4,
+        "usable_visuals": true,
+        "real_incident_supported": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video discusses a well-documented real-world incident (the 2017 Las Vegas shooting), and the footage presented appears to be genuine parking lot security camera capture from the night in question. However, the narrative hook relies on conspiracy theories regarding helicopters conducting or stopping attacks, which is unsupported by factual evidence. While the CCTV visuals are authentic, the claims surrounding them are speculative, making it unsuitable for a factual documentary without significant debunking context.",
+        "screened_at": "2026-09-24T22:55:58.061014+00:00",
+        "eligible": false
       }
     },
     {
@@ -538,12 +618,20 @@
       "video_url": "https://archive.org/download/youtube-2ImHlTWaUWs/2ImHlTWaUWs.mp4",
       "direct_download_url": "https://archive.org/download/youtube-2ImHlTWaUWs/2ImHlTWaUWs.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-22T17:44:24.537578+00:00",
+      "discovered_at": "2026-09-24T22:53:50.977823+00:00",
       "screening": {
-        "eligible": false,
-        "screening_status": "failed",
-        "screening_notes": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "screened_at": "2026-09-22T17:51:33.053596+00:00"
+        "duration_seconds": 311.2,
+        "width": 854,
+        "height": 480,
+        "size_bytes": 30232174,
+        "hook_score": 2,
+        "story_score": 2,
+        "usable_visuals": false,
+        "real_incident_supported": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video frames and metadata show a standard two-person video interview or podcast format (featuring Judge Andrew Napolitano and a co-host). This falls squarely under commentary, discussion, and interview formats rather than raw CCTV, surveillance, or primary documentary evidence of a mystery/incident. There are no usable primary mystery visuals or verifiable original surveillance captures presented. Therefore, it is rejected for a factual mystery documentary.",
+        "screened_at": "2026-09-24T22:56:08.667792+00:00",
+        "eligible": false
       }
     },
     {
@@ -561,10 +649,18 @@
       "discovery_provider": "Internet Archive",
       "discovered_at": "2026-09-22T17:44:25.359895+00:00",
       "screening": {
-        "eligible": false,
-        "screening_status": "failed",
-        "screening_notes": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "screened_at": "2026-09-22T17:52:18.086201+00:00"
+        "duration_seconds": 515.74,
+        "width": 1920,
+        "height": 1080,
+        "size_bytes": 12263328,
+        "hook_score": 6,
+        "story_score": 5,
+        "usable_visuals": false,
+        "real_incident_supported": true,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The incident is real and documented by human rights organizations, but the provided video frames are extremely dark, underexposed, and visually uninformative (mostly black silhouettes with no clear actions or details discernible). Therefore, the visuals are not usable for a factual mystery documentary despite the verified real-world incident.",
+        "screened_at": "2026-09-24T22:56:15.231614+00:00",
+        "eligible": false
       }
     },
     {
@@ -608,12 +704,12 @@
       "video_url": "https://archive.org/download/JamesNReynoldsjrsepiabirds/jr_sepiabirds_512kb.mp4",
       "direct_download_url": "https://archive.org/download/JamesNReynoldsjrsepiabirds/jr_sepiabirds_512kb.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-22T17:44:26.057248+00:00",
+      "discovered_at": "2026-09-24T22:53:57.691771+00:00",
       "screening": {
         "eligible": false,
         "screening_status": "failed",
         "screening_notes": "rejected short-form source: 13.1s; minimum 90s",
-        "screened_at": "2026-09-22T17:52:18.474727+00:00"
+        "screened_at": "2026-09-24T22:56:16.295663+00:00"
       }
     },
     {
@@ -629,12 +725,20 @@
       "video_url": "https://archive.org/download/New_Security_Camera_Technology_for_SDPD/New_Security_Camera_Technology_for_SDPD.mp4",
       "direct_download_url": "https://archive.org/download/New_Security_Camera_Technology_for_SDPD/New_Security_Camera_Technology_for_SDPD.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T19:09:39.306426+00:00",
+      "discovered_at": "2026-09-24T22:53:52.739412+00:00",
       "screening": {
-        "eligible": false,
-        "screening_status": "failed",
-        "screening_notes": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}",
-        "screened_at": "2026-09-22T17:55:15.861209+00:00"
+        "duration_seconds": 1010.18,
+        "width": 640,
+        "height": 360,
+        "size_bytes": 105036446,
+        "hook_score": 1,
+        "story_score": 1,
+        "usable_visuals": false,
+        "real_incident_supported": false,
+        "screening_status": "gemini-reviewed",
+        "screening_notes": "The video features a press conference regarding security camera technology for the San Diego Police Department. It does not depict a factual mystery, crime, or an unsupported real-world incident suitable for a mystery documentary. Visuals consist solely of talking head footage from a press event.",
+        "screened_at": "2026-09-24T22:56:23.768861+00:00",
+        "eligible": false
       }
     },
     {
@@ -650,7 +754,7 @@
       "video_url": "https://archive.org/download/youtube-B1d5sanf-TI/B1d5sanf-TI.webm",
       "direct_download_url": "https://archive.org/download/youtube-B1d5sanf-TI/B1d5sanf-TI.webm",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T19:09:40.554585+00:00",
+      "discovered_at": "2026-09-24T22:53:53.398836+00:00",
       "screening": {
         "duration_seconds": 77.98,
         "width": 1280,
@@ -678,7 +782,7 @@
       "video_url": "https://archive.org/download/guatemalan-immigrant-ricardo-alfonso-cerna-commits-suicide-in-police-station-to-avoid-prison/Guatemalan_Immigrant_Ricardo_Alfonso_Cerna_Commits_Suicide_In_Police_Station_To_Avoid_Prison.mp4",
       "direct_download_url": "https://archive.org/download/guatemalan-immigrant-ricardo-alfonso-cerna-commits-suicide-in-police-station-to-avoid-prison/Guatemalan_Immigrant_Ricardo_Alfonso_Cerna_Commits_Suicide_In_Police_Station_To_Avoid_Prison.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T19:09:44.939294+00:00",
+      "discovered_at": "2026-09-24T22:53:53.849680+00:00",
       "screening": {
         "duration_seconds": 84.89,
         "width": 320,
@@ -711,7 +815,7 @@
         "eligible": false,
         "screening_status": "failed",
         "screening_notes": "rejected short-form source: 3.4s; minimum 90s",
-        "screened_at": "2026-09-22T17:55:17.104603+00:00"
+        "screened_at": "2026-09-24T22:56:25.448455+00:00"
       }
     },
     {
@@ -727,7 +831,7 @@
       "video_url": "https://archive.org/download/youtube-bapUohJn1E8/bapUohJn1E8.webm",
       "direct_download_url": "https://archive.org/download/youtube-bapUohJn1E8/bapUohJn1E8.webm",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T19:09:53.897880+00:00",
+      "discovered_at": "2026-09-24T22:53:54.671276+00:00",
       "screening": {
         "duration_seconds": 28.21,
         "width": 320,
@@ -755,7 +859,7 @@
       "video_url": "https://archive.org/download/Man_Suspected_in_More_than_50_Burglaries_Arrested/Man_Suspected_in_More_than_50_Burglaries_Arrested.mp4",
       "direct_download_url": "https://archive.org/download/Man_Suspected_in_More_than_50_Burglaries_Arrested/Man_Suspected_in_More_than_50_Burglaries_Arrested.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T19:09:55.035223+00:00",
+      "discovered_at": "2026-09-24T22:53:55.232810+00:00",
       "screening": {
         "duration_seconds": 145.19,
         "width": 640,
@@ -784,7 +888,7 @@
       "video_url": "https://archive.org/download/youtube-of1GwJsmmsc/of1GwJsmmsc.mp4",
       "direct_download_url": "https://archive.org/download/youtube-of1GwJsmmsc/of1GwJsmmsc.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T19:09:56.697964+00:00",
+      "discovered_at": "2026-09-24T22:53:55.992051+00:00",
       "screening": {
         "duration_seconds": 110.29,
         "width": 854,
@@ -795,8 +899,8 @@
         "usable_visuals": true,
         "real_incident_supported": true,
         "screening_status": "gemini-reviewed",
-        "screening_notes": "The video includes actual CCTV footage with timestamps from B'Tselem documenting a confrontation involving police officers and family members in East Jerusalem. While the incident is real and documented via security camera capture, the framing is political/activist rather than a traditional factual mystery. However, it meets the criteria for real-world incident support and usable surveillance visuals.",
-        "screened_at": "2026-09-22T17:57:20.899789+00:00",
+        "screening_notes": "The video provides actual CCTV surveillance footage capturing an altercation involving plain-clothed Israeli police officers and family members in East Jerusalem. The authenticity is supported by surveillance timestamps and documentation from the human rights organization B'Tselem. While it presents a real-world incident with viable visual material, it is a human rights/political documentary piece rather than a factual mystery, lacking investigative or unsolved elements suited for a mystery format.",
+        "screened_at": "2026-09-24T22:56:30.548214+00:00",
         "eligible": false
       }
     },
@@ -813,12 +917,33 @@
       "video_url": "https://archive.org/download/funny_or_die_video_4391/funny_or_die_video_4391.mp4",
       "direct_download_url": "https://archive.org/download/funny_or_die_video_4391/funny_or_die_video_4391.mp4",
       "discovery_provider": "Internet Archive",
-      "discovered_at": "2026-09-20T19:10:05.951955+00:00",
+      "discovered_at": "2026-09-24T22:53:56.593704+00:00",
       "screening": {
         "eligible": false,
         "screening_status": "failed",
-        "screening_notes": "403 Client Error: Forbidden for url: https://dn800304.us.archive.org/0/items/funny_or_die_video_4391/funny_or_die_video_4391.mp4",
-        "screened_at": "2026-09-22T17:57:21.399768+00:00"
+        "screening_notes": "401 Client Error: Unauthorized for url: https://dn710700.ca.archive.org/0/items/funny_or_die_video_4391/funny_or_die_video_4391.mp4",
+        "screened_at": "2026-09-24T22:56:31.539880+00:00"
+      }
+    },
+    {
+      "id": "internet-archive-MSNOW_20260516_090000_Dateline",
+      "title": "Dateline : MSNOW : May 16, 2026 2:00am-3:00am PDT",
+      "case_summary": "Candidate discovered from Internet Archive; the footage and event context require factual review.",
+      "verified_facts": [
+        "Candidate discovered through the Internet Archive public archive API."
+      ],
+      "theories_or_open_questions": [],
+      "footage_description": "After a nurse and mother-of-three is murdered inside her Illinois home, investigators uncover security camera footage that could be key to solving the case.",
+      "source_url": "https://archive.org/details/MSNOW_20260516_090000_Dateline",
+      "video_url": "https://archive.org/download/MSNOW_20260516_090000_Dateline/MSNOW_20260516_090000_Dateline.mp4",
+      "direct_download_url": "https://archive.org/download/MSNOW_20260516_090000_Dateline/MSNOW_20260516_090000_Dateline.mp4",
+      "discovery_provider": "Internet Archive",
+      "discovered_at": "2026-09-24T22:53:58.728942+00:00",
+      "screening": {
+        "eligible": false,
+        "screening_status": "failed",
+        "screening_notes": "403 Client Error: Forbidden for url: https://ia801607.us.archive.org/13/items/MSNOW_20260516_090000_Dateline/MSNOW_20260516_090000_Dateline.mp4",
+        "screened_at": "2026-09-24T22:56:32.239305+00:00"
       }
     }
   ]

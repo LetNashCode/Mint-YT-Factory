@@ -6,6 +6,11 @@ import re
 from pathlib import Path
 
 MAX_PUBLISH_CONTENT_REGEN = 3
+PUBLISH_CORE_REGEN_THRESHOLD = 125
+PUBLISH_CORE_RECOVERY_MIN = 105
+PUBLISH_CORE_RECOVERY_MAX = 120
+PUBLISH_TOTAL_RECOVERY_MIN = 115
+PUBLISH_TOTAL_RECOVERY_MAX = 145
 
 class AudioPath(list):
     def __init__(self, path: str): super().__init__([path])
@@ -107,8 +112,9 @@ def patch_tts_result(main):
                 retry_feedback = (
                     f"{feedback}\n"
                     "RECOVERY CONTRACT: Generate a COMPLETE 7-scene current-topic narration. "
-                    "Target 105-120 total spoken words INCLUDING the final continuation bridge; "
-                    "never return fewer than 100 or more than 125 words. "
+                    "Target 105-120 CORE words, plus the final continuation bridge. "
+                    "The complete spoken narration should normally land around 120-140 words; "
+                    "never return a thin 90-word script. "
                     "Keep the current-topic payoff substantial. Do not mention any retired topic, "
                     "especially onions. Do not invent or reuse facts from an older Short. "
                     f"LOCKED CURRENT TOPIC: {current_topic!r}. "
@@ -132,8 +138,17 @@ def patch_tts_result(main):
                     for s in candidate.get("scene_plan") or []
                     if isinstance(s, dict)
                 )
-                if total_words < 90 or total_words > 135:
-                    raise RuntimeError(f"Recovered narration has {total_words} words; expected 90-135.")
+                core_words = _core_word_count(candidate)
+                if core_words < PUBLISH_CORE_RECOVERY_MIN or core_words > PUBLISH_CORE_RECOVERY_MAX:
+                    raise RuntimeError(
+                        f"Recovered core narration has {core_words} words; expected "
+                        f"{PUBLISH_CORE_RECOVERY_MIN}-{PUBLISH_CORE_RECOVERY_MAX}."
+                    )
+                if total_words < PUBLISH_TOTAL_RECOVERY_MIN or total_words > PUBLISH_TOTAL_RECOVERY_MAX:
+                    raise RuntimeError(
+                        f"Recovered narration has {total_words} words; expected "
+                        f"{PUBLISH_TOTAL_RECOVERY_MIN}-{PUBLISH_TOTAL_RECOVERY_MAX}."
+                    )
                 script.clear()
                 script.update(candidate)
                 return script
@@ -148,12 +163,14 @@ def patch_tts_result(main):
         if _is_publish(script):
             _refresh_script_artifact(script, workdir)
             core_words = _core_word_count(script)
-            if core_words > 112:
-                print(f"⚠️ Publish core narration too long before TTS: {core_words} words; regenerating shorter narration")
+            if core_words > PUBLISH_CORE_REGEN_THRESHOLD:
+                print(f"⚠️ Publish core narration too long before TTS: {core_words} words; regenerating within the production duration budget")
                 _regenerate_shorter(
                     script, config,
                     "HARD LENGTH REQUIREMENT: keep the CURRENT TOPIC, locked continuation, all important facts and payoff, "
-                    "but make the core narration 95-105 words and never exceed 112 words. Every sentence must remain fully speakable. "
+                    "but target 105-120 CORE words before the final continuation bridge. "
+                    "The complete narration should land around 120-140 spoken words. "
+                    "Every sentence must remain fully speakable. "
                     "Do not add another topic or omit the core explanation."
                 )
                 _refresh_script_artifact(script, workdir)

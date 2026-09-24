@@ -298,7 +298,8 @@ SOURCE JSON:
  # voice appear absent.
  mix='[1:a]volume=0.12,afade=t=in:st=0:d=1.2,afade=t=out:st=51:d=3[m];[2:a]volume=1.0[n];[m][n]amix=inputs=2:duration=longest:dropout_transition=0,aresample=async=1:first_pts=0[mixout]'
  run(['ffmpeg','-y','-hide_banner','-loglevel','error','-i',str(captioned_path),'-stream_loop','-1','-i',str(music),'-i',str(narration_audio),'-filter_complex',mix,'-map','0:v:0','-map','[mixout]','-t','54','-c:v','copy','-c:a','aac','-b:a','192k','-ac','2','-movflags','+faststart',str(final)],'Music and narration mix failed')
- if not final.exists() or final.stat().st_size < 4096:\n  raise RuntimeError(f'Final Emotional Reel was not created by FFmpeg: {final}')
+ if not final.exists() or final.stat().st_size < 4096:
+  raise RuntimeError(f'Final Emotional Reel was not created by FFmpeg: {final}')
  final_probe=subprocess.run(['ffprobe','-v','error','-select_streams','a:0','-show_entries','stream=codec_name,duration','-of','json',str(final)],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
  if final_probe.returncode:
   raise RuntimeError(f'Final Emotional Reel audio probe failed: {final_probe.stderr.strip()}')

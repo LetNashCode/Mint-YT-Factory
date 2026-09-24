@@ -12,6 +12,52 @@ from whisper_align import transcribe
 import assemble as caption_style
 
 OUT=Path('output/emotional_reel');OUT.mkdir(parents=True,exist_ok=True);N=9;SEC=6
+RESUME_STATE=OUT/'resume_state.json'
+
+def _file_sha256(path):
+ import hashlib
+ h=hashlib.sha256()
+ with open(path,'rb') as f:
+  for chunk in iter(lambda:f.read(1024*1024),b''): h.update(chunk)
+ return h.hexdigest()
+
+def _load_pending_resume():
+ if not RESUME_STATE.exists(): return None
+ try:
+  state=json.loads(RESUME_STATE.read_text(encoding='utf-8'))
+  if state.get('status')!='pending_upload': return None
+  final=Path(state.get('final_path',''))
+  if not final.exists() or final.stat().st_size<4096: return None
+  return state
+ except Exception as error:
+  print(f'⚠️ Emotional Reel resume state ignored: {type(error).__name__}: {error}',flush=True)
+  return None
+
+def _write_resume_state(state):
+ RESUME_STATE.write_text(json.dumps(state,indent=2,ensure_ascii=False),encoding='utf-8')
+
+def _resume_and_upload(state):
+ print('♻️ RESUMING EXISTING RENDER — skipping generation and re-encoding',flush=True)
+ final=Path(state['final_path'])
+ probe=subprocess.run(['ffprobe','-v','error','-select_streams','a:0','-show_entries','stream=codec_name,duration','-of','json',str(final)],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+ if probe.returncode:
+  raise RuntimeError(f'Resumed Emotional Reel audio probe failed: {probe.stderr.strip()}')
+ streams=json.loads(probe.stdout).get('streams') or []
+ if not streams or float(streams[0].get('duration') or 0)<5.0:
+  raise RuntimeError('Cached Emotional Reel has no usable audio; refusing to upload it.')
+ final_hash=_file_sha256(final)
+ if state.get('final_sha256') and state['final_sha256']!=final_hash:
+  raise RuntimeError('Cached Emotional Reel hash does not match resume state; refusing to reuse it.')
+ cfg=yaml.safe_load(Path('config.yaml').read_text())
+ cfg['seo']['hashtags']=state.get('hashtags',[])
+ cfg.setdefault('upload',{})['privacy_status']=os.getenv('EMOTIONAL_REEL_PRIVACY','public')
+ yt=upload_video(str(final),state['title'],state['description'],cfg,engagement_comment=state.get('engagement_comment',''))
+ social=publish_social_reels(str(final),state['title'],state['description'],cfg,str(OUT))
+ state.update({'status':'uploaded','video_id':yt,'social':social,'uploaded_at':int(time.time())})
+ _write_resume_state(state)
+ print(f'♻️ RESUMED RENDER PUBLISHED | video_id={yt}',flush=True)
+ print(json.dumps(social,indent=2))
+
 def _is_quota_error(error):
  text=str(error or '').lower()
  return any(x in text for x in ('resource_exhausted','quota exceeded','generaterequestsperday','quota_id','rate limit','429'))
@@ -77,6 +123,10 @@ def run(c,msg):
   raise RuntimeError(f'{msg}: {err[-1200:] or "ffmpeg returned a non-zero exit code"}')
  return p.stdout.strip()
 def main():
+ resume=_load_pending_resume()
+ if resume:
+  _resume_and_upload(resume)
+  return
  p='''Create an original 54-second cinematic emotional Reel. Use intimate reflective quote-video pacing, but do not copy any creator or wording. The viewer should feel directly addressed. Build: immediate recognition, hidden pressure, escalation, turning point, relief, memorable close. No medical claims, diagnosis, crisis language, emojis, or "you are not alone" cliche.
 Return JSON with title, description, hashtags and exactly 9 scenes.
 Each scene has text (4-12 words) for the screen, narration (12-18 natural spoken words) that expands the same thought, and search (concrete visible stock-video query).
@@ -187,7 +237,19 @@ Total narration should be about 120-145 words. Narration must flow as ONE contin
  if not final_audio or float(final_audio[0].get('duration') or 0) < 5.0:
   raise RuntimeError('Final Emotional Reel has no usable audio track; upload blocked.')
  print(f'✅ FINAL REEL AUDIO VERIFIED | voice narration + music | duration={float(final_audio[0].get("duration") or 0):.2f}s',flush=True)
+ final_sha256=_file_sha256(final)
+ resume_state={'status':'pending_upload','final_path':str(final),'final_sha256':final_sha256,'cache_key':f'emotional-reel-final-v2-{final_sha256[:32]}','title':d['title'],'description':d['description'],'hashtags':d.get('hashtags',[]),'engagement_comment':scenes[-1]['text'],'voice':cfg['voice'],'created_at':int(time.time())}
+ _write_resume_state(resume_state)
+ print(f'💾 RENDER CHECKPOINT SAVED | sha256={final_sha256[:16]} | cache_key={resume_state["cache_key"]}',flush=True)
  cfg['seo']['hashtags']=d.get('hashtags',[]);cfg.setdefault('upload',{})['privacy_status']=os.getenv('EMOTIONAL_REEL_PRIVACY','public')
- yt=upload_video(str(final),d['title'],d['description'],cfg,engagement_comment=scenes[-1]['text']);social=publish_social_reels(str(final),d['title'],d['description'],cfg,str(OUT))
- (OUT/'publish_state.json').write_text(json.dumps({'status':'uploaded','video_id':yt,'social':social,'voice':cfg['voice'],'created_at':int(time.time())},indent=2),encoding='utf-8');print('EMOTIONAL_REEL_PUBLISHED',yt);print(json.dumps(social,indent=2))
+ try:
+  yt=upload_video(str(final),d['title'],d['description'],cfg,engagement_comment=scenes[-1]['text'])
+  social=publish_social_reels(str(final),d['title'],d['description'],cfg,str(OUT))
+ except Exception:
+  print('⚠️ Upload failed AFTER render checkpoint. The next run will reuse final.mp4.',flush=True)
+  raise
+ resume_state.update({'status':'uploaded','video_id':yt,'social':social,'uploaded_at':int(time.time())})
+ _write_resume_state(resume_state)
+ print('EMOTIONAL_REEL_PUBLISHED',yt);print(json.dumps(social,indent=2))
+
 if __name__=='__main__':main()

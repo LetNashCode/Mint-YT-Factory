@@ -4,7 +4,7 @@ from __future__ import annotations
 import runpy
 from pathlib import Path
 
-import story_real_video_media
+import story_hybrid_media
 import story_topic_uniqueness
 import interactive_topics
 from interactive_topics import validate_story_sequence_state
@@ -38,7 +38,7 @@ def _patch_story_titles() -> None:
         person = raw_title.split(":", 1)[1].strip() if ":" in raw_title else ""
         optimized = optimize_title(raw_title, person, raw_title, "")
         print(f"🎯 Story title optimized: {optimized}")
-        description = str(description or "") + story_real_video_media.source_credits()
+        description = str(description or "") + story_hybrid_media.source_credits()
         return original_upload(video_path, optimized, description, config, *args, **kwargs)
     optimized_upload._mint_story_title_optimizer = True
     upload_youtube.upload_video = optimized_upload
@@ -90,7 +90,7 @@ def _patch_story_video_topics() -> None:
         for attempt in range(8):
             pillar, topic, person = original()
             audit = []
-            candidates = story_real_video_media.discover(person, audit)
+            candidates = story_hybrid_media.discover(person, audit)
             print(f"Story footage preflight: {person} | candidates={len(candidates)} | providers={audit}", flush=True)
             if candidates:
                 return pillar, topic, person

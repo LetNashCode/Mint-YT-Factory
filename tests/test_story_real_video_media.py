@@ -458,6 +458,14 @@ def test_story_media_recovery_classifies_only_content_availability_failures():
     assert not runner._story_media_failure(RuntimeError("Final video quality gate failed"))
 
 
+def test_story_failures_are_deferred_without_releasing_reservation():
+    import story_identity_runner as runner
+    assert runner._story_defer_failure(RuntimeError("Story video providers unavailable; reserved topic preserved for retry"))
+    assert runner._story_defer_failure(RuntimeError("Story visual verifier HTTP 429"))
+    assert runner._story_defer_failure(RuntimeError("Story verifier unavailable after network retries/model fallback"))
+    assert not runner._story_defer_failure(RuntimeError("Insufficient verified real footage of Ernest Shackleton"))
+
+
 def test_story_media_recovery_releases_and_quarantines_failed_subject(monkeypatch, tmp_path):
     import story_identity_runner as runner
     pending = {"pillar": "impossible_odds", "topic": "Bad subject story",

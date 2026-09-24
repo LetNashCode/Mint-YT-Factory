@@ -173,11 +173,12 @@ def test_story_route_is_isolated():
     root = Path(__file__).resolve().parents[1]
     runner = (root / "story_identity_runner.py").read_text(encoding="utf-8")
     ast.parse(runner)
-    assert "story_real_video_media.generate_media" in runner
+    assert "story_hybrid_media.generate_media" in runner
+    assert "story_real_video_media.generate_media" not in runner
     assert "story_archival_media.generate_media" not in runner
     for name in ("production_entry.py", "production_entry_runner.py", "main.py",
                  "mystery_documentary.py", "mystery_documentary_runner.py", "sitecustomize.py"):
-        assert "story_real_video_media" not in (root / name).read_text(encoding="utf-8")
+        assert "story_hybrid_media" not in (root / name).read_text(encoding="utf-8")
     for name in ("publish.yml", "mystery-footage-shorts.yml"):
         workflow = (root / ".github/workflows" / name).read_text(encoding="utf-8")
         assert "story_real_video_media" not in workflow
@@ -489,3 +490,53 @@ def test_story_media_recovery_releases_and_quarantines_failed_subject(monkeypatc
     assert released == [("impossible_odds", "Bad subject story", "Ernest Shackleton")]
     remaining = json.loads(candidates.read_text(encoding="utf-8"))
     assert [row["person"] for row in remaining] == ["New Person"]
+
+
+def test_hybrid_media_falls_back_to_archival_only_for_content_shortage(monkeypatch, tmp_path):
+    import story_hybrid_media as hybrid
+    story_data = story()
+    real_error = RuntimeError("Insufficient verified real footage of Nelson Mandela for scene 1, shot 1")
+    fallback = [{"scene": i // 2 + 1, "shot": i % 2 + 1, "path": str(tmp_path / f"{i}.jpg"),
+                 "type": "photo", "provider": "Wikimedia Commons",
+                 "source_url": f"https://commons.example/{i}", "asset_key": f"photo:{i}", "score": 8}
+                for i in range(14)]
+    monkeypatch.setattr(hybrid.real_video, "generate_media", lambda *a, **k: (_ for _ in ()).throw(real_error))
+    monkeypatch.setattr(hybrid.archival, "generate_media", lambda *a, **k: fallback)
+    result = hybrid.generate_media(story_data, str(tmp_path), {})
+    assert len(result) == 14
+    assert all(row["type"] == "photo" for row in result)
+    route = json.loads((tmp_path / "story_media_route.json").read_text())
+    assert route["mode"] == "archival_video_or_photo"
+
+
+def test_hybrid_media_fails_closed_on_verifier_outage(monkeypatch, tmp_path):
+    import story_hybrid_media as hybrid
+    outage = RuntimeError("Story verifier unavailable after network retries/model fallback")
+    monkeypatch.setattr(hybrid.real_video, "generate_media", lambda *a, **k: (_ for _ in ()).throw(outage))
+    monkeypatch.setattr(hybrid.archival, "generate_media", lambda *a, **k: pytest.fail("Archival fallback must not hide verifier outages"))
+    with pytest.raises(RuntimeError, match="verifier unavailable"):
+        hybrid.generate_media(story(), str(tmp_path), {})
+
+
+def test_hybrid_discovery_accepts_archival_candidates_when_real_video_is_empty(monkeypatch):
+    import story_hybrid_media as hybrid
+    monkeypatch.setattr(hybrid.real_video, "discover", lambda person, audit: [])
+    monkeypatch.setattr(hybrid.archival, "_candidate_pool",
+                        lambda script, scene, want_video: [{"id": "photo:1", "title": "Nelson Mandela portrait",
+                                                             "description": "Nelson Mandela historical photograph",
+                                                             "relevance_score": 8}] if not want_video else [])
+    audit = []
+    result = hybrid.discover("Nelson Mandela", audit)
+    assert result and result[0]["id"] == "photo:1"
+
+
+def test_hybrid_source_credits_are_deduplicated(monkeypatch):
+    import story_hybrid_media as hybrid
+    hybrid._LAST_GROUPS = [
+        {"provider": "Wikimedia Commons", "source_url": "https://commons.example/a", "creator": "Archive"},
+        {"provider": "Wikimedia Commons", "source_url": "https://commons.example/a", "creator": "Archive"},
+        {"provider": "Internet Archive", "source_url": "https://archive.example/b", "creator": ""},
+    ]
+    credits = hybrid.source_credits()
+    assert credits.count("https://commons.example/a") == 1
+    assert credits.count("https://archive.example/b") == 1

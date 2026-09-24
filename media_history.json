@@ -7569,6 +7569,146 @@
       "shot": 2,
       "query": "seatbelts lock your simple tug turns",
       "recorded_at": 1790254987
+    },
+    {
+      "asset_key": "pexels:video:30010030",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30010030/12875452_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "steering wheels lock you pull your car",
+      "recorded_at": 1790273204
+    },
+    {
+      "asset_key": "pexels:video:10579034",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10579034/10579034-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "steering wheels lock suddenly wheel turns",
+      "recorded_at": 1790273226
+    },
+    {
+      "asset_key": "pexels:video:31588827",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/31588827/13460844_720_1280_60fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "steering wheels lock feels like your car",
+      "recorded_at": 1790273236
+    },
+    {
+      "asset_key": "pexels:video:4281278",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4281278/4281278-hd_1280_720_24fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "steering wheels lock personally angry you parking",
+      "recorded_at": 1790273258
+    },
+    {
+      "asset_key": "pexels:video:4464712",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4464712/4464712-hd_1280_720_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "steering wheels lock except stubbornness built",
+      "recorded_at": 1790273264
+    },
+    {
+      "asset_key": "pexels:video:2075170",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/2075170/2075170-hd_1280_720_50fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "steering wheels lock anti theft guard nineteen",
+      "recorded_at": 1790273275
+    },
+    {
+      "asset_key": "pexels:video:34479398",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34479398/14610744_720_1280_60fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "steering wheels lock pulling out key slips",
+      "recorded_at": 1790273286
+    },
+    {
+      "asset_key": "pexels:video:8470017",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8470017/8470017-hd_1280_720_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "steering wheels lock straight into matching notch",
+      "recorded_at": 1790273304
+    },
+    {
+      "asset_key": "pexels:video:31220616",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/31220616/13335597_1280_720_24fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "steering wheels lock you probably thought was",
+      "recorded_at": 1790273317
+    },
+    {
+      "asset_key": "pexels:video:32329373",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/32329373/13790292_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "steering wheels lock needing expensive mechanic shop",
+      "recorded_at": 1790273326
+    },
+    {
+      "asset_key": "pexels:video:12769429",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/12769429/12769429-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "steering wheels lock instead wiggle wheel slightly",
+      "recorded_at": 1790273334
+    },
+    {
+      "asset_key": "pexels:video:27374368",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/27374368/12127393_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "steering wheels lock pin pops right back",
+      "recorded_at": 1790273344
+    },
+    {
+      "asset_key": "pexels:video:6421467",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6421467/6421467-hd_1280_720_30fps.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "steering wheels lock simple mechanical release turns",
+      "recorded_at": 1790273354
+    },
+    {
+      "asset_key": "pexels:video:2075159",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/2075159/2075159-hd_1280_720_50fps.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "steering wheels lock simple mechanical release turns",
+      "recorded_at": 1790273382
     }
   ]
 }

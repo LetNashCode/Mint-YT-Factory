@@ -328,5 +328,11 @@
     "video_id": "mIt9g3KWNZ4",
     "topic": "Why do seatbelts lock",
     "completed_at": 1790256234
+  },
+  {
+    "workdir": "output/1790272791",
+    "video_id": "dSxr_VPkpus",
+    "topic": "Why do steering wheels lock",
+    "completed_at": 1790274831
   }
 ]

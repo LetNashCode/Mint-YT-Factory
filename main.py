@@ -86,6 +86,7 @@ def _lock_canonical_topic(script,current_topic,locked_topic=None):
     script.setdefault("next_short",{})["topic"]=candidate; return candidate
 
 def _strip_model_continuation_from_scene7(final_scene,stale_topics):
+    """Keep Scene 7 to the current-topic payoff plus exactly one pipeline bridge."""
     narration=str(final_scene.get("narration","")).strip(); sentences=_split_sentences(narration)
     retired_topics=[
         "Why do ice cube crack when you pour warm water on them",
@@ -96,10 +97,38 @@ def _strip_model_continuation_from_scene7(final_scene,stale_topics):
         for x in list(stale_topics or []) + retired_topics
         if _normalise_topic_text(x)
     ]
+
+    # Gemini is explicitly told not to add a continuation, but it can still
+    # occasionally produce one or two teaser sentences. Do not rely on the
+    # future topic matching the canonical topic: any recognizable handoff is
+    # model-authored continuation and must be removed before the single
+    # production-owned bridge is appended below.
+    model_teaser_patterns=(
+        r"^and\s+once\s+you\s+know\s+that\b",
+        r"^but\s+(?:that|this)\s+(?:isn't|is not)\s+the\s+only\b",
+        r"^there(?:'s|\s+is)\s+another\b",
+        r"^there(?:'s|\s+is)\s+a\s+(?:completely\s+different|different|another)\b",
+        r"^one\s+mystery\s+down\b",
+        r"^next\s+time\s+you\b",
+        r"^next\s+(?:comes|up|is|one|mystery|question)\b",
+        r"^keep\s+an\s+eye\s+out\s+for\s+this\s+one\b",
+        r"^if\s+that\s+surprised\s+you\b",
+        r"^okay,?\s+but\s+that\s+leaves\b",
+        r"^one\s+more\s+mystery\b",
+        r"^another\s+(?:everyday|ordinary)\s+(?:mystery|thing)\b",
+        r"^the\s+same\s+(?:idea|trick)\s+(?:shows\s+up|appears)\s+in\b",
+        r"^wait\s+until\s+you\s+see\s+what\s+happens\s+with\b",
+    )
     kept=[]; removed=False
     for sentence in sentences:
-        if any(k and k in _normalise_topic_text(sentence) for k in stale_keys): removed=True
-        else: kept.append(sentence)
+        normalized=_normalise_topic_text(sentence)
+        stale_match=any(k and k in normalized for k in stale_keys)
+        teaser_match=any(re.search(pattern,str(sentence).strip(),re.I) for pattern in model_teaser_patterns)
+        if stale_match or teaser_match:
+            removed=True
+            print("🧹 Removed model-authored Scene 7 continuation: "+str(sentence).strip())
+        else:
+            kept.append(sentence)
     payoff=" ".join(kept).strip() if removed else narration
     if removed: print("🧹 Removed model-authored continuation from Scene 7 before canonical lock")
     if payoff:

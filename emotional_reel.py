@@ -66,7 +66,13 @@ def search(q):
     if fs and fs[0].get('url'):out.append((f"pixabay:{v.get('id')}",fs[0]['url']))
  return out
 def run(c,msg):
- if subprocess.run(c,stdout=subprocess.DEVNULL,stderr=subprocess.PIPE).returncode:raise RuntimeError(msg)
+ p=subprocess.run(c,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+ if p.returncode:
+  cmd=' '.join(str(x) for x in c)
+  err=(p.stderr or '').strip()
+  print(f'\\n❌ {msg}\\nCommand: {cmd}\\nReturn code: {p.returncode}\\nFFmpeg stderr:\\n{err[-12000:]}',flush=True)
+  raise RuntimeError(f'{msg}: {err[-1200:] or "ffmpeg returned a non-zero exit code"}')
+ return p.stdout.strip()
 def main():
  p='''Create an original 54-second cinematic emotional Reel. Use intimate reflective quote-video pacing, but do not copy any creator or wording. The viewer should feel directly addressed. Build: immediate recognition, hidden pressure, escalation, turning point, relief, memorable close. No medical claims, diagnosis, crisis language, emojis, or "you are not alone" cliche.
 Return JSON with title, description, hashtags and exactly 9 scenes.
@@ -91,8 +97,35 @@ Total narration should be about 120-145 words. Narration must flow as ONE contin
   words=str(s['text']).split();text=(' '.join(words[:len(words)//2])+'\n'+' '.join(words[len(words)//2:])) if len(words)>7 else str(s['text']);txt.write_text(text,encoding='utf-8')
   vf="scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,eq=brightness=-0.03:saturation=0.90,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf:textfile='"+str(txt)+"':fontcolor=white:fontsize=56:line_spacing=10:x=(w-text_w)/2:y=h*0.61-text_h/2:shadowcolor=black@0.55:shadowx=1:shadowy=2"
   run(['ffmpeg','-y','-hide_banner','-loglevel','error','-stream_loop','-1','-i',str(raw),'-t',str(SEC),'-vf',vf,'-an','-r','30','-c:v','libx264','-preset','fast','-crf','19','-pix_fmt','yuv420p',str(out)],f'Scene {i} failed');rendered.append(out)
- manifest=OUT/'concat.txt';manifest.write_text('\n'.join("file '"+p.as_posix()+"'" for p in rendered),encoding='utf-8');silent=OUT/'silent.mp4'
- run(['ffmpeg','-y','-hide_banner','-loglevel','error','-f','concat','-safe','0','-i',str(manifest),'-c','copy',str(silent)],'Concat failed')
+ manifest=OUT/'concat.txt'
+ # Validate every rendered segment before assembly so bad media never reaches
+ # concat as an opaque FFmpeg failure.
+ for i,p in enumerate(rendered,1):
+  if not p.exists() or p.stat().st_size < 4096:
+   raise RuntimeError(f'Scene {i} output is missing or suspiciously small: {p}')
+  probe=subprocess.run(['ffprobe','-v','error','-select_streams','v:0','-show_entries','stream=codec_name,width,height,pix_fmt,r_frame_rate','-show_entries','format=duration,size','-of','json',str(p)],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+  if probe.returncode:
+   raise RuntimeError(f'Scene {i} is not a valid video: {p}\\nffprobe: {probe.stderr.strip()}')
+  try:
+   info=json.loads(probe.stdout); stream=(info.get('streams') or [])[0]; duration=float((info.get('format') or {}).get('duration') or 0); size=int((info.get('format') or {}).get('size') or 0)
+  except Exception as e:
+   raise RuntimeError(f'Scene {i} ffprobe returned invalid JSON: {e}')
+  if not stream or stream.get('codec_name')!='h264' or int(stream.get('width') or 0)!=1080 or int(stream.get('height') or 0)!=1920 or duration < SEC-0.15 or size < 4096:
+   raise RuntimeError(f'Scene {i} has unexpected media properties: {probe.stdout}')
+  print(f'✅ Scene {i} validated: {duration:.2f}s {stream.get("codec_name")} {stream.get("width")}x{stream.get("height")} {stream.get("pix_fmt")}',flush=True)
+ manifest.write_text('\\n'.join("file '"+p.as_posix()+"'" for p in rendered)+'\\n',encoding='utf-8')
+ print(f'🎬 Concatenating {len(rendered)} validated scenes',flush=True)
+ silent=OUT/'silent.mp4'
+ # Prefer stream-copy; automatically retry with a normalized H.264 encode if
+ # concat metadata/timestamps are rejected.
+ try:
+  run(['ffmpeg','-y','-hide_banner','-loglevel','error','-f','concat','-safe','0','-i',str(manifest),'-c','copy','-movflags','+faststart',str(silent)],'Concat stream-copy failed')
+ except RuntimeError as first_error:
+  print(f'⚠️ Stream-copy concat failed; retrying with normalized re-encode: {first_error}',flush=True)
+  run(['ffmpeg','-y','-hide_banner','-loglevel','error','-f','concat','-safe','0','-i',str(manifest),'-an','-c:v','libx264','-preset','fast','-crf','19','-pix_fmt','yuv420p','-r','30','-movflags','+faststart',str(silent)],'Concat re-encode failed')
+ if not silent.exists() or silent.stat().st_size < 4096:
+  raise RuntimeError(f'Concat produced no usable output: {silent}')
+ print(f'✅ Silent reel assembled: {silent.stat().st_size} bytes',flush=True)
  cfg=yaml.safe_load(Path('config.yaml').read_text());cfg['voice']=dict(cfg.get('voice') or {});cfg['voice'].update({'provider':'kokoro','voice_name':os.getenv('EMOTIONAL_REEL_KOKORO_VOICE','am_michael'),'kokoro_lang':'a','speed':float(os.getenv('EMOTIONAL_REEL_KOKORO_SPEED','0.92'))})
  os.environ['MINT_TTS_PROVIDER']='kokoro';narration_audio=OUT/'narration.mp3'
  synthesize_narration(narration,cfg,str(narration_audio),target_duration=50.0)

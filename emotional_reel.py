@@ -179,8 +179,7 @@ Total narration should be about 120-145 words. Narration must flow as ONE contin
    try: clip.close()
    except Exception: pass
 
- mix='[1:a]volume=0.12,afade=t=in:st=0:d=1.2,afade=t=out:st=51:d=3[m];[2:a]volume=1.0,apad=pad_dur=54[n]'
- run(['ffmpeg','-y','-hide_banner','-loglevel','error','-i',str(captioned_path),'-stream_loop','-1','-i',str(music),'-i',str(narration_audio),'-filter_complex',mix,'-map','0:v:0','-map','[m]','-map','[n]','-t','54','-c:v','copy','-c:a','aac','-b:a','192k','-movflags','+faststart',str(final)],'Music and narration mix failed')
+ # Mix music and narration into ONE AAC program track. Mapping [m] and [n]\n # separately creates multiple audio streams; many players select only the first\n # stream, which can make a successfully generated Kokoro voice appear absent.\n mix='[1:a]volume=0.12,afade=t=in:st=0:d=1.2,afade=t=out:st=51:d=3[m];[2:a]volume=1.0[n];[m][n]amix=inputs=2:duration=longest:dropout_transition=0,aresample=async=1:first_pts=0[mixout]'\n run(['ffmpeg','-y','-hide_banner','-loglevel','error','-i',str(captioned_path),'-stream_loop','-1','-i',str(music),'-i',str(narration_audio),'-filter_complex',mix,'-map','0:v:0','-map','[mixout]','-t','54','-c:v','copy','-c:a','aac','-b:a','192k','-ac','2','-movflags','+faststart',str(final)],'Music and narration mix failed')
  final_probe=subprocess.run(['ffprobe','-v','error','-select_streams','a:0','-show_entries','stream=codec_name,duration','-of','json',str(final)],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
  if final_probe.returncode:
   raise RuntimeError(f'Final Emotional Reel audio probe failed: {final_probe.stderr.strip()}')

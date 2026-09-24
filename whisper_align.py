@@ -39,9 +39,17 @@ def _load_expected_words(audio_path):
                 continue
             with open(script_path, "r", encoding="utf-8") as f:
                 script = json.load(f)
+
+            # Publish/Story scripts use scene_plan. Emotional Reel uses the
+            # simpler top-level scenes schema. Both are narration-authoritative
+            # and must feed the exact same Whisper alignment/caption pipeline.
+            scenes = script.get("scene_plan")
+            if not isinstance(scenes, list):
+                scenes = script.get("scenes", [])
+
             text = " ".join(
                 str(s.get("narration", ""))
-                for s in script.get("scene_plan", [])
+                for s in scenes
                 if isinstance(s, dict)
             )
             words = _WORD_RE.findall(text)
@@ -124,9 +132,6 @@ def _finalize(words,duration):
     for index,item in enumerate(ordered):
         start=max(previous,min(duration,float(item["start"])))
         if index+1<len(ordered):
-            # The next Whisper start is the caption boundary. Whisper end
-            # timestamps are intentionally ignored because they frequently
-            # arrive before the acoustic tail of the same spoken word.
             boundary=max(start+.025,min(duration,float(ordered[index+1]["start"])))
             end=boundary
         else:

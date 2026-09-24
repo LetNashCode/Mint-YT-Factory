@@ -124,6 +124,54 @@ def _apply_requested_story() -> None:
     print(f"Manual Story subject reserved: {person}", flush=True)
 
 
+def _story_media_failure(exc: Exception) -> bool:
+    """Return True only for failures that are safe to recover by choosing another subject."""
+    text = str(exc or "").lower()
+    markers = (
+        "insufficient verified real footage",
+        "no real video candidates found",
+        "story video search budget exhausted",
+    )
+    return any(marker in text for marker in markers)
+
+
+def _release_failed_story(person: str = "") -> None:
+    """Release the current reservation and quarantine the failed person for this run."""
+    try:
+        from story_topic_runtime import release_reservation
+        pending = interactive_topics.get_pending_story() or {}
+        release_reservation(
+            pending.get("pillar"),
+            pending.get("topic"),
+            person or pending.get("person"),
+        )
+    except Exception as exc:
+        print(f"⚠️ Could not release failed Story reservation cleanly: {exc}", flush=True)
+
+    # Remove the failed person from the current candidate pool so the same
+    # unavailable subject cannot immediately be selected again.
+    try:
+        path = Path(interactive_topics.CANDIDATES)
+        rows = interactive_topics._load(path, [])
+        failed = str(person or "").strip().lower()
+        filtered = [
+            row for row in rows
+            if not isinstance(row, dict)
+            or str(row.get("person") or "").strip().lower() != failed
+        ]
+        interactive_topics._save(path, filtered)
+    except Exception as exc:
+        print(f"⚠️ Could not quarantine failed Story candidate: {exc}", flush=True)
+
+
+def _defer_story(reason: str) -> None:
+    """Finish the GitHub run successfully when Story cannot be safely published."""
+    Path(".story_deferred").write_text(
+        str(reason).strip()[:1000] + "\n", encoding="utf-8"
+    )
+    print(f"⏸️ Story Shorts deferred safely: {reason}", flush=True)
+
+
 def main() -> None:
     next_number = validate_story_sequence_state()
     print(f"🔐 Story sequence preflight passed: next Story #{next_number}")
@@ -149,9 +197,43 @@ def main() -> None:
     identity_generate_media._mint_story_identity_wrapper = True
     import stock_media_resilient
     stock_media_resilient.generate_media = identity_generate_media
-    runpy.run_path("interactive_main.py", run_name="__main__")
-    if Path(".story_gemini_quota_deferred").exists():
-        print("⏸️ Story Shorts deferred because Gemini quota is exhausted; no final video is expected in this run.")
+
+    # A topic can pass metadata-only discovery and still fail the visual
+    # identity gate (as happened with Shackleton: Commons returned South
+    # Georgia footage, but Gemini correctly rejected it). Treat that as a
+    # content-availability failure, not a broken CI run: release the subject,
+    # choose another unused subject, and retry the complete Story generation.
+    max_story_attempts = 4
+    for attempt in range(1, max_story_attempts + 1):
+        try:
+            runpy.run_path("interactive_main.py", run_name="__main__")
+            break
+        except Exception as exc:
+            if Path(".story_gemini_quota_deferred").exists():
+                print("⏸️ Story Shorts deferred because Gemini quota is exhausted; no final video is expected in this run.")
+                return
+            if not _story_media_failure(exc):
+                raise
+            pending = interactive_topics.get_pending_story() or {}
+            failed_person = str(pending.get("person") or "").strip()
+            if not failed_person:
+                # The generated script still identifies the person even if the
+                # durable reservation was changed by a later stage.
+                failed_person = str(getattr(exc, "story_person", "") or "").strip()
+            _release_failed_story(failed_person)
+            if attempt >= max_story_attempts:
+                _defer_story(
+                    f"Unable to obtain verified real-person footage after {max_story_attempts} subjects; "
+                    "no generic stock/photo fallback was used."
+                )
+                return
+            print(
+                f"🔁 Story media recovery: subject {failed_person or 'unknown'} failed identity/availability "
+                f"gate; retrying with a new unused subject ({attempt + 1}/{max_story_attempts})",
+                flush=True,
+            )
+
+    if Path(".story_gemini_quota_deferred").exists() or Path(".story_deferred").exists():
         return
     _validate_final_videos()
 

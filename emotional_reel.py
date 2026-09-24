@@ -164,11 +164,37 @@ SOURCE JSON:
   if isinstance(compact_scenes,list) and len(compact_scenes)==N:
    compact_narration=' '.join(str(s.get('narration','')).strip() for s in compact_scenes).strip()
    compact_words=len(re.findall(r"\b[\w'-]+\b",compact_narration))
-   if 110 <= compact_words <= 145:
+   compact_scene_counts=[len(re.findall(r"\b[\w'-]+\b",str(s.get('narration','')))) for s in compact_scenes]
+   if 110 <= compact_words <= 145 and all(12 <= n <= 18 for n in compact_scene_counts):
     d,scenes,narration=compact,compact_scenes,compact_narration
     print(f'✅ Compact narration rewrite accepted: {compact_words} words',flush=True)
+
+ # Gemini can still occasionally ignore numeric word-count constraints. Do not
+ # fail the entire production for that. Use a deterministic last-resort compactor
+ # that preserves the selected story, scene order, text and searches.
+ if d is None and last_candidate is not None:
+  candidate,candidate_scenes,_,_=last_candidate
+  fallback_scenes=[]
+  for scene in candidate_scenes:
+   raw_words=re.findall(r"\b[\w'-]+\b",str(scene.get('narration','')).strip())
+   raw_words=raw_words[:15]
+   fallback=dict(scene)
+   fallback['narration']=' '.join(raw_words).strip()
+   if fallback['narration'] and not fallback['narration'].endswith(('.', '!', '?')):
+    fallback['narration'] += '.'
+   fallback_scenes.append(fallback)
+  fallback_narration=' '.join(str(s.get('narration','')).strip() for s in fallback_scenes).strip()
+  fallback_words=len(re.findall(r"\b[\w'-]+\b",fallback_narration))
+  fallback_counts=[len(re.findall(r"\b[\w'-]+\b",str(s.get('narration','')))) for s in fallback_scenes]
+  if 110 <= fallback_words <= 145 and len(fallback_scenes)==N and all(1 <= n <= 15 for n in fallback_counts):
+   d=dict(candidate)
+   d['scenes']=fallback_scenes
+   scenes=fallback_scenes
+   narration=fallback_narration
+   print(f'⚠️ Gemini compact rewrite was out of budget; using deterministic narration compactor: {fallback_words} words',flush=True)
+
  if d is None:
-  raise RuntimeError('Could not generate a valid 110-145 word Emotional Reel narration after bounded retries and compact rewrite')
+  raise RuntimeError('Could not generate a valid Emotional Reel narration after bounded retries, Gemini compaction, and deterministic fallback')
  (OUT/'script.json').write_text(json.dumps(d,indent=2,ensure_ascii=False),encoding='utf-8');(OUT/'narration.txt').write_text(narration,encoding='utf-8')
  used=set();rendered=[]
  for i,s in enumerate(scenes,1):

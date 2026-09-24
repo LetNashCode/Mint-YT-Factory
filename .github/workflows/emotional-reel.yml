@@ -15,6 +15,24 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Verify Emotional Reel production revision
+        shell: bash
+        run: |
+          echo "EMOTIONAL_REEL_COMMIT=$(git rev-parse HEAD)"
+          if grep -q "amix=inputs=2" emotional_reel.py; then
+            echo "EMOTIONAL_REEL_AUDIO_PIPELINE=single-mixed-stream"
+          else
+            echo "EMOTIONAL_REEL_AUDIO_PIPELINE=legacy"
+            echo "ERROR: workflow checked out a revision without the fixed audio mixer."
+            exit 1
+          fi
+          if grep -q "Production encoding:" emotional_reel.py; then
+            echo "ERROR: legacy Emotional Reel renderer detected."
+            exit 1
+          fi
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"

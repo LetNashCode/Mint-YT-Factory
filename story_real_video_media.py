@@ -234,7 +234,7 @@ def verify(person, scene, item, samples):
         "Return JSON with boolean person_visible, real_footage, usable; numeric relevance (0-10); "
         "string reason; and usage ('direct_event' or 'biographical_illustration'). "
         "Use direct_event only when the actual moving footage materially depicts the narrated historical event/context; "
-        "otherwise use biographical_illustration."\n" +
+        "otherwise use biographical_illustration." + "\n" +
         json.dumps({"person": person, "narration": scene.get("narration", ""),
                     "visuals": scene.get("visuals", []), "source_title": item.get("title"),
                     "source_description": item.get("description")}, ensure_ascii=False))

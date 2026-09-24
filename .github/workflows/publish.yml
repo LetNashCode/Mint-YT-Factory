@@ -249,7 +249,30 @@ jobs:
           git reset --hard origin/main
           changed=""
           for f in used_topics.json analytics_registry.json learning_playbook.json completed_publications.json media_history.json; do if [ -f "/tmp/mint-topic-state/$f" ]; then cp -f "/tmp/mint-topic-state/$f" "$f"; git add "$f"; changed="yes"; fi; done
-          if ! git diff --cached --quiet; then git commit -m "chore: sync publish state"; git push origin HEAD:main; else echo "ℹ️ No topic/learning/publication/media state changes to commit."; fi
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: sync publish state"
+            pushed=""
+            for attempt in 1 2 3; do
+              echo "📤 Pushing publish state (attempt $attempt/3)..."
+              if git push origin HEAD:main; then
+                pushed="yes"
+                break
+              fi
+              echo "⚠️ GitHub state push failed on attempt $attempt; refreshing origin/main before retry."
+              git fetch origin main || true
+              git rebase origin/main || {
+                echo "⚠️ State commit could not be rebased onto the latest origin/main."
+                git rebase --abort || true
+              }
+              sleep $((attempt * 3))
+            done
+            if [ -z "$pushed" ]; then
+              echo "⚠️ Publish-state push could not be completed after 3 attempts."
+              echo "ℹ️ The generated state remains in the workflow artifact/resume package; this transient GitHub push failure will not fail the Publish Shorts run."
+            fi
+          else
+            echo "ℹ️ No topic/learning/publication/media state changes to commit."
+          fi
       - name: Upload Publish Shorts resume package
         if: always()
         uses: actions/upload-artifact@v4

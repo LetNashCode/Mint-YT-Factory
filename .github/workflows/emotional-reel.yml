@@ -36,6 +36,10 @@ jobs:
           FACEBOOK_PAGE_ACCESS_TOKEN: ${{ secrets.FACEBOOK_PAGE_ACCESS_TOKEN }}
           META_GRAPH_API_VERSION: ${{ vars.META_GRAPH_API_VERSION }}
           SOCIAL_PUBLISH_STRICT: "false"
+          MINT_KOKORO_TTS: "1"
+          MINT_TTS_PROVIDER: "kokoro"
+          EMOTIONAL_REEL_KOKORO_VOICE: "am_michael"
+          EMOTIONAL_REEL_KOKORO_SPEED: "0.92"
         run: python -u emotional_reel.py
       - name: Upload artifact
         if: always()
@@ -43,4 +47,3 @@ jobs:
         with:
           name: emotional-reel-${{ github.run_id }}
           path: output/emotional_reel/**
-          retention-days: 7

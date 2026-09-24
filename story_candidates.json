@@ -113,18 +113,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "An Antarctic expedition leader watches his ship get crushed by pack ice, stranding his entire crew on drifting ice floes for months.",
-    "hook": "His ship was completely destroyed, yet he managed to bring every single crew member back alive.",
-    "key_facts": [
-      "Led the Imperial Trans-Antarctic Expedition aboard the ship Endurance in 1914.",
-      "Endured months of isolation on floating ice after the ship sank.",
-      "Sailed an open lifeboat 800 miles across treacherous seas to fetch rescue from South Georgia Island."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "strange_turning_point",
     "person": "Hedy Lamarr",
     "premise": "A glamorous Hollywood actress during the Golden Age secretly invents and patents a radio guidance system for allied torpedoes.",

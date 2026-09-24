@@ -463,13 +463,21 @@ def test_story_media_recovery_releases_and_quarantines_failed_subject(monkeypatc
     pending = {"pillar": "impossible_odds", "topic": "Bad subject story",
                "person": "Ernest Shackleton", "status": "reserved", "number": 7}
     released = []
+
     monkeypatch.setattr(runner.interactive_topics, "get_pending_story", lambda: pending)
     monkeypatch.setattr(
-        runner,
-        "_release_failed_story",
-        lambda person: released.append(person),
+        "story_topic_runtime.release_reservation",
+        lambda pillar=None, topic=None, person=None: released.append((pillar, topic, person)) or True,
     )
-    # The public helper remains intentionally small and independently testable:
-    # the production runner delegates reservation cleanup to story_topic_runtime.
+    candidates = tmp_path / "story_candidates.json"
+    candidates.write_text(json.dumps([
+        {"person": "Ernest Shackleton", "premise": "Bad footage"},
+        {"person": "New Person", "premise": "Good footage"},
+    ]), encoding="utf-8")
+    monkeypatch.setattr(runner.interactive_topics, "CANDIDATES", candidates)
+
     runner._release_failed_story("Ernest Shackleton")
-    assert released == ["Ernest Shackleton"]
+
+    assert released == [("impossible_odds", "Bad subject story", "Ernest Shackleton")]
+    remaining = json.loads(candidates.read_text(encoding="utf-8"))
+    assert [row["person"] for row in remaining] == ["New Person"]

@@ -20,6 +20,34 @@ jobs:
           python-version: "3.11"
           cache: pip
           cache-dependency-path: requirements.txt
+      - name: Detect pending Emotional Reel render
+        id: resume_state
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=Path("output/emotional_reel/resume_state.json")
+          pending=False
+          key=""
+          if p.exists():
+              try:
+                  s=json.loads(p.read_text())
+                  pending=s.get("status")=="pending_upload"
+                  key=str(s.get("cache_key",""))
+              except Exception:
+                  pass
+          with open(os.environ["GITHUB_OUTPUT"],"a") as f:
+              f.write(f"pending={str(pending).lower()}\n")
+              f.write(f"cache_key={key}\n")
+          print(f"EMOTIONAL_REEL_PENDING={pending}")
+          print(f"EMOTIONAL_REEL_CACHE_KEY={key}")
+      - name: Restore rendered Emotional Reel
+        if: steps.resume_state.outputs.pending == 'true'
+        uses: actions/cache/restore@v4
+        with:
+          path: output/emotional_reel/final.mp4
+          key: ${{ steps.resume_state.outputs.cache_key }}
       - name: Install media tools
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg imagemagick
       - name: Install dependencies
@@ -41,6 +69,25 @@ jobs:
           EMOTIONAL_REEL_KOKORO_VOICE: "am_michael"
           EMOTIONAL_REEL_KOKORO_SPEED: "0.92"
         run: python -u emotional_reel.py
+      - name: Save rendered Emotional Reel cache
+        if: always() && hashFiles('output/emotional_reel/final.mp4') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: output/emotional_reel/final.mp4
+          key: ${{ steps.resume_state.outputs.cache_key || format('emotional-reel-final-v2-{0}', github.run_id) }}
+      - name: Commit Emotional Reel resume state
+        if: always()
+        shell: bash
+        run: |
+          if [ -f output/emotional_reel/resume_state.json ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add output/emotional_reel/resume_state.json
+            if ! git diff --cached --quiet; then
+              git commit -m "Persist Emotional Reel render resume state"
+              git push
+            fi
+          fi
       - name: Upload artifact
         if: always()
         uses: actions/upload-artifact@v4

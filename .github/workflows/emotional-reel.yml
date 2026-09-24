@@ -68,6 +68,7 @@ jobs:
           MINT_TTS_PROVIDER: "kokoro"
           EMOTIONAL_REEL_KOKORO_VOICE: "am_michael"
           EMOTIONAL_REEL_KOKORO_SPEED: "0.92"
+          MINT_MAX_PLAYBACK_SPEED: "1.25"
         run: python -u emotional_reel.py
       - name: Read final Emotional Reel cache key
         if: always()

@@ -133,17 +133,42 @@ Each scene has text (4-12 words) for the screen, narration (12-18 natural spoken
 Scene 1 text is a 4-8 word hook. Scene 9 is a memorable closing thought.
 Total narration should be about 120-145 words. Narration must flow as ONE continuous story, not nine disconnected quotes.'''
  d=None;scenes=None;narration=''
- for attempt in range(1,4):
+ last_candidate=None
+ for attempt in range(1,6):
   candidate=ai(p);candidate_scenes=candidate.get('scenes')
   if not isinstance(candidate_scenes,list) or len(candidate_scenes)!=N:
-   print(f'⚠️ Emotional Reel script attempt {attempt}/3 rejected: need exactly {N} scenes',flush=True);continue
+   print(f'⚠️ Emotional Reel script attempt {attempt}/5 rejected: need exactly {N} scenes',flush=True);continue
   candidate_narration=' '.join(str(s.get('narration','')).strip() for s in candidate_scenes).strip()
   word_count=len(re.findall(r"\b[\w'-]+\b",candidate_narration))
-  if word_count<110 or word_count>145:
-   print(f'⚠️ Emotional Reel script attempt {attempt}/3 rejected: narration has {word_count} words; target is 110-145',flush=True);continue
-  d,scenes,narration=candidate,candidate_scenes,candidate_narration
-  break
- if d is None: raise RuntimeError('Could not generate a 110-145 word Emotional Reel narration after 3 attempts')
+  last_candidate=(candidate,candidate_scenes,candidate_narration,word_count)
+  if 110 <= word_count <= 145:
+   d,scenes,narration=candidate,candidate_scenes,candidate_narration
+   break
+  print(f'⚠️ Emotional Reel script attempt {attempt}/5 rejected: narration has {word_count} words; target is 110-145',flush=True)
+
+ if d is None and last_candidate is not None:
+  candidate,candidate_scenes,candidate_narration,word_count=last_candidate
+  print(f'⚠️ No in-range script after 5 attempts; requesting one final compact rewrite from Gemini ({word_count} words)',flush=True)
+  compact_prompt="""Rewrite ONLY the narration fields of this 9-scene Emotional Reel.
+Keep the exact same story, emotional arc, facts, scene order, and meaning.
+Return JSON with exactly 9 scenes, preserving each scene's text and search fields.
+Make every narration 12-15 natural spoken words.
+Total narration MUST be 115-135 words.
+Do not add new ideas, disclaimers, emojis, or a CTA.
+Narration must remain one continuous story.
+
+SOURCE JSON:
+""" + json.dumps(candidate,ensure_ascii=False)
+  compact=ai(compact_prompt)
+  compact_scenes=compact.get('scenes')
+  if isinstance(compact_scenes,list) and len(compact_scenes)==N:
+   compact_narration=' '.join(str(s.get('narration','')).strip() for s in compact_scenes).strip()
+   compact_words=len(re.findall(r"\b[\w'-]+\b",compact_narration))
+   if 110 <= compact_words <= 145:
+    d,scenes,narration=compact,compact_scenes,compact_narration
+    print(f'✅ Compact narration rewrite accepted: {compact_words} words',flush=True)
+ if d is None:
+  raise RuntimeError('Could not generate a valid 110-145 word Emotional Reel narration after bounded retries and compact rewrite')
  (OUT/'script.json').write_text(json.dumps(d,indent=2,ensure_ascii=False),encoding='utf-8');(OUT/'narration.txt').write_text(narration,encoding='utf-8')
  used=set();rendered=[]
  for i,s in enumerate(scenes,1):

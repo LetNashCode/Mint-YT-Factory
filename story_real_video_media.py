@@ -58,35 +58,58 @@ def command(args, timeout=90):
 
 
 def search_commons(person):
-    results, continuation = [], {}
+    results, seen = [], set()
     search_terms = [
         f'"{person}" filetype:video',
         f'"{person}" expedition filetype:video',
         f'"{person}" expedition ship ice filetype:video',
     ]
+    category = f"Category:Videos of {person}"
     for query in search_terms:
         continuation = {}
         for _ in range(2):
-            data = get_json("https://commons.wikimedia.org/w/api.php", action="query", format="json",
-                            generator="search", gsrsearch=query,
-                            gsrnamespace=6, gsrlimit=40, prop="imageinfo|categories",
-                            iiprop="url|mime|extmetadata", **continuation)
-        for page in (data.get("query", {}).get("pages", {}) or {}).values():
-            info = (page.get("imageinfo") or [{}])[0]
-            if not str(info.get("mime", "")).startswith("video/"):
-                continue
-            meta = info.get("extmetadata") or {}
-            def field(key):
-                return clean((meta.get(key) or {}).get("value"))
-            if info.get("url"):
-                results.append({"id": f"commons:{page['pageid']}", "provider": "Wikimedia Commons",
-                                "url": info["url"], "source_url": info.get("descriptionurl") or info["url"],
-                                "title": clean(page.get("title")), "description": field("ImageDescription"),
-                                "creator": field("Artist"), "license": field("LicenseShortName"),
-                                "direct_subject": any(c.get("title") == "Category:Videos of " + person for c in page.get("categories", []))})
-        continuation = data.get("continue") or {}
-        if not continuation:
-            break
+            params = {
+                "action": "query", "format": "json",
+                "generator": "search", "gsrsearch": query,
+                "gsrnamespace": 6, "gsrlimit": 40,
+                "prop": "imageinfo|categories",
+                "iiprop": "url|mime|extmetadata",
+                "clcategories": category,
+            }
+            params.update(continuation)
+            data = get_json("https://commons.wikimedia.org/w/api.php", **params)
+            for page in (data.get("query", {}).get("pages", {}) or {}).values():
+                page_id = page.get("pageid")
+                if page_id is None or f"commons:{page_id}" in seen:
+                    continue
+                info = (page.get("imageinfo") or [{}])[0]
+                if not str(info.get("mime", "")).startswith("video/"):
+                    continue
+                meta = info.get("extmetadata") or {}
+
+                def field(key):
+                    return clean((meta.get(key) or {}).get("value"))
+
+                if info.get("url"):
+                    item_id = f"commons:{page_id}"
+                    categories = page.get("categories", []) or []
+                    results.append({
+                        "id": item_id,
+                        "provider": "Wikimedia Commons",
+                        "url": info["url"],
+                        "source_url": info.get("descriptionurl") or info["url"],
+                        "title": clean(page.get("title")),
+                        "description": field("ImageDescription"),
+                        "creator": field("Artist"),
+                        "license": field("LicenseShortName"),
+                        "direct_subject": any(
+                            c.get("title") == category for c in categories
+                        ),
+                    })
+                    seen.add(item_id)
+            continuation = data.get("continue") or {}
+            if not continuation:
+                break
     return results
 
 

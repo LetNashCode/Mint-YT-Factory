@@ -9,12 +9,47 @@ from upload_youtube import upload_video
 from social_publish import publish_social_reels
 
 OUT=Path('output/emotional_reel');OUT.mkdir(parents=True,exist_ok=True);N=9;SEC=6
+def _is_quota_error(error):
+ text=str(error or '').lower()
+ return any(x in text for x in ('resource_exhausted','quota exceeded','generaterequestsperday','quota_id','rate limit','429'))
+def _is_retryable_gemini_error(error):
+ if _is_quota_error(error): return False
+ text=str(error or '').lower()
+ return any(x in text for x in ('client has been closed','cannot send a request','503','unavailable','high demand','deadline exceeded','timeout','temporarily','connection reset','connection aborted'))
 def ai(p):
  k=os.getenv('GEMINI_API_KEY','')
  if not k: raise RuntimeError('GEMINI_API_KEY is required')
- r=genai.Client(api_key=k).models.generate_content(model=os.getenv('EMOTIONAL_REEL_MODEL','gemini-flash-lite-latest'),contents=p,config=types.GenerateContentConfig(temperature=.7,response_mime_type='application/json'))
- text=str(r.text).replace(chr(96)*3+'json','').replace(chr(96)*3,'').strip()
- return json.loads(text)
+ model=os.getenv('EMOTIONAL_REEL_MODEL','gemini-flash-lite-latest')
+ last=None
+ for attempt in range(1,5):
+  client=None
+  try:
+   # Keep a strong reference to the Client for the complete request.  The
+   # google-genai SDK can otherwise surface "client has been closed" from its
+   # internal retry path when a temporary Client is chained directly into
+   # models.generate_content().
+   client=genai.Client(api_key=k)
+   r=client.models.generate_content(
+    model=model,
+    contents=p,
+    config=types.GenerateContentConfig(
+     temperature=.7,
+     response_mime_type='application/json',
+    ),
+   )
+   text=str(r.text or '').replace(chr(96)*3+'json','').replace(chr(96)*3,'').strip()
+   if not text: raise RuntimeError('Gemini returned an empty response')
+   return json.loads(text)
+  except Exception as error:
+   last=error
+   if _is_quota_error(error):
+    raise RuntimeError('GEMINI_QUOTA_DEFERRED: Gemini project/day quota is exhausted; emotional reel generation will resume on the next successful run.') from error
+   if attempt>=4 or not _is_retryable_gemini_error(error):
+    raise
+   delay=min(20,2**attempt)
+   print(f'⚠️ Gemini transient failure ({attempt}/4): {error}; retrying in {delay}s')
+   time.sleep(delay)
+ raise RuntimeError(f'Gemini generation failed: {last}')
 def search(q):
  out=[];pk=os.getenv('PEXELS_API_KEY','');xb=os.getenv('PIXABAY_API_KEY','')
  if pk:

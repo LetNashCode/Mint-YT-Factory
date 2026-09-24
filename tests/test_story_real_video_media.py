@@ -76,9 +76,15 @@ def test_commons_search_filters_video_and_follows_continuation(monkeypatch):
             result["continue"] = {"gsroffset": 40, "continue": "gsroffset||"}
         return result
     monkeypatch.setattr(media, "get_json", fetch)
-    assert len(media.search_commons("Nelson Mandela")) == 2
+    results = media.search_commons("Nelson Mandela")
+    # Three discovery queries are intentionally used; each follows Commons continuation.
+    # The important contract is that pagination is followed and every returned item is video.
+    assert len(results) == 4
+    assert all(item["provider"] == "Wikimedia Commons" for item in results)
+    assert all(item["url"].endswith("video.webm") for item in results)
     assert "filetype:video" in calls[0]["gsrsearch"]
     assert calls[1]["gsroffset"] == 40
+    assert len(calls) == 6
 
 
 def test_provider_outage_does_not_block_other_sources(monkeypatch):

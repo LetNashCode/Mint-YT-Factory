@@ -131,6 +131,7 @@ def _story_media_failure(exc: Exception) -> bool:
         "insufficient verified real footage",
         "no real video candidates found",
         "story video search budget exhausted",
+        "no relevant downloadable archival media",
     )
     return any(marker in text for marker in markers)
 

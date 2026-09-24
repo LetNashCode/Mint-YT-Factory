@@ -1,0 +1,41 @@
+{
+  "status": "uploaded",
+  "final_path": "output/emotional_reel/final.mp4",
+  "final_sha256": "20e56e74f1e81a442460807843af09f4a8fa44c1f9d951ea6919eb66d4624acd",
+  "cache_key": "emotional-reel-final-v2-20e56e74f1e81a442460807843af09f4",
+  "title": "The Weight We Carry",
+  "description": "A reflective cinematic journey about acknowledging unspoken endurance and finding quiet liberation within.",
+  "hashtags": [
+    "mindset",
+    "reflection",
+    "cinematic",
+    "growth",
+    "innerpeace"
+  ],
+  "engagement_comment": "Rest is not surrender.",
+  "voice": {
+    "provider": "kokoro",
+    "voice_name": "am_michael",
+    "kokoro_lang": "a",
+    "edge_voice": "en-US-GuyNeural",
+    "tiktok_voice_name": "en_us_010",
+    "speed": 0.92,
+    "tone": "curious, confident, playful storyteller"
+  },
+  "created_at": 1790292223,
+  "video_id": "QMwAY-DUjik",
+  "social": {
+    "instagram": {
+      "status": "published",
+      "media_id": "18115683445784274",
+      "container_id": "18494734987097136"
+    },
+    "facebook": {
+      "status": "published",
+      "video_id": "4479257595724848"
+    },
+    "strict": false,
+    "updated_at": 1790292506
+  },
+  "uploaded_at": 1790292664
+}

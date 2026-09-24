@@ -159,8 +159,12 @@ Narration must remain one continuous story.
 
 SOURCE JSON:
 """ + json.dumps(candidate,ensure_ascii=False)
-  compact=ai(compact_prompt)
-  compact_scenes=compact.get('scenes')
+  compact=None
+  try:
+   compact=ai(compact_prompt)
+  except Exception as compact_error:
+   print(f'⚠️ Gemini compact rewrite failed; using deterministic fallback: {compact_error}',flush=True)
+  compact_scenes=compact.get('scenes') if isinstance(compact,dict) else None
   if isinstance(compact_scenes,list) and len(compact_scenes)==N:
    compact_narration=' '.join(str(s.get('narration','')).strip() for s in compact_scenes).strip()
    compact_words=len(re.findall(r"\b[\w'-]+\b",compact_narration))

@@ -116,7 +116,7 @@ Total narration should be about 120-145 words. Narration must flow as ONE contin
  # IMPORTANT: concat resolves relative file entries relative to concat.txt's
  # directory. Use absolute paths and real newline characters, not the literal
  # two-character sequence \\n.
- manifest.write_text('\\n'.join("file '"+p.resolve().as_posix().replace("'","'\\\\''")+"'" for p in rendered)+'\\n',encoding='utf-8')
+ manifest.write_text('\n'.join("file '"+p.resolve().as_posix().replace("'","'\\\\''")+"'" for p in rendered)+'\n',encoding='utf-8')
  print(f'🎬 Concatenating {len(rendered)} validated scenes',flush=True)
  print(manifest.read_text(encoding='utf-8'),flush=True)
  silent=OUT/'silent.mp4'

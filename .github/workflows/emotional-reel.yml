@@ -88,6 +88,24 @@ jobs:
           MINT_MAX_PLAYBACK_SPEED: "1.25"
           EMOTIONAL_REEL_MUSIC_URLS: ${{ secrets.EMOTIONAL_REEL_MUSIC_URLS }}
         run: python -u emotional_reel.py
+      - name: Read final Emotional Reel cache key
+        if: always()
+        id: final_state
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          p=Path("output/emotional_reel/resume_state.json")
+          key=""
+          if p.exists():
+              try:
+                  key=str(json.loads(p.read_text()).get("cache_key",""))
+              except Exception:
+                  pass
+          with open(os.environ["GITHUB_OUTPUT"],"a") as f:
+              f.write(f"cache_key={key}\n")
+          print(f"FINAL_EMOTIONAL_REEL_CACHE_KEY={key}")
       - name: Save rendered Emotional Reel cache
         if: always() && hashFiles('output/emotional_reel/final.mp4') != '' && steps.final_state.outputs.cache_key != ''
         uses: actions/cache/save@v4

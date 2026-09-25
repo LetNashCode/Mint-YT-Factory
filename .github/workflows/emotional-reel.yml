@@ -70,6 +70,12 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg imagemagick
       - name: Install dependencies
         run: python -m pip install --prefer-binary -r requirements.txt
+      - name: Validate Emotional Shorts Python syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m py_compile tts.py emotional_reel.py
+          echo "✅ Emotional Shorts Python syntax validation passed"
       - name: Generate and publish
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

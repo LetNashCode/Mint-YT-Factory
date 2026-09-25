@@ -1,10 +1,10 @@
 {
   "status": "uploaded",
   "final_path": "output/emotional_reel/final.mp4",
-  "final_sha256": "9e721c40c9bd28a3bb7f16753e08e0527da8a3368371b91ddc9a21ae7910b1f6",
-  "cache_key": "emotional-reel-final-v2-9e721c40c9bd28a3bb7f16753e08e052",
-  "title": "The Weight of Holding It All Together",
-  "description": "An intimate cinematic reflection on carrying unspoken pressure, the breaking point, and the quiet relief of finally letting go.",
+  "final_sha256": "54be1681ac4857fc35525b47e1ed280b7380f9753c1e4599d7814e4e98972cf7",
+  "cache_key": "emotional-reel-final-v2-54be1681ac4857fc35525b47e1ed280b",
+  "title": "The Weight We Carry Alone",
+  "description": "A cinematic journey through the invisible pressure of holding everything together, and the quiet power of finally letting go.",
   "hashtags": [
     "cinematic",
     "reflection",
@@ -13,7 +13,7 @@
     "storytelling",
     "depth"
   ],
-  "engagement_comment": "Peace begins the moment you exhale.",
+  "engagement_comment": "Put down what was never yours.",
   "voice": {
     "provider": "kokoro",
     "voice_name": "af_heart",
@@ -23,23 +23,23 @@
     "speed": 0.92,
     "tone": "curious, confident, playful storyteller"
   },
-  "created_at": 1790299336,
-  "narration_word_count": 147,
+  "created_at": 1790300110,
+  "narration_word_count": 138,
   "complete_script_preserved": true,
   "final_duration_seconds": 53.76,
-  "video_id": "oQXmM8gH4dY",
+  "video_id": "KObijGacSuU",
   "social": {
     "instagram": {
       "status": "published",
-      "media_id": "18429355132181540",
-      "container_id": "18494749894097136"
+      "media_id": "18094407050389323",
+      "container_id": "18494751595097136"
     },
     "facebook": {
       "status": "published",
-      "video_id": "1029383383466591"
+      "video_id": "1603340551463663"
     },
     "strict": false,
-    "updated_at": 1790299570
+    "updated_at": 1790300461
   },
-  "uploaded_at": 1790299689
+  "uploaded_at": 1790300630
 }

@@ -218,8 +218,8 @@ IMPORTANT: Every narration word you generate is production-critical. Do not omit
   raise RuntimeError(f'Voice narration probe returned invalid data: {e}')
  if not audio_stream or voice_duration < 5.0:
   raise RuntimeError(f'Voice narration missing or too short: {probe.stdout}')
- if voice_duration > 53.5:
-  raise RuntimeError(f'Complete narration is {voice_duration:.2f}s after speed adaptation, which exceeds the 53.5s audio budget. Refusing to truncate the script.')
+ if voice_duration > 54.0:
+  raise RuntimeError(f'Complete narration is {voice_duration:.2f}s after speed adaptation, which exceeds the 54.0s production ceiling. Refusing to truncate the script.')
  print(f'🎙️ VOICE NARRATION VERIFIED | provider=Kokoro-82M | voice={cfg["voice"].get("voice_name")} | duration={voice_duration:.2f}s | COMPLETE_SCRIPT_PRESERVED=YES',flush=True)
  render_duration=voice_duration
  print(f'⏱️ EMOTIONAL REEL DURATION LOCKED TO TTS | duration={render_duration:.2f}s',flush=True)

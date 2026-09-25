@@ -1,0 +1,369 @@
+{
+  "schema_version": 1,
+  "segments": [
+    {
+      "person": "Arnold Schwarzenegger",
+      "source": {
+        "id": "commons:70729021",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm",
+        "title": "File:Arnold Schwarzenegger's suggestions for a cleaner world.webm",
+        "description": "http://www.weforum.org/ - A conversation with Arnold Schwarzenegger, Governor of California (2003-2011) on driving global climate action, and the role of business in shaping the Fourth Industrial Revolution in a fractured world.",
+        "creator": "World Economic Forum",
+        "license": "CC BY 3.0",
+        "direct_subject": false
+      },
+      "start": 774.49,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows actual moving footage of Arnold Schwarzenegger participating in a panel conversation at the World Economic Forum, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4376a83ca4f1ccedd02d31085f0dd9c23e92204c15d65c1e3823635fecf73c68",
+      "reviewed_at": 1790366952.6183908
+    },
+    {
+      "person": "Arnold Schwarzenegger",
+      "source": {
+        "id": "commons:69767419",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/President_Reagan%27s_Remarks_at_the_Simon_Wiesenthal_Center_Awards_Ceremony_on_October_30%2C_1988.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:President_Reagan%27s_Remarks_at_the_Simon_Wiesenthal_Center_Awards_Ceremony_on_October_30,_1988.webm",
+        "title": "File:President Reagan's Remarks at the Simon Wiesenthal Center Awards Ceremony on October 30, 1988.webm",
+        "description": "Full Title: Trip to California. Introduction of President Reagan, Nancy Reagan, Rabbi Marvin Heir Presents Nancy Reagan Bet Hasoa Tolerance Award, Remarks by Arnold Schwarzenegger, Nancy Reagan Accepts Award then Makes Remarks, Wiesenthal Committee Remarks, Simon Wiesenthal Humanitarian Award is Presented to President Reagan by Simon Wiesenthal, President Reagan's Remarks to The Simon Wiesenthal Center Annual Awards Banquet, Simon Wiesenthal's Remarks. Los Angeles Ballroom Century Plaza Hotel in Los Angeles on October 30. 1988 Creator(s): President (1981-1989 : Reagan). White House Television Office. 1/20/1981-1/20/1989 (Most Recent) Series: Video Recordings, 1/20/1981 - 1/20/1989 Collection: Records of the White House Television Office (WHTV) (Reagan Administration), 1/20/1981 - 1/20/1989 Transcript: https://www.reaganlibrary.gov/research/speeches/103088a Production Date: 10/30/1988 Access Restriction(s):Unrestricted Use Restriction(s):Unrestricted",
+        "creator": "Reagan Library",
+        "license": "CC BY 3.0",
+        "direct_subject": false
+      },
+      "start": 2272.36,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Arnold Schwarzenegger is visible seated at the head table alongside Ronald Reagan during an awards ceremony. While it is archival footage, he is seated in the background rather than being the active speaker or focus of the shot, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f1fb2411df06c53fe0dd427017545be4cb63549d79f5af36d8f99c89082df73d",
+      "reviewed_at": 1790366992.3199372
+    },
+    {
+      "person": "Arnold Schwarzenegger",
+      "source": {
+        "id": "commons:70729021",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm",
+        "title": "File:Arnold Schwarzenegger's suggestions for a cleaner world.webm",
+        "description": "http://www.weforum.org/ - A conversation with Arnold Schwarzenegger, Governor of California (2003-2011) on driving global climate action, and the role of business in shaping the Fourth Industrial Revolution in a fractured world.",
+        "creator": "World Economic Forum",
+        "license": "CC BY 3.0",
+        "direct_subject": false
+      },
+      "start": 69.12,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Arnold Schwarzenegger is clearly visible speaking at a panel discussion (World Economic Forum), serving as biographical illustration of his later public life and activism.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6086de94d9112b2d14d02e1058c6a97102afbd6f6ccfafa1da757c0104569c72",
+      "reviewed_at": 1790367012.6678307
+    },
+    {
+      "person": "Arnold Schwarzenegger",
+      "source": {
+        "id": "commons:69767419",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/President_Reagan%27s_Remarks_at_the_Simon_Wiesenthal_Center_Awards_Ceremony_on_October_30%2C_1988.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:President_Reagan%27s_Remarks_at_the_Simon_Wiesenthal_Center_Awards_Ceremony_on_October_30,_1988.webm",
+        "title": "File:President Reagan's Remarks at the Simon Wiesenthal Center Awards Ceremony on October 30, 1988.webm",
+        "description": "Full Title: Trip to California. Introduction of President Reagan, Nancy Reagan, Rabbi Marvin Heir Presents Nancy Reagan Bet Hasoa Tolerance Award, Remarks by Arnold Schwarzenegger, Nancy Reagan Accepts Award then Makes Remarks, Wiesenthal Committee Remarks, Simon Wiesenthal Humanitarian Award is Presented to President Reagan by Simon Wiesenthal, President Reagan's Remarks to The Simon Wiesenthal Center Annual Awards Banquet, Simon Wiesenthal's Remarks. Los Angeles Ballroom Century Plaza Hotel in Los Angeles on October 30. 1988 Creator(s): President (1981-1989 : Reagan). White House Television Office. 1/20/1981-1/20/1989 (Most Recent) Series: Video Recordings, 1/20/1981 - 1/20/1989 Collection: Records of the White House Television Office (WHTV) (Reagan Administration), 1/20/1981 - 1/20/1989 Transcript: https://www.reaganlibrary.gov/research/speeches/103088a Production Date: 10/30/1988 Access Restriction(s):Unrestricted Use Restriction(s):Unrestricted",
+        "creator": "Reagan Library",
+        "license": "CC BY 3.0",
+        "direct_subject": false
+      },
+      "start": 382.89,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows Arnold Schwarzenegger speaking at a podium during an awards ceremony in 1988. While it is real historical footage of him, it does not depict a specific major biographical milestone like his bodybuilding or film career, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c1e194619d4395bdb98b9e2460875f26830974330a95bf45bf4588486a489fc3",
+      "reviewed_at": 1790367031.4130034
+    },
+    {
+      "person": "Arnold Schwarzenegger",
+      "source": {
+        "id": "commons:70729021",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm",
+        "title": "File:Arnold Schwarzenegger's suggestions for a cleaner world.webm",
+        "description": "http://www.weforum.org/ - A conversation with Arnold Schwarzenegger, Governor of California (2003-2011) on driving global climate action, and the role of business in shaping the Fourth Industrial Revolution in a fractured world.",
+        "creator": "World Economic Forum",
+        "license": "CC BY 3.0",
+        "direct_subject": false
+      },
+      "start": 133.25,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Arnold Schwarzenegger is clearly visible speaking at the World Economic Forum across all three frames. While it is real archival footage, it is an interview/panel discussion rather than depicting the specific historical events of his acting or political career, so it serves as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9a5c91ad6fc9af4b7848a293f696202d4155384ee1b8fccd5f7a38cc82af1d47",
+      "reviewed_at": 1790367041.3352566
+    },
+    {
+      "person": "Arnold Schwarzenegger",
+      "source": {
+        "id": "commons:69767419",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/President_Reagan%27s_Remarks_at_the_Simon_Wiesenthal_Center_Awards_Ceremony_on_October_30%2C_1988.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:President_Reagan%27s_Remarks_at_the_Simon_Wiesenthal_Center_Awards_Ceremony_on_October_30,_1988.webm",
+        "title": "File:President Reagan's Remarks at the Simon Wiesenthal Center Awards Ceremony on October 30, 1988.webm",
+        "description": "Full Title: Trip to California. Introduction of President Reagan, Nancy Reagan, Rabbi Marvin Heir Presents Nancy Reagan Bet Hasoa Tolerance Award, Remarks by Arnold Schwarzenegger, Nancy Reagan Accepts Award then Makes Remarks, Wiesenthal Committee Remarks, Simon Wiesenthal Humanitarian Award is Presented to President Reagan by Simon Wiesenthal, President Reagan's Remarks to The Simon Wiesenthal Center Annual Awards Banquet, Simon Wiesenthal's Remarks. Los Angeles Ballroom Century Plaza Hotel in Los Angeles on October 30. 1988 Creator(s): President (1981-1989 : Reagan). White House Television Office. 1/20/1981-1/20/1989 (Most Recent) Series: Video Recordings, 1/20/1981 - 1/20/1989 Collection: Records of the White House Television Office (WHTV) (Reagan Administration), 1/20/1981 - 1/20/1989 Transcript: https://www.reaganlibrary.gov/research/speeches/103088a Production Date: 10/30/1988 Access Restriction(s):Unrestricted Use Restriction(s):Unrestricted",
+        "creator": "Reagan Library",
+        "license": "CC BY 3.0",
+        "direct_subject": false
+      },
+      "start": 256.93,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Arnold Schwarzenegger is clearly visible speaking at a podium in archival footage from 1988, providing valid biographical illustration of his public speaking and political/civic engagements.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "909cd6b75f4e50af1aede0e0c193e2d8e7fdf23e2f662c422372e04717b57e3b",
+      "reviewed_at": 1790367043.0913155
+    },
+    {
+      "person": "Arnold Schwarzenegger",
+      "source": {
+        "id": "commons:70729021",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm",
+        "title": "File:Arnold Schwarzenegger's suggestions for a cleaner world.webm",
+        "description": "http://www.weforum.org/ - A conversation with Arnold Schwarzenegger, Governor of California (2003-2011) on driving global climate action, and the role of business in shaping the Fourth Industrial Revolution in a fractured world.",
+        "creator": "World Economic Forum",
+        "license": "CC BY 3.0",
+        "direct_subject": false
+      },
+      "start": 197.37,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features real, filmed footage of Arnold Schwarzenegger speaking at the World Economic Forum, serving as useful biographical illustration, though it does not depict a specific historical event from his acting or body-building career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6fb08286f09639ffe831d1caa36b89c952e1b002bfe7ca37326a6cfcbeea51ee",
+      "reviewed_at": 1790367052.6930518
+    },
+    {
+      "person": "Arnold Schwarzenegger",
+      "source": {
+        "id": "commons:69767419",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/President_Reagan%27s_Remarks_at_the_Simon_Wiesenthal_Center_Awards_Ceremony_on_October_30%2C_1988.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:President_Reagan%27s_Remarks_at_the_Simon_Wiesenthal_Center_Awards_Ceremony_on_October_30,_1988.webm",
+        "title": "File:President Reagan's Remarks at the Simon Wiesenthal Center Awards Ceremony on October 30, 1988.webm",
+        "description": "Full Title: Trip to California. Introduction of President Reagan, Nancy Reagan, Rabbi Marvin Heir Presents Nancy Reagan Bet Hasoa Tolerance Award, Remarks by Arnold Schwarzenegger, Nancy Reagan Accepts Award then Makes Remarks, Wiesenthal Committee Remarks, Simon Wiesenthal Humanitarian Award is Presented to President Reagan by Simon Wiesenthal, President Reagan's Remarks to The Simon Wiesenthal Center Annual Awards Banquet, Simon Wiesenthal's Remarks. Los Angeles Ballroom Century Plaza Hotel in Los Angeles on October 30. 1988 Creator(s): President (1981-1989 : Reagan). White House Television Office. 1/20/1981-1/20/1989 (Most Recent) Series: Video Recordings, 1/20/1981 - 1/20/1989 Collection: Records of the White House Television Office (WHTV) (Reagan Administration), 1/20/1981 - 1/20/1989 Transcript: https://www.reaganlibrary.gov/research/speeches/103088a Production Date: 10/30/1988 Access Restriction(s):Unrestricted Use Restriction(s):Unrestricted",
+        "creator": "Reagan Library",
+        "license": "CC BY 3.0",
+        "direct_subject": false
+      },
+      "start": 508.86,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The frames show genuine archival footage of Arnold Schwarzenegger speaking at a podium during a 1988 event. While it does not depict his movie career or bodybuilding, it is real historical footage of the subject that can be used for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3dba76eec0f02f20d3ffff90250b17332e2600b90e485c87bc1784a69d2a339e",
+      "reviewed_at": 1790367057.4779832
+    },
+    {
+      "person": "Arnold Schwarzenegger",
+      "source": {
+        "id": "commons:70729021",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm",
+        "title": "File:Arnold Schwarzenegger's suggestions for a cleaner world.webm",
+        "description": "http://www.weforum.org/ - A conversation with Arnold Schwarzenegger, Governor of California (2003-2011) on driving global climate action, and the role of business in shaping the Fourth Industrial Revolution in a fractured world.",
+        "creator": "World Economic Forum",
+        "license": "CC BY 3.0",
+        "direct_subject": false
+      },
+      "start": 325.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows actual filmed footage of Arnold Schwarzenegger participating in a panel discussion at the World Economic Forum, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b0905f71b87318210cc9ccba8322c1ac8df768fa4701caef6618901a62413335",
+      "reviewed_at": 1790367080.0949852
+    },
+    {
+      "person": "Arnold Schwarzenegger",
+      "source": {
+        "id": "commons:70729021",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm",
+        "title": "File:Arnold Schwarzenegger's suggestions for a cleaner world.webm",
+        "description": "http://www.weforum.org/ - A conversation with Arnold Schwarzenegger, Governor of California (2003-2011) on driving global climate action, and the role of business in shaping the Fourth Industrial Revolution in a fractured world.",
+        "creator": "World Economic Forum",
+        "license": "CC BY 3.0",
+        "direct_subject": false
+      },
+      "start": 518.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Arnold Schwarzenegger is clearly visible across all frames participating in a panel discussion at the World Economic Forum, serving as biographical illustration footage of his later public life and activism.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c8601b3e9e7ad6ea7f70399f2b73303c28291dde343917ce0aa0c9fd2929a62b",
+      "reviewed_at": 1790367161.0554342
+    },
+    {
+      "person": "Arnold Schwarzenegger",
+      "source": {
+        "id": "commons:70729021",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm",
+        "title": "File:Arnold Schwarzenegger's suggestions for a cleaner world.webm",
+        "description": "http://www.weforum.org/ - A conversation with Arnold Schwarzenegger, Governor of California (2003-2011) on driving global climate action, and the role of business in shaping the Fourth Industrial Revolution in a fractured world.",
+        "creator": "World Economic Forum",
+        "license": "CC BY 3.0",
+        "direct_subject": false
+      },
+      "start": 646.24,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows Arnold Schwarzenegger speaking at a conference panel, serving as biographical illustration footage for his life and public speaking appearances.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f54cd287e1558868e20b8f796003efca057f074985bfa82f8954bdeefe554e3c",
+      "reviewed_at": 1790367182.273603
+    },
+    {
+      "person": "Arnold Schwarzenegger",
+      "source": {
+        "id": "commons:70729021",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm",
+        "title": "File:Arnold Schwarzenegger's suggestions for a cleaner world.webm",
+        "description": "http://www.weforum.org/ - A conversation with Arnold Schwarzenegger, Governor of California (2003-2011) on driving global climate action, and the role of business in shaping the Fourth Industrial Revolution in a fractured world.",
+        "creator": "World Economic Forum",
+        "license": "CC BY 3.0",
+        "direct_subject": false
+      },
+      "start": 582.12,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage features Arnold Schwarzenegger speaking in a panel discussion. It is genuine archival footage, but it illustrates his later life/public speaking rather than depicting any specific historical biographical event narrated, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "92d332628803a321c5653657606d1e456a9def081931d9f1cc49d4c593aa39f3",
+      "reviewed_at": 1790367186.9833364
+    },
+    {
+      "person": "Arnold Schwarzenegger",
+      "source": {
+        "id": "commons:70729021",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm",
+        "title": "File:Arnold Schwarzenegger's suggestions for a cleaner world.webm",
+        "description": "http://www.weforum.org/ - A conversation with Arnold Schwarzenegger, Governor of California (2003-2011) on driving global climate action, and the role of business in shaping the Fourth Industrial Revolution in a fractured world.",
+        "creator": "World Economic Forum",
+        "license": "CC BY 3.0",
+        "direct_subject": false
+      },
+      "start": 261.5,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Arnold Schwarzenegger is clearly visible speaking at an event in all three frames, serving as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bf1d2ac3b28aa1f1cc84b6fca27d348eb35c31c090d65c85a27e284ff442b86c",
+      "reviewed_at": 1790367187.95636
+    },
+    {
+      "person": "Arnold Schwarzenegger",
+      "source": {
+        "id": "commons:70729021",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Arnold_Schwarzenegger%27s_suggestions_for_a_cleaner_world.webm",
+        "title": "File:Arnold Schwarzenegger's suggestions for a cleaner world.webm",
+        "description": "http://www.weforum.org/ - A conversation with Arnold Schwarzenegger, Governor of California (2003-2011) on driving global climate action, and the role of business in shaping the Fourth Industrial Revolution in a fractured world.",
+        "creator": "World Economic Forum",
+        "license": "CC BY 3.0",
+        "direct_subject": false
+      },
+      "start": 838.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Arnold Schwarzenegger is clearly visible across all three frames participating in a panel discussion at the World Economic Forum, providing biographical illustration of his public life and post-political career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "50be95fa4eb2dd8ae06e86376c003efab98602bd1083deef599540cb10bde24d",
+      "reviewed_at": 1790367207.07708
+    }
+  ]
+}

@@ -52,43 +52,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "rise_from_nothing",
-    "person": "Ramanujan",
-    "premise": "An impoverished Indian clerk with no formal university training mails complex mathematical theorems to a Cambridge professor.",
-    "hook": "He didn't have a college degree, yet top mathematicians thought his letters were a hoax.",
-    "key_facts": [
-      "Worked as a routine shipping clerk in Madras without a university degree.",
-      "Mailed notebooks filled with advanced mathematical formulas to G.H. Hardy in 1913.",
-      "Recognized by Cambridge mathematicians as a self-taught mathematical genius.",
-      "Elected a Fellow of the Royal Society at a remarkably young age."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Keanu Reeves",
-    "premise": "An established Hollywood star agrees to slash his upfront salary significantly to secure Al Pacino for a thriller.",
-    "hook": "He gave up millions of dollars of his own paycheck just to work with one specific actor.",
-    "key_facts": [
-      "Star of the 1997 film 'The Devil's Advocate'.",
-      "Voluntarily deferred a large portion of his salary so the budget could afford Al Pacino.",
-      "Demonstrated a consistent pattern of prioritizing artistic collaboration over massive paydays throughout his career."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
-    "person": "Arnold Schwarzenegger",
-    "premise": "A young Austrian bodybuilder arrives in America barely speaking English and determined to conquer three distinct industries.",
-    "hook": "People laughed at his thick accent and impossible bodybuilding dreams in 1968.",
-    "key_facts": [
-      "Imigrated to the United States from Austria in his early twenties.",
-      "Won multiple Mr. Universe and Mr. Olympia titles before starting his acting career.",
-      "Overcame severe linguistic and cultural barriers to become a top Hollywood box office draw."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "strange_turning_point",
     "person": "J.K. Rowling",
     "premise": "A struggling single mother writes chapters of a fantasy novel on scraps of paper in Edinburgh cafes during her daughter's naps.",
@@ -97,18 +60,6 @@
       "Wrote the early drafts of her debut novel while living on state benefits in Scotland.",
       "Faced numerous rejections from major publishing houses over several years.",
       "Bloomsbury Publishing eventually accepted the manuscript, leading to unprecedented global literary success."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Akio Toyoda",
-    "premise": "The executive faces massive corporate resistance when deciding to pivot a traditional manufacturing giant toward electric and hydrogen technologies.",
-    "hook": "He risked the legacy of his family's century-old car company to completely rewrite their future.",
-    "key_facts": [
-      "Great-grandson of the founder of Toyota Motor Corporation.",
-      "Assumed the role of president during a major global recession and massive vehicle recalls.",
-      "Spearheaded investments in alternative fuel sources and automated driving systems."
     ],
     "source": "gemini_original"
   },

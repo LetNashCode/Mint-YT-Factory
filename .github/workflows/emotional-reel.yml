@@ -32,7 +32,6 @@ jobs:
           if grep -q "Production encoding:" emotional_reel.py; then
             echo "ERROR: legacy Emotional Reel renderer detected."
             exit 1
-          fi
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -87,7 +86,27 @@ jobs:
           EMOTIONAL_REEL_KOKORO_VOICE: "af_heart"
           EMOTIONAL_REEL_KOKORO_SPEED: "0.92"
           MINT_MAX_PLAYBACK_SPEED: "1.25"
+          EMOTIONAL_REEL_MUSIC_URLS: ${{ secrets.EMOTIONAL_REEL_MUSIC_URLS }}
         run: python -u emotional_reel.py
+      - name: Save rendered Emotional Reel cache
+        if: always() && hashFiles('output/emotional_reel/final.mp4') != '' && steps.final_state.outputs.cache_key != ''
+        uses: actions/cache/save@v4
+        with:
+          path: output/emotional_reel/final.mp4
+          key: ${{ steps.final_state.outputs.cache_key }}
+      - name: Commit Emotional Reel music cache and resume state
+        if: always()
+        shell: bash
+        run: |
+          if [ -d assets/music ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add assets/music output/emotional_reel/resume_state.json
+            if ! git diff --cached --quiet; then
+              git commit -m "Cache Emotional Reel music and resume state"
+              git push
+            fi
+          fi
       - name: Read final Emotional Reel cache key
         if: always()
         id: final_state
@@ -106,25 +125,6 @@ jobs:
           with open(os.environ["GITHUB_OUTPUT"],"a") as f:
               f.write(f"cache_key={key}\n")
           print(f"FINAL_EMOTIONAL_REEL_CACHE_KEY={key}")
-      - name: Save rendered Emotional Reel cache
-        if: always() && hashFiles('output/emotional_reel/final.mp4') != '' && steps.final_state.outputs.cache_key != ''
-        uses: actions/cache/save@v4
-        with:
-          path: output/emotional_reel/final.mp4
-          key: ${{ steps.final_state.outputs.cache_key }}
-      - name: Commit Emotional Reel resume state
-        if: always()
-        shell: bash
-        run: |
-          if [ -f output/emotional_reel/resume_state.json ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add output/emotional_reel/resume_state.json
-            if ! git diff --cached --quiet; then
-              git commit -m "Persist Emotional Reel render resume state"
-              git push
-            fi
-          fi
       - name: Upload artifact
         if: always()
         uses: actions/upload-artifact@v4

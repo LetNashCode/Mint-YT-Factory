@@ -32,6 +32,7 @@ jobs:
           if grep -q "Production encoding:" emotional_reel.py; then
             echo "ERROR: legacy Emotional Reel renderer detected."
             exit 1
+          fi
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"

@@ -180,11 +180,22 @@ def _release_failed_story(person: str = "") -> None:
 
 
 def _defer_story(reason: str) -> None:
-    """Finish the GitHub run successfully when Story cannot be safely published."""
+    """Fail the production run when Story cannot be published completely."""
     Path(".story_deferred").write_text(
         str(reason).strip()[:1000] + "\n", encoding="utf-8"
     )
-    print(f"⏸️ Story Shorts deferred safely: {reason}", flush=True)
+    try:
+        from publication_state import save as save_publication_state
+        save_publication_state(".story_publication_status.json", {
+            "status": "deferred",
+            "video_id": "",
+            "youtube_url": "",
+            "reason": str(reason).strip()[:1000],
+        })
+    except Exception as status_error:
+        print(f"⚠️ Could not persist Story publication status: {status_error}", flush=True)
+    print(f"❌ Story Shorts not published: {reason}", flush=True)
+    raise RuntimeError(f"Story Shorts did not complete publication: {reason}")
 
 
 def main() -> None:
@@ -225,8 +236,7 @@ def main() -> None:
             break
         except Exception as exc:
             if Path(".story_gemini_quota_deferred").exists():
-                print("⏸️ Story Shorts deferred because Gemini quota is exhausted; no final video is expected in this run.")
-                return
+                _defer_story("Gemini quota is exhausted; no final video was created or uploaded.")
             if _story_defer_failure(exc):
                 _defer_story(str(exc))
                 return
@@ -252,7 +262,7 @@ def main() -> None:
             )
 
     if Path(".story_gemini_quota_deferred").exists() or Path(".story_deferred").exists():
-        return
+        raise RuntimeError("Story Shorts ended without a completed publication.")
 
 
 if __name__ == "__main__":

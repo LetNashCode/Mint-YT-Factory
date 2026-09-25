@@ -1,41 +1,44 @@
 {
   "status": "uploaded",
   "final_path": "output/emotional_reel/final.mp4",
-  "final_sha256": "20e56e74f1e81a442460807843af09f4a8fa44c1f9d951ea6919eb66d4624acd",
-  "cache_key": "emotional-reel-final-v2-20e56e74f1e81a442460807843af09f4",
-  "title": "The Weight We Carry",
-  "description": "A reflective cinematic journey about acknowledging unspoken endurance and finding quiet liberation within.",
+  "final_sha256": "4de3e635bfe853f4c341b03a02e3fe9c1773a12b18dfa588cdbf95d16c547a4b",
+  "cache_key": "emotional-reel-final-v2-4de3e635bfe853f4c341b03a02e3fe9c",
+  "title": "The Weight You Never Named",
+  "description": "An intimate cinematic reflection on carrying unspoken burdens and finding quiet resolution within.",
   "hashtags": [
-    "mindset",
-    "reflection",
     "cinematic",
+    "reflection",
+    "mindset",
     "growth",
-    "innerpeace"
+    "depth",
+    "solitude"
   ],
-  "engagement_comment": "Rest is not surrender.",
+  "engagement_comment": "You were always allowed to just breathe.",
   "voice": {
     "provider": "kokoro",
-    "voice_name": "am_michael",
+    "voice_name": "am_echo",
     "kokoro_lang": "a",
     "edge_voice": "en-US-GuyNeural",
     "tiktok_voice_name": "en_us_010",
     "speed": 0.92,
     "tone": "curious, confident, playful storyteller"
   },
-  "created_at": 1790292223,
-  "video_id": "QMwAY-DUjik",
+  "created_at": 1790294340,
+  "narration_word_count": 154,
+  "complete_script_preserved": true,
+  "video_id": "Q0Z0mLwFUy4",
   "social": {
     "instagram": {
       "status": "published",
-      "media_id": "18115683445784274",
-      "container_id": "18494734987097136"
+      "media_id": "18126276386500750",
+      "container_id": "18494738752097136"
     },
     "facebook": {
       "status": "published",
-      "video_id": "4479257595724848"
+      "video_id": "1513342913892589"
     },
     "strict": false,
-    "updated_at": 1790292506
+    "updated_at": 1790294505
   },
-  "uploaded_at": 1790292664
+  "uploaded_at": 1790294609
 }

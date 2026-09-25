@@ -83,24 +83,8 @@ jobs:
           fi
       - name: Compile Story Shorts runtime and quality gates
         run: python -m py_compile interactive_main.py story_render_recovery.py story_social_resume.py story_identity_runner.py story_real_video_media.py story_archival_media.py story_media_quality.py final_video_quality_gate.py publication_state.py social_retry_state.py upload_youtube.py validate_video.py assemble.py
-      - name: Recover completed Story render before starting a new render
-        id: recover
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          YOUTUBE_CLIENT_SECRET_JSON: ${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}
-          YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
-          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
-          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
-        run: |
-          set -euo pipefail
-          if python -u story_render_recovery.py; then
-            echo "recovered=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "recovered=false" >> "$GITHUB_OUTPUT"
-          fi
       - name: Resume pending Story social publication
         id: resume
-        if: steps.recover.outputs.recovered != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           GITHUB_REPOSITORY: ${{ github.repository }}
@@ -114,6 +98,22 @@ jobs:
             echo "resumed=true" >> "$GITHUB_OUTPUT"
           else
             echo "resumed=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Recover completed Story render before starting a new render
+        id: recover
+        if: steps.resume.outputs.resumed != 'true'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          YOUTUBE_CLIENT_SECRET_JSON: ${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}
+          YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+        run: |
+          set -euo pipefail
+          if python -u story_render_recovery.py; then
+            echo "recovered=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "recovered=false" >> "$GITHUB_OUTPUT"
           fi
       - name: Generate and publish Story Short
         timeout-minutes: 60
@@ -158,12 +158,35 @@ jobs:
           else:
               print('No Story media audit was created before the failure.')
           PY
+      - name: Verify Story Shorts completed publication
+        if: always()
+        run: |
+          set -euo pipefail
+          status_file=".story_publication_status.json"
+          if [ ! -f "$status_file" ]; then
+            echo "::error::Story Shorts finished without a publication status file. No successful publication was confirmed."
+            exit 1
+          fi
+          status="$(jq -r '.status // ""' "$status_file")"
+          video_id="$(jq -r '.video_id // ""' "$status_file")"
+          url="$(jq -r '.youtube_url // ""' "$status_file")"
+          echo "Story publication status: $status"
+          if [ "$status" != "complete" ] || [ -z "$video_id" ]; then
+            reason="$(jq -r '.reason // "No complete publication was confirmed."' "$status_file")"
+            echo "::error::Story Shorts did not complete successfully. Status=$status Reason=$reason"
+            exit 1
+          fi
+          echo "## Story Shorts publication confirmed" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- YouTube video ID: `$video_id`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- YouTube URL: $url" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Status: `COMPLETE`" >> "$GITHUB_STEP_SUMMARY"
       - name: Persist Story Shorts state
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for state_file in story_topic_history.json pending_story.json story_counter.json story_candidates.json story_footage_catalog.json story_social_queue.json interactive_analytics.json interactive_analytics_history.json; do
+          for state_file in story_topic_history.json pending_story.json story_counter.json story_candidates.json story_footage_catalog.json story_social_queue.json interactive_analytics.json interactive_analytics_history.json .story_publication_status.json .story_deferred .story_gemini_quota_deferred; do
             if [ -f "$state_file" ] || git ls-files --error-unmatch "$state_file" >/dev/null 2>&1; then
               git add -A -- "$state_file"
             fi

@@ -101,7 +101,7 @@ jobs:
           fi
       - name: Recover completed Story render before starting a new render
         id: recover
-        if: steps.resume.outputs.resumed != 'true'
+        if: success() && steps.resume.outputs.resumed != 'true'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           YOUTUBE_CLIENT_SECRET_JSON: ${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}

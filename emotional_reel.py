@@ -134,7 +134,7 @@ def main():
 Return JSON with title, description, hashtags and exactly 9 scenes.
 Each scene has text (4-12 words) for the screen, narration (12-18 natural spoken words) that expands the same thought, and search (concrete visible stock-video query).
 Scene 1 text is a 4-8 word hook. Scene 9 is a memorable closing thought.
-Total narration should be about 120-145 words. Narration must flow as ONE continuous story, not nine disconnected quotes.
+Total narration should be about 120-160 words. Narration must flow as ONE continuous story, not nine disconnected quotes.
 IMPORTANT: Every narration word you generate is production-critical. Do not omit, summarize, truncate, rewrite, compact, or otherwise remove any narration content after this JSON is accepted. The exact concatenated scene narration is the script that must be spoken in full.'''
 
  d=None;scenes=None;narration=''
@@ -198,7 +198,7 @@ IMPORTANT: Every narration word you generate is production-critical. Do not omit
   raise RuntimeError(f'Concat produced no usable output: {silent}')
  print(f'✅ Silent reel assembled: {silent.stat().st_size} bytes',flush=True)
 
- cfg=yaml.safe_load(Path('config.yaml').read_text());cfg['voice']=dict(cfg.get('voice') or {});cfg['voice'].update({'provider':'kokoro','voice_name':os.getenv('EMOTIONAL_REEL_KOKORO_VOICE','am_echo'),'kokoro_lang':'a','speed':float(os.getenv('EMOTIONAL_REEL_KOKORO_SPEED','0.92'))})
+ cfg=yaml.safe_load(Path('config.yaml').read_text());cfg['voice']=dict(cfg.get('voice') or {});cfg['voice'].update({'provider':'kokoro','voice_name':os.getenv('EMOTIONAL_REEL_KOKORO_VOICE','af_heart'),'kokoro_lang':'a','speed':float(os.getenv('EMOTIONAL_REEL_KOKORO_SPEED','0.92'))})
  os.environ['MINT_TTS_PROVIDER']='kokoro'
  narration_audio=OUT/'narration.mp3'
  # Use the full 54-second reel as the hard narration budget. TTS may speed up
@@ -221,27 +221,34 @@ IMPORTANT: Every narration word you generate is production-critical. Do not omit
  if voice_duration > 53.5:
   raise RuntimeError(f'Complete narration is {voice_duration:.2f}s after speed adaptation, which exceeds the 53.5s audio budget. Refusing to truncate the script.')
  print(f'🎙️ VOICE NARRATION VERIFIED | provider=Kokoro-82M | voice={cfg["voice"].get("voice_name")} | duration={voice_duration:.2f}s | COMPLETE_SCRIPT_PRESERVED=YES',flush=True)
+ render_duration=voice_duration
+ print(f'⏱️ EMOTIONAL REEL DURATION LOCKED TO TTS | duration={render_duration:.2f}s',flush=True)
 
- print('🌈 BUILDING EMOTIONAL REEL CAPTIONS — SHARED MINT STYLE',flush=True)
- words=transcribe(str(narration_audio))
- if not words:
-  raise RuntimeError('Whisper returned no usable narration timings for Emotional Reel captions')
+ print('🌈 BUILDING EMOTIONAL REEL CAPTIONS — EXACT PUBLISH SHORTS STYLE',flush=True)
+ # Reuse the production caption builder used by Publish Shorts instead of
+ # maintaining a second caption renderer. This keeps font size, position,
+ # one-word timing, colours, stroke and shadow identical.
  video=VideoFileClip(str(silent),audio=False); captioned=None; caption_clips=[]
  try:
-  frame_size=(int(video.w),int(video.h)); total_duration=min(54.0,float(video.duration))
-  scene_ranges=[{'start':i*SEC,'end':min((i+1)*SEC,total_duration),'scene':{'caption_highlights':[],'emphasis_word':''}} for i in range(N)]
-  phrases=caption_style._build_caption_phrases(words)
-  for phrase_index,phrase in enumerate(phrases):
-   scene_index=caption_style._get_scene_index_for_time(scene_ranges,phrase['start'])
-   scene=scene_ranges[scene_index]['scene']
-   fontsize,color=caption_style._caption_style(scene_index,scene,phrase,phrase_index)
-   position=caption_style.caption_position(frame_size)
-   text_clip=caption_style._make_caption_clip(phrase['text'],fontsize,color,frame_size).set_start(phrase['start']).set_duration(phrase['duration']).set_position(position)
-   shadow_clip=caption_style._make_caption_shadow(phrase['text'],fontsize,frame_size).set_start(phrase['start']).set_duration(phrase['duration']).set_position(('center',position[1]+caption_style.CAPTION_SHADOW_OFFSET)).set_opacity(caption_style.CAPTION_SHADOW_OPACITY)
-   caption_clips.extend([shadow_clip,text_clip])
-  captioned=CompositeVideoClip([video]+caption_clips,size=frame_size).set_duration(total_duration)
+  frame_size=(int(video.w),int(video.h))
+  publish_caption_script={
+   'scene_plan': [
+    {'duration': caption_style.SCENE_DURATIONS[i], 'caption_highlights': [], 'emphasis_word': ''}
+    for i in range(caption_style.EXPECTED_SCENES)
+   ]
+  }
+  caption_clips=caption_style.build_captions(
+   str(narration_audio),
+   publish_caption_script,
+   frame_size,
+   total_duration=render_duration,
+  )
+  captioned=CompositeVideoClip([video]+caption_clips,size=frame_size).set_duration(render_duration)
   captioned_path=OUT/'captioned.mp4'
-  captioned.write_videofile(str(captioned_path),fps=30,codec='libx264',audio=False,preset='fast',bitrate='8M',verbose=False,logger=None)
+  captioned.write_videofile(
+   str(captioned_path),fps=30,codec='libx264',audio=False,
+   preset='fast',bitrate='8M',verbose=False,logger=None
+  )
  finally:
   if captioned is not None:
    try: captioned.close()
@@ -252,8 +259,24 @@ IMPORTANT: Every narration word you generate is production-critical. Do not omit
    try: clip.close()
    except Exception: pass
 
- mix='[1:a]volume=0.12,afade=t=in:st=0:d=1.2,afade=t=out:st=51:d=3[m];[2:a]volume=1.0[n];[m][n]amix=inputs=2:duration=longest:dropout_transition=0,aresample=async=1:first_pts=0[mixout]'
- run(['ffmpeg','-y','-hide_banner','-loglevel','error','-i',str(captioned_path),'-stream_loop','-1','-i',str(music),'-i',str(narration_audio),'-filter_complex',mix,'-map','0:v:0','-map','[mixout]','-t','54','-c:v','copy','-c:a','aac','-b:a','192k','-ac','2','-movflags','+faststart',str(final)],'Music and narration mix failed')
+ music_fade_out=max(0.25,min(1.5,render_duration-0.25))
+ music_fade_start=max(0.0,render_duration-music_fade_out)
+ mix=(
+  f'[1:a]volume=0.12,afade=t=in:st=0:d=1.2,'
+  f'afade=t=out:st={music_fade_start:.3f}:d={music_fade_out:.3f}[m];'
+  f'[2:a]volume=1.0[n];'
+  f'[m][n]amix=inputs=2:duration=longest:dropout_transition=0,'
+  f'aresample=async=1:first_pts=0[mixout]'
+ )
+ run([
+  'ffmpeg','-y','-hide_banner','-loglevel','error',
+  '-i',str(captioned_path),'-stream_loop','-1','-i',str(music),
+  '-i',str(narration_audio),'-filter_complex',mix,
+  '-map','0:v:0','-map','[mixout]','-t',f'{render_duration:.3f}',
+  '-c:v','copy','-c:a','aac','-b:a','192k','-ac','2',
+  '-movflags','+faststart',str(final)
+ ],'Music and narration mix failed')
+
  if not final.exists() or final.stat().st_size < 4096:
   raise RuntimeError(f'Final Emotional Reel was not created by FFmpeg: {final}')
  final_probe=subprocess.run(['ffprobe','-v','error','-select_streams','a:0','-show_entries','stream=codec_name,duration','-of','json',str(final)],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
@@ -265,10 +288,12 @@ IMPORTANT: Every narration word you generate is production-critical. Do not omit
   raise RuntimeError('Final Emotional Reel has no usable audio track; upload blocked.')
  if final_audio_duration + 0.25 < voice_duration:
   raise RuntimeError(f'Final mix is shorter than the complete narration ({final_audio_duration:.2f}s final vs {voice_duration:.2f}s voice); upload blocked to prevent narration truncation.')
+ if abs(final_audio_duration - voice_duration) > 0.35:
+  raise RuntimeError(f'Final reel duration drifted from the TTS ending ({final_audio_duration:.2f}s final vs {voice_duration:.2f}s voice); upload blocked.')
  print(f'✅ FINAL REEL AUDIO VERIFIED | complete voice narration + music | duration={final_audio_duration:.2f}s | COMPLETE_SCRIPT_PRESERVED=YES',flush=True)
 
  final_sha256=_file_sha256(final)
- resume_state={'status':'pending_upload','final_path':str(final),'final_sha256':final_sha256,'cache_key':f'emotional-reel-final-v2-{final_sha256[:32]}','title':d['title'],'description':d['description'],'hashtags':d.get('hashtags',[]),'engagement_comment':scenes[-1]['text'],'voice':cfg['voice'],'created_at':int(time.time()),'narration_word_count':_word_count(narration),'complete_script_preserved':True}
+ resume_state={'status':'pending_upload','final_path':str(final),'final_sha256':final_sha256,'cache_key':f'emotional-reel-final-v2-{final_sha256[:32]}','title':d['title'],'description':d['description'],'hashtags':d.get('hashtags',[]),'engagement_comment':scenes[-1]['text'],'voice':cfg['voice'],'created_at':int(time.time()),'narration_word_count':_word_count(narration),'complete_script_preserved':True,'final_duration_seconds':render_duration}
  _write_resume_state(resume_state)
  print(f'💾 RENDER CHECKPOINT SAVED | sha256={final_sha256[:16]} | cache_key={resume_state["cache_key"]}',flush=True)
  cfg['seo']['hashtags']=d.get('hashtags',[]);cfg.setdefault('upload',{})['privacy_status']=os.getenv('EMOTIONAL_REEL_PRIVACY','public')

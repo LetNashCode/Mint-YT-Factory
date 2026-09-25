@@ -125,24 +125,6 @@ jobs:
               git push
             fi
           fi
-      - name: Read final Emotional Reel cache key
-        if: always()
-        id: final_state
-        shell: bash
-        run: |
-          python - <<'PY'
-          import json, os
-          from pathlib import Path
-          p=Path("output/emotional_reel/resume_state.json")
-          key=""
-          if p.exists():
-              try:
-                  key=str(json.loads(p.read_text()).get("cache_key",""))
-              except Exception:
-                  pass
-          with open(os.environ["GITHUB_OUTPUT"],"a") as f:
-              f.write(f"cache_key={key}\n")
-          print(f"FINAL_EMOTIONAL_REEL_CACHE_KEY={key}")
       - name: Upload artifact
         if: always()
         uses: actions/upload-artifact@v4

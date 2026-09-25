@@ -94,7 +94,11 @@ def recover() -> bool:
 
 
 if __name__ == "__main__":
-    # A clean "no recovery needed" result must be non-zero so the workflow's
-    # fallback branch runs the normal generation/publishing path. A recovered
-    # and uploaded video returns zero; upload failures raise and fail the job.
-    sys.exit(0 if recover() else 1)
+    # Exit 0 only when recovery completed publication, 1 when no recovery
+    # candidate exists, and 2 for an actual recovery/publication failure.
+    try:
+        recovered = recover()
+    except Exception as exc:
+        print(f"❌ Story render recovery failed: {type(exc).__name__}: {exc}", file=sys.stderr)
+        sys.exit(2)
+    sys.exit(0 if recovered else 1)

@@ -1,18 +1,19 @@
 {
   "status": "uploaded",
   "final_path": "output/emotional_reel/final.mp4",
-  "final_sha256": "45a5ffd060aff8880e8e0d11a361ca4cd84f1fde7f618ff0325e4b1db95835cf",
-  "cache_key": "emotional-reel-final-v2-45a5ffd060aff8880e8e0d11a361ca4c",
+  "final_sha256": "ed7e6ff981ef197ed75033de1a3a70435321a3312c4b2db09eae530d8aa512cf",
+  "cache_key": "emotional-reel-final-v2-ed7e6ff981ef197ed75033de1a3a7043",
   "title": "The Weight of Keeping It Together",
-  "description": "An intimate cinematic reflection on the hidden exhaustion of maintaining composure and the quiet power found in finally letting go.",
+  "description": "An intimate cinematic reflection on the quiet exhaustion of carrying expectations and the profound shift that happens when you finally let them go.",
   "hashtags": [
-    "mindfulness",
+    "mindset",
     "reflection",
-    "emotionalwellbeing",
+    "growth",
     "innerpeace",
-    "mentalreset"
+    "authenticity",
+    "depth"
   ],
-  "engagement_comment": "You are allowed to put the burden down.",
+  "engagement_comment": "Peace begins where performance ends.",
   "voice": {
     "provider": "kokoro",
     "voice_name": "af_heart",
@@ -22,23 +23,23 @@
     "speed": 0.92,
     "tone": "curious, confident, playful storyteller"
   },
-  "created_at": 1790329474,
-  "narration_word_count": 158,
+  "created_at": 1790374455,
+  "narration_word_count": 153,
   "complete_script_preserved": true,
   "final_duration_seconds": 53.76,
-  "video_id": "moLF0k36SaI",
+  "video_id": "uxdohDyHUjI",
   "social": {
     "instagram": {
       "status": "published",
-      "media_id": "18106037378461516",
-      "container_id": "18494810818097136"
+      "media_id": "18136950457710959",
+      "container_id": "18494933530097136"
     },
     "facebook": {
       "status": "published",
-      "video_id": "2189947104935321"
+      "video_id": "2096268897946958"
     },
     "strict": false,
-    "updated_at": 1790329806
+    "updated_at": 1790374669
   },
-  "uploaded_at": 1790329961
+  "uploaded_at": 1790374788
 }

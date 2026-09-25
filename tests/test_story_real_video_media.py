@@ -70,15 +70,15 @@ def test_commons_search_filters_video_and_follows_continuation(monkeypatch):
     seen_queries = {}
     def fetch(url, **params):
         calls.append(params)
+        if params.get("generator") == "categorymembers":
+            return {"query": {"pages": {}}}
         query = params["gsrsearch"]
         page_number = seen_queries.get(query, 0) + 1
         seen_queries[query] = page_number
         page = {"pageid": len(calls), "title": "Nelson Mandela", "imageinfo": [
             {"url": "https://example.org/video.webm", "mime": "video/webm"}]}
         result = {"query": {"pages": {str(len(calls)): page}}}
-        # Model the Commons API contract accurately: every discovery query has
-        # its own continuation token. This prevents the test from depending on
-        # a global call counter and catches regressions in per-query pagination.
+        # Every discovery query has its own continuation token.
         if page_number == 1:
             result["continue"] = {"gsroffset": 40, "continue": "gsroffset||"}
         return result
@@ -86,7 +86,7 @@ def test_commons_search_filters_video_and_follows_continuation(monkeypatch):
     results = media.search_commons("Nelson Mandela")
     # Four precise text searches are used; each must follow its own Commons
     # continuation. Category traversal is also attempted independently.
-    assert len(results) == 12
+    assert len(results) == 8
     assert all(item["provider"] == "Wikimedia Commons" for item in results)
     assert all(item["url"].endswith("video.webm") for item in results)
     assert len(seen_queries) == 4

@@ -70,6 +70,14 @@ def _validate_audio(path):
 def _download_new_tracks():
     urls = _direct_urls()
     if not urls:
+        urls = list(SEED_MUSIC_PAGES)
+    resolved = []
+    for url in urls:
+        direct = _resolve_music_page(url)
+        if direct:
+            resolved.append(direct)
+    urls = resolved
+    if not urls:
         return []
 
     import requests

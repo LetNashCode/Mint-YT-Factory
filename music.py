@@ -63,20 +63,28 @@ def _direct_urls():
     return [x.strip() for x in raw.replace(",", "\n").splitlines() if x.strip()]
 
 def _resolve_music_page(url):
-    if "cdn.pixabay.com/download/audio/" in url:
+    if "cdn.pixabay.com" in url and url.lower().endswith(".mp3"):
         return url
+    import html
     import re
     import requests
     try:
         response = requests.get(url, timeout=25, headers={"User-Agent": "Mozilla/5.0"})
         response.raise_for_status()
-        pattern = r'https://cdn\\.pixabay\\.com/download/audio/[^"<>\\s]+?\\.mp3(?:\\?[^"<>\\s]+)?'
-        matches = re.findall(pattern, response.text)
-        return matches[0].replace("\\u0026", "&") if matches else None
+        page = html.unescape(response.text).replace("\\/", "/")
+        patterns = [
+            r'https?://cdn\\.pixabay\\.com/(?:download/)?audio/[^"\\'<>\\s]+?\\.mp3(?:\\?[^"\\'<>\\s]+)?',
+            r'https?://cdn\\.pixabay\\.com/[^"\\'<>\\s]+?\\.mp3(?:\\?[^"\\'<>\\s]+)?',
+        ]
+        for pattern in patterns:
+            matches = re.findall(pattern, page)
+            if matches:
+                return matches[0]
+        print(f"⚠️ No direct MP3 URL found on music page: {url}")
+        return None
     except Exception as exc:
         print(f"⚠️ Could not resolve music page: {url} — {exc}")
         return None
-
 
 def _safe_name(url, index):
     from urllib.parse import urlparse

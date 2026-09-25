@@ -13,6 +13,7 @@ import yaml
 from interactive_analytics import record as record_analytics
 from interactive_topics import record_topic, save_pending_story, _load_history
 from social_publish import publish_social_reels
+from publication_state import save as save_publication_state
 
 QUEUE = Path("story_social_queue.json")
 
@@ -79,7 +80,12 @@ def main() -> int:
             print("ℹ️ Story sequence already recorded; no duplicate state written.")
 
         QUEUE.unlink(missing_ok=True)
-        print("✅ Story social queue completed; no new Story generated in this run.")
+        save_publication_state(".story_publication_status.json", {
+            "status": "complete",
+            "video_id": video_id,
+            "youtube_url": f"https://www.youtube.com/shorts/{video_id}",
+        })
+        print(f"✅ Story social queue completed; YouTube video confirmed: https://www.youtube.com/shorts/{video_id}")
         return 0
     finally:
         shutil.rmtree(root, ignore_errors=True)

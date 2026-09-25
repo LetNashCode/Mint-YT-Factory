@@ -205,6 +205,25 @@ IMPORTANT: Every narration word you generate is production-critical. Do not omit
  # the complete script, but it must never truncate or drop its ending.
  synthesize_narration(narration,cfg,str(narration_audio),target_duration=53.5)
 
+ # Hard content gate: verify the rendered audio actually contains the complete
+ # scene-by-scene narration. This is intentionally after TTS and before any
+ # final render/upload so a partial Kokoro response can never publish.
+ guard_script=OUT/'tts_guard_script.json'
+ guard_script.write_text(
+  json.dumps({'scene_plan':[{'narration':str(s.get('narration',''))} for s in scenes]},ensure_ascii=False),
+  encoding='utf-8'
+ )
+ from tts_content_guard import verify_narration
+ print('🔎 VERIFYING EMOTIONAL REEL TTS AGAINST COMPLETE SCRIPT',flush=True)
+ tts_check=verify_narration(str(narration_audio),str(guard_script),log_prefix='🎙️ Emotional Reel')
+ if not tts_check.get('passed'):
+  raise RuntimeError('Emotional Reel TTS content gate failed; refusing to continue with partial narration.')
+ print(
+  f"✅ EMOTIONAL REEL TTS CONTENT VERIFIED | coverage={tts_check['coverage']:.0%} | "
+  f"longest_missing_run={tts_check['longest_missing_run']} | COMPLETE_SCRIPT_PRESERVED=YES",
+  flush=True,
+ )
+
  music=download_music(d,str(OUT))
  if not music:raise RuntimeError('No music in assets/music')
  final=OUT/'final.mp4'

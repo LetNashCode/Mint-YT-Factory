@@ -110,10 +110,17 @@ jobs:
           META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
         run: |
           set -euo pipefail
-          if python -u story_render_recovery.py; then
+          set +e
+          python -u story_render_recovery.py
+          rc=$?
+          set -e
+          if [ "$rc" -eq 0 ]; then
             echo "recovered=true" >> "$GITHUB_OUTPUT"
-          else
+          elif [ "$rc" -eq 1 ]; then
             echo "recovered=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "::error::Story render recovery failed (exit $rc). No new Story generation will be attempted."
+            exit "$rc"
           fi
       - name: Generate and publish Story Short
         timeout-minutes: 60

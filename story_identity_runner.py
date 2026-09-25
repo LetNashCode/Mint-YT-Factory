@@ -29,7 +29,7 @@ def _patch_story_portrait_export() -> None:
         return result
     guarded_assemble_video._mint_story_portrait_guard = True
     assemble.assemble_video = guarded_assemble_video
-    print("📱 Story portrait framing: full source preserved with subdued blurred background")
+    print("📱 Story portrait framing: full-bleed 9:16 with centered subject")
 
 
 def _patch_story_titles() -> None:
@@ -39,6 +39,10 @@ def _patch_story_titles() -> None:
     if original_upload is None or getattr(original_upload, "_mint_story_title_optimizer", False):
         return
     def optimized_upload(video_path, title, description, config, *args, **kwargs):
+        # Validate this exact render BEFORE uploading; never scan old artifacts after publication.
+        from final_video_quality_gate import validate
+        validate(str(video_path))
+        print(f"✅ Final video quality gate passed before upload: {video_path}")
         raw_title = str(title or "")
         person = raw_title.split(":", 1)[1].strip() if ":" in raw_title else ""
         optimized = optimize_title(raw_title, person, raw_title, "")
@@ -69,27 +73,6 @@ def _patch_story_visual_director() -> None:
         return directed
     directed_generate_script._mint_story_visual_director = True
     story_generator.generate_script = directed_generate_script
-
-
-def _validate_final_videos() -> None:
-    from final_video_quality_gate import validate_video
-    roots = [Path("output/interactive"), Path("output")]
-    videos = []
-    for root in roots:
-        if root.exists():
-            videos.extend(root.rglob("final.mp4"))
-    unique = []
-    seen = set()
-    for video in videos:
-        resolved = str(video.resolve())
-        if resolved not in seen:
-            seen.add(resolved)
-            unique.append(video)
-    if not unique:
-        raise RuntimeError("Final video quality gate could not find final.mp4")
-    target = max(unique, key=lambda path: path.stat().st_mtime)
-    validate_video(str(target))
-    print(f"✅ Final video quality gate passed: {target}")
 
 
 def _patch_story_video_topics() -> None:
@@ -270,7 +253,6 @@ def main() -> None:
 
     if Path(".story_gemini_quota_deferred").exists() or Path(".story_deferred").exists():
         return
-    _validate_final_videos()
 
 
 if __name__ == "__main__":

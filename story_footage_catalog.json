@@ -364,6 +364,383 @@
       },
       "review_key": "50be95fa4eb2dd8ae06e86376c003efab98602bd1083deef599540cb10bde24d",
       "reviewed_at": 1790367207.07708
+    },
+    {
+      "person": "Stan Lee",
+      "source": {
+        "id": "commons:153641408",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/STAN_LEE-_What_Makes_A_Great_Superhero-_%28Wise_words_from_the_MARVEL_legend%21%29.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:STAN_LEE-_What_Makes_A_Great_Superhero-_(Wise_words_from_the_MARVEL_legend!).webm",
+        "title": "File:STAN LEE- What Makes A Great Superhero- (Wise words from the MARVEL legend!).webm",
+        "description": "In this video, taken from our FLASH GORDON documentary LIFE AFTER FLASH , we spoke to Marvel legend Stan Lee all about what makes a great superhero - BUT do you agree with him? After all, what about Batman?",
+        "creator": "Life After Movies Web Show",
+        "license": "CC BY 3.0",
+        "direct_subject": false
+      },
+      "start": 14.83,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Stan Lee is clearly visible throughout the clip speaking in an interview setting against an Alamo City Comic Con backdrop. This serves as biographical illustration for a Stan Lee documentary segment, though it is not direct event footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a0a2b22cde58dd384c250b9758ea747a7d908db1edce5d5a60f719da8f3f4be9",
+      "reviewed_at": 1790374301.6578598
+    },
+    {
+      "person": "Stan Lee",
+      "source": {
+        "id": "archive:STANLEEETLESSUPERHUMAINSL.homme.aux.paupieres.d.acierByPuma83ForWww.tunisiaSat.com",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/STANLEEETLESSUPERHUMAINSL.homme.aux.paupieres.d.acierByPuma83ForWww.tunisiaSat.com/STAN%20LEE%20ET%20LES%20SUPER-HUMAINS%20-%20L.homme.aux.paupieres.d.acier%20by%20puma83%20for%20www.tunisia-sat.com.mp4",
+        "source_url": "https://archive.org/details/STANLEEETLESSUPERHUMAINSL.homme.aux.paupieres.d.acierByPuma83ForWww.tunisiaSat.com",
+        "title": "STAN LEE ET LES SUPER HUMAINS L.homme.aux.paupieres.d.acier By Puma83 For Www.tunisia Sat.com",
+        "description": "Puma83",
+        "creator": "Puma83",
+        "license": ""
+      },
+      "start": 1288.81,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features real archival footage of Stan Lee holding and looking at comic book pages in an office setting, clearly visible across all frames. It serves as good biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "30e23b837da01e19fdafd4b14b9193b9e4cfb38d41709042d1e4fe6a08d92aec",
+      "reviewed_at": 1790374335.3885634
+    },
+    {
+      "person": "Stan Lee",
+      "source": {
+        "id": "commons:153641408",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/STAN_LEE-_What_Makes_A_Great_Superhero-_%28Wise_words_from_the_MARVEL_legend%21%29.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:STAN_LEE-_What_Makes_A_Great_Superhero-_(Wise_words_from_the_MARVEL_legend!).webm",
+        "title": "File:STAN LEE- What Makes A Great Superhero- (Wise words from the MARVEL legend!).webm",
+        "description": "In this video, taken from our FLASH GORDON documentary LIFE AFTER FLASH , we spoke to Marvel legend Stan Lee all about what makes a great superhero - BUT do you agree with him? After all, what about Batman?",
+        "creator": "Life After Movies Web Show",
+        "license": "CC BY 3.0",
+        "direct_subject": false
+      },
+      "start": 1.58,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "Stan Lee is clearly visible throughout all three frames in interview/convention footage, serving as good biographical illustration of his later life, though it does not depict a specific historical event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5ff9262b98b5b38ba308f6077949f4fbe585bd488e8ccfb8c35fcf8b3f6f7d3f",
+      "reviewed_at": 1790374342.4659288
+    },
+    {
+      "person": "Wilma Rudolph",
+      "source": {
+        "id": "archive:wilma-1975",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/wilma-1975/Wilma%201975.ia.mp4",
+        "source_url": "https://archive.org/details/wilma-1975",
+        "title": "Wilma 1975",
+        "description": "The story of American track sprinter Wilma Rudolph, who overcame physical handicaps to win three gold medals in the 1960 Olympics.",
+        "creator": "",
+        "license": ""
+      },
+      "start": 3107.74,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show archival film footage depicting Wilma Rudolph (likely from the 1975 biographical film 'Wilma') sitting at a park table with others. While it is dramatized biographical depiction rather than actual historical sports footage, it features the real subject and serves as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ff033fb7aa05d24ccad6c980a9f948dec8b00bedeb4b4df88466490e6cec9abd",
+      "reviewed_at": 1790374911.6254513
+    },
+    {
+      "person": "Wilma Rudolph",
+      "source": {
+        "id": "archive:wilma-1975",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/wilma-1975/Wilma%201975.ia.mp4",
+        "source_url": "https://archive.org/details/wilma-1975",
+        "title": "Wilma 1975",
+        "description": "The story of American track sprinter Wilma Rudolph, who overcame physical handicaps to win three gold medals in the 1960 Olympics.",
+        "creator": "",
+        "license": ""
+      },
+      "start": 1039.25,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames depict an actress portraying Wilma Rudolph in bed during her childhood illness/recovery, serving as biographical illustration of her early struggles.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ddd606c47a14cc7d1eebb8628ccca3b004bed8b8142a91b6dd7523af94d478f8",
+      "reviewed_at": 1790374959.2733426
+    },
+    {
+      "person": "Wilma Rudolph",
+      "source": {
+        "id": "archive:wilma-1975",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/wilma-1975/Wilma%201975.ia.mp4",
+        "source_url": "https://archive.org/details/wilma-1975",
+        "title": "Wilma 1975",
+        "description": "The story of American track sprinter Wilma Rudolph, who overcame physical handicaps to win three gold medals in the 1960 Olympics.",
+        "creator": "",
+        "license": ""
+      },
+      "start": 3624.87,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show archival footage featuring Wilma Rudolph, usable as biographical illustration of her life story.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4284336f13b8bee086f57d7adea0f738e4c94dbdbe539677bf5c0a5313c78562",
+      "reviewed_at": 1790375039.216428
+    },
+    {
+      "person": "Wilma Rudolph",
+      "source": {
+        "id": "archive:wilma-1975",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/wilma-1975/Wilma%201975.ia.mp4",
+        "source_url": "https://archive.org/details/wilma-1975",
+        "title": "Wilma 1975",
+        "description": "The story of American track sprinter Wilma Rudolph, who overcame physical handicaps to win three gold medals in the 1960 Olympics.",
+        "creator": "",
+        "license": ""
+      },
+      "start": 5176.24,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "Wilma Rudolph is visible across the frames in archival footage context, usable for biographical illustration, though not depicting a specific direct event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "438851eaa5cda927d43ff47ee26744da7eb0cddb6d302dcb6c9ab5cad87a85e1",
+      "reviewed_at": 1790375082.3907955
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip/Munna%20Bhai%20M.B.B.S.%20%282003%29%20EROS%20Dvdrip.ia.mp4",
+        "source_url": "https://archive.org/details/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+        "title": "Munna Bhai M.B.B.S. (2003) EROS Dvdrip",
+        "description": "Munna Bhai M.B.B.S. is a 2003 Indian Hindi -language comedy drama film written and directed by Rajkumar Hirani in his directorial debut and produced by Vidhu Vinod Chopra under the banner Vinod Chopra Films . It features Sunil Dutt in his final film appearance as the father to his real-life son, Sanjay Dutt , who stars as the titular character . Gracy Singh , Arshad Warsi , Boman Irani , Jimmy Sheirgill and Rohini Hattangadi play other roles. The first installment of the Munna Bhai film series , the film follows Munna Bhai, a don in the Mumbai underworld , trying to please his father by pretending to be a doctor, but when a doctor, Asthana (Irani), exposes his lies and tarnishes his father's honor, Munna enrolls in a medical college . Chaos ensues when Munna, upon finding that Asthana is the dean of the college, vows revenge, while also sparking a romance with a house doctor, Suman (Singh), unaware that she is his childhood friend and Asthana's daughter. The film was followed by its sequel, Lage Raho Munna Bhai (2006). Released on 19 December 2003, the film was a major critical and commercial success, and went on to win the 2004 National Film Award for Best Popular Film , and several Filmfare Awards , including the Best Film (Critics) and Best Screenplay . At the box office, it achieved a silver jubilee status (25-week run) being one of only eight Hindi films to have achieved this status since the year 2000. In its 26th week of release, the film could still be found playing on 300 screens throughout India. The film's release was also accompanied by a mobile video game based",
+        "creator": "",
+        "license": ""
+      },
+      "start": 4884.85,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features Boman Irani walking in a hospital corridor as Dr. Asthana in Munna Bhai M.B.B.S., serving as biographical illustration of his film career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "027208e280e021ea0eeb159c5954e7bf447c594b6915e3e648ef9752058f1eb7",
+      "reviewed_at": 1790375244.7458286
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip/Munna%20Bhai%20M.B.B.S.%20%282003%29%20EROS%20Dvdrip.ia.mp4",
+        "source_url": "https://archive.org/details/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+        "title": "Munna Bhai M.B.B.S. (2003) EROS Dvdrip",
+        "description": "Munna Bhai M.B.B.S. is a 2003 Indian Hindi -language comedy drama film written and directed by Rajkumar Hirani in his directorial debut and produced by Vidhu Vinod Chopra under the banner Vinod Chopra Films . It features Sunil Dutt in his final film appearance as the father to his real-life son, Sanjay Dutt , who stars as the titular character . Gracy Singh , Arshad Warsi , Boman Irani , Jimmy Sheirgill and Rohini Hattangadi play other roles. The first installment of the Munna Bhai film series , the film follows Munna Bhai, a don in the Mumbai underworld , trying to please his father by pretending to be a doctor, but when a doctor, Asthana (Irani), exposes his lies and tarnishes his father's honor, Munna enrolls in a medical college . Chaos ensues when Munna, upon finding that Asthana is the dean of the college, vows revenge, while also sparking a romance with a house doctor, Suman (Singh), unaware that she is his childhood friend and Asthana's daughter. The film was followed by its sequel, Lage Raho Munna Bhai (2006). Released on 19 December 2003, the film was a major critical and commercial success, and went on to win the 2004 National Film Award for Best Popular Film , and several Filmfare Awards , including the Best Film (Critics) and Best Screenplay . At the box office, it achieved a silver jubilee status (25-week run) being one of only eight Hindi films to have achieved this status since the year 2000. In its 26th week of release, the film could still be found playing on 300 screens throughout India. The film's release was also accompanied by a mobile video game based",
+        "creator": "",
+        "license": ""
+      },
+      "start": 1224.96,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features Boman Irani acting in the film 'Munna Bhai M.B.B.S.', which serves as valid biographical illustration for his career as an actor, although it does not depict a specific real-life historical event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3bf6a2484ce9d13a23a0cc836f227f3527ada56b115ef49e308cfa23104610fb",
+      "reviewed_at": 1790375276.9385834
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip/Munna%20Bhai%20M.B.B.S.%20%282003%29%20EROS%20Dvdrip.ia.mp4",
+        "source_url": "https://archive.org/details/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+        "title": "Munna Bhai M.B.B.S. (2003) EROS Dvdrip",
+        "description": "Munna Bhai M.B.B.S. is a 2003 Indian Hindi -language comedy drama film written and directed by Rajkumar Hirani in his directorial debut and produced by Vidhu Vinod Chopra under the banner Vinod Chopra Films . It features Sunil Dutt in his final film appearance as the father to his real-life son, Sanjay Dutt , who stars as the titular character . Gracy Singh , Arshad Warsi , Boman Irani , Jimmy Sheirgill and Rohini Hattangadi play other roles. The first installment of the Munna Bhai film series , the film follows Munna Bhai, a don in the Mumbai underworld , trying to please his father by pretending to be a doctor, but when a doctor, Asthana (Irani), exposes his lies and tarnishes his father's honor, Munna enrolls in a medical college . Chaos ensues when Munna, upon finding that Asthana is the dean of the college, vows revenge, while also sparking a romance with a house doctor, Suman (Singh), unaware that she is his childhood friend and Asthana's daughter. The film was followed by its sequel, Lage Raho Munna Bhai (2006). Released on 19 December 2003, the film was a major critical and commercial success, and went on to win the 2004 National Film Award for Best Popular Film , and several Filmfare Awards , including the Best Film (Critics) and Best Screenplay . At the box office, it achieved a silver jubilee status (25-week run) being one of only eight Hindi films to have achieved this status since the year 2000. In its 26th week of release, the film could still be found playing on 300 screens throughout India. The film's release was also accompanied by a mobile video game based",
+        "creator": "",
+        "license": ""
+      },
+      "start": 3664.89,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Boman Irani is clearly visible walking down a corridor in all three frames from Munna Bhai M.B.B.S., serving as biographical illustration of his film career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "08fd83a8097afe85dcdab57ddfdd6ec283a3222858dfe6015592eba8d365bdfa",
+      "reviewed_at": 1790375329.0018334
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip/Munna%20Bhai%20M.B.B.S.%20%282003%29%20EROS%20Dvdrip.ia.mp4",
+        "source_url": "https://archive.org/details/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+        "title": "Munna Bhai M.B.B.S. (2003) EROS Dvdrip",
+        "description": "Munna Bhai M.B.B.S. is a 2003 Indian Hindi -language comedy drama film written and directed by Rajkumar Hirani in his directorial debut and produced by Vidhu Vinod Chopra under the banner Vinod Chopra Films . It features Sunil Dutt in his final film appearance as the father to his real-life son, Sanjay Dutt , who stars as the titular character . Gracy Singh , Arshad Warsi , Boman Irani , Jimmy Sheirgill and Rohini Hattangadi play other roles. The first installment of the Munna Bhai film series , the film follows Munna Bhai, a don in the Mumbai underworld , trying to please his father by pretending to be a doctor, but when a doctor, Asthana (Irani), exposes his lies and tarnishes his father's honor, Munna enrolls in a medical college . Chaos ensues when Munna, upon finding that Asthana is the dean of the college, vows revenge, while also sparking a romance with a house doctor, Suman (Singh), unaware that she is his childhood friend and Asthana's daughter. The film was followed by its sequel, Lage Raho Munna Bhai (2006). Released on 19 December 2003, the film was a major critical and commercial success, and went on to win the 2004 National Film Award for Best Popular Film , and several Filmfare Awards , including the Best Film (Critics) and Best Screenplay . At the box office, it achieved a silver jubilee status (25-week run) being one of only eight Hindi films to have achieved this status since the year 2000. In its 26th week of release, the film could still be found playing on 300 screens throughout India. The film's release was also accompanied by a mobile video game based",
+        "creator": "",
+        "license": ""
+      },
+      "start": 5698.16,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames clearly feature actor Boman Irani in a scene from the film Munna Bhai M.B.B.S., serving as good biographical illustration material for his acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ec2aa4ef843914abc86ac95683ea2f8b1e4efaea385bff7f31e8518bef267eaa",
+      "reviewed_at": 1790375360.941321
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip/Munna%20Bhai%20M.B.B.S.%20%282003%29%20EROS%20Dvdrip.ia.mp4",
+        "source_url": "https://archive.org/details/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+        "title": "Munna Bhai M.B.B.S. (2003) EROS Dvdrip",
+        "description": "Munna Bhai M.B.B.S. is a 2003 Indian Hindi -language comedy drama film written and directed by Rajkumar Hirani in his directorial debut and produced by Vidhu Vinod Chopra under the banner Vinod Chopra Films . It features Sunil Dutt in his final film appearance as the father to his real-life son, Sanjay Dutt , who stars as the titular character . Gracy Singh , Arshad Warsi , Boman Irani , Jimmy Sheirgill and Rohini Hattangadi play other roles. The first installment of the Munna Bhai film series , the film follows Munna Bhai, a don in the Mumbai underworld , trying to please his father by pretending to be a doctor, but when a doctor, Asthana (Irani), exposes his lies and tarnishes his father's honor, Munna enrolls in a medical college . Chaos ensues when Munna, upon finding that Asthana is the dean of the college, vows revenge, while also sparking a romance with a house doctor, Suman (Singh), unaware that she is his childhood friend and Asthana's daughter. The film was followed by its sequel, Lage Raho Munna Bhai (2006). Released on 19 December 2003, the film was a major critical and commercial success, and went on to win the 2004 National Film Award for Best Popular Film , and several Filmfare Awards , including the Best Film (Critics) and Best Screenplay . At the box office, it achieved a silver jubilee status (25-week run) being one of only eight Hindi films to have achieved this status since the year 2000. In its 26th week of release, the film could still be found playing on 300 screens throughout India. The film's release was also accompanied by a mobile video game based",
+        "creator": "",
+        "license": ""
+      },
+      "start": 6104.81,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames feature Boman Irani (on the left in profile) alongside Sanjay Dutt from the film Munna Bhai M.B.B.S., serving as good biographical illustration of his acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a277a5c1b1c1c790011f2abe19ae8c7655d3d7f57643a3d84173aabd1ee77b12",
+      "reviewed_at": 1790375368.7452183
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip/Munna%20Bhai%20M.B.B.S.%20%282003%29%20EROS%20Dvdrip.ia.mp4",
+        "source_url": "https://archive.org/details/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+        "title": "Munna Bhai M.B.B.S. (2003) EROS Dvdrip",
+        "description": "Munna Bhai M.B.B.S. is a 2003 Indian Hindi -language comedy drama film written and directed by Rajkumar Hirani in his directorial debut and produced by Vidhu Vinod Chopra under the banner Vinod Chopra Films . It features Sunil Dutt in his final film appearance as the father to his real-life son, Sanjay Dutt , who stars as the titular character . Gracy Singh , Arshad Warsi , Boman Irani , Jimmy Sheirgill and Rohini Hattangadi play other roles. The first installment of the Munna Bhai film series , the film follows Munna Bhai, a don in the Mumbai underworld , trying to please his father by pretending to be a doctor, but when a doctor, Asthana (Irani), exposes his lies and tarnishes his father's honor, Munna enrolls in a medical college . Chaos ensues when Munna, upon finding that Asthana is the dean of the college, vows revenge, while also sparking a romance with a house doctor, Suman (Singh), unaware that she is his childhood friend and Asthana's daughter. The film was followed by its sequel, Lage Raho Munna Bhai (2006). Released on 19 December 2003, the film was a major critical and commercial success, and went on to win the 2004 National Film Award for Best Popular Film , and several Filmfare Awards , including the Best Film (Critics) and Best Screenplay . At the box office, it achieved a silver jubilee status (25-week run) being one of only eight Hindi films to have achieved this status since the year 2000. In its 26th week of release, the film could still be found playing on 300 screens throughout India. The film's release was also accompanied by a mobile video game based",
+        "creator": "",
+        "license": ""
+      },
+      "start": 6918.12,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show actor Boman Irani dancing in a scene from the film 'Munna Bhai M.B.B.S.', serving as biographical illustration for a video about his career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bc0c99ff42ac6d1ed2800167bc4dcc1b434f92a7ec951d1f288584b6e6179f9d",
+      "reviewed_at": 1790375383.9164536
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip/Munna%20Bhai%20M.B.B.S.%20%282003%29%20EROS%20Dvdrip.ia.mp4",
+        "source_url": "https://archive.org/details/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+        "title": "Munna Bhai M.B.B.S. (2003) EROS Dvdrip",
+        "description": "Munna Bhai M.B.B.S. is a 2003 Indian Hindi -language comedy drama film written and directed by Rajkumar Hirani in his directorial debut and produced by Vidhu Vinod Chopra under the banner Vinod Chopra Films . It features Sunil Dutt in his final film appearance as the father to his real-life son, Sanjay Dutt , who stars as the titular character . Gracy Singh , Arshad Warsi , Boman Irani , Jimmy Sheirgill and Rohini Hattangadi play other roles. The first installment of the Munna Bhai film series , the film follows Munna Bhai, a don in the Mumbai underworld , trying to please his father by pretending to be a doctor, but when a doctor, Asthana (Irani), exposes his lies and tarnishes his father's honor, Munna enrolls in a medical college . Chaos ensues when Munna, upon finding that Asthana is the dean of the college, vows revenge, while also sparking a romance with a house doctor, Suman (Singh), unaware that she is his childhood friend and Asthana's daughter. The film was followed by its sequel, Lage Raho Munna Bhai (2006). Released on 19 December 2003, the film was a major critical and commercial success, and went on to win the 2004 National Film Award for Best Popular Film , and several Filmfare Awards , including the Best Film (Critics) and Best Screenplay . At the box office, it achieved a silver jubilee status (25-week run) being one of only eight Hindi films to have achieved this status since the year 2000. In its 26th week of release, the film could still be found playing on 300 screens throughout India. The film's release was also accompanied by a mobile video game based",
+        "creator": "",
+        "license": ""
+      },
+      "start": 7731.43,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features Boman Irani in a scene from the film Munna Bhai M.B.B.S., serving as biographical illustration of his acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "efdd5f4d14141137633d3399186c2fa111ba0bbf0f64eee7e0ca6cb94cac142a",
+      "reviewed_at": 1790375401.4012442
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip/Munna%20Bhai%20M.B.B.S.%20%282003%29%20EROS%20Dvdrip.ia.mp4",
+        "source_url": "https://archive.org/details/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+        "title": "Munna Bhai M.B.B.S. (2003) EROS Dvdrip",
+        "description": "Munna Bhai M.B.B.S. is a 2003 Indian Hindi -language comedy drama film written and directed by Rajkumar Hirani in his directorial debut and produced by Vidhu Vinod Chopra under the banner Vinod Chopra Films . It features Sunil Dutt in his final film appearance as the father to his real-life son, Sanjay Dutt , who stars as the titular character . Gracy Singh , Arshad Warsi , Boman Irani , Jimmy Sheirgill and Rohini Hattangadi play other roles. The first installment of the Munna Bhai film series , the film follows Munna Bhai, a don in the Mumbai underworld , trying to please his father by pretending to be a doctor, but when a doctor, Asthana (Irani), exposes his lies and tarnishes his father's honor, Munna enrolls in a medical college . Chaos ensues when Munna, upon finding that Asthana is the dean of the college, vows revenge, while also sparking a romance with a house doctor, Suman (Singh), unaware that she is his childhood friend and Asthana's daughter. The film was followed by its sequel, Lage Raho Munna Bhai (2006). Released on 19 December 2003, the film was a major critical and commercial success, and went on to win the 2004 National Film Award for Best Popular Film , and several Filmfare Awards , including the Best Film (Critics) and Best Screenplay . At the box office, it achieved a silver jubilee status (25-week run) being one of only eight Hindi films to have achieved this status since the year 2000. In its 26th week of release, the film could still be found playing on 300 screens throughout India. The film's release was also accompanied by a mobile video game based",
+        "creator": "",
+        "license": ""
+      },
+      "start": 8138.08,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The named subject, Boman Irani, is clearly visible and identifiable across all three frames as an actor in a scene from Munna Bhai M.B.B.S. Since this is fictional film footage rather than a direct historical recording of his personal life, it is used as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0bd3697b0e3a6fa443387db77e42e492b6f0c703146606e9cf9eaa1948535542",
+      "reviewed_at": 1790375409.0512006
     }
   ]
 }

@@ -4,7 +4,7 @@ from __future__ import annotations
 import runpy
 from pathlib import Path
 
-import story_hybrid_media
+import story_visual_upgrade
 import story_topic_uniqueness
 import interactive_topics
 from interactive_topics import validate_story_sequence_state
@@ -17,14 +17,19 @@ def _patch_story_portrait_export() -> None:
     if original_assemble is None or getattr(original_assemble, "_mint_story_portrait_guard", False):
         return
     def guarded_assemble_video(*args, **kwargs):
-        result = original_assemble(*args, **kwargs)
+        script = kwargs.get("script") or (args[0] if args else {})
+        if isinstance(script, dict) and script.get("story_person"):
+            with story_visual_upgrade.renderer_style(assemble):
+                result = original_assemble(*args, **kwargs)
+        else:
+            result = original_assemble(*args, **kwargs)
         output_path = kwargs.get("output_path") or (args[-1] if args else None)
         if output_path:
             ensure_portrait_export(output_path)
         return result
     guarded_assemble_video._mint_story_portrait_guard = True
     assemble.assemble_video = guarded_assemble_video
-    print("📱 Story portrait guard: full-frame 9:16 crop enabled")
+    print("📱 Story portrait framing: full source preserved with subdued blurred background")
 
 
 def _patch_story_titles() -> None:
@@ -38,7 +43,7 @@ def _patch_story_titles() -> None:
         person = raw_title.split(":", 1)[1].strip() if ":" in raw_title else ""
         optimized = optimize_title(raw_title, person, raw_title, "")
         print(f"🎯 Story title optimized: {optimized}")
-        description = str(description or "") + story_hybrid_media.source_credits()
+        description = str(description or "") + story_visual_upgrade.source_credits()
         return original_upload(video_path, optimized, description, config, *args, **kwargs)
     optimized_upload._mint_story_title_optimizer = True
     upload_youtube.upload_video = optimized_upload
@@ -51,7 +56,14 @@ def _patch_story_visual_director() -> None:
     if original_generate_script is None or getattr(original_generate_script, "_mint_story_visual_director", False):
         return
     def directed_generate_script(*args, **kwargs):
+        args = list(args)
+        context = story_visual_upgrade.script_context()
+        if len(args) >= 4:
+            args[3] = str(args[3] or "") + context
+        else:
+            kwargs["extra_feedback"] = str(kwargs.get("extra_feedback") or "") + context
         result = original_generate_script(*args, **kwargs)
+        result["story_person"] = story_visual_upgrade._PREPARED["person"]
         directed = direct_story_visuals(result)
         print("🎬 Story visual director: evidence-led visual briefs attached")
         return directed
@@ -81,7 +93,7 @@ def _validate_final_videos() -> None:
 
 
 def _patch_story_video_topics() -> None:
-    """Reject subjects with no real-video candidates before script/TTS generation."""
+    """Prepare fourteen usable excerpts before script/TTS generation."""
     original = interactive_topics.get_next_topic
     if getattr(original, "_mint_video_topic_preflight", False):
         return
@@ -89,13 +101,15 @@ def _patch_story_video_topics() -> None:
         from story_topic_runtime import release_reservation
         for attempt in range(8):
             pillar, topic, person = original()
-            audit = []
-            candidates = story_hybrid_media.discover(person, audit)
-            print(f"Story footage preflight: {person} | candidates={len(candidates)} | providers={audit}", flush=True)
-            if candidates:
+            try:
+                story_visual_upgrade.prepare(person, topic)
                 return pillar, topic, person
-            if audit and all("error" in row for row in audit):
-                raise RuntimeError("Story video providers unavailable; reserved topic preserved for retry")
+            except Exception as exc:
+                if not _story_media_failure(exc):
+                    raise
+                import os
+                if os.environ.get("STORY_PERSON", "").strip():
+                    raise RuntimeError("Story video providers unavailable for requested subject; reservation preserved") from exc
             release_reservation(pillar, topic, person)
             print(f"Skipping Story subject without accessible video candidates ({attempt + 1}/8): {person}", flush=True)
         raise RuntimeError("No unused Story subject with real-video candidates found in eight attempts")
@@ -209,7 +223,7 @@ def main() -> None:
         person = str(script.get("story_person") or "").strip() if is_story else ""
         if is_story:
             print(f"🎬 Verified real-video Story media routing: {person}")
-            return story_real_video_media.generate_media(script, output_dir, config, gim=gim)
+            return story_visual_upgrade.generate_media(script, output_dir, config, gim=gim)
         import stock_search
         return stock_search.generate_media(script, output_dir, config, gim=gim)
     identity_generate_media._mint_story_identity_wrapper = True

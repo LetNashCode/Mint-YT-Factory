@@ -84,7 +84,7 @@ jobs:
           SOCIAL_PUBLISH_STRICT: "false"
           MINT_KOKORO_TTS: "1"
           MINT_TTS_PROVIDER: "kokoro"
-          EMOTIONAL_REEL_KOKORO_VOICE: "am_echo"
+          EMOTIONAL_REEL_KOKORO_VOICE: "af_heart"
           EMOTIONAL_REEL_KOKORO_SPEED: "0.92"
           MINT_MAX_PLAYBACK_SPEED: "1.25"
         run: python -u emotional_reel.py

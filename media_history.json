@@ -7799,6 +7799,146 @@
       "shot": 2,
       "query": "zipper sliders jam push slider backward instead",
       "recorded_at": 1790275942
+    },
+    {
+      "asset_key": "pexels:video:34585420",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34585420/14655994_720_1280_30fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "tears you accidentally catch stray",
+      "recorded_at": 1790320385
+    },
+    {
+      "asset_key": "pexels:video:9063795",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9063795/9063795-hd_1366_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "tears bam total ocean flavor",
+      "recorded_at": 1790320389
+    },
+    {
+      "asset_key": "pexels:video:9063826",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9063826/9063826-hd_1366_720_25fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "tears your eyeballs human eye",
+      "recorded_at": 1790320417
+    },
+    {
+      "asset_key": "pexels:video:10811027",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10811027/10811027-hd_1280_720_30fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "tears leaking liquid salt shaker",
+      "recorded_at": 1790320441
+    },
+    {
+      "asset_key": "pexels:video:6269152",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6269152/6269152-hd_1282_720_24fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "tears every drop comes straight",
+      "recorded_at": 1790320448
+    },
+    {
+      "asset_key": "pexels:video:6716602",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6716602/6716602-hd_1366_720_25fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "tears your blood basically trapped",
+      "recorded_at": 1790320453
+    },
+    {
+      "asset_key": "pexels:video:7277920",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7277920/7277920-hd_1280_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "tears think your body walking",
+      "recorded_at": 1790320528
+    },
+    {
+      "asset_key": "pexels:video:39592988",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39592988/16876168_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "tears carrying ocean inside water",
+      "recorded_at": 1790320550
+    },
+    {
+      "asset_key": "pexels:video:10498300",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10498300/10498300-hd_1366_720_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "tears long ago our ancestors",
+      "recorded_at": 1790320555
+    },
+    {
+      "asset_key": "pexels:video:6716513",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6716513/6716513-hd_720_1366_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "tears but they packed their",
+      "recorded_at": 1790320561
+    },
+    {
+      "asset_key": "pexels:video:8136785",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8136785/8136785-hd_1366_720_24fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "tears every time you cry",
+      "recorded_at": 1790320564
+    },
+    {
+      "asset_key": "pexels:video:38687116",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/38687116/16433109_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "tears ancient primeval ocean locked",
+      "recorded_at": 1790320569
+    },
+    {
+      "asset_key": "pexels:video:7298010",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7298010/7298010-hd_1280_720_30fps.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "tears your body carries ancient",
+      "recorded_at": 1790320572
+    },
+    {
+      "asset_key": "pexels:video:10583368",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10583368/10583368-hd_1280_720_50fps.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "tears your body carries ancient",
+      "recorded_at": 1790320575
     }
   ]
 }

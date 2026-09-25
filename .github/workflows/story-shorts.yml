@@ -39,7 +39,7 @@ jobs:
           python-version: '3.11'
       - name: Install offline test tools
         run: |
-          pip install pytest requests PyYAML
+          pip install pytest requests PyYAML opencv-python-headless==4.10.0.84
           sudo apt-get update
           sudo apt-get install -y ffmpeg
       - name: Story regression, isolation and portrait render tests
@@ -63,6 +63,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
+          pip install opencv-python-headless==4.10.0.84
       - name: Restore latest previous Story render artifact
         env:
           GH_TOKEN: ${{ github.token }}

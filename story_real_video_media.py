@@ -36,11 +36,33 @@ def words(value):
     return set(re.findall(r"[a-z0-9]+", value.lower()))
 
 
+def _person_tokens(person):
+    return {w for w in words(person) if len(w) > 1}
+
+
+def _identity_score(person, item):
+    """Score subject evidence from provider metadata without trusting our query."""
+    wanted = _person_tokens(person)
+    if not wanted:
+        return 0.0
+    title = words(item.get("title", ""))
+    description = words(item.get("description", ""))
+    creator = words(item.get("creator", ""))
+    score = 0.0
+    if wanted <= title:
+        score += 8.0
+    elif wanted <= (title | description):
+        score += 5.0
+    overlap = len(wanted & (title | description | creator))
+    score += min(2.0, overlap / max(1, len(wanted)) * 2.0)
+    if item.get("direct_subject"):
+        score += 3.0
+    return score
+
+
 def person_match(person, item):
-    # Never include the search query in evidence: it was supplied by us.
-    wanted = {w for w in words(person) if len(w) > 1}
-    evidence = words(str(item.get("title", "")) + " " + str(item.get("description", "")))
-    return bool(wanted and wanted <= evidence)
+    # Never include the search query itself as evidence: it was supplied by us.
+    return _identity_score(person, item) >= 5.0
 
 
 def get_json(url, **params):
@@ -58,85 +80,176 @@ def command(args, timeout=90):
 
 
 def search_commons(person):
+    """Find actual Commons video files using title/category-oriented searches."""
     results, seen = [], set()
-    search_terms = [
-        f'"{person}" filetype:video',
-        f'"{person}" expedition filetype:video',
-        f'"{person}" expedition ship ice filetype:video',
+    clean_person = clean(person).strip()
+    category_names = [
+        f"Category:Videos of {clean_person}",
+        f"Category:Videos of {clean_person.replace(' ', '_')}",
     ]
-    category = f"Category:Videos of {person}"
+    search_terms = [
+        f'intitle:"{clean_person}" filetype:video',
+        f'"{clean_person}" filetype:video',
+        f'"{clean_person}" interview filetype:video',
+        f'"{clean_person}" speech filetype:video',
+    ]
+
+    def add_pages(pages):
+        for page in pages:
+            page_id = page.get("pageid")
+            if page_id is None or f"commons:{page_id}" in seen:
+                continue
+            info = (page.get("imageinfo") or [{}])[0]
+            if not str(info.get("mime", "")).startswith("video/") or not info.get("url"):
+                continue
+            meta = info.get("extmetadata") or {}
+
+            def field(key):
+                return clean((meta.get(key) or {}).get("value"))
+
+            categories = page.get("categories", []) or []
+            item = {
+                "id": f"commons:{page_id}",
+                "provider": "Wikimedia Commons",
+                "url": info["url"],
+                "source_url": info.get("descriptionurl") or info["url"],
+                "title": clean(page.get("title")),
+                "description": field("ImageDescription"),
+                "creator": field("Artist"),
+                "license": field("LicenseShortName"),
+                "direct_subject": any(
+                    str(cat.get("title", "")).strip() in category_names for cat in categories
+                ),
+            }
+            if _identity_score(person, item) >= 5.0:
+                item["identity_score"] = _identity_score(person, item)
+                results.append(item)
+                seen.add(item["id"])
+
     for query in search_terms:
+        continuation = {}
+        for _ in range(3):
+            params = {
+                "action": "query", "format": "json",
+                "generator": "search", "gsrsearch": query,
+                "gsrnamespace": 6, "gsrlimit": 50,
+                "prop": "imageinfo|categories",
+                "iiprop": "url|mime|extmetadata",
+            }
+            params.update(continuation)
+            data = get_json("https://commons.wikimedia.org/w/api.php", **params)
+            add_pages(list((data.get("query", {}).get("pages", {}) or {}).values()))
+            continuation = data.get("continue") or {}
+            if not continuation:
+                break
+
+    for category in category_names:
         continuation = {}
         for _ in range(2):
             params = {
                 "action": "query", "format": "json",
-                "generator": "search", "gsrsearch": query,
-                "gsrnamespace": 6, "gsrlimit": 40,
+                "generator": "categorymembers",
+                "gcmtitle": category, "gcmtype": "file", "gcmlimit": 50,
                 "prop": "imageinfo|categories",
                 "iiprop": "url|mime|extmetadata",
-                "clcategories": category,
             }
             params.update(continuation)
-            data = get_json("https://commons.wikimedia.org/w/api.php", **params)
-            for page in (data.get("query", {}).get("pages", {}) or {}).values():
-                page_id = page.get("pageid")
-                if page_id is None or f"commons:{page_id}" in seen:
-                    continue
-                info = (page.get("imageinfo") or [{}])[0]
-                if not str(info.get("mime", "")).startswith("video/"):
-                    continue
-                meta = info.get("extmetadata") or {}
-
-                def field(key):
-                    return clean((meta.get(key) or {}).get("value"))
-
-                if info.get("url"):
-                    item_id = f"commons:{page_id}"
-                    categories = page.get("categories", []) or []
-                    results.append({
-                        "id": item_id,
-                        "provider": "Wikimedia Commons",
-                        "url": info["url"],
-                        "source_url": info.get("descriptionurl") or info["url"],
-                        "title": clean(page.get("title")),
-                        "description": field("ImageDescription"),
-                        "creator": field("Artist"),
-                        "license": field("LicenseShortName"),
-                        "direct_subject": any(
-                            c.get("title") == category for c in categories
-                        ),
-                    })
-                    seen.add(item_id)
+            try:
+                data = get_json("https://commons.wikimedia.org/w/api.php", **params)
+            except Exception:
+                break
+            add_pages(list((data.get("query", {}).get("pages", {}) or {}).values()))
             continuation = data.get("continue") or {}
             if not continuation:
                 break
+
+    results.sort(key=lambda item: (
+        -float(item.get("identity_score", 0)),
+        not item.get("direct_subject", False),
+        len(str(item.get("title", ""))),
+    ))
     return results
 
 
 def search_archive(person):
-    term = clean(person).replace('"', '')
-    data = get_json("https://archive.org/advancedsearch.php",
-                    q=f'mediatype:movies AND (title:"{term}" OR description:"{term}" OR subject:"{term}")',
-                    output="json", rows=8, **{"fl[]": ["identifier", "title", "description", "creator", "licenseurl"]})
-    results = []
-    for item in data.get("response", {}).get("docs", []):
-        identifier = str(item.get("identifier") or "")
-        if not identifier or not person_match(person, item):
-            continue
+    """Search Internet Archive for genuine movie records, excluding YouTube imports."""
+    term = clean(person).replace('"', "")
+    queries = [
+        f'mediatype:movies AND title:"{term}" AND NOT identifier:youtube-*',
+        f'mediatype:movies AND subject:"{term}" AND NOT identifier:youtube-*',
+        f'mediatype:movies AND description:"{term}" AND NOT identifier:youtube-*',
+        f'mediatype:movies AND ("{term}" OR "{term}" interview OR "{term}" speech) AND NOT identifier:youtube-*',
+    ]
+    results, seen = [], set()
+
+    for query in queries:
         try:
-            metadata = get_json("https://archive.org/metadata/" + quote(identifier, safe=""))
+            data = get_json(
+                "https://archive.org/advancedsearch.php",
+                q=query,
+                output="json",
+                rows=40,
+                page=1,
+                **{"fl[]": ["identifier", "title", "description", "creator", "subject", "licenseurl"]},
+            )
         except (requests.RequestException, ValueError):
             continue
-        files = [f for f in metadata.get("files", []) if str(f.get("name", "")).lower().endswith((".mp4", ".ogv", ".webm"))
-                 and "sample" not in str(f.get("name", "")).lower()]
-        # Prefer an MP4 derivative; one canonical source per archive item.
-        files.sort(key=lambda f: (not str(f["name"]).lower().endswith(".mp4"), int(f.get("size") or 0)))
-        if files:
-            results.append({"id": "archive:" + identifier, "provider": "Internet Archive",
-                            "url": "https://archive.org/download/" + quote(identifier, safe="") + "/" + quote(files[0]["name"], safe="/"),
-                            "source_url": "https://archive.org/details/" + quote(identifier, safe=""),
-                            "title": clean(item.get("title")), "description": clean(item.get("description")),
-                            "creator": clean(item.get("creator")), "license": clean(item.get("licenseurl"))})
+
+        for item in data.get("response", {}).get("docs", []):
+            identifier = str(item.get("identifier") or "")
+            if not identifier or identifier.lower().startswith("youtube-") or identifier in seen:
+                continue
+
+            title = clean(item.get("title"))
+            description = clean(item.get("description"))
+            subject = clean(item.get("subject"))
+            candidate = {
+                "id": "archive:" + identifier,
+                "provider": "Internet Archive",
+                "url": "",
+                "source_url": "https://archive.org/details/" + quote(identifier, safe=""),
+                "title": title,
+                "description": description + " " + subject,
+                "creator": clean(item.get("creator")),
+                "license": clean(item.get("licenseurl")),
+                "subject": subject,
+                "direct_subject": _person_tokens(person) <= words(title + " " + subject),
+            }
+            candidate["identity_score"] = _identity_score(person, candidate)
+            if candidate["identity_score"] < 5.0:
+                continue
+
+            try:
+                metadata = get_json(
+                    "https://archive.org/metadata/" + quote(identifier, safe="")
+                )
+            except (requests.RequestException, ValueError):
+                continue
+            files = [
+                f for f in metadata.get("files", [])
+                if str(f.get("name", "")).lower().endswith((".mp4", ".ogv", ".webm"))
+                and "sample" not in str(f.get("name", "")).lower()
+            ]
+            if not files:
+                continue
+            files.sort(
+                key=lambda f: (
+                    not str(f["name"]).lower().endswith(".mp4"),
+                    -int(f.get("size") or 0),
+                )
+            )
+            candidate["url"] = (
+                "https://archive.org/download/" + quote(identifier, safe="") +
+                "/" + quote(files[0]["name"], safe="/")
+            )
+            results.append(candidate)
+            seen.add(identifier)
+
+    results.sort(key=lambda item: (
+        -float(item.get("identity_score", 0)),
+        not item.get("direct_subject", False),
+        len(str(item.get("title", ""))),
+    ))
     return results
 
 
@@ -342,9 +455,9 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                 ranked = sorted(pool, key=lambda item: (
                                 0 if len(counts) >= 2 and counts[item["id"]] else 1,
                                 counts[item["id"]],
+                                -float(item.get("identity_score", _identity_score(person, item))),
                                 not item.get("direct_subject", False),
-                                not person_match(person, {"title": item.get("title", "")}),
-                                -len(cues & words(item.get("title", "") + " " + item.get("description", "")))))
+                                -len(cues & words(item.get("title", "") + " " + item.get("description", "") + " " + item.get("subject", "")))))
                 chosen = None
                 for item in ranked:
                     sid = item["id"]

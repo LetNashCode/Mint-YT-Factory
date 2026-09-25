@@ -73,8 +73,8 @@ def _resolve_music_page(url):
         response.raise_for_status()
         page = html.unescape(response.text).replace("\\/", "/")
         patterns = [
-            r"https?://cdn\\.pixabay\\.com/(?:download/)?audio/[^\\"'<>\\s]+?\\.mp3(?:\\?[^\\"'<>\\s]+)?",
-            r"https?://cdn\\.pixabay\\.com/[^\\"'<>\\s]+?\\.mp3(?:\\?[^\\"'<>\\s]+)?",
+            r'https?://cdn\.pixabay\.com/(?:download/)?audio/[^"<>\\s]+?\.mp3(?:\\?[^"<>\\s]+)?',
+            r'https?://cdn\.pixabay\.com/[^"<>\\s]+?\.mp3(?:\\?[^"<>\\s]+)?',
         ]
         for pattern in patterns:
             matches = re.findall(pattern, page)

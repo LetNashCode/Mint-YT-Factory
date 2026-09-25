@@ -227,7 +227,7 @@ def _generate_kokoro(text, voice_config, output_path):
 
     audio_parts = []
     pause = np.zeros(
-        (max(0, int(round(KOKORO_CHUNK_PAUSE_SECONDS * KOKORO_SAMPLE_RATE)),),
+        max(0, int(round(KOKORO_CHUNK_PAUSE_SECONDS * KOKORO_SAMPLE_RATE))),
         dtype=np.float32,
     )
 

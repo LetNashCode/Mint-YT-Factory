@@ -1,44 +1,45 @@
 {
   "status": "uploaded",
   "final_path": "output/emotional_reel/final.mp4",
-  "final_sha256": "4de3e635bfe853f4c341b03a02e3fe9c1773a12b18dfa588cdbf95d16c547a4b",
-  "cache_key": "emotional-reel-final-v2-4de3e635bfe853f4c341b03a02e3fe9c",
-  "title": "The Weight You Never Named",
-  "description": "An intimate cinematic reflection on carrying unspoken burdens and finding quiet resolution within.",
+  "final_sha256": "8c65f9d3bb4c2d739ce6201c88b9814db6343c2ed8c711b25e5913935540acef",
+  "cache_key": "emotional-reel-final-v2-8c65f9d3bb4c2d739ce6201c88b9814d",
+  "title": "The Weight We Carry in Silence",
+  "description": "An intimate cinematic reflection on the quiet exhaustion of holding everything together and the unexpected grace of letting it down.",
   "hashtags": [
     "cinematic",
     "reflection",
-    "mindset",
+    "mindfulness",
     "growth",
-    "depth",
-    "solitude"
+    "innerpeace",
+    "storytelling"
   ],
-  "engagement_comment": "You were always allowed to just breathe.",
+  "engagement_comment": "Peace begins where the pretending ends.",
   "voice": {
     "provider": "kokoro",
-    "voice_name": "am_echo",
+    "voice_name": "af_heart",
     "kokoro_lang": "a",
     "edge_voice": "en-US-GuyNeural",
     "tiktok_voice_name": "en_us_010",
     "speed": 0.92,
     "tone": "curious, confident, playful storyteller"
   },
-  "created_at": 1790294340,
-  "narration_word_count": 154,
+  "created_at": 1790296402,
+  "narration_word_count": 141,
   "complete_script_preserved": true,
-  "video_id": "Q0Z0mLwFUy4",
+  "final_duration_seconds": 53.76,
+  "video_id": "9Fo5Aa46PpA",
   "social": {
     "instagram": {
       "status": "published",
-      "media_id": "18126276386500750",
-      "container_id": "18494738752097136"
+      "media_id": "18115821112959853",
+      "container_id": "18494743366097136"
     },
     "facebook": {
       "status": "published",
-      "video_id": "1513342913892589"
+      "video_id": "1825294832253444"
     },
     "strict": false,
-    "updated_at": 1790294505
+    "updated_at": 1790296641
   },
-  "uploaded_at": 1790294609
+  "uploaded_at": 1790296770
 }

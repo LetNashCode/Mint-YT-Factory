@@ -310,7 +310,7 @@ def validate_segments(groups, expected=14):
         raise RuntimeError("Story must cover seven scenes with two video shots each")
 
 
-def generate_media(script, output_dir, config, gim=None):
+def generate_media(script, output_dir, config, gim=None, catalog=None):
     global _LAST_GROUPS
     _LAST_GROUPS = []
     person = clean(script.get("story_person"))
@@ -329,7 +329,9 @@ def generate_media(script, output_dir, config, gim=None):
     def save_audit():
         (root / "story_video_audit.json").write_text(json.dumps(audit, indent=2, ensure_ascii=False), encoding="utf-8")
     try:
-        pool = discover(person, audit["providers"])
+        known = catalog.candidates(person) if catalog is not None else []
+        discovered = discover(person, audit["providers"])
+        pool = list({item["id"]: item for item in discovered + known}.values())
         print(f"Story video discovery: {person} | candidates={len(pool)} | providers={audit['providers']}", flush=True)
         if not pool:
             raise RuntimeError(f"No real video candidates found for {person}; no photo or generic-stock fallback")
@@ -362,7 +364,13 @@ def generate_media(script, output_dir, config, gim=None):
                         # long speeches often start with several minutes of introductions.
                         order = dict.fromkeys([len(intervals) // 2, 3 * len(intervals) // 4, len(intervals) // 4, 0] + list(range(len(intervals))))
                         intervals = [intervals[index] for index in order]
+                    if catalog is not None:
+                        preferred = catalog.intervals(person, item, duration)
+                        intervals = list(dict.fromkeys(preferred + intervals))
                     for start, length in intervals:
+                        if any(g["origin_url"] == item["source_url"] and start < g["end"]
+                               and g["start"] < start + length for g in groups):
+                            continue
                         identity = (sid, start)
                         if identity in used or identity in rejected:
                             continue
@@ -374,10 +382,11 @@ def generate_media(script, output_dir, config, gim=None):
                             if identity not in cached:
                                 actual = extract(url, start, length, clip)
                                 cached[identity] = frames(clip, actual)
-                            verdict = verify(person, scene, item, cached[identity])
+                            verdict = (catalog.verify(person, scene, item, cached[identity], start, length)
+                                       if catalog is not None else verify(person, scene, item, cached[identity]))
                             audit["attempts"].append({"scene": scene_no, "shot": shot_no, "source": item["source_url"],
                                                       "start": start, "verification": verdict})
-                            if not verification_passes(verdict):
+                            if not (catalog.accepts(verdict) if catalog is not None else verification_passes(verdict)):
                                 if any(verdict.get(key) is not True for key in ("person_visible", "real_footage", "usable")):
                                     rejected.add(identity)
                                     source_rejections[sid] += 1

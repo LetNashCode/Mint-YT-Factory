@@ -2,6 +2,7 @@
 from __future__ import annotations
 import json, os, re, time
 import yaml
+from publication_state import save as save_publication_state
 from moviepy.editor import AudioFileClip
 from interactive_topics import get_next_topic, record_topic, get_pending_story, save_pending_story, next_story_number
 from interactive_analytics import record as record_analytics, build_comparison, refresh_live_metrics
@@ -81,6 +82,14 @@ def _clear_social_queue():
     except FileNotFoundError: pass
 def _social_has_failures(result):
     return any(isinstance(payload,dict) and str(payload.get("status") or "").lower()=="failed" for payload in (result or {}).values())
+def _set_publication_status(status, video_id="", reason=""):
+    save_publication_state(".story_publication_status.json", {
+        "status": status,
+        "video_id": str(video_id or ""),
+        "youtube_url": f"https://www.youtube.com/shorts/{video_id}" if video_id else "",
+        "reason": str(reason or ""),
+        "updated_at": int(time.time()),
+    })
 def _render_is_reusable(final_path,manifest_path,script_path):
     if not (os.path.isfile(final_path) and os.path.isfile(manifest_path) and os.path.isfile(script_path)): return False
     try:
@@ -89,6 +98,7 @@ def _render_is_reusable(final_path,manifest_path,script_path):
         return bool(manifest.get("status")=="complete" and manifest.get("story_number")==script.get("story_number") and manifest.get("person")==script.get("story_person") and os.path.getsize(final_path)>0)
     except (OSError,ValueError,TypeError): return False
 def run():
+    _set_publication_status("pending")
     config=dict(load_config() or {}); voice=dict(config.get("voice") or {}); voice.update({"provider":"kokoro","voice_name":"am_michael","kokoro_lang":"a","tone":"cinematic, warm, conversational storyteller"}); config["voice"]=voice
     print("🎙️ Story Shorts voice: am_michael (Kokoro)"); refresh_live_metrics()
     previous=get_pending_story(); pillar,topic,person=get_next_topic(); number=next_story_number()
@@ -149,9 +159,17 @@ Do not expose the loop with words like replay, loop, watch again, or back to the
     script["engagement"]={"comment":engagement}; save(script,script_path)
     result=upload_video(final,title,desc,config,engagement_comment=engagement)
     vid=result if isinstance(result,str) else str(result.get("video_id") or result.get("id") or "") if isinstance(result,dict) else ""
-    if not vid: raise RuntimeError("Story upload returned no video ID; sequence state was not advanced.")
+    if not vid:
+        _set_publication_status("upload_failed", reason="YouTube upload returned no video ID")
+        raise RuntimeError("Story upload returned no video ID; sequence state was not advanced.")
+    _set_publication_status("youtube_uploaded", vid)
     _save_social_queue({"schema_version":1,"run_id":str(os.environ.get("GITHUB_RUN_ID") or ""),"artifact_name":f"story-shorts-{os.environ.get('GITHUB_RUN_ID','')}","workdir":workdir,"final_relative":os.path.relpath(final,"."),"video_id":vid,"topic":topic,"pillar":pillar,"person":person,"number":number,"title":title,"description":desc})
     social_result=publish_social_reels(final,title,desc,config,workdir); print("📱 Story social publish summary:",json.dumps({name:(payload or {}).get("status") for name,payload in social_result.items() if name in {"instagram","facebook"}},ensure_ascii=False))
-    if not _social_has_failures(social_result): _clear_social_queue()
+    if _social_has_failures(social_result):
+        failed = [name for name, payload in (social_result or {}).items() if isinstance(payload, dict) and str(payload.get("status") or "").lower()=="failed"]
+        _set_publication_status("social_failed", vid, "Failed social destinations: " + ", ".join(failed))
+        raise RuntimeError("Story social publishing failed: " + ", ".join(failed))
+    _clear_social_queue()
+    _set_publication_status("complete", vid)
     record_topic(topic,pillar,title,vid,workdir,person=person); save_pending_story(pillar,topic,person,number); record_analytics(vid,topic,pillar,title,workdir,person=person); print("📊 Story comparison:",json.dumps(build_comparison(),ensure_ascii=False))
 if __name__=="__main__": run()

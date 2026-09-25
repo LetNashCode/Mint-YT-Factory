@@ -297,5 +297,3 @@ def renderer_style(assemble):
         yield
     finally:
         assemble.build_animated_image = original
-        for key, value in saved.items():
-            setattr(assemble, key, value)

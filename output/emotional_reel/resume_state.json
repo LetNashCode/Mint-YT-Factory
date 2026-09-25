@@ -1,19 +1,19 @@
 {
   "status": "uploaded",
   "final_path": "output/emotional_reel/final.mp4",
-  "final_sha256": "8c65f9d3bb4c2d739ce6201c88b9814db6343c2ed8c711b25e5913935540acef",
-  "cache_key": "emotional-reel-final-v2-8c65f9d3bb4c2d739ce6201c88b9814d",
-  "title": "The Weight We Carry in Silence",
-  "description": "An intimate cinematic reflection on the quiet exhaustion of holding everything together and the unexpected grace of letting it down.",
+  "final_sha256": "9e721c40c9bd28a3bb7f16753e08e0527da8a3368371b91ddc9a21ae7910b1f6",
+  "cache_key": "emotional-reel-final-v2-9e721c40c9bd28a3bb7f16753e08e052",
+  "title": "The Weight of Holding It All Together",
+  "description": "An intimate cinematic reflection on carrying unspoken pressure, the breaking point, and the quiet relief of finally letting go.",
   "hashtags": [
     "cinematic",
     "reflection",
-    "mindfulness",
+    "mindset",
     "growth",
-    "innerpeace",
-    "storytelling"
+    "storytelling",
+    "depth"
   ],
-  "engagement_comment": "Peace begins where the pretending ends.",
+  "engagement_comment": "Peace begins the moment you exhale.",
   "voice": {
     "provider": "kokoro",
     "voice_name": "af_heart",
@@ -23,23 +23,23 @@
     "speed": 0.92,
     "tone": "curious, confident, playful storyteller"
   },
-  "created_at": 1790296402,
-  "narration_word_count": 141,
+  "created_at": 1790299336,
+  "narration_word_count": 147,
   "complete_script_preserved": true,
   "final_duration_seconds": 53.76,
-  "video_id": "9Fo5Aa46PpA",
+  "video_id": "oQXmM8gH4dY",
   "social": {
     "instagram": {
       "status": "published",
-      "media_id": "18115821112959853",
-      "container_id": "18494743366097136"
+      "media_id": "18429355132181540",
+      "container_id": "18494749894097136"
     },
     "facebook": {
       "status": "published",
-      "video_id": "1825294832253444"
+      "video_id": "1029383383466591"
     },
     "strict": false,
-    "updated_at": 1790296641
+    "updated_at": 1790299570
   },
-  "uploaded_at": 1790296770
+  "uploaded_at": 1790299689
 }

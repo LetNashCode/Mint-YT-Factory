@@ -5,6 +5,11 @@ on:
     - cron: '0 11 * * *'
   workflow_dispatch:
     inputs:
+      test_only:
+        description: "Run offline Story tests only; no generation, uploads or state changes"
+        required: false
+        default: false
+        type: boolean
       story_person:
         description: "Optional person (provide the story premise too)"
         required: false
@@ -22,7 +27,28 @@ concurrency:
   group: story-shorts-pipeline
   cancel-in-progress: false
 jobs:
+  quality-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install offline test tools
+        run: |
+          pip install pytest requests PyYAML
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+      - name: Story regression, isolation and portrait render tests
+        run: python -m pytest -q tests/test_story_media_quality.py tests/test_story_real_video_media.py tests/test_story_visual_upgrade.py
+      - name: Compile Story and protected production entry points
+        run: python -m py_compile story_visual_upgrade.py story_identity_runner.py story_real_video_media.py interactive_main.py production_entry.py production_entry_runner.py mystery_documentary.py mystery_documentary_runner.py assemble.py
   story-shorts:
+    needs: quality-checks
+    if: ${{ inputs.test_only != true }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -37,9 +63,6 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install pytest
-      - name: Run Story quality tests
-        run: python -m pytest -q tests/test_story_media_quality.py tests/test_story_real_video_media.py
       - name: Restore latest previous Story render artifact
         env:
           GH_TOKEN: ${{ github.token }}
@@ -139,7 +162,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for state_file in story_topic_history.json pending_story.json story_counter.json story_candidates.json story_social_queue.json interactive_analytics.json interactive_analytics_history.json; do
+          for state_file in story_topic_history.json pending_story.json story_counter.json story_candidates.json story_footage_catalog.json story_social_queue.json interactive_analytics.json interactive_analytics_history.json; do
             if [ -f "$state_file" ] || git ls-files --error-unmatch "$state_file" >/dev/null 2>&1; then
               git add -A -- "$state_file"
             fi

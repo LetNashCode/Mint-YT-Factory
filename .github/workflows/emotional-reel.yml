@@ -1,4 +1,4 @@
-name: Emotional Text Reel
+name: Emotional Shorts
 on:
   schedule:
     - cron: "15 4 * * *"

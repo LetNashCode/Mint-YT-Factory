@@ -34,9 +34,48 @@ def _write_json(path, value):
     path.write_text(json.dumps(value, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
+SEED_MUSIC_PAGES = [
+    "https://pixabay.com/music/ambient-emotional-ambient-piece-with-slow-cinematic-textures-370142/",
+    "https://pixabay.com/music/ambient-solitude-dark-ambient-music-354468/",
+    "https://pixabay.com/music/ambient-dark-ambient-soundscape-dreamscape-462864/",
+    "https://pixabay.com/music/ambient-dark-ambient-emotions-music-259996/",
+    "https://pixabay.com/music/ambient-celestial-drift-space-ambient-meditation-403503/",
+    "https://pixabay.com/music/ambient-somber-constellations-ambient-364828/",
+    "https://pixabay.com/music/ambient-ambient-space-cinematic-music-370754/",
+    "https://pixabay.com/music/ambient-wizards-road-calm-magical-ambient-music-371783/",
+    "https://pixabay.com/music/ambient-calm-relaxing-ambient-peaceful-background-music-382554/",
+    "https://pixabay.com/music/ambient-inspiring-ambient-music-348379/",
+    "https://pixabay.com/music/beats-lofi-chill-relaxing-beat-444098/",
+    "https://pixabay.com/music/beats-soulful-future-134912/",
+    "https://pixabay.com/music/beats-so-strong-motivation-234816/",
+    "https://pixabay.com/music/world-groove-culture-inspiration-chill-cool-native-music-93679/",
+    "https://pixabay.com/music/modern-classical-calm-piano-music-sentimental-background-intro-theme-269137/",
+    "https://pixabay.com/music/beats-upbeat-lo-fi-chill-instrumental-music-royalty-free-195449/",
+    "https://pixabay.com/music/upbeat-upbeat-indie-folk-60s-13449/",
+    "https://pixabay.com/music/beats-chill-lofi-music-interior-lounge-256260/",
+    "https://pixabay.com/music/main-title-dark-cinematic-thriller-249485/",
+    "https://pixabay.com/music/solo-piano-ambient-piano-cinematic-background-521853/",
+    "https://pixabay.com/music/ambient-emotional-piano-527470/",
+]
+
 def _direct_urls():
     raw = os.getenv("EMOTIONAL_REEL_MUSIC_URLS", "")
     return [x.strip() for x in raw.replace(",", "\n").splitlines() if x.strip()]
+
+def _resolve_music_page(url):
+    if "cdn.pixabay.com/download/audio/" in url:
+        return url
+    import re
+    import requests
+    try:
+        response = requests.get(url, timeout=25, headers={"User-Agent": "Mozilla/5.0"})
+        response.raise_for_status()
+        pattern = r'https://cdn\\.pixabay\\.com/download/audio/[^"<>\\s]+?\\.mp3(?:\\?[^"<>\\s]+)?'
+        matches = re.findall(pattern, response.text)
+        return matches[0].replace("\\u0026", "&") if matches else None
+    except Exception as exc:
+        print(f"⚠️ Could not resolve music page: {url} — {exc}")
+        return None
 
 
 def _safe_name(url, index):

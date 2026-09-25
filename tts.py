@@ -148,6 +148,57 @@ def _trim_trailing_silence(audio, sample_rate):
     return trimmed, removed
 
 
+KOKORO_MAX_WORDS_PER_CHUNK = int(os.environ.get("MINT_KOKORO_MAX_WORDS_PER_CHUNK", "45"))
+KOKORO_CHUNK_PAUSE_SECONDS = float(os.environ.get("MINT_KOKORO_CHUNK_PAUSE_SECONDS", "0.035"))
+
+
+def _split_kokoro_text(text, max_words=KOKORO_MAX_WORDS_PER_CHUNK):
+    """Split long narration into bounded requests without changing or dropping words."""
+    source = clean_text(text)
+    if not source:
+        return []
+    max_words = max(10, int(max_words))
+
+    # Prefer sentence boundaries so chunks still sound like natural narration.
+    sentences = [x.strip() for x in re.split(r"(?<=[.!?])\s+", source) if x.strip()]
+    chunks = []
+    current = []
+    current_words = 0
+
+    for sentence in sentences:
+        words = sentence.split()
+        if not words:
+            continue
+
+        if current and current_words + len(words) > max_words:
+            chunks.append(" ".join(current))
+            current = []
+            current_words = 0
+
+        # A single oversized sentence is split only at word boundaries.
+        while len(words) > max_words:
+            if current:
+                chunks.append(" ".join(current))
+                current = []
+                current_words = 0
+            chunks.append(" ".join(words[:max_words]))
+            words = words[max_words:]
+
+        if words:
+            current.extend(words)
+            current_words += len(words)
+
+    if current:
+        chunks.append(" ".join(current))
+
+    # Hard guard: chunking must preserve the complete normalized source text.
+    original_tokens = re.findall(r"\S+", source)
+    chunk_tokens = re.findall(r"\S+", " ".join(chunks))
+    if original_tokens != chunk_tokens:
+        raise RuntimeError("Kokoro chunking changed the narration text; refusing to synthesize partial narration.")
+    return chunks
+
+
 def _generate_kokoro(text, voice_config, output_path):
     if not KOKORO_ENABLED:
         raise RuntimeError("Kokoro is disabled")
@@ -163,22 +214,45 @@ def _generate_kokoro(text, voice_config, output_path):
         speed = 1.0
     speed = min(1.10, max(0.90, speed))
     pipeline = _get_kokoro_pipeline(lang)
+
+    chunks = _split_kokoro_text(text)
+    if not chunks:
+        raise RuntimeError("Kokoro received empty narration")
+    print(
+        f"🧩 Kokoro narration split into {len(chunks)} bounded chunks "
+        f"| words={len(re.findall(r'\\b[\\w\'-]+\\b', clean_text(text)))} "
+        f"| max_words_per_chunk={KOKORO_MAX_WORDS_PER_CHUNK}"
+    )
+
+    audio_parts = []
+    pause = np.zeros(
+        (max(0, int(round(KOKORO_CHUNK_PAUSE_SECONDS * KOKORO_SAMPLE_RATE)),),
+        dtype=np.float32,
+    )
+
     try:
-        generator = pipeline(text, voice=voice, speed=speed, split_pattern=r"\n+")
-        audio_parts = []
-        for result in generator:
-            audio = result[2] if isinstance(result, tuple) else result.audio
-            if audio is None:
-                continue
-            if hasattr(audio, "detach"):
-                audio = audio.detach().cpu().numpy()
-            audio = np.asarray(audio, dtype=np.float32).reshape(-1)
-            if audio.size:
-                audio_parts.append(audio)
+        for index, chunk in enumerate(chunks, 1):
+            chunk_words = len(re.findall(r"\b[\w'-]+\b", chunk))
+            print(f"   🎙️ Kokoro chunk {index}/{len(chunks)} | {chunk_words} words")
+            generator = pipeline(chunk, voice=voice, speed=speed, split_pattern=r"\n+")
+            chunk_parts = []
+            for result in generator:
+                audio = result[2] if isinstance(result, tuple) else result.audio
+                if audio is None:
+                    continue
+                if hasattr(audio, "detach"):
+                    audio = audio.detach().cpu().numpy()
+                audio = np.asarray(audio, dtype=np.float32).reshape(-1)
+                if audio.size:
+                    chunk_parts.append(audio)
+            if not chunk_parts:
+                raise RuntimeError(f"Kokoro returned no audio for chunk {index}/{len(chunks)}")
+            audio_parts.append(np.concatenate(chunk_parts))
+            if index < len(chunks) and pause.size:
+                audio_parts.append(pause.copy())
     except Exception as error:
-        raise RuntimeError(f"Kokoro generation failed: {error}") from error
-    if not audio_parts:
-        raise RuntimeError("Kokoro returned no usable audio")
+        raise RuntimeError(f"Kokoro generation failed while synthesizing chunked narration: {error}") from error
+
     audio = np.concatenate(audio_parts)
     audio, removed_silence = _trim_trailing_silence(audio, KOKORO_SAMPLE_RATE)
     if removed_silence > 0:
@@ -187,7 +261,7 @@ def _generate_kokoro(text, voice_config, output_path):
     sf.write(output_path, audio, KOKORO_SAMPLE_RATE, subtype="PCM_16")
     if not os.path.exists(output_path) or os.path.getsize(output_path) < 1024:
         raise RuntimeError("Kokoro returned an empty audio file")
-    print(f"✅ Kokoro synthesis succeeded | voice={voice} | speed={speed:.2f}x | sample_rate={KOKORO_SAMPLE_RATE}")
+    print(f"✅ Kokoro synthesis succeeded | chunks={len(chunks)} | voice={voice} | speed={speed:.2f}x | sample_rate={KOKORO_SAMPLE_RATE}")
     return output_path
 
 

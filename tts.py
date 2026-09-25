@@ -218,7 +218,7 @@ def _generate_kokoro(text, voice_config, output_path):
     chunks = _split_kokoro_text(text)
     if not chunks:
         raise RuntimeError("Kokoro received empty narration")
-    word_count = len(re.findall(r"\\b[\\w'-]+\\b", clean_text(text)))
+    word_count = len(re.findall(r"\b[\w'-]+\b", clean_text(text)))
     print(
         f"🧩 Kokoro narration split into {len(chunks)} bounded chunks "
         f"| words={word_count} "

@@ -173,12 +173,12 @@ def test_story_route_is_isolated():
     root = Path(__file__).resolve().parents[1]
     runner = (root / "story_identity_runner.py").read_text(encoding="utf-8")
     ast.parse(runner)
-    assert "story_hybrid_media.generate_media" in runner
+    assert "story_visual_upgrade.generate_media" in runner
     assert "story_real_video_media.generate_media" not in runner
     assert "story_archival_media.generate_media" not in runner
     for name in ("production_entry.py", "production_entry_runner.py", "main.py",
                  "mystery_documentary.py", "mystery_documentary_runner.py", "sitecustomize.py"):
-        assert "story_hybrid_media" not in (root / name).read_text(encoding="utf-8")
+        assert "story_visual_upgrade" not in (root / name).read_text(encoding="utf-8")
     for name in ("publish.yml", "mystery-footage-shorts.yml"):
         workflow = (root / ".github/workflows" / name).read_text(encoding="utf-8")
         assert "story_real_video_media" not in workflow
@@ -263,12 +263,13 @@ def test_topic_preflight_skips_empty_subject_but_preserves_provider_outage(monke
     released = []
     monkeypatch.setattr(runner.interactive_topics, "get_next_topic", lambda: next(topics))
     monkeypatch.setitem(sys.modules, "story_topic_runtime", SimpleNamespace(release_reservation=lambda *args: released.append(args)))
-    def discover(person, audit):
+    def prepare(person, topic):
         if outage:
-            audit.extend([{"error": "Timeout"}, {"error": "Timeout"}])
-            return []
-        return [] if person == "First Person" else [candidate()]
-    monkeypatch.setattr(media, "discover", discover)
+            raise RuntimeError("Story video providers unavailable; reserved topic preserved for retry")
+        if person == "First Person":
+            raise RuntimeError("Insufficient verified real footage")
+        return {"person": person}
+    monkeypatch.setattr(runner.story_visual_upgrade, "prepare", prepare)
     runner._patch_story_video_topics()
     if outage:
         with pytest.raises(RuntimeError, match="providers unavailable"):

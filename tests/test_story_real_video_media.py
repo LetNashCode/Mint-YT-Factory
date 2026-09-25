@@ -84,16 +84,43 @@ def test_commons_search_filters_video_and_follows_continuation(monkeypatch):
         return result
     monkeypatch.setattr(media, "get_json", fetch)
     results = media.search_commons("Nelson Mandela")
-    # Three discovery queries are intentionally used; each must follow its own
-    # Commons continuation and every returned item must be video.
-    assert len(results) == 6
+    # Four precise text searches are used; each must follow its own Commons
+    # continuation. Category traversal is also attempted independently.
+    assert len(results) == 12
     assert all(item["provider"] == "Wikimedia Commons" for item in results)
     assert all(item["url"].endswith("video.webm") for item in results)
-    assert len(seen_queries) == 3
+    assert len(seen_queries) == 4
     assert all(count == 2 for count in seen_queries.values())
     assert "filetype:video" in calls[0]["gsrsearch"]
     assert calls[1]["gsroffset"] == 40
     assert calls[3]["gsroffset"] == 40
+
+
+
+def test_archive_search_excludes_youtube_imports_and_prefers_subject_records(monkeypatch):
+    calls = []
+    def fetch(url, **params):
+        calls.append((url, params))
+        if "advancedsearch.php" in url:
+            return {"response": {"docs": [
+                {"identifier": "youtube-bad", "title": "Nelson Mandela interview"},
+                {"identifier": "real-person", "title": "Nelson Mandela speaking",
+                 "description": "Archival interview with Nelson Mandela", "subject": ["Nelson Mandela"]},
+                {"identifier": "unrelated", "title": "Nelson Mandela mentioned",
+                 "description": "A presenter discusses the topic", "subject": ["Nelson Mandela"]},
+            ]}}
+        return {"files": [{"name": "real.mp4", "size": "1000000"}]}
+    monkeypatch.setattr(media, "get_json", fetch)
+    results = media.search_archive("Nelson Mandela")
+    assert [row["id"] for row in results] == ["archive:real-person", "archive:unrelated"]
+    assert all("youtube-bad" not in row["id"] for row in results)
+    assert all("NOT identifier:youtube-*" in params["q"] for url, params in calls if "advancedsearch.php" in url)
+
+
+def test_identity_score_does_not_trust_query_field():
+    item = {"title": "Nelson Mandela interview", "description": "", "query": "Nelson Mandela"}
+    assert media.person_match("Nelson Mandela", item)
+    assert not media.person_match("Marie Curie", item)
 
 
 def test_provider_outage_does_not_block_other_sources(monkeypatch):
@@ -407,7 +434,8 @@ def test_verifier_network_outage_fails_closed_after_three_attempts(monkeypatch):
 
 def test_direct_subject_category_is_retained(monkeypatch):
     def fetch(url, **params):
-        assert params["clcategories"] == "Category:Videos of Nelson Mandela"
+        if params.get("generator") == "categorymembers":
+            assert params["gcmtitle"] == "Category:Videos of Nelson Mandela"
         return {"query": {"pages": {"1": {"pageid": 1, "title": "Nelson Mandela speech",
             "categories": [{"title": "Category:Videos of Nelson Mandela"}],
             "imageinfo": [{"url": "https://example.org/video.webm", "mime": "video/webm"}]}}}}

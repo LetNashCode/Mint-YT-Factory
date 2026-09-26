@@ -37,6 +37,12 @@ DEFAULT_VERIFIER_REQUEST_BUDGET = story_gemini_budget.DEFAULT_MAX_REQUESTS
 
 PRECHECK_CACHE_FILE = Path("story_video_rejection_cache.json")
 PRECHECK_CACHE_VERSION = 1
+_POSITIVE_ARCHIVAL_TERMS = (
+    "interview", "speech", "talk", "address", "press conference",
+    "news conference", "ceremony", "award", "summit", "documentary",
+    "newsreel", "oral history", "appearance",
+)
+
 _STRONG_BAD_METADATA_TERMS = (
     # Metadata patterns that are strong evidence the record is not genuine
     # archival footage of the named person. These are deterministic exclusions;
@@ -49,7 +55,12 @@ _STRONG_BAD_METADATA_TERMS = (
     "video game", "gameplay", "racing simulator", "racing game",
     "coach trip", "bus ride", "bus journey", "inside a coach",
     "museum exhibit", "museum display", "engine and plaque",
-    "movie trailer", "commercial for", "slideshow", "title card",
+    "movie trailer", "commercial for", "commercial", "advertisement",
+    "promotional", "promotional material", "promotional dvd", "dvd menu",
+    "dvd", "poster", "logo", "title card", "slideshow",
+    "animated", "animation", "cartoon", "illustrated", "illustration",
+    "fictional series", "streaming series", "tv series", "television series",
+    "episode", "season", "sony liv", "sonyliv",
     "five minute flashback", "5 minute flashback",
 )
 
@@ -376,6 +387,10 @@ def search_archive(person):
             if _source_precheck(candidate):
                 continue
             candidate["identity_score"] = _identity_score(person, candidate)
+            metadata_text = words(title + " " + subject + " " + candidate.get("creator", ""))
+            candidate["archival_signal"] = sum(
+                1 for term in _POSITIVE_ARCHIVAL_TERMS if term in metadata_text
+            )
             # For Internet Archive, require the person's name in title/subject.
             # Description-only matches are too noisy for a verifier-budgeted flow.
             identity_fields = words(title + " " + subject)
@@ -412,6 +427,7 @@ def search_archive(person):
 
     results.sort(key=lambda item: (
         not item.get("direct_subject", False),
+        -int(item.get("archival_signal", 0)),
         -float(item.get("identity_score", 0)),
         0 if 0 < float(item.get("duration_hint", 0) or 0) <= 900 else 1,
         float(item.get("duration_hint", 0) or 1e12),
@@ -639,10 +655,15 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
     root.mkdir(parents=True, exist_ok=True)
     _ensure_verifier_budget()
     audit = {"person": person, "providers": [], "attempts": [], "selected": [],
-             "verifier_budget": verifier_budget_status()}
+             "verifier_budget": verifier_budget_status(),
+             "subject_verifier_request_limit": max_subject_verifier_requests}
     groups, resolved, blocked, used, cached = [], {}, set(), set(), {}
     rejected = set()
     source_rejections, source_errors = Counter(), Counter()
+    subject_budget_start = int((story_gemini_budget.status() or {}).get("used", 0))
+    max_subject_verifier_requests = max(
+        14, int(os.environ.get("STORY_GEMINI_MAX_REQUESTS_PER_SUBJECT", "24"))
+    )
     deadline = time.monotonic() + 1500
     def save_audit():
         (root / "story_video_audit.json").write_text(json.dumps(audit, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -729,6 +750,15 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                 print(f"Story clip precheck rejected: {item['provider']} {start}s | {frame_rejection}", flush=True)
                                 continue
                             stage = "verify"
+                            subject_verifier_requests = int(
+                                (story_gemini_budget.status() or {}).get("used", 0)
+                            ) - subject_budget_start
+                            if subject_verifier_requests >= max_subject_verifier_requests:
+                                raise RuntimeError(
+                                    "insufficient verified real footage: "
+                                    f"subject verifier budget exhausted after {subject_verifier_requests} "
+                                    f"requests (limit={max_subject_verifier_requests})"
+                                )
                             if catalog is not None:
                                 verdict = catalog.verify(person, scene, item, cached[identity], start, length)
                             else:
@@ -747,6 +777,12 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                 print(f"Story clip rejected: {item['provider']} {start}s | {clean(verdict.get('reason'))}", flush=True)
                                 if counts[sid] == 0 and source_rejections[sid] >= 4:
                                     blocked.add(sid)
+                                    precheck_cache[_precheck_cache_key(item)] = {
+                                        "source_id": item.get("id"),
+                                        "source_url": item.get("source_url"),
+                                        "reason": "visual verifier rejected source after four unusable identity samples",
+                                    }
+                                    _save_precheck_cache(precheck_cache)
                                     print(f"Skipping source after four unusable identity samples: {item['source_url']}", flush=True)
                                     break
                                 continue

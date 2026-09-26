@@ -5,6 +5,8 @@ import math
 import re
 from pathlib import Path
 
+import story_gemini_budget
+
 ROOT = Path(__file__).resolve().parent
 HISTORY = ROOT / "story_topic_history.json"
 PENDING = ROOT / "pending_story.json"

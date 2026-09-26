@@ -441,7 +441,6 @@ def verify(person, scene, item, samples):
     for model in models:
         for retry in range(2):
             try:
-                _consume_verifier_request()
                 response = requests.post(
                     f"https://generativelanguage.googleapis.com/v1beta/models/{quote(model, safe='')}:generateContent",
                     headers={"x-goog-api-key": key}, json=payload, timeout=(10, 60)
@@ -591,6 +590,7 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                 stage = "frame_sample"
                                 cached[identity] = frames(clip, actual)
                             stage = "verify"
+                            _consume_verifier_request()
                             verdict = (catalog.verify(person, scene, item, cached[identity], start, length)
                                        if catalog is not None else verify(person, scene, item, cached[identity]))
                             if not isinstance(verdict, dict):

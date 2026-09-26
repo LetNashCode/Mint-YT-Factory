@@ -459,7 +459,7 @@ def test_first_identity_sample_comes_from_middle_of_recording(monkeypatch, tmp_p
         return length
     monkeypatch.setattr(media, "extract", extract)
     groups = media.generate_media(story(), str(tmp_path), {})
-    intervals = media.windows(160, limit=24)
+    intervals = media.windows(160, limit=14)
     assert starts[0] == intervals[len(intervals) // 2][0]
     media.validate_segments(groups)
 
@@ -669,8 +669,9 @@ def test_generate_media_skips_deterministically_rejected_sources_before_verifica
     bad = candidate(0)
     bad["title"] = "Modern presenter discusses Nelson Mandela"
     good = candidate(1)
+    good2 = candidate(2)
     calls = []
-    monkeypatch.setattr(media, "discover", lambda *args: [bad, good])
+    monkeypatch.setattr(media, "discover", lambda *args: [bad, good, good2])
     monkeypatch.setattr(media, "verify", lambda *args: calls.append(args) or dict(GOOD))
     result = media.generate_media(story(), str(tmp_path), {})
     assert len(result) == 14

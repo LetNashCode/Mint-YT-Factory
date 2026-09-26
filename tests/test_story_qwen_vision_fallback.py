@@ -71,6 +71,59 @@ def test_qwen_vision_fallback_derives_missing_relevance_from_core_verdict(monkey
     assert result["relevance_source"] == "derived_from_qwen_core_verdict"
 
 
+def test_qwen_vision_fallback_retries_incomplete_core_verdict(monkeypatch):
+    monkeypatch.setenv("ENABLE_QWEN_VISION_FALLBACK", "1")
+    calls = []
+
+    class FakePipe:
+        def __call__(self, **kwargs):
+            calls.append(kwargs)
+            if len(calls) == 1:
+                return [{
+                    "generated_text": '{"real_footage": true, "usable": true, '
+                                      '"relevance": 9, "reason": "clear subject", '
+                                      '"usage": "biographical_illustration"}'
+                }]
+            return [{
+                "generated_text": '{"person_visible": true, "real_footage": true, '
+                                  '"usable": true, "relevance": 9, "reason": "clear subject", '
+                                  '"usage": "biographical_illustration"}'
+            }]
+
+    qwen._pipeline.cache_clear()
+    monkeypatch.setattr(qwen, "_pipeline", lambda: FakePipe())
+    result = qwen.verify(
+        "Nelson Mandela",
+        {"narration": "Nelson Mandela speaks at an event.", "visuals": []},
+        {"title": "Nelson Mandela interview", "description": ""},
+        [_frame(), _frame(), _frame()],
+    )
+
+    assert result["person_visible"] is True
+    assert len(calls) == 2
+    assert "OUTPUT JSON ONLY" in calls[1]["text"][0]["content"][3]["text"]
+
+
+def test_qwen_vision_fallback_rejects_missing_core_fields_after_retries(monkeypatch):
+    class FakePipe:
+        def __call__(self, **kwargs):
+            return [{
+                "generated_text": '{"real_footage": true, "usable": true, '
+                                  '"relevance": 9, "reason": "clear subject", '
+                                  '"usage": "biographical_illustration"}'
+            }]
+
+    qwen._pipeline.cache_clear()
+    monkeypatch.setattr(qwen, "_pipeline", lambda: FakePipe())
+    with pytest.raises(ValueError, match="after 2 verdict attempts: .*person_visible"):
+        qwen.verify(
+            "Nelson Mandela",
+            {"narration": "Nelson Mandela speaks at an event.", "visuals": []},
+            {"title": "Nelson Mandela interview", "description": ""},
+            [_frame(), _frame(), _frame()],
+        )
+
+
 def test_qwen_vision_fallback_rejects_missing_core_fields():
     with pytest.raises(ValueError, match="missing fields: reason"):
         qwen._normalize_result({

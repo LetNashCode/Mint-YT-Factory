@@ -117,8 +117,12 @@ class FootageCatalog:
 def prepare(person, topic):
     """Secure all 14 disjoint clips BEFORE script generation or TTS spends resources."""
     global _PREPARED
-    _PREPARED = {}
     person = media.clean(person)
+    if (_PREPARED.get("person") == person and _PREPARED.get("topic") == topic
+            and len(_PREPARED.get("groups") or []) == 14):
+        print(f"Story footage-first plan already prepared; reusing verified 14 clips: {person}", flush=True)
+        return copy.deepcopy(_PREPARED)
+    _PREPARED = {}
     root = Path("output/interactive/footage_preflight") / _key([person, topic])[:16]
     # A biography brief is deliberately stable across retries, allowing safe cache reuse.
     # It does not certify any particular event, date or place shown by the footage.

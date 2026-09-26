@@ -97,13 +97,13 @@ def verify(person, scene, item, samples):
     messages = [{
         "role": "user",
         "content": [
-            {"type": "image"},
-            {"type": "image"},
-            {"type": "image"},
+            {"type": "image", "image": images[0]},
+            {"type": "image", "image": images[1]},
+            {"type": "image", "image": images[2]},
             {"type": "text", "text": prompt},
         ],
     }]
-    output = _pipeline()(text=messages, images=images, max_new_tokens=180, return_full_text=False)
+    output = _pipeline()(text=messages, max_new_tokens=180, return_full_text=False)
     result = _parse_json(_extract_text(output))
     required = {"person_visible", "real_footage", "usable", "relevance", "reason", "usage"}
     missing = required.difference(result)

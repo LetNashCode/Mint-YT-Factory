@@ -5,6 +5,7 @@ import json
 import re
 from pathlib import Path
 from . import entertainment as _base
+import story_gemini_budget
 
 STORY_MIN_WORDS = 80
 STORY_MAX_WORDS = 120

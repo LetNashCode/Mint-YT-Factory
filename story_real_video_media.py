@@ -476,6 +476,9 @@ def verify(person, scene, item, samples):
                 print(f"Story verifier {model}: {last_error}; trying next pinned model", flush=True)
                 break
 
+            if "story gemini request budget exhausted" in last_error.lower():
+                raise RuntimeError(last_error)
+
             if response.status_code == 404:
                 last_error = "HTTP 404"
                 print(f"Story verifier {model}: HTTP 404; trying next pinned model", flush=True)

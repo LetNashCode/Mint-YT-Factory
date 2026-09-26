@@ -40,8 +40,11 @@ def test_qwen_vision_fallback_parses_pipeline_json(monkeypatch):
     assert result["usable"] is True
     assert result["relevance"] == 9
     assert len(calls) == 1
-    assert len(calls[0]["images"]) == 3
-    assert len(calls[0]["text"][0]["content"]) == 4
+    assert "images" not in calls[0]
+    content = calls[0]["text"][0]["content"]
+    assert len(content) == 4
+    assert [block["type"] for block in content[:3]] == ["image", "image", "image"]
+    assert all(isinstance(block["image"], Image.Image) for block in content[:3])
 
 
 def test_qwen_vision_fallback_rejects_missing_frames():

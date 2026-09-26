@@ -77,6 +77,7 @@ def _gemini(prompt: str, temperature: float = 0.15, parts: list[Any] | None = No
     last: Exception | None = None
     for attempt in range(1, 4):
         try:
+            story_gemini_budget.consume("stock_search")
             response = client.models.generate_content(model=GEMINI_MODEL, contents=contents, config=types.GenerateContentConfig(temperature=temperature, response_mime_type="application/json"))
             return _json(getattr(response, "text", ""))
         except Exception as exc:

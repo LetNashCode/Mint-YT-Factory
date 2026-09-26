@@ -14,6 +14,13 @@ GOOD = {"person_visible": True, "real_footage": True, "usable": True,
         "relevance": 8, "usage": "biographical_illustration", "reason": "test review"}
 
 
+@pytest.fixture(autouse=True)
+def reset_verifier_budget():
+    media._reset_verifier_budget()
+    yield
+    media._reset_verifier_budget()
+
+
 def candidate(index=0):
     return {"id": f"commons:{index}", "provider": "Wikimedia Commons",
             "url": f"https://upload.wikimedia.org/test{index}.mp4",

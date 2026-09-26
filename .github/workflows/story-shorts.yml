@@ -39,13 +39,13 @@ jobs:
           python-version: '3.11'
       - name: Install offline test tools
         run: |
-          pip install pytest requests PyYAML "Pillow<10" opencv-python-headless==4.10.0.84 google-genai
+          pip install pytest requests PyYAML "Pillow<10" opencv-python-headless==4.10.0.84 google-genai transformers accelerate sentencepiece torch
           sudo apt-get update
           sudo apt-get install -y ffmpeg
       - name: Story regression, isolation and portrait render tests
         run: python -m pytest -q tests/test_story_media_quality.py tests/test_story_real_video_media.py tests/test_story_visual_upgrade.py tests/test_story_gemini_budget.py tests/test_entertainment_qwen_fallback.py
       - name: Compile Story and protected production entry points
-        run: python -m py_compile tts.py story_gemini_budget.py story_visual_upgrade.py story_identity_runner.py story_real_video_media.py interactive_main.py production_entry.py production_entry_runner.py mystery_documentary.py mystery_documentary_runner.py assemble.py
+        run: python -m py_compile tts.py story_gemini_budget.py story_qwen_vision_fallback.py story_visual_upgrade.py story_identity_runner.py story_real_video_media.py interactive_main.py production_entry.py production_entry_runner.py mystery_documentary.py mystery_documentary_runner.py assemble.py
   story-shorts:
     needs: quality-checks
     if: ${{ inputs.test_only != true }}
@@ -148,6 +148,8 @@ jobs:
           STORY_GEMINI_MAX_REQUESTS: ${{ vars.STORY_GEMINI_MAX_REQUESTS || '64' }}
           STORY_GEMINI_MAX_REQUESTS_PER_SUBJECT: ${{ vars.STORY_GEMINI_MAX_REQUESTS_PER_SUBJECT || '24' }}
           ENABLE_CPU_QWEN_FALLBACK: '1'
+          ENABLE_QWEN_VISION_FALLBACK: '1'
+          QWEN_VISION_MODEL: 'Qwen/Qwen2.5-VL-3B-Instruct'
         run: |
           set -euo pipefail
           rm -f .story_gemini_quota_deferred .story_verifier_budget_deferred .story_gemini_budget_deferred

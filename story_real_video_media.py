@@ -90,6 +90,7 @@ def _is_daily_quota_response(response):
     return (
         "generaterequestsperdayperproject" in text
         or "generate_content_free_tier_requests" in text
+        or '"code": "quota_exceeded"' in text
         or ("quotaexceeded" in text and "perday" in text)
     )
 

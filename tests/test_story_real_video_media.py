@@ -572,6 +572,7 @@ def test_hybrid_source_credits_are_deduplicated(monkeypatch):
 
 
 def test_daily_gemini_quota_marks_story_for_defer(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
     monkeypatch.setenv("STORY_VIDEO_VERIFY_MODEL", "gemini-test")
     payload = {

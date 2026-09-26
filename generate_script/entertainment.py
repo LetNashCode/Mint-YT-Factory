@@ -295,13 +295,17 @@ VISUALS: every one of the 14 shots must represent a specific spoken beat. Return
             return _normalize(_parse(text),topic)
         except Exception as error:
             last_error=f"{type(error).__name__}: {error}"
-            transient=(_is_quota_error(last_error) or "503" in last_error or "unavailable" in last_error.lower() or "high demand" in last_error.lower())
+            quota_error=_is_quota_error(last_error)
+            transient=(quota_error or "503" in last_error or "unavailable" in last_error.lower() or "high demand" in last_error.lower())
+            if quota_error and ENABLE_CPU_QWEN_FALLBACK:
+                print(f"🛟 Gemini quota exhausted; switching immediately to local Qwen: {FALLBACK_MODEL_NAME}", flush=True)
+                break
             if transient:
                 if transient_failures >= TRANSIENT_RETRIES:
                     break
                 delay=TRANSIENT_BACKOFF_SECONDS[min(transient_failures,len(TRANSIENT_BACKOFF_SECONDS)-1)]
                 transient_failures += 1
-                print(f"⏳ Gemini transient failure; retry {transient_failures}/{TRANSIENT_RETRIES} in {delay}s (CPU Qwen fallback disabled by default)")
+                print(f"⏳ Gemini transient failure; retry {transient_failures}/{TRANSIENT_RETRIES}", flush=True)
                 time.sleep(delay)
                 continue
             validation_attempts += 1

@@ -472,7 +472,7 @@ def test_verifier_network_outage_fails_closed_after_three_attempts(monkeypatch):
         calls.append(1)
         raise requests.ReadTimeout()
     monkeypatch.setattr(media.requests, "post", post)
-    with pytest.raises(RuntimeError, match="unavailable after network retries"):
+    with pytest.raises(RuntimeError, match="unavailable after retries on gemini-flash-lite-latest"):
         media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
     assert len(calls) == 3
 

@@ -194,7 +194,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for state_file in story_topic_history.json pending_story.json story_counter.json story_candidates.json story_footage_catalog.json story_social_queue.json interactive_analytics.json interactive_analytics_history.json .story_publication_status.json .story_deferred .story_gemini_quota_deferred .story_verifier_budget_deferred .story_gemini_budget_deferred; do
+          for state_file in story_topic_history.json pending_story.json story_counter.json story_candidates.json story_footage_catalog.json story_social_queue.json interactive_analytics.json interactive_analytics_history.json story_video_rejection_cache.json .story_publication_status.json .story_deferred .story_gemini_quota_deferred .story_verifier_budget_deferred .story_gemini_budget_deferred; do
             if [ -f "$state_file" ] || git ls-files --error-unmatch "$state_file" >/dev/null 2>&1; then
               git add -A -- "$state_file"
             fi

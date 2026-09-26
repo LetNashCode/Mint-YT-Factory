@@ -6,6 +6,7 @@ from pathlib import Path
 
 import story_visual_upgrade
 import story_real_video_media
+import story_gemini_budget
 import story_topic_uniqueness
 import interactive_topics
 from interactive_topics import validate_story_sequence_state
@@ -207,9 +208,10 @@ def main() -> None:
         return next_number
     validated_next_story_number._mint_validated_sequence_number = True
     interactive_topics.next_story_number = validated_next_story_number
-    story_real_video_media._reset_verifier_budget()
-    story_real_video_media._begin_verifier_budget()
-    print(f"🧮 Story verifier budget: {story_real_video_media.verifier_budget_status()['limit']} requests for this run", flush=True)
+    story_gemini_budget.reset()
+    budget = story_gemini_budget.begin()
+    story_real_video_media._VERIFIER_BUDGET = budget
+    print(f"🧮 Story-wide Gemini budget: {budget['limit']} requests for this run", flush=True)
     _apply_requested_story()
     story_topic_uniqueness.install()
     _patch_story_video_topics()
@@ -240,6 +242,8 @@ def main() -> None:
             runpy.run_path("interactive_main.py", run_name="__main__")
             break
         except Exception as exc:
+            if Path(story_gemini_budget.BUDGET_DEFER_FILE).exists():
+                _defer_story(Path(story_gemini_budget.BUDGET_DEFER_FILE).read_text(encoding="utf-8").strip())
             if Path(".story_gemini_quota_deferred").exists():
                 _defer_story("Gemini daily/project quota is exhausted; no final video was created or uploaded.")
             if Path(".story_verifier_budget_deferred").exists():

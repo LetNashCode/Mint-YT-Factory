@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import runpy
+import time
 from pathlib import Path
 
 import story_visual_upgrade
@@ -299,8 +300,18 @@ def main() -> None:
     # Do not infer publication success/failure from stale marker files. The
     # authoritative contract is the durable publication-state record written
     # by interactive_main after the YouTube upload and social completion.
-    if not _publication_complete():
-        raise RuntimeError("Story Shorts ended without a completed publication.")
+    #
+    # The publication writer and this runner share the same filesystem, but
+    # keep a short bounded read-after-write retry here so a just-written
+    # publication state can never turn an otherwise successful publication
+    # into a false workflow failure.
+    for check_attempt in range(1, 11):
+        if _publication_complete():
+            print("✅ Story publication state confirmed: COMPLETE", flush=True)
+            return
+        if check_attempt < 10:
+            time.sleep(0.5)
+    raise RuntimeError("Story Shorts ended without a completed publication.")
 
 
 if __name__ == "__main__":

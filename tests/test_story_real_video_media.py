@@ -681,6 +681,55 @@ def test_daily_gemini_quota_marks_story_for_defer(monkeypatch, tmp_path):
     assert (Path(".story_gemini_quota_deferred")).exists()
 
 
+def test_daily_quota_uses_qwen_vision_fallback(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    stub_pipeline(monkeypatch)
+    monkeypatch.setattr(media, "story_qwen_vision_fallback", type("Fallback", (), {
+        "enabled": staticmethod(lambda: True),
+        "verify": staticmethod(lambda **kwargs: dict(GOOD)),
+    })())
+    payload = {
+        "error": {
+            "code": 429,
+            "status": "RESOURCE_EXHAUSTED",
+            "message": "Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "details": [{"@type": "type.googleapis.com/google.rpc.QuotaFailure",
+                         "violations": [{"quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier"}]}],
+        }
+    }
+    class Response:
+        status_code = 429
+        def json(self):
+            return payload
+    monkeypatch.setattr(media.requests, "post", lambda *args, **kwargs: Response())
+    result = media.verify("Nelson Mandela", {}, candidate(), ["a" * 200, "b" * 200, "c" * 200])
+    assert result == GOOD
+    assert not Path(".story_gemini_quota_deferred").exists()
+
+
+def test_daily_quota_without_qwen_fallback_still_defers(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    stub_pipeline(monkeypatch)
+    monkeypatch.setattr(media, "story_qwen_vision_fallback", type("Fallback", (), {
+        "enabled": staticmethod(lambda: False),
+    })())
+    payload = {
+        "error": {
+            "code": 429,
+            "status": "RESOURCE_EXHAUSTED",
+            "message": "Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests",
+        }
+    }
+    class Response:
+        status_code = 429
+        def json(self):
+            return payload
+    monkeypatch.setattr(media.requests, "post", lambda *args, **kwargs: Response())
+    with pytest.raises(RuntimeError, match="daily Gemini quota exhausted"):
+        media.verify("Nelson Mandela", {}, candidate(), ["a" * 200, "b" * 200, "c" * 200])
+    assert Path(".story_gemini_quota_deferred").exists()
+
+
 def test_daily_quota_detector_does_not_treat_minute_quota_as_daily():
     class Response:
         status_code = 429

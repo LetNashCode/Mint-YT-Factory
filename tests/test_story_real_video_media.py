@@ -649,3 +649,41 @@ def test_invalid_verifier_result_fails_closed(monkeypatch, tmp_path):
     monkeypatch.setattr(media, "verify", lambda *args: None)
     with pytest.raises(RuntimeError, match="invalid result type"):
         media.generate_media(story(), str(tmp_path), {})
+
+
+
+def test_source_precheck_rejects_obvious_presenter_and_dramatization_metadata():
+    assert "presenter" in media._source_precheck({
+        "title": "Hedy Lamarr presenter interview", "description": ""
+    })
+    assert "actor portraying" in media._source_precheck({
+        "title": "Actor portraying Hedy Lamarr", "description": ""
+    })
+    assert media._source_precheck({
+        "title": "Hedy Lamarr archival interview", "description": "Hedy Lamarr speaking"
+    }) is None
+
+
+def test_frame_precheck_rejects_static_frames():
+    from PIL import Image
+    import io
+    frames = []
+    for _ in range(3):
+        image = Image.new("RGB", (64, 36), (80, 80, 80))
+        buffer = io.BytesIO()
+        image.save(buffer, format="JPEG")
+        frames.append(base64.b64encode(buffer.getvalue()).decode())
+    assert media._frame_precheck(frames) == "static frames/no detectable motion"
+
+
+def test_frame_precheck_allows_motion_but_does_not_verify_identity():
+    from PIL import Image, ImageDraw
+    import io
+    frames = []
+    for offset in (0, 8, 16):
+        image = Image.new("RGB", (64, 36), (30, 30, 30))
+        ImageDraw.Draw(image).rectangle((offset, 8, offset + 18, 28), fill=(220, 220, 220))
+        buffer = io.BytesIO()
+        image.save(buffer, format="JPEG")
+        frames.append(base64.b64encode(buffer.getvalue()).decode())
+    assert media._frame_precheck(frames) is None

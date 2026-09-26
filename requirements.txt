@@ -22,6 +22,7 @@ edge-tts>=7.0.0
 
 openai-whisper>=20250625
 torch>=2.2.0
+torchvision>=0.17.0
 
 ffmpeg-python>=0.2.0
 

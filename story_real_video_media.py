@@ -701,6 +701,7 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                 counts[item["id"]],
                                 -float(item.get("identity_score", _identity_score(person, item))),
                                 not item.get("direct_subject", False),
+                                -int(item.get("archival_signal", 0)),
                                 -len(cues & words(item.get("title", "") + " " + item.get("description", "") + " " + item.get("subject", "")))))
                 chosen = None
                 for item in ranked:

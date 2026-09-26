@@ -7,7 +7,7 @@ import os
 from functools import lru_cache
 from io import BytesIO
 
-DEFAULT_MODEL = "Qwen/Qwen2.5-VL-3B-Instruct"
+DEFAULT_MODEL = "Qwen/Qwen2-VL-2B-Instruct"
 
 
 def enabled() -> bool:

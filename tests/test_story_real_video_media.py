@@ -683,7 +683,7 @@ def test_daily_gemini_quota_marks_story_for_defer(monkeypatch, tmp_path):
 
 def test_daily_quota_uses_qwen_vision_fallback(monkeypatch, tmp_path):
     monkeypatch.chdir(tmp_path)
-    stub_pipeline(monkeypatch)
+    monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
     monkeypatch.setattr(media, "story_qwen_vision_fallback", type("Fallback", (), {
         "enabled": staticmethod(lambda: True),
         "verify": staticmethod(lambda **kwargs: dict(GOOD)),
@@ -709,7 +709,7 @@ def test_daily_quota_uses_qwen_vision_fallback(monkeypatch, tmp_path):
 
 def test_daily_quota_without_qwen_fallback_still_defers(monkeypatch, tmp_path):
     monkeypatch.chdir(tmp_path)
-    stub_pipeline(monkeypatch)
+    monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
     monkeypatch.setattr(media, "story_qwen_vision_fallback", type("Fallback", (), {
         "enabled": staticmethod(lambda: False),
     })())

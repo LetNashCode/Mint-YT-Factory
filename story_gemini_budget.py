@@ -41,7 +41,8 @@ def reset():
 
 def consume(stage: str):
     """Reserve one request immediately before a real Gemini API call."""
-    ensure()
+    if _BUDGET is None:
+        return 0
     if _BUDGET["used"] >= _BUDGET["limit"]:
         reason = (
             f"Story Gemini request budget exhausted after {_BUDGET['used']} requests "

@@ -741,6 +741,370 @@
       },
       "review_key": "0bd3697b0e3a6fa443387db77e42e492b6f0c703146606e9cf9eaa1948535542",
       "reviewed_at": 1790375409.0512006
+    },
+    {
+      "person": "Hedy Lamarr",
+      "source": {
+        "id": "archive:Forgotten_Voices_-_Hedy_Lamarr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Forgotten_Voices_-_Hedy_Lamarr/Forgotten_Voices_-_Hedy_Lamarr.mp4",
+        "source_url": "https://archive.org/details/Forgotten_Voices_-_Hedy_Lamarr",
+        "title": "Forgotten Voices - Hedy Lamarr",
+        "description": "Forgotten Voices is a celebration of Women's History Month and a production of KJLU’s News Department.KJLU is the public radio voice of Lincoln University-Jefferson City, MO.Video production services provided by by JCTV Jefferson City Access Television. ['Jefferson City', 'Missouri', 'JCTVAccess', 'JCTV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2018']",
+        "creator": "JCTVAccess",
+        "license": "",
+        "subject": "['Jefferson City', 'Missouri', 'JCTVAccess', 'JCTV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2018']",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 84.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show archival footage and photographs of Hedy Lamarr with a text overlay, but the middle frame suffers from a distracting video transition/overlay effect.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7be6517c085007e33d14ff1d1f0dff39a5ee1bcd4c304cb250b1e25e59fc7cfb",
+      "reviewed_at": 1790411603.4873962
+    },
+    {
+      "person": "Hedy Lamarr",
+      "source": {
+        "id": "archive:dishonoredlady1947usafeaturinghedylamarrdennisokeefejohnloderfilmnoirfullmovie_202001",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dishonoredlady1947usafeaturinghedylamarrdennisokeefejohnloderfilmnoirfullmovie_202001/Dishonored%20Lady%20%281947%2C%20USA%29%20Featuring%20Hedy%20Lamarr%2C%20Dennis%20O%27Keefe%2C%20John%20Loder%20-%20Film%20Noir%20Full%20Movie.mp4",
+        "source_url": "https://archive.org/details/dishonoredlady1947usafeaturinghedylamarrdennisokeefejohnloderfilmnoirfullmovie_202001",
+        "title": "Dishonored Lady (1947) Hedy Lamarr, Dennis O' Keefe, John Loder - Film Noir Full Movie",
+        "description": "Dishonored Lady is a 1947 American film noir crime film directed by Robert Stevenson and starring Hedy Lamarr, Dennis O'Keefe and John Loder. It is based on the 1930 play Dishonored Lady by Edward Sheldon and Margaret Ayer Barnes. The film is also known as Sins of Madeleine. Hedy Lamarr and John Loder were married when they made this film; but they divorced before the year was out . Wikipedia : https://en.wikipedia.org/wiki/Dishonored_Lady Suggested Film Noirs : http://bit.ly/36oLNCR The Internet Archive is an excellent choice for entire full length Netflix & YouTube style uploads of drama, mystery, thriller & crime noir movies from the UK & USA for free. Download complete online British & American classic black & white films from the 1940s & 1950s. ['Robert Stevenson', 'Hedy Lamarr', \"Dennis O'Keefe\", 'Film Noir Full Movies', 'Film Noir', 'Drama', 'Crime', 'Classics', 'Mystery', 'Thrillers', 'Black & White', '1940s', 'FN01R']",
+        "creator": "",
+        "license": "",
+        "subject": "['Robert Stevenson', 'Hedy Lamarr', \"Dennis O'Keefe\", 'Film Noir Full Movies', 'Film Noir', 'Drama', 'Crime', 'Classics', 'Mystery', 'Thrillers', 'Black & White', '1940s', 'FN01R']",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 1164.98,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features genuine archival film footage of Hedy Lamarr acting in 'Dishonored Lady' (1947), making it useful as biographical illustration for her acting career, though it does not depict a specific historical event from her life directly.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "abc1c37e7c879d6fd64784ad70d5d966604122ce8b8014a7bd876881b3f26459",
+      "reviewed_at": 1790411640.0501978
+    },
+    {
+      "person": "Hedy Lamarr",
+      "source": {
+        "id": "archive:Forgotten_Voices_-_Hedy_Lamarr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Forgotten_Voices_-_Hedy_Lamarr/Forgotten_Voices_-_Hedy_Lamarr.mp4",
+        "source_url": "https://archive.org/details/Forgotten_Voices_-_Hedy_Lamarr",
+        "title": "Forgotten Voices - Hedy Lamarr",
+        "description": "Forgotten Voices is a celebration of Women's History Month and a production of KJLU’s News Department.KJLU is the public radio voice of Lincoln University-Jefferson City, MO.Video production services provided by by JCTV Jefferson City Access Television. ['Jefferson City', 'Missouri', 'JCTVAccess', 'JCTV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2018']",
+        "creator": "JCTVAccess",
+        "license": "",
+        "subject": "['Jefferson City', 'Missouri', 'JCTVAccess', 'JCTV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2018']",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 50.32,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The clip features actual archival film footage of Hedy Lamarr from her acting career, serving as valid biographical illustration with her clearly visible across the frames despite an embedded lower-third title.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "80699ceda99c078ed21c534c4ce9094d43692194a3ec66d97ec2784ab8b2ff30",
+      "reviewed_at": 1790411664.3417103
+    },
+    {
+      "person": "Hedy Lamarr",
+      "source": {
+        "id": "archive:dishonoredlady1947usafeaturinghedylamarrdennisokeefejohnloderfilmnoirfullmovie_202001",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dishonoredlady1947usafeaturinghedylamarrdennisokeefejohnloderfilmnoirfullmovie_202001/Dishonored%20Lady%20%281947%2C%20USA%29%20Featuring%20Hedy%20Lamarr%2C%20Dennis%20O%27Keefe%2C%20John%20Loder%20-%20Film%20Noir%20Full%20Movie.mp4",
+        "source_url": "https://archive.org/details/dishonoredlady1947usafeaturinghedylamarrdennisokeefejohnloderfilmnoirfullmovie_202001",
+        "title": "Dishonored Lady (1947) Hedy Lamarr, Dennis O' Keefe, John Loder - Film Noir Full Movie",
+        "description": "Dishonored Lady is a 1947 American film noir crime film directed by Robert Stevenson and starring Hedy Lamarr, Dennis O'Keefe and John Loder. It is based on the 1930 play Dishonored Lady by Edward Sheldon and Margaret Ayer Barnes. The film is also known as Sins of Madeleine. Hedy Lamarr and John Loder were married when they made this film; but they divorced before the year was out . Wikipedia : https://en.wikipedia.org/wiki/Dishonored_Lady Suggested Film Noirs : http://bit.ly/36oLNCR The Internet Archive is an excellent choice for entire full length Netflix & YouTube style uploads of drama, mystery, thriller & crime noir movies from the UK & USA for free. Download complete online British & American classic black & white films from the 1940s & 1950s. ['Robert Stevenson', 'Hedy Lamarr', \"Dennis O'Keefe\", 'Film Noir Full Movies', 'Film Noir', 'Drama', 'Crime', 'Classics', 'Mystery', 'Thrillers', 'Black & White', '1940s', 'FN01R']",
+        "creator": "",
+        "license": "",
+        "subject": "['Robert Stevenson', 'Hedy Lamarr', \"Dennis O'Keefe\", 'Film Noir Full Movies', 'Film Noir', 'Drama', 'Crime', 'Classics', 'Mystery', 'Thrillers', 'Black & White', '1940s', 'FN01R']",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 778.32,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features Hedy Lamarr in a scene from her film 'Dishonored Lady' (1947). While it depicts a fictional scene rather than a specific biographical event, it serves as good archival footage illustrating her acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "23f2ba37aab90df1fc1f13e83bc74290a578c9565525a9e59fee2591edccc69e",
+      "reviewed_at": 1790411679.1986268
+    },
+    {
+      "person": "Hedy Lamarr",
+      "source": {
+        "id": "archive:Forgotten_Voices_-_Hedy_Lamarr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Forgotten_Voices_-_Hedy_Lamarr/Forgotten_Voices_-_Hedy_Lamarr.mp4",
+        "source_url": "https://archive.org/details/Forgotten_Voices_-_Hedy_Lamarr",
+        "title": "Forgotten Voices - Hedy Lamarr",
+        "description": "Forgotten Voices is a celebration of Women's History Month and a production of KJLU’s News Department.KJLU is the public radio voice of Lincoln University-Jefferson City, MO.Video production services provided by by JCTV Jefferson City Access Television. ['Jefferson City', 'Missouri', 'JCTVAccess', 'JCTV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2018']",
+        "creator": "JCTVAccess",
+        "license": "",
+        "subject": "['Jefferson City', 'Missouri', 'JCTVAccess', 'JCTV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2018']",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 72.98,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features actual archival film footage of Hedy Lamarr, but it has persistent superimposed text ('Hedy Lamarr') and borders/letterboxing throughout the frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9db9499ed33e71ecc2ffb27a87231289cd174ca1364f4e05ce599c389162609a",
+      "reviewed_at": 1790411689.6606007
+    },
+    {
+      "person": "Hedy Lamarr",
+      "source": {
+        "id": "archive:dishonoredlady1947usafeaturinghedylamarrdennisokeefejohnloderfilmnoirfullmovie_202001",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dishonoredlady1947usafeaturinghedylamarrdennisokeefejohnloderfilmnoirfullmovie_202001/Dishonored%20Lady%20%281947%2C%20USA%29%20Featuring%20Hedy%20Lamarr%2C%20Dennis%20O%27Keefe%2C%20John%20Loder%20-%20Film%20Noir%20Full%20Movie.mp4",
+        "source_url": "https://archive.org/details/dishonoredlady1947usafeaturinghedylamarrdennisokeefejohnloderfilmnoirfullmovie_202001",
+        "title": "Dishonored Lady (1947) Hedy Lamarr, Dennis O' Keefe, John Loder - Film Noir Full Movie",
+        "description": "Dishonored Lady is a 1947 American film noir crime film directed by Robert Stevenson and starring Hedy Lamarr, Dennis O'Keefe and John Loder. It is based on the 1930 play Dishonored Lady by Edward Sheldon and Margaret Ayer Barnes. The film is also known as Sins of Madeleine. Hedy Lamarr and John Loder were married when they made this film; but they divorced before the year was out . Wikipedia : https://en.wikipedia.org/wiki/Dishonored_Lady Suggested Film Noirs : http://bit.ly/36oLNCR The Internet Archive is an excellent choice for entire full length Netflix & YouTube style uploads of drama, mystery, thriller & crime noir movies from the UK & USA for free. Download complete online British & American classic black & white films from the 1940s & 1950s. ['Robert Stevenson', 'Hedy Lamarr', \"Dennis O'Keefe\", 'Film Noir Full Movies', 'Film Noir', 'Drama', 'Crime', 'Classics', 'Mystery', 'Thrillers', 'Black & White', '1940s', 'FN01R']",
+        "creator": "",
+        "license": "",
+        "subject": "['Robert Stevenson', 'Hedy Lamarr', \"Dennis O'Keefe\", 'Film Noir Full Movies', 'Film Noir', 'Drama', 'Crime', 'Classics', 'Mystery', 'Thrillers', 'Black & White', '1940s', 'FN01R']",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 1938.3,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show genuine archival film footage featuring actress Hedy Lamarr standing in a scene from the 1947 film 'Dishonored Lady'. It serves as biographical illustration of her acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "756fbc4e0fb0338d234490c8ca5c1918a35d84195284ad6a0f26c46b14bc1104",
+      "reviewed_at": 1790411700.3219926
+    },
+    {
+      "person": "Hedy Lamarr",
+      "source": {
+        "id": "archive:Forgotten_Voices_-_Hedy_Lamarr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Forgotten_Voices_-_Hedy_Lamarr/Forgotten_Voices_-_Hedy_Lamarr.mp4",
+        "source_url": "https://archive.org/details/Forgotten_Voices_-_Hedy_Lamarr",
+        "title": "Forgotten Voices - Hedy Lamarr",
+        "description": "Forgotten Voices is a celebration of Women's History Month and a production of KJLU’s News Department.KJLU is the public radio voice of Lincoln University-Jefferson City, MO.Video production services provided by by JCTV Jefferson City Access Television. ['Jefferson City', 'Missouri', 'JCTVAccess', 'JCTV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2018']",
+        "creator": "JCTVAccess",
+        "license": "",
+        "subject": "['Jefferson City', 'Missouri', 'JCTVAccess', 'JCTV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2018']",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 95.64,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The clip features archival footage and photographs of Hedy Lamarr, but the third frame transitions to side-by-side still portraits. While person is visible, it contains static photo elements rather than continuous moving film throughout.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "413f503e2c042a37aa55529b1ecf1695dde4ab840c6360e43b48f9e236fbc809",
+      "reviewed_at": 1790411706.243855
+    },
+    {
+      "person": "Hedy Lamarr",
+      "source": {
+        "id": "archive:dishonoredlady1947usafeaturinghedylamarrdennisokeefejohnloderfilmnoirfullmovie_202001",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dishonoredlady1947usafeaturinghedylamarrdennisokeefejohnloderfilmnoirfullmovie_202001/Dishonored%20Lady%20%281947%2C%20USA%29%20Featuring%20Hedy%20Lamarr%2C%20Dennis%20O%27Keefe%2C%20John%20Loder%20-%20Film%20Noir%20Full%20Movie.mp4",
+        "source_url": "https://archive.org/details/dishonoredlady1947usafeaturinghedylamarrdennisokeefejohnloderfilmnoirfullmovie_202001",
+        "title": "Dishonored Lady (1947) Hedy Lamarr, Dennis O' Keefe, John Loder - Film Noir Full Movie",
+        "description": "Dishonored Lady is a 1947 American film noir crime film directed by Robert Stevenson and starring Hedy Lamarr, Dennis O'Keefe and John Loder. It is based on the 1930 play Dishonored Lady by Edward Sheldon and Margaret Ayer Barnes. The film is also known as Sins of Madeleine. Hedy Lamarr and John Loder were married when they made this film; but they divorced before the year was out . Wikipedia : https://en.wikipedia.org/wiki/Dishonored_Lady Suggested Film Noirs : http://bit.ly/36oLNCR The Internet Archive is an excellent choice for entire full length Netflix & YouTube style uploads of drama, mystery, thriller & crime noir movies from the UK & USA for free. Download complete online British & American classic black & white films from the 1940s & 1950s. ['Robert Stevenson', 'Hedy Lamarr', \"Dennis O'Keefe\", 'Film Noir Full Movies', 'Film Noir', 'Drama', 'Crime', 'Classics', 'Mystery', 'Thrillers', 'Black & White', '1940s', 'FN01R']",
+        "creator": "",
+        "license": "",
+        "subject": "['Robert Stevenson', 'Hedy Lamarr', \"Dennis O'Keefe\", 'Film Noir Full Movies', 'Film Noir', 'Drama', 'Crime', 'Classics', 'Mystery', 'Thrillers', 'Black & White', '1940s', 'FN01R']",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 3484.93,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Hedy Lamarr is clearly visible in all three frames from archival film footage, serving as biographical illustration for her acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4ccaab8362313d361f4e6ee1524c9cfcd79d83373c6813ba1eb6758add797dee",
+      "reviewed_at": 1790411721.004433
+    },
+    {
+      "person": "Hedy Lamarr",
+      "source": {
+        "id": "archive:come-live-with-me-1941",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/come-live-with-me-1941/Come%20Live%20With%20Me%20%20%28Comedy%201941%29%20%20James%20Stewart%2C%20Hedy%20Lamarr%20%26%20Ian%20Hunter.mp4",
+        "source_url": "https://archive.org/details/come-live-with-me-1941",
+        "title": "Come Live With Me (1941) - James Stewart, Hedy Lamarr & Ian Hunter",
+        "description": "Lovely refugee Johnny Jones (Hedy Lamarr) is having an affair with publisher Barton Kendrick (Ian Hunter), but he is married to Diana (Verree Teasdale). When Johnny finds she has a week to either marry or be deported, she settles on struggling novelist Bill Smith (James Stewart), who agrees to marry her for a $17.80 weekly salary. When Barton proposes to divorce his wife and marry her, Johnny breaks the news that she is already married. All four lovers must decide whom they truly love. Resolution: 960 x 720 4:3 ['Come Live With Me', 'James Stewart', 'Hedy Lamarr', 'Ian Hunter']",
+        "creator": "",
+        "license": "",
+        "subject": "['Come Live With Me', 'James Stewart', 'Hedy Lamarr', 'Ian Hunter']",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 2788.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames feature genuine archival film footage from the movie 'Come Live With Me', clearly showing Hedy Lamarr alongside James Stewart and Ian Hunter across all three frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2446f0f81b87f55f515fd177abfb8fddb09b995f380d908bc14cccecc1655428",
+      "reviewed_at": 1790411955.0383623
+    },
+    {
+      "person": "Hedy Lamarr",
+      "source": {
+        "id": "archive:come-live-with-me-1941",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/come-live-with-me-1941/Come%20Live%20With%20Me%20%20%28Comedy%201941%29%20%20James%20Stewart%2C%20Hedy%20Lamarr%20%26%20Ian%20Hunter.mp4",
+        "source_url": "https://archive.org/details/come-live-with-me-1941",
+        "title": "Come Live With Me (1941) - James Stewart, Hedy Lamarr & Ian Hunter",
+        "description": "Lovely refugee Johnny Jones (Hedy Lamarr) is having an affair with publisher Barton Kendrick (Ian Hunter), but he is married to Diana (Verree Teasdale). When Johnny finds she has a week to either marry or be deported, she settles on struggling novelist Bill Smith (James Stewart), who agrees to marry her for a $17.80 weekly salary. When Barton proposes to divorce his wife and marry her, Johnny breaks the news that she is already married. All four lovers must decide whom they truly love. Resolution: 960 x 720 4:3 ['Come Live With Me', 'James Stewart', 'Hedy Lamarr', 'Ian Hunter']",
+        "creator": "",
+        "license": "",
+        "subject": "['Come Live With Me', 'James Stewart', 'Hedy Lamarr', 'Ian Hunter']",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 402.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features genuine historical film footage of Hedy Lamarr dancing in the 1941 movie 'Come Live With Me'. While it does not depict a specific historical event from her life outside of acting, it serves as usable biographical illustration of her film career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "36d70a352dcb13cb24fe401cd8140ff24f6a456bdd0559aaa04aeb6a58436763",
+      "reviewed_at": 1790411974.1979237
+    },
+    {
+      "person": "Hedy Lamarr",
+      "source": {
+        "id": "archive:come-live-with-me-1941",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/come-live-with-me-1941/Come%20Live%20With%20Me%20%20%28Comedy%201941%29%20%20James%20Stewart%2C%20Hedy%20Lamarr%20%26%20Ian%20Hunter.mp4",
+        "source_url": "https://archive.org/details/come-live-with-me-1941",
+        "title": "Come Live With Me (1941) - James Stewart, Hedy Lamarr & Ian Hunter",
+        "description": "Lovely refugee Johnny Jones (Hedy Lamarr) is having an affair with publisher Barton Kendrick (Ian Hunter), but he is married to Diana (Verree Teasdale). When Johnny finds she has a week to either marry or be deported, she settles on struggling novelist Bill Smith (James Stewart), who agrees to marry her for a $17.80 weekly salary. When Barton proposes to divorce his wife and marry her, Johnny breaks the news that she is already married. All four lovers must decide whom they truly love. Resolution: 960 x 720 4:3 ['Come Live With Me', 'James Stewart', 'Hedy Lamarr', 'Ian Hunter']",
+        "creator": "",
+        "license": "",
+        "subject": "['Come Live With Me', 'James Stewart', 'Hedy Lamarr', 'Ian Hunter']",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 800.23,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features Hedy Lamarr in archival film footage from 'Come Live With Me' (1941), making it useful as biographical illustration of her acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4c0b2337ff16b4f4b1d464fe352b2920ddf9adf738a9a1ee6fcbd6b8789255fe",
+      "reviewed_at": 1790411983.7062187
+    },
+    {
+      "person": "Hedy Lamarr",
+      "source": {
+        "id": "archive:come-live-with-me-1941",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/come-live-with-me-1941/Come%20Live%20With%20Me%20%20%28Comedy%201941%29%20%20James%20Stewart%2C%20Hedy%20Lamarr%20%26%20Ian%20Hunter.mp4",
+        "source_url": "https://archive.org/details/come-live-with-me-1941",
+        "title": "Come Live With Me (1941) - James Stewart, Hedy Lamarr & Ian Hunter",
+        "description": "Lovely refugee Johnny Jones (Hedy Lamarr) is having an affair with publisher Barton Kendrick (Ian Hunter), but he is married to Diana (Verree Teasdale). When Johnny finds she has a week to either marry or be deported, she settles on struggling novelist Bill Smith (James Stewart), who agrees to marry her for a $17.80 weekly salary. When Barton proposes to divorce his wife and marry her, Johnny breaks the news that she is already married. All four lovers must decide whom they truly love. Resolution: 960 x 720 4:3 ['Come Live With Me', 'James Stewart', 'Hedy Lamarr', 'Ian Hunter']",
+        "creator": "",
+        "license": "",
+        "subject": "['Come Live With Me', 'James Stewart', 'Hedy Lamarr', 'Ian Hunter']",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 1197.85,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Hedy Lamarr is clearly visible across all three frames in this archival film clip from 'Come Live With Me', serving as biographical illustration of her acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "41d1089346e84b3596cf25219d946cf8acf4be18de83096053cb3ffb84a9012e",
+      "reviewed_at": 1790411994.4197948
+    },
+    {
+      "person": "Hedy Lamarr",
+      "source": {
+        "id": "archive:come-live-with-me-1941",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/come-live-with-me-1941/Come%20Live%20With%20Me%20%20%28Comedy%201941%29%20%20James%20Stewart%2C%20Hedy%20Lamarr%20%26%20Ian%20Hunter.mp4",
+        "source_url": "https://archive.org/details/come-live-with-me-1941",
+        "title": "Come Live With Me (1941) - James Stewart, Hedy Lamarr & Ian Hunter",
+        "description": "Lovely refugee Johnny Jones (Hedy Lamarr) is having an affair with publisher Barton Kendrick (Ian Hunter), but he is married to Diana (Verree Teasdale). When Johnny finds she has a week to either marry or be deported, she settles on struggling novelist Bill Smith (James Stewart), who agrees to marry her for a $17.80 weekly salary. When Barton proposes to divorce his wife and marry her, Johnny breaks the news that she is already married. All four lovers must decide whom they truly love. Resolution: 960 x 720 4:3 ['Come Live With Me', 'James Stewart', 'Hedy Lamarr', 'Ian Hunter']",
+        "creator": "",
+        "license": "",
+        "subject": "['Come Live With Me', 'James Stewart', 'Hedy Lamarr', 'Ian Hunter']",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 2390.7,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features genuine historical film footage of Hedy Lamarr acting alongside James Stewart in 'Come Live With Me' (1941). It serves as biographical illustration of her acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "deb355d938708a93274badae0dd50609543353f1c0ad472638df8b171756c58b",
+      "reviewed_at": 1790412023.6062472
     }
   ]
 }

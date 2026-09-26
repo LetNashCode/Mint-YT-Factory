@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "rejected": {
+    "d7d872876248f2c17fb5bc22": {
+      "source_id": "archive:ztvuaoh-The_Life_of_Legendary_Hedy_Lamarr_ZTV_5_Minute_Flashback",
+      "source_url": "https://archive.org/details/ztvuaoh-The_Life_of_Legendary_Hedy_Lamarr_ZTV_5_Minute_Flashback",
+      "reason": "strong metadata exclusion: 5 minute flashback"
+    }
+  }
+}

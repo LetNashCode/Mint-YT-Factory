@@ -590,9 +590,11 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                 stage = "frame_sample"
                                 cached[identity] = frames(clip, actual)
                             stage = "verify"
-                            _consume_verifier_request()
-                            verdict = (catalog.verify(person, scene, item, cached[identity], start, length)
-                                       if catalog is not None else verify(person, scene, item, cached[identity]))
+                            if catalog is not None:
+                                verdict = catalog.verify(person, scene, item, cached[identity], start, length)
+                            else:
+                                _consume_verifier_request()
+                                verdict = verify(person, scene, item, cached[identity])
                             if not isinstance(verdict, dict):
                                 raise RuntimeError(
                                     f"Story verifier returned invalid result type: {type(verdict).__name__}"

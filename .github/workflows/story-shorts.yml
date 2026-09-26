@@ -147,6 +147,7 @@ jobs:
           SOCIAL_PUBLISH_STRICT: ${{ vars.SOCIAL_PUBLISH_STRICT }}
           STORY_VIDEO_VERIFY_MODEL: ${{ vars.STORY_VIDEO_VERIFY_MODEL || 'gemini-flash-lite-latest' }}
           STORY_GEMINI_MAX_REQUESTS: ${{ vars.STORY_GEMINI_MAX_REQUESTS || '64' }}
+          STORY_GEMINI_MAX_REQUESTS_PER_SUBJECT: ${{ vars.STORY_GEMINI_MAX_REQUESTS_PER_SUBJECT || '24' }}
         run: |
           set -euo pipefail
           rm -f .story_gemini_quota_deferred .story_verifier_budget_deferred .story_gemini_budget_deferred

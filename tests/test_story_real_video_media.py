@@ -760,6 +760,37 @@ def test_frame_precheck_allows_motion_but_does_not_verify_identity():
     assert media._frame_precheck(frames) is None
 
 
+def test_precheck_cache_ignores_synthetic_test_sources(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    fixture = candidate()
+    media.PRECHECK_CACHE_FILE.write_text(json.dumps({
+        "version": 1,
+        "rejected": {
+            media._precheck_cache_key(fixture): {
+                "source_id": fixture["id"],
+                "source_url": fixture["source_url"],
+                "reason": "fixture contamination",
+            }
+        },
+    }), encoding="utf-8")
+    assert not media._precheck_cache_eligible(fixture)
+    stub_pipeline(monkeypatch)
+    groups = media.generate_media(story(), str(tmp_path), {})
+    assert len(groups) == 14
+
+
+def test_precheck_cache_is_eligible_only_for_real_archival_sources():
+    assert media._precheck_cache_eligible({
+        "provider": "Wikimedia Commons",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Example.webm",
+    })
+    assert media._precheck_cache_eligible({
+        "provider": "Internet Archive",
+        "source_url": "https://archive.org/details/example",
+    })
+    assert not media._precheck_cache_eligible(candidate())
+
+
 def test_source_precheck_rejects_promotional_animation_and_tv_noise():
     cases = [
         {"title": "APJ Abdul Kalam animated story", "description": ""},

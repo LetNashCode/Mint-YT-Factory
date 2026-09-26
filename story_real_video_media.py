@@ -25,9 +25,41 @@ import requests
 UA = "Mint-YT-Factory/StoryVideo/1.0 (https://github.com/LetNashCode/Mint-YT-Factory)"
 _LAST_GROUPS = []
 _VERIFIER_MODELS = {}
+_VERIFIER_BUDGET = None
 
 
 QUOTA_DEFER_FILE = ".story_gemini_quota_deferred"
+VERIFIER_BUDGET_DEFER_FILE = ".story_verifier_budget_deferred"
+DEFAULT_VERIFIER_REQUEST_BUDGET = 48
+
+
+def _begin_verifier_budget():
+    global _VERIFIER_BUDGET
+    try:
+        limit = int(os.environ.get("STORY_VERIFIER_MAX_REQUESTS", DEFAULT_VERIFIER_REQUEST_BUDGET))
+    except (TypeError, ValueError):
+        limit = DEFAULT_VERIFIER_REQUEST_BUDGET
+    _VERIFIER_BUDGET = {"limit": max(1, limit), "used": 0}
+
+
+def _consume_verifier_request():
+    if _VERIFIER_BUDGET is None:
+        return
+    if _VERIFIER_BUDGET["used"] >= _VERIFIER_BUDGET["limit"]:
+        reason = (
+            f"Story verifier request budget exhausted after {_VERIFIER_BUDGET['used']} requests "
+            f"(limit={_VERIFIER_BUDGET['limit']})"
+        )
+        Path(VERIFIER_BUDGET_DEFER_FILE).write_text(reason + "\n", encoding="utf-8")
+        print(f"🛑 {reason}; deferring Story publication", flush=True)
+        raise RuntimeError(reason)
+    _VERIFIER_BUDGET["used"] += 1
+
+
+def verifier_budget_status():
+    if _VERIFIER_BUDGET is None:
+        return {"limit": None, "used": 0}
+    return dict(_VERIFIER_BUDGET)
 
 
 def _mark_gemini_quota_deferred(reason):
@@ -48,7 +80,7 @@ def _is_daily_quota_response(response):
     return (
         "generaterequestsperdayperproject" in text
         or "generate_content_free_tier_requests" in text
-        or "quotaexceeded" in text
+        or ("quotaexceeded" in text and "perday" in text)
     )
 
 
@@ -409,6 +441,7 @@ def verify(person, scene, item, samples):
     for model in models:
         for retry in range(2):
             try:
+                _consume_verifier_request()
                 response = requests.post(
                     f"https://generativelanguage.googleapis.com/v1beta/models/{quote(model, safe='')}:generateContent",
                     headers={"x-goog-api-key": key}, json=payload, timeout=(10, 60)
@@ -492,7 +525,9 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
         raise RuntimeError("GEMINI_API_KEY is required for Story video verification")
     root = Path(output_dir)
     root.mkdir(parents=True, exist_ok=True)
-    audit = {"person": person, "providers": [], "attempts": [], "selected": []}
+    _begin_verifier_budget()
+    audit = {"person": person, "providers": [], "attempts": [], "selected": [],
+             "verifier_budget": verifier_budget_status()}
     groups, resolved, blocked, used, cached = [], {}, set(), set(), {}
     rejected = set()
     source_rejections, source_errors = Counter(), Counter()
@@ -549,10 +584,13 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                             raise RuntimeError("Story video search budget exhausted; see story_video_audit.json")
                         digest = hashlib.sha256(f"{sid}:{start}".encode()).hexdigest()[:20]
                         clip = root / (digest + ".mp4")
+                        stage = "extract"
                         try:
                             if identity not in cached:
                                 actual = extract(url, start, length, clip)
+                                stage = "frame_sample"
                                 cached[identity] = frames(clip, actual)
+                            stage = "verify"
                             verdict = (catalog.verify(person, scene, item, cached[identity], start, length)
                                        if catalog is not None else verify(person, scene, item, cached[identity]))
                             if not isinstance(verdict, dict):
@@ -595,8 +633,11 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                             )):
                                 raise
                             source_errors[sid] += 1
-                            audit["attempts"].append({"source": item["source_url"], "start": start, "error": type(exc).__name__})
-                            print(f"Story clip extraction/check failed: {item['provider']} {start}s ({type(exc).__name__})", flush=True)
+                            audit["attempts"].append({"source": item["source_url"], "start": start,
+                                                      "stage": stage, "error_type": type(exc).__name__,
+                                                      "error": str(exc)[:500]})
+                            print(f"Story clip {stage} failed: {item['provider']} {start}s "
+                                  f"({type(exc).__name__}: {str(exc)[:240]})", flush=True)
                             if source_errors[sid] >= 3:
                                 blocked.add(sid)
                                 break

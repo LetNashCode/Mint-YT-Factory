@@ -476,7 +476,10 @@ def test_quota_or_server_error_moves_to_pinned_model(monkeypatch, status):
             json=lambda: {"candidates": [{"content": {"parts": [{"text": json.dumps(GOOD)}]}}]})
     monkeypatch.setattr(media.requests, "post", post)
     assert media.verification_passes(media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"]))
-    assert len(calls) == 2 and "gemini-3.1-flash-lite" in calls[1]
+    if status == 503:
+        assert len(calls) == 2 and calls[1] == calls[0]
+    else:
+        assert len(calls) == 2 and "gemini-3.1-flash-lite" in calls[1]
 
 
 def test_story_media_recovery_classifies_only_content_availability_failures():

@@ -2,5 +2,5 @@
   "status": "deferred",
   "video_id": "",
   "youtube_url": "",
-  "reason": "Story verifier unavailable after network retries/model fallback: HTTP 429"
+  "reason": "Gemini daily/project quota is exhausted; no final video was created or uploaded."
 }

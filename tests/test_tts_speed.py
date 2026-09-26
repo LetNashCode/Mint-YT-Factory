@@ -22,7 +22,8 @@ def test_adaptive_speed_maps_output_to_full_source_ending():
     output = apply_narration_speed(source, target_duration=53.5)
 
     assert output is source
-    assert output.duration == 53.5 / (57.32 / 53.5)
+    # The transformed clip should honor the requested output duration.
+    assert output.duration == 53.5
     # The final output timestamp must map to the end of the original audio.
     mapped_end = float(output.time_map(53.5))
     assert mapped_end >= 57.318

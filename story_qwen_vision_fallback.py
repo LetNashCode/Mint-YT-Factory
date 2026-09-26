@@ -8,6 +8,7 @@ from functools import lru_cache
 from io import BytesIO
 
 DEFAULT_MODEL = "Qwen/Qwen2-VL-2B-Instruct"
+MAX_VERDICT_ATTEMPTS = 2
 
 
 def enabled() -> bool:
@@ -80,11 +81,6 @@ def _normalize_result(result):
     if missing:
         raise ValueError("Qwen vision fallback missing fields: " + ", ".join(sorted(missing)))
 
-    # Qwen2-VL can occasionally omit the redundant numeric relevance field even
-    # when it supplies the core verifier decisions. Do not invent a partial score:
-    # derive the compatibility score only from the complete boolean acceptance
-    # decision already made by Qwen. This keeps the downstream acceptance rule
-    # unchanged while making the local adapter tolerant of the omission.
     if "relevance" not in result:
         core_accept = (
             result.get("person_visible") is True
@@ -97,9 +93,36 @@ def _normalize_result(result):
     return result
 
 
-def verify(person, scene, item, samples):
-    images = _images(samples)
-    prompt = (
+def _messages(images, prompt):
+    return [{
+        "role": "user",
+        "content": [
+            {"type": "image", "image": images[0]},
+            {"type": "image", "image": images[1]},
+            {"type": "image", "image": images[2]},
+            {"type": "text", "text": prompt},
+        ],
+    }]
+
+
+def _strict_prompt(person, scene, item, retry=False):
+    if retry:
+        return (
+            "OUTPUT JSON ONLY. No explanation, markdown, or extra text. "
+            "Inspect all 3 frames and decide whether the named person is visibly present "
+            "in every frame and whether this is genuine filmed footage. "
+            "Return exactly these six keys and no others: "
+            "person_visible, real_footage, usable, relevance, reason, usage. "
+            "All three boolean keys are required. relevance must be a number 0-10. "
+            "usage must be direct_event or biographical_illustration. "
+            "If identity is uncertain, set person_visible=false and usable=false. "
+            + json.dumps({
+                "person": person,
+                "source_title": item.get("title"),
+                "narration": scene.get("narration", ""),
+            }, ensure_ascii=False)
+        )
+    return (
         "You are a strict archival-footage verifier. Evaluate THREE ordered frames from the "
         "same video segment. The named person must be clearly visible in ALL three frames. "
         "Reject presenters/interviewers when they are the only visible person, lookalikes, "
@@ -118,15 +141,32 @@ def verify(person, scene, item, samples):
             "source_description": item.get("description"),
         }, ensure_ascii=False)
     )
-    messages = [{
-        "role": "user",
-        "content": [
-            {"type": "image", "image": images[0]},
-            {"type": "image", "image": images[1]},
-            {"type": "image", "image": images[2]},
-            {"type": "text", "text": prompt},
-        ],
-    }]
-    output = _pipeline()(text=messages, max_new_tokens=256, return_full_text=False)
-    result = _parse_json(_extract_text(output))
-    return _normalize_result(result)
+
+
+def verify(person, scene, item, samples):
+    images = _images(samples)
+    pipe = _pipeline()
+    last_error = None
+
+    for attempt in range(MAX_VERDICT_ATTEMPTS):
+        prompt = _strict_prompt(person, scene, item, retry=attempt > 0)
+        output = pipe(
+            text=_messages(images, prompt),
+            max_new_tokens=128,
+            return_full_text=False,
+        )
+        raw_text = _extract_text(output)
+        try:
+            result = _parse_json(raw_text)
+            return _normalize_result(result)
+        except ValueError as exc:
+            last_error = exc
+            print(
+                f"⚠️ Qwen vision verifier returned an incomplete/invalid verdict "
+                f"(attempt {attempt + 1}/{MAX_VERDICT_ATTEMPTS}): {exc}",
+                flush=True,
+            )
+            if attempt + 1 < MAX_VERDICT_ATTEMPTS:
+                print("🔁 Retrying Qwen vision verifier with compact JSON-only prompt", flush=True)
+
+    raise ValueError(f"Qwen vision fallback failed after {MAX_VERDICT_ATTEMPTS} verdict attempts: {last_error}")

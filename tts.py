@@ -92,7 +92,11 @@ def apply_narration_speed(clip, target_duration=None):
         source_limit = max(0.0, safe_duration - 0.001)
 
         def _safe_time_map(t):
-            return np.minimum(np.asarray(t) / speed, source_limit)
+            # fl_time() asks for source time at each output time. When the
+            # output is shortened by `speed`, output_time must advance through
+            # the source `speed` times faster. Dividing here truncates the
+            # ending (e.g. 57.3s source -> 53.5s output would only reach 50.0s).
+            return np.minimum(np.asarray(t) * speed, source_limit)
 
         transformed = clip.fl_time(_safe_time_map, apply_to=["audio"])
         transformed_duration = safe_duration / speed

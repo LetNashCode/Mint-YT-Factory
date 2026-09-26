@@ -16,6 +16,8 @@ from typing import Any
 import requests
 from PIL import Image
 
+import story_gemini_budget
+
 PEXELS_API = "https://api.pexels.com/v1"
 PIXABAY_API = "https://pixabay.com/api"
 PIXABAY_VIDEO_API = "https://pixabay.com/api/videos"

@@ -95,6 +95,8 @@ RECENT PEOPLE TO AVOID:\n{chr(10).join('- '+x for x in people[-15:]) or '- none'
             out.append({"format":str(item.get("format","strange_turning_point")).strip().lower(),"person":person,"premise":premise,"hook":str(item.get("hook","")).strip(),"key_facts":[str(x).strip() for x in facts[:5] if str(x).strip()],"source":"gemini_original"})
         return out
     except Exception as exc:
+        if story_gemini_budget.BUDGET_DEFER_FILE in str(exc) or Path(story_gemini_budget.BUDGET_DEFER_FILE).exists():
+            raise
         print(f"⚠️ Original Story topic generation unavailable: {exc}")
         return []
 

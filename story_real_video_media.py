@@ -348,12 +348,12 @@ def search_archive(person):
             }
             runtime_text = candidate.get("runtime", "")
             runtime_seconds = 0.0
-            match = re.search(r"(\\d+)\\s*:\\s*(\\d+)(?:\\s*:\\s*(\\d+))?", runtime_text)
+            match = re.search(r"(\d+)\s*:\s*(\d+)(?:\s*:\s*(\d+))?", runtime_text)
             if match:
                 parts = [int(value) for value in match.groups() if value is not None]
                 runtime_seconds = float(parts[0] * 3600 + parts[1] * 60 + (parts[2] if len(parts) == 3 else 0))
             else:
-                match = re.search(r"(\\d+(?:\\.\\d+)?)\\s*(?:min|minutes)", runtime_text, re.I)
+                match = re.search(r"(\d+(?:\.\d+)?)\s*(?:min|minutes)", runtime_text, re.I)
                 if match:
                     runtime_seconds = float(match.group(1)) * 60
             candidate["duration_hint"] = runtime_seconds

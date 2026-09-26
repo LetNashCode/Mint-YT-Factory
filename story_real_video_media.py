@@ -38,10 +38,19 @@ DEFAULT_VERIFIER_REQUEST_BUDGET = story_gemini_budget.DEFAULT_MAX_REQUESTS
 PRECHECK_CACHE_FILE = Path("story_video_rejection_cache.json")
 PRECHECK_CACHE_VERSION = 1
 _STRONG_BAD_METADATA_TERMS = (
+    # Metadata patterns that are strong evidence the record is not genuine
+    # archival footage of the named person. These are deterministic exclusions;
+    # identity verification remains mandatory for everything that survives.
     "presenter", "talk show host", "host discusses", "host and actor",
-    "actor portraying", "portraying ", "reenactment", "dramatization",
-    "dramatized", "slideshow", "title card", "five minute flashback",
-    "5 minute flashback",
+    "actor portraying", "actors portraying", "actress portraying",
+    "actor playing", "actress playing", "portraying ",
+    "reenactment", "dramatization", "dramatized", "fictionalized",
+    "feature film", "biographical drama", "biopic",
+    "video game", "gameplay", "racing simulator", "racing game",
+    "coach trip", "bus ride", "bus journey", "inside a coach",
+    "museum exhibit", "museum display", "engine and plaque",
+    "movie trailer", "commercial for", "slideshow", "title card",
+    "five minute flashback", "5 minute flashback",
 )
 
 
@@ -304,11 +313,14 @@ def search_commons(person):
 def search_archive(person):
     """Search Internet Archive for genuine movie records, excluding YouTube imports."""
     term = clean(person).replace('"', "")
+    # Keep discovery anchored to fields that identify the record itself.
+    # Broad description/OR searches routinely return unrelated shows, games and
+    # films merely mentioning the requested person, wasting verifier requests.
     queries = [
         f'mediatype:movies AND title:"{term}" AND NOT identifier:youtube-*',
         f'mediatype:movies AND subject:"{term}" AND NOT identifier:youtube-*',
-        f'mediatype:movies AND description:"{term}" AND NOT identifier:youtube-*',
-        f'mediatype:movies AND ("{term}" OR "{term}" interview OR "{term}" speech) AND NOT identifier:youtube-*',
+        f'mediatype:movies AND title:"{term}" AND (title:interview OR title:speech OR title:talk) AND NOT identifier:youtube-*',
+        f'mediatype:movies AND subject:"{term}" AND (title:interview OR title:speech OR title:documentary) AND NOT identifier:youtube-*',
     ]
     results, seen = [], set()
 
@@ -344,6 +356,8 @@ def search_archive(person):
                 "license": clean(item.get("licenseurl")),
                 "subject": subject,
                 "runtime": clean(item.get("runtime")),
+                # Treat title/subject matches as stronger identity evidence than
+                # free-form descriptions, which are frequently query contamination.
                 "direct_subject": _person_tokens(person) <= words(title + " " + subject),
             }
             runtime_text = candidate.get("runtime", "")
@@ -358,6 +372,11 @@ def search_archive(person):
                     runtime_seconds = float(match.group(1)) * 60
             candidate["duration_hint"] = runtime_seconds
             candidate["identity_score"] = _identity_score(person, candidate)
+            # For Internet Archive, require the person's name in title/subject.
+            # Description-only matches are too noisy for a verifier-budgeted flow.
+            identity_fields = words(title + " " + subject)
+            if not _person_tokens(person) <= identity_fields:
+                continue
             if candidate["identity_score"] < 5.0:
                 continue
 

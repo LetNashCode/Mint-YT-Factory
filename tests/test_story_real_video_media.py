@@ -614,7 +614,7 @@ def test_daily_quota_detector_does_not_treat_minute_quota_as_daily():
 
 def test_verifier_request_budget_stops_before_excess_calls(monkeypatch, tmp_path):
     stub_pipeline(monkeypatch)
-    monkeypatch.setenv("STORY_VERIFIER_MAX_REQUESTS", "2")
+    monkeypatch.setenv("STORY_GEMINI_MAX_REQUESTS", "2")
     calls = []
     def verify(*args):
         calls.append(1)
@@ -623,7 +623,7 @@ def test_verifier_request_budget_stops_before_excess_calls(monkeypatch, tmp_path
     with pytest.raises(RuntimeError, match="request budget exhausted"):
         media.generate_media(story(), str(tmp_path), {})
     assert len(calls) == 2
-    assert (Path(".story_verifier_budget_deferred")).exists()
+    assert (Path(".story_gemini_budget_deferred")).exists()
 
 
 def test_media_attempt_records_stage_and_error(monkeypatch, tmp_path):

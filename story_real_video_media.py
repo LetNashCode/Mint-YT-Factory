@@ -42,6 +42,16 @@ def _begin_verifier_budget():
     _VERIFIER_BUDGET = {"limit": max(1, limit), "used": 0}
 
 
+def _ensure_verifier_budget():
+    if _VERIFIER_BUDGET is None:
+        _begin_verifier_budget()
+
+
+def _reset_verifier_budget():
+    global _VERIFIER_BUDGET
+    _VERIFIER_BUDGET = None
+
+
 def _consume_verifier_request():
     if _VERIFIER_BUDGET is None:
         return
@@ -524,7 +534,7 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
         raise RuntimeError("GEMINI_API_KEY is required for Story video verification")
     root = Path(output_dir)
     root.mkdir(parents=True, exist_ok=True)
-    _begin_verifier_budget()
+    _ensure_verifier_budget()
     audit = {"person": person, "providers": [], "attempts": [], "selected": [],
              "verifier_budget": verifier_budget_status()}
     groups, resolved, blocked, used, cached = [], {}, set(), set(), {}
@@ -657,7 +667,6 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
     finally:
         audit["verifier_budget"] = verifier_budget_status()
         save_audit()
-        _VERIFIER_BUDGET = None
 
 
 def source_credits():

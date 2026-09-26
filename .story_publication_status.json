@@ -1,7 +1,6 @@
 {
-  "status": "complete",
-  "video_id": "F4LpxA21M1E",
-  "youtube_url": "https://www.youtube.com/shorts/F4LpxA21M1E",
-  "reason": "",
-  "updated_at": 1790416548
+  "status": "deferred",
+  "video_id": "",
+  "youtube_url": "",
+  "reason": "Story Gemini request budget exhausted after 64 requests (limit=64, stage=visual_verification)"
 }

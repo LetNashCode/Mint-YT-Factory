@@ -1,18 +1,5 @@
 [
   {
-    "format": "before_they_were_famous",
-    "person": "Rajinikanth",
-    "premise": "A Bangalore bus conductor who discovered a passion for acting in local stage plays.",
-    "hook": "Passengers handed him their bus tickets every day, unaware he was destined to become South India's biggest cinematic icon.",
-    "key_facts": [
-      "Worked various odd jobs including carpentry and as a bus conductor for the Bangalore Transport Service.",
-      "Participated in mythological stage plays during his employment.",
-      "Enrolled in the Madras Film Institute to receive formal acting training.",
-      "Made his film debut in K. Balachander's 1975 Tamil drama 'Apoorva Raagangal'."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "strange_turning_point",
     "person": "Alexander Fleming",
     "premise": "A messy laboratory and a stray spore led to the accidental discovery of penicillin.",
@@ -34,30 +21,6 @@
       "Lost both parents at a young age in Delhi.",
       "Started his acting career on television before moving to films.",
       "Initially gained recognition for playing complex villain roles rather than conventional heroes."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Sara Blakely",
-    "premise": "A fax machine salesperson decides to invest her entire $5,000 savings into a patent for footless pantyhose.",
-    "hook": "She spent her entire life savings on a pair of scissors and a trademark application.",
-    "key_facts": [
-      "Worked door-to-door selling fax machines before starting her business.",
-      "Wrote her own patent application without a lawyer to save money.",
-      "Personally pitched department stores and famously demonstrated the product in dressing rooms."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Viswanathan Anand",
-    "premise": "A quiet chess prodigy from a small coastal city in India challenges and breaks the multi-decade Soviet dominance over the World Chess Championship.",
-    "hook": "He grew up in a town without grandmasters, yet defeated the greatest chess machine the world had ever seen.",
-    "key_facts": [
-      "Became India's first Grandmaster in 1988.",
-      "Won the World Chess Championship across multiple formats (knockout, tournament, and match).",
-      "Pioneered the popularity of chess across India for future generations."
     ],
     "source": "gemini_original"
   },
@@ -94,18 +57,6 @@
       "Moved frequently during childhood across multiple countries.",
       "Excelled as a high school ice hockey player in Toronto before an injury redirected his ambitions.",
       "Spent years taking small theater and television roles before achieving global film stardom."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Enzo Ferrari",
-    "premise": "A dedicated racing driver decides to stop competing and instead manufacture his own elite sports cars.",
-    "hook": "He realized he wasn't the fastest driver on the track, so he decided to build the cars that would beat everyone else.",
-    "key_facts": [
-      "Worked as a test driver and racer for Alfa Romeo in the 1920s.",
-      "Founded Scuderia Ferrari initially as a racing team before building production vehicles.",
-      "Focused company finances heavily on racing endeavors rather than consumer sales volume."
     ],
     "source": "gemini_original"
   },

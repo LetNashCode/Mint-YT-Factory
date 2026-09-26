@@ -514,7 +514,7 @@ def validate_segments(groups, expected=14):
 
 
 def generate_media(script, output_dir, config, gim=None, catalog=None):
-    global _LAST_GROUPS
+    global _LAST_GROUPS, _VERIFIER_BUDGET
     _LAST_GROUPS = []
     person = clean(script.get("story_person"))
     scenes = script.get("scene_plan")
@@ -655,7 +655,9 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
         _LAST_GROUPS = list(groups)
         return groups
     finally:
+        audit["verifier_budget"] = verifier_budget_status()
         save_audit()
+        _VERIFIER_BUDGET = None
 
 
 def source_credits():

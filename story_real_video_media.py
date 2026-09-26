@@ -657,7 +657,7 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                             audit["attempts"].append({"source": item["source_url"], "error": type(exc).__name__, "stage": "resolve"})
                             continue
                     url, duration = resolved[sid]
-                    intervals = windows(duration, limit=12)
+                    intervals = windows(duration, limit=14)
                     if not counts[sid] and intervals:
                         # Probe across the recording before scanning chronologically;
                         # long speeches often start with several minutes of introductions.

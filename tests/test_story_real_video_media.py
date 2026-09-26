@@ -665,6 +665,7 @@ def test_source_precheck_rejects_obvious_presenter_and_dramatization_metadata():
 
 
 def test_generate_media_skips_deterministically_rejected_sources_before_verification(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
     stub_pipeline(monkeypatch)
     bad = candidate(0)
     bad["title"] = "Modern presenter discusses Nelson Mandela"

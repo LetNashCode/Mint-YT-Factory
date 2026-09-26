@@ -207,6 +207,41 @@ def test_probe_accepts_format_duration_when_stream_is_na(monkeypatch):
     assert media.probe("clip.webm") == 12
 
 
+def test_story_publication_completion_requires_durable_complete_state(tmp_path):
+    import story_identity_runner as runner
+
+    status = tmp_path / ".story_publication_status.json"
+    status.write_text(json.dumps({
+        "status": "complete",
+        "video_id": "X6z-7WPwVds",
+        "youtube_url": "https://www.youtube.com/shorts/X6z-7WPwVds",
+    }), encoding="utf-8")
+    stale = tmp_path / ".story_deferred"
+    stale.write_text("previous run deferred", encoding="utf-8")
+
+    assert runner._publication_complete(str(status)) is True
+    assert stale.exists()
+
+
+def test_story_publication_completion_rejects_missing_or_incomplete_state(tmp_path):
+    import story_identity_runner as runner
+
+    status = tmp_path / ".story_publication_status.json"
+    assert runner._publication_complete(str(status)) is False
+
+    status.write_text(json.dumps({
+        "status": "youtube_uploaded",
+        "video_id": "X6z-7WPwVds",
+    }), encoding="utf-8")
+    assert runner._publication_complete(str(status)) is False
+
+    status.write_text(json.dumps({
+        "status": "complete",
+        "video_id": "",
+    }), encoding="utf-8")
+    assert runner._publication_complete(str(status)) is False
+
+
 def test_story_route_is_isolated():
     root = Path(__file__).resolve().parents[1]
     runner = (root / "story_identity_runner.py").read_text(encoding="utf-8")

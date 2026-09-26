@@ -294,8 +294,10 @@ def search_commons(person):
                 break
 
     results.sort(key=lambda item: (
-        -float(item.get("identity_score", 0)),
         not item.get("direct_subject", False),
+        -float(item.get("identity_score", 0)),
+        0 if 0 < float(item.get("duration_hint", 0) or 0) <= 900 else 1,
+        float(item.get("duration_hint", 0) or 1e12),
         len(str(item.get("title", ""))),
     ))
     return results
@@ -320,7 +322,7 @@ def search_archive(person):
                 output="json",
                 rows=40,
                 page=1,
-                **{"fl[]": ["identifier", "title", "description", "creator", "subject", "licenseurl"]},
+                **{"fl[]": ["identifier", "title", "description", "creator", "subject", "licenseurl", "runtime"]},
             )
         except (requests.RequestException, ValueError):
             continue
@@ -343,8 +345,20 @@ def search_archive(person):
                 "creator": clean(item.get("creator")),
                 "license": clean(item.get("licenseurl")),
                 "subject": subject,
+                "runtime": clean(item.get("runtime")),
                 "direct_subject": _person_tokens(person) <= words(title + " " + subject),
             }
+            runtime_text = candidate.get("runtime", "")
+            runtime_seconds = 0.0
+            match = re.search(r"(\\d+)\\s*:\\s*(\\d+)(?:\\s*:\\s*(\\d+))?", runtime_text)
+            if match:
+                parts = [int(value) for value in match.groups() if value is not None]
+                runtime_seconds = float(parts[0] * 3600 + parts[1] * 60 + (parts[2] if len(parts) == 3 else 0))
+            else:
+                match = re.search(r"(\\d+(?:\\.\\d+)?)\\s*(?:min|minutes)", runtime_text, re.I)
+                if match:
+                    runtime_seconds = float(match.group(1)) * 60
+            candidate["duration_hint"] = runtime_seconds
             candidate["identity_score"] = _identity_score(person, candidate)
             if candidate["identity_score"] < 5.0:
                 continue

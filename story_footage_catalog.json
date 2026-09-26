@@ -1948,6 +1948,216 @@
       },
       "review_key": "ee50ab71c82238f4874fbdd647ec165ac880c8c56363ab3255cce13ab5898131",
       "reviewed_at": 1790429051.408477
+    },
+    {
+      "person": "APJ Abdul Kalam",
+      "source": {
+        "id": "archive:APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3/%22APJ_Abdul_Kalam_interacts_with_Children%22-Asianet_News_Edufest%3A_Part_3.mp4",
+        "source_url": "https://archive.org/details/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
+        "title": "\" APJ Abdul Kalam Interacts With Children\" Asianet News Edufest: Part 3",
+        "description": "Motivation speech Love",
+        "creator": "Durai",
+        "license": "",
+        "subject": "Love",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6.0,
+        "reason": "The frames show APJ Abdul Kalam speaking at an event. This constitutes real biographical footage suitable for illustration, though it does not depict a specific narrated historical event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6229303a79c6ec6c3fcc1ffaae62aa230fa1c8b620cccaf377b59a7b0607b734",
+      "reviewed_at": 1790434422.9641929
+    },
+    {
+      "person": "APJ Abdul Kalam",
+      "source": {
+        "id": "archive:APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3/%22APJ_Abdul_Kalam_interacts_with_Children%22-Asianet_News_Edufest%3A_Part_3.mp4",
+        "source_url": "https://archive.org/details/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
+        "title": "\" APJ Abdul Kalam Interacts With Children\" Asianet News Edufest: Part 3",
+        "description": "Motivation speech Love",
+        "creator": "Durai",
+        "license": "",
+        "subject": "Love",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0
+      },
+      "start": 356.51,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "APJ Abdul Kalam is clearly visible across all three frames speaking at a podium. Since the narration refers generically to archival footage illustrating his life rather than a specific historical event depicted in video, it serves as useful biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5a05ecc6a730c9e868de5635bfb1e61541dbf1cc027d0ccb757f44bf1a503866",
+      "reviewed_at": 1790434584.126073
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:ShahRukhKhan_2017",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ShahRukhKhan_2017/ShahRukhKhan_2017.mp4",
+        "source_url": "https://archive.org/details/ShahRukhKhan_2017",
+        "title": "Shah Rukh Khan: Thoughts on humanity, fame and love",
+        "description": "\"I sell dreams, and I peddle love to millions of people,\" says Shah Rukh Khan, Bollywood's biggest star. In this charming, funny talk, Khan traces the arc of his life, showcases a few of his famous dance moves and shares hard-earned wisdom from a life spent in the spotlight. ['Tedtalks', 'TED', 'Talks', 'aging', 'art', 'communication', 'dance', 'entertainment', 'family', 'future', 'happiness', 'humanity', 'india', 'love', 'movies', 'music', 'personal growth', 'success', 'technology', 'TED2017', '2017']",
+        "creator": "TED.com",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
+        "subject": "['Tedtalks', 'TED', 'Talks', 'aging', 'art', 'communication', 'dance', 'entertainment', 'family', 'future', 'happiness', 'humanity', 'india', 'love', 'movies', 'music', 'personal growth', 'success', 'technology', 'TED2017', '2017']",
+        "runtime": "00:17:51",
+        "direct_subject": true,
+        "duration_hint": 1071.0,
+        "identity_score": 13.0
+      },
+      "start": 576.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Shah Rukh Khan is clearly visible in all three frames delivering a talk/interview on stage, which serves as biographical illustration for a video about his life, though it does not depict a specific historical event directly.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "31d4603adef499321006c707aede9c9b58b0b76198e33706a68a3a56533f0152",
+      "reviewed_at": 1790434717.6156285
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:dyavol.x_reel_30_11_2025_08_44_573777157327293198972",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dyavol.x_reel_30_11_2025_08_44_573777157327293198972/dyavol.x_reel_30_11_2025_08_44_573777157327293198972.mp4",
+        "source_url": "https://archive.org/details/dyavol.x_reel_30_11_2025_08_44_573777157327293198972",
+        "title": "Aryan Khan,Shah Rukh Khan Kajol dyavol.x_reel_30_11_2025_08_44_573",
+        "description": "D'YAVOL X is owned by a collective including Aryan Khan , Shah Rukh Khan , Leti Blagoeva , and Bunty Singh , with Aryan Khan as the driving force behind the streetwear line and co-founder of the overall luxury brand, which also includes spirits and has seen investment from Nikhil Kamath and Radico Khaitan . The brand, which began with spirits and expanded into luxury streetwear (D'YAVOL X), is built on a partnership stemming from existing friendships and a shared vision for luxury lifestyle products, notes The Hindu . Key Owners & Partners: Aryan Khan: Entrepreneur, filmmaker, and the primary founder of D'YAVOL X streetwear. Shah Rukh Khan: Bollywood superstar, co-founder, and a key figure in the brand's luxury positioning. Leti Blagoeva & Bunty Singh: Partners with backgrounds in management consultancy and entrepreneurship, instrumental in bringing the concept to reality. Nikhil Kamath & Radico Khaitan: Investors in the spirits arm (D'YAVOL Spirits), adding manufacturing and distribution power. Brand Structure: D'YAVOL: The overarching luxury collective, focusing on spirits like vodka and Scotch whisky. D'YAVOL X: The limited-release, high-end streetwear line established by Aryan Khan, Leti Blagoeva, and Bunty Singh, featuring designs from collaborations with international artists srk king of bollywood 2025 2026 2027 2030 netflix",
+        "creator": "SRK",
+        "license": "",
+        "subject": "srk king of bollywood 2025 2026 2027 2030 netflix",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0
+      },
+      "start": 33.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames feature close-up shots of Shah Rukh Khan wearing sunglasses in promotional or cinematic footage, which can be used as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4b4c203f5c550cc9161c4999844b3d93b47ba8a71745ef69c0bebe509c18c19a",
+      "reviewed_at": 1790434751.7363992
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:ShahRukhKhan_2017",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ShahRukhKhan_2017/ShahRukhKhan_2017.mp4",
+        "source_url": "https://archive.org/details/ShahRukhKhan_2017",
+        "title": "Shah Rukh Khan: Thoughts on humanity, fame and love",
+        "description": "\"I sell dreams, and I peddle love to millions of people,\" says Shah Rukh Khan, Bollywood's biggest star. In this charming, funny talk, Khan traces the arc of his life, showcases a few of his famous dance moves and shares hard-earned wisdom from a life spent in the spotlight. ['Tedtalks', 'TED', 'Talks', 'aging', 'art', 'communication', 'dance', 'entertainment', 'family', 'future', 'happiness', 'humanity', 'india', 'love', 'movies', 'music', 'personal growth', 'success', 'technology', 'TED2017', '2017']",
+        "creator": "TED.com",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
+        "subject": "['Tedtalks', 'TED', 'Talks', 'aging', 'art', 'communication', 'dance', 'entertainment', 'family', 'future', 'happiness', 'humanity', 'india', 'love', 'movies', 'music', 'personal growth', 'success', 'technology', 'TED2017', '2017']",
+        "runtime": "00:17:51",
+        "direct_subject": true,
+        "duration_hint": 1071.0,
+        "identity_score": 13.0
+      },
+      "start": 168.22,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows Shah Rukh Khan speaking at a TED talk, which serves as biographical illustration of his public speaking and life as a celebrity, though it is not direct footage of the specific narrated historical events.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9af4de9070d639a373771751cea87340f1b405a66006959aa020886f17be8284",
+      "reviewed_at": 1790434774.6520827
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:dyavol.x_reel_30_11_2025_08_44_573777157327293198972",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dyavol.x_reel_30_11_2025_08_44_573777157327293198972/dyavol.x_reel_30_11_2025_08_44_573777157327293198972.mp4",
+        "source_url": "https://archive.org/details/dyavol.x_reel_30_11_2025_08_44_573777157327293198972",
+        "title": "Aryan Khan,Shah Rukh Khan Kajol dyavol.x_reel_30_11_2025_08_44_573",
+        "description": "D'YAVOL X is owned by a collective including Aryan Khan , Shah Rukh Khan , Leti Blagoeva , and Bunty Singh , with Aryan Khan as the driving force behind the streetwear line and co-founder of the overall luxury brand, which also includes spirits and has seen investment from Nikhil Kamath and Radico Khaitan . The brand, which began with spirits and expanded into luxury streetwear (D'YAVOL X), is built on a partnership stemming from existing friendships and a shared vision for luxury lifestyle products, notes The Hindu . Key Owners & Partners: Aryan Khan: Entrepreneur, filmmaker, and the primary founder of D'YAVOL X streetwear. Shah Rukh Khan: Bollywood superstar, co-founder, and a key figure in the brand's luxury positioning. Leti Blagoeva & Bunty Singh: Partners with backgrounds in management consultancy and entrepreneurship, instrumental in bringing the concept to reality. Nikhil Kamath & Radico Khaitan: Investors in the spirits arm (D'YAVOL Spirits), adding manufacturing and distribution power. Brand Structure: D'YAVOL: The overarching luxury collective, focusing on spirits like vodka and Scotch whisky. D'YAVOL X: The limited-release, high-end streetwear line established by Aryan Khan, Leti Blagoeva, and Bunty Singh, featuring designs from collaborations with international artists srk king of bollywood 2025 2026 2027 2030 netflix",
+        "creator": "SRK",
+        "license": "",
+        "subject": "srk king of bollywood 2025 2026 2027 2030 netflix",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0
+      },
+      "start": 53.16,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows Shah Rukh Khan in a promotional commercial setting (D'YAVOL X), featuring real filmed footage of the subject. While not depicting a specific historical biographical event, it serves as biographical illustration of his career and brand partnerships.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "82d889827dbeaeb5f5e6e3ff038e772a80c2d796d0a0e8345465aa401c6b0ba0",
+      "reviewed_at": 1790434807.081185
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:ShahRukhKhan_2017",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ShahRukhKhan_2017/ShahRukhKhan_2017.mp4",
+        "source_url": "https://archive.org/details/ShahRukhKhan_2017",
+        "title": "Shah Rukh Khan: Thoughts on humanity, fame and love",
+        "description": "\"I sell dreams, and I peddle love to millions of people,\" says Shah Rukh Khan, Bollywood's biggest star. In this charming, funny talk, Khan traces the arc of his life, showcases a few of his famous dance moves and shares hard-earned wisdom from a life spent in the spotlight. ['Tedtalks', 'TED', 'Talks', 'aging', 'art', 'communication', 'dance', 'entertainment', 'family', 'future', 'happiness', 'humanity', 'india', 'love', 'movies', 'music', 'personal growth', 'success', 'technology', 'TED2017', '2017']",
+        "creator": "TED.com",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
+        "subject": "['Tedtalks', 'TED', 'Talks', 'aging', 'art', 'communication', 'dance', 'entertainment', 'family', 'future', 'happiness', 'humanity', 'india', 'love', 'movies', 'music', 'personal growth', 'success', 'technology', 'TED2017', '2017']",
+        "runtime": "00:17:51",
+        "direct_subject": true,
+        "duration_hint": 1071.0,
+        "identity_score": 13.0
+      },
+      "start": 86.61,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows Shah Rukh Khan speaking on stage (from a TED talk), which provides good visual footage of the subject for biographical illustration, though it does not depict a specific historical event directly.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "de336f9d909346212535eba7a3a59378b09c412411eba06c3efa434f58f8995c",
+      "reviewed_at": 1790434808.6674035
     }
   ]
 }

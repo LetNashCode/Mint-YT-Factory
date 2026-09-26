@@ -1,31 +1,6 @@
 [
   {
     "format": "strange_turning_point",
-    "person": "Alexander Fleming",
-    "premise": "A messy laboratory and a stray spore led to the accidental discovery of penicillin.",
-    "hook": "He left a petri dish uncovered on his messy laboratory bench before going on holiday, altering the course of medicine.",
-    "key_facts": [
-      "Returned from a holiday in 1928 to find a Petri dish of Staphylococcus bacteria contaminated by a fungus.",
-      "Noticed that the fungus had destroyed the surrounding bacteria colonies.",
-      "Identified the mold as Penicillium notatum and published his initial findings on penicillin.",
-      "His discovery laid the groundwork for the development of mass-produced antibiotics by later scientists."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
-    "person": "Shah Rukh Khan",
-    "premise": "An orphaned newcomer to Delhi arrives in Mumbai with no industry connections and builds a career to become one of global cinema's biggest stars.",
-    "hook": "He arrived in Mumbai with a suitcase and a promise to his dying mother, refusing to take no for an answer.",
-    "key_facts": [
-      "Lost both parents at a young age in Delhi.",
-      "Started his acting career on television before moving to films.",
-      "Initially gained recognition for playing complex villain roles rather than conventional heroes."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
     "person": "J.K. Rowling",
     "premise": "A stranded train journey sparks the creation of a fantasy world that eventually changes modern publishing history.",
     "hook": "A four-hour train delay on a broken track led to the creation of a multi-billion dollar literary phenomenon.",
@@ -33,18 +8,6 @@
       "Conceived the idea for the wizarding series while sitting on a delayed train from Manchester to London.",
       "Wrote early drafts in Edinburgh cafes while facing financial hardship.",
       "Resisted publisher suggestions to keep her birth initials hidden until requested by marketing."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
-    "person": "APJ Abdul Kalam",
-    "premise": "A boy who sold newspapers in a coastal pilgrimage town rises through sheer academic dedication to become India's chief missile scientist and President.",
-    "hook": "He started his mornings running down train station platforms selling newspapers, and ended up launching India's first satellite rockets.",
-    "key_facts": [
-      "Grew up in Rameswaram, Tamil Nadu, supporting his family from a young age.",
-      "Graduated in physics and studied aerospace engineering at Madras Institute of Technology.",
-      "Played a pivotal role in the development of India's civilian space program and military missile systems."
     ],
     "source": "gemini_original"
   },
@@ -57,6 +20,110 @@
       "Served in the United States Air Force for two decades, reaching the rank of master sergeant.",
       "Developed a rapid-painting style to create and sell landscape artworks during short breaks.",
       "Adapted his concise technique into a long-running public television instructional show."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Boman Irani",
+    "premise": "From working at a Mumbai wafer shop and running a photography studio to becoming a celebrated Bollywood actor at age 42.",
+    "hook": "He spent his twenties selling potato chips and behind a camera lens, before landing his first major film role in his forties.",
+    "key_facts": [
+      "Worked at his family's wafer shop named Irani Wafer Shop in Mumbai.",
+      "Spent years as a professional photographer covering sports and events.",
+      "Made his Bollywood feature film debut in 2003 at the age of 42.",
+      "Won multiple major awards for his performance in the film Munna Bhai M.B.B.S."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Virat Kohli",
+    "premise": "Playing a domestic cricket match for Delhi on the day his father passed away, returning to the crease to score a crucial innings.",
+    "hook": "Hours after losing his father, a teenage cricketer walked back onto the pitch to save his team from defeat.",
+    "key_facts": [
+      "Represented Delhi in a Ranji Trophy match against Karnataka in December 2006.",
+      "Received news of his father's passing late at night during the match.",
+      "Returned to the field the next morning to score 90 runs for his team.",
+      "Went on to captain the Indian national cricket team across all formats."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Alexander Fleming",
+    "premise": "Returning from a holiday to find a messy, unwashed laboratory petri dish contaminated with mold that destroyed surrounding bacteria.",
+    "hook": "A messy laboratory bench and a stray mold spore led to the discovery of the world's first antibiotic.",
+    "key_facts": [
+      "Found a petri dish containing Staphylococcus bacteria contaminated with Penicillium mold in 1928.",
+      "Observed that the bacteria surrounding the mold colony had been destroyed.",
+      "Published his findings on penicillin in the British Journal of Experimental Pathology in 1929.",
+      "Shared the Nobel Prize in Physiology or Medicine in 1945 for his discovery."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Dharmendra",
+    "premise": "Leaving a small village in Punjab after winning a talent contest, traveling to Mumbai with limited means to break into cinema.",
+    "hook": "A young man from a Punjabi farming village took a train to Mumbai with a dream of seeing his face on the silver screen.",
+    "key_facts": [
+      "Won a Filmfare-sponsored nationwide talent contest in the late 1950s.",
+      "Debuted in the film Dil Bhi Tera Hum Bhi Tere in 1960.",
+      "Became one of the leading action and romantic stars of Bollywood through the 1960s and 1970s.",
+      "Starred in numerous blockbusters including Sholay."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Nolan Bushnell",
+    "premise": "Choosing to pivot from arcade game development to found Atari and create the home video game industry.",
+    "hook": "He looked at massive, expensive arcade computers and decided to build a version that could fit in a living room.",
+    "key_facts": [
+      "Co-founded Atari, Inc. in 1972 with Ted Dabney.",
+      "Released the arcade game Pong, which became a commercial success.",
+      "Created the Atari 2600 home console, popularizing interchangeable game cartridges.",
+      "Studied engineering at the University of Utah while working at an amusement park."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Viswanathan Anand",
+    "premise": "Learning the game of chess from his mother in Chennai as a child before dominating international competitions to become India's first grandmaster.",
+    "hook": "Long before he became a world chess champion, he was just a kid in Chennai studying matches from chess magazines.",
+    "key_facts": [
+      "Learned chess rules from his mother, Susila, at the age of six.",
+      "Became India's first chess Grandmaster in 1988 at the age of 18.",
+      "Won the FIDE World Chess Championship multiple times across different formats.",
+      "Awarded India's highest civilian sporting honor, the Rajiv Gandhi Khel Ratna, in 1991."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Ernest Shackleton",
+    "premise": "Surviving months on ice floes after his ship Endurance was crushed by Antarctic pack ice, orchestrating a rescue of all crew members.",
+    "hook": "His ship was crushed and sunk by Antarctic ice, stranding twenty-eight men on floating floes with no way to call for help.",
+    "key_facts": [
+      "Led the Imperial Trans-Antarctic Expedition which set sail in 1914.",
+      "Endurance was trapped and eventually crushed by ice in the Weddell Sea.",
+      "Traveled 800 miles in a small lifeboat to South Georgia Island to secure rescue for his crew.",
+      "Successfully returned to rescue every single member of his stranded expedition."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Claude Monet",
+    "premise": "Rejecting traditional studio painting in Paris to set up a floating boat studio on the Seine to capture changing natural light.",
+    "hook": "Instead of painting inside a formal art academy, he built a floating wooden shack on a river just to catch the shifting light.",
+    "key_facts": [
+      "Constructed a floating studio boat on the River Seine in Argenteuil during the 1870s.",
+      "Helped found the Impressionist movement, exhibiting work outside the official Paris Salon.",
+      "Painted extensive series capturing the same subjects under different weather and light conditions.",
+      "Established the famous water garden at his home in Giverny, which inspired his late works."
     ],
     "source": "gemini_original"
   }

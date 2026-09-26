@@ -86,5 +86,13 @@
     "title": "Before the Fame: Oprah Winfrey",
     "video_id": "F4LpxA21M1E",
     "workdir": "output/interactive/1790416070"
+  },
+  {
+    "topic": "Keanu Reeves: A nomadic youth who attended four different high schools discovers his passion for acting on the ice rink before landing breakout roles.",
+    "pillar": "before_they_were_famous",
+    "person": "Keanu Reeves",
+    "title": "Before the Fame: Keanu Reeves",
+    "video_id": "dPgbvuWbWEY",
+    "workdir": "output/interactive/1790429071"
   }
 ]

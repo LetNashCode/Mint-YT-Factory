@@ -49,30 +49,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "before_they_were_famous",
-    "person": "Keanu Reeves",
-    "premise": "A nomadic youth who attended four different high schools discovers his passion for acting on the ice rink before landing breakout roles.",
-    "hook": "Before he was an action icon, he was a competitive ice hockey goalie known as 'The Wall.'",
-    "key_facts": [
-      "Moved frequently during childhood across multiple countries.",
-      "Excelled as a high school ice hockey player in Toronto before an injury redirected his ambitions.",
-      "Spent years taking small theater and television roles before achieving global film stardom."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Tenzing Norgay",
-    "premise": "A porter from the Himalayas helps complete the world's most dangerous mountaineering expedition after decades of being denied leadership roles.",
-    "hook": "He carried the heavy loads for wealthier climbers for years, until he finally stepped onto the highest peak on Earth.",
-    "key_facts": [
-      "Participated in multiple Himalayan mountaineering expeditions as a sirdar and guide starting in the 1930s.",
-      "Reached the summit of Mount Everest alongside Edmund Hillary in 1953.",
-      "Became the first director of field training at the Himalayan Mountaineering Institute."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "strange_turning_point",
     "person": "Bob Ross",
     "premise": "A former military master sergeant adopts a specific painting technique to produce art rapidly while working a demanding day job.",

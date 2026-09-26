@@ -125,6 +125,7 @@ def prepare(person, topic):
         return copy.deepcopy(_PREPARED)
     _PREPARED = {}
     root = Path("output/interactive/footage_preflight") / _key([person, topic])[:16]
+    root.mkdir(parents=True, exist_ok=True)
     # A biography brief is deliberately stable across retries, allowing safe cache reuse.
     # It does not certify any particular event, date or place shown by the footage.
     brief = {"narration": f"Archival footage illustrating the life of {person}.", "visuals": []}

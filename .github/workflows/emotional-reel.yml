@@ -70,6 +70,9 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg imagemagick
       - name: Install dependencies
         run: python -m pip install --prefer-binary -r requirements.txt
+      - name: Install test dependencies
+        run: python -m pip install --prefer-binary pytest
+
       - name: Validate Emotional Shorts Python syntax and TTS regression
         shell: bash
         run: |

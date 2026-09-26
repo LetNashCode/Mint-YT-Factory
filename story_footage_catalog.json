@@ -1105,6 +1105,36 @@
       },
       "review_key": "deb355d938708a93274badae0dd50609543353f1c0ad472638df8b171756c58b",
       "reviewed_at": 1790412023.6062472
+    },
+    {
+      "person": "Hedy Lamarr",
+      "source": {
+        "id": "archive:ecstasy-1933.hedy-lamarr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ecstasy-1933.hedy-lamarr/Ecstasy.1933.%28Hedy.Lamarr%29.720p.mp4",
+        "source_url": "https://archive.org/details/ecstasy-1933.hedy-lamarr",
+        "title": "Ecstasy - 1933 (Hedy Lamarr)",
+        "description": "Ecstasy - (Hedy Lamarr) 1933 ['Ecstasy', '1933', 'Hedy Lamarr', 'MKV']",
+        "creator": "",
+        "license": "",
+        "subject": "['Ecstasy', '1933', 'Hedy Lamarr', 'MKV']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0
+      },
+      "start": 2714.09,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show Hedy Lamarr in archival footage from the 1933 film 'Ecstasy', serving as biographical illustration of her early acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a2413b09e1d1fb707412f7cdd06ca02deee077624c96e59073a7c49b6b1a80bb",
+      "reviewed_at": 1790414517.6272008
     }
   ]
 }

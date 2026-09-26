@@ -37,29 +37,5 @@
       "His discovery laid the groundwork for the development of mass-produced antibiotics by later scientists."
     ],
     "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Hedy Lamarr",
-    "premise": "A glamorous Hollywood actress during the Golden Age secretly invents and patents a radio guidance system for allied torpedoes.",
-    "hook": "Movie studios marketed her purely for her beauty, while she spent her nights designing military communication technology.",
-    "key_facts": [
-      "Achieved international fame as a leading Hollywood actress in the 1930s and 1940s.",
-      "Co-invented a frequency-hopping spread spectrum communication system during World War II.",
-      "Her foundational patent later contributed to the development of modern Wi-Fi and Bluetooth technologies."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Ruth Handler",
-    "premise": "Observing her daughter playing with paper dolls prompted a toy industry executive to invent the world's most famous fashion doll.",
-    "hook": "She watched her daughter play with adult paper dolls and realized the toy market was missing something radical.",
-    "key_facts": [
-      "Co-founded Mattel with her husband Elliot Handler in their garage workshop.",
-      "Encountered a German adult novelty doll named Bild Lilli while traveling in Europe, inspiring her design.",
-      "Launched the doll named after her daughter Barbara in 1959, changing the toy industry forever."
-    ],
-    "source": "gemini_original"
   }
 ]

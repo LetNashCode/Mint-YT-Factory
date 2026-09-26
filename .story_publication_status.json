@@ -1,0 +1,6 @@
+{
+  "status": "deferred",
+  "video_id": "",
+  "youtube_url": "",
+  "reason": "Story verifier unavailable after network retries/model fallback: HTTP 429"
+}

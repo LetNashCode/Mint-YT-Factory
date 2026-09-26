@@ -387,7 +387,7 @@ def search_archive(person):
             if _source_precheck(candidate):
                 continue
             candidate["identity_score"] = _identity_score(person, candidate)
-            metadata_text = words(title + " " + subject + " " + candidate.get("creator", ""))
+            metadata_text = clean(title + " " + subject + " " + candidate.get("creator", "")).lower()
             candidate["archival_signal"] = sum(
                 1 for term in _POSITIVE_ARCHIVAL_TERMS if term in metadata_text
             )
@@ -654,6 +654,9 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
     root = Path(output_dir)
     root.mkdir(parents=True, exist_ok=True)
     _ensure_verifier_budget()
+    max_subject_verifier_requests = max(
+        14, int(os.environ.get("STORY_GEMINI_MAX_REQUESTS_PER_SUBJECT", "24"))
+    )
     audit = {"person": person, "providers": [], "attempts": [], "selected": [],
              "verifier_budget": verifier_budget_status(),
              "subject_verifier_request_limit": max_subject_verifier_requests}
@@ -661,9 +664,6 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
     rejected = set()
     source_rejections, source_errors = Counter(), Counter()
     subject_budget_start = int((story_gemini_budget.status() or {}).get("used", 0))
-    max_subject_verifier_requests = max(
-        14, int(os.environ.get("STORY_GEMINI_MAX_REQUESTS_PER_SUBJECT", "24"))
-    )
     deadline = time.monotonic() + 1500
     def save_audit():
         (root / "story_video_audit.json").write_text(json.dumps(audit, indent=2, ensure_ascii=False), encoding="utf-8")

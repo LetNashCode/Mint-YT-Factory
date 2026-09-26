@@ -758,3 +758,25 @@ def test_frame_precheck_allows_motion_but_does_not_verify_identity():
         image.save(buffer, format="JPEG")
         frames.append(base64.b64encode(buffer.getvalue()).decode())
     assert media._frame_precheck(frames) is None
+
+
+def test_source_precheck_rejects_promotional_animation_and_tv_noise():
+    cases = [
+        {"title": "APJ Abdul Kalam animated story", "description": ""},
+        {"title": "Shah Rukh Khan promotional DVD menu", "description": ""},
+        {"title": "Tenzing Norgay TV series episode", "description": ""},
+        {"title": "Shah Rukh Khan commercial advertisement", "description": ""},
+    ]
+    for item in cases:
+        assert media._source_precheck(item)
+
+
+def test_archive_positive_signal_prefers_interview_metadata():
+    assert "interview" in media._POSITIVE_ARCHIVAL_TERMS
+    assert "speech" in media._POSITIVE_ARCHIVAL_TERMS
+    assert "documentary" in media._POSITIVE_ARCHIVAL_TERMS
+
+
+def test_subject_verifier_budget_is_bounded():
+    import os
+    assert max(14, int(os.environ.get("STORY_GEMINI_MAX_REQUESTS_PER_SUBJECT", "24"))) == 24

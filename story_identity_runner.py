@@ -203,6 +203,19 @@ def _defer_story(reason: str) -> None:
 
 
 def main() -> None:
+    # A deferred marker belongs to the previous run and must never override a
+    # fresh successful publication. The publication-state file is authoritative.
+    for marker in (
+        ".story_deferred",
+        ".story_gemini_quota_deferred",
+        ".story_verifier_budget_deferred",
+        story_gemini_budget.BUDGET_DEFER_FILE,
+    ):
+        try:
+            Path(marker).unlink()
+        except FileNotFoundError:
+            pass
+
     next_number = validate_story_sequence_state()
     print(f"🔐 Story sequence preflight passed: next Story #{next_number}")
     def validated_next_story_number() -> int:
@@ -273,7 +286,15 @@ def main() -> None:
                 flush=True,
             )
 
-    if Path(".story_gemini_quota_deferred").exists() or Path(".story_deferred").exists():
+    # Do not infer publication success/failure from stale marker files. The
+    # authoritative contract is the durable publication-state record written
+    # by interactive_main after the YouTube upload and social completion.
+    try:
+        import json
+        state = json.loads(Path(".story_publication_status.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError, TypeError):
+        state = {}
+    if state.get("status") != "complete" or not str(state.get("video_id") or "").strip():
         raise RuntimeError("Story Shorts ended without a completed publication.")
 
 

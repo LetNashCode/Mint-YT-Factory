@@ -8449,6 +8449,146 @@
       "shot": 2,
       "query": "apple brown clever defense keeps bugs",
       "recorded_at": 1790425471
+    },
+    {
+      "asset_key": "pexels:video:9893609",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9893609/9893609-hd_1366_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "shower curtains attack plastic curtain white",
+      "recorded_at": 1790443489
+    },
+    {
+      "asset_key": "pexels:video:5720944",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5720944/5720944-hd_720_1280_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "shower curtains attack wraps around your leg",
+      "recorded_at": 1790443496
+    },
+    {
+      "asset_key": "pexels:video:11738522",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/11738522/11738522-hd_1280_720_50fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "shower curtains attack you didn open window",
+      "recorded_at": 1790443496
+    },
+    {
+      "asset_key": "pexels:video:28048580",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/28048580/12290921_720_1280_30fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "shower curtains attack there zero breeze hanging",
+      "recorded_at": 1790443497
+    },
+    {
+      "asset_key": "pexels:video:12356543",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/12356543/12356543-hd_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "shower curtains attack yet flimsy plastic keeps",
+      "recorded_at": 1790443498
+    },
+    {
+      "asset_key": "pexels:video:5823845",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5823845/5823845-hd_1280_720_24fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "shower curtains attack culprit your hot",
+      "recorded_at": 1790443498
+    },
+    {
+      "asset_key": "pexels:video:6565146",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6565146/6565146-hd_1280_720_24fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "shower curtains attack hot water heats air",
+      "recorded_at": 1790443499
+    },
+    {
+      "asset_key": "pexels:video:4307516",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4307516/4307516-hd_1280_720_60fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "shower curtains attack making lighter rushes upward",
+      "recorded_at": 1790443500
+    },
+    {
+      "asset_key": "pexels:video:6808082",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6808082/6808082-hd_720_1280_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "shower curtains attack rising hot air creates",
+      "recorded_at": 1790443501
+    },
+    {
+      "asset_key": "pexels:video:26796112",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/26796112/12008397_720_1280_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "shower curtains attack sucking cooler room air",
+      "recorded_at": 1790443502
+    },
+    {
+      "asset_key": "pexels:video:28048584",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/28048584/12290945_720_1280_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "shower curtains attack your bathroom turns into",
+      "recorded_at": 1790443503
+    },
+    {
+      "asset_key": "pexels:video:5937441",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5937441/5937441-hd_720_1280_24fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "shower curtains attack curtain simply caught crossfire",
+      "recorded_at": 1790443504
+    },
+    {
+      "asset_key": "pexels:video:8322008",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8322008/8322008-hd_1366_720_25fps.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "shower curtains attack next time your liner",
+      "recorded_at": 1790443504
+    },
+    {
+      "asset_key": "pexels:video:8516640",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8516640/8516640-hd_720_1280_30fps.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "shower curtains attack next time your liner",
+      "recorded_at": 1790443506
     }
   ]
 }

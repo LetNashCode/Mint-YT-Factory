@@ -569,3 +569,34 @@ def test_hybrid_source_credits_are_deduplicated(monkeypatch):
     credits = hybrid.source_credits()
     assert credits.count("https://commons.example/a") == 1
     assert credits.count("https://archive.example/b") == 1
+
+
+def test_daily_gemini_quota_marks_story_for_defer(monkeypatch, tmp_path):
+    monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
+    monkeypatch.setenv("STORY_VIDEO_VERIFY_MODEL", "gemini-test")
+    payload = {
+        "error": {
+            "code": 429,
+            "status": "RESOURCE_EXHAUSTED",
+            "message": "Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "details": [{"@type": "type.googleapis.com/google.rpc.QuotaFailure",
+                         "violations": [{"quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier"}]}],
+        }
+    }
+
+    class Response:
+        status_code = 429
+        def json(self):
+            return payload
+
+    monkeypatch.setattr(media.requests, "post", lambda *args, **kwargs: Response())
+    with pytest.raises(RuntimeError, match="daily Gemini quota exhausted"):
+        media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
+    assert (Path(".story_gemini_quota_deferred")).exists()
+
+
+def test_invalid_verifier_result_fails_closed(monkeypatch, tmp_path):
+    stub_pipeline(monkeypatch)
+    monkeypatch.setattr(media, "verify", lambda *args: None)
+    with pytest.raises(RuntimeError, match="invalid result type"):
+        media.generate_media(story(), str(tmp_path), {})

@@ -27,6 +27,31 @@ _LAST_GROUPS = []
 _VERIFIER_MODELS = {}
 
 
+QUOTA_DEFER_FILE = ".story_gemini_quota_deferred"
+
+
+def _mark_gemini_quota_deferred(reason):
+    """Persist a hard Gemini quota exhaustion so the runner stops safely."""
+    Path(QUOTA_DEFER_FILE).write_text(str(reason).strip()[:1200] + "\n", encoding="utf-8")
+    print(f"🛑 Story Gemini quota exhausted; deferring Story publication: {reason}", flush=True)
+
+
+def _is_daily_quota_response(response):
+    """Return True for Gemini's non-recoverable daily/project quota response."""
+    if response is None or getattr(response, "status_code", None) != 429:
+        return False
+    try:
+        payload = response.json()
+    except (ValueError, AttributeError):
+        payload = {}
+    text = json.dumps(payload, ensure_ascii=False).lower()
+    return (
+        "generaterequestsperdayperproject" in text
+        or "generate_content_free_tier_requests" in text
+        or "quotaexceeded" in text
+    )
+
+
 def clean(value):
     return " ".join(html.unescape(re.sub(r"<[^>]+>", " ", str(value or ""))).split())[:1600]
 
@@ -377,27 +402,60 @@ def verify(person, scene, item, samples):
     payload = {"contents": [{"parts": [{"text": prompt}] + [
         {"inline_data": {"mime_type": "image/jpeg", "data": sample}} for sample in samples]}],
         "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}}
-    # Pinned lightweight models confirmed by the authenticated model catalog.
-    # Try each at most once; never accept unchecked frames on quota/network failure.
+    # Pinned lightweight models. A daily/project quota response is not
+    # recoverable by trying more subjects or repeatedly hitting more models.
     models = list(dict.fromkeys([model, "gemini-3.8-flash", "gemini-3.1-flash-lite", "gemini-3.5-flash-lite"]))[:3]
     last_error = "unknown"
     for model in models:
-        try:
-            response = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{quote(model, safe='')}:generateContent",
-                                     headers={"x-goog-api-key": key}, json=payload, timeout=(10, 60))
-        except (requests.Timeout, requests.ConnectionError):
-            last_error = "network timeout"
-            print(f"Story verifier network timeout: {model}; trying next pinned model", flush=True)
-            continue
-        if response.status_code in (404, 429, 500, 502, 503, 504):
-            last_error = f"HTTP {response.status_code}"
-            print(f"Story verifier {model}: {last_error}; trying next pinned model", flush=True)
-            continue
-        response.raise_for_status()
-        parts = response.json().get("candidates", [{}])[0].get("content", {}).get("parts", [])
-        result = json.loads("".join(p.get("text", "") for p in parts))
-        _VERIFIER_MODELS[requested_model] = model
-        return result
+        for retry in range(2):
+            try:
+                response = requests.post(
+                    f"https://generativelanguage.googleapis.com/v1beta/models/{quote(model, safe='')}:generateContent",
+                    headers={"x-goog-api-key": key}, json=payload, timeout=(10, 60)
+                )
+            except (requests.Timeout, requests.ConnectionError):
+                last_error = "network timeout"
+                print(f"Story verifier network timeout: {model}; trying next pinned model", flush=True)
+                break
+
+            if response.status_code == 429 and _is_daily_quota_response(response):
+                try:
+                    detail = response.json().get("error", {}).get("message", "daily/project quota exhausted")
+                except (ValueError, AttributeError):
+                    detail = "daily/project quota exhausted"
+                _mark_gemini_quota_deferred(detail)
+                raise RuntimeError("Story verifier daily Gemini quota exhausted")
+
+            if response.status_code == 429:
+                last_error = "HTTP 429"
+                print(f"Story verifier {model}: HTTP 429; trying next pinned model", flush=True)
+                break
+
+            if response.status_code in (500, 502, 503, 504):
+                last_error = f"HTTP {response.status_code}"
+                if retry == 0:
+                    print(f"Story verifier {model}: {last_error}; retrying once", flush=True)
+                    time.sleep(2)
+                    continue
+                print(f"Story verifier {model}: {last_error}; trying next pinned model", flush=True)
+                break
+
+            if response.status_code == 404:
+                last_error = "HTTP 404"
+                print(f"Story verifier {model}: HTTP 404; trying next pinned model", flush=True)
+                break
+
+            response.raise_for_status()
+            try:
+                parts = response.json().get("candidates", [{}])[0].get("content", {}).get("parts", [])
+                result = json.loads("".join(p.get("text", "") for p in parts))
+            except (ValueError, TypeError, AttributeError, IndexError) as exc:
+                raise RuntimeError(f"Story verifier returned invalid JSON response: {type(exc).__name__}") from None
+            if not isinstance(result, dict):
+                raise RuntimeError("Story verifier returned a non-object JSON response")
+            _VERIFIER_MODELS[requested_model] = model
+            return result
+
     raise RuntimeError(f"Story verifier unavailable after network retries/model fallback: {last_error}")
 
 
@@ -497,6 +555,10 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                 cached[identity] = frames(clip, actual)
                             verdict = (catalog.verify(person, scene, item, cached[identity], start, length)
                                        if catalog is not None else verify(person, scene, item, cached[identity]))
+                            if not isinstance(verdict, dict):
+                                raise RuntimeError(
+                                    f"Story verifier returned invalid result type: {type(verdict).__name__}"
+                                )
                             audit["attempts"].append({"scene": scene_no, "shot": shot_no, "source": item["source_url"],
                                                       "start": start, "verification": verdict})
                             if not (catalog.accepts(verdict) if catalog is not None else verification_passes(verdict)):
@@ -525,7 +587,12 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                 raise RuntimeError(f"Story visual verifier HTTP {exc.response.status_code}") from None
                             audit["attempts"].append({"source": item["source_url"], "start": start, "error": type(exc).__name__})
                         except Exception as exc:
-                            if str(exc).startswith(("Story visual verifier", "Story verifier unavailable")):
+                            if str(exc).startswith((
+                                "Story visual verifier",
+                                "Story verifier unavailable",
+                                "Story verifier daily Gemini quota exhausted",
+                                "Story verifier returned invalid",
+                            )):
                                 raise
                             source_errors[sid] += 1
                             audit["attempts"].append({"source": item["source_url"], "start": start, "error": type(exc).__name__})

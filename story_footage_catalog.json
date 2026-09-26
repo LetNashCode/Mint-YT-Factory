@@ -2441,37 +2441,6 @@
     {
       "person": "Nolan Bushnell",
       "source": {
-        "id": "archive:TWiST-E282",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
-        "source_url": "https://archive.org/details/TWiST-E282",
-        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
-        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "creator": "ThisWeekIn Network",
-        "license": "",
-        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 3474.01,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Nolan Bushnell is visible in frames 2 and 3 participating in an interview on a podcast. While it is not direct historical footage of the events of his life, it serves as a valid biographical illustration of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "3d80d56e1f974a1e249ff8370e04f8313b9158c9489ee0393e40f658966fea8c",
-      "reviewed_at": 1790455405.915679
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
         "id": "archive:twitter-935784150069415936",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/twitter-935784150069415936/935784150069415936.mp4",
@@ -2716,6 +2685,37 @@
       },
       "review_key": "3d2b08e090074e818e81e5a93b0e5440b20346474f6952c2473c7f62c05f1d36",
       "reviewed_at": 1790455607.9521384
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:TWiST-E282",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
+        "source_url": "https://archive.org/details/TWiST-E282",
+        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
+        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "creator": "ThisWeekIn Network",
+        "license": "",
+        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 3474.01,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip shows an interview with Nolan Bushnell, but the framing pans across the host and changes shots rather than keeping Nolan clearly visible throughout the entire sequence, and it's a podcast setting rather than archival footage of his historical work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b8979490d835cfa430a82d2e5a6c8c67a4f677ffc0dbf1ed4f0b976053372377",
+      "reviewed_at": 1790461902.7836936
     }
   ]
 }

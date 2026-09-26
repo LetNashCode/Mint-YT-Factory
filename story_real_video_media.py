@@ -602,7 +602,7 @@ def verify(person, scene, item, samples):
             _mark_gemini_quota_deferred(detail)
             if story_qwen_vision_fallback.enabled():
                 print(
-                    "🛟 Gemini daily/project quota exhausted; switching Story visual verification to local Qwen2.5-VL",
+                    "🛟 Gemini daily/project quota exhausted; switching Story visual verification to local Qwen2-VL",
                     flush=True,
                 )
                 try:

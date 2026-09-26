@@ -1,19 +1,19 @@
 {
   "status": "uploaded",
   "final_path": "output/emotional_reel/final.mp4",
-  "final_sha256": "ed7e6ff981ef197ed75033de1a3a70435321a3312c4b2db09eae530d8aa512cf",
-  "cache_key": "emotional-reel-final-v2-ed7e6ff981ef197ed75033de1a3a7043",
-  "title": "The Weight of Keeping It Together",
-  "description": "An intimate cinematic reflection on the quiet exhaustion of carrying expectations and the profound shift that happens when you finally let them go.",
+  "final_sha256": "1ea15b7976cad28b998954bccb8687acce7c33abcdaf634e213543366d31066a",
+  "cache_key": "emotional-reel-final-v2-1ea15b7976cad28b998954bccb8687ac",
+  "title": "The Weight We Carry Alone",
+  "description": "An intimate cinematic reflection on the hidden pressures we endure and the quiet power of finally setting them down.",
   "hashtags": [
-    "mindset",
     "reflection",
-    "growth",
+    "mindset",
     "innerpeace",
-    "authenticity",
-    "depth"
+    "growth",
+    "cinematic",
+    "perspective"
   ],
-  "engagement_comment": "Peace begins where performance ends.",
+  "engagement_comment": "Peace begins the moment you stop fighting yourself.",
   "voice": {
     "provider": "kokoro",
     "voice_name": "af_heart",
@@ -23,23 +23,23 @@
     "speed": 0.92,
     "tone": "curious, confident, playful storyteller"
   },
-  "created_at": 1790374455,
-  "narration_word_count": 153,
+  "created_at": 1790432580,
+  "narration_word_count": 151,
   "complete_script_preserved": true,
   "final_duration_seconds": 53.76,
-  "video_id": "uxdohDyHUjI",
+  "video_id": "fnzRJRfZXEc",
   "social": {
     "instagram": {
       "status": "published",
-      "media_id": "18136950457710959",
-      "container_id": "18494933530097136"
+      "media_id": "18017941241939394",
+      "container_id": "18495068638097136"
     },
     "facebook": {
       "status": "published",
-      "video_id": "2096268897946958"
+      "video_id": "3671793149639497"
     },
     "strict": false,
-    "updated_at": 1790374669
+    "updated_at": 1790432883
   },
-  "uploaded_at": 1790374788
+  "uploaded_at": 1790433028
 }

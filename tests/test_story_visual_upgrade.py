@@ -112,6 +112,16 @@ def test_prepare_happens_before_context_and_requires_all_clips(monkeypatch, tmp_
     assert upgrade._PREPARED == {}
 
 
+def test_prepare_reuses_identical_existing_plan_without_second_media_generation(monkeypatch, tmp_path):
+    rows = reviewed_groups(tmp_path)
+    calls = []
+    monkeypatch.setattr(media, "generate_media", lambda *args, **kwargs: calls.append(1) or rows)
+    first = upgrade.prepare("Example Person", "Same premise")
+    second = upgrade.prepare("Example Person", "Same premise")
+    assert len(calls) == 1
+    assert first == second
+
+
 def test_render_reuses_prepared_video_and_preserves_source_intervals(monkeypatch, tmp_path):
     rows = reviewed_groups(tmp_path)
     upgrade._PREPARED = {"person": "Example Person", "groups": rows}

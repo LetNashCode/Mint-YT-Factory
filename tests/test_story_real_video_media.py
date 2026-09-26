@@ -664,6 +664,21 @@ def test_source_precheck_rejects_obvious_presenter_and_dramatization_metadata():
     }) is None
 
 
+def test_generate_media_skips_deterministically_rejected_sources_before_verification(monkeypatch, tmp_path):
+    stub_pipeline(monkeypatch)
+    bad = candidate(0)
+    bad["title"] = "Modern presenter discusses Nelson Mandela"
+    good = candidate(1)
+    calls = []
+    monkeypatch.setattr(media, "discover", lambda *args: [bad, good])
+    monkeypatch.setattr(media, "verify", lambda *args: calls.append(args) or dict(GOOD))
+    result = media.generate_media(story(), str(tmp_path), {})
+    assert len(result) == 14
+    assert calls
+    assert all(call[2]["id"] != bad["id"] for call in calls)
+    audit = json.loads((tmp_path / "story_video_audit.json").read_text())
+    assert audit["preflight"]["rejected"] == 1
+
 def test_frame_precheck_rejects_static_frames():
     from PIL import Image
     import io

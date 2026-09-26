@@ -16,6 +16,13 @@ GOOD = {"person_visible": True, "real_footage": True, "usable": True, "relevance
         "reason": "Subject visible in filmed interview", "usage": "biographical_illustration"}
 
 
+@pytest.fixture(autouse=True)
+def reset_verifier_budget():
+    media._reset_verifier_budget()
+    yield
+    media._reset_verifier_budget()
+
+
 def candidate(index=0):
     return {"id": f"source:{index}", "source_url": f"https://example.org/film/{index}",
             "url": f"https://example.org/{index}.mp4", "provider": "Wikimedia Commons",

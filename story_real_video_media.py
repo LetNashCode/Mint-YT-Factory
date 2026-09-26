@@ -294,10 +294,8 @@ def search_commons(person):
                 break
 
     results.sort(key=lambda item: (
-        not item.get("direct_subject", False),
         -float(item.get("identity_score", 0)),
-        0 if 0 < float(item.get("duration_hint", 0) or 0) <= 900 else 1,
-        float(item.get("duration_hint", 0) or 1e12),
+        not item.get("direct_subject", False),
         len(str(item.get("title", ""))),
     ))
     return results
@@ -390,8 +388,10 @@ def search_archive(person):
             seen.add(identifier)
 
     results.sort(key=lambda item: (
-        -float(item.get("identity_score", 0)),
         not item.get("direct_subject", False),
+        -float(item.get("identity_score", 0)),
+        0 if 0 < float(item.get("duration_hint", 0) or 0) <= 900 else 1,
+        float(item.get("duration_hint", 0) or 1e12),
         len(str(item.get("title", ""))),
     ))
     return results

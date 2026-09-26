@@ -131,6 +131,7 @@ def _is_gemini_quota_error(error):
         or "quota_id" in text
         or "rate limit" in text
         or "429" in text
+        or "story gemini request budget exhausted" in text
     )
 
 

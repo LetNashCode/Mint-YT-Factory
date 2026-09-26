@@ -311,9 +311,16 @@ VISUALS: every one of the 14 shots must represent a specific spoken beat. Return
             validation_attempts += 1
             if validation_attempts < MAX_ATTEMPTS:
                 time.sleep(2)
-    if ENABLE_CPU_QWEN_FALLBACK and last_error:
+    fallback_eligible=(
+        _is_quota_error(last_error)
+        or "503" in _clean(last_error)
+        or "unavailable" in _clean(last_error).lower()
+        or "high demand" in _clean(last_error).lower()
+    )
+    if ENABLE_CPU_QWEN_FALLBACK and last_error and fallback_eligible:
         try:
             return _generate_with_qwen(prompt,topic,last_error)
         except Exception as fallback_error:
             raise RuntimeError(f"SCRIPT GENERATION FAILED. Gemini error: {last_error} | Qwen fallback error: {type(fallback_error).__name__}: {fallback_error}") from fallback_error
+    raise RuntimeError(f"SCRIPT GENERATION FAILED. Gemini error: {last_error} | Qwen fallback error: {type(fallback_error).__name__}: {fallback_error}") from fallback_error
     raise RuntimeError(f"SCRIPT GENERATION FAILED after bounded Gemini retries. Last error: {last_error}")

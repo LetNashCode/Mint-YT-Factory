@@ -17,6 +17,7 @@ import subprocess
 import time
 import unicodedata
 from collections import Counter
+from io import BytesIO
 from pathlib import Path
 from urllib.parse import quote, urlparse
 
@@ -33,6 +34,15 @@ _VERIFIER_BUDGET = None  # compatibility view; authoritative state lives in stor
 QUOTA_DEFER_FILE = ".story_gemini_quota_deferred"
 VERIFIER_BUDGET_DEFER_FILE = story_gemini_budget.BUDGET_DEFER_FILE
 DEFAULT_VERIFIER_REQUEST_BUDGET = story_gemini_budget.DEFAULT_MAX_REQUESTS
+
+PRECHECK_CACHE_FILE = Path("story_video_rejection_cache.json")
+PRECHECK_CACHE_VERSION = 1
+_STRONG_BAD_METADATA_TERMS = (
+    "presenter", "talk show host", "host discusses", "host and actor",
+    "actor portraying", "portraying ", "reenactment", "dramatization",
+    "dramatized", "slideshow", "title card", "five minute flashback",
+    "5 minute flashback",
+)
 
 
 def _begin_verifier_budget():
@@ -86,6 +96,65 @@ def _is_daily_quota_response(response):
         or '"code": "quota_exceeded"' in text
         or ("quotaexceeded" in text and "perday" in text)
     )
+
+
+def _load_precheck_cache():
+    try:
+        data = json.loads(PRECHECK_CACHE_FILE.read_text(encoding="utf-8"))
+        if not isinstance(data, dict) or data.get("version") != PRECHECK_CACHE_VERSION:
+            return {}
+        entries = data.get("rejected")
+        return entries if isinstance(entries, dict) else {}
+    except (OSError, ValueError, TypeError):
+        return {}
+
+
+def _save_precheck_cache(entries):
+    payload = {"version": PRECHECK_CACHE_VERSION, "rejected": entries}
+    PRECHECK_CACHE_FILE.write_text(
+        json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
+
+
+def _source_precheck(item):
+    """Reject obvious presenter/dramatization sources before spending Gemini calls."""
+    hay = clean(" ".join(str(item.get(key, "")) for key in ("title", "description", "subject"))).lower()
+    for term in _STRONG_BAD_METADATA_TERMS:
+        if term in hay:
+            return f"strong metadata exclusion: {term.strip()}"
+    return None
+
+
+def _frame_precheck(samples):
+    """Cheap visual rejection for blank/static segments; never proves identity."""
+    try:
+        from PIL import Image, ImageStat
+        images = []
+        for sample in samples:
+            if not isinstance(sample, str) or len(sample) < 100:
+                return None
+            raw = base64.b64decode(sample)
+            image = Image.open(BytesIO(raw)).convert("L").resize((64, 36))
+            images.append(image)
+        means = [ImageStat.Stat(image).mean[0] for image in images]
+        if all(mean < 4 or mean > 251 for mean in means):
+            return "blank/near-blank frames"
+        differences = []
+        for first, second in zip(images, images[1:]):
+            a = list(first.getdata())
+            b = list(second.getdata())
+            differences.append(sum(abs(x - y) for x, y in zip(a, b)) / len(a))
+        if differences and max(differences) < 1.5:
+            return "static frames/no detectable motion"
+    except Exception:
+        return None
+    return None
+
+
+def _precheck_cache_key(item, start=None):
+    return hashlib.sha256(
+        f"{item.get('id','')}|{item.get('source_url','')}|{start if start is not None else ''}".encode()
+    ).hexdigest()[:24]
 
 
 def clean(value):
@@ -543,8 +612,26 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
     try:
         known = catalog.candidates(person) if catalog is not None else []
         discovered = discover(person, audit["providers"])
-        pool = list({item["id"]: item for item in discovered + known}.values())
-        print(f"Story video discovery: {person} | candidates={len(pool)} | providers={audit['providers']}", flush=True)
+        raw_pool = list({item["id"]: item for item in discovered + known}.values())
+        precheck_cache = _load_precheck_cache()
+        pool = []
+        precheck_rejected = 0
+        for item in raw_pool:
+            reason = _source_precheck(item)
+            key = _precheck_cache_key(item)
+            if reason:
+                precheck_cache[key] = {"source_id": item.get("id"), "source_url": item.get("source_url"), "reason": reason}
+                precheck_rejected += 1
+                print(f"Story source precheck rejected: {item.get('provider')} | {reason}", flush=True)
+                continue
+            if key in precheck_cache:
+                precheck_rejected += 1
+                continue
+            pool.append(item)
+        if precheck_rejected:
+            _save_precheck_cache(precheck_cache)
+        audit["preflight"] = {"discovered": len(raw_pool), "rejected": precheck_rejected, "remaining": len(pool)}
+        print(f"Story video discovery: {person} | candidates={len(pool)} | precheck_rejected={precheck_rejected} | providers={audit['providers']}", flush=True)
         if not pool:
             raise RuntimeError(f"No real video candidates found for {person}; no photo or generic-stock fallback")
         for scene_no, scene in enumerate(scenes, 1):
@@ -570,7 +657,7 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                             audit["attempts"].append({"source": item["source_url"], "error": type(exc).__name__, "stage": "resolve"})
                             continue
                     url, duration = resolved[sid]
-                    intervals = windows(duration, limit=24)
+                    intervals = windows(duration, limit=12)
                     if not counts[sid] and intervals:
                         # Probe across the recording before scanning chronologically;
                         # long speeches often start with several minutes of introductions.
@@ -596,6 +683,14 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                 actual = extract(url, start, length, clip)
                                 stage = "frame_sample"
                                 cached[identity] = frames(clip, actual)
+                            stage = "frame_precheck"
+                            frame_rejection = _frame_precheck(cached[identity])
+                            if frame_rejection:
+                                rejected.add(identity)
+                                audit["attempts"].append({"scene": scene_no, "shot": shot_no, "source": item["source_url"],
+                                                          "start": start, "stage": "frame_precheck", "rejected": frame_rejection})
+                                print(f"Story clip precheck rejected: {item['provider']} {start}s | {frame_rejection}", flush=True)
+                                continue
                             stage = "verify"
                             if catalog is not None:
                                 verdict = catalog.verify(person, scene, item, cached[identity], start, length)

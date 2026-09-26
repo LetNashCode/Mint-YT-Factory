@@ -371,6 +371,10 @@ def search_archive(person):
                 if match:
                     runtime_seconds = float(match.group(1)) * 60
             candidate["duration_hint"] = runtime_seconds
+            # Apply deterministic media-type exclusions before the metadata-file
+            # lookup and, more importantly, before any Gemini verification.
+            if _source_precheck(candidate):
+                continue
             candidate["identity_score"] = _identity_score(person, candidate)
             # For Internet Archive, require the person's name in title/subject.
             # Description-only matches are too noisy for a verifier-budgeted flow.

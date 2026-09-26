@@ -149,6 +149,7 @@ def _story_defer_failure(exc: Exception) -> bool:
         "story visual verifier http 504",
         "story verifier unavailable after network retries/model fallback",
         "story verifier request budget exhausted",
+        "story gemini request budget exhausted",
     )
     return any(marker in text for marker in markers)
 

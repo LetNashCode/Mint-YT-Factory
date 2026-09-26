@@ -22,54 +22,47 @@ from urllib.parse import quote, urlparse
 
 import requests
 
+import story_gemini_budget
+
 UA = "Mint-YT-Factory/StoryVideo/1.0 (https://github.com/LetNashCode/Mint-YT-Factory)"
 _LAST_GROUPS = []
 _VERIFIER_MODELS = {}
-_VERIFIER_BUDGET = None
+_VERIFIER_BUDGET = None  # compatibility view; authoritative state lives in story_gemini_budget
 
 
 QUOTA_DEFER_FILE = ".story_gemini_quota_deferred"
-VERIFIER_BUDGET_DEFER_FILE = ".story_verifier_budget_deferred"
-DEFAULT_VERIFIER_REQUEST_BUDGET = 48
+VERIFIER_BUDGET_DEFER_FILE = story_gemini_budget.BUDGET_DEFER_FILE
+DEFAULT_VERIFIER_REQUEST_BUDGET = story_gemini_budget.DEFAULT_MAX_REQUESTS
 
 
 def _begin_verifier_budget():
+    """Compatibility wrapper: initialize the run-wide Story Gemini budget."""
     global _VERIFIER_BUDGET
-    try:
-        limit = int(os.environ.get("STORY_VERIFIER_MAX_REQUESTS", DEFAULT_VERIFIER_REQUEST_BUDGET))
-    except (TypeError, ValueError):
-        limit = DEFAULT_VERIFIER_REQUEST_BUDGET
-    _VERIFIER_BUDGET = {"limit": max(1, limit), "used": 0}
+    _VERIFIER_BUDGET = story_gemini_budget.begin()
 
 
 def _ensure_verifier_budget():
-    if _VERIFIER_BUDGET is None:
-        _begin_verifier_budget()
+    global _VERIFIER_BUDGET
+    story_gemini_budget.ensure()
+    _VERIFIER_BUDGET = story_gemini_budget.status()
 
 
 def _reset_verifier_budget():
     global _VERIFIER_BUDGET
+    story_gemini_budget.reset()
     _VERIFIER_BUDGET = None
 
 
 def _consume_verifier_request():
-    if _VERIFIER_BUDGET is None:
-        return
-    if _VERIFIER_BUDGET["used"] >= _VERIFIER_BUDGET["limit"]:
-        reason = (
-            f"Story verifier request budget exhausted after {_VERIFIER_BUDGET['used']} requests "
-            f"(limit={_VERIFIER_BUDGET['limit']})"
-        )
-        Path(VERIFIER_BUDGET_DEFER_FILE).write_text(reason + "\n", encoding="utf-8")
-        print(f"🛑 {reason}; deferring Story publication", flush=True)
-        raise RuntimeError(reason)
-    _VERIFIER_BUDGET["used"] += 1
+    """Compatibility wrapper: consume one run-wide Gemini request."""
+    global _VERIFIER_BUDGET
+    used = story_gemini_budget.consume("visual_verification")
+    _VERIFIER_BUDGET = story_gemini_budget.status()
+    return used
 
 
 def verifier_budget_status():
-    if _VERIFIER_BUDGET is None:
-        return {"limit": None, "used": 0}
-    return dict(_VERIFIER_BUDGET)
+    return story_gemini_budget.status()
 
 
 def _mark_gemini_quota_deferred(reason):

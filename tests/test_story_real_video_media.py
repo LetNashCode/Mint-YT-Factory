@@ -718,6 +718,12 @@ def test_daily_quota_without_qwen_fallback_still_defers(monkeypatch, tmp_path):
             "code": 429,
             "status": "RESOURCE_EXHAUSTED",
             "message": "Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests",
+            "details": [{
+                "@type": "type.googleapis.com/google.rpc.QuotaFailure",
+                "violations": [{
+                    "quotaId": "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+                }]
+            }]
         }
     }
     class Response:

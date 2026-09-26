@@ -596,6 +596,44 @@ def test_daily_gemini_quota_marks_story_for_defer(monkeypatch, tmp_path):
     assert (Path(".story_gemini_quota_deferred")).exists()
 
 
+def test_daily_quota_detector_does_not_treat_minute_quota_as_daily():
+    class Response:
+        status_code = 429
+        def json(self):
+            return {"error": {"status": "RESOURCE_EXHAUSTED",
+                              "message": "Quota exceeded for requests per minute"}}
+    assert not media._is_daily_quota_response(Response())
+
+
+def test_verifier_request_budget_stops_before_excess_calls(monkeypatch, tmp_path):
+    stub_pipeline(monkeypatch)
+    monkeypatch.setenv("STORY_VERIFIER_MAX_REQUESTS", "2")
+    calls = []
+    def verify(*args):
+        calls.append(1)
+        return dict(GOOD)
+    monkeypatch.setattr(media, "verify", verify)
+    with pytest.raises(RuntimeError, match="request budget exhausted"):
+        media.generate_media(story(), str(tmp_path), {})
+    assert len(calls) == 2
+    assert (Path(".story_verifier_budget_deferred")).exists()
+
+
+def test_media_attempt_records_stage_and_error(monkeypatch, tmp_path):
+    stub_pipeline(monkeypatch)
+    monkeypatch.setattr(media, "discover", lambda *args: [candidate()])
+    def fail(*args):
+        raise AttributeError("sample decoder missing")
+    monkeypatch.setattr(media, "frames", fail)
+    with pytest.raises(RuntimeError, match="Insufficient verified"):
+        media.generate_media(story(), str(tmp_path), {})
+    audit = json.loads((tmp_path / "story_video_audit.json").read_text())
+    attempt = audit["attempts"][0]
+    assert attempt["stage"] == "frame_sample"
+    assert attempt["error_type"] == "AttributeError"
+    assert "sample decoder missing" in attempt["error"]
+
+
 def test_invalid_verifier_result_fails_closed(monkeypatch, tmp_path):
     stub_pipeline(monkeypatch)
     monkeypatch.setattr(media, "verify", lambda *args: None)

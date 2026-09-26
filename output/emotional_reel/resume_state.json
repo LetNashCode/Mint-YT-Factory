@@ -1,18 +1,19 @@
 {
   "status": "uploaded",
   "final_path": "output/emotional_reel/final.mp4",
-  "final_sha256": "329688fbcd3b2b81bf06d53b488de8e0e671f349f88bd70b176b2de0f27efc4f",
-  "cache_key": "emotional-reel-final-v2-329688fbcd3b2b81bf06d53b488de8e0",
-  "title": "The Weight of Leftover Names",
-  "description": "An intimate cinematic exploration of missing someone through the habit of typing a name you no longer send.",
+  "final_sha256": "80a9a7a898c13dd654289f15f25a7ae29e8f71b5bdf7977a43d8797a8772de1b",
+  "cache_key": "emotional-reel-final-v2-80a9a7a898c13dd654289f15f25a7ae2",
+  "title": "The Weight of Leftover Plates",
+  "description": "A quiet cinematic exploration of lingering absence during a routine family dinner, focusing on the small habits we maintain after someone is gone.",
   "hashtags": [
-    "#missingomesomeone",
-    "#humanexperience",
     "#quietmoments",
-    "#storytelling",
-    "#cinematic"
+    "#family",
+    "#memory",
+    "#loss",
+    "#everydaylife",
+    "#storytelling"
   ],
-  "engagement_comment": "Some names stay written in the margins of your days.",
+  "engagement_comment": "They never really left your table.",
   "voice": {
     "provider": "kokoro",
     "voice_name": "af_heart",
@@ -22,23 +23,23 @@
     "speed": 0.92,
     "tone": "curious, confident, playful storyteller"
   },
-  "created_at": 1790443543,
-  "narration_word_count": 148,
+  "created_at": 1790447712,
+  "narration_word_count": 144,
   "complete_script_preserved": true,
   "final_duration_seconds": 53.76,
-  "video_id": "A6xBcmHvqg0",
+  "video_id": "LhmC0i6djX8",
   "social": {
     "instagram": {
       "status": "published",
-      "media_id": "17948602083322423",
-      "container_id": "18495105292097136"
+      "media_id": "18107217563242820",
+      "container_id": "18495118324097136"
     },
     "facebook": {
       "status": "published",
-      "video_id": "961050193714520"
+      "video_id": "2595585164235735"
     },
     "strict": false,
-    "updated_at": 1790443878
+    "updated_at": 1790448008
   },
-  "uploaded_at": 1790444048
+  "uploaded_at": 1790448155
 }

@@ -198,9 +198,9 @@ jobs:
           fi
           echo "## Story Shorts publication confirmed" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
-          echo "- YouTube video ID: `$video_id`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- YouTube video ID: $video_id" >> "$GITHUB_STEP_SUMMARY"
           echo "- YouTube URL: $url" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Status: `COMPLETE`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Status: COMPLETE" >> "$GITHUB_STEP_SUMMARY"
       - name: Persist Story Shorts state
         if: always()
         run: |

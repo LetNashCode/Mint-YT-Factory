@@ -130,16 +130,41 @@ def main():
   _resume_and_upload(resume)
   return
 
- p='''Create an original 54-second cinematic emotional Reel. Use intimate reflective quote-video pacing, but do not copy any creator or wording. The viewer should feel directly addressed. Build: immediate recognition, hidden pressure, escalation, turning point, relief, memorable close. No medical claims, diagnosis, crisis language, emojis, or "you are not alone" cliche.
-Return JSON with title, description, hashtags and exactly 9 scenes.
-Each scene has text (4-12 words) for the screen, narration (12-18 natural spoken words) that expands the same thought, and search (concrete visible stock-video query).
-Scene 1 text is a 4-8 word hook. Scene 9 is a memorable closing thought.
-Total narration should be about 120-160 words. Narration must flow as ONE continuous story, not nine disconnected quotes.
+ p='''Create an original 54-second cinematic emotional Reel designed to make a real human feel something, not merely consume an inspirational quote. Do not copy any creator, script, wording, or recognizable story. The narration is the primary emotional experience because the visuals are ordinary stock footage.
+FIRST choose exactly ONE primary human emotion from: nostalgia, regret, loneliness, hope, gratitude, missing someone, quiet heartbreak, feeling unseen, letting go, fear of failure, self-doubt, family love, friendship, sacrifice, second chances, childhood memories, growing apart, forgiveness, or pride after struggle. Then choose ONE specific everyday human situation that naturally evokes it.
+Return JSON with title, description, hashtags, primary_emotion, human_situation, emotional_turn, and exactly 9 scenes.
+The emotional journey MUST follow this order:
+1) HOOK/RECOGNITION — an immediate specific observation that makes the viewer think "that's me"; never generic motivation.
+2) SPECIFIC SITUATION — show a recognizable human moment through concrete details.
+3) HIDDEN FEELING — reveal what the person is actually feeling beneath the situation.
+4) ESCALATION — deepen the emotional tension; do not solve the problem yet.
+5) VULNERABILITY — expose the most human/private realization or fear.
+6) EMOTIONAL TURN — introduce a meaningful realization that changes how the situation is understood.
+7) NEW PERSPECTIVE — develop that realization without sounding like a lecture.
+8) EMOTIONAL RELEASE — give the viewer a feeling of acceptance, hope, gratitude, or bittersweet understanding when appropriate.
+9) LINGERING CLOSE — end with one memorable thought that can stay in the viewer's mind after the video ends; it does not have to be motivational.
+Each scene has text (4-12 words) for the screen, narration (12-18 natural spoken words) that expands the same thought, and search (a concrete visible stock-video query describing an emotionally relevant human action or setting).
+Scene 1 text must be a 4-8 word hook. Scene 9 must be a memorable closing thought.
+The narration must read as ONE continuous human story, not nine disconnected quotes or nine pieces of advice. Delay the lesson: do not explain the meaning, give advice, or reassure the viewer before the emotional tension and vulnerability have been established.
+SPECIFICITY RULE: communicate emotion through concrete human details, behavior, memories, objects, gestures, places, or moments. Prefer "you still type their name when something funny happens" over "sometimes we miss people." The viewer should be able to recognize the situation without needing the stock footage to explain it.
+ANTI-CLICHE RULE: avoid generic phrases such as "everything happens for a reason", "believe in yourself", "never give up", "you are stronger than you think", "everything will be okay", "you are not alone", and similar motivational filler. Do not use medical claims, diagnosis, crisis language, emojis, or therapeutic promises.
+STOCK-VISUAL RULE: every search query must describe something visibly filmable in stock footage. Do not rely on abstract concepts such as "sadness", "healing", "emotional pain", or "finding yourself" alone.
+Total narration should be 120-160 words, with 12-18 words in every scene. Narration must be production-complete: every generated narration word will be spoken.
 IMPORTANT: Every narration word you generate is production-critical. Do not omit, summarize, truncate, rewrite, compact, or otherwise remove any narration content after this JSON is accepted. The exact concatenated scene narration is the script that must be spoken in full.'''
 
  d=None;scenes=None;narration=''
  for attempt in range(1,9):
   candidate=ai(p);candidate_scenes=candidate.get('scenes')
+  required_fields=('title','description','hashtags','primary_emotion','human_situation','emotional_turn')
+  if any(not candidate.get(field) for field in required_fields):
+   print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: missing emotional story metadata',flush=True);continue
+  if str(candidate.get('primary_emotion','')).strip().lower() not in {
+   'nostalgia','regret','loneliness','hope','gratitude','missing someone',
+   'quiet heartbreak','feeling unseen','letting go','fear of failure',
+   'self-doubt','family love','friendship','sacrifice','second chances',
+   'childhood memories','growing apart','forgiveness','pride after struggle'
+  }:
+   print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: invalid primary emotion',flush=True);continue
   if not isinstance(candidate_scenes,list) or len(candidate_scenes)!=N:
    print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: need exactly {N} scenes',flush=True);continue
   candidate_narration=' '.join(str(s.get('narration','')).strip() for s in candidate_scenes).strip()
@@ -198,7 +223,7 @@ IMPORTANT: Every narration word you generate is production-critical. Do not omit
   raise RuntimeError(f'Concat produced no usable output: {silent}')
  print(f'✅ Silent reel assembled: {silent.stat().st_size} bytes',flush=True)
 
- cfg=yaml.safe_load(Path('config.yaml').read_text());cfg['voice']=dict(cfg.get('voice') or {});cfg['voice'].update({'provider':'kokoro','voice_name':os.getenv('EMOTIONAL_REEL_KOKORO_VOICE','af_heart'),'kokoro_lang':'a','speed':float(os.getenv('EMOTIONAL_REEL_KOKORO_SPEED','0.92'))})
+ cfg=yaml.safe_load(Path('config.yaml').read_text());cfg['voice']=dict(cfg.get('voice') or {});cfg['voice'].update({'provider':'kokoro','voice_name':os.getenv('EMOTIONAL_REEL_KOKORO_VOICE','af_bella'),'kokoro_lang':'a','speed':float(os.getenv('EMOTIONAL_REEL_KOKORO_SPEED','0.92'))})
  os.environ['MINT_TTS_PROVIDER']='kokoro'
  narration_audio=OUT/'narration.mp3'
  # Use the full 54-second reel as the hard narration budget. TTS may speed up

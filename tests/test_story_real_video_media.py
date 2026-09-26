@@ -117,13 +117,16 @@ def test_archive_search_excludes_youtube_imports_and_prefers_subject_records(mon
                 {"identifier": "unrelated", "title": "Nelson Mandela mentioned",
                  "description": "A presenter discusses the topic", "subject": ["Nelson Mandela"],
                  "runtime": "02:00:00"},
+                {"identifier": "game", "title": "Nelson Mandela racing game",
+                 "description": "Gameplay footage", "subject": ["Nelson Mandela"],
+                 "runtime": "00:10:00"},
             ]}}
         return {"files": [{"name": "real.mp4", "size": "1000000"}]}
     monkeypatch.setattr(media, "get_json", fetch)
     results = media.search_archive("Nelson Mandela")
-    assert [row["id"] for row in results] == ["archive:real-person", "archive:unrelated"]
+    assert [row["id"] for row in results] == ["archive:real-person"]
     assert results[0]["duration_hint"] == 720.0
-    assert results[1]["duration_hint"] == 7200.0
+    assert all(row["id"] != "archive:game" for row in results)
     assert all("youtube-bad" not in row["id"] for row in results)
     assert all("NOT identifier:youtube-*" in params["q"] for url, params in calls if "advancedsearch.php" in url)
 
@@ -689,6 +692,18 @@ def test_invalid_verifier_result_fails_closed(monkeypatch, tmp_path):
     with pytest.raises(RuntimeError, match="invalid result type"):
         media.generate_media(story(), str(tmp_path), {})
 
+
+
+def test_source_precheck_rejects_non_archival_media_patterns():
+    rejected = [
+        "Enzo Ferrari gameplay video game",
+        "Enzo Ferrari museum exhibit and engine display",
+        "Enzo Ferrari coach trip through Italy",
+        "Enzo Ferrari biopic feature film",
+        "Enzo Ferrari commercial for racing cars",
+    ]
+    for title in rejected:
+        assert media._source_precheck({"title": title, "description": ""}) is not None
 
 
 def test_source_precheck_rejects_obvious_presenter_and_dramatization_metadata():

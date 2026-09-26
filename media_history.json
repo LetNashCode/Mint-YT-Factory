@@ -8309,6 +8309,146 @@
       "shot": 2,
       "query": "paint peel constant pressure eventually wins",
       "recorded_at": 1790406143
+    },
+    {
+      "asset_key": "pexels:video:4061789",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4061789/4061789-hd_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "apple brown slice crisp silver",
+      "recorded_at": 1790425374
+    },
+    {
+      "asset_key": "pexels:video:3251810",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3251810/3251810-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "apple brown watch commit instant color",
+      "recorded_at": 1790425407
+    },
+    {
+      "asset_key": "pexels:video:28930342",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/28930342/12520177_720_1280_24fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "apple brown leave alone two minutes",
+      "recorded_at": 1790425411
+    },
+    {
+      "asset_key": "pexels:video:7889704",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7889704/7889704-hd_720_1366_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "apple brown pale fruit becomes ancient",
+      "recorded_at": 1790425414
+    },
+    {
+      "asset_key": "pexels:video:34492293",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34492293/14614641_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "apple brown inside cells sleep tiny",
+      "recorded_at": 1790425417
+    },
+    {
+      "asset_key": "pexels:video:4320721",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4320721/4320721-hd_1280_720_60fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "apple brown waiting breath air wisps",
+      "recorded_at": 1790425421
+    },
+    {
+      "asset_key": "pexels:video:4061799",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4061799/4061799-hd_1280_720_24fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "apple brown slice wall open blade",
+      "recorded_at": 1790425424
+    },
+    {
+      "asset_key": "pexels:video:8486033",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8486033/8486033-hd_1280_720_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "apple brown oxygen crashes into compounds",
+      "recorded_at": 1790425428
+    },
+    {
+      "asset_key": "pexels:video:9464705",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9464705/9464705-hd_1366_720_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "apple brown enzymes act like tiny",
+      "recorded_at": 1790425454
+    },
+    {
+      "asset_key": "pexels:video:34499231",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34499231/14617823_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "apple brown stitching molecules together into",
+      "recorded_at": 1790425457
+    },
+    {
+      "asset_key": "pexels:video:7704027",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7704027/7704027-hd_720_1280_25fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "apple brown not rotting all healthy",
+      "recorded_at": 1790425460
+    },
+    {
+      "asset_key": "pexels:video:7704125",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7704125/7704125-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "apple brown fruit builds chemical shield",
+      "recorded_at": 1790425464
+    },
+    {
+      "asset_key": "pexels:video:39468632",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39468632/16811510_1280_720_30fps.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "apple brown clever defense keeps bugs",
+      "recorded_at": 1790425468
+    },
+    {
+      "asset_key": "pexels:video:35149563",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35149563/14890175_720_1280_30fps.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "apple brown clever defense keeps bugs",
+      "recorded_at": 1790425471
     }
   ]
 }

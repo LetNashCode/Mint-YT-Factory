@@ -1135,6 +1135,399 @@
       },
       "review_key": "a2413b09e1d1fb707412f7cdd06ca02deee077624c96e59073a7c49b6b1a80bb",
       "reviewed_at": 1790414517.6272008
+    },
+    {
+      "person": "Oprah Winfrey",
+      "source": {
+        "id": "archive:the-oprah-winfrey-show-march-17-1994-most",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-oprah-winfrey-show-march-17-1994-most/The%20Oprah%20Winfrey%20Show-%20March%2017%2C%201994%20%28most%29.ia.mp4",
+        "source_url": "https://archive.org/details/the-oprah-winfrey-show-march-17-1994-most",
+        "title": "The Oprah Winfrey Show- March 17, 1994 (most)",
+        "description": "Oprah discusses the challenges of life and how various emotional obstacles can hold the purpose of life back. Today's two guests describe the turning points of their lives and discuss how unfulfilling their lives have been. Oprah Winfrey 90s talk show season 8",
+        "creator": "",
+        "license": "",
+        "subject": "Oprah Winfrey 90s talk show season 8",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0
+      },
+      "start": 2005.69,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows actual archival footage of Oprah Winfrey hosting her talk show, making it useful as biographical illustration of her career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "101c21b32e169fa4de1b63361366cfe500ae5c90128bec3ecafeeb80d4772aa2",
+      "reviewed_at": 1790415856.3045163
+    },
+    {
+      "person": "Oprah Winfrey",
+      "source": {
+        "id": "commons:54153792",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
+        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
+        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
+        "creator": "The White House",
+        "license": "Public domain",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 96.29,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "Oprah Winfrey is clearly visible across all three frames in genuine interview/archival footage discussing her life and work, serving as a solid biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "07667cbe5d950f7a0da382f095a41961a93a4953ac0e4534e4f8ed6213cdc709",
+      "reviewed_at": 1790415915.034838
+    },
+    {
+      "person": "Oprah Winfrey",
+      "source": {
+        "id": "archive:the-oprah-winfrey-show-march-17-1994-most",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-oprah-winfrey-show-march-17-1994-most/The%20Oprah%20Winfrey%20Show-%20March%2017%2C%201994%20%28most%29.ia.mp4",
+        "source_url": "https://archive.org/details/the-oprah-winfrey-show-march-17-1994-most",
+        "title": "The Oprah Winfrey Show- March 17, 1994 (most)",
+        "description": "Oprah discusses the challenges of life and how various emotional obstacles can hold the purpose of life back. Today's two guests describe the turning points of their lives and discuss how unfulfilling their lives have been. Oprah Winfrey 90s talk show season 8",
+        "creator": "",
+        "license": "",
+        "subject": "Oprah Winfrey 90s talk show season 8",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0
+      },
+      "start": 1005.35,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Oprah Winfrey is clearly visible hosting her talk show in all three frames, providing valid biographical illustration footage, though it does not depict a specific narrated historical event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d9a8ca654c9a7391a939867b1da0fd22e9bd8053ff5bd7feae9e34d73f98355b",
+      "reviewed_at": 1790415971.3880613
+    },
+    {
+      "person": "Oprah Winfrey",
+      "source": {
+        "id": "commons:54153792",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
+        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
+        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
+        "creator": "The White House",
+        "license": "Public domain",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip shows real, moving footage of Oprah Winfrey speaking, which serves as good biographical illustration for her life and achievements, though it is not direct footage of the specific historical events narrated.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1c3bb17e87599b8c6310314ab49bdb3078f96701851b6924b7c475ae015b7596",
+      "reviewed_at": 1790415976.1358404
+    },
+    {
+      "person": "Oprah Winfrey",
+      "source": {
+        "id": "archive:the-oprah-winfrey-show-march-17-1994-most",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-oprah-winfrey-show-march-17-1994-most/The%20Oprah%20Winfrey%20Show-%20March%2017%2C%201994%20%28most%29.ia.mp4",
+        "source_url": "https://archive.org/details/the-oprah-winfrey-show-march-17-1994-most",
+        "title": "The Oprah Winfrey Show- March 17, 1994 (most)",
+        "description": "Oprah discusses the challenges of life and how various emotional obstacles can hold the purpose of life back. Today's two guests describe the turning points of their lives and discuss how unfulfilling their lives have been. Oprah Winfrey 90s talk show season 8",
+        "creator": "",
+        "license": "",
+        "subject": "Oprah Winfrey 90s talk show season 8",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "Oprah Winfrey is clearly visible across all frames hosting her talk show in 1994, serving as biographical illustration of her career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "abd93b7224d8de91664450d3ca081871f22c4e0a26fc93031ffa65b5d2c34762",
+      "reviewed_at": 1790415977.4032187
+    },
+    {
+      "person": "Oprah Winfrey",
+      "source": {
+        "id": "commons:54153792",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
+        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
+        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
+        "creator": "The White House",
+        "license": "Public domain",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 18.04,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "Oprah Winfrey is clearly visible throughout all three frames in real filmed footage, speaking while wearing the Presidential Medal of Freedom. While it illustrates her life and awards, it does not depict a specific historical event being narrated, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f81a3f1976cd3215fd7c5a8fa785ab74d0ac9f2984965869485103f6823f8615",
+      "reviewed_at": 1790415981.9738762
+    },
+    {
+      "person": "Oprah Winfrey",
+      "source": {
+        "id": "archive:the-oprah-winfrey-show-march-17-1994-most",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-oprah-winfrey-show-march-17-1994-most/The%20Oprah%20Winfrey%20Show-%20March%2017%2C%201994%20%28most%29.ia.mp4",
+        "source_url": "https://archive.org/details/the-oprah-winfrey-show-march-17-1994-most",
+        "title": "The Oprah Winfrey Show- March 17, 1994 (most)",
+        "description": "Oprah discusses the challenges of life and how various emotional obstacles can hold the purpose of life back. Today's two guests describe the turning points of their lives and discuss how unfulfilling their lives have been. Oprah Winfrey 90s talk show season 8",
+        "creator": "",
+        "license": "",
+        "subject": "Oprah Winfrey 90s talk show season 8",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0
+      },
+      "start": 1805.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Oprah Winfrey is clearly visible across all three frames hosting her talk show. While it provides biographical illustration rather than depicting a specific narrated event, the footage is genuine and usable.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "53b3491e4c8048012904066083dd7c640b8c6c7078210df1f28e695ca13ecc93",
+      "reviewed_at": 1790416000.866466
+    },
+    {
+      "person": "Oprah Winfrey",
+      "source": {
+        "id": "commons:54153792",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
+        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
+        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
+        "creator": "The White House",
+        "license": "Public domain",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 44.12,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "Oprah Winfrey is clearly visible in all three frames of this filmed footage, serving as valid biographical illustration for a video about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "490df90015c58b3a6dcdeddc1c831c5a2db2bb4c867b74d1a160340551788320",
+      "reviewed_at": 1790416008.0349956
+    },
+    {
+      "person": "Oprah Winfrey",
+      "source": {
+        "id": "archive:the-oprah-winfrey-show-march-17-1994-most",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-oprah-winfrey-show-march-17-1994-most/The%20Oprah%20Winfrey%20Show-%20March%2017%2C%201994%20%28most%29.ia.mp4",
+        "source_url": "https://archive.org/details/the-oprah-winfrey-show-march-17-1994-most",
+        "title": "The Oprah Winfrey Show- March 17, 1994 (most)",
+        "description": "Oprah discusses the challenges of life and how various emotional obstacles can hold the purpose of life back. Today's two guests describe the turning points of their lives and discuss how unfulfilling their lives have been. Oprah Winfrey 90s talk show season 8",
+        "creator": "",
+        "license": "",
+        "subject": "Oprah Winfrey 90s talk show season 8",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0
+      },
+      "start": 2205.76,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Oprah Winfrey is clearly visible across all three frames hosting her talk show. While it shows her professional career, it is archival talk show footage rather than direct footage of the specific life events narrated, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1f7afdaca742caef0271c6f7ba2850fd3b80d6709fd7d2afc4a61ed744a38b97",
+      "reviewed_at": 1790416014.4629166
+    },
+    {
+      "person": "Oprah Winfrey",
+      "source": {
+        "id": "commons:54153792",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
+        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
+        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
+        "creator": "The White House",
+        "license": "Public domain",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 57.16,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows actual moving footage of Oprah Winfrey speaking, which serves as valid biographical illustration, though it does not depict a specific narrated historical event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4c61fcb94c253d9d7a680f0d720e7d8592d3fff364c9a41cf78e12ac07b4e771",
+      "reviewed_at": 1790416019.3762758
+    },
+    {
+      "person": "Oprah Winfrey",
+      "source": {
+        "id": "commons:54153792",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
+        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
+        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
+        "creator": "The White House",
+        "license": "Public domain",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 70.2,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video shows real, filmed footage of Oprah Winfrey speaking, suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "781db9e8f1eb0f1ad2ec46c44ccb3ec9f5e8c3d617bfaeac402a9b4314734dc9",
+      "reviewed_at": 1790416036.2057405
+    },
+    {
+      "person": "Oprah Winfrey",
+      "source": {
+        "id": "commons:54153792",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
+        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
+        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
+        "creator": "The White House",
+        "license": "Public domain",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 83.25,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The footage features Oprah Winfrey speaking directly on camera in an archival interview setting, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6dadfbafbf9e5c05c14d6946859414c07977e97e88f85cdeabb42dd3f4fd37d4",
+      "reviewed_at": 1790416040.8739042
+    },
+    {
+      "person": "Oprah Winfrey",
+      "source": {
+        "id": "commons:54153792",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
+        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
+        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
+        "creator": "The White House",
+        "license": "Public domain",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 109.33,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "Oprah Winfrey is clearly visible speaking in all three frames of this interview footage, serving as valid biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2ba96c56bdd948235b1fc5a47ab7e21c11df0e49acf8823a84267f2aae26ec05",
+      "reviewed_at": 1790416045.7391143
+    },
+    {
+      "person": "Oprah Winfrey",
+      "source": {
+        "id": "commons:54153792",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
+        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
+        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
+        "creator": "The White House",
+        "license": "Public domain",
+        "direct_subject": true,
+        "identity_score": 13.0
+      },
+      "start": 122.37,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video shows actual filmed footage of Oprah Winfrey speaking, serving as good biographical illustration of her later career, although it is a talking head interview clip rather than direct footage of a specific narrated event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "49f47e29342283099cf79643c82498fdf36151618b129ba3b269489b15a5c85e",
+      "reviewed_at": 1790416050.452469
     }
   ]
 }

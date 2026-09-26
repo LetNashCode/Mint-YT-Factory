@@ -39,7 +39,7 @@ jobs:
           python-version: '3.11'
       - name: Install offline test tools
         run: |
-          pip install pytest requests PyYAML "Pillow<10" opencv-python-headless==4.10.0.84 google-genai transformers accelerate sentencepiece torch
+          pip install pytest requests PyYAML "Pillow<10" opencv-python-headless==4.10.0.84 google-genai
           sudo apt-get update
           sudo apt-get install -y ffmpeg
       - name: Story regression, isolation and portrait render tests
@@ -82,7 +82,7 @@ jobs:
             echo "ℹ️ No previous Story render artifact available"
           fi
       - name: Compile Story Shorts runtime and quality gates
-        run: python -m py_compile tts.py interactive_main.py story_render_recovery.py story_social_resume.py story_identity_runner.py story_real_video_media.py story_archival_media.py story_media_quality.py final_video_quality_gate.py publication_state.py social_retry_state.py upload_youtube.py validate_video.py assemble.py
+        run: python -m py_compile tts.py interactive_main.py story_render_recovery.py story_social_resume.py story_identity_runner.py story_real_video_media.py story_qwen_vision_fallback.py story_archival_media.py story_media_quality.py final_video_quality_gate.py publication_state.py social_retry_state.py upload_youtube.py validate_video.py assemble.py
       - name: Resume pending Story social publication
         id: resume
         env:
@@ -149,7 +149,7 @@ jobs:
           STORY_GEMINI_MAX_REQUESTS_PER_SUBJECT: ${{ vars.STORY_GEMINI_MAX_REQUESTS_PER_SUBJECT || '24' }}
           ENABLE_CPU_QWEN_FALLBACK: '1'
           ENABLE_QWEN_VISION_FALLBACK: '1'
-          QWEN_VISION_MODEL: 'Qwen/Qwen2.5-VL-3B-Instruct'
+          QWEN_VISION_MODEL: 'Qwen/Qwen2-VL-2B-Instruct'
         run: |
           set -euo pipefail
           rm -f .story_gemini_quota_deferred .story_verifier_budget_deferred .story_gemini_budget_deferred

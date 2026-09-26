@@ -81,6 +81,7 @@ Use only broadly established facts. Do not invent quotes, dialogue, private thou
 Return JSON array only with: format, person, premise, hook, key_facts. key_facts must contain 3-5 short factual anchors.
 Avoid politics, sexual content, medical advice, and sensational claims.
 RECENT PEOPLE TO AVOID:\n{chr(10).join('- '+x for x in people[-15:]) or '- none'}"""
+        story_gemini_budget.consume("topic_generation")
         response = client.models.generate_content(model=MODEL_NAME, contents=prompt, config=types.GenerateContentConfig(response_mime_type="application/json", temperature=1.0))
         data = json.loads(getattr(response, "text", "") or "[]")
         if not isinstance(data, list): return []

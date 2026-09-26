@@ -2158,6 +2158,564 @@
       },
       "review_key": "de336f9d909346212535eba7a3a59378b09c412411eba06c3efa434f58f8995c",
       "reviewed_at": 1790434808.6674035
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'Social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'Social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 12.33,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows Shah Rukh Khan in an interview setting discussing social boycott, serving as biographical illustration of his public commentary, but it is presented with UI overlays (Facebook layout) and is not direct event footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "390faa8468871dcabc46d60f911fac543192a018d7b6d5c7a9a1316f40cc67ca",
+      "reviewed_at": 1790454635.5942042
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6.0,
+        "reason": "Shah Rukh Khan is clearly visible across all three frames participating in an interview, which can be used as biographical illustration. However, the video player UI elements and surrounding webpage clutter make it poorly formatted for direct use without cropping.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5a21e2347b2c50bbe4eec6a446d3cd88fc239827903edfbea3878a042653ef98",
+      "reviewed_at": 1790454688.6028025
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'Social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'Social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 3.17,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Shah Rukh Khan is clearly visible across all frames in an interview setting, serving as biographical illustration, though the framing includes UI elements from a social media post.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ff52820842da43d5d8035812b657d398fcd28d58bfe9cad05de82566c3b1f974",
+      "reviewed_at": 1790454693.309634
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 42.53,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show Shah Rukh Khan in an interview setting, which serves as biographical illustration, but the video capture includes website UI elements and player controls around the actual footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "da1c1d62e815bdaf7f55e0422f4675390ca13f122225b5cd7b4c3d183b4e17f5",
+      "reviewed_at": 1790454734.1808496
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 89.45,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show genuine video footage of Shah Rukh Khan in an interview setting, making it suitable for biographical illustration, though the video player UI elements around the frame reduce quality.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1800a482477069535a5635c03316ffd4ae4c8a761e3ac587cb59fb6565ef2ab8",
+      "reviewed_at": 1790454776.6399496
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 68.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows Shah Rukh Khan in an interview setting across all three frames. While it's genuine footage of the subject, it's an interview clip being used for biographical illustration rather than depicting a specific narrated historical event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "dda4c2f277fe31795a45afb07434b374706f9e127651608246f5da502d231c00",
+      "reviewed_at": 1790454806.9703345
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 32.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows actual footage of Shah Rukh Khan participating in an interview, which can be used as biographical illustration. However, it contains UI elements from the video player surrounding the footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "969ddea1e0a18d5be1d042b21b63b83311af7d0ac9e029a8c6a4e79dec8fc396",
+      "reviewed_at": 1790454840.9510589
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 41.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows Shah Rukh Khan in an interview setting (Z-Etc Bollywood), which can be used as biographical illustration, but it is displayed within a website interface containing browser elements and ads.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "abffdb940ec8adfcebdb5f8477b83e0b0a13ef15414041fa70efd3a654721303",
+      "reviewed_at": 1790454850.2924964
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 50.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows Shah Rukh Khan clearly in an interview setting across all frames. However, the source is formatted as a webpage with heavy UI elements and letterboxing around the video player, making it less than ideal for direct 9:16 vertical crop without losing parts of the subject or framing.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4f265492dc809402da4f34e0385626788199fc6427be24d2d2ab840f0d29b744",
+      "reviewed_at": 1790454856.4852307
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:TWiST-E282",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
+        "source_url": "https://archive.org/details/TWiST-E282",
+        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
+        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "creator": "ThisWeekIn Network",
+        "license": "",
+        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 3474.01,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Nolan Bushnell is visible in frames 2 and 3 participating in an interview on a podcast. While it is not direct historical footage of the events of his life, it serves as a valid biographical illustration of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3d80d56e1f974a1e249ff8370e04f8313b9158c9489ee0393e40f658966fea8c",
+      "reviewed_at": 1790455405.915679
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:twitter-935784150069415936",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-935784150069415936/935784150069415936.mp4",
+        "source_url": "https://archive.org/details/twitter-935784150069415936",
+        "title": "BBC Archive - #OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
+        "description": "#OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/XmWXVKpix2 Source: https://twitter.com/BBCArchive/status/935784150069415936 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OTD']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 25.81,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video shows real archival footage of Nolan Bushnell being interviewed, which can be used as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9fc68c755edbed758238d153a26c3af363e199f0a65d9534805e2aef69be2bf4",
+      "reviewed_at": 1790455426.6907568
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:TWiST-E282",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
+        "source_url": "https://archive.org/details/TWiST-E282",
+        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
+        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "creator": "ThisWeekIn Network",
+        "license": "",
+        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 351.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show Nolan Bushnell being interviewed on a podcast/talk show ('This Week in Startups'). While this is a podcast interview rather than direct historical footage of his past achievements (like founding Atari), it can serve as biographical illustration for a documentary or short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c260929f69e0418adba81ec56e570c19bb5cd8144bf81cc147fc3861d212b258",
+      "reviewed_at": 1790455463.7889702
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:twitter-935784150069415936",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-935784150069415936/935784150069415936.mp4",
+        "source_url": "https://archive.org/details/twitter-935784150069415936",
+        "title": "BBC Archive - #OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
+        "description": "#OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/XmWXVKpix2 Source: https://twitter.com/BBCArchive/status/935784150069415936 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OTD']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 46.84,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video shows actual archival interview footage of Nolan Bushnell, which serves as biographical illustration for his life and work on Atari/Pong, although it is an interview rather than direct footage of the specific historical event being narrated.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "db2753f2993434b710a51bcaeda674903566fbc1d6d635f7a32aa2b258c620f1",
+      "reviewed_at": 1790455485.3828557
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:TWiST-E282",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
+        "source_url": "https://archive.org/details/TWiST-E282",
+        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
+        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "creator": "ThisWeekIn Network",
+        "license": "",
+        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 698.8,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features real footage of Nolan Bushnell participating in an interview/podcast. While it is an interview rather than direct historical footage of the narrated events, it serves as valid biographical illustration of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "145ddac0aeea078b007c2c9373627f4598692938515e528cca393f3c26eac1ee",
+      "reviewed_at": 1790455503.6838934
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:TWiST-E282",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
+        "source_url": "https://archive.org/details/TWiST-E282",
+        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
+        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "creator": "ThisWeekIn Network",
+        "license": "",
+        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2433.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features Nolan Bushnell being interviewed on a podcast, which can serve as biographical illustration for his life and career, though it does not directly depict historical events.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4d4cb01bb37dd1f0498bbed720e48a71c4eeda7456cfa2141b4acd26116c19ed",
+      "reviewed_at": 1790455564.6483576
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:TWiST-E282",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
+        "source_url": "https://archive.org/details/TWiST-E282",
+        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
+        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "creator": "ThisWeekIn Network",
+        "license": "",
+        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2086.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Nolan Bushnell is clearly visible across all three frames participating in a podcast interview. While it is real footage of the subject, it's a modern interview discussing his life and work rather than direct historical footage of the narrated events, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "fc759e5687b95d2b23cdacf07137b06ddfa2eade9837e1ccc1999819c3d3c3af",
+      "reviewed_at": 1790455565.5112906
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:TWiST-E282",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
+        "source_url": "https://archive.org/details/TWiST-E282",
+        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
+        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "creator": "ThisWeekIn Network",
+        "license": "",
+        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 3820.91,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows Nolan Bushnell participating in an interview/podcast. While it does not show historical archival events directly, it serves as usable biographical illustration footage of the subject speaking in an interview setting.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d3df064249192eabc55600871fadeaf6cee1a328ca2a55a97630fb59c8b3e29c",
+      "reviewed_at": 1790455585.707114
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:twitter-1200420398178816001",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1200420398178816001/1200420398178816001.mp4",
+        "source_url": "https://archive.org/details/twitter-1200420398178816001",
+        "title": "BBC Archive - #OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
+        "description": "#OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/TA1mebdGMa Source: https://twitter.com/BBCArchive/status/1200420398178816001 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 26.78,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features real archival footage of Nolan Bushnell speaking in an interview context, which can be used to illustrate his biography.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3d2b08e090074e818e81e5a93b0e5440b20346474f6952c2473c7f62c05f1d36",
+      "reviewed_at": 1790455607.9521384
     }
   ]
 }

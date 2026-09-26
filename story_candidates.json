@@ -76,19 +76,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Nolan Bushnell",
-    "premise": "Choosing to pivot from arcade game development to found Atari and create the home video game industry.",
-    "hook": "He looked at massive, expensive arcade computers and decided to build a version that could fit in a living room.",
-    "key_facts": [
-      "Co-founded Atari, Inc. in 1972 with Ted Dabney.",
-      "Released the arcade game Pong, which became a commercial success.",
-      "Created the Atari 2600 home console, popularizing interchangeable game cartridges.",
-      "Studied engineering at the University of Utah while working at an amusement park."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Viswanathan Anand",
     "premise": "Learning the game of chess from his mother in Chennai as a child before dominating international competitions to become India's first grandmaster.",

@@ -2,5 +2,5 @@
   "status": "deferred",
   "video_id": "",
   "youtube_url": "",
-  "reason": "Story Gemini request budget exhausted after 64 requests (limit=64, stage=visual_verification)"
+  "reason": "Gemini daily/project quota is exhausted; no final video was created or uploaded."
 }

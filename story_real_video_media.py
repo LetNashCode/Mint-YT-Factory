@@ -24,6 +24,7 @@ from urllib.parse import quote, urlparse
 import requests
 
 import story_gemini_budget
+import story_qwen_vision_fallback
 
 UA = "Mint-YT-Factory/StoryVideo/1.0 (https://github.com/LetNashCode/Mint-YT-Factory)"
 _LAST_GROUPS = []
@@ -599,6 +600,27 @@ def verify(person, scene, item, samples):
             except (ValueError, AttributeError):
                 detail = "daily/project quota exhausted"
             _mark_gemini_quota_deferred(detail)
+            if story_qwen_vision_fallback.enabled():
+                print(
+                    "🛟 Gemini daily/project quota exhausted; switching Story visual verification to local Qwen2.5-VL",
+                    flush=True,
+                )
+                try:
+                    result = story_qwen_vision_fallback.verify(
+                        person=person, scene=scene, item=item, samples=samples
+                    )
+                    if not isinstance(result, dict):
+                        raise RuntimeError("Qwen vision fallback returned a non-object result")
+                    try:
+                        Path(QUOTA_DEFER_FILE).unlink()
+                    except FileNotFoundError:
+                        pass
+                    return result
+                except Exception as fallback_error:
+                    raise RuntimeError(
+                        "Story verifier daily Gemini quota exhausted and Qwen vision fallback failed: "
+                        f"{type(fallback_error).__name__}: {fallback_error}"
+                    ) from fallback_error
             raise RuntimeError("Story verifier daily Gemini quota exhausted")
 
         if response.status_code == 429:

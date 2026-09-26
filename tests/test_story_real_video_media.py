@@ -657,6 +657,25 @@ def test_daily_quota_detector_does_not_treat_minute_quota_as_daily():
     assert not media._is_daily_quota_response(Response())
 
 
+def test_subject_verifier_budget_exhaustion_is_not_swallowed(monkeypatch, tmp_path):
+    stub_pipeline(monkeypatch)
+    monkeypatch.setenv("STORY_GEMINI_MAX_REQUESTS_PER_SUBJECT", "14")
+    monkeypatch.setattr(media, "discover", lambda *args: [candidate(0), candidate(1)])
+    calls = []
+
+    def exhaust(*args):
+        calls.append(1)
+        raise RuntimeError(
+            "insufficient verified real footage: subject verifier budget exhausted "
+            "after 14 requests (limit=14)"
+        )
+
+    monkeypatch.setattr(media, "verify", exhaust)
+    with pytest.raises(RuntimeError, match="insufficient verified real footage"):
+        media.generate_media(story(), str(tmp_path), {})
+    assert len(calls) == 1
+
+
 def test_verifier_request_budget_stops_before_excess_calls(monkeypatch, tmp_path):
     stub_pipeline(monkeypatch)
     monkeypatch.setenv("STORY_GEMINI_MAX_REQUESTS", "2")

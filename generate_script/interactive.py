@@ -244,6 +244,7 @@ Return the normal production JSON schema. Put the person's name in the topic/tit
             retry=""
             if last_error:
                 retry=f"\nRETRY {attempt+1}: Rewrite ONLY the parts necessary to fix the validation error while preserving the strongest factual beats. TARGET 95-110 WORDS TOTAL; HARD LIMIT 80-120. Scene 1 must be a hard curiosity hook, not a biography opener. Scene 7 MUST be EXACTLY TWO spoken sentences: payoff first, loop callback second. The second sentence MUST echo TWO distinctive content words from Scene 1's FIRST sentence. Scene 7 must contain NO subscribe/follow CTA. Keep every scene within its stated word band. If the previous error is a scene word-count error, shorten or redistribute wording instead of adding filler. Previous error: {last_error}"
+            story_gemini_budget.consume("script_generation")
             response=client.models.generate_content(model=_base.MODEL_NAME,contents=prompt+retry,config=types.GenerateContentConfig(system_instruction=_base.SYSTEM_PROMPT,response_mime_type="application/json",response_json_schema=_base._build_schema(),temperature=.55))
             raw=getattr(response,"text",None)
             if not raw: raise RuntimeError("Gemini returned an empty story script.")

@@ -94,6 +94,7 @@ class FootageCatalog:
             if row["review_key"] == fingerprint and 0 <= now - float(row.get("reviewed_at", 0)) < 30 * 86400:
                 self.cache_hits += 1
                 return copy.deepcopy(row["verification"])
+        media._consume_verifier_request()
         verdict = media.verify(person, scene, item, samples)
         if self.accepts(verdict) and _source_allowed(item):
             row = {"person": person, "source": copy.deepcopy(item), "start": float(start),

@@ -134,9 +134,10 @@ jobs:
           META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
           META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
           STORY_VIDEO_VERIFY_MODEL: ${{ vars.STORY_VIDEO_VERIFY_MODEL || 'gemini-flash-lite-latest' }}
+          STORY_GEMINI_MAX_REQUESTS: ${{ vars.STORY_GEMINI_MAX_REQUESTS || '64' }}
         run: |
           set -euo pipefail
-          rm -f .story_gemini_quota_deferred .story_verifier_budget_deferred
+          rm -f .story_gemini_quota_deferred .story_verifier_budget_deferred .story_gemini_budget_deferred
           echo "🎬 Story media route: verified real-person video segments (Commons, Internet Archive; no YouTube downloads)"
           python -u youtube_auth_preflight.py
           python -u - <<'PY'
@@ -193,7 +194,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for state_file in story_topic_history.json pending_story.json story_counter.json story_candidates.json story_footage_catalog.json story_social_queue.json interactive_analytics.json interactive_analytics_history.json .story_publication_status.json .story_deferred .story_gemini_quota_deferred .story_verifier_budget_deferred; do
+          for state_file in story_topic_history.json pending_story.json story_counter.json story_candidates.json story_footage_catalog.json story_social_queue.json interactive_analytics.json interactive_analytics_history.json .story_publication_status.json .story_deferred .story_gemini_quota_deferred .story_verifier_budget_deferred .story_gemini_budget_deferred; do
             if [ -f "$state_file" ] || git ls-files --error-unmatch "$state_file" >/dev/null 2>&1; then
               git add -A -- "$state_file"
             fi

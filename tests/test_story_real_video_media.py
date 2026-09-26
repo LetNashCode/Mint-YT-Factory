@@ -286,22 +286,18 @@ def test_verification_samples_the_rendered_opening_not_later_frames(monkeypatch)
     assert times == [0.0, 3.6, 7.2]
 
 
-def test_retired_verifier_model_falls_back_once_and_caches(monkeypatch):
+def test_unavailable_publish_model_fails_without_model_fallback(monkeypatch):
     monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
-    monkeypatch.setenv("STORY_VIDEO_VERIFY_MODEL", "retired-model")
     monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
     calls = []
     def post(url, **kwargs):
         calls.append(url)
-        return SimpleNamespace(status_code=404 if len(calls) == 1 else 200,
-            raise_for_status=lambda: None,
-            json=lambda: {"candidates": [{"content": {"parts": [{"text": json.dumps(GOOD)}]}}]})
+        return SimpleNamespace(status_code=404, raise_for_status=lambda: None, json=lambda: {})
     monkeypatch.setattr(media.requests, "post", post)
-    for _ in range(2):
-        assert media.verification_passes(media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"]))
-    assert len(calls) == 3
-    assert "retired-model" in calls[0]
-    assert all("gemini-3.8-flash" in url for url in calls[1:])
+    with pytest.raises(RuntimeError, match="unavailable after retries on gemini-flash-lite-latest"):
+        media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
+    assert len(calls) == 1
+    assert "gemini-flash-lite-latest" in calls[0]
 
 @pytest.mark.parametrize("url", ["https://www.youtube.com/watch?v=abc", "https://youtu.be/abc",
     "https://www.youtube-nocookie.com/embed/abc", "https://rr1.googlevideo.com/videoplayback"])
@@ -452,9 +448,8 @@ def test_verified_sources_are_reused_before_unseen_sources(monkeypatch, tmp_path
 
 
 @pytest.mark.parametrize("failure", [requests.ReadTimeout, requests.ConnectionError])
-def test_verifier_network_failure_uses_model_fallback(monkeypatch, failure):
+def test_verifier_network_failure_retries_same_publish_model(monkeypatch, failure):
     monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
-    monkeypatch.setenv("STORY_VIDEO_VERIFY_MODEL", "gemini-flash-lite-latest")
     monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
     calls = []
     def post(url, **kwargs):
@@ -465,7 +460,8 @@ def test_verifier_network_failure_uses_model_fallback(monkeypatch, failure):
             json=lambda: {"candidates": [{"content": {"parts": [{"text": json.dumps(GOOD)}]}}]})
     monkeypatch.setattr(media.requests, "post", post)
     assert media.verification_passes(media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"]))
-    assert len(calls) == 2 and "gemini-3.8-flash" in calls[1]
+    assert len(calls) == 2
+    assert all("gemini-flash-lite-latest" in call for call in calls)
 
 
 def test_verifier_network_outage_fails_closed_after_three_attempts(monkeypatch):
@@ -479,6 +475,45 @@ def test_verifier_network_outage_fails_closed_after_three_attempts(monkeypatch):
     with pytest.raises(RuntimeError, match="unavailable after network retries"):
         media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
     assert len(calls) == 3
+
+
+def test_story_verifier_uses_publish_shorts_gemini_model(monkeypatch):
+    import stock_search
+    monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
+    monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
+    calls = []
+
+    def post(url, **kwargs):
+        calls.append(url)
+        return SimpleNamespace(
+            status_code=200,
+            raise_for_status=lambda: None,
+            json=lambda: {"candidates": [{"content": {"parts": [{"text": json.dumps(GOOD)}]}}]},
+        )
+
+    monkeypatch.setattr(media.requests, "post", post)
+    assert media.verification_passes(
+        media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
+    )
+    assert calls and all(stock_search.GEMINI_MODEL in call for call in calls)
+    assert media.GEMINI_MODEL == stock_search.GEMINI_MODEL == "gemini-flash-lite-latest"
+
+
+def test_story_verifier_never_falls_back_to_another_model(monkeypatch):
+    monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
+    monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
+    calls = []
+
+    def post(url, **kwargs):
+        calls.append(url)
+        return SimpleNamespace(status_code=503, raise_for_status=lambda: None, json=lambda: {})
+
+    monkeypatch.setattr(media.requests, "post", post)
+    with pytest.raises(RuntimeError, match="unavailable after retries on gemini-flash-lite-latest"):
+        media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
+    assert len(calls) == 3
+    assert all("gemini-flash-lite-latest" in call for call in calls)
+    assert not any("gemini-3." in call for call in calls)
 
 
 def test_direct_subject_category_is_retained(monkeypatch):
@@ -507,9 +542,8 @@ def test_first_identity_sample_comes_from_middle_of_recording(monkeypatch, tmp_p
 
 
 @pytest.mark.parametrize("status", [429, 503])
-def test_quota_or_server_error_moves_to_pinned_model(monkeypatch, status):
+def test_quota_or_server_error_retries_same_publish_model(monkeypatch, status):
     monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
-    monkeypatch.setenv("STORY_VIDEO_VERIFY_MODEL", "gemini-3.8-flash")
     monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
     calls = []
     def post(url, **kwargs):
@@ -518,10 +552,9 @@ def test_quota_or_server_error_moves_to_pinned_model(monkeypatch, status):
             json=lambda: {"candidates": [{"content": {"parts": [{"text": json.dumps(GOOD)}]}}]})
     monkeypatch.setattr(media.requests, "post", post)
     assert media.verification_passes(media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"]))
-    if status == 503:
-        assert len(calls) == 2 and calls[1] == calls[0]
-    else:
-        assert len(calls) == 2 and "gemini-3.1-flash-lite" in calls[1]
+    assert len(calls) == 2
+    assert all("gemini-flash-lite-latest" in call for call in calls)
+    assert calls[0] == calls[1]
 
 
 def test_story_media_recovery_classifies_only_content_availability_failures():

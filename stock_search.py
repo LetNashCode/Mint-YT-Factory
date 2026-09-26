@@ -86,6 +86,8 @@ def _gemini(prompt: str, temperature: float = 0.15, parts: list[Any] | None = No
                 print(f"⚠️ {GEMINI_MODEL} temporary failure ({attempt}/3); retrying...")
                 time.sleep(1.5 * attempt); continue
             text = str(exc).lower()
+            if "story gemini request budget exhausted" in text or story_gemini_budget.BUDGET_DEFER_FILE in str(exc):
+                raise
             if any(x in text for x in ("429", "resource exhausted", "quota", "rate limit")):
                 _GEMINI_DISABLED_FOR_RUN = True
                 print("🛡️ Gemini stock quota exhausted — disabling Gemini for the remainder of this media run")

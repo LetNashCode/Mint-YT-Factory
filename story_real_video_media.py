@@ -639,6 +639,7 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                 "Story verifier unavailable",
                                 "Story verifier daily Gemini quota exhausted",
                                 "Story verifier returned invalid",
+                                "Story Gemini request budget exhausted",
                             )):
                                 raise
                             source_errors[sid] += 1

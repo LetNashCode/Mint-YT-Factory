@@ -36,3 +36,9 @@ def test_adaptive_speed_does_not_reverse_time_mapping():
 
     assert float(output.time_map(10.0)) > 10.0
     assert np.isfinite(output.time_map(np.array([0.0, 20.0, 53.5]))).all()
+
+
+def test_kokoro_default_voice_is_af_bella():
+    from tts import KOKORO_VOICE
+
+    assert KOKORO_VOICE == "af_bella"

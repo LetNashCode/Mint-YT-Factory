@@ -52,22 +52,22 @@ print(f"✅ Caption font found: {FONT}")
 # Quirky, high-impact caption system.
 # Captions live in the lower-centre safe area and deliberately change scale
 # and colour with the story beat instead of showing tiny uniform words.
-CAPTION_FONT_SIZE = 92
+CAPTION_FONT_SIZE = 72
 CAPTION_COLOR = "white"
 CAPTION_HIGHLIGHT_COLOR = "#FFD54A"
 CAPTION_COLORS = ("#FFFFFF", "#FFD54A", "#49D7FF", "#FF5AAE", "#8DFF63")
 CAPTION_STROKE = "#111111"
-CAPTION_STROKE_WIDTH = 5
+CAPTION_STROKE_WIDTH = 2
 CAPTION_SHADOW_COLOR = "black"
 CAPTION_SHADOW_OPACITY = 0.65
 CAPTION_SHADOW_OFFSET = 7
-CAPTION_VERTICAL_POSITION = 0.67
+CAPTION_VERTICAL_POSITION = 0.64
 CAPTION_MIN_DURATION = 0.18
 CAPTION_MAX_DURATION = 1.60
 CAPTION_MAX_WORDS = 1
 CAPTION_MAX_CHARS = 28
 CAPTION_SAFE_WIDTH = 0.88
-CAPTION_SIZE_BY_SCENE = (1.38, 0.92, 1.00, 1.00, 1.08, 1.08, 1.28)
+CAPTION_SIZE_BY_SCENE = (1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0)
 DEFAULT_MUSIC_VOLUME = 0.25
 DEFAULT_SFX_VOLUME = 0.75
 
@@ -437,9 +437,9 @@ def _caption_style(scene_index, scene, phrase, phrase_index):
     else:
         color = CAPTION_COLORS[(scene_index + phrase_index) % len(CAPTION_COLORS)]
 
-    if dramatic:
-        multiplier *= 1.08
-
+    # Publish Shorts uses one fixed caption size. Keep this renderer deterministic
+    # so Emotional/Story/Publish outputs cannot silently grow captions by scene.
+    multiplier = 1.0
     return int(CAPTION_FONT_SIZE * multiplier), color
 
 

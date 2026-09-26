@@ -112,14 +112,18 @@ def test_archive_search_excludes_youtube_imports_and_prefers_subject_records(mon
             return {"response": {"docs": [
                 {"identifier": "youtube-bad", "title": "Nelson Mandela interview"},
                 {"identifier": "real-person", "title": "Nelson Mandela speaking",
-                 "description": "Archival interview with Nelson Mandela", "subject": ["Nelson Mandela"]},
+                 "description": "Archival interview with Nelson Mandela", "subject": ["Nelson Mandela"],
+                 "runtime": "00:12:00"},
                 {"identifier": "unrelated", "title": "Nelson Mandela mentioned",
-                 "description": "A presenter discusses the topic", "subject": ["Nelson Mandela"]},
+                 "description": "A presenter discusses the topic", "subject": ["Nelson Mandela"],
+                 "runtime": "02:00:00"},
             ]}}
         return {"files": [{"name": "real.mp4", "size": "1000000"}]}
     monkeypatch.setattr(media, "get_json", fetch)
     results = media.search_archive("Nelson Mandela")
     assert [row["id"] for row in results] == ["archive:real-person", "archive:unrelated"]
+    assert results[0]["duration_hint"] == 720.0
+    assert results[1]["duration_hint"] == 7200.0
     assert all("youtube-bad" not in row["id"] for row in results)
     assert all("NOT identifier:youtube-*" in params["q"] for url, params in calls if "advancedsearch.php" in url)
 

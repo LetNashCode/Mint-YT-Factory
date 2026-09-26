@@ -202,6 +202,16 @@ def _defer_story(reason: str) -> None:
     raise RuntimeError(f"Story Shorts did not complete publication: {reason}")
 
 
+def _publication_complete(path=".story_publication_status.json") -> bool:
+    """Return True only when durable Story publication state confirms YouTube publication."""
+    try:
+        import json
+        state = json.loads(Path(path).read_text(encoding="utf-8"))
+    except (OSError, ValueError, TypeError):
+        return False
+    return state.get("status") == "complete" and bool(str(state.get("video_id") or "").strip())
+
+
 def main() -> None:
     # A deferred marker belongs to the previous run and must never override a
     # fresh successful publication. The publication-state file is authoritative.
@@ -289,12 +299,7 @@ def main() -> None:
     # Do not infer publication success/failure from stale marker files. The
     # authoritative contract is the durable publication-state record written
     # by interactive_main after the YouTube upload and social completion.
-    try:
-        import json
-        state = json.loads(Path(".story_publication_status.json").read_text(encoding="utf-8"))
-    except (OSError, ValueError, TypeError):
-        state = {}
-    if state.get("status") != "complete" or not str(state.get("video_id") or "").strip():
+    if not _publication_complete():
         raise RuntimeError("Story Shorts ended without a completed publication.")
 
 

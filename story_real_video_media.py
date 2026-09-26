@@ -34,6 +34,7 @@ _VERIFIER_BUDGET = None  # compatibility view; authoritative state lives in stor
 QUOTA_DEFER_FILE = ".story_gemini_quota_deferred"
 VERIFIER_BUDGET_DEFER_FILE = story_gemini_budget.BUDGET_DEFER_FILE
 DEFAULT_VERIFIER_REQUEST_BUDGET = story_gemini_budget.DEFAULT_MAX_REQUESTS
+GEMINI_MODEL = "gemini-flash-lite-latest"
 
 PRECHECK_CACHE_FILE = Path("story_video_rejection_cache.json")
 PRECHECK_CACHE_VERSION = 1
@@ -552,7 +553,9 @@ def verify(person, scene, item, samples):
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
         raise RuntimeError("GEMINI_API_KEY is required for Story video verification")
-    requested_model = os.environ.get("STORY_VIDEO_VERIFY_MODEL", "gemini-3.8-flash").removeprefix("models/")
+    # Story Shorts must use the same lightweight Gemini model as Publish Shorts.
+    # Do not fall back to another model: that can consume a different quota bucket.
+    requested_model = GEMINI_MODEL
     model = _VERIFIER_MODELS.get(requested_model, requested_model)
     prompt = (
         "Evaluate three ordered frames sampled across the FULL candidate video segment for a biography Short. "
@@ -573,64 +576,64 @@ def verify(person, scene, item, samples):
     payload = {"contents": [{"parts": [{"text": prompt}] + [
         {"inline_data": {"mime_type": "image/jpeg", "data": sample}} for sample in samples]}],
         "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}}
-    # Pinned lightweight models. A daily/project quota response is not
-    # recoverable by trying more subjects or repeatedly hitting more models.
-    models = list(dict.fromkeys([model, "gemini-3.8-flash", "gemini-3.1-flash-lite", "gemini-3.5-flash-lite"]))[:3]
+    # Use exactly one model: the same model used by Publish Shorts.
+    # Transient provider errors may retry that same model, but never switch models.
     last_error = "unknown"
-    for model in models:
-        for retry in range(2):
+    for retry in range(3):
+        try:
+            response = requests.post(
+                f"https://generativelanguage.googleapis.com/v1beta/models/{quote(model, safe='')}:generateContent",
+                headers={"x-goog-api-key": key}, json=payload, timeout=(10, 60)
+            )
+        except (requests.Timeout, requests.ConnectionError):
+            last_error = "network timeout"
+            print(f"Story verifier network timeout: {model}; retry {retry + 1}/3", flush=True)
+            if retry < 2:
+                time.sleep(1.5 * (retry + 1))
+                continue
+            break
+
+        if response.status_code == 429 and _is_daily_quota_response(response):
             try:
-                response = requests.post(
-                    f"https://generativelanguage.googleapis.com/v1beta/models/{quote(model, safe='')}:generateContent",
-                    headers={"x-goog-api-key": key}, json=payload, timeout=(10, 60)
-                )
-            except (requests.Timeout, requests.ConnectionError):
-                last_error = "network timeout"
-                print(f"Story verifier network timeout: {model}; trying next pinned model", flush=True)
-                break
+                detail = response.json().get("error", {}).get("message", "daily/project quota exhausted")
+            except (ValueError, AttributeError):
+                detail = "daily/project quota exhausted"
+            _mark_gemini_quota_deferred(detail)
+            raise RuntimeError("Story verifier daily Gemini quota exhausted")
 
-            if response.status_code == 429 and _is_daily_quota_response(response):
-                try:
-                    detail = response.json().get("error", {}).get("message", "daily/project quota exhausted")
-                except (ValueError, AttributeError):
-                    detail = "daily/project quota exhausted"
-                _mark_gemini_quota_deferred(detail)
-                raise RuntimeError("Story verifier daily Gemini quota exhausted")
+        if response.status_code == 429:
+            last_error = "HTTP 429"
+            print(f"Story verifier {model}: HTTP 429; retry {retry + 1}/3", flush=True)
+            if retry < 2:
+                time.sleep(1.5 * (retry + 1))
+                continue
+            break
 
-            if response.status_code == 429:
-                last_error = "HTTP 429"
-                print(f"Story verifier {model}: HTTP 429; trying next pinned model", flush=True)
-                break
+        if response.status_code in (500, 502, 503, 504):
+            last_error = f"HTTP {response.status_code}"
+            if retry < 2:
+                print(f"Story verifier {model}: {last_error}; retrying ({retry + 1}/3)", flush=True)
+                time.sleep(2)
+                continue
+            break
 
-            if response.status_code in (500, 502, 503, 504):
-                last_error = f"HTTP {response.status_code}"
-                if retry == 0:
-                    print(f"Story verifier {model}: {last_error}; retrying once", flush=True)
-                    time.sleep(2)
-                    continue
-                print(f"Story verifier {model}: {last_error}; trying next pinned model", flush=True)
-                break
+        if response.status_code == 404:
+            last_error = "HTTP 404"
+            print(f"Story verifier {model}: HTTP 404; model is unavailable", flush=True)
+            break
 
-            if "story gemini request budget exhausted" in last_error.lower():
-                raise RuntimeError(last_error)
+        response.raise_for_status()
+        try:
+            parts = response.json().get("candidates", [{}])[0].get("content", {}).get("parts", [])
+            result = json.loads("".join(p.get("text", "") for p in parts))
+        except (ValueError, TypeError, AttributeError, IndexError):
+            raise RuntimeError("Story verifier returned invalid JSON response") from None
+        if not isinstance(result, dict):
+            raise RuntimeError("Story verifier returned a non-object JSON response")
+        _VERIFIER_MODELS[requested_model] = model
+        return result
 
-            if response.status_code == 404:
-                last_error = "HTTP 404"
-                print(f"Story verifier {model}: HTTP 404; trying next pinned model", flush=True)
-                break
-
-            response.raise_for_status()
-            try:
-                parts = response.json().get("candidates", [{}])[0].get("content", {}).get("parts", [])
-                result = json.loads("".join(p.get("text", "") for p in parts))
-            except (ValueError, TypeError, AttributeError, IndexError) as exc:
-                raise RuntimeError(f"Story verifier returned invalid JSON response: {type(exc).__name__}") from None
-            if not isinstance(result, dict):
-                raise RuntimeError("Story verifier returned a non-object JSON response")
-            _VERIFIER_MODELS[requested_model] = model
-            return result
-
-    raise RuntimeError(f"Story verifier unavailable after network retries/model fallback: {last_error}")
+    raise RuntimeError(f"Story verifier unavailable after retries on {GEMINI_MODEL}: {last_error}")
 
 
 def validate_segments(groups, expected=14):

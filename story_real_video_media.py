@@ -136,6 +136,19 @@ def _save_precheck_cache(entries):
     )
 
 
+def _precheck_cache_eligible(item):
+    """Only persist/reuse rejection cache entries for real archival providers."""
+    provider = clean(item.get("provider", "")).lower()
+    source_url = str(item.get("source_url", "")).lower()
+    return (
+        provider in {"wikimedia commons", "internet archive"}
+        and (
+            "commons.wikimedia.org" in source_url
+            or "archive.org/" in source_url
+        )
+    )
+
+
 def _source_precheck(item):
     """Reject obvious presenter/dramatization sources before spending Gemini calls."""
     hay = clean(" ".join(str(item.get(key, "")) for key in ("title", "description", "subject"))).lower()
@@ -678,11 +691,12 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
             reason = _source_precheck(item)
             key = _precheck_cache_key(item)
             if reason:
-                precheck_cache[key] = {"source_id": item.get("id"), "source_url": item.get("source_url"), "reason": reason}
+                if _precheck_cache_eligible(item):
+                    precheck_cache[key] = {"source_id": item.get("id"), "source_url": item.get("source_url"), "reason": reason}
                 precheck_rejected += 1
                 print(f"Story source precheck rejected: {item.get('provider')} | {reason}", flush=True)
                 continue
-            if key in precheck_cache:
+            if _precheck_cache_eligible(item) and key in precheck_cache:
                 precheck_rejected += 1
                 continue
             pool.append(item)
@@ -778,12 +792,13 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                 print(f"Story clip rejected: {item['provider']} {start}s | {clean(verdict.get('reason'))}", flush=True)
                                 if counts[sid] == 0 and source_rejections[sid] >= 4:
                                     blocked.add(sid)
-                                    precheck_cache[_precheck_cache_key(item)] = {
-                                        "source_id": item.get("id"),
-                                        "source_url": item.get("source_url"),
-                                        "reason": "visual verifier rejected source after four unusable identity samples",
-                                    }
-                                    _save_precheck_cache(precheck_cache)
+                                    if _precheck_cache_eligible(item):
+                                        precheck_cache[_precheck_cache_key(item)] = {
+                                            "source_id": item.get("id"),
+                                            "source_url": item.get("source_url"),
+                                            "reason": "visual verifier rejected source after four unusable identity samples",
+                                        }
+                                        _save_precheck_cache(precheck_cache)
                                     print(f"Skipping source after four unusable identity samples: {item['source_url']}", flush=True)
                                     break
                                 continue

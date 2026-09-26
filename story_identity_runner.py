@@ -146,6 +146,7 @@ def _story_defer_failure(exc: Exception) -> bool:
         "story visual verifier http 503",
         "story visual verifier http 504",
         "story verifier unavailable after network retries/model fallback",
+        "story verifier request budget exhausted",
     )
     return any(marker in text for marker in markers)
 
@@ -236,7 +237,9 @@ def main() -> None:
             break
         except Exception as exc:
             if Path(".story_gemini_quota_deferred").exists():
-                _defer_story("Gemini quota is exhausted; no final video was created or uploaded.")
+                _defer_story("Gemini daily/project quota is exhausted; no final video was created or uploaded.")
+            if Path(".story_verifier_budget_deferred").exists():
+                _defer_story(Path(".story_verifier_budget_deferred").read_text(encoding="utf-8").strip())
             if _story_defer_failure(exc):
                 _defer_story(str(exc))
                 return

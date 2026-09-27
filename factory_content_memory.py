@@ -67,11 +67,43 @@ def _save(rows: list[dict]) -> None:
     tmp.replace(HISTORY)
 
 
+def _sanitize_internal_rows(rows: list[dict]) -> list[dict]:
+    """Remove internal bookkeeping markers that are not real published topics."""
+    clean = []
+    removed = 0
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        topic = str(row.get("topic") or "").strip()
+        if topic.startswith("__MINT_PENDING_NEXT_TOPIC__::") or topic.startswith("__MINT_ANALYTICS__::"):
+            removed += 1
+            continue
+        clean.append(row)
+    if removed:
+        print(f"🧹 Factory topic memory: removed {removed} internal bookkeeping topic marker(s)")
+    return clean
+
+
 def _bootstrap_legacy(rows: list[dict]) -> list[dict]:
     """Migrate prior workflow-specific histories into the shared memory once."""
+    rows = _sanitize_internal_rows(rows)
     try:
         state = json.loads(BOOTSTRAP_STATE.read_text(encoding="utf-8"))
-        if int(state.get("version", 0) or 0) >= 1:
+        version = int(state.get("version", 0) or 0)
+        if version >= 2:
+            return rows
+        if version >= 1:
+            _save(rows)
+            BOOTSTRAP_STATE.parent.mkdir(parents=True, exist_ok=True)
+            BOOTSTRAP_STATE.write_text(
+                json.dumps({
+                    "version": 2,
+                    "migrated_topics": int(state.get("migrated_topics", 0) or 0),
+                    "completed_at": int(time.time()),
+                    "sanitized_internal_markers": True,
+                }, indent=2) + "\n",
+                encoding="utf-8",
+            )
             return rows
     except Exception:
         pass
@@ -124,7 +156,7 @@ def _bootstrap_legacy(rows: list[dict]) -> list[dict]:
     _save(existing)
     BOOTSTRAP_STATE.parent.mkdir(parents=True, exist_ok=True)
     BOOTSTRAP_STATE.write_text(
-        json.dumps({"version": 1, "migrated_topics": added, "completed_at": int(time.time())}, indent=2) + "\n",
+        json.dumps({"version": 2, "migrated_topics": added, "completed_at": int(time.time()), "sanitized_internal_markers": True}, indent=2) + "\n",
         encoding="utf-8",
     )
     print(f"🧬 Factory topic memory bootstrap: migrated {added} legacy topics")

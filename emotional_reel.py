@@ -375,6 +375,36 @@ Use learning as evidence, never as a template. Do not copy prior topics, hooks, 
   raise
  resume_state.update({'status':'uploaded','video_id':yt,'social':social,'uploaded_at':int(time.time())})
  _write_resume_state(resume_state)
+ publish_factory_topic(
+  str(d.get('factory_topic') or f"{d.get('primary_emotion','')}: {d.get('human_situation','')}"),
+  "emotional",
+  title=d['title'],
+  video_id=yt,
+  workdir=str(OUT),
+  metadata={
+   "primary_emotion":d.get('primary_emotion',''),
+   "human_situation":d.get('human_situation',''),
+   "creative_strategy":str(factory_strategy.get('strategy','')),
+   "experiment_id":str(factory_strategy.get('experiment_id','')),
+  },
+ )
+ try:
+  from youtube_analytics import record_upload
+  record_upload(
+   yt,
+   str(d.get('factory_topic') or d.get('title','')),
+   d.get('title',''),
+   workdir=str(OUT),
+   production_metadata={
+    "workflow":"emotional",
+    "primary_emotion":d.get('primary_emotion',''),
+    "human_situation":d.get('human_situation',''),
+    "creative_strategy":str(factory_strategy.get('strategy','')),
+    "creative_experiment_id":str(factory_strategy.get('experiment_id','')),
+   },
+  )
+ except Exception as exc:
+  print(f'⚠️ Emotional learning analytics record unavailable: {type(exc).__name__}: {exc}',flush=True)
  print('EMOTIONAL_REEL_PUBLISHED',yt);print(json.dumps(social,indent=2))
 
 if __name__=='__main__':main()

@@ -59,3 +59,13 @@ def test_factory_topic_memory_publishes_reservation(tmp_path, monkeypatch):
     rows = json.loads(path.read_text())
     assert rows[0]["status"] == "published"
     assert rows[0]["video_id"] == "abc123"
+
+
+def test_factory_topic_memory_reuses_same_workflow_reservation(tmp_path, monkeypatch):
+    path = tmp_path / "topic_history.json"
+    monkeypatch.setattr(memory, "HISTORY", path)
+    first = memory.claim("story", "The inventor who rebuilt after failure")
+    second = memory.claim("story", "The inventor who rebuilt after failure")
+    assert first == second
+    rows = json.loads(path.read_text())
+    assert len(rows) == 1

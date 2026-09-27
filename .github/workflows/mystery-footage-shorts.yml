@@ -74,13 +74,11 @@ jobs:
         run: |
           python - <<'PY'
           import json
-          import portrait_export_guard
-          portrait_export_guard.ensure_portrait_export = lambda path: path
           from upload_youtube import upload_video
           from pathlib import Path
           root = Path('artifacts/mystery-documentary')
           meta = json.loads((root / 'metadata.json').read_text(encoding='utf-8'))
-          video_id = upload_video(str(root / 'mystery-documentary.mp4'), meta['video_title'][:90], meta['description'], {'upload': {'privacy_status': 'private', 'category_id': '24'}, 'seo': {'hashtags': meta.get('tags', [])}})
+          video_id = upload_video(str(root / 'mystery-documentary.mp4'), meta['video_title'][:90], meta['description'], {'upload': {'privacy_status': 'public', 'category_id': '24', 'video_format': 'landscape'}, 'seo': {'hashtags': meta.get('tags', [])}})
           meta['youtube_video_id'] = video_id
           meta['publication_status'] = 'published'
           (root / 'metadata.json').write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding='utf-8')

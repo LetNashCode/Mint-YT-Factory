@@ -312,6 +312,14 @@ EMOTIONAL-RANGE RULE: do not default to sadness. Across the factory, deliberatel
 SHOW-DON'T-EXPLAIN RULE: do not end with generic lessons such as "cherish every moment"; let the specific realization create the emotion. Prefer "you still type their name when something funny happens" over "sometimes we miss people." The viewer should be able to recognize the situation without needing the stock footage to explain it.
 ANTI-CLICHE RULE: avoid generic phrases such as "everything happens for a reason", "believe in yourself", "never give up", "you are stronger than you think", "everything will be okay", "you are not alone", and similar motivational filler. Do not use medical claims, diagnosis, crisis language, emojis, or therapeutic promises.
 STOCK-VISUAL RULE: every search query must describe something visibly filmable in stock footage. Do not rely on abstract concepts such as "sadness", "healing", "emotional pain", or "finding yourself" alone.
+HARD PRODUCTION CONSTRAINTS — FOLLOW THESE BEFORE WRITING:
+- Exactly 9 scenes.
+- Each scene narration MUST contain 12-18 words. Aim for 14-16 words, not 18-20.
+- Total narration MUST be 120-160 words.
+- Include at least TWO DISTINCT concrete memory anchors from the locked memory trigger/situation. For this topic, explicitly use concrete objects, sounds, places, routines, or people from the locked premise; do not merely say "I remember".
+- If cta_type is share, reconnect, or call, the FINAL SCENE narration MUST contain an explicit natural action such as "send this to them", "share this with them", "text them", "message them", or "call them". The cta_text must describe that same action.
+- If a CTA does not genuinely fit, use cta_type "none" instead of selecting "share" by default.
+- Do not output more than 18 narration words in any scene.
 Total narration should be 120-160 words, with 12-18 words in every scene. Narration must be production-complete: every generated narration word will be spoken.
 IMPORTANT: Every narration word you generate is production-critical. Do not omit, summarize, truncate, rewrite, compact, or otherwise remove any narration content after this JSON is accepted. The exact concatenated scene narration is the script that must be spoken in full.
 
@@ -324,8 +332,17 @@ CURRENT CREATIVE EXPERIMENT:
 Use learning as evidence for the creative treatment, never as a template. The locked topic is immutable.'''
 
  d=None;scenes=None;narration=''
+ retry_feedback=''
  for attempt in range(1,9):
-  candidate=ai(p);candidate_scenes=candidate.get('scenes')
+  retry_prompt=p
+  if retry_feedback:
+   retry_prompt += f"""
+
+PREVIOUS DRAFT FAILED VALIDATION. FIX THESE SPECIFIC ISSUES IN THIS NEW DRAFT:
+{retry_feedback}
+Do not merely rewrite the same draft. Correct every listed issue while preserving the locked topic.
+"""
+  candidate=ai(retry_prompt);candidate_scenes=candidate.get('scenes')
   required_fields=('title','description','hashtags','primary_emotion','human_situation','memory_category','memory_trigger','emotional_turn','cta_type','cta_text')
   missing_fields=[field for field in required_fields if not candidate.get(field)]
   if missing_fields:
@@ -348,11 +365,18 @@ Use learning as evidence for the creative treatment, never as a template. The lo
   scene_counts=[_word_count(s.get('narration','')) for s in candidate_scenes]
   lower_narration=candidate_narration.lower()
   anchor_terms=('remember','used to','back then','when we','when you','after school','school bell','old photo','photograph','group chat','late-night','birthday','terrace','playground','lunchbox','train','bus ride','inside joke','favorite song','borrowed','childhood','old house','first time','last time','every sunday','every friday','on the way home')
-  memory_anchor_count=sum(lower_narration.count(term) for term in anchor_terms)
+  dynamic_anchor_terms=[]
+  for source in (locked_topic.get('memory_trigger',''),locked_topic.get('human_situation','')):
+   for token in re.findall(r"[a-zA-Z][a-zA-Z'-]{4,}",str(source).lower()):
+    if token not in dynamic_anchor_terms and token not in {'remember','hearing','visiting','instantly','waiting','online'}:
+     dynamic_anchor_terms.append(token)
+  fixed_anchor_hits=[term for term in anchor_terms if term in lower_narration]
+  dynamic_anchor_hits=[term for term in dynamic_anchor_terms if term in lower_narration]
+  memory_anchor_count=len(set(fixed_anchor_hits + dynamic_anchor_hits))
   banned_terms=('everything happens for a reason','believe in yourself','never give up','you are stronger than you think','everything will be okay','you are not alone','cherish every moment','life is too short')
   banned_hits=[term for term in banned_terms if term in lower_narration]
   final_scene= ' '.join(str(candidate_scenes[-1].get('narration','')).split()).lower() if candidate_scenes else ''
-  cta_present=any(term in final_scene for term in ('send this','share this','send it','share it','text them','message them','call them','give them a call','reach out'))
+  cta_present=any(term in final_scene for term in ('send this','share this','send it','share it','text them','message them','call them','give them a call','reach out')) or any(term in final_scene for term in ('send this to them','share this with them','text them','message them','call them'))
   if 120 <= word_count <= 160 and all(12 <= n <= 18 for n in scene_counts) and memory_anchor_count >= 2 and not banned_hits and (candidate_cta_type == 'none' or cta_present):
    candidate["primary_emotion"]=locked_topic["primary_emotion"]
    candidate["human_situation"]=locked_topic["human_situation"]
@@ -370,11 +394,12 @@ Use learning as evidence for the creative treatment, never as a template. The lo
   if not all(12 <= n <= 18 for n in scene_counts):
    rejection_reasons.append(f'scene_word_counts={scene_counts} require 12-18 each')
   if memory_anchor_count < 2:
-   rejection_reasons.append(f'memory_anchors={memory_anchor_count} require >=2')
+   rejection_reasons.append(f'memory_anchors={memory_anchor_count} require >=2; fixed_hits={fixed_anchor_hits}; dynamic_hits={dynamic_anchor_hits[:8]}')
   if banned_hits:
    rejection_reasons.append(f'cliche_hits={banned_hits}')
   if candidate_cta_type != 'none' and not cta_present:
    rejection_reasons.append(f'cta_missing_in_final_scene type={candidate_cta_type}')
+  retry_feedback="\n".join(f"- {reason}" for reason in rejection_reasons)
   print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: {"; ".join(rejection_reasons) or "unknown validation failure"}',flush=True)
 
  if d is None:

@@ -87,7 +87,7 @@ jobs:
               title=meta['video_title'],
               video_id=video_id,
               workdir=str(root),
-              metadata={'catalog_item_id': meta.get('catalog_item_id',''), 'source_url': meta.get('source_url','')},
+              metadata={'catalog_item_id': meta.get('catalog_item_id',''), 'source_url': meta.get('source_url',''), 'creative_strategy': meta.get('creative_strategy','')},
           )
           try:
               from youtube_analytics import record_upload
@@ -96,7 +96,7 @@ jobs:
                   meta.get('factory_topic') or meta['video_title'],
                   meta['video_title'],
                   workdir=str(root),
-                  production_metadata={'workflow':'mystery','catalog_item_id':meta.get('catalog_item_id','')},
+                  production_metadata={'workflow':'mystery','catalog_item_id':meta.get('catalog_item_id',''),'creative_strategy':meta.get('creative_strategy','')},
               )
           except Exception as exc:
               print(f'⚠️ Mystery learning analytics record unavailable: {type(exc).__name__}: {exc}')

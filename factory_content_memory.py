@@ -13,6 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 HISTORY = ROOT / "analytics" / "topic_history.json"
+BOOTSTRAP_STATE = ROOT / "analytics" / "factory_memory_state.json"
 RESERVATION_TTL_SECONDS = 24 * 60 * 60
 DUPLICATE_THRESHOLD = 0.70
 
@@ -63,6 +64,70 @@ def _save(rows: list[dict]) -> None:
     tmp = HISTORY.with_suffix(".tmp")
     tmp.write_text(json.dumps(rows[-500:], indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     tmp.replace(HISTORY)
+
+
+def _bootstrap_legacy(rows: list[dict]) -> list[dict]:
+    """Migrate prior workflow-specific histories into the shared memory once."""
+    try:
+        state = json.loads(BOOTSTRAP_STATE.read_text(encoding="utf-8"))
+        if int(state.get("version", 0) or 0) >= 1:
+            return rows
+    except Exception:
+        pass
+
+    legacy_topics: list[tuple[str, str]] = []
+
+    def add_json_topics(path: Path, workflow: str, topic_keys: tuple[str, ...]) -> None:
+        try:
+            value = json.loads(path.read_text(encoding="utf-8"))
+        except Exception:
+            return
+        values = value if isinstance(value, list) else []
+        if isinstance(value, dict):
+            values = value.get("entries") or value.get("items") or []
+        for item in values:
+            if isinstance(item, str):
+                if not item.startswith("__MINT_ANALYTICS__::"):
+                    legacy_topics.append((workflow, item))
+                continue
+            if not isinstance(item, dict):
+                continue
+            for key in topic_keys:
+                topic = str(item.get(key) or "").strip()
+                if topic:
+                    legacy_topics.append((workflow, topic))
+                    break
+
+    add_json_topics(ROOT / "story_topic_history.json", "story_legacy", ("topic",))
+    add_json_topics(ROOT / "mystery_footage_history.json", "mystery_legacy", ("title", "topic"))
+    add_json_topics(ROOT / "used_topics.json", "publish_legacy", ("topic",))
+    add_json_topics(ROOT / "analytics" / "videos.json", "analytics_legacy", ("topic", "title"))
+
+    existing = list(rows)
+    added = 0
+    for workflow, topic in legacy_topics:
+        clean = " ".join(str(topic).split()).strip()
+        if not clean or duplicate(clean, existing):
+            continue
+        now = int(time.time())
+        existing.append({
+            "topic": clean,
+            "normalized": normalize_topic(clean),
+            "workflow": workflow,
+            "status": "published",
+            "recorded_at": now,
+            "metadata": {"source": "legacy_bootstrap_v1"},
+        })
+        added += 1
+
+    _save(existing)
+    BOOTSTRAP_STATE.parent.mkdir(parents=True, exist_ok=True)
+    BOOTSTRAP_STATE.write_text(
+        json.dumps({"version": 1, "migrated_topics": added, "completed_at": int(time.time())}, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    print(f"🧬 Factory topic memory bootstrap: migrated {added} legacy topics")
+    return existing
 
 
 def _purge_stale(rows: list[dict]) -> list[dict]:

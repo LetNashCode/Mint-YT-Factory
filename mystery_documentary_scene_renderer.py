@@ -238,6 +238,15 @@ def render_scene(source, s, narration, out, work):
     else:
         cmd(["ffmpeg", "-y", "-i", video, "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", str(render_length), "-c:v", "copy", "-c:a", "aac", out])
     video.unlink(missing_ok=True)
+def _media_duration(path: Path) -> float:
+    """Return the rendered scene duration used by the final concat timeline."""
+    value = subprocess.check_output(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+         "-of", "default=nw=1:nk=1", str(path)],
+        text=True,
+    ).strip()
+    return max(0.0, float(value or 0.0))
+
 def _skip_if_configured(message):
     if os.getenv("MYSTERY_FOOTAGE_SKIP_IF_NO_ELIGIBLE", "false").lower() in {"1", "true", "yes"}:
         print(message)
@@ -337,6 +346,7 @@ def main():
         }
         (OUT / "script.json").write_text(json.dumps(script_artifact, indent=2, ensure_ascii=False), encoding="utf-8")
         parts = []
+        rendered_scenes = []
         for i, scene in enumerate(timeline["scene_plan"]):
             audio = None
             if scene["audio_mode"] in {"narration", "pause", "replay"} and scene["narration"]:
@@ -344,7 +354,22 @@ def main():
                 synthesize_narration(scene["narration"], VOICE, str(audio), target_duration=max(1, scene["end"] - scene["start"]))
             part = work / f"part-{i:03d}.mp4"
             render_scene(str(source), scene, str(audio) if audio else None, part, work)
+            actual_duration = _media_duration(part)
+            timeline_start = sum(float(item["duration"]) for item in rendered_scenes)
+            rendered_scenes.append({
+                "index": i,
+                "start": round(timeline_start, 3),
+                "end": round(timeline_start + actual_duration, 3),
+                "duration": round(actual_duration, 3),
+                "audio_mode": scene["audio_mode"],
+                "visual_effect": scene.get("visual_effect", "normal"),
+                "narration": bool(scene.get("narration")),
+            })
             parts.append(part)
+        (OUT / "rendered_scene_timeline.json").write_text(
+            json.dumps({"scenes": rendered_scenes}, indent=2, ensure_ascii=False),
+            encoding="utf-8",
+        )
         listing = work / "concat.txt"
         listing.write_text("\n".join("file '" + p.as_posix() + "'" for p in parts) + "\n", encoding="utf-8")
         output = OUT / "mystery-documentary.mp4"

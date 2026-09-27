@@ -244,7 +244,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           mkdir -p /tmp/mint-topic-state
-          for f in used_topics.json analytics_registry.json learning_playbook.json analytics/topic_history.json analytics/videos.json analytics/playbook.json completed_publications.json media_history.json; do if [ -f "$f" ]; then cp -f "$f" "/tmp/mint-topic-state/$f"; fi; done
+          for f in used_topics.json analytics_registry.json learning_playbook.json analytics/topic_history.json analytics/videos.json analytics/playbook.json analytics/factory_memory_state.json completed_publications.json media_history.json; do if [ -f "$f" ]; then cp -f "$f" "/tmp/mint-topic-state/$f"; fi; done
           git fetch origin main
           git checkout main
           git reset --hard origin/main

@@ -119,8 +119,18 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add mystery_footage_catalog.json mystery_footage_history.json analytics/topic_history.json analytics/videos.json analytics/playbook.json analytics/factory_memory_state.json
             git commit -m "Record mystery documentary footage history"
+            # Generated artifacts and quality-gate state can dirty the runner worktree.
+            # Preserve them locally while rebasing the small durable history commit.
+            stash_created=false
+            if ! git diff --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+              git stash push --include-untracked -m "mystery-run-generated-state" >/dev/null
+              stash_created=true
+            fi
             git pull --rebase origin main
             git push origin HEAD:main
+            if [ "$stash_created" = true ]; then
+              git stash drop >/dev/null || true
+            fi
           fi
       - name: Upload documentary artifact
         if: always()

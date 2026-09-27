@@ -205,6 +205,36 @@ def _rank(rows: dict[str, list[float]], minimum: int = 1) -> list[dict]:
     return sorted(result, key=lambda x: (x["score"], x["sample_size"]), reverse=True)
 
 
+def _discriminative_rank(
+    winners: list[dict],
+    losers: list[dict],
+    features: dict[str, str],
+    minimum: int = MIN_PATTERN_EVIDENCE,
+) -> list[dict]:
+    """Rank patterns that outperform their matching weak evidence."""
+    winner_rows = _rows(winners, features)
+    loser_rows = _rows(losers, features)
+    result = []
+    for pattern, values in winner_rows.items():
+        if len(values) < minimum:
+            continue
+        weak_values = loser_rows.get(pattern, [])
+        winner_score = sum(values) / len(values)
+        weak_score = sum(weak_values) / len(weak_values) if weak_values else None
+        # A pattern shared by winners and losers is not evidence of a winning
+        # combination unless its winner performance is measurably higher.
+        if weak_score is not None and winner_score <= weak_score:
+            continue
+        result.append({
+            "pattern": pattern,
+            "score": round(winner_score, 3),
+            "sample_size": len(values),
+            "weak_sample_size": len(weak_values),
+            "weak_score": round(weak_score, 3) if weak_score is not None else None,
+        })
+    return sorted(result, key=lambda x: (x["score"], x["sample_size"]), reverse=True)
+
+
 def select_creative_strategy(playbook: dict | None = None) -> dict:
     """Select the next creative experiment using an exact 70/20/10 schedule.
 
@@ -269,10 +299,10 @@ def build_playbook(records: list[dict]) -> dict:
     isolated_features = ("hook_type","story_format","payoff_position","explanation_position","script_length","narration_pace")
     combo_features = ("hook_type","story_format","payoff_type","tease_type","narration_pace")
     pair_features = ("hook_type","payoff_type","tease_type")
-    winning_patterns = _rank(_rows(winners, {x:x for x in isolated_features}), 2)[:40] if has_live_metrics else []
+    winning_patterns = _discriminative_rank(winners, losers, {x:x for x in isolated_features}, 2)[:40] if has_live_metrics else []
     weak_patterns = _rank(_rows(losers, {x:x for x in isolated_features}), 2)[:30] if has_live_metrics else []
-    winning_combinations = _rank(_rows(winners, {x:x for x in combo_features}), 2)[:20] if has_live_metrics else []
-    winning_hook_payoff_pairs = _rank(_rows(winners, {x:x for x in pair_features}), 2)[:12] if has_live_metrics else []
+    winning_combinations = _discriminative_rank(winners, losers, {x:x for x in combo_features}, 2)[:20] if has_live_metrics else []
+    winning_hook_payoff_pairs = _discriminative_rank(winners, losers, {x:x for x in pair_features}, 2)[:12] if has_live_metrics else []
     creative_strategy_results = _rank(_rows(usable, {"creative_strategy":"creative_strategy"}), 2)[:10] if has_live_metrics else []
 
     topics = [_norm_topic(r.get("topic", "")) for r in usable if r.get("topic")]

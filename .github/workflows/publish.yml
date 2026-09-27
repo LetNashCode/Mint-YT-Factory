@@ -242,13 +242,25 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          mkdir -p /tmp/mint-topic-state
-          for f in used_topics.json analytics_registry.json learning_playbook.json analytics/topic_history.json analytics/videos.json analytics/playbook.json analytics/factory_memory_state.json completed_publications.json media_history.json; do if [ -f "$f" ]; then cp -f "$f" "/tmp/mint-topic-state/$f"; fi; done
+          mkdir -p /tmp/mint-topic-state/analytics
+          for f in used_topics.json analytics_registry.json learning_playbook.json analytics/topic_history.json analytics/videos.json analytics/playbook.json analytics/factory_memory_state.json completed_publications.json media_history.json; do
+            if [ -f "$f" ]; then
+              mkdir -p "/tmp/mint-topic-state/$(dirname "$f")"
+              cp -f "$f" "/tmp/mint-topic-state/$f"
+            fi
+          done
           git fetch origin main
           git checkout main
           git reset --hard origin/main
           changed=""
-          for f in used_topics.json analytics_registry.json learning_playbook.json analytics/topic_history.json analytics/videos.json analytics/playbook.json completed_publications.json media_history.json; do if [ -f "/tmp/mint-topic-state/$f" ]; then cp -f "/tmp/mint-topic-state/$f" "$f"; git add "$f"; changed="yes"; fi; done
+          for f in used_topics.json analytics_registry.json learning_playbook.json analytics/topic_history.json analytics/videos.json analytics/playbook.json analytics/factory_memory_state.json completed_publications.json media_history.json; do
+            if [ -f "/tmp/mint-topic-state/$f" ]; then
+              mkdir -p "$(dirname "$f")"
+              cp -f "/tmp/mint-topic-state/$f" "$f"
+              git add "$f"
+              changed="yes"
+            fi
+          done
           if ! git diff --cached --quiet; then
             git commit -m "chore: sync publish state"
             pushed=""

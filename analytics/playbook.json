@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-27T15:51:22.501053+00:00",
-  "video_count": 109,
+  "generated_at": "2026-09-27T17:57:54.200498+00:00",
+  "video_count": 110,
   "learning_ready": true,
   "metrics_available": true,
   "creative_learning_version": "v3",
@@ -20,7 +20,7 @@
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 1.119,
+      "score": 0.862,
       "sample_size": 10
     }
   ],
@@ -40,18 +40,18 @@
     "Why ice floats"
   ],
   "avoid_topics": [
-    "Why your phone screen gets greasy",
     "Why do zippers get stuck",
     "Why coffee cups drip down the side",
     "Why does an apple brown",
     "Why does paint peel",
     "Why shower curtains attack you",
+    "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
     "Why do tears taste salty",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
     "Why do steering wheels lock"
   ],
-  "used_topic_count": 109,
+  "used_topic_count": 110,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

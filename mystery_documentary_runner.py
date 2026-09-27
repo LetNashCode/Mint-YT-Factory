@@ -48,6 +48,7 @@ def main() -> None:
         metadata=json.loads(metadata_path.read_text(encoding="utf-8"))
         metadata["history_recorded"]=True
         metadata["factory_topic"]=factory_topic
+        metadata["creative_strategy"]=os.getenv("MINT_FACTORY_CREATIVE_STRATEGY","")
         metadata_path.write_text(json.dumps(metadata,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     print(f"MYSTERY_DOCUMENTARY_HISTORY_RECORDED={item_id}")
 if __name__ == "__main__": main()

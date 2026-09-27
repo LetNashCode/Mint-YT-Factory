@@ -259,7 +259,8 @@ def _emotional_semantic_tokens(value: str) -> set[str]:
     normalized = normalize_topic(value)
     normalized = re.sub(r"\bused\s+to\b", "used_to", normalized)
     tokens = set()
-    for token in normalized.split():
+    raw_tokens = set(normalized.split())
+    for token in raw_tokens:
         if len(token) <= 2 or token in EMOTIONAL_STOPWORDS:
             continue
         token = EMOTIONAL_SEMANTIC_ALIASES.get(token, token)
@@ -272,6 +273,17 @@ def _emotional_semantic_tokens(value: str) -> set[str]:
         elif token.endswith("s") and len(token) > 4:
             token = token[:-1]
         tokens.add(token)
+
+    # A concrete ritual plus a relationship-loss cue is a stronger semantic
+    # fingerprint than the individual words. This catches paraphrases such as
+    # "setting the dinner table after a breakup" and "laying out two plates
+    # because you were used to eating together."
+    if "set" in tokens and "dinner" in tokens:
+        relationship_loss = "separation" in tokens or (
+            "together" in tokens and "used_to" in raw_tokens
+        )
+        if relationship_loss:
+            tokens.add("post_separation_dinner_ritual")
     return tokens
 
 

@@ -2095,5 +2095,693 @@
     "workdir": "output/1788565695",
     "status": "published",
     "recorded_at": 1788568072
+  },
+  {
+    "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
+    "normalized": "harland sanders a failed highway business led to a global fried chicken empire at age 65",
+    "workflow": "story_legacy",
+    "status": "published",
+    "recorded_at": 1790524289,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
+    "normalized": "mary anning the working class woman who discovered prehistoric giants ignored by academia",
+    "workflow": "story_legacy",
+    "status": "published",
+    "recorded_at": 1790524289,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Mary Kom: From a Farmer's Daughter in Rural Manipur to Six-Time World Boxing Champion.",
+    "normalized": "mary kom from a farmer s daughter in rural manipur to six time world boxing champion",
+    "workflow": "story_legacy",
+    "status": "published",
+    "recorded_at": 1790524289,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes.",
+    "normalized": "phil knight a college track athlete who borrowed 50 to import japanese running shoes",
+    "workflow": "story_legacy",
+    "status": "published",
+    "recorded_at": 1790524289,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Jim Carrey: Dropping Out at Age 15 to Work as a Factory Janitor in Canada.",
+    "normalized": "jim carrey dropping out at age 15 to work as a factory janitor in canada",
+    "workflow": "story_legacy",
+    "status": "published",
+    "recorded_at": 1790524289,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",
+    "normalized": "alan turing a bicycle repair habit and a long distance running routine saved his sanity",
+    "workflow": "story_legacy",
+    "status": "published",
+    "recorded_at": 1790524289,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Alex Honnold: The choice to attempt the first free solo climb of El Capitan without a rope.",
+    "normalized": "alex honnold the choice to attempt the first free solo climb of el capitan without a rope",
+    "workflow": "story_legacy",
+    "status": "published",
+    "recorded_at": 1790524289,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "MS Dhoni: How a ticket collector at a railway station became one of India's most successful cricket captains.",
+    "normalized": "ms dhoni how a ticket collector at a railway station became one of india s most successful cricket captains",
+    "workflow": "story_legacy",
+    "status": "published",
+    "recorded_at": 1790524289,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Arnold Schwarzenegger: A young Austrian bodybuilder arrives in America barely speaking English and determined to conquer three distinct industries.",
+    "normalized": "arnold schwarzenegger a young austrian bodybuilder arrives in america barely speaking english and determined to conquer three distinct industries",
+    "workflow": "story_legacy",
+    "status": "published",
+    "recorded_at": 1790524290,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Hedy Lamarr: A glamorous Hollywood actress during the Golden Age secretly invents and patents a radio guidance system for allied torpedoes.",
+    "normalized": "hedy lamarr a glamorous hollywood actress during the golden age secretly invents and patents a radio guidance system for allied torpedoes",
+    "workflow": "story_legacy",
+    "status": "published",
+    "recorded_at": 1790524290,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Oprah Winfrey: A young broadcaster faces institutional resistance and demotions in a male-dominated news landscape before creating her own daytime television empire.",
+    "normalized": "oprah winfrey a young broadcaster faces institutional resistance and demotions in a male dominated news landscape before creating her own daytime television empire",
+    "workflow": "story_legacy",
+    "status": "published",
+    "recorded_at": 1790524290,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Keanu Reeves: A nomadic youth who attended four different high schools discovers his passion for acting on the ice rink before landing breakout roles.",
+    "normalized": "keanu reeves a nomadic youth who attended four different high schools discovers his passion for acting on the ice rink before landing breakout roles",
+    "workflow": "story_legacy",
+    "status": "published",
+    "recorded_at": 1790524290,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Lockheed Skunkworks Had Technology That Could Take E.T. Home 😳",
+    "normalized": "lockheed skunkworks had technology that could take e t home",
+    "workflow": "mystery_legacy",
+    "status": "published",
+    "recorded_at": 1790524290,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Israeli settlers steal from plant nursery, a-Sawiyah, Nablus District, 27 Nov. 202",
+    "normalized": "israeli settlers steal from plant nursery a sawiyah nablus district 27 nov 202",
+    "workflow": "mystery_legacy",
+    "status": "published",
+    "recorded_at": 1790524290,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "RAW VIDEO: Federal Officers Hold Disabled Veteran and Wife at Gunpoint & Threaten K-9 Attack",
+    "normalized": "raw video federal officers hold disabled veteran and wife at gunpoint threaten k 9 attack",
+    "workflow": "mystery_legacy",
+    "status": "published",
+    "recorded_at": 1790524290,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "BlackBoxDown - Security camera footage comparing a normal aircraft deceleration with the accident aircraft.",
+    "normalized": "blackboxdown security camera footage comparing a normal aircraft deceleration with the accident aircraft",
+    "workflow": "mystery_legacy",
+    "status": "published",
+    "recorded_at": 1790524290,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do wet sneakers squeak on floors",
+    "normalized": "why do wet sneakers squeak on floors",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524291,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do wet fingers prune in water",
+    "normalized": "why do wet fingers prune in water",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524291,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do dry noodles break crooked",
+    "normalized": "why do dry noodles break crooked",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524291,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why does toothpaste foam",
+    "normalized": "why does toothpaste foam",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do metal spoons tingle",
+    "normalized": "why do metal spoons tingle",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do wet towels smell",
+    "normalized": "why do wet towels smell",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do mirrors double reflections",
+    "normalized": "why do mirror double reflections",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why does a sponge expand",
+    "normalized": "why does a sponge expand",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why does a plate get hot",
+    "normalized": "why does a plate get hot",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do dry erase markers squeak",
+    "normalized": "why do dry erase markers squeak",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do keychains pinch fingers",
+    "normalized": "why do keychains pinch fingers",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do pencils break inside sharpeners",
+    "normalized": "why do pencils break inside sharpeners",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do umbrellas flip",
+    "normalized": "why do umbrellas flip",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why elevator doors have hidden sensors",
+    "normalized": "why elevator doors have hidden sensors",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why sliding glass doors lock automatically",
+    "normalized": "why sliding glass doors lock automatically",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why sliding door tracks collect gravel",
+    "normalized": "why sliding door tracks collect gravel",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why heavy wool blankets feel instantly comforting",
+    "normalized": "why heavy wool blankets feel instantly comforting",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do zipper teeth stick",
+    "normalized": "why do zipper teeth stick",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do tape rolls stick",
+    "normalized": "why do tape rolls stick",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do cardboard boxes tear sideways",
+    "normalized": "why do cardboard boxes tear sideways",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why ice cream gives you brain freeze",
+    "normalized": "why ice cream gives you brain freeze",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do plastic bags rustle",
+    "normalized": "why do plastic bag rustle",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do window panes rattle",
+    "normalized": "why do window panes rattle",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do glasses fog up",
+    "normalized": "why do glasses fog up",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do keys stick in locks",
+    "normalized": "why do keys stick in locks",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do door hinges squeak",
+    "normalized": "why do door hinges squeak",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do door handles sag over time",
+    "normalized": "why do door handles sag over time",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do bubbles pop instantly",
+    "normalized": "why do bubble pop instantly",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do clothes shrink in dryers",
+    "normalized": "why do clothes shrink in dryers",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do zippers jam on fabric",
+    "normalized": "why do zippers jam on fabric",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do buttons pop off coats",
+    "normalized": "why do buttons pop off coats",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why does a toilet swirl",
+    "normalized": "why does a toilet swirl",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why sinks drain without swirling",
+    "normalized": "why sinks drain without swirling",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why toilet water flushes in different directions",
+    "normalized": "why toilet water flushes in different directions",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why does a spoon feel colder",
+    "normalized": "why does a spoon feel colder",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why does soap get slippery",
+    "normalized": "why does soap get slippery",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do sponges hold water",
+    "normalized": "why do sponges hold water",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why does an egg shell crack",
+    "normalized": "why does an egg shell crack",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do socks disappear",
+    "normalized": "why do socks disappear",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why popcorn pops into shapes",
+    "normalized": "why popcorn pops into shapes",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why soap removes grease",
+    "normalized": "why soap removes grease",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why window glass rattles in the wind",
+    "normalized": "why window glass rattles in the wind",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do mirrors flip horizontally",
+    "normalized": "why do mirror flip horizontally",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do seatbelts lock",
+    "normalized": "why do seatbelts lock",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do zipper sliders jam",
+    "normalized": "why do zipper sliders jam",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why do tears taste salty",
+    "normalized": "why do tears taste salty",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why coffee cups drip down the side",
+    "normalized": "why coffee cups drip down the side",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why does paint peel",
+    "normalized": "why does paint peel",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why does an apple brown",
+    "normalized": "why does an apple brown",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "Why shower curtains attack you",
+    "normalized": "why shower curtains attack you",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524292,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "__MINT_PENDING_NEXT_TOPIC__::Why do keys jingle",
+    "normalized": "mint pending next topic why do keys jingle",
+    "workflow": "publish_legacy",
+    "status": "published",
+    "recorded_at": 1790524293,
+    "metadata": {
+      "source": "legacy_bootstrap_v1"
+    }
+  },
+  {
+    "topic": "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
+    "normalized": "quiet heartbreak setting the dinner table for two out of pure muscle memory after a breakup",
+    "workflow": "emotional",
+    "status": "published",
+    "reserved_at": 1790524294,
+    "recorded_at": 1790524294,
+    "metadata": {
+      "primary_emotion": "quiet heartbreak",
+      "human_situation": "setting the dinner table for two out of pure muscle memory after a breakup",
+      "creative_strategy": "wild",
+      "experiment_id": "creative_v3_wild_cycle11_slot10"
+    },
+    "title": "The Weight of Leftover Plates",
+    "video_id": "3Gsvf36XUKk",
+    "workdir": "output/emotional_reel",
+    "published_at": 1790525053
   }
 ]

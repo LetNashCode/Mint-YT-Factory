@@ -1,18 +1,18 @@
 {
   "status": "uploaded",
   "final_path": "output/emotional_reel/final.mp4",
-  "final_sha256": "8f46cba3b578f7e607c8b078482b3a521ffaf90f7398c65645e8263e652a0380",
-  "cache_key": "emotional-reel-final-v2-8f46cba3b578f7e607c8b078482b3a52",
+  "final_sha256": "a03f6a836879ae3e692d369b8c43f5c3354faf1d0b8df7895a362b5a6cf5a647",
+  "cache_key": "emotional-reel-final-v2-a03f6a836879ae3e692d369b8c43f5c3",
   "title": "The Weight of Leftover Plates",
-  "description": "A cinematic exploration of quiet heartbreak through the lingering habits of a shared life.",
+  "description": "An intimate reflection on cooking for one after someone leaves, exploring the quiet habits we cannot break.",
   "hashtags": [
     "#quietheartbreak",
-    "#humanstories",
     "#solitude",
-    "#cinematic",
-    "#realife"
+    "#dailyhabits",
+    "#aftermath",
+    "#humanexperience"
   ],
-  "engagement_comment": "We keep loving what we cannot hold.",
+  "engagement_comment": "Some habits prove how deeply we once loved.",
   "voice": {
     "provider": "kokoro",
     "voice_name": "af_heart",
@@ -22,23 +22,27 @@
     "speed": 0.92,
     "tone": "curious, confident, playful storyteller"
   },
-  "created_at": 1790503641,
-  "narration_word_count": 141,
+  "created_at": 1790524494,
+  "narration_word_count": 146,
   "complete_script_preserved": true,
   "final_duration_seconds": 53.76,
-  "video_id": "QlQ9M2_z9lw",
+  "factory_topic": "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
+  "primary_emotion": "quiet heartbreak",
+  "human_situation": "setting the dinner table for two out of pure muscle memory after a breakup",
+  "video_id": "3Gsvf36XUKk",
   "social": {
     "instagram": {
-      "status": "published",
-      "media_id": "18116446936968373",
-      "container_id": "18495247099097136"
+      "status": "failed",
+      "attempt": 3,
+      "max_attempts": 3,
+      "error": "RuntimeError: Instagram resumable upload failed (400): {\"debug_info\": {\"retriable\": false, \"type\": \"ProcessingFailedError\", \"message\": \"Request processing failed\"}}"
     },
     "facebook": {
       "status": "published",
-      "video_id": "1574132553899373"
+      "video_id": "1565188474926544"
     },
     "strict": false,
-    "updated_at": 1790503921
+    "updated_at": 1790524710
   },
-  "uploaded_at": 1790504069
+  "uploaded_at": 1790525053
 }

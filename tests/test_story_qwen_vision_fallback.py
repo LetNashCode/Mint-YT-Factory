@@ -132,7 +132,7 @@ def test_qwen_vision_fallback_retries_incomplete_core_verdict(monkeypatch):
     def generate(**kwargs):
         model.generate_calls.append(kwargs)
         processor.decoded = outputs[min(len(model.generate_calls), len(outputs)) - 1]
-        return [[1, 2, 3, 4, 5]]
+        return FakeGenerated()
 
     model.generate = generate
     _patch_runtime(monkeypatch, processor, model)

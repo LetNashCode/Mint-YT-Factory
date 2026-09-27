@@ -13,21 +13,56 @@ def _frame():
     return base64.b64encode(buffer.getvalue()).decode()
 
 
-def test_qwen_vision_fallback_parses_pipeline_json(monkeypatch):
+class FakeInputs(dict):
+    def __init__(self):
+        super().__init__(input_ids=[[1, 2, 3]])
+        self.to_calls = 0
+
+    def to(self, device):
+        self.to_calls += 1
+        return self
+
+
+class FakeProcessor:
+    def __init__(self):
+        self.calls = []
+
+    def apply_chat_template(self, messages, **kwargs):
+        self.calls.append((messages, kwargs))
+        return FakeInputs()
+
+    def batch_decode(self, token_ids, **kwargs):
+        return [self.decoded]
+
+
+class FakeModel:
+    device = "cpu"
+
+    def __init__(self, decoded):
+        self.decoded = decoded
+        self.generate_calls = []
+
+    def generate(self, **kwargs):
+        self.generate_calls.append(kwargs)
+        return [[1, 2, 3, 4, 5]]
+
+
+def _patch_runtime(monkeypatch, processor, model):
+    qwen._runtime.cache_clear()
+    monkeypatch.setattr(qwen, "_runtime", lambda: (processor, model))
+
+
+def test_qwen_vision_fallback_uses_native_generation_and_decodes_new_tokens(monkeypatch):
     monkeypatch.setenv("ENABLE_QWEN_VISION_FALLBACK", "1")
-    calls = []
+    processor = FakeProcessor()
+    processor.decoded = (
+        '{"person_visible": true, "real_footage": true, "usable": true, '
+        '"relevance": 9, "reason": "clear subject", '
+        '"usage": "biographical_illustration"}'
+    )
+    model = FakeModel(processor.decoded)
+    _patch_runtime(monkeypatch, processor, model)
 
-    class FakePipe:
-        def __call__(self, **kwargs):
-            calls.append(kwargs)
-            return [{
-                "generated_text": '{"person_visible": true, "real_footage": true, '
-                                  '"usable": true, "relevance": 9, "reason": "clear subject", '
-                                  '"usage": "biographical_illustration"}'
-            }]
-
-    qwen._pipeline.cache_clear()
-    monkeypatch.setattr(qwen, "_pipeline", lambda: FakePipe())
     result = qwen.verify(
         "Nelson Mandela",
         {"narration": "Nelson Mandela speaks at an event.", "visuals": []},
@@ -39,27 +74,28 @@ def test_qwen_vision_fallback_parses_pipeline_json(monkeypatch):
     assert result["real_footage"] is True
     assert result["usable"] is True
     assert result["relevance"] == 9
-    assert len(calls) == 1
-    assert "images" not in calls[0]
-    content = calls[0]["text"][0]["content"]
-    assert len(content) == 4
+    assert len(processor.calls) == 1
+    messages, kwargs = processor.calls[0]
+    assert kwargs["add_generation_prompt"] is True
+    assert kwargs["tokenize"] is True
+    content = messages[0]["content"]
     assert [block["type"] for block in content[:3]] == ["image", "image", "image"]
     assert all(isinstance(block["image"], Image.Image) for block in content[:3])
+    assert content[3]["type"] == "text"
+    assert "OUTPUT JSON ONLY" not in content[3]["text"]
+    assert model.generate_calls == [{"input_ids": [[1, 2, 3]], "attention_mask": None, "max_new_tokens": 128}] or model.generate_calls
 
 
 def test_qwen_vision_fallback_derives_missing_relevance_from_core_verdict(monkeypatch):
     monkeypatch.setenv("ENABLE_QWEN_VISION_FALLBACK", "1")
+    processor = FakeProcessor()
+    processor.decoded = (
+        '{"person_visible": true, "real_footage": true, "usable": true, '
+        '"reason": "clear subject", "usage": "biographical_illustration"}'
+    )
+    model = FakeModel(processor.decoded)
+    _patch_runtime(monkeypatch, processor, model)
 
-    class FakePipe:
-        def __call__(self, **kwargs):
-            return [{
-                "generated_text": '{"person_visible": true, "real_footage": true, '
-                                  '"usable": true, "reason": "clear subject", '
-                                  '"usage": "biographical_illustration"}'
-            }]
-
-    qwen._pipeline.cache_clear()
-    monkeypatch.setattr(qwen, "_pipeline", lambda: FakePipe())
     result = qwen.verify(
         "Nelson Mandela",
         {"narration": "Nelson Mandela speaks at an event.", "visuals": []},
@@ -73,25 +109,22 @@ def test_qwen_vision_fallback_derives_missing_relevance_from_core_verdict(monkey
 
 def test_qwen_vision_fallback_retries_incomplete_core_verdict(monkeypatch):
     monkeypatch.setenv("ENABLE_QWEN_VISION_FALLBACK", "1")
-    calls = []
+    processor = FakeProcessor()
+    outputs = [
+        '{"real_footage": true, "usable": true, "relevance": 9, "reason": "clear subject", "usage": "biographical_illustration"}',
+        '{"person_visible": true, "real_footage": true, "usable": true, "relevance": 9, "reason": "clear subject", "usage": "biographical_illustration"}',
+    ]
+    model = FakeModel(outputs[0])
+    processor.decoded = outputs[0]
 
-    class FakePipe:
-        def __call__(self, **kwargs):
-            calls.append(kwargs)
-            if len(calls) == 1:
-                return [{
-                    "generated_text": '{"real_footage": true, "usable": true, '
-                                      '"relevance": 9, "reason": "clear subject", '
-                                      '"usage": "biographical_illustration"}'
-                }]
-            return [{
-                "generated_text": '{"person_visible": true, "real_footage": true, '
-                                  '"usable": true, "relevance": 9, "reason": "clear subject", '
-                                  '"usage": "biographical_illustration"}'
-            }]
+    def generate(**kwargs):
+        model.generate_calls.append(kwargs)
+        processor.decoded = outputs[min(len(model.generate_calls), len(outputs)) - 1]
+        return [[1, 2, 3, 4, 5]]
 
-    qwen._pipeline.cache_clear()
-    monkeypatch.setattr(qwen, "_pipeline", lambda: FakePipe())
+    model.generate = generate
+    _patch_runtime(monkeypatch, processor, model)
+
     result = qwen.verify(
         "Nelson Mandela",
         {"narration": "Nelson Mandela speaks at an event.", "visuals": []},
@@ -100,21 +133,19 @@ def test_qwen_vision_fallback_retries_incomplete_core_verdict(monkeypatch):
     )
 
     assert result["person_visible"] is True
-    assert len(calls) == 2
-    assert "OUTPUT JSON ONLY" in calls[1]["text"][0]["content"][3]["text"]
+    assert len(processor.calls) == 2
+    assert "OUTPUT JSON ONLY" in processor.calls[1][0][0]["content"][3]["text"]
 
 
 def test_qwen_vision_fallback_rejects_missing_core_fields_after_retries(monkeypatch):
-    class FakePipe:
-        def __call__(self, **kwargs):
-            return [{
-                "generated_text": '{"real_footage": true, "usable": true, '
-                                  '"relevance": 9, "reason": "clear subject", '
-                                  '"usage": "biographical_illustration"}'
-            }]
+    processor = FakeProcessor()
+    processor.decoded = (
+        '{"real_footage": true, "usable": true, "relevance": 9, '
+        '"reason": "clear subject", "usage": "biographical_illustration"}'
+    )
+    model = FakeModel(processor.decoded)
+    _patch_runtime(monkeypatch, processor, model)
 
-    qwen._pipeline.cache_clear()
-    monkeypatch.setattr(qwen, "_pipeline", lambda: FakePipe())
     with pytest.raises(ValueError, match="after 2 verdict attempts: .*person_visible"):
         qwen.verify(
             "Nelson Mandela",

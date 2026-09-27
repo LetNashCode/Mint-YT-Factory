@@ -123,10 +123,16 @@ def _persist_comment_status(video_path, posted, comment_id):
 
 
 def upload_video(video_path,title,description,config,thumbnail_path=None,engagement_comment=None):
-    # Mandatory pre-upload gate: normalize the actual final MP4 and verify 9:16.
-    video_path = str(ensure_portrait_export(video_path))
-    print(f"📐 Pre-upload portrait validation passed: {video_path}")
-    creds=_get_credentials(); youtube=build("youtube","v3",credentials=creds); upload=config["upload"]; hashtags=config["seo"]["hashtags"]
+    # Shorts use the canonical portrait guard; long-form uploads explicitly opt
+    # into their own landscape quality gate and must not be converted to 9:16.
+    upload = config["upload"]
+    video_format = str(upload.get("video_format", "portrait")).strip().lower()
+    if video_format == "landscape":
+        print(f"📐 Pre-upload landscape validation delegated to the caller's long-form quality gate: {video_path}")
+    else:
+        video_path = str(ensure_portrait_export(video_path))
+        print(f"📐 Pre-upload portrait validation passed: {video_path}")
+    creds=_get_credentials(); youtube=build("youtube","v3",credentials=creds); hashtags=config["seo"]["hashtags"]
     body=_build_upload_body(title,description,hashtags,upload)
     config["_last_engagement_comment_posted"]=False
     config["_last_engagement_comment_id"]=None
@@ -140,7 +146,7 @@ def upload_video(video_path,title,description,config,thumbnail_path=None,engagem
         response=_upload_video_request(youtube,video_path,retry_body)
     if not response or "id" not in response: raise RuntimeError("YouTube upload returned no video ID.")
     video_id=response["id"]
-    print("="*80); print("✅ VIDEO UPLOADED"); print("="*80); print(f"https://www.youtube.com/shorts/{video_id}"); print("="*80)
+    print("="*80); print("✅ VIDEO UPLOADED"); print("="*80); print(f"https://www.youtube.com/watch?v={video_id}"); print("="*80)
     if thumbnail_path:
         try: set_thumbnail(video_id,thumbnail_path,youtube)
         except Exception as exc: print(f"⚠️ Custom thumbnail upload failed: {type(exc).__name__}: {exc}")

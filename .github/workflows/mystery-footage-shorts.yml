@@ -109,7 +109,7 @@ jobs:
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add mystery_footage_catalog.json mystery_footage_history.json
+            git add mystery_footage_catalog.json mystery_footage_history.json analytics/topic_history.json analytics/videos.json analytics/playbook.json
             git commit -m "Record mystery documentary footage history"
             git pull --rebase origin main
             git push origin HEAD:main

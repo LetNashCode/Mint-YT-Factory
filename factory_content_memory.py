@@ -86,11 +86,15 @@ def _sanitize_internal_rows(rows: list[dict]) -> list[dict]:
 
 def _bootstrap_legacy(rows: list[dict]) -> list[dict]:
     """Migrate prior workflow-specific histories into the shared memory once."""
+    original_count = len(rows)
     rows = _sanitize_internal_rows(rows)
+    sanitized_changed = len(rows) != original_count
     try:
         state = json.loads(BOOTSTRAP_STATE.read_text(encoding="utf-8"))
         version = int(state.get("version", 0) or 0)
         if version >= 2:
+            if sanitized_changed:
+                _save(rows)
             return rows
         if version >= 1:
             _save(rows)
@@ -237,25 +241,57 @@ EMOTIONAL_STOPWORDS = {
     "emotion", "feeling", "feel", "someone", "something", "moment", "life",
     "human", "people", "person", "really", "just", "still", "often", "sometimes",
     "after", "before", "when", "while", "because", "like", "one", "two",
+    "used", "used_to", "remain", "remaining",
 }
 
+# Emotional premises are frequently paraphrased rather than repeated verbatim.
+EMOTIONAL_SEMANTIC_ALIASES = {
+    "setting": "set", "set": "set", "laying": "set", "lay": "set",
+    "laid": "set", "putting": "set", "puts": "set", "placing": "set", "place": "set",
+    "table": "dinner", "plates": "dinner", "plate": "dinner",
+    "eating": "dinner", "eat": "dinner", "dinner": "dinner",
+    "breakup": "separation", "separated": "separation", "separating": "separation",
+    "apart": "separation", "left": "separation", "leaving": "separation",
+    "together": "together", "used_to": "together", "accustomed": "together",
+}
+
+def _emotional_semantic_tokens(value: str) -> set[str]:
+    normalized = normalize_topic(value)
+    normalized = re.sub(r"\bused\s+to\b", "used_to", normalized)
+    tokens = set()
+    for token in normalized.split():
+        if len(token) <= 2 or token in EMOTIONAL_STOPWORDS:
+            continue
+        token = EMOTIONAL_SEMANTIC_ALIASES.get(token, token)
+        if token.endswith("ies") and len(token) > 4:
+            token = token[:-3] + "y"
+        elif token.endswith("ing") and len(token) > 5:
+            token = token[:-3]
+        elif token.endswith("ed") and len(token) > 4:
+            token = token[:-2]
+        elif token.endswith("s") and len(token) > 4:
+            token = token[:-1]
+        tokens.add(token)
+    return tokens
+
+
 def emotional_situation_key(situation: str) -> str:
-    """Build a stable lexical key for the underlying emotional premise."""
-    tokens = [
-        token for token in _tokens(situation)
-        if token not in EMOTIONAL_STOPWORDS
-    ]
-    return " ".join(sorted(set(tokens)))
+    """Build a stable semantic key for the underlying emotional premise."""
+    return " ".join(sorted(_emotional_semantic_tokens(situation)))
 
 
 def emotional_situation_similarity(a: str, b: str) -> float:
-    """Stricter comparison of emotional premises than title similarity."""
-    ka = emotional_situation_key(a)
-    kb = emotional_situation_key(b)
-    if not ka or not kb:
+    """Compare emotional premises using semantic tokens and phrase similarity."""
+    ta = _emotional_semantic_tokens(a)
+    tb = _emotional_semantic_tokens(b)
+    if not ta or not tb:
         return 0.0
-    return similarity(ka, kb)
-
+    intersection = len(ta & tb)
+    union = len(ta | tb)
+    jaccard = intersection / union if union else 0.0
+    containment = 1.0 if ta <= tb or tb <= ta else 0.0
+    sequence = difflib.SequenceMatcher(None, emotional_situation_key(a), emotional_situation_key(b)).ratio()
+    return max(jaccard, containment, sequence)
 
 def _emotional_rows(rows: list[dict]) -> list[dict]:
     return [

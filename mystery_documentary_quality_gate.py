@@ -33,7 +33,7 @@ def probe(path: Path) -> tuple[float, int, int, bool]:
 def _check_unexpected_silence(path: Path) -> list[float]:
     """Return internal silence durations that are long enough to sound like dead air."""
     result = subprocess.run(
-        ["ffmpeg", "-hide_banner", "-i", str(path), "-af", "silencedetect=noise=-45dB:d=1.15", "-f", "null", "-"],
+        ["ffmpeg", "-hide_banner", "-i", str(path), "-af", "silencedetect=noise=-45dB:d=0.80", "-f", "null", "-"],
         text=True, capture_output=True, check=False,
     )
     starts = []
@@ -47,7 +47,7 @@ def _check_unexpected_silence(path: Path) -> list[float]:
             try:
                 end = float(line.split("silence_end:", 1)[1].split("|", 1)[0].strip())
                 duration = end - current
-                if duration >= 1.15: silences.append(round(duration, 3))
+                if duration >= 0.80: silences.append(round(duration, 3))
             except ValueError:
                 pass
             current = None
@@ -74,6 +74,18 @@ def main() -> None:
         if isinstance(s, dict) and s.get("narration")
         and str(s.get("audio_mode") or "") in {"narration", "pause", "replay"}
     ]
+    timeline_scenes = [s for s in (timeline_data.get("scene_plan") or []) if isinstance(s, dict)]
+    if not timeline_scenes:
+        raise RuntimeError("Mystery quality gate: scene plan is empty")
+    cursor = 0.0
+    for index, scene in enumerate(timeline_scenes):
+        start = float(scene.get("start", 0) or 0)
+        end = float(scene.get("end", 0) or 0)
+        if start < cursor - 0.06 or end <= start:
+            raise RuntimeError(f"Mystery quality gate: invalid/overlapping scene {index}: {start}->{end}")
+        cursor = end
+    if cursor < 89.5:
+        raise RuntimeError(f"Mystery quality gate: scene plan only covers {cursor:.2f}s")
     stats = timeline_data.get("narration_stats") or {}
     effect_stats = timeline_data.get("visual_effect_stats") or {}
     audio_mix = timeline_data.get("audio_mix_stats") or {}
@@ -109,7 +121,7 @@ def main() -> None:
 
     long_silences = _check_unexpected_silence(video)
     if long_silences:
-        raise RuntimeError(f"Mystery quality gate: detected unexplained silent gaps >=1.15s: {long_silences}")
+        raise RuntimeError(f"Mystery quality gate: detected unexplained silent gaps >=0.80s: {long_silences}")
 
     audio_timeline = OUT / "audio_timeline.json"
     if not audio_timeline.is_file():

@@ -180,7 +180,7 @@ def main():
  for topic_attempt in range(1,9):
   topic_prompt=f'''Select ONE completely new topic for an Emotional Short.
 
-This is topic selection only. Do NOT write a script, scenes, narration, title, or description.
+This is topic selection only. Do NOT write a script, scenes, narration, title, or description.\n\nThe format is MEMORY-FIRST: choose a human moment that can unlock the viewer\'s own memory, not a generic inspirational topic.
 
 Choose exactly one primary emotion from:
 {", ".join(sorted(allowed_emotions))}
@@ -199,7 +199,7 @@ UNIQUENESS RULE:
 - Return a concise topic_key of 5-10 concrete words identifying the underlying premise. This key is a semantic fingerprint, not a title.
 
 Return JSON with exactly:
-{{"primary_emotion":"...","human_situation":"...","topic_key":"..."}}'''
+{{"primary_emotion":"...","human_situation":"...","topic_key":"...","memory_category":"...","memory_trigger":"..."}}'''
 
   selected=ai(topic_prompt)
   emotion=" ".join(str(selected.get("primary_emotion","")).split()).strip().lower()
@@ -240,7 +240,7 @@ Return JSON with exactly:
  factory_learning=learning_context(max_chars=4500)
  print(f"🧠 FACTORY LEARNING: strategy={factory_strategy.get('strategy')} | experiment={factory_strategy.get('experiment_id')}",flush=True)
 
- p=f'''Create an original 54-second cinematic emotional Reel built around this LOCKED topic.
+ p=f'''Create an original 54-second cinematic emotional Reel built around this LOCKED topic.\n\nCORE FORMAT: This is a MEMORY-FIRST emotional short. The viewer should finish thinking about a real friend, family member, relationship, childhood moment, old place, shared joke, photograph, song, routine, promise, or period of life.
 
 LOCKED TOPIC — DO NOT CHANGE:
 Primary emotion: {locked_topic["primary_emotion"]}
@@ -248,8 +248,8 @@ Human situation: {locked_topic["human_situation"]}
 Topic key: {locked_topic["topic_key"]}
 
 The narration is the primary emotional experience because the visuals are ordinary stock footage. Do not copy any creator, script, wording, or recognizable story.
-Return JSON with title, description, hashtags, primary_emotion, human_situation, emotional_turn, and exactly 9 scenes.
-The returned primary_emotion and human_situation MUST match the locked topic exactly in meaning. Never replace the locked situation with a different premise.
+Return JSON with title, description, hashtags, primary_emotion, human_situation, memory_category, memory_trigger, emotional_turn, cta_type, cta_text, and exactly 9 scenes.
+The returned primary_emotion and human_situation MUST match the locked topic exactly in meaning. Never replace the locked situation with a different premise. The returned memory_category and memory_trigger MUST preserve the locked memory concept. Choose cta_type from share, reconnect, call, or none. If a person or shared memory is central, prefer a gentle share/send CTA when it genuinely fits. Never make the CTA sound like an advertisement.
 
 The emotional journey MUST follow this order:
 1) HOOK/RECOGNITION — an immediate specific observation that makes the viewer think "that's me"; never generic motivation.
@@ -281,7 +281,7 @@ Use learning as evidence for the creative treatment, never as a template. The lo
  d=None;scenes=None;narration=''
  for attempt in range(1,9):
   candidate=ai(p);candidate_scenes=candidate.get('scenes')
-  required_fields=('title','description','hashtags','primary_emotion','human_situation','emotional_turn')
+  required_fields=('title','description','hashtags','primary_emotion','human_situation','memory_category','memory_trigger','emotional_turn','cta_type','cta_text')
   if any(not candidate.get(field) for field in required_fields):
    print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: missing emotional story metadata',flush=True);continue
   candidate_emotion=" ".join(str(candidate.get('primary_emotion','')).split()).strip().lower()

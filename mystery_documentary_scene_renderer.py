@@ -197,7 +197,7 @@ def _visual_filter(scene, length):
         zoom = f"{strength:.4f}-(t/{duration:.4f})*{delta:.4f}"
     else:
         zoom = f"1+(t/{duration:.4f})*{delta:.4f}"
-    return base + f",scale=trunc(1920*({zoom})/2)*2:trunc(1080*({zoom})/2)*2,crop=1920:1080:x='(iw-1920)*{target_x:.4f}':y='(ih-1080)*{target_y:.4f}'"
+    return base + f",scale=trunc(1920*({zoom})/2)*2:trunc(1080*({zoom})/2)*2:eval=frame,crop=1920:1080:x='(iw-1920)*{target_x:.4f}':y='(ih-1080)*{target_y:.4f}'"
 
 def _audio_duration(path):
     if not path:

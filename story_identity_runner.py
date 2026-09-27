@@ -114,6 +114,11 @@ def _patch_story_video_topics() -> None:
                 if factory_claimed:
                     from factory_content_memory import release as release_factory_topic
                     release_factory_topic(topic, "story")
+                if "factory topic uniqueness gate rejected" in str(exc).lower():
+                    from story_topic_runtime import release_reservation
+                    release_reservation(pillar, topic, person)
+                    print(f"🚫 Story topic already used by another factory workflow; selecting another subject: {person}", flush=True)
+                    continue
                 if not _story_media_failure(exc):
                     raise
                 import os

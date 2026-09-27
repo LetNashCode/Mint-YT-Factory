@@ -282,6 +282,27 @@ def claim_emotional_topic(
     return claim("emotional", factory_topic, claim_metadata)
 
 
+def emotional_topic_history(limit: int = 60) -> list[dict]:
+    """Return prior Emotional Shorts premises for topic selection."""
+    rows = _purge_stale(_load())
+    result = []
+    for row in rows:
+        if (
+            isinstance(row, dict)
+            and str(row.get("workflow", "")).lower() == "emotional"
+            and str(row.get("status", "published")).lower() in {"reserved", "published"}
+        ):
+            metadata = row.get("metadata") if isinstance(row.get("metadata"), dict) else {}
+            result.append({
+                "emotion": str(metadata.get("primary_emotion") or "").strip(),
+                "situation": str(metadata.get("human_situation") or "").strip(),
+                "topic_key": str(metadata.get("topic_key") or "").strip(),
+                "topic": str(row.get("topic") or "").strip(),
+            })
+    return result[-max(1, int(limit)):]
+
+
+
 def release(topic: str, workflow: str = "") -> bool:
     clean = " ".join(str(topic or "").split()).strip()
     rows = _purge_stale(_load())

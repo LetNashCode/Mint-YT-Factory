@@ -1,5 +1,25 @@
 # Mint-YT-Factory
 
+## Active channel formats
+
+1. **Publish Shorts** — everyday curiosity/entertainment Shorts.
+2. **Story Shorts** — factual/person-centered story Shorts.
+3. **Emotional Shorts** — narration-led emotional Shorts with ordinary stock visuals.
+4. **Mystery Documentary** — the factory's only long-form format, rendered in 16:9 with generated documentary narration, source-footage audio, captions, and publication gates.
+
+The three Shorts pipelines publish vertical Shorts. Mystery Documentary is deliberately rendered as a standard 16:9 video.
+
+## Factory-wide content lifecycle
+
+**Topic selection → uniqueness gate → reservation → script → media → narration/TTS → render → quality gate → YouTube publication → analytics → learning memory.**
+
+## Mystery Documentary production standard
+
+Mystery is not a footage-only workflow. Every eligible case must produce `script.json`, `timeline.json`, generated Kokoro narration, preserved relevant source audio, Whisper captions, a 1920×1080 final MP4, and a final quality gate before upload.
+
+If the script, narration, or final media checks fail, the documentary is not uploaded.
+
+
 Automated production pipeline for entertaining YouTube Shorts.
 
 ## Production architecture

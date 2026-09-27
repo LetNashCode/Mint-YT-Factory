@@ -52,6 +52,13 @@ def main() -> None:
         and str(s.get("audio_mode") or "") in {"narration", "pause", "replay"}
     ]
     stats = timeline_data.get("narration_stats") or {}
+    effect_stats = timeline_data.get("visual_effect_stats") or {}
+    if not any(isinstance(s, dict) and s.get("visual_effect") for s in (timeline_data.get("scene_plan") or [])):
+        raise RuntimeError("Mystery quality gate: scene plan has no visual effect instructions")
+    if int(effect_stats.get("pause", 0) or 0) < 1:
+        raise RuntimeError("Mystery quality gate: no pause/freeze evidence moment was rendered")
+    if int(effect_stats.get("zoom_in", 0) or 0) + int(effect_stats.get("zoom_out", 0) or 0) < 1:
+        raise RuntimeError("Mystery quality gate: no zoom evidence moment was rendered")
 
     if words < MIN_NARRATION_WORDS:
         raise RuntimeError(f"Mystery quality gate: narration has only {words} words")
@@ -75,7 +82,7 @@ def main() -> None:
 
     print(
         f"✅ Mystery Documentary quality gate passed | "
-        f"{duration:.1f}s | {width}x{height} | narration={words} words | scenes={len(scenes)}"
+        f"{duration:.1f}s | {width}x{height} | narration={words} words | scenes={len(scenes)} | effects={effect_stats}"
     )
 
 

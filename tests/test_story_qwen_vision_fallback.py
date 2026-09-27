@@ -13,13 +13,18 @@ def _frame():
     return base64.b64encode(buffer.getvalue()).decode()
 
 
+class FakeTensor:
+    shape = (1, 3)
+
+    def __getitem__(self, key):
+        return self
+
+
 class FakeInputs(dict):
     def __init__(self):
-        super().__init__(input_ids=[[1, 2, 3]])
-        self.to_calls = 0
+        super().__init__(input_ids=FakeTensor())
 
     def to(self, device):
-        self.to_calls += 1
         return self
 
 
@@ -83,7 +88,9 @@ def test_qwen_vision_fallback_uses_native_generation_and_decodes_new_tokens(monk
     assert all(isinstance(block["image"], Image.Image) for block in content[:3])
     assert content[3]["type"] == "text"
     assert "OUTPUT JSON ONLY" not in content[3]["text"]
-    assert model.generate_calls == [{"input_ids": [[1, 2, 3]], "attention_mask": None, "max_new_tokens": 128}] or model.generate_calls
+    assert len(model.generate_calls) == 1
+    assert model.generate_calls[0]["max_new_tokens"] == 128
+    assert "input_ids" in model.generate_calls[0]
 
 
 def test_qwen_vision_fallback_derives_missing_relevance_from_core_verdict(monkeypatch):

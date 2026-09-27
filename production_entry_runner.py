@@ -11,6 +11,71 @@ import stock_search
 import story_archive_integration
 import portrait_media_alignment
 
+
+def _install_factory_topic_memory():
+    """Reserve Publish topics against the same cross-workflow memory as every other producer."""
+    import topics
+    from factory_content_memory import claim
+
+    original = topics.get_next_topic
+    if getattr(original, "_mint_factory_topic_memory", False):
+        return
+
+    def guarded_get_next_topic(*args, **kwargs):
+        last = None
+        for attempt in range(1, 21):
+            candidate = original(*args, **kwargs)
+            topic = str(candidate or "").strip()
+            try:
+                claim(
+                    "publish",
+                    topic,
+                    {"source": "publish_topic_selector", "attempt": attempt},
+                )
+                print(f"🛡️ FACTORY TOPIC GATE: approved Publish topic | {topic}")
+                return candidate
+            except RuntimeError as exc:
+                last = exc
+                print(f"🚫 FACTORY TOPIC GATE: rejected Publish topic ({attempt}/20): {exc}")
+        raise RuntimeError(f"Publish topic selection exhausted after 20 factory-wide uniqueness checks: {last}")
+
+    guarded_get_next_topic._mint_factory_topic_memory = True
+    topics.get_next_topic = guarded_get_next_topic
+    print("🛡️ Factory-wide topic memory: Publish Shorts uniqueness gate ENABLED")
+
+
+def _install_factory_publication_memory():
+    """Turn Publish's existing analytics bookkeeping into factory-wide memory."""
+    import main
+    from factory_content_memory import publish
+
+    original = main._mark_topic_bookkeeping
+    if getattr(original, "_mint_factory_publication_memory", False):
+        return
+
+    def wrapped(script, topic, next_topic, video_id, title, workdir):
+        result = original(script, topic, next_topic, video_id, title, workdir)
+        publish(
+            topic,
+            "publish",
+            title=title,
+            video_id=video_id,
+            workdir=workdir,
+            metadata={
+                "next_topic": str(next_topic or ""),
+                "creative_strategy": str((script.get("learning_experiment") or {}).get("strategy", "")),
+            },
+        )
+        return result
+
+    wrapped._mint_factory_publication_memory = True
+    main._mark_topic_bookkeeping = wrapped
+    print("📚 Factory-wide learning memory: Publish publication recording ENABLED")
+
+
+_install_factory_topic_memory()
+_install_factory_publication_memory()
+
 # Install the portrait alignment patch before the production entrypoint starts
 # rendering. Landscape and archive videos will be contained in the 9:16 canvas.
 try:

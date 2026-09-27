@@ -25,7 +25,6 @@ jobs:
       MYSTERY_FOOTAGE_REQUIRE_STORY_SCREEN: "true"
       MYSTERY_FOOTAGE_MIN_STORY_SCORE: "6"
       MYSTERY_FOOTAGE_SKIP_IF_NO_ELIGIBLE: "true"
-      MYSTERY_FOOTAGE_AUTO_UPLOAD: "false"
       # Mystery is the factory's only long-form video format; publish as a normal 16:9 video.
       MYSTERY_FOOTAGE_PRIVACY_STATUS: public
       PYTHONUNBUFFERED: "1"

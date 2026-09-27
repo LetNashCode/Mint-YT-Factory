@@ -24,19 +24,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "rise_from_nothing",
-    "person": "Boman Irani",
-    "premise": "From working at a Mumbai wafer shop and running a photography studio to becoming a celebrated Bollywood actor at age 42.",
-    "hook": "He spent his twenties selling potato chips and behind a camera lens, before landing his first major film role in his forties.",
-    "key_facts": [
-      "Worked at his family's wafer shop named Irani Wafer Shop in Mumbai.",
-      "Spent years as a professional photographer covering sports and events.",
-      "Made his Bollywood feature film debut in 2003 at the age of 42.",
-      "Won multiple major awards for his performance in the film Munna Bhai M.B.B.S."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Virat Kohli",
     "premise": "Playing a domestic cricket match for Delhi on the day his father passed away, returning to the crease to score a crucial innings.",
@@ -59,19 +46,6 @@
       "Observed that the bacteria surrounding the mold colony had been destroyed.",
       "Published his findings on penicillin in the British Journal of Experimental Pathology in 1929.",
       "Shared the Nobel Prize in Physiology or Medicine in 1945 for his discovery."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
-    "person": "Dharmendra",
-    "premise": "Leaving a small village in Punjab after winning a talent contest, traveling to Mumbai with limited means to break into cinema.",
-    "hook": "A young man from a Punjabi farming village took a train to Mumbai with a dream of seeing his face on the silver screen.",
-    "key_facts": [
-      "Won a Filmfare-sponsored nationwide talent contest in the late 1950s.",
-      "Debuted in the film Dil Bhi Tera Hum Bhi Tere in 1960.",
-      "Became one of the leading action and romantic stars of Bollywood through the 1960s and 1970s.",
-      "Starred in numerous blockbusters including Sholay."
     ],
     "source": "gemini_original"
   },

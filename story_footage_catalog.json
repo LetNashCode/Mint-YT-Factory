@@ -2456,68 +2456,6 @@
         "identity_score": 13.0,
         "archival_signal": 0
       },
-      "start": 3820.91,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows Nolan Bushnell participating in an interview/podcast. While it does not show historical archival events directly, it serves as usable biographical illustration footage of the subject speaking in an interview setting.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d3df064249192eabc55600871fadeaf6cee1a328ca2a55a97630fb59c8b3e29c",
-      "reviewed_at": 1790455585.707114
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
-        "id": "archive:twitter-1200420398178816001",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1200420398178816001/1200420398178816001.mp4",
-        "source_url": "https://archive.org/details/twitter-1200420398178816001",
-        "title": "BBC Archive - #OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
-        "description": "#OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/TA1mebdGMa Source: https://twitter.com/BBCArchive/status/1200420398178816001 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 26.78,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features real archival footage of Nolan Bushnell speaking in an interview context, which can be used to illustrate his biography.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "3d2b08e090074e818e81e5a93b0e5440b20346474f6952c2473c7f62c05f1d36",
-      "reviewed_at": 1790455607.9521384
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
-        "id": "archive:TWiST-E282",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
-        "source_url": "https://archive.org/details/TWiST-E282",
-        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
-        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "creator": "ThisWeekIn Network",
-        "license": "",
-        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
       "start": 3474.01,
       "length": 8.0,
       "verification": {
@@ -2596,99 +2534,6 @@
     {
       "person": "Nolan Bushnell",
       "source": {
-        "id": "archive:twitter-935784150069415936",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-935784150069415936/935784150069415936.mp4",
-        "source_url": "https://archive.org/details/twitter-935784150069415936",
-        "title": "BBC Archive - #OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
-        "description": "#OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/XmWXVKpix2 Source: https://twitter.com/BBCArchive/status/935784150069415936 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OTD']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 25.81,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video shows actual archival footage of Nolan Bushnell speaking in an interview setting, which serves as good biographical illustration for a video about him and Atari.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d1e5024a57b8df91e7304325879a6ba3d46699f552897746609c958978c19b6d",
-      "reviewed_at": 1790464824.5868073
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
-        "id": "archive:TWiST-E282",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
-        "source_url": "https://archive.org/details/TWiST-E282",
-        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
-        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "creator": "ThisWeekIn Network",
-        "license": "",
-        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 2086.4,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video shows Nolan Bushnell participating in an interview/podcast. While it is not direct footage of historical events, it serves as usable biographical illustration of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "4eabcbfd4aba476b6efa2f5d93b3099dc2b14adad7e294a5aacfaa216a053015",
-      "reviewed_at": 1790483792.4595773
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
-        "id": "archive:twitter-935784150069415936",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-935784150069415936/935784150069415936.mp4",
-        "source_url": "https://archive.org/details/twitter-935784150069415936",
-        "title": "BBC Archive - #OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
-        "description": "#OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/XmWXVKpix2 Source: https://twitter.com/BBCArchive/status/935784150069415936 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OTD']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 46.84,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows real archival footage of Nolan Bushnell being interviewed, which serves as biographical illustration of his life and career, though it does not directly depict the specific historical event of Atari unveiling Pong.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "8acb5f234f6544946866a5bcc91ddac336fb05e506afaddcb8033f234251b15a",
-      "reviewed_at": 1790483798.6585271
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
         "id": "archive:TWiST-E282",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
@@ -2716,6 +2561,533 @@
       },
       "review_key": "6db84df39597c4a70f9a7c50f2b461784fcf374c5514be4c8bab6f9cf600887e",
       "reviewed_at": 1790483800.1903481
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:TWiST-E282",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
+        "source_url": "https://archive.org/details/TWiST-E282",
+        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
+        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "creator": "ThisWeekIn Network",
+        "license": "",
+        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 3820.91,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features actual footage of Nolan Bushnell participating in a podcast interview. While it doesn't show historical events directly, it serves as good biographical illustration of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f39655728f8d7592f493fa1f64c415138253af8c1d1bed86fb0ad6d6df88fc25",
+      "reviewed_at": 1790504455.0198867
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:twitter-935784150069415936",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-935784150069415936/935784150069415936.mp4",
+        "source_url": "https://archive.org/details/twitter-935784150069415936",
+        "title": "BBC Archive - #OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
+        "description": "#OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/XmWXVKpix2 Source: https://twitter.com/BBCArchive/status/935784150069415936 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OTD']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 25.81,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video shows real archival interview footage of Nolan Bushnell, providing biographical illustration for a segment about Atari and Pong.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1abd11e28c26d08841891bb81692f4c48cfa7309c54d67cbb97f2e6e1312af42",
+      "reviewed_at": 1790504460.027893
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:twitter-935784150069415936",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-935784150069415936/935784150069415936.mp4",
+        "source_url": "https://archive.org/details/twitter-935784150069415936",
+        "title": "BBC Archive - #OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
+        "description": "#OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/XmWXVKpix2 Source: https://twitter.com/BBCArchive/status/935784150069415936 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OTD']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 46.84,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video shows Nolan Bushnell speaking in archival interview footage, which serves as good biographical illustration, though it does not directly depict the specific event of unveiling Pong.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a392bef35e5a85d5706f8f81a0045bc048b8fbe8443a3fdaf4f2c712e430b616",
+      "reviewed_at": 1790504467.2667174
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:TWiST-E282",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
+        "source_url": "https://archive.org/details/TWiST-E282",
+        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
+        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "creator": "ThisWeekIn Network",
+        "license": "",
+        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2086.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Nolan Bushnell is clearly visible in all three frames participating in a podcast interview. While it is not direct historical footage of past events like founding Atari, it serves as acceptable biographical illustration of the subject in later life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a59b9aeedb19a146939b10cfc6e21b4b10bb350435c4d876939c945bfa9963a3",
+      "reviewed_at": 1790504491.1439223
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:TWiST-E282",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
+        "source_url": "https://archive.org/details/TWiST-E282",
+        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
+        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "creator": "ThisWeekIn Network",
+        "license": "",
+        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2780.21,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show Nolan Bushnell being interviewed on a podcast. While this is not direct footage of the historical events being narrated (such as founding Atari), it is genuine filmed footage of the subject suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ed59f17bac5e5a208074e5153530aedf9e67240e32f6a9124693bf109fd686c0",
+      "reviewed_at": 1790504517.434427
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:twitter-1333048067122085888",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1333048067122085888/1333048067122085888.mp4",
+        "source_url": "https://archive.org/details/twitter-1333048067122085888",
+        "title": "BBC Archive - #OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
+        "description": "#OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/ibQhx6nEF5 Source: https://twitter.com/BBCArchive/status/1333048067122085888 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 26.78,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows real archival interview footage of Nolan Bushnell, clear and centered, suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "934cc1cd79593f11beb89c8a16d9e75d468bcd2e4d69fac66d8cd59ce67d5e23",
+      "reviewed_at": 1790504537.2046273
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:twitter-1333048067122085888",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1333048067122085888/1333048067122085888.mp4",
+        "source_url": "https://archive.org/details/twitter-1333048067122085888",
+        "title": "BBC Archive - #OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
+        "description": "#OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/ibQhx6nEF5 Source: https://twitter.com/BBCArchive/status/1333048067122085888 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 48.6,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show Nolan Bushnell being interviewed in archive footage. While it features him speaking rather than depicting the direct historical creation of Pong, it serves as good biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2e0dce819c991757dcc9d2f9ca2e04b3a424c58a00a298ca5798099b6cc62d1e",
+      "reviewed_at": 1790504557.5998113
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:twitter-1200420398178816001",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1200420398178816001/1200420398178816001.mp4",
+        "source_url": "https://archive.org/details/twitter-1200420398178816001",
+        "title": "BBC Archive - #OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
+        "description": "#OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/TA1mebdGMa Source: https://twitter.com/BBCArchive/status/1200420398178816001 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 26.78,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features real archival interview footage of Nolan Bushnell, showing him clearly across all frames. It serves as biographical illustration for the narrative about Atari and Pong.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6dd5557eb95b8b43041146f9813e25ca4935e045288fef8e36832cd747a44413",
+      "reviewed_at": 1790504565.845849
+    },
+    {
+      "person": "Dharmendra",
+      "source": {
+        "id": "archive:phagun-1973-hindi.-dv-d.-rip.-480p.-avc.x-264.-ac-3.5.1.-esub-ex-dt-by.juleyano",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/phagun-1973-hindi.-dv-d.-rip.-480p.-avc.x-264.-ac-3.5.1.-esub-ex-dt-by.juleyano/Pyar%20Ka%20Karz%20%281990%29%20Hindi.Ultra.WEB.DL1080p.AVCx264.AAC.ESubs.BY%20juleyano.mp4",
+        "source_url": "https://archive.org/details/phagun-1973-hindi.-dv-d.-rip.-480p.-avc.x-264.-ac-3.5.1.-esub-ex-dt-by.juleyano",
+        "title": "A collection of Dharmendra films",
+        "description": "Hindi Movie, Hindi Film,Bollywood, Dharmendra, Here you will find approximately 130 films by Dharmendra. https://archive.org/details/@jule_suleyman?and%5B%5D=subject%3A%22Dharmendra%22 List of movies found here Phagun (1973) Jhutha Sach ( 1984) Aag Ka Toofaan (1993) Aatank (1996) Aazmayish (1995) Baghavat (1982) Mahaveera ( 1988) Mardon Wali Baat (1988) Alibaba Aur 40 Chor (1980) Mafia (1996) Tahalka (1992) Anupama (1966) Krodhi (1981) Dream Girl (1977) Baharon Ki Manzil (1968) Charas (1976) Ek Mahal Ho Sapno Ka (1975) Katilon Ke Kaatil (1981) Aag Hi Aag (1987) Dadagiri (1987) Chand Aur Suraj (1965) Mohabbat Zindagi Hai (1966) Nafrat Ki Aandhi (1989) Do Chor (1972) Fauladi No.1 (2001) International Crook (1974) Jugnu (1973) Kaajal (1965) Naya Zamana (1971) Raja Jani (1972) Yakeen (1969) Loafer (1973) Mera Karam Mera Dharam (1987) Pyar Hi Pyar (1969) Sikka (1989) Dil Kaa Heera (1979) Dil Ne Phir Yaad Kiya (1966) Insaf Ki Pukar (1987) Izzat (1968) Jwar Bhata (1973) Kahani Kismat Ki (1973) Paap Ko Jalaa Kar Raakh Kar Doonga (1988) Purnima (1965) Dushman Devta (1991) Khatron Ke Khiladi (1988) Kundan (1993) Kohraam (1991) Apne Dushman (1975) Ishq Par Zor Nahin (1970) Shola Aur Shabnam (1961) Paap Ki Aandhi (1991) Hukumat (1987) Hum Sab Chor Hain (1995) Khel Khilari Ka (1977) Aas Paas (1981) Anpadh (1962) Bandini (1963) Ghazab (1982) Jab Yaad Kisi Ki Aati Hai (1967) Kab Kyoon Aur Kahan (1970) Man Ki Aankhen (1970) Resham Ki Dori (1974) Sitamgar (1985) Saazish (1975) Smuggler (1996) thalaivi (1981) Dil Bhi Tera Hum Bhi Tere (1960) Aap Ki Parchhaiyan (1964) Majhli Didi (1967) Haqee ['Hindi Movie', 'Hindi Film', 'Bollywood', 'Dharmendra']",
+        "creator": "juleyano",
+        "license": "",
+        "subject": "['Hindi Movie', 'Hindi Film', 'Bollywood', 'Dharmendra']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5027.28,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show actor Dharmendra (on the left in the black suit) in genuine film footage, serving as biographical illustration for a documentary short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "aadc2117050eed6260b9cf3b0c0a31247156571d450a380398e62066edb98c8b",
+      "reviewed_at": 1790504633.4549046
+    },
+    {
+      "person": "Dharmendra",
+      "source": {
+        "id": "archive:dil-ne-phir-yaad-kiya-1966-zee-movie-dharmendra-nutan-rehman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dil-ne-phir-yaad-kiya-1966-zee-movie-dharmendra-nutan-rehman/Dil%20Ne%20Phir%20Yaad%20Kiya%20%7B1966%7D%20%7BZee%20Movie%7D%20%7BDharmendra%2C%20Nutan%2C%20Rehman%7D.mp4",
+        "source_url": "https://archive.org/details/dil-ne-phir-yaad-kiya-1966-zee-movie-dharmendra-nutan-rehman",
+        "title": "Dil Ne Phir Yaad Kiya {1966} { Zee Movie} { Dharmendra, Nutan, Rehman}",
+        "description": "Dharmendra Hindi Movie",
+        "creator": "",
+        "license": "",
+        "subject": "Hindi Movie",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 4763.02,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show Dharmendra in archival film footage from 'Dil Ne Phir Yaad Kiya', acting in a scene. While it illustrates his film career, it does not depict a specific historical event from his life, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "106843e33c6c7b81a8ecfb2b89e8a3049b648723c4f3a071528dd89f45fb1465",
+      "reviewed_at": 1790504692.3282278
+    },
+    {
+      "person": "Dharmendra",
+      "source": {
+        "id": "archive:phagun-1973-hindi.-dv-d.-rip.-480p.-avc.x-264.-ac-3.5.1.-esub-ex-dt-by.juleyano",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/phagun-1973-hindi.-dv-d.-rip.-480p.-avc.x-264.-ac-3.5.1.-esub-ex-dt-by.juleyano/Pyar%20Ka%20Karz%20%281990%29%20Hindi.Ultra.WEB.DL1080p.AVCx264.AAC.ESubs.BY%20juleyano.mp4",
+        "source_url": "https://archive.org/details/phagun-1973-hindi.-dv-d.-rip.-480p.-avc.x-264.-ac-3.5.1.-esub-ex-dt-by.juleyano",
+        "title": "A collection of Dharmendra films",
+        "description": "Hindi Movie, Hindi Film,Bollywood, Dharmendra, Here you will find approximately 130 films by Dharmendra. https://archive.org/details/@jule_suleyman?and%5B%5D=subject%3A%22Dharmendra%22 List of movies found here Phagun (1973) Jhutha Sach ( 1984) Aag Ka Toofaan (1993) Aatank (1996) Aazmayish (1995) Baghavat (1982) Mahaveera ( 1988) Mardon Wali Baat (1988) Alibaba Aur 40 Chor (1980) Mafia (1996) Tahalka (1992) Anupama (1966) Krodhi (1981) Dream Girl (1977) Baharon Ki Manzil (1968) Charas (1976) Ek Mahal Ho Sapno Ka (1975) Katilon Ke Kaatil (1981) Aag Hi Aag (1987) Dadagiri (1987) Chand Aur Suraj (1965) Mohabbat Zindagi Hai (1966) Nafrat Ki Aandhi (1989) Do Chor (1972) Fauladi No.1 (2001) International Crook (1974) Jugnu (1973) Kaajal (1965) Naya Zamana (1971) Raja Jani (1972) Yakeen (1969) Loafer (1973) Mera Karam Mera Dharam (1987) Pyar Hi Pyar (1969) Sikka (1989) Dil Kaa Heera (1979) Dil Ne Phir Yaad Kiya (1966) Insaf Ki Pukar (1987) Izzat (1968) Jwar Bhata (1973) Kahani Kismat Ki (1973) Paap Ko Jalaa Kar Raakh Kar Doonga (1988) Purnima (1965) Dushman Devta (1991) Khatron Ke Khiladi (1988) Kundan (1993) Kohraam (1991) Apne Dushman (1975) Ishq Par Zor Nahin (1970) Shola Aur Shabnam (1961) Paap Ki Aandhi (1991) Hukumat (1987) Hum Sab Chor Hain (1995) Khel Khilari Ka (1977) Aas Paas (1981) Anpadh (1962) Bandini (1963) Ghazab (1982) Jab Yaad Kisi Ki Aati Hai (1967) Kab Kyoon Aur Kahan (1970) Man Ki Aankhen (1970) Resham Ki Dori (1974) Sitamgar (1985) Saazish (1975) Smuggler (1996) thalaivi (1981) Dil Bhi Tera Hum Bhi Tere (1960) Aap Ki Parchhaiyan (1964) Majhli Didi (1967) Haqee ['Hindi Movie', 'Hindi Film', 'Bollywood', 'Dharmendra']",
+        "creator": "juleyano",
+        "license": "",
+        "subject": "['Hindi Movie', 'Hindi Film', 'Bollywood', 'Dharmendra']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2157.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames clearly feature the actor Dharmendra in a film scene, serving as valid biographical illustration of his acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5cddcfe9fca128abd616746e4f271a0ff426eb5ff1f8b865a98a33b9feadec85",
+      "reviewed_at": 1790504738.2441046
+    },
+    {
+      "person": "Dharmendra",
+      "source": {
+        "id": "archive:dil-ne-phir-yaad-kiya-1966-zee-movie-dharmendra-nutan-rehman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dil-ne-phir-yaad-kiya-1966-zee-movie-dharmendra-nutan-rehman/Dil%20Ne%20Phir%20Yaad%20Kiya%20%7B1966%7D%20%7BZee%20Movie%7D%20%7BDharmendra%2C%20Nutan%2C%20Rehman%7D.mp4",
+        "source_url": "https://archive.org/details/dil-ne-phir-yaad-kiya-1966-zee-movie-dharmendra-nutan-rehman",
+        "title": "Dil Ne Phir Yaad Kiya {1966} { Zee Movie} { Dharmendra, Nutan, Rehman}",
+        "description": "Dharmendra Hindi Movie",
+        "creator": "",
+        "license": "",
+        "subject": "Hindi Movie",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 684.72,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show actor Dharmendra in a scene from a classic movie (Dil Ne Phir Yaad Kiya), making it suitable as biographical illustration for a video about his life and film career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e3117dd2a221320c7f21b262384e01cdf8d06e9eebebfa652e169598db6c2144",
+      "reviewed_at": 1790504751.7405345
+    },
+    {
+      "person": "Dharmendra",
+      "source": {
+        "id": "archive:phagun-1973-hindi.-dv-d.-rip.-480p.-avc.x-264.-ac-3.5.1.-esub-ex-dt-by.juleyano",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/phagun-1973-hindi.-dv-d.-rip.-480p.-avc.x-264.-ac-3.5.1.-esub-ex-dt-by.juleyano/Pyar%20Ka%20Karz%20%281990%29%20Hindi.Ultra.WEB.DL1080p.AVCx264.AAC.ESubs.BY%20juleyano.mp4",
+        "source_url": "https://archive.org/details/phagun-1973-hindi.-dv-d.-rip.-480p.-avc.x-264.-ac-3.5.1.-esub-ex-dt-by.juleyano",
+        "title": "A collection of Dharmendra films",
+        "description": "Hindi Movie, Hindi Film,Bollywood, Dharmendra, Here you will find approximately 130 films by Dharmendra. https://archive.org/details/@jule_suleyman?and%5B%5D=subject%3A%22Dharmendra%22 List of movies found here Phagun (1973) Jhutha Sach ( 1984) Aag Ka Toofaan (1993) Aatank (1996) Aazmayish (1995) Baghavat (1982) Mahaveera ( 1988) Mardon Wali Baat (1988) Alibaba Aur 40 Chor (1980) Mafia (1996) Tahalka (1992) Anupama (1966) Krodhi (1981) Dream Girl (1977) Baharon Ki Manzil (1968) Charas (1976) Ek Mahal Ho Sapno Ka (1975) Katilon Ke Kaatil (1981) Aag Hi Aag (1987) Dadagiri (1987) Chand Aur Suraj (1965) Mohabbat Zindagi Hai (1966) Nafrat Ki Aandhi (1989) Do Chor (1972) Fauladi No.1 (2001) International Crook (1974) Jugnu (1973) Kaajal (1965) Naya Zamana (1971) Raja Jani (1972) Yakeen (1969) Loafer (1973) Mera Karam Mera Dharam (1987) Pyar Hi Pyar (1969) Sikka (1989) Dil Kaa Heera (1979) Dil Ne Phir Yaad Kiya (1966) Insaf Ki Pukar (1987) Izzat (1968) Jwar Bhata (1973) Kahani Kismat Ki (1973) Paap Ko Jalaa Kar Raakh Kar Doonga (1988) Purnima (1965) Dushman Devta (1991) Khatron Ke Khiladi (1988) Kundan (1993) Kohraam (1991) Apne Dushman (1975) Ishq Par Zor Nahin (1970) Shola Aur Shabnam (1961) Paap Ki Aandhi (1991) Hukumat (1987) Hum Sab Chor Hain (1995) Khel Khilari Ka (1977) Aas Paas (1981) Anpadh (1962) Bandini (1963) Ghazab (1982) Jab Yaad Kisi Ki Aati Hai (1967) Kab Kyoon Aur Kahan (1970) Man Ki Aankhen (1970) Resham Ki Dori (1974) Sitamgar (1985) Saazish (1975) Smuggler (1996) thalaivi (1981) Dil Bhi Tera Hum Bhi Tere (1960) Aap Ki Parchhaiyan (1964) Majhli Didi (1967) Haqee ['Hindi Movie', 'Hindi Film', 'Bollywood', 'Dharmendra']",
+        "creator": "juleyano",
+        "license": "",
+        "subject": "['Hindi Movie', 'Hindi Film', 'Bollywood', 'Dharmendra']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 4309.81,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show actor Dharmendra in a film scene, which can be used as biographical illustration for his career in cinema, though it does not depict a specific narrated historical event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "03d023a8498a6138e7dcea922907dc3c6e6f3cf48928013a05b7b0fadda76265",
+      "reviewed_at": 1790504787.7671506
+    },
+    {
+      "person": "Dharmendra",
+      "source": {
+        "id": "archive:dil-ne-phir-yaad-kiya-1966-zee-movie-dharmendra-nutan-rehman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dil-ne-phir-yaad-kiya-1966-zee-movie-dharmendra-nutan-rehman/Dil%20Ne%20Phir%20Yaad%20Kiya%20%7B1966%7D%20%7BZee%20Movie%7D%20%7BDharmendra%2C%20Nutan%2C%20Rehman%7D.mp4",
+        "source_url": "https://archive.org/details/dil-ne-phir-yaad-kiya-1966-zee-movie-dharmendra-nutan-rehman",
+        "title": "Dil Ne Phir Yaad Kiya {1966} { Zee Movie} { Dharmendra, Nutan, Rehman}",
+        "description": "Dharmendra Hindi Movie",
+        "creator": "",
+        "license": "",
+        "subject": "Hindi Movie",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2723.87,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show actor Dharmendra in heavy disguise and makeup in a scene from a classic film, serving as biographical archival footage of his work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2fe26b3b4426acd57824c8f5b2c0bf9a540039181fbc62f6576b624a14ec7499",
+      "reviewed_at": 1790504809.864697
+    },
+    {
+      "person": "Dharmendra",
+      "source": {
+        "id": "archive:phagun-1973-hindi.-dv-d.-rip.-480p.-avc.x-264.-ac-3.5.1.-esub-ex-dt-by.juleyano",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/phagun-1973-hindi.-dv-d.-rip.-480p.-avc.x-264.-ac-3.5.1.-esub-ex-dt-by.juleyano/Pyar%20Ka%20Karz%20%281990%29%20Hindi.Ultra.WEB.DL1080p.AVCx264.AAC.ESubs.BY%20juleyano.mp4",
+        "source_url": "https://archive.org/details/phagun-1973-hindi.-dv-d.-rip.-480p.-avc.x-264.-ac-3.5.1.-esub-ex-dt-by.juleyano",
+        "title": "A collection of Dharmendra films",
+        "description": "Hindi Movie, Hindi Film,Bollywood, Dharmendra, Here you will find approximately 130 films by Dharmendra. https://archive.org/details/@jule_suleyman?and%5B%5D=subject%3A%22Dharmendra%22 List of movies found here Phagun (1973) Jhutha Sach ( 1984) Aag Ka Toofaan (1993) Aatank (1996) Aazmayish (1995) Baghavat (1982) Mahaveera ( 1988) Mardon Wali Baat (1988) Alibaba Aur 40 Chor (1980) Mafia (1996) Tahalka (1992) Anupama (1966) Krodhi (1981) Dream Girl (1977) Baharon Ki Manzil (1968) Charas (1976) Ek Mahal Ho Sapno Ka (1975) Katilon Ke Kaatil (1981) Aag Hi Aag (1987) Dadagiri (1987) Chand Aur Suraj (1965) Mohabbat Zindagi Hai (1966) Nafrat Ki Aandhi (1989) Do Chor (1972) Fauladi No.1 (2001) International Crook (1974) Jugnu (1973) Kaajal (1965) Naya Zamana (1971) Raja Jani (1972) Yakeen (1969) Loafer (1973) Mera Karam Mera Dharam (1987) Pyar Hi Pyar (1969) Sikka (1989) Dil Kaa Heera (1979) Dil Ne Phir Yaad Kiya (1966) Insaf Ki Pukar (1987) Izzat (1968) Jwar Bhata (1973) Kahani Kismat Ki (1973) Paap Ko Jalaa Kar Raakh Kar Doonga (1988) Purnima (1965) Dushman Devta (1991) Khatron Ke Khiladi (1988) Kundan (1993) Kohraam (1991) Apne Dushman (1975) Ishq Par Zor Nahin (1970) Shola Aur Shabnam (1961) Paap Ki Aandhi (1991) Hukumat (1987) Hum Sab Chor Hain (1995) Khel Khilari Ka (1977) Aas Paas (1981) Anpadh (1962) Bandini (1963) Ghazab (1982) Jab Yaad Kisi Ki Aati Hai (1967) Kab Kyoon Aur Kahan (1970) Man Ki Aankhen (1970) Resham Ki Dori (1974) Sitamgar (1985) Saazish (1975) Smuggler (1996) thalaivi (1981) Dil Bhi Tera Hum Bhi Tere (1960) Aap Ki Parchhaiyan (1964) Majhli Didi (1967) Haqee ['Hindi Movie', 'Hindi Film', 'Bollywood', 'Dharmendra']",
+        "creator": "juleyano",
+        "license": "",
+        "subject": "['Hindi Movie', 'Hindi Film', 'Bollywood', 'Dharmendra']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 7897.15,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show actor Mithun Chakraborty (or another actor, but definitely not Dharmendra) holding a baby. This footage does not feature Dharmendra, despite being from a collection of Hindi films.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4402d77a1bc22072325886d94ae96dfbeb14d2ff9262b933b05395b060e901ae",
+      "reviewed_at": 1790504849.8119144
+    },
+    {
+      "person": "Dharmendra",
+      "source": {
+        "id": "archive:dil-ne-phir-yaad-kiya-1966-zee-movie-dharmendra-nutan-rehman",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dil-ne-phir-yaad-kiya-1966-zee-movie-dharmendra-nutan-rehman/Dil%20Ne%20Phir%20Yaad%20Kiya%20%7B1966%7D%20%7BZee%20Movie%7D%20%7BDharmendra%2C%20Nutan%2C%20Rehman%7D.mp4",
+        "source_url": "https://archive.org/details/dil-ne-phir-yaad-kiya-1966-zee-movie-dharmendra-nutan-rehman",
+        "title": "Dil Ne Phir Yaad Kiya {1966} { Zee Movie} { Dharmendra, Nutan, Rehman}",
+        "description": "Dharmendra Hindi Movie",
+        "creator": "",
+        "license": "",
+        "subject": "Hindi Movie",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 3403.58,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show genuine archival film footage of the actor Dharmendra alongside Nutan outdoors, which can serve as biographical illustration for a documentary, though it does not depict a specific narrated historical event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "25f9153a46fb71cd9263dddaf3d91ddeb73df91d9da6e27107e5f1dc468685af",
+      "reviewed_at": 1790504858.2023084
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:khosla-ka-ghosla-2006-webhd-1080-p-jhs",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/khosla-ka-ghosla-2006-webhd-1080-p-jhs/Khosla%20Ka%20Ghosla%20%282006%29%20WEBHD%201080P%20JHS.ia.mp4",
+        "source_url": "https://archive.org/details/khosla-ka-ghosla-2006-webhd-1080-p-jhs",
+        "title": "Khosla Ka Ghosla (2006) WEBHD 1080P JHS",
+        "description": "WEBHD 1080P JHS ['ANUPAM KHER', 'BOMAN IRANI', 'PARVIN DABAS', 'VINAY PATHAK', 'TARA SHARMA', 'RANVIR SHOREY', 'NAVIN NISCHOL', 'RAJENDRA SETHI']",
+        "creator": "BOLLYWEB",
+        "license": "",
+        "subject": "['ANUPAM KHER', 'BOMAN IRANI', 'PARVIN DABAS', 'VINAY PATHAK', 'TARA SHARMA', 'RANVIR SHOREY', 'NAVIN NISCHOL', 'RAJENDRA SETHI']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 4020.01,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The named subject, Boman Irani, is clearly visible seated on the left in a white shirt across all three frames from the film Khosla Ka Ghosla. It serves as biographical illustration of his acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b8066bbe296067b88e7c8e91be74f6ebfc887cc1d91d58c27692911ea43f9a4c",
+      "reviewed_at": 1790504946.2751434
     }
   ]
 }

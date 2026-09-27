@@ -26,7 +26,6 @@ permissions:
 concurrency:
   group: mint-content-factory
   cancel-in-progress: false
-  queue: max
 jobs:
   quality-checks:
     runs-on: ubuntu-latest

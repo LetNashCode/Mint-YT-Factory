@@ -166,7 +166,7 @@ def claim(workflow: str, topic: str, metadata: dict | None = None) -> str:
     clean = " ".join(str(topic or "").split()).strip()
     if not clean:
         raise RuntimeError(f"{workflow}: cannot reserve an empty topic")
-    rows = _purge_stale(_load())
+    rows = _bootstrap_legacy(_purge_stale(_load()))
     normalized = normalize_topic(clean)
     for row in rows:
         if (

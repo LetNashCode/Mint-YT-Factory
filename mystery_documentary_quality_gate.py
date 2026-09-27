@@ -30,6 +30,29 @@ def probe(path: Path) -> tuple[float, int, int, bool]:
     return duration, int(video.get("width") or 0), int(video.get("height") or 0), has_audio
 
 
+def _check_unexpected_silence(path: Path) -> list[float]:
+    """Return internal silence durations that are long enough to sound like dead air."""
+    result = subprocess.run(
+        ["ffmpeg", "-hide_banner", "-i", str(path), "-af", "silencedetect=noise=-45dB:d=1.15", "-f", "null", "-"],
+        text=True, capture_output=True, check=False,
+    )
+    starts = []
+    silences = []
+    current = None
+    for line in result.stderr.splitlines():
+        if "silence_start:" in line:
+            try: current = float(line.split("silence_start:", 1)[1].strip())
+            except ValueError: current = None
+        elif "silence_end:" in line and current is not None:
+            try:
+                end = float(line.split("silence_end:", 1)[1].split("|", 1)[0].strip())
+                duration = end - current
+                if duration >= 1.15: silences.append(round(duration, 3))
+            except ValueError:
+                pass
+            current = None
+    return silences
+
 def main() -> None:
     video = OUT / "mystery-documentary.mp4"
     script = OUT / "script.json"
@@ -83,6 +106,10 @@ def main() -> None:
         raise RuntimeError(f"Mystery quality gate: expected 1920x1080, got {width}x{height}")
     if not has_audio:
         raise RuntimeError("Mystery quality gate: final documentary has no audio stream")
+
+    long_silences = _check_unexpected_silence(video)
+    if long_silences:
+        raise RuntimeError(f"Mystery quality gate: detected unexplained silent gaps >=1.15s: {long_silences}")
 
     audio_timeline = OUT / "audio_timeline.json"
     if not audio_timeline.is_file():

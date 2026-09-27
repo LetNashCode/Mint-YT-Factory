@@ -21,12 +21,17 @@ def _run(args: list[Any]) -> None:
     subprocess.run([str(value) for value in args], check=True)
 
 
-def _extract_audio(source: Path, wav_path: Path) -> None:
-    _run([
-        "ffmpeg", "-y", "-i", source,
-        "-vn", "-ac", "1", "-ar", "16000", "-c:a", "pcm_s16le",
-        wav_path,
-    ])
+def _extract_audio(source: Path, wav_path: Path) -> bool:
+    """Extract source audio when present; return False for genuinely silent/no-audio footage."""
+    probe = subprocess.run(
+        ["ffprobe", "-v", "error", "-select_streams", "a:0", "-show_entries", "stream=codec_type",
+         "-of", "default=nw=1:nk=1", str(source)],
+        text=True, capture_output=True, check=False,
+    )
+    if probe.returncode != 0 or probe.stdout.strip() != "audio":
+        return False
+    _run(["ffmpeg", "-y", "-i", source, "-vn", "-ac", "1", "-ar", "16000", "-c:a", "pcm_s16le", wav_path])
+    return True
 
 
 def _merge_intervals(intervals: list[tuple[float, float]]) -> list[dict[str, float]]:
@@ -47,7 +52,16 @@ def analyze_audio(source: str | Path, work_dir: str | Path) -> dict[str, Any]:
     work = Path(work_dir)
     work.mkdir(parents=True, exist_ok=True)
     wav_path = work / "mystery-audio-16khz.wav"
-    _extract_audio(source_path, wav_path)
+    has_audio = _extract_audio(source_path, wav_path)
+    if not has_audio:
+        analysis = {
+            "source": str(source_path), "model": None, "padding_seconds": DEFAULT_PADDING_SECONDS,
+            "transcript": "", "segments": [], "protected_intervals": [],
+            "source_audio_present": False,
+            "narration_policy": "Source has no audio stream. Generated narration is the authoritative soundtrack.",
+        }
+        (work / "audio_timeline.json").write_text(json.dumps(analysis, indent=2, ensure_ascii=False), encoding="utf-8")
+        return analysis
 
     try:
         import whisper
@@ -89,6 +103,7 @@ def analyze_audio(source: str | Path, work_dir: str | Path) -> dict[str, Any]:
         "model": DEFAULT_MODEL,
         "padding_seconds": DEFAULT_PADDING_SECONDS,
         "transcript": " ".join(item["text"] for item in segments).strip(),
+        "source_audio_present": True,
         "segments": segments,
         "protected_intervals": protected,
         "narration_policy": (

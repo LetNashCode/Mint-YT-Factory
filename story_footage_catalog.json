@@ -2441,99 +2441,6 @@
     {
       "person": "Nolan Bushnell",
       "source": {
-        "id": "archive:twitter-935784150069415936",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-935784150069415936/935784150069415936.mp4",
-        "source_url": "https://archive.org/details/twitter-935784150069415936",
-        "title": "BBC Archive - #OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
-        "description": "#OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/XmWXVKpix2 Source: https://twitter.com/BBCArchive/status/935784150069415936 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OTD']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 46.84,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video shows actual archival interview footage of Nolan Bushnell, which serves as biographical illustration for his life and work on Atari/Pong, although it is an interview rather than direct footage of the specific historical event being narrated.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "db2753f2993434b710a51bcaeda674903566fbc1d6d635f7a32aa2b258c620f1",
-      "reviewed_at": 1790455485.3828557
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
-        "id": "archive:TWiST-E282",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
-        "source_url": "https://archive.org/details/TWiST-E282",
-        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
-        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "creator": "ThisWeekIn Network",
-        "license": "",
-        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 2433.31,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The clip features Nolan Bushnell being interviewed on a podcast, which can serve as biographical illustration for his life and career, though it does not directly depict historical events.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "4d4cb01bb37dd1f0498bbed720e48a71c4eeda7456cfa2141b4acd26116c19ed",
-      "reviewed_at": 1790455564.6483576
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
-        "id": "archive:TWiST-E282",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
-        "source_url": "https://archive.org/details/TWiST-E282",
-        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
-        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "creator": "ThisWeekIn Network",
-        "license": "",
-        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 2086.4,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Nolan Bushnell is clearly visible across all three frames participating in a podcast interview. While it is real footage of the subject, it's a modern interview discussing his life and work rather than direct historical footage of the narrated events, making it suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "fc759e5687b95d2b23cdacf07137b06ddfa2eade9837e1ccc1999819c3d3c3af",
-      "reviewed_at": 1790455565.5112906
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
         "id": "archive:TWiST-E282",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
@@ -2716,6 +2623,99 @@
       },
       "review_key": "d1e5024a57b8df91e7304325879a6ba3d46699f552897746609c958978c19b6d",
       "reviewed_at": 1790464824.5868073
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:TWiST-E282",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
+        "source_url": "https://archive.org/details/TWiST-E282",
+        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
+        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "creator": "ThisWeekIn Network",
+        "license": "",
+        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2086.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video shows Nolan Bushnell participating in an interview/podcast. While it is not direct footage of historical events, it serves as usable biographical illustration of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4eabcbfd4aba476b6efa2f5d93b3099dc2b14adad7e294a5aacfaa216a053015",
+      "reviewed_at": 1790483792.4595773
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:twitter-935784150069415936",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-935784150069415936/935784150069415936.mp4",
+        "source_url": "https://archive.org/details/twitter-935784150069415936",
+        "title": "BBC Archive - #OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
+        "description": "#OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/XmWXVKpix2 Source: https://twitter.com/BBCArchive/status/935784150069415936 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OTD']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 46.84,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows real archival footage of Nolan Bushnell being interviewed, which serves as biographical illustration of his life and career, though it does not directly depict the specific historical event of Atari unveiling Pong.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8acb5f234f6544946866a5bcc91ddac336fb05e506afaddcb8033f234251b15a",
+      "reviewed_at": 1790483798.6585271
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:TWiST-E282",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
+        "source_url": "https://archive.org/details/TWiST-E282",
+        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
+        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "creator": "ThisWeekIn Network",
+        "license": "",
+        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2433.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show Nolan Bushnell being interviewed on a podcast. While it is real footage of the subject, it is a modern interview setting rather than direct historical footage of the narrated events, making it useful as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6db84df39597c4a70f9a7c50f2b461784fcf374c5514be4c8bab6f9cf600887e",
+      "reviewed_at": 1790483800.1903481
     }
   ]
 }

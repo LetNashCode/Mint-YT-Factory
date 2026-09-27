@@ -9,6 +9,7 @@ from io import BytesIO
 
 DEFAULT_MODEL = "Qwen/Qwen2-VL-2B-Instruct"
 MAX_VERDICT_ATTEMPTS = 2
+MAX_IMAGE_PIXELS = 401408  # 28 * 28 * 512; keeps CPU inference bounded.
 
 
 def enabled() -> bool:
@@ -18,15 +19,31 @@ def enabled() -> bool:
 
 
 @lru_cache(maxsize=1)
-def _pipeline():
-    from transformers import pipeline
-    model = os.environ.get("QWEN_VISION_MODEL", DEFAULT_MODEL).strip() or DEFAULT_MODEL
-    print(f"🧠 Loading local Qwen vision verifier: {model}", flush=True)
-    return pipeline("image-text-to-text", model=model, device_map="auto", dtype="auto")
+def _runtime():
+    from transformers import AutoProcessor, Qwen2VLForConditionalGeneration
+
+    model_name = os.environ.get("QWEN_VISION_MODEL", DEFAULT_MODEL).strip() or DEFAULT_MODEL
+    print(f"🧠 Loading local Qwen vision verifier: {model_name}", flush=True)
+
+    # Use the model's native multimodal generation path instead of the generic
+    # image-text pipeline. This avoids the pipeline's generation_config/max_length
+    # interaction and lets us decode only newly generated assistant tokens.
+    processor = AutoProcessor.from_pretrained(
+        model_name,
+        min_pixels=56 * 56,
+        max_pixels=MAX_IMAGE_PIXELS,
+    )
+    model = Qwen2VLForConditionalGeneration.from_pretrained(
+        model_name,
+        device_map="auto",
+        torch_dtype="auto",
+    )
+    return processor, model
 
 
 def _images(samples):
     from PIL import Image
+
     images = []
     for sample in samples:
         if not isinstance(sample, str) or len(sample) < 100:
@@ -143,19 +160,41 @@ def _strict_prompt(person, scene, item, retry=False):
     )
 
 
+def _generate(processor, model, messages):
+    inputs = processor.apply_chat_template(
+        messages,
+        add_generation_prompt=True,
+        tokenize=True,
+        return_dict=True,
+        return_tensors="pt",
+    ).to(model.device)
+
+    input_len = inputs["input_ids"].shape[-1]
+    generated_ids = model.generate(**inputs, max_new_tokens=128)
+    new_tokens = generated_ids[:, input_len:]
+    return processor.batch_decode(
+        new_tokens,
+        skip_special_tokens=True,
+        clean_up_tokenization_spaces=False,
+    )[0]
+
+
 def verify(person, scene, item, samples):
     images = _images(samples)
-    pipe = _pipeline()
-    last_error = None
+    processor, model = _runtime()
+    messages_base = _messages(images, "")
 
+    last_error = None
     for attempt in range(MAX_VERDICT_ATTEMPTS):
         prompt = _strict_prompt(person, scene, item, retry=attempt > 0)
-        output = pipe(
-            text=_messages(images, prompt),
-            max_new_tokens=128,
-            return_full_text=False,
-        )
-        raw_text = _extract_text(output)
+        messages = [{
+            "role": messages_base[0]["role"],
+            "content": [
+                *messages_base[0]["content"][:3],
+                {"type": "text", "text": prompt},
+            ],
+        }]
+        raw_text = _generate(processor, model, messages)
         try:
             result = _parse_json(raw_text)
             return _normalize_result(result)
@@ -169,4 +208,6 @@ def verify(person, scene, item, samples):
             if attempt + 1 < MAX_VERDICT_ATTEMPTS:
                 print("🔁 Retrying Qwen vision verifier with compact JSON-only prompt", flush=True)
 
-    raise ValueError(f"Qwen vision fallback failed after {MAX_VERDICT_ATTEMPTS} verdict attempts: {last_error}")
+    raise ValueError(
+        f"Qwen vision fallback failed after {MAX_VERDICT_ATTEMPTS} verdict attempts: {last_error}"
+    )

@@ -200,6 +200,88 @@ def claim(workflow: str, topic: str, metadata: dict | None = None) -> str:
     return clean
 
 
+EMOTIONAL_STOPWORDS = {
+    "emotion", "feeling", "feel", "someone", "something", "moment", "life",
+    "human", "people", "person", "really", "just", "still", "often", "sometimes",
+    "after", "before", "when", "while", "because", "like", "one", "two",
+}
+
+def emotional_situation_key(situation: str) -> str:
+    """Build a stable lexical key for the underlying emotional premise."""
+    tokens = [
+        token for token in _tokens(situation)
+        if token not in EMOTIONAL_STOPWORDS
+    ]
+    return " ".join(sorted(set(tokens)))
+
+
+def emotional_situation_similarity(a: str, b: str) -> float:
+    """Stricter comparison of emotional premises than title similarity."""
+    ka = emotional_situation_key(a)
+    kb = emotional_situation_key(b)
+    if not ka or not kb:
+        return 0.0
+    return similarity(ka, kb)
+
+
+def _emotional_rows(rows: list[dict]) -> list[dict]:
+    return [
+        row for row in rows
+        if isinstance(row, dict)
+        and str(row.get("workflow", "")).lower() == "emotional"
+        and str(row.get("status", "published")).lower() in {"reserved", "published"}
+    ]
+
+
+def claim_emotional_topic(
+    emotion: str,
+    situation: str,
+    topic_key: str,
+    metadata: dict | None = None,
+) -> str:
+    """Reserve an Emotional Shorts premise before script generation.
+
+    Emotional uniqueness is checked against both the structured situation and
+    the global factory topic memory. The reservation happens before narration
+    generation so a rejected premise never reaches expensive rendering.
+    """
+    clean_emotion = " ".join(str(emotion or "").split()).strip()
+    clean_situation = " ".join(str(situation or "").split()).strip()
+    clean_key = " ".join(str(topic_key or "").split()).strip()
+    if not clean_emotion or not clean_situation or not clean_key:
+        raise RuntimeError("emotional: emotion, situation, and topic_key are required")
+
+    rows = _bootstrap_legacy(_purge_stale(_load()))
+    normalized_key = normalize_topic(clean_key)
+    for row in _emotional_rows(rows):
+        old_key = str((row.get("metadata") or {}).get("topic_key") or "").strip()
+        old_situation = str((row.get("metadata") or {}).get("human_situation") or "").strip()
+        if old_key and normalize_topic(old_key) == normalized_key:
+            if str(row.get("status", "")).lower() == "reserved":
+                return str(row.get("topic", clean_key))
+            raise RuntimeError(
+                f"Emotional topic uniqueness gate rejected: {clean_key!r} "
+                f"matches previously used topic key {old_key!r}"
+            )
+        if old_situation:
+            score = emotional_situation_similarity(clean_situation, old_situation)
+            if score >= 0.55:
+                raise RuntimeError(
+                    f"Emotional situation uniqueness gate rejected: {clean_situation!r} "
+                    f"duplicates {old_situation!r} (similarity={score:.3f})"
+                )
+
+    factory_topic = f"{clean_emotion}: {clean_situation}"
+    claim_metadata = dict(metadata or {})
+    claim_metadata.update({
+        "primary_emotion": clean_emotion,
+        "human_situation": clean_situation,
+        "topic_key": clean_key,
+        "source": claim_metadata.get("source", "emotional_topic_selection"),
+    })
+    return claim("emotional", factory_topic, claim_metadata)
+
+
 def release(topic: str, workflow: str = "") -> bool:
     clean = " ".join(str(topic or "").split()).strip()
     rows = _purge_stale(_load())

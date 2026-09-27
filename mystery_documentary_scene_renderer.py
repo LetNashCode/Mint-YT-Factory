@@ -122,45 +122,28 @@ PROTECTED SOURCE-SPEECH INTERVALS (Whisper): {protected_speech}\nSOURCE AUDIO TR
     # when it returns an otherwise valid narration-only plan.
     narration_candidates = [s for s in scenes if s.get("narration") and s["audio_mode"] in {"narration", "pause", "replay"}]
     if narration_candidates:
-        if not any(s.get("visual_effect") == "pause" for s in narration_candidates):
+        pause_scene = next((s for s in narration_candidates if s.get("visual_effect") == "pause"), None)
+        if pause_scene is None:
             pause_scene = max(narration_candidates, key=lambda s: float(s["end"]) - float(s["start"]))
             pause_scene["visual_effect"] = "pause"
             pause_scene["effect_reason"] = pause_scene.get("effect_reason") or "Freeze the key evidence frame while the narration explains what viewers should notice."
 
-        zoom_candidates = sorted(
-            [s for s in narration_candidates if s.get("visual_effect") not in {"pause", "replay"}],
-            key=lambda s: float(s["end"]) - float(s["start"]),
-            reverse=True,
-        )
-        zoom_scenes = [s for s in narration_candidates if s.get("visual_effect") in {"zoom_in", "zoom_out"}]
-        for zoom_scene in zoom_candidates:
+        replay_scene = next((s for s in narration_candidates if s.get("visual_effect") == "replay" and s is not pause_scene), None)
+        if replay_scene is None and len(narration_candidates) >= 3:
+            replay_scene = next((s for s in sorted(narration_candidates, key=lambda s: float(s["end"]) - float(s["start"]), reverse=True) if s is not pause_scene), None)
+            if replay_scene is not None:
+                replay_scene["visual_effect"] = "replay"
+                replay_scene["effect_reason"] = replay_scene.get("effect_reason") or "Replay this exact source moment so viewers can catch the detail a second time."
+
+        zoom_scenes = [s for s in narration_candidates if s.get("visual_effect") in {"zoom_in", "zoom_out"} and s is not pause_scene and s is not replay_scene]
+        zoom_candidates = [s for s in narration_candidates if s is not pause_scene and s is not replay_scene and s not in zoom_scenes]
+        for zoom_scene in sorted(zoom_candidates, key=lambda s: float(s["end"]) - float(s["start"]), reverse=True):
             if len(zoom_scenes) >= 2:
                 break
-            if zoom_scene in zoom_scenes:
-                continue
             zoom_scene["visual_effect"] = "zoom_in" if len(zoom_scenes) == 0 else "zoom_out"
-            zoom_scene["zoom_strength"] = min(
-                MAX_ZOOM, max(1.08, float(zoom_scene.get("zoom_strength", 1.10)))
-            )
-            zoom_scene["effect_reason"] = (
-                zoom_scene.get("effect_reason")
-                or "Use a restrained camera move to direct attention to the visible evidence being discussed."
-            )
-
-
-        if len(narration_candidates) >= 3 and not any(
-            s.get("visual_effect") == "replay" for s in narration_candidates
-        ):
-            replay_scene = sorted(
-                narration_candidates,
-                key=lambda s: float(s["end"]) - float(s["start"]),
-                reverse=True,
-            )[2]
-            replay_scene["visual_effect"] = "replay"
-            replay_scene["effect_reason"] = (
-                replay_scene.get("effect_reason")
-                or "Replay this exact source moment so viewers can catch the detail a second time."
-            )
+            zoom_scene["zoom_strength"] = min(MAX_ZOOM, max(1.08, float(zoom_scene.get("zoom_strength", 1.10))))
+            zoom_scene["effect_reason"] = zoom_scene.get("effect_reason") or "Use a restrained camera move to direct attention to the visible evidence being discussed."
+            zoom_scenes.append(zoom_scene)
 
 
     narration_scenes = [

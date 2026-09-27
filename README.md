@@ -19,8 +19,7 @@ Mystery is not a footage-only workflow. Every eligible case must produce `script
 
 If the script, narration, or final media checks fail, the documentary is not uploaded.
 
-
-Automated production pipeline for entertaining YouTube Shorts.
+Automated production pipeline for the active channel formats above.
 
 ## Production architecture
 
@@ -68,7 +67,9 @@ A research subsystem exists but is intentionally disabled in the active entertai
 
 ## Output
 
-Portrait 2160×3840, 60 FPS, H.264, 68 Mbps video, 384 kbps AAC, narration-authoritative Whisper captions.
+Shorts: portrait 2160×3840, 60 FPS, H.264, narration-authoritative captions.
+
+Mystery Documentary: landscape 1920×1080, generated documentary narration, source-footage audio, Whisper captions, and publication validation.
 
 ## Required secrets
 

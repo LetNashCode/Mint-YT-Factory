@@ -150,15 +150,106 @@ def main():
   _resume_and_upload(resume)
   return
 
- from factory_content_memory import claim as claim_factory_topic, publish as publish_factory_topic, refresh_learning, learning_context, select_strategy
+ from factory_content_memory import (
+  claim_emotional_topic,
+  emotional_topic_history,
+  refresh_learning,
+  learning_context,
+  select_strategy,
+ )
+
+ # Topic selection is deliberately the FIRST content decision. Once reserved,
+ # the emotional premise is immutable for this run; script retries may rewrite
+ # narration but can never select a different topic.
+ emotional_history=emotional_topic_history(limit=80)
+ history_text="\n".join(
+  f"- {item.get('emotion','')}: {item.get('situation','')} "
+  f"[key: {item.get('topic_key','')}]"
+  for item in emotional_history
+ ) or "- No previous Emotional Shorts topics are recorded yet."
+
+ allowed_emotions={
+  'nostalgia','regret','loneliness','hope','gratitude','missing someone',
+  'quiet heartbreak','feeling unseen','letting go','fear of failure',
+  'self-doubt','family love','friendship','sacrifice','second chances',
+  'childhood memories','growing apart','forgiveness','pride after struggle'
+ }
+
+ locked_topic=None
+ for topic_attempt in range(1,9):
+  topic_prompt=f'''Select ONE completely new topic for an Emotional Short.
+
+This is topic selection only. Do NOT write a script, scenes, narration, title, or description.
+
+Choose exactly one primary emotion from:
+{", ".join(sorted(allowed_emotions))}
+
+Then choose ONE specific everyday human situation that has not appeared in the previous Emotional Shorts below.
+
+PREVIOUS EMOTIONAL SHORTS — NEVER REUSE THE UNDERLYING SITUATION:
+{history_text}
+
+UNIQUENESS RULE:
+- A different title or different wording is NOT a new topic.
+- Do not reuse the same underlying human situation with a different emotion.
+- Do not make a cosmetic variation of an existing situation.
+- Choose a genuinely different human experience, relationship dynamic, memory, decision, loss, habit, realization, or life moment.
+- The situation must be specific enough to distinguish it from every previous entry.
+- Return a concise topic_key of 5-10 concrete words identifying the underlying premise. This key is a semantic fingerprint, not a title.
+
+Return JSON with exactly:
+{{"primary_emotion":"...","human_situation":"...","topic_key":"..."}}'''
+
+  selected=ai(topic_prompt)
+  emotion=" ".join(str(selected.get("primary_emotion","")).split()).strip().lower()
+  situation=" ".join(str(selected.get("human_situation","")).split()).strip()
+  topic_key=" ".join(str(selected.get("topic_key","")).split()).strip()
+  if emotion not in allowed_emotions or not situation or not topic_key:
+   print(f"⚠️ Emotional topic selection attempt {topic_attempt}/8 rejected: invalid topic fields",flush=True)
+   continue
+  try:
+   claim_emotional_topic(
+    emotion,
+    situation,
+    topic_key,
+    {"source":"emotional_topic_selection"},
+   )
+  except RuntimeError as duplicate_error:
+   print(f"🚫 Emotional topic selection rejected by uniqueness gate: {duplicate_error}",flush=True)
+   continue
+  locked_topic={
+   "primary_emotion":emotion,
+   "human_situation":situation,
+   "topic_key":topic_key,
+  }
+  print(
+   f"🔒 EMOTIONAL TOPIC LOCKED BEFORE SCRIPT GENERATION | "
+   f"emotion={emotion} | situation={situation} | topic_key={topic_key}",
+   flush=True,
+  )
+  break
+
+ if locked_topic is None:
+  raise RuntimeError("Could not reserve a genuinely new Emotional Shorts topic after 8 topic-selection attempts.")
+
+ # Learning refresh happens only after the topic is locked. It can influence
+ # the creative treatment, never the already-selected premise.
  refresh_learning()
  factory_strategy=select_strategy()
  factory_learning=learning_context(max_chars=4500)
  print(f"🧠 FACTORY LEARNING: strategy={factory_strategy.get('strategy')} | experiment={factory_strategy.get('experiment_id')}",flush=True)
 
- p=f'''Create an original 54-second cinematic emotional Reel designed to make a real human feel something, not merely consume an inspirational quote. Do not copy any creator, script, wording, or recognizable story. The narration is the primary emotional experience because the visuals are ordinary stock footage.
-FIRST choose exactly ONE primary human emotion from: nostalgia, regret, loneliness, hope, gratitude, missing someone, quiet heartbreak, feeling unseen, letting go, fear of failure, self-doubt, family love, friendship, sacrifice, second chances, childhood memories, growing apart, forgiveness, or pride after struggle. Then choose ONE specific everyday human situation that naturally evokes it.
+ p=f'''Create an original 54-second cinematic emotional Reel built around this LOCKED topic.
+
+LOCKED TOPIC — DO NOT CHANGE:
+Primary emotion: {locked_topic["primary_emotion"]}
+Human situation: {locked_topic["human_situation"]}
+Topic key: {locked_topic["topic_key"]}
+
+The narration is the primary emotional experience because the visuals are ordinary stock footage. Do not copy any creator, script, wording, or recognizable story.
 Return JSON with title, description, hashtags, primary_emotion, human_situation, emotional_turn, and exactly 9 scenes.
+The returned primary_emotion and human_situation MUST match the locked topic exactly in meaning. Never replace the locked situation with a different premise.
+
 The emotional journey MUST follow this order:
 1) HOOK/RECOGNITION — an immediate specific observation that makes the viewer think "that's me"; never generic motivation.
 2) SPECIFIC SITUATION — show a recognizable human moment through concrete details.
@@ -184,7 +275,7 @@ FACTORY-WIDE SELF-LEARNING CONTEXT:
 CURRENT CREATIVE EXPERIMENT:
 {json.dumps(factory_strategy, ensure_ascii=False)}
 
-Use learning as evidence, never as a template. Do not copy prior topics, hooks, wording, or stories.'''
+Use learning as evidence for the creative treatment, never as a template. The locked topic is immutable.'''
 
  d=None;scenes=None;narration=''
  for attempt in range(1,9):
@@ -192,33 +283,23 @@ Use learning as evidence, never as a template. Do not copy prior topics, hooks, 
   required_fields=('title','description','hashtags','primary_emotion','human_situation','emotional_turn')
   if any(not candidate.get(field) for field in required_fields):
    print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: missing emotional story metadata',flush=True);continue
-  if str(candidate.get('primary_emotion','')).strip().lower() not in {
-   'nostalgia','regret','loneliness','hope','gratitude','missing someone',
-   'quiet heartbreak','feeling unseen','letting go','fear of failure',
-   'self-doubt','family love','friendship','sacrifice','second chances',
-   'childhood memories','growing apart','forgiveness','pride after struggle'
-  }:
-   print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: invalid primary emotion',flush=True);continue
+  candidate_emotion=" ".join(str(candidate.get('primary_emotion','')).split()).strip().lower()
+  candidate_situation=" ".join(str(candidate.get('human_situation','')).split()).strip()
+  if candidate_emotion != locked_topic["primary_emotion"] or candidate_situation.lower() != locked_topic["human_situation"].lower():
+   print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: changed locked topic',flush=True);continue
   if not isinstance(candidate_scenes,list) or len(candidate_scenes)!=N:
    print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: need exactly {N} scenes',flush=True);continue
   candidate_narration=' '.join(str(s.get('narration','')).strip() for s in candidate_scenes).strip()
   word_count=_word_count(candidate_narration)
   scene_counts=[_word_count(s.get('narration','')) for s in candidate_scenes]
   if 120 <= word_count <= 160 and all(12 <= n <= 18 for n in scene_counts):
-   factory_topic=f"{candidate.get('primary_emotion','').strip()}: {candidate.get('human_situation','').strip()}"
-   try:
-    claim_factory_topic(
-     "emotional",
-     factory_topic,
-     {"primary_emotion":candidate.get("primary_emotion",""),"human_situation":candidate.get("human_situation",""),"source":"emotional_script_generation"},
-    )
-   except RuntimeError as duplicate_error:
-    print(f'🚫 Emotional topic rejected by factory-wide memory: {duplicate_error}',flush=True)
-    continue
-   candidate["factory_topic"]=factory_topic
+   candidate["primary_emotion"]=locked_topic["primary_emotion"]
+   candidate["human_situation"]=locked_topic["human_situation"]
+   candidate["factory_topic"]=f'{locked_topic["primary_emotion"]}: {locked_topic["human_situation"]}'
+   candidate["topic_key"]=locked_topic["topic_key"]
    candidate["learning_experiment"]=factory_strategy
    d,scenes,narration=candidate,candidate_scenes,candidate_narration
-   print(f'✅ Complete narration script accepted: {word_count} words | scene counts={scene_counts} | factory_topic={factory_topic}',flush=True)
+   print(f'✅ Complete narration script accepted: {word_count} words | scene counts={scene_counts} | factory_topic={candidate["factory_topic"]}',flush=True)
    break
   print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: total={word_count} words, scene counts={scene_counts}; requiring 120-160 total and 12-18 per scene',flush=True)
 

@@ -191,12 +191,13 @@ def _visual_filter(scene, length):
     target_y = float(scene.get("zoom_target_y", 0.5))
     delta = strength - 1.0
     duration = max(length, 0.1)
+    # Avoid commas inside FFmpeg expressions: commas in -vf are filter separators.
+    # The rendered clip is bounded to `duration`, so t/duration already runs 0..1.
     if effect == "zoom_out":
-        zoom = f"{strength:.4f}-min(t/{duration:.4f},1)*{delta:.4f}"
+        zoom = f"{strength:.4f}-(t/{duration:.4f})*{delta:.4f}"
     else:
-        zoom = f"1+min(t/{duration:.4f},1)*{delta:.4f}"
+        zoom = f"1+(t/{duration:.4f})*{delta:.4f}"
     return base + f",scale=trunc(1920*({zoom})/2)*2:trunc(1080*({zoom})/2)*2,crop=1920:1080:x='(iw-1920)*{target_x:.4f}':y='(ih-1080)*{target_y:.4f}'"
-
 
 def _audio_duration(path):
     if not path:

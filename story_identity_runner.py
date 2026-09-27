@@ -87,16 +87,29 @@ def _patch_story_video_topics() -> None:
         from story_topic_runtime import release_reservation
         for attempt in range(8):
             pillar, topic, person = original()
+            factory_claimed = False
             try:
+                from factory_content_memory import claim as claim_factory_topic
+                claim_factory_topic(
+                    "story",
+                    topic,
+                    {"person": person, "pillar": pillar, "source": "story_topic_selection"},
+                )
+                factory_claimed = True
                 story_visual_upgrade.prepare(person, topic)
                 return pillar, topic, person
             except Exception as exc:
+                if factory_claimed:
+                    from factory_content_memory import release as release_factory_topic
+                    release_factory_topic(topic, "story")
                 if not _story_media_failure(exc):
                     raise
                 import os
                 if os.environ.get("STORY_PERSON", "").strip():
                     raise RuntimeError("Story video providers unavailable for requested subject; reservation preserved") from exc
             release_reservation(pillar, topic, person)
+            from factory_content_memory import release as release_factory_topic
+            release_factory_topic(topic, "story")
             print(f"Skipping Story subject without accessible video candidates ({attempt + 1}/8): {person}", flush=True)
         raise RuntimeError("No unused Story subject with real-video candidates found in eight attempts")
     video_ready_topic._mint_video_topic_preflight = True
@@ -307,6 +320,25 @@ def main() -> None:
     # into a false workflow failure.
     for check_attempt in range(1, 11):
         if _publication_complete():
+            pending = interactive_topics.get_pending_story() or {}
+            published_topic = str(pending.get("topic") or "").strip()
+            if published_topic:
+                try:
+                    from factory_content_memory import publish as publish_factory_topic
+                    status = __import__("json").loads(
+                        Path(".story_publication_status.json").read_text(encoding="utf-8")
+                    )
+                    publish_factory_topic(
+                        published_topic,
+                        "story",
+                        title=published_topic,
+                        video_id=str(status.get("video_id") or ""),
+                        metadata={"person": pending.get("person", ""), "pillar": pending.get("pillar", "")},
+                    )
+                except Exception as exc:
+                    raise RuntimeError(
+                        f"Story publication completed but factory learning memory could not be updated: {exc}"
+                    ) from exc
             print("✅ Story publication state confirmed: COMPLETE", flush=True)
             return
         if check_attempt < 10:

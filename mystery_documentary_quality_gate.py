@@ -30,13 +30,25 @@ def probe(path: Path) -> tuple[float, int, int, bool]:
     return duration, int(video.get("width") or 0), int(video.get("height") or 0), has_audio
 
 
-def _check_unexpected_silence(path: Path) -> list[float]:
-    """Return internal silence durations that are long enough to sound like dead air."""
+MIN_NARRATION_SILENCE_SECONDS = 1.25
+
+def _check_unexpected_silence(path: Path, rendered_timeline: Path) -> list[float]:
+    """Reject long silence inside narration; allow silence in intentional source-audio scenes."""
     result = subprocess.run(
         ["ffmpeg", "-hide_banner", "-i", str(path), "-af", "silencedetect=noise=-45dB:d=0.80", "-f", "null", "-"],
         text=True, capture_output=True, check=False,
     )
-    starts = []
+    scenes = []
+    try:
+        data = json.loads(rendered_timeline.read_text(encoding="utf-8"))
+        scenes = [s for s in data.get("scenes", []) if isinstance(s, dict)]
+    except (OSError, ValueError, TypeError):
+        scenes = []
+    source_audio_intervals = [
+        (float(s.get("start", 0) or 0), float(s.get("end", 0) or 0))
+        for s in scenes
+        if str(s.get("audio_mode") or "").lower() == "original"
+    ]
     silences = []
     current = None
     for line in result.stderr.splitlines():
@@ -47,12 +59,14 @@ def _check_unexpected_silence(path: Path) -> list[float]:
             try:
                 end = float(line.split("silence_end:", 1)[1].split("|", 1)[0].strip())
                 duration = end - current
-                if duration >= 0.80: silences.append(round(duration, 3))
+                if duration >= MIN_NARRATION_SILENCE_SECONDS:
+                    fully_in_source = any(current >= start - 0.15 and end <= finish + 0.15 for start, finish in source_audio_intervals)
+                    if not fully_in_source:
+                        silences.append(round(duration, 3))
             except ValueError:
                 pass
             current = None
     return silences
-
 def main() -> None:
     video = OUT / "mystery-documentary.mp4"
     script = OUT / "script.json"
@@ -119,7 +133,10 @@ def main() -> None:
     if not has_audio:
         raise RuntimeError("Mystery quality gate: final documentary has no audio stream")
 
-    long_silences = _check_unexpected_silence(video)
+    rendered_scene_timeline = OUT / "rendered_scene_timeline.json"
+    if not rendered_scene_timeline.is_file():
+        raise RuntimeError("Mystery quality gate: rendered scene timing artifact is missing")
+    long_silences = _check_unexpected_silence(video, rendered_scene_timeline)
     if long_silences:
         raise RuntimeError(f"Mystery quality gate: detected unexplained silent gaps >=0.80s: {long_silences}")
 

@@ -185,8 +185,20 @@ Use learning as evidence, never as a template. Do not copy prior topics, hooks, 
   word_count=_word_count(candidate_narration)
   scene_counts=[_word_count(s.get('narration','')) for s in candidate_scenes]
   if 120 <= word_count <= 160 and all(12 <= n <= 18 for n in scene_counts):
+   factory_topic=f"{candidate.get('primary_emotion','').strip()}: {candidate.get('human_situation','').strip()}"
+   try:
+    claim_factory_topic(
+     "emotional",
+     factory_topic,
+     {"primary_emotion":candidate.get("primary_emotion",""),"human_situation":candidate.get("human_situation",""),"source":"emotional_script_generation"},
+    )
+   except RuntimeError as duplicate_error:
+    print(f'🚫 Emotional topic rejected by factory-wide memory: {duplicate_error}',flush=True)
+    continue
+   candidate["factory_topic"]=factory_topic
+   candidate["learning_experiment"]=factory_strategy
    d,scenes,narration=candidate,candidate_scenes,candidate_narration
-   print(f'✅ Complete narration script accepted: {word_count} words | scene counts={scene_counts}',flush=True)
+   print(f'✅ Complete narration script accepted: {word_count} words | scene counts={scene_counts} | factory_topic={factory_topic}',flush=True)
    break
   print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: total={word_count} words, scene counts={scene_counts}; requiring 120-160 total and 12-18 per scene',flush=True)
 

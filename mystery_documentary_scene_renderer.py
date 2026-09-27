@@ -20,6 +20,7 @@ VOICE = {"voice": {"provider": "kokoro", "voice_name": os.getenv("MINT_KOKORO_VO
 MIN_NARRATION_RATIO = float(os.getenv("MYSTERY_MIN_NARRATION_RATIO", "0.28"))
 MIN_NARRATION_WORDS = int(os.getenv("MYSTERY_MIN_NARRATION_WORDS", "120"))
 MIN_NARRATION_SCENES = int(os.getenv("MYSTERY_MIN_NARRATION_SCENES", "4"))
+MAX_ZOOM = float(os.getenv("MYSTERY_MAX_ZOOM", "1.18"))
 
 
 def cmd(args):
@@ -84,7 +85,29 @@ Use learning only to improve structure, pacing, evidence presentation, and viewe
         mode = str(s.get("audio_mode", "original")).lower()
         if mode not in {"original", "narration", "pause", "replay"}:
             mode = "original"
-        scenes.append({"start": round(start, 3), "end": round(end, 3), "audio_mode": mode, "narration": str(s.get("narration", "")).strip(), "purpose": str(s.get("purpose", "")), "evidence_label": str(s.get("evidence_label", "observation"))})
+        effect = str(s.get("visual_effect", "normal")).lower()
+        if effect not in {"normal", "zoom_in", "zoom_out", "pause", "replay"}:
+            effect = "normal"
+        if mode == "pause":
+            effect = "pause"
+        elif mode == "replay":
+            effect = "replay"
+        zoom_strength = min(MAX_ZOOM, max(1.0, float(s.get("zoom_strength", 1.10))))
+        target_x = min(1.0, max(0.0, float(s.get("zoom_target_x", 0.5))))
+        target_y = min(1.0, max(0.0, float(s.get("zoom_target_y", 0.5))))
+        if effect not in {"zoom_in", "zoom_out"}:
+            zoom_strength = 1.0
+        scenes.append({
+            "start": round(start, 3), "end": round(end, 3), "audio_mode": mode,
+            "narration": str(s.get("narration", "")).strip(),
+            "purpose": str(s.get("purpose", "")),
+            "evidence_label": str(s.get("evidence_label", "observation")),
+            "visual_effect": effect,
+            "zoom_strength": round(zoom_strength, 3),
+            "zoom_target_x": round(target_x, 3),
+            "zoom_target_y": round(target_y, 3),
+            "effect_reason": str(s.get("effect_reason", "")).strip(),
+        })
         cursor = end
     if cursor < duration - 0.05:
         scenes.append({"start": round(cursor, 3), "end": round(duration, 3), "audio_mode": "original", "narration": "", "purpose": "Preserve uncovered footage", "evidence_label": "observation"})
@@ -103,6 +126,11 @@ Use learning only to improve structure, pacing, evidence presentation, and viewe
         "ratio": round(narration_seconds / duration, 3) if duration else 0.0,
         "word_count": narration_words,
     }
+    effect_counts = {}
+    for scene in scenes:
+        effect = scene["visual_effect"]
+        effect_counts[effect] = effect_counts.get(effect, 0) + 1
+    data["visual_effect_stats"] = effect_counts
     if (
         len(narration_scenes) < min(MIN_NARRATION_SCENES, max(1, int(duration // 15)))
         or narration_seconds / max(duration, 1.0) < MIN_NARRATION_RATIO
@@ -117,15 +145,37 @@ Use learning only to improve structure, pacing, evidence presentation, and viewe
     return data
 
 
+def _visual_filter(scene, length):
+    effect = scene.get("visual_effect", "normal")
+    base = "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1,fps=30"
+    if effect not in {"zoom_in", "zoom_out"}:
+        return base
+    strength = float(scene.get("zoom_strength", 1.10))
+    target_x = float(scene.get("zoom_target_x", 0.5))
+    target_y = float(scene.get("zoom_target_y", 0.5))
+    delta = strength - 1.0
+    duration = max(length, 0.1)
+    if effect == "zoom_out":
+        zoom = f"{strength:.4f}-min(t/{duration:.4f},1)*{delta:.4f}"
+    else:
+        zoom = f"1+min(t/{duration:.4f},1)*{delta:.4f}"
+    return base + f",scale=1920*({zoom}):1080*({zoom}),crop=1920:1080:x='(iw-1920)*{target_x:.4f}':y='(ih-1080)*{target_y:.4f}'"
+
+
 def render_scene(source, s, narration, out, work):
     start, end = s["start"], s["end"]
     length = max(0.1, end - start)
     mode = s["audio_mode"]
+    effect = s.get("visual_effect", "normal")
     video = work / (out.stem + ".video.mp4")
-    vf = "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1,fps=30"
-    if mode == "pause":
+    vf = _visual_filter(s, length)
+    if mode == "pause" or effect == "pause":
         vf += ",select='eq(n,0)',tpad=stop_mode=clone:stop_duration=" + str(length)
-    cmd(["ffmpeg", "-y", "-ss", str(start), "-i", source, "-t", str(length), "-vf", vf, "-an", "-c:v", "libx264", "-pix_fmt", "yuv420p", video])
+    source_duration = length
+    if mode == "replay" or effect == "replay":
+        vf += ",setpts=PTS/0.75"
+        source_duration = length * 0.75
+    cmd(["ffmpeg", "-y", "-ss", str(start), "-i", source, "-t", str(source_duration), "-vf", vf, "-an", "-c:v", "libx264", "-pix_fmt", "yuv420p", video])
     if mode == "original":
         cmd(["ffmpeg", "-y", "-i", video, "-ss", str(start), "-i", source, "-t", str(length), "-map", "0:v:0", "-map", "1:a?", "-c:v", "copy", "-c:a", "aac", "-shortest", out])
     elif narration:
@@ -133,7 +183,6 @@ def render_scene(source, s, narration, out, work):
     else:
         cmd(["ffmpeg", "-y", "-i", video, "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", str(length), "-c:v", "copy", "-c:a", "aac", out])
     video.unlink(missing_ok=True)
-
 
 def _skip_if_configured(message):
     if os.getenv("MYSTERY_FOOTAGE_SKIP_IF_NO_ELIGIBLE", "false").lower() in {"1", "true", "yes"}:
@@ -218,6 +267,7 @@ def main():
             "narration": full_narration,
             "scene_plan": timeline["scene_plan"],
             "narration_stats": timeline.get("narration_stats", {}),
+            "visual_effect_stats": timeline.get("visual_effect_stats", {}),
             "case": {
                 "id": item.get("id"),
                 "title": item.get("title"),
@@ -249,6 +299,7 @@ def main():
         "catalog_item_id": item.get("id"),
         "source_url": item.get("source_url"),
         "narration_stats": timeline.get("narration_stats", {}),
+        "visual_effect_stats": timeline.get("visual_effect_stats", {}),
         "script_path": str(OUT / "script.json"),
         "timeline_path": str(OUT / "timeline.json"),
         "generated_at": int(time.time()),

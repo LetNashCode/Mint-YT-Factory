@@ -156,7 +156,15 @@ SPECIFICITY RULE: communicate emotion through concrete human details, behavior, 
 ANTI-CLICHE RULE: avoid generic phrases such as "everything happens for a reason", "believe in yourself", "never give up", "you are stronger than you think", "everything will be okay", "you are not alone", and similar motivational filler. Do not use medical claims, diagnosis, crisis language, emojis, or therapeutic promises.
 STOCK-VISUAL RULE: every search query must describe something visibly filmable in stock footage. Do not rely on abstract concepts such as "sadness", "healing", "emotional pain", or "finding yourself" alone.
 Total narration should be 120-160 words, with 12-18 words in every scene. Narration must be production-complete: every generated narration word will be spoken.
-IMPORTANT: Every narration word you generate is production-critical. Do not omit, summarize, truncate, rewrite, compact, or otherwise remove any narration content after this JSON is accepted. The exact concatenated scene narration is the script that must be spoken in full.'''
+IMPORTANT: Every narration word you generate is production-critical. Do not omit, summarize, truncate, rewrite, compact, or otherwise remove any narration content after this JSON is accepted. The exact concatenated scene narration is the script that must be spoken in full.
+
+FACTORY-WIDE SELF-LEARNING CONTEXT:
+{factory_learning}
+
+CURRENT CREATIVE EXPERIMENT:
+{json.dumps(factory_strategy, ensure_ascii=False)}
+
+Use learning as evidence, never as a template. Do not copy prior topics, hooks, wording, or stories.'''
 
  d=None;scenes=None;narration=''
  for attempt in range(1,9):

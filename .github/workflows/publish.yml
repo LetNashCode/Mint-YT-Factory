@@ -14,7 +14,6 @@ permissions:
 concurrency:
   group: mint-content-factory
   cancel-in-progress: false
-  queue: max
 
 env:
   IMAGEMAGICK_BINARY: /usr/bin/convert

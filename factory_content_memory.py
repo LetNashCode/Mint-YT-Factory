@@ -289,7 +289,10 @@ def _emotional_semantic_tokens(value: str) -> set[str]:
 
 def emotional_situation_key(situation: str) -> str:
     """Build a stable semantic key for the underlying emotional premise."""
-    return " ".join(sorted(_emotional_semantic_tokens(situation)))
+    tokens = _emotional_semantic_tokens(situation)
+    if "post_separation_dinner_ritual" in tokens:
+        return "post_separation_dinner_ritual"
+    return " ".join(sorted(tokens))
 
 
 def emotional_situation_similarity(a: str, b: str) -> float:

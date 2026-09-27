@@ -11,6 +11,7 @@ import requests
 from google import genai
 from google.genai import types
 from tts import synthesize_narration
+from mystery_audio_analysis import analyze_audio
 
 ROOT = Path(__file__).resolve().parent
 CATALOG = ROOT / "mystery_footage_catalog.json"
@@ -53,13 +54,15 @@ def parse_json(text):
     return json.loads(re.sub(r"^```(?:json)?\s*|\s*```$", "", text.strip(), flags=re.I))
 
 
-def plan(item, source, work, duration):
+def plan(item, source, work, duration, audio_analysis):
     frames = work / "frames"
     frames.mkdir()
     cmd(["ffmpeg", "-y", "-i", source, "-vf", "fps=1/8,scale=960:-2", "-frames:v", "30", "-q:v", "3", frames / "frame-%03d.jpg"])
     factory_learning = os.getenv("MINT_FACTORY_LEARNING_CONTEXT", "").strip()
     factory_strategy = os.getenv("MINT_FACTORY_CREATIVE_STRATEGY", "").strip()
-    prompt = f"""Create an evidence-led editing timeline for this real-world mystery video. Duration: {duration:.2f} seconds. Return JSON with video_title, description_intro, tags, highlighted_keywords, and scene_plan. scene_plan must cover 0 to {duration:.2f} with no gaps or overlaps. Each scene: start, end, audio_mode, narration, purpose, evidence_label. Add visual_effect (normal, zoom_in, zoom_out, pause, or replay), zoom_strength, zoom_target_x, zoom_target_y, and effect_reason. audio_mode must be original, narration, pause, or replay. Use original whenever anyone may be speaking or meaningful source audio may exist; never put narration over original speech. Narration is mandatory and is the primary storytelling layer. At least 28% of the total timeline must be narration/pause/replay with non-empty generated narration, and there must be at least 4 such scenes whenever the footage is long enough. Use original only when source speech or a genuinely important original sound is the point of the scene. Do not let original-audio scenes consume the entire timeline. Use pause/replay sparingly for critical evidence. Every narration scene must contain a complete, useful sentence; never leave a narration scene empty. Do not infer guilt from body language or nervousness. Separate observations, verified facts, reported claims, theories, and limitations. Do not invent events. CASE TITLE: {item.get('title')} CASE SUMMARY: {item.get('case_summary')} FOOTAGE DESCRIPTION: {item.get('footage_description')} VERIFIED FACTS: {item.get('verified_facts', [])} OPEN QUESTIONS: {item.get('theories_or_open_questions', [])}
+    protected_speech = audio_analysis.get("protected_intervals", []) if isinstance(audio_analysis, dict) else []
+    source_transcript = audio_analysis.get("transcript", "") if isinstance(audio_analysis, dict) else ""
+    prompt = f"""Create an evidence-led commentary documentary timeline for this real-world mystery video. Duration: {duration:.2f} seconds. Return JSON with video_title, description_intro, tags, highlighted_keywords, and scene_plan. scene_plan must cover 0 to {duration:.2f} with no gaps or overlaps. Each scene: start, end, audio_mode, narration, purpose, evidence_label. Add commentary_role (hook, setup, explanation, evidence, replay, theory, conclusion). Add visual_effect (normal, zoom_in, zoom_out, pause, or replay), zoom_strength, zoom_target_x, zoom_target_y, and effect_reason. audio_mode must be original, narration, pause, or replay. Use original audio ONLY inside or immediately around the supplied protected source-speech intervals. Outside those intervals, generated narration should carry the soundtrack. Narration is the primary storytelling layer and should cover at least 65% of the finished edit. Original-audio scenes should normally stay below 25% of the finished edit. There must be at least 4 narration-bearing scenes whenever the footage is long enough. Use original only when source speech or a genuinely important original sound is the point of the scene. Do not let original-audio scenes consume the entire timeline. Use pause/replay for critical evidence. Include at least one pause and one replay when the footage contains a clear moment worth explaining twice. Include at least two restrained zoom moments when there are visible details worth pointing out. Every narration scene must contain enough narration to naturally fill its planned duration at conversational speed. Target roughly 2.0-2.5 spoken words per second of narration scene, and never leave a narration scene empty. Do not infer guilt from body language or nervousness. Separate observations, verified facts, reported claims, theories, and limitations. Do not invent events. CASE TITLE: {item.get('title')} CASE SUMMARY: {item.get('case_summary')} FOOTAGE DESCRIPTION: {item.get('footage_description')} VERIFIED FACTS: {item.get('verified_facts', [])} OPEN QUESTIONS: {item.get('theories_or_open_questions', [])}
 
 FACTORY-WIDE SELF-LEARNING CONTEXT:
 {factory_learning}
@@ -67,7 +70,7 @@ FACTORY-WIDE SELF-LEARNING CONTEXT:
 CURRENT FACTORY CREATIVE EXPERIMENT:
 {factory_strategy}
 
-Use learning only to improve structure, pacing, evidence presentation, and viewer clarity. Never copy a prior case, claim, wording, or conclusion."""
+PROTECTED SOURCE-SPEECH INTERVALS (Whisper): {protected_speech}\nSOURCE AUDIO TRANSCRIPT: {source_transcript}\n\nUse learning only to improve structure, pacing, evidence presentation, and viewer clarity. Never copy a prior case, claim, wording, or conclusion."""
     parts = [prompt] + [types.Part.from_bytes(data=p.read_bytes(), mime_type="image/jpeg") for p in sorted(frames.glob("*.jpg"))]
     with genai.Client(api_key=os.environ["GEMINI_API_KEY"]) as client:
         result = client.models.generate_content(model=MODEL, contents=parts, config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0.2))
@@ -99,6 +102,7 @@ Use learning only to improve structure, pacing, evidence presentation, and viewe
             zoom_strength = 1.0
         scenes.append({
             "start": round(start, 3), "end": round(end, 3), "audio_mode": mode,
+            "commentary_role": str(s.get("commentary_role", "explanation")).strip() or "explanation",
             "narration": str(s.get("narration", "")).strip(),
             "purpose": str(s.get("purpose", "")),
             "evidence_label": str(s.get("evidence_label", "observation")),
@@ -141,6 +145,9 @@ Use learning only to improve structure, pacing, evidence presentation, and viewe
         "ratio": round(narration_seconds / duration, 3) if duration else 0.0,
         "word_count": narration_words,
     }
+    narration_ratio = narration_seconds / max(duration, 1.0)
+    original_seconds = sum(float(s["end"]) - float(s["start"]) for s in scenes if s["audio_mode"] == "original")
+    data["audio_mix_stats"] = {"narration_ratio": round(narration_ratio, 3), "original_audio_ratio": round(original_seconds / max(duration, 1.0), 3)}
     effect_counts = {}
     for scene in scenes:
         effect = scene["visual_effect"]
@@ -148,7 +155,7 @@ Use learning only to improve structure, pacing, evidence presentation, and viewe
     data["visual_effect_stats"] = effect_counts
     if (
         len(narration_scenes) < min(MIN_NARRATION_SCENES, max(1, int(duration // 15)))
-        or narration_seconds / max(duration, 1.0) < MIN_NARRATION_RATIO
+        or narration_seconds / max(duration, 1.0) < max(MIN_NARRATION_RATIO, 0.65)
         or narration_words < MIN_NARRATION_WORDS
     ):
         raise RuntimeError(
@@ -177,28 +184,45 @@ def _visual_filter(scene, length):
     return base + f",scale=trunc(1920*({zoom})/2)*2:trunc(1080*({zoom})/2)*2,crop=1920:1080:x='(iw-1920)*{target_x:.4f}':y='(ih-1080)*{target_y:.4f}'"
 
 
+def _audio_duration(path):
+    if not path:
+        return 0.0
+    raw = subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=nw=1:nk=1", str(path)], text=True)
+    return float(raw.strip() or 0.0)
+
+
 def render_scene(source, s, narration, out, work):
     start, end = s["start"], s["end"]
-    length = max(0.1, end - start)
+    planned_length = max(0.1, end - start)
     mode = s["audio_mode"]
     effect = s.get("visual_effect", "normal")
     video = work / (out.stem + ".video.mp4")
-    vf = _visual_filter(s, length)
+    narration_duration = _audio_duration(narration) if narration else 0.0
+    # Commentary drives timing. If TTS is shorter than the planned beat, trim the
+    # source visual to the narration instead of padding the soundtrack with silence.
+    render_length = narration_duration if narration_duration > 0 else planned_length
+    render_length = max(0.1, render_length)
+    vf = _visual_filter(s, render_length)
     if mode == "pause" or effect == "pause":
-        vf += ",select='eq(n,0)',tpad=stop_mode=clone:stop_duration=" + str(length)
-    source_duration = length
+        vf += ",select='eq(n,0)',tpad=stop_mode=clone:stop_duration=" + str(render_length)
+    source_duration = min(planned_length, render_length)
     if mode == "replay" or effect == "replay":
         vf += ",setpts=PTS/0.75"
-        source_duration = length * 0.75
+        source_duration = min(planned_length, render_length * 0.75)
     cmd(["ffmpeg", "-y", "-ss", str(start), "-i", source, "-t", str(source_duration), "-vf", vf, "-an", "-c:v", "libx264", "-pix_fmt", "yuv420p", video])
-    if mode == "original":
-        cmd(["ffmpeg", "-y", "-i", video, "-ss", str(start), "-i", source, "-t", str(length), "-map", "0:v:0", "-map", "1:a?", "-c:v", "copy", "-c:a", "aac", "-shortest", out])
+    # If narration outlives the selected source moment, hold the final evidence frame.
+    if narration_duration > source_duration + 0.05:
+        hold = narration_duration - source_duration
+        cmd(["ffmpeg", "-y", "-i", video, "-vf", "tpad=stop_mode=clone:stop_duration=" + str(hold), "-t", str(render_length), "-c:v", "libx264", "-pix_fmt", "yuv420p", video.with_name(video.stem + "-held.mp4")])
+        video.unlink(missing_ok=True)
+        video = video.with_name(video.stem + "-held.mp4")
+    if mode == "original" and not narration:
+        cmd(["ffmpeg", "-y", "-i", video, "-ss", str(start), "-i", source, "-t", str(render_length), "-map", "0:v:0", "-map", "1:a?", "-c:v", "copy", "-c:a", "aac", "-shortest", out])
     elif narration:
-        cmd(["ffmpeg", "-y", "-i", video, "-i", narration, "-filter_complex", "[1:a]apad[a]", "-map", "0:v:0", "-map", "[a]", "-t", str(length), "-c:v", "copy", "-c:a", "aac", out])
+        cmd(["ffmpeg", "-y", "-i", video, "-i", narration, "-t", str(render_length), "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy", "-c:a", "aac", "-shortest", out])
     else:
-        cmd(["ffmpeg", "-y", "-i", video, "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", str(length), "-c:v", "copy", "-c:a", "aac", out])
+        cmd(["ffmpeg", "-y", "-i", video, "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-t", str(render_length), "-c:v", "copy", "-c:a", "aac", out])
     video.unlink(missing_ok=True)
-
 def _skip_if_configured(message):
     if os.getenv("MYSTERY_FOOTAGE_SKIP_IF_NO_ELIGIBLE", "false").lower() in {"1", "true", "yes"}:
         print(message)
@@ -256,12 +280,15 @@ def main():
                 return
             raise RuntimeError("No eligible mystery footage met the duration/orientation requirements")
 
+        print("🎧 Analyzing source speech before editorial planning...")
+        audio_analysis = analyze_audio(source, work / "audio-analysis")
+        (OUT / "audio_timeline.json").write_text(json.dumps(audio_analysis, indent=2, ensure_ascii=False), encoding="utf-8")
         last_plan_error = None
         timeline = None
         for attempt in range(1, 4):
             try:
                 print(f"🧠 Building Mystery documentary script/timeline (attempt {attempt}/3)")
-                timeline = plan(item, source, work, duration)
+                timeline = plan(item, source, work, duration, audio_analysis)
                 break
             except RuntimeError as exc:
                 last_plan_error = exc
@@ -282,6 +309,7 @@ def main():
             "narration": full_narration,
             "scene_plan": timeline["scene_plan"],
             "narration_stats": timeline.get("narration_stats", {}),
+            "audio_mix_stats": timeline.get("audio_mix_stats", {}),
             "visual_effect_stats": timeline.get("visual_effect_stats", {}),
             "case": {
                 "id": item.get("id"),
@@ -314,6 +342,7 @@ def main():
         "catalog_item_id": item.get("id"),
         "source_url": item.get("source_url"),
         "narration_stats": timeline.get("narration_stats", {}),
+        "audio_mix_stats": timeline.get("audio_mix_stats", {}),
         "visual_effect_stats": timeline.get("visual_effect_stats", {}),
         "script_path": str(OUT / "script.json"),
         "timeline_path": str(OUT / "timeline.json"),

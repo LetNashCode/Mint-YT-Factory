@@ -130,7 +130,13 @@ def main():
   _resume_and_upload(resume)
   return
 
- p='''Create an original 54-second cinematic emotional Reel designed to make a real human feel something, not merely consume an inspirational quote. Do not copy any creator, script, wording, or recognizable story. The narration is the primary emotional experience because the visuals are ordinary stock footage.
+ from factory_content_memory import claim as claim_factory_topic, publish as publish_factory_topic, refresh_learning, learning_context, select_strategy
+ refresh_learning()
+ factory_strategy=select_strategy()
+ factory_learning=learning_context(max_chars=4500)
+ print(f"🧠 FACTORY LEARNING: strategy={factory_strategy.get('strategy')} | experiment={factory_strategy.get('experiment_id')}",flush=True)
+
+ p=f'''Create an original 54-second cinematic emotional Reel designed to make a real human feel something, not merely consume an inspirational quote. Do not copy any creator, script, wording, or recognizable story. The narration is the primary emotional experience because the visuals are ordinary stock footage.
 FIRST choose exactly ONE primary human emotion from: nostalgia, regret, loneliness, hope, gratitude, missing someone, quiet heartbreak, feeling unseen, letting go, fear of failure, self-doubt, family love, friendship, sacrifice, second chances, childhood memories, growing apart, forgiveness, or pride after struggle. Then choose ONE specific everyday human situation that naturally evokes it.
 Return JSON with title, description, hashtags, primary_emotion, human_situation, emotional_turn, and exactly 9 scenes.
 The emotional journey MUST follow this order:

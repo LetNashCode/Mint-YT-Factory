@@ -2757,16 +2757,6 @@
     }
   },
   {
-    "topic": "__MINT_PENDING_NEXT_TOPIC__::Why do keys jingle",
-    "normalized": "mint pending next topic why do keys jingle",
-    "workflow": "publish_legacy",
-    "status": "published",
-    "recorded_at": 1790524293,
-    "metadata": {
-      "source": "legacy_bootstrap_v1"
-    }
-  },
-  {
     "topic": "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
     "normalized": "quiet heartbreak setting the dinner table for two out of pure muscle memory after a breakup",
     "workflow": "emotional",

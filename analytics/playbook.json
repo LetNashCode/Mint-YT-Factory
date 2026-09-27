@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-27T22:03:39.880073+00:00",
-  "video_count": 111,
+  "generated_at": "2026-09-27T22:45:47.900457+00:00",
+  "video_count": 112,
   "learning_ready": true,
   "metrics_available": true,
   "creative_learning_version": "v3",
@@ -16,13 +16,13 @@
       "score": 34.634,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 2.411
+      "weak_score": 1.003
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 2.411,
+      "score": 1.003,
       "sample_size": 10
     }
   ],
@@ -42,18 +42,18 @@
     "Why ice floats"
   ],
   "avoid_topics": [
-    "Why do buttons pop off coats",
     "Why your phone screen gets greasy",
     "Why does an apple brown",
     "Why does paint peel",
     "Why shower curtains attack you",
     "Why does a kettle whistle",
+    "gratitude: finding a well-worn paperback book on a shelf with a handwritten note on the inside cover from a high school English teacher who believed in you when you wanted to quit.",
     "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
     "Why do steering wheels lock"
   ],
-  "used_topic_count": 111,
+  "used_topic_count": 112,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

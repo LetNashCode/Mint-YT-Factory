@@ -355,13 +355,33 @@ def main() -> None:
                     status = __import__("json").loads(
                         Path(".story_publication_status.json").read_text(encoding="utf-8")
                     )
+                    video_id = str(status.get("video_id") or "")
                     publish_factory_topic(
                         published_topic,
                         "story",
                         title=published_topic,
-                        video_id=str(status.get("video_id") or ""),
+                        video_id=video_id,
                         metadata={"person": pending.get("person", ""), "pillar": pending.get("pillar", "")},
                     )
+                    try:
+                        from youtube_analytics import record_upload
+                        record_upload(
+                            video_id,
+                            published_topic,
+                            published_topic,
+                            workdir=str(Path("output/interactive")),
+                            production_metadata={
+                                "workflow": "story",
+                                "person": pending.get("person", ""),
+                                "pillar": pending.get("pillar", ""),
+                            },
+                        )
+                    except Exception as analytics_error:
+                        print(
+                            f"⚠️ Story factory analytics record unavailable: "
+                            f"{type(analytics_error).__name__}: {analytics_error}",
+                            flush=True,
+                        )
                 except Exception as exc:
                     raise RuntimeError(
                         f"Story publication completed but factory learning memory could not be updated: {exc}"

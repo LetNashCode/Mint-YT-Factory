@@ -83,39 +83,41 @@ def _is_quota_error(error):
  return any(x in text for x in ('resource_exhausted','quota exceeded','generaterequestsperday','quota_id','rate limit','429'))
 def _is_retryable_gemini_error(error):
  if _is_quota_error(error): return False
+ if isinstance(error,json.JSONDecodeError): return True
  text=str(error or '').lower()
- return any(x in text for x in ('client has been closed','cannot send a request','503','unavailable','high demand','deadline exceeded','timeout','temporarily','connection reset','connection aborted'))
-def ai(p):
- k=os.getenv('GEMINI_API_KEY','')
- if not k: raise RuntimeError('GEMINI_API_KEY is required')
- model=os.getenv('EMOTIONAL_REEL_MODEL','gemini-flash-lite-latest')
- last=None
- for attempt in range(1,5):
-  client=None
-  try:
-   client=genai.Client(api_key=k)
-   r=client.models.generate_content(
-    model=model,
-    contents=p,
-    config=types.GenerateContentConfig(
-     temperature=.7,
-     response_mime_type='application/json',
-    ),
-   )
-   text=str(r.text or '').replace(chr(96)*3+'json','').replace(chr(96)*3,'').strip()
-   if not text: raise RuntimeError('Gemini returned an empty response')
-   return json.loads(text)
-  except Exception as error:
-   last=error
-   if _is_quota_error(error):
-    raise RuntimeError('GEMINI_QUOTA_DEFERRED: Gemini project/day quota is exhausted; emotional reel generation will resume on the next successful run.') from error
-   if attempt>=4 or not _is_retryable_gemini_error(error):
-    raise
-   delay=min(20,2**attempt)
-   print(f'⚠️ Gemini transient failure ({attempt}/4): {error}; retrying in {delay}s')
-   time.sleep(delay)
- raise RuntimeError(f'Gemini generation failed: {last}')
+ return any(x in text for x in ('client has been closed','cannot send a request','503','unavailable','high demand','deadline exceeded','timeout','temporarily','connection reset','connection aborted','invalid json','malformed json'))
 
+def _parse_gemini_json(text):
+ text=str(text or '').strip()
+ text=re.sub(r'^\`\`\`(?:json)?\\s*','',text,flags=re.I)
+ text=re.sub(r'\\s*\`\`\`$','',text).strip()
+ if not text:
+  raise json.JSONDecodeError('Gemini returned an empty response',text,0)
+ try:
+  return json.loads(text)
+ except json.JSONDecodeError as first_error:
+  starts=[i for i,ch in enumerate(text) if ch in '[{']
+  for start in starts:
+   opener=text[start];closer=']' if opener=='[' else '}'
+   depth=0;in_string=False;escaped=False
+   for i in range(start,len(text)):
+    ch=text[i]
+    if in_string:
+     if escaped: escaped=False
+     elif ch=='\\': escaped=True
+     elif ch=='"': in_string=False
+     continue
+    if ch=='"': in_string=True
+    elif ch==opener: depth+=1
+    elif ch==closer:
+     depth-=1
+     if depth==0:
+      candidate=text[start:i+1]
+      try: return json.loads(candidate)
+      except json.JSONDecodeError: break
+  raise first_error
+
+def ai(p):
 def search(q):
  out=[];pk=os.getenv('PEXELS_API_KEY','');xb=os.getenv('PIXABAY_API_KEY','')
  if pk:

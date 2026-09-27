@@ -2803,5 +2803,21 @@
       "human_situation": "emptying the coat pockets of a deceased parent and finding a grocery list written on scrap paper.",
       "topic_key": "finding grocery list in deceased parent coat pocket"
     }
+  },
+  {
+    "topic": "childhood memories: finding an old box of colorful plastic measuring spoons in the kitchen drawer that your mother only used when baking birthday cakes.",
+    "normalized": "childhood memories finding an old box of colorful plastic measuring spoons in the kitchen drawer that your mother only used when baking birthday cakes",
+    "workflow": "emotional",
+    "status": "reserved",
+    "reserved_at": 1790544417,
+    "recorded_at": 1790544417,
+    "metadata": {
+      "source": "emotional_topic_selection",
+      "memory_category": "childhood rituals",
+      "memory_trigger": "the specific bright colors and faded numbers of old kitchen utensils from childhood home",
+      "primary_emotion": "childhood memories",
+      "human_situation": "finding an old box of colorful plastic measuring spoons in the kitchen drawer that your mother only used when baking birthday cakes.",
+      "topic_key": "finding mother's vintage plastic measuring spoons in kitchen drawer"
+    }
   }
 ]

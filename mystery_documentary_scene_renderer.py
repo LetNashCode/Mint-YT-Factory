@@ -126,19 +126,37 @@ PROTECTED SOURCE-SPEECH INTERVALS (Whisper): {protected_speech}\nSOURCE AUDIO TR
             pause_scene = max(narration_candidates, key=lambda s: float(s["end"]) - float(s["start"]))
             pause_scene["visual_effect"] = "pause"
             pause_scene["effect_reason"] = pause_scene.get("effect_reason") or "Freeze the key evidence frame while the narration explains what viewers should notice."
-        if len(narration_candidates) >= 2 and not any(s.get("visual_effect") in {"zoom_in", "zoom_out"} for s in narration_candidates):
-            zoom_scene = sorted(narration_candidates, key=lambda s: float(s["end"]) - float(s["start"]), reverse=True)[1]
+
+        if len(narration_candidates) >= 2 and not any(
+            s.get("visual_effect") in {"zoom_in", "zoom_out"} for s in narration_candidates
+        ):
+            zoom_scene = sorted(
+                narration_candidates,
+                key=lambda s: float(s["end"]) - float(s["start"]),
+                reverse=True,
+            )[1]
             zoom_scene["visual_effect"] = "zoom_in"
-            zoom_scene["zoom_strength"] = min(MAX_ZOOM, max(1.08, float(zoom_scene.get("zoom_strength", 1.10))))
-            zoom_scene["effect_reason"] = zoom_scene.get("effect_reason") or "Slowly draw attention to the visible evidence being discussed."        if len(narration_candidates) >= 2 and not any(s.get("visual_effect") in {"zoom_in", "zoom_out"} for s in narration_candidates):
-            zoom_scene = sorted(narration_candidates, key=lambda s: float(s["end"]) - float(s["start"]), reverse=True)[1]
-            zoom_scene["visual_effect"] = "zoom_in"
-            zoom_scene["zoom_strength"] = min(MAX_ZOOM, max(1.08, float(zoom_scene.get("zoom_strength", 1.10))))
-            zoom_scene["effect_reason"] = zoom_scene.get("effect_reason") or "Slowly draw attention to the visible evidence being discussed."
-        if len(narration_candidates) >= 3 and not any(s.get("visual_effect") == "replay" for s in narration_candidates):
-            replay_scene = sorted(narration_candidates, key=lambda s: float(s["end"]) - float(s["start"]), reverse=True)[2]
+            zoom_scene["zoom_strength"] = min(
+                MAX_ZOOM, max(1.08, float(zoom_scene.get("zoom_strength", 1.10)))
+            )
+            zoom_scene["effect_reason"] = (
+                zoom_scene.get("effect_reason")
+                or "Slowly draw attention to the visible evidence being discussed."
+            )
+
+        if len(narration_candidates) >= 3 and not any(
+            s.get("visual_effect") == "replay" for s in narration_candidates
+        ):
+            replay_scene = sorted(
+                narration_candidates,
+                key=lambda s: float(s["end"]) - float(s["start"]),
+                reverse=True,
+            )[2]
             replay_scene["visual_effect"] = "replay"
-            replay_scene["effect_reason"] = replay_scene.get("effect_reason") or "Replay this exact source moment so viewers can catch the detail a second time."
+            replay_scene["effect_reason"] = (
+                replay_scene.get("effect_reason")
+                or "Replay this exact source moment so viewers can catch the detail a second time."
+            )
 
 
     narration_scenes = [

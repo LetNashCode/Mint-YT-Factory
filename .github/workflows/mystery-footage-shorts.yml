@@ -9,8 +9,9 @@ permissions:
   contents: write
 
 concurrency:
-  group: mystery-documentary-production
+  group: mint-content-factory
   cancel-in-progress: false
+  queue: max
 
 jobs:
   build-mystery-documentary:
@@ -79,6 +80,26 @@ jobs:
           video_id = upload_video(str(root / 'mystery-documentary.mp4'), meta['video_title'][:90], meta['description'], {'upload': {'privacy_status': 'private', 'category_id': '24'}, 'seo': {'hashtags': meta.get('tags', [])}})
           meta['youtube_video_id'] = video_id
           (root / 'metadata.json').write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding='utf-8')
+          from factory_content_memory import publish as publish_factory_topic
+          publish_factory_topic(
+              meta.get('factory_topic') or meta['video_title'],
+              'mystery',
+              title=meta['video_title'],
+              video_id=video_id,
+              workdir=str(root),
+              metadata={'catalog_item_id': meta.get('catalog_item_id',''), 'source_url': meta.get('source_url','')},
+          )
+          try:
+              from youtube_analytics import record_upload
+              record_upload(
+                  video_id,
+                  meta.get('factory_topic') or meta['video_title'],
+                  meta['video_title'],
+                  workdir=str(root),
+                  production_metadata={'workflow':'mystery','catalog_item_id':meta.get('catalog_item_id','')},
+              )
+          except Exception as exc:
+              print(f'⚠️ Mystery learning analytics record unavailable: {type(exc).__name__}: {exc}')
           PY
       - name: Commit discovery, screening, and video history
         if: always()

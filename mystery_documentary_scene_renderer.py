@@ -53,7 +53,17 @@ def plan(item, source, work, duration):
     frames = work / "frames"
     frames.mkdir()
     cmd(["ffmpeg", "-y", "-i", source, "-vf", "fps=1/8,scale=960:-2", "-frames:v", "30", "-q:v", "3", frames / "frame-%03d.jpg"])
-    prompt = f"""Create an evidence-led editing timeline for this real-world mystery video. Duration: {duration:.2f} seconds. Return JSON with video_title, description_intro, tags, highlighted_keywords, and scene_plan. scene_plan must cover 0 to {duration:.2f} with no gaps or overlaps. Each scene: start, end, audio_mode, narration, purpose, evidence_label. audio_mode must be original, narration, pause, or replay. Use original whenever anyone may be speaking or meaningful source audio may exist; never put narration over original speech. Use narration only for clearly visual/silent explanation. Use pause for a critical moment that should freeze while it is explained. Use replay only for a short critical moment. Keep narration empty for original scenes. Do not infer guilt from body language or nervousness. Separate observations, verified facts, reported claims, theories, and limitations. Do not invent events. CASE TITLE: {item.get('title')} CASE SUMMARY: {item.get('case_summary')} FOOTAGE DESCRIPTION: {item.get('footage_description')} VERIFIED FACTS: {item.get('verified_facts', [])} OPEN QUESTIONS: {item.get('theories_or_open_questions', [])}"""
+    factory_learning = os.getenv("MINT_FACTORY_LEARNING_CONTEXT", "").strip()
+    factory_strategy = os.getenv("MINT_FACTORY_CREATIVE_STRATEGY", "").strip()
+    prompt = f"""Create an evidence-led editing timeline for this real-world mystery video. Duration: {duration:.2f} seconds. Return JSON with video_title, description_intro, tags, highlighted_keywords, and scene_plan. scene_plan must cover 0 to {duration:.2f} with no gaps or overlaps. Each scene: start, end, audio_mode, narration, purpose, evidence_label. audio_mode must be original, narration, pause, or replay. Use original whenever anyone may be speaking or meaningful source audio may exist; never put narration over original speech. Use narration only for clearly visual/silent explanation. Use pause for a critical moment that should freeze while it is explained. Use replay only for a short critical moment. Keep narration empty for original scenes. Do not infer guilt from body language or nervousness. Separate observations, verified facts, reported claims, theories, and limitations. Do not invent events. CASE TITLE: {item.get('title')} CASE SUMMARY: {item.get('case_summary')} FOOTAGE DESCRIPTION: {item.get('footage_description')} VERIFIED FACTS: {item.get('verified_facts', [])} OPEN QUESTIONS: {item.get('theories_or_open_questions', [])}
+
+FACTORY-WIDE SELF-LEARNING CONTEXT:
+{factory_learning}
+
+CURRENT FACTORY CREATIVE EXPERIMENT:
+{factory_strategy}
+
+Use learning only to improve structure, pacing, evidence presentation, and viewer clarity. Never copy a prior case, claim, wording, or conclusion."""
     parts = [prompt] + [types.Part.from_bytes(data=p.read_bytes(), mime_type="image/jpeg") for p in sorted(frames.glob("*.jpg"))]
     with genai.Client(api_key=os.environ["GEMINI_API_KEY"]) as client:
         result = client.models.generate_content(model=MODEL, contents=parts, config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0.2))

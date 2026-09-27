@@ -104,7 +104,7 @@ jobs:
       - name: Commit discovery, screening, and video history
         if: always()
         run: |
-          if git diff --quiet -- mystery_footage_catalog.json mystery_footage_history.json analytics/topic_history.json analytics/videos.json analytics/playbook.json; then
+          if git diff --quiet -- mystery_footage_catalog.json mystery_footage_history.json analytics/topic_history.json analytics/videos.json analytics/playbook.json analytics/factory_memory_state.json; then
             echo "No catalog or history changes to commit."
           else
             git config user.name "github-actions[bot]"

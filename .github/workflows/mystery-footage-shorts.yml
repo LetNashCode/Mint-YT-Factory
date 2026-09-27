@@ -79,6 +79,11 @@ jobs:
           video_id = upload_video(str(root / 'mystery-documentary.mp4'), meta['video_title'][:90], meta['description'], {'upload': {'privacy_status': 'private', 'category_id': '24'}, 'seo': {'hashtags': meta.get('tags', [])}})
           meta['youtube_video_id'] = video_id
           (root / 'metadata.json').write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding='utf-8')
+          from mystery_documentary_runner import mark_history_published
+          mark_history_published(meta.get('catalog_item_id',''), video_id)
+          meta['history_recorded'] = True
+          meta['history_status'] = 'published'
+          (root / 'metadata.json').write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding='utf-8')
           from factory_content_memory import publish as publish_factory_topic
           publish_factory_topic(
               meta.get('factory_topic') or meta['video_title'],

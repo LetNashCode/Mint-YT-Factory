@@ -55,6 +55,26 @@ def _resume_and_upload(state):
  social=publish_social_reels(str(final),state['title'],state['description'],cfg,str(OUT))
  state.update({'status':'uploaded','video_id':yt,'social':social,'uploaded_at':int(time.time())})
  _write_resume_state(state)
+ try:
+  from factory_content_memory import publish as publish_factory_topic
+  publish_factory_topic(
+   str(state.get('factory_topic') or state.get('title','')),
+   "emotional",
+   title=state.get('title',''),
+   video_id=yt,
+   workdir=str(OUT),
+   metadata={"resumed_publish":True,"primary_emotion":state.get("primary_emotion",""),"human_situation":state.get("human_situation","")},
+  )
+  from youtube_analytics import record_upload
+  record_upload(
+   yt,
+   str(state.get('factory_topic') or state.get('title','')),
+   state.get('title',''),
+   workdir=str(OUT),
+   production_metadata={"workflow":"emotional","resumed_publish":True},
+  )
+ except Exception as exc:
+  print(f'⚠️ Resumed Emotional learning record unavailable: {type(exc).__name__}: {exc}',flush=True)
  print(f'♻️ RESUMED RENDER PUBLISHED | video_id={yt}',flush=True)
  print(json.dumps(social,indent=2))
 
@@ -363,7 +383,7 @@ Use learning as evidence, never as a template. Do not copy prior topics, hooks, 
  print(f'✅ FINAL REEL AUDIO VERIFIED | complete voice narration + music | duration={final_audio_duration:.2f}s | COMPLETE_SCRIPT_PRESERVED=YES',flush=True)
 
  final_sha256=_file_sha256(final)
- resume_state={'status':'pending_upload','final_path':str(final),'final_sha256':final_sha256,'cache_key':f'emotional-reel-final-v2-{final_sha256[:32]}','title':d['title'],'description':d['description'],'hashtags':d.get('hashtags',[]),'engagement_comment':scenes[-1]['text'],'voice':cfg['voice'],'created_at':int(time.time()),'narration_word_count':_word_count(narration),'complete_script_preserved':True,'final_duration_seconds':render_duration}
+ resume_state={'status':'pending_upload','final_path':str(final),'final_sha256':final_sha256,'cache_key':f'emotional-reel-final-v2-{final_sha256[:32]}','title':d['title'],'description':d['description'],'hashtags':d.get('hashtags',[]),'engagement_comment':scenes[-1]['text'],'voice':cfg['voice'],'created_at':int(time.time()),'narration_word_count':_word_count(narration),'complete_script_preserved':True,'final_duration_seconds':render_duration,'factory_topic':d.get('factory_topic',''),'primary_emotion':d.get('primary_emotion',''),'human_situation':d.get('human_situation','')}
  _write_resume_state(resume_state)
  print(f'💾 RENDER CHECKPOINT SAVED | sha256={final_sha256[:16]} | cache_key={resume_state["cache_key"]}',flush=True)
  cfg['seo']['hashtags']=d.get('hashtags',[]);cfg.setdefault('upload',{})['privacy_status']=os.getenv('EMOTIONAL_REEL_PRIVACY','public')

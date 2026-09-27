@@ -156,6 +156,7 @@ def main():
   refresh_learning,
   learning_context,
   select_strategy,
+  publish as publish_factory_topic,
  )
 
  # Topic selection is deliberately the FIRST content decision. Once reserved,
@@ -476,19 +477,22 @@ Use learning as evidence for the creative treatment, never as a template. The lo
   raise
  resume_state.update({'status':'uploaded','video_id':yt,'social':social,'uploaded_at':int(time.time())})
  _write_resume_state(resume_state)
- publish_factory_topic(
-  str(d.get('factory_topic') or f"{d.get('primary_emotion','')}: {d.get('human_situation','')}"),
-  "emotional",
-  title=d['title'],
-  video_id=yt,
-  workdir=str(OUT),
-  metadata={
-   "primary_emotion":d.get('primary_emotion',''),
-   "human_situation":d.get('human_situation',''),
-   "creative_strategy":str(factory_strategy.get('strategy','')),
-   "experiment_id":str(factory_strategy.get('experiment_id','')),
-  },
- )
+ try:
+  publish_factory_topic(
+   str(d.get('factory_topic') or f"{d.get('primary_emotion','')}: {d.get('human_situation','')}"),
+   "emotional",
+   title=d['title'],
+   video_id=yt,
+   workdir=str(OUT),
+   metadata={
+    "primary_emotion":d.get('primary_emotion',''),
+    "human_situation":d.get('human_situation',''),
+    "creative_strategy":str(factory_strategy.get('strategy','')),
+    "experiment_id":str(factory_strategy.get('experiment_id','')),
+   },
+  )
+ except Exception as exc:
+  print(f'⚠️ Emotional factory learning record unavailable after successful publication: {type(exc).__name__}: {exc}',flush=True)
  try:
   from youtube_analytics import record_upload
   record_upload(

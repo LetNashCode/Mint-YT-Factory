@@ -102,6 +102,17 @@ def claim(workflow: str, topic: str, metadata: dict | None = None) -> str:
     if not clean:
         raise RuntimeError(f"{workflow}: cannot reserve an empty topic")
     rows = _purge_stale(_load())
+    normalized = normalize_topic(clean)
+    for row in rows:
+        if (
+            isinstance(row, dict)
+            and str(row.get("status", "")).lower() == "reserved"
+            and normalize_topic(row.get("topic", "")) == normalized
+            and str(row.get("workflow", "")) == str(workflow)
+        ):
+            print(f"🔁 FACTORY TOPIC RESERVATION REUSED | workflow={workflow} | topic={clean}")
+            return clean
+
     existing = duplicate(clean, rows)
     if existing:
         raise RuntimeError(

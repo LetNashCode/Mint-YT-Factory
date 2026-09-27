@@ -327,8 +327,9 @@ Use learning as evidence for the creative treatment, never as a template. The lo
  for attempt in range(1,9):
   candidate=ai(p);candidate_scenes=candidate.get('scenes')
   required_fields=('title','description','hashtags','primary_emotion','human_situation','memory_category','memory_trigger','emotional_turn','cta_type','cta_text')
-  if any(not candidate.get(field) for field in required_fields):
-   print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: missing emotional story metadata',flush=True);continue
+  missing_fields=[field for field in required_fields if not candidate.get(field)]
+  if missing_fields:
+   print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: missing emotional story metadata: {missing_fields}',flush=True);continue
   candidate_emotion=" ".join(str(candidate.get('primary_emotion','')).split()).strip().lower()
   candidate_situation=" ".join(str(candidate.get('human_situation','')).split()).strip()
   candidate_memory_category=" ".join(str(candidate.get('memory_category','')).split()).strip().lower()
@@ -363,7 +364,18 @@ Use learning as evidence for the creative treatment, never as a template. The lo
    d,scenes,narration=candidate,candidate_scenes,candidate_narration
    print(f'✅ Complete narration script accepted: {word_count} words | scene counts={scene_counts} | factory_topic={candidate["factory_topic"]}',flush=True)
    break
-  print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: total={word_count} words, scene counts={scene_counts}; requiring 120-160 total and 12-18 per scene',flush=True)
+  rejection_reasons=[]
+  if not (120 <= word_count <= 160):
+   rejection_reasons.append(f'total_words={word_count} outside 120-160')
+  if not all(12 <= n <= 18 for n in scene_counts):
+   rejection_reasons.append(f'scene_word_counts={scene_counts} require 12-18 each')
+  if memory_anchor_count < 2:
+   rejection_reasons.append(f'memory_anchors={memory_anchor_count} require >=2')
+  if banned_hits:
+   rejection_reasons.append(f'cliche_hits={banned_hits}')
+  if candidate_cta_type != 'none' and not cta_present:
+   rejection_reasons.append(f'cta_missing_in_final_scene type={candidate_cta_type}')
+  print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: {"; ".join(rejection_reasons) or "unknown validation failure"}',flush=True)
 
  if d is None:
   raise RuntimeError('Could not generate a valid full-length Emotional Reel narration after 8 bounded attempts. No narration was compacted or dropped.')

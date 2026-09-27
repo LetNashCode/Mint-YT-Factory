@@ -59,18 +59,6 @@ def mark_history_published(item_id: str, video_id: str = "") -> bool:
     return True
 
 def main() -> None:
-    try:
-        from factory_content_memory import refresh_learning, learning_context, select_strategy
-        learning = refresh_learning()
-        os.environ["MINT_FACTORY_LEARNING_CONTEXT"] = learning_context(max_chars=4500)
-        os.environ["MINT_FACTORY_CREATIVE_STRATEGY"] = json.dumps(select_strategy(), ensure_ascii=False)
-        print(
-            f"🧠 Factory learning refreshed: videos={learning.get('analytics',{}).get('video_count',0)} "
-            f"| ready={learning.get('playbook',{}).get('learning_ready',False)}",
-            flush=True,
-        )
-    except Exception as exc:
-        print(f"⚠️ Mystery factory learning refresh skipped: {type(exc).__name__}: {exc}", flush=True)
     catalog=json.loads(CATALOG.read_text(encoding="utf-8")); history=load_history(); used={str(x) for x in history.get("used_item_ids",[])}
     candidates=[x for x in catalog.get("items",[]) if x.get("video_url") and x.get("source_url") and (x.get("screening") or {}).get("eligible") is True and str(x.get("id")) not in used]
     requested=os.getenv("MYSTERY_FOOTAGE_ITEM_ID","").strip()
@@ -86,6 +74,20 @@ def main() -> None:
         factory_topic,
         {"item_id": item_id, "source_url": selected.get("source_url",""), "source": "mystery_case_selection"},
     )
+
+    # The case/topic is locked before learning context is refreshed or expensive rendering begins.
+    try:
+        from factory_content_memory import refresh_learning, learning_context, select_strategy
+        learning = refresh_learning()
+        os.environ["MINT_FACTORY_LEARNING_CONTEXT"] = learning_context(max_chars=4500)
+        os.environ["MINT_FACTORY_CREATIVE_STRATEGY"] = json.dumps(select_strategy(), ensure_ascii=False)
+        print(
+            f"🧠 Factory learning refreshed after Mystery case lock: videos={learning.get('analytics',{}).get('video_count',0)} "
+            f"| ready={learning.get('playbook',{}).get('learning_ready',False)}",
+            flush=True,
+        )
+    except Exception as exc:
+        print(f"⚠️ Mystery factory learning refresh skipped: {type(exc).__name__}: {exc}", flush=True)
     runpy.run_module("mystery_documentary_scene_renderer",run_name="__main__")
     output_dir=ROOT/os.getenv("MYSTERY_DOCUMENTARY_OUTPUT_DIR","artifacts/mystery-documentary"); metadata_path=output_dir/"metadata.json"
     reserve_history_item(selected)

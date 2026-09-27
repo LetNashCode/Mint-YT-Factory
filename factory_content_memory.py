@@ -241,72 +241,24 @@ EMOTIONAL_STOPWORDS = {
     "emotion", "feeling", "feel", "someone", "something", "moment", "life",
     "human", "people", "person", "really", "just", "still", "often", "sometimes",
     "after", "before", "when", "while", "because", "like", "one", "two",
-    "used", "used_to", "remain", "remaining",
 }
-
-# Emotional premises are frequently paraphrased rather than repeated verbatim.
-EMOTIONAL_SEMANTIC_ALIASES = {
-    "setting": "set", "set": "set", "laying": "set", "lay": "set",
-    "laid": "set", "putting": "set", "puts": "set", "placing": "set", "place": "set",
-    "table": "dinner", "plates": "dinner", "plate": "dinner",
-    "eating": "dinner", "eat": "dinner", "dinner": "dinner",
-    "breakup": "separation", "separated": "separation", "separating": "separation",
-    "apart": "separation", "left": "separation", "leaving": "separation",
-    "together": "together", "used_to": "together", "accustomed": "together",
-}
-
-def _emotional_semantic_tokens(value: str) -> set[str]:
-    normalized = normalize_topic(value)
-    normalized = re.sub(r"\bused\s+to\b", "used_to", normalized)
-    tokens = set()
-    raw_tokens = set(normalized.split())
-    for token in raw_tokens:
-        if len(token) <= 2 or token in EMOTIONAL_STOPWORDS:
-            continue
-        token = EMOTIONAL_SEMANTIC_ALIASES.get(token, token)
-        if token.endswith("ies") and len(token) > 4:
-            token = token[:-3] + "y"
-        elif token.endswith("ing") and len(token) > 5:
-            token = token[:-3]
-        elif token.endswith("ed") and len(token) > 4:
-            token = token[:-2]
-        elif token.endswith("s") and len(token) > 4:
-            token = token[:-1]
-        tokens.add(token)
-
-    # A concrete ritual plus a relationship-loss cue is a stronger semantic
-    # fingerprint than the individual words. This catches paraphrases such as
-    # "setting the dinner table after a breakup" and "laying out two plates
-    # because you were used to eating together."
-    if "set" in tokens and "dinner" in tokens:
-        relationship_loss = "separation" in tokens or (
-            "together" in tokens and "used_to" in raw_tokens
-        )
-        if relationship_loss:
-            tokens.add("post_separation_dinner_ritual")
-    return tokens
-
 
 def emotional_situation_key(situation: str) -> str:
-    """Build a stable semantic key for the underlying emotional premise."""
-    tokens = _emotional_semantic_tokens(situation)
-    if "post_separation_dinner_ritual" in tokens:
-        return "post_separation_dinner_ritual"
-    return " ".join(sorted(tokens))
+    """Build a stable lexical key for the underlying emotional premise."""
+    tokens = [
+        token for token in _tokens(situation)
+        if token not in EMOTIONAL_STOPWORDS
+    ]
+    return " ".join(sorted(set(tokens)))
 
 
 def emotional_situation_similarity(a: str, b: str) -> float:
-    """Compare emotional premises using semantic tokens and phrase similarity."""
-    ta = _emotional_semantic_tokens(a)
-    tb = _emotional_semantic_tokens(b)
-    if not ta or not tb:
+    """Stricter comparison of emotional premises than title similarity."""
+    ka = emotional_situation_key(a)
+    kb = emotional_situation_key(b)
+    if not ka or not kb:
         return 0.0
-    intersection = len(ta & tb)
-    union = len(ta | tb)
-    jaccard = intersection / union if union else 0.0
-    containment = 1.0 if ta <= tb or tb <= ta else 0.0
-    sequence = difflib.SequenceMatcher(None, emotional_situation_key(a), emotional_situation_key(b)).ratio()
-    return max(jaccard, containment, sequence)
+    return similarity(ka, kb)
 
 def _emotional_rows(rows: list[dict]) -> list[dict]:
     return [

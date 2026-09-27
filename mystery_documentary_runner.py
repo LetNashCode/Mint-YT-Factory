@@ -16,7 +16,6 @@ def load_history() -> dict:
     except (json.JSONDecodeError,OSError):
         return {"used_item_ids": [], "entries": []}
 
-
 def reserve_history_item(item: dict) -> None:
     """Persist a case reservation without consuming it until YouTube publication."""
     history = load_history()
@@ -37,7 +36,6 @@ def reserve_history_item(item: dict) -> None:
         "status": "reserved",
     }]
     HISTORY.write_text(json.dumps(history, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-
 
 def mark_history_published(item_id: str, video_id: str = "") -> bool:
     """Convert a reserved Mystery case to durable used history after upload."""
@@ -88,14 +86,19 @@ def main() -> None:
         )
     except Exception as exc:
         print(f"⚠️ Mystery factory learning refresh skipped: {type(exc).__name__}: {exc}", flush=True)
+
     runpy.run_module("mystery_documentary_scene_renderer",run_name="__main__")
-    output_dir=ROOT/os.getenv("MYSTERY_DOCUMENTARY_OUTPUT_DIR","artifacts/mystery-documentary"); metadata_path=output_dir/"metadata.json"
+    output_dir=ROOT/os.getenv("MYSTERY_DOCUMENTARY_OUTPUT_DIR","artifacts/mystery-documentary")
+    metadata_path=output_dir/"metadata.json"
     reserve_history_item(selected)
     if metadata_path.exists():
         metadata=json.loads(metadata_path.read_text(encoding="utf-8"))
-        metadata["history_recorded"]=False\n        metadata["history_status"]="reserved"
+        metadata["history_recorded"]=False
+        metadata["history_status"]="reserved"
         metadata["factory_topic"]=factory_topic
         metadata["creative_strategy"]=os.getenv("MINT_FACTORY_CREATIVE_STRATEGY","")
         metadata_path.write_text(json.dumps(metadata,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     print(f"MYSTERY_DOCUMENTARY_HISTORY_RECORDED={item_id}")
-if __name__ == "__main__": main()
+
+if __name__ == "__main__":
+    main()

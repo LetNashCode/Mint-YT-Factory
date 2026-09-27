@@ -118,6 +118,36 @@ def _parse_gemini_json(text):
   raise first_error
 
 def ai(p):
+ k=os.getenv('GEMINI_API_KEY','')
+ if not k: raise RuntimeError('GEMINI_API_KEY is required')
+ model=os.getenv('EMOTIONAL_REEL_MODEL','gemini-flash-lite-latest')
+ last=None
+ for attempt in range(1,5):
+  client=None
+  try:
+   client=genai.Client(api_key=k)
+   r=client.models.generate_content(
+    model=model,
+    contents=p,
+    config=types.GenerateContentConfig(
+     temperature=.7,
+     response_mime_type='application/json',
+    ),
+   )
+   text=str(r.text or '').strip()
+   if not text: raise json.JSONDecodeError('Gemini returned an empty response',text,0)
+   return _parse_gemini_json(text)
+  except Exception as error:
+   last=error
+   if _is_quota_error(error):
+    raise RuntimeError('GEMINI_QUOTA_DEFERRED: Gemini project/day quota is exhausted; emotional reel generation will resume on the next successful run.') from error
+   if attempt>=4 or not _is_retryable_gemini_error(error):
+    raise
+   delay=min(20,2**attempt)
+   print(f'⚠️ Gemini transient/JSON failure ({attempt}/4): {type(error).__name__}: {error}; retrying in {delay}s',flush=True)
+   time.sleep(delay)
+ raise RuntimeError(f'Gemini generation failed: {last}')
+
 def search(q):
  out=[];pk=os.getenv('PEXELS_API_KEY','');xb=os.getenv('PIXABAY_API_KEY','')
  if pk:

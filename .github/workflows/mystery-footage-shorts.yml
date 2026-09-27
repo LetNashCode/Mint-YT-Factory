@@ -26,7 +26,8 @@ jobs:
       MYSTERY_FOOTAGE_MIN_STORY_SCORE: "6"
       MYSTERY_FOOTAGE_SKIP_IF_NO_ELIGIBLE: "true"
       MYSTERY_FOOTAGE_AUTO_UPLOAD: "false"
-      MYSTERY_FOOTAGE_PRIVACY_STATUS: private
+      # Mystery is the factory's only long-form video format; publish as a normal 16:9 video.
+      MYSTERY_FOOTAGE_PRIVACY_STATUS: public
       PYTHONUNBUFFERED: "1"
     steps:
       - name: Checkout
@@ -65,7 +66,10 @@ jobs:
             --output artifacts/mystery-documentary/mystery-documentary-captioned.mp4 \
             --keywords artifacts/mystery-documentary/metadata.json
           mv artifacts/mystery-documentary/mystery-documentary-captioned.mp4 artifacts/mystery-documentary/mystery-documentary.mp4
-      - name: Upload documentary privately to YouTube
+      - name: Validate final Mystery Documentary
+        if: steps.gate.outputs.eligible == 'true' && hashFiles('artifacts/mystery-documentary/mystery-documentary.mp4') != ''
+        run: python mystery_documentary_quality_gate.py
+      - name: Upload documentary to YouTube
         if: steps.gate.outputs.eligible == 'true' && hashFiles('artifacts/mystery-documentary/mystery-documentary.mp4') != ''
         run: |
           python - <<'PY'
@@ -78,6 +82,7 @@ jobs:
           meta = json.loads((root / 'metadata.json').read_text(encoding='utf-8'))
           video_id = upload_video(str(root / 'mystery-documentary.mp4'), meta['video_title'][:90], meta['description'], {'upload': {'privacy_status': 'private', 'category_id': '24'}, 'seo': {'hashtags': meta.get('tags', [])}})
           meta['youtube_video_id'] = video_id
+          meta['publication_status'] = 'published'
           (root / 'metadata.json').write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding='utf-8')
           from mystery_documentary_runner import mark_history_published
           mark_history_published(meta.get('catalog_item_id',''), video_id)
@@ -113,7 +118,7 @@ jobs:
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add mystery_footage_catalog.json mystery_footage_history.json analytics/topic_history.json analytics/videos.json analytics/playbook.json
+            git add mystery_footage_catalog.json mystery_footage_history.json analytics/topic_history.json analytics/videos.json analytics/playbook.json analytics/factory_memory_state.json
             git commit -m "Record mystery documentary footage history"
             git pull --rebase origin main
             git push origin HEAD:main

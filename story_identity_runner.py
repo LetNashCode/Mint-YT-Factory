@@ -259,6 +259,16 @@ def main() -> None:
     validated_next_story_number._mint_validated_sequence_number = True
     interactive_topics.next_story_number = validated_next_story_number
     story_gemini_budget.reset()
+    try:
+        from factory_content_memory import refresh_learning
+        learning = refresh_learning()
+        print(
+            f"🧠 Factory learning refreshed: videos={learning.get('analytics',{}).get('video_count',0)} "
+            f"| ready={learning.get('playbook',{}).get('learning_ready',False)}",
+            flush=True,
+        )
+    except Exception as exc:
+        print(f"⚠️ Factory learning refresh skipped: {type(exc).__name__}: {exc}", flush=True)
     budget = story_gemini_budget.begin()
     story_real_video_media._VERIFIER_BUDGET = budget
     print(f"🧮 Story-wide Gemini budget: {budget['limit']} requests for this run", flush=True)

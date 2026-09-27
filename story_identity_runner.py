@@ -65,10 +65,22 @@ def _patch_story_visual_director() -> None:
     def directed_generate_script(*args, **kwargs):
         args = list(args)
         context = story_visual_upgrade.script_context()
+        try:
+            from factory_content_memory import learning_context as factory_learning_context, select_strategy as factory_select_strategy
+            factory_context = (
+                "\n\nFACTORY-WIDE SELF-LEARNING CONTEXT:\n"
+                + factory_learning_context(max_chars=4500)
+                + "\n\nCURRENT FACTORY CREATIVE EXPERIMENT:\n"
+                + str(factory_select_strategy())
+                + "\nUse this only as evidence; do not copy prior topics, hooks, wording, or stories.\n"
+            )
+        except Exception as exc:
+            factory_context = ""
+            print(f"⚠️ Story factory learning context unavailable: {type(exc).__name__}: {exc}", flush=True)
         if len(args) >= 4:
-            args[3] = str(args[3] or "") + context
+            args[3] = str(args[3] or "") + context + factory_context
         else:
-            kwargs["extra_feedback"] = str(kwargs.get("extra_feedback") or "") + context
+            kwargs["extra_feedback"] = str(kwargs.get("extra_feedback") or "") + context + factory_context
         result = original_generate_script(*args, **kwargs)
         result["story_person"] = story_visual_upgrade._PREPARED["person"]
         directed = direct_story_visuals(result)

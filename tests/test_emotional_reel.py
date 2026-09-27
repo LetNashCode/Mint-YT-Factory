@@ -63,3 +63,32 @@ def test_emotional_script_requires_story_metadata_before_acceptance():
 
     assert "required_fields=('title','description','hashtags','primary_emotion','human_situation','emotional_turn')" in source
     assert "missing emotional story metadata" in source
+
+
+def test_emotional_topic_is_selected_and_reserved_before_script_generation():
+    root = Path(__file__).resolve().parents[1]
+    source = (root / "emotional_reel.py").read_text(encoding="utf-8")
+
+    selection = source.index("Select ONE completely new topic for an Emotional Short.")
+    reservation = source.index("claim_emotional_topic(", selection)
+    script_prompt = source.index("Create an original 54-second cinematic emotional Reel built around this LOCKED topic.")
+    assert selection < reservation < script_prompt
+
+
+def test_emotional_topic_is_immutable_during_script_retries():
+    root = Path(__file__).resolve().parents[1]
+    source = (root / "emotional_reel.py").read_text(encoding="utf-8")
+
+    assert "LOCKED TOPIC — DO NOT CHANGE:" in source
+    assert "changed locked topic" in source
+    assert 'candidate["topic_key"]=locked_topic["topic_key"]' in source
+    assert 'candidate["factory_topic"]=f'{ in source
+
+
+def test_emotional_topic_selection_sees_previous_premises():
+    root = Path(__file__).resolve().parents[1]
+    source = (root / "emotional_reel.py").read_text(encoding="utf-8")
+
+    assert "emotional_topic_history(limit=80)" in source
+    assert "PREVIOUS EMOTIONAL SHORTS — NEVER REUSE THE UNDERLYING SITUATION:" in source
+    assert "A different title or different wording is NOT a new topic." in source

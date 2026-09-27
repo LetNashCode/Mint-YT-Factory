@@ -1,19 +1,18 @@
 {
   "status": "uploaded",
   "final_path": "output/emotional_reel/final.mp4",
-  "final_sha256": "80a9a7a898c13dd654289f15f25a7ae29e8f71b5bdf7977a43d8797a8772de1b",
-  "cache_key": "emotional-reel-final-v2-80a9a7a898c13dd654289f15f25a7ae2",
+  "final_sha256": "8f46cba3b578f7e607c8b078482b3a521ffaf90f7398c65645e8263e652a0380",
+  "cache_key": "emotional-reel-final-v2-8f46cba3b578f7e607c8b078482b3a52",
   "title": "The Weight of Leftover Plates",
-  "description": "A quiet cinematic exploration of lingering absence during a routine family dinner, focusing on the small habits we maintain after someone is gone.",
+  "description": "A cinematic exploration of quiet heartbreak through the lingering habits of a shared life.",
   "hashtags": [
-    "#quietmoments",
-    "#family",
-    "#memory",
-    "#loss",
-    "#everydaylife",
-    "#storytelling"
+    "#quietheartbreak",
+    "#humanstories",
+    "#solitude",
+    "#cinematic",
+    "#realife"
   ],
-  "engagement_comment": "They never really left your table.",
+  "engagement_comment": "We keep loving what we cannot hold.",
   "voice": {
     "provider": "kokoro",
     "voice_name": "af_heart",
@@ -23,23 +22,23 @@
     "speed": 0.92,
     "tone": "curious, confident, playful storyteller"
   },
-  "created_at": 1790447712,
-  "narration_word_count": 144,
+  "created_at": 1790503641,
+  "narration_word_count": 141,
   "complete_script_preserved": true,
   "final_duration_seconds": 53.76,
-  "video_id": "LhmC0i6djX8",
+  "video_id": "QlQ9M2_z9lw",
   "social": {
     "instagram": {
       "status": "published",
-      "media_id": "18107217563242820",
-      "container_id": "18495118324097136"
+      "media_id": "18116446936968373",
+      "container_id": "18495247099097136"
     },
     "facebook": {
       "status": "published",
-      "video_id": "2595585164235735"
+      "video_id": "1574132553899373"
     },
     "strict": false,
-    "updated_at": 1790448008
+    "updated_at": 1790503921
   },
-  "uploaded_at": 1790448155
+  "uploaded_at": 1790504069
 }

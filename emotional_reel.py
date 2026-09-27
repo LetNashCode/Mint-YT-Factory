@@ -173,7 +173,7 @@ def main():
   'nostalgia','regret','loneliness','hope','gratitude','missing someone',
   'quiet heartbreak','feeling unseen','letting go','fear of failure',
   'self-doubt','family love','friendship','sacrifice','second chances',
-  'childhood memories','growing apart','forgiveness','pride after struggle'
+  'childhood memories','growing apart','forgiveness','pride after struggle','joy','belonging','admiration','comfort','relief','wonder','bittersweet happiness','reunion','homesickness','appreciation','unspoken love','old friendships'
  }
 
  locked_topic=None
@@ -196,6 +196,10 @@ UNIQUENESS RULE:
 - Do not make a cosmetic variation of an existing situation.
 - Choose a genuinely different human experience, relationship dynamic, memory, decision, loss, habit, realization, or life moment.
 - The situation must be specific enough to distinguish it from every previous entry.
+- PRIORITIZE MEMORY-TRIGGERING HUMAN EXPERIENCES: friendship memories, childhood rituals, family moments, old places, shared jokes, songs, photographs, ordinary routines, growing apart, reunions, firsts/lasts, promises, or tiny moments people later realize mattered.
+- Do not make every topic sad; deliberately rotate through happy, funny, warm, loving, grateful, nostalgic, bittersweet, sad, regretful, hopeful, and reunion-oriented experiences.
+- Prefer a concrete lived moment over an abstract feeling.
+- Return memory_category and memory_trigger in addition to topic_key.
 - Return a concise topic_key of 5-10 concrete words identifying the underlying premise. This key is a semantic fingerprint, not a title.
 
 Return JSON with exactly:
@@ -213,7 +217,7 @@ Return JSON with exactly:
     emotion,
     situation,
     topic_key,
-    {"source":"emotional_topic_selection"},
+    {"source":"emotional_topic_selection","memory_category":str(selected.get("memory_category","")),"memory_trigger":str(selected.get("memory_trigger",""))},
    )
   except RuntimeError as duplicate_error:
    print(f"🚫 Emotional topic selection rejected by uniqueness gate: {duplicate_error}",flush=True)
@@ -222,6 +226,8 @@ Return JSON with exactly:
    "primary_emotion":emotion,
    "human_situation":situation,
    "topic_key":topic_key,
+   "memory_category":" ".join(str(selected.get("memory_category","")).split()).strip().lower(),
+   "memory_trigger":" ".join(str(selected.get("memory_trigger","")).split()).strip(),
   }
   print(
    f"🔒 EMOTIONAL TOPIC LOCKED BEFORE SCRIPT GENERATION | "
@@ -246,10 +252,12 @@ LOCKED TOPIC — DO NOT CHANGE:
 Primary emotion: {locked_topic["primary_emotion"]}
 Human situation: {locked_topic["human_situation"]}
 Topic key: {locked_topic["topic_key"]}
+Memory category: {locked_topic.get("memory_category","")}
+Memory trigger: {locked_topic.get("memory_trigger","")}
 
 The narration is the primary emotional experience because the visuals are ordinary stock footage. Do not copy any creator, script, wording, or recognizable story.
 Return JSON with title, description, hashtags, primary_emotion, human_situation, memory_category, memory_trigger, emotional_turn, cta_type, cta_text, and exactly 9 scenes.
-The returned primary_emotion and human_situation MUST match the locked topic exactly in meaning. Never replace the locked situation with a different premise. The returned memory_category and memory_trigger MUST preserve the locked memory concept. Choose cta_type from share, reconnect, call, or none. If a person or shared memory is central, prefer a gentle share/send CTA when it genuinely fits. Never make the CTA sound like an advertisement.
+The returned primary_emotion and human_situation MUST match the locked topic exactly in meaning. Never replace the locked situation with a different premise. The returned memory_category and memory_trigger MUST preserve the locked memory concept. Choose cta_type from share, reconnect, call, or none. If a person or shared memory is central, prefer a gentle share/send CTA when it genuinely fits. Never make the CTA sound like an advertisement. The returned memory_category and memory_trigger MUST preserve the locked memory concept. Choose cta_type from share, reconnect, call, or none. If a person or shared memory is central, prefer a gentle share/send CTA when it genuinely fits. Never make the CTA sound like an advertisement.
 
 The emotional journey MUST follow this order:
 1) HOOK/RECOGNITION — an immediate specific observation that makes the viewer think "that's me"; never generic motivation.
@@ -264,7 +272,10 @@ The emotional journey MUST follow this order:
 Each scene has text (4-12 words) for the screen, narration (12-18 natural spoken words) that expands the same thought, and search (a concrete visible stock-video query describing an emotionally relevant human action or setting).
 Scene 1 text must be a 4-8 word hook. Scene 9 must be a memorable closing thought.
 The narration must read as ONE continuous human story, not nine disconnected quotes or nine pieces of advice. Delay the lesson: do not explain the meaning, give advice, or reassure the viewer before the emotional tension and vulnerability have been established.
-SPECIFICITY RULE: communicate emotion through concrete human details, behavior, memories, objects, gestures, places, or moments. Prefer "you still type their name when something funny happens" over "sometimes we miss people." The viewer should be able to recognize the situation without needing the stock footage to explain it.
+SPECIFICITY RULE: communicate emotion through concrete human details, behavior, memories, objects, gestures, places, or moments.
+MEMORY-TRIGGER RULE: include at least 2 concrete memory anchors across the narration, such as a school bell, terrace, old photograph, shared song, lunchbox, late-night call, group chat, childhood room, familiar road, birthday ritual, borrowed hoodie, or another specific sensory/social detail.
+EMOTIONAL-RANGE RULE: do not default to sadness. Across the factory, deliberately rotate through warm/happy, funny, loving, grateful, nostalgic, bittersweet, sad, regretful, hopeful, and reunion-oriented experiences.
+SHOW-DON'T-EXPLAIN RULE: do not end with generic lessons such as "cherish every moment"; let the specific realization create the emotion. Prefer "you still type their name when something funny happens" over "sometimes we miss people." The viewer should be able to recognize the situation without needing the stock footage to explain it.
 ANTI-CLICHE RULE: avoid generic phrases such as "everything happens for a reason", "believe in yourself", "never give up", "you are stronger than you think", "everything will be okay", "you are not alone", and similar motivational filler. Do not use medical claims, diagnosis, crisis language, emojis, or therapeutic promises.
 STOCK-VISUAL RULE: every search query must describe something visibly filmable in stock footage. Do not rely on abstract concepts such as "sadness", "healing", "emotional pain", or "finding yourself" alone.
 Total narration should be 120-160 words, with 12-18 words in every scene. Narration must be production-complete: every generated narration word will be spoken.
@@ -286,18 +297,34 @@ Use learning as evidence for the creative treatment, never as a template. The lo
    print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: missing emotional story metadata',flush=True);continue
   candidate_emotion=" ".join(str(candidate.get('primary_emotion','')).split()).strip().lower()
   candidate_situation=" ".join(str(candidate.get('human_situation','')).split()).strip()
+  candidate_memory_category=" ".join(str(candidate.get('memory_category','')).split()).strip().lower()
+  candidate_memory_trigger=" ".join(str(candidate.get('memory_trigger','')).split()).strip()
+  candidate_cta_type=" ".join(str(candidate.get('cta_type','')).split()).strip().lower()
   if candidate_emotion != locked_topic["primary_emotion"] or candidate_situation.lower() != locked_topic["human_situation"].lower():
    print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: changed locked topic',flush=True);continue
+  if candidate_memory_category != locked_topic.get("memory_category","") or not candidate_memory_trigger:
+   print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: memory concept drifted or trigger missing',flush=True);continue
+  if candidate_cta_type not in {"share","reconnect","call","none"}:
+   print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: invalid CTA type',flush=True);continue
   if not isinstance(candidate_scenes,list) or len(candidate_scenes)!=N:
    print(f'⚠️ Emotional Reel script attempt {attempt}/8 rejected: need exactly {N} scenes',flush=True);continue
   candidate_narration=' '.join(str(s.get('narration','')).strip() for s in candidate_scenes).strip()
   word_count=_word_count(candidate_narration)
   scene_counts=[_word_count(s.get('narration','')) for s in candidate_scenes]
-  if 120 <= word_count <= 160 and all(12 <= n <= 18 for n in scene_counts):
+  lower_narration=candidate_narration.lower()
+  anchor_terms=('remember','used to','back then','when we','when you','after school','school bell','old photo','photograph','group chat','late-night','birthday','terrace','playground','lunchbox','train','bus ride','inside joke','favorite song','borrowed','childhood','old house','first time','last time','every sunday','every friday','on the way home')
+  memory_anchor_count=sum(lower_narration.count(term) for term in anchor_terms)
+  banned_terms=('everything happens for a reason','believe in yourself','never give up','you are stronger than you think','everything will be okay','you are not alone','cherish every moment','life is too short')
+  banned_hits=[term for term in banned_terms if term in lower_narration]
+  final_scene= ' '.join(str(candidate_scenes[-1].get('narration','')).split()).lower() if candidate_scenes else ''
+  cta_present=any(term in final_scene for term in ('send this','share this','send it','share it','text them','message them','call them','give them a call','reach out'))
+  if 120 <= word_count <= 160 and all(12 <= n <= 18 for n in scene_counts) and memory_anchor_count >= 2 and not banned_hits and (candidate_cta_type == 'none' or cta_present):
    candidate["primary_emotion"]=locked_topic["primary_emotion"]
    candidate["human_situation"]=locked_topic["human_situation"]
    candidate["factory_topic"]=f'{locked_topic["primary_emotion"]}: {locked_topic["human_situation"]}'
    candidate["topic_key"]=locked_topic["topic_key"]
+   candidate["memory_category"]=locked_topic.get("memory_category","")
+   candidate["memory_trigger"]=locked_topic.get("memory_trigger","")
    candidate["learning_experiment"]=factory_strategy
    d,scenes,narration=candidate,candidate_scenes,candidate_narration
    print(f'✅ Complete narration script accepted: {word_count} words | scene counts={scene_counts} | factory_topic={candidate["factory_topic"]}',flush=True)

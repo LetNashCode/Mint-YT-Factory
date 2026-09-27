@@ -1,5 +1,6 @@
 {
-  "version": 1,
+  "version": 2,
   "migrated_topics": 67,
-  "completed_at": 1790524294
+  "completed_at": 1790524294,
+  "sanitized_internal_markers": true
 }

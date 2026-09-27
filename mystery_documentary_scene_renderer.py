@@ -17,6 +17,9 @@ CATALOG = ROOT / "mystery_footage_catalog.json"
 OUT = ROOT / os.getenv("MYSTERY_DOCUMENTARY_OUTPUT_DIR", "artifacts/mystery-documentary")
 MODEL = "gemini-flash-lite-latest"
 VOICE = {"voice": {"provider": "kokoro", "voice_name": os.getenv("MINT_KOKORO_VOICE", "am_michael"), "kokoro_lang": os.getenv("MINT_KOKORO_LANG", "a"), "speed": 1.0}}
+MIN_NARRATION_RATIO = float(os.getenv("MYSTERY_MIN_NARRATION_RATIO", "0.28"))
+MIN_NARRATION_WORDS = int(os.getenv("MYSTERY_MIN_NARRATION_WORDS", "120"))
+MIN_NARRATION_SCENES = int(os.getenv("MYSTERY_MIN_NARRATION_SCENES", "4"))
 
 
 def cmd(args):
@@ -55,7 +58,7 @@ def plan(item, source, work, duration):
     cmd(["ffmpeg", "-y", "-i", source, "-vf", "fps=1/8,scale=960:-2", "-frames:v", "30", "-q:v", "3", frames / "frame-%03d.jpg"])
     factory_learning = os.getenv("MINT_FACTORY_LEARNING_CONTEXT", "").strip()
     factory_strategy = os.getenv("MINT_FACTORY_CREATIVE_STRATEGY", "").strip()
-    prompt = f"""Create an evidence-led editing timeline for this real-world mystery video. Duration: {duration:.2f} seconds. Return JSON with video_title, description_intro, tags, highlighted_keywords, and scene_plan. scene_plan must cover 0 to {duration:.2f} with no gaps or overlaps. Each scene: start, end, audio_mode, narration, purpose, evidence_label. audio_mode must be original, narration, pause, or replay. Use original whenever anyone may be speaking or meaningful source audio may exist; never put narration over original speech. Use narration only for clearly visual/silent explanation. Use pause for a critical moment that should freeze while it is explained. Use replay only for a short critical moment. Keep narration empty for original scenes. Do not infer guilt from body language or nervousness. Separate observations, verified facts, reported claims, theories, and limitations. Do not invent events. CASE TITLE: {item.get('title')} CASE SUMMARY: {item.get('case_summary')} FOOTAGE DESCRIPTION: {item.get('footage_description')} VERIFIED FACTS: {item.get('verified_facts', [])} OPEN QUESTIONS: {item.get('theories_or_open_questions', [])}
+    prompt = f"""Create an evidence-led editing timeline for this real-world mystery video. Duration: {duration:.2f} seconds. Return JSON with video_title, description_intro, tags, highlighted_keywords, and scene_plan. scene_plan must cover 0 to {duration:.2f} with no gaps or overlaps. Each scene: start, end, audio_mode, narration, purpose, evidence_label. audio_mode must be original, narration, pause, or replay. Use original whenever anyone may be speaking or meaningful source audio may exist; never put narration over original speech. Narration is mandatory and is the primary storytelling layer. At least 28% of the total timeline must be narration/pause/replay with non-empty generated narration, and there must be at least 4 such scenes whenever the footage is long enough. Use original only when source speech or a genuinely important original sound is the point of the scene. Do not let original-audio scenes consume the entire timeline. Use pause/replay sparingly for critical evidence. Every narration scene must contain a complete, useful sentence; never leave a narration scene empty. Do not infer guilt from body language or nervousness. Separate observations, verified facts, reported claims, theories, and limitations. Do not invent events. CASE TITLE: {item.get('title')} CASE SUMMARY: {item.get('case_summary')} FOOTAGE DESCRIPTION: {item.get('footage_description')} VERIFIED FACTS: {item.get('verified_facts', [])} OPEN QUESTIONS: {item.get('theories_or_open_questions', [])}
 
 FACTORY-WIDE SELF-LEARNING CONTEXT:
 {factory_learning}
@@ -86,6 +89,31 @@ Use learning only to improve structure, pacing, evidence presentation, and viewe
     if cursor < duration - 0.05:
         scenes.append({"start": round(cursor, 3), "end": round(duration, 3), "audio_mode": "original", "narration": "", "purpose": "Preserve uncovered footage", "evidence_label": "observation"})
     data["scene_plan"] = scenes
+
+    narration_scenes = [
+        s for s in scenes
+        if s["audio_mode"] in {"narration", "pause", "replay"} and s.get("narration")
+    ]
+    narration_seconds = sum(float(s["end"]) - float(s["start"]) for s in narration_scenes)
+    narration_text = " ".join(s["narration"] for s in narration_scenes)
+    narration_words = len(re.findall(r"\b[\w'-]+\b", narration_text))
+    data["narration_stats"] = {
+        "scene_count": len(narration_scenes),
+        "seconds": round(narration_seconds, 3),
+        "ratio": round(narration_seconds / duration, 3) if duration else 0.0,
+        "word_count": narration_words,
+    }
+    if (
+        len(narration_scenes) < min(MIN_NARRATION_SCENES, max(1, int(duration // 15)))
+        or narration_seconds / max(duration, 1.0) < MIN_NARRATION_RATIO
+        or narration_words < MIN_NARRATION_WORDS
+    ):
+        raise RuntimeError(
+            "Mystery narration plan is insufficient: "
+            f"scenes={len(narration_scenes)}, seconds={narration_seconds:.1f}/{duration:.1f}, "
+            f"ratio={narration_seconds / max(duration, 1.0):.2%}, words={narration_words}. "
+            "The documentary must contain a substantial generated narration layer."
+        )
     return data
 
 
@@ -164,8 +192,42 @@ def main():
                 return
             raise RuntimeError("No eligible mystery footage met the duration/orientation requirements")
 
-        timeline = plan(item, source, work, duration)
+        last_plan_error = None
+        timeline = None
+        for attempt in range(1, 4):
+            try:
+                print(f"🧠 Building Mystery documentary script/timeline (attempt {attempt}/3)")
+                timeline = plan(item, source, work, duration)
+                break
+            except RuntimeError as exc:
+                last_plan_error = exc
+                print(f"⚠️ Mystery script/timeline rejected: {exc}")
+        if timeline is None:
+            raise RuntimeError(f"Could not produce a narration-rich Mystery documentary plan: {last_plan_error}")
         (OUT / "timeline.json").write_text(json.dumps(timeline, indent=2, ensure_ascii=False), encoding="utf-8")
+        full_narration = " ".join(
+            scene["narration"]
+            for scene in timeline["scene_plan"]
+            if scene.get("narration")
+        ).strip()
+        script_artifact = {
+            "video_title": timeline.get("video_title", item.get("title", "Mystery Documentary")),
+            "description_intro": timeline.get("description_intro", ""),
+            "tags": timeline.get("tags", []),
+            "highlighted_keywords": timeline.get("highlighted_keywords", []),
+            "narration": full_narration,
+            "scene_plan": timeline["scene_plan"],
+            "narration_stats": timeline.get("narration_stats", {}),
+            "case": {
+                "id": item.get("id"),
+                "title": item.get("title"),
+                "summary": item.get("case_summary"),
+                "verified_facts": item.get("verified_facts", []),
+                "open_questions": item.get("theories_or_open_questions", []),
+                "source_url": item.get("source_url"),
+            },
+        }
+        (OUT / "script.json").write_text(json.dumps(script_artifact, indent=2, ensure_ascii=False), encoding="utf-8")
         parts = []
         for i, scene in enumerate(timeline["scene_plan"]):
             audio = None
@@ -182,6 +244,12 @@ def main():
 
     meta = {"video_title": timeline.get("video_title", item.get("title", "Mystery Documentary")), "description": timeline.get("description_intro", "") + "\n\nSource footage: " + item.get("source_url", ""), "tags": timeline.get("tags", []), "highlighted_keywords": timeline.get("highlighted_keywords", []), "catalog_item_id": item.get("id"), "source_url": item.get("source_url"), "generated_at": int(time.time())}
     (OUT / "metadata.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+    if not output.exists() or output.stat().st_size < 100_000:
+        raise RuntimeError("Mystery documentary output is missing or suspiciously small")
+    print(
+        f"🎙️ Mystery TTS complete | narration scenes={timeline.get('narration_stats', {}).get('scene_count', 0)} "
+        f"| narration words={timeline.get('narration_stats', {}).get('word_count', 0)}"
+    )
     print(f"MYSTERY_DOCUMENTARY_OUTPUT={output}")
 
 

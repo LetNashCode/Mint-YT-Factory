@@ -241,8 +241,18 @@ def main():
         listing.write_text("\n".join("file '" + p.as_posix() + "'" for p in parts) + "\n", encoding="utf-8")
         output = OUT / "mystery-documentary.mp4"
         cmd(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", listing, "-c", "copy", output])
-
-    meta = {"video_title": timeline.get("video_title", item.get("title", "Mystery Documentary")), "description": timeline.get("description_intro", "") + "\n\nSource footage: " + item.get("source_url", ""), "tags": timeline.get("tags", []), "highlighted_keywords": timeline.get("highlighted_keywords", []), "catalog_item_id": item.get("id"), "source_url": item.get("source_url"), "generated_at": int(time.time())}
+    meta = {
+        "video_title": timeline.get("video_title", item.get("title", "Mystery Documentary")),
+        "description": timeline.get("description_intro", "") + "\n\nSource footage: " + item.get("source_url", ""),
+        "tags": timeline.get("tags", []),
+        "highlighted_keywords": timeline.get("highlighted_keywords", []),
+        "catalog_item_id": item.get("id"),
+        "source_url": item.get("source_url"),
+        "narration_stats": timeline.get("narration_stats", {}),
+        "script_path": str(OUT / "script.json"),
+        "timeline_path": str(OUT / "timeline.json"),
+        "generated_at": int(time.time()),
+    }
     (OUT / "metadata.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
     if not output.exists() or output.stat().st_size < 100_000:
         raise RuntimeError("Mystery documentary output is missing or suspiciously small")

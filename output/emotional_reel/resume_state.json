@@ -1,18 +1,18 @@
 {
   "status": "uploaded",
   "final_path": "output/emotional_reel/final.mp4",
-  "final_sha256": "a03f6a836879ae3e692d369b8c43f5c3354faf1d0b8df7895a362b5a6cf5a647",
-  "cache_key": "emotional-reel-final-v2-a03f6a836879ae3e692d369b8c43f5c3",
-  "title": "The Weight of Leftover Plates",
-  "description": "An intimate reflection on cooking for one after someone leaves, exploring the quiet habits we cannot break.",
+  "final_sha256": "38a785638c66af4a93424a28d96f1371ba890ac05d11c16049959019eca101b5",
+  "cache_key": "emotional-reel-final-v2-38a785638c66af4a93424a28d96f1371",
+  "title": "The Last Grocery List",
+  "description": "Emptying a parent's coat pocket reveals a simple grocery list written on scrap paper, turning ordinary fabric into a profound archive of everyday life.",
   "hashtags": [
-    "#quietheartbreak",
-    "#solitude",
-    "#dailyhabits",
-    "#aftermath",
-    "#humanexperience"
+    "#grief",
+    "#lettinggo",
+    "#memory",
+    "#family",
+    "#parentalove"
   ],
-  "engagement_comment": "Some habits prove how deeply we once loved.",
+  "engagement_comment": "Some errands never truly need finishing.",
   "voice": {
     "provider": "kokoro",
     "voice_name": "af_heart",
@@ -22,27 +22,26 @@
     "speed": 0.92,
     "tone": "curious, confident, playful storyteller"
   },
-  "created_at": 1790524494,
-  "narration_word_count": 146,
+  "created_at": 1790537707,
+  "narration_word_count": 138,
   "complete_script_preserved": true,
   "final_duration_seconds": 53.76,
-  "factory_topic": "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
-  "primary_emotion": "quiet heartbreak",
-  "human_situation": "setting the dinner table for two out of pure muscle memory after a breakup",
-  "video_id": "3Gsvf36XUKk",
+  "factory_topic": "letting go: emptying the coat pockets of a deceased parent and finding a grocery list written on scrap paper.",
+  "primary_emotion": "letting go",
+  "human_situation": "emptying the coat pockets of a deceased parent and finding a grocery list written on scrap paper.",
+  "video_id": "tryCaJ1tbaQ",
   "social": {
     "instagram": {
-      "status": "failed",
-      "attempt": 3,
-      "max_attempts": 3,
-      "error": "RuntimeError: Instagram resumable upload failed (400): {\"debug_info\": {\"retriable\": false, \"type\": \"ProcessingFailedError\", \"message\": \"Request processing failed\"}}"
+      "status": "published",
+      "media_id": "18095584250545402",
+      "container_id": "18495351163097136"
     },
     "facebook": {
       "status": "published",
-      "video_id": "1565188474926544"
+      "video_id": "1467177011957559"
     },
     "strict": false,
-    "updated_at": 1790524710
+    "updated_at": 1790538004
   },
-  "uploaded_at": 1790525053
+  "uploaded_at": 1790538156
 }

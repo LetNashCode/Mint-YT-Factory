@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-27T17:57:54.200498+00:00",
-  "video_count": 110,
+  "generated_at": "2026-09-27T19:30:45.894051+00:00",
+  "video_count": 111,
   "learning_ready": true,
   "metrics_available": true,
   "creative_learning_version": "v3",
@@ -14,13 +14,15 @@
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
       "score": 34.634,
-      "sample_size": 10
+      "sample_size": 10,
+      "weak_sample_size": 10,
+      "weak_score": 2.41
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.862,
+      "score": 2.41,
       "sample_size": 10
     }
   ],
@@ -40,18 +42,18 @@
     "Why ice floats"
   ],
   "avoid_topics": [
-    "Why do zippers get stuck",
-    "Why coffee cups drip down the side",
+    "Why do buttons pop off coats",
+    "Why your phone screen gets greasy",
     "Why does an apple brown",
     "Why does paint peel",
+    "Why does a kettle whistle",
     "Why shower curtains attack you",
     "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
-    "Why do tears taste salty",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
     "Why do steering wheels lock"
   ],
-  "used_topic_count": 110,
+  "used_topic_count": 111,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

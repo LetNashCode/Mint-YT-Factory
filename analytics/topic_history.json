@@ -2757,16 +2757,6 @@
     }
   },
   {
-    "topic": "__MINT_PENDING_NEXT_TOPIC__::Why do keys jingle",
-    "normalized": "mint pending next topic why do keys jingle",
-    "workflow": "publish_legacy",
-    "status": "published",
-    "recorded_at": 1790524293,
-    "metadata": {
-      "source": "legacy_bootstrap_v1"
-    }
-  },
-  {
     "topic": "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
     "normalized": "quiet heartbreak setting the dinner table for two out of pure muscle memory after a breakup",
     "workflow": "emotional",
@@ -2799,5 +2789,19 @@
     "video_id": "WLgTCRP6WBU",
     "workdir": "output/1790531893",
     "published_at": 1790533116
+  },
+  {
+    "topic": "letting go: emptying the coat pockets of a deceased parent and finding a grocery list written on scrap paper.",
+    "normalized": "letting go emptying the coat pockets of a deceased parent and finding a grocery list written on scrap paper",
+    "workflow": "emotional",
+    "status": "reserved",
+    "reserved_at": 1790537423,
+    "recorded_at": 1790537423,
+    "metadata": {
+      "source": "emotional_topic_selection",
+      "primary_emotion": "letting go",
+      "human_situation": "emptying the coat pockets of a deceased parent and finding a grocery list written on scrap paper.",
+      "topic_key": "finding grocery list in deceased parent coat pocket"
+    }
   }
 ]

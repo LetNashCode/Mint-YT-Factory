@@ -20,6 +20,11 @@ class FakeTensor:
         return self
 
 
+class FakeGenerated:
+    def __getitem__(self, key):
+        return self
+
+
 class FakeInputs(dict):
     def __init__(self):
         super().__init__(input_ids=FakeTensor())
@@ -49,7 +54,7 @@ class FakeModel:
 
     def generate(self, **kwargs):
         self.generate_calls.append(kwargs)
-        return [[1, 2, 3, 4, 5]]
+        return FakeGenerated()
 
 
 def _patch_runtime(monkeypatch, processor, model):

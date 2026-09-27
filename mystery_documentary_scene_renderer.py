@@ -1,7 +1,7 @@
 """Scene-aware Mystery Documentary renderer.
 
-Gemini creates a timeline; narration is synthesized only for narration/pause/replay
-segments. Original segments retain source audio, preventing narration from covering
+Gemini creates an evidence-led timeline with narration plus restrained zoom, pause,
+and replay directions. Narration is synthesized for narration/pause/replay segments. Original segments retain source audio, preventing narration from covering
 meaningful speech. The timeline is saved for auditability.
 """
 from __future__ import annotations
@@ -113,6 +113,21 @@ Use learning only to improve structure, pacing, evidence presentation, and viewe
         scenes.append({"start": round(cursor, 3), "end": round(duration, 3), "audio_mode": "original", "narration": "", "purpose": "Preserve uncovered footage", "evidence_label": "observation", "visual_effect": "normal", "zoom_strength": 1.0, "zoom_target_x": 0.5, "zoom_target_y": 0.5, "effect_reason": ""})
     data["scene_plan"] = scenes
 
+    # Guarantee that the new documentary-editing layer is actually exercised.
+    # Prefer Gemini-selected evidence moments, but provide deterministic fallbacks
+    # when it returns an otherwise valid narration-only plan.
+    narration_candidates = [s for s in scenes if s.get("narration") and s["audio_mode"] in {"narration", "pause", "replay"}]
+    if narration_candidates:
+        if not any(s.get("visual_effect") == "pause" for s in narration_candidates):
+            pause_scene = max(narration_candidates, key=lambda s: float(s["end"]) - float(s["start"]))
+            pause_scene["visual_effect"] = "pause"
+            pause_scene["effect_reason"] = pause_scene.get("effect_reason") or "Freeze the key evidence frame while the narration explains what viewers should notice."
+        if len(narration_candidates) >= 2 and not any(s.get("visual_effect") in {"zoom_in", "zoom_out"} for s in narration_candidates):
+            zoom_scene = sorted(narration_candidates, key=lambda s: float(s["end"]) - float(s["start"]), reverse=True)[1]
+            zoom_scene["visual_effect"] = "zoom_in"
+            zoom_scene["zoom_strength"] = min(MAX_ZOOM, max(1.08, float(zoom_scene.get("zoom_strength", 1.10))))
+            zoom_scene["effect_reason"] = zoom_scene.get("effect_reason") or "Slowly draw attention to the visible evidence being discussed."
+
     narration_scenes = [
         s for s in scenes
         if s["audio_mode"] in {"narration", "pause", "replay"} and s.get("narration")
@@ -159,7 +174,7 @@ def _visual_filter(scene, length):
         zoom = f"{strength:.4f}-min(t/{duration:.4f},1)*{delta:.4f}"
     else:
         zoom = f"1+min(t/{duration:.4f},1)*{delta:.4f}"
-    return base + f",scale=1920*({zoom}):1080*({zoom}),crop=1920:1080:x='(iw-1920)*{target_x:.4f}':y='(ih-1080)*{target_y:.4f}'"
+    return base + f",scale=trunc(1920*({zoom})/2)*2:trunc(1080*({zoom})/2)*2,crop=1920:1080:x='(iw-1920)*{target_x:.4f}':y='(ih-1080)*{target_y:.4f}'"
 
 
 def render_scene(source, s, narration, out, work):

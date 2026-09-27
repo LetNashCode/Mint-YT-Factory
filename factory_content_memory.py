@@ -16,6 +16,7 @@ HISTORY = ROOT / "analytics" / "topic_history.json"
 BOOTSTRAP_STATE = ROOT / "analytics" / "factory_memory_state.json"
 RESERVATION_TTL_SECONDS = 24 * 60 * 60
 DUPLICATE_THRESHOLD = 0.70
+MAX_HISTORY_ROWS = 5000
 
 STOPWORDS = {
     "why","how","what","when","where","does","do","did","is","are","the","a","an",
@@ -62,7 +63,7 @@ def _load() -> list[dict]:
 def _save(rows: list[dict]) -> None:
     HISTORY.parent.mkdir(parents=True, exist_ok=True)
     tmp = HISTORY.with_suffix(".tmp")
-    tmp.write_text(json.dumps(rows[-500:], indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    tmp.write_text(json.dumps(rows[-MAX_HISTORY_ROWS:], indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     tmp.replace(HISTORY)
 
 

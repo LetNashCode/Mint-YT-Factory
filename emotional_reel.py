@@ -209,7 +209,9 @@ Return JSON with exactly:
   emotion=" ".join(str(selected.get("primary_emotion","")).split()).strip().lower()
   situation=" ".join(str(selected.get("human_situation","")).split()).strip()
   topic_key=" ".join(str(selected.get("topic_key","")).split()).strip()
-  if emotion not in allowed_emotions or not situation or not topic_key:
+  memory_category=" ".join(str(selected.get("memory_category","")).split()).strip().lower()
+  memory_trigger=" ".join(str(selected.get("memory_trigger","")).split()).strip()
+  if emotion not in allowed_emotions or not situation or not topic_key or not memory_category or not memory_trigger:
    print(f"⚠️ Emotional topic selection attempt {topic_attempt}/8 rejected: invalid topic fields",flush=True)
    continue
   try:
@@ -257,7 +259,7 @@ Memory trigger: {locked_topic.get("memory_trigger","")}
 
 The narration is the primary emotional experience because the visuals are ordinary stock footage. Do not copy any creator, script, wording, or recognizable story.
 Return JSON with title, description, hashtags, primary_emotion, human_situation, memory_category, memory_trigger, emotional_turn, cta_type, cta_text, and exactly 9 scenes.
-The returned primary_emotion and human_situation MUST match the locked topic exactly in meaning. Never replace the locked situation with a different premise. The returned memory_category and memory_trigger MUST preserve the locked memory concept. Choose cta_type from share, reconnect, call, or none. If a person or shared memory is central, prefer a gentle share/send CTA when it genuinely fits. Never make the CTA sound like an advertisement. The returned memory_category and memory_trigger MUST preserve the locked memory concept. Choose cta_type from share, reconnect, call, or none. If a person or shared memory is central, prefer a gentle share/send CTA when it genuinely fits. Never make the CTA sound like an advertisement.
+The returned primary_emotion and human_situation MUST match the locked topic exactly in meaning. Never replace the locked situation with a different premise. The returned memory_category and memory_trigger MUST preserve the locked memory concept. Choose cta_type from share, reconnect, call, or none. If a person or shared memory is central, prefer a gentle share/send CTA when it genuinely fits. Never make the CTA sound like an advertisement. Choose cta_type from share, reconnect, call, or none. If a person or shared memory is central, prefer a gentle share/send CTA when it genuinely fits. Never make the CTA sound like an advertisement.
 
 The emotional journey MUST follow this order:
 1) HOOK/RECOGNITION — an immediate specific observation that makes the viewer think "that's me"; never generic motivation.

@@ -34,3 +34,40 @@ def test_scene7_removes_canonical_topic_sentence_before_bridge():
     )
 
     assert payoff == "The reflection looks reversed because of how the mirror maps space."
+
+
+
+def test_publish_ending_contains_only_canonical_next_topic(monkeypatch):
+    import main
+
+    monkeypatch.setattr(
+        main,
+        "_generate_natural_bridge",
+        lambda current, nxt: (f"Next up: {nxt}.", "test"),
+    )
+
+    script = {
+        "topic": "Why does a kettle whistle",
+        "next_short": {"topic": "Why does soda fizz"},
+        "scene_plan": [
+            {"narration": "Hook."},
+            {"narration": "Setup."},
+            {"narration": "Explanation."},
+            {"narration": "Mechanism."},
+            {"narration": "Escalation."},
+            {"narration": "Final explanation."},
+            {"narration": "That is why the kettle whistles."},
+        ],
+    }
+
+    locked, next_topic = main.lock_next_topic(
+        script,
+        "Why does a kettle whistle",
+        locked_topic="Why does soda fizz",
+    )
+
+    assert next_topic == "Why does soda fizz"
+    assert locked["scene_plan"][-1]["narration"] == "Next up: Why does soda fizz."
+    assert "kettle" not in locked["scene_plan"][-1]["narration"].lower()
+    assert "soda fizz" not in locked["scene_plan"][-2]["narration"].lower()
+    assert "kettle whistles" in locked["scene_plan"][-2]["narration"].lower()

@@ -195,8 +195,8 @@ STORY:
 3. Scene 3: reveal the first piece of the explanation.
 4. Scene 4: demonstrate the mechanism in an easy-to-understand way.
 5. Scene 5: reveal a consequence the viewer probably did not expect.
-6. Scene 6: strongest "WAIT, WHAT?" reveal or reframe.
-7. Scene 7: satisfying payoff for the CURRENT topic. Do not start another story.
+6. Scene 6: strongest "WAIT, WHAT?" reveal, reframe, and satisfying payoff for the CURRENT topic.
+7. Scene 7: final handoff slot. Do not restate the CURRENT topic or introduce another fact; the production layer inserts exactly one canonical next-topic bridge here.
 
 The story must be one chain of curiosity -> discovery -> escalation -> reversal -> mindblowing-but-true payoff.
 Do not make a list of facts.
@@ -213,9 +213,9 @@ PAYOFF:
 - Avoid fake sensationalism. The underlying fact must be accurate and defensible.
 
 ENDING:
-- Scene 7 must finish the CURRENT topic.
-- Return tease_type describing a natural bridge mechanism for the next Short. The production layer owns the exact bridge. Every 1–2 sentences should either reveal something,
-change the viewer's mental model, create a new question, or deliver a consequence.
+- Scene 6 must contain the complete CURRENT-topic payoff.
+- Scene 7 is reserved for the production-owned ending handoff and must not repeat the current topic.
+- Return tease_type describing a natural bridge mechanism for the next Short. The production layer owns the exact bridge.
 
 ENTERTAINMENT RULES:
 - Start with the behavior, not the topic name or a definition.
@@ -236,8 +236,9 @@ NEVER USE LECTURE FILLER:
 A metaphor is allowed when it makes the story more fun. Do NOT turn the entire narration
 into metaphors. Keep the actual facts clear and natural.
 
-Scene 7 must finish the current story. The next topic will be inserted/locked by the
-production pipeline; do not discuss or tease another topic inside the entertainment story.
+Scene 6 must finish the current story. Scene 7 is an ending handoff slot controlled by the
+production pipeline. Do not mention the current topic again in Scene 7 and do not invent a
+second future topic.
 
 Return ONLY JSON matching the supplied schema.
 """

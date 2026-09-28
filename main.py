@@ -139,12 +139,28 @@ def _strip_model_continuation_from_scene7(final_scene,stale_topics):
     return payoff
 
 def lock_next_topic(script,current_topic,locked_topic=None):
-    previous=str((script.get("next_short") or {}).get("topic") or "").strip(); canonical=_lock_canonical_topic(script,current_topic,locked_topic=locked_topic); final_scene=script["scene_plan"][-1]
+    previous=str((script.get("next_short") or {}).get("topic") or "").strip(); canonical=_lock_canonical_topic(script,current_topic,locked_topic=locked_topic)
+    scenes=script.get("scene_plan") or []
+    if len(scenes) < 2:
+        raise RuntimeError("Publish Short requires at least two scenes for the single-topic ending contract.")
+    final_scene=scenes[-1]
     payoff=_strip_model_continuation_from_scene7(final_scene,[previous,canonical])
     bridge_result=_generate_natural_bridge(current_topic,canonical)
     bridge,tease_type=bridge_result if isinstance(bridge_result,tuple) else (str(bridge_result), "curiosity_connection")
     if payoff and not payoff.endswith((".","!","?")): payoff+="."
-    final_scene["narration"]=(payoff+" "+bridge).strip()
+
+    # Scene 7 is now a continuation-only endpoint. The old implementation
+    # appended the current-topic payoff and the next-topic bridge together,
+    # which made the ending audibly mention two topics. Preserve the payoff by
+    # moving it to Scene 6, then make Scene 7 contain only the one canonical
+    # successor teaser.
+    if payoff:
+        penultimate=scenes[-2]
+        existing=str(penultimate.get("narration") or "").strip()
+        penultimate["narration"]=(existing+" "+payoff).strip() if existing else payoff
+        penultimate["subtitle_text"]=penultimate["narration"]
+        print("↪️ Moved current-topic payoff out of Scene 7 so the ending has one topic only")
+    final_scene["narration"]=bridge.strip()
     final_scene["subtitle_text"]=final_scene["narration"]
     script.setdefault("next_short",{})["teaser"]=bridge
     script["tease_type"]=tease_type

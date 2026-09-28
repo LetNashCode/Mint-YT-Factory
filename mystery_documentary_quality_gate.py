@@ -100,27 +100,45 @@ def _check_unexpected_silence(path: Path, rendered_timeline: Path) -> list[float
                     # The final concat/codec can move a scene boundary slightly.
                     # Classify by overlap with an intentional original-audio scene
                     # rather than requiring exact containment.
+                    relevant_source_intervals = [
+                        (start, finish)
+                        for start, finish in merged_source_audio_intervals
+                        if finish > current and start < end
+                    ]
                     source_overlap = _overlap_with_intervals(
                         current,
                         end,
-                        merged_source_audio_intervals,
+                        relevant_source_intervals,
                     )
                     overlap_ratio = source_overlap / max(duration, 0.001)
 
-                    containing_scene = next(
-                        (
-                            (start, finish)
-                            for start, finish in merged_source_audio_intervals
-                            if current >= start - 0.35 and end <= finish + 0.35
-                        ),
-                        None,
+                    # A single silencedetect interval may span multiple source
+                    # evidence scenes. It is only safe to classify that whole
+                    # interval as intentional when the source scenes are close
+                    # enough that there is no meaningful uncovered silence
+                    # between them. This prevents two distant source clips from
+                    # hiding a real narration gap.
+                    internal_gaps = [
+                        max(0.0, start - previous_end)
+                        for (_, previous_end), (start, _) in zip(
+                            relevant_source_intervals,
+                            relevant_source_intervals[1:],
+                        )
+                    ]
+                    max_internal_gap = max(internal_gaps, default=0.0)
+                    containing_scene = (
+                        relevant_source_intervals[0]
+                        if len(relevant_source_intervals) == 1
+                        and current >= relevant_source_intervals[0][0] - 0.35
+                        and end <= relevant_source_intervals[0][1] + 0.35
+                        else None
                     )
                     allowed_source_gap = (
                         overlap_ratio >= 0.70
-                        or (
-                            source_overlap >= 0.75
-                            and containing_scene is not None
-                        )
+                        and max_internal_gap <= 0.35
+                    ) or (
+                        source_overlap >= 0.75
+                        and containing_scene is not None
                     )
 
                     diagnostics.append({
@@ -129,6 +147,7 @@ def _check_unexpected_silence(path: Path, rendered_timeline: Path) -> list[float
                         "duration": round(duration, 3),
                         "source_overlap": round(source_overlap, 3),
                         "source_overlap_ratio": round(overlap_ratio, 3),
+                        "max_internal_source_gap": round(max_internal_gap, 3),
                         "allowed_as_source_audio": bool(allowed_source_gap),
                         "source_scene": (
                             {

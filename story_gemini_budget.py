@@ -11,6 +11,11 @@ from pathlib import Path
 
 BUDGET_DEFER_FILE = ".story_gemini_budget_deferred"
 DEFAULT_MAX_REQUESTS = 64
+# Keep a protected slice of the run-wide Gemini budget for story scripting and
+# any later Gemini work. Once the visual verifier reaches this cap, Story uses
+# the already-installed local Qwen vision verifier instead of burning the
+# remaining run-wide Gemini budget on archival-frame rejection loops.
+DEFAULT_MAX_VISUAL_GEMINI_REQUESTS = 42
 
 _BUDGET = None
 
@@ -59,3 +64,28 @@ def status():
     if _BUDGET is None:
         return {"limit": None, "used": 0}
     return dict(_BUDGET)
+
+
+def visual_gemini_limit() -> int:
+    """Maximum run-wide Gemini calls reserved for real-video visual verification."""
+    ensure()
+    limit = int(_BUDGET["limit"])
+    raw = os.environ.get(
+        "STORY_GEMINI_MAX_VISUAL_REQUESTS",
+        str(DEFAULT_MAX_VISUAL_GEMINI_REQUESTS),
+    ).strip()
+    try:
+        configured = int(raw)
+    except (TypeError, ValueError):
+        configured = DEFAULT_MAX_VISUAL_GEMINI_REQUESTS
+    # Leave at least 14 calls for later Story work whenever the total budget
+    # permits it, while never setting a visual cap above the total budget.
+    return min(limit, max(14, min(configured, max(14, limit - 14))))
+
+
+def should_use_qwen_for_visual_verification(qwen_enabled: bool) -> bool:
+    """Switch visual verification to local Qwen before the run-wide budget is exhausted."""
+    if not qwen_enabled:
+        return False
+    ensure()
+    return int(_BUDGET["used"]) >= visual_gemini_limit()

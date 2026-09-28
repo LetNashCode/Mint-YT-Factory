@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T01:10:35.508757+00:00",
+  "generated_at": "2026-09-28T08:39:31.179742+00:00",
   "video_count": 112,
   "learning_ready": true,
   "metrics_available": true,
@@ -16,13 +16,13 @@
       "score": 34.634,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 1.003
+      "weak_score": 1.006
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 1.003,
+      "score": 1.006,
       "sample_size": 10
     }
   ],

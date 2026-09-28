@@ -4,13 +4,13 @@
     "topic": "Why does coffee foam disappear instantly",
     "title": "Why Your Coffee Foam Dies Instantly",
     "workdir": "output/1787334112",
-    "published_at": "2026-08-21T18:01:51.259917+00:00",
+    "published_at": "2026-08-21T18:03:09Z",
     "latest": {
       "views": 179,
       "likes": 1,
       "comments": 0,
       "engagement_rate": 0.5587,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 179,
       "analytics_likes": 1,
       "analytics_comments": 0,
@@ -140,6 +140,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 16.0
+      },
+      {
+        "views": 179,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 0.5587,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 179,
+        "analytics_likes": 1,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 42.39,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 16.0
       }
     ]
   },
@@ -148,13 +164,13 @@
     "topic": "Why does water droplets bead up on a freshly waxed car",
     "title": "Why Waxed Cars Hate Water",
     "workdir": "output/1787338117",
-    "published_at": "2026-08-21T19:10:16.408244+00:00",
+    "published_at": "2026-08-21T19:11:04Z",
     "latest": {
       "views": 369,
       "likes": 7,
       "comments": 0,
       "engagement_rate": 1.897,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 369,
       "analytics_likes": 7,
       "analytics_comments": 0,
@@ -284,6 +300,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 45.0
+      },
+      {
+        "views": 369,
+        "likes": 7,
+        "comments": 0,
+        "engagement_rate": 1.897,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 369,
+        "analytics_likes": 7,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 16.0,
+        "average_view_percentage": 35.49,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 45.0
       }
     ]
   },
@@ -292,13 +324,13 @@
     "topic": "Why does hot water freeze faster than cold water",
     "title": "The Ice Paradox That Breaks Physics",
     "workdir": "output/1787342421",
-    "published_at": "2026-08-21T20:20:35.348677+00:00",
+    "published_at": "2026-08-21T20:21:21Z",
     "latest": {
       "views": 934,
       "likes": 26,
       "comments": 0,
       "engagement_rate": 2.7837,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 934,
       "analytics_likes": 26,
       "analytics_comments": 0,
@@ -428,6 +460,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 147.0
+      },
+      {
+        "views": 934,
+        "likes": 26,
+        "comments": 0,
+        "engagement_rate": 2.7837,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 934,
+        "analytics_likes": 26,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 18.0,
+        "average_view_percentage": 41.21,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 147.0
       }
     ]
   },
@@ -436,13 +484,13 @@
     "topic": "Why do ice cubes stick to your fingers",
     "title": "Why Ice Cubes Glue Themselves to Your Skin",
     "workdir": "output/1787345765",
-    "published_at": "2026-08-21T21:16:00.239840+00:00",
+    "published_at": "2026-08-21T21:17:38Z",
     "latest": {
       "views": 1012,
       "likes": 30,
       "comments": 0,
       "engagement_rate": 2.9644,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1011,
       "analytics_likes": 30,
       "analytics_comments": 0,
@@ -572,6 +620,22 @@
         "subscribers_gained": 9,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 130.0
+      },
+      {
+        "views": 1012,
+        "likes": 30,
+        "comments": 0,
+        "engagement_rate": 2.9644,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1011,
+        "analytics_likes": 30,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 13.0,
+        "average_view_percentage": 37.44,
+        "subscribers_gained": 9,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 130.0
       }
     ]
   },
@@ -580,13 +644,13 @@
     "topic": "Why do clothes smell stale when left in the washing machine",
     "title": "The Hidden Swamp Inside Your Washing Machine",
     "workdir": "output/1787367059",
-    "published_at": "2026-08-22T03:10:13.698468+00:00",
+    "published_at": "2026-08-22T03:11:36Z",
     "latest": {
       "views": 141,
       "likes": 2,
       "comments": 0,
       "engagement_rate": 1.4184,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 141,
       "analytics_likes": 2,
       "analytics_comments": 0,
@@ -716,6 +780,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 10.0
+      },
+      {
+        "views": 141,
+        "likes": 2,
+        "comments": 0,
+        "engagement_rate": 1.4184,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 141,
+        "analytics_likes": 2,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 19.0,
+        "average_view_percentage": 41.57,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 10.0
       }
     ]
   },
@@ -724,13 +804,13 @@
     "topic": "Why do phone screens attract dust instantly",
     "title": "Why Your Phone Screen Attracts Dust Instantly",
     "workdir": "output/1787385088",
-    "published_at": "2026-08-22T08:13:30.221588+00:00",
+    "published_at": "2026-08-22T08:15:02Z",
     "latest": {
       "views": 901,
       "likes": 21,
       "comments": 0,
       "engagement_rate": 2.3307,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 900,
       "analytics_likes": 21,
       "analytics_comments": 0,
@@ -860,6 +940,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 102.0
+      },
+      {
+        "views": 901,
+        "likes": 21,
+        "comments": 0,
+        "engagement_rate": 2.3307,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 900,
+        "analytics_likes": 21,
+        "analytics_comments": 0,
+        "shares": 2,
+        "average_view_duration": 11.0,
+        "average_view_percentage": 29.34,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 102.0
       }
     ]
   },
@@ -877,13 +973,13 @@
     "topic": "Why do old books smell so good",
     "title": "Why Old Books Smell So Good",
     "workdir": "output/1787396094",
-    "published_at": "2026-08-22T11:15:43.800993+00:00",
+    "published_at": "2026-08-22T11:17:12Z",
     "latest": {
       "views": 50,
       "likes": 2,
       "comments": 0,
       "engagement_rate": 4.0,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 50,
       "analytics_likes": 2,
       "analytics_comments": 0,
@@ -1013,6 +1109,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 5.0
+      },
+      {
+        "views": 50,
+        "likes": 2,
+        "comments": 0,
+        "engagement_rate": 4.0,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 50,
+        "analytics_likes": 2,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 18.0,
+        "average_view_percentage": 49.74,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 5.0
       }
     ]
   },
@@ -1021,13 +1133,13 @@
     "topic": "Why static cling ruins your clothes",
     "title": "Why Static Cling Ruins Your Clothes",
     "workdir": "output/1787407639",
-    "published_at": "2026-08-22T14:15:12.195308+00:00",
+    "published_at": "2026-08-22T14:15:56Z",
     "latest": {
       "views": 170,
       "likes": 2,
       "comments": 0,
       "engagement_rate": 1.1765,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 169,
       "analytics_likes": 2,
       "analytics_comments": 0,
@@ -1157,6 +1269,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 10.0
+      },
+      {
+        "views": 170,
+        "likes": 2,
+        "comments": 0,
+        "engagement_rate": 1.1765,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 169,
+        "analytics_likes": 2,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 13.0,
+        "average_view_percentage": 42.08,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 10.0
       }
     ]
   },
@@ -1165,13 +1293,13 @@
     "topic": "Why mirrors fog up in the shower",
     "title": "Why Your Bathroom Mirror Hates Your Hot Shower",
     "workdir": "output/1787413769",
-    "published_at": "2026-08-22T16:01:03.541216+00:00",
+    "published_at": "2026-08-22T16:01:56Z",
     "latest": {
       "views": 1017,
       "likes": 15,
       "comments": 0,
       "engagement_rate": 1.4749,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1017,
       "analytics_likes": 15,
       "analytics_comments": 0,
@@ -1301,6 +1429,22 @@
         "subscribers_gained": 4,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 155.0
+      },
+      {
+        "views": 1017,
+        "likes": 15,
+        "comments": 0,
+        "engagement_rate": 1.4749,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1017,
+        "analytics_likes": 15,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 15.0,
+        "average_view_percentage": 40.15,
+        "subscribers_gained": 4,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 155.0
       }
     ]
   },
@@ -1309,13 +1453,13 @@
     "topic": "Why do computer keyboards get dusty underneath",
     "title": "The Secret Life of Keyboard Dust",
     "workdir": "output/1787416709",
-    "published_at": "2026-08-22T16:46:13.733690+00:00",
+    "published_at": "2026-08-22T16:47:41Z",
     "latest": {
       "views": 1005,
       "likes": 20,
       "comments": 0,
       "engagement_rate": 1.99,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1005,
       "analytics_likes": 20,
       "analytics_comments": 0,
@@ -1445,6 +1589,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 154.0
+      },
+      {
+        "views": 1005,
+        "likes": 20,
+        "comments": 0,
+        "engagement_rate": 1.99,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1005,
+        "analytics_likes": 20,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 16.0,
+        "average_view_percentage": 41.76,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 154.0
       }
     ]
   },
@@ -1453,13 +1613,13 @@
     "topic": "Why phone chargers get hot",
     "title": "Why Your Phone Charger Gets Hot",
     "workdir": "output/1787427177",
-    "published_at": "2026-08-22T19:46:32.365054+00:00",
+    "published_at": "2026-08-22T19:47:11Z",
     "latest": {
       "views": 871,
       "likes": 14,
       "comments": 0,
       "engagement_rate": 1.6073,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 871,
       "analytics_likes": 14,
       "analytics_comments": 0,
@@ -1589,6 +1749,22 @@
         "subscribers_gained": 2,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 128.0
+      },
+      {
+        "views": 871,
+        "likes": 14,
+        "comments": 0,
+        "engagement_rate": 1.6073,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 871,
+        "analytics_likes": 14,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 19.0,
+        "average_view_percentage": 52.31,
+        "subscribers_gained": 2,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 128.0
       }
     ]
   },
@@ -1620,13 +1796,13 @@
     "topic": "Why popcorn kernels leave unpopped hulls",
     "title": "The Traitor Kernel Left Behind",
     "workdir": "output/1787471710",
-    "published_at": "2026-08-23T08:05:24.245001+00:00",
+    "published_at": "2026-08-23T08:06:18Z",
     "latest": {
       "views": 932,
       "likes": 13,
       "comments": 0,
       "engagement_rate": 1.3948,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 932,
       "analytics_likes": 13,
       "analytics_comments": 0,
@@ -1756,6 +1932,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 60.0
+      },
+      {
+        "views": 932,
+        "likes": 13,
+        "comments": 0,
+        "engagement_rate": 1.3948,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 932,
+        "analytics_likes": 13,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 13.0,
+        "average_view_percentage": 37.83,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 60.0
       }
     ]
   },
@@ -1764,7 +1956,7 @@
     "topic": "Why phone cables fray at the ends",
     "title": "Why Your Phone Cable Destroys Itself",
     "workdir": "output/1787500460",
-    "published_at": "2026-08-23T16:20:40.982971+00:00",
+    "published_at": "2026-08-23T16:21:55Z",
     "topic_category": "Why phone cables fray at the ends",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -1776,7 +1968,7 @@
       "likes": 15,
       "comments": 0,
       "engagement_rate": 1.4925,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1005,
       "analytics_likes": 15,
       "analytics_comments": 0,
@@ -1906,6 +2098,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 138.0
+      },
+      {
+        "views": 1005,
+        "likes": 15,
+        "comments": 0,
+        "engagement_rate": 1.4925,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1005,
+        "analytics_likes": 15,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 15.0,
+        "average_view_percentage": 40.34,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 138.0
       }
     ]
   },
@@ -1914,7 +2122,7 @@
     "topic": "Why do soap bubbles float",
     "title": "Why Soap Bubbles Float",
     "workdir": "output/1787503467",
-    "published_at": "2026-08-23T17:08:51.733490+00:00",
+    "published_at": "2026-08-23T17:10:55Z",
     "topic_category": "Why do soap bubbles float",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -1926,7 +2134,7 @@
       "likes": 27,
       "comments": 0,
       "engagement_rate": 3.0682,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 880,
       "analytics_likes": 27,
       "analytics_comments": 0,
@@ -2049,6 +2257,22 @@
         "subscribers_gained": 2,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 81.0
+      },
+      {
+        "views": 880,
+        "likes": 27,
+        "comments": 0,
+        "engagement_rate": 3.0682,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 880,
+        "analytics_likes": 27,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 13.0,
+        "average_view_percentage": 35.49,
+        "subscribers_gained": 2,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 81.0
       }
     ]
   },
@@ -2057,7 +2281,7 @@
     "topic": "Why soap bubbles always pop as spheres",
     "title": "Why Soap Bubbles Refuse To Be Square",
     "workdir": "output/1787508834",
-    "published_at": "2026-08-23T18:30:11.084498+00:00",
+    "published_at": "2026-08-23T18:30:52Z",
     "topic_category": "Why soap bubbles always pop as spheres",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -2069,7 +2293,7 @@
       "likes": 18,
       "comments": 1,
       "engagement_rate": 1.9916,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 954,
       "analytics_likes": 18,
       "analytics_comments": 1,
@@ -2192,6 +2416,22 @@
         "subscribers_gained": 2,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 89.0
+      },
+      {
+        "views": 954,
+        "likes": 18,
+        "comments": 1,
+        "engagement_rate": 1.9916,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 954,
+        "analytics_likes": 18,
+        "analytics_comments": 1,
+        "shares": 1,
+        "average_view_duration": 12.0,
+        "average_view_percentage": 35.57,
+        "subscribers_gained": 2,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 89.0
       }
     ]
   },
@@ -2200,7 +2440,7 @@
     "topic": "Why do earbuds tangle in pockets",
     "title": "Why Your Earbuds Secretly Plot Against You",
     "workdir": "output/1787514706",
-    "published_at": "2026-08-23T20:05:20.056474+00:00",
+    "published_at": "2026-08-23T20:07:05Z",
     "topic_category": "Why do earbuds tangle in pockets",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -2212,7 +2452,7 @@
       "likes": 5,
       "comments": 0,
       "engagement_rate": 1.5823,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 316,
       "analytics_likes": 5,
       "analytics_comments": 0,
@@ -2335,6 +2575,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 33.0
+      },
+      {
+        "views": 316,
+        "likes": 5,
+        "comments": 0,
+        "engagement_rate": 1.5823,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 316,
+        "analytics_likes": 5,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 24.0,
+        "average_view_percentage": 68.92,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 33.0
       }
     ]
   },
@@ -2343,7 +2599,7 @@
     "topic": "Why do soap bubbles float upside down",
     "title": "Why Soap Bubbles Float Upside Down",
     "workdir": "output/1787516599",
-    "published_at": "2026-08-23T20:41:16.924124+00:00",
+    "published_at": "2026-08-23T20:42:26Z",
     "topic_category": "Why do soap bubbles float upside down",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -2355,7 +2611,7 @@
       "likes": 4,
       "comments": 0,
       "engagement_rate": 1.1799,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 339,
       "analytics_likes": 4,
       "analytics_comments": 0,
@@ -2478,6 +2734,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 22.0
+      },
+      {
+        "views": 339,
+        "likes": 4,
+        "comments": 0,
+        "engagement_rate": 1.1799,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 339,
+        "analytics_likes": 4,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 11.0,
+        "average_view_percentage": 31.920000000000005,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 22.0
       }
     ]
   },
@@ -2486,7 +2758,7 @@
     "topic": "Why glass foggs up with hot breath",
     "title": "Why Your Breath Turns Glass Into Milk",
     "workdir": "output/1787519068",
-    "published_at": "2026-08-23T21:19:29.883795+00:00",
+    "published_at": "2026-08-23T21:20:41Z",
     "topic_category": "Why glass foggs up with hot breath",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -2498,7 +2770,7 @@
       "likes": 10,
       "comments": 0,
       "engagement_rate": 1.0929,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 915,
       "analytics_likes": 10,
       "analytics_comments": 0,
@@ -2621,6 +2893,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 110.0
+      },
+      {
+        "views": 915,
+        "likes": 10,
+        "comments": 0,
+        "engagement_rate": 1.0929,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 915,
+        "analytics_likes": 10,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 32.47,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 110.0
       }
     ]
   },
@@ -2629,7 +2917,7 @@
     "topic": "Why ice floats",
     "title": "Why Ice Defies Gravity",
     "workdir": "output/1787523827",
-    "published_at": "2026-08-23T22:38:57.421489+00:00",
+    "published_at": "2026-08-23T22:40:03Z",
     "topic_category": "Why ice floats",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -2641,7 +2929,7 @@
       "likes": 13,
       "comments": 0,
       "engagement_rate": 1.1797,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1102,
       "analytics_likes": 13,
       "analytics_comments": 0,
@@ -2764,6 +3052,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 201.0
+      },
+      {
+        "views": 1102,
+        "likes": 13,
+        "comments": 0,
+        "engagement_rate": 1.1797,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1102,
+        "analytics_likes": 13,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 20.0,
+        "average_view_percentage": 54.83,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 201.0
       }
     ]
   },
@@ -2772,7 +3076,7 @@
     "topic": "Why do ice cubes crack in drinks",
     "title": "Why Ice Cubes Crack in Drinks",
     "workdir": "output/1787540446",
-    "published_at": "2026-08-24T03:16:50.143032+00:00",
+    "published_at": "2026-08-24T03:17:56Z",
     "topic_category": "Why do ice cubes crack in drinks",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -2784,7 +3088,7 @@
       "likes": 9,
       "comments": 0,
       "engagement_rate": 0.9119,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 987,
       "analytics_likes": 9,
       "analytics_comments": 0,
@@ -2907,6 +3211,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 220.0
+      },
+      {
+        "views": 987,
+        "likes": 9,
+        "comments": 0,
+        "engagement_rate": 0.9119,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 987,
+        "analytics_likes": 9,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 23.0,
+        "average_view_percentage": 54.15,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 220.0
       }
     ]
   },
@@ -2915,7 +3235,7 @@
     "topic": "Why window glass warps reflections",
     "title": "Why Old Window Glass Melts Reflections",
     "workdir": "output/1787559088",
-    "published_at": "2026-08-24T08:28:46.745714+00:00",
+    "published_at": "2026-08-24T08:29:40Z",
     "topic_category": "Why window glass warps reflections",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -2927,7 +3247,7 @@
       "likes": 9,
       "comments": 0,
       "engagement_rate": 0.8893,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1012,
       "analytics_likes": 9,
       "analytics_comments": 0,
@@ -3050,6 +3370,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 204.0
+      },
+      {
+        "views": 1012,
+        "likes": 9,
+        "comments": 0,
+        "engagement_rate": 0.8893,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1012,
+        "analytics_likes": 9,
+        "analytics_comments": 0,
+        "shares": 2,
+        "average_view_duration": 24.0,
+        "average_view_percentage": 62.14999999999999,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 204.0
       }
     ]
   },
@@ -3058,7 +3394,7 @@
     "topic": "Why bread goes stale",
     "title": "The Real Reason Your Bread Ruins Overnight",
     "workdir": "output/1787562603",
-    "published_at": "2026-08-24T09:23:47.295494+00:00",
+    "published_at": "2026-08-24T09:25:15Z",
     "topic_category": "Why bread goes stale",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -3070,7 +3406,7 @@
       "likes": 10,
       "comments": 2,
       "engagement_rate": 1.1483,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1045,
       "analytics_likes": 10,
       "analytics_comments": 1,
@@ -3193,6 +3529,22 @@
         "subscribers_gained": 2,
         "subscribers_lost": 1,
         "estimated_minutes_watched": 141.0
+      },
+      {
+        "views": 1045,
+        "likes": 10,
+        "comments": 2,
+        "engagement_rate": 1.1483,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1045,
+        "analytics_likes": 10,
+        "analytics_comments": 1,
+        "shares": 2,
+        "average_view_duration": 15.0,
+        "average_view_percentage": 44.11,
+        "subscribers_gained": 2,
+        "subscribers_lost": 1,
+        "estimated_minutes_watched": 141.0
       }
     ]
   },
@@ -3201,7 +3553,7 @@
     "topic": "Why ice cubes become cloudy",
     "title": "Why Your Ice Cubes Are Cloudy",
     "workdir": "output/1787564999",
-    "published_at": "2026-08-24T10:09:48.366275+00:00",
+    "published_at": "2026-08-24T10:11:12Z",
     "topic_category": "Why ice cubes become cloudy",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -3213,7 +3565,7 @@
       "likes": 20,
       "comments": 0,
       "engagement_rate": 1.8002,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1110,
       "analytics_likes": 20,
       "analytics_comments": 0,
@@ -3336,6 +3688,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 189.0
+      },
+      {
+        "views": 1111,
+        "likes": 20,
+        "comments": 0,
+        "engagement_rate": 1.8002,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1110,
+        "analytics_likes": 20,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 46.86,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 189.0
       }
     ]
   },
@@ -3344,7 +3712,7 @@
     "topic": "Why paper cuts sting so much",
     "title": "Why Paper Cuts Hurt So Bad",
     "workdir": "output/1787571635",
-    "published_at": "2026-08-24T11:55:35.006554+00:00",
+    "published_at": "2026-08-24T11:56:22Z",
     "topic_category": "Why paper cuts sting so much",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -3356,7 +3724,7 @@
       "likes": 21,
       "comments": 0,
       "engagement_rate": 1.7692,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1187,
       "analytics_likes": 21,
       "analytics_comments": 0,
@@ -3479,6 +3847,22 @@
         "subscribers_gained": 2,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 267.0
+      },
+      {
+        "views": 1187,
+        "likes": 21,
+        "comments": 0,
+        "engagement_rate": 1.7692,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1187,
+        "analytics_likes": 21,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 20.0,
+        "average_view_percentage": 49.45,
+        "subscribers_gained": 2,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 267.0
       }
     ]
   },
@@ -3487,7 +3871,7 @@
     "topic": "Why boiling water changes pitch",
     "title": "Why Boiling Water Changes Pitch",
     "workdir": "output/1787596214",
-    "published_at": "2026-08-24T18:53:49.288203+00:00",
+    "published_at": "2026-08-24T18:54:35Z",
     "topic_category": "Why boiling water changes pitch",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -3499,7 +3883,7 @@
       "likes": 14,
       "comments": 1,
       "engagement_rate": 1.3078,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1147,
       "analytics_likes": 14,
       "analytics_comments": 1,
@@ -3622,6 +4006,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 229.0
+      },
+      {
+        "views": 1147,
+        "likes": 14,
+        "comments": 1,
+        "engagement_rate": 1.3078,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1147,
+        "analytics_likes": 14,
+        "analytics_comments": 1,
+        "shares": 1,
+        "average_view_duration": 20.0,
+        "average_view_percentage": 47.1,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 229.0
       }
     ]
   },
@@ -3630,7 +4030,7 @@
     "topic": "Why onions make you cry",
     "title": "Why Onions Make You Cry",
     "workdir": "output/1787605696",
-    "published_at": "2026-08-24T21:30:42.476773+00:00",
+    "published_at": "2026-08-24T21:31:26Z",
     "topic_category": "Why onions make you cry",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -3642,7 +4042,7 @@
       "likes": 11,
       "comments": 0,
       "engagement_rate": 1.1482,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 958,
       "analytics_likes": 11,
       "analytics_comments": 0,
@@ -3765,6 +4165,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 142.0
+      },
+      {
+        "views": 958,
+        "likes": 11,
+        "comments": 0,
+        "engagement_rate": 1.1482,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 958,
+        "analytics_likes": 11,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 33.22,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 142.0
       }
     ]
   },
@@ -3773,7 +4189,7 @@
     "topic": "Why straws trap air bubbles",
     "title": "Why Drinking Straws Trap Air Bubbles",
     "workdir": "output/1787626489",
-    "published_at": "2026-08-25T03:19:36.821922+00:00",
+    "published_at": "2026-08-25T03:20:35Z",
     "topic_category": "Why straws trap air bubbles",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -3785,7 +4201,7 @@
       "likes": 13,
       "comments": 1,
       "engagement_rate": 1.3685,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1023,
       "analytics_likes": 13,
       "analytics_comments": 1,
@@ -3908,6 +4324,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 213.0
+      },
+      {
+        "views": 1023,
+        "likes": 13,
+        "comments": 1,
+        "engagement_rate": 1.3685,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1023,
+        "analytics_likes": 13,
+        "analytics_comments": 1,
+        "shares": 1,
+        "average_view_duration": 21.0,
+        "average_view_percentage": 54.52,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 213.0
       }
     ]
   },
@@ -3916,7 +4348,7 @@
     "topic": "Why soda cans hiss",
     "title": "Why Soda Cans Always Hiss When You Crack Them Open",
     "workdir": "output/1787650375",
-    "published_at": "2026-08-25T09:53:56.726812+00:00",
+    "published_at": "2026-08-25T09:55:10Z",
     "topic_category": "Why soda cans hiss",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -3928,7 +4360,7 @@
       "likes": 10,
       "comments": 0,
       "engagement_rate": 1.0309,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 970,
       "analytics_likes": 10,
       "analytics_comments": 0,
@@ -4051,6 +4483,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 119.0
+      },
+      {
+        "views": 970,
+        "likes": 10,
+        "comments": 0,
+        "engagement_rate": 1.0309,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 970,
+        "analytics_likes": 10,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 13.0,
+        "average_view_percentage": 34.89,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 119.0
       }
     ]
   },
@@ -4059,7 +4507,7 @@
     "topic": "Why do candles tunnel",
     "title": "Why Candles Tunnel",
     "workdir": "output/1787658002",
-    "published_at": "2026-08-25T12:01:50.647121+00:00",
+    "published_at": "2026-08-25T12:03:31Z",
     "topic_category": "Why do candles tunnel",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -4071,7 +4519,7 @@
       "likes": 20,
       "comments": 0,
       "engagement_rate": 1.8083,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1106,
       "analytics_likes": 20,
       "analytics_comments": 0,
@@ -4194,6 +4642,22 @@
         "subscribers_gained": 2,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 216.0
+      },
+      {
+        "views": 1106,
+        "likes": 20,
+        "comments": 0,
+        "engagement_rate": 1.8083,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1106,
+        "analytics_likes": 20,
+        "analytics_comments": 0,
+        "shares": 2,
+        "average_view_duration": 20.0,
+        "average_view_percentage": 50.29,
+        "subscribers_gained": 2,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 216.0
       }
     ]
   },
@@ -4202,7 +4666,7 @@
     "topic": "Why candles tunnel down the middle",
     "title": "The Real Reason Your Candle Tunnels",
     "workdir": "output/1787667795",
-    "published_at": "2026-08-25T14:41:28.662039+00:00",
+    "published_at": "2026-08-25T14:43:00Z",
     "topic_category": "Why candles tunnel down the middle",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -4214,7 +4678,7 @@
       "likes": 10,
       "comments": 1,
       "engagement_rate": 1.0214,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1077,
       "analytics_likes": 10,
       "analytics_comments": 1,
@@ -4337,6 +4801,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 219.0
+      },
+      {
+        "views": 1077,
+        "likes": 10,
+        "comments": 1,
+        "engagement_rate": 1.0214,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1077,
+        "analytics_likes": 10,
+        "analytics_comments": 1,
+        "shares": 1,
+        "average_view_duration": 21.0,
+        "average_view_percentage": 56.88999999999999,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 219.0
       }
     ]
   },
@@ -4345,7 +4825,7 @@
     "topic": "Why do wet tea bags stick",
     "title": "Why Wet Tea Bags Stick",
     "workdir": "output/1787679948",
-    "published_at": "2026-08-25T18:08:18.598354+00:00",
+    "published_at": "2026-08-25T18:09:01Z",
     "topic_category": "Why do wet tea bags stick",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -4357,7 +4837,7 @@
       "likes": 7,
       "comments": 0,
       "engagement_rate": 0.7778,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 900,
       "analytics_likes": 7,
       "analytics_comments": 0,
@@ -4480,6 +4960,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 73.0
+      },
+      {
+        "views": 900,
+        "likes": 7,
+        "comments": 0,
+        "engagement_rate": 0.7778,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 900,
+        "analytics_likes": 7,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 11.0,
+        "average_view_percentage": 31.96,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 73.0
       }
     ]
   },
@@ -4488,7 +4984,7 @@
     "topic": "Why paperclips float on water",
     "title": "Why Paperclips Defy Gravity on Water",
     "workdir": "output/1787683112",
-    "published_at": "2026-08-25T18:59:48.050564+00:00",
+    "published_at": "2026-08-25T19:00:26Z",
     "topic_category": "Why paperclips float on water",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -4500,7 +4996,7 @@
       "likes": 16,
       "comments": 0,
       "engagement_rate": 1.5579,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1027,
       "analytics_likes": 16,
       "analytics_comments": 0,
@@ -4623,6 +5119,22 @@
         "subscribers_gained": 2,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 217.0
+      },
+      {
+        "views": 1027,
+        "likes": 16,
+        "comments": 0,
+        "engagement_rate": 1.5579,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1027,
+        "analytics_likes": 16,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 23.0,
+        "average_view_percentage": 64.86,
+        "subscribers_gained": 2,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 217.0
       }
     ]
   },
@@ -4631,7 +5143,7 @@
     "topic": "Why wet paper towels tear",
     "title": "Why Wet Paper Towels Tear So Easily",
     "workdir": "output/1787713230",
-    "published_at": "2026-08-26T03:25:52.549984+00:00",
+    "published_at": "2026-08-26T03:28:03Z",
     "topic_category": "Why wet paper towels tear",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -4643,7 +5155,7 @@
       "likes": 9,
       "comments": 0,
       "engagement_rate": 0.9424,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 955,
       "analytics_likes": 9,
       "analytics_comments": 0,
@@ -4766,6 +5278,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 114.0
+      },
+      {
+        "views": 955,
+        "likes": 9,
+        "comments": 0,
+        "engagement_rate": 0.9424,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 955,
+        "analytics_likes": 9,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 39.86,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 114.0
       }
     ]
   },
@@ -4774,7 +5302,7 @@
     "topic": "Why do tea bags float",
     "title": "Why Do Tea Bags Float",
     "workdir": "output/1787739372",
-    "published_at": "2026-08-26T10:39:47.511658+00:00",
+    "published_at": "2026-08-26T10:40:36Z",
     "topic_category": "Why do tea bags float",
     "hook_type": "open_loop",
     "story_structure": "7-scene curiosity story",
@@ -4790,7 +5318,7 @@
       "likes": 13,
       "comments": 1,
       "engagement_rate": 1.4448,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 969,
       "analytics_likes": 13,
       "analytics_comments": 1,
@@ -4913,6 +5441,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 106.0
+      },
+      {
+        "views": 969,
+        "likes": 13,
+        "comments": 1,
+        "engagement_rate": 1.4448,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 969,
+        "analytics_likes": 13,
+        "analytics_comments": 1,
+        "shares": 1,
+        "average_view_duration": 12.0,
+        "average_view_percentage": 27.500000000000004,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 106.0
       }
     ]
   },
@@ -4921,7 +5465,7 @@
     "topic": "Why do knuckles crack",
     "title": "Why Do Knuckles Crack",
     "workdir": "output/1788360260",
-    "published_at": "2026-09-02T15:19:21.878891+00:00",
+    "published_at": "2026-09-02T15:20:13Z",
     "topic_category": "Science",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -4934,7 +5478,7 @@
       "likes": 7,
       "comments": 0,
       "engagement_rate": 0.7892,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 887,
       "analytics_likes": 7,
       "analytics_comments": 0,
@@ -5057,6 +5601,22 @@
         "subscribers_gained": 3,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 119.0
+      },
+      {
+        "views": 887,
+        "likes": 7,
+        "comments": 0,
+        "engagement_rate": 0.7892,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 887,
+        "analytics_likes": 7,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 39.48,
+        "subscribers_gained": 3,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 119.0
       }
     ]
   },
@@ -5065,7 +5625,7 @@
     "topic": "Why do shoelaces untie themselves",
     "title": "Why Shoelaces Untie Themselves in Seconds",
     "workdir": "output/1788369875",
-    "published_at": "2026-09-02T18:05:26.923545+00:00",
+    "published_at": "2026-09-02T18:06:55Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -5078,7 +5638,7 @@
       "likes": 8,
       "comments": 0,
       "engagement_rate": 1.2739,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 628,
       "analytics_likes": 8,
       "analytics_comments": 0,
@@ -5201,6 +5761,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 82.0
+      },
+      {
+        "views": 628,
+        "likes": 8,
+        "comments": 0,
+        "engagement_rate": 1.2739,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 628,
+        "analytics_likes": 8,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 40.8,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 82.0
       }
     ]
   },
@@ -5209,7 +5785,7 @@
     "topic": "Why do drinking straws float",
     "title": "Why Drinking Straws Defy Gravity",
     "workdir": "output/1788381481",
-    "published_at": "2026-09-02T21:08:07.486995+00:00",
+    "published_at": "2026-09-02T21:09:04Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -5222,7 +5798,7 @@
       "likes": 16,
       "comments": 0,
       "engagement_rate": 1.6842,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 950,
       "analytics_likes": 16,
       "analytics_comments": 0,
@@ -5345,6 +5921,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 118.0
+      },
+      {
+        "views": 950,
+        "likes": 16,
+        "comments": 0,
+        "engagement_rate": 1.6842,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 950,
+        "analytics_likes": 16,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 15.0,
+        "average_view_percentage": 35.58,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 118.0
       }
     ]
   },
@@ -5353,7 +5945,7 @@
     "topic": "Why do glass lids shatter",
     "title": "Why Glass Lids Suddenly Explode",
     "workdir": "output/1788418007",
-    "published_at": "2026-09-03T07:28:57.213037+00:00",
+    "published_at": "2026-09-03T07:30:43Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -5362,11 +5954,11 @@
     "voice": "playful",
     "engagement_experiment": "prediction",
     "latest": {
-      "views": 977,
+      "views": 978,
       "likes": 13,
       "comments": 0,
-      "engagement_rate": 1.3306,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "engagement_rate": 1.3292,
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 977,
       "analytics_likes": 13,
       "analytics_comments": 0,
@@ -5489,6 +6081,22 @@
         "subscribers_gained": 2,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 110.0
+      },
+      {
+        "views": 978,
+        "likes": 13,
+        "comments": 0,
+        "engagement_rate": 1.3292,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 977,
+        "analytics_likes": 13,
+        "analytics_comments": 0,
+        "shares": 2,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 38.48,
+        "subscribers_gained": 2,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 110.0
       }
     ]
   },
@@ -5497,7 +6105,7 @@
     "topic": "Why do socks roll up",
     "title": "Why Do Socks Roll Up in the Laundry?",
     "workdir": "output/1788445053",
-    "published_at": "2026-09-03T15:05:16.698358+00:00",
+    "published_at": "2026-09-03T15:07:22Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -5510,7 +6118,7 @@
       "likes": 3,
       "comments": 0,
       "engagement_rate": 5.7692,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 52,
       "analytics_likes": 3,
       "analytics_comments": 0,
@@ -5633,6 +6241,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 2.0
+      },
+      {
+        "views": 52,
+        "likes": 3,
+        "comments": 0,
+        "engagement_rate": 5.7692,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 52,
+        "analytics_likes": 3,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 11.0,
+        "average_view_percentage": 25.96,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 2.0
       }
     ]
   },
@@ -5641,7 +6265,7 @@
     "topic": "Why do plastic bottles crackle",
     "title": "Why Do Plastic Bottles Crackle?",
     "workdir": "output/1788455442",
-    "published_at": "2026-09-03T17:42:27.274792+00:00",
+    "published_at": "2026-09-03T17:43:16Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -5654,7 +6278,7 @@
       "likes": 5,
       "comments": 0,
       "engagement_rate": 0.6579,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 760,
       "analytics_likes": 5,
       "analytics_comments": 0,
@@ -5777,6 +6401,22 @@
         "subscribers_gained": 2,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 81.0
+      },
+      {
+        "views": 760,
+        "likes": 5,
+        "comments": 0,
+        "engagement_rate": 0.6579,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 760,
+        "analytics_likes": 5,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 16.0,
+        "average_view_percentage": 37.77,
+        "subscribers_gained": 2,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 81.0
       }
     ]
   },
@@ -5785,7 +6425,7 @@
     "topic": "Why do soda cans spit",
     "title": "Why Soda Cans Spit When You Tap Them",
     "workdir": "output/1788504724",
-    "published_at": "2026-09-04T07:32:06.144088+00:00",
+    "published_at": "2026-09-04T07:33:44Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -5798,7 +6438,7 @@
       "likes": 14,
       "comments": 0,
       "engagement_rate": 1.2038,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1163,
       "analytics_likes": 14,
       "analytics_comments": 0,
@@ -5921,6 +6561,22 @@
         "subscribers_gained": 3,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 143.0
+      },
+      {
+        "views": 1163,
+        "likes": 14,
+        "comments": 0,
+        "engagement_rate": 1.2038,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1163,
+        "analytics_likes": 14,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 32.04,
+        "subscribers_gained": 3,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 143.0
       }
     ]
   },
@@ -5929,7 +6585,7 @@
     "topic": "Why do envelopes stick together",
     "title": "Why Do Envelopes Stick Together",
     "workdir": "output/1788510872",
-    "published_at": "2026-09-04T09:06:38.775180+00:00",
+    "published_at": "2026-09-04T09:07:33Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -5942,7 +6598,7 @@
       "likes": 1,
       "comments": 0,
       "engagement_rate": 1.0,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 100,
       "analytics_likes": 1,
       "analytics_comments": 0,
@@ -6065,6 +6721,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 11.0
+      },
+      {
+        "views": 100,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 1.0,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 100,
+        "analytics_likes": 1,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 20.0,
+        "average_view_percentage": 52.43,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 11.0
       }
     ]
   },
@@ -6073,7 +6745,7 @@
     "topic": "Why stamps sometimes fail to stick",
     "title": "Why Stamps Fall Off",
     "workdir": "output/1788546150",
-    "published_at": "2026-09-04T19:06:44.694090+00:00",
+    "published_at": "2026-09-04T19:05:36Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -6086,7 +6758,7 @@
       "likes": 7,
       "comments": 0,
       "engagement_rate": 0.7042,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 994,
       "analytics_likes": 7,
       "analytics_comments": 0,
@@ -6209,6 +6881,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 102.0
+      },
+      {
+        "views": 994,
+        "likes": 7,
+        "comments": 0,
+        "engagement_rate": 0.7042,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 994,
+        "analytics_likes": 7,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 13.0,
+        "average_view_percentage": 36.05,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 102.0
       }
     ]
   },
@@ -6217,7 +6905,7 @@
     "topic": "Why do pens leak on airplanes",
     "title": "Why Do Pens Leak on Airplanes?",
     "workdir": "output/1788565695",
-    "published_at": "2026-09-05T00:27:52.172915+00:00",
+    "published_at": "2026-09-05T00:25:30Z",
     "topic_category": "Science",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -6230,7 +6918,7 @@
       "likes": 5,
       "comments": 0,
       "engagement_rate": 2.2831,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 219,
       "analytics_likes": 5,
       "analytics_comments": 0,
@@ -6353,6 +7041,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 27.0
+      },
+      {
+        "views": 219,
+        "likes": 5,
+        "comments": 0,
+        "engagement_rate": 2.2831,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 219,
+        "analytics_likes": 5,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 18.0,
+        "average_view_percentage": 43.06,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 27.0
       }
     ]
   },
@@ -6375,9 +7079,9 @@
   {
     "video_id": "Ta7KRzGBH3A",
     "topic": "Why does toothpaste foam",
-    "title": "Why Does Toothpaste Foam",
+    "title": "Why Does Toothpaste Foam?",
     "workdir": "output/1788712079",
-    "published_at": "2026-09-06T17:04:14.618618+00:00",
+    "published_at": "2026-09-06T17:05:41Z",
     "topic_category": "Science",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -6390,7 +7094,7 @@
       "likes": 9,
       "comments": 0,
       "engagement_rate": 0.9698,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 928,
       "analytics_likes": 9,
       "analytics_comments": 0,
@@ -6513,6 +7217,22 @@
         "subscribers_gained": 4,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 121.0
+      },
+      {
+        "views": 928,
+        "likes": 9,
+        "comments": 0,
+        "engagement_rate": 0.9698,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 928,
+        "analytics_likes": 9,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 15.0,
+        "average_view_percentage": 35.04,
+        "subscribers_gained": 4,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 121.0
       }
     ]
   },
@@ -6521,7 +7241,7 @@
     "topic": "Why do metal spoons tingle",
     "title": "Why Do Metal Spoons Tingle",
     "workdir": "output/1788719851",
-    "published_at": "2026-09-06T20:29:04.309220+00:00",
+    "published_at": "2026-09-06T20:30:26Z",
     "topic_category": "Science",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -6534,7 +7254,7 @@
       "likes": 66,
       "comments": 2,
       "engagement_rate": 3.9013,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1743,
       "analytics_likes": 66,
       "analytics_comments": 1,
@@ -6657,6 +7377,22 @@
         "subscribers_gained": 6,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 314.0
+      },
+      {
+        "views": 1743,
+        "likes": 66,
+        "comments": 2,
+        "engagement_rate": 3.9013,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1743,
+        "analytics_likes": 66,
+        "analytics_comments": 1,
+        "shares": 0,
+        "average_view_duration": 18.0,
+        "average_view_percentage": 42.01,
+        "subscribers_gained": 6,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 314.0
       }
     ]
   },
@@ -6665,7 +7401,7 @@
     "topic": "Why do wet towels smell",
     "title": "Why Do Wet Towels Smell",
     "workdir": "output/1788733535",
-    "published_at": "2026-09-06T22:45:35.343284+00:00",
+    "published_at": "2026-09-06T22:46:27Z",
     "topic_category": "Science",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -6678,7 +7414,7 @@
       "likes": 14,
       "comments": 2,
       "engagement_rate": 1.741,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 918,
       "analytics_likes": 14,
       "analytics_comments": 1,
@@ -6801,15 +7537,31 @@
         "subscribers_gained": 2,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 118.0
+      },
+      {
+        "views": 919,
+        "likes": 14,
+        "comments": 2,
+        "engagement_rate": 1.741,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 918,
+        "analytics_likes": 14,
+        "analytics_comments": 1,
+        "shares": 0,
+        "average_view_duration": 16.0,
+        "average_view_percentage": 45.12,
+        "subscribers_gained": 2,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 118.0
       }
     ]
   },
   {
     "video_id": "R87EDkU9hRQ",
     "topic": "Why do mirrors double reflections",
-    "title": "Why Mirrors Double Reflections",
+    "title": "Why Mirrors Double Reflections?",
     "workdir": "output/1788764304",
-    "published_at": "2026-09-07T07:23:37.644405+00:00",
+    "published_at": "2026-09-07T07:24:33Z",
     "topic_category": "Science",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -6822,7 +7574,7 @@
       "likes": 13,
       "comments": 0,
       "engagement_rate": 1.2987,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1001,
       "analytics_likes": 13,
       "analytics_comments": 0,
@@ -6945,6 +7697,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 160.0
+      },
+      {
+        "views": 1001,
+        "likes": 13,
+        "comments": 0,
+        "engagement_rate": 1.2987,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1001,
+        "analytics_likes": 13,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 15.0,
+        "average_view_percentage": 34.62,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 160.0
       }
     ]
   },
@@ -6953,7 +7721,7 @@
     "topic": "Why does a sponge expand",
     "title": "Why Does a Sponge Expand",
     "workdir": "output/1788788245",
-    "published_at": "2026-09-07T14:00:37.853938+00:00",
+    "published_at": "2026-09-07T14:01:29Z",
     "topic_category": "Science",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -6966,7 +7734,7 @@
       "likes": 6,
       "comments": 0,
       "engagement_rate": 0.6543,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 917,
       "analytics_likes": 6,
       "analytics_comments": 0,
@@ -7089,6 +7857,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 114.0
+      },
+      {
+        "views": 917,
+        "likes": 6,
+        "comments": 0,
+        "engagement_rate": 0.6543,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 917,
+        "analytics_likes": 6,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 16.0,
+        "average_view_percentage": 37.58,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 114.0
       }
     ]
   },
@@ -7097,7 +7881,7 @@
     "topic": "Why do toes wrinkle in water",
     "title": "Why Toes Wrinkle in Water",
     "workdir": "output/1788818845",
-    "published_at": "2026-09-07T22:35:48.242856+00:00",
+    "published_at": "2026-09-07T22:36:35Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -7110,7 +7894,7 @@
       "likes": 13,
       "comments": 0,
       "engagement_rate": 1.2935,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1005,
       "analytics_likes": 13,
       "analytics_comments": 0,
@@ -7233,6 +8017,22 @@
         "subscribers_gained": 3,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 151.0
+      },
+      {
+        "views": 1005,
+        "likes": 13,
+        "comments": 0,
+        "engagement_rate": 1.2935,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1005,
+        "analytics_likes": 13,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 45.88,
+        "subscribers_gained": 3,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 151.0
       }
     ]
   },
@@ -7241,7 +8041,7 @@
     "topic": "Why does a plate get hot",
     "title": "Why Your Plate Burns Your Hands",
     "workdir": "output/1788824500",
-    "published_at": "2026-09-08T00:12:38.297339+00:00",
+    "published_at": "2026-09-08T00:14:10Z",
     "topic_category": "Science",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -7254,7 +8054,7 @@
       "likes": 5,
       "comments": 0,
       "engagement_rate": 0.5219,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 958,
       "analytics_likes": 5,
       "analytics_comments": 0,
@@ -7377,6 +8177,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 72.0
+      },
+      {
+        "views": 958,
+        "likes": 5,
+        "comments": 0,
+        "engagement_rate": 0.5219,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 958,
+        "analytics_likes": 5,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 16.0,
+        "average_view_percentage": 40.03,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 72.0
       }
     ]
   },
@@ -7385,7 +8201,7 @@
     "topic": "Why do dry erase markers squeak",
     "title": "Why Do Dry Erase Markers Squeak",
     "workdir": "output/1788850306",
-    "published_at": "2026-09-08T07:28:37.446386+00:00",
+    "published_at": "2026-09-08T07:30:50Z",
     "topic_category": "Science",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -7398,7 +8214,7 @@
       "likes": 10,
       "comments": 0,
       "engagement_rate": 1.005,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 995,
       "analytics_likes": 10,
       "analytics_comments": 0,
@@ -7521,6 +8337,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 112.0
+      },
+      {
+        "views": 995,
+        "likes": 10,
+        "comments": 0,
+        "engagement_rate": 1.005,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 995,
+        "analytics_likes": 10,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 12.0,
+        "average_view_percentage": 28.87,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 112.0
       }
     ]
   },
@@ -7529,7 +8361,7 @@
     "topic": "Why do keychains pinch fingers",
     "title": "The Silent Trap of the Keychain",
     "workdir": "output/1788888288",
-    "published_at": "2026-09-08T17:43:48.136599+00:00",
+    "published_at": "2026-09-08T17:44:52Z",
     "topic_category": "Entertainment",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -7542,7 +8374,7 @@
       "likes": 7,
       "comments": 0,
       "engagement_rate": 0.6823,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1026,
       "analytics_likes": 7,
       "analytics_comments": 0,
@@ -7665,6 +8497,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 48.0
+      },
+      {
+        "views": 1026,
+        "likes": 7,
+        "comments": 0,
+        "engagement_rate": 0.6823,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1026,
+        "analytics_likes": 7,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 42.68,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 48.0
       }
     ]
   },
@@ -7673,7 +8521,7 @@
     "topic": "Why do pencils break inside sharpeners",
     "title": "Why Pencils Break Inside Sharpeners",
     "workdir": "output/1789033320",
-    "published_at": "2026-09-10T09:56:36.908443+00:00",
+    "published_at": "2026-09-10T09:57:40Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -7691,7 +8539,7 @@
       "likes": 22,
       "comments": 0,
       "engagement_rate": 1.6345,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1346,
       "analytics_likes": 22,
       "analytics_comments": 0,
@@ -7814,6 +8662,22 @@
         "subscribers_gained": 3,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 243.0
+      },
+      {
+        "views": 1346,
+        "likes": 22,
+        "comments": 0,
+        "engagement_rate": 1.6345,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1346,
+        "analytics_likes": 22,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 16.0,
+        "average_view_percentage": 38.59,
+        "subscribers_gained": 3,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 243.0
       }
     ]
   },
@@ -7822,7 +8686,7 @@
     "topic": "Why do umbrellas flip",
     "title": "Why Umbrellas Flip Inside Out",
     "workdir": "output/1789036334",
-    "published_at": "2026-09-10T10:55:13.498980+00:00",
+    "published_at": "2026-09-10T10:56:59Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -7840,7 +8704,7 @@
       "likes": 9,
       "comments": 1,
       "engagement_rate": 1.0537,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 949,
       "analytics_likes": 9,
       "analytics_comments": 1,
@@ -7963,6 +8827,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 92.0
+      },
+      {
+        "views": 949,
+        "likes": 9,
+        "comments": 1,
+        "engagement_rate": 1.0537,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 949,
+        "analytics_likes": 9,
+        "analytics_comments": 1,
+        "shares": 0,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 31.240000000000002,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 92.0
       }
     ]
   },
@@ -7971,7 +8851,7 @@
     "topic": "Why elevator doors have hidden sensors",
     "title": "Why Elevator Doors Have Hidden Sensors",
     "workdir": "output/1789048386",
-    "published_at": "2026-09-10T14:42:03.610640+00:00",
+    "published_at": "2026-09-10T14:42:52Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -7989,7 +8869,7 @@
       "likes": 15,
       "comments": 0,
       "engagement_rate": 1.3146,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1141,
       "analytics_likes": 15,
       "analytics_comments": 0,
@@ -8112,6 +8992,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 201.0
+      },
+      {
+        "views": 1141,
+        "likes": 15,
+        "comments": 0,
+        "engagement_rate": 1.3146,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1141,
+        "analytics_likes": 15,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 40.58,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 201.0
       }
     ]
   },
@@ -8120,7 +9016,7 @@
     "topic": "Why sliding glass doors lock automatically",
     "title": "The Ghost Lock Mystery",
     "workdir": "output/1789060140",
-    "published_at": "2026-09-10T17:36:26.764841+00:00",
+    "published_at": "2026-09-10T17:37:25Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -8138,7 +9034,7 @@
       "likes": 7,
       "comments": 0,
       "engagement_rate": 0.6829,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1025,
       "analytics_likes": 7,
       "analytics_comments": 0,
@@ -8261,6 +9157,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 80.0
+      },
+      {
+        "views": 1025,
+        "likes": 7,
+        "comments": 0,
+        "engagement_rate": 0.6829,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1025,
+        "analytics_likes": 7,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 37.49,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 80.0
       }
     ]
   },
@@ -8269,7 +9181,7 @@
     "topic": "Why sliding door tracks collect gravel",
     "title": "The Gravel Trap Mystery",
     "workdir": "output/1789109785",
-    "published_at": "2026-09-11T07:20:09.576266+00:00",
+    "published_at": "2026-09-11T07:21:03Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -8287,7 +9199,7 @@
       "likes": 10,
       "comments": 0,
       "engagement_rate": 1.0081,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 992,
       "analytics_likes": 10,
       "analytics_comments": 0,
@@ -8410,6 +9322,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 110.0
+      },
+      {
+        "views": 992,
+        "likes": 10,
+        "comments": 0,
+        "engagement_rate": 1.0081,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 992,
+        "analytics_likes": 10,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 15.0,
+        "average_view_percentage": 33.61,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 110.0
       }
     ]
   },
@@ -8418,7 +9346,7 @@
     "topic": "Why heavy wool blankets feel instantly comforting",
     "title": "The Heavy Blanket Secret",
     "workdir": "output/1789148772",
-    "published_at": "2026-09-11T18:17:37.166039+00:00",
+    "published_at": "2026-09-11T18:18:50Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -8436,7 +9364,7 @@
       "likes": 5,
       "comments": 0,
       "engagement_rate": 1.0163,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 492,
       "analytics_likes": 5,
       "analytics_comments": 0,
@@ -8559,6 +9487,22 @@
         "subscribers_gained": 2,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 32.0
+      },
+      {
+        "views": 492,
+        "likes": 5,
+        "comments": 0,
+        "engagement_rate": 1.0163,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 492,
+        "analytics_likes": 5,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 32.93,
+        "subscribers_gained": 2,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 32.0
       }
     ]
   },
@@ -8567,7 +9511,7 @@
     "topic": "Why do zipper teeth stick",
     "title": "Why Do Zipper Teeth Stick",
     "workdir": "output/1789164169",
-    "published_at": "2026-09-11T22:30:02.969573+00:00",
+    "published_at": "2026-09-11T22:31:17Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -8585,7 +9529,7 @@
       "likes": 6,
       "comments": 0,
       "engagement_rate": 0.597,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1005,
       "analytics_likes": 6,
       "analytics_comments": 0,
@@ -8708,6 +9652,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 173.0
+      },
+      {
+        "views": 1005,
+        "likes": 6,
+        "comments": 0,
+        "engagement_rate": 0.597,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1005,
+        "analytics_likes": 6,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 16.0,
+        "average_view_percentage": 35.95,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 173.0
       }
     ]
   },
@@ -8716,7 +9676,7 @@
     "topic": "Why do tape rolls stick",
     "title": "Why Tape Rolls Stick",
     "workdir": "output/1789195656",
-    "published_at": "2026-09-12T07:13:23.551517+00:00",
+    "published_at": "2026-09-12T07:14:19Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -8734,7 +9694,7 @@
       "likes": 5,
       "comments": 0,
       "engagement_rate": 0.5081,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 984,
       "analytics_likes": 5,
       "analytics_comments": 0,
@@ -8857,6 +9817,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 155.0
+      },
+      {
+        "views": 984,
+        "likes": 5,
+        "comments": 0,
+        "engagement_rate": 0.5081,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 984,
+        "analytics_likes": 5,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 15.0,
+        "average_view_percentage": 34.61,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 155.0
       }
     ]
   },
@@ -8865,7 +9841,7 @@
     "topic": "Why do sneakers squeak on floors",
     "title": "Why Sneakers Squeak",
     "workdir": "output/1789213336",
-    "published_at": "2026-09-12T12:01:03.498939+00:00",
+    "published_at": "2026-09-12T12:02:45Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -8883,7 +9859,7 @@
       "likes": 10,
       "comments": 0,
       "engagement_rate": 1.0163,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 984,
       "analytics_likes": 10,
       "analytics_comments": 0,
@@ -9006,6 +9982,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 172.0
+      },
+      {
+        "views": 984,
+        "likes": 10,
+        "comments": 0,
+        "engagement_rate": 1.0163,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 984,
+        "analytics_likes": 10,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 18.0,
+        "average_view_percentage": 40.3,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 172.0
       }
     ]
   },
@@ -9014,7 +10006,7 @@
     "topic": "Why do cardboard boxes tear sideways",
     "title": "Why Cardboard Boxes Tear Sideways",
     "workdir": "output/1789230580",
-    "published_at": "2026-09-12T16:47:49.924994+00:00",
+    "published_at": "2026-09-12T16:49:24Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -9032,7 +10024,7 @@
       "likes": 11,
       "comments": 0,
       "engagement_rate": 1.0924,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1006,
       "analytics_likes": 11,
       "analytics_comments": 0,
@@ -9155,6 +10147,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 104.0
+      },
+      {
+        "views": 1007,
+        "likes": 11,
+        "comments": 0,
+        "engagement_rate": 1.0924,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1006,
+        "analytics_likes": 11,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 13.0,
+        "average_view_percentage": 30.39,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 104.0
       }
     ]
   },
@@ -9163,7 +10171,7 @@
     "topic": "Why ice cubes crack in water",
     "title": "Why Ice Cubes Crack In Water",
     "workdir": "output/1789302060",
-    "published_at": "2026-09-13T12:43:39.640605+00:00",
+    "published_at": "2026-09-13T12:44:27Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -9181,7 +10189,7 @@
       "likes": 13,
       "comments": 2,
       "engagement_rate": 1.4272,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1051,
       "analytics_likes": 13,
       "analytics_comments": 1,
@@ -9304,6 +10312,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 180.0
+      },
+      {
+        "views": 1051,
+        "likes": 13,
+        "comments": 2,
+        "engagement_rate": 1.4272,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1051,
+        "analytics_likes": 13,
+        "analytics_comments": 1,
+        "shares": 0,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 46.0,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 180.0
       }
     ]
   },
@@ -9312,7 +10336,7 @@
     "topic": "Why ice cream gives you brain freeze",
     "title": "Why Ice Cream Gives You Brain Freeze",
     "workdir": "output/1789303809",
-    "published_at": "2026-09-13T13:13:18.583758+00:00",
+    "published_at": "2026-09-13T13:14:07Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -9330,7 +10354,7 @@
       "likes": 18,
       "comments": 2,
       "engagement_rate": 1.8553,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1078,
       "analytics_likes": 18,
       "analytics_comments": 1,
@@ -9453,6 +10477,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 235.0
+      },
+      {
+        "views": 1078,
+        "likes": 18,
+        "comments": 2,
+        "engagement_rate": 1.8553,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1078,
+        "analytics_likes": 18,
+        "analytics_comments": 1,
+        "shares": 1,
+        "average_view_duration": 27.0,
+        "average_view_percentage": 60.8,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 235.0
       }
     ]
   },
@@ -9461,7 +10501,7 @@
     "topic": "Why do plastic bags rustle",
     "title": "Why Do Plastic Bags Rustle",
     "workdir": "output/1789396166",
-    "published_at": "2026-09-14T14:57:42.968337+00:00",
+    "published_at": "2026-09-14T14:59:26Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -9479,7 +10519,7 @@
       "likes": 11,
       "comments": 0,
       "engagement_rate": 0.9786,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1124,
       "analytics_likes": 11,
       "analytics_comments": 0,
@@ -9602,6 +10642,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 151.0
+      },
+      {
+        "views": 1124,
+        "likes": 11,
+        "comments": 0,
+        "engagement_rate": 0.9786,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1124,
+        "analytics_likes": 11,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 33.35,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 151.0
       }
     ]
   },
@@ -9610,7 +10666,7 @@
     "topic": "Why do paper coffee cups leak",
     "title": "Why Paper Coffee Cups Leak",
     "workdir": "output/1789399615",
-    "published_at": "2026-09-14T15:50:24.521747+00:00",
+    "published_at": "2026-09-14T15:51:14Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -9628,7 +10684,7 @@
       "likes": 11,
       "comments": 0,
       "engagement_rate": 1.0669,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1031,
       "analytics_likes": 11,
       "analytics_comments": 0,
@@ -9751,6 +10807,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 128.0
+      },
+      {
+        "views": 1031,
+        "likes": 11,
+        "comments": 0,
+        "engagement_rate": 1.0669,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1031,
+        "analytics_likes": 11,
+        "analytics_comments": 0,
+        "shares": 2,
+        "average_view_duration": 16.0,
+        "average_view_percentage": 34.98,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 128.0
       }
     ]
   },
@@ -9759,7 +10831,7 @@
     "topic": "Why do window panes rattle",
     "title": "Why Do Window Panes Rattle",
     "workdir": "output/1789412538",
-    "published_at": "2026-09-14T19:33:39.327102+00:00",
+    "published_at": "2026-09-14T19:34:27Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -9777,7 +10849,7 @@
       "likes": 17,
       "comments": 0,
       "engagement_rate": 1.6899,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1006,
       "analytics_likes": 17,
       "analytics_comments": 0,
@@ -9900,6 +10972,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 80.0
+      },
+      {
+        "views": 1006,
+        "likes": 17,
+        "comments": 0,
+        "engagement_rate": 1.6899,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1006,
+        "analytics_likes": 17,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 32.94,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 80.0
       }
     ]
   },
@@ -9908,7 +10996,7 @@
     "topic": "Why do glasses fog up",
     "title": "Why Do Glasses Fog Up?",
     "workdir": "output/1789456004",
-    "published_at": "2026-09-15T07:40:46.683218+00:00",
+    "published_at": "2026-09-15T07:41:37Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -9926,7 +11014,7 @@
       "likes": 7,
       "comments": 0,
       "engagement_rate": 0.6744,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1038,
       "analytics_likes": 7,
       "analytics_comments": 0,
@@ -10049,6 +11137,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 123.0
+      },
+      {
+        "views": 1038,
+        "likes": 7,
+        "comments": 0,
+        "engagement_rate": 0.6744,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1038,
+        "analytics_likes": 7,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 24.0,
+        "average_view_percentage": 53.38,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 123.0
       }
     ]
   },
@@ -10057,7 +11161,7 @@
     "topic": "Why do keys stick in locks",
     "title": "Why Keys Stick in Locks",
     "workdir": "output/1789486480",
-    "published_at": "2026-09-15T16:05:12.935872+00:00",
+    "published_at": "2026-09-15T16:06:14Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -10071,11 +11175,11 @@
     "creative_experiment_id": "creative_v3_proven_cycle8_slot3",
     "creative_selected_pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + narration_pace:natural",
     "latest": {
-      "views": 1011,
+      "views": 1012,
       "likes": 6,
       "comments": 0,
-      "engagement_rate": 0.5935,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "engagement_rate": 0.5929,
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1011,
       "analytics_likes": 6,
       "analytics_comments": 0,
@@ -10198,6 +11302,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 101.0
+      },
+      {
+        "views": 1012,
+        "likes": 6,
+        "comments": 0,
+        "engagement_rate": 0.5929,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1011,
+        "analytics_likes": 6,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 15.0,
+        "average_view_percentage": 35.14,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 101.0
       }
     ]
   },
@@ -10206,7 +11326,7 @@
     "topic": "Why do door hinges squeak",
     "title": "Why Do Door Hinges Squeak",
     "workdir": "output/1789517314",
-    "published_at": "2026-09-16T00:34:27.525198+00:00",
+    "published_at": "2026-09-16T00:36:04Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -10224,7 +11344,7 @@
       "likes": 13,
       "comments": 0,
       "engagement_rate": 1.367,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 951,
       "analytics_likes": 13,
       "analytics_comments": 0,
@@ -10347,6 +11467,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 184.0
+      },
+      {
+        "views": 951,
+        "likes": 13,
+        "comments": 0,
+        "engagement_rate": 1.367,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 951,
+        "analytics_likes": 13,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 25.0,
+        "average_view_percentage": 55.60000000000001,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 184.0
       }
     ]
   },
@@ -10355,7 +11491,7 @@
     "topic": "Why do old keys stick in locks",
     "title": "Why Do Old Keys Stick in Locks",
     "workdir": "output/1789542410",
-    "published_at": "2026-09-16T07:34:19.198841+00:00",
+    "published_at": "2026-09-16T07:35:06Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -10373,7 +11509,7 @@
       "likes": 10,
       "comments": 0,
       "engagement_rate": 1.001,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 999,
       "analytics_likes": 10,
       "analytics_comments": 0,
@@ -10496,6 +11632,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 73.0
+      },
+      {
+        "views": 999,
+        "likes": 10,
+        "comments": 0,
+        "engagement_rate": 1.001,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 999,
+        "analytics_likes": 10,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 12.0,
+        "average_view_percentage": 32.86,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 73.0
       }
     ]
   },
@@ -10504,7 +11656,7 @@
     "topic": "Why do door handles sag over time",
     "title": "Why Do Door Handles Sag Over Time",
     "workdir": "output/1789551893",
-    "published_at": "2026-09-16T10:02:49.413728+00:00",
+    "published_at": "2026-09-16T10:03:39Z",
     "topic_category": "Science & Engineering",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -10522,7 +11674,7 @@
       "likes": 16,
       "comments": 0,
       "engagement_rate": 1.4829,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1079,
       "analytics_likes": 16,
       "analytics_comments": 0,
@@ -10645,6 +11797,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 174.0
+      },
+      {
+        "views": 1079,
+        "likes": 16,
+        "comments": 0,
+        "engagement_rate": 1.4829,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1079,
+        "analytics_likes": 16,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 18.0,
+        "average_view_percentage": 39.54,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 174.0
       }
     ]
   },
@@ -10653,7 +11821,7 @@
     "topic": "Why do wet fingers wrinkle",
     "title": "Why Your Fingers Prune in the Tub",
     "workdir": "output/1789562679",
-    "published_at": "2026-09-16T13:04:09.649874+00:00",
+    "published_at": "2026-09-16T13:04:54Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -10671,7 +11839,7 @@
       "likes": 20,
       "comments": 2,
       "engagement_rate": 1.7474,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1259,
       "analytics_likes": 20,
       "analytics_comments": 1,
@@ -10794,6 +11962,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 228.0
+      },
+      {
+        "views": 1259,
+        "likes": 20,
+        "comments": 2,
+        "engagement_rate": 1.7474,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1259,
+        "analytics_likes": 20,
+        "analytics_comments": 1,
+        "shares": 0,
+        "average_view_duration": 21.0,
+        "average_view_percentage": 45.91,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 228.0
       }
     ]
   },
@@ -10802,7 +11986,7 @@
     "topic": "Why do bubbles pop instantly",
     "title": "Why Do Bubbles Pop Instantly",
     "workdir": "output/1789580967",
-    "published_at": "2026-09-16T18:16:48.584196+00:00",
+    "published_at": "2026-09-16T18:17:38Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -10820,7 +12004,7 @@
       "likes": 15,
       "comments": 0,
       "engagement_rate": 1.5322,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 979,
       "analytics_likes": 15,
       "analytics_comments": 0,
@@ -10943,6 +12127,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 113.0
+      },
+      {
+        "views": 979,
+        "likes": 15,
+        "comments": 0,
+        "engagement_rate": 1.5322,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 979,
+        "analytics_likes": 15,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 19.0,
+        "average_view_percentage": 48.13,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 113.0
       }
     ]
   },
@@ -10951,7 +12151,7 @@
     "topic": "Why soap bubbles form perfect spheres",
     "title": "Why Soap Bubbles Always Form Perfect Spheres",
     "workdir": "output/1789661327",
-    "published_at": "2026-09-17T16:32:57.965324+00:00",
+    "published_at": "2026-09-17T16:34:51Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -10969,7 +12169,7 @@
       "likes": 20,
       "comments": 1,
       "engagement_rate": 1.8389,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1142,
       "analytics_likes": 20,
       "analytics_comments": 1,
@@ -11092,6 +12292,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 219.0
+      },
+      {
+        "views": 1142,
+        "likes": 20,
+        "comments": 1,
+        "engagement_rate": 1.8389,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1142,
+        "analytics_likes": 20,
+        "analytics_comments": 1,
+        "shares": 0,
+        "average_view_duration": 21.0,
+        "average_view_percentage": 48.88,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 219.0
       }
     ]
   },
@@ -11100,7 +12316,7 @@
     "topic": "Why do wet towels smell musty",
     "title": "The Secret Life of Musty Towels",
     "workdir": "output/1789677351",
-    "published_at": "2026-09-17T21:02:47.600601+00:00",
+    "published_at": "2026-09-17T21:03:43Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -11118,7 +12334,7 @@
       "likes": 14,
       "comments": 0,
       "engagement_rate": 1.6451,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 851,
       "analytics_likes": 14,
       "analytics_comments": 0,
@@ -11241,6 +12457,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 76.0
+      },
+      {
+        "views": 851,
+        "likes": 14,
+        "comments": 0,
+        "engagement_rate": 1.6451,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 851,
+        "analytics_likes": 14,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 37.45,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 76.0
       }
     ]
   },
@@ -11249,7 +12481,7 @@
     "topic": "Why do clothes shrink in dryers",
     "title": "Why Do Clothes Shrink in Dryers",
     "workdir": "output/1789715028",
-    "published_at": "2026-09-18T07:29:46.674983+00:00",
+    "published_at": "2026-09-18T07:30:49Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -11267,7 +12499,7 @@
       "likes": 6,
       "comments": 0,
       "engagement_rate": 0.6141,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 977,
       "analytics_likes": 6,
       "analytics_comments": 0,
@@ -11390,6 +12622,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 118.0
+      },
+      {
+        "views": 977,
+        "likes": 6,
+        "comments": 0,
+        "engagement_rate": 0.6141,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 977,
+        "analytics_likes": 6,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 44.0,
+        "average_view_percentage": 101.33000000000001,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 118.0
       }
     ]
   },
@@ -11398,7 +12646,7 @@
     "topic": "Why do zippers jam on fabric",
     "title": "Why Zippers Suddenly Bite Your Jacket",
     "workdir": "output/1789734059",
-    "published_at": "2026-09-18T12:47:31.671710+00:00",
+    "published_at": "2026-09-18T12:48:21Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -11416,7 +12664,7 @@
       "likes": 3,
       "comments": 0,
       "engagement_rate": 0.2938,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1021,
       "analytics_likes": 3,
       "analytics_comments": 0,
@@ -11539,6 +12787,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 95.0
+      },
+      {
+        "views": 1021,
+        "likes": 3,
+        "comments": 0,
+        "engagement_rate": 0.2938,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1021,
+        "analytics_likes": 3,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 35.33,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 95.0
       }
     ]
   },
@@ -11547,7 +12811,7 @@
     "topic": "Why do buttons pop off coats",
     "title": "The Great Coat Button Mystery",
     "workdir": "output/1789751572",
-    "published_at": "2026-09-18T17:29:44.451270+00:00",
+    "published_at": "2026-09-18T17:31:12Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -11565,7 +12829,7 @@
       "likes": 6,
       "comments": 0,
       "engagement_rate": 0.6276,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 956,
       "analytics_likes": 6,
       "analytics_comments": 0,
@@ -11688,6 +12952,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 56.0
+      },
+      {
+        "views": 956,
+        "likes": 6,
+        "comments": 0,
+        "engagement_rate": 0.6276,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 956,
+        "analytics_likes": 6,
+        "analytics_comments": 0,
+        "shares": 1,
+        "average_view_duration": 11.0,
+        "average_view_percentage": 26.0,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 56.0
       }
     ]
   },
@@ -11696,7 +12976,7 @@
     "topic": "Why do zippers always jam on fabric",
     "title": "Why Zippers Always Jam on Fabric",
     "workdir": "output/1789801057",
-    "published_at": "2026-09-19T07:10:26.377597+00:00",
+    "published_at": "2026-09-19T07:11:48Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -11714,7 +12994,7 @@
       "likes": 5,
       "comments": 0,
       "engagement_rate": 0.5599,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 893,
       "analytics_likes": 5,
       "analytics_comments": 0,
@@ -11837,6 +13117,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 92.0
+      },
+      {
+        "views": 893,
+        "likes": 5,
+        "comments": 0,
+        "engagement_rate": 0.5599,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 893,
+        "analytics_likes": 5,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 42.15,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 92.0
       }
     ]
   },
@@ -11845,7 +13141,7 @@
     "topic": "Why does a toilet swirl",
     "title": "Why Does a Toilet Swirl?",
     "workdir": "output/1789819283",
-    "published_at": "2026-09-19T12:18:36.482272+00:00",
+    "published_at": "2026-09-19T12:20:01Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -11863,7 +13159,7 @@
       "likes": 8,
       "comments": 2,
       "engagement_rate": 1.0764,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 926,
       "analytics_likes": 8,
       "analytics_comments": 2,
@@ -11986,6 +13282,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 93.0
+      },
+      {
+        "views": 929,
+        "likes": 8,
+        "comments": 2,
+        "engagement_rate": 1.0764,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 926,
+        "analytics_likes": 8,
+        "analytics_comments": 2,
+        "shares": 0,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 47.7,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 93.0
       }
     ]
   },
@@ -11994,7 +13306,7 @@
     "topic": "Why sinks drain without swirling",
     "title": "The Sink Drain Secret",
     "workdir": "output/1789836242",
-    "published_at": "2026-09-19T17:01:00.078579+00:00",
+    "published_at": "2026-09-19T17:01:58Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -12012,7 +13324,7 @@
       "likes": 16,
       "comments": 2,
       "engagement_rate": 1.0429,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1725,
       "analytics_likes": 16,
       "analytics_comments": 1,
@@ -12135,6 +13447,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 259.0
+      },
+      {
+        "views": 1726,
+        "likes": 16,
+        "comments": 2,
+        "engagement_rate": 1.0429,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1725,
+        "analytics_likes": 16,
+        "analytics_comments": 1,
+        "shares": 0,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 47.66,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 259.0
       }
     ]
   },
@@ -12143,7 +13471,7 @@
     "topic": "Why toilet water flushes in different directions",
     "title": "Why Toilet Water Swirls Differently",
     "workdir": "output/1789888964",
-    "published_at": "2026-09-20T07:57:35.674039+00:00",
+    "published_at": "2026-09-20T07:58:50Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -12161,7 +13489,7 @@
       "likes": 3,
       "comments": 0,
       "engagement_rate": 0.3198,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 939,
       "analytics_likes": 3,
       "analytics_comments": 0,
@@ -12284,6 +13612,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 125.0
+      },
+      {
+        "views": 938,
+        "likes": 3,
+        "comments": 0,
+        "engagement_rate": 0.3198,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 939,
+        "analytics_likes": 3,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 16.0,
+        "average_view_percentage": 38.53,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 125.0
       }
     ]
   },
@@ -12292,7 +13636,7 @@
     "topic": "Why does a spoon feel colder",
     "title": "The Spoon Thief",
     "workdir": "output/1789907674",
-    "published_at": "2026-09-20T12:52:53.629165+00:00",
+    "published_at": "2026-09-20T12:53:53Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -12310,7 +13654,7 @@
       "likes": 14,
       "comments": 0,
       "engagement_rate": 1.4141,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 989,
       "analytics_likes": 14,
       "analytics_comments": 0,
@@ -12433,6 +13777,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 132.0
+      },
+      {
+        "views": 990,
+        "likes": 14,
+        "comments": 0,
+        "engagement_rate": 1.4141,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 989,
+        "analytics_likes": 14,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 15.0,
+        "average_view_percentage": 38.72,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 132.0
       }
     ]
   },
@@ -12441,7 +13801,7 @@
     "topic": "Why does soap get slippery",
     "title": "Why Soap Gets Slippery",
     "workdir": "output/1789923516",
-    "published_at": "2026-09-20T17:11:17.973858+00:00",
+    "published_at": "2026-09-20T17:12:46Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -12459,7 +13819,7 @@
       "likes": 18,
       "comments": 0,
       "engagement_rate": 2.0247,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 889,
       "analytics_likes": 18,
       "analytics_comments": 0,
@@ -12582,6 +13942,22 @@
         "subscribers_gained": 2,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 99.0
+      },
+      {
+        "views": 889,
+        "likes": 18,
+        "comments": 0,
+        "engagement_rate": 2.0247,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 889,
+        "analytics_likes": 18,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 15.0,
+        "average_view_percentage": 37.66,
+        "subscribers_gained": 2,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 99.0
       }
     ]
   },
@@ -12590,7 +13966,7 @@
     "topic": "Why wet fingers wrinkle in water",
     "title": "Why Your Fingers Wrinkle in Water",
     "workdir": "output/1789937358",
-    "published_at": "2026-09-20T21:13:31.284369+00:00",
+    "published_at": "2026-09-20T21:14:28Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -12608,7 +13984,7 @@
       "likes": 14,
       "comments": 0,
       "engagement_rate": 1.2856,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1089,
       "analytics_likes": 14,
       "analytics_comments": 0,
@@ -12731,6 +14107,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 165.0
+      },
+      {
+        "views": 1089,
+        "likes": 14,
+        "comments": 0,
+        "engagement_rate": 1.2856,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1089,
+        "analytics_likes": 14,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 23.0,
+        "average_view_percentage": 55.2,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 165.0
       }
     ]
   },
@@ -12739,7 +14131,7 @@
     "topic": "Why do sponges hold water",
     "title": "Why Do Sponges Hold Water?",
     "workdir": "output/1789941819",
-    "published_at": "2026-09-20T22:26:59.623886+00:00",
+    "published_at": "2026-09-20T22:27:29Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -12753,11 +14145,11 @@
     "creative_experiment_id": "",
     "creative_selected_pattern": "",
     "latest": {
-      "views": 999,
+      "views": 1000,
       "likes": 7,
       "comments": 2,
-      "engagement_rate": 0.9009,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "engagement_rate": 0.9,
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 997,
       "analytics_likes": 7,
       "analytics_comments": 1,
@@ -12880,6 +14272,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 123.0
+      },
+      {
+        "views": 1000,
+        "likes": 7,
+        "comments": 2,
+        "engagement_rate": 0.9,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 997,
+        "analytics_likes": 7,
+        "analytics_comments": 1,
+        "shares": 0,
+        "average_view_duration": 13.0,
+        "average_view_percentage": 31.08,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 123.0
       }
     ]
   },
@@ -12888,7 +14296,7 @@
     "topic": "Why does an egg shell crack",
     "title": "Why Does an Egg Shell Crack?",
     "workdir": "output/1789949316",
-    "published_at": "2026-09-21T00:31:09.475288+00:00",
+    "published_at": "2026-09-21T00:31:51Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -12906,7 +14314,7 @@
       "likes": 12,
       "comments": 0,
       "engagement_rate": 1.2539,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 956,
       "analytics_likes": 12,
       "analytics_comments": 0,
@@ -13029,6 +14437,22 @@
         "subscribers_gained": 2,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 136.0
+      },
+      {
+        "views": 957,
+        "likes": 12,
+        "comments": 0,
+        "engagement_rate": 1.2539,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 956,
+        "analytics_likes": 12,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 32.63,
+        "subscribers_gained": 2,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 136.0
       }
     ]
   },
@@ -13037,7 +14461,7 @@
     "topic": "Why do socks disappear",
     "title": "The Great Sock Heist",
     "workdir": "output/1789993416",
-    "published_at": "2026-09-21T12:39:21.052669+00:00",
+    "published_at": "2026-09-21T12:40:33Z",
     "topic_category": "Entertainment",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -13055,7 +14479,7 @@
       "likes": 3,
       "comments": 0,
       "engagement_rate": 0.3049,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 983,
       "analytics_likes": 3,
       "analytics_comments": 0,
@@ -13178,6 +14602,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 88.0
+      },
+      {
+        "views": 984,
+        "likes": 3,
+        "comments": 0,
+        "engagement_rate": 0.3049,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 983,
+        "analytics_likes": 3,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 39.91,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 88.0
       }
     ]
   },
@@ -13186,7 +14626,7 @@
     "topic": "Why clothes shrink in dryers",
     "title": "Why Do Clothes Shrink in Dryers?",
     "workdir": "output/1790014988",
-    "published_at": "2026-09-21T18:42:29.430037+00:00",
+    "published_at": "2026-09-21T18:43:15Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -13204,7 +14644,7 @@
       "likes": 5,
       "comments": 0,
       "engagement_rate": 0.7962,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 624,
       "analytics_likes": 5,
       "analytics_comments": 0,
@@ -13327,6 +14767,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 37.0
+      },
+      {
+        "views": 628,
+        "likes": 5,
+        "comments": 0,
+        "engagement_rate": 0.7962,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 624,
+        "analytics_likes": 5,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 12.0,
+        "average_view_percentage": 29.34,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 37.0
       }
     ]
   },
@@ -13335,7 +14791,7 @@
     "topic": "Why popcorn pops into shapes",
     "title": "The Wild Physics of Popping Corn",
     "workdir": "output/1790016954",
-    "published_at": "2026-09-21T19:27:13.457331+00:00",
+    "published_at": "2026-09-21T19:27:58Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -13353,7 +14809,7 @@
       "likes": 5,
       "comments": 0,
       "engagement_rate": 0.8418,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 593,
       "analytics_likes": 5,
       "analytics_comments": 0,
@@ -13476,6 +14932,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 46.0
+      },
+      {
+        "views": 594,
+        "likes": 5,
+        "comments": 0,
+        "engagement_rate": 0.8418,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 593,
+        "analytics_likes": 5,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 38.97,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 46.0
       }
     ]
   },
@@ -13484,7 +14956,7 @@
     "topic": "Why does shampoo foam",
     "title": "The Secret Life of Shampoo Bubbles",
     "workdir": "output/1790061179",
-    "published_at": "2026-09-22T07:41:57.103332+00:00",
+    "published_at": "2026-09-22T07:43:04Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -13502,7 +14974,7 @@
       "likes": 2,
       "comments": 0,
       "engagement_rate": 0.2188,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 913,
       "analytics_likes": 2,
       "analytics_comments": 0,
@@ -13625,6 +15097,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 117.0
+      },
+      {
+        "views": 914,
+        "likes": 2,
+        "comments": 0,
+        "engagement_rate": 0.2188,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 913,
+        "analytics_likes": 2,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 24.0,
+        "average_view_percentage": 54.620000000000005,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 117.0
       }
     ]
   },
@@ -13633,7 +15121,7 @@
     "topic": "Why soap removes grease",
     "title": "Why Soap Destroys Grease",
     "workdir": "output/1790128392",
-    "published_at": "2026-09-23T02:10:35.290444+00:00",
+    "published_at": "2026-09-23T02:11:02Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "story_structure": "7_scene_entertainment",
@@ -13651,7 +15139,7 @@
       "likes": 18,
       "comments": 0,
       "engagement_rate": 1.5986,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1125,
       "analytics_likes": 18,
       "analytics_comments": 0,
@@ -13774,6 +15262,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 149.0
+      },
+      {
+        "views": 1126,
+        "likes": 18,
+        "comments": 0,
+        "engagement_rate": 1.5986,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1125,
+        "analytics_likes": 18,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 19.0,
+        "average_view_percentage": 43.76,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 149.0
       }
     ]
   },
@@ -13782,7 +15286,7 @@
     "topic": "Why window glass rattles in the wind",
     "title": "Why Window Glass Rattles in the Wind",
     "workdir": "output/1790143464",
-    "published_at": "2026-09-23T06:32:40.190775+00:00",
+    "published_at": "2026-09-23T06:33:15Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "hook_text": "That rattling window glass is whispering secrets.",
@@ -13805,7 +15309,7 @@
       "likes": 5,
       "comments": 0,
       "engagement_rate": 0.478,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1041,
       "analytics_likes": 5,
       "analytics_comments": 0,
@@ -13928,6 +15432,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 112.0
+      },
+      {
+        "views": 1046,
+        "likes": 5,
+        "comments": 0,
+        "engagement_rate": 0.478,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1041,
+        "analytics_likes": 5,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 19.0,
+        "average_view_percentage": 44.26,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 112.0
       }
     ]
   },
@@ -13936,7 +15456,7 @@
     "topic": "Why do old keys stick",
     "title": "Why Do Old Keys Stick",
     "workdir": "output/1790155468",
-    "published_at": "2026-09-23T09:51:15.204074+00:00",
+    "published_at": "2026-09-23T09:52:03Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "hook_text": "That ancient brass key refuses to slide smoothly.",
@@ -13959,7 +15479,7 @@
       "likes": 12,
       "comments": 0,
       "engagement_rate": 1.2618,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 950,
       "analytics_likes": 12,
       "analytics_comments": 0,
@@ -14082,6 +15602,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 80.0
+      },
+      {
+        "views": 951,
+        "likes": 12,
+        "comments": 0,
+        "engagement_rate": 1.2618,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 950,
+        "analytics_likes": 12,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 16.0,
+        "average_view_percentage": 38.45,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 80.0
       }
     ]
   },
@@ -14090,7 +15626,7 @@
     "topic": "Why do mirrors flip horizontally",
     "title": "Why Mirrors Flip Horizontally",
     "workdir": "output/1790198130",
-    "published_at": "2026-09-23T21:32:37.783226+00:00",
+    "published_at": "2026-09-23T21:33:51Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "hook_text": "Hold a page of text up to a mirror.",
@@ -14113,7 +15649,7 @@
       "likes": 11,
       "comments": 0,
       "engagement_rate": 1.0446,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1055,
       "analytics_likes": 11,
       "analytics_comments": 0,
@@ -14236,6 +15772,22 @@
         "subscribers_gained": 2,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 111.0
+      },
+      {
+        "views": 1053,
+        "likes": 11,
+        "comments": 0,
+        "engagement_rate": 1.0446,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1055,
+        "analytics_likes": 11,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 15.0,
+        "average_view_percentage": 41.64,
+        "subscribers_gained": 2,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 111.0
       }
     ]
   },
@@ -14244,7 +15796,7 @@
     "topic": "Why do seatbelts lock",
     "title": "Why Seatbelts Lock When You Yank Them",
     "workdir": "output/1790254331",
-    "published_at": "2026-09-24T13:21:40.891258+00:00",
+    "published_at": "2026-09-24T13:22:39Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "hook_text": "You pull your seatbelt out slowly and it glides like butter.",
@@ -14267,7 +15819,7 @@
       "likes": 10,
       "comments": 0,
       "engagement_rate": 0.8881,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1130,
       "analytics_likes": 10,
       "analytics_comments": 0,
@@ -14390,6 +15942,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 153.0
+      },
+      {
+        "views": 1126,
+        "likes": 10,
+        "comments": 0,
+        "engagement_rate": 0.8881,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1130,
+        "analytics_likes": 10,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 47.24,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 153.0
       }
     ]
   },
@@ -14424,7 +15992,7 @@
     "topic": "Why do zipper sliders jam",
     "title": "Why Zipper Sliders Jam",
     "workdir": "output/1790275768",
-    "published_at": "2026-09-24T19:12:40.815110+00:00",
+    "published_at": "2026-09-24T19:13:56Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "hook_text": "You yank your jacket zipper and it instantly turns into a medieval fortress.",
@@ -14447,7 +16015,7 @@
       "likes": 10,
       "comments": 0,
       "engagement_rate": 0.9921,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 968,
       "analytics_likes": 10,
       "analytics_comments": 0,
@@ -14570,6 +16138,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 113.0
+      },
+      {
+        "views": 1008,
+        "likes": 10,
+        "comments": 0,
+        "engagement_rate": 0.9921,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 968,
+        "analytics_likes": 10,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 31.879999999999995,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 113.0
       }
     ]
   },
@@ -14578,7 +16162,7 @@
     "topic": "Why do tears taste salty",
     "title": "Why Do Tears Taste Salty?",
     "workdir": "output/1790319921",
-    "published_at": "2026-09-25T07:37:29.490200+00:00",
+    "published_at": "2026-09-25T07:38:23Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "hook_text": "You accidentally catch a stray tear on your lip, and BAM. Total ocean flavor.",
@@ -14601,7 +16185,7 @@
       "likes": 6,
       "comments": 0,
       "engagement_rate": 0.554,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1100,
       "analytics_likes": 6,
       "analytics_comments": 0,
@@ -14706,6 +16290,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 156.0
+      },
+      {
+        "views": 1083,
+        "likes": 6,
+        "comments": 0,
+        "engagement_rate": 0.554,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1100,
+        "analytics_likes": 6,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 32.35,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 156.0
       }
     ]
   },
@@ -14714,7 +16314,7 @@
     "topic": "Why do zippers get stuck",
     "title": "Why Do Zippers Get Stuck",
     "workdir": "output/1790340916",
-    "published_at": "2026-09-25T13:16:03.512224+00:00",
+    "published_at": "2026-09-25T13:16:58Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "hook_text": "You pull your jacket zipper and it instantly turns into solid concrete.",
@@ -14733,11 +16333,11 @@
     "creative_experiment_id": "creative_v3_wild_cycle11_slot5",
     "creative_selected_pattern": "",
     "latest": {
-      "views": 945,
+      "views": 947,
       "likes": 13,
       "comments": 1,
-      "engagement_rate": 1.4815,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "engagement_rate": 1.4784,
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 962,
       "analytics_likes": 13,
       "analytics_comments": 1,
@@ -14842,6 +16442,22 @@
         "subscribers_gained": 3,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 140.0
+      },
+      {
+        "views": 947,
+        "likes": 13,
+        "comments": 1,
+        "engagement_rate": 1.4784,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 962,
+        "analytics_likes": 13,
+        "analytics_comments": 1,
+        "shares": 0,
+        "average_view_duration": 15.0,
+        "average_view_percentage": 38.85,
+        "subscribers_gained": 3,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 140.0
       }
     ]
   },
@@ -14850,7 +16466,7 @@
     "topic": "Why coffee cups drip down the side",
     "title": "Why Coffee Cups Drip Down The Side",
     "workdir": "output/1790359912",
-    "published_at": "2026-09-25T18:45:11.006725+00:00",
+    "published_at": "2026-09-25T18:46:07Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "hook_text": "You pour a careful morning mug, tilt it to sip, and instantly a rogue droplet betrays you.",
@@ -14873,7 +16489,7 @@
       "likes": 11,
       "comments": 2,
       "engagement_rate": 1.2464,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00",
+      "checked_at": "2026-09-28T08:39:31.140570+00:00",
       "analytics_views": 1051,
       "analytics_likes": 10,
       "analytics_comments": 1,
@@ -14978,6 +16594,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 1,
         "estimated_minutes_watched": 109.0
+      },
+      {
+        "views": 1043,
+        "likes": 11,
+        "comments": 2,
+        "engagement_rate": 1.2464,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00",
+        "analytics_views": 1051,
+        "analytics_likes": 10,
+        "analytics_comments": 1,
+        "shares": 1,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 31.22,
+        "subscribers_gained": 1,
+        "subscribers_lost": 1,
+        "estimated_minutes_watched": 109.0
       }
     ]
   },
@@ -14986,7 +16618,7 @@
     "topic": "Why does paint peel",
     "title": "Why Paint Peels off Walls",
     "workdir": "output/1790406032",
-    "published_at": "2026-09-26T07:23:15.259519+00:00",
+    "published_at": "2026-09-26T07:24:08Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "hook_text": "That patch of wall paint is literally walking off.",
@@ -15005,11 +16637,11 @@
     "creative_experiment_id": "creative_v3_wild_cycle11_slot7",
     "creative_selected_pattern": "",
     "latest": {
-      "views": 1065,
+      "views": 1066,
       "likes": 10,
       "comments": 0,
-      "engagement_rate": 0.939,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00"
+      "engagement_rate": 0.9381,
+      "checked_at": "2026-09-28T08:39:31.140570+00:00"
     },
     "snapshots": [
       {
@@ -15060,6 +16692,13 @@
         "comments": 0,
         "engagement_rate": 0.939,
         "checked_at": "2026-09-27T22:45:47.859012+00:00"
+      },
+      {
+        "views": 1066,
+        "likes": 10,
+        "comments": 0,
+        "engagement_rate": 0.9381,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00"
       }
     ]
   },
@@ -15068,7 +16707,7 @@
     "topic": "Why does an apple brown",
     "title": "Why Does An Apple Brown",
     "workdir": "output/1790425318",
-    "published_at": "2026-09-26T12:41:38.473025+00:00",
+    "published_at": "2026-09-26T12:44:26Z",
     "topic_category": "Education",
     "hook_type": "hook",
     "hook_text": "Slice a crisp apple and watch it commit instant color treason.",
@@ -15087,11 +16726,11 @@
     "creative_experiment_id": "creative_v3_wild_cycle11_slot8",
     "creative_selected_pattern": "",
     "latest": {
-      "views": 907,
+      "views": 900,
       "likes": 10,
       "comments": 0,
-      "engagement_rate": 1.1025,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00"
+      "engagement_rate": 1.1111,
+      "checked_at": "2026-09-28T08:39:31.140570+00:00"
     },
     "snapshots": [
       {
@@ -15142,6 +16781,13 @@
         "comments": 0,
         "engagement_rate": 1.1025,
         "checked_at": "2026-09-27T22:45:47.859012+00:00"
+      },
+      {
+        "views": 900,
+        "likes": 10,
+        "comments": 0,
+        "engagement_rate": 1.1111,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00"
       }
     ]
   },
@@ -15150,7 +16796,7 @@
     "topic": "Why shower curtains attack you",
     "title": "Why Shower Curtains Attack You",
     "workdir": "output/1790443429",
-    "published_at": "2026-09-26T17:39:19.177996+00:00",
+    "published_at": "2026-09-26T17:41:04Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "hook_text": "That plastic shower curtain wraps around your leg like an obsessed octopus.",
@@ -15169,11 +16815,11 @@
     "creative_experiment_id": "creative_v3_wild_cycle11_slot9",
     "creative_selected_pattern": "",
     "latest": {
-      "views": 1118,
+      "views": 1105,
       "likes": 9,
       "comments": 0,
-      "engagement_rate": 0.805,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00"
+      "engagement_rate": 0.8145,
+      "checked_at": "2026-09-28T08:39:31.140570+00:00"
     },
     "snapshots": [
       {
@@ -15224,6 +16870,13 @@
         "comments": 0,
         "engagement_rate": 0.805,
         "checked_at": "2026-09-27T22:45:47.859012+00:00"
+      },
+      {
+        "views": 1105,
+        "likes": 9,
+        "comments": 0,
+        "engagement_rate": 0.8145,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00"
       }
     ]
   },
@@ -15239,11 +16892,11 @@
     "creative_strategy": "wild",
     "creative_experiment_id": "creative_v3_wild_cycle11_slot10",
     "latest": {
-      "views": 196,
+      "views": 237,
       "likes": 1,
       "comments": 0,
-      "engagement_rate": 0.5102,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00"
+      "engagement_rate": 0.4219,
+      "checked_at": "2026-09-28T08:39:31.140570+00:00"
     },
     "snapshots": [
       {
@@ -15287,6 +16940,13 @@
         "comments": 0,
         "engagement_rate": 0.5102,
         "checked_at": "2026-09-27T22:45:47.859012+00:00"
+      },
+      {
+        "views": 237,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 0.4219,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00"
       }
     ]
   },
@@ -15295,7 +16955,7 @@
     "topic": "Why does a kettle whistle",
     "title": "Why Does A Kettle Whistle?",
     "workdir": "output/1790531893",
-    "published_at": "2026-09-27T18:18:36.064679+00:00",
+    "published_at": "2026-09-27T18:21:21Z",
     "topic_category": "Science & Education",
     "hook_type": "hook",
     "hook_text": "That peaceful morning tea suddenly turns into a screaming metal monster.",
@@ -15314,11 +16974,11 @@
     "creative_experiment_id": "creative_v3_wild_cycle12_slot1",
     "creative_selected_pattern": "",
     "latest": {
-      "views": 594,
+      "views": 995,
       "likes": 4,
       "comments": 0,
-      "engagement_rate": 0.6734,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00"
+      "engagement_rate": 0.402,
+      "checked_at": "2026-09-28T08:39:31.140570+00:00"
     },
     "snapshots": [
       {
@@ -15355,6 +17015,13 @@
         "comments": 0,
         "engagement_rate": 0.6734,
         "checked_at": "2026-09-27T22:45:47.859012+00:00"
+      },
+      {
+        "views": 995,
+        "likes": 4,
+        "comments": 0,
+        "engagement_rate": 0.402,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00"
       }
     ]
   },
@@ -15370,11 +17037,11 @@
     "creative_strategy": "wild",
     "creative_experiment_id": "creative_v3_wild_cycle12_slot2",
     "latest": {
-      "views": 158,
-      "likes": 1,
+      "views": 674,
+      "likes": 2,
       "comments": 0,
-      "engagement_rate": 0.6329,
-      "checked_at": "2026-09-27T22:45:47.859012+00:00"
+      "engagement_rate": 0.2967,
+      "checked_at": "2026-09-28T08:39:31.140570+00:00"
     },
     "snapshots": [
       {
@@ -15383,6 +17050,13 @@
         "comments": 0,
         "engagement_rate": 0.6329,
         "checked_at": "2026-09-27T22:45:47.859012+00:00"
+      },
+      {
+        "views": 674,
+        "likes": 2,
+        "comments": 0,
+        "engagement_rate": 0.2967,
+        "checked_at": "2026-09-28T08:39:31.140570+00:00"
       }
     ]
   }

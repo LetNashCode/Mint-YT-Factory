@@ -12,18 +12,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Bob Ross",
-    "premise": "A former military master sergeant adopts a specific painting technique to produce art rapidly while working a demanding day job.",
-    "hook": "He spent twenty years yelling in the military, then made a pact to never raise his voice again while painting.",
-    "key_facts": [
-      "Served in the United States Air Force for two decades, reaching the rank of master sergeant.",
-      "Developed a rapid-painting style to create and sell landscape artworks during short breaks.",
-      "Adapted his concise technique into a long-running public television instructional show."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Virat Kohli",
     "premise": "Playing a domestic cricket match for Delhi on the day his father passed away, returning to the crease to score a crucial innings.",
@@ -37,19 +25,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Alexander Fleming",
-    "premise": "Returning from a holiday to find a messy, unwashed laboratory petri dish contaminated with mold that destroyed surrounding bacteria.",
-    "hook": "A messy laboratory bench and a stray mold spore led to the discovery of the world's first antibiotic.",
-    "key_facts": [
-      "Found a petri dish containing Staphylococcus bacteria contaminated with Penicillium mold in 1928.",
-      "Observed that the bacteria surrounding the mold colony had been destroyed.",
-      "Published his findings on penicillin in the British Journal of Experimental Pathology in 1929.",
-      "Shared the Nobel Prize in Physiology or Medicine in 1945 for his discovery."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Viswanathan Anand",
     "premise": "Learning the game of chess from his mother in Chennai as a child before dominating international competitions to become India's first grandmaster.",
@@ -59,19 +34,6 @@
       "Became India's first chess Grandmaster in 1988 at the age of 18.",
       "Won the FIDE World Chess Championship multiple times across different formats.",
       "Awarded India's highest civilian sporting honor, the Rajiv Gandhi Khel Ratna, in 1991."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "Surviving months on ice floes after his ship Endurance was crushed by Antarctic pack ice, orchestrating a rescue of all crew members.",
-    "hook": "His ship was crushed and sunk by Antarctic ice, stranding twenty-eight men on floating floes with no way to call for help.",
-    "key_facts": [
-      "Led the Imperial Trans-Antarctic Expedition which set sail in 1914.",
-      "Endurance was trapped and eventually crushed by ice in the Weddell Sea.",
-      "Traveled 800 miles in a small lifeboat to South Georgia Island to secure rescue for his crew.",
-      "Successfully returned to rescue every single member of his stranded expedition."
     ],
     "source": "gemini_original"
   },

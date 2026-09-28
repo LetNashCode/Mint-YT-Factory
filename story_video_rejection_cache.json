@@ -30,6 +30,56 @@
       "source_id": "archive:romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
       "source_url": "https://archive.org/details/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
       "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "21c2a8b2349b9dd5503d72a3": {
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202512",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "1d7443e109e4a919238a66e0": {
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "24d9c48eb97bea957ce9a8af": {
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "49edf995264f626e67b0be53": {
+      "source_id": "archive:shackletons-expedition",
+      "source_url": "https://archive.org/details/shackletons-expedition",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "67f74ae6e4c4f6b78636078d": {
+      "source_id": "archive:antarctica-a-frozen-history",
+      "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "d8c7b3e51f9b383693228052": {
+      "source_id": "archive:theendurance2000",
+      "source_url": "https://archive.org/details/theendurance2000",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "f943185945b4ec09231cafef": {
+      "source_id": "archive:13.SIRALEXANDERFLEMING",
+      "source_url": "https://archive.org/details/13.SIRALEXANDERFLEMING",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "34830a8aa82ecdbecc5f3421": {
+      "source_id": "archive:the-long-road-to-success-of-penicillin-started-before-1929-copy",
+      "source_url": "https://archive.org/details/the-long-road-to-success-of-penicillin-started-before-1929-copy",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "9468e5c98088549f719859e2": {
+      "source_id": "archive:musee-gaumais-bratia-mp-4",
+      "source_url": "https://archive.org/details/musee-gaumais-bratia-mp-4",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "6ee77f708e6386ff09217251": {
+      "source_id": "archive:jean-pierre-gratia-2025-as-2-amr-bic-2025",
+      "source_url": "https://archive.org/details/jean-pierre-gratia-2025-as-2-amr-bic-2025",
+      "reason": "visual verifier rejected source after four unusable identity samples"
     }
   }
 }

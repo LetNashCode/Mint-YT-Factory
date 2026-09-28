@@ -97,6 +97,26 @@ def verifier_budget_status():
     return story_gemini_budget.status()
 
 
+def verify_with_budget(person, scene, item, samples):
+    """Verify a clip without exhausting the run-wide Gemini budget on bad sources."""
+    if story_gemini_budget.should_use_qwen_for_visual_verification(
+        story_qwen_vision_fallback.enabled()
+    ):
+        print(
+            "🛟 Story visual verification: Gemini visual budget reached; "
+            "using local Qwen2-VL for remaining frame checks",
+            flush=True,
+        )
+        result = story_qwen_vision_fallback.verify(
+            person=person, scene=scene, item=item, samples=samples
+        )
+        if not isinstance(result, dict):
+            raise RuntimeError("Qwen vision fallback returned a non-object result")
+        return result
+    _consume_verifier_request()
+    return verify(person, scene, item, samples)
+
+
 def _mark_gemini_quota_deferred(reason):
     """Persist a hard Gemini quota exhaustion so the runner stops safely."""
     Path(QUOTA_DEFER_FILE).write_text(str(reason).strip()[:1200] + "\n", encoding="utf-8")
@@ -802,8 +822,9 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                             if catalog is not None:
                                 verdict = catalog.verify(person, scene, item, cached[identity], start, length)
                             else:
-                                _consume_verifier_request()
-                                verdict = verify(person, scene, item, cached[identity])
+                                verdict = verify_with_budget(
+                                    person, scene, item, cached[identity]
+                                )
                             if not isinstance(verdict, dict):
                                 raise RuntimeError(
                                     f"Story verifier returned invalid result type: {type(verdict).__name__}"

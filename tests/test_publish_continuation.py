@@ -97,3 +97,24 @@ def test_publish_removes_future_topic_intro_from_earlier_scene():
     assert removed == 1
     assert "soda fizz" not in script["scene_plan"][1]["narration"].lower()
     assert script["scene_plan"][-1]["narration"] == "Ending placeholder."
+
+
+def test_publish_rejects_future_topic_inside_scene_6():
+    import pytest
+    import generate_script
+
+    script = {
+        "next_short": {"topic": "Why do clothes shrink in dryers"},
+        "scene_plan": [
+            {"narration": "Hook."},
+            {"narration": "Setup."},
+            {"narration": "Explanation."},
+            {"narration": "Mechanism."},
+            {"narration": "Escalation."},
+            {"narration": "And once you know that, there's another mystery: why your favourite clothes shrink in dryers."},
+            {"narration": "Final handoff."},
+        ],
+    }
+
+    with pytest.raises(RuntimeError, match="Scene 6"):
+        generate_script._validate_no_future_topic_in_story(script, "Why does a brush shed")

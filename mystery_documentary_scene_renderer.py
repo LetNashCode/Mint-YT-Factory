@@ -373,7 +373,18 @@ def main():
         listing = work / "concat.txt"
         listing.write_text("\n".join("file '" + p.as_posix() + "'" for p in parts) + "\n", encoding="utf-8")
         output = OUT / "mystery-documentary.mp4"
-        cmd(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", listing, "-c", "copy", output])
+        # Re-encode the final concat so independently rendered scene timestamps,
+        # especially replay clips, cannot drop video packets or leave audio running
+        # after the video stream ends.
+        cmd([
+            "ffmpeg", "-y",
+            "-f", "concat", "-safe", "0", "-i", listing,
+            "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
+            "-pix_fmt", "yuv420p",
+            "-c:a", "aac", "-b:a", "192k",
+            "-movflags", "+faststart",
+            output,
+        ])
     meta = {
         "video_title": timeline.get("video_title", item.get("title", "Mystery Documentary")),
         "description": timeline.get("description_intro", "") + "\n\nSource footage: " + item.get("source_url", ""),

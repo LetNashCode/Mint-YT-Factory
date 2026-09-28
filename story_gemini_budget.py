@@ -86,8 +86,17 @@ def visual_gemini_limit() -> int:
 
 
 def should_use_qwen_for_visual_verification(qwen_enabled: bool) -> bool:
-    """Switch visual verification to local Qwen before the run-wide budget is exhausted."""
+    """Return whether local Qwen may take over visual verification.
+
+    Never use CPU Qwen on GitHub-hosted production runners. A single Qwen
+    verification can take several minutes and malformed JSON can trigger a
+    second inference, which can consume the entire workflow timeout. CI must
+    stop at the Gemini visual budget and let the caller fail/defer cleanly.
+    Local development may still opt into Qwen explicitly.
+    """
     if not qwen_enabled:
+        return False
+    if str(os.environ.get("GITHUB_ACTIONS", "")).strip().lower() == "true":
         return False
     ensure()
     return int(_BUDGET["used"]) >= visual_gemini_limit()

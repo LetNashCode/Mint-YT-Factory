@@ -32,6 +32,7 @@ def probe(path: Path) -> tuple[float, int, int, bool]:
 
 MIN_NARRATION_SILENCE_SECONDS = 1.25
 
+
 def _check_unexpected_silence(path: Path, rendered_timeline: Path) -> list[float]:
     """Reject long silence inside narration; allow silence in intentional source-audio scenes."""
     result = subprocess.run(
@@ -44,29 +45,88 @@ def _check_unexpected_silence(path: Path, rendered_timeline: Path) -> list[float
         scenes = [s for s in data.get("scenes", []) if isinstance(s, dict)]
     except (OSError, ValueError, TypeError):
         scenes = []
+
     source_audio_intervals = [
         (float(s.get("start", 0) or 0), float(s.get("end", 0) or 0))
         for s in scenes
         if str(s.get("audio_mode") or "").lower() == "original"
     ]
+
+    diagnostics = []
     silences = []
     current = None
     for line in result.stderr.splitlines():
         if "silence_start:" in line:
-            try: current = float(line.split("silence_start:", 1)[1].strip())
-            except ValueError: current = None
+            try:
+                current = float(line.split("silence_start:", 1)[1].strip())
+            except ValueError:
+                current = None
         elif "silence_end:" in line and current is not None:
             try:
                 end = float(line.split("silence_end:", 1)[1].split("|", 1)[0].strip())
                 duration = end - current
                 if duration >= MIN_NARRATION_SILENCE_SECONDS:
-                    fully_in_source = any(current >= start - 0.15 and end <= finish + 0.15 for start, finish in source_audio_intervals)
-                    if not fully_in_source:
+                    # The final concat/codec can move a scene boundary slightly.
+                    # Classify by overlap with an intentional original-audio scene
+                    # rather than requiring exact containment.
+                    best_overlap = 0.0
+                    best_scene = None
+                    for start, finish in source_audio_intervals:
+                        overlap = max(0.0, min(end, finish) - max(current, start))
+                        if overlap > best_overlap:
+                            best_overlap = overlap
+                            best_scene = (start, finish)
+
+                    overlap_ratio = best_overlap / max(duration, 0.001)
+                    allowed_source_gap = (
+                        overlap_ratio >= 0.70
+                        or (
+                            best_overlap >= 0.75
+                            and best_scene is not None
+                            and current >= best_scene[0] - 0.35
+                            and end <= best_scene[1] + 0.35
+                        )
+                    )
+
+                    diagnostics.append({
+                        "start": round(current, 3),
+                        "end": round(end, 3),
+                        "duration": round(duration, 3),
+                        "source_overlap": round(best_overlap, 3),
+                        "source_overlap_ratio": round(overlap_ratio, 3),
+                        "allowed_as_source_audio": bool(allowed_source_gap),
+                        "source_scene": (
+                            {"start": round(best_scene[0], 3), "end": round(best_scene[1], 3)}
+                            if best_scene else None
+                        ),
+                    })
+
+                    if not allowed_source_gap:
                         silences.append(round(duration, 3))
             except ValueError:
                 pass
             current = None
+
+    try:
+        (OUT / "silence_diagnostics.json").write_text(
+            json.dumps(
+                {
+                    "threshold_seconds": MIN_NARRATION_SILENCE_SECONDS,
+                    "source_audio_scene_count": len(source_audio_intervals),
+                    "detected_gaps": diagnostics,
+                    "unexpected_gaps": silences,
+                },
+                indent=2,
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
+    except OSError:
+        pass
+
     return silences
+
+
 def main() -> None:
     video = OUT / "mystery-documentary.mp4"
     script = OUT / "script.json"
@@ -100,11 +160,13 @@ def main() -> None:
         cursor = end
     if cursor < 89.5:
         raise RuntimeError(f"Mystery quality gate: scene plan only covers {cursor:.2f}s")
+
     stats = timeline_data.get("narration_stats") or {}
     effect_stats = timeline_data.get("visual_effect_stats") or {}
     audio_mix = timeline_data.get("audio_mix_stats") or {}
     narration_ratio = float(audio_mix.get("narration_ratio", 0) or 0)
     original_ratio = float(audio_mix.get("original_audio_ratio", 0) or 0)
+
     if not any(isinstance(s, dict) and s.get("visual_effect") for s in (timeline_data.get("scene_plan") or [])):
         raise RuntimeError("Mystery quality gate: scene plan has no visual effect instructions")
     if narration_ratio < 0.65:
@@ -138,7 +200,7 @@ def main() -> None:
         raise RuntimeError("Mystery quality gate: rendered scene timing artifact is missing")
     long_silences = _check_unexpected_silence(video, rendered_scene_timeline)
     if long_silences:
-        raise RuntimeError(f"Mystery quality gate: detected unexplained silent gaps >=0.80s: {long_silences}")
+        raise RuntimeError(f"Mystery quality gate: detected unexplained silent gaps >={MIN_NARRATION_SILENCE_SECONDS:.2f}s: {long_silences}")
 
     audio_timeline = OUT / "audio_timeline.json"
     if not audio_timeline.is_file():

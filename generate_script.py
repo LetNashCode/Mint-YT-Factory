@@ -476,6 +476,44 @@ def _fallback_identity(topic):
     }
 
 
+def _validate_no_future_topic_in_story(script, topic):
+    """Hard gate: Scenes 1-6 may not contain the generated continuation topic or its handoff language."""
+    next_topic = _clean((script.get("next_short") or {}).get("topic"))
+    if not next_topic:
+        return
+    next_key = re.sub(r"[^a-z0-9]+", " ", next_topic.lower()).strip()
+    next_words = {w for w in re.findall(r"[a-z0-9]+", next_topic.lower()) if len(w) >= 4 and w not in {
+        "why", "what", "when", "where", "how", "does", "do", "did", "the", "and", "that",
+        "this", "with", "from", "into", "your", "about", "happen", "happens", "things",
+    }}
+    teaser_patterns = (
+        r"^and\\s+once\\s+you\\s+know\\s+that\\b",
+        r"^but\\s+(?:that|this)\\s+(?:isn't|is\\s+not)\\s+the\\s+only\\b",
+        r"^there(?:'s|\\s+is)\\s+another\\b",
+        r"^one\\s+mystery\\s+down\\b",
+        r"^next\\s+time\\s+you\\b",
+        r"^next\\s+(?:comes|up|is|one|mystery|question)\\b",
+        r"^keep\\s+an\\s+eye\\s+out\\s+for\\s+this\\s+one\\b",
+        r"^if\\s+that\\s+surprised\\s+you\\b",
+        r"^okay,?\\s+but\\s+that\\s+leaves\\b",
+        r"^one\\s+more\\s+mystery\\b",
+        r"^up\\s+next\\b",
+        r"^coming\\s+next\\b",
+        r"^stay\\s+tuned\\b",
+        r"^part\\s+2\\b",
+    )
+    for index, scene in enumerate((script.get("scene_plan") or [])[:6], start=1):
+        narration = _clean(scene.get("narration"))
+        normalized = re.sub(r"[^a-z0-9]+", " ", narration.lower()).strip()
+        if next_key and next_key in normalized:
+            raise RuntimeError(f"Scene {index} contains the generated continuation topic: {next_topic}")
+        overlap = next_words & set(re.findall(r"[a-z0-9]+", normalized))
+        if len(next_words) >= 2 and len(overlap) >= 2:
+            raise RuntimeError(f"Scene {index} appears to reference the generated continuation topic: {next_topic}")
+        if any(re.search(pattern, narration, re.I) for pattern in teaser_patterns):
+            raise RuntimeError(f"Scene {index} contains a future-topic handoff before Scene 7.")
+
+
 def _validate_entertainment(script, topic):
     scenes = script.get("scene_plan")
     if not isinstance(scenes, list) or len(scenes) != 7:
@@ -668,6 +706,7 @@ def generate_script(topic, config, research=None, extra_feedback=""):
                 0.95,
             )
             word_count = _validate_entertainment(entertainment, topic)
+            _validate_no_future_topic_in_story(entertainment, topic)
             print(f"🎭 Entertainment writer pass: {word_count} words")
 
             # Hard originality gate before spending another model call on visuals.

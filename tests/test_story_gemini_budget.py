@@ -77,10 +77,10 @@ def test_visual_verification_reserves_gemini_budget_for_later_story_stages(monke
     monkeypatch.delenv("STORY_GEMINI_MAX_VISUAL_REQUESTS", raising=False)
     assert budget.begin() == {"limit": 64, "used": 0}
 
-    for _ in range(42):
+    for _ in range(56):
         budget.consume("visual_verification")
 
-    assert budget.visual_gemini_limit() == 42
+    assert budget.visual_gemini_limit() == 56
     assert budget.should_use_qwen_for_visual_verification(True) is True
     assert budget.should_use_qwen_for_visual_verification(False) is False
 

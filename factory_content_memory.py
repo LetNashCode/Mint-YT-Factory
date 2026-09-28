@@ -84,6 +84,11 @@ def _sanitize_internal_rows(rows: list[dict]) -> list[dict]:
     return clean
 
 
+def _is_internal_topic(topic: str) -> bool:
+    value = str(topic or "").strip()
+    return value.startswith("__MINT_PENDING_NEXT_TOPIC__::") or value.startswith("__MINT_ANALYTICS__::")
+
+
 def _bootstrap_legacy(rows: list[dict]) -> list[dict]:
     """Migrate prior workflow-specific histories into the shared memory once."""
     original_count = len(rows)
@@ -97,6 +102,7 @@ def _bootstrap_legacy(rows: list[dict]) -> list[dict]:
                 _save(rows)
             return rows
         if version >= 1:
+            rows = _sanitize_internal_rows(rows)
             _save(rows)
             BOOTSTRAP_STATE.parent.mkdir(parents=True, exist_ok=True)
             BOOTSTRAP_STATE.write_text(
@@ -124,14 +130,14 @@ def _bootstrap_legacy(rows: list[dict]) -> list[dict]:
             values = value.get("entries") or value.get("items") or []
         for item in values:
             if isinstance(item, str):
-                if not item.startswith("__MINT_ANALYTICS__::"):
+                if not _is_internal_topic(item):
                     legacy_topics.append((workflow, item))
                 continue
             if not isinstance(item, dict):
                 continue
             for key in topic_keys:
                 topic = str(item.get(key) or "").strip()
-                if topic:
+                if topic and not _is_internal_topic(topic):
                     legacy_topics.append((workflow, topic))
                     break
 
@@ -140,11 +146,11 @@ def _bootstrap_legacy(rows: list[dict]) -> list[dict]:
     add_json_topics(ROOT / "used_topics.json", "publish_legacy", ("topic",))
     add_json_topics(ROOT / "analytics" / "videos.json", "analytics_legacy", ("topic", "title"))
 
-    existing = list(rows)
+    existing = _sanitize_internal_rows(list(rows))
     added = 0
     for workflow, topic in legacy_topics:
         clean = " ".join(str(topic).split()).strip()
-        if not clean or duplicate(clean, existing):
+        if not clean or _is_internal_topic(clean) or duplicate(clean, existing):
             continue
         now = int(time.time())
         existing.append({
@@ -157,6 +163,7 @@ def _bootstrap_legacy(rows: list[dict]) -> list[dict]:
         })
         added += 1
 
+    existing = _sanitize_internal_rows(existing)
     _save(existing)
     BOOTSTRAP_STATE.parent.mkdir(parents=True, exist_ok=True)
     BOOTSTRAP_STATE.write_text(
@@ -204,6 +211,7 @@ def claim(workflow: str, topic: str, metadata: dict | None = None) -> str:
     if not clean:
         raise RuntimeError(f"{workflow}: cannot reserve an empty topic")
     rows = _bootstrap_legacy(_purge_stale(_load()))
+    rows = _sanitize_internal_rows(rows)
     normalized = normalize_topic(clean)
     for row in rows:
         if (
@@ -232,6 +240,7 @@ def claim(workflow: str, topic: str, metadata: dict | None = None) -> str:
         "recorded_at": now,
         "metadata": metadata if isinstance(metadata, dict) else {},
     })
+    rows = _sanitize_internal_rows(rows)
     _save(rows)
     print(f"🔐 FACTORY TOPIC RESERVED | workflow={workflow} | topic={clean}")
     return clean
@@ -336,7 +345,6 @@ def emotional_topic_history(limit: int = 60) -> list[dict]:
                 "topic": str(row.get("topic") or "").strip(),
             })
     return result[-max(1, int(limit)):]
-
 
 
 def release(topic: str, workflow: str = "") -> bool:

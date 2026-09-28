@@ -71,3 +71,29 @@ def test_publish_ending_contains_only_canonical_next_topic(monkeypatch):
     assert "kettle" not in locked["scene_plan"][-1]["narration"].lower()
     assert "soda fizz" not in locked["scene_plan"][-2]["narration"].lower()
     assert "kettle whistles" in locked["scene_plan"][-2]["narration"].lower()
+
+
+def test_publish_removes_future_topic_intro_from_earlier_scene():
+    import main
+
+    script = {
+        "topic": "Why does a kettle whistle",
+        "next_short": {"topic": "Why does soda fizz"},
+        "scene_plan": [
+            {"narration": "Hook."},
+            {"narration": "The mechanism is surprisingly simple. And once you know that, there's another everyday mystery hiding in plain sight: why does soda fizz?"},
+            {"narration": "Final explanation."},
+            {"narration": "The payoff."},
+            {"narration": "More detail."},
+            {"narration": "The answer."},
+            {"narration": "Ending placeholder."},
+        ],
+    }
+
+    removed = main._strip_future_continuations_from_prior_scenes(
+        script, ["Why does soda fizz"]
+    )
+
+    assert removed == 1
+    assert "soda fizz" not in script["scene_plan"][1]["narration"].lower()
+    assert script["scene_plan"][-1]["narration"] == "Ending placeholder."

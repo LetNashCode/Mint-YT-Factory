@@ -2596,99 +2596,6 @@
     {
       "person": "Nolan Bushnell",
       "source": {
-        "id": "archive:twitter-935784150069415936",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-935784150069415936/935784150069415936.mp4",
-        "source_url": "https://archive.org/details/twitter-935784150069415936",
-        "title": "BBC Archive - #OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
-        "description": "#OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/XmWXVKpix2 Source: https://twitter.com/BBCArchive/status/935784150069415936 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OTD']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 25.81,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video shows real archival interview footage of Nolan Bushnell, providing biographical illustration for a segment about Atari and Pong.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "1abd11e28c26d08841891bb81692f4c48cfa7309c54d67cbb97f2e6e1312af42",
-      "reviewed_at": 1790504460.027893
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
-        "id": "archive:twitter-935784150069415936",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-935784150069415936/935784150069415936.mp4",
-        "source_url": "https://archive.org/details/twitter-935784150069415936",
-        "title": "BBC Archive - #OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
-        "description": "#OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/XmWXVKpix2 Source: https://twitter.com/BBCArchive/status/935784150069415936 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OTD']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 46.84,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video shows Nolan Bushnell speaking in archival interview footage, which serves as good biographical illustration, though it does not directly depict the specific event of unveiling Pong.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a392bef35e5a85d5706f8f81a0045bc048b8fbe8443a3fdaf4f2c712e430b616",
-      "reviewed_at": 1790504467.2667174
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
-        "id": "archive:TWiST-E282",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
-        "source_url": "https://archive.org/details/TWiST-E282",
-        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
-        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "creator": "ThisWeekIn Network",
-        "license": "",
-        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 2086.4,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Nolan Bushnell is clearly visible in all three frames participating in a podcast interview. While it is not direct historical footage of past events like founding Atari, it serves as acceptable biographical illustration of the subject in later life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a59b9aeedb19a146939b10cfc6e21b4b10bb350435c4d876939c945bfa9963a3",
-      "reviewed_at": 1790504491.1439223
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
         "id": "archive:TWiST-E282",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
@@ -3274,6 +3181,161 @@
       },
       "review_key": "a6207d262b96c8c43c950707b48974918a0fb2d4d85badb04d25dced5e36c81c",
       "reviewed_at": 1790587066.021909
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:twitter-935784150069415936",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-935784150069415936/935784150069415936.mp4",
+        "source_url": "https://archive.org/details/twitter-935784150069415936",
+        "title": "BBC Archive - #OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
+        "description": "#OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/XmWXVKpix2 Source: https://twitter.com/BBCArchive/status/935784150069415936 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OTD']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 25.81,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows actual archival interview footage of Nolan Bushnell, the subject of the biography, speaking about the history of Pong. While it is an interview rather than direct footage of the exact event being narrated, it serves as strong biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d1e5024a57b8df91e7304325879a6ba3d46699f552897746609c958978c19b6d",
+      "reviewed_at": 1790594723.6527617
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:twitter-935784150069415936",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-935784150069415936/935784150069415936.mp4",
+        "source_url": "https://archive.org/details/twitter-935784150069415936",
+        "title": "BBC Archive - #OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
+        "description": "#OTD 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/XmWXVKpix2 Source: https://twitter.com/BBCArchive/status/935784150069415936 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OTD']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 46.84,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features real archival footage of Nolan Bushnell speaking in an interview setting, providing biographical illustration rather than depicting the specific historical event of the development of Pong.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8acb5f234f6544946866a5bcc91ddac336fb05e506afaddcb8033f234251b15a",
+      "reviewed_at": 1790594730.7831647
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:TWiST-E282",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
+        "source_url": "https://archive.org/details/TWiST-E282",
+        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
+        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "creator": "ThisWeekIn Network",
+        "license": "",
+        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2086.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features a genuine interview with Nolan Bushnell, clearly visible throughout the frames, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4eabcbfd4aba476b6efa2f5d93b3099dc2b14adad7e294a5aacfaa216a053015",
+      "reviewed_at": 1790594793.7500284
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:twitter-1200420398178816001",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1200420398178816001/1200420398178816001.mp4",
+        "source_url": "https://archive.org/details/twitter-1200420398178816001",
+        "title": "BBC Archive - #OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
+        "description": "#OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/TA1mebdGMa Source: https://twitter.com/BBCArchive/status/1200420398178816001 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 48.6,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show archival interview footage of Nolan Bushnell, but he is turning away and partially out of frame by the third image. It provides biographical context/illustration rather than depicting the direct historical event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "525ac2a87320bccf47026b165bc309b01b62ffd946b1992e0055ad817ad69664",
+      "reviewed_at": 1790595142.2897487
+    },
+    {
+      "person": "Nolan Bushnell",
+      "source": {
+        "id": "archive:twitter-1068055713648390144",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1068055713648390144/1068055713648390144.mp4",
+        "source_url": "https://archive.org/details/twitter-1068055713648390144",
+        "title": "BBC Archive - #OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping. (It was not)",
+        "description": "#OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping. (It was not) https://t.co/0QiotQis2Q Source: https://twitter.com/BBCArchive/status/1068055713648390144 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 26.78,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video shows real archival footage of Nolan Bushnell speaking in an interview setting, which serves as biographical illustration for a video about him and Atari.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "439693e6dbfc51fab25cf65872584f5ad0a93dcd7ccc37178b48312af48f46e4",
+      "reviewed_at": 1790595191.14949
     }
   ]
 }

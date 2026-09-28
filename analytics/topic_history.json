@@ -2871,14 +2871,17 @@
     "topic": "Nolan Bushnell: Selling a stake in Apple Computer for a few thousand dollars to focus on his own arcade business instead.",
     "normalized": "nolan bushnell selling a stake in apple computer for a few thousand dollars to focus on his own arcade business instead",
     "workflow": "story",
-    "status": "reserved",
+    "status": "published",
     "reserved_at": 1790589511,
     "recorded_at": 1790589511,
     "metadata": {
       "person": "Nolan Bushnell",
-      "pillar": "one_decision",
-      "source": "story_topic_selection"
-    }
+      "pillar": "one_decision"
+    },
+    "title": "Nolan Bushnell: Selling a stake in Apple Computer for a few thousand dollars to focus on his own arcade business instead.",
+    "video_id": "eV2ZSAXx9-s",
+    "workdir": "",
+    "published_at": 1790595781
   },
   {
     "topic": "old friendships: Stumbling across an old cassette tape labeled with a mix-tape name you and your childhood best friend made in 1999, and hearing the awkward transitions between songs recorded off the radio.",

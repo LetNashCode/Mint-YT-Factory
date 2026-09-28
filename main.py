@@ -185,7 +185,8 @@ def _strip_future_continuations_from_prior_scenes(script, future_topics):
 def lock_next_topic(script,current_topic,locked_topic=None):
     previous=str((script.get("next_short") or {}).get("topic") or "").strip(); canonical=_lock_canonical_topic(script,current_topic,locked_topic=locked_topic)
     scenes=script.get("scene_plan") or []
-    _strip_future_continuations_from_prior_scenes(script, [previous, canonical])
+    prior_future = [previous] if _normalise_topic_text(previous) and _normalise_topic_text(previous) != _normalise_topic_text(current_topic) else []
+    _strip_future_continuations_from_prior_scenes(script, prior_future + [canonical])
     if len(scenes) < 2:
         raise RuntimeError("Publish Short requires at least two scenes for the single-topic ending contract.")
     final_scene=scenes[-1]

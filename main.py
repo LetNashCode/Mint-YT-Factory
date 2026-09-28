@@ -205,8 +205,9 @@ def _generate_valid_script(topic,config,learning_context,engagement_feedback):
     feedback=learning_context+engagement_feedback+"""
 CONTINUATION ARCHITECTURE:
 Write ONLY the complete 7-scene story for the CURRENT TOPIC.
-Scene 7 must end with a satisfying payoff for the CURRENT TOPIC.
-Do not put a future-topic teaser, preview, CTA, or continuation sentence into any scene.
+Scene 6 must contain the satisfying CURRENT-topic payoff.
+Scene 7 is reserved for the production-owned ending handoff and should not repeat the CURRENT topic.
+Do not invent or discuss any future topic inside the story; the production pipeline inserts exactly one canonical next-topic bridge into Scene 7.
 Return next_short.topic as metadata when possible. The production pipeline can repair missing continuation metadata after the current story passes its quality gates.
 """; last_error=None; valid_attempt=0; transient_attempt=0
     while valid_attempt<MAX_SCRIPT_ATTEMPTS:

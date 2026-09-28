@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T18:21:39.325652+00:00",
+  "generated_at": "2026-09-28T20:15:33.513442+00:00",
   "video_count": 115,
   "learning_ready": true,
   "metrics_available": true,
@@ -13,16 +13,16 @@
   "winning_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 34.634,
+      "score": 34.628,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.624
+      "weak_score": 0.894
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.624,
+      "score": 0.894,
       "sample_size": 10
     }
   ],
@@ -42,16 +42,16 @@
     "Why ice floats"
   ],
   "avoid_topics": [
-    "Why does paint peel",
-    "Why shower curtains attack you",
+    "Why your phone screen gets greasy",
+    "Nolan Bushnell: Selling a stake in Apple Computer for a few thousand dollars to focus on his own arcade business instead.",
     "old friendships: Stumbling across an old cassette tape labeled with a mix-tape name you and your childhood best friend made in 1999, and hearing the awkward transitions between songs recorded off the radio.",
     "Why does a kettle whistle",
     "gratitude: finding a well-worn paperback book on a shelf with a handwritten note on the inside cover from a high school English teacher who believed in you when you wanted to quit.",
     "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
+    "Why does a brush shed",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
-    "Why do steering wheels lock",
-    "Why does a brush shed"
+    "Why do steering wheels lock"
   ],
   "used_topic_count": 115,
   "rules": [

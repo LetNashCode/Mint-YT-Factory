@@ -2791,20 +2791,6 @@
     "published_at": 1790533116
   },
   {
-    "topic": "letting go: emptying the coat pockets of a deceased parent and finding a grocery list written on scrap paper.",
-    "normalized": "letting go emptying the coat pockets of a deceased parent and finding a grocery list written on scrap paper",
-    "workflow": "emotional",
-    "status": "reserved",
-    "reserved_at": 1790537423,
-    "recorded_at": 1790537423,
-    "metadata": {
-      "source": "emotional_topic_selection",
-      "primary_emotion": "letting go",
-      "human_situation": "emptying the coat pockets of a deceased parent and finding a grocery list written on scrap paper.",
-      "topic_key": "finding grocery list in deceased parent coat pocket"
-    }
-  },
-  {
     "topic": "childhood memories: finding an old box of colorful plastic measuring spoons in the kitchen drawer that your mother only used when baking birthday cakes.",
     "normalized": "childhood memories finding an old box of colorful plastic measuring spoons in the kitchen drawer that your mother only used when baking birthday cakes",
     "workflow": "emotional",
@@ -2940,6 +2926,18 @@
       "person": "A.R. Rahman",
       "pillar": "rise_from_nothing",
       "source": "story_topic_selection"
+    }
+  },
+  {
+    "topic": "Why do hiccups happen",
+    "normalized": "why do hiccups happen",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1790626507,
+    "recorded_at": 1790626507,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
     }
   }
 ]

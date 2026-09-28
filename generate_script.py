@@ -462,8 +462,9 @@ For every shot, make the visual directly useful to understanding the spoken word
 If the line is playful, translate the underlying physical meaning rather than illustrating
 the metaphor literally.
 
-The final scene's visual shots should show the CURRENT topic's payoff. Do not create visuals
-for the future/continuation topic; that topic is metadata and is handled separately.
+Scenes 1–6 should visually support the CURRENT topic and its payoff.
+Scene 7 is a production-owned verbal handoff; keep its visuals neutral and continuity-safe.
+Do not create visuals for the future/continuation topic; that topic is metadata and is handled separately.
 """
 
 

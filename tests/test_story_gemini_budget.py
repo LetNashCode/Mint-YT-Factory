@@ -85,6 +85,15 @@ def test_visual_verification_reserves_gemini_budget_for_later_story_stages(monke
     assert budget.should_use_qwen_for_visual_verification(False) is False
 
 
+def test_visual_verification_never_uses_qwen_on_github_actions(monkeypatch):
+    monkeypatch.setenv("STORY_GEMINI_MAX_REQUESTS", "64")
+    monkeypatch.setenv("GITHUB_ACTIONS", "true")
+    assert budget.begin() == {"limit": 64, "used": 0}
+    for _ in range(56):
+        budget.consume("visual_verification")
+    assert budget.should_use_qwen_for_visual_verification(True) is False
+
+
 def test_visual_verification_cap_scales_down_for_small_run_budget(monkeypatch):
     monkeypatch.setenv("STORY_GEMINI_MAX_REQUESTS", "24")
     monkeypatch.delenv("STORY_GEMINI_MAX_VISUAL_REQUESTS", raising=False)

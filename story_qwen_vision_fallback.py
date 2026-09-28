@@ -13,6 +13,11 @@ MAX_IMAGE_PIXELS = 401408  # 28 * 28 * 512; keeps CPU inference bounded.
 
 
 def enabled() -> bool:
+    # GitHub-hosted runners are CPU-only for this workflow. Qwen2-VL inference
+    # there is too slow for production fallback, so keep it available locally
+    # but never enter it accidentally in GitHub Actions.
+    if str(os.environ.get("GITHUB_ACTIONS", "")).strip().lower() == "true":
+        return False
     return str(os.environ.get("ENABLE_QWEN_VISION_FALLBACK", "0")).strip().lower() in {
         "1", "true", "yes", "on"
     }

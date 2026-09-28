@@ -70,3 +70,24 @@ def test_story_gemini_entrypoints_are_budgeted_before_api_calls():
             assert previous >= 0 and "story_gemini_budget.consume(" in lines[previous], (
                 f"Gemini call at {relative}:{node.lineno} is not immediately budgeted"
             )
+
+
+def test_visual_verification_reserves_gemini_budget_for_later_story_stages(monkeypatch):
+    monkeypatch.setenv("STORY_GEMINI_MAX_REQUESTS", "64")
+    monkeypatch.delenv("STORY_GEMINI_MAX_VISUAL_REQUESTS", raising=False)
+    assert budget.begin() == {"limit": 64, "used": 0}
+
+    for _ in range(42):
+        budget.consume("visual_verification")
+
+    assert budget.visual_gemini_limit() == 42
+    assert budget.should_use_qwen_for_visual_verification(True) is True
+    assert budget.should_use_qwen_for_visual_verification(False) is False
+
+
+def test_visual_verification_cap_scales_down_for_small_run_budget(monkeypatch):
+    monkeypatch.setenv("STORY_GEMINI_MAX_REQUESTS", "24")
+    monkeypatch.delenv("STORY_GEMINI_MAX_VISUAL_REQUESTS", raising=False)
+    assert budget.begin() == {"limit": 24, "used": 0}
+    assert budget.visual_gemini_limit() == 14
+

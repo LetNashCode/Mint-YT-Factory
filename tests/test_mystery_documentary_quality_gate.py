@@ -13,7 +13,7 @@ def _run_silence_check(monkeypatch, tmp_path, scenes, silence_start, silence_end
     def fake_run(*args, **kwargs):
         return SimpleNamespace(
             stderr=(
-                f"[silencedetect] silence_start: {silence_start}\\n"
+                f"[silencedetect] silence_start: {silence_start}\n"
                 f"[silencedetect] silence_end: {silence_end} |"
             )
         )

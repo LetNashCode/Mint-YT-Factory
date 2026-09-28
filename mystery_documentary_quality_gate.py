@@ -13,11 +13,11 @@ MIN_NARRATION_WORDS = 120
 MIN_NARRATION_SCENES = 4
 
 
-def probe(path: Path) -> tuple[float, int, int, bool]:
+def probe(path: Path) -> tuple[float, int, int, bool, float, float]:
     raw = subprocess.check_output(
         [
             "ffprobe", "-v", "error",
-            "-show_entries", "format=duration:stream=width,height,codec_type",
+            "-show_entries", "format=duration:stream=width,height,codec_type,duration",
             "-of", "json", str(path),
         ],
         text=True,
@@ -26,8 +26,18 @@ def probe(path: Path) -> tuple[float, int, int, bool]:
     duration = float((data.get("format") or {}).get("duration") or 0)
     streams = data.get("streams") or []
     video = next((s for s in streams if s.get("codec_type") == "video"), {})
-    has_audio = any(s.get("codec_type") == "audio" for s in streams)
-    return duration, int(video.get("width") or 0), int(video.get("height") or 0), has_audio
+    audio = next((s for s in streams if s.get("codec_type") == "audio"), {})
+    has_audio = bool(audio)
+    video_duration = float(video.get("duration") or 0)
+    audio_duration = float(audio.get("duration") or 0)
+    return (
+        duration,
+        int(video.get("width") or 0),
+        int(video.get("height") or 0),
+        has_audio,
+        video_duration,
+        audio_duration,
+    )
 
 
 MIN_NARRATION_SILENCE_SECONDS = 1.25
@@ -244,13 +254,20 @@ def main() -> None:
     if int(stats.get("word_count", 0) or 0) < MIN_NARRATION_WORDS:
         raise RuntimeError("Mystery quality gate: narration stats do not match the required minimum")
 
-    duration, width, height, has_audio = probe(video)
+    duration, width, height, has_audio, video_duration, audio_duration = probe(video)
     if duration < MIN_DURATION:
         raise RuntimeError(f"Mystery quality gate: duration {duration:.2f}s is below {MIN_DURATION:.0f}s")
     if width != 1920 or height != 1080:
         raise RuntimeError(f"Mystery quality gate: expected 1920x1080, got {width}x{height}")
     if not has_audio:
         raise RuntimeError("Mystery quality gate: final documentary has no audio stream")
+    if video_duration <= 0 or audio_duration <= 0:
+        raise RuntimeError("Mystery quality gate: final documentary has an invalid video/audio stream duration")
+    if abs(video_duration - audio_duration) > 0.50:
+        raise RuntimeError(
+            "Mystery quality gate: video/audio duration mismatch "
+            f"(video={video_duration:.2f}s, audio={audio_duration:.2f}s)"
+        )
 
     rendered_scene_timeline = OUT / "rendered_scene_timeline.json"
     if not rendered_scene_timeline.is_file():

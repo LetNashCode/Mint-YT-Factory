@@ -52,6 +52,37 @@ def _check_unexpected_silence(path: Path, rendered_timeline: Path) -> list[float
         if str(s.get("audio_mode") or "").lower() == "original"
     ]
 
+    # FFmpeg's silencedetect can merge multiple intentional source-audio scenes
+    # into one silence interval when a tiny generated-narration/pause scene sits
+    # between them. Treat nearby source intervals as one protected evidence span
+    # for silence classification, while preserving the original intervals for
+    # diagnostics.
+    merged_source_audio_intervals = []
+    for start, finish in sorted(source_audio_intervals):
+        if finish <= start:
+            continue
+        if not merged_source_audio_intervals:
+            merged_source_audio_intervals.append([start, finish])
+            continue
+        previous = merged_source_audio_intervals[-1]
+        if start - previous[1] <= 0.35:
+            previous[1] = max(previous[1], finish)
+        else:
+            merged_source_audio_intervals.append([start, finish])
+    merged_source_audio_intervals = [
+        (start, finish) for start, finish in merged_source_audio_intervals
+    ]
+
+    def _overlap_with_intervals(
+        interval_start: float,
+        interval_end: float,
+        intervals: list[tuple[float, float]],
+    ) -> float:
+        return sum(
+            max(0.0, min(interval_end, finish) - max(interval_start, start))
+            for start, finish in intervals
+        )
+
     diagnostics = []
     silences = []
     current = None
@@ -69,22 +100,26 @@ def _check_unexpected_silence(path: Path, rendered_timeline: Path) -> list[float
                     # The final concat/codec can move a scene boundary slightly.
                     # Classify by overlap with an intentional original-audio scene
                     # rather than requiring exact containment.
-                    best_overlap = 0.0
-                    best_scene = None
-                    for start, finish in source_audio_intervals:
-                        overlap = max(0.0, min(end, finish) - max(current, start))
-                        if overlap > best_overlap:
-                            best_overlap = overlap
-                            best_scene = (start, finish)
+                    source_overlap = _overlap_with_intervals(
+                        current,
+                        end,
+                        merged_source_audio_intervals,
+                    )
+                    overlap_ratio = source_overlap / max(duration, 0.001)
 
-                    overlap_ratio = best_overlap / max(duration, 0.001)
+                    containing_scene = next(
+                        (
+                            (start, finish)
+                            for start, finish in merged_source_audio_intervals
+                            if current >= start - 0.35 and end <= finish + 0.35
+                        ),
+                        None,
+                    )
                     allowed_source_gap = (
                         overlap_ratio >= 0.70
                         or (
-                            best_overlap >= 0.75
-                            and best_scene is not None
-                            and current >= best_scene[0] - 0.35
-                            and end <= best_scene[1] + 0.35
+                            source_overlap >= 0.75
+                            and containing_scene is not None
                         )
                     )
 
@@ -92,12 +127,15 @@ def _check_unexpected_silence(path: Path, rendered_timeline: Path) -> list[float
                         "start": round(current, 3),
                         "end": round(end, 3),
                         "duration": round(duration, 3),
-                        "source_overlap": round(best_overlap, 3),
+                        "source_overlap": round(source_overlap, 3),
                         "source_overlap_ratio": round(overlap_ratio, 3),
                         "allowed_as_source_audio": bool(allowed_source_gap),
                         "source_scene": (
-                            {"start": round(best_scene[0], 3), "end": round(best_scene[1], 3)}
-                            if best_scene else None
+                            {
+                                "start": round(containing_scene[0], 3),
+                                "end": round(containing_scene[1], 3),
+                            }
+                            if containing_scene else None
                         ),
                     })
 

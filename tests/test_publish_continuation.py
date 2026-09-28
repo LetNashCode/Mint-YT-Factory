@@ -118,3 +118,44 @@ def test_publish_rejects_future_topic_inside_scene_6():
 
     with pytest.raises(RuntimeError, match="Scene 6"):
         generate_script._validate_no_future_topic_in_story(script, "Why does a brush shed")
+
+
+
+def test_publish_removes_generated_topic_after_reservation_overwrites_metadata(monkeypatch):
+    import main
+
+    monkeypatch.setattr(
+        main,
+        "_generate_natural_bridge",
+        lambda current, nxt: (f"Next up: {nxt}.", "test"),
+    )
+
+    script = {
+        "topic": "Why does a brush shed",
+        # This is the writer's first continuation candidate. In production,
+        # reserve_next_short() can replace it with the authoritative successor.
+        "next_short": {"topic": "Why onion makes you cry"},
+        "scene_plan": [
+            {"narration": "Hook."},
+            {"narration": "Setup."},
+            {"narration": "Explanation."},
+            {"narration": "Mechanism."},
+            {"narration": "Escalation."},
+            {"narration": "The answer is surprisingly simple. And once you know that, another mystery is why onion makes you cry."},
+            {"narration": "Ending placeholder."},
+        ],
+    }
+
+    locked, next_topic = main.lock_next_topic(
+        script,
+        "Why does a brush shed",
+        locked_topic="Why do yawns spread",
+        stale_topics=["Why onion makes you cry"],
+    )
+
+    assert next_topic == "Why do yawns spread"
+    assert "onion makes you cry" not in " ".join(
+        scene["narration"] for scene in locked["scene_plan"][:6]
+    ).lower()
+    assert locked["scene_plan"][-1]["narration"] == "Next up: Why do yawns spread."
+    assert "onion makes you cry" not in locked["scene_plan"][-1]["narration"].lower()

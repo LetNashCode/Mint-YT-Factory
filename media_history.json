@@ -8729,6 +8729,146 @@
       "shot": 2,
       "query": "kettle whistle next time screams you",
       "recorded_at": 1790532051
+    },
+    {
+      "asset_key": "pexels:video:19769310",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/19769310/19769310-hd_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "brush shed you pull pristine",
+      "recorded_at": 1790611322
+    },
+    {
+      "asset_key": "pexels:video:28912663",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/28912663/12514128_720_1280_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "brush shed instantly leave behind tiny",
+      "recorded_at": 1790611325
+    },
+    {
+      "asset_key": "pexels:video:7301857",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7301857/7301857-hd_720_1280_24fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "brush shed every single stroke hand",
+      "recorded_at": 1790611327
+    },
+    {
+      "asset_key": "pexels:video:3768209",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3768209/3768209-hd_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "brush shed feels like treason against",
+      "recorded_at": 1790611329
+    },
+    {
+      "asset_key": "pexels:video:3735231",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3735231/3735231-hd_1280_720_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "brush shed bristles anchored bristle base",
+      "recorded_at": 1790611330
+    },
+    {
+      "asset_key": "pexels:video:7575391",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7575391/7575391-hd_1280_720_24fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "brush shed tiny hidden knot underneath",
+      "recorded_at": 1790611332
+    },
+    {
+      "asset_key": "pexels:video:8955527",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8955527/8955527-hd_1280_720_24fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "brush shed every flex rubber cushion",
+      "recorded_at": 1790611333
+    },
+    {
+      "asset_key": "pexels:video:8824206",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8824206/8824206-hd_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "brush shed pulls against frail anchor",
+      "recorded_at": 1790611334
+    },
+    {
+      "asset_key": "pexels:video:2618439",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/2618439/2618439-hd_1280_720_24fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "brush shed you thought was poor",
+      "recorded_at": 1790611335
+    },
+    {
+      "asset_key": "pexels:video:4484540",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4484540/4484540-hd_1280_720_60fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "brush shed but pure fatigue stressed",
+      "recorded_at": 1790611336
+    },
+    {
+      "asset_key": "pexels:video:4551932",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4551932/4551932-hd_1280_720_60fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "brush shed constant bending eventually snaps",
+      "recorded_at": 1790611337
+    },
+    {
+      "asset_key": "pexels:video:8158272",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8158272/8158272-hd_1280_720_50fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "brush shed letting loose bristles escape",
+      "recorded_at": 1790611338
+    },
+    {
+      "asset_key": "pexels:video:5973223",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5973223/5973223-hd_1280_720_25fps.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "brush shed relentless material fatigue precisely",
+      "recorded_at": 1790611339
+    },
+    {
+      "asset_key": "pexels:video:5309650",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5309650/5309650-hd_1366_720_30fps.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "brush shed relentless material fatigue precisely",
+      "recorded_at": 1790611340
     }
   ]
 }

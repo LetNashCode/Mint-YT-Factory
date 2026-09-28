@@ -2912,5 +2912,21 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why does a brush shed",
+    "normalized": "why does a brush shed",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1790610557,
+    "recorded_at": 1790610557,
+    "metadata": {
+      "next_topic": "Why do hiccups happen",
+      "creative_strategy": "wild"
+    },
+    "title": "Why Does a Brush Shed",
+    "video_id": "WYKO_wTCpAo",
+    "workdir": "output/1790611235",
+    "published_at": 1790612513
   }
 ]

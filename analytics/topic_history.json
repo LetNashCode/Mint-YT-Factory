@@ -2932,12 +2932,16 @@
     "topic": "Why do hiccups happen",
     "normalized": "why do hiccups happen",
     "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1790626507,
-    "recorded_at": 1790626507,
+    "status": "published",
+    "reserved_at": 1790628719,
+    "recorded_at": 1790628719,
     "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
+      "next_topic": "Why does a yawn spread",
+      "creative_strategy": "wild"
+    },
+    "title": "The Strange Trap of the Hiccup",
+    "video_id": "eqHHw_Dl984",
+    "workdir": "output/1790628957",
+    "published_at": 1790630449
   }
 ]

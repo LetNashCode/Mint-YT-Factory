@@ -2928,5 +2928,18 @@
     "video_id": "WYKO_wTCpAo",
     "workdir": "output/1790611235",
     "published_at": 1790612513
+  },
+  {
+    "topic": "A.R. Rahman: How a young jingle composer working out of a small Chennai studio became a global Academy Award-winning musical icon.",
+    "normalized": "a r rahman how a young jingle composer working out of a small chennai studio became a global academy award winning musical icon",
+    "workflow": "story",
+    "status": "reserved",
+    "reserved_at": 1790622839,
+    "recorded_at": 1790622839,
+    "metadata": {
+      "person": "A.R. Rahman",
+      "pillar": "rise_from_nothing",
+      "source": "story_topic_selection"
+    }
   }
 ]

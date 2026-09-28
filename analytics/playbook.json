@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-28T15:49:40.629433+00:00",
-  "video_count": 114,
+  "generated_at": "2026-09-28T18:21:39.325652+00:00",
+  "video_count": 115,
   "learning_ready": true,
   "metrics_available": true,
   "creative_learning_version": "v3",
@@ -16,13 +16,13 @@
       "score": 34.634,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.742
+      "weak_score": 0.624
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.742,
+      "score": 0.624,
       "sample_size": 10
     }
   ],
@@ -42,7 +42,6 @@
     "Why ice floats"
   ],
   "avoid_topics": [
-    "Why does an apple brown",
     "Why does paint peel",
     "Why shower curtains attack you",
     "old friendships: Stumbling across an old cassette tape labeled with a mix-tape name you and your childhood best friend made in 1999, and hearing the awkward transitions between songs recorded off the radio.",
@@ -51,9 +50,10 @@
     "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
-    "Why do steering wheels lock"
+    "Why do steering wheels lock",
+    "Why does a brush shed"
   ],
-  "used_topic_count": 114,
+  "used_topic_count": 115,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

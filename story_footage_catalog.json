@@ -3336,6 +3336,37 @@
       },
       "review_key": "439693e6dbfc51fab25cf65872584f5ad0a93dcd7ccc37178b48312af48f46e4",
       "reviewed_at": 1790595191.14949
+    },
+    {
+      "person": "Stephen King",
+      "source": {
+        "id": "archive:twitter-1284080408800440320",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
+        "source_url": "https://archive.org/details/twitter-1284080408800440320",
+        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
+        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OTD']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 137.76,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows real archival footage of Stephen King speaking in an interview setting, with him clearly visible in all frames. It serves as biographical illustration for a documentary or short about his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "68bc98cff9401a0eeb2ecbe298e77295ff5ea7737157376a90f7b6a00f829fff",
+      "reviewed_at": 1790620855.972397
     }
   ]
 }

@@ -125,6 +125,41 @@
       "source_id": "archive:mcccal-Spotlight_on_the_Rosa_Parks_Museum_-_Tim_Kerr",
       "source_url": "https://archive.org/details/mcccal-Spotlight_on_the_Rosa_Parks_Museum_-_Tim_Kerr",
       "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "3bcfa91ca417835af3a4af80": {
+      "source_id": "archive:44754ManAgainstMountEverest",
+      "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "cca9595ab826b5a5256ed630": {
+      "source_id": "archive:GalahadOfEverest",
+      "source_url": "https://archive.org/details/GalahadOfEverest",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "12ff0c99a928f6806b1ef74d": {
+      "source_id": "archive:upenn-f16-0114_1957_10_India",
+      "source_url": "https://archive.org/details/upenn-f16-0114_1957_10_India",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "8a05059ef0084ebe0e02ebe0": {
+      "source_id": "archive:shackleton-2002-a-e-and-biography-2013-08-31-0",
+      "source_url": "https://archive.org/details/shackleton-2002-a-e-and-biography-2013-08-31-0",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "7dd7240a42de9cab8020b3e5": {
+      "source_id": "archive:the-story-of-the-ms-explorer-cruise-ship-1080p",
+      "source_url": "https://archive.org/details/the-story-of-the-ms-explorer-cruise-ship-1080p",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "ec87585ca43b8a3905306f47": {
+      "source_id": "commons:135278222",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Stromness,_South_Georgia_Island.webm",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "3d435d4110ce36355bb0a4cb": {
+      "source_id": "commons:135278250",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Scenes_of_Grytviken,_South_Georgia_Island.webm",
+      "reason": "visual verifier rejected source after four unusable identity samples"
     }
   }
 }

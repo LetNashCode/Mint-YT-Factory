@@ -1,17 +1,5 @@
 [
   {
-    "format": "strange_turning_point",
-    "person": "J.K. Rowling",
-    "premise": "A stranded train journey sparks the creation of a fantasy world that eventually changes modern publishing history.",
-    "hook": "A four-hour train delay on a broken track led to the creation of a multi-billion dollar literary phenomenon.",
-    "key_facts": [
-      "Conceived the idea for the wizarding series while sitting on a delayed train from Manchester to London.",
-      "Wrote early drafts in Edinburgh cafes while facing financial hardship.",
-      "Resisted publisher suggestions to keep her birth initials hidden until requested by marketing."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Virat Kohli",
     "premise": "Playing a domestic cricket match for Delhi on the day his father passed away, returning to the crease to score a crucial innings.",
@@ -21,19 +9,6 @@
       "Received news of his father's passing late at night during the match.",
       "Returned to the field the next morning to score 90 runs for his team.",
       "Went on to captain the Indian national cricket team across all formats."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
-    "person": "Viswanathan Anand",
-    "premise": "Learning the game of chess from his mother in Chennai as a child before dominating international competitions to become India's first grandmaster.",
-    "hook": "Long before he became a world chess champion, he was just a kid in Chennai studying matches from chess magazines.",
-    "key_facts": [
-      "Learned chess rules from his mother, Susila, at the age of six.",
-      "Became India's first chess Grandmaster in 1988 at the age of 18.",
-      "Won the FIDE World Chess Championship multiple times across different formats.",
-      "Awarded India's highest civilian sporting honor, the Rajiv Gandhi Khel Ratna, in 1991."
     ],
     "source": "gemini_original"
   },
@@ -51,42 +26,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "rise_from_nothing",
-    "person": "Boman Irani",
-    "premise": "From working at a family bakery and running a local wafer shop to becoming a celebrated Bollywood character actor at age 42.",
-    "hook": "He spent years behind the counter selling potato chips and pastries, entirely unsure if the movie industry would ever accept him in his forties.",
-    "key_facts": [
-      "Worked at the family's Mumbai bakery and ran a wafer shop well into adulthood.",
-      "Started acting in theater and commercial photography in his late thirties.",
-      "Made his major Bollywood feature film debut at the age of 42 in the 2003 film 'Darna Mana Hai' and 'Munna Bhai M.B.B.S.'."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
-    "person": "Stephen King",
-    "premise": "Living in a trailer, working as an English teacher, and nearly throwing his manuscript into the trash before his wife pulled it out.",
-    "hook": "His first breakthrough novel was rescued from the household garbage can by his spouse after he decided the story was a total failure.",
-    "key_facts": [
-      "Worked as a high school English teacher while writing stories in a cramped trailer.",
-      "Threw early drafts of 'Carrie' into the trash can out of frustration.",
-      "His wife Tabitha retrieved the pages and encouraged him to finish the manuscript."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Tenzing Norgay",
-    "premise": "Overcoming decades of colonial-era climbing subordination and extreme high-altitude dangers to reach the summit of Mount Everest.",
-    "hook": "For years, indigenous mountain guides were treated as anonymous labor, until one man stood on top of the world.",
-    "key_facts": [
-      "Worked on multiple British and Swiss Himalayan expeditions as a high-altitude porter and sirdar since the 1930s.",
-      "Participated in the successful 1953 British expedition led by John Hunt.",
-      "Reached the summit of Everest alongside Edmund Hillary on May 29, 1953."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "strange_turning_point",
     "person": "Alexander Fleming",
     "premise": "Discovering the world's first broadly effective antibiotic entirely by accident due to an open laboratory window and mold spore contamination.",
@@ -99,18 +38,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "Sustaining a crew of 28 men for nearly two years on floating Antarctic ice floes after their ship was crushed and sunk.",
-    "hook": "Their ship was slowly crushed to splinters by freezing pack ice, stranding 28 men on a drifting frozen wasteland with no rescue in sight.",
-    "key_facts": [
-      "His ship, the Endurance, became trapped and was eventually destroyed by ice in the Weddell Sea in 1915.",
-      "The crew camped on drifting ice floes for months before sailing lifeboats to Elephant Island.",
-      "Shackleton and five men navigated a 800-mile ocean journey in a small open boat to reach South Georgia for help, successfully saving all crew members."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "strange_turning_point",
     "person": "Percy Spencer",
     "premise": "Inventing the microwave oven after a candy bar melted in his pocket while standing near a vacuum tube magnetron.",
@@ -119,6 +46,123 @@
       "Worked as an engineer at Raytheon building magnetrons for radar systems during World War II.",
       "Noticed a peanut cluster candy bar in his pocket had melted while standing in front of an active radar transmitter.",
       "Conducted experiments with corn kernels and an egg to confirm high-frequency radio waves could cook food rapidly."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Serena Williams",
+    "premise": "The strategic coaching decision that shaped the career of one of the greatest tennis players in history.",
+    "hook": "At a time when most players prioritized baseline rallying, she and her father made the radical choice to focus aggressively on power serve mechanics.",
+    "key_facts": [
+      "Trained on public tennis courts in Compton, California, facing local safety challenges.",
+      "Her father, Richard Williams, coached her and her sister Venus without a traditional tennis background.",
+      "Won her first Grand Slam singles title at the US Open in 1999 at age 17.",
+      "Achieved a career Golden Slam in singles and doubles."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Stephen King",
+    "premise": "The discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon.",
+    "hook": "He threw his first novel draft into the trash can, convinced it was unpublishable, until his wife pulled it out.",
+    "key_facts": [
+      "Worked as a high school English teacher while writing stories at night in a trailer.",
+      "Collected dozens of rejection slips from pulp magazines and publishers.",
+      "His wife, Tabitha King, rescued the discarded manuscript pages of Carrie from the wastebasket.",
+      "The paperback edition of Carrie eventually sold over a million copies."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Tenzing Norgay",
+    "premise": "The lifelong persistence of a seasoned high-altitude porter who reached the summit of Earth's highest mountain.",
+    "hook": "He faced six failed Himalayan expeditions and deep systemic discrimination before finally standing on the roof of the world.",
+    "key_facts": [
+      "Worked for years as a high-altitude Sherpa porter on multiple British and Swiss Everest attempts.",
+      "Reached the summit of Mount Everest on May 29, 1953, alongside Edmund Hillary.",
+      "Appointed as the first director of field training for the Himalayan Mountaineering Institute.",
+      "Honored globally for mountaineering achievements and cross-cultural cooperation."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Srinivasa Ramanujan",
+    "premise": "How a clerk from South India changed modern mathematics through an unsolicited international letter.",
+    "hook": "A self-taught mathematician working a low-level clerical job mailed a notebook of bizarre formulas to a British professor who almost threw it away.",
+    "key_facts": [
+      "Had no formal university training in mathematics and relied primarily on a single synopsis book by G.S. Carr.",
+      "Worked as a shipping port clerk in Madras to support his family while doing mathematics on slate boards.",
+      "Sent a letter containing unproven theorems to mathematician G.H. Hardy at Cambridge in 1913.",
+      "Elected as a Fellow of the Royal Society at age 31."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Kalam",
+    "premise": "From selling newspapers on railway platforms to directing India's aerospace and missile programs.",
+    "hook": "As a young boy in Rameswaram, he woke up before dawn to distribute newspapers to help his family survive.",
+    "key_facts": [
+      "Raised in a modest family in Rameswaram, Tamil Nadu, helping distribute newspapers during childhood.",
+      "Graduated in physics and later studied aeronautical engineering at the Madras Institute of Technology.",
+      "Served as project director for India's first indigenous Satellite Launch Vehicle (SLV-III).",
+      "Later served as the 11th President of India, widely known as the People's President."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Jane Goodall",
+    "premise": "The unconventional methodological choice that revolutionized primate research in Tanzania.",
+    "hook": "Instead of assigning numbers to the chimpanzees she studied, she gave them names—a practice scorned by traditional zoologists.",
+    "key_facts": [
+      "Arrived at Gombe Stream National Park in 1960 with no prior university degree in science.",
+      "Observed chimpanzees making and using tools, contradicting the scientific definition of humans as the sole toolmakers.",
+      "Secured funding from the Leakey Foundation and later completed a PhD at Cambridge University.",
+      "Founded the Jane Goodall Institute to promote global wildlife conservation."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "B.B. King",
+    "premise": "The humble beginnings of a Delta blues legend who played on street corners before recording hits.",
+    "hook": "He worked as a tractor driver in Mississippi cotton fields while earning coins by singing gospel and blues on street corners.",
+    "key_facts": [
+      "Worked on a cotton plantation in Indianola, Mississippi, during his youth.",
+      "Traveled to Memphis, Tennessee, seeking a radio break, eventually working as a disc jockey known as the Beale Street Blues Boy.",
+      "Named his signature Gibson electric guitars 'Lucille' after an incident involving a tavern fire.",
+      "Recorded dozens of influential blues standards over a decades-long touring career."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Ernest Shackleton",
+    "premise": "The survival of an entire Antarctic crew after their ship was crushed by pack ice.",
+    "hook": "His ship was trapped and crushed by Antarctic ice, stranding twenty-eight men on floating floes with no radio contact.",
+    "key_facts": [
+      "Led the Imperial Trans-Antarctic Expedition aboard the ship Endurance, which sank in 1915.",
+      "Navigated a 20-foot open life-boat across 800 miles of stormy Southern Ocean seas to reach South Georgia Island.",
+      "Successfully rescued every member of his stranded crew without a single loss of life.",
+      "Died of a heart attack during his final Antarctic expedition in 1922."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Rosa Parks",
+    "premise": "The quiet civil rights activist whose steadfast refusal on a Montgomery bus triggered historical momentum.",
+    "hook": "She was a trained seamstress and active local secretary whose quiet act of defiance was preceded by years of documented community activism.",
+    "key_facts": [
+      "Worked as a tailor's assistant and served as secretary for the NAACP Montgomery branch.",
+      "Refused to surrender her bus seat to a white passenger on December 1, 1955.",
+      "Her arrest catalyzed the 381-day Montgomery bus boycott, organized by local leaders including Martin Luther King Jr.",
+      "Awarded the Presidential Medal of Freedom and the Congressional Gold Medal later in life."
     ],
     "source": "gemini_original"
   }

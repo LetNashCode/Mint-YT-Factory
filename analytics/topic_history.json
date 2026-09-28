@@ -2879,5 +2879,23 @@
       "pillar": "one_decision",
       "source": "story_topic_selection"
     }
+  },
+  {
+    "topic": "old friendships: Stumbling across an old cassette tape labeled with a mix-tape name you and your childhood best friend made in 1999, and hearing the awkward transitions between songs recorded off the radio.",
+    "normalized": "old friendships stumbling across an old cassette tape labeled with a mix tape name you and your childhood best friend made in 1999 and hearing the awkward transitions between songs recorded off the radio",
+    "workflow": "emotional",
+    "status": "published",
+    "reserved_at": 1790593028,
+    "recorded_at": 1790593028,
+    "metadata": {
+      "primary_emotion": "old friendships",
+      "human_situation": "Stumbling across an old cassette tape labeled with a mix-tape name you and your childhood best friend made in 1999, and hearing the awkward transitions between songs recorded off the radio.",
+      "creative_strategy": "wild",
+      "experiment_id": "creative_v3_wild_cycle12_slot3"
+    },
+    "title": "The 1999 Cassette Tape",
+    "video_id": "yhbDc7grKfs",
+    "workdir": "output/emotional_reel",
+    "published_at": 1790593872
   }
 ]

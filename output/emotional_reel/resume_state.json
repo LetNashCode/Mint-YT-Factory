@@ -1,18 +1,18 @@
 {
   "status": "uploaded",
   "final_path": "output/emotional_reel/final.mp4",
-  "final_sha256": "06f0c45f8ad5820238df45d3a2dbc17af363966add0b293b20376519f465fb9a",
-  "cache_key": "emotional-reel-final-v2-06f0c45f8ad5820238df45d3a2dbc17a",
-  "title": "The Note on Page Four",
-  "description": "Finding an old high school English teacher's handwritten note inside a paperback book years later.",
+  "final_sha256": "721755bb5a876dbfb35a855655c03381c743c7bb8cb9473c15abe22d678648fa",
+  "cache_key": "emotional-reel-final-v2-721755bb5a876dbfb35a855655c03381",
+  "title": "The 1999 Cassette Tape",
+  "description": "Stumbling across an old cassette tape labeled with a mix-tape name from 1999.",
   "hashtags": [
-    "#gratitude",
-    "#mentorship",
-    "#nostalgia",
-    "#oldbooks",
-    "#memories"
+    "#childhoodmemories",
+    "#1999",
+    "#bestfriends",
+    "#mix-tape",
+    "#nostalgia"
   ],
-  "engagement_comment": "Pass this forward to someone who believed first.",
+  "engagement_comment": "Send this to your childhood best friend today.",
   "voice": {
     "provider": "kokoro",
     "voice_name": "af_heart",
@@ -22,26 +22,26 @@
     "speed": 0.92,
     "tone": "curious, confident, playful storyteller"
   },
-  "created_at": 1790546855,
-  "narration_word_count": 137,
+  "created_at": 1790593302,
+  "narration_word_count": 141,
   "complete_script_preserved": true,
   "final_duration_seconds": 53.76,
-  "factory_topic": "gratitude: finding a well-worn paperback book on a shelf with a handwritten note on the inside cover from a high school English teacher who believed in you when you wanted to quit.",
-  "primary_emotion": "gratitude",
-  "human_situation": "finding a well-worn paperback book on a shelf with a handwritten note on the inside cover from a high school English teacher who believed in you when you wanted to quit.",
-  "video_id": "9LPb5Y-grp0",
+  "factory_topic": "old friendships: Stumbling across an old cassette tape labeled with a mix-tape name you and your childhood best friend made in 1999, and hearing the awkward transitions between songs recorded off the radio.",
+  "primary_emotion": "old friendships",
+  "human_situation": "Stumbling across an old cassette tape labeled with a mix-tape name you and your childhood best friend made in 1999, and hearing the awkward transitions between songs recorded off the radio.",
+  "video_id": "yhbDc7grKfs",
   "social": {
     "instagram": {
       "status": "published",
-      "media_id": "17921487219434373",
-      "container_id": "18495373159097136"
+      "media_id": "18115618841288333",
+      "container_id": "18495472594097136"
     },
     "facebook": {
       "status": "published",
-      "video_id": "28404327935883348"
+      "video_id": "1113953244313347"
     },
     "strict": false,
-    "updated_at": 1790547102
+    "updated_at": 1790593614
   },
-  "uploaded_at": 1790547228
+  "uploaded_at": 1790593872
 }

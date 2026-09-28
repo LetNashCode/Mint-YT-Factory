@@ -15,7 +15,7 @@ DEFAULT_MAX_REQUESTS = 64
 # any later Gemini work. Once the visual verifier reaches this cap, Story uses
 # the already-installed local Qwen vision verifier instead of burning the
 # remaining run-wide Gemini budget on archival-frame rejection loops.
-DEFAULT_MAX_VISUAL_GEMINI_REQUESTS = 42
+DEFAULT_MAX_VISUAL_GEMINI_REQUESTS = 56
 
 _BUDGET = None
 
@@ -78,9 +78,11 @@ def visual_gemini_limit() -> int:
         configured = int(raw)
     except (TypeError, ValueError):
         configured = DEFAULT_MAX_VISUAL_GEMINI_REQUESTS
-    # Leave at least 14 calls for later Story work whenever the total budget
-    # permits it, while never setting a visual cap above the total budget.
-    return min(limit, max(14, min(configured, max(14, limit - 14))))
+    # Keep at least eight calls available for script/title/final Story work.
+    # For smaller test budgets, scale the visual cap down instead of consuming
+    # the entire run budget.
+    reserve = 8
+    return min(limit, max(14, min(configured, max(14, limit - reserve))))
 
 
 def should_use_qwen_for_visual_verification(qwen_enabled: bool) -> bool:

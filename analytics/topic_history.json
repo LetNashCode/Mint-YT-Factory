@@ -2900,5 +2900,17 @@
     "video_id": "yhbDc7grKfs",
     "workdir": "output/emotional_reel",
     "published_at": 1790593872
+  },
+  {
+    "topic": "Why does soda fizz",
+    "normalized": "why does soda fizz",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1790605752,
+    "recorded_at": 1790605752,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

@@ -182,11 +182,16 @@ def _strip_future_continuations_from_prior_scenes(script, future_topics):
         print(f"🧹 Removed {removed} future-topic continuation sentence(s) before Scene 7")
     return removed
 
-def lock_next_topic(script,current_topic,locked_topic=None):
-    previous=str((script.get("next_short") or {}).get("topic") or "").strip(); canonical=_lock_canonical_topic(script,current_topic,locked_topic=locked_topic)
+def lock_next_topic(script,current_topic,locked_topic=None,stale_topics=None):
+    previous=str((script.get("next_short") or {}).get("topic") or "").strip(); stale_topics=[str(x).strip() for x in (stale_topics or []) if str(x).strip()]; canonical=_lock_canonical_topic(script,current_topic,locked_topic=locked_topic)
     scenes=script.get("scene_plan") or []
     prior_future = [previous] if _normalise_topic_text(previous) and _normalise_topic_text(previous) != _normalise_topic_text(current_topic) else []
-    _strip_future_continuations_from_prior_scenes(script, prior_future + [canonical])
+    # Preserve the writer-selected successor before reserve_next_short() overwrites
+    # next_short.topic with the authoritative canonical successor. Without this,
+    # a model-authored topic can survive in Scenes 1-6 while Scene 7 uses the
+    # reserved topic, producing two different future topics in one Short.
+    cleanup_topics = list(dict.fromkeys(prior_future + stale_topics + [canonical]))
+    _strip_future_continuations_from_prior_scenes(script, cleanup_topics)
     if len(scenes) < 2:
         raise RuntimeError("Publish Short requires at least two scenes for the single-topic ending contract.")
     final_scene=scenes[-1]
@@ -368,7 +373,7 @@ def run(dry_run=False):
                 )
                 return
             raise
-        script["learning_experiment"]={"strategy":creative_strategy["strategy"],"experiment_id":creative_strategy["experiment_id"],"slot":creative_strategy["slot"],"cycle":creative_strategy["cycle"],"target_mix":creative_strategy["target_mix"],"selected_pattern":creative_strategy.get("selected_pattern",""),"selected_score":creative_strategy.get("selected_score",0.0),"selected_sample_size":creative_strategy.get("selected_sample_size",0),"evidence_based":creative_strategy.get("evidence_based",False)}; next_topic=reserve_next_short(str((script.get("next_short") or {}).get("topic") or ""),current_topic=topic); script["next_short"]=dict(script.get("next_short") or {}); script["next_short"]["topic"]=next_topic; script,next_topic=lock_next_topic(script,topic,locked_topic=next_topic); script["engagement"]={"experiment":engagement["experiment"],"phase":engagement["phase"],"spoken_prompt":engagement["spoken_prompt"],"comment":engagement["comment"],"share_prompt":engagement["share_prompt"]}; workdir=os.path.join("output",str(int(time.time()))); os.makedirs(workdir,exist_ok=True); save_json(script,os.path.join(workdir,"script.json")); write_continuation_manifest(topic,next_topic,"locked",workdir); print(f"✅ Script ready: {workdir}/script.json");
+        script["learning_experiment"]={"strategy":creative_strategy["strategy"],"experiment_id":creative_strategy["experiment_id"],"slot":creative_strategy["slot"],"cycle":creative_strategy["cycle"],"target_mix":creative_strategy["target_mix"],"selected_pattern":creative_strategy.get("selected_pattern",""),"selected_score":creative_strategy.get("selected_score",0.0),"selected_sample_size":creative_strategy.get("selected_sample_size",0),"evidence_based":creative_strategy.get("evidence_based",False)}; generated_next_topic=str((script.get("next_short") or {}).get("topic") or "").strip(); next_topic=reserve_next_short(generated_next_topic,current_topic=topic); script["next_short"]=dict(script.get("next_short") or {}); script["next_short"]["topic"]=next_topic; script,next_topic=lock_next_topic(script,topic,locked_topic=next_topic,stale_topics=[generated_next_topic]); script["engagement"]={"experiment":engagement["experiment"],"phase":engagement["phase"],"spoken_prompt":engagement["spoken_prompt"],"comment":engagement["comment"],"share_prompt":engagement["share_prompt"]}; workdir=os.path.join("output",str(int(time.time()))); os.makedirs(workdir,exist_ok=True); save_json(script,os.path.join(workdir,"script.json")); write_continuation_manifest(topic,next_topic,"locked",workdir); print(f"✅ Script ready: {workdir}/script.json");
         if dry_run: print("✅ DRY RUN COMPLETE"); return
     if not resumed:
         audio=synthesize_script(script,config,os.path.join(workdir,"audio")); _record_audio_timing(script,audio); save_json(script,os.path.join(workdir,"script.json")); visuals=generate_media(script,os.path.join(workdir,"visuals"),config); sfx=generate_sfx(script,os.path.join(workdir,"sfx")); music=download_music(script,os.path.join(workdir,"music")); final_video=os.path.join(workdir,"final.mp4"); assemble_video(script,audio,visuals,music,sfx,config,final_video); _save_publish_state(workdir,{"status":"ready_for_upload","uploaded":False,"topic":topic,"next_topic":next_topic})

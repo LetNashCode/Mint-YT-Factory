@@ -109,6 +109,16 @@ jobs:
           except Exception as exc:
               print(f'⚠️ Mystery learning analytics record unavailable: {type(exc).__name__}: {exc}')
           PY
+      # Upload before the history commit step because the commit step may temporarily
+      # stash generated/untracked artifacts while rebasing.
+      - name: Upload documentary artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mystery-documentary-${{ github.run_number }}
+          path: artifacts/mystery-documentary/
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Commit discovery, screening, and video history
         if: always()
         run: |
@@ -132,11 +142,3 @@ jobs:
               git stash drop >/dev/null || true
             fi
           fi
-      - name: Upload documentary artifact
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: mystery-documentary-${{ github.run_number }}
-          path: artifacts/mystery-documentary/
-          if-no-files-found: ignore
-          retention-days: 7

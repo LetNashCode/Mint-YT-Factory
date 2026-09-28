@@ -2866,5 +2866,18 @@
       "source_url": "https://archive.org/details/youtube-Zd3Dgv7xyco",
       "source": "mystery_case_selection"
     }
+  },
+  {
+    "topic": "Nolan Bushnell: Selling a stake in Apple Computer for a few thousand dollars to focus on his own arcade business instead.",
+    "normalized": "nolan bushnell selling a stake in apple computer for a few thousand dollars to focus on his own arcade business instead",
+    "workflow": "story",
+    "status": "reserved",
+    "reserved_at": 1790589511,
+    "recorded_at": 1790589511,
+    "metadata": {
+      "person": "Nolan Bushnell",
+      "pillar": "one_decision",
+      "source": "story_topic_selection"
+    }
   }
 ]

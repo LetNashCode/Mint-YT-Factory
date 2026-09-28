@@ -49,5 +49,77 @@
       "Established the famous water garden at his home in Giverny, which inspired his late works."
     ],
     "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Boman Irani",
+    "premise": "From working at a family bakery and running a local wafer shop to becoming a celebrated Bollywood character actor at age 42.",
+    "hook": "He spent years behind the counter selling potato chips and pastries, entirely unsure if the movie industry would ever accept him in his forties.",
+    "key_facts": [
+      "Worked at the family's Mumbai bakery and ran a wafer shop well into adulthood.",
+      "Started acting in theater and commercial photography in his late thirties.",
+      "Made his major Bollywood feature film debut at the age of 42 in the 2003 film 'Darna Mana Hai' and 'Munna Bhai M.B.B.S.'."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Stephen King",
+    "premise": "Living in a trailer, working as an English teacher, and nearly throwing his manuscript into the trash before his wife pulled it out.",
+    "hook": "His first breakthrough novel was rescued from the household garbage can by his spouse after he decided the story was a total failure.",
+    "key_facts": [
+      "Worked as a high school English teacher while writing stories in a cramped trailer.",
+      "Threw early drafts of 'Carrie' into the trash can out of frustration.",
+      "His wife Tabitha retrieved the pages and encouraged him to finish the manuscript."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Tenzing Norgay",
+    "premise": "Overcoming decades of colonial-era climbing subordination and extreme high-altitude dangers to reach the summit of Mount Everest.",
+    "hook": "For years, indigenous mountain guides were treated as anonymous labor, until one man stood on top of the world.",
+    "key_facts": [
+      "Worked on multiple British and Swiss Himalayan expeditions as a high-altitude porter and sirdar since the 1930s.",
+      "Participated in the successful 1953 British expedition led by John Hunt.",
+      "Reached the summit of Everest alongside Edmund Hillary on May 29, 1953."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Alexander Fleming",
+    "premise": "Discovering the world's first broadly effective antibiotic entirely by accident due to an open laboratory window and mold spore contamination.",
+    "hook": "A stray microscopic spore drifted through an open London window and accidentally landed on a dirty petri dish, changing modern medicine forever.",
+    "key_facts": [
+      "Worked as a bacteriologist at St Mary's Hospital in London.",
+      "Returned from a holiday in 1928 to find a petri dish containing Staphylococcus bacteria had been contaminated by a Penicillium mold.",
+      "Observed that the mold had prevented the normal growth of the surrounding bacteria."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Ernest Shackleton",
+    "premise": "Sustaining a crew of 28 men for nearly two years on floating Antarctic ice floes after their ship was crushed and sunk.",
+    "hook": "Their ship was slowly crushed to splinters by freezing pack ice, stranding 28 men on a drifting frozen wasteland with no rescue in sight.",
+    "key_facts": [
+      "His ship, the Endurance, became trapped and was eventually destroyed by ice in the Weddell Sea in 1915.",
+      "The crew camped on drifting ice floes for months before sailing lifeboats to Elephant Island.",
+      "Shackleton and five men navigated a 800-mile ocean journey in a small open boat to reach South Georgia for help, successfully saving all crew members."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Percy Spencer",
+    "premise": "Inventing the microwave oven after a candy bar melted in his pocket while standing near a vacuum tube magnetron.",
+    "hook": "A simple chocolate bar melted inside a scientist's pocket while testing military radar equipment, leading to a revolutionary kitchen appliance.",
+    "key_facts": [
+      "Worked as an engineer at Raytheon building magnetrons for radar systems during World War II.",
+      "Noticed a peanut cluster candy bar in his pocket had melted while standing in front of an active radar transmitter.",
+      "Conducted experiments with corn kernels and an egg to confirm high-frequency radio waves could cook food rapidly."
+    ],
+    "source": "gemini_original"
   }
 ]

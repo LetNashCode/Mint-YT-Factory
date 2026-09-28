@@ -3243,6 +3243,37 @@
       },
       "review_key": "c178497d416f49fa6e28803122495dd8bff465d5e67dc3622814ea45df7ba8d3",
       "reviewed_at": 1790585542.471987
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks.mp4",
+        "source_url": "https://archive.org/details/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
+        "title": "DCTV Celebrates Black History Month - Rosa Parks",
+        "description": "Produced by DCTV (DeKalb County Television) Channel 23, this video recognizes those who made great impacts in and for the African American community and the world alike. Additional Information: DCTV celebrates Black History Month by recognizing Rosa Parks, known as the \"First Lady of Civil Rights.\" Parks is an American activist best known for not giving up her seat to a caucasian passenger in Alabama which helped spark the Montgomery Bus Boycott which started in December 1955. She received both the Presidential Medal of Freedom and the Congressional Gold Medal for her courageous act. For more DeKalb County news, visit http://www.dctvchannel23.tv. ['Georgia', 'DeKalb County', 'DeKalb County Television', 'DCTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'GA', 'Black History', 'Black History Month', 'Channel 23', 'Rosa Parks', '2020']",
+        "creator": "DCTV",
+        "license": "",
+        "subject": "['Georgia', 'DeKalb County', 'DeKalb County Television', 'DCTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'GA', 'Black History', 'Black History Month', 'Channel 23', 'Rosa Parks', '2020']",
+        "runtime": "00:00:47",
+        "direct_subject": true,
+        "duration_hint": 47.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 26.46,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.0,
+        "reason": "The clip features archival footage of Rosa Parks speaking and being interviewed, which serves as good biographical illustration, though it does not depict the specific historical bus incident directly.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a6207d262b96c8c43c950707b48974918a0fb2d4d85badb04d25dced5e36c81c",
+      "reviewed_at": 1790587066.021909
     }
   ]
 }

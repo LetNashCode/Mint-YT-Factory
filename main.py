@@ -138,9 +138,54 @@ def _strip_model_continuation_from_scene7(final_scene,stale_topics):
             visual["spoken_line"]=payoff; visual["visual_focus"]=p[:180]; visual["visual_action"]=f"Show the exact physical payoff described by: {p}."; visual["must_show"]=list(_content_words(p))[:6]; visual["must_not_show"]=["unrelated second topic","different object","new mystery","continuation topic"]; visual["image_prompt"]=("Realistic cinematic close-up showing the exact physical payoff: "+p+". Keep the same subject and environment as the current story, natural lighting, believable materials, no text.")[:900]
     return payoff
 
+def _strip_future_continuations_from_prior_scenes(script, future_topics):
+    """Remove model-authored future-topic handoffs before the production-owned final bridge."""
+    topic_keys = [_normalise_topic_text(x) for x in (future_topics or []) if _normalise_topic_text(x)]
+    teaser_patterns = (
+        r"^and\s+once\s+you\s+know\s+that\b",
+        r"^but\s+(?:that|this)\s+(?:isn't|is not)\s+the\s+only\b",
+        r"^there(?:'s|\s+is)\s+another\b",
+        r"^there(?:'s|\s+is)\s+a\s+(?:completely\s+different|different|another)\b",
+        r"^one\s+mystery\s+down\b",
+        r"^next\s+time\s+you\b",
+        r"^next\s+(?:comes|up|is|one|mystery|question)\b",
+        r"^keep\s+an\s+eye\s+out\s+for\s+this\s+one\b",
+        r"^if\s+that\s+surprised\s+you\b",
+        r"^okay,?\s+but\s+that\s+leaves\b",
+        r"^one\s+more\s+mystery\b",
+        r"^another\s+(?:everyday|ordinary)\s+(?:mystery|thing)\b",
+        r"^the\s+same\s+(?:idea|trick)\s+(?:shows\s+up|appears)\s+in\b",
+        r"^wait\s+until\s+you\s+see\s+what\s+happens\s+with\b",
+        r"^up\s+next\b",
+        r"^coming\s+next\b",
+        r"^stay\s+tuned\b",
+        r"^part\s+2\b",
+    )
+    removed = 0
+    for scene in (script.get("scene_plan") or [])[:-1]:
+        narration = str(scene.get("narration") or "").strip()
+        if not narration:
+            continue
+        kept = []
+        for sentence in _split_sentences(narration):
+            normalized = _normalise_topic_text(sentence)
+            exact_future_topic = any(key and key in normalized for key in topic_keys)
+            teaser = any(re.search(pattern, sentence, re.I) for pattern in teaser_patterns)
+            if exact_future_topic or teaser:
+                removed += 1
+                print("🧹 Removed pre-ending future-topic continuation: " + sentence)
+            else:
+                kept.append(sentence)
+        scene["narration"] = " ".join(kept).strip()
+        scene["subtitle_text"] = scene["narration"]
+    if removed:
+        print(f"🧹 Removed {removed} future-topic continuation sentence(s) before Scene 7")
+    return removed
+
 def lock_next_topic(script,current_topic,locked_topic=None):
     previous=str((script.get("next_short") or {}).get("topic") or "").strip(); canonical=_lock_canonical_topic(script,current_topic,locked_topic=locked_topic)
     scenes=script.get("scene_plan") or []
+    _strip_future_continuations_from_prior_scenes(script, [previous, canonical])
     if len(scenes) < 2:
         raise RuntimeError("Publish Short requires at least two scenes for the single-topic ending contract.")
     final_scene=scenes[-1]

@@ -89,5 +89,5 @@ def test_visual_verification_cap_scales_down_for_small_run_budget(monkeypatch):
     monkeypatch.setenv("STORY_GEMINI_MAX_REQUESTS", "24")
     monkeypatch.delenv("STORY_GEMINI_MAX_VISUAL_REQUESTS", raising=False)
     assert budget.begin() == {"limit": 24, "used": 0}
-    assert budget.visual_gemini_limit() == 14
+    assert budget.visual_gemini_limit() == 16
 

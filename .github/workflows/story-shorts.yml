@@ -131,7 +131,7 @@ jobs:
             exit "$rc"
           fi
       - name: Generate and publish Story Short
-        timeout-minutes: 60
+        timeout-minutes: 75
         if: steps.recover.outputs.recovered != 'true' && steps.resume.outputs.resumed != 'true'
         env:
           STORY_PERSON: ${{ inputs.story_person || '' }}

@@ -181,20 +181,17 @@ TARGET: 80-120 spoken words. Aim for 95-110 words. Naturally paced. Every line m
 SCENE BANDS: 1=8-18, 2=7-22, 3=7-22, 4=7-22, 5=7-22, 6=7-22, 7=10-28.
 
 RETENTION ARCHITECTURE — CRITICAL:
-- This is a STORY, not a biography summary. The viewer should feel that something is about to go wrong, change, or be revealed.
-- Scene 1 first 1-2 seconds must be a hard hook: an impossible-looking situation, humiliating rejection, dangerous setback, bizarre turning point, or concrete contradiction. Do NOT begin with the person's name, birth, childhood, or career title unless the name itself is the surprise.
-- Scene 1 should create a question the viewer subconsciously wants answered. The hook must contain a concrete consequence or risk.
-- Scene 2 widens the gap: establish what the person wanted and what stood in the way. Introduce a specific human stake, not generic "they struggled."
-- Scene 3 is the LOW POINT. Show the clearest rejection, failure, loss, danger, or near-ending of the story. Make the consequence concrete.
-- Scene 4 is the DECISION. The person makes a specific choice, takes a specific action, or tries something that could realistically change the outcome. Avoid vague "they kept going."
-- Scene 5 is the ESCALATION. Add a second obstacle, surprising consequence, unexpected opportunity, or reversal. The viewer should understand that the obvious outcome is no longer certain.
-- Scene 6 is the TURN. Reveal the factual moment/result that changes the trajectory. Do not dump a list of achievements; reveal one strong consequence and why it mattered.
-- Scene 7 is the PAYOFF. Give the emotional/result payoff first, then the natural loop callback. It should feel earned by the events that came before.
-- Every scene must change the situation. If removing a sentence would leave the story unchanged, remove it.
-- Use concrete verbs and human stakes: rejected, lost, risked, hid, failed, rebuilt, quit, returned, borrowed, escaped, confronted, discovered, surprised, etc. Use only when factually appropriate.
-- Prefer one memorable incident over five shallow facts.
-- Never turn the ending into generic inspiration such as "this proves anything is possible."
-- Build a clear visual opportunity into each scene: person, era, location, occupation, object, action, or event that a real video search can actually depict.
+- Scene 1 first 1-2 seconds must be a scroll-stopping contradiction, risk, rejection, mystery, or surprising claim. Do NOT open with the subject as a biography introduction.
+- Make the first sentence short, concrete, and memorable. Prefer 2-4 distinctive content words that can be echoed naturally at the end.
+- For BEFORE_THE_FAME stories, delay the famous identity reveal until curiosity is established.
+- Scene 2 creates the curiosity gap and establishes stakes.
+- Scene 3 makes the obstacle/rejection/failure concrete.
+- Scene 4 shows a decision or action.
+- Scene 5 escalates with a consequence, second setback, or higher stake. Do not merely restate Scene 3.
+- Scene 6 delivers the turning point and starts the payoff.
+- Scene 7 MUST contain EXACTLY TWO short spoken sentences: first sentence = emotional payoff/result; second sentence = natural loop callback. The second sentence must echo at least TWO distinctive content words from Scene 1's FIRST sentence. Do not make Scene 7 one long sentence joined by commas or semicolons.
+- Every scene must add a new piece of information or change the viewer's understanding. No filler, generic inspiration, or repeated biography facts.
+- Build a clear visual opportunity into each scene: person, era, location, occupation, object, action, or event that a stock search can actually depict.
 
 VISUAL DIRECTION FIELDS:
 For every visual object, provide a concrete visual_focus, visual_action, must_show and must_not_show. The visual must be useful even without captions. Shot 1 establishes the beat; Shot 2 advances/reframes it. Never request generic cinematic filler. Never use empty stadiums, random offices, unrelated horses, generic business people, or decorative landscapes unless the narration explicitly makes them relevant.
@@ -227,16 +224,13 @@ FACTUALITY:
 - Prefer concrete, broadly established facts over trivia.
 
 STYLE:
-- Cinematic, conversational, punchy, emotionally engaging, concise.
-- Sound like a friend telling you an unbelievable TRUE incident they just discovered.
-- Use concrete details, contrast, short sentences, reversals, and specific stakes.
-- Vary sentence rhythm: a few very short punches followed by one slightly longer explanatory sentence.
-- Let the viewer discover the person's identity, mistake, decision, or consequence at the right moment instead of announcing everything immediately.
+- Cinematic, conversational, emotionally engaging, concise.
+- Sound like someone telling a friend an unbelievable true story, not reading Wikipedia.
+- Use short sentences, contrast, curiosity gaps, and specific stakes.
 - No welcome back, today's story, today we're talking about, in this video, or generic motivational filler.
 - Do not say wait until the end or similar empty retention bait.
 - Do not mention stock footage or visuals in narration.
 - Do not make the story dependent on captions.
-- Never write "they worked hard and eventually succeeded" as a substitute for an actual event.
 
 RECENT PEOPLE — avoid repeating them:
 {chr(10).join('- '+x for x in recent_people[-15:]) or '- none'}

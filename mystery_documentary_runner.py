@@ -1,6 +1,6 @@
 """Select and produce a never-before-used Mystery Documentary case."""
 from __future__ import annotations
-import json, os, runpy, time
+import json, os, re, runpy, time
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 CATALOG = ROOT / "mystery_footage_catalog.json"
@@ -56,22 +56,72 @@ def mark_history_published(item_id: str, video_id: str = "") -> bool:
     HISTORY.write_text(json.dumps(history, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     return True
 
+def _source_key(value: str) -> str:
+    value = str(value or "").strip().lower()
+    return re.sub(r"[?#].*$", "", value).rstrip("/")
+
+
 def main() -> None:
-    catalog=json.loads(CATALOG.read_text(encoding="utf-8")); history=load_history(); used={str(x) for x in history.get("used_item_ids",[])}
-    candidates=[x for x in catalog.get("items",[]) if x.get("video_url") and x.get("source_url") and (x.get("screening") or {}).get("eligible") is True and str(x.get("id")) not in used]
-    requested=os.getenv("MYSTERY_FOOTAGE_ITEM_ID","").strip()
-    if requested: candidates=[x for x in candidates if str(x.get("id"))==requested]
-    if not candidates: print("MYSTERY_DOCUMENTARY_SKIPPED=no unused eligible case"); return
-    selected=candidates[0]
-    item_id=str(selected["id"])
-    os.environ["MYSTERY_FOOTAGE_ITEM_ID"]=item_id
+    catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
+    history = load_history()
+    used = {str(x) for x in history.get("used_item_ids", [])}
+    used_sources = {
+        _source_key(entry.get("source_url"))
+        for entry in history.get("entries", [])
+        if isinstance(entry, dict) and _source_key(entry.get("source_url"))
+        and str(entry.get("status") or "").lower() in {"reserved", "published"}
+    }
+    candidates = [
+        x for x in catalog.get("items", [])
+        if x.get("video_url")
+        and x.get("source_url")
+        and (x.get("screening") or {}).get("eligible") is True
+        and str(x.get("id")) not in used
+        and _source_key(x.get("source_url")) not in used_sources
+    ]
+    requested = os.getenv("MYSTERY_FOOTAGE_ITEM_ID", "").strip()
+    if requested:
+        candidates = [x for x in candidates if str(x.get("id")) == requested]
+    if not candidates:
+        print("MYSTERY_DOCUMENTARY_SKIPPED=no unused eligible case")
+        return
+
     from factory_content_memory import claim as claim_factory_topic
-    factory_topic = f"{selected.get('title','')}: {selected.get('case_summary','')}".strip(": ")
-    claim_factory_topic(
-        "mystery",
-        factory_topic,
-        {"item_id": item_id, "source_url": selected.get("source_url",""), "source": "mystery_case_selection"},
-    )
+
+    # Topic uniqueness is global. If a newly discovered source describes the same
+    # mystery as an already published/reserved factory topic, skip it and continue
+    # to the next candidate instead of crashing or repeating an old documentary.
+    selected = None
+    item_id = ""
+    factory_topic = ""
+    for candidate in candidates:
+        candidate_id = str(candidate.get("id") or "").strip()
+        candidate_topic = f"{candidate.get('title','')}: {candidate.get('case_summary','')}".strip(": ")
+        try:
+            claim_factory_topic(
+                "mystery",
+                candidate_topic,
+                {
+                    "item_id": candidate_id,
+                    "source_url": candidate.get("source_url", ""),
+                    "source": "mystery_case_selection",
+                },
+            )
+            selected = candidate
+            item_id = candidate_id
+            factory_topic = candidate_topic
+            break
+        except RuntimeError as exc:
+            print(
+                f"⏭️ Skipping duplicate Mystery topic | "
+                f"{candidate.get('title', candidate_id)} | {exc}",
+                flush=True,
+            )
+    if selected is None:
+        print("MYSTERY_DOCUMENTARY_SKIPPED=no unused unique mystery case")
+        return
+
+    os.environ["MYSTERY_FOOTAGE_ITEM_ID"] = item_id
 
     # The case/topic is locked before learning context is refreshed or expensive rendering begins.
     try:

@@ -93,7 +93,7 @@ def _blueprint_schema():
     }
 
 
-BLUEPRINT_SYSTEM = r\"\"\"
+BLUEPRINT_SYSTEM = r"""
 You are the STORY ARCHITECT for a high-retention YouTube Shorts channel.
 Your only job is to design the underlying story before narration is written.
 
@@ -115,12 +115,12 @@ Avoid lists of facts. Avoid generic educational summaries. The blueprint must gi
 narration writer something specific to build toward.
 
 Return ONLY JSON matching the supplied schema.
-\"\"\"
+"""
 
 
 def _blueprint_prompt(topic, extra_feedback=""):
     feedback = f"\\nCHANNEL LEARNING FEEDBACK:\\n{_clean(extra_feedback, 5000)}" if extra_feedback else ""
-    return f\"\"\"
+    return f"""
 CURRENT TOPIC:
 {topic}
 
@@ -129,7 +129,7 @@ The viewer should begin with an observable mystery and finish with a satisfying 
 The final payoff should be the strongest surprising TRUE idea in the story.
 Do not invent a second topic.
 {feedback}
-\"\"\"
+"""
 
 
 def _entertainment_schema():

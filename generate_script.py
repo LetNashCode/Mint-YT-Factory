@@ -531,11 +531,29 @@ def _fallback_identity(topic):
     }
 
 
+def _validate_blueprint(blueprint):
+    if not isinstance(blueprint, dict):
+        raise RuntimeError("Story blueprint must be an object.")
+    required = (
+        "central_mystery", "viewer_question", "misconception_or_assumption",
+        "first_reveal", "mechanism", "unexpected_consequence",
+        "final_payoff", "emotional_effect",
+    )
+    missing = [key for key in required if not _clean(blueprint.get(key))]
+    if missing:
+        raise RuntimeError("Story blueprint is missing required beats: " + ", ".join(missing))
+    # A blueprint that repeats the same sentence for multiple beats is not a story
+    # architecture; reject it before spending another model call on narration.
+    normalized = [re.sub(r"[^a-z0-9]+", " ", _clean(blueprint[key]).lower()).strip() for key in required]
+    duplicates = {value for value in normalized if value and normalized.count(value) > 1}
+    if duplicates:
+        raise RuntimeError("Story blueprint contains duplicate beats.")
+    return True
+
+
 def _validate_no_future_topic_in_story(script, topic):
     """Hard gate: Scenes 1-6 may not contain the generated continuation topic or its handoff language."""
     next_topic = _clean((script.get("next_short") or {}).get("topic"))
-    if not next_topic:
-        return
     next_key = re.sub(r"[^a-z0-9]+", " ", next_topic.lower()).strip()
     next_words = {w for w in re.findall(r"[a-z0-9]+", next_topic.lower()) if len(w) >= 4 and w not in {
         "why", "what", "when", "where", "how", "does", "do", "did", "the", "and", "that",
@@ -762,6 +780,7 @@ def generate_script(topic, config, research=None, extra_feedback=""):
                 _blueprint_schema(),
                 0.65,
             )
+            _validate_blueprint(blueprint)
             print("🧭 Story blueprint pass: central mystery + escalation + payoff locked")
 
             # PASS 2 ---------------------------------------------------------

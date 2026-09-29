@@ -272,3 +272,48 @@ def test_publish_visual_contract_rejects_static_duplicate_action():
     import pytest
     with pytest.raises(RuntimeError, match="does not advance"):
         generate_script._validate_visuals(visuals, entertainment, "Why does ice crack")
+
+
+def test_publish_cleanup_catches_paraphrased_locked_successor():
+    import main
+
+    script = {
+        "topic": "Why do telephone poles crack",
+        "scene_plan": [
+            {"narration": "Hook."},
+            {"narration": "The wood stores tension, which makes you wonder why a guitar strings snap when the weather turns cold."},
+            {"narration": "Explanation."},
+            {"narration": "Mechanism."},
+            {"narration": "Consequence."},
+            {"narration": "Payoff."},
+            {"narration": "Ending."},
+        ],
+    }
+
+    removed = main._strip_future_continuations_from_prior_scenes(
+        script, ["Why do guitar strings snap"]
+    )
+
+    assert removed == 1
+    assert "guitar strings snap" not in script["scene_plan"][1]["narration"].lower()
+
+
+def test_publish_future_topic_guard_rejects_generic_handoff_in_scene_6():
+    import generate_script
+    import pytest
+
+    script = {
+        "next_short": {},
+        "scene_plan": [
+            {"narration": "Hook."},
+            {"narration": "Setup."},
+            {"narration": "Explanation."},
+            {"narration": "Mechanism."},
+            {"narration": "Consequence."},
+            {"narration": "That makes you wonder why this happens somewhere else."},
+            {"narration": "Ending."},
+        ],
+    }
+
+    with pytest.raises(RuntimeError, match="Scene 6"):
+        generate_script._validate_no_future_topic_in_story(script, "Why do telephone poles crack")

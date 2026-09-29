@@ -72,6 +72,66 @@ def _parse(text):
     return json.loads(text)
 
 
+def _blueprint_schema():
+    return {
+        "type": "object",
+        "properties": {
+            "central_mystery": {"type": "string"},
+            "viewer_question": {"type": "string"},
+            "misconception_or_assumption": {"type": "string"},
+            "first_reveal": {"type": "string"},
+            "mechanism": {"type": "string"},
+            "unexpected_consequence": {"type": "string"},
+            "final_payoff": {"type": "string"},
+            "emotional_effect": {"type": "string"},
+        },
+        "required": [
+            "central_mystery", "viewer_question", "misconception_or_assumption",
+            "first_reveal", "mechanism", "unexpected_consequence",
+            "final_payoff", "emotional_effect",
+        ],
+    }
+
+
+BLUEPRINT_SYSTEM = r\"\"\"
+You are the STORY ARCHITECT for a high-retention YouTube Shorts channel.
+Your only job is to design the underlying story before narration is written.
+
+Do NOT write scenes, narration, visual prompts, titles, tags, CTAs, or future topics.
+Do NOT think about stock footage.
+
+For the CURRENT TOPIC, identify the one genuinely interesting mystery and construct a
+single curiosity chain:
+1. what strange observable behavior starts the story,
+2. what question it creates in the viewer's mind,
+3. what assumption the viewer may initially have,
+4. the first useful reveal,
+5. the simple physical mechanism,
+6. the unexpected consequence or twist,
+7. the final surprising payoff that changes the viewer's understanding.
+
+The payoff must be truthful, concrete, and actually connected to the central mystery.
+Avoid lists of facts. Avoid generic educational summaries. The blueprint must give the
+narration writer something specific to build toward.
+
+Return ONLY JSON matching the supplied schema.
+\"\"\"
+
+
+def _blueprint_prompt(topic, extra_feedback=""):
+    feedback = f"\\nCHANNEL LEARNING FEEDBACK:\\n{_clean(extra_feedback, 5000)}" if extra_feedback else ""
+    return f\"\"\"
+CURRENT TOPIC:
+{topic}
+
+Design the story blueprint for one approximately 40-second Short.
+The viewer should begin with an observable mystery and finish with a satisfying mental reframe.
+The final payoff should be the strongest surprising TRUE idea in the story.
+Do not invent a second topic.
+{feedback}
+\"\"\"
+
+
 def _entertainment_schema():
     scene = {
         "type": "object",
@@ -94,16 +154,6 @@ def _entertainment_schema():
             "story_format": {"type": "string"},
             "payoff_type": {"type": "string"},
             "tease_type": {"type": "string"},
-            "next_short": {
-                "type": "object",
-                "properties": {
-                    "topic": {"type": "string"},
-                    "teaser": {"type": "string"},
-                    "why_viewers_should_return": {"type": "string"},
-                    "subscription_cta": {"type": "string"},
-                },
-                "required": ["topic", "teaser", "why_viewers_should_return", "subscription_cta"],
-            },
             "voice_style": {
                 "type": "object",
                 "properties": {"tone": {"type": "string"}, "pace": {"type": "string"}, "pitch": {"type": "string"}},
@@ -111,7 +161,7 @@ def _entertainment_schema():
             },
             "scene_plan": {"type": "array", "items": scene},
         },
-        "required": ["title", "tags", "category", "hook_type", "story_format", "payoff_type", "tease_type", "next_short", "voice_style", "scene_plan"],
+        "required": ["title", "tags", "category", "hook_type", "story_format", "payoff_type", "tease_type", "voice_style", "scene_plan"],
     }
 
 
@@ -174,8 +224,9 @@ def _visual_schema():
 
 ENTERTAINMENT_SYSTEM = r"""
 You are the ENTERTAINMENT WRITER for a high-retention YouTube Shorts channel.
-Your job is ONLY to write the spoken story. Do not think about Pexels, stock footage,
-image prompts, cameras, search queries, or what is easy to generate visually.
+Your job is ONLY to write the spoken story from the supplied STORY BLUEPRINT. Do not select
+future topics and do not think about Pexels, stock footage, image prompts, cameras,
+search queries, or what is easy to generate visually.
 
 Write like a clever, mischievous friend showing someone a weird everyday mystery.
 The viewer should feel: "Wait... seriously?!"
@@ -196,7 +247,8 @@ STORY:
 4. Scene 4: demonstrate the mechanism in an easy-to-understand way.
 5. Scene 5: reveal a consequence the viewer probably did not expect.
 6. Scene 6: strongest "WAIT, WHAT?" reveal, reframe, and satisfying payoff for the CURRENT topic.
-7. Scene 7: final handoff slot. Do not restate the CURRENT topic or introduce another fact; the production layer inserts exactly one canonical next-topic bridge here.
+7. Scene 7: finish the CURRENT topic cleanly. Production will replace this final scene with
+its own single continuation bridge after the story is validated. Do not mention any future topic.
 
 The story must be one chain of curiosity -> discovery -> escalation -> reversal -> mindblowing-but-true payoff.
 Do not make a list of facts.
@@ -215,7 +267,7 @@ PAYOFF:
 ENDING:
 - Scene 6 must contain the complete CURRENT-topic payoff.
 - Scene 7 is reserved for the production-owned ending handoff and must not repeat the current topic.
-- Return tease_type describing a natural bridge mechanism for the next Short. The production layer owns the exact bridge.
+- Return tease_type only as a creative metadata label. Do not write the bridge itself and do not name a future topic.
 
 ENTERTAINMENT RULES:
 - Start with the behavior, not the topic name or a definition.
@@ -319,7 +371,7 @@ def _call_json(client, system, prompt, schema, temperature):
     return _parse(text)
 
 
-def _entertainment_prompt(topic, extra_feedback=""):
+def _entertainment_prompt(topic, blueprint, extra_feedback=""):
     feedback = f"\nCHANNEL LEARNING FEEDBACK:\n{_clean(extra_feedback, 5000)}" if extra_feedback else ""
     return f"""
 CURRENT TOPIC:
@@ -532,10 +584,7 @@ def _validate_entertainment(script, topic):
         raise RuntimeError(f"Entertainment narration word count {total} is outside 80–130.")
     if _clean(scenes[0].get("narration")).lower().startswith(("did you know", "have you ever wondered", "today we're", "in this video")):
         raise RuntimeError("Entertainment hook is generic.")
-    next_short = script.setdefault("next_short", {})
-    # The next topic is metadata only. Never validate Scene 7 against it here.
-    if not _clean(next_short.get("topic")):
-        next_short["topic"] = _clean(topic)
+    # Continuation is production-owned. The writer never selects or embeds a future topic.
     return total
 
 
@@ -654,7 +703,9 @@ def _merge(entertainment, visual, topic):
             "visuals": visuals,
         })
 
-    next_short = entertainment["next_short"]
+    # Continuation is intentionally empty here. main.py selects and locks the canonical
+    # successor after the current story has passed its creative gates.
+    next_short = {}
     return {
         "topic": topic,
         "title": _clean(entertainment.get("title"), 70) or topic[:70],
@@ -667,6 +718,7 @@ def _merge(entertainment, visual, topic):
         "visual_identity": identity,
         "visual_continuity": continuity,
         "retention_self_check": {"weakest_scene": 4, "reason": "The story escalates from curiosity to physical explanation and payoff."},
+        "story_blueprint": entertainment.get("story_blueprint") or {},
         "next_short": next_short,
         "riddle": entertainment.get("riddle") or {},
         "scene_plan": scenes,
@@ -697,14 +749,29 @@ def generate_script(topic, config, research=None, extra_feedback=""):
     for attempt in range(1, MAX_ATTEMPTS + 1):
         try:
             # PASS 1 ---------------------------------------------------------
-            # The writer never sees visual/search constraints.
+            # Build the story architecture before asking for narration. This separates
+            # the creative reasoning from sentence generation and prevents the writer
+            # from improvising a weak seven-box story.
+            blueprint = _call_json(
+                client,
+                BLUEPRINT_SYSTEM,
+                _blueprint_prompt(topic, extra_feedback),
+                _blueprint_schema(),
+                0.65,
+            )
+            print("🧭 Story blueprint pass: central mystery + escalation + payoff locked")
+
+            # PASS 2 ---------------------------------------------------------
+            # The writer receives only the current topic and its locked blueprint.
+            # It has no continuation-topic field and therefore cannot author a future topic.
             entertainment = _call_json(
                 client,
                 ENTERTAINMENT_SYSTEM,
-                _entertainment_prompt(topic, extra_feedback),
+                _entertainment_prompt(topic, blueprint, extra_feedback),
                 _entertainment_schema(),
-                0.95,
+                0.90,
             )
+            entertainment["story_blueprint"] = blueprint
             word_count = _validate_entertainment(entertainment, topic)
             _validate_no_future_topic_in_story(entertainment, topic)
             print(f"🎭 Entertainment writer pass: {word_count} words")
@@ -738,7 +805,7 @@ def generate_script(topic, config, research=None, extra_feedback=""):
                     + f". {critique.get('rewrite_instruction') or critique.get('major_problem') or 'Rewrite for stronger retention.'}"
                 )
 
-            # PASS 2 ---------------------------------------------------------
+            # PASS 3 ---------------------------------------------------------
             # Only the finished narration crosses into the visual domain.
             visual = _call_json(
                 client,

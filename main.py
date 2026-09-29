@@ -117,6 +117,8 @@ def _strip_model_continuation_from_scene7(final_scene,stale_topics):
         r"^one\s+more\s+mystery\b",
         r"^another\s+(?:everyday|ordinary)\s+(?:mystery|thing)\b",
         r"^the\s+same\s+(?:idea|trick)\s+(?:shows\s+up|appears)\s+in\b",
+        r"\bwhich\s+makes\s+you\s+wonder\s+(?:why|how|what)\b",
+        r"\b(?:and\s+)?here'?s\s+(?:where|the)\s+it\s+gets\s+(?:even\s+)?stranger\b",
         r"^wait\s+until\s+you\s+see\s+what\s+happens\s+with\b",
     )
     kept=[]; removed=False
@@ -170,8 +172,18 @@ def _strip_future_continuations_from_prior_scenes(script, future_topics):
         for sentence in _split_sentences(narration):
             normalized = _normalise_topic_text(sentence)
             exact_future_topic = any(key and key in normalized for key in topic_keys)
+            # Models sometimes paraphrase the locked successor instead of
+            # repeating it verbatim (for example "why a guitar strings snap"
+            # instead of "why do guitar strings snap"). Use content-word
+            # overlap to catch malformed future-topic mentions.
+            sentence_words = _content_words(sentence)
+            topic_overlap = any(
+                len(sentence_words & _content_words(topic)) >= 2
+                for topic in (future_topics or [])
+                if _content_words(topic)
+            )
             teaser = any(re.search(pattern, sentence, re.I) for pattern in teaser_patterns)
-            if exact_future_topic or teaser:
+            if exact_future_topic or topic_overlap or teaser:
                 removed += 1
                 print("🧹 Removed pre-ending future-topic continuation: " + sentence)
             else:

@@ -2979,5 +2979,18 @@
     "video_id": "yovro0HiVB4",
     "workdir": "",
     "published_at": 1790701128
+  },
+  {
+    "topic": "Israeli security forces shoot and kill Ahmad Zidani, Beit Rima, 18 Dec. 2016: Candidate discovered from Internet Archive; the footage and event context require factual review.",
+    "normalized": "israeli security forces shoot and kill ahmad zidani beit rima 18 dec 2016 candidate discovered from internet archive the footage and event context require factual review",
+    "workflow": "mystery",
+    "status": "reserved",
+    "reserved_at": 1790708007,
+    "recorded_at": 1790708007,
+    "metadata": {
+      "item_id": "internet-archive-youtube-Zd3Dgv7xyco",
+      "source_url": "https://archive.org/details/youtube-Zd3Dgv7xyco",
+      "source": "mystery_case_selection"
+    }
   }
 ]

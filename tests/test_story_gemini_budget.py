@@ -75,6 +75,9 @@ def test_story_gemini_entrypoints_are_budgeted_before_api_calls():
 def test_visual_verification_reserves_gemini_budget_for_later_story_stages(monkeypatch):
     monkeypatch.setenv("STORY_GEMINI_MAX_REQUESTS", "64")
     monkeypatch.delenv("STORY_GEMINI_MAX_VISUAL_REQUESTS", raising=False)
+    # This test covers the local-development fallback path. GitHub Actions is
+    # explicitly prohibited from using CPU Qwen by the production guard below.
+    monkeypatch.delenv("GITHUB_ACTIONS", raising=False)
     assert budget.begin() == {"limit": 64, "used": 0}
 
     for _ in range(56):

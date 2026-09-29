@@ -54,10 +54,34 @@ def parse_json(text):
     return json.loads(re.sub(r"^```(?:json)?\s*|\s*```$", "", text.strip(), flags=re.I))
 
 
-def plan(item, source, work, duration, audio_analysis):
+def _is_transient_gemini_error(exc):
+    text = f"{type(exc).__name__}: {exc}".lower()
+    return any(token in text for token in (
+        "remoteprotocolerror", "server disconnected", "readerror",
+        "connecterror", "connection reset", "connection aborted",
+        "timed out", "timeout", "temporarily unavailable",
+        "503", "502", "504", "429", "resource exhausted",
+    ))
+
+def _extract_planning_frames(source, frames, max_frames):
+    frames.mkdir(parents=True, exist_ok=True)
+    existing = sorted(frames.glob("frame-*.jpg"))
+    if len(existing) >= max_frames:
+        return existing[:max_frames]
+    for path in existing:
+        path.unlink(missing_ok=True)
+    cmd([
+        "ffmpeg", "-y", "-i", source,
+        "-vf", "fps=1/8,scale=960:-2",
+        "-frames:v", str(max_frames),
+        "-q:v", "3",
+        frames / "frame-%03d.jpg",
+    ])
+    return sorted(frames.glob("frame-*.jpg"))
+
+def plan(item, source, work, duration, audio_analysis, max_frames=24):
     frames = work / "frames"
-    frames.mkdir()
-    cmd(["ffmpeg", "-y", "-i", source, "-vf", "fps=1/8,scale=960:-2", "-frames:v", "30", "-q:v", "3", frames / "frame-%03d.jpg"])
+    frame_paths = _extract_planning_frames(source, frames, max_frames)
     factory_learning = os.getenv("MINT_FACTORY_LEARNING_CONTEXT", "").strip()
     factory_strategy = os.getenv("MINT_FACTORY_CREATIVE_STRATEGY", "").strip()
     protected_speech = audio_analysis.get("protected_intervals", []) if isinstance(audio_analysis, dict) else []
@@ -71,9 +95,16 @@ CURRENT FACTORY CREATIVE EXPERIMENT:
 {factory_strategy}
 
 PROTECTED SOURCE-SPEECH INTERVALS (Whisper): {protected_speech}\nSOURCE AUDIO TRANSCRIPT: {source_transcript}\n\nUse learning only to improve structure, pacing, evidence presentation, and viewer clarity. Never copy a prior case, claim, wording, or conclusion."""
-    parts = [prompt] + [types.Part.from_bytes(data=p.read_bytes(), mime_type="image/jpeg") for p in sorted(frames.glob("*.jpg"))]
+    parts = [prompt] + [types.Part.from_bytes(data=p.read_bytes(), mime_type="image/jpeg") for p in frame_paths]
     with genai.Client(api_key=os.environ["GEMINI_API_KEY"]) as client:
-        result = client.models.generate_content(model=MODEL, contents=parts, config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0.2))
+        result = client.models.generate_content(
+            model=MODEL,
+            contents=parts,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json",
+                temperature=0.2,
+            ),
+        )
     data = parse_json(result.text)
     raw_scenes = data.get("scene_plan")
     if not isinstance(raw_scenes, list) or not raw_scenes:
@@ -309,16 +340,33 @@ def main():
         (OUT / "audio_timeline.json").write_text(json.dumps(audio_analysis, indent=2, ensure_ascii=False), encoding="utf-8")
         last_plan_error = None
         timeline = None
-        for attempt in range(1, 4):
+        max_plan_attempts = max(1, int(os.getenv("MYSTERY_GEMINI_PLAN_ATTEMPTS", "3")))
+        for attempt in range(1, max_plan_attempts + 1):
             try:
-                print(f"🧠 Building Mystery documentary script/timeline (attempt {attempt}/3)")
-                timeline = plan(item, source, work, duration, audio_analysis)
+                print(f"🧠 Building Mystery documentary script/timeline (attempt {attempt}/{max_plan_attempts})")
+                frame_budget = 24 if attempt == 1 else 12
+                timeline = plan(
+                    item, source, work, duration, audio_analysis,
+                    max_frames=frame_budget,
+                )
                 break
-            except RuntimeError as exc:
+            except Exception as exc:
                 last_plan_error = exc
-                print(f"⚠️ Mystery script/timeline rejected: {exc}")
+                if _is_transient_gemini_error(exc) and attempt < max_plan_attempts:
+                    delay = min(30, 5 * attempt)
+                    next_budget = 12
+                    print(f"⚠️ Transient Gemini planning failure: {type(exc).__name__}: {exc}")
+                    print(f"🔁 Retrying Mystery timeline with {next_budget} frames after {delay}s...")
+                    time.sleep(delay)
+                    continue
+                if isinstance(exc, RuntimeError):
+                    print(f"⚠️ Mystery script/timeline rejected: {exc}")
+                else:
+                    print(f"⚠️ Mystery script/timeline failed: {type(exc).__name__}: {exc}")
         if timeline is None:
-            raise RuntimeError(f"Could not produce a narration-rich Mystery documentary plan: {last_plan_error}")
+            raise RuntimeError(
+                f"Could not produce a narration-rich Mystery documentary plan: {last_plan_error}"
+            ) from last_plan_error
         (OUT / "timeline.json").write_text(json.dumps(timeline, indent=2, ensure_ascii=False), encoding="utf-8")
         full_narration = " ".join(
             scene["narration"]

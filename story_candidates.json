@@ -27,18 +27,6 @@
   },
   {
     "format": "strange_turning_point",
-    "person": "Alexander Fleming",
-    "premise": "Discovering the world's first broadly effective antibiotic entirely by accident due to an open laboratory window and mold spore contamination.",
-    "hook": "A stray microscopic spore drifted through an open London window and accidentally landed on a dirty petri dish, changing modern medicine forever.",
-    "key_facts": [
-      "Worked as a bacteriologist at St Mary's Hospital in London.",
-      "Returned from a holiday in 1928 to find a petri dish containing Staphylococcus bacteria had been contaminated by a Penicillium mold.",
-      "Observed that the mold had prevented the normal growth of the surrounding bacteria."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
     "person": "Percy Spencer",
     "premise": "Inventing the microwave oven after a candy bar melted in his pocket while standing near a vacuum tube magnetron.",
     "hook": "A simple chocolate bar melted inside a scientist's pocket while testing military radar equipment, leading to a revolutionary kitchen appliance.",
@@ -46,19 +34,6 @@
       "Worked as an engineer at Raytheon building magnetrons for radar systems during World War II.",
       "Noticed a peanut cluster candy bar in his pocket had melted while standing in front of an active radar transmitter.",
       "Conducted experiments with corn kernels and an egg to confirm high-frequency radio waves could cook food rapidly."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
-    "person": "Stephen King",
-    "premise": "The discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon.",
-    "hook": "He threw his first novel draft into the trash can, convinced it was unpublishable, until his wife pulled it out.",
-    "key_facts": [
-      "Worked as a high school English teacher while writing stories at night in a trailer.",
-      "Collected dozens of rejection slips from pulp magazines and publishers.",
-      "His wife, Tabitha King, rescued the discarded manuscript pages of Carrie from the wastebasket.",
-      "The paperback edition of Carrie eventually sold over a million copies."
     ],
     "source": "gemini_original"
   },
@@ -98,19 +73,6 @@
       "Traveled to Memphis, Tennessee, seeking a radio break, eventually working as a disc jockey known as the Beale Street Blues Boy.",
       "Named his signature Gibson electric guitars 'Lucille' after an incident involving a tavern fire.",
       "Recorded dozens of influential blues standards over a decades-long touring career."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "The survival of an entire Antarctic crew after their ship was crushed by pack ice.",
-    "hook": "His ship was trapped and crushed by Antarctic ice, stranding twenty-eight men on floating floes with no radio contact.",
-    "key_facts": [
-      "Led the Imperial Trans-Antarctic Expedition aboard the ship Endurance, which sank in 1915.",
-      "Navigated a 20-foot open life-boat across 800 miles of stormy Southern Ocean seas to reach South Georgia Island.",
-      "Successfully rescued every member of his stranded crew without a single loss of life.",
-      "Died of a heart attack during his final Antarctic expedition in 1922."
     ],
     "source": "gemini_original"
   },

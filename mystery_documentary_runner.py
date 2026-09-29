@@ -112,7 +112,7 @@ def main() -> None:
             )
             continue
 
-        candidate_topic = f"{candidate.get('title','')}: {candidate.get('case_summary','')}".strip(": ")
+        candidate_topic = " ".join(str(candidate.get("title") or "").split()).strip() or candidate_id
         try:
             claim_factory_topic(
                 "mystery",

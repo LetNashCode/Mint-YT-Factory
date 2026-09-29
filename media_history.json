@@ -9289,6 +9289,146 @@
       "shot": 2,
       "query": "sidewalk concrete traps warmth moisture",
       "recorded_at": 1790682010
+    },
+    {
+      "asset_key": "pexels:video:5647317",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5647317/5647317-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "lightbulbs tiny glass bulb clear",
+      "recorded_at": 1790691539
+    },
+    {
+      "asset_key": "pexels:video:9196607",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9196607/9196607-hd_720_1366_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "lightbulbs your desk holds violent",
+      "recorded_at": 1790691553
+    },
+    {
+      "asset_key": "pexels:video:5647308",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5647308/5647308-hd_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "lightbulbs inside there glass bulb",
+      "recorded_at": 1790691580
+    },
+    {
+      "asset_key": "pexels:video:853788",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/853788/853788-hd_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "lightbulbs practically nothing all glass",
+      "recorded_at": 1790691590
+    },
+    {
+      "asset_key": "pexels:video:6290479",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6290479/6290479-hd_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "lightbulbs all air was sucked",
+      "recorded_at": 1790691629
+    },
+    {
+      "asset_key": "pexels:video:5090776",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5090776/5090776-hd_1366_720_25fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "lightbulbs wire inside refuses burn",
+      "recorded_at": 1790691654
+    },
+    {
+      "asset_key": "pexels:video:5846392",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5846392/5846392-hd_1280_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "lightbulbs tap glass hammer small",
+      "recorded_at": 1790691672
+    },
+    {
+      "asset_key": "pexels:video:36426733",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/36426733/15445998_1280_720_60fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "lightbulbs watch glass surface fracture",
+      "recorded_at": 1790691711
+    },
+    {
+      "asset_key": "pexels:video:9196259",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9196259/9196259-hd_1366_720_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "lightbulbs instead blowing outward pressure",
+      "recorded_at": 1790691738
+    },
+    {
+      "asset_key": "pexels:video:853772",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/853772/853772-hd_1280_720_50fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "lightbulbs violently glass walls instantly",
+      "recorded_at": 1790691749
+    },
+    {
+      "asset_key": "pexels:video:32241388",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/32241388/13749873_720_1280_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "lightbulbs loud pop not explosion",
+      "recorded_at": 1790691761
+    },
+    {
+      "asset_key": "pexels:video:16069880",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/16069880/16069880-hd_960_720_60fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "lightbulbs sound punching its way",
+      "recorded_at": 1790691783
+    },
+    {
+      "asset_key": "pexels:video:7934360",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7934360/7934360-hd_1280_720_30fps.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "lightbulbs nature truly abhors space",
+      "recorded_at": 1790691798
+    },
+    {
+      "asset_key": "pexels:video:9196606",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9196606/9196606-hd_1366_720_25fps.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "lightbulbs nature truly abhors space",
+      "recorded_at": 1790691843
     }
   ]
 }

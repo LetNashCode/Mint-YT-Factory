@@ -2843,18 +2843,6 @@
     "published_at": 1790593872
   },
   {
-    "topic": "Why does soda fizz",
-    "normalized": "why does soda fizz",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1790605752,
-    "recorded_at": 1790605752,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why does a brush shed",
     "normalized": "why does a brush shed",
     "workflow": "publish",
@@ -2959,5 +2947,21 @@
     "video_id": "QeakpzPSLi4",
     "workdir": "output/1790681877",
     "published_at": 1790683110
+  },
+  {
+    "topic": "Why do lightbulbs pop",
+    "normalized": "why do lightbulbs pop",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1790691129,
+    "recorded_at": 1790691129,
+    "metadata": {
+      "next_topic": "Why do toast crumbs burn",
+      "creative_strategy": ""
+    },
+    "title": "Why Do Lightbulbs Pop",
+    "video_id": "S7UYGBLDIMM",
+    "workdir": "output/1790691208",
+    "published_at": 1790693120
   }
 ]

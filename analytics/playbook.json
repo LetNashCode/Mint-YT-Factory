@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T11:03:05.892656+00:00",
+  "generated_at": "2026-09-29T11:20:13.996237+00:00",
   "video_count": 118,
   "learning_ready": true,
   "metrics_available": true,
@@ -16,13 +16,13 @@
       "score": 34.628,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.604
+      "weak_score": 0.657
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.604,
+      "score": 0.657,
       "sample_size": 10
     }
   ],
@@ -46,9 +46,9 @@
     "Nolan Bushnell: Selling a stake in Apple Computer for a few thousand dollars to focus on his own arcade business instead.",
     "Why does a kettle whistle",
     "gratitude: finding a well-worn paperback book on a shelf with a handwritten note on the inside cover from a high school English teacher who believed in you when you wanted to quit.",
+    "childhood memories: Finding the exact indent in the living room wall behind the couch where you used to hide your favorite comic books during childhood thunderstorms.",
     "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
     "Why do oven glass doors get striped",
-    "childhood memories: Finding the exact indent in the living room wall behind the couch where you used to hide your favorite comic books during childhood thunderstorms.",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
     "Why do steering wheels lock"

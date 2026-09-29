@@ -2931,5 +2931,17 @@
     "video_id": "EAByp1pcCfw",
     "workdir": "output/emotional_reel",
     "published_at": 1790679363
+  },
+  {
+    "topic": "Why do telephone poles crack",
+    "normalized": "why do telephone poles crack",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1790680789,
+    "recorded_at": 1790680789,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

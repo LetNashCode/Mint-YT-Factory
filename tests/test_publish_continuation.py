@@ -236,3 +236,39 @@ def test_publish_blueprint_is_passed_into_narration_prompt():
     assert "STORY BLUEPRINT — SOURCE OF TRUTH" in prompt
     assert blueprint["final_payoff"] in prompt
     assert "test feedback" in prompt
+
+
+def test_publish_visual_contract_rejects_static_duplicate_action():
+    import generate_script
+
+    entertainment = {
+        "scene_plan": [{"narration": "The object changes."}] * 7,
+    }
+    visuals = {
+        "scene_plan": [
+            {
+                "visuals": [
+                    {
+                        "visual_focus": "ice cube",
+                        "visual_action": "sits in water",
+                        "image_prompt": "close-up ice cube sitting in a glass of water",
+                        "spoken_line": "The cube sits in water.",
+                        "must_show": ["ice cube", "glass", "water"],
+                        "must_not_show": ["person", "laboratory", "diagram"],
+                    },
+                    {
+                        "visual_focus": "ice cube",
+                        "visual_action": "sits in water",
+                        "image_prompt": "close-up ice cube sitting in a glass of water",
+                        "spoken_line": "The cube sits in water.",
+                        "must_show": ["ice cube", "glass", "water"],
+                        "must_not_show": ["person", "laboratory", "diagram"],
+                    },
+                ]
+            }
+        ] * 7
+    }
+
+    import pytest
+    with pytest.raises(RuntimeError, match="does not advance"):
+        generate_script._validate_visuals(visuals, entertainment, "Why does ice crack")

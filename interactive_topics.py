@@ -43,6 +43,14 @@ def _save(path, value):
 
 def _load_history(): return _load(HISTORY, [])
 
+def _load_published_topics():
+    """Load topics already published to YouTube across the factory."""
+    rows = _load(ROOT / "completed_publications.json", [])
+    return [str(row.get("topic", "")).strip() for row in rows if isinstance(row, dict) and row.get("topic")]
+
+def _published_topic_tokens():
+    return [_tokens(topic) for topic in _load_published_topics() if _tokens(topic)]
+
 def _performance_by_format():
     rows = _load(ROOT / "analytics" / "story_videos.json", [])
     groups = {}
@@ -57,12 +65,19 @@ def _performance_by_format():
 def _novelty_penalty(person, premise, recent):
     score = 0.0
     p_tokens, s_tokens = _tokens(person), _tokens(premise)
-    for row in recent[-15:]:
+    published = _published_topic_tokens()
+    for row in recent[-20:]:
         old_person, old_premise = _tokens(row.get("person", "")), _tokens(row.get("topic", ""))
         if p_tokens and old_person and len(p_tokens & old_person) / max(1, len(p_tokens | old_person)) >= .5: score += 40
         if s_tokens and old_premise:
             overlap = len(s_tokens & old_premise) / max(1, len(s_tokens | old_premise))
             score += 18 if overlap >= .45 else 8 if overlap >= .30 else 0
+    # Penalize subjects whose premise is already too close to anything that
+    # has actually reached YouTube, including older factory publications.
+    for old in published:
+        if s_tokens and old:
+            overlap = len(s_tokens & old) / max(1, len(s_tokens | old))
+            score += 80 if overlap >= .62 else 35 if overlap >= .45 else 0
     return score
 
 def _generate_candidates(count=10):
@@ -101,8 +116,23 @@ RECENT PEOPLE TO AVOID:\n{chr(10).join('- '+x for x in people[-15:]) or '- none'
         return []
 
 def _ensure_pool():
-    rows=_load(CANDIDATES,[]); history=_load_history(); used={_n(x.get("person","")) for x in history if isinstance(x,dict)}
-    rows=[x for x in rows if isinstance(x,dict) and _n(x.get("person","")) not in used]
+    rows=_load(CANDIDATES,[])
+    history=_load_history()
+    used={_n(x.get("person","")) for x in history if isinstance(x,dict)}
+    published_tokens=_published_topic_tokens()
+    clean_rows=[]
+    for row in rows:
+        if not isinstance(row,dict) or _n(row.get("person","")) in used:
+            continue
+        premise_tokens=_tokens(row.get("premise",""))
+        if any(
+            premise_tokens and old and
+            len(premise_tokens & old) / max(1, len(premise_tokens | old)) >= .62
+            for old in published_tokens
+        ):
+            continue
+        clean_rows.append(row)
+    rows=clean_rows
     if len(rows)<5: rows.extend(_generate_candidates(10))
     seen=set(); clean=[]
     for row in rows:
@@ -124,8 +154,18 @@ def get_next_topic():
         scored.append((score,fmt,person,premise,item))
     if not scored:
         used={_n(x.get("person","")) for x in history if isinstance(x,dict)}
+        published_tokens=_published_topic_tokens()
         for fmt,person,premise in SEED_STORIES:
-            if _n(person) not in used: scored.append((10,fmt,person,premise,{"format":fmt,"person":person,"premise":premise,"source":"seed","key_facts":[]}))
+            if _n(person) in used:
+                continue
+            premise_tokens=_tokens(premise)
+            if any(
+                premise_tokens and old and
+                len(premise_tokens & old) / max(1, len(premise_tokens | old)) >= .62
+                for old in published_tokens
+            ):
+                continue
+            scored.append((10,fmt,person,premise,{"format":fmt,"person":person,"premise":premise,"source":"seed","key_facts":[]}))
     if not scored: raise RuntimeError("Story candidate pool is empty; no unused story subjects are available.")
     scored.sort(key=lambda x:(-x[0],x[2])); _,fmt,person,premise,_=scored[0]
     _save(CANDIDATES,[x for x in pool if _n(x.get("person",""))!=_n(person)])

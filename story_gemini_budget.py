@@ -3,6 +3,9 @@
 Every real Gemini generate_content request made by Story generation, scripting,
 visual verification, or stock search consumes one unit. The budget is reset only
 when a new Story production process starts; subject retries must share it.
+
+When the visual Gemini cap is reached, GitHub Actions must stop/defer rather than
+fall back to CPU Qwen. Local development may opt into Qwen explicitly.
 """
 from __future__ import annotations
 
@@ -12,9 +15,9 @@ from pathlib import Path
 BUDGET_DEFER_FILE = ".story_gemini_budget_deferred"
 DEFAULT_MAX_REQUESTS = 64
 # Keep a protected slice of the run-wide Gemini budget for story scripting and
-# any later Gemini work. Once the visual verifier reaches this cap, Story uses
-# the already-installed local Qwen vision verifier instead of burning the
-# remaining run-wide Gemini budget on archival-frame rejection loops.
+# any later Gemini work. Once the visual verifier reaches this cap, production
+# must stop/defer instead of burning the remaining run-wide Gemini budget on
+# archival-frame rejection loops.
 DEFAULT_MAX_VISUAL_GEMINI_REQUESTS = 56
 
 _BUDGET = None

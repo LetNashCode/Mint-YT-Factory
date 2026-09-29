@@ -159,3 +159,27 @@ def test_publish_removes_generated_topic_after_reservation_overwrites_metadata(m
     ).lower()
     assert locked["scene_plan"][-1]["narration"] == "Next up: Why do yawns spread."
     assert "onion makes you cry" not in locked["scene_plan"][-1]["narration"].lower()
+
+
+
+def test_runtime_continuation_guard_forwards_stale_topics():
+    import types
+    import runtime_overrides
+
+    calls = {}
+
+    def original_lock(script, current_topic, locked_topic=None, stale_topics=None):
+        calls["stale_topics"] = stale_topics
+        return script, locked_topic
+
+    fake_main = types.SimpleNamespace(lock_next_topic=original_lock)
+    runtime_overrides.patch_continuation(fake_main)
+
+    fake_main.lock_next_topic(
+        {"scene_plan": []},
+        "Why does a brush shed",
+        locked_topic="Why do yawns spread",
+        stale_topics=["Why onion makes you cry"],
+    )
+
+    assert calls["stale_topics"] == ["Why onion makes you cry"]

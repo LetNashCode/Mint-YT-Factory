@@ -2943,5 +2943,21 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do sidewalk cracks grow weeds",
+    "normalized": "why do sidewalk cracks grow weeds",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1790681782,
+    "recorded_at": 1790681782,
+    "metadata": {
+      "next_topic": "Why do lightbulbs pop",
+      "creative_strategy": "wild"
+    },
+    "title": "Why Sidewalk Cracks Grow Weeds",
+    "video_id": "QeakpzPSLi4",
+    "workdir": "output/1790681877",
+    "published_at": 1790683110
   }
 ]

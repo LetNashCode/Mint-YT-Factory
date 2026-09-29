@@ -19,8 +19,11 @@ jobs:
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
-      MINT_KOKORO_VOICE: am_michael
-      MINT_KOKORO_LANG: a
+      # Dedicated Mystery Documentary narration voice. Keep this separate from
+      # every other workflow so voice changes here cannot affect Shorts.
+      MYSTERY_KOKORO_VOICE: am_onyx
+      MYSTERY_KOKORO_LANG: a
+      MYSTERY_KOKORO_SPEED: "0.96"
       MYSTERY_FOOTAGE_AUTO_DISCOVER: "true"
       MYSTERY_FOOTAGE_REQUIRE_STORY_SCREEN: "true"
       MYSTERY_FOOTAGE_MIN_STORY_SCORE: "6"

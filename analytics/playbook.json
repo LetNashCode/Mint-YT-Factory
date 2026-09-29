@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-29T18:57:51.231609+00:00",
-  "video_count": 121,
+  "generated_at": "2026-09-29T20:23:41.997273+00:00",
+  "video_count": 122,
   "learning_ready": true,
   "metrics_available": true,
   "creative_learning_version": "v3",
@@ -13,16 +13,16 @@
   "winning_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 34.628,
+      "score": 36.991,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.714
+      "weak_score": 0.825
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.714,
+      "score": 0.825,
       "sample_size": 10
     }
   ],
@@ -30,6 +30,7 @@
   "winning_hook_payoff_pairs": [],
   "creative_strategy_results": [],
   "winning_topics": [
+    "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
     "Why do clothes shrink in dryers",
     "Why do earbuds tangle in pockets",
     "Why paperclips float on water",
@@ -38,22 +39,21 @@
     "Why candles tunnel down the middle",
     "Why do old books smell so good",
     "Why do door hinges squeak",
-    "Why wet fingers wrinkle in water",
-    "Why ice floats"
+    "Why wet fingers wrinkle in water"
   ],
   "avoid_topics": [
+    "Why do hiccups happen",
+    "Why does a brush shed",
+    "Why do sidewalk cracks grow weeds",
     "old friendships: Stumbling across an old cassette tape labeled with a mix-tape name you and your childhood best friend made in 1999, and hearing the awkward transitions between songs recorded off the radio.",
     "Nolan Bushnell: Selling a stake in Apple Computer for a few thousand dollars to focus on his own arcade business instead.",
     "Why do oven glass doors get striped",
     "childhood memories: Finding the exact indent in the living room wall behind the couch where you used to hide your favorite comic books during childhood thunderstorms.",
-    "Why does a kettle whistle",
-    "gratitude: finding a well-worn paperback book on a shelf with a handwritten note on the inside cover from a high school English teacher who believed in you when you wanted to quit.",
-    "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
     "Why do steering wheels lock"
   ],
-  "used_topic_count": 121,
+  "used_topic_count": 122,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

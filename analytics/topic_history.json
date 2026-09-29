@@ -2995,5 +2995,22 @@
     "video_id": "GS6OVKJ6jec",
     "workdir": "output/1790708292",
     "published_at": 1790709572
+  },
+  {
+    "topic": "Israeli security forces shoot and kill Ahmad Zidani, Beit Rima, 18 Dec. 2016: Candidate discovered from Internet Archive; the footage and event context require factual review.",
+    "normalized": "israeli security forces shoot and kill ahmad zidani beit rima 18 dec 2016 candidate discovered from internet archive the footage and event context require factual review",
+    "workflow": "mystery",
+    "status": "published",
+    "reserved_at": 1790713397,
+    "recorded_at": 1790713397,
+    "metadata": {
+      "catalog_item_id": "internet-archive-youtube-Zd3Dgv7xyco",
+      "source_url": "https://archive.org/details/youtube-Zd3Dgv7xyco",
+      "creative_strategy": "{\"strategy\": \"wild\", \"experiment_id\": \"creative_v3_wild_cycle13_slot3\", \"slot\": 3, \"cycle\": 13, \"target_mix\": {\"proven\": 0.7, \"adjacent\": 0.2, \"wild\": 0.1}, \"selected_pattern\": \"\", \"selected_score\": 0.0, \"selected_sample_size\": 0, \"guidance\": \"Do not rely on learned combinations. Try a genuinely new hook, story structure, pacing choice, or payoff pattern that still serves the topic.\", \"learning_ready\": true, \"evidence_based\": false}"
+    },
+    "title": "Analyzing the Beit Rima Incident: An Evidence-Led Review",
+    "video_id": "wQ3jJg5t6Fw",
+    "workdir": "artifacts/mystery-documentary",
+    "published_at": 1790713774
   }
 ]

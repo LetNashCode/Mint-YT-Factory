@@ -21,6 +21,7 @@
   "used_item_ids": [
     "internet-archive-twitter-1611059322234048512",
     "internet-archive-youtube-E4WlPdNhzjM",
+    "internet-archive-youtube-Zd3Dgv7xyco",
     "internet-archive-youtube-_zxbjmRTkfY",
     "internet-archive-youtube-u9qe9QsyNK4"
   ],
@@ -54,7 +55,9 @@
       "title": "Israeli security forces shoot and kill Ahmad Zidani, Beit Rima, 18 Dec. 2016",
       "source_url": "https://archive.org/details/youtube-Zd3Dgv7xyco",
       "reserved_at": 1790549300,
-      "status": "reserved"
+      "status": "published",
+      "published_at": 1790713774,
+      "video_id": "wQ3jJg5t6Fw"
     }
   ]
 }

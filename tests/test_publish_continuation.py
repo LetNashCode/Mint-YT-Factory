@@ -183,3 +183,56 @@ def test_runtime_continuation_guard_forwards_stale_topics():
     )
 
     assert calls["stale_topics"] == ["Why onion makes you cry"]
+
+
+def test_publish_generation_contract_has_no_writer_owned_next_topic():
+    import generate_script
+
+    schema = generate_script._entertainment_schema()
+    props = schema.get("properties", {})
+
+    assert "next_short" not in props
+    assert "next_short" not in schema.get("required", [])
+
+
+def test_publish_story_blueprint_has_required_story_beats():
+    import generate_script
+
+    schema = generate_script._blueprint_schema()
+    required = set(schema.get("required", []))
+
+    assert {
+        "central_mystery",
+        "viewer_question",
+        "misconception_or_assumption",
+        "first_reveal",
+        "mechanism",
+        "unexpected_consequence",
+        "final_payoff",
+        "emotional_effect",
+    } <= required
+
+
+def test_publish_blueprint_is_passed_into_narration_prompt():
+    import generate_script
+
+    blueprint = {
+        "central_mystery": "A kettle can whistle without a person blowing into it.",
+        "viewer_question": "What makes the sound?",
+        "misconception_or_assumption": "The steam itself is simply making noise.",
+        "first_reveal": "The opening becomes unstable as pressure rises.",
+        "mechanism": "Steam forces air through a narrow opening.",
+        "unexpected_consequence": "The airflow can repeatedly interrupt itself.",
+        "final_payoff": "The whistle is created by a feedback loop in the escaping steam.",
+        "emotional_effect": "A familiar kitchen sound suddenly feels mechanical and strange.",
+    }
+
+    prompt = generate_script._entertainment_prompt(
+        "Why does a kettle whistle",
+        blueprint,
+        "test feedback",
+    )
+
+    assert "STORY BLUEPRINT — SOURCE OF TRUTH" in prompt
+    assert blueprint["final_payoff"] in prompt
+    assert "test feedback" in prompt

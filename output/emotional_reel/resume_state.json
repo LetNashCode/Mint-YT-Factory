@@ -1,18 +1,17 @@
 {
   "status": "uploaded",
   "final_path": "output/emotional_reel/final.mp4",
-  "final_sha256": "721755bb5a876dbfb35a855655c03381c743c7bb8cb9473c15abe22d678648fa",
-  "cache_key": "emotional-reel-final-v2-721755bb5a876dbfb35a855655c03381",
-  "title": "The 1999 Cassette Tape",
-  "description": "Stumbling across an old cassette tape labeled with a mix-tape name from 1999.",
+  "final_sha256": "60d5922ba21ba1d1360110fac720150653598a010f03defff4bbda7bf4887922",
+  "cache_key": "emotional-reel-final-v2-60d5922ba21ba1d1360110fac7201506",
+  "title": "The Thunderstorm Wall",
+  "description": "Discovering a childhood hiding spot behind the living room couch.",
   "hashtags": [
     "#childhoodmemories",
-    "#1999",
-    "#bestfriends",
-    "#mix-tape",
-    "#nostalgia"
+    "#nostalgia",
+    "#growingup",
+    "#memorylane"
   ],
-  "engagement_comment": "Send this to your childhood best friend today.",
+  "engagement_comment": "Send this to someone who remembers.",
   "voice": {
     "provider": "kokoro",
     "voice_name": "af_heart",
@@ -22,26 +21,26 @@
     "speed": 0.92,
     "tone": "curious, confident, playful storyteller"
   },
-  "created_at": 1790593302,
-  "narration_word_count": 141,
+  "created_at": 1790678870,
+  "narration_word_count": 134,
   "complete_script_preserved": true,
   "final_duration_seconds": 53.76,
-  "factory_topic": "old friendships: Stumbling across an old cassette tape labeled with a mix-tape name you and your childhood best friend made in 1999, and hearing the awkward transitions between songs recorded off the radio.",
-  "primary_emotion": "old friendships",
-  "human_situation": "Stumbling across an old cassette tape labeled with a mix-tape name you and your childhood best friend made in 1999, and hearing the awkward transitions between songs recorded off the radio.",
-  "video_id": "yhbDc7grKfs",
+  "factory_topic": "childhood memories: Finding the exact indent in the living room wall behind the couch where you used to hide your favorite comic books during childhood thunderstorms.",
+  "primary_emotion": "childhood memories",
+  "human_situation": "Finding the exact indent in the living room wall behind the couch where you used to hide your favorite comic books during childhood thunderstorms.",
+  "video_id": "EAByp1pcCfw",
   "social": {
     "instagram": {
       "status": "published",
-      "media_id": "18115618841288333",
-      "container_id": "18495472594097136"
+      "media_id": "18184271815420303",
+      "container_id": "18495662497097136"
     },
     "facebook": {
       "status": "published",
-      "video_id": "1113953244313347"
+      "video_id": "2922455594799509"
     },
     "strict": false,
-    "updated_at": 1790593614
+    "updated_at": 1790679186
   },
-  "uploaded_at": 1790593872
+  "uploaded_at": 1790679363
 }

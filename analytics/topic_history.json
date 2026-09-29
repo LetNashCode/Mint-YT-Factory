@@ -2913,5 +2913,23 @@
     "video_id": "idWpkPqylzY",
     "workdir": "output/1790676332",
     "published_at": 1790677435
+  },
+  {
+    "topic": "childhood memories: Finding the exact indent in the living room wall behind the couch where you used to hide your favorite comic books during childhood thunderstorms.",
+    "normalized": "childhood memories finding the exact indent in the living room wall behind the couch where you used to hide your favorite comic books during childhood thunderstorms",
+    "workflow": "emotional",
+    "status": "published",
+    "reserved_at": 1790678587,
+    "recorded_at": 1790678587,
+    "metadata": {
+      "primary_emotion": "childhood memories",
+      "human_situation": "Finding the exact indent in the living room wall behind the couch where you used to hide your favorite comic books during childhood thunderstorms.",
+      "creative_strategy": "wild",
+      "experiment_id": "creative_v3_wild_cycle12_slot8"
+    },
+    "title": "The Thunderstorm Wall",
+    "video_id": "EAByp1pcCfw",
+    "workdir": "output/emotional_reel",
+    "published_at": 1790679363
   }
 ]

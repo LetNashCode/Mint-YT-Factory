@@ -377,6 +377,9 @@ def _entertainment_prompt(topic, blueprint, extra_feedback=""):
 CURRENT TOPIC:
 {topic}
 
+STORY BLUEPRINT — SOURCE OF TRUTH:
+{json.dumps(blueprint, ensure_ascii=False)}
+
 Create exactly 7 scenes with durations 3, 5, 7, 7, 8, 8, 7 seconds.
 Target approximately 95–115 spoken words total.
 

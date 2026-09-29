@@ -59,7 +59,7 @@ def patch_continuation(main):
     main.reserve_next_short = guarded_reserve
     main.save_next_short = deferred_save
     main.commit_topic = atomic_commit
-    def guarded(script, current_topic, locked_topic=None):
+    def guarded(script, current_topic, locked_topic=None, stale_topics=None):
         scenes = script.get("scene_plan") or []
         if scenes and isinstance(scenes[-1], dict):
             scene7 = scenes[-1]; narration = str(scene7.get("narration") or "").strip()
@@ -68,7 +68,12 @@ def patch_continuation(main):
             if cleaned != narration:
                 scene7["narration"] = cleaned; scene7["subtitle_text"] = cleaned
                 print("🧹 Removed forbidden model continuation from Scene 7: ice-cube cracking")
-        result = original_lock(script, current_topic, locked_topic=locked_topic)
+        result = original_lock(
+            script,
+            current_topic,
+            locked_topic=locked_topic,
+            stale_topics=stale_topics,
+        )
         locked = str((result[0].get("next_short") or {}).get("topic") or "").strip() if isinstance(result, tuple) else ""
         held = str(getattr(main, "_mint_reserved_next_topic", "") or "").strip()
         if held and locked and topics._key(held) != topics._key(locked): raise RuntimeError(f"Canonical continuation changed: held={held!r} locked={locked!r}")

@@ -1,9 +1,9 @@
-"""Two-stage YouTube Shorts script generator for Mint-YT-Factory.
+"""Blueprint-led Publish Shorts generation pipeline for Mint-YT-Factory.
 
-Stage 1: ENTERTAINMENT WRITER
+Stage 1: STORY BLUEPRINT
     Creates the spoken story without thinking about stock footage.
 
-Stage 2: VISUAL DIRECTOR
+Stage 2: ENTERTAINMENT WRITER
     Receives the locked narration and translates each beat into literal,
     searchable visuals for Pexels / image generation.
 
@@ -648,6 +648,21 @@ def _validate_visuals(visual_plan, entertainment, topic):
             spoken = _clean(visual.get("spoken_line"))
             if not focus or not prompt:
                 raise RuntimeError(f"Visual director scene {i+1} shot {j+1} has missing fields.")
+            must_show = visual.get("must_show") or []
+            must_not_show = visual.get("must_not_show") or []
+            if len(must_show) < 3:
+                raise RuntimeError(f"Visual director scene {i+1} shot {j+1} has fewer than 3 required visible details.")
+            if len(must_not_show) < 3:
+                raise RuntimeError(f"Visual director scene {i+1} shot {j+1} has fewer than 3 forbidden details.")
+            # Shot 2 must advance the physical story rather than showing a second
+            # static version of the same action.
+            if j == 1 and previous_focus and focus.lower() == previous_focus.lower():
+                raise RuntimeError(f"Visual director scene {i+1} shot 2 duplicates shot 1.")
+            if j == 1:
+                prev_action = _clean(visuals[0].get("visual_action")).lower()
+                curr_action = action.lower()
+                if prev_action and curr_action and prev_action == curr_action:
+                    raise RuntimeError(f"Visual director scene {i+1} shot 2 does not advance the physical action.")
             # Repair abstract/invisible beats instead of throwing away a good story.
             if not action:
                 action = "visible physical context or consequence"
@@ -660,8 +675,6 @@ def _validate_visuals(visual_plan, entertainment, topic):
                     # The narrator is authoritative; bind the shot to its scene rather
                     # than rejecting the complete two-stage generation.
                     visual["spoken_line"] = narration
-            if j == 1 and previous_focus and focus.lower() == previous_focus.lower():
-                raise RuntimeError(f"Visual director scene {i+1} shot 2 duplicates shot 1.")
             previous_focus = focus
     return True
 
@@ -850,4 +863,4 @@ def generate_script(topic, config, research=None, extra_feedback=""):
 
 
 if __name__ == "__main__":
-    print("generate_script.py — two-stage entertainment writer + visual director")
+    print("generate_script.py — blueprint + narration + visual director")

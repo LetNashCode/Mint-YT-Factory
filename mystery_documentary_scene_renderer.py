@@ -454,6 +454,9 @@ def main():
         "visual_effect_stats": timeline.get("visual_effect_stats", {}),
         "script_path": str(OUT / "script.json"),
         "timeline_path": str(OUT / "timeline.json"),
+        "kokoro_voice": MYSTERY_KOKORO_VOICE,
+        "kokoro_lang": MYSTERY_KOKORO_LANG,
+        "kokoro_speed": VOICE["voice"]["speed"],
         "generated_at": int(time.time()),
     }
     (OUT / "metadata.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")

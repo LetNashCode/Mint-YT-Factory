@@ -2981,16 +2981,19 @@
     "published_at": 1790701128
   },
   {
-    "topic": "Israeli security forces shoot and kill Ahmad Zidani, Beit Rima, 18 Dec. 2016: Candidate discovered from Internet Archive; the footage and event context require factual review.",
-    "normalized": "israeli security forces shoot and kill ahmad zidani beit rima 18 dec 2016 candidate discovered from internet archive the footage and event context require factual review",
-    "workflow": "mystery",
-    "status": "reserved",
-    "reserved_at": 1790708007,
-    "recorded_at": 1790708007,
+    "topic": "Why do toast crumbs burn",
+    "normalized": "why do toast crumbs burn",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1790708246,
+    "recorded_at": 1790708246,
     "metadata": {
-      "item_id": "internet-archive-youtube-Zd3Dgv7xyco",
-      "source_url": "https://archive.org/details/youtube-Zd3Dgv7xyco",
-      "source": "mystery_case_selection"
-    }
+      "next_topic": "Why do frying pans warp",
+      "creative_strategy": ""
+    },
+    "title": "Why Toast Crumbs Burn So Fast",
+    "video_id": "GS6OVKJ6jec",
+    "workdir": "output/1790708292",
+    "published_at": 1790709572
   }
 ]

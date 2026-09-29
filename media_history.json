@@ -9009,6 +9009,146 @@
       "shot": 2,
       "query": "hiccups rebellious muscle playing air",
       "recorded_at": 1790629437
+    },
+    {
+      "asset_key": "pexels:video:856333",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/856333/856333-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "oven glass doors your sparkling clean",
+      "recorded_at": 1790676680
+    },
+    {
+      "asset_key": "pexels:video:5498993",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5498993/5498993-hd_1280_720_50fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "oven glass doors suddenly grows secret stripes",
+      "recorded_at": 1790676685
+    },
+    {
+      "asset_key": "pexels:video:9472813",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9472813/9472813-hd_720_1280_24fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "oven glass doors you scrub until your",
+      "recorded_at": 1790676689
+    },
+    {
+      "asset_key": "pexels:video:16641600",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/16641600/16641600-hd_1280_720_30fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "oven glass doors but stubborn ghost lines",
+      "recorded_at": 1790676693
+    },
+    {
+      "asset_key": "pexels:video:13726352",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/13726352/13726352-hd_720_1280_60fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "oven glass doors not built side view",
+      "recorded_at": 1790676719
+    },
+    {
+      "asset_key": "pexels:video:6269010",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6269010/6269010-hd_720_1366_50fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "oven glass doors one fragile sheet",
+      "recorded_at": 1790676723
+    },
+    {
+      "asset_key": "pexels:video:6481540",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6481540/6481540-hd_1280_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "oven glass doors one hidden inner layer",
+      "recorded_at": 1790676749
+    },
+    {
+      "asset_key": "pexels:video:37312840",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/37312840/15804434_720_1280_60fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "oven glass doors wears invisible metallic thermal",
+      "recorded_at": 1790676754
+    },
+    {
+      "asset_key": "pexels:video:8293003",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8293003/8293003-hd_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "oven glass doors lines not cooked grease",
+      "recorded_at": 1790676763
+    },
+    {
+      "asset_key": "pexels:video:5848301",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5848301/5848301-hd_1280_720_24fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "oven glass doors last night roast close",
+      "recorded_at": 1790676767
+    },
+    {
+      "asset_key": "pexels:video:35451877",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35451877/15019545_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "oven glass doors they come giant factory",
+      "recorded_at": 1790676770
+    },
+    {
+      "asset_key": "pexels:video:8339804",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8339804/8339804-hd_1280_720_24fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "oven glass doors pressed heat-reflecting metallic coating",
+      "recorded_at": 1790676775
+    },
+    {
+      "asset_key": "pexels:video:5660680",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5660680/5660680-hd_1366_720_30fps.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "oven glass doors permanent manufacturing tracks trap",
+      "recorded_at": 1790676805
+    },
+    {
+      "asset_key": "pexels:video:7221156",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7221156/7221156-hd_720_1366_25fps.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "oven glass doors permanent manufacturing tracks trap",
+      "recorded_at": 1790676808
     }
   ]
 }

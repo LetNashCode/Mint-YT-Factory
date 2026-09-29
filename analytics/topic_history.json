@@ -2897,5 +2897,21 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do oven glass doors get striped",
+    "normalized": "why do oven glass doors get striped",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1790676274,
+    "recorded_at": 1790676274,
+    "metadata": {
+      "next_topic": "Why do telephone poles crack",
+      "creative_strategy": "wild"
+    },
+    "title": "Why Oven Glass Gets Striped",
+    "video_id": "idWpkPqylzY",
+    "workdir": "output/1790676332",
+    "published_at": 1790677435
   }
 ]

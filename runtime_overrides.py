@@ -7,10 +7,11 @@ from pathlib import Path
 
 MAX_PUBLISH_CONTENT_REGEN = 3
 PUBLISH_CORE_REGEN_THRESHOLD = 125
-PUBLISH_CORE_RECOVERY_MIN = 105
-PUBLISH_CORE_RECOVERY_MAX = 120
-PUBLISH_TOTAL_RECOVERY_MIN = 115
-PUBLISH_TOTAL_RECOVERY_MAX = 145
+# Recovery must match the reconstructed generator contract.
+PUBLISH_CORE_RECOVERY_MIN = 90
+PUBLISH_CORE_RECOVERY_MAX = 115
+PUBLISH_TOTAL_RECOVERY_MIN = 105
+PUBLISH_TOTAL_RECOVERY_MAX = 135
 
 class AudioPath(list):
     def __init__(self, path: str): super().__init__([path])
@@ -117,9 +118,9 @@ def patch_tts_result(main):
                 retry_feedback = (
                     f"{feedback}\n"
                     "RECOVERY CONTRACT: Generate a COMPLETE 7-scene current-topic narration. "
-                    "Target 105-120 CORE words, plus the final continuation bridge. "
-                    "The complete spoken narration should normally land around 120-140 words; "
-                    "never return a thin 90-word script. "
+                    "Target 90-115 CORE words, plus the final continuation bridge. "
+                    "The complete spoken narration should normally land around 105-135 words; "
+                    "never return a thin sub-90-word script. "
                     "Keep the current-topic payoff substantial. Do not mention any retired topic, "
                     "especially onions. Do not invent or reuse facts from an older Short. "
                     f"LOCKED CURRENT TOPIC: {current_topic!r}. "
@@ -195,7 +196,8 @@ def patch_tts_result(main):
             feedback = (
                 "HARD AUDIO REQUIREMENT: the previous TTS audio did not contain every part of the generated script. "
                 "Rewrite the COMPLETE CURRENT TOPIC narration so every scene is concise, natural, and fully speakable. "
-                "Target 105-120 total spoken words INCLUDING the final continuation bridge. "
+                "Target 90-115 core spoken words plus the final continuation bridge; "
+                "the complete narration should normally land around 105-135 words. "
                 "Do not remove the core explanation or payoff. Do not add a new topic. "
                 "Preserve the locked continuation metadata and make the final bridge the only continuation sentence."
             )

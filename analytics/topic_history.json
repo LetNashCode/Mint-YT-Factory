@@ -3012,18 +3012,5 @@
     "video_id": "wQ3jJg5t6Fw",
     "workdir": "artifacts/mystery-documentary",
     "published_at": 1790713774
-  },
-  {
-    "topic": "Guatemalan Immigrant Ricardo Alfonso Cerna Commits Suicide In Police Station To Avoid Prison [GRAPHIC]: Candidate discovered from Internet Archive; the footage and event context require factual review.",
-    "normalized": "guatemalan immigrant ricardo alfonso cerna commits suicide in police station to avoid prison graphic candidate discovered from internet archive the footage and event context require factual review",
-    "workflow": "mystery",
-    "status": "reserved",
-    "reserved_at": 1790723868,
-    "recorded_at": 1790723868,
-    "metadata": {
-      "item_id": "internet-archive-guatemalan-immigrant-ricardo-alfonso-cerna-commits-suicide-in-police-station-to-avoid-prison",
-      "source_url": "https://archive.org/details/guatemalan-immigrant-ricardo-alfonso-cerna-commits-suicide-in-police-station-to-avoid-prison",
-      "source": "mystery_case_selection"
-    }
   }
 ]

@@ -1,7 +1,8 @@
 """Select and produce a never-before-used Mystery Documentary case."""
 from __future__ import annotations
-import json, os, re, runpy, time
+import json, os, re, runpy, subprocess, tempfile, time
 from pathlib import Path
+import requests
 ROOT = Path(__file__).resolve().parent
 CATALOG = ROOT / "mystery_footage_catalog.json"
 HISTORY = ROOT / "mystery_footage_history.json"
@@ -96,6 +97,21 @@ def main() -> None:
     factory_topic = ""
     for candidate in candidates:
         candidate_id = str(candidate.get("id") or "").strip()
+        try:
+            duration, width, height = _preflight_source(candidate)
+            print(
+                f"✅ Mystery source preflight passed | "
+                f"{candidate.get('title', candidate_id)} | {duration:.2f}s | {width}x{height}",
+                flush=True,
+            )
+        except Exception as exc:
+            print(
+                f"⏭️ Skipping unusable Mystery source before topic reservation | "
+                f"{candidate.get('title', candidate_id)} | {exc}",
+                flush=True,
+            )
+            continue
+
         candidate_topic = f"{candidate.get('title','')}: {candidate.get('case_summary','')}".strip(": ")
         try:
             claim_factory_topic(
@@ -105,6 +121,9 @@ def main() -> None:
                     "item_id": candidate_id,
                     "source_url": candidate.get("source_url", ""),
                     "source": "mystery_case_selection",
+                    "source_duration_seconds": round(duration, 2),
+                    "source_width": width,
+                    "source_height": height,
                 },
             )
             selected = candidate
@@ -137,17 +156,36 @@ def main() -> None:
     except Exception as exc:
         print(f"⚠️ Mystery factory learning refresh skipped: {type(exc).__name__}: {exc}", flush=True)
 
-    runpy.run_module("mystery_documentary_scene_renderer",run_name="__main__")
-    output_dir=ROOT/os.getenv("MYSTERY_DOCUMENTARY_OUTPUT_DIR","artifacts/mystery-documentary")
-    metadata_path=output_dir/"metadata.json"
+    output_dir = ROOT / os.getenv("MYSTERY_DOCUMENTARY_OUTPUT_DIR", "artifacts/mystery-documentary")
+    metadata_path = output_dir / "metadata.json"
+    output_path = output_dir / "mystery-documentary.mp4"
+    try:
+        runpy.run_module("mystery_documentary_scene_renderer", run_name="__main__")
+        if not output_path.exists() or output_path.stat().st_size < 100_000:
+            raise RuntimeError(
+                "Mystery Documentary generation completed without a valid output video."
+            )
+        if not metadata_path.exists():
+            raise RuntimeError(
+                "Mystery Documentary generation completed without metadata.json."
+            )
+    except Exception:
+        # A reserved topic must never remain locked when no documentary was produced.
+        from factory_content_memory import release as release_factory_topic
+        release_factory_topic(factory_topic, workflow="mystery")
+        raise
+
     reserve_history_item(selected)
-    if metadata_path.exists():
-        metadata=json.loads(metadata_path.read_text(encoding="utf-8"))
-        metadata["history_recorded"]=False
-        metadata["history_status"]="reserved"
-        metadata["factory_topic"]=factory_topic
-        metadata["creative_strategy"]=os.getenv("MINT_FACTORY_CREATIVE_STRATEGY","")
-        metadata_path.write_text(json.dumps(metadata,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+    metadata["history_recorded"] = False
+    metadata["history_status"] = "reserved"
+    metadata["factory_topic"] = factory_topic
+    metadata["creative_strategy"] = os.getenv("MINT_FACTORY_CREATIVE_STRATEGY", "")
+    metadata_path.write_text(
+        json.dumps(metadata, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    print(f"MYSTERY_DOCUMENTARY_GENERATED={output_path}")
     print(f"MYSTERY_DOCUMENTARY_HISTORY_RECORDED={item_id}")
 
 if __name__ == "__main__":

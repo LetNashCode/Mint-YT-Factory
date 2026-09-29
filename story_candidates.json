@@ -50,19 +50,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Serena Williams",
-    "premise": "The strategic coaching decision that shaped the career of one of the greatest tennis players in history.",
-    "hook": "At a time when most players prioritized baseline rallying, she and her father made the radical choice to focus aggressively on power serve mechanics.",
-    "key_facts": [
-      "Trained on public tennis courts in Compton, California, facing local safety challenges.",
-      "Her father, Richard Williams, coached her and her sister Venus without a traditional tennis background.",
-      "Won her first Grand Slam singles title at the US Open in 1999 at age 17.",
-      "Achieved a career Golden Slam in singles and doubles."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Stephen King",
     "premise": "The discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon.",
@@ -76,19 +63,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Tenzing Norgay",
-    "premise": "The lifelong persistence of a seasoned high-altitude porter who reached the summit of Earth's highest mountain.",
-    "hook": "He faced six failed Himalayan expeditions and deep systemic discrimination before finally standing on the roof of the world.",
-    "key_facts": [
-      "Worked for years as a high-altitude Sherpa porter on multiple British and Swiss Everest attempts.",
-      "Reached the summit of Mount Everest on May 29, 1953, alongside Edmund Hillary.",
-      "Appointed as the first director of field training for the Himalayan Mountaineering Institute.",
-      "Honored globally for mountaineering achievements and cross-cultural cooperation."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "strange_turning_point",
     "person": "Srinivasa Ramanujan",
     "premise": "How a clerk from South India changed modern mathematics through an unsolicited international letter.",
@@ -98,19 +72,6 @@
       "Worked as a shipping port clerk in Madras to support his family while doing mathematics on slate boards.",
       "Sent a letter containing unproven theorems to mathematician G.H. Hardy at Cambridge in 1913.",
       "Elected as a Fellow of the Royal Society at age 31."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
-    "person": "Kalam",
-    "premise": "From selling newspapers on railway platforms to directing India's aerospace and missile programs.",
-    "hook": "As a young boy in Rameswaram, he woke up before dawn to distribute newspapers to help his family survive.",
-    "key_facts": [
-      "Raised in a modest family in Rameswaram, Tamil Nadu, helping distribute newspapers during childhood.",
-      "Graduated in physics and later studied aeronautical engineering at the Madras Institute of Technology.",
-      "Served as project director for India's first indigenous Satellite Launch Vehicle (SLV-III).",
-      "Later served as the 11th President of India, widely known as the People's President."
     ],
     "source": "gemini_original"
   },

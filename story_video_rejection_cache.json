@@ -160,6 +160,36 @@
       "source_id": "commons:135278250",
       "source_url": "https://commons.wikimedia.org/wiki/File:Scenes_of_Grytviken,_South_Georgia_Island.webm",
       "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "becf5cb597ecb8a1a09416ac": {
+      "source_id": "archive:bliptv-20131031-094006-Brianlippey-daveStewartRockBridgeGuitar813",
+      "source_url": "https://archive.org/details/bliptv-20131031-094006-Brianlippey-daveStewartRockBridgeGuitar813",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "de7439e0fe292250095af23e": {
+      "source_id": "commons:83034875",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Wikipedia-VideoWiki-A._R._Rahman.webm",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "b3bd214d0a0e3bccbccbfa4f": {
+      "source_id": "archive:dni.ncaa.ICCR-897-UM",
+      "source_url": "https://archive.org/details/dni.ncaa.ICCR-897-UM",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "cc0f0a966d8a113f99f87cc2": {
+      "source_id": "archive:Prpoint-RoleOfIndianInudstriesInRealisingVision2020AnExclusive230",
+      "source_url": "https://archive.org/details/Prpoint-RoleOfIndianInudstriesInRealisingVision2020AnExclusive230",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "32c1239fae687f04417edbf2": {
+      "source_id": "archive:Prpoint-India60AnExclusiveInterviewWithDrAbdulKalamPartOne336",
+      "source_url": "https://archive.org/details/Prpoint-India60AnExclusiveInterviewWithDrAbdulKalamPartOne336",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "9af4eb4b82650a1fabccf217": {
+      "source_id": "archive:Tykera_and_Monica_talk_about_Serena_Williams_and_the_WNBA_Finals_-_The_Roundball_Report",
+      "source_url": "https://archive.org/details/Tykera_and_Monica_talk_about_Serena_Williams_and_the_WNBA_Finals_-_The_Roundball_Report",
+      "reason": "visual verifier rejected source after four unusable identity samples"
     }
   }
 }

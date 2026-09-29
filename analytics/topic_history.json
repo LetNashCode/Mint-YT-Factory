@@ -2791,38 +2791,6 @@
     "published_at": 1790533116
   },
   {
-    "topic": "childhood memories: finding an old box of colorful plastic measuring spoons in the kitchen drawer that your mother only used when baking birthday cakes.",
-    "normalized": "childhood memories finding an old box of colorful plastic measuring spoons in the kitchen drawer that your mother only used when baking birthday cakes",
-    "workflow": "emotional",
-    "status": "reserved",
-    "reserved_at": 1790544417,
-    "recorded_at": 1790544417,
-    "metadata": {
-      "source": "emotional_topic_selection",
-      "memory_category": "childhood rituals",
-      "memory_trigger": "the specific bright colors and faded numbers of old kitchen utensils from childhood home",
-      "primary_emotion": "childhood memories",
-      "human_situation": "finding an old box of colorful plastic measuring spoons in the kitchen drawer that your mother only used when baking birthday cakes.",
-      "topic_key": "finding mother's vintage plastic measuring spoons in kitchen drawer"
-    }
-  },
-  {
-    "topic": "nostalgia: hearing the distinct dial-up internet connection sound while visiting your childhood home and instantly remembering waiting online to chat with your very first middle school crush.",
-    "normalized": "nostalgia hearing the distinct dial up internet connection sound while visiting your childhood home and instantly remembering waiting online to chat with your very first middle school crush",
-    "workflow": "emotional",
-    "status": "reserved",
-    "reserved_at": 1790545036,
-    "recorded_at": 1790545036,
-    "metadata": {
-      "source": "emotional_topic_selection",
-      "memory_category": "childhood memories",
-      "memory_trigger": "the screeching audio sequence of a dial-up modem",
-      "primary_emotion": "nostalgia",
-      "human_situation": "hearing the distinct dial-up internet connection sound while visiting your childhood home and instantly remembering waiting online to chat with your very first middle school crush.",
-      "topic_key": "hearing old dial up internet sound at parents house"
-    }
-  },
-  {
     "topic": "gratitude: finding a well-worn paperback book on a shelf with a handwritten note on the inside cover from a high school English teacher who believed in you when you wanted to quit.",
     "normalized": "gratitude finding a well worn paperback book on a shelf with a handwritten note on the inside cover from a high school english teacher who believed in you when you wanted to quit",
     "workflow": "emotional",
@@ -2839,19 +2807,6 @@
     "video_id": "9LPb5Y-grp0",
     "workdir": "output/emotional_reel",
     "published_at": 1790547228
-  },
-  {
-    "topic": "Israeli security forces shoot and kill Ahmad Zidani, Beit Rima, 18 Dec. 2016: Candidate discovered from Internet Archive; the footage and event context require factual review.",
-    "normalized": "israeli security forces shoot and kill ahmad zidani beit rima 18 dec 2016 candidate discovered from internet archive the footage and event context require factual review",
-    "workflow": "mystery",
-    "status": "reserved",
-    "reserved_at": 1790549132,
-    "recorded_at": 1790549132,
-    "metadata": {
-      "item_id": "internet-archive-youtube-Zd3Dgv7xyco",
-      "source_url": "https://archive.org/details/youtube-Zd3Dgv7xyco",
-      "source": "mystery_case_selection"
-    }
   },
   {
     "topic": "Nolan Bushnell: Selling a stake in Apple Computer for a few thousand dollars to focus on his own arcade business instead.",
@@ -2914,19 +2869,6 @@
     "video_id": "WYKO_wTCpAo",
     "workdir": "output/1790611235",
     "published_at": 1790612513
-  },
-  {
-    "topic": "A.R. Rahman: How a young jingle composer working out of a small Chennai studio became a global Academy Award-winning musical icon.",
-    "normalized": "a r rahman how a young jingle composer working out of a small chennai studio became a global academy award winning musical icon",
-    "workflow": "story",
-    "status": "reserved",
-    "reserved_at": 1790622839,
-    "recorded_at": 1790622839,
-    "metadata": {
-      "person": "A.R. Rahman",
-      "pillar": "rise_from_nothing",
-      "source": "story_topic_selection"
-    }
   },
   {
     "topic": "Why do hiccups happen",

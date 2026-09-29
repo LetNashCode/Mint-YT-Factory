@@ -3367,6 +3367,405 @@
       },
       "review_key": "68bc98cff9401a0eeb2ecbe298e77295ff5ea7737157376a90f7b6a00f829fff",
       "reviewed_at": 1790620855.972397
+    },
+    {
+      "person": "A.R. Rahman",
+      "source": {
+        "id": "archive:JAIHO-AFILMONARRAHMAN-EXCERPT-20150526webm",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JAIHO-AFILMONARRAHMAN-EXCERPT-20150526webm/JAI%20HO%20-%20A%20FILM%20ON%20A.R.%20RAHMAN-%20EXCERPT-20150526.mp4",
+        "source_url": "https://archive.org/details/JAIHO-AFILMONARRAHMAN-EXCERPT-20150526webm",
+        "title": "JAI HO - A FILM ON A.R. RAHMAN- EXCERPT-20150526",
+        "description": "Through various turning points in A R Rahman's life and significant milestones, the Film celebrates an Indian icon who is no less than a global phenomenon. / / Director - UMESH AGGARWAL / Producer & Commissioning Editor - RAJIV MEHROTRA / / Umesh has been producing and directing television shows and documentary films for almost twenty years. His show Kiran – Joy of Giving, on Doordarshan, has won the Indian Telly Award a record five times and the Indian Television Academy Award twice. His films have been screened and awarded at various national and international film festivals. His film on pesticides in bottled water and soft drinks, The Whistle Blowers, for PSBT, won the National Award for Best Investigative Film. More recently, Brokering News, his film on paid news, also for PSBT, was awarded the Ramnath Goenka Award for Excellence in Journalism. / / Rajiv Mehrotra is the Managing Trustee and Commissioning Editor of PSBT - his films have won more than 300 awards worldwide, including 32 in 31 years from the President of India. His nine books are available in 50 languages and editions. / / / / / PSBT is a not-for-profit that nurtures and supports the production of independent documentary films. Over two decades, it has produced some 700 documentary films. Each film averages two festival selections and every second film an award. / / Its Board of Trustees includes Adoor Gopalakrishnan, Fali Nariman, Kiran Karnik, Shyam Benegal, Sharmila Tagore and CEO, Prasar Bharati. / / CREDITS / CAMERA: Alphonse Roy, Vijay Karthik, Anu Gunn, Bipin Anand, Madhav Salunke, U Shekhar Naidu /  ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 375.77,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show a person speaking in an interview setting, but the person depicted is Shekhar Kapur, not A.R. Rahman (the named subject of the documentary/biography). Therefore, identity mismatch prevents use as footage of A.R. Rahman.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5f962926434667a95af97cb38238304f14ed0ce7775db271dc7811ebb3b5784c",
+      "reviewed_at": 1790642617.4100819
+    },
+    {
+      "person": "A.R. Rahman",
+      "source": {
+        "id": "commons:77369754",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/JAI_HO.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:JAI_HO.webm",
+        "title": "File:JAI HO.webm",
+        "description": "Documentary - 2015 - 60 min. A.R. Rahman is one of the most prolific music makers in India who has put Indian film music firmly on the world stage. His musical career spans two decades, over 120 film scores worldwide, collaborations with Mani Ratnam, Shekhar Kapur, Andrew Lloyd Weber, Mick Jagger, Michael Jackson & Friends, Vanessa May, Danny Boyle to name a few and numerous awards like the National Films Award, Oscars, Grammys, Golden Globe etc. He figures on the Time Magazine's list of most influential people in the world. This authoritative documentary explores how Rahman's musical genius was influenced by various turning points in his life, how his musical style evolved over the years and the milestones and iconic status he has achieved in his illustrious career. The most awaited documentary on this channel, it was screened at the White House in May, 2015 and subsequently had its television debut on Discovery Channel in October, 2015. Produced under the Public Diplomacy Initiative of the Ministry of External Affairs, Govt. of India, the film has been made in collaboration with PSBT. It is directed by Umesh Aggarwal whose own career in film-making spans two decades and has won him many accolades including the National Award. JAI Ho - Awards and Screenings: World Premiere, Museum of the Moving Image, New York Indian Film Festival of Los Angeles Indian Film Festival, Houston Imagineindia, International Film Festival, Madrid Indian Film Festival, Stuttgart India Premiere, India Habitat Centre, New Delhi The White House, Washington DC Indian Film Festival, Melbourne 3rd i Fi",
+        "creator": "Indian Diplomacy",
+        "license": "CC BY 3.0",
+        "direct_subject": false,
+        "identity_score": 7.0
+      },
+      "start": 841.3,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The subject A.R. Rahman is clearly visible across all three frames in a studio setting with music equipment, serving as good biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "dba74f5c6ae96ceae4a2215ba78e84784eb08bac7e1646ea58ad295c18da012c",
+      "reviewed_at": 1790642732.0901253
+    },
+    {
+      "person": "A.R. Rahman",
+      "source": {
+        "id": "archive:JAIHO-AFILMONARRAHMAN-EXCERPT-20150526webm",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JAIHO-AFILMONARRAHMAN-EXCERPT-20150526webm/JAI%20HO%20-%20A%20FILM%20ON%20A.R.%20RAHMAN-%20EXCERPT-20150526.mp4",
+        "source_url": "https://archive.org/details/JAIHO-AFILMONARRAHMAN-EXCERPT-20150526webm",
+        "title": "JAI HO - A FILM ON A.R. RAHMAN- EXCERPT-20150526",
+        "description": "Through various turning points in A R Rahman's life and significant milestones, the Film celebrates an Indian icon who is no less than a global phenomenon. / / Director - UMESH AGGARWAL / Producer & Commissioning Editor - RAJIV MEHROTRA / / Umesh has been producing and directing television shows and documentary films for almost twenty years. His show Kiran – Joy of Giving, on Doordarshan, has won the Indian Telly Award a record five times and the Indian Television Academy Award twice. His films have been screened and awarded at various national and international film festivals. His film on pesticides in bottled water and soft drinks, The Whistle Blowers, for PSBT, won the National Award for Best Investigative Film. More recently, Brokering News, his film on paid news, also for PSBT, was awarded the Ramnath Goenka Award for Excellence in Journalism. / / Rajiv Mehrotra is the Managing Trustee and Commissioning Editor of PSBT - his films have won more than 300 awards worldwide, including 32 in 31 years from the President of India. His nine books are available in 50 languages and editions. / / / / / PSBT is a not-for-profit that nurtures and supports the production of independent documentary films. Over two decades, it has produced some 700 documentary films. Each film averages two festival selections and every second film an award. / / Its Board of Trustees includes Adoor Gopalakrishnan, Fali Nariman, Kiran Karnik, Shyam Benegal, Sharmila Tagore and CEO, Prasar Bharati. / / CREDITS / CAMERA: Alphonse Roy, Vijay Karthik, Anu Gunn, Bipin Anand, Madhav Salunke, U Shekhar Naidu /  ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 42.08,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The frames clearly show the subject, A.R. Rahman, playing the piano in a documentary context. While it illustrates his musical career rather than a specific narrated historical event, it serves as high-quality biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e365639aa11fcd66af271d39d6d3cee053cc70fe992dea69c24c53effebebeca",
+      "reviewed_at": 1790642743.4643717
+    },
+    {
+      "person": "Kalam",
+      "source": {
+        "id": "archive:Prpoint-India60AnExclusiveInterviewWithDrAbdulKalamPartThree291-2",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Prpoint-India60AnExclusiveInterviewWithDrAbdulKalamPartThree291-2/Prpoint-India60AnExclusiveInterviewWithDrAbdulKalamPartThree291.mp4",
+        "source_url": "https://archive.org/details/Prpoint-India60AnExclusiveInterviewWithDrAbdulKalamPartThree291-2",
+        "title": "India 60 - An exclusive interview with Dr Abdul Kalam - Part Three",
+        "description": "Former Indian President Dr Abdul Kalam in an exclusive podcast interview with K. Srinivasan, Editor, PodUniversal gives six suggestions to Indian Media to become partners in Nation development.Â For the earlier parts of the interview please visit www.poduniversal.comfunction __RP_Callback_Helper(str, strCallbackEvent, splitSize, func){var event = null;if (strCallbackEvent){event = document.createEvent('Events');event.initEvent(strCallbackEvent, true, true);}if (str && str.length > 0){var splitList = str.split('|');var strCompare = str;if (splitList.length == splitSize)strCompare = splitList[splitSize-1];var pluginList = document.plugins;for (var count = 0; count = sSrc.length){if (strCompare.indexOf(sSrc) != -1){func(str, count, pluginList, splitList);break;}}}}if (strCallbackEvent)document.body.dispatchEvent(event);}function __RP_Coord_Callback(str){var func = function(str, index, pluginList, splitList){pluginList[index].__RP_Coord_Callback = str;pluginList[index].__RP_Coord_Callback_Left = splitList[0];pluginList[index].__RP_Coord_Callback_Top = splitList[1];pluginList[index].__RP_Coord_Callback_Right = splitList[2];pluginList[index].__RP_Coord_Callback_Bottom = splitList[3];};__RP_Callback_Helper(str, 'rp-js-coord-callback', 5, func);}function __RP_Url_Callback(str){var func = function(str, index, pluginList, splitList){pluginList[index].__RP_Url_Callback = str;pluginList[index].__RP_Url_Callback_Vid = splitList[0];pluginList[index].__RP_Url_Callback_Parent = splitList[1];};__RP_Callback_Helper(str, 'rp-js-url-callback', 3, func);}function __RP_TotalBytes_Callback(str){v ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "00:05:08",
+        "direct_subject": true,
+        "duration_hint": 308.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 138.72,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows Dr. APJ Abdul Kalam speaking in an interview/podcast setting, which serves as valid biographical illustration, though it features graphic overlays listing suggestions for the media.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "140862cbd8cc511faee9fc65f3147c7f76b2ed5a125be660645612fe105a4611",
+      "reviewed_at": 1790643018.952716
+    },
+    {
+      "person": "Kalam",
+      "source": {
+        "id": "archive:THEBESTSPEECHEVERMOTIVATIONSPEECHBYAPJAbdulKalam",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/THEBESTSPEECHEVERMOTIVATIONSPEECHBYAPJAbdulKalam/THE_BEST_SPEECH_EVER_-_MOTIVATION_SPEECH_BY_A_P_J_Abdul_Kalam.mp4",
+        "source_url": "https://archive.org/details/THEBESTSPEECHEVERMOTIVATIONSPEECHBYAPJAbdulKalam",
+        "title": "THE BEST SPEECH EVER MOTIVATION SPEECH BY A P J Abdul Kalam",
+        "description": "Motivation speech Love",
+        "creator": "Durai",
+        "license": "",
+        "subject": "Love",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 434.22,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The frames clearly show APJ Abdul Kalam speaking at a podium, providing good biographical illustration footage of him despite a small watermark.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "62514baec6285cde039090dffb17203456a834a4adf7fb34cfb505efe83c7240",
+      "reviewed_at": 1790643081.361076
+    },
+    {
+      "person": "Kalam",
+      "source": {
+        "id": "archive:Prpoint-India60AnExclusiveInterviewWithDrAbdulKalamPartThree291-2",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Prpoint-India60AnExclusiveInterviewWithDrAbdulKalamPartThree291-2/Prpoint-India60AnExclusiveInterviewWithDrAbdulKalamPartThree291.mp4",
+        "source_url": "https://archive.org/details/Prpoint-India60AnExclusiveInterviewWithDrAbdulKalamPartThree291-2",
+        "title": "India 60 - An exclusive interview with Dr Abdul Kalam - Part Three",
+        "description": "Former Indian President Dr Abdul Kalam in an exclusive podcast interview with K. Srinivasan, Editor, PodUniversal gives six suggestions to Indian Media to become partners in Nation development.Â For the earlier parts of the interview please visit www.poduniversal.comfunction __RP_Callback_Helper(str, strCallbackEvent, splitSize, func){var event = null;if (strCallbackEvent){event = document.createEvent('Events');event.initEvent(strCallbackEvent, true, true);}if (str && str.length > 0){var splitList = str.split('|');var strCompare = str;if (splitList.length == splitSize)strCompare = splitList[splitSize-1];var pluginList = document.plugins;for (var count = 0; count = sSrc.length){if (strCompare.indexOf(sSrc) != -1){func(str, count, pluginList, splitList);break;}}}}if (strCallbackEvent)document.body.dispatchEvent(event);}function __RP_Coord_Callback(str){var func = function(str, index, pluginList, splitList){pluginList[index].__RP_Coord_Callback = str;pluginList[index].__RP_Coord_Callback_Left = splitList[0];pluginList[index].__RP_Coord_Callback_Top = splitList[1];pluginList[index].__RP_Coord_Callback_Right = splitList[2];pluginList[index].__RP_Coord_Callback_Bottom = splitList[3];};__RP_Callback_Helper(str, 'rp-js-coord-callback', 5, func);}function __RP_Url_Callback(str){var func = function(str, index, pluginList, splitList){pluginList[index].__RP_Url_Callback = str;pluginList[index].__RP_Url_Callback_Vid = splitList[0];pluginList[index].__RP_Url_Callback_Parent = splitList[1];};__RP_Callback_Helper(str, 'rp-js-url-callback', 3, func);}function __RP_TotalBytes_Callback(str){v ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "00:05:08",
+        "direct_subject": true,
+        "duration_hint": 308.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 250.16,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features Dr. A.P.J. Abdul Kalam in interview footage and interacting with children, serving as biographical illustration, though the side-by-side text panel layout is less than ideal for a clean 9:16 crop.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a12fe4a6d40b8cd405d5079da1ab14d5a5158f4f1d8b3d64ea6892a6d7163626",
+      "reviewed_at": 1790643104.805219
+    },
+    {
+      "person": "Kalam",
+      "source": {
+        "id": "archive:THEBESTSPEECHEVERMOTIVATIONSPEECHBYAPJAbdulKalam",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/THEBESTSPEECHEVERMOTIVATIONSPEECHBYAPJAbdulKalam/THE_BEST_SPEECH_EVER_-_MOTIVATION_SPEECH_BY_A_P_J_Abdul_Kalam.mp4",
+        "source_url": "https://archive.org/details/THEBESTSPEECHEVERMOTIVATIONSPEECHBYAPJAbdulKalam",
+        "title": "THE BEST SPEECH EVER MOTIVATION SPEECH BY A P J Abdul Kalam",
+        "description": "Motivation speech Love",
+        "creator": "Durai",
+        "license": "",
+        "subject": "Love",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The frames show genuine moving interview/speech footage of APJ Abdul Kalam, clearly visible across all frames. While it does not depict a specific narrated historical event directly, it serves as valuable biographical illustration for a video about him.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f26260ca6a50044ed0a3f122283a2e0b24aa09eebd6358c1ccfa36e194cb5309",
+      "reviewed_at": 1790643111.9621422
+    },
+    {
+      "person": "Kalam",
+      "source": {
+        "id": "archive:Prpoint-India60AnExclusiveInterviewWithDrAbdulKalamPartThree291-2",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Prpoint-India60AnExclusiveInterviewWithDrAbdulKalamPartThree291-2/Prpoint-India60AnExclusiveInterviewWithDrAbdulKalamPartThree291.mp4",
+        "source_url": "https://archive.org/details/Prpoint-India60AnExclusiveInterviewWithDrAbdulKalamPartThree291-2",
+        "title": "India 60 - An exclusive interview with Dr Abdul Kalam - Part Three",
+        "description": "Former Indian President Dr Abdul Kalam in an exclusive podcast interview with K. Srinivasan, Editor, PodUniversal gives six suggestions to Indian Media to become partners in Nation development.Â For the earlier parts of the interview please visit www.poduniversal.comfunction __RP_Callback_Helper(str, strCallbackEvent, splitSize, func){var event = null;if (strCallbackEvent){event = document.createEvent('Events');event.initEvent(strCallbackEvent, true, true);}if (str && str.length > 0){var splitList = str.split('|');var strCompare = str;if (splitList.length == splitSize)strCompare = splitList[splitSize-1];var pluginList = document.plugins;for (var count = 0; count = sSrc.length){if (strCompare.indexOf(sSrc) != -1){func(str, count, pluginList, splitList);break;}}}}if (strCallbackEvent)document.body.dispatchEvent(event);}function __RP_Coord_Callback(str){var func = function(str, index, pluginList, splitList){pluginList[index].__RP_Coord_Callback = str;pluginList[index].__RP_Coord_Callback_Left = splitList[0];pluginList[index].__RP_Coord_Callback_Top = splitList[1];pluginList[index].__RP_Coord_Callback_Right = splitList[2];pluginList[index].__RP_Coord_Callback_Bottom = splitList[3];};__RP_Callback_Helper(str, 'rp-js-coord-callback', 5, func);}function __RP_Url_Callback(str){var func = function(str, index, pluginList, splitList){pluginList[index].__RP_Url_Callback = str;pluginList[index].__RP_Url_Callback_Vid = splitList[0];pluginList[index].__RP_Url_Callback_Parent = splitList[1];};__RP_Callback_Helper(str, 'rp-js-url-callback', 3, func);}function __RP_TotalBytes_Callback(str){v ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "00:05:08",
+        "direct_subject": true,
+        "duration_hint": 308.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 227.87,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows actual interview footage of Dr. A.P.J. Abdul Kalam clearly visible across all frames. However, because it is an interview setting with superimposed text rather than direct historical event footage, it serves as biographical illustration rather than direct_event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7ef3004128814516ea0b5c61e239b835c8ea472bfb21d77f74814fe4bda4b0d1",
+      "reviewed_at": 1790643118.4061537
+    },
+    {
+      "person": "Serena Williams",
+      "source": {
+        "id": "archive:SerenaWilliams_2017",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/SerenaWilliams_2017/SerenaWilliams_2017.mp4",
+        "source_url": "https://archive.org/details/SerenaWilliams_2017",
+        "title": "Serena Williams and Gayle King: On tennis, love and motherhood",
+        "description": "Twenty-three Grand Slam titles later, tennis superstar Serena Williams sits down with journalist Gayle King to share a warm, mischievous conversation about her life, love, wins and losses — starting with the story of how she accidentally shared her pregnancy news with the world. ['Tedtalks', 'TED', 'Talks', 'Gender equality', 'children', 'family', 'gender', 'interview', 'journalism', 'leadership', 'life', 'love', 'media', 'parenting', 'personal growth', 'race', 'relationships', 'social media', 'sports', 'women', 'TED2017', '2017']",
+        "creator": "TED.com",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
+        "subject": "['Tedtalks', 'TED', 'Talks', 'Gender equality', 'children', 'family', 'gender', 'interview', 'journalism', 'leadership', 'life', 'love', 'media', 'parenting', 'personal growth', 'race', 'relationships', 'social media', 'sports', 'women', 'TED2017', '2017']",
+        "runtime": "00:18:28",
+        "direct_subject": true,
+        "duration_hint": 1108.0,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 596.59,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames clearly show Serena Williams participating in an interview on stage, which can be used as biographical illustration, though it does not directly depict historical sports events.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d8d2db17284dfc148aeebc773296ab0ed75015229064cd02bc94ef456645a8d8",
+      "reviewed_at": 1790643265.943133
+    },
+    {
+      "person": "Serena Williams",
+      "source": {
+        "id": "archive:UNICEF_Television_Tennis_ace_Serena_Williams_supports_Ghanas_biggest_health_campaign",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/UNICEF_Television_Tennis_ace_Serena_Williams_supports_Ghanas_biggest_health_campaign/6685_ghanawilliams_512kb.mp4",
+        "source_url": "https://archive.org/details/UNICEF_Television_Tennis_ace_Serena_Williams_supports_Ghanas_biggest_health_campaign",
+        "title": "UNICEF Television: Tennis ace Serena Williams supports Ghana’s biggest health campaign",
+        "description": "Tennis star Serena Williams' first visit to Africa was an opportunity to meet UNICEF Ghana's Chief of Health and Nutrition and witness the realities facing parents who struggle to help their children survive the first years of life. She joined a team of volunteer health workers serving the small, deprived community of Nungua-Zongo in Greater Accra. The volunteers worked to vaccinate children against measles and polio and hand out free insecticide-treated bed nets to families with children under the age of two. ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 15.29,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features actual archival footage of Serena Williams visiting a community in Africa as described in the metadata, with her clearly visible throughout the frames surrounded by local children and residents.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "213ba0e95af91edc0ac8c3667463a7e8486c00552a3e7f7167f9b79b0cd82012",
+      "reviewed_at": 1790643414.9863167
+    },
+    {
+      "person": "Serena Williams",
+      "source": {
+        "id": "archive:SerenaWilliams_2017",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/SerenaWilliams_2017/SerenaWilliams_2017.mp4",
+        "source_url": "https://archive.org/details/SerenaWilliams_2017",
+        "title": "Serena Williams and Gayle King: On tennis, love and motherhood",
+        "description": "Twenty-three Grand Slam titles later, tennis superstar Serena Williams sits down with journalist Gayle King to share a warm, mischievous conversation about her life, love, wins and losses — starting with the story of how she accidentally shared her pregnancy news with the world. ['Tedtalks', 'TED', 'Talks', 'Gender equality', 'children', 'family', 'gender', 'interview', 'journalism', 'leadership', 'life', 'love', 'media', 'parenting', 'personal growth', 'race', 'relationships', 'social media', 'sports', 'women', 'TED2017', '2017']",
+        "creator": "TED.com",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
+        "subject": "['Tedtalks', 'TED', 'Talks', 'Gender equality', 'children', 'family', 'gender', 'interview', 'journalism', 'leadership', 'life', 'love', 'media', 'parenting', 'personal growth', 'race', 'relationships', 'social media', 'sports', 'women', 'TED2017', '2017']",
+        "runtime": "00:18:28",
+        "direct_subject": true,
+        "duration_hint": 1108.0,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 89.51,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows Serena Williams participating in an interview on stage with Gayle King. She is clearly visible across all frames as genuine, moving archival footage, serving as biographical illustration rather than direct footage of her tennis career events.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ec2941c9283e2b2014139fc178a432cebd0099a0294d9e03d7f21fd466ba4612",
+      "reviewed_at": 1790643432.2011573
+    },
+    {
+      "person": "Serena Williams",
+      "source": {
+        "id": "archive:UNICEF_Television_Tennis_ace_Serena_Williams_supports_Ghanas_biggest_health_campaign",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/UNICEF_Television_Tennis_ace_Serena_Williams_supports_Ghanas_biggest_health_campaign/6685_ghanawilliams_512kb.mp4",
+        "source_url": "https://archive.org/details/UNICEF_Television_Tennis_ace_Serena_Williams_supports_Ghanas_biggest_health_campaign",
+        "title": "UNICEF Television: Tennis ace Serena Williams supports Ghana’s biggest health campaign",
+        "description": "Tennis star Serena Williams' first visit to Africa was an opportunity to meet UNICEF Ghana's Chief of Health and Nutrition and witness the realities facing parents who struggle to help their children survive the first years of life. She joined a team of volunteer health workers serving the small, deprived community of Nungua-Zongo in Greater Accra. The volunteers worked to vaccinate children against measles and polio and hand out free insecticide-treated bed nets to families with children under the age of two. ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 25.58,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames clearly show Serena Williams speaking to a crowd and reporters in Africa during her UNICEF visit, providing valid biographical illustration footage, though low quality and featuring a lower-third graphic.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ed3b19ad05f8e1b2631035392f764e28eb6ae99f22110d355e0024631e10847e",
+      "reviewed_at": 1790643449.0434005
+    },
+    {
+      "person": "Serena Williams",
+      "source": {
+        "id": "archive:SerenaWilliams_2017",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/SerenaWilliams_2017/SerenaWilliams_2017.mp4",
+        "source_url": "https://archive.org/details/SerenaWilliams_2017",
+        "title": "Serena Williams and Gayle King: On tennis, love and motherhood",
+        "description": "Twenty-three Grand Slam titles later, tennis superstar Serena Williams sits down with journalist Gayle King to share a warm, mischievous conversation about her life, love, wins and losses — starting with the story of how she accidentally shared her pregnancy news with the world. ['Tedtalks', 'TED', 'Talks', 'Gender equality', 'children', 'family', 'gender', 'interview', 'journalism', 'leadership', 'life', 'love', 'media', 'parenting', 'personal growth', 'race', 'relationships', 'social media', 'sports', 'women', 'TED2017', '2017']",
+        "creator": "TED.com",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
+        "subject": "['Tedtalks', 'TED', 'Talks', 'Gender equality', 'children', 'family', 'gender', 'interview', 'journalism', 'leadership', 'life', 'love', 'media', 'parenting', 'personal growth', 'race', 'relationships', 'social media', 'sports', 'women', 'TED2017', '2017']",
+        "runtime": "00:18:28",
+        "direct_subject": true,
+        "duration_hint": 1108.0,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 174.03,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The segment features real filmed footage of Serena Williams participating in an interview on stage with Gayle King, which serves as valid biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bf429b7b5dd59c626e49ab799a504f1bef18c919ac8e924e521aedf3e1ac415d",
+      "reviewed_at": 1790643462.5692556
     }
   ]
 }

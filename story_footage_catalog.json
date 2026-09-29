@@ -4049,37 +4049,6 @@
     {
       "person": "Stephen King",
       "source": {
-        "id": "archive:twitter-1284080408800440320",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
-        "source_url": "https://archive.org/details/twitter-1284080408800440320",
-        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
-        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OTD']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 137.76,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The frames clearly show Stephen King during archival interview footage from 1984, which serves as valid biographical illustration for a video about his life and career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "71df3031480709afd069184dd908a5500604d7c3dc03342be75e2f8cb1bafb5f",
-      "reviewed_at": 1790680386.3088
-    },
-    {
-      "person": "Stephen King",
-      "source": {
         "id": "archive:JFKAssassinationStephenKing",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/JFKAssassinationStephenKing/JFK%20Assassination%20-%20Stephen%20King.mp4",
@@ -4107,37 +4076,6 @@
       },
       "review_key": "662fa77c1d93e4f09836a6775c382aa00b7a4fdb11ac8682cd460d1fcc025e58",
       "reviewed_at": 1790680456.460213
-    },
-    {
-      "person": "Stephen King",
-      "source": {
-        "id": "archive:twitter-1284080408800440320",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
-        "source_url": "https://archive.org/details/twitter-1284080408800440320",
-        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
-        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OTD']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 23.97,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video shows actual archival footage of Stephen King being interviewed on a breakfast show next to the Plymouth Fury car from 'Christine', matching the biographical context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a55ed5355687702f7a4ec86e91caee9db416cdcf847ac79aa3c1027dd6a03711",
-      "reviewed_at": 1790680525.6480725
     },
     {
       "person": "Stephen King",
@@ -4235,37 +4173,6 @@
     {
       "person": "Stephen King",
       "source": {
-        "id": "archive:twitter-1284080408800440320",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
-        "source_url": "https://archive.org/details/twitter-1284080408800440320",
-        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
-        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OTD']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 61.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features real archival footage of Stephen King speaking in an interview setting, making it suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "7ee0b453e4b0abe2f05ebdd4670ca2e83df0ae0002e2dc81e8c5f13f839302c2",
-      "reviewed_at": 1790680572.3604052
-    },
-    {
-      "person": "Stephen King",
-      "source": {
         "id": "archive:JFKAssassinationStephenKing",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/JFKAssassinationStephenKing/JFK%20Assassination%20-%20Stephen%20King.mp4",
@@ -4293,6 +4200,440 @@
       },
       "review_key": "6521ac905cb0ff3027c9057688330c047a81df9ea9d8ade267bc3648878991fd",
       "reviewed_at": 1790680576.9655302
+    },
+    {
+      "person": "Stephen King",
+      "source": {
+        "id": "archive:twitter-1284080408800440320",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
+        "source_url": "https://archive.org/details/twitter-1284080408800440320",
+        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
+        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OTD']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 137.76,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows real historical footage of Stephen King being interviewed in 1984, making it suitable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "68bc98cff9401a0eeb2ecbe298e77295ff5ea7737157376a90f7b6a00f829fff",
+      "reviewed_at": 1790700323.721832
+    },
+    {
+      "person": "Stephen King",
+      "source": {
+        "id": "archive:Stephen_King_Lecture_Highlight",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Stephen_King_Lecture_Highlight/Stephen_King_Lecture_Highlight.mp4",
+        "source_url": "https://archive.org/details/Stephen_King_Lecture_Highlight",
+        "title": "Stephen King Lecture Highlight",
+        "description": "As part of DATV's 35th Anniversary Celebration we are airing a 1982 lecture taped at the University of Dayton as part of its Distinguished Speaker Series. In this clip King talks about his reaction to the screen adaptation of his book \"The Shining.\" The full lecture can be seen on Friday, May 10th at 8:00pm on DATV, Time Warner Cable channel 5 in Dayton. ['Ohio', 'Dayton', 'Dayton Access Television', 'DATV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'Stephen King', 'The Shining', 'University of Dayton', 'Books', 'Films', 'Authors', '2013']",
+        "creator": "DATV",
+        "license": "",
+        "subject": "['Ohio', 'Dayton', 'Dayton Access Television', 'DATV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'Stephen King', 'The Shining', 'University of Dayton', 'Books', 'Films', 'Authors', '2013']",
+        "runtime": "00:01:08",
+        "direct_subject": true,
+        "duration_hint": 68.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 47.77,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show archival footage of Stephen King speaking at a lecture in 1982. While it is genuine archival footage, it serves as general biographical illustration rather than depicting a specific narrated event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "78c04f443af6653f6277b35ce24aaddfd5f0b2a37ec5c95d937c01d6db4562b8",
+      "reviewed_at": 1790700338.7636635
+    },
+    {
+      "person": "Stephen King",
+      "source": {
+        "id": "archive:twitter-1284080408800440320",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
+        "source_url": "https://archive.org/details/twitter-1284080408800440320",
+        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
+        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OTD']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 23.97,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Stephen King is clearly visible throughout all frames standing next to a vintage car on a television set, matching the biographical context of his archival appearances.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "dc162e2e4247af325d9ba62cf07ae840a4d98301187254f54738d36f51c96d64",
+      "reviewed_at": 1790700348.5519109
+    },
+    {
+      "person": "Stephen King",
+      "source": {
+        "id": "archive:Stephen_King_Lecture_Highlight",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Stephen_King_Lecture_Highlight/Stephen_King_Lecture_Highlight.mp4",
+        "source_url": "https://archive.org/details/Stephen_King_Lecture_Highlight",
+        "title": "Stephen King Lecture Highlight",
+        "description": "As part of DATV's 35th Anniversary Celebration we are airing a 1982 lecture taped at the University of Dayton as part of its Distinguished Speaker Series. In this clip King talks about his reaction to the screen adaptation of his book \"The Shining.\" The full lecture can be seen on Friday, May 10th at 8:00pm on DATV, Time Warner Cable channel 5 in Dayton. ['Ohio', 'Dayton', 'Dayton Access Television', 'DATV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'Stephen King', 'The Shining', 'University of Dayton', 'Books', 'Films', 'Authors', '2013']",
+        "creator": "DATV",
+        "license": "",
+        "subject": "['Ohio', 'Dayton', 'Dayton Access Television', 'DATV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'Stephen King', 'The Shining', 'University of Dayton', 'Books', 'Films', 'Authors', '2013']",
+        "runtime": "00:01:08",
+        "direct_subject": true,
+        "duration_hint": 68.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 58.47,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows actual archival footage of Stephen King speaking at a lecture in 1982, but it has large lower-third graphic overlays that obstruct the view and make it less usable.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "634ab32ed253466b13da9872fbe359ca2584b3096905df27c6081e1694e9541d",
+      "reviewed_at": 1790700372.3864143
+    },
+    {
+      "person": "Stephen King",
+      "source": {
+        "id": "archive:twitter-1284080408800440320",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
+        "source_url": "https://archive.org/details/twitter-1284080408800440320",
+        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
+        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OTD']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 61.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The frames show genuine archival footage of Stephen King being interviewed in 1984. Since it is an interview discussing his work rather than depiction of the events in his books, it serves as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "981745cdb6c244faf3f5e843f4b976c5c5fac3c652b60e6faf57ab9a3ae81732",
+      "reviewed_at": 1790700391.5007942
+    },
+    {
+      "person": "Stephen King",
+      "source": {
+        "id": "archive:twitter-1284080408800440320",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
+        "source_url": "https://archive.org/details/twitter-1284080408800440320",
+        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
+        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OTD']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 99.83,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The clip features genuine archival interview footage of Stephen King talking about his work in 1984. While it is an interview rather than direct footage of the narrated events, it serves as excellent biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "587cc861e5f4437097a2803fcd6dbd3d8b25293a23502a761e7718a22133a420",
+      "reviewed_at": 1790700415.502848
+    },
+    {
+      "person": "Stephen King",
+      "source": {
+        "id": "archive:twitter-1284080408800440320",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
+        "source_url": "https://archive.org/details/twitter-1284080408800440320",
+        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
+        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OTD']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 118.79,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The clip features genuine archival footage of Stephen King being interviewed in 1984, making it useful as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "dd2cef4fb295fe48fbedc2f0fb756effba54f4eafc9bb96c5c757a8407647cd9",
+      "reviewed_at": 1790700423.7536154
+    },
+    {
+      "person": "Stephen King",
+      "source": {
+        "id": "archive:twitter-1284080408800440320",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
+        "source_url": "https://archive.org/details/twitter-1284080408800440320",
+        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
+        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OTD']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 156.72,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The frames show Stephen King appearing on a TV show in 1984 next to a Plymouth Fury (referencing Christine), matching the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b195675c2ddfd28952e1bc4824d22bbbb69803a3e1a2e08320e6c0bf54db4039",
+      "reviewed_at": 1790700429.447637
+    },
+    {
+      "person": "Stephen King",
+      "source": {
+        "id": "archive:twitter-1284080408800440320",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
+        "source_url": "https://archive.org/details/twitter-1284080408800440320",
+        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
+        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OTD']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 175.69,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features archival interview footage of Stephen King from 1984. While it shows him talking about his work rather than depicting a specific biographical event directly, it serves as excellent biographical illustration of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b0bd72acd1ccc53482fa721dce18358421282154f4aa95cf49d38cbf3683ba10",
+      "reviewed_at": 1790700436.8138158
+    },
+    {
+      "person": "Stephen King",
+      "source": {
+        "id": "archive:twitter-1284080408800440320",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
+        "source_url": "https://archive.org/details/twitter-1284080408800440320",
+        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
+        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OTD']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 194.66,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows Stephen King appearing on television next to a red Plymouth Fury (Christine) in 1984, which directly illustrates the creation and cinematic adaptation of his novel as mentioned in the narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8f039d8ec6a7dc459b2ccbada5f6b285d6b51abec2ff028f6dd893d109bef957",
+      "reviewed_at": 1790700443.7956116
+    },
+    {
+      "person": "Stephen King",
+      "source": {
+        "id": "archive:twitter-1284080408800440320",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
+        "source_url": "https://archive.org/details/twitter-1284080408800440320",
+        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
+        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OTD']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 251.55,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video shows archival footage featuring Stephen King appearing on a television show alongside a car reminiscent of Christine, matching the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "69552cd2041ad8afa195b8ad6aaf04446ddeed8afb8cd1bf43c949d5b76c1496",
+      "reviewed_at": 1790700466.5634804
+    },
+    {
+      "person": "Stephen King",
+      "source": {
+        "id": "archive:Stephen_King",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Stephen_King/Stephen_King.mp4",
+        "source_url": "https://archive.org/details/Stephen_King",
+        "title": "Stephen King",
+        "description": "Here is a classic video of Stephen King speaking at the University of Dayton on March 25th, 1982. Recorded by DATV. ['Ohio', 'Dayton', 'Dayton Access Television', 'DATV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'Stephen King (Author)', 'University Of Dayton (Organization)', 'Dayton (City/Town/Village)', 'Author', 'Horror', '2014']",
+        "creator": "DATV",
+        "license": "",
+        "subject": "['Ohio', 'Dayton', 'Dayton Access Television', 'DATV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'Stephen King (Author)', 'University Of Dayton (Organization)', 'Dayton (City/Town/Village)', 'Author', 'Horror', '2014']",
+        "runtime": "01:39:29",
+        "direct_subject": true,
+        "duration_hint": 5969.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 3211.54,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames clearly show Stephen King speaking and reading at a podium in archival footage from 1982, suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6cb6e0a81b434c513aef9ce50c246e83fecb922af11f498cf18344fa573e3254",
+      "reviewed_at": 1790700478.4954417
+    },
+    {
+      "person": "Stephen King",
+      "source": {
+        "id": "archive:Stephen_King",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Stephen_King/Stephen_King.mp4",
+        "source_url": "https://archive.org/details/Stephen_King",
+        "title": "Stephen King",
+        "description": "Here is a classic video of Stephen King speaking at the University of Dayton on March 25th, 1982. Recorded by DATV. ['Ohio', 'Dayton', 'Dayton Access Television', 'DATV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'Stephen King (Author)', 'University Of Dayton (Organization)', 'Dayton (City/Town/Village)', 'Author', 'Horror', '2014']",
+        "creator": "DATV",
+        "license": "",
+        "subject": "['Ohio', 'Dayton', 'Dayton Access Television', 'DATV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'Stephen King (Author)', 'University Of Dayton (Organization)', 'Dayton (City/Town/Village)', 'Author', 'Horror', '2014']",
+        "runtime": "01:39:29",
+        "direct_subject": true,
+        "duration_hint": 5969.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The frames show archival footage of Stephen King speaking at a podium during an event at the University of Dayton in 1982. He is visible in all three frames as the video progresses. It serves as good biographical illustration of his public speaking appearances.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "04cb02b478cbf0bd4fd7820ab51ef1dd190710ac165b04308bb96453631596d6",
+      "reviewed_at": 1790700484.7260091
+    },
+    {
+      "person": "Stephen King",
+      "source": {
+        "id": "archive:Stephen_King",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Stephen_King/Stephen_King.mp4",
+        "source_url": "https://archive.org/details/Stephen_King",
+        "title": "Stephen King",
+        "description": "Here is a classic video of Stephen King speaking at the University of Dayton on March 25th, 1982. Recorded by DATV. ['Ohio', 'Dayton', 'Dayton Access Television', 'DATV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'Stephen King (Author)', 'University Of Dayton (Organization)', 'Dayton (City/Town/Village)', 'Author', 'Horror', '2014']",
+        "creator": "DATV",
+        "license": "",
+        "subject": "['Ohio', 'Dayton', 'Dayton Access Television', 'DATV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'Stephen King (Author)', 'University Of Dayton (Organization)', 'Dayton (City/Town/Village)', 'Author', 'Horror', '2014']",
+        "runtime": "01:39:29",
+        "direct_subject": true,
+        "duration_hint": 5969.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 463.08,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show genuine archival footage of Stephen King speaking at a podium, which serves as biographical illustration for a video about him.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "afd09b323c00c5d3efa11be18c19d63f415a4f03354c2417abe261d306c9ed13",
+      "reviewed_at": 1790700492.9546
     }
   ]
 }

@@ -2963,5 +2963,21 @@
     "video_id": "S7UYGBLDIMM",
     "workdir": "output/1790691208",
     "published_at": 1790693120
+  },
+  {
+    "topic": "Stephen King: The discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon.",
+    "normalized": "stephen king the discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1790700245,
+    "recorded_at": 1790700245,
+    "metadata": {
+      "person": "Stephen King",
+      "pillar": "before_they_were_famous"
+    },
+    "title": "Stephen King: The discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon.",
+    "video_id": "yovro0HiVB4",
+    "workdir": "",
+    "published_at": 1790701128
   }
 ]

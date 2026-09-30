@@ -262,3 +262,52 @@ def test_only_story_workflow_enables_upgrade():
     assert workflow["jobs"]["story-shorts"]["needs"] == "quality-checks"
     assert "test_only" in workflow["jobs"]["story-shorts"]["if"]
     assert not (root / ".github/workflows/story-video-tests.yml").exists()
+
+
+def test_media_first_preflight_requires_enough_real_source_intervals(monkeypatch, tmp_path):
+    import story_visual_upgrade as upgrade
+    monkeypatch.chdir(tmp_path)
+    upgrade._PREFLIGHT_CACHE.clear()
+    source_a = {
+        "id": "archive:a", "provider": "Internet Archive",
+        "url": "https://archive.org/download/a/video.mp4",
+        "source_url": "https://archive.org/details/a",
+        "title": "Nelson Mandela interview",
+        "description": "Nelson Mandela historical interview",
+        "creator": "Archive", "direct_subject": True,
+        "identity_score": 12, "archival_signal": 3,
+    }
+    source_b = dict(source_a)
+    source_b.update({
+        "id": "archive:b",
+        "url": "https://archive.org/download/b/video.mp4",
+        "source_url": "https://archive.org/details/b",
+        "title": "Nelson Mandela speech",
+        "description": "Nelson Mandela historical speech",
+    })
+    monkeypatch.setattr(upgrade.media, "discover", lambda person, providers: [source_a, source_b])
+    monkeypatch.setattr(upgrade.media, "resolve", lambda item: (item["url"], 80.0))
+    result = upgrade.preflight_candidate("Nelson Mandela", "Nelson Mandela: a turning point")
+    assert result["audit"]["usable_sources"] == 2
+    assert result["audit"]["estimated_segments"] >= 14
+    assert len(result["pool"]) == 2
+
+
+def test_media_first_preflight_fails_before_gemini_when_sources_are_too_short(monkeypatch, tmp_path):
+    import story_visual_upgrade as upgrade
+    monkeypatch.chdir(tmp_path)
+    upgrade._PREFLIGHT_CACHE.clear()
+    source = {
+        "id": "archive:short", "provider": "Internet Archive",
+        "url": "https://archive.org/download/short/video.mp4",
+        "source_url": "https://archive.org/details/short",
+        "title": "Nelson Mandela interview",
+        "description": "Nelson Mandela historical interview",
+        "creator": "Archive", "direct_subject": True,
+        "identity_score": 12, "archival_signal": 3,
+    }
+    monkeypatch.setattr(upgrade.media, "discover", lambda person, providers: [source])
+    monkeypatch.setattr(upgrade.media, "resolve", lambda item: (item["url"], 5.0))
+    import pytest
+    with pytest.raises(RuntimeError, match="Story media preflight failed"):
+        upgrade.preflight_candidate("Nelson Mandela", "Nelson Mandela: a turning point")

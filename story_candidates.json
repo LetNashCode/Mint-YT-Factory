@@ -1,18 +1,5 @@
 [
   {
-    "format": "strange_turning_point",
-    "person": "Srinivasa Ramanujan",
-    "premise": "How a clerk from South India changed modern mathematics through an unsolicited international letter.",
-    "hook": "A self-taught mathematician working a low-level clerical job mailed a notebook of bizarre formulas to a British professor who almost threw it away.",
-    "key_facts": [
-      "Had no formal university training in mathematics and relied primarily on a single synopsis book by G.S. Carr.",
-      "Worked as a shipping port clerk in Madras to support his family while doing mathematics on slate boards.",
-      "Sent a letter containing unproven theorems to mathematician G.H. Hardy at Cambridge in 1913.",
-      "Elected as a Fellow of the Royal Society at age 31."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "one_decision",
     "person": "Jane Goodall",
     "premise": "The unconventional methodological choice that revolutionized primate research in Tanzania.",
@@ -39,19 +26,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Rosa Parks",
-    "premise": "The quiet civil rights activist whose steadfast refusal on a Montgomery bus triggered historical momentum.",
-    "hook": "She was a trained seamstress and active local secretary whose quiet act of defiance was preceded by years of documented community activism.",
-    "key_facts": [
-      "Worked as a tailor's assistant and served as secretary for the NAACP Montgomery branch.",
-      "Refused to surrender her bus seat to a white passenger on December 1, 1955.",
-      "Her arrest catalyzed the 381-day Montgomery bus boycott, organized by local leaders including Martin Luther King Jr.",
-      "Awarded the Presidential Medal of Freedom and the Congressional Gold Medal later in life."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Dwayne Johnson",
     "premise": "A young football player cut from the Canadian Football League finds himself with seven dollars and no backup plan.",
@@ -61,18 +35,6 @@
       "Cut from the Calgary Stampeders in the CFL early in his professional career",
       "Transitioned to professional wrestling under the name Rocky Maivia before achieving global fame",
       "Became one of the highest-paid actors in Hollywood"
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Sara Blakely",
-    "premise": "A fax machine salesperson cuts the feet off her pantyhose to wear under white pants and decides to patent the result.",
-    "hook": "She had zero background in fashion and used her entire life savings of $5,000 on a patent lawyer.",
-    "key_facts": [
-      "Worked selling fax machines door-to-door before launching Spanx",
-      "Wrote her own patent application without hiring a traditional patent attorney firm",
-      "Pitched products directly to major retail buyers in department stores"
     ],
     "source": "gemini_original"
   },
@@ -89,14 +51,93 @@
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Percy Spencer",
-    "premise": "A radar engineer standing near a magnetron notices a candy bar in his pocket has melted.",
-    "hook": "A melted chocolate bar in his pocket led to the invention of the microwave oven.",
+    "format": "one_decision",
+    "person": "Sylvester Stallone",
+    "premise": "Refusing to sell his screenplay unless he played the lead role, despite being nearly broke and homeless.",
+    "hook": "He was offered a life-changing sum for his script, but he had one non-negotiable demand.",
     "key_facts": [
-      "Worked as a self-taught engineer for Raytheon developing radar equipment",
-      "Noticed microwave radiation melted food items during experiments",
-      "Patented the first microwave oven design in 1945"
+      "Wrote the screenplay for Rocky in three days after watching a boxing match.",
+      "Turned down high offers from studio executives who wanted an established star.",
+      "Lived in extreme poverty and reportedly sold his dog temporarily to buy food.",
+      "Rocky went on to win the Academy Award for Best Picture in 1977."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Dwyane Johnson",
+    "premise": "Facing eviction and having only seven dollars to his name before finding his footing in professional wrestling.",
+    "hook": "Before he was a global movie star, his family was evicted with only seven dollars in their pockets.",
+    "key_facts": [
+      "Played college football for the University of Miami and briefly in the Canadian Football League.",
+      "Suffered a career-ending shoulder injury that led to being cut from his football team.",
+      "Entered professional wrestling with the WWF as Rocky Maivia.",
+      "Transformed into 'The Rock' and became one of the most popular wrestlers in history."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Ernest Shackleton",
+    "premise": "Keeping all 27 crew members alive for nearly two years after their ship was crushed by Antarctic pack ice.",
+    "hook": "His ship was crushed by ice, stranding his crew in Antarctica for 22 months with zero deaths.",
+    "key_facts": [
+      "Led the Imperial Trans-Antarctic Expedition aboard the Endurance.",
+      "The ship became trapped and was ultimately crushed by pack ice in 1915.",
+      "Sailed an 22-foot lifeboat 800 miles across stormy seas to reach South Georgia Island for help.",
+      "Successfully rescued every single member of his stranded crew."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "George Lucas",
+    "premise": "Trading a higher upfront directing salary for merchandising and sequel rights to an unproven sci-fi film.",
+    "hook": "He gave up a $500,000 directing fee for merchandising rights, creating one of the richest deals in history.",
+    "key_facts": [
+      "Wrote and directed Star Wars, released in theaters in 1977.",
+      "Negotiated with 20th Century Fox to retain consumer products and sequel rights.",
+      "Studied film at the University of Southern California.",
+      "The film became a massive global cultural phenomenon."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Boman Irani",
+    "premise": "Working as a wafer shopkeeper and photographer before finding widespread theatrical and film success in his 40s.",
+    "hook": "He spent years running a local bakery counter and shooting sports before his breakout movie role at age 41.",
+    "key_facts": [
+      "Managed his family's bakery business and worked as a waiter at the Taj Mahal Palace.",
+      "Worked professionally as a sports photographer before entering theater.",
+      "Made his major Bollywood film debut in the 2003 comedy Munna Bhai M.B.B.S.",
+      "Became one of Indian cinema's most versatile and recognized character actors."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Louis Zamperini",
+    "premise": "Surviving 47 days adrift on a raft in the Pacific Ocean followed by years in harsh prisoner of war camps.",
+    "hook": "His bomber crashed into the Pacific Ocean, leading to 47 days at sea and capture in World War II.",
+    "key_facts": [
+      "Competed as an Olympic distance runner in the 1936 Berlin Games.",
+      "Served as a bombardier in the United States Army Air Forces during World War II.",
+      "Survived 47 days on a small life raft after his B-24 crashed.",
+      "Endured brutal conditions as a prisoner of war in Japan until the war ended."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Alexander Fleming",
+    "premise": "Leaving a Petri dish uncovered near an open window, leading to the accidental discovery of penicillin.",
+    "hook": "An open laboratory window and a stray mold spore changed modern medicine forever.",
+    "key_facts": [
+      "Worked as a physician and microbiologist at St Mary's Hospital in London.",
+      "Noticed in 1928 that a mold had contaminated a Petri dish of Staphylococcus bacteria.",
+      "Observed that the mold created a clear circle where bacteria could not grow.",
+      "Published his findings on penicillin, paving the way for mass antibiotic production."
     ],
     "source": "gemini_original"
   }

@@ -4696,6 +4696,68 @@
       },
       "review_key": "8c4fe1a27b39bb7a61c65460046641ac47db8142cad37bbdcab23157372fab98",
       "reviewed_at": 1790785088.289529
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
+        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+        "title": "The Rebellious Life of Mrs. Rosa Parks",
+        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "creator": "Devon Geen",
+        "license": "",
+        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 4454.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames show genuine archival footage of Rosa Parks present throughout the clip, serving as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e160fc078b669a408d8b73ce4bebe3490cea47714fdb7823c4760a87a2bfd73b",
+      "reviewed_at": 1790787552.4381723
+    },
+    {
+      "person": "Agatha Christie",
+      "source": {
+        "id": "archive:arena-agatha-christie-an-unfinished-portrait-1990",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/arena-agatha-christie-an-unfinished-portrait-1990/Arena%20-%20Agatha%20Christie%20An%20Unfinished%20Portrait%20%281990%29.mp4",
+        "source_url": "https://archive.org/details/arena-agatha-christie-an-unfinished-portrait-1990",
+        "title": "Arena - Agatha Christie: An Unfinished Portrait (1990 TV Documentary)",
+        "description": "The first bio-film of the world's most read author and the creator of Miss Marple and Hercule Poirot. With dramatic reconstructions (with Hermoine Eyre playing the young Agatha) and contemporary archive, it unravels a life as mysterious as Agatha Christie's and the shared obsession with murder. With narration by Joan Hickson and clips from various TV adaptations of her novels, including a behind the scenes interview with David Suchet on the set of The Mysterious Affair at Styles, plus interviews with those who knew her, including archive interview of her widower Max Mallowan. This was originally broadcast on September 20th 1990 to mark Christie's 100th anniversary of when she was born and was recently repeated on BBC4. I enjoyed it so much I felt I had to upload it here for Christie fans to enjoy, so here it is. I hope you like it. ['documentary', 'Agatha Christie', 'Max Mallowan', 'David Suchet', 'Joan Hickson', 'Behind the Scenes', 'VHS']",
+        "creator": "",
+        "license": "",
+        "subject": "['documentary', 'Agatha Christie', 'Max Mallowan', 'David Suchet', 'Joan Hickson', 'Behind the Scenes', 'VHS']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2796.63,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show archival footage and dramatic reconstruction related to Agatha Christie's life and work, but the subject is not clearly visible in all three frames (the first two show a reconstruction from behind/reflection, and the third shows an interview subject discussing her). However, it serves as usable biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "93c5dc9806778da6814c3ab846310ca93f8d6395506e88752f28c6c95965bf86",
+      "reviewed_at": 1790788411.7021186
     }
   ]
 }

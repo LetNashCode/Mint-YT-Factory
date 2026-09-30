@@ -2875,18 +2875,6 @@
     "published_at": 1790630449
   },
   {
-    "topic": "Why does a yawn spread",
-    "normalized": "why does a yawn spread",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1790668001,
-    "recorded_at": 1790668001,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do oven glass doors get striped",
     "normalized": "why do oven glass doors get striped",
     "workflow": "publish",
@@ -3012,5 +3000,21 @@
     "video_id": "wQ3jJg5t6Fw",
     "workdir": "artifacts/mystery-documentary",
     "published_at": 1790713774
+  },
+  {
+    "topic": "Why do frying pans warp",
+    "normalized": "why do frying pans warp",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1790754639,
+    "recorded_at": 1790754639,
+    "metadata": {
+      "next_topic": "Why do garlic cloves turn blue",
+      "creative_strategy": "wild"
+    },
+    "title": "Why Frying Pans Warp",
+    "video_id": "7OgQWIlTXmM",
+    "workdir": "output/1790754684",
+    "published_at": 1790755677
   }
 ]

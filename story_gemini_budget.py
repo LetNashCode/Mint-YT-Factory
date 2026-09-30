@@ -53,7 +53,7 @@ def consume(stage: str):
         return 0
     if str(stage or "").strip() == "visual_verification" and _BUDGET["used"] >= visual_gemini_limit():
         reason = (
-            f"Story Gemini visual verification budget exhausted after {_BUDGET[\"used\"]} requests "
+            f"Story Gemini visual verification budget exhausted after {_BUDGET['used']} requests "
             f"(visual_limit={visual_gemini_limit()}, total_limit={_BUDGET[\"limit\"]})"
         )
         Path(BUDGET_DEFER_FILE).write_text(reason + "\\n", encoding="utf-8")

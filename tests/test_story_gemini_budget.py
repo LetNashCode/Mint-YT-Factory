@@ -103,3 +103,23 @@ def test_visual_verification_cap_scales_down_for_small_run_budget(monkeypatch):
     assert budget.begin() == {"limit": 24, "used": 0}
     assert budget.visual_gemini_limit() == 16
 
+
+
+def test_visual_verification_hard_cap_preserves_remaining_budget(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("STORY_GEMINI_MAX_REQUESTS", "64")
+    monkeypatch.setenv("STORY_GEMINI_MAX_VISUAL_REQUESTS", "56")
+    assert budget.begin() == {"limit": 64, "used": 0}
+
+    for _ in range(56):
+        budget.consume("visual_verification")
+
+    try:
+        budget.consume("visual_verification")
+    except RuntimeError as exc:
+        assert "visual verification budget exhausted" in str(exc)
+    else:
+        raise AssertionError("visual verification must stop at its dedicated cap")
+
+    # The eight reserved calls remain available to later Story stages.
+    assert budget.status() == {"limit": 64, "used": 56}

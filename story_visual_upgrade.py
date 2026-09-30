@@ -23,6 +23,7 @@ import story_real_video_media as media
 CATALOG_PATH = Path("story_footage_catalog.json")
 _PREPARED = {}
 _LAST_GROUPS = []
+_PREFLIGHT_CACHE = {}
 
 
 def _key(value):
@@ -114,6 +115,82 @@ class FootageCatalog:
         temporary.write_text(json.dumps({"schema_version": 1, "segments": self.rows[-600:]},
                                        indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         temporary.replace(self.path)
+
+
+def preflight_candidate(person, topic=""):
+    """Cheap media-first gate: prove usable archival sources exist before topic reservation.
+
+    This deliberately does not call Gemini. It checks provider discovery, deterministic
+    metadata filters, source accessibility/duration and whether the available sources
+    can yield the required 14 disjoint eight-second intervals.
+    """
+    person = media.clean(person)
+    if not person:
+        raise RuntimeError("Story media preflight requires a named person")
+    key = media.clean(person).lower()
+    cached = _PREFLIGHT_CACHE.get(key)
+    if cached:
+        return copy.deepcopy(cached)
+
+    audit = {"person": person, "discovered": 0, "rejected": 0, "sources_checked": 0,
+             "usable_sources": 0, "estimated_segments": 0}
+    provider_names = []
+    catalog = FootageCatalog()
+    known = catalog.candidates(person)
+    discovered = media.discover(person, provider_names)
+    raw = list({item["id"]: item for item in discovered + known}.values())
+    audit["discovered"] = len(raw)
+    pool = []
+    for item in raw:
+        reason = media._source_precheck(item)
+        if reason:
+            audit["rejected"] += 1
+            continue
+        pool.append(item)
+
+    max_sources = max(4, int(os.environ.get("STORY_PREFLIGHT_SOURCE_LIMIT", "6")))
+    pool.sort(key=lambda item: (
+        -float(item.get("identity_score", media._identity_score(person, item))),
+        -int(item.get("archival_signal", 0)),
+        not item.get("direct_subject", False),
+        0 if 0 < float(item.get("duration_hint", 0) or 0) <= 900 else 1,
+        float(item.get("duration_hint", 0) or 1e12),
+    ))
+    pool = pool[:max_sources]
+
+    usable = []
+    estimated = 0
+    for item in pool:
+        try:
+            url, duration = media.resolve(item)
+            audit["sources_checked"] += 1
+            intervals = media.windows(duration, limit=14)
+            if intervals:
+                item = copy.deepcopy(item)
+                item["url"] = url
+                item["duration_hint"] = float(duration)
+                usable.append(item)
+                estimated += len(intervals)
+        except Exception as exc:
+            audit["sources_checked"] += 1
+            print(f"Story media preflight rejected source: {item.get('provider')} | {type(exc).__name__}", flush=True)
+
+    audit["usable_sources"] = len(usable)
+    audit["estimated_segments"] = estimated
+    min_sources = max(1, int(os.environ.get("STORY_MIN_PREFLIGHT_SOURCES", "2")))
+    if estimated < 14 or (len(usable) < min_sources and estimated < 14):
+        raise RuntimeError(
+            f"Story media preflight failed for {person}: {len(usable)} usable archival sources, "
+            f"about {estimated} disjoint segments available; need 14"
+        )
+
+    result = {"person": person, "topic": topic, "pool": usable, "audit": audit}
+    _PREFLIGHT_CACHE[key] = copy.deepcopy(result)
+    print(
+        f"Story media-first preflight passed: {person} | sources={len(usable)} | "
+        f"estimated_segments={estimated}", flush=True
+    )
+    return result
 
 
 def prepare(person, topic):

@@ -146,6 +146,10 @@ def test_factory_bootstrap_sanitizes_internal_pending_topic_marker(tmp_path, mon
             "status": "published",
         },
     ]))
+    # This test targets marker sanitization, not the one-time import of the
+    # repository's real legacy histories. Mark bootstrap complete so those
+    # unrelated files cannot pollute the isolated temporary history.
+    state.write_text(json.dumps({"version": 2, "migrated_topics": 0}))
     memory.claim("publish", "Why do keys jingle")
     rows = json.loads(history.read_text())
     assert all(not str(row["topic"]).startswith("__MINT_PENDING_NEXT_TOPIC__::") for row in rows)

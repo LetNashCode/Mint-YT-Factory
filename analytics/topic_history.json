@@ -3066,5 +3066,21 @@
     "video_id": "XJa3nDBLWUE",
     "workdir": "output/1790779196",
     "published_at": 1790780318
+  },
+  {
+    "topic": "Why do keys jingle",
+    "normalized": "why do keys jingle",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1790793278,
+    "recorded_at": 1790793278,
+    "metadata": {
+      "next_topic": "Why do door knobs get loose",
+      "creative_strategy": "wild"
+    },
+    "title": "Why Do Keys Jingle",
+    "video_id": "4LmoFG_-GYw",
+    "workdir": "output/1790793326",
+    "published_at": 1790794721
   }
 ]

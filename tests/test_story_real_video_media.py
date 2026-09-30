@@ -441,7 +441,7 @@ def test_unrelated_source_stops_after_four_identity_rejections(monkeypatch, tmp_
     monkeypatch.setattr(media, "verify", reject)
     with pytest.raises(RuntimeError, match="Insufficient verified"):
         media.generate_media(story(), str(tmp_path), {})
-    assert len(calls) == 3
+    assert len(calls) == 2
 
 
 def test_repeated_extraction_failure_is_bounded(monkeypatch, tmp_path):
@@ -994,3 +994,18 @@ def test_context_verification_accepts_direct_event_without_person_visible():
         "usage": "biographical_illustration",
         "reason": "Context only.",
     })
+
+
+def test_source_precheck_rejects_production_noise_without_rejecting_plain_archival_title():
+    assert media._source_precheck({
+        "title": "Modern interview with Nelson Mandela",
+        "description": "interview setting with presenter",
+    })
+    assert media._source_precheck({
+        "title": "Nelson Mandela documentary film adaptation",
+        "description": "feature film",
+    })
+    assert media._source_precheck({
+        "title": "Nelson Mandela speaking",
+        "description": "archival footage",
+    }) is None

@@ -131,6 +131,31 @@ def test_archive_search_excludes_youtube_imports_and_prefers_subject_records(mon
     assert all("NOT identifier:youtube-*" in params["q"] for url, params in calls if "advancedsearch.php" in url)
 
 
+def test_source_precheck_rejects_historical_person_noise():
+    bad_items = [
+        {"title": "Rosa Parks statue and monument tour", "description": "drone footage"},
+        {"title": "Rosa Parks Museum presentation", "description": "museum director speaks"},
+        {"title": "Rosa Parks Day news reporters", "description": "modern news reporting"},
+    ]
+    for item in bad_items:
+        assert media._source_precheck(item)
+
+
+def test_verifier_network_timeout_creates_defer_marker(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+    monkeypatch.setenv("STORY_GEMINI_NETWORK_RETRIES", "0")
+    monkeypatch.setenv("STORY_GEMINI_REQUEST_TIMEOUT", "15")
+    def timeout(*args, **kwargs):
+        raise requests.Timeout("simulated timeout")
+    monkeypatch.setattr(media.requests, "post", timeout)
+    with pytest.raises(RuntimeError, match="network unavailable"):
+        media.verify("Nelson Mandela", {"narration": "A biography moment"}, candidate(), ["a", "b", "c"])
+    marker = Path(media.NETWORK_DEFER_FILE)
+    assert marker.exists()
+    assert "network unavailable" in marker.read_text()
+
+
 def test_identity_score_does_not_trust_query_field():
     item = {"title": "Nelson Mandela interview", "description": "", "query": "Nelson Mandela"}
     assert media.person_match("Nelson Mandela", item)

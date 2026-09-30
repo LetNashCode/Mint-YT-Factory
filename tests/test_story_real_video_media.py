@@ -826,6 +826,25 @@ def test_invalid_verifier_result_fails_closed(monkeypatch, tmp_path):
 
 
 
+def test_verification_shortlist_caps_lower_ranked_sources(monkeypatch, tmp_path):
+    stub_pipeline(monkeypatch)
+    monkeypatch.setenv("STORY_MAX_VERIFICATION_SOURCES", "6")
+    pool = []
+    for index in range(10):
+        item = candidate(index)
+        item["identity_score"] = float(20 - index)
+        item["archival_signal"] = 10 - index
+        item["direct_subject"] = index == 0
+        pool.append(item)
+    monkeypatch.setattr(media, "discover", lambda *args: pool)
+    monkeypatch.setattr(media, "verify", lambda *args: dict(GOOD))
+    result = media.generate_media(story(), str(tmp_path), {})
+    audit = json.loads((tmp_path / "story_video_audit.json").read_text())
+    assert audit["preflight"]["verification_shortlist"] == 6
+    assert audit["preflight"]["verification_shortlist_limit"] == 6
+    assert len(result) == 14
+
+
 def test_source_precheck_rejects_non_archival_media_patterns():
     rejected = [
         "Enzo Ferrari gameplay video game",

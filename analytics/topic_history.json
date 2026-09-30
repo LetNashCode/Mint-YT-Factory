@@ -3032,5 +3032,23 @@
       "source_width": 1280,
       "source_height": 720
     }
+  },
+  {
+    "topic": "bittersweet happiness: Finding a dusty box of mix CDs in a garage clean-up and plugging the last one into an old car stereo, hearing the exact track that was playing the night you got your driver's license.",
+    "normalized": "bittersweet happiness finding a dusty box of mix cds in a garage clean up and plugging the last one into an old car stereo hearing the exact track that was playing the night you got your driver s license",
+    "workflow": "emotional",
+    "status": "published",
+    "reserved_at": 1790764310,
+    "recorded_at": 1790764310,
+    "metadata": {
+      "primary_emotion": "bittersweet happiness",
+      "human_situation": "Finding a dusty box of mix CDs in a garage clean-up and plugging the last one into an old car stereo, hearing the exact track that was playing the night you got your driver's license.",
+      "creative_strategy": "wild",
+      "experiment_id": "creative_v3_wild_cycle13_slot5"
+    },
+    "title": "The Last Track on the Dust Collector",
+    "video_id": "MexkfzdX-Ko",
+    "workdir": "output/emotional_reel",
+    "published_at": 1790764901
   }
 ]

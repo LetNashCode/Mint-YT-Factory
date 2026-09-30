@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T10:16:54.570022+00:00",
+  "generated_at": "2026-09-30T10:32:15.595291+00:00",
   "video_count": 124,
   "learning_ready": true,
   "metrics_available": true,
@@ -16,13 +16,13 @@
       "score": 36.991,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.68
+      "weak_score": 0.683
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.68,
+      "score": 0.683,
       "sample_size": 10
     }
   ],
@@ -43,8 +43,8 @@
   ],
   "avoid_topics": [
     "old friendships: Stumbling across an old cassette tape labeled with a mix-tape name you and your childhood best friend made in 1999, and hearing the awkward transitions between songs recorded off the radio.",
-    "Nolan Bushnell: Selling a stake in Apple Computer for a few thousand dollars to focus on his own arcade business instead.",
     "Why do frying pans warp",
+    "Nolan Bushnell: Selling a stake in Apple Computer for a few thousand dollars to focus on his own arcade business instead.",
     "Why do oven glass doors get striped",
     "Why do toast crumbs burn",
     "childhood memories: Finding the exact indent in the living room wall behind the couch where you used to hide your favorite comic books during childhood thunderstorms.",

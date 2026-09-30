@@ -1,17 +1,19 @@
 {
   "status": "uploaded",
   "final_path": "output/emotional_reel/final.mp4",
-  "final_sha256": "60d5922ba21ba1d1360110fac720150653598a010f03defff4bbda7bf4887922",
-  "cache_key": "emotional-reel-final-v2-60d5922ba21ba1d1360110fac7201506",
-  "title": "The Thunderstorm Wall",
-  "description": "Discovering a childhood hiding spot behind the living room couch.",
+  "final_sha256": "87dc60d1d561267d8c46c01c6c4a0b8ba107cf0024957adba441b75b705e0a64",
+  "cache_key": "emotional-reel-final-v2-87dc60d1d561267d8c46c01c6c4a0b8b",
+  "title": "The Last Track on the Dust Collector",
+  "description": "Finding an old mix CD in a garage box and hearing the exact song from the night of your driver's license test.",
   "hashtags": [
-    "#childhoodmemories",
+    "#mixcd",
     "#nostalgia",
+    "#garagefinds",
     "#growingup",
-    "#memorylane"
+    "#memories",
+    "#oldcars"
   ],
-  "engagement_comment": "Send this to someone who remembers.",
+  "engagement_comment": "Some songs wait patiently in the dark.",
   "voice": {
     "provider": "kokoro",
     "voice_name": "af_heart",
@@ -21,26 +23,26 @@
     "speed": 0.92,
     "tone": "curious, confident, playful storyteller"
   },
-  "created_at": 1790678870,
-  "narration_word_count": 134,
+  "created_at": 1790764546,
+  "narration_word_count": 148,
   "complete_script_preserved": true,
   "final_duration_seconds": 53.76,
-  "factory_topic": "childhood memories: Finding the exact indent in the living room wall behind the couch where you used to hide your favorite comic books during childhood thunderstorms.",
-  "primary_emotion": "childhood memories",
-  "human_situation": "Finding the exact indent in the living room wall behind the couch where you used to hide your favorite comic books during childhood thunderstorms.",
-  "video_id": "EAByp1pcCfw",
+  "factory_topic": "bittersweet happiness: Finding a dusty box of mix CDs in a garage clean-up and plugging the last one into an old car stereo, hearing the exact track that was playing the night you got your driver's license.",
+  "primary_emotion": "bittersweet happiness",
+  "human_situation": "Finding a dusty box of mix CDs in a garage clean-up and plugging the last one into an old car stereo, hearing the exact track that was playing the night you got your driver's license.",
+  "video_id": "MexkfzdX-Ko",
   "social": {
     "instagram": {
       "status": "published",
-      "media_id": "18184271815420303",
-      "container_id": "18495662497097136"
+      "media_id": "17971166166071588",
+      "container_id": "18495866050097136"
     },
     "facebook": {
       "status": "published",
-      "video_id": "2922455594799509"
+      "video_id": "1156617683360878"
     },
     "strict": false,
-    "updated_at": 1790679186
+    "updated_at": 1790764776
   },
-  "uploaded_at": 1790679363
+  "uploaded_at": 1790764901
 }

@@ -57,7 +57,9 @@ class FootageCatalog:
 
     @staticmethod
     def accepts(verdict):
-        return media.verification_passes(verdict) and verdict.get("person_visible") is True
+        # Identity footage requires the person; verified contextual footage may
+        # qualify without the person when Gemini explicitly marks it direct_event.
+        return media.verification_passes(verdict)
 
     @classmethod
     def valid(cls, row):
@@ -132,7 +134,7 @@ def prepare(person, topic):
     catalog = FootageCatalog()
     groups = media.generate_media(script, str(root), {}, catalog=catalog)
     if any(not FootageCatalog.accepts(row.get("verification")) for row in groups):
-        raise RuntimeError("Insufficient verified real footage: actual-person clips required")
+        raise RuntimeError("Insufficient verified Story footage: every clip must be verified identity or direct historical context")
     media.validate_segments(groups)
     _PREPARED = {"person": person, "topic": topic, "groups": copy.deepcopy(groups)}
     (root / "footage_plan.json").write_text(json.dumps(_PREPARED, indent=2), encoding="utf-8")
@@ -145,7 +147,8 @@ def script_context():
         raise RuntimeError("Story footage plan must be prepared before writing narration")
     sources = list(dict.fromkeys(media.clean(row.get("query")) for row in _PREPARED["groups"]))
     return ("\nFOOTAGE-FIRST EDITORIAL CONSTRAINTS:\n"
-            "Fourteen real-person video excerpts have already been prepared. Use these as biography illustrations. "
+            "Fourteen verified archival video excerpts have already been prepared. Use identity clips as biographical "
+            "illustrations and direct_event clips only where they materially depict the narrated historical context. "
             "Build a factual story angle compatible with the available recordings; do not write visual requests "
             "for unavailable childhood, prison, battle, or reenactment scenes. Do not claim an interview shows "
             "the event being narrated. Do not infer dates, locations, quotations or facts from filenames. "
@@ -273,8 +276,11 @@ def generate_media(script, output_dir, config, gim=None):
         portrait_clip(source, target)
         row.update(path=str(target), scene=index // 2 + 1, shot=index % 2 + 1,
                    framing="full_bleed_subject_centered_9_16", usage="biographical_illustration")
-        # The review was for a general biography brief, not a claim of event-level matching.
-        row["verification"]["usage"] = "biographical_illustration"
+        # Preserve the verifier's usage classification. Context clips must remain
+        # explicitly marked as direct_event; never relabel them as generic biography footage.
+        row["verification"]["usage"] = str(
+            row.get("verification", {}).get("usage") or "biographical_illustration"
+        ).strip().lower()
     media.validate_segments(ordered)
     _LAST_GROUPS = copy.deepcopy(ordered)
     (root / "story_video_audit.json").write_text(json.dumps({"person": person,

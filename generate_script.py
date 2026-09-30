@@ -531,7 +531,23 @@ def _fallback_identity(topic):
     }
 
 
+RETired_SUBJECT_TERMS = {
+    "onion", "onions",
+}
+
+def _validate_retired_subject_bleed(value, stage):
+    """Hard production rule: retired subjects must never enter the current Short."""
+    text = _clean(value).lower()
+    for term in RETired_SUBJECT_TERMS:
+        if re.search(r"\\b" + re.escape(term) + r"\\b", text):
+            raise RuntimeError(
+                f"Topic coherence gate rejected retired {term} subject bleed during {stage}."
+            )
+    return True
+
+
 def _validate_blueprint(blueprint):
+
     if not isinstance(blueprint, dict):
         raise RuntimeError("Story blueprint must be an object.")
     required = (

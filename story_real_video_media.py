@@ -68,6 +68,9 @@ _STRONG_BAD_METADATA_TERMS = (
     "fictional series", "streaming series", "tv series", "television series",
     "episode", "season", "sony liv", "sonyliv",
     "five minute flashback", "5 minute flashback",
+    "film adaptation", "television adaptation", "tv adaptation",
+    "based on the novel", "based on a novel", "based on the play",
+    "adaptation of", "adapted from", "novel adaptation", "play adaptation",
 )
 
 
@@ -771,6 +774,26 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
         print(f"Story video discovery: {person} | candidates={len(pool)} | precheck_rejected={precheck_rejected} | providers={audit['providers']}", flush=True)
         if not pool:
             raise RuntimeError(f"No real video candidates found for {person}; no photo or generic-stock fallback")
+
+        max_sources = max(6, int(os.environ.get("STORY_MAX_VERIFICATION_SOURCES", "12")))
+        pool.sort(key=lambda item: (
+            -float(item.get("identity_score", _identity_score(person, item))),
+            -int(item.get("archival_signal", 0)),
+            not item.get("direct_subject", False),
+            0 if 0 < float(item.get("duration_hint", 0) or 0) <= 900 else 1,
+            float(item.get("duration_hint", 0) or 1e12),
+        ))
+        if len(pool) > max_sources:
+            dropped = len(pool) - max_sources
+            pool = pool[:max_sources]
+            print(
+                f"Story verification shortlist: {len(pool)} sources retained; "
+                f"dropped {dropped} lower-ranked sources before Gemini verification",
+                flush=True,
+            )
+        audit["preflight"]["verification_shortlist"] = len(pool)
+        audit["preflight"]["verification_shortlist_limit"] = max_sources
+
         for scene_no, scene in enumerate(scenes, 1):
             for shot_no in (1, 2):
                 counts = Counter(g["source_id"] for g in groups)
@@ -799,7 +822,7 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                     if not counts[sid] and intervals:
                         # Probe across the recording before scanning chronologically;
                         # long speeches often start with several minutes of introductions.
-                        order = dict.fromkeys([len(intervals) // 2, 3 * len(intervals) // 4, len(intervals) // 4, 0] + list(range(len(intervals))))
+                        order = dict.fromkeys([len(intervals) // 2, 3 * len(intervals) // 4, 0] + list(range(len(intervals))))
                         intervals = [intervals[index] for index in order]
                     if catalog is not None:
                         preferred = catalog.intervals(person, item, duration)
@@ -856,13 +879,13 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                     rejected.add(identity)
                                     source_rejections[sid] += 1
                                 print(f"Story clip rejected: {item['provider']} {start}s | {clean(verdict.get('reason'))}", flush=True)
-                                if counts[sid] == 0 and source_rejections[sid] >= 4:
+                                if counts[sid] == 0 and source_rejections[sid] >= 3:
                                     blocked.add(sid)
                                     if _precheck_cache_eligible(item):
                                         precheck_cache[_precheck_cache_key(item)] = {
                                             "source_id": item.get("id"),
                                             "source_url": item.get("source_url"),
-                                            "reason": "visual verifier rejected source after four unusable identity samples",
+                                            "reason": "visual verifier rejected source after three unusable identity samples",
                                         }
                                         _save_precheck_cache(precheck_cache)
                                     print(f"Skipping source after four unusable identity samples: {item['source_url']}", flush=True)

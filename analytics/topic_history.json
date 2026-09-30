@@ -3016,5 +3016,21 @@
     "video_id": "7OgQWIlTXmM",
     "workdir": "output/1790754684",
     "published_at": 1790755677
+  },
+  {
+    "topic": "View from security camera at former Kitakami river in Ishinomaki City",
+    "normalized": "view from security camera at former kitakami river in ishinomaki city",
+    "workflow": "mystery",
+    "status": "reserved",
+    "reserved_at": 1790763385,
+    "recorded_at": 1790763385,
+    "metadata": {
+      "item_id": "internet-archive-20210514_20210514_2206",
+      "source_url": "https://archive.org/details/20210514_20210514_2206",
+      "source": "mystery_case_selection",
+      "source_duration_seconds": 362.88,
+      "source_width": 1280,
+      "source_height": 720
+    }
   }
 ]

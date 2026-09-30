@@ -51,6 +51,14 @@ def consume(stage: str):
     """Reserve one request immediately before a real Gemini API call."""
     if _BUDGET is None:
         return 0
+    if str(stage or "").strip() == "visual_verification" and _BUDGET["used"] >= visual_gemini_limit():
+        reason = (
+            f"Story Gemini visual verification budget exhausted after {_BUDGET[\"used\"]} requests "
+            f"(visual_limit={visual_gemini_limit()}, total_limit={_BUDGET[\"limit\"]})"
+        )
+        Path(BUDGET_DEFER_FILE).write_text(reason + "\\n", encoding="utf-8")
+        print(f"🛑 {reason}; deferring Story publication", flush=True)
+        raise RuntimeError(reason)
     if _BUDGET["used"] >= _BUDGET["limit"]:
         reason = (
             f"Story Gemini request budget exhausted after {_BUDGET['used']} requests "

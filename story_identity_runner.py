@@ -106,6 +106,10 @@ def _patch_story_video_topics() -> None:
             pillar, topic, person = original()
             factory_claimed = False
             try:
+                # Media-first gate happens before the global factory topic claim.
+                # A person is not considered production-ready until archival sources
+                # can supply the required 14 disjoint clips without spending Gemini.
+                story_visual_upgrade.preflight_candidate(person, topic)
                 from factory_content_memory import claim as claim_factory_topic
                 claim_factory_topic(
                     "story",
@@ -148,6 +152,7 @@ def _apply_requested_story() -> None:
         return
     if not person or not topic:
         raise RuntimeError("Manual Story selection requires both person and topic")
+    story_visual_upgrade.preflight_candidate(person, topic)
     normalize = lambda value: re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
     used = {normalize(row.get("person")) for row in interactive_topics._load_history() if isinstance(row, dict)}
     if normalize(person) in used:
@@ -164,6 +169,7 @@ def _story_media_failure(exc: Exception) -> bool:
     text = str(exc or "").lower()
     markers = (
         "insufficient verified real footage",
+        "story media preflight failed",
         "no real video candidates found",
         "story video search budget exhausted",
         "no relevant downloadable archival media",

@@ -965,3 +965,22 @@ def test_archive_positive_signal_prefers_interview_metadata():
 def test_subject_verifier_budget_is_bounded():
     import os
     assert max(14, int(os.environ.get("STORY_GEMINI_MAX_REQUESTS_PER_SUBJECT", "24"))) == 24
+
+
+def test_context_verification_accepts_direct_event_without_person_visible():
+    assert media.verification_passes({
+        "person_visible": False,
+        "real_footage": True,
+        "usable": True,
+        "relevance": 8,
+        "usage": "direct_event",
+        "reason": "The moving footage directly depicts the historical event context.",
+    })
+    assert not media.verification_passes({
+        "person_visible": False,
+        "real_footage": True,
+        "usable": True,
+        "relevance": 8,
+        "usage": "biographical_illustration",
+        "reason": "Context only.",
+    })

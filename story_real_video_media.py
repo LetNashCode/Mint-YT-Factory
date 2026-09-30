@@ -70,7 +70,10 @@ _STRONG_BAD_METADATA_TERMS = (
     "episode", "season", "sony liv", "sonyliv",
     "five minute flashback", "5 minute flashback",
     "film adaptation", "television adaptation", "tv adaptation",
-    "based on the novel", "based on a novel", "based on the play",
+    "based on the novel", "based on a novel",
+    "interview", "interviewee", "interviewer", "panelist", "talk show", "talk-show",
+    "movie", "film", "feature film", "short film", "gameplay", "video game",
+    "reenactment", "dramatisation", "dramatization", "fictional", "adapted from", "based on the play",
     "adaptation of", "adapted from", "novel adaptation", "play adaptation",
 )
 
@@ -373,8 +376,6 @@ def search_archive(person):
     queries = [
         f'mediatype:movies AND title:"{term}" AND NOT identifier:youtube-*',
         f'mediatype:movies AND subject:"{term}" AND NOT identifier:youtube-*',
-        f'mediatype:movies AND title:"{term}" AND (title:interview OR title:speech OR title:talk) AND NOT identifier:youtube-*',
-        f'mediatype:movies AND subject:"{term}" AND (title:interview OR title:speech OR title:documentary) AND NOT identifier:youtube-*',
     ]
     results, seen = [], set()
 
@@ -789,7 +790,7 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
         if not pool:
             raise RuntimeError(f"No real video candidates found for {person}; no photo or generic-stock fallback")
 
-        max_sources = max(6, int(os.environ.get("STORY_MAX_VERIFICATION_SOURCES", "12")))
+        max_sources = max(4, int(os.environ.get("STORY_MAX_VERIFICATION_SOURCES", "8"))
         pool.sort(key=lambda item: (
             -float(item.get("identity_score", _identity_score(person, item))),
             -int(item.get("archival_signal", 0)),

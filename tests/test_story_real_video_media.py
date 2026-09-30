@@ -772,7 +772,7 @@ def test_verifier_request_budget_stops_before_excess_calls(monkeypatch, tmp_path
         calls.append(1)
         return dict(GOOD)
     monkeypatch.setattr(media, "verify", verify)
-    with pytest.raises(RuntimeError, match="request budget exhausted"):
+    with pytest.raises(RuntimeError, match="visual verification budget exhausted"):
         media.generate_media(story(), str(tmp_path), {})
     assert len(calls) == 2
     assert (Path(".story_gemini_budget_deferred")).exists()

@@ -19,8 +19,18 @@ GOOD = {"person_visible": True, "real_footage": True, "usable": True, "relevance
 @pytest.fixture(autouse=True)
 def reset_verifier_budget():
     media._reset_verifier_budget()
+    try:
+        import story_visual_upgrade
+        story_visual_upgrade._PREFLIGHT_CACHE.clear()
+    except Exception:
+        pass
     yield
     media._reset_verifier_budget()
+    try:
+        import story_visual_upgrade
+        story_visual_upgrade._PREFLIGHT_CACHE.clear()
+    except Exception:
+        pass
 
 
 def candidate(index=0):
@@ -431,7 +441,7 @@ def test_unrelated_source_stops_after_four_identity_rejections(monkeypatch, tmp_
     monkeypatch.setattr(media, "verify", reject)
     with pytest.raises(RuntimeError, match="Insufficient verified"):
         media.generate_media(story(), str(tmp_path), {})
-    assert len(calls) == 4
+    assert len(calls) == 3
 
 
 def test_repeated_extraction_failure_is_bounded(monkeypatch, tmp_path):

@@ -26,7 +26,9 @@ jobs:
       MYSTERY_KOKORO_SPEED: "0.96"
       MYSTERY_FOOTAGE_AUTO_DISCOVER: "true"
       MYSTERY_FOOTAGE_REQUIRE_STORY_SCREEN: "true"
-      MYSTERY_FOOTAGE_MIN_STORY_SCORE: "6"\n      # Source clips can be replayed/zoomed/paused; 60s is enough for a documentary.\n      MYSTERY_FOOTAGE_MIN_SOURCE_SECONDS: "60"
+      MYSTERY_FOOTAGE_MIN_STORY_SCORE: "6"
+      # Source clips can be replayed/zoomed/paused; 60s is enough for a documentary.
+      MYSTERY_FOOTAGE_MIN_SOURCE_SECONDS: "60"
       MYSTERY_FOOTAGE_SKIP_IF_NO_ELIGIBLE: "true"
       # Mystery is the factory's only long-form video format; publish as a normal 16:9 video.
       MYSTERY_FOOTAGE_PRIVACY_STATUS: public
@@ -79,7 +81,18 @@ jobs:
       - name: Generate full-length Mystery Documentary
         if: steps.gate.outputs.eligible == 'true'
         run: python mystery_documentary_runner.py
-      - name: Require generated Mystery Documentary\n        if: steps.gate.outputs.eligible == 'true'\n        run: |\n          test -s artifacts/mystery-documentary/mystery-documentary.mp4 || {\n            echo "Mystery Documentary did not produce a video; refusing to report success or continue to upload."\n            exit 1\n          }\n          test -s artifacts/mystery-documentary/metadata.json || {\n            echo "Mystery Documentary produced no metadata.json; refusing to upload."\n            exit 1\n          }\n      - name: Add hybrid documentary captions
+      - name: Require generated Mystery Documentary
+        if: steps.gate.outputs.eligible == 'true'
+        run: |
+          test -s artifacts/mystery-documentary/mystery-documentary.mp4 || {
+            echo "Mystery Documentary did not produce a video; refusing to report success or continue to upload."
+            exit 1
+          }
+          test -s artifacts/mystery-documentary/metadata.json || {
+            echo "Mystery Documentary produced no metadata.json; refusing to upload."
+            exit 1
+          }
+      - name: Add hybrid documentary captions
         if: steps.gate.outputs.eligible == 'true' && hashFiles('artifacts/mystery-documentary/mystery-documentary.mp4') != ''
         run: |
           python mystery_documentary_captions.py \

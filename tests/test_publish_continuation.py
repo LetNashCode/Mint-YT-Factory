@@ -317,3 +317,23 @@ def test_publish_future_topic_guard_rejects_generic_handoff_in_scene_6():
 
     with pytest.raises(RuntimeError, match="Scene 6"):
         generate_script._validate_no_future_topic_in_story(script, "Why do telephone poles crack")
+
+
+def test_publish_rejects_retired_onion_subject_bleed():
+    import pytest
+    import generate_script
+
+    with pytest.raises(RuntimeError, match="retired onion subject bleed"):
+        generate_script._validate_retired_subject_bleed(
+            "Garlic turns blue because onions are involved.",
+            "narration",
+        )
+
+
+def test_publish_allows_garlic_story_without_retired_subject():
+    import generate_script
+
+    assert generate_script._validate_retired_subject_bleed(
+        "Garlic cloves can turn blue as their chemistry changes.",
+        "narration",
+    ) is True

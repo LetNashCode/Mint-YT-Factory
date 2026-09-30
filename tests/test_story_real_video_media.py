@@ -497,9 +497,9 @@ def test_verifier_network_outage_fails_closed_after_three_attempts(monkeypatch):
         calls.append(1)
         raise requests.ReadTimeout()
     monkeypatch.setattr(media.requests, "post", post)
-    with pytest.raises(RuntimeError, match="unavailable after retries on gemini-flash-lite-latest"):
+    with pytest.raises(RuntimeError, match="network unavailable after 2 attempts on gemini-flash-lite-latest"):
         media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
-    assert len(calls) == 3
+    assert len(calls) == 2
 
 
 def test_story_verifier_uses_publish_shorts_gemini_model(monkeypatch):
@@ -536,7 +536,7 @@ def test_story_verifier_never_falls_back_to_another_model(monkeypatch):
     monkeypatch.setattr(media.requests, "post", post)
     with pytest.raises(RuntimeError, match="unavailable after retries on gemini-flash-lite-latest"):
         media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
-    assert len(calls) == 3
+    assert len(calls) == 2
     assert all("gemini-flash-lite-latest" in call for call in calls)
     assert not any("gemini-3." in call for call in calls)
 

@@ -7,6 +7,7 @@ Every selected segment carries source metadata and a sampled-frame audit.
 from __future__ import annotations
 
 import base64
+import copy
 import hashlib
 import html
 import json
@@ -753,9 +754,18 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
     def save_audit():
         (root / "story_video_audit.json").write_text(json.dumps(audit, indent=2, ensure_ascii=False), encoding="utf-8")
     try:
+        preflight_pool = None
+        try:
+            import story_visual_upgrade
+            cached_preflight = getattr(story_visual_upgrade, "_PREFLIGHT_CACHE", {}).get(person.lower())
+            if cached_preflight:
+                preflight_pool = copy.deepcopy(cached_preflight.get("pool") or [])
+                audit["media_first_preflight"] = dict(cached_preflight.get("audit") or {})
+        except Exception:
+            preflight_pool = None
         known = catalog.candidates(person) if catalog is not None else []
-        discovered = discover(person, audit["providers"])
-        raw_pool = list({item["id"]: item for item in discovered + known}.values())
+        discovered = discover(person, audit["providers"]) if preflight_pool is None else []
+        raw_pool = list({item["id"]: item for item in ((preflight_pool or []) + discovered + known)}.values())
         precheck_cache = _load_precheck_cache()
         pool = []
         precheck_rejected = 0

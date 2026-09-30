@@ -148,6 +148,9 @@ jobs:
           STORY_GEMINI_MAX_REQUESTS: ${{ vars.STORY_GEMINI_MAX_REQUESTS || '64' }}
           STORY_GEMINI_MAX_REQUESTS_PER_SUBJECT: ${{ vars.STORY_GEMINI_MAX_REQUESTS_PER_SUBJECT || '24' }}
           STORY_GEMINI_MAX_VISUAL_REQUESTS: ${{ vars.STORY_GEMINI_MAX_VISUAL_REQUESTS || '56' }}
+          # Bound each visual-verifier network call and allow one retry; a provider outage must defer quickly.
+          STORY_GEMINI_REQUEST_TIMEOUT: ${{ vars.STORY_GEMINI_REQUEST_TIMEOUT || '45' }}
+          STORY_GEMINI_NETWORK_RETRIES: ${{ vars.STORY_GEMINI_NETWORK_RETRIES || '1' }}
           # Qwen2-VL is intentionally disabled in GitHub Actions: CPU inference is too slow
           # for the 14-clip footage-first production path. Gemini remains the production verifier.
           ENABLE_CPU_QWEN_FALLBACK: '0'
@@ -211,7 +214,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for state_file in story_topic_history.json pending_story.json story_counter.json story_candidates.json story_footage_catalog.json story_social_queue.json interactive_analytics.json interactive_analytics_history.json story_video_rejection_cache.json analytics/topic_history.json analytics/videos.json analytics/playbook.json analytics/factory_memory_state.json .story_publication_status.json .story_deferred .story_gemini_quota_deferred .story_verifier_budget_deferred .story_gemini_budget_deferred; do
+          for state_file in story_topic_history.json pending_story.json story_counter.json story_candidates.json story_footage_catalog.json story_social_queue.json interactive_analytics.json interactive_analytics_history.json story_video_rejection_cache.json analytics/topic_history.json analytics/videos.json analytics/playbook.json analytics/factory_memory_state.json .story_publication_status.json .story_deferred .story_gemini_quota_deferred .story_verifier_budget_deferred .story_gemini_budget_deferred .story_gemini_network_deferred; do
             if [ -f "$state_file" ] || git ls-files --error-unmatch "$state_file" >/dev/null 2>&1; then
               git add -A -- "$state_file"
             fi

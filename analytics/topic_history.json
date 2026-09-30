@@ -3050,5 +3050,21 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do wooden hangers smell",
+    "normalized": "why do wooden hangers smell",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1790779144,
+    "recorded_at": 1790779144,
+    "metadata": {
+      "next_topic": "Why do keys jingle",
+      "creative_strategy": ""
+    },
+    "title": "The Secret Life of Wooden Hangers",
+    "video_id": "XJa3nDBLWUE",
+    "workdir": "output/1790779196",
+    "published_at": 1790780318
   }
 ]

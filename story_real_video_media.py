@@ -713,7 +713,7 @@ def validate_segments(groups, expected=14):
     positions = set()
     for group in groups:
         if group.get("type") != "video" or not verification_passes(group.get("verification")):
-            raise RuntimeError("Story segment was not visually verified as real-person footage")
+            raise RuntimeError("Story segment was not visually verified as identity footage or direct historical context")
         source = group.get("origin_url")
         start, end = float(group["start"]), float(group["end"])
         position = (group["scene"], group["shot"])

@@ -808,6 +808,9 @@ def test_source_precheck_rejects_non_archival_media_patterns():
         "Enzo Ferrari coach trip through Italy",
         "Enzo Ferrari biopic feature film",
         "Enzo Ferrari commercial for racing cars",
+        "Claude Monet public presentation lecture",
+        "Claude Monet seminar classroom",
+        "Claude Monet slideshow presentation",
     ]
     for title in rejected:
         assert media._source_precheck({"title": title, "description": ""}) is not None

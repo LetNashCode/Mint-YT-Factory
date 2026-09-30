@@ -255,6 +255,7 @@ def main() -> None:
         ".story_deferred",
         ".story_gemini_quota_deferred",
         ".story_verifier_budget_deferred",
+        story_real_video_media.NETWORK_DEFER_FILE,
         story_gemini_budget.BUDGET_DEFER_FILE,
     ):
         try:
@@ -318,6 +319,8 @@ def main() -> None:
                 _defer_story("Gemini daily/project quota is exhausted; no final video was created or uploaded.")
             if Path(".story_verifier_budget_deferred").exists():
                 _defer_story(Path(".story_verifier_budget_deferred").read_text(encoding="utf-8").strip())
+            if Path(story_real_video_media.NETWORK_DEFER_FILE).exists():
+                _defer_story(Path(story_real_video_media.NETWORK_DEFER_FILE).read_text(encoding="utf-8").strip())
             if _story_defer_failure(exc):
                 _defer_story(str(exc))
                 return

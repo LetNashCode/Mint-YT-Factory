@@ -111,6 +111,7 @@ single curiosity chain:
 7. the final surprising payoff that changes the viewer's understanding.
 
 The payoff must be truthful, concrete, and actually connected to the central mystery.
+Never mention or compare the story to retired subjects such as onion or onions. They are permanently unavailable topics.
 Avoid lists of facts. Avoid generic educational summaries. The blueprint must give the
 narration writer something specific to build toward.
 
@@ -395,6 +396,7 @@ CREATIVE REQUIREMENTS:
 - Optimize for retention and shareability: the viewer should feel compelled to finish and tell someone else.
 
 The CURRENT TOPIC is the only subject of the story.
+Retired subjects such as onion or onions are forbidden even as comparisons, examples, metaphors, or side references.
 Do not create a second story or a list of unrelated facts.
 {feedback}
 """
@@ -531,14 +533,14 @@ def _fallback_identity(topic):
     }
 
 
-RETired_SUBJECT_TERMS = {
+RETIRED_SUBJECT_TERMS = {
     "onion", "onions",
 }
 
 def _validate_retired_subject_bleed(value, stage):
     """Hard production rule: retired subjects must never enter the current Short."""
     text = _clean(value).lower()
-    for term in RETired_SUBJECT_TERMS:
+    for term in RETIRED_SUBJECT_TERMS:
         if re.search(r"\b" + re.escape(term) + r"\b", text):
             raise RuntimeError(
                 f"Topic coherence gate rejected retired {term} subject bleed during {stage}."

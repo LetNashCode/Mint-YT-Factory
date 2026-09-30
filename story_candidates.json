@@ -1,43 +1,5 @@
 [
   {
-    "format": "before_they_were_famous",
-    "person": "Virat Kohli",
-    "premise": "Playing a domestic cricket match for Delhi on the day his father passed away, returning to the crease to score a crucial innings.",
-    "hook": "Hours after losing his father, a teenage cricketer walked back onto the pitch to save his team from defeat.",
-    "key_facts": [
-      "Represented Delhi in a Ranji Trophy match against Karnataka in December 2006.",
-      "Received news of his father's passing late at night during the match.",
-      "Returned to the field the next morning to score 90 runs for his team.",
-      "Went on to captain the Indian national cricket team across all formats."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Claude Monet",
-    "premise": "Rejecting traditional studio painting in Paris to set up a floating boat studio on the Seine to capture changing natural light.",
-    "hook": "Instead of painting inside a formal art academy, he built a floating wooden shack on a river just to catch the shifting light.",
-    "key_facts": [
-      "Constructed a floating studio boat on the River Seine in Argenteuil during the 1870s.",
-      "Helped found the Impressionist movement, exhibiting work outside the official Paris Salon.",
-      "Painted extensive series capturing the same subjects under different weather and light conditions.",
-      "Established the famous water garden at his home in Giverny, which inspired his late works."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Percy Spencer",
-    "premise": "Inventing the microwave oven after a candy bar melted in his pocket while standing near a vacuum tube magnetron.",
-    "hook": "A simple chocolate bar melted inside a scientist's pocket while testing military radar equipment, leading to a revolutionary kitchen appliance.",
-    "key_facts": [
-      "Worked as an engineer at Raytheon building magnetrons for radar systems during World War II.",
-      "Noticed a peanut cluster candy bar in his pocket had melted while standing in front of an active radar transmitter.",
-      "Conducted experiments with corn kernels and an egg to confirm high-frequency radio waves could cook food rapidly."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "strange_turning_point",
     "person": "Srinivasa Ramanujan",
     "premise": "How a clerk from South India changed modern mathematics through an unsolicited international letter.",
@@ -86,6 +48,91 @@
       "Refused to surrender her bus seat to a white passenger on December 1, 1955.",
       "Her arrest catalyzed the 381-day Montgomery bus boycott, organized by local leaders including Martin Luther King Jr.",
       "Awarded the Presidential Medal of Freedom and the Congressional Gold Medal later in life."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "J.K. Rowling",
+    "premise": "An unemployed single mother sitting in Edinburgh cafes chooses to finish writing a manuscript despite multiple publisher rejections.",
+    "hook": "Twelve publishers said no. One small publishing house said yes because of an eight-year-old girl.",
+    "key_facts": [
+      "Lived on state benefits while writing the first manuscript in cafes",
+      "Bloomsbury accepted the book after receiving it from a reader's young daughter",
+      "Became one of the best-selling fiction authors in history"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Dwayne Johnson",
+    "premise": "A young football player cut from the Canadian Football League finds himself with seven dollars and no backup plan.",
+    "hook": "He had seven dollars in his pocket after his sports dream ended. Then he stepped into a wrestling ring.",
+    "key_facts": [
+      "Played college football for the University of Miami national championship team",
+      "Cut from the Calgary Stampeders in the CFL early in his professional career",
+      "Transitioned to professional wrestling under the name Rocky Maivia before achieving global fame",
+      "Became one of the highest-paid actors in Hollywood"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Alexander Fleming",
+    "premise": "A messy laboratory bench and an accidental mold spore lead to the discovery of the world's first antibiotic.",
+    "hook": "He left his windows open, went on vacation, and accidentally discovered the medicine that saved 200 million lives.",
+    "key_facts": [
+      "Noticed a mold inhibiting bacterial growth in a petri dish upon returning to his lab in 1928",
+      "Named the active substance penicillin",
+      "Published his findings in the British Journal of Experimental Pathology in 1929"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Sara Blakely",
+    "premise": "A fax machine salesperson cuts the feet off her pantyhose to wear under white pants and decides to patent the result.",
+    "hook": "She had zero background in fashion and used her entire life savings of $5,000 on a patent lawyer.",
+    "key_facts": [
+      "Worked selling fax machines door-to-door before launching Spanx",
+      "Wrote her own patent application without hiring a traditional patent attorney firm",
+      "Pitched products directly to major retail buyers in department stores"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Steve Jobs",
+    "premise": "A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
+    "hook": "Before building iPhones, he dropped out of college, slept on friends' floors, and built circuit boards in a garage.",
+    "key_facts": [
+      "Dropped out of Reed College after attending for one semester",
+      "Co-founded Apple Computer in 1976 inside a suburban garage",
+      "Traveled to India seeking spiritual guidance prior to starting Apple"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Ernest Shackleton",
+    "premise": "An Antarctic expedition ship gets crushed by sea ice, forcing the crew to survive on floating ice floes for months.",
+    "hook": "His ship was crushed by Antarctic ice. Every single crew member survived after a grueling two-year ordeal.",
+    "key_facts": [
+      "Led the Imperial Trans-Antarctic Expedition aboard the Endurance",
+      "Traveled 800 miles in a small lifeboat through stormy seas to seek rescue for his stranded crew",
+      "Successfully rescued all members of his expedition without loss of life"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Percy Spencer",
+    "premise": "A radar engineer standing near a magnetron notices a candy bar in his pocket has melted.",
+    "hook": "A melted chocolate bar in his pocket led to the invention of the microwave oven.",
+    "key_facts": [
+      "Worked as a self-taught engineer for Raytheon developing radar equipment",
+      "Noticed microwave radiation melted food items during experiments",
+      "Patented the first microwave oven design in 1945"
     ],
     "source": "gemini_original"
   }

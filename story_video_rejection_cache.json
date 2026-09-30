@@ -210,6 +210,86 @@
       "source_id": "archive:jcccks-Great_Books_-_Salem_s_Lot_by_Stephen_King",
       "source_url": "https://archive.org/details/jcccks-Great_Books_-_Salem_s_Lot_by_Stephen_King",
       "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "c416f39ddca4762fcc530f41": {
+      "source_id": "archive:stvma-Stow_COA_Talk-_Claude_Monet_and_the_Gardens_of_Giverny_1883-1926_3_17_26",
+      "source_url": "https://archive.org/details/stvma-Stow_COA_Talk-_Claude_Monet_and_the_Gardens_of_Giverny_1883-1926_3_17_26",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "047b94a9c5c795e3f2f82841": {
+      "source_id": "archive:asdk12ak-Claude_Monet_-_Art_History_Comes_Alive",
+      "source_url": "https://archive.org/details/asdk12ak-Claude_Monet_-_Art_History_Comes_Alive",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "ca7fbbc36eeca1cf65d66a8c": {
+      "source_id": "archive:blmtwpmiv-Claude_Monet_The_Father_of_Impressionist_Painting",
+      "source_url": "https://archive.org/details/blmtwpmiv-Claude_Monet_The_Father_of_Impressionist_Painting",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "e5462df05660c18b4f8bc7b6": {
+      "source_id": "archive:Barron_Arts_Center_Lecture_Adventures_in_Art_-_Claude_Monet",
+      "source_url": "https://archive.org/details/Barron_Arts_Center_Lecture_Adventures_in_Art_-_Claude_Monet",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "78e5006401c9713940adb222": {
+      "source_id": "archive:ClaudeMonetMonetsPalate",
+      "source_url": "https://archive.org/details/ClaudeMonetMonetsPalate",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "39bbbd0c31145cf230d8f1fd": {
+      "source_id": "archive:kevin-spencer-season-4-episode-2-snowfort-greg-lawrence-thomasin-langlands-480p-_202601",
+      "source_url": "https://archive.org/details/kevin-spencer-season-4-episode-2-snowfort-greg-lawrence-thomasin-langlands-480p-_202601",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "3f72c060e48ed49139c33c05": {
+      "source_id": "commons:69035196",
+      "source_url": "https://commons.wikimedia.org/wiki/File:SRINIVASA_RAMANUJAN-_The_Mathematician_%26_His_Legacy.webm",
+      "reason": "strong metadata exclusion: animation"
+    },
+    "d0c4a17d9389b7781cb43b6e": {
+      "source_id": "commons:77368566",
+      "source_url": "https://commons.wikimedia.org/wiki/File:SRINIVASA_RAMANUJAN-_The_Mathematician_%26_His_Legacy_(Abridged_Version).webm",
+      "reason": "strong metadata exclusion: animation"
+    },
+    "4d9c0744b70ce69477956171": {
+      "source_id": "archive:Microsoft_Research_Video_118020",
+      "source_url": "https://archive.org/details/Microsoft_Research_Video_118020",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "b42f0fc768f35e9c98619dfc": {
+      "source_id": "archive:Microsoft_Research_Video_143258",
+      "source_url": "https://archive.org/details/Microsoft_Research_Video_143258",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "74291e4f084d11446c309b7c": {
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "d2d253ba1e2c5d6bf69bc42b": {
+      "source_id": "archive:dni.ncaa.ICCR-2121-VHS",
+      "source_url": "https://archive.org/details/dni.ncaa.ICCR-2121-VHS",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "b4f408eba21e0ded752acd80": {
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "2a06f3c1e2f93e3468325d75": {
+      "source_id": "archive:twitch-vod-v383511641",
+      "source_url": "https://archive.org/details/twitch-vod-v383511641",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "ec311e6013d69cfe5444bc32": {
+      "source_id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "7d70c679f3db277bfa153c74": {
+      "source_id": "archive:space-shuttle-columbia-disaster-february-1-2003",
+      "source_url": "https://archive.org/details/space-shuttle-columbia-disaster-february-1-2003",
+      "reason": "visual verifier rejected source after four unusable identity samples"
     }
   }
 }

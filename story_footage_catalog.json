@@ -4634,6 +4634,68 @@
       },
       "review_key": "afd09b323c00c5d3efa11be18c19d63f415a4f03354c2417abe261d306c9ed13",
       "reviewed_at": 1790700492.9546
+    },
+    {
+      "person": "Claude Monet",
+      "source": {
+        "id": "archive:ClaudeMonetFilmedPaintingOutdoors1915",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ClaudeMonetFilmedPaintingOutdoors1915/Claude%20Monet%20-%20Filmed%20Painting%20Outdoors%20%281915%29.mp4",
+        "source_url": "https://archive.org/details/ClaudeMonetFilmedPaintingOutdoors1915",
+        "title": "Claude Monet Filmed Painting Outdoors ( 1915)",
+        "description": "This is unique film of French Impressionist painter Claude Monet (1840-1926), painting outdoors, 'en plein air', in his garden at Giverny. The footage is in two segments. Firstly we see the artist outdoors talking to a gentleman. Then we see Monet painting a water lily-padded pond, a subject for which he is most famed. Monet",
+        "creator": "Claude Monet",
+        "license": "",
+        "subject": "Monet",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 86.65,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The frames show authentic archival footage of Claude Monet painting outdoors in his garden at Giverny, clearly depicting him across all three frames.",
+        "usage": "direct_event"
+      },
+      "review_key": "f1a3af538094db95ea869f86763adde33250b1e2c4e6cff91c9751840cb1acca",
+      "reviewed_at": 1790765797.9717438
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 52.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video clip features genuine archival footage of Kalpana Chawla in training and preparation gear, clearly visible across all frames and serving as strong biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "567823ecc428b75313dc8690908e8d31337c9e4bbfe8f75a3bb0251b8a0a28ad",
+      "reviewed_at": 1790766544.5159068
     }
   ]
 }

@@ -627,7 +627,7 @@ def verify(person, scene, item, samples):
                 time.sleep(2 ** retry + 1)
                 continue
             Path(NETWORK_DEFER_FILE).write_text(
-                f"Story verifier network unavailable after {network_retries + 1} attempts on {model}.\\n",
+                f"Story verifier network unavailable after {network_retries + 1} attempts on {model}.\n",
                 encoding="utf-8",
             )
             raise RuntimeError(

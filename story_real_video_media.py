@@ -902,7 +902,7 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                             "reason": "visual verifier rejected source after three unusable identity samples",
                                         }
                                         _save_precheck_cache(precheck_cache)
-                                    print(f"Skipping source after four unusable identity samples: {item['source_url']}", flush=True)
+                                    print(f"Skipping source after three unusable identity samples: {item['source_url']}", flush=True)
                                     break
                                 continue
                             end = round(start + length, 2)

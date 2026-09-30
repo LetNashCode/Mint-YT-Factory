@@ -52,18 +52,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "J.K. Rowling",
-    "premise": "An unemployed single mother sitting in Edinburgh cafes chooses to finish writing a manuscript despite multiple publisher rejections.",
-    "hook": "Twelve publishers said no. One small publishing house said yes because of an eight-year-old girl.",
-    "key_facts": [
-      "Lived on state benefits while writing the first manuscript in cafes",
-      "Bloomsbury accepted the book after receiving it from a reader's young daughter",
-      "Became one of the best-selling fiction authors in history"
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Dwayne Johnson",
     "premise": "A young football player cut from the Canadian Football League finds himself with seven dollars and no backup plan.",
@@ -73,18 +61,6 @@
       "Cut from the Calgary Stampeders in the CFL early in his professional career",
       "Transitioned to professional wrestling under the name Rocky Maivia before achieving global fame",
       "Became one of the highest-paid actors in Hollywood"
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Alexander Fleming",
-    "premise": "A messy laboratory bench and an accidental mold spore lead to the discovery of the world's first antibiotic.",
-    "hook": "He left his windows open, went on vacation, and accidentally discovered the medicine that saved 200 million lives.",
-    "key_facts": [
-      "Noticed a mold inhibiting bacterial growth in a petri dish upon returning to his lab in 1928",
-      "Named the active substance penicillin",
-      "Published his findings in the British Journal of Experimental Pathology in 1929"
     ],
     "source": "gemini_original"
   },
@@ -109,18 +85,6 @@
       "Dropped out of Reed College after attending for one semester",
       "Co-founded Apple Computer in 1976 inside a suburban garage",
       "Traveled to India seeking spiritual guidance prior to starting Apple"
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "An Antarctic expedition ship gets crushed by sea ice, forcing the crew to survive on floating ice floes for months.",
-    "hook": "His ship was crushed by Antarctic ice. Every single crew member survived after a grueling two-year ordeal.",
-    "key_facts": [
-      "Led the Imperial Trans-Antarctic Expedition aboard the Endurance",
-      "Traveled 800 miles in a small lifeboat through stormy seas to seek rescue for his stranded crew",
-      "Successfully rescued all members of his expedition without loss of life"
     ],
     "source": "gemini_original"
   },

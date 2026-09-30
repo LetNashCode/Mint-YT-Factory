@@ -290,6 +290,51 @@
       "source_id": "archive:space-shuttle-columbia-disaster-february-1-2003",
       "source_url": "https://archive.org/details/space-shuttle-columbia-disaster-february-1-2003",
       "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "d36a447b150ca04bb8e20508": {
+      "source_id": "commons:83033085",
+      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-Kalpana_Chawla.webm",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "30b7983de34330b1e1796edb": {
+      "source_id": "commons:190866406",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Shuttle_Columbia_Disaster_-_Flight_Director_Communications_Loop.webm",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "037da73e71d05bee86dd9091": {
+      "source_id": "commons:94967100",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Antares_NG-14_Rocket_Rolls_Out_at_NASA_Wallops_-_50389841133.webm",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "19d3426263354d6a5e4b3954": {
+      "source_id": "archive:the-magical-world-of-harry-potter-the-unauthorized-story-of-j.k.-rowling-full-vhs",
+      "source_url": "https://archive.org/details/the-magical-world-of-harry-potter-the-unauthorized-story-of-j.k.-rowling-full-vhs",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "a2fdc4589595cd80c350e751": {
+      "source_id": "archive:APN_Arlington_s_Next_J.K._Rowling",
+      "source_url": "https://archive.org/details/APN_Arlington_s_Next_J.K._Rowling",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "d5f4b80711f5195a0f790ef9": {
+      "source_id": "archive:jk-rowling-contrapoints",
+      "source_url": "https://archive.org/details/jk-rowling-contrapoints",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "7e79b298847243dc272f08a9": {
+      "source_id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+      "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "6303f2b21904cf15ef5f3504": {
+      "source_id": "archive:TearingApartEverySingleWordOfJKRowlingsTERFManifesto",
+      "source_url": "https://archive.org/details/TearingApartEverySingleWordOfJKRowlingsTERFManifesto",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "8b8b7e6ae1d2e804f8595b55": {
+      "source_id": "archive:j.-k.-rowling-goes-silent-as-imane-khelif-files-harassment-lawsuit-against-her-others",
+      "source_url": "https://archive.org/details/j.-k.-rowling-goes-silent-as-imane-khelif-files-harassment-lawsuit-against-her-others",
+      "reason": "visual verifier rejected source after four unusable identity samples"
     }
   }
 }

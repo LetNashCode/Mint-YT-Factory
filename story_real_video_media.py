@@ -49,7 +49,7 @@ _STRONG_BAD_METADATA_TERMS = (
     # Metadata patterns that are strong evidence the record is not genuine
     # archival footage of the named person. These are deterministic exclusions;
     # identity verification remains mandatory for everything that survives.
-    "presenter", "talk show host", "host discusses", "host and actor",
+    "presenter", "talk show host", "host discusses", "host and actor", "lecture", "lecturer", "seminar", "conference lecture", "classroom", "educational talk", "public presentation", "presentation", "panel discussion",
     "actor portraying", "actors portraying", "actress portraying",
     "actor playing", "actress playing", "portraying ",
     "reenactment", "dramatization", "dramatized", "fictionalized",
@@ -57,9 +57,9 @@ _STRONG_BAD_METADATA_TERMS = (
     "video game", "gameplay", "racing simulator", "racing game",
     "coach trip", "bus ride", "bus journey", "inside a coach",
     "museum exhibit", "museum display", "engine and plaque",
-    "movie trailer", "commercial for", "commercial", "advertisement",
+    "movie trailer", "commercial for", "commercial", "advertisement", "webinar", "workshop", "course", "lesson",
     "promotional", "promotional material", "promotional dvd", "dvd menu",
-    "dvd", "poster", "logo", "title card", "slideshow",
+    "dvd", "poster", "logo", "title card", "slideshow", "slide deck", "powerpoint", "slides",
     "animated", "animation", "cartoon", "illustrated", "illustration",
     "fictional series", "streaming series", "tv series", "television series",
     "episode", "season", "sony liv", "sonyliv",

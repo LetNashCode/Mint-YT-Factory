@@ -159,7 +159,7 @@
     "3d435d4110ce36355bb0a4cb": {
       "source_id": "commons:135278250",
       "source_url": "https://commons.wikimedia.org/wiki/File:Scenes_of_Grytviken,_South_Georgia_Island.webm",
-      "reason": "visual verifier rejected source after four unusable identity samples"
+      "reason": "strong metadata exclusion: museum"
     },
     "becf5cb597ecb8a1a09416ac": {
       "source_id": "archive:bliptv-20131031-094006-Brianlippey-daveStewartRockBridgeGuitar813",
@@ -369,6 +369,36 @@
     "52c51bd268f47e48fb86f666": {
       "source_id": "archive:Agatha100",
       "source_url": "https://archive.org/details/Agatha100",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "32f9b6885f09fa05d50a89c3": {
+      "source_id": "archive:arena-agatha-christie-an-unfinished-portrait-1990",
+      "source_url": "https://archive.org/details/arena-agatha-christie-an-unfinished-portrait-1990",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "ad4f6362a7302ef2e2845dda": {
+      "source_id": "archive:ACSpidersWeb",
+      "source_url": "https://archive.org/details/ACSpidersWeb",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "50a93201c447c0d34b0eeaed": {
+      "source_id": "archive:Evil-Under-the-Sun_1982_AI_1080p.BluRay.10b.HEVC.PCM.2.0_BLUDUAINE",
+      "source_url": "https://archive.org/details/Evil-Under-the-Sun_1982_AI_1080p.BluRay.10b.HEVC.PCM.2.0_BLUDUAINE",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "99f73d1c02dd61e18d17a6d2": {
+      "source_id": "archive:The-Mirror-Crackd_1980_AI_1080p.BluRay.10b.HEVC.PCM.2.0_BLUDUAINE",
+      "source_url": "https://archive.org/details/The-Mirror-Crackd_1980_AI_1080p.BluRay.10b.HEVC.PCM.2.0_BLUDUAINE",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "b22a3e1f7903c8ac1c64f187": {
+      "source_id": "archive:le-vallon-2021-based-on-the-hollow-by-agatha-christie-with-english-subtitle",
+      "source_url": "https://archive.org/details/le-vallon-2021-based-on-the-hollow-by-agatha-christie-with-english-subtitle",
+      "reason": "visual verifier rejected source after four unusable identity samples"
+    },
+    "baa5e6b1c148e7aeb15f7386": {
+      "source_id": "archive:mon-petit-doigt-ma-dit...-based-on-by-the-pricking-of-my-thumbs-by-agatha-chri",
+      "source_url": "https://archive.org/details/mon-petit-doigt-ma-dit...-based-on-by-the-pricking-of-my-thumbs-by-agatha-chri",
       "reason": "visual verifier rejected source after four unusable identity samples"
     }
   }

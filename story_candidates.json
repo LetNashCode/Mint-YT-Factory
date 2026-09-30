@@ -77,19 +77,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "Keeping all 27 crew members alive for nearly two years after their ship was crushed by Antarctic pack ice.",
-    "hook": "His ship was crushed by ice, stranding his crew in Antarctica for 22 months with zero deaths.",
-    "key_facts": [
-      "Led the Imperial Trans-Antarctic Expedition aboard the Endurance.",
-      "The ship became trapped and was ultimately crushed by pack ice in 1915.",
-      "Sailed an 22-foot lifeboat 800 miles across stormy seas to reach South Georgia Island for help.",
-      "Successfully rescued every single member of his stranded crew."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "one_decision",
     "person": "George Lucas",
     "premise": "Trading a higher upfront directing salary for merchandising and sequel rights to an unproven sci-fi film.",
@@ -112,32 +99,6 @@
       "Worked professionally as a sports photographer before entering theater.",
       "Made his major Bollywood film debut in the 2003 comedy Munna Bhai M.B.B.S.",
       "Became one of Indian cinema's most versatile and recognized character actors."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Louis Zamperini",
-    "premise": "Surviving 47 days adrift on a raft in the Pacific Ocean followed by years in harsh prisoner of war camps.",
-    "hook": "His bomber crashed into the Pacific Ocean, leading to 47 days at sea and capture in World War II.",
-    "key_facts": [
-      "Competed as an Olympic distance runner in the 1936 Berlin Games.",
-      "Served as a bombardier in the United States Army Air Forces during World War II.",
-      "Survived 47 days on a small life raft after his B-24 crashed.",
-      "Endured brutal conditions as a prisoner of war in Japan until the war ended."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Alexander Fleming",
-    "premise": "Leaving a Petri dish uncovered near an open window, leading to the accidental discovery of penicillin.",
-    "hook": "An open laboratory window and a stray mold spore changed modern medicine forever.",
-    "key_facts": [
-      "Worked as a physician and microbiologist at St Mary's Hospital in London.",
-      "Noticed in 1928 that a mold had contaminated a Petri dish of Staphylococcus bacteria.",
-      "Observed that the mold created a clear circle where bacteria could not grow.",
-      "Published his findings on penicillin, paving the way for mass antibiotic production."
     ],
     "source": "gemini_original"
   }

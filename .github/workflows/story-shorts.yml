@@ -151,6 +151,7 @@ jobs:
           # Bound each visual-verifier network call and allow one retry; a provider outage must defer quickly.
           STORY_GEMINI_REQUEST_TIMEOUT: ${{ vars.STORY_GEMINI_REQUEST_TIMEOUT || '45' }}
           STORY_GEMINI_NETWORK_RETRIES: ${{ vars.STORY_GEMINI_NETWORK_RETRIES || '1' }}
+      STORY_MAX_VERIFICATION_SOURCES: ${{ vars.STORY_MAX_VERIFICATION_SOURCES || '12' }}
           # Qwen2-VL is intentionally disabled in GitHub Actions: CPU inference is too slow
           # for the 14-clip footage-first production path. Gemini remains the production verifier.
           ENABLE_CPU_QWEN_FALLBACK: '0'

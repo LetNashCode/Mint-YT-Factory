@@ -71,7 +71,7 @@ _STRONG_BAD_METADATA_TERMS = (
     "five minute flashback", "5 minute flashback",
     "film adaptation", "television adaptation", "tv adaptation",
     "based on the novel", "based on a novel",
-    "interview", "interviewee", "interviewer", "panelist", "talk show", "talk-show",
+    "modern interview", "interview setting", "interview/presenter", "interviewee", "interviewer", "panelist", "talk show", "talk-show",
     "movie", "film", "feature film", "short film", "gameplay", "video game",
     "reenactment", "dramatisation", "dramatization", "fictional", "adapted from", "based on the play",
     "adaptation of", "adapted from", "novel adaptation", "play adaptation",

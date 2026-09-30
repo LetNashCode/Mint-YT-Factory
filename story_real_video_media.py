@@ -790,7 +790,7 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
         if not pool:
             raise RuntimeError(f"No real video candidates found for {person}; no photo or generic-stock fallback")
 
-        max_sources = max(4, int(os.environ.get("STORY_MAX_VERIFICATION_SOURCES", "8"))
+        max_sources = max(4, int(os.environ.get("STORY_MAX_VERIFICATION_SOURCES", "8")))
         pool.sort(key=lambda item: (
             -float(item.get("identity_score", _identity_score(person, item))),
             -int(item.get("archival_signal", 0)),

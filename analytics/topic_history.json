@@ -3040,19 +3040,15 @@
     "published_at": 1790764901
   },
   {
-    "topic": "Israeli forces shot and killed 10-year-old Sadam Rajeb in his doorway, Tulkarm, 27 Jan. 2025",
-    "normalized": "israeli forces shot and killed 10 year old sadam rajeb in his doorway tulkarm 27 jan 2025",
-    "workflow": "mystery",
+    "topic": "Why do garlic cloves turn blue",
+    "normalized": "why do garlic cloves turn blue",
+    "workflow": "publish",
     "status": "reserved",
-    "reserved_at": 1790776682,
-    "recorded_at": 1790776682,
+    "reserved_at": 1790777220,
+    "recorded_at": 1790777220,
     "metadata": {
-      "item_id": "internet-archive-youtube-B1d5sanf-TI",
-      "source_url": "https://archive.org/details/youtube-B1d5sanf-TI",
-      "source": "mystery_case_selection",
-      "source_duration_seconds": 77.98,
-      "source_width": 1280,
-      "source_height": 720
+      "source": "publish_topic_selector",
+      "attempt": 1
     }
   }
 ]

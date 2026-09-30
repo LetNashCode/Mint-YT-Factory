@@ -801,6 +801,7 @@ def generate_script(topic, config, research=None, extra_feedback=""):
 
     client = genai.Client(api_key=_api_key())
     last_error = None
+    retry_feedback = extra_feedback
 
     for attempt in range(1, MAX_ATTEMPTS + 1):
         try:
@@ -811,7 +812,7 @@ def generate_script(topic, config, research=None, extra_feedback=""):
             blueprint = _call_json(
                 client,
                 BLUEPRINT_SYSTEM,
-                _blueprint_prompt(topic, extra_feedback),
+                _blueprint_prompt(topic, retry_feedback),
                 _blueprint_schema(),
                 0.65,
             )
@@ -824,7 +825,7 @@ def generate_script(topic, config, research=None, extra_feedback=""):
             entertainment = _call_json(
                 client,
                 ENTERTAINMENT_SYSTEM,
-                _entertainment_prompt(topic, blueprint, extra_feedback),
+                _entertainment_prompt(topic, blueprint, retry_feedback),
                 _entertainment_schema(),
                 0.90,
             )
@@ -879,6 +880,7 @@ def generate_script(topic, config, research=None, extra_feedback=""):
             return _merge(entertainment, visual, topic)
         except Exception as error:
             last_error = f"{type(error).__name__}: {error}"
+            retry_feedback = (extra_feedback + "\n" if extra_feedback else "") + "PREVIOUS GENERATION ATTEMPT REJECTED — FIX THIS EXACTLY:\n" + last_error
             print(f"⚠️ Two-stage script attempt {attempt}/{MAX_ATTEMPTS} failed: {last_error}")
             if attempt < MAX_ATTEMPTS:
                 time.sleep(min(8, 2 * attempt))

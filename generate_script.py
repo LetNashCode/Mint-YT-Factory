@@ -539,7 +539,7 @@ def _validate_retired_subject_bleed(value, stage):
     """Hard production rule: retired subjects must never enter the current Short."""
     text = _clean(value).lower()
     for term in RETired_SUBJECT_TERMS:
-        if re.search(r"\\b" + re.escape(term) + r"\\b", text):
+        if re.search(r"\b" + re.escape(term) + r"\b", text):
             raise RuntimeError(
                 f"Topic coherence gate rejected retired {term} subject bleed during {stage}."
             )
@@ -556,6 +556,7 @@ def _validate_blueprint(blueprint):
         "final_payoff", "emotional_effect",
     )
     missing = [key for key in required if not _clean(blueprint.get(key))]
+    _validate_retired_subject_bleed(json.dumps(blueprint, ensure_ascii=False), "story blueprint")
     if missing:
         raise RuntimeError("Story blueprint is missing required beats: " + ", ".join(missing))
     # A blueprint that repeats the same sentence for multiple beats is not a story
@@ -827,6 +828,7 @@ def generate_script(topic, config, research=None, extra_feedback=""):
             )
             entertainment["story_blueprint"] = blueprint
             word_count = _validate_entertainment(entertainment, topic)
+            _validate_retired_subject_bleed(" ".join(str(s.get("narration") or "") for s in entertainment.get("scene_plan") or []), "narration")
             _validate_no_future_topic_in_story(entertainment, topic)
             print(f"🎭 Entertainment writer pass: {word_count} words")
 
@@ -869,6 +871,7 @@ def generate_script(topic, config, research=None, extra_feedback=""):
                 0.55,
             )
             _validate_visuals(visual, entertainment, topic)
+            _validate_retired_subject_bleed(json.dumps(visual, ensure_ascii=False), "visual plan")
             print("🎬 Visual director pass: 14 narration-mapped shots")
 
             return _merge(entertainment, visual, topic)

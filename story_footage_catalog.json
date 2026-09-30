@@ -4762,37 +4762,6 @@
     {
       "person": "Louis Zamperini",
       "source": {
-        "id": "archive:Louis_Zamperini_1917-2014_-_Triumph_of_The_Torrance_Tornado",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Louis_Zamperini_1917-2014_-_Triumph_of_The_Torrance_Tornado/Louis_Zamperini_1917-2014_-_Triumph_of_The_Torrance_Tornado.mp4",
-        "source_url": "https://archive.org/details/Louis_Zamperini_1917-2014_-_Triumph_of_The_Torrance_Tornado",
-        "title": "Louis Zamperini 1917-2014 - Triumph of The Torrance Tornado",
-        "description": "Louis Zamperini 1917-2014 ['California', 'Torrance', 'CitiCABLE 3', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Louis Zamperini (Olympic Athlete)', 'Torrance (City/Town/Village)', 'Torrance High School (School)', 'Louis zamperini', 'World War II (Military Conflict)', 'hero', 'pow', 'patriot', 'Angelina Jolie (Celebrity)', 'Zamperini Field (Airport)', 'Athlete (Profession)', 'runner', 'survivor', 'inspirational', 'profile', 'story', 'rip', 'passed away', 'died', 'death', 'tribute', '2014']",
-        "creator": "Torrance CitiCABLE",
-        "license": "",
-        "subject": "['California', 'Torrance', 'CitiCABLE 3', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Louis Zamperini (Olympic Athlete)', 'Torrance (City/Town/Village)', 'Torrance High School (School)', 'Louis zamperini', 'World War II (Military Conflict)', 'hero', 'pow', 'patriot', 'Angelina Jolie (Celebrity)', 'Zamperini Field (Airport)', 'Athlete (Profession)', 'runner', 'survivor', 'inspirational', 'profile', 'story', 'rip', 'passed away', 'died', 'death', 'tribute', '2014']",
-        "runtime": "00:15:00",
-        "direct_subject": true,
-        "duration_hint": 900.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows real archival footage of the named subject, Louis Zamperini, interacting with people in his later years. It serves as biographical illustration rather than depicting the specific historical events of his youth or WWII.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "830d4f067ddab463bdf1cc41af96b36fd98308b0a4a1d3ccdf1149f29ed0eb8d",
-      "reviewed_at": 1790803800.4549878
-    },
-    {
-      "person": "Louis Zamperini",
-      "source": {
         "id": "archive:FallOfFranceMayJune1940",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/FallOfFranceMayJune1940/Unbroken%27s%20Louis%20Zamperini%20-%20His%20Story.mp4",
@@ -4824,6 +4793,37 @@
     {
       "person": "Louis Zamperini",
       "source": {
+        "id": "archive:Louis_Zamperini_1917-2014_-_Triumph_of_The_Torrance_Tornado",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Louis_Zamperini_1917-2014_-_Triumph_of_The_Torrance_Tornado/Louis_Zamperini_1917-2014_-_Triumph_of_The_Torrance_Tornado.mp4",
+        "source_url": "https://archive.org/details/Louis_Zamperini_1917-2014_-_Triumph_of_The_Torrance_Tornado",
+        "title": "Louis Zamperini 1917-2014 - Triumph of The Torrance Tornado",
+        "description": "Louis Zamperini 1917-2014 ['California', 'Torrance', 'CitiCABLE 3', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Louis Zamperini (Olympic Athlete)', 'Torrance (City/Town/Village)', 'Torrance High School (School)', 'Louis zamperini', 'World War II (Military Conflict)', 'hero', 'pow', 'patriot', 'Angelina Jolie (Celebrity)', 'Zamperini Field (Airport)', 'Athlete (Profession)', 'runner', 'survivor', 'inspirational', 'profile', 'story', 'rip', 'passed away', 'died', 'death', 'tribute', '2014']",
+        "creator": "Torrance CitiCABLE",
+        "license": "",
+        "subject": "['California', 'Torrance', 'CitiCABLE 3', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Louis Zamperini (Olympic Athlete)', 'Torrance (City/Town/Village)', 'Torrance High School (School)', 'Louis zamperini', 'World War II (Military Conflict)', 'hero', 'pow', 'patriot', 'Angelina Jolie (Celebrity)', 'Zamperini Field (Airport)', 'Athlete (Profession)', 'runner', 'survivor', 'inspirational', 'profile', 'story', 'rip', 'passed away', 'died', 'death', 'tribute', '2014']",
+        "runtime": "00:15:00",
+        "direct_subject": true,
+        "duration_hint": 900.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows Louis Zamperini in later life interacting with people and a child, providing authentic archival footage of the subject for a biographical short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "aebf6d96b190b4256583e49de0bbebdef20524a1f4de9845b447f9cf1d39a33e",
+      "reviewed_at": 1790811590.5926697
+    },
+    {
+      "person": "Louis Zamperini",
+      "source": {
         "id": "archive:FallOfFranceMayJune1940",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/FallOfFranceMayJune1940/Unbroken%27s%20Louis%20Zamperini%20-%20His%20Story.mp4",
@@ -4845,12 +4845,446 @@
         "person_visible": true,
         "real_footage": true,
         "usable": true,
-        "relevance": 6,
-        "reason": "The frames show a genuine interview of Louis Zamperini later in life. While it is not footage of the historical events narrated (such as his time in WWII or as an Olympic runner), it is valid archival interview footage that can be used for biographical illustration.",
+        "relevance": 10,
+        "reason": "The frames clearly show Louis Zamperini himself being interviewed in archival footage, making it authentic and directly usable for his biography.",
         "usage": "biographical_illustration"
       },
-      "review_key": "90d9601a3831d2bd59c2c48e1dbff7a28f1034f1372d67d759d5a243740bdf15",
-      "reviewed_at": 1790803892.982962
+      "review_key": "1a25d7e8146912c0df6f6b7076f029aa9cb8824bee262825daea959e6d66cc2c",
+      "reviewed_at": 1790811604.5158556
+    },
+    {
+      "person": "Louis Zamperini",
+      "source": {
+        "id": "archive:Louis_Zamperini_1917-2014_-_Triumph_of_The_Torrance_Tornado",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Louis_Zamperini_1917-2014_-_Triumph_of_The_Torrance_Tornado/Louis_Zamperini_1917-2014_-_Triumph_of_The_Torrance_Tornado.mp4",
+        "source_url": "https://archive.org/details/Louis_Zamperini_1917-2014_-_Triumph_of_The_Torrance_Tornado",
+        "title": "Louis Zamperini 1917-2014 - Triumph of The Torrance Tornado",
+        "description": "Louis Zamperini 1917-2014 ['California', 'Torrance', 'CitiCABLE 3', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Louis Zamperini (Olympic Athlete)', 'Torrance (City/Town/Village)', 'Torrance High School (School)', 'Louis zamperini', 'World War II (Military Conflict)', 'hero', 'pow', 'patriot', 'Angelina Jolie (Celebrity)', 'Zamperini Field (Airport)', 'Athlete (Profession)', 'runner', 'survivor', 'inspirational', 'profile', 'story', 'rip', 'passed away', 'died', 'death', 'tribute', '2014']",
+        "creator": "Torrance CitiCABLE",
+        "license": "",
+        "subject": "['California', 'Torrance', 'CitiCABLE 3', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Louis Zamperini (Olympic Athlete)', 'Torrance (City/Town/Village)', 'Torrance High School (School)', 'Louis zamperini', 'World War II (Military Conflict)', 'hero', 'pow', 'patriot', 'Angelina Jolie (Celebrity)', 'Zamperini Field (Airport)', 'Athlete (Profession)', 'runner', 'survivor', 'inspirational', 'profile', 'story', 'rip', 'passed away', 'died', 'death', 'tribute', '2014']",
+        "runtime": "00:15:00",
+        "direct_subject": true,
+        "duration_hint": 900.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 754.64,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment features real archival/video footage of Louis Zamperini (in the red cap) interacting with others at an event, providing valid biographical illustration of his later life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "46dd46137c45c1a12d692e5643632fd5d4f96c303da316f75f59bbcdcd9e58dc",
+      "reviewed_at": 1790811658.2480533
+    },
+    {
+      "person": "Louis Zamperini",
+      "source": {
+        "id": "archive:FallOfFranceMayJune1940",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/FallOfFranceMayJune1940/Unbroken%27s%20Louis%20Zamperini%20-%20His%20Story.mp4",
+        "source_url": "https://archive.org/details/FallOfFranceMayJune1940",
+        "title": "Unbroken - The Louis Zamperini Story",
+        "description": "Unbroken - The Louis Zamperini Story ['Fall Of France', 'Balkans', 'Eastern Front', 'Bob Hope', 'Betty Grable', 'Grey Ghost', 'USS Enterprise', 'Solomon Islands', 'USO', 'RAF', 'Call of Duty', 'World at War', 'Midway', 'Sake', 'Leyte Gulf', 'Battle', 'Wake Island', 'Truk Lagoon', 'Coral Sea', 'K Rations', 'Hiroshima', 'Aircraft Carrier', 'USS Hornet', 'Wehrmacht Soldiers', 'Manchuria', 'Zero Fighter', 'PT Boat', 'Naval Battle', 'Normandy Invasion', 'Waffen SS', 'Airplane', 'Deutschland', 'WW2', 'WW1', 'Hitler', 'Montgomery', 'Mussolini', 'Operation Overlord', 'Patton', 'General', 'Mcarthur', 'Nazi', 'Tank', 'Kamikaze', 'Third Reich', 'Genocide', 'Guadalcanal', 'Jews', 'Mein Krieg', 'Final Solution', 'Pearl Harbor', 'MRE', 'Battlefield', 'World War', 'Air Force', 'Army', 'Navy', 'Marines', 'U-Boat Wehrmacht', 'Luftwaffe', 'Fascist', 'SS', 'Roosevelt', 'Himmler', 'Adolf Hitler', 'Hitler Youth', 'V2', 'Aryan', 'Nuremberg', 'Mein Kampf', 'Blitzkrieg', 'V1', 'Western Front', 'Stalin', 'Fascism', 'Russia', 'Soviet Union', 'Stalingrad', 'Red Star', 'Communist', 'National Socialist', 'Nazi Party', 'Panzerjäger', 'Pacific Fleet', 'War Movie', 'War film', 'Munich', 'WW2 Movie', 'Japan', 'Imperial Japan', 'Bushido', 'Ninja', 'Concentration Camp', 'Tank Hunters', 'Auschwitz', 'Pacific Theatre', 'Tunisia', \"Schindler's List\", 'Emperor Hirohito', 'Battle of the Bulge', 'Sherman Tank', 'Tiger Tank', 'Messerschmitt', 'December 7th 1941', 'Winston Churchill', 'HMS Hood', 'USS Arizona', 'Bismark', 'Italian Campaign', 'Western Wall', 'Iwo Jima', 'WW2 Japanese Aircraft', 'Rommel', 'Anzio', 'Finis Belli', 'D-Day', 'Eisenhower', 'A",
+        "creator": "Finis Belli",
+        "license": "",
+        "subject": "['Fall Of France', 'Balkans', 'Eastern Front', 'Bob Hope', 'Betty Grable', 'Grey Ghost', 'USS Enterprise', 'Solomon Islands', 'USO', 'RAF', 'Call of Duty', 'World at War', 'Midway', 'Sake', 'Leyte Gulf', 'Battle', 'Wake Island', 'Truk Lagoon', 'Coral Sea', 'K Rations', 'Hiroshima', 'Aircraft Carrier', 'USS Hornet', 'Wehrmacht Soldiers', 'Manchuria', 'Zero Fighter', 'PT Boat', 'Naval Battle', 'Normandy Invasion', 'Waffen SS', 'Airplane', 'Deutschland', 'WW2', 'WW1', 'Hitler', 'Montgomery', 'Mussolini', 'Operation Overlord', 'Patton', 'General', 'Mcarthur', 'Nazi', 'Tank', 'Kamikaze', 'Third Reich', 'Genocide', 'Guadalcanal', 'Jews', 'Mein Krieg', 'Final Solution', 'Pearl Harbor', 'MRE', 'Battlefield', 'World War', 'Air Force', 'Army', 'Navy', 'Marines', 'U-Boat Wehrmacht', 'Luftwaffe', 'Fascist', 'SS', 'Roosevelt', 'Himmler', 'Adolf Hitler', 'Hitler Youth', 'V2', 'Aryan', 'Nuremberg', 'Mein Kampf', 'Blitzkrieg', 'V1', 'Western Front', 'Stalin', 'Fascism', 'Russia', 'Soviet Union', 'Stalingrad', 'Red Star', 'Communist', 'National Socialist', 'Nazi Party', 'Panzerjäger', 'Pacific Fleet', 'War Movie', 'War film', 'Munich', 'WW2 Movie', 'Japan', 'Imperial Japan', 'Bushido', 'Ninja', 'Concentration Camp', 'Tank Hunters', 'Auschwitz', 'Pacific Theatre', 'Tunisia', \"Schindler's List\", 'Emperor Hirohito', 'Battle of the Bulge', 'Sherman Tank', 'Tiger Tank', 'Messerschmitt', 'December 7th 1941', 'Winston Churchill', 'HMS Hood', 'USS Arizona', 'Bismark', 'Italian Campaign', 'Western Wall', 'Iwo Jima', 'WW2 Japanese Aircraft', 'Rommel', 'Anzio', 'Finis Belli', 'D-Day', 'Eisenhower', 'A",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 760.11,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6.0,
+        "reason": "The footage features the actual Louis Zamperini being interviewed later in life, but the CBN watermark in the corner and interview format reduce its utility for illustrating active historical events, making it better suited for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "88f0dc8def47035df5a10f3e19d6e7a68155231e94ff7640b3e71ec2a35aba47",
+      "reviewed_at": 1790811734.0253837
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
+        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
+        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "runtime": "00:31:43",
+        "direct_subject": true,
+        "duration_hint": 1903.2,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 1022.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows George Lucas participating in a panel discussion/interview on stage, which provides real archival footage of him suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ba590812108c5cf27740ddde3492ea634a73f6d3e5b61abb5d837b31c9f663ed",
+      "reviewed_at": 1790811811.5631065
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:lucas_nolan",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/lucas_nolan/lucas_nolan.mp4",
+        "source_url": "https://archive.org/details/lucas_nolan",
+        "title": "George Lucas on the Impact of Star Wars",
+        "description": "Christopher Nolan interviews George Lucas george luca, christopher nolan, interviews, star wars, directors",
+        "creator": "George Lucas, Christopher Nolan",
+        "license": "",
+        "subject": "george luca, christopher nolan, interviews, star wars, directors",
+        "runtime": "57:57",
+        "direct_subject": true,
+        "duration_hint": 3477.106967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2668.93,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show George Lucas clearly in an interview setting, providing biographical illustration material, though it is a modern interview rather than historical event footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2830bf4e46374b37586b75883953875ca3b3c779936e599f7c188ef128f017b7",
+      "reviewed_at": 1790811846.1935868
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
+        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
+        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "runtime": "00:31:43",
+        "direct_subject": true,
+        "duration_hint": 1903.2,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 150.32,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage clearly shows George Lucas on stage at the Aspen Institute holding an award alongside Michael Eisner, serving as valid archival evidence of his life and career for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6b8f54f8869f3134635ecb52456e3357bc0b9189a73a8023436af8ae73ec8c76",
+      "reviewed_at": 1790811875.9177108
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:lucas_nolan",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/lucas_nolan/lucas_nolan.mp4",
+        "source_url": "https://archive.org/details/lucas_nolan",
+        "title": "George Lucas on the Impact of Star Wars",
+        "description": "Christopher Nolan interviews George Lucas george luca, christopher nolan, interviews, star wars, directors",
+        "creator": "George Lucas, Christopher Nolan",
+        "license": "",
+        "subject": "george luca, christopher nolan, interviews, star wars, directors",
+        "runtime": "57:57",
+        "direct_subject": true,
+        "duration_hint": 3477.106967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 271.39,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage clearly shows George Lucas speaking in an interview setting across all three frames. While it is an interview rather than direct historical event footage, it serves as usable biographical illustration of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "301d35eccefe0905521e744523eab4833e50019bb5a03938adb68a78919a3713",
+      "reviewed_at": 1790811891.9427557
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
+        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
+        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "runtime": "00:31:43",
+        "direct_subject": true,
+        "duration_hint": 1903.2,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 440.97,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video clip features actual moving archival footage of George Lucas participating in a conversation/interview, clearly visible in all three frames, serving as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3708af92b7840492bbd14292533ec297523b4eddb5fdb4d9504d6ddf1b785b35",
+      "reviewed_at": 1790811901.7745435
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:lucas_nolan",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/lucas_nolan/lucas_nolan.mp4",
+        "source_url": "https://archive.org/details/lucas_nolan",
+        "title": "George Lucas on the Impact of Star Wars",
+        "description": "Christopher Nolan interviews George Lucas george luca, christopher nolan, interviews, star wars, directors",
+        "creator": "George Lucas, Christopher Nolan",
+        "license": "",
+        "subject": "george luca, christopher nolan, interviews, star wars, directors",
+        "runtime": "57:57",
+        "direct_subject": true,
+        "duration_hint": 3477.106967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 804.18,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "George Lucas is clearly visible in all three frames participating in an interview, providing genuine biographical footage suitable for illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a8bf34db893bd2cc2e5aa04514b9335007298664e0d5255ed7b12018f5dac3ad",
+      "reviewed_at": 1790811924.6193686
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
+        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
+        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "runtime": "00:31:43",
+        "direct_subject": true,
+        "duration_hint": 1903.2,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 731.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows actual filmed footage of George Lucas participating in a panel discussion/interview alongside Michael Eisner, providing biographical context, though it is a seated interview rather than direct historical event footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f213b0942de6a8dde22c5f74ec0dc836fe5ac5590fcf645525aad9632db58cd3",
+      "reviewed_at": 1790811933.7855456
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:lucas_nolan",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/lucas_nolan/lucas_nolan.mp4",
+        "source_url": "https://archive.org/details/lucas_nolan",
+        "title": "George Lucas on the Impact of Star Wars",
+        "description": "Christopher Nolan interviews George Lucas george luca, christopher nolan, interviews, star wars, directors",
+        "creator": "George Lucas, Christopher Nolan",
+        "license": "",
+        "subject": "george luca, christopher nolan, interviews, star wars, directors",
+        "runtime": "57:57",
+        "direct_subject": true,
+        "duration_hint": 3477.106967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1070.57,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage clearly shows George Lucas being interviewed by Christopher Nolan, providing biographical illustration of his life and career, though it is a talking head/interview clip rather than direct event footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "82cdb26606b595fe5245e59c35fe01cdff5ba04391dd7d8310f15375f8f93707",
+      "reviewed_at": 1790811942.7279303
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
+        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
+        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "runtime": "00:31:43",
+        "direct_subject": true,
+        "duration_hint": 1903.2,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 586.29,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage features George Lucas participating in a live conversation event on stage, making him clearly visible throughout the frames. However, it is a speaking/interview setting rather than direct historical archival event footage, making it useful as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e14786e200199eab7738f46ae80a298af9ef155b830dc334ede5545350578522",
+      "reviewed_at": 1790811944.5808911
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:lucas_nolan",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/lucas_nolan/lucas_nolan.mp4",
+        "source_url": "https://archive.org/details/lucas_nolan",
+        "title": "George Lucas on the Impact of Star Wars",
+        "description": "Christopher Nolan interviews George Lucas george luca, christopher nolan, interviews, star wars, directors",
+        "creator": "George Lucas, Christopher Nolan",
+        "license": "",
+        "subject": "george luca, christopher nolan, interviews, star wars, directors",
+        "runtime": "57:57",
+        "direct_subject": true,
+        "duration_hint": 3477.106967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1336.96,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage clearly shows George Lucas speaking in an interview setting across all three frames, providing valid biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9e1fb48084f52c0065d1d4e41d79baa1fc885cbf23008f402ee26405de8f6802",
+      "reviewed_at": 1790811952.2540956
+    },
+    {
+      "person": "George Lucas",
+      "source": {
+        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
+        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
+        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
+        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
+        "runtime": "00:31:43",
+        "direct_subject": true,
+        "duration_hint": 1903.2,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 1603.55,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows George Lucas participating in an on-stage conversation/interview, making him clearly visible throughout the frames. While it's discussion footage rather than archival event footage, it provides genuine usable biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6633e5b64b20473708bf5e5804afa7c89360e5a6467c6eccfc065660c0912028",
+      "reviewed_at": 1790811977.0342672
+    },
+    {
+      "person": "Sylvester Stallone",
+      "source": {
+        "id": "archive:sylvester-stallone-interview-with-barbara-walters-1988",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/sylvester-stallone-interview-with-barbara-walters-1988/Sylvester%20Stallone%20Interview%20with%20Barbara%20Walters%20%281988%29.ia.mp4",
+        "source_url": "https://archive.org/details/sylvester-stallone-interview-with-barbara-walters-1988",
+        "title": "Sylvester Stallone Interview with Barbara Walters (1988)",
+        "description": "The Barbara Walters Special featuring Sylvester Stallone. ['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
+        "creator": "ABC",
+        "license": "",
+        "subject": "['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1039.905506,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 557.41,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features genuine archival footage of Sylvester Stallone participating in an interview with Barbara Walters, making it relevant biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2145674ee6dafd96d6571ccc7e942222a00e2279be95ce668104ff782d5953e7",
+      "reviewed_at": 1790812103.7982109
     }
   ]
 }

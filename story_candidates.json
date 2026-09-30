@@ -51,19 +51,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Sylvester Stallone",
-    "premise": "Refusing to sell his screenplay unless he played the lead role, despite being nearly broke and homeless.",
-    "hook": "He was offered a life-changing sum for his script, but he had one non-negotiable demand.",
-    "key_facts": [
-      "Wrote the screenplay for Rocky in three days after watching a boxing match.",
-      "Turned down high offers from studio executives who wanted an established star.",
-      "Lived in extreme poverty and reportedly sold his dog temporarily to buy food.",
-      "Rocky went on to win the Academy Award for Best Picture in 1977."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Dwyane Johnson",
     "premise": "Facing eviction and having only seven dollars to his name before finding his footing in professional wrestling.",
@@ -73,19 +60,6 @@
       "Suffered a career-ending shoulder injury that led to being cut from his football team.",
       "Entered professional wrestling with the WWF as Rocky Maivia.",
       "Transformed into 'The Rock' and became one of the most popular wrestlers in history."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "George Lucas",
-    "premise": "Trading a higher upfront directing salary for merchandising and sequel rights to an unproven sci-fi film.",
-    "hook": "He gave up a $500,000 directing fee for merchandising rights, creating one of the richest deals in history.",
-    "key_facts": [
-      "Wrote and directed Star Wars, released in theaters in 1977.",
-      "Negotiated with 20th Century Fox to retain consumer products and sequel rights.",
-      "Studied film at the University of Southern California.",
-      "The film became a massive global cultural phenomenon."
     ],
     "source": "gemini_original"
   },

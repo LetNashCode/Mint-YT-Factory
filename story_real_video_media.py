@@ -34,6 +34,7 @@ _VERIFIER_BUDGET = None  # compatibility view; authoritative state lives in stor
 
 QUOTA_DEFER_FILE = ".story_gemini_quota_deferred"
 VERIFIER_BUDGET_DEFER_FILE = story_gemini_budget.BUDGET_DEFER_FILE
+NETWORK_DEFER_FILE = ".story_gemini_network_deferred"
 DEFAULT_VERIFIER_REQUEST_BUDGET = story_gemini_budget.DEFAULT_MAX_REQUESTS
 GEMINI_MODEL = "gemini-flash-lite-latest"
 
@@ -58,6 +59,9 @@ _STRONG_BAD_METADATA_TERMS = (
     "coach trip", "bus ride", "bus journey", "inside a coach",
     "museum exhibit", "museum display", "engine and plaque",
     "movie trailer", "commercial for", "commercial", "advertisement", "webinar", "workshop", "course", "lesson",
+    "drone footage", "drone_footage", "statue", "monument", "mural", "museum",
+    "news presenter", "news presenters", "news reporter", "news reporters", "news reporting",
+    "museum director", "museum presenter", "museum exhibit",
     "promotional", "promotional material", "promotional dvd", "dvd menu",
     "dvd", "poster", "logo", "title card", "slideshow", "slide deck", "powerpoint", "slides",
     "animated", "animation", "cartoon", "illustrated", "illustration",
@@ -599,20 +603,36 @@ def verify(person, scene, item, samples):
         "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}}
     # Use exactly one model: the same model used by Publish Shorts.
     # Transient provider errors may retry that same model, but never switch models.
+    # Keep the retry window bounded: a Story run must not spend several minutes
+    # blocking on one verifier call while many other candidates are waiting.
     last_error = "unknown"
-    for retry in range(3):
+    try:
+        network_retries = max(0, int(os.environ.get("STORY_GEMINI_NETWORK_RETRIES", "1")))
+    except ValueError:
+        network_retries = 1
+    try:
+        request_timeout = max(15, int(os.environ.get("STORY_GEMINI_REQUEST_TIMEOUT", "45")))
+    except ValueError:
+        request_timeout = 45
+    for retry in range(network_retries + 1):
         try:
             response = requests.post(
                 f"https://generativelanguage.googleapis.com/v1beta/models/{quote(model, safe='')}:generateContent",
-                headers={"x-goog-api-key": key}, json=payload, timeout=(10, 60)
+                headers={"x-goog-api-key": key}, json=payload, timeout=(10, request_timeout)
             )
         except (requests.Timeout, requests.ConnectionError):
             last_error = "network timeout"
-            print(f"Story verifier network timeout: {model}; retry {retry + 1}/3", flush=True)
-            if retry < 2:
-                time.sleep(1.5 * (retry + 1))
+            print(f"Story verifier network timeout: {model}; retry {retry + 1}/{network_retries + 1}", flush=True)
+            if retry < network_retries:
+                time.sleep(2 ** retry + 1)
                 continue
-            break
+            Path(NETWORK_DEFER_FILE).write_text(
+                f"Story verifier network unavailable after {network_retries + 1} attempts on {model}.\\n",
+                encoding="utf-8",
+            )
+            raise RuntimeError(
+                f"Story verifier network unavailable after {network_retries + 1} attempts on {model}"
+            )
 
         if response.status_code == 429 and _is_daily_quota_response(response):
             try:

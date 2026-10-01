@@ -1009,3 +1009,24 @@ def test_source_precheck_rejects_production_noise_without_rejecting_plain_archiv
         "title": "Nelson Mandela speaking",
         "description": "archival footage",
     }) is None
+
+
+def test_production_caps_override_stale_actions_variables(monkeypatch, tmp_path):
+    stub_pipeline(monkeypatch)
+    monkeypatch.setenv("STORY_GEMINI_MAX_REQUESTS_PER_SUBJECT", "24")
+    monkeypatch.setenv("STORY_MAX_VERIFICATION_SOURCES", "20")
+    monkeypatch.setenv("STORY_SOURCE_MAX_REJECTIONS", "9")
+    monkeypatch.setattr(media, "discover", lambda *args: [candidate(n) for n in range(12)])
+    result = media.generate_media(story(), str(tmp_path), {})
+    audit = json.loads((tmp_path / "story_video_audit.json").read_text())
+    assert len(result) == 14
+    assert audit["subject_verifier_request_limit"] == 18
+    assert audit["preflight"]["verification_shortlist_limit"] == 8
+
+
+def test_story_workflow_recovery_is_branch_scoped():
+    root = Path(__file__).resolve().parents[1]
+    workflow = (root / ".github/workflows/story-shorts.yml").read_text(encoding="utf-8")
+    assert "--arg branch" in workflow
+    assert "workflow_run.head_branch" in workflow
+    assert "== $branch" in workflow

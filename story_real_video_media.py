@@ -754,7 +754,7 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
              "subject_verifier_request_limit": max_subject_verifier_requests}
     groups, resolved, blocked, used, cached = [], {}, set(), set(), {}
     rejected = set()
-    source_rejections, source_errors = Counter(), Counter()
+    source_rejections, source_consecutive_rejections, source_errors = Counter(), Counter(), Counter()
     subject_budget_start = int((story_gemini_budget.status() or {}).get("used", 0))
     deadline = time.monotonic() + 1500
     def save_audit():
@@ -904,6 +904,7 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                             if not (catalog.accepts(verdict) if catalog is not None else verification_passes(verdict)):
                                 rejected.add(identity)
                                 source_rejections[sid] += 1
+                                source_consecutive_rejections[sid] += 1
                                 print(f"Story clip rejected: {item['provider']} {start}s | {clean(verdict.get('reason'))}", flush=True)
                                 configured_rejections = os.environ.get("STORY_SOURCE_MAX_REJECTIONS", "2")
                                 try:
@@ -911,18 +912,19 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                 except ValueError:
                                     rejection_limit = 2
                                 rejection_limit = min(2, max(1, rejection_limit))
-                                if source_rejections[sid] >= rejection_limit:
+                                if source_consecutive_rejections[sid] >= rejection_limit:
                                     blocked.add(sid)
                                     if _precheck_cache_eligible(item):
                                         precheck_cache[_precheck_cache_key(item)] = {
                                             "source_id": item.get("id"),
                                             "source_url": item.get("source_url"),
-                                            "reason": "visual verifier rejected source after configured unusable identity samples",
+                                            "reason": "visual verifier rejected source after configured consecutive unusable samples",
                                         }
                                         _save_precheck_cache(precheck_cache)
-                                    print(f"Skipping source after {source_rejections[sid]} unusable identity samples: {item['source_url']}", flush=True)
+                                    print(f"Skipping source after {source_consecutive_rejections[sid]} consecutive unusable samples: {item['source_url']}", flush=True)
                                     break
                                 continue
+                            source_consecutive_rejections[sid] = 0
                             end = round(start + length, 2)
                             chosen = {"scene": scene_no, "shot": shot_no, "path": str(clip), "type": "video",
                                       "provider": item["provider"], "source_id": sid, "origin_url": item["source_url"],

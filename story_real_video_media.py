@@ -741,9 +741,14 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
     root = Path(output_dir)
     root.mkdir(parents=True, exist_ok=True)
     _ensure_verifier_budget()
-    max_subject_verifier_requests = max(
-        14, int(os.environ.get("STORY_GEMINI_MAX_REQUESTS_PER_SUBJECT", "24"))
-    )
+    try:
+        configured_subject_limit = int(
+            os.environ.get("STORY_GEMINI_MAX_REQUESTS_PER_SUBJECT", "18")
+        )
+    except ValueError:
+        configured_subject_limit = 18
+    # Hard production ceiling: one subject cannot consume the whole visual budget.
+    max_subject_verifier_requests = min(18, max(14, configured_subject_limit))
     audit = {"person": person, "providers": [], "attempts": [], "selected": [],
              "verifier_budget": verifier_budget_status(),
              "subject_verifier_request_limit": max_subject_verifier_requests}
@@ -790,7 +795,14 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
         if not pool:
             raise RuntimeError(f"No real video candidates found for {person}; no photo or generic-stock fallback")
 
-        max_sources = max(4, int(os.environ.get("STORY_MAX_VERIFICATION_SOURCES", "8")))
+        try:
+            configured_max_sources = int(
+                os.environ.get("STORY_MAX_VERIFICATION_SOURCES", "8")
+            )
+        except ValueError:
+            configured_max_sources = 8
+        # Hard production ceiling even when an old Actions variable is larger.
+        max_sources = min(8, max(4, configured_max_sources))
         pool.sort(key=lambda item: (
             -float(item.get("identity_score", _identity_score(person, item))),
             -int(item.get("archival_signal", 0)),
@@ -894,7 +906,13 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                     rejected.add(identity)
                                     source_rejections[sid] += 1
                                 print(f"Story clip rejected: {item['provider']} {start}s | {clean(verdict.get('reason'))}", flush=True)
-                                if counts[sid] == 0 and source_rejections[sid] >= max(1, int(os.environ.get("STORY_SOURCE_MAX_REJECTIONS", "2"))):
+                                configured_rejections = os.environ.get("STORY_SOURCE_MAX_REJECTIONS", "2")
+                                try:
+                                    rejection_limit = int(configured_rejections)
+                                except ValueError:
+                                    rejection_limit = 2
+                                rejection_limit = min(2, max(1, rejection_limit))
+                                if counts[sid] == 0 and source_rejections[sid] >= rejection_limit:
                                     blocked.add(sid)
                                     if _precheck_cache_eligible(item):
                                         precheck_cache[_precheck_cache_key(item)] = {

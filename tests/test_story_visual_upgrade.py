@@ -311,3 +311,11 @@ def test_media_first_preflight_fails_before_gemini_when_sources_are_too_short(mo
     import pytest
     with pytest.raises(RuntimeError, match="Story media preflight failed"):
         upgrade.preflight_candidate("Nelson Mandela", "Nelson Mandela: a turning point")
+
+
+def test_story_recovery_revalidates_exact_render_before_upload():
+    root = Path(__file__).resolve().parents[1]
+    source = (root / "story_render_recovery.py").read_text(encoding="utf-8")
+    assert "from final_video_quality_gate import validate as validate_final_render" in source
+    assert "validate_final_render(final)" in source
+    assert source.index("validate_final_render(final)") < source.index("result = upload_video(")

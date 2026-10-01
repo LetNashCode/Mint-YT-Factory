@@ -5285,6 +5285,99 @@
       },
       "review_key": "2145674ee6dafd96d6571ccc7e942222a00e2279be95ce668104ff782d5953e7",
       "reviewed_at": 1790812103.7982109
+    },
+    {
+      "person": "Sylvester Stallone",
+      "source": {
+        "id": "archive:Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01/Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01.mp4",
+        "source_url": "https://archive.org/details/Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01",
+        "title": "Legends Of Hollywood Sylvester Stallone TLC WOC 1995 01",
+        "description": "Legends Of Hollywood Sylvester Stallone TLC WOC 1995 01 ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1816.447967,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 975.55,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment shows real archival footage of Sylvester Stallone acting in one of his films (likely a scene from a movie like Rambo or similar action film), clearly visible in the frames. This serves as biographical illustration of his acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "46442ee14864711cb210fb30eba4d48063631238ff07232bc537677a1b214743",
+      "reviewed_at": 1790854678.0103552
+    },
+    {
+      "person": "Sylvester Stallone",
+      "source": {
+        "id": "archive:sylvester-stallone-interview-with-barbara-walters-1988",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/sylvester-stallone-interview-with-barbara-walters-1988/Sylvester%20Stallone%20Interview%20with%20Barbara%20Walters%20%281988%29.ia.mp4",
+        "source_url": "https://archive.org/details/sylvester-stallone-interview-with-barbara-walters-1988",
+        "title": "Sylvester Stallone Interview with Barbara Walters (1988)",
+        "description": "The Barbara Walters Special featuring Sylvester Stallone. ['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
+        "creator": "ABC",
+        "license": "",
+        "subject": "['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1039.905506,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 83.92,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "Sylvester Stallone is clearly visible across all three frames in archival footage from his acting career, directly supporting the biographical narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5c1da0c2d24ddc80830cb724da1a6f974cb8713d5c2e65017c0bb3b75f83f0f0",
+      "reviewed_at": 1790854695.8348386
+    },
+    {
+      "person": "Sylvester Stallone",
+      "source": {
+        "id": "archive:sylvester-stallone-interview-with-barbara-walters-1988",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/sylvester-stallone-interview-with-barbara-walters-1988/Sylvester%20Stallone%20Interview%20with%20Barbara%20Walters%20%281988%29.ia.mp4",
+        "source_url": "https://archive.org/details/sylvester-stallone-interview-with-barbara-walters-1988",
+        "title": "Sylvester Stallone Interview with Barbara Walters (1988)",
+        "description": "The Barbara Walters Special featuring Sylvester Stallone. ['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
+        "creator": "ABC",
+        "license": "",
+        "subject": "['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1039.905506,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 162.83,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show archival footage of Sylvester Stallone outdoors. While it serves as general biographical illustration rather than depicting a specific narrated historical event directly, he is clearly visible and real footage is used.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "22fe58e690b7c8a4d6a94423e2d6368a414b3e4908545301bb93e56027e66246",
+      "reviewed_at": 1790854991.584449
     }
   ]
 }

@@ -1,18 +1,5 @@
 [
   {
-    "format": "one_decision",
-    "person": "Jane Goodall",
-    "premise": "The unconventional methodological choice that revolutionized primate research in Tanzania.",
-    "hook": "Instead of assigning numbers to the chimpanzees she studied, she gave them names—a practice scorned by traditional zoologists.",
-    "key_facts": [
-      "Arrived at Gombe Stream National Park in 1960 with no prior university degree in science.",
-      "Observed chimpanzees making and using tools, contradicting the scientific definition of humans as the sole toolmakers.",
-      "Secured funding from the Leakey Foundation and later completed a PhD at Cambridge University.",
-      "Founded the Jane Goodall Institute to promote global wildlife conservation."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "B.B. King",
     "premise": "The humble beginnings of a Delta blues legend who played on street corners before recording hits.",

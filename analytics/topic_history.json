@@ -3006,22 +3006,6 @@
     "published_at": 1790755677
   },
   {
-    "topic": "View from security camera at former Kitakami river in Ishinomaki City",
-    "normalized": "view from security camera at former kitakami river in ishinomaki city",
-    "workflow": "mystery",
-    "status": "reserved",
-    "reserved_at": 1790763385,
-    "recorded_at": 1790763385,
-    "metadata": {
-      "item_id": "internet-archive-20210514_20210514_2206",
-      "source_url": "https://archive.org/details/20210514_20210514_2206",
-      "source": "mystery_case_selection",
-      "source_duration_seconds": 362.88,
-      "source_width": 1280,
-      "source_height": 720
-    }
-  },
-  {
     "topic": "bittersweet happiness: Finding a dusty box of mix CDs in a garage clean-up and plugging the last one into an old car stereo, hearing the exact track that was playing the night you got your driver's license.",
     "normalized": "bittersweet happiness finding a dusty box of mix cds in a garage clean up and plugging the last one into an old car stereo hearing the exact track that was playing the night you got your driver s license",
     "workflow": "emotional",
@@ -3098,5 +3082,23 @@
     "video_id": "0Pk3sVpM7k0",
     "workdir": "output/1790842345",
     "published_at": 1790843715
+  },
+  {
+    "topic": "homesickness: Smelling the exact scent of woodsmoke and damp pine needles while opening a jar of imported maple syrup given by a neighbor from your hometown thousands of miles away.",
+    "normalized": "homesickness smelling the exact scent of woodsmoke and damp pine needles while opening a jar of imported maple syrup given by a neighbor from your hometown thousands of miles away",
+    "workflow": "emotional",
+    "status": "published",
+    "reserved_at": 1790852378,
+    "recorded_at": 1790852378,
+    "metadata": {
+      "primary_emotion": "homesickness",
+      "human_situation": "Smelling the exact scent of woodsmoke and damp pine needles while opening a jar of imported maple syrup given by a neighbor from your hometown thousands of miles away.",
+      "creative_strategy": "wild",
+      "experiment_id": "creative_v3_wild_cycle13_slot9"
+    },
+    "title": "A Thousand Miles in a Single Jar",
+    "video_id": "n9MqlCt7zLQ",
+    "workdir": "output/emotional_reel",
+    "published_at": 1790853064
   }
 ]

@@ -1,19 +1,18 @@
 {
   "status": "uploaded",
   "final_path": "output/emotional_reel/final.mp4",
-  "final_sha256": "87dc60d1d561267d8c46c01c6c4a0b8ba107cf0024957adba441b75b705e0a64",
-  "cache_key": "emotional-reel-final-v2-87dc60d1d561267d8c46c01c6c4a0b8b",
-  "title": "The Last Track on the Dust Collector",
-  "description": "Finding an old mix CD in a garage box and hearing the exact song from the night of your driver's license test.",
+  "final_sha256": "45f909292167dc0bac79ece10f764c17576a7bbe9c2ba1a16ac720dacd9366cf",
+  "cache_key": "emotional-reel-final-v2-45f909292167dc0bac79ece10f764c17",
+  "title": "A Thousand Miles in a Single Jar",
+  "description": "When a simple scent brings your entire childhood kitchen back into focus thousands of miles away from home.",
   "hashtags": [
-    "#mixcd",
-    "#nostalgia",
-    "#garagefinds",
-    "#growingup",
-    "#memories",
-    "#oldcars"
+    "#homesick",
+    "#sensorymemory",
+    "#childhoodmemories",
+    "#expatlife",
+    "#nostalgia"
   ],
-  "engagement_comment": "Some songs wait patiently in the dark.",
+  "engagement_comment": "Share this with someone who misses home.",
   "voice": {
     "provider": "kokoro",
     "voice_name": "af_heart",
@@ -23,26 +22,26 @@
     "speed": 0.92,
     "tone": "curious, confident, playful storyteller"
   },
-  "created_at": 1790764546,
-  "narration_word_count": 148,
+  "created_at": 1790852640,
+  "narration_word_count": 136,
   "complete_script_preserved": true,
   "final_duration_seconds": 53.76,
-  "factory_topic": "bittersweet happiness: Finding a dusty box of mix CDs in a garage clean-up and plugging the last one into an old car stereo, hearing the exact track that was playing the night you got your driver's license.",
-  "primary_emotion": "bittersweet happiness",
-  "human_situation": "Finding a dusty box of mix CDs in a garage clean-up and plugging the last one into an old car stereo, hearing the exact track that was playing the night you got your driver's license.",
-  "video_id": "MexkfzdX-Ko",
+  "factory_topic": "homesickness: Smelling the exact scent of woodsmoke and damp pine needles while opening a jar of imported maple syrup given by a neighbor from your hometown thousands of miles away.",
+  "primary_emotion": "homesickness",
+  "human_situation": "Smelling the exact scent of woodsmoke and damp pine needles while opening a jar of imported maple syrup given by a neighbor from your hometown thousands of miles away.",
+  "video_id": "n9MqlCt7zLQ",
   "social": {
     "instagram": {
       "status": "published",
-      "media_id": "17971166166071588",
-      "container_id": "18495866050097136"
+      "media_id": "18071450267749271",
+      "container_id": "18496081204097136"
     },
     "facebook": {
       "status": "published",
-      "video_id": "1156617683360878"
+      "video_id": "1654492099604687"
     },
     "strict": false,
-    "updated_at": 1790764776
+    "updated_at": 1790852917
   },
-  "uploaded_at": 1790764901
+  "uploaded_at": 1790853064
 }

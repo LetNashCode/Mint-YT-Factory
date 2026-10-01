@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-01T08:11:20.629128+00:00",
-  "video_count": 127,
+  "generated_at": "2026-10-01T10:59:59.164742+00:00",
+  "video_count": 128,
   "learning_ready": true,
   "metrics_available": true,
   "creative_learning_version": "v3",
@@ -16,13 +16,13 @@
       "score": 36.991,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.549
+      "weak_score": 0.459
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.549,
+      "score": 0.459,
       "sample_size": 10
     }
   ],
@@ -42,18 +42,18 @@
     "Why wet fingers wrinkle in water"
   ],
   "avoid_topics": [
-    "Why do oven glass doors get striped",
     "Why do toast crumbs burn",
     "childhood memories: Finding the exact indent in the living room wall behind the couch where you used to hide your favorite comic books during childhood thunderstorms.",
     "Why do keys jingle",
     "bittersweet happiness: Finding a dusty box of mix CDs in a garage clean-up and plugging the last one into an old car stereo, hearing the exact track that was playing the night you got your driver's license.",
     "Why do wooden hangers smell",
     "Israeli security forces shoot and kill Ahmad Zidani, Beit Rima, 18 Dec. 2016: Candidate discovered from Internet Archive; the footage and event context require factual review.",
+    "Why do door knobs get loose",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
     "Why do steering wheels lock"
   ],
-  "used_topic_count": 127,
+  "used_topic_count": 128,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

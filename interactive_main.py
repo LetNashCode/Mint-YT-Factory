@@ -132,6 +132,14 @@ Do not expose the loop with words like replay, loop, watch again, or back to the
             from story_topic_runtime import release_reservation
             release_reservation(pillar,topic,person)
         except Exception as release_error: print(f"⚠️ Story reservation release failed: {type(release_error).__name__}: {release_error}")
+        # A non-quota script failure must also release the factory-wide topic
+        # reservation; otherwise an unpublished Story can permanently occupy
+        # the topic uniqueness ledger.
+        try:
+            from factory_content_memory import release as release_factory_topic
+            release_factory_topic(topic, "story")
+        except Exception as factory_release_error:
+            print(f"⚠️ Story factory topic release failed: {type(factory_release_error).__name__}: {factory_release_error}")
         raise
     workdir=os.path.join("output","interactive",str(int(time.time()))); os.makedirs(workdir,exist_ok=True); script_path=os.path.join(workdir,"script.json"); save(script,script_path)
     audio=synthesize_script(script,config,os.path.join(workdir,"audio"))

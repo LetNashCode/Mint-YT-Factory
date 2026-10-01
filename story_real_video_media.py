@@ -894,16 +894,16 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                     rejected.add(identity)
                                     source_rejections[sid] += 1
                                 print(f"Story clip rejected: {item['provider']} {start}s | {clean(verdict.get('reason'))}", flush=True)
-                                if counts[sid] == 0 and source_rejections[sid] >= 3:
+                                if counts[sid] == 0 and source_rejections[sid] >= max(1, int(os.environ.get("STORY_SOURCE_MAX_REJECTIONS", "2"))):
                                     blocked.add(sid)
                                     if _precheck_cache_eligible(item):
                                         precheck_cache[_precheck_cache_key(item)] = {
                                             "source_id": item.get("id"),
                                             "source_url": item.get("source_url"),
-                                            "reason": "visual verifier rejected source after three unusable identity samples",
+                                            "reason": "visual verifier rejected source after configured unusable identity samples",
                                         }
                                         _save_precheck_cache(precheck_cache)
-                                    print(f"Skipping source after three unusable identity samples: {item['source_url']}", flush=True)
+                                    print(f"Skipping source after {source_rejections[sid]} unusable identity samples: {item['source_url']}", flush=True)
                                     break
                                 continue
                             end = round(start + length, 2)

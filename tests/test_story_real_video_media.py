@@ -431,7 +431,7 @@ def test_manual_story_subject_keeps_history_protection(monkeypatch, person, topi
         assert writes[0]["person"] == person and writes[0]["status"] == "reserved"
 
 
-def test_unrelated_source_stops_after_four_identity_rejections(monkeypatch, tmp_path):
+def test_unrelated_source_stops_after_two_identity_rejections(monkeypatch, tmp_path):
     stub_pipeline(monkeypatch)
     monkeypatch.setattr(media, "discover", lambda *args: [candidate()])
     calls = []

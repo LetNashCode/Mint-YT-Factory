@@ -1030,3 +1030,20 @@ def test_story_workflow_recovery_is_branch_scoped():
     assert "--arg branch" in workflow
     assert "workflow_run.head_branch" in workflow
     assert "== $branch" in workflow
+
+
+def test_source_is_blocked_after_rejections_even_after_one_accepted_clip(monkeypatch, tmp_path):
+    stub_pipeline(monkeypatch)
+    monkeypatch.setattr(media, "discover", lambda *args: [candidate()])
+    calls = []
+    def mixed_verifier(*args):
+        calls.append(1)
+        if len(calls) == 1:
+            return dict(GOOD)
+        return {**GOOD, "relevance": 5}
+    monkeypatch.setattr(media, "verify", mixed_verifier)
+    with pytest.raises(RuntimeError, match="Insufficient verified"):
+        media.generate_media(story(), str(tmp_path), {})
+    # One accepted clip plus two rejected clips must block the source instead
+    # of allowing an unbounded verifier loop on the same recording.
+    assert len(calls) == 3

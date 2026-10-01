@@ -41,6 +41,13 @@ def recover() -> bool:
     _, workdir, script, final, person = sorted(candidates, reverse=True)[0]
     pillar = script.get("interactive_pillar") or "impossible_odds"
     topic = script.get("topic") or f"The story of {person}"
+    # Recovery must re-run the exact same final quality gate immediately before
+    # publication. The render manifest is checkpointed before this point in the
+    # normal pipeline, so a crash can leave a complete-looking render that was
+    # never quality-validated.
+    from final_video_quality_gate import validate as validate_final_render
+    validate_final_render(final)
+    print(f"✅ Recovered Story final quality gate passed: {final}")
     title = _title(pillar, person)
     description = f"A remarkable true story about {person} — the struggle, turning point, and moment that changed everything.\n\nWhat would you have done in {person}'s situation? 👇\n\nSubscribe and follow for more powerful stories about people who faced setbacks, made difficult choices, and changed their lives.\n\n#StoryShorts #TrueStory #Inspiration #Shorts"
     engagement = (script.get("engagement") or {}).get("comment") or f"What would you have done in {person}'s situation? 👇"

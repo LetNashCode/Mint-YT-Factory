@@ -3024,18 +3024,6 @@
     "published_at": 1790764901
   },
   {
-    "topic": "Why do garlic cloves turn blue",
-    "normalized": "why do garlic cloves turn blue",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1790777220,
-    "recorded_at": 1790777220,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do wooden hangers smell",
     "normalized": "why do wooden hangers smell",
     "workflow": "publish",
@@ -3100,5 +3088,21 @@
     "video_id": "n9MqlCt7zLQ",
     "workdir": "output/emotional_reel",
     "published_at": 1790853064
+  },
+  {
+    "topic": "Why do sponges get smelly",
+    "normalized": "why do sponges get smelly",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1790865639,
+    "recorded_at": 1790865639,
+    "metadata": {
+      "next_topic": "Why do envelopes taste sweet",
+      "creative_strategy": "wild"
+    },
+    "title": "Why Sponges Get Smelly",
+    "video_id": "A6V8O31FBek",
+    "workdir": "output/1790865706",
+    "published_at": 1790866766
   }
 ]

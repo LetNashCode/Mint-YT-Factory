@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T11:36:52.633997+00:00",
+  "generated_at": "2026-10-01T14:41:07.509454+00:00",
   "video_count": 129,
   "learning_ready": true,
   "metrics_available": true,
@@ -16,13 +16,13 @@
       "score": 36.991,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.352
+      "weak_score": 0.379
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.352,
+      "score": 0.379,
       "sample_size": 10
     }
   ],
@@ -46,12 +46,12 @@
     "Why do keys jingle",
     "bittersweet happiness: Finding a dusty box of mix CDs in a garage clean-up and plugging the last one into an old car stereo, hearing the exact track that was playing the night you got your driver's license.",
     "Why do wooden hangers smell",
-    "Israeli security forces shoot and kill Ahmad Zidani, Beit Rima, 18 Dec. 2016: Candidate discovered from Internet Archive; the footage and event context require factual review.",
     "Why do door knobs get loose",
+    "Israeli security forces shoot and kill Ahmad Zidani, Beit Rima, 18 Dec. 2016: Candidate discovered from Internet Archive; the footage and event context require factual review.",
+    "homesickness: Smelling the exact scent of woodsmoke and damp pine needles while opening a jar of imported maple syrup given by a neighbor from your hometown thousands of miles away.",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
-    "Why do steering wheels lock",
-    "homesickness: Smelling the exact scent of woodsmoke and damp pine needles while opening a jar of imported maple syrup given by a neighbor from your hometown thousands of miles away."
+    "Why do steering wheels lock"
   ],
   "used_topic_count": 129,
   "rules": [

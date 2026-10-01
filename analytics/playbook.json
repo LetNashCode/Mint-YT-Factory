@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-01T14:41:07.509454+00:00",
-  "video_count": 129,
+  "generated_at": "2026-10-01T17:29:57.179401+00:00",
+  "video_count": 130,
   "learning_ready": true,
   "metrics_available": true,
   "creative_learning_version": "v3",
@@ -16,13 +16,13 @@
       "score": 36.991,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.379
+      "weak_score": 0.277
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.379,
+      "score": 0.277,
       "sample_size": 10
     }
   ],
@@ -42,7 +42,6 @@
     "Why wet fingers wrinkle in water"
   ],
   "avoid_topics": [
-    "childhood memories: Finding the exact indent in the living room wall behind the couch where you used to hide your favorite comic books during childhood thunderstorms.",
     "Why do keys jingle",
     "bittersweet happiness: Finding a dusty box of mix CDs in a garage clean-up and plugging the last one into an old car stereo, hearing the exact track that was playing the night you got your driver's license.",
     "Why do wooden hangers smell",
@@ -51,9 +50,10 @@
     "homesickness: Smelling the exact scent of woodsmoke and damp pine needles while opening a jar of imported maple syrup given by a neighbor from your hometown thousands of miles away.",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
-    "Why do steering wheels lock"
+    "Why do steering wheels lock",
+    "Why do sponges get smelly"
   ],
-  "used_topic_count": 129,
+  "used_topic_count": 130,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

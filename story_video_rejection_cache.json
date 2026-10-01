@@ -415,6 +415,41 @@
       "source_id": "archive:SylvesterStallone1975CaponeSteve",
       "source_url": "https://archive.org/details/SylvesterStallone1975CaponeSteve",
       "reason": "visual verifier rejected source after three unusable identity samples"
+    },
+    "7fa3455a2c77f5ac538d3cb7": {
+      "source_id": "archive:interviewwithjanegoodallinbaselfebruary2008",
+      "source_url": "https://archive.org/details/interviewwithjanegoodallinbaselfebruary2008",
+      "reason": "visual verifier rejected source after configured unusable identity samples"
+    },
+    "4b641ffd74b9c34dc4f07367": {
+      "source_id": "archive:conversation-with-dr-jane-goodall-12-08-2023",
+      "source_url": "https://archive.org/details/conversation-with-dr-jane-goodall-12-08-2023",
+      "reason": "visual verifier rejected source after configured unusable identity samples"
+    },
+    "1e5d59953649caac8f515dba": {
+      "source_id": "archive:2014-09-09-21-55-jennifer-byrne-presents-jane-goodall-abc",
+      "source_url": "https://archive.org/details/2014-09-09-21-55-jennifer-byrne-presents-jane-goodall-abc",
+      "reason": "visual verifier rejected source after configured unusable identity samples"
+    },
+    "9c44868be03db089e0425086": {
+      "source_id": "archive:khosla-ka-ghosla-2006-webhd-1080-p-jhs",
+      "source_url": "https://archive.org/details/khosla-ka-ghosla-2006-webhd-1080-p-jhs",
+      "reason": "visual verifier rejected source after configured unusable identity samples"
+    },
+    "e45d475ef8d6a2202f5cc94e": {
+      "source_id": "archive:yt_p3qjlLYszEI",
+      "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+      "reason": "visual verifier rejected source after configured unusable identity samples"
+    },
+    "dc251fa3473d622250661379": {
+      "source_id": "archive:mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "reason": "visual verifier rejected source after configured unusable identity samples"
+    },
+    "7b714715046a726f8d1037a7": {
+      "source_id": "archive:cpaz-Black_History_Inspirational_Quotes",
+      "source_url": "https://archive.org/details/cpaz-Black_History_Inspirational_Quotes",
+      "reason": "visual verifier rejected source after configured unusable identity samples"
     }
   }
 }

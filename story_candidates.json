@@ -51,15 +51,50 @@
     "source": "gemini_original"
   },
   {
-    "format": "before_they_were_famous",
-    "person": "Boman Irani",
-    "premise": "Working as a wafer shopkeeper and photographer before finding widespread theatrical and film success in his 40s.",
-    "hook": "He spent years running a local bakery counter and shooting sports before his breakout movie role at age 41.",
+    "format": "one_decision",
+    "person": "Rosa Parks",
+    "premise": "A routine bus ride in Montgomery, Alabama leads to an arrest that ignites a historic civil rights movement.",
+    "hook": "One quiet refusal on a crowded bus sparked a 381-day boycott.",
     "key_facts": [
-      "Managed his family's bakery business and worked as a waiter at the Taj Mahal Palace.",
-      "Worked professionally as a sports photographer before entering theater.",
-      "Made his major Bollywood film debut in the 2003 comedy Munna Bhai M.B.B.S.",
-      "Became one of Indian cinema's most versatile and recognized character actors."
+      "Employed as a seamstress and active in the Montgomery NAACP chapter.",
+      "Refused to surrender her bus seat to a white passenger on December 1, 1955.",
+      "Her arrest led directly to the Montgomery bus boycott, altering American history."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "J.K. Rowling",
+    "premise": "A struggling single mother writes fantasy chapters in Edinburgh cafes while depending on state benefits.",
+    "hook": "Before selling millions of books, she wrote manuscript pages in local cafes while keeping warm with her baby.",
+    "key_facts": [
+      "Conceived the idea for a wizarding school while on a delayed train in 1990.",
+      "Completed the first novel while living in Edinburgh amid financial hardship.",
+      "Faced multiple rejections from publishing houses before Bloomsbury accepted the manuscript."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Anand Kumar",
+    "premise": "An Indian mathematician decides to abandon commercial coaching to tutor thirty underprivileged students for free.",
+    "hook": "He turned down lucrative corporate teaching offers to teach thirty impoverished kids for free.",
+    "key_facts": [
+      "Founded the educational program Super 30 in Patna, India, in 2002.",
+      "Provided free residential coaching, food, and lodging to students from low-income families.",
+      "Achieved high success rates with students qualifying for the Indian Institute of Technology entrance exams."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Walt Disney",
+    "premise": "A young animator loses the rights to his first major cartoon character before creating a globally famous mouse.",
+    "hook": "After his first successful cartoon character was stolen, he drew a little mouse on a train ride home.",
+    "key_facts": [
+      "Created Oswald the Lucky Rabbit for Universal Pictures, only to lose the contract and character rights in 1928.",
+      "Created Mickey Mouse during a train journey following the loss of his previous studio work.",
+      "Produced Steamboat Willie, one of the first sound cartoons, achieving mainstream success."
     ],
     "source": "gemini_original"
   }

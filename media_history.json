@@ -9979,6 +9979,116 @@
       "shot": 2,
       "query": "keys jingle unstoppable vibration precisely old",
       "recorded_at": 1790793643
+    },
+    {
+      "asset_key": "pexels:video:8292925",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8292925/8292925-hd_1280_720_30fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "door knobs away",
+      "recorded_at": 1790842518
+    },
+    {
+      "asset_key": "pexels:video:39081408",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39081408/16630051_720_1280_30fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "door knobs knob",
+      "recorded_at": 1790842527
+    },
+    {
+      "asset_key": "pexels:video:30403465",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30403465/13029916_1280_720_24fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "door knobs get feels haunted shadows",
+      "recorded_at": 1790842528
+    },
+    {
+      "asset_key": "pexels:video:11409779",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/11409779/11409779-hd_720_1280_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "door knobs get staging silent rebellion hand",
+      "recorded_at": 1790842531
+    },
+    {
+      "asset_key": "pexels:video:29038649",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/29038649/12553723_1280_720_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "door knobs get rotational force against tiny",
+      "recorded_at": 1790842536
+    },
+    {
+      "asset_key": "pixabay:video:188595",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2023/11/10/188595-883402169_medium.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "door knobs get brass surface light glinting",
+      "recorded_at": 1790842539
+    },
+    {
+      "asset_key": "pexels:video:6994416",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6994416/6994416-hd_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "door knobs get directional shock delivered dozens",
+      "recorded_at": 1790842540
+    },
+    {
+      "asset_key": "pexels:video:30274233",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30274233/12977817_720_1280_24fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "door knobs get tiny wedge screw head",
+      "recorded_at": 1790842543
+    },
+    {
+      "asset_key": "pexels:video:2108274",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/2108274/2108274-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "door knobs get slowly hands",
+      "recorded_at": 1790842550
+    },
+    {
+      "asset_key": "pixabay:video:3742",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/07/08/3742-174173818_medium.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "door knobs get handiwork one microscopic turn",
+      "recorded_at": 1790842554
+    },
+    {
+      "asset_key": "pexels:video:9583985",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9583985/9583985-hd_1280_720_25fps.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "door knobs time",
+      "recorded_at": 1790842561
     }
   ]
 }

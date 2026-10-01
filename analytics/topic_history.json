@@ -3082,5 +3082,21 @@
     "video_id": "4LmoFG_-GYw",
     "workdir": "output/1790793326",
     "published_at": 1790794721
+  },
+  {
+    "topic": "Why do door knobs get loose",
+    "normalized": "why do door knobs get loose",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1790842250,
+    "recorded_at": 1790842250,
+    "metadata": {
+      "next_topic": "Why do sponges get smelly",
+      "creative_strategy": ""
+    },
+    "title": "Why Do Door Knobs Get Loose",
+    "video_id": "0Pk3sVpM7k0",
+    "workdir": "output/1790842345",
+    "published_at": 1790843715
   }
 ]

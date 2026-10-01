@@ -1,0 +1,59 @@
+name: Story Shorts CI
+
+on:
+  push:
+    paths:
+      - "story_*.py"
+      - "interactive_*.py"
+      - "generate_script/interactive.py"
+      - "stock_media_resilient.py"
+      - "stock_search.py"
+      - "story_render_recovery.py"
+      - ".github/workflows/story-shorts.yml"
+      - "tests/test_story_*.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  story-quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install Story test dependencies
+        run: |
+          pip install pytest requests PyYAML "Pillow<10" opencv-python-headless==4.10.0.84 google-genai
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+      - name: Run Story regression suite
+        run: |
+          python -m pytest -q \
+            tests/test_factory_content_memory.py \
+            tests/test_learning_engine.py \
+            tests/test_story_media_quality.py \
+            tests/test_story_real_video_media.py \
+            tests/test_story_visual_upgrade.py \
+            tests/test_story_gemini_budget.py \
+            tests/test_entertainment_qwen_fallback.py \
+            tests/test_story_qwen_vision_fallback.py \
+            -k 'not emotional_topic_gate'
+      - name: Compile Story production runtime
+        run: |
+          python -m py_compile \
+            story_gemini_budget.py \
+            story_qwen_vision_fallback.py \
+            story_visual_upgrade.py \
+            story_identity_runner.py \
+            story_real_video_media.py \
+            story_render_recovery.py \
+            interactive_main.py \
+            story_media_preflight.py \
+            final_video_quality_gate.py \
+            upload_youtube.py \
+            validate_video.py \
+            assemble.py

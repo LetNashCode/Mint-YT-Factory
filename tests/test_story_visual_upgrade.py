@@ -50,6 +50,7 @@ def clean_state(monkeypatch, tmp_path):
     monkeypatch.setattr(upgrade, "CATALOG_PATH", tmp_path / "catalog.json")
     monkeypatch.setattr(upgrade, "_PREPARED", {})
     monkeypatch.setattr(upgrade, "_LAST_GROUPS", [])
+    upgrade._PREFLIGHT_CACHE.clear()
 
 
 def test_cache_reuses_only_identical_review_and_rechecks_changed_samples(monkeypatch, tmp_path):

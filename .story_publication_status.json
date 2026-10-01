@@ -2,5 +2,5 @@
   "status": "deferred",
   "video_id": "",
   "youtube_url": "",
-  "reason": "Story verifier network unavailable after 2 attempts on gemini-flash-lite-latest."
+  "reason": "No unused Story subject with real-video candidates found in eight attempts"
 }

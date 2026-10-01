@@ -39,31 +39,6 @@
   },
   {
     "format": "before_they_were_famous",
-    "person": "Dwyane Johnson",
-    "premise": "Facing eviction and having only seven dollars to his name before finding his footing in professional wrestling.",
-    "hook": "Before he was a global movie star, his family was evicted with only seven dollars in their pockets.",
-    "key_facts": [
-      "Played college football for the University of Miami and briefly in the Canadian Football League.",
-      "Suffered a career-ending shoulder injury that led to being cut from his football team.",
-      "Entered professional wrestling with the WWF as Rocky Maivia.",
-      "Transformed into 'The Rock' and became one of the most popular wrestlers in history."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Rosa Parks",
-    "premise": "A routine bus ride in Montgomery, Alabama leads to an arrest that ignites a historic civil rights movement.",
-    "hook": "One quiet refusal on a crowded bus sparked a 381-day boycott.",
-    "key_facts": [
-      "Employed as a seamstress and active in the Montgomery NAACP chapter.",
-      "Refused to surrender her bus seat to a white passenger on December 1, 1955.",
-      "Her arrest led directly to the Montgomery bus boycott, altering American history."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
     "person": "J.K. Rowling",
     "premise": "A struggling single mother writes fantasy chapters in Edinburgh cafes while depending on state benefits.",
     "hook": "Before selling millions of books, she wrote manuscript pages in local cafes while keeping warm with her baby.",
@@ -76,25 +51,61 @@
   },
   {
     "format": "one_decision",
-    "person": "Anand Kumar",
-    "premise": "An Indian mathematician decides to abandon commercial coaching to tutor thirty underprivileged students for free.",
-    "hook": "He turned down lucrative corporate teaching offers to teach thirty impoverished kids for free.",
+    "person": "Sara Blakely",
+    "premise": "How cutting the feet off her pantyhose led to founding Spanx.",
+    "hook": "She had $5,000 in savings, zero fashion experience, and a pair of scissors.",
     "key_facts": [
-      "Founded the educational program Super 30 in Patna, India, in 2002.",
-      "Provided free residential coaching, food, and lodging to students from low-income families.",
-      "Achieved high success rates with students qualifying for the Indian Institute of Technology entrance exams."
+      "Worked as a door-to-door fax machine salesperson for seven years.",
+      "Cut the feet out of her control-top pantyhose to wear under white pants for a party.",
+      "Wrote her own patent application to save legal fees before launching the shapewear brand."
     ],
     "source": "gemini_original"
   },
   {
     "format": "before_they_were_famous",
-    "person": "Walt Disney",
-    "premise": "A young animator loses the rights to his first major cartoon character before creating a globally famous mouse.",
-    "hook": "After his first successful cartoon character was stolen, he drew a little mouse on a train ride home.",
+    "person": "Jackie Chan",
+    "premise": "His grueling decade training at the China Drama Academy as a child.",
+    "hook": "Before he broke box office records, he trained for 19 hours a day under a master who promised teachers could break their bones.",
     "key_facts": [
-      "Created Oswald the Lucky Rabbit for Universal Pictures, only to lose the contract and character rights in 1928.",
-      "Created Mickey Mouse during a train journey following the loss of his previous studio work.",
-      "Produced Steamboat Willie, one of the first sound cartoons, achieving mainstream success."
+      "Enrolled in the Beijing Opera School (China Drama Academy) at age six by his parents.",
+      "Trained rigorously in martial arts, acrobatics, singing, and acting for ten years.",
+      "Worked as a stuntman and extra in Bruce Lee films before landing leading roles."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Fred Smith",
+    "premise": "Using his company's last remaining funds to play blackjack in Las Vegas after nearly going bankrupt.",
+    "hook": "When FedEx was on the brink of collapse with $5,000 left, the founder flew to Vegas and gambled it.",
+    "key_facts": [
+      "Founded Federal Express in 1971, facing massive startup costs and regulatory hurdles.",
+      "Used the remaining $5,000 of company funds to play blackjack and won $27,000.",
+      "The winnings kept the company's fuel tanks filled for a few more days until emergency funding arrived."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Kalpana Chawla",
+    "premise": "Growing up in a small town in Haryana with a fascination for aviation before reaching space.",
+    "hook": "She grew up in a town where girls rarely pursued engineering, yet sketched airplanes on her school notebooks every day.",
+    "key_facts": [
+      "Graduated with a degree in Aeronautical Engineering from Punjab Engineering College in India.",
+      "Emigrated to the United States to earn master's and doctoral degrees in aerospace engineering.",
+      "Selected by NASA as an astronaut candidate in 1994, making her first spaceflight in 1997."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Louis Braille",
+    "premise": "Inventing a revolutionary tactile reading system for the blind after losing his sight as a young child.",
+    "hook": "Blinded by an accident in his father's workshop at age three, he invented a code using six raised dots at age fifteen.",
+    "key_facts": [
+      "Injured his right eye with a stitching awl in his father's harness-making shop, leading to total blindness.",
+      "Attended the Royal Institution for Blind Youth in Paris, where books were printed in heavy embossed raised letters.",
+      "Adapted a military 'night writing' code of raised dots to create the Braille alphabet."
     ],
     "source": "gemini_original"
   }

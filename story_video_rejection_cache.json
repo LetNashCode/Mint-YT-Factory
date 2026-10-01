@@ -450,6 +450,76 @@
       "source_id": "archive:cpaz-Black_History_Inspirational_Quotes",
       "source_url": "https://archive.org/details/cpaz-Black_History_Inspirational_Quotes",
       "reason": "visual verifier rejected source after configured unusable identity samples"
+    },
+    "a389699abd7890503cb04f04": {
+      "source_id": "archive:full-interview-of-prof.-anand-kumar-on-indian-caste-system",
+      "source_url": "https://archive.org/details/full-interview-of-prof.-anand-kumar-on-indian-caste-system",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "8c40a064d19cdac1645a41a1": {
+      "source_id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+      "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "d23001dca1ba11a38883ca60": {
+      "source_id": "archive:DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
+      "source_url": "https://archive.org/details/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "cb0618032cb58b601b1beee0": {
+      "source_id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "6f0463bc8d88f2502a4de9ab": {
+      "source_id": "archive:Ice_Skating_at_Rosa_Parks_Circle",
+      "source_url": "https://archive.org/details/Ice_Skating_at_Rosa_Parks_Circle",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "61b348fb13eb647063a35343": {
+      "source_id": "archive:Rosa_Parks_Farmers_Market_Spanish_Version",
+      "source_url": "https://archive.org/details/Rosa_Parks_Farmers_Market_Spanish_Version",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "0648ee58775ae8cd7b86c144": {
+      "source_id": "archive:walt-disney-mini-classics",
+      "source_url": "https://archive.org/details/walt-disney-mini-classics",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "74ae0f04629b0ba2609f9d0c": {
+      "source_id": "archive:roosterteeth-46594",
+      "source_url": "https://archive.org/details/roosterteeth-46594",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "7c0f7f5db7bb837c4fdfbda5": {
+      "source_id": "archive:walt-disney-pictures-history-2023_202310",
+      "source_url": "https://archive.org/details/walt-disney-pictures-history-2023_202310",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "bad0a8d9652350e3b2ccfbf0": {
+      "source_id": "archive:walt-disney-weekly-blogs",
+      "source_url": "https://archive.org/details/walt-disney-weekly-blogs",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "0424e68e7dcd7906464db518": {
+      "source_id": "archive:g4tv.com-video49139",
+      "source_url": "https://archive.org/details/g4tv.com-video49139",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "cb7f0cbd3f97a2f59201e7ab": {
+      "source_id": "archive:g4tv.com-video49139-flvhd",
+      "source_url": "https://archive.org/details/g4tv.com-video49139-flvhd",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "eacb9ea9598eadf52575ac5c": {
+      "source_id": "archive:twitter-1132004010678935552",
+      "source_url": "https://archive.org/details/twitter-1132004010678935552",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "70955774c1b6d8687b5ce10f": {
+      "source_id": "archive:Santos_Comics_-_El_lado_comiquero_de_Guillermo_del_Toro_-_16_01_2018",
+      "source_url": "https://archive.org/details/Santos_Comics_-_El_lado_comiquero_de_Guillermo_del_Toro_-_16_01_2018",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
     }
   }
 }

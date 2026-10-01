@@ -3104,5 +3104,21 @@
     "video_id": "A6V8O31FBek",
     "workdir": "output/1790865706",
     "published_at": 1790866766
+  },
+  {
+    "topic": "Why do envelopes taste sweet",
+    "normalized": "why do envelopes taste sweet",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1790882060,
+    "recorded_at": 1790882060,
+    "metadata": {
+      "next_topic": "Why does ketchup resist pouring",
+      "creative_strategy": ""
+    },
+    "title": "The Sweet Secret Behind Envelopes",
+    "video_id": "YjxPvRbR-iM",
+    "workdir": "output/1790882106",
+    "published_at": 1790883636
   }
 ]

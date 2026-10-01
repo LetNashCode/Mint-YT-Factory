@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T17:29:57.179401+00:00",
+  "generated_at": "2026-10-01T19:14:43.258995+00:00",
   "video_count": 130,
   "learning_ready": true,
   "metrics_available": true,
@@ -13,16 +13,16 @@
   "winning_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 36.991,
+      "score": 38.782,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.277
+      "weak_score": 0.366
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.277,
+      "score": 0.366,
       "sample_size": 10
     }
   ],
@@ -32,21 +32,21 @@
   "winning_topics": [
     "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
     "Why do clothes shrink in dryers",
+    "Israeli security forces shoot and kill Ahmad Zidani, Beit Rima, 18 Dec. 2016: Candidate discovered from Internet Archive; the footage and event context require factual review.",
     "Why do earbuds tangle in pockets",
     "Why paperclips float on water",
+    "Stephen King: The discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon.",
     "Why window glass warps reflections",
     "Why ice cream gives you brain freeze",
-    "Why candles tunnel down the middle",
-    "Why do old books smell so good",
-    "Why do door hinges squeak",
-    "Why wet fingers wrinkle in water"
+    "Why do lightbulbs pop",
+    "Why candles tunnel down the middle"
   ],
   "avoid_topics": [
+    "Why do frying pans warp",
     "Why do keys jingle",
     "bittersweet happiness: Finding a dusty box of mix CDs in a garage clean-up and plugging the last one into an old car stereo, hearing the exact track that was playing the night you got your driver's license.",
     "Why do wooden hangers smell",
     "Why do door knobs get loose",
-    "Israeli security forces shoot and kill Ahmad Zidani, Beit Rima, 18 Dec. 2016: Candidate discovered from Internet Archive; the footage and event context require factual review.",
     "homesickness: Smelling the exact scent of woodsmoke and damp pine needles while opening a jar of imported maple syrup given by a neighbor from your hometown thousands of miles away.",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",

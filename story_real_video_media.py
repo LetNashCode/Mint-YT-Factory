@@ -902,9 +902,8 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                             audit["attempts"].append({"scene": scene_no, "shot": shot_no, "source": item["source_url"],
                                                       "start": start, "verification": verdict})
                             if not (catalog.accepts(verdict) if catalog is not None else verification_passes(verdict)):
-                                if any(verdict.get(key) is not True for key in ("person_visible", "real_footage", "usable")):
-                                    rejected.add(identity)
-                                    source_rejections[sid] += 1
+                                rejected.add(identity)
+                                source_rejections[sid] += 1
                                 print(f"Story clip rejected: {item['provider']} {start}s | {clean(verdict.get('reason'))}", flush=True)
                                 configured_rejections = os.environ.get("STORY_SOURCE_MAX_REJECTIONS", "2")
                                 try:
@@ -912,7 +911,7 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                 except ValueError:
                                     rejection_limit = 2
                                 rejection_limit = min(2, max(1, rejection_limit))
-                                if counts[sid] == 0 and source_rejections[sid] >= rejection_limit:
+                                if source_rejections[sid] >= rejection_limit:
                                     blocked.add(sid)
                                     if _precheck_cache_eligible(item):
                                         precheck_cache[_precheck_cache_key(item)] = {

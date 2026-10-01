@@ -317,6 +317,16 @@ def main() -> None:
     # choose another unused subject, and retry the complete Story generation.
     max_story_attempts = 4
     for attempt in range(1, max_story_attempts + 1):
+        # A fresh subject needs up to the hard 14-clip minimum. Do not start
+        # another full production attempt once the remaining run-wide budget
+        # cannot support that minimum.
+        budget_status = story_gemini_budget.status()
+        remaining_budget = int(budget_status.get("limit") or 0) - int(budget_status.get("used") or 0)
+        if attempt > 1 and remaining_budget < 14:
+            _defer_story(
+                f"Story visual budget has only {remaining_budget} Gemini requests remaining; "
+                "not enough for another complete 14-clip subject attempt."
+            )
         try:
             runpy.run_path("interactive_main.py", run_name="__main__")
             break

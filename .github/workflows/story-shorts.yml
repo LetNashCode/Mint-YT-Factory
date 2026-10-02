@@ -161,9 +161,13 @@ jobs:
           ENABLE_QWEN_VISION_FALLBACK: '0'
         run: |
           set -euo pipefail
-          rm -f .story_gemini_quota_deferred .story_verifier_budget_deferred .story_gemini_budget_deferred
+          # Start each production attempt with no stale publication result.
+          # Recovery/resume paths have already completed before this step when applicable.
+          rm -f .story_publication_status.json .story_deferred
+          rm -f .story_gemini_quota_deferred .story_verifier_budget_deferred .story_gemini_budget_deferred .story_gemini_network_deferred
           echo "🎬 Story media route: verified real-person video segments (Commons, Internet Archive; no YouTube downloads)"
           python -u youtube_auth_preflight.py
+          set +e
           python -u - <<'PY'
           import sys, traceback
           try:
@@ -176,6 +180,20 @@ jobs:
               traceback.print_exc(file=sys.stdout)
               raise SystemExit(1)
           PY
+          rc=$?
+          set -e
+
+          # A temporary Gemini verifier outage is an intentional Story defer,
+          # not a broken production artifact. Keep the run green so the next
+          # scheduled run can retry the reserved subject.
+          if [ "$rc" -ne 0 ] && [ -f .story_publication_status.json ]; then
+            deferred_status="$(jq -r '.status // ""' .story_publication_status.json)"
+            if [ "$deferred_status" = "deferred" ]; then
+              echo "⏸️ Story publication deferred safely; no video was published."
+              exit 0
+            fi
+          fi
+          exit "$rc"
       - name: Report Story media diagnostics
         if: failure()
         run: |
@@ -203,6 +221,20 @@ jobs:
           video_id="$(jq -r '.video_id // ""' "$status_file")"
           url="$(jq -r '.youtube_url // ""' "$status_file")"
           echo "Story publication status: $status"
+
+          if [ "$status" = "deferred" ]; then
+            reason="$(jq -r '.reason // "Temporary provider or verification issue; publication was safely deferred."' "$status_file")"
+            echo "⏸️ Story Shorts publication deferred: $reason"
+            {
+              echo "## Story Shorts publication deferred"
+              echo ""
+              echo "- Status: DEFERRED"
+              echo "- Reason: $reason"
+              echo "- No YouTube publication was confirmed."
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
           if [ "$status" != "complete" ] || [ -z "$video_id" ]; then
             reason="$(jq -r '.reason // "No complete publication was confirmed."' "$status_file")"
             echo "::error::Story Shorts did not complete successfully. Status=$status Reason=$reason"

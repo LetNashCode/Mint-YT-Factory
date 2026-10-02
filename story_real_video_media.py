@@ -40,7 +40,7 @@ DEFAULT_VERIFIER_REQUEST_BUDGET = story_gemini_budget.DEFAULT_MAX_REQUESTS
 GEMINI_MODEL = "gemini-flash-lite-latest"
 
 PRECHECK_CACHE_FILE = Path("story_video_rejection_cache.json")
-PRECHECK_CACHE_VERSION = 1
+PRECHECK_CACHE_VERSION = 2
 _POSITIVE_ARCHIVAL_TERMS = (
     "interview", "speech", "talk", "address", "press conference",
     "news conference", "ceremony", "award", "summit", "documentary",
@@ -258,7 +258,8 @@ def _identity_score(person, item):
 
 def person_match(person, item):
     # Never include the search query itself as evidence: it was supplied by us.
-    return _identity_score(person, item) >= 5.0
+    # Description matches are candidates only; Gemini must prove the footage.
+    return _identity_score(person, item) >= 4.0
 
 
 def get_json(url, **params):
@@ -376,6 +377,7 @@ def search_archive(person):
     queries = [
         f'mediatype:movies AND title:"{term}" AND NOT identifier:youtube-*',
         f'mediatype:movies AND subject:"{term}" AND NOT identifier:youtube-*',
+        f'mediatype:movies AND description:"{term}" AND NOT identifier:youtube-*',
     ]
     results, seen = [], set()
 
@@ -435,12 +437,15 @@ def search_archive(person):
             candidate["archival_signal"] = sum(
                 1 for term in _POSITIVE_ARCHIVAL_TERMS if term in metadata_text
             )
-            # For Internet Archive, require the person's name in title/subject.
-            # Description-only matches are too noisy for a verifier-budgeted flow.
+            # Description matches are discovery candidates only; Gemini remains
+            # the actual visual identity/context gate. This lets documentaries
+            # mention the person in catalog metadata without forcing their name
+            # into the title or subject field.
             identity_fields = words(title + " " + subject)
-            if not _person_tokens(person) <= identity_fields:
+            description_fields = words(description)
+            if not _person_tokens(person) <= (identity_fields | description_fields):
                 continue
-            if candidate["identity_score"] < 5.0:
+            if candidate["identity_score"] < 4.0:
                 continue
 
             try:

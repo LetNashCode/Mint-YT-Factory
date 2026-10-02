@@ -145,7 +145,7 @@ def preflight_candidate(person, topic=""):
     cache_changed = False
     for item in raw:
         reason = media._source_precheck(item)
-        cache_key = media._precheck_cache_key(item)
+        cache_key = media._precheck_cache_key(item, person)
         if reason:
             audit["rejected"] += 1
             if media._precheck_cache_eligible(item):

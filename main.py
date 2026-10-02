@@ -249,13 +249,73 @@ def _is_transient_gemini_error(error):
     return any(x in text for x in ("503","unavailable","high demand","deadline exceeded","timeout","temporarily"))
 def write_continuation_manifest(current_topic,next_topic,status,workdir=""): save_json({"status":status,"current_topic":current_topic,"next_topic":next_topic,"workdir":workdir,"updated_at":int(time.time())},CONTINUATION_MANIFEST)
 def build_youtube_metadata(script):
-    topic=str(script.get("topic","Wonder Minute curiosity")).strip(); title=str(script.get("title",topic or "Wonder Minute Short")).strip()[:100]; description=f"A quick look at {topic} and the everyday mystery behind it."; tags=script.get("tags",[]); hashtags=[]
-    if isinstance(tags,list):
-        for tag in tags[:12]:
-            tag=str(tag).strip().replace("#","").replace(" ","")
-            if tag: hashtags.append("#"+tag)
-    if hashtags: description+="\n\n"+" ".join(hashtags)
-    return title,description[:4500]
+    """Build topic-specific YouTube metadata without stuffing keywords.
+    
+    Metadata supports discovery, but recommendation performance is driven much
+    more by viewer satisfaction, retention and engagement. Keep the metadata
+    accurate to the current Short and avoid generic/tag spam.
+    """
+    topic = re.sub(r"\\s+", " ", str(script.get("topic") or "Wonder Minute curiosity")).strip()
+    title = re.sub(r"\\s+", " ", str(script.get("title") or topic or "Wonder Minute Short")).strip()
+    title = title[:70].rstrip(" .-")
+
+    scenes = script.get("scene_plan") or []
+    narration = " ".join(
+        str(scene.get("narration") or "").strip()
+        for scene in scenes if isinstance(scene, dict)
+    )
+    clean = lambda value: re.sub(r"[^a-zA-Z0-9' -]", " ", str(value or ""))
+    topic_terms = [w.lower() for w in re.findall(r"[A-Za-z]{3,}", clean(topic))]
+    topic_terms = list(dict.fromkeys(topic_terms))
+
+    raw_tags = script.get("tags") if isinstance(script.get("tags"), list) else []
+    tags = []
+    for value in raw_tags:
+        tag = re.sub(r"[^A-Za-z0-9 -]", "", str(value or "")).strip().lower()
+        if tag and tag not in tags:
+            tags.append(tag)
+
+    # Add a small set of truthful search variants derived from the actual topic.
+    candidates = [
+        topic,
+        " ".join(topic_terms),
+        *topic_terms,
+        "Wonder Minute",
+        "science facts",
+        "curiosity",
+        "explained",
+        "how things work",
+    ]
+    for value in candidates:
+        tag = re.sub(r"[^A-Za-z0-9 -]", "", str(value or "")).strip().lower()
+        if tag and tag not in tags:
+            tags.append(tag)
+    tags = tags[:12]
+
+    # Description leads with the exact topic, gives the viewer useful context,
+    # and uses only a few relevant hashtags rather than a generic hashtag wall.
+    description = (
+        f"{topic}. "
+        f"Here's the surprising science, history, or everyday explanation behind it "
+        f"in under a minute. "
+        f"Watch through the payoff and follow Wonder Minute for more curious stories."
+    )
+    if narration:
+        first_sentence = re.split(r"(?<=[.!?])\\s+", narration.strip())[0].strip()
+        if first_sentence and len(first_sentence) <= 180 and first_sentence.lower() not in description.lower():
+            description += f"\\n\\n{first_sentence}"
+
+    # Keep hashtags tightly relevant; generic #shorts is retained because this
+    # is a Short, but avoid stuffing every configured hashtag into the description.
+    hashtag_pool = [topic, *tags[:3], "shorts"]
+    hashtags = []
+    for value in hashtag_pool:
+        tag = re.sub(r"[^A-Za-z0-9]", "", str(value or "")).strip().lower()
+        if tag and tag not in hashtags:
+            hashtags.append("#" + tag)
+    hashtags = hashtags[:5]
+    description += "\n\n" + " ".join(hashtags)
+    return title, description[:2000]
 def refresh_learning_before_generation():
     print("="*80); print("📊 REFRESHING LIVE YOUTUBE ANALYTICS BEFORE GENERATION"); print("="*80)
     try:

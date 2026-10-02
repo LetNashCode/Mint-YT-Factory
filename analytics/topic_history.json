@@ -3120,5 +3120,21 @@
     "video_id": "YjxPvRbR-iM",
     "workdir": "output/1790882106",
     "published_at": 1790883636
+  },
+  {
+    "topic": "Why does ketchup resist pouring",
+    "normalized": "why does ketchup resist pouring",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1790927536,
+    "recorded_at": 1790927536,
+    "metadata": {
+      "next_topic": "Why honey crystallizes in the jar",
+      "creative_strategy": "wild"
+    },
+    "title": "The Ketchup Trap",
+    "video_id": "5i0Z2ZCCdqI",
+    "workdir": "output/1790927586",
+    "published_at": 1790928679
   }
 ]

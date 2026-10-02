@@ -354,4 +354,33 @@ if not any(isinstance(x, _RiddleQualityFinder) for x in sys.meta_path):
     sys.meta_path.insert(0, _RiddleQualityFinder())
 
 
-__all__ = ["generate_script", "build_system_prompt", "build_user_prompt", "validate_script"]
+
+# ---------------------------------------------------------------------------
+# PUBLISH SHORTS TEST/COMPATIBILITY API
+# ---------------------------------------------------------------------------
+# generate_script.py remains the canonical home of the Publish blueprint and
+# validation contracts used by the CI suite. Because this directory is also a
+# Python package, import generate_script resolves here instead of the sibling
+# generate_script.py module. Re-export the Publish contract helpers explicitly
+# so tests and diagnostics continue to exercise the production validation rules.
+# The active runtime generator remains generate_script above.
+
+_LEGACY_PUBLISH_PATH = _ROOT.parent / "generate_script.py"
+_LEGACY_SPEC = importlib.util.spec_from_file_location(
+    "_mint_publish_generate_script_compat",
+    _LEGACY_PUBLISH_PATH,
+)
+if _LEGACY_SPEC is None or _LEGACY_SPEC.loader is None:
+    raise ImportError(f"Could not load Publish compatibility module: {_LEGACY_PUBLISH_PATH}")
+
+_LEGACY_PUBLISH = importlib.util.module_from_spec(_LEGACY_SPEC)
+_LEGACY_SPEC.loader.exec_module(_LEGACY_PUBLISH)
+
+_blueprint_schema = _LEGACY_PUBLISH._blueprint_schema
+_entertainment_schema = _LEGACY_PUBLISH._entertainment_schema
+_entertainment_prompt = _LEGACY_PUBLISH._entertainment_prompt
+_validate_no_future_topic_in_story = _LEGACY_PUBLISH._validate_no_future_topic_in_story
+_validate_retired_subject_bleed = _LEGACY_PUBLISH._validate_retired_subject_bleed
+_validate_visuals = _LEGACY_PUBLISH._validate_visuals
+
+__all__ = ["generate_script", "build_system_prompt", "build_user_prompt", "validate_script", "_blueprint_schema", "_entertainment_schema", "_entertainment_prompt", "_validate_no_future_topic_in_story", "_validate_retired_subject_bleed", "_validate_visuals"]

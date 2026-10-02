@@ -679,7 +679,7 @@ def _validate_visuals(visual_plan, entertainment, topic):
             # Shot 2 must advance the physical story rather than showing a second
             # static version of the same action.
             if j == 1 and previous_focus and focus.lower() == previous_focus.lower():
-                raise RuntimeError(f"Visual director scene {i+1} shot 2 duplicates shot 1.")
+                raise RuntimeError(f"Visual director scene {i+1} shot 2 does not advance the physical action: duplicates shot 1.")
             if j == 1:
                 prev_action = _clean(visuals[0].get("visual_action")).lower()
                 curr_action = action.lower()

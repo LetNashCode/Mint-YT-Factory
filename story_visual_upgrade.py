@@ -141,12 +141,31 @@ def preflight_candidate(person, topic=""):
     raw = list({item["id"]: item for item in discovered + known}.values())
     audit["discovered"] = len(raw)
     pool = []
+    precheck_cache = media._load_precheck_cache()
+    cache_changed = False
     for item in raw:
         reason = media._source_precheck(item)
+        cache_key = media._precheck_cache_key(item)
         if reason:
+            audit["rejected"] += 1
+            if media._precheck_cache_eligible(item):
+                precheck_cache[cache_key] = {
+                    "source_id": item.get("id"),
+                    "source_url": item.get("source_url"),
+                    "reason": reason,
+                }
+                cache_changed = True
+            continue
+        # The production verifier uses the same persistent deterministic
+        # source-rejection cache. Preflight must therefore apply it too;
+        # otherwise it can announce a source as usable and production can
+        # immediately discard the exact same source.
+        if media._precheck_cache_eligible(item) and cache_key in precheck_cache:
             audit["rejected"] += 1
             continue
         pool.append(item)
+    if cache_changed:
+        media._save_precheck_cache(precheck_cache)
 
     max_sources = max(4, int(os.environ.get("STORY_PREFLIGHT_SOURCE_LIMIT", "6")))
     pool.sort(key=lambda item: (

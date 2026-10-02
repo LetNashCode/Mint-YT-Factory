@@ -455,7 +455,12 @@ def run(dry_run=False):
     if (quality.get("width"),quality.get("height"))!=EXPECTED_UPLOAD_RESOLUTION: raise RuntimeError("Upload blocked: final video is not 2160x3840 4K portrait.")
     if abs(float(quality.get("fps",0))-EXPECTED_UPLOAD_FPS)>0.05: raise RuntimeError("Upload blocked: final video is not 60 fps.")
     if float(quality.get("bitrate_mbps",0))<MIN_UPLOAD_BITRATE_MBPS: raise RuntimeError(f"Upload blocked: final video bitrate is below the {MIN_UPLOAD_BITRATE_MBPS:.0f} Mbps production floor.")
-    title,description,youtube_tags=build_youtube_metadata(script);\n    # upload_youtube uses config SEO tags for the API tag field; pass the same\n    # topic-specific set used to build the description instead of generic defaults.\n    seo_config = config.setdefault("seo", {}); seo_config["hashtags"] = youtube_tags\n    engagement_comment=str((script.get("engagement") or {}).get("comment") or "").strip() or None; thumbnail_path=os.path.join(workdir,"thumbnail.jpg"); thumbnail_path=thumbnail_path if os.path.exists(thumbnail_path) else None
+    title,description,youtube_tags=build_youtube_metadata(script)
+    # upload_youtube uses config SEO tags for the API tag field; pass the same
+    # topic-specific set used to build the description instead of generic defaults.
+    seo_config = config.setdefault("seo", {})
+    seo_config["hashtags"] = youtube_tags
+    engagement_comment=str((script.get("engagement") or {}).get("comment") or "").strip() or None; thumbnail_path=os.path.join(workdir,"thumbnail.jpg"); thumbnail_path=thumbnail_path if os.path.exists(thumbnail_path) else None
     upload_result=upload_video(final_video,title,description,config,thumbnail_path=thumbnail_path,engagement_comment=engagement_comment); video_id=str(upload_result or "").strip()
     if not video_id: raise RuntimeError("Upload succeeded without a video ID; refusing to mutate topic state.")
     _save_publish_state(workdir,{"status":"youtube_published","uploaded":True,"topic":topic,"next_topic":next_topic,"video_id":video_id})

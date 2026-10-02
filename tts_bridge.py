@@ -59,7 +59,11 @@ def _fit_core_duration(clip, target_duration):
     source_limit = max(0.0, duration - 0.001)
 
     def time_map(t):
-        return np.minimum(np.asarray(t) / speed, source_limit)
+        # fl_time() maps output time -> source time. When speeding audio up,
+        # output time must advance through the source *faster*, so multiply by
+        # speed. Dividing here truncates the end of the narration and can drop
+        # late scenes before the protected continuation bridge.
+        return np.minimum(np.asarray(t) * speed, source_limit)
 
     fitted = clip.fl_time(time_map, apply_to=["audio"]).set_duration(duration / speed)
     print(f"✅ Protected core speed: {speed:.3f}x ({duration:.2f}s → {fitted.duration:.2f}s)")

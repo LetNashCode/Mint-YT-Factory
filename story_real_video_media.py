@@ -40,7 +40,7 @@ DEFAULT_VERIFIER_REQUEST_BUDGET = story_gemini_budget.DEFAULT_MAX_REQUESTS
 GEMINI_MODEL = "gemini-flash-lite-latest"
 
 PRECHECK_CACHE_FILE = Path("story_video_rejection_cache.json")
-PRECHECK_CACHE_VERSION = 2
+PRECHECK_CACHE_VERSION = 3
 _POSITIVE_ARCHIVAL_TERMS = (
     "interview", "speech", "talk", "address", "press conference",
     "news conference", "ceremony", "award", "summit", "documentary",
@@ -217,9 +217,12 @@ def _frame_precheck(samples):
     return None
 
 
-def _precheck_cache_key(item, start=None):
+def _precheck_cache_key(item, start=None, person=""):
+    # Rejection is contextual: the same archival source can legitimately be
+    # useful for different people/events. Never poison the cache globally.
     return hashlib.sha256(
-        f"{item.get('id','')}|{item.get('source_url','')}|{start if start is not None else ''}".encode()
+        f"{clean(person).lower()}|{item.get('id','')}|{item.get('source_url','')}|"
+        f"{start if start is not None else ''}".encode()
     ).hexdigest()[:24]
 
 
@@ -782,7 +785,7 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
         precheck_rejected = 0
         for item in raw_pool:
             reason = _source_precheck(item)
-            key = _precheck_cache_key(item)
+            key = _precheck_cache_key(item, person)
             if reason:
                 if _precheck_cache_eligible(item):
                     precheck_cache[key] = {"source_id": item.get("id"), "source_url": item.get("source_url"), "reason": reason}
@@ -920,7 +923,7 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                 if source_consecutive_rejections[sid] >= rejection_limit:
                                     blocked.add(sid)
                                     if _precheck_cache_eligible(item):
-                                        precheck_cache[_precheck_cache_key(item)] = {
+                                        precheck_cache[_precheck_cache_key(item, person)] = {
                                             "source_id": item.get("id"),
                                             "source_url": item.get("source_url"),
                                             "reason": "visual verifier rejected source after configured consecutive unusable samples",

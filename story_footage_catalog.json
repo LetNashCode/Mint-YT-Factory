@@ -4388,37 +4388,6 @@
       "reviewed_at": 1790765797.9717438
     },
     {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 52.26,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video clip features genuine archival footage of Kalpana Chawla in training and preparation gear, clearly visible across all frames and serving as strong biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "567823ecc428b75313dc8690908e8d31337c9e4bbfe8f75a3bb0251b8a0a28ad",
-      "reviewed_at": 1790766544.5159068
-    },
-    {
       "person": "Agatha Christie",
       "source": {
         "id": "archive:arena-agatha-christie-an-unfinished-portrait-1990",
@@ -5657,6 +5626,285 @@
       },
       "review_key": "5a825b2fd1ab3899fe6933ce9fbaf9a386ff6f9ab184c40c427ab0a8e0fc1489",
       "reviewed_at": 1790887949.981119
+    },
+    {
+      "person": "Fred Smith",
+      "source": {
+        "id": "archive:cobpca-The_Mayor_s_Show_featuring_Mayor_Fred_Smith",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/cobpca-The_Mayor_s_Show_featuring_Mayor_Fred_Smith/The_Mayor_s_Show_featuring_Mayor_Fred_Smith.mp4",
+        "source_url": "https://archive.org/details/cobpca-The_Mayor_s_Show_featuring_Mayor_Fred_Smith",
+        "title": "The Mayor's Show featuring Mayor Fred Smith",
+        "description": "Visit with Mayor Fred Smith on the Mayor's Show. Find out a little about some of the activities he's been involved with in the City of Buena Park during his eight years on City Council. It's a fun and enjoyable interview with Mayor Fred Smith. ['California', 'Buena Park', 'City of Buena Park', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'CIty of Buena Park', 'Visit Buena Park', 'Mayor', 'City Council', 'The Source at Beach', 'Rock & Brews', '85c Bakery', 'Beach Boulevard', 'City Planning', '2016']",
+        "creator": "City of Buena Park",
+        "license": "",
+        "subject": "['California', 'Buena Park', 'City of Buena Park', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'CIty of Buena Park', 'Visit Buena Park', 'Mayor', 'City Council', 'The Source at Beach', 'Rock & Brews', '85c Bakery', 'Beach Boulevard', 'City Planning', '2016']",
+        "runtime": "00:17:00",
+        "direct_subject": true,
+        "duration_hint": 1020.02002,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 778.86,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Fred Smith being interviewed outdoors, with him visible across all three frames in genuine archival video footage suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c880d8c5d9a1b653574b2b8fcb4e98ea7d03384c0ecd7b1a77e81624f871ca76",
+      "reviewed_at": 1790902683.444025
+    },
+    {
+      "person": "Fred Smith",
+      "source": {
+        "id": "archive:cobpca-The_Mayor_s_Show_featuring_Fred_Smith",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/cobpca-The_Mayor_s_Show_featuring_Fred_Smith/The_Mayor_s_Show_featuring_Fred_Smith.mp4",
+        "source_url": "https://archive.org/details/cobpca-The_Mayor_s_Show_featuring_Fred_Smith",
+        "title": "The Mayor's Show featuring Fred Smith",
+        "description": "The Mayor's Show featuring Mayor Fred Smith. The year 2020 has been a hectic year for everyone including Mayor Smith. Visit with the Mayor and learn about how the City has coped during the pandemic and what his message is for being involved in the City. ['California', 'Buena Park', 'City of Buena Park', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Visit Buena Park', 'Fred Smith', 'Smith and Sons Glass', 'Mayor', 'City Council', 'Vista Media Services', '2020']",
+        "creator": "City of Buena Park",
+        "license": "",
+        "subject": "['California', 'Buena Park', 'City of Buena Park', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Visit Buena Park', 'Fred Smith', 'Smith and Sons Glass', 'Mayor', 'City Council', 'Vista Media Services', '2020']",
+        "runtime": "00:44:56",
+        "direct_subject": true,
+        "duration_hint": 2695.895896,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2068.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The named subject, Fred Smith, is clearly visible across all three frames in an interview setting, serving as biographical illustration footage for a video segment about him.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7fecdc181f472418a2262753a492b375883261bbc2b61bf394bad857ead83c59",
+      "reviewed_at": 1790902744.362786
+    },
+    {
+      "person": "Fred Smith",
+      "source": {
+        "id": "archive:cobpca-The_Mayor_s_Show_featuring_Fred_Smith",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/cobpca-The_Mayor_s_Show_featuring_Fred_Smith/The_Mayor_s_Show_featuring_Fred_Smith.mp4",
+        "source_url": "https://archive.org/details/cobpca-The_Mayor_s_Show_featuring_Fred_Smith",
+        "title": "The Mayor's Show featuring Fred Smith",
+        "description": "The Mayor's Show featuring Mayor Fred Smith. The year 2020 has been a hectic year for everyone including Mayor Smith. Visit with the Mayor and learn about how the City has coped during the pandemic and what his message is for being involved in the City. ['California', 'Buena Park', 'City of Buena Park', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Visit Buena Park', 'Fred Smith', 'Smith and Sons Glass', 'Mayor', 'City Council', 'Vista Media Services', '2020']",
+        "creator": "City of Buena Park",
+        "license": "",
+        "subject": "['California', 'Buena Park', 'City of Buena Park', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Visit Buena Park', 'Fred Smith', 'Smith and Sons Glass', 'Mayor', 'City Council', 'Vista Media Services', '2020']",
+        "runtime": "00:44:56",
+        "direct_subject": true,
+        "duration_hint": 2695.895896,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 211.3,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Fred Smith (the Mayor) speaking directly to the camera in his office, perfectly matching the subject of the biography.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d49f70119527e23706b6af9ce8ea59dac8f6429aa05d55d1a25ae19ef060f6aa",
+      "reviewed_at": 1790902800.397341
+    },
+    {
+      "person": "Fred Smith",
+      "source": {
+        "id": "archive:cobpca-The_Mayor_s_Show_featuring_Fred_Smith",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/cobpca-The_Mayor_s_Show_featuring_Fred_Smith/The_Mayor_s_Show_featuring_Fred_Smith.mp4",
+        "source_url": "https://archive.org/details/cobpca-The_Mayor_s_Show_featuring_Fred_Smith",
+        "title": "The Mayor's Show featuring Fred Smith",
+        "description": "The Mayor's Show featuring Mayor Fred Smith. The year 2020 has been a hectic year for everyone including Mayor Smith. Visit with the Mayor and learn about how the City has coped during the pandemic and what his message is for being involved in the City. ['California', 'Buena Park', 'City of Buena Park', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Visit Buena Park', 'Fred Smith', 'Smith and Sons Glass', 'Mayor', 'City Council', 'Vista Media Services', '2020']",
+        "creator": "City of Buena Park",
+        "license": "",
+        "subject": "['California', 'Buena Park', 'City of Buena Park', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Visit Buena Park', 'Fred Smith', 'Smith and Sons Glass', 'Mayor', 'City Council', 'Vista Media Services', '2020']",
+        "runtime": "00:44:56",
+        "direct_subject": true,
+        "duration_hint": 2695.895896,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 417.6,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames show Fred Smith sitting at a desk and speaking in a recorded interview/show context, providing usable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a7d6a3c66d5be4131e221951c6f803e9577a0c4da503b1b55ba7461341411a78",
+      "reviewed_at": 1790902807.602891
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 52.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The frames clearly show astronaut Kalpana Chawla in archival footage, wearing a space helmet and training suit.",
+        "usage": "direct_event"
+      },
+      "review_key": "beb9c597ea300a9992a8e8d1d9ff4fef5fb4b9f4c5c0968e0fe5246239153a7c",
+      "reviewed_at": 1790902937.894752
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1268396403711082496",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1268396403711082496/Dwayne_Johnson_-_Where_are_you_normalizeequality_blacklivesmatter-1268396403711082496.mp4",
+        "source_url": "https://archive.org/details/twitter-1268396403711082496",
+        "title": "Dwayne Johnson - Where are you? #normalizeequality #blacklivesmatter",
+        "description": "Where are you? #normalizeequality #blacklivesmatter https://t.co/Xid3BC4B2n Source: https://twitter.com/TheRock/status/1268396403711082496 Uploader: Dwayne Johnson ['Twitter', 'video', 'normalizeequality', 'blacklivesmatter']",
+        "creator": "Dwayne Johnson",
+        "license": "",
+        "subject": "['Twitter', 'video', 'normalizeequality', 'blacklivesmatter']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 505.533333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 269.67,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage features Dwayne Johnson clearly visible across all three frames, speaking directly to the camera in genuine archival video context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2b63f5f53e6071510bfa4f003778fe02b8447065b0d5ab83b7e807bb0d2e71cc",
+      "reviewed_at": 1790903155.5102541
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1268396403711082496",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1268396403711082496/Dwayne_Johnson_-_Where_are_you_normalizeequality_blacklivesmatter-1268396403711082496.mp4",
+        "source_url": "https://archive.org/details/twitter-1268396403711082496",
+        "title": "Dwayne Johnson - Where are you? #normalizeequality #blacklivesmatter",
+        "description": "Where are you? #normalizeequality #blacklivesmatter https://t.co/Xid3BC4B2n Source: https://twitter.com/TheRock/status/1268396403711082496 Uploader: Dwayne Johnson ['Twitter', 'video', 'normalizeequality', 'blacklivesmatter']",
+        "creator": "Dwayne Johnson",
+        "license": "",
+        "subject": "['Twitter', 'video', 'normalizeequality', 'blacklivesmatter']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 505.533333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 42.81,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Dwayne Johnson is clearly visible in all three frames speaking directly to the camera, serving as usable biographical illustration of the subject, although it is a talking head clip rather than historical footage of a specific biographical event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9ccf337be7fd40eb5a2c1f41e8c2419da54f23395582af71609119863d88c548",
+      "reviewed_at": 1790903259.4045527
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1268396403711082496",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1268396403711082496/Dwayne_Johnson_-_Where_are_you_normalizeequality_blacklivesmatter-1268396403711082496.mp4",
+        "source_url": "https://archive.org/details/twitter-1268396403711082496",
+        "title": "Dwayne Johnson - Where are you? #normalizeequality #blacklivesmatter",
+        "description": "Where are you? #normalizeequality #blacklivesmatter https://t.co/Xid3BC4B2n Source: https://twitter.com/TheRock/status/1268396403711082496 Uploader: Dwayne Johnson ['Twitter', 'video', 'normalizeequality', 'blacklivesmatter']",
+        "creator": "Dwayne Johnson",
+        "license": "",
+        "subject": "['Twitter', 'video', 'normalizeequality', 'blacklivesmatter']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 505.533333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 118.43,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features Dwayne Johnson speaking directly to the camera, which serves as biographical illustration footage matching the subject's identity.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c1267dc834d143b398f9f65eab14fd5b0d34a1ddc319745e36e7b8ed3d8cb62e",
+      "reviewed_at": 1790903374.3691883
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1268396403711082496",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1268396403711082496/Dwayne_Johnson_-_Where_are_you_normalizeequality_blacklivesmatter-1268396403711082496.mp4",
+        "source_url": "https://archive.org/details/twitter-1268396403711082496",
+        "title": "Dwayne Johnson - Where are you? #normalizeequality #blacklivesmatter",
+        "description": "Where are you? #normalizeequality #blacklivesmatter https://t.co/Xid3BC4B2n Source: https://twitter.com/TheRock/status/1268396403711082496 Uploader: Dwayne Johnson ['Twitter', 'video', 'normalizeequality', 'blacklivesmatter']",
+        "creator": "Dwayne Johnson",
+        "license": "",
+        "subject": "['Twitter', 'video', 'normalizeequality', 'blacklivesmatter']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 505.533333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 194.05,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "Dwayne Johnson is clearly visible in all three frames, providing valid biographical footage of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e5d6b8d2cdaa0a8ac6a2849fe2c6ddbff80013a4eee2806369c2003cd149c979",
+      "reviewed_at": 1790903391.8688688
     }
   ]
 }

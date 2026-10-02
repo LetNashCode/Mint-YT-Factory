@@ -14,19 +14,6 @@
   },
   {
     "format": "before_they_were_famous",
-    "person": "Dwayne Johnson",
-    "premise": "A young football player cut from the Canadian Football League finds himself with seven dollars and no backup plan.",
-    "hook": "He had seven dollars in his pocket after his sports dream ended. Then he stepped into a wrestling ring.",
-    "key_facts": [
-      "Played college football for the University of Miami national championship team",
-      "Cut from the Calgary Stampeders in the CFL early in his professional career",
-      "Transitioned to professional wrestling under the name Rocky Maivia before achieving global fame",
-      "Became one of the highest-paid actors in Hollywood"
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
     "person": "Steve Jobs",
     "premise": "A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
     "hook": "Before building iPhones, he dropped out of college, slept on friends' floors, and built circuit boards in a garage.",
@@ -50,18 +37,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Sara Blakely",
-    "premise": "How cutting the feet off her pantyhose led to founding Spanx.",
-    "hook": "She had $5,000 in savings, zero fashion experience, and a pair of scissors.",
-    "key_facts": [
-      "Worked as a door-to-door fax machine salesperson for seven years.",
-      "Cut the feet out of her control-top pantyhose to wear under white pants for a party.",
-      "Wrote her own patent application to save legal fees before launching the shapewear brand."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Jackie Chan",
     "premise": "His grueling decade training at the China Drama Academy as a child.",
@@ -75,37 +50,73 @@
   },
   {
     "format": "one_decision",
-    "person": "Fred Smith",
-    "premise": "Using his company's last remaining funds to play blackjack in Las Vegas after nearly going bankrupt.",
-    "hook": "When FedEx was on the brink of collapse with $5,000 left, the founder flew to Vegas and gambled it.",
+    "person": "Rosa Parks",
+    "premise": "A routine bus ride in Montgomery, Alabama leads to an arrest that ignites a historic boycott.",
+    "hook": "One quiet refusal on a crowded bus sparked a movement that changed history.",
     "key_facts": [
-      "Founded Federal Express in 1971, facing massive startup costs and regulatory hurdles.",
-      "Used the remaining $5,000 of company funds to play blackjack and won $27,000.",
-      "The winnings kept the company's fuel tanks filled for a few more days until emergency funding arrived."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
-    "person": "Kalpana Chawla",
-    "premise": "Growing up in a small town in Haryana with a fascination for aviation before reaching space.",
-    "hook": "She grew up in a town where girls rarely pursued engineering, yet sketched airplanes on her school notebooks every day.",
-    "key_facts": [
-      "Graduated with a degree in Aeronautical Engineering from Punjab Engineering College in India.",
-      "Emigrated to the United States to earn master's and doctoral degrees in aerospace engineering.",
-      "Selected by NASA as an astronaut candidate in 1994, making her first spaceflight in 1997."
+      "Worked as a seamstress and NAACP secretary",
+      "Arrested for refusing to surrender her bus seat to a white passenger",
+      "Triggered the 381-day Montgomery bus boycott"
     ],
     "source": "gemini_original"
   },
   {
     "format": "impossible_odds",
-    "person": "Louis Braille",
-    "premise": "Inventing a revolutionary tactile reading system for the blind after losing his sight as a young child.",
-    "hook": "Blinded by an accident in his father's workshop at age three, he invented a code using six raised dots at age fifteen.",
+    "person": "Tenzing Norgay",
+    "premise": "An experienced Sherpa mountaineer helps complete the first successful ascent of Mount Everest.",
+    "hook": "He faced freezing winds and thin air to reach the roof of the world when previous expeditions had repeatedly failed.",
     "key_facts": [
-      "Injured his right eye with a stitching awl in his father's harness-making shop, leading to total blindness.",
-      "Attended the Royal Institution for Blind Youth in Paris, where books were printed in heavy embossed raised letters.",
-      "Adapted a military 'night writing' code of raised dots to create the Braille alphabet."
+      "Participated in multiple Himalayan expeditions as a high-altitude porter",
+      "Reached the summit of Everest with Edmund Hillary in 1953",
+      "Named one of Time magazine's 100 most influential people of the 20th century"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Alexander Fleming",
+    "premise": "An untidy laboratory bench and a contaminated petri dish lead to the discovery of penicillin.",
+    "hook": "A messy lab and a stray mold spore accidentally launched modern antibiotics.",
+    "key_facts": [
+      "Noticed mold growing on a staphylococcus culture plate in 1928",
+      "Identified the mold as Penicillium notatum inhibiting bacterial growth",
+      "Published foundational research that enabled mass antibiotic development"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Jonas Salk",
+    "premise": "A medical researcher chooses to test his experimental polio vaccine on himself and his family.",
+    "hook": "He injected his own family with an untested virus to prove it was safe.",
+    "key_facts": [
+      "Led the research team developing the first successful polio vaccine",
+      "Inoculated himself, his wife, and his children during early safety trials",
+      "Declared the vaccine patent-free to maximize global distribution"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Viswanathan Anand",
+    "premise": "A young chess prodigy in India sharpens his lightning-fast tactical skills in local clubs.",
+    "hook": "Before becoming a world champion, he earned the nickname 'Lightning Kid' for his rapid moves.",
+    "key_facts": [
+      "Became India's first Grandmaster in 1988",
+      "Won multiple World Chess Championships across different formats",
+      "Awarded India's highest civilian sporting honor, the Padma Vibhushan"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Ernest Shackleton",
+    "premise": "After his ship is crushed by Antarctic ice, an explorer leads his entire crew to survival.",
+    "hook": "His ship was destroyed, yet every single member of his crew survived the polar wilderness.",
+    "key_facts": [
+      "Led the Imperial Trans-Antarctic Expedition aboard the Endurance",
+      "Traversed 800 miles of stormy ocean in a small lifeboat to find rescue",
+      "Achieved zero loss of life despite months stranded on floating ice"
     ],
     "source": "gemini_original"
   }

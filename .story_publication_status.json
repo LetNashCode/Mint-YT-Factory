@@ -1,6 +1,7 @@
 {
-  "status": "deferred",
-  "video_id": "",
-  "youtube_url": "",
-  "reason": "Story verifier unavailable after retries on gemini-flash-lite-latest: HTTP 503"
+  "status": "complete",
+  "video_id": "Dbe_O04_ivA",
+  "youtube_url": "https://www.youtube.com/shorts/Dbe_O04_ivA",
+  "reason": "",
+  "updated_at": 1790982773
 }

@@ -3180,5 +3180,21 @@
     "video_id": "5BrAGgesQF8",
     "workdir": "output/1790978924",
     "published_at": 1790980115
+  },
+  {
+    "topic": "Steve Jobs: A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
+    "normalized": "steve jobs a college dropout builds a computer in his parents garage with his friend during the 1970s tech boom",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1790981945,
+    "recorded_at": 1790981945,
+    "metadata": {
+      "person": "Steve Jobs",
+      "pillar": "before_they_were_famous"
+    },
+    "title": "Steve Jobs: A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
+    "video_id": "Dbe_O04_ivA",
+    "workdir": "",
+    "published_at": 1790982773
   }
 ]

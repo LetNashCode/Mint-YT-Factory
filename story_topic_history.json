@@ -110,5 +110,13 @@
     "title": "Before the Fame: Stephen King",
     "video_id": "yovro0HiVB4",
     "workdir": "output/interactive/1790700548"
+  },
+  {
+    "topic": "Steve Jobs: A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
+    "pillar": "before_they_were_famous",
+    "person": "Steve Jobs",
+    "title": "Before the Fame: Steve Jobs",
+    "video_id": "Dbe_O04_ivA",
+    "workdir": "output/interactive/1790982079"
   }
 ]

@@ -6002,37 +6002,6 @@
     {
       "person": "Steve Jobs",
       "source": {
-        "id": "archive:aspen-main-speech-v-05-improved-audio",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/aspen-main-speech-v-05-improved-audio/Aspen_Main_Speech_v05-Improved_Audio.mp4",
-        "source_url": "https://archive.org/details/aspen-main-speech-v-05-improved-audio",
-        "title": "Steve Jobs International Design Conference in Aspen (IDCA) - Main Speech",
-        "description": "The Steve Jobs speech at the 1983 International Design Conference in Aspen. I noticed that the video on the Steve Jobs Archive website had the audio processed with a a Echo Reduction effect, making it sound unnatural. My way of fixing this was replacing the audio with the copy of the speech that was uploaded by the Grassroots Community Network on August, 2025. Courtesy of GrassRoots Television and The Steve Jobs Archive. ['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
-        "creator": "['GrassRoots Community Network', 'The Steve Jobs Archive']",
-        "license": "",
-        "subject": "['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3313.843867,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 1781.84,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Steve Jobs speaking at a podium in archival video material, directly illustrating his life and career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "95b4b05a94c5c61b083d20dc18260773a3bfb7060aeba6759cfc8e6791a7d229",
-      "reviewed_at": 1790940023.4348757
-    },
-    {
-      "person": "Steve Jobs",
-      "source": {
         "id": "archive:brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version/Brutally%20Honest%20Advice%20From%20Steve%20Jobs%20_%20BEST%20SPEECH%20Ever%21%20%28HQ%20Version%29.mp4",
@@ -6064,37 +6033,6 @@
     {
       "person": "Steve Jobs",
       "source": {
-        "id": "archive:aspen-main-speech-v-05-improved-audio",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/aspen-main-speech-v-05-improved-audio/Aspen_Main_Speech_v05-Improved_Audio.mp4",
-        "source_url": "https://archive.org/details/aspen-main-speech-v-05-improved-audio",
-        "title": "Steve Jobs International Design Conference in Aspen (IDCA) - Main Speech",
-        "description": "The Steve Jobs speech at the 1983 International Design Conference in Aspen. I noticed that the video on the Steve Jobs Archive website had the audio processed with a a Echo Reduction effect, making it sound unnatural. My way of fixing this was replacing the audio with the copy of the speech that was uploaded by the Grassroots Community Network on August, 2025. Courtesy of GrassRoots Television and The Steve Jobs Archive. ['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
-        "creator": "['GrassRoots Community Network', 'The Steve Jobs Archive']",
-        "license": "",
-        "subject": "['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3313.843867,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Steve Jobs speaking at the 1983 International Design Conference in Aspen across all three frames. It is genuine historical archival footage directly depicting the named subject.",
-        "usage": "direct_event"
-      },
-      "review_key": "f179b51003e6f363a4b279fbb0edf07cb5ed5dc904538ad9f93dce2b246b237c",
-      "reviewed_at": 1790940041.741091
-    },
-    {
-      "person": "Steve Jobs",
-      "source": {
         "id": "archive:brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version/Brutally%20Honest%20Advice%20From%20Steve%20Jobs%20_%20BEST%20SPEECH%20Ever%21%20%28HQ%20Version%29.mp4",
@@ -6122,99 +6060,6 @@
       },
       "review_key": "5bb4f168e608346be8809533a14ccf3d868aa82c6e9e90a364f09c4ee447347e",
       "reviewed_at": 1790940048.0740752
-    },
-    {
-      "person": "Steve Jobs",
-      "source": {
-        "id": "archive:aspen-main-speech-v-05-improved-audio",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/aspen-main-speech-v-05-improved-audio/Aspen_Main_Speech_v05-Improved_Audio.mp4",
-        "source_url": "https://archive.org/details/aspen-main-speech-v-05-improved-audio",
-        "title": "Steve Jobs International Design Conference in Aspen (IDCA) - Main Speech",
-        "description": "The Steve Jobs speech at the 1983 International Design Conference in Aspen. I noticed that the video on the Steve Jobs Archive website had the audio processed with a a Echo Reduction effect, making it sound unnatural. My way of fixing this was replacing the audio with the copy of the speech that was uploaded by the Grassroots Community Network on August, 2025. Courtesy of GrassRoots Television and The Steve Jobs Archive. ['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
-        "creator": "['GrassRoots Community Network', 'The Steve Jobs Archive']",
-        "license": "",
-        "subject": "['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3313.843867,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 258.83,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage shows authentic historical video of Steve Jobs speaking at the 1983 International Design Conference in Aspen. He is clearly visible across all frames, actively delivering his presentation, making it direct and highly relevant archival material.",
-        "usage": "direct_event"
-      },
-      "review_key": "db8bfa70f362cb5e03ceda6710f1fdec07bff34f8f86b2c26fee4f8ad53bd267",
-      "reviewed_at": 1790940057.5427232
-    },
-    {
-      "person": "Steve Jobs",
-      "source": {
-        "id": "archive:brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version/Brutally%20Honest%20Advice%20From%20Steve%20Jobs%20_%20BEST%20SPEECH%20Ever%21%20%28HQ%20Version%29.mp4",
-        "source_url": "https://archive.org/details/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
-        "title": "Brutally Honest Advice From Steve Jobs BEST SPEECH Ever! ( HQ Version)",
-        "description": "Advice about life and success Steve Jobs",
-        "creator": "",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "Steve Jobs",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 870.8,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 70.91,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10.0,
-        "reason": "The frames clearly show the actual Steve Jobs delivering his famous Stanford commencement speech, visible in all frames and fully usable for a biography short.",
-        "usage": "direct_event"
-      },
-      "review_key": "55704eccc6081adee32951a9b817b3aec355df2a6e33be4f211378875578b987",
-      "reviewed_at": 1790940075.8299327
-    },
-    {
-      "person": "Steve Jobs",
-      "source": {
-        "id": "archive:aspen-main-speech-v-05-improved-audio",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/aspen-main-speech-v-05-improved-audio/Aspen_Main_Speech_v05-Improved_Audio.mp4",
-        "source_url": "https://archive.org/details/aspen-main-speech-v-05-improved-audio",
-        "title": "Steve Jobs International Design Conference in Aspen (IDCA) - Main Speech",
-        "description": "The Steve Jobs speech at the 1983 International Design Conference in Aspen. I noticed that the video on the Steve Jobs Archive website had the audio processed with a a Echo Reduction effect, making it sound unnatural. My way of fixing this was replacing the audio with the copy of the speech that was uploaded by the Grassroots Community Network on August, 2025. Courtesy of GrassRoots Television and The Steve Jobs Archive. ['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
-        "creator": "['GrassRoots Community Network', 'The Steve Jobs Archive']",
-        "license": "",
-        "subject": "['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3313.843867,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 512.67,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Steve Jobs speaking at the 1983 International Design Conference in Aspen across all three frames. He is visibly identifiable, centrally framed, and the historical context directly matches the biography subject.",
-        "usage": "direct_event"
-      },
-      "review_key": "b86218bc94063e0a46ec9e78007bc99889dad3a4ac406b20bc67fea20c17ed27",
-      "reviewed_at": 1790940094.9519844
     },
     {
       "person": "Steve Jobs",
@@ -6327,6 +6172,161 @@
         "identity_score": 13.0,
         "archival_signal": 1
       },
+      "start": 1781.84,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage clearly shows Steve Jobs speaking at the 1983 International Design Conference in Aspen. He is visible across all three frames, making it usable archival material for a biography Short, serving as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "cd6aba158b5c260cf732e6b1468863aca7340feccdfa15ab3fba536a116aa9e3",
+      "reviewed_at": 1790959577.1461527
+    },
+    {
+      "person": "Steve Jobs",
+      "source": {
+        "id": "archive:aspen-main-speech-v-05-improved-audio",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/aspen-main-speech-v-05-improved-audio/Aspen_Main_Speech_v05-Improved_Audio.mp4",
+        "source_url": "https://archive.org/details/aspen-main-speech-v-05-improved-audio",
+        "title": "Steve Jobs International Design Conference in Aspen (IDCA) - Main Speech",
+        "description": "The Steve Jobs speech at the 1983 International Design Conference in Aspen. I noticed that the video on the Steve Jobs Archive website had the audio processed with a a Echo Reduction effect, making it sound unnatural. My way of fixing this was replacing the audio with the copy of the speech that was uploaded by the Grassroots Community Network on August, 2025. Courtesy of GrassRoots Television and The Steve Jobs Archive. ['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
+        "creator": "['GrassRoots Community Network', 'The Steve Jobs Archive']",
+        "license": "",
+        "subject": "['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3313.843867,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The frames clearly show the actual Steve Jobs speaking at the 1983 International Design Conference in Aspen, providing direct and authentic archival footage for the biographical short.",
+        "usage": "direct_event"
+      },
+      "review_key": "ce8f2a0e1a55357a685ad5be53a5af191942dc9c1e2e6020fec447b571ff5b74",
+      "reviewed_at": 1790959586.9843302
+    },
+    {
+      "person": "Steve Jobs",
+      "source": {
+        "id": "archive:aspen-main-speech-v-05-improved-audio",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/aspen-main-speech-v-05-improved-audio/Aspen_Main_Speech_v05-Improved_Audio.mp4",
+        "source_url": "https://archive.org/details/aspen-main-speech-v-05-improved-audio",
+        "title": "Steve Jobs International Design Conference in Aspen (IDCA) - Main Speech",
+        "description": "The Steve Jobs speech at the 1983 International Design Conference in Aspen. I noticed that the video on the Steve Jobs Archive website had the audio processed with a a Echo Reduction effect, making it sound unnatural. My way of fixing this was replacing the audio with the copy of the speech that was uploaded by the Grassroots Community Network on August, 2025. Courtesy of GrassRoots Television and The Steve Jobs Archive. ['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
+        "creator": "['GrassRoots Community Network', 'The Steve Jobs Archive']",
+        "license": "",
+        "subject": "['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3313.843867,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 258.83,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Steve Jobs speaking at a podium during the 1983 International Design Conference in Aspen across all three frames, matching the biographical subject and historical context accurately.",
+        "usage": "direct_event"
+      },
+      "review_key": "bf3b82f0f15a3c2ab507361108b0f148451b73e1571cda8ea1cb0bc4f2f8ee12",
+      "reviewed_at": 1790959655.841336
+    },
+    {
+      "person": "Steve Jobs",
+      "source": {
+        "id": "archive:brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version/Brutally%20Honest%20Advice%20From%20Steve%20Jobs%20_%20BEST%20SPEECH%20Ever%21%20%28HQ%20Version%29.mp4",
+        "source_url": "https://archive.org/details/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
+        "title": "Brutally Honest Advice From Steve Jobs BEST SPEECH Ever! ( HQ Version)",
+        "description": "Advice about life and success Steve Jobs",
+        "creator": "",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "Steve Jobs",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 870.8,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 70.91,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Steve Jobs delivering his famous Stanford commencement address in all three frames, matching the biographical subject and context perfectly.",
+        "usage": "direct_event"
+      },
+      "review_key": "6b49f745a7c70911ca7bf1689c4097934d6301fe2c0eb708d884bbaae923022b",
+      "reviewed_at": 1790959675.4889607
+    },
+    {
+      "person": "Steve Jobs",
+      "source": {
+        "id": "archive:aspen-main-speech-v-05-improved-audio",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/aspen-main-speech-v-05-improved-audio/Aspen_Main_Speech_v05-Improved_Audio.mp4",
+        "source_url": "https://archive.org/details/aspen-main-speech-v-05-improved-audio",
+        "title": "Steve Jobs International Design Conference in Aspen (IDCA) - Main Speech",
+        "description": "The Steve Jobs speech at the 1983 International Design Conference in Aspen. I noticed that the video on the Steve Jobs Archive website had the audio processed with a a Echo Reduction effect, making it sound unnatural. My way of fixing this was replacing the audio with the copy of the speech that was uploaded by the Grassroots Community Network on August, 2025. Courtesy of GrassRoots Television and The Steve Jobs Archive. ['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
+        "creator": "['GrassRoots Community Network', 'The Steve Jobs Archive']",
+        "license": "",
+        "subject": "['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3313.843867,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 512.67,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The provided video frames clearly show the actual Steve Jobs speaking at the 1983 International Design Conference in Aspen across all three frames. The footage is genuine historical archival material matching the biographical context.",
+        "usage": "direct_event"
+      },
+      "review_key": "e78b2b36c9d9c0c0a481dbd113ec754096b330e82f98a53cddb01ca1392c84f7",
+      "reviewed_at": 1790959711.1687975
+    },
+    {
+      "person": "Steve Jobs",
+      "source": {
+        "id": "archive:aspen-main-speech-v-05-improved-audio",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/aspen-main-speech-v-05-improved-audio/Aspen_Main_Speech_v05-Improved_Audio.mp4",
+        "source_url": "https://archive.org/details/aspen-main-speech-v-05-improved-audio",
+        "title": "Steve Jobs International Design Conference in Aspen (IDCA) - Main Speech",
+        "description": "The Steve Jobs speech at the 1983 International Design Conference in Aspen. I noticed that the video on the Steve Jobs Archive website had the audio processed with a a Echo Reduction effect, making it sound unnatural. My way of fixing this was replacing the audio with the copy of the speech that was uploaded by the Grassroots Community Network on August, 2025. Courtesy of GrassRoots Television and The Steve Jobs Archive. ['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
+        "creator": "['GrassRoots Community Network', 'The Steve Jobs Archive']",
+        "license": "",
+        "subject": "['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3313.843867,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
       "start": 1020.34,
       "length": 8.0,
       "verification": {
@@ -6334,11 +6334,42 @@
         "real_footage": true,
         "usable": true,
         "relevance": 10,
-        "reason": "The footage clearly shows Steve Jobs speaking at a podium during the 1983 International Design Conference in Aspen across all three frames. It is genuine archival historical footage directly illustrating his life and public speaking engagements.",
+        "reason": "The footage clearly shows Steve Jobs speaking at the 1983 International Design Conference in Aspen across all three frames, matching the archival context.",
         "usage": "biographical_illustration"
       },
-      "review_key": "4816f284a686110483f09de8cdee7cb243b20bab80eeb7c34f3766f71a042654",
-      "reviewed_at": 1790940166.7126727
+      "review_key": "18adf3d15763704572d4418e998e90b41a910870b140ddd61ce8ff259dfb52b4",
+      "reviewed_at": 1790959729.032313
+    },
+    {
+      "person": "Steve Jobs",
+      "source": {
+        "id": "archive:brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version/Brutally%20Honest%20Advice%20From%20Steve%20Jobs%20_%20BEST%20SPEECH%20Ever%21%20%28HQ%20Version%29.mp4",
+        "source_url": "https://archive.org/details/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
+        "title": "Brutally Honest Advice From Steve Jobs BEST SPEECH Ever! ( HQ Version)",
+        "description": "Advice about life and success Steve Jobs",
+        "creator": "",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "Steve Jobs",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 870.8,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 334.54,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The frames clearly show Steve Jobs delivering his famous Stanford commencement address in real archival footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8e33b41763288b50f1f6fc4131613c1379664cab67da30e14b96875aa77f7ea5",
+      "reviewed_at": 1790959797.8438625
     }
   ]
 }

@@ -32,8 +32,8 @@ jobs:
           python-version: "3.11"
       - name: Install test dependencies
         run: |
-          pip install pytest numpy
-          pip install moviepy
+          pip install pytest numpy pyyaml
+          pip install "moviepy<2"
       - name: Run Publish narration regression tests
         run: |
           python -m pytest -q tests/test_tts_speed.py tests/test_publish_continuation.py

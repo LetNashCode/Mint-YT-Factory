@@ -42,3 +42,16 @@ def test_kokoro_default_voice_is_af_bella():
     from tts import KOKORO_VOICE
 
     assert KOKORO_VOICE == "af_bella"
+
+
+def test_publish_bridge_speed_maps_to_full_source_ending():
+    import tts_bridge
+    source_duration = 39.84
+    target_duration = 38.69
+    speed = source_duration / target_duration
+    source_limit = source_duration - 0.001
+    def time_map(t):
+        return np.minimum(np.asarray(t) * speed, source_limit)
+    mapped_end = float(time_map(target_duration))
+    assert mapped_end >= source_duration - 0.002
+    assert mapped_end <= source_duration

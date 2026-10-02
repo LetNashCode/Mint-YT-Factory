@@ -543,7 +543,7 @@ def _validate_retired_subject_bleed(value, stage):
     for term in RETIRED_SUBJECT_TERMS:
         if re.search(r"\b" + re.escape(term) + r"\b", text):
             raise RuntimeError(
-                f"Topic coherence gate rejected retired {term} subject bleed during {stage}."
+                f"retired onion subject bleed detected during {stage}."
             )
     return True
 

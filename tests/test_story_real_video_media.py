@@ -141,6 +141,17 @@ def test_archive_search_excludes_youtube_imports_and_prefers_subject_records(mon
     assert all("NOT identifier:youtube-*" in params["q"] for url, params in calls if "advancedsearch.php" in url)
 
 
+
+
+def test_precheck_cache_is_scoped_by_person():
+    item = candidate(99)
+    assert media._precheck_cache_key(item, person="Nelson Mandela") != media._precheck_cache_key(
+        item, person="Marie Curie"
+    )
+    assert media._precheck_cache_key(item, person="Nelson Mandela") != media._precheck_cache_key(
+        item, person="Nelson Mandela", start=8
+    )
+
 def test_source_precheck_rejects_historical_person_noise():
     bad_items = [
         {"title": "Rosa Parks statue and monument tour", "description": "drone footage"},

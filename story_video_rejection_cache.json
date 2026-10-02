@@ -1,594 +1,159 @@
 {
-  "version": 1,
+  "version": 3,
   "rejected": {
-    "d7d872876248f2c17fb5bc22": {
-      "source_id": "archive:ztvuaoh-The_Life_of_Legendary_Hedy_Lamarr_ZTV_5_Minute_Flashback",
-      "source_url": "https://archive.org/details/ztvuaoh-The_Life_of_Legendary_Hedy_Lamarr_ZTV_5_Minute_Flashback",
-      "reason": "strong metadata exclusion: 5 minute flashback"
-    },
-    "9d70e83dcf577e7d6fec9fc7": {
-      "source_id": "archive:nyaydaata-1999",
-      "source_url": "https://archive.org/details/nyaydaata-1999",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "c903070bfbf7aba8ee05900b": {
-      "source_id": "archive:munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
-      "source_url": "https://archive.org/details/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
-      "reason": "strong metadata exclusion: commercial"
-    },
-    "4f8d35b06090c33ed136d482": {
-      "source_id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
-      "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "c526bc7fc95c79ae25ea591c": {
-      "source_id": "archive:no-entry-2005-1080p-amzn-web-dl-ddp-2.0-h.-264",
-      "source_url": "https://archive.org/details/no-entry-2005-1080p-amzn-web-dl-ddp-2.0-h.-264",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "4c3a1e3289ec465afc99882f": {
-      "source_id": "archive:romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
-      "source_url": "https://archive.org/details/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "21c2a8b2349b9dd5503d72a3": {
-      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202512",
-      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "1d7443e109e4a919238a66e0": {
-      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
-      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "24d9c48eb97bea957ce9a8af": {
-      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth",
-      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "49edf995264f626e67b0be53": {
-      "source_id": "archive:shackletons-expedition",
-      "source_url": "https://archive.org/details/shackletons-expedition",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "67f74ae6e4c4f6b78636078d": {
-      "source_id": "archive:antarctica-a-frozen-history",
-      "source_url": "https://archive.org/details/antarctica-a-frozen-history",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "d8c7b3e51f9b383693228052": {
-      "source_id": "archive:theendurance2000",
-      "source_url": "https://archive.org/details/theendurance2000",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "f943185945b4ec09231cafef": {
-      "source_id": "archive:13.SIRALEXANDERFLEMING",
-      "source_url": "https://archive.org/details/13.SIRALEXANDERFLEMING",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "34830a8aa82ecdbecc5f3421": {
-      "source_id": "archive:the-long-road-to-success-of-penicillin-started-before-1929-copy",
-      "source_url": "https://archive.org/details/the-long-road-to-success-of-penicillin-started-before-1929-copy",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "9468e5c98088549f719859e2": {
-      "source_id": "archive:musee-gaumais-bratia-mp-4",
-      "source_url": "https://archive.org/details/musee-gaumais-bratia-mp-4",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "6ee77f708e6386ff09217251": {
-      "source_id": "archive:jean-pierre-gratia-2025-as-2-amr-bic-2025",
-      "source_url": "https://archive.org/details/jean-pierre-gratia-2025-as-2-amr-bic-2025",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "c9f8550b97d6a6a71fe98d2f": {
-      "source_id": "archive:turner_video_18973",
-      "source_url": "https://archive.org/details/turner_video_18973",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "ee5392f30004cfd94e7b35b9": {
-      "source_id": "archive:bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
-      "source_url": "https://archive.org/details/bob-ross-ad-straight-talk-wireless-mtv-and-mountain-dew",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "49d8250ef712efa8a5ca334e": {
-      "source_id": "archive:sc21wa-Feliks_Kaparchuk_is_the_new_Bob_Ross",
-      "source_url": "https://archive.org/details/sc21wa-Feliks_Kaparchuk_is_the_new_Bob_Ross",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "5fe8e638cfdfe27cd686fb22": {
-      "source_id": "archive:The_Crack_of_Dawn_-_E027_-_Cupcakes_with_Bob_Ross",
-      "source_url": "https://archive.org/details/The_Crack_of_Dawn_-_E027_-_Cupcakes_with_Bob_Ross",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "6d83986b7bfa54c491dcfdb7": {
-      "source_id": "archive:sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
-      "source_url": "https://archive.org/details/sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "4e71ebf597d85e2a18ac06af": {
-      "source_id": "archive:thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
-      "source_url": "https://archive.org/details/thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "b5cffe6008ba7e20bf74832d": {
-      "source_id": "archive:ttval-Rosa_Parks_Painting_-_TROY_TrojanVision_News",
-      "source_url": "https://archive.org/details/ttval-Rosa_Parks_Painting_-_TROY_TrojanVision_News",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "8f543988c315976016e46c32": {
-      "source_id": "archive:thelfshow-Soledad_O_Brien_on_Rosa_Parks_-_The_Untold_Story",
-      "source_url": "https://archive.org/details/thelfshow-Soledad_O_Brien_on_Rosa_Parks_-_The_Untold_Story",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "afb9d9a5ce24b0a6c47b615c": {
-      "source_id": "archive:mcccal-Spotlight_on_the_Rosa_Parks_Museum_-_Tim_Kerr",
-      "source_url": "https://archive.org/details/mcccal-Spotlight_on_the_Rosa_Parks_Museum_-_Tim_Kerr",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "3bcfa91ca417835af3a4af80": {
+    "4a74b78ad431c9087e672362": {
       "source_id": "archive:44754ManAgainstMountEverest",
       "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
-      "reason": "visual verifier rejected source after four unusable identity samples"
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "cca9595ab826b5a5256ed630": {
+    "6de0625f47372c740d333af4": {
       "source_id": "archive:GalahadOfEverest",
       "source_url": "https://archive.org/details/GalahadOfEverest",
-      "reason": "visual verifier rejected source after four unusable identity samples"
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "12ff0c99a928f6806b1ef74d": {
-      "source_id": "archive:upenn-f16-0114_1957_10_India",
-      "source_url": "https://archive.org/details/upenn-f16-0114_1957_10_India",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "8a05059ef0084ebe0e02ebe0": {
-      "source_id": "archive:shackleton-2002-a-e-and-biography-2013-08-31-0",
-      "source_url": "https://archive.org/details/shackleton-2002-a-e-and-biography-2013-08-31-0",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "7dd7240a42de9cab8020b3e5": {
-      "source_id": "archive:the-story-of-the-ms-explorer-cruise-ship-1080p",
-      "source_url": "https://archive.org/details/the-story-of-the-ms-explorer-cruise-ship-1080p",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "ec87585ca43b8a3905306f47": {
-      "source_id": "commons:135278222",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Stromness,_South_Georgia_Island.webm",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "3d435d4110ce36355bb0a4cb": {
+    "ffc0403a79f1ebbbb3bec1ab": {
       "source_id": "commons:135278250",
       "source_url": "https://commons.wikimedia.org/wiki/File:Scenes_of_Grytviken,_South_Georgia_Island.webm",
       "reason": "strong metadata exclusion: museum"
     },
-    "becf5cb597ecb8a1a09416ac": {
-      "source_id": "archive:bliptv-20131031-094006-Brianlippey-daveStewartRockBridgeGuitar813",
-      "source_url": "https://archive.org/details/bliptv-20131031-094006-Brianlippey-daveStewartRockBridgeGuitar813",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "de7439e0fe292250095af23e": {
-      "source_id": "commons:83034875",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Wikipedia-VideoWiki-A._R._Rahman.webm",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "b3bd214d0a0e3bccbccbfa4f": {
-      "source_id": "archive:dni.ncaa.ICCR-897-UM",
-      "source_url": "https://archive.org/details/dni.ncaa.ICCR-897-UM",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "cc0f0a966d8a113f99f87cc2": {
-      "source_id": "archive:Prpoint-RoleOfIndianInudstriesInRealisingVision2020AnExclusive230",
-      "source_url": "https://archive.org/details/Prpoint-RoleOfIndianInudstriesInRealisingVision2020AnExclusive230",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "32c1239fae687f04417edbf2": {
-      "source_id": "archive:Prpoint-India60AnExclusiveInterviewWithDrAbdulKalamPartOne336",
-      "source_url": "https://archive.org/details/Prpoint-India60AnExclusiveInterviewWithDrAbdulKalamPartOne336",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "9af4eb4b82650a1fabccf217": {
-      "source_id": "archive:Tykera_and_Monica_talk_about_Serena_Williams_and_the_WNBA_Finals_-_The_Roundball_Report",
-      "source_url": "https://archive.org/details/Tykera_and_Monica_talk_about_Serena_Williams_and_the_WNBA_Finals_-_The_Roundball_Report",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "83b6709a22c4f2ea05ec0bc2": {
-      "source_id": "archive:The_Better_Part_-_Antarctica",
-      "source_url": "https://archive.org/details/The_Better_Part_-_Antarctica",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "76dcc8c12d431d7cf32db6c1": {
-      "source_id": "archive:a-night-at-the-movies-the-horrors-of-stephen-king",
-      "source_url": "https://archive.org/details/a-night-at-the-movies-the-horrors-of-stephen-king",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "56f2abc3f93bc1e4a26b2764": {
-      "source_id": "archive:the-hidden-truth-about-stephen-king-s-it-documentary",
-      "source_url": "https://archive.org/details/the-hidden-truth-about-stephen-king-s-it-documentary",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "4a2c6f7de6fd2eaecc590ab4": {
-      "source_id": "archive:jcccks-Great_Books_-_Salem_s_Lot_by_Stephen_King",
-      "source_url": "https://archive.org/details/jcccks-Great_Books_-_Salem_s_Lot_by_Stephen_King",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "c416f39ddca4762fcc530f41": {
-      "source_id": "archive:stvma-Stow_COA_Talk-_Claude_Monet_and_the_Gardens_of_Giverny_1883-1926_3_17_26",
-      "source_url": "https://archive.org/details/stvma-Stow_COA_Talk-_Claude_Monet_and_the_Gardens_of_Giverny_1883-1926_3_17_26",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "047b94a9c5c795e3f2f82841": {
-      "source_id": "archive:asdk12ak-Claude_Monet_-_Art_History_Comes_Alive",
-      "source_url": "https://archive.org/details/asdk12ak-Claude_Monet_-_Art_History_Comes_Alive",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "ca7fbbc36eeca1cf65d66a8c": {
-      "source_id": "archive:blmtwpmiv-Claude_Monet_The_Father_of_Impressionist_Painting",
-      "source_url": "https://archive.org/details/blmtwpmiv-Claude_Monet_The_Father_of_Impressionist_Painting",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "e5462df05660c18b4f8bc7b6": {
-      "source_id": "archive:Barron_Arts_Center_Lecture_Adventures_in_Art_-_Claude_Monet",
-      "source_url": "https://archive.org/details/Barron_Arts_Center_Lecture_Adventures_in_Art_-_Claude_Monet",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "78e5006401c9713940adb222": {
-      "source_id": "archive:ClaudeMonetMonetsPalate",
-      "source_url": "https://archive.org/details/ClaudeMonetMonetsPalate",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "39bbbd0c31145cf230d8f1fd": {
-      "source_id": "archive:kevin-spencer-season-4-episode-2-snowfort-greg-lawrence-thomasin-langlands-480p-_202601",
-      "source_url": "https://archive.org/details/kevin-spencer-season-4-episode-2-snowfort-greg-lawrence-thomasin-langlands-480p-_202601",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "3f72c060e48ed49139c33c05": {
-      "source_id": "commons:69035196",
-      "source_url": "https://commons.wikimedia.org/wiki/File:SRINIVASA_RAMANUJAN-_The_Mathematician_%26_His_Legacy.webm",
-      "reason": "strong metadata exclusion: animation"
-    },
-    "d0c4a17d9389b7781cb43b6e": {
-      "source_id": "commons:77368566",
-      "source_url": "https://commons.wikimedia.org/wiki/File:SRINIVASA_RAMANUJAN-_The_Mathematician_%26_His_Legacy_(Abridged_Version).webm",
-      "reason": "strong metadata exclusion: animation"
-    },
-    "4d9c0744b70ce69477956171": {
-      "source_id": "archive:Microsoft_Research_Video_118020",
-      "source_url": "https://archive.org/details/Microsoft_Research_Video_118020",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "b42f0fc768f35e9c98619dfc": {
-      "source_id": "archive:Microsoft_Research_Video_143258",
-      "source_url": "https://archive.org/details/Microsoft_Research_Video_143258",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "74291e4f084d11446c309b7c": {
-      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
-      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "d2d253ba1e2c5d6bf69bc42b": {
-      "source_id": "archive:dni.ncaa.ICCR-2121-VHS",
-      "source_url": "https://archive.org/details/dni.ncaa.ICCR-2121-VHS",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "b4f408eba21e0ded752acd80": {
-      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
-      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "2a06f3c1e2f93e3468325d75": {
-      "source_id": "archive:twitch-vod-v383511641",
-      "source_url": "https://archive.org/details/twitch-vod-v383511641",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "ec311e6013d69cfe5444bc32": {
-      "source_id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
-      "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "7d70c679f3db277bfa153c74": {
-      "source_id": "archive:space-shuttle-columbia-disaster-february-1-2003",
-      "source_url": "https://archive.org/details/space-shuttle-columbia-disaster-february-1-2003",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "d36a447b150ca04bb8e20508": {
-      "source_id": "commons:83033085",
-      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-Kalpana_Chawla.webm",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "30b7983de34330b1e1796edb": {
-      "source_id": "commons:190866406",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Shuttle_Columbia_Disaster_-_Flight_Director_Communications_Loop.webm",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "037da73e71d05bee86dd9091": {
-      "source_id": "commons:94967100",
-      "source_url": "https://commons.wikimedia.org/wiki/File:Antares_NG-14_Rocket_Rolls_Out_at_NASA_Wallops_-_50389841133.webm",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "19d3426263354d6a5e4b3954": {
-      "source_id": "archive:the-magical-world-of-harry-potter-the-unauthorized-story-of-j.k.-rowling-full-vhs",
-      "source_url": "https://archive.org/details/the-magical-world-of-harry-potter-the-unauthorized-story-of-j.k.-rowling-full-vhs",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "a2fdc4589595cd80c350e751": {
-      "source_id": "archive:APN_Arlington_s_Next_J.K._Rowling",
-      "source_url": "https://archive.org/details/APN_Arlington_s_Next_J.K._Rowling",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "d5f4b80711f5195a0f790ef9": {
-      "source_id": "archive:jk-rowling-contrapoints",
-      "source_url": "https://archive.org/details/jk-rowling-contrapoints",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "7e79b298847243dc272f08a9": {
-      "source_id": "archive:PrideMonthShowedProgressExceptforJKRowling",
-      "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "6303f2b21904cf15ef5f3504": {
-      "source_id": "archive:TearingApartEverySingleWordOfJKRowlingsTERFManifesto",
-      "source_url": "https://archive.org/details/TearingApartEverySingleWordOfJKRowlingsTERFManifesto",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "8b8b7e6ae1d2e804f8595b55": {
-      "source_id": "archive:j.-k.-rowling-goes-silent-as-imane-khelif-files-harassment-lawsuit-against-her-others",
-      "source_url": "https://archive.org/details/j.-k.-rowling-goes-silent-as-imane-khelif-files-harassment-lawsuit-against-her-others",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "00dca713f0efd9676056f5aa": {
-      "source_id": "archive:tvtal-Drone_footage_of_black_lives_matter_mural_downtown_Montgomery_and_Rosa_Parks_Statue",
-      "source_url": "https://archive.org/details/tvtal-Drone_footage_of_black_lives_matter_mural_downtown_Montgomery_and_Rosa_Parks_Statue",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "785ee3975bba0bd7d91636fb": {
-      "source_id": "archive:mcccal-Chief_Finley_and_the_Rosa_Parks_Museum_anti_bullying_campaign",
-      "source_url": "https://archive.org/details/mcccal-Chief_Finley_and_the_Rosa_Parks_Museum_anti_bullying_campaign",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "551235a62088e264a25f55f6": {
-      "source_id": "archive:ttval-Rosa_Parks_Day_-_TROY_TrojanVision_News",
-      "source_url": "https://archive.org/details/ttval-Rosa_Parks_Day_-_TROY_TrojanVision_News",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "8bf1422c03b6a6cefdf0c377": {
-      "source_id": "archive:ttval-Rosa_Parks_Museum_prepares_for_celebration_-_TROY_TrojanVision",
-      "source_url": "https://archive.org/details/ttval-Rosa_Parks_Museum_prepares_for_celebration_-_TROY_TrojanVision",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "0fa040f6ac7a1f0b2807c76f": {
-      "source_id": "archive:ttval-Rosa_Parks_Statue_-_TROY_TrojanVision_News",
-      "source_url": "https://archive.org/details/ttval-Rosa_Parks_Statue_-_TROY_TrojanVision_News",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "bab09b7ce386a07a9e6adebc": {
-      "source_id": "archive:Charlie-Rose-2016-05-04",
-      "source_url": "https://archive.org/details/Charlie-Rose-2016-05-04",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "52c51bd268f47e48fb86f666": {
-      "source_id": "archive:Agatha100",
-      "source_url": "https://archive.org/details/Agatha100",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "32f9b6885f09fa05d50a89c3": {
-      "source_id": "archive:arena-agatha-christie-an-unfinished-portrait-1990",
-      "source_url": "https://archive.org/details/arena-agatha-christie-an-unfinished-portrait-1990",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "ad4f6362a7302ef2e2845dda": {
-      "source_id": "archive:ACSpidersWeb",
-      "source_url": "https://archive.org/details/ACSpidersWeb",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "50a93201c447c0d34b0eeaed": {
-      "source_id": "archive:Evil-Under-the-Sun_1982_AI_1080p.BluRay.10b.HEVC.PCM.2.0_BLUDUAINE",
-      "source_url": "https://archive.org/details/Evil-Under-the-Sun_1982_AI_1080p.BluRay.10b.HEVC.PCM.2.0_BLUDUAINE",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "99f73d1c02dd61e18d17a6d2": {
-      "source_id": "archive:The-Mirror-Crackd_1980_AI_1080p.BluRay.10b.HEVC.PCM.2.0_BLUDUAINE",
-      "source_url": "https://archive.org/details/The-Mirror-Crackd_1980_AI_1080p.BluRay.10b.HEVC.PCM.2.0_BLUDUAINE",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "b22a3e1f7903c8ac1c64f187": {
-      "source_id": "archive:le-vallon-2021-based-on-the-hollow-by-agatha-christie-with-english-subtitle",
-      "source_url": "https://archive.org/details/le-vallon-2021-based-on-the-hollow-by-agatha-christie-with-english-subtitle",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "baa5e6b1c148e7aeb15f7386": {
-      "source_id": "archive:mon-petit-doigt-ma-dit...-based-on-by-the-pricking-of-my-thumbs-by-agatha-chri",
-      "source_url": "https://archive.org/details/mon-petit-doigt-ma-dit...-based-on-by-the-pricking-of-my-thumbs-by-agatha-chri",
-      "reason": "visual verifier rejected source after four unusable identity samples"
-    },
-    "6aa074f4f1d9902c1d9e1344": {
-      "source_id": "archive:g4tv.com-video27845",
-      "source_url": "https://archive.org/details/g4tv.com-video27845",
-      "reason": "visual verifier rejected source after three unusable identity samples"
-    },
-    "9496e5f2d3e56818ecc2755e": {
-      "source_id": "archive:NitrogenesissMsxSylvesterStalloneInRambobadEndingIn0139.64",
-      "source_url": "https://archive.org/details/NitrogenesissMsxSylvesterStalloneInRambobadEndingIn0139.64",
-      "reason": "visual verifier rejected source after three unusable identity samples"
-    },
-    "4ff65658a109168ce3324f9c": {
-      "source_id": "archive:SylvesterStallone1975CaponeSteve",
-      "source_url": "https://archive.org/details/SylvesterStallone1975CaponeSteve",
-      "reason": "visual verifier rejected source after three unusable identity samples"
-    },
-    "7fa3455a2c77f5ac538d3cb7": {
-      "source_id": "archive:interviewwithjanegoodallinbaselfebruary2008",
-      "source_url": "https://archive.org/details/interviewwithjanegoodallinbaselfebruary2008",
-      "reason": "visual verifier rejected source after configured unusable identity samples"
-    },
-    "4b641ffd74b9c34dc4f07367": {
-      "source_id": "archive:conversation-with-dr-jane-goodall-12-08-2023",
-      "source_url": "https://archive.org/details/conversation-with-dr-jane-goodall-12-08-2023",
-      "reason": "visual verifier rejected source after configured unusable identity samples"
-    },
-    "1e5d59953649caac8f515dba": {
-      "source_id": "archive:2014-09-09-21-55-jennifer-byrne-presents-jane-goodall-abc",
-      "source_url": "https://archive.org/details/2014-09-09-21-55-jennifer-byrne-presents-jane-goodall-abc",
-      "reason": "visual verifier rejected source after configured unusable identity samples"
-    },
-    "9c44868be03db089e0425086": {
-      "source_id": "archive:khosla-ka-ghosla-2006-webhd-1080-p-jhs",
-      "source_url": "https://archive.org/details/khosla-ka-ghosla-2006-webhd-1080-p-jhs",
-      "reason": "visual verifier rejected source after configured unusable identity samples"
-    },
-    "e45d475ef8d6a2202f5cc94e": {
-      "source_id": "archive:yt_p3qjlLYszEI",
-      "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
-      "reason": "visual verifier rejected source after configured unusable identity samples"
-    },
-    "dc251fa3473d622250661379": {
-      "source_id": "archive:mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
-      "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
-      "reason": "visual verifier rejected source after configured unusable identity samples"
-    },
-    "7b714715046a726f8d1037a7": {
-      "source_id": "archive:cpaz-Black_History_Inspirational_Quotes",
-      "source_url": "https://archive.org/details/cpaz-Black_History_Inspirational_Quotes",
-      "reason": "visual verifier rejected source after configured unusable identity samples"
-    },
-    "a389699abd7890503cb04f04": {
-      "source_id": "archive:full-interview-of-prof.-anand-kumar-on-indian-caste-system",
-      "source_url": "https://archive.org/details/full-interview-of-prof.-anand-kumar-on-indian-caste-system",
+    "497496b2dd61a8030b7f45f8": {
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "8c40a064d19cdac1645a41a1": {
-      "source_id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
-      "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+    "1f6ae11f9b4789af061a909c": {
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "d23001dca1ba11a38883ca60": {
+    "519aca60d4dad93342854430": {
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202512",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "8e384bcb9c3e388d20ae7452": {
+      "source_id": "archive:shackletons-expedition",
+      "source_url": "https://archive.org/details/shackletons-expedition",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "7d44a91ebe7577570fccb62b": {
+      "source_id": "archive:antarctica-a-frozen-history",
+      "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "b52ccf75c99b9517bfe137c1": {
+      "source_id": "archive:world-of-ideas-w-bill-moyers-jonas-salk",
+      "source_url": "https://archive.org/details/world-of-ideas-w-bill-moyers-jonas-salk",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "dded89434612e30647cbaee0": {
+      "source_id": "archive:jonas-edward-salk",
+      "source_url": "https://archive.org/details/jonas-edward-salk",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "024f1146a0cc0ad22362678d": {
+      "source_id": "commons:96226437",
+      "source_url": "https://commons.wikimedia.org/wiki/File:You_know_the_story_of_Rosa_Parks,_but_do_you_know_the_story_of_PFC_Sarah_Keys-_RAQOTvpUJsQ.webm",
+      "reason": "strong metadata exclusion: mural"
+    },
+    "c0b715f78a5fc6dadfa2ed3a": {
+      "source_id": "commons:54513990",
+      "source_url": "https://commons.wikimedia.org/wiki/File:West_Wing_Week-_03-01-13_or_%22Hope_Springs_Eternal%22.webm",
+      "reason": "strong metadata exclusion: monument"
+    },
+    "4d12da823ab6d11673025062": {
       "source_id": "archive:DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
       "source_url": "https://archive.org/details/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "cb0618032cb58b601b1beee0": {
-      "source_id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
-      "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+    "819293a47dafaa561bedca0e": {
+      "source_id": "archive:ttval-Rosa_Parks_Day_-_TROY_TrojanVision_News",
+      "source_url": "https://archive.org/details/ttval-Rosa_Parks_Day_-_TROY_TrojanVision_News",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "6f0463bc8d88f2502a4de9ab": {
-      "source_id": "archive:Ice_Skating_at_Rosa_Parks_Circle",
-      "source_url": "https://archive.org/details/Ice_Skating_at_Rosa_Parks_Circle",
+    "13cbcb7e22770d7a63ae93bf": {
+      "source_id": "archive:coleefl-LeeTran_-_Rosa_Parks_Transportation_Center_Upgrades",
+      "source_url": "https://archive.org/details/coleefl-LeeTran_-_Rosa_Parks_Transportation_Center_Upgrades",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "61b348fb13eb647063a35343": {
-      "source_id": "archive:Rosa_Parks_Farmers_Market_Spanish_Version",
-      "source_url": "https://archive.org/details/Rosa_Parks_Farmers_Market_Spanish_Version",
+    "c1046281100aa2929f49986b": {
+      "source_id": "archive:ttval-Rosa_Parks_-_TROY_TrojanVision_News",
+      "source_url": "https://archive.org/details/ttval-Rosa_Parks_-_TROY_TrojanVision_News",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "0648ee58775ae8cd7b86c144": {
-      "source_id": "archive:walt-disney-mini-classics",
-      "source_url": "https://archive.org/details/walt-disney-mini-classics",
+    "8490b818048533a6f74bb126": {
+      "source_id": "archive:pwcsva-Military_Homecoming_Caught_on_Camera_at_Rosa_Parks_Elementary_School",
+      "source_url": "https://archive.org/details/pwcsva-Military_Homecoming_Caught_on_Camera_at_Rosa_Parks_Elementary_School",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "74ae0f04629b0ba2609f9d0c": {
-      "source_id": "archive:roosterteeth-46594",
-      "source_url": "https://archive.org/details/roosterteeth-46594",
+    "984873b6a0af76e8946e9632": {
+      "source_id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+      "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "7c0f7f5db7bb837c4fdfbda5": {
-      "source_id": "archive:walt-disney-pictures-history-2023_202310",
-      "source_url": "https://archive.org/details/walt-disney-pictures-history-2023_202310",
+    "322bada004c871286693c2f0": {
+      "source_id": "commons:160211662",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Handling_heatwaves_with_Vernon_and_Petunia_-HarryPotter.webm",
+      "reason": "strong metadata exclusion: film"
+    },
+    "d9ce2108e8e9c270b733c8ab": {
+      "source_id": "archive:APN_Arlington_s_Next_J.K._Rowling",
+      "source_url": "https://archive.org/details/APN_Arlington_s_Next_J.K._Rowling",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "bad0a8d9652350e3b2ccfbf0": {
-      "source_id": "archive:walt-disney-weekly-blogs",
-      "source_url": "https://archive.org/details/walt-disney-weekly-blogs",
+    "61caaf5482a128b3226b97af": {
+      "source_id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+      "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "0424e68e7dcd7906464db518": {
-      "source_id": "archive:g4tv.com-video49139",
-      "source_url": "https://archive.org/details/g4tv.com-video49139",
+    "d7bf32e04c65c49cfa61abaa": {
+      "source_id": "archive:NimrodTrollsJKRowling",
+      "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "cb7f0cbd3f97a2f59201e7ab": {
-      "source_id": "archive:g4tv.com-video49139-flvhd",
-      "source_url": "https://archive.org/details/g4tv.com-video49139-flvhd",
+    "b00d987a232a007d5f262554": {
+      "source_id": "archive:jk-rowling-contrapoints",
+      "source_url": "https://archive.org/details/jk-rowling-contrapoints",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "eacb9ea9598eadf52575ac5c": {
-      "source_id": "archive:twitter-1132004010678935552",
-      "source_url": "https://archive.org/details/twitter-1132004010678935552",
+    "d97c7633d762b783123376ca": {
+      "source_id": "archive:un-mago-anti-trans-defiende-a-jk-rowling",
+      "source_url": "https://archive.org/details/un-mago-anti-trans-defiende-a-jk-rowling",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "70955774c1b6d8687b5ce10f": {
-      "source_id": "archive:Santos_Comics_-_El_lado_comiquero_de_Guillermo_del_Toro_-_16_01_2018",
-      "source_url": "https://archive.org/details/Santos_Comics_-_El_lado_comiquero_de_Guillermo_del_Toro_-_16_01_2018",
+    "71f52177c621010f7beb3ee6": {
+      "source_id": "commons:69035196",
+      "source_url": "https://commons.wikimedia.org/wiki/File:SRINIVASA_RAMANUJAN-_The_Mathematician_%26_His_Legacy.webm",
+      "reason": "strong metadata exclusion: animation"
+    },
+    "219d522893999a8ce83d3dee": {
+      "source_id": "commons:77368566",
+      "source_url": "https://commons.wikimedia.org/wiki/File:SRINIVASA_RAMANUJAN-_The_Mathematician_%26_His_Legacy_(Abridged_Version).webm",
+      "reason": "strong metadata exclusion: animation"
+    },
+    "180eaaf934bd739a0588bb3a": {
+      "source_id": "archive:Microsoft_Research_Video_118020",
+      "source_url": "https://archive.org/details/Microsoft_Research_Video_118020",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "a6b10ebbd946f44ff2c26688": {
-      "source_id": "archive:WHIT09JohnPareInt",
-      "source_url": "https://archive.org/details/WHIT09JohnPareInt",
+    "b6975ccc498cbbbcab2d41f3": {
+      "source_id": "archive:Microsoft_Research_Video_143258",
+      "source_url": "https://archive.org/details/Microsoft_Research_Video_143258",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "153340ef19ebf1c0aa5fc140": {
-      "source_id": "archive:LouisBrailleAndTheBrailleAlphabet",
-      "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+    "67997825b0f86b5160b250e6": {
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "1134752bbdeaededbaa74233": {
-      "source_id": "archive:orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
-      "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+    "936260f8c2b6f8e944cfec56": {
+      "source_id": "archive:dni.ncaa.ICCR-2121-VHS",
+      "source_url": "https://archive.org/details/dni.ncaa.ICCR-2121-VHS",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     },
-    "cc2f28e7fdcbbba544ce6093": {
-      "source_id": "archive:cunytv_BCSPA115",
-      "source_url": "https://archive.org/details/cunytv_BCSPA115",
-      "reason": "visual verifier rejected source after configured consecutive unusable samples"
-    },
-    "e72b0460d43ca2d6f7ef1399": {
-      "source_id": "archive:btvin-Louis_Braille",
-      "source_url": "https://archive.org/details/btvin-Louis_Braille",
-      "reason": "visual verifier rejected source after configured consecutive unusable samples"
-    },
-    "436593d27903169298f0afae": {
-      "source_id": "archive:cobpca-The_Mayor_s_Show_featuring_Mayor_Fred_Smith",
-      "source_url": "https://archive.org/details/cobpca-The_Mayor_s_Show_featuring_Mayor_Fred_Smith",
-      "reason": "visual verifier rejected source after configured consecutive unusable samples"
-    },
-    "78310f7e2a4701c817367053": {
-      "source_id": "archive:cobpca-The_Mayor_s_Show_featuring_Fred_Smith",
-      "source_url": "https://archive.org/details/cobpca-The_Mayor_s_Show_featuring_Fred_Smith",
-      "reason": "visual verifier rejected source after configured consecutive unusable samples"
-    },
-    "806546aee5b97d13fb5f6906": {
-      "source_id": "archive:29.-does-whitney-webb-know-skull-bones-john-kerry-fred-smith",
-      "source_url": "https://archive.org/details/29.-does-whitney-webb-know-skull-bones-john-kerry-fred-smith",
-      "reason": "visual verifier rejected source after configured consecutive unusable samples"
-    },
-    "41b040a235901f25645eea21": {
-      "source_id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-      "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-      "reason": "visual verifier rejected source after configured consecutive unusable samples"
-    },
-    "b6e51ac35debe667924b830f": {
-      "source_id": "archive:kelly-rohrbach-of-baywatch-talks-dwayne-johnson-beach-babes-and-sun-thr-next-big-thing",
-      "source_url": "https://archive.org/details/kelly-rohrbach-of-baywatch-talks-dwayne-johnson-beach-babes-and-sun-thr-next-big-thing",
-      "reason": "visual verifier rejected source after configured consecutive unusable samples"
-    },
-    "fa562101f5550b72dbb95f6a": {
-      "source_id": "archive:colbca-Asian_American_and_Pacific_Islander_Heritage_Month_Spotlight_-_Dwayne_Johnson",
-      "source_url": "https://archive.org/details/colbca-Asian_American_and_Pacific_Islander_Heritage_Month_Spotlight_-_Dwayne_Johnson",
-      "reason": "visual verifier rejected source after configured consecutive unusable samples"
-    },
-    "5d7de893e0568bea6b9ac43e": {
-      "source_id": "archive:twitter-1207842729415172096",
-      "source_url": "https://archive.org/details/twitter-1207842729415172096",
-      "reason": "visual verifier rejected source after configured consecutive unusable samples"
-    },
-    "8ab61856691d0866229b323d": {
-      "source_id": "archive:dwayne-johnson-youre-welcome-from-moana-sing-along",
-      "source_url": "https://archive.org/details/dwayne-johnson-youre-welcome-from-moana-sing-along",
-      "reason": "visual verifier rejected source after configured consecutive unusable samples"
-    },
-    "779317680271ae0f6f58f8be": {
-      "source_id": "archive:holiday-special-with-dwayne-johnson-some-good-news-with-john-krasinski",
-      "source_url": "https://archive.org/details/holiday-special-with-dwayne-johnson-some-good-news-with-john-krasinski",
+    "15bac7c3d430c859f056cc08": {
+      "source_id": "archive:twitch-vod-v383511641",
+      "source_url": "https://archive.org/details/twitch-vod-v383511641",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
     }
   }

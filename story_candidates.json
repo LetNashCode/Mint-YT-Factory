@@ -26,18 +26,6 @@
   },
   {
     "format": "before_they_were_famous",
-    "person": "J.K. Rowling",
-    "premise": "A struggling single mother writes fantasy chapters in Edinburgh cafes while depending on state benefits.",
-    "hook": "Before selling millions of books, she wrote manuscript pages in local cafes while keeping warm with her baby.",
-    "key_facts": [
-      "Conceived the idea for a wizarding school while on a delayed train in 1990.",
-      "Completed the first novel while living in Edinburgh amid financial hardship.",
-      "Faced multiple rejections from publishing houses before Bloomsbury accepted the manuscript."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
     "person": "Jackie Chan",
     "premise": "His grueling decade training at the China Drama Academy as a child.",
     "hook": "Before he broke box office records, he trained for 19 hours a day under a master who promised teachers could break their bones.",
@@ -45,54 +33,6 @@
       "Enrolled in the Beijing Opera School (China Drama Academy) at age six by his parents.",
       "Trained rigorously in martial arts, acrobatics, singing, and acting for ten years.",
       "Worked as a stuntman and extra in Bruce Lee films before landing leading roles."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Rosa Parks",
-    "premise": "A routine bus ride in Montgomery, Alabama leads to an arrest that ignites a historic boycott.",
-    "hook": "One quiet refusal on a crowded bus sparked a movement that changed history.",
-    "key_facts": [
-      "Worked as a seamstress and NAACP secretary",
-      "Arrested for refusing to surrender her bus seat to a white passenger",
-      "Triggered the 381-day Montgomery bus boycott"
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Tenzing Norgay",
-    "premise": "An experienced Sherpa mountaineer helps complete the first successful ascent of Mount Everest.",
-    "hook": "He faced freezing winds and thin air to reach the roof of the world when previous expeditions had repeatedly failed.",
-    "key_facts": [
-      "Participated in multiple Himalayan expeditions as a high-altitude porter",
-      "Reached the summit of Everest with Edmund Hillary in 1953",
-      "Named one of Time magazine's 100 most influential people of the 20th century"
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Alexander Fleming",
-    "premise": "An untidy laboratory bench and a contaminated petri dish lead to the discovery of penicillin.",
-    "hook": "A messy lab and a stray mold spore accidentally launched modern antibiotics.",
-    "key_facts": [
-      "Noticed mold growing on a staphylococcus culture plate in 1928",
-      "Identified the mold as Penicillium notatum inhibiting bacterial growth",
-      "Published foundational research that enabled mass antibiotic development"
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Jonas Salk",
-    "premise": "A medical researcher chooses to test his experimental polio vaccine on himself and his family.",
-    "hook": "He injected his own family with an untested virus to prove it was safe.",
-    "key_facts": [
-      "Led the research team developing the first successful polio vaccine",
-      "Inoculated himself, his wife, and his children during early safety trials",
-      "Declared the vaccine patent-free to maximize global distribution"
     ],
     "source": "gemini_original"
   },
@@ -109,14 +49,98 @@
     "source": "gemini_original"
   },
   {
+    "format": "one_decision",
+    "person": "Rosa Parks",
+    "premise": "A routine bus ride in Montgomery, Alabama sparks a historic boycott.",
+    "hook": "One quiet refusal on a crowded city bus triggered a 381-day movement that changed history.",
+    "key_facts": [
+      "Worked as a seamstress and NAACP secretary.",
+      "Refused to surrender her bus seat on December 1, 1955.",
+      "Her arrest catalyzed the Montgomery bus boycott."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Sylvester Stallone",
+    "premise": "A struggling actor with partial facial paralysis refuses to sell his script unless he plays the lead.",
+    "hook": "He was so broke he had to sell his dog for $50 just to buy food—then wrote a blockbuster script in three days.",
+    "key_facts": [
+      "Experienced complications at birth leading to speech and facial nerve issues.",
+      "Lived in extreme poverty and slept in the New York Port Authority bus terminal.",
+      "Refused multiple studio offers to buy the Rocky script without him starring."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Alexander Fleming",
+    "premise": "A messy laboratory bench leads to the accidental discovery of the world's first antibiotic.",
+    "hook": "A stray mold spore drifted through an open window and accidentally destroyed a scientist's experiment.",
+    "key_facts": [
+      "Noticed a Petri dish of Staphylococcus bacteria contaminated by Penicillium mold in 1928.",
+      "Published findings on penicillin in the British Journal of Experimental Pathology.",
+      "Shared the Nobel Prize in Physiology or Medicine in 1945."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Madam C.J. Walker",
+    "premise": "An orphaned daughter of emancipated slaves builds a nationwide haircare enterprise.",
+    "hook": "She started by mixing formulas in a wash tub and became America's first self-made female millionaire.",
+    "key_facts": [
+      "Born on a cotton plantation in Delta, Louisiana, in 1867.",
+      "Developed a line of African American hair care products.",
+      "Employed thousands of women as sales agents across the United States."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Bob Denver",
+    "premise": "A television actor makes a contract choice that changes his career trajectory.",
+    "hook": "He turned down top billing on a famous TV show because he wanted his name listed alphabetically instead.",
+    "key_facts": [
+      "Starred in the 1960s television sitcom Gilligan's Island.",
+      "Requested his character's name appear fourth in the opening credits sequence.",
+      "Served in the United States Army during the Korean War."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Kalpana Chawla",
+    "premise": "A young engineering student in Karnal looks at pictures of planes and dreams of spaceflight.",
+    "hook": "She grew up in a small town where local girls rarely pursued aviation, yet she ended up working at NASA.",
+    "key_facts": [
+      "Graduated with a degree in aeronautical engineering from Punjab Engineering College.",
+      "Obtained a Ph.D. in aerospace engineering from the University of Colorado Boulder.",
+      "Joined NASA's astronaut corps in 1994."
+    ],
+    "source": "gemini_original"
+  },
+  {
     "format": "impossible_odds",
     "person": "Ernest Shackleton",
-    "premise": "After his ship is crushed by Antarctic ice, an explorer leads his entire crew to survival.",
-    "hook": "His ship was destroyed, yet every single member of his crew survived the polar wilderness.",
+    "premise": "An Antarctic expedition crew survives months on floating ice after their ship is crushed.",
+    "hook": "Their ship was completely crushed by pack ice, stranding 28 men in the freezing Antarctic for over a year.",
     "key_facts": [
-      "Led the Imperial Trans-Antarctic Expedition aboard the Endurance",
-      "Traversed 800 miles of stormy ocean in a small lifeboat to find rescue",
-      "Achieved zero loss of life despite months stranded on floating ice"
+      "Led the Imperial Trans-Antarctic Expedition aboard the Endurance in 1914.",
+      "Navigated an open lifeboat 800 miles across the Southern Ocean to South Georgia Island.",
+      "Successfully rescued every member of his crew without a single loss of life."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Isaac Newton",
+    "premise": "A university closure forces a young scholar to retreat to his family farm to ponder physics.",
+    "hook": "A university plague shutdown sent him home, where a falling fruit sparked a breakthrough in gravity.",
+    "key_facts": [
+      "Studied at Trinity College, Cambridge, until it closed due to the Great Plague of London.",
+      "Developed foundational theories on calculus, optics, and motion during his rural isolation.",
+      "Published Philosophiae Naturalis Principia Mathematica in 1687."
     ],
     "source": "gemini_original"
   }

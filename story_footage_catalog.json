@@ -5905,6 +5905,37 @@
       },
       "review_key": "e5d6b8d2cdaa0a8ac6a2849fe2c6ddbff80013a4eee2806369c2003cd149c979",
       "reviewed_at": 1790903391.8688688
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 42.23,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows Jonas Salk clearly across all three frames, actively engaged in lab/medical work, directly relevant to his biography as the inventor of the polio vaccine.",
+        "usage": "direct_event"
+      },
+      "review_key": "fc83d3df85e8a4f78d51e859737d10e214718c49aacafea3bc4d06c4ec843cc8",
+      "reviewed_at": 1790905107.1365566
     }
   ]
 }

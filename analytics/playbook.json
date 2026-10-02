@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T11:07:28.714302+00:00",
+  "generated_at": "2026-10-02T14:01:25.445271+00:00",
   "video_count": 132,
   "learning_ready": true,
   "metrics_available": true,
@@ -13,16 +13,16 @@
   "winning_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 38.785,
+      "score": 38.786,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.486
+      "weak_score": 0.491
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.486,
+      "score": 0.491,
       "sample_size": 10
     }
   ],

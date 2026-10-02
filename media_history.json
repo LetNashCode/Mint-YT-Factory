@@ -10479,6 +10479,136 @@
       "shot": 2,
       "query": "ketchup resist pouring swift strike breaks trap",
       "recorded_at": 1790927937
+    },
+    {
+      "asset_key": "pexels:video:36223293",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/36223293/15361506_1280_720_120fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "car you roll onto new",
+      "recorded_at": 1790978984
+    },
+    {
+      "asset_key": "pexels:video:7700793",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7700793/7700793-hd_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "car your instantly sounds",
+      "recorded_at": 1790978987
+    },
+    {
+      "asset_key": "pexels:video:20693196",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/20693196/20693196-hd_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "car your engine quiet windows",
+      "recorded_at": 1790978990
+    },
+    {
+      "asset_key": "pexels:video:39140730",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39140730/16655572_1280_720_60fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "car yet deafening roar lives",
+      "recorded_at": 1790978995
+    },
+    {
+      "asset_key": "pexels:video:31670285",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/31670285/13492500_720_1280_24fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "car but real culprit trapped",
+      "recorded_at": 1790979006
+    },
+    {
+      "asset_key": "pexels:video:3088697",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3088697/3088697-hd_1280_720_50fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "car heavy rubber slams road",
+      "recorded_at": 1790979009
+    },
+    {
+      "asset_key": "pexels:video:8865489",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8865489/8865489-hd_720_1366_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "car squeeze air out like",
+      "recorded_at": 1790979017
+    },
+    {
+      "asset_key": "pexels:video:34622575",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34622575/14673550_720_1280_30fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "car you not rolling across",
+      "recorded_at": 1790979022
+    },
+    {
+      "asset_key": "pexels:video:5912595",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5912595/5912595-hd_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "car you playing billion microscopic",
+      "recorded_at": 1790979028
+    },
+    {
+      "asset_key": "pexels:video:854221",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/854221/854221-hd_1280_720_24fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "car tiny air pockets act",
+      "recorded_at": 1790979033
+    },
+    {
+      "asset_key": "pexels:video:38452040",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/38452040/16328387_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "car blending millions mini screams",
+      "recorded_at": 1790979037
+    },
+    {
+      "asset_key": "pexels:video:4482066",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4482066/4482066-hd_1366_720_50fps.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "car next time you hear",
+      "recorded_at": 1790979040
+    },
+    {
+      "asset_key": "pexels:video:19953502",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/19953502/19953502-hd_1280_720_24fps.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "car next time you hear",
+      "recorded_at": 1790979044
     }
   ]
 }

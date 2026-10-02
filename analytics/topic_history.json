@@ -3164,5 +3164,21 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do car tires roar",
+    "normalized": "why do car tires roar",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1790978871,
+    "recorded_at": 1790978871,
+    "metadata": {
+      "next_topic": "Why does soda fizz",
+      "creative_strategy": "wild"
+    },
+    "title": "Why Do Car Tires Roar",
+    "video_id": "5BrAGgesQF8",
+    "workdir": "output/1790978924",
+    "published_at": 1790980115
   }
 ]

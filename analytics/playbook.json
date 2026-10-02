@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T18:42:31.700311+00:00",
+  "generated_at": "2026-10-02T22:08:12.526191+00:00",
   "video_count": 132,
   "learning_ready": true,
   "metrics_available": true,
@@ -13,16 +13,16 @@
   "winning_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 38.786,
+      "score": 39.236,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.492
+      "weak_score": 2.407
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.492,
+      "score": 2.407,
       "sample_size": 10
     }
   ],
@@ -36,19 +36,19 @@
     "Why do earbuds tangle in pockets",
     "Why paperclips float on water",
     "Stephen King: The discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon.",
+    "Why do wooden hangers smell",
     "Why window glass warps reflections",
     "Why ice cream gives you brain freeze",
-    "Why do lightbulbs pop",
-    "Why candles tunnel down the middle"
+    "Why do lightbulbs pop"
   ],
   "avoid_topics": [
-    "Why do frying pans warp",
-    "Why do keys jingle",
-    "Why do wooden hangers smell",
-    "bittersweet happiness: Finding a dusty box of mix CDs in a garage clean-up and plugging the last one into an old car stereo, hearing the exact track that was playing the night you got your driver's license.",
+    "Why do buttons pop off coats",
+    "Why your phone screen gets greasy",
+    "Why do door knobs get loose",
+    "Why do envelopes taste sweet",
     "Why does ketchup resist pouring",
-    "homesickness: Smelling the exact scent of woodsmoke and damp pine needles while opening a jar of imported maple syrup given by a neighbor from your hometown thousands of miles away.",
     "Why do sponges get smelly",
+    "homesickness: Smelling the exact scent of woodsmoke and damp pine needles while opening a jar of imported maple syrup given by a neighbor from your hometown thousands of miles away.",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
     "Why do steering wheels lock"

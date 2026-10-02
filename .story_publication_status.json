@@ -2,5 +2,5 @@
   "status": "deferred",
   "video_id": "",
   "youtube_url": "",
-  "reason": "No unused Story subject with real-video candidates found in eight attempts"
+  "reason": "Story Gemini visual verification budget exhausted after 56 requests (visual_limit=56, total_limit=64)\\n"
 }

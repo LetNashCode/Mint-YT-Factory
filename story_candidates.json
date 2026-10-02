@@ -14,18 +14,6 @@
   },
   {
     "format": "before_they_were_famous",
-    "person": "Steve Jobs",
-    "premise": "A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
-    "hook": "Before building iPhones, he dropped out of college, slept on friends' floors, and built circuit boards in a garage.",
-    "key_facts": [
-      "Dropped out of Reed College after attending for one semester",
-      "Co-founded Apple Computer in 1976 inside a suburban garage",
-      "Traveled to India seeking spiritual guidance prior to starting Apple"
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
     "person": "Jackie Chan",
     "premise": "His grueling decade training at the China Drama Academy as a child.",
     "hook": "Before he broke box office records, he trained for 19 hours a day under a master who promised teachers could break their bones.",
@@ -49,18 +37,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Rosa Parks",
-    "premise": "A routine bus ride in Montgomery, Alabama sparks a historic boycott.",
-    "hook": "One quiet refusal on a crowded city bus triggered a 381-day movement that changed history.",
-    "key_facts": [
-      "Worked as a seamstress and NAACP secretary.",
-      "Refused to surrender her bus seat on December 1, 1955.",
-      "Her arrest catalyzed the Montgomery bus boycott."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Sylvester Stallone",
     "premise": "A struggling actor with partial facial paralysis refuses to sell his script unless he plays the lead.",
@@ -73,42 +49,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Alexander Fleming",
-    "premise": "A messy laboratory bench leads to the accidental discovery of the world's first antibiotic.",
-    "hook": "A stray mold spore drifted through an open window and accidentally destroyed a scientist's experiment.",
-    "key_facts": [
-      "Noticed a Petri dish of Staphylococcus bacteria contaminated by Penicillium mold in 1928.",
-      "Published findings on penicillin in the British Journal of Experimental Pathology.",
-      "Shared the Nobel Prize in Physiology or Medicine in 1945."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
-    "person": "Madam C.J. Walker",
-    "premise": "An orphaned daughter of emancipated slaves builds a nationwide haircare enterprise.",
-    "hook": "She started by mixing formulas in a wash tub and became America's first self-made female millionaire.",
-    "key_facts": [
-      "Born on a cotton plantation in Delta, Louisiana, in 1867.",
-      "Developed a line of African American hair care products.",
-      "Employed thousands of women as sales agents across the United States."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Bob Denver",
-    "premise": "A television actor makes a contract choice that changes his career trajectory.",
-    "hook": "He turned down top billing on a famous TV show because he wanted his name listed alphabetically instead.",
-    "key_facts": [
-      "Starred in the 1960s television sitcom Gilligan's Island.",
-      "Requested his character's name appear fourth in the opening credits sequence.",
-      "Served in the United States Army during the Korean War."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Kalpana Chawla",
     "premise": "A young engineering student in Karnal looks at pictures of planes and dreams of spaceflight.",
@@ -117,30 +57,6 @@
       "Graduated with a degree in aeronautical engineering from Punjab Engineering College.",
       "Obtained a Ph.D. in aerospace engineering from the University of Colorado Boulder.",
       "Joined NASA's astronaut corps in 1994."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "An Antarctic expedition crew survives months on floating ice after their ship is crushed.",
-    "hook": "Their ship was completely crushed by pack ice, stranding 28 men in the freezing Antarctic for over a year.",
-    "key_facts": [
-      "Led the Imperial Trans-Antarctic Expedition aboard the Endurance in 1914.",
-      "Navigated an open lifeboat 800 miles across the Southern Ocean to South Georgia Island.",
-      "Successfully rescued every member of his crew without a single loss of life."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Isaac Newton",
-    "premise": "A university closure forces a young scholar to retreat to his family farm to ponder physics.",
-    "hook": "A university plague shutdown sent him home, where a falling fruit sparked a breakthrough in gravity.",
-    "key_facts": [
-      "Studied at Trinity College, Cambridge, until it closed due to the Great Plague of London.",
-      "Developed foundational theories on calculus, optics, and motion during his rural isolation.",
-      "Published Philosophiae Naturalis Principia Mathematica in 1687."
     ],
     "source": "gemini_original"
   }

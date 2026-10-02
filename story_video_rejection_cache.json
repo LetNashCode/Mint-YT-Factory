@@ -155,6 +155,121 @@
       "source_id": "archive:twitch-vod-v383511641",
       "source_url": "https://archive.org/details/twitch-vod-v383511641",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "7f017c99a5edf4a8377f1c4c": {
+      "source_id": "archive:yt_p3qjlLYszEI",
+      "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "722a7c27b93e37fa1f2455b6": {
+      "source_id": "archive:mytv26ca-Madam_C_J_Walker",
+      "source_url": "https://archive.org/details/mytv26ca-Madam_C_J_Walker",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "ab0013bebdf1113819b5a43a": {
+      "source_id": "archive:mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "1b43a018e623862185e5068a": {
+      "source_id": "archive:cpaz-Black_History_Inspirational_Quotes",
+      "source_url": "https://archive.org/details/cpaz-Black_History_Inspirational_Quotes",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "c53c2210b5be5e42066261e7": {
+      "source_id": "commons:57997632",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Complexity_Science-_1_Introduction.webm",
+      "reason": "strong metadata exclusion: course"
+    },
+    "927c82c06dc357a1ca71ac3a": {
+      "source_id": "commons:153161650",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Science_stories_%E2%80%93_Sustainability_(The_Royal_Society).webm",
+      "reason": "strong metadata exclusion: film"
+    },
+    "420de5a7475fd85fdb67a880": {
+      "source_id": "archive:ppldco-It_Starts_With_Me_presented_by_Isaac_Newton_Farris_Jr.",
+      "source_url": "https://archive.org/details/ppldco-It_Starts_With_Me_presented_by_Isaac_Newton_Farris_Jr.",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "8002cc5a352647531aa2ee87": {
+      "source_id": "archive:SirIsaacNewton-MoreThanMeetsTheEye",
+      "source_url": "https://archive.org/details/SirIsaacNewton-MoreThanMeetsTheEye",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "e88a781603bac7ea6b53c8c9": {
+      "source_id": "archive:Flickr-4944398139",
+      "source_url": "https://archive.org/details/Flickr-4944398139",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "9eb2e0eea746f9a73bcd2f66": {
+      "source_id": "archive:Flickr-4944141233",
+      "source_url": "https://archive.org/details/Flickr-4944141233",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "cadd4658533485af6abc11e3": {
+      "source_id": "archive:vid-20260223-212614",
+      "source_url": "https://archive.org/details/vid-20260223-212614",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "36d57a7f5f61e396bd9408de": {
+      "source_id": "archive:Isaac_Newton",
+      "source_url": "https://archive.org/details/Isaac_Newton",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "3b5ec79258dbc782565b3884": {
+      "source_id": "archive:circus-fantastic-on-tv-1977-480p",
+      "source_url": "https://archive.org/details/circus-fantastic-on-tv-1977-480p",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "8b1ed88575d630b401898f79": {
+      "source_id": "archive:DustysTrailTheresNothingLikeADame",
+      "source_url": "https://archive.org/details/DustysTrailTheresNothingLikeADame",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "ada1a3b625e3314cfc6bd1d0": {
+      "source_id": "archive:MonsterVisionBobDenver",
+      "source_url": "https://archive.org/details/MonsterVisionBobDenver",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "8517c78b66fc703a9ff9f0d6": {
+      "source_id": "archive:whatever-happened-to-dobie-gillis",
+      "source_url": "https://archive.org/details/whatever-happened-to-dobie-gillis",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "5aedea12d4cbfd335ed72ac1": {
+      "source_id": "archive:surviving-gilligans-island-2001",
+      "source_url": "https://archive.org/details/surviving-gilligans-island-2001",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "a1dbff9f10e63af87f269ddb": {
+      "source_id": "archive:Topeka_In_Two_-_Rosa_Parks_Unity_Walks",
+      "source_url": "https://archive.org/details/Topeka_In_Two_-_Rosa_Parks_Unity_Walks",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "a3b504ad8c15f10d1b009d1b": {
+      "source_id": "archive:ttval-70th_Anniversary_of_Rosa_Parks_Refusal_-_TROY_TrojanVision_News",
+      "source_url": "https://archive.org/details/ttval-70th_Anniversary_of_Rosa_Parks_Refusal_-_TROY_TrojanVision_News",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "de85757ba98d4be87eea0456": {
+      "source_id": "archive:The_ball_drop_at_New_Years_Eve_LIVE_with_WKTV_at_Rosa_Parks_Circle_in_downtown_Grand_Rapids",
+      "source_url": "https://archive.org/details/The_ball_drop_at_New_Years_Eve_LIVE_with_WKTV_at_Rosa_Parks_Circle_in_downtown_Grand_Rapids",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "bd0a5486a9d077ffeb8704b9": {
+      "source_id": "archive:gbtv_30109789_1200K",
+      "source_url": "https://archive.org/details/gbtv_30109789_1200K",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "df67af58bca574b632c94659": {
+      "source_id": "archive:Ice_Skating_at_Rosa_Parks_Circle",
+      "source_url": "https://archive.org/details/Ice_Skating_at_Rosa_Parks_Circle",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "4b940ea8579aade5a5b348ce": {
+      "source_id": "archive:Rosa_Parks_Farmers_Market_Spanish_Version",
+      "source_url": "https://archive.org/details/Rosa_Parks_Farmers_Market_Spanish_Version",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
     }
   }
 }

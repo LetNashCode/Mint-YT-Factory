@@ -16,7 +16,7 @@ from mystery_audio_analysis import analyze_audio
 ROOT = Path(__file__).resolve().parent
 CATALOG = ROOT / "mystery_footage_catalog.json"
 OUT = ROOT / os.getenv("MYSTERY_DOCUMENTARY_OUTPUT_DIR", "artifacts/mystery-documentary")
-MODEL = "gemini-flash-lite-latest"
+MODEL = os.getenv("MYSTERY_GEMINI_MODEL", "gemini-2.5-flash-lite")
 MYSTERY_KOKORO_VOICE = os.getenv("MYSTERY_KOKORO_VOICE", "am_onyx").strip() or "am_onyx"
 MYSTERY_KOKORO_LANG = os.getenv("MYSTERY_KOKORO_LANG", "a").strip() or "a"
 VOICE = {
@@ -95,7 +95,7 @@ def plan(item, source, work, duration, audio_analysis, max_frames=24):
     factory_strategy = os.getenv("MINT_FACTORY_CREATIVE_STRATEGY", "").strip()
     protected_speech = audio_analysis.get("protected_intervals", []) if isinstance(audio_analysis, dict) else []
     source_transcript = audio_analysis.get("transcript", "") if isinstance(audio_analysis, dict) else ""
-    prompt = f"""Create an evidence-led but genuinely entertaining mystery documentary timeline for this real-world mystery video. Duration: {duration:.2f} seconds. The viewer should feel that each beat answers one question while opening the next, rather than listening to a dry chronology. Build a cinematic curiosity arc: cold open with the strangest observable moment, orient the viewer quickly, establish the central question, reveal evidence in stages, escalate the most interesting clue, revisit a critical moment with pause/replay, explain competing interpretations, then land on a clear evidence-based conclusion or clearly stated unresolved mystery. Do not manufacture suspense with false claims. Return JSON with video_title, description_intro, tags, highlighted_keywords, and scene_plan. scene_plan must cover 0 to {duration:.2f} with no gaps or overlaps. Each scene: start, end, audio_mode, narration, purpose, evidence_label. Add commentary_role (hook, setup, explanation, evidence, replay, theory, conclusion). Add visual_effect (normal, zoom_in, zoom_out, pause, or replay), zoom_strength, zoom_target_x, zoom_target_y, and effect_reason. audio_mode must be original, narration, pause, or replay. Use original audio ONLY inside or immediately around the supplied protected source-speech intervals. Outside those intervals, generated narration should carry the soundtrack. Narration is the primary storytelling layer and should cover at least 65% of the finished edit. Original-audio scenes should normally stay below 25% of the finished edit. There must be at least 4 narration-bearing scenes whenever the footage is long enough. Use original only when source speech or a genuinely important original sound is the point of the scene. Do not let original-audio scenes consume the entire timeline. Avoid repetitive "then this happened" narration. Prefer short, vivid sentences, concrete observations, unanswered questions, and meaningful reveals. Do not explain the same fact twice unless the second pass adds a new implication. Use pause/replay for critical evidence. Include at least one pause and one replay when the footage contains a clear moment worth explaining twice. Include at least two restrained zoom moments when there are visible details worth pointing out. Every narration scene must contain enough narration to naturally fill its planned duration at conversational speed. Target roughly 2.1-2.6 spoken words per second of narration scene, and never leave a narration scene empty. Do not infer guilt, intent, identity, fear, deception, or causation from body language or appearance alone. Separate observations, verified facts, reported claims, theories, and limitations. When evidence is ambiguous, make the ambiguity part of the story. The conclusion should tell the viewer exactly what the footage establishes, what it does not establish, and why the mystery remains interesting. Do not invent events. CASE TITLE: {item.get('title')} CASE SUMMARY: {item.get('case_summary')} FOOTAGE DESCRIPTION: {item.get('footage_description')} VERIFIED FACTS: {item.get('verified_facts', [])} OPEN QUESTIONS: {item.get('theories_or_open_questions', [])}
+    prompt = f"""Create an evidence-led but genuinely entertaining mystery documentary timeline for this real-world mystery video. Duration: {duration:.2f} seconds. The viewer should feel that each beat answers one question while opening the next, rather than listening to a dry chronology. Build a cinematic curiosity arc: cold open with the strangest observable moment, orient the viewer quickly, establish the central question, reveal evidence in stages, escalate the most interesting clue, revisit a critical moment with pause/replay, explain competing interpretations, then land on a clear evidence-based conclusion or clearly stated unresolved mystery. Do not manufacture suspense with false claims. Return JSON with video_title, description_intro, tags, highlighted_keywords, and scene_plan. For long footage, use roughly one scene per 45-90 seconds and never collapse a multi-minute documentary into only a handful of scenes. scene_plan must cover 0 to {duration:.2f} with no gaps or overlaps. Each scene: start, end, audio_mode, narration, purpose, evidence_label. Add commentary_role (hook, setup, explanation, evidence, replay, theory, conclusion). Add visual_effect (normal, zoom_in, zoom_out, pause, or replay), zoom_strength, zoom_target_x, zoom_target_y, and effect_reason. audio_mode must be original, narration, pause, or replay. Use original audio ONLY inside or immediately around the supplied protected source-speech intervals. Outside those intervals, generated narration should carry the soundtrack. Narration is the primary storytelling layer and should cover at least 65% of the finished edit. Original-audio scenes should normally stay below 25% of the finished edit. There must be at least 4 narration-bearing scenes whenever the footage is long enough. Use original only when source speech or a genuinely important original sound is the point of the scene. Do not let original-audio scenes consume the entire timeline. Avoid repetitive "then this happened" narration. Prefer short, vivid sentences, concrete observations, unanswered questions, and meaningful reveals. Do not explain the same fact twice unless the second pass adds a new implication. Use pause/replay for critical evidence. Include at least one pause and one replay when the footage contains a clear moment worth explaining twice. Include at least two restrained zoom moments when there are visible details worth pointing out. Every narration scene must contain enough narration to naturally fill its planned duration at conversational speed. Target roughly 2.1-2.6 spoken words per second of narration scene, and never leave a narration scene empty. Do not infer guilt, intent, identity, fear, deception, or causation from body language or appearance alone. Separate observations, verified facts, reported claims, theories, and limitations. When evidence is ambiguous, make the ambiguity part of the story. The conclusion should tell the viewer exactly what the footage establishes, what it does not establish, and why the mystery remains interesting. Do not invent events. CASE TITLE: {item.get('title')} CASE SUMMARY: {item.get('case_summary')} FOOTAGE DESCRIPTION: {item.get('footage_description')} VERIFIED FACTS: {item.get('verified_facts', [])} OPEN QUESTIONS: {item.get('theories_or_open_questions', [])}
 
 FACTORY-WIDE SELF-LEARNING CONTEXT:
 {factory_learning}
@@ -111,6 +111,7 @@ PROTECTED SOURCE-SPEECH INTERVALS (Whisper): {protected_speech}\nSOURCE AUDIO TR
             contents=parts,
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
+                max_output_tokens=int(os.getenv("MYSTERY_GEMINI_MAX_OUTPUT_TOKENS", "16000")),
                 temperature=0.2,
             ),
         )
@@ -294,6 +295,162 @@ def _skip_if_configured(message):
     return False
 
 
+def _fallback_long_form_plan(item, duration, audio_analysis):
+    """Build a narration-rich plan when Gemini cannot reliably emit a huge scene array."""
+    protected = audio_analysis.get("protected_intervals", []) if isinstance(audio_analysis, dict) else []
+    transcript = audio_analysis.get("transcript", "") if isinstance(audio_analysis, dict) else ""
+    target_seconds = max(30.0, duration * 0.68)
+    target_words = max(1800, int(target_seconds * 2.25))
+    prompt = f"""Write the complete narration for an evidence-led mystery documentary based ONLY on the supplied case information and source transcript.
+
+The source footage is {duration:.1f} seconds long. The finished documentary needs about {target_seconds:.0f} seconds of generated narration, approximately {target_words} words. This is a long-form documentary, not a short summary.
+
+Write {target_words}-{int(target_words * 1.15)} words of continuous, engaging narration. Structure it internally as:
+1. cold open,
+2. orientation,
+3. central mystery,
+4. evidence and context,
+5. escalating clues,
+6. critical moment / replay explanation,
+7. competing interpretations,
+8. what is verified versus uncertain,
+9. evidence-based conclusion.
+
+Use short-to-medium spoken sentences. Keep curiosity alive without clickbait. Never invent facts, motives, identities, dates, events, or conclusions. Clearly distinguish observations, verified facts, reported claims, theories, and unknowns.
+
+Return JSON with exactly these fields:
+- video_title
+- description_intro
+- tags
+- highlighted_keywords
+- narration
+
+The narration field must contain the FULL documentary narration. Do not summarize it. Do not return scene timestamps.
+
+CASE TITLE: {item.get('title')}
+CASE SUMMARY: {item.get('case_summary')}
+FOOTAGE DESCRIPTION: {item.get('footage_description')}
+VERIFIED FACTS: {item.get('verified_facts', [])}
+OPEN QUESTIONS: {item.get('theories_or_open_questions', [])}
+
+SOURCE TRANSCRIPT:
+{transcript}
+
+PROTECTED SOURCE-SPEECH INTERVALS:
+{protected}
+
+Generate the narration only from this evidence. Do not mention this prompt or the production process.
+"""
+    with genai.Client(api_key=os.environ["GEMINI_API_KEY"]) as client:
+        result = client.models.generate_content(
+            model=MODEL,
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json",
+                max_output_tokens=int(os.getenv("MYSTERY_GEMINI_FALLBACK_MAX_OUTPUT_TOKENS", "16000")),
+                temperature=0.25,
+            ),
+        )
+    data = parse_json(result.text)
+    narration = " ".join(str(data.get("narration", "")).split())
+    words = len(re.findall(r"\b[\w'-]+\b", narration))
+    if words < max(900, int(target_words * 0.55)):
+        raise RuntimeError(
+            f"Long-form Mystery narration fallback is too short: words={words}, target={target_words}."
+        )
+
+    sentences = [x.strip() for x in re.split(r"(?<=[.!?])\s+", narration) if x.strip()]
+    if not sentences:
+        raise RuntimeError("Long-form Mystery narration fallback returned no sentences.")
+
+    narration_seconds = duration * 0.68
+    original_seconds = max(0.0, duration - narration_seconds)
+    narration_scene_count = max(12, min(28, int(round(narration_seconds / 80.0))))
+    narration_scene_count = min(narration_scene_count, max(1, len(sentences)))
+
+    groups = []
+    base = len(sentences) // narration_scene_count
+    extra = len(sentences) % narration_scene_count
+    cursor = 0
+    for i in range(narration_scene_count):
+        take = base + (1 if i < extra else 0)
+        groups.append(" ".join(sentences[cursor:cursor + take]))
+        cursor += take
+
+    original_scene_count = max(1, int(round(narration_scene_count * 0.5)))
+    narration_slot = narration_seconds / narration_scene_count
+    original_slot = original_seconds / original_scene_count if original_scene_count else 0.0
+
+    scenes = []
+    timeline_cursor = 0.0
+    for i, text_chunk in enumerate(groups):
+        start = timeline_cursor
+        end = min(duration, start + narration_slot)
+        scenes.append({
+            "start": round(start, 3), "end": round(end, 3),
+            "audio_mode": "narration",
+            "commentary_role": ["hook", "setup", "evidence", "explanation", "theory", "conclusion"][min(5, i % 6)],
+            "narration": text_chunk,
+            "purpose": "Narration-led documentary beat.",
+            "evidence_label": "observation",
+            "visual_effect": "pause" if i == 0 else ("replay" if i == max(1, len(groups)//2) else ("zoom_in" if i % 5 == 1 else "normal")),
+            "zoom_strength": 1.10 if i % 5 == 1 else 1.0,
+            "zoom_target_x": 0.5, "zoom_target_y": 0.5,
+            "effect_reason": "Direct attention to the evidence being discussed." if i % 5 == 1 else "",
+        })
+        timeline_cursor = end
+        if i < original_scene_count and original_slot > 0.5:
+            start = timeline_cursor
+            end = min(duration, start + original_slot)
+            scenes.append({
+                "start": round(start, 3), "end": round(end, 3),
+                "audio_mode": "original", "commentary_role": "evidence",
+                "narration": "", "purpose": "Brief source-footage breathing space.",
+                "evidence_label": "source audio", "visual_effect": "normal",
+                "zoom_strength": 1.0, "zoom_target_x": 0.5, "zoom_target_y": 0.5,
+                "effect_reason": "",
+            })
+            timeline_cursor = end
+
+    if timeline_cursor < duration - 0.05:
+        scenes.append({
+            "start": round(timeline_cursor, 3), "end": round(duration, 3),
+            "audio_mode": "original", "commentary_role": "conclusion",
+            "narration": "", "purpose": "Close the documentary timeline.",
+            "evidence_label": "source footage", "visual_effect": "normal",
+            "zoom_strength": 1.0, "zoom_target_x": 0.5, "zoom_target_y": 0.5,
+            "effect_reason": "",
+        })
+
+    narration_seconds_actual = sum(float(s["end"]) - float(s["start"]) for s in scenes if s["audio_mode"] == "narration" and s.get("narration"))
+    narration_words = len(re.findall(r"\b[\w'-]+\b", " ".join(s["narration"] for s in scenes)))
+    ratio = narration_seconds_actual / max(duration, 1.0)
+    if ratio < 0.60 or narration_words < MIN_NARRATION_WORDS:
+        raise RuntimeError(
+            f"Long-form Mystery fallback produced insufficient narration: scenes={sum(1 for s in scenes if s['audio_mode']=='narration')}, seconds={narration_seconds_actual:.1f}/{duration:.1f}, ratio={ratio:.2%}, words={narration_words}."
+        )
+
+    effect_counts = {}
+    for scene in scenes:
+        effect_counts[scene["visual_effect"]] = effect_counts.get(scene["visual_effect"], 0) + 1
+    return {
+        "video_title": data.get("video_title") or item.get("title", "Mystery Documentary"),
+        "description_intro": data.get("description_intro", ""),
+        "tags": data.get("tags", []),
+        "highlighted_keywords": data.get("highlighted_keywords", []),
+        "scene_plan": scenes,
+        "narration_stats": {
+            "scene_count": sum(1 for s in scenes if s["audio_mode"] == "narration"),
+            "seconds": round(narration_seconds_actual, 3),
+            "ratio": round(ratio, 3),
+            "word_count": narration_words,
+        },
+        "audio_mix_stats": {"narration_ratio": round(ratio, 3), "original_audio_ratio": round(1.0 - ratio, 3)},
+        "visual_effect_stats": effect_counts,
+        "fallback_mode": "long_form_narration",
+    }
+
+
 def main():
     data = json.loads(CATALOG.read_text(encoding="utf-8"))
     requested = os.getenv("MYSTERY_FOOTAGE_ITEM_ID", "").strip()
@@ -373,9 +530,19 @@ def main():
                 else:
                     print(f"⚠️ Mystery script/timeline failed: {type(exc).__name__}: {exc}")
         if timeline is None:
-            raise RuntimeError(
-                f"Could not produce a narration-rich Mystery documentary plan: {last_plan_error}"
-            ) from last_plan_error
+            print("🛟 Falling back to long-form narration generation; refusing to publish a narration-light documentary.")
+            try:
+                timeline = _fallback_long_form_plan(item, duration, audio_analysis)
+                print(
+                    "✅ Long-form narration fallback accepted | "
+                    f"scenes={timeline['narration_stats']['scene_count']} | "
+                    f"ratio={timeline['narration_stats']['ratio']:.2%} | "
+                    f"words={timeline['narration_stats']['word_count']}"
+                )
+            except Exception as fallback_error:
+                raise RuntimeError(
+                    f"Could not produce a narration-rich Mystery documentary plan: {fallback_error}"
+                ) from fallback_error
         (OUT / "timeline.json").write_text(json.dumps(timeline, indent=2, ensure_ascii=False), encoding="utf-8")
         full_narration = " ".join(
             scene["narration"]

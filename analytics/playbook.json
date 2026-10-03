@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-03T17:33:49.993502+00:00",
-  "video_count": 138,
+  "generated_at": "2026-10-03T22:39:19.235594+00:00",
+  "video_count": 139,
   "learning_ready": true,
   "metrics_available": true,
   "creative_learning_version": "v3",
@@ -13,16 +13,16 @@
   "winning_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 39.236,
+      "score": 41.495,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.288
+      "weak_score": 0.388
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.288,
+      "score": 0.388,
       "sample_size": 10
     }
   ],
@@ -32,28 +32,28 @@
   "winning_topics": [
     "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
     "Why do clothes shrink in dryers",
+    "Why do sponges get smelly",
     "Israeli security forces shoot and kill Ahmad Zidani, Beit Rima, 18 Dec. 2016: Candidate discovered from Internet Archive; the footage and event context require factual review.",
+    "Why do door knobs get loose",
     "Why do earbuds tangle in pockets",
+    "homesickness: Smelling the exact scent of woodsmoke and damp pine needles while opening a jar of imported maple syrup given by a neighbor from your hometown thousands of miles away.",
     "Why paperclips float on water",
     "Stephen King: The discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon.",
-    "Why do wooden hangers smell",
-    "Why window glass warps reflections",
-    "Why ice cream gives you brain freeze",
-    "Why do lightbulbs pop"
+    "Why window glass warps reflections"
   ],
   "avoid_topics": [
+    "Why do car tires roar",
     "Steve Jobs: A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
     "Why does ketchup resist pouring",
+    "Why do bananas turn brown",
     "Why does a lock jam",
     "friendship: Finding a faded photo booth strip tucked behind the clear plastic sleeve of a wallet, showing four silly faces from a high school road trip with a friend you haven't spoken to in a decade.",
-    "Why do sponges get smelly",
-    "homesickness: Smelling the exact scent of woodsmoke and damp pine needles while opening a jar of imported maple syrup given by a neighbor from your hometown thousands of miles away.",
     "Why does soda fizz",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
     "Why do steering wheels lock"
   ],
-  "used_topic_count": 138,
+  "used_topic_count": 139,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

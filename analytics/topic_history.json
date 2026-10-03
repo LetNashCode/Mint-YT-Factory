@@ -3196,5 +3196,23 @@
     "video_id": "Dbe_O04_ivA",
     "workdir": "",
     "published_at": 1790982773
+  },
+  {
+    "topic": "friendship: Finding a faded photo booth strip tucked behind the clear plastic sleeve of a wallet, showing four silly faces from a high school road trip with a friend you haven't spoken to in a decade.",
+    "normalized": "friendship finding a faded photo booth strip tucked behind the clear plastic sleeve of a wallet showing four silly faces from a high school road trip with a friend you haven t spoken to in a decade",
+    "workflow": "emotional",
+    "status": "published",
+    "reserved_at": 1790985597,
+    "recorded_at": 1790985597,
+    "metadata": {
+      "primary_emotion": "friendship",
+      "human_situation": "Finding a faded photo booth strip tucked behind the clear plastic sleeve of a wallet, showing four silly faces from a high school road trip with a friend you haven't spoken to in a decade.",
+      "creative_strategy": "wild",
+      "experiment_id": "creative_v3_wild_cycle14_slot5"
+    },
+    "title": "The Wallet Photo Strip",
+    "video_id": "UzLSgnjw6RM",
+    "workdir": "output/emotional_reel",
+    "published_at": 1790986561
   }
 ]

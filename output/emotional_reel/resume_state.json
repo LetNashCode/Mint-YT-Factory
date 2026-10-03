@@ -1,18 +1,17 @@
 {
   "status": "uploaded",
   "final_path": "output/emotional_reel/final.mp4",
-  "final_sha256": "45f909292167dc0bac79ece10f764c17576a7bbe9c2ba1a16ac720dacd9366cf",
-  "cache_key": "emotional-reel-final-v2-45f909292167dc0bac79ece10f764c17",
-  "title": "A Thousand Miles in a Single Jar",
-  "description": "When a simple scent brings your entire childhood kitchen back into focus thousands of miles away from home.",
+  "final_sha256": "d701724205d6bcc33e4d00dc911740766b8c855201cae8bd0a03f72c99aeab73",
+  "cache_key": "emotional-reel-final-v2-d701724205d6bcc33e4d00dc91174076",
+  "title": "The Wallet Photo Strip",
+  "description": "Finding an old photo booth strip tucked in a wallet after ten years.",
   "hashtags": [
-    "#homesick",
-    "#sensorymemory",
-    "#childhoodmemories",
-    "#expatlife",
-    "#nostalgia"
+    "#friendship",
+    "#memory",
+    "#nostalgia",
+    "#oldfriends"
   ],
-  "engagement_comment": "Share this with someone who misses home.",
+  "engagement_comment": "Send this to them today.",
   "voice": {
     "provider": "kokoro",
     "voice_name": "af_heart",
@@ -22,26 +21,27 @@
     "speed": 0.92,
     "tone": "curious, confident, playful storyteller"
   },
-  "created_at": 1790852640,
-  "narration_word_count": 136,
+  "created_at": 1790985868,
+  "narration_word_count": 128,
   "complete_script_preserved": true,
   "final_duration_seconds": 53.76,
-  "factory_topic": "homesickness: Smelling the exact scent of woodsmoke and damp pine needles while opening a jar of imported maple syrup given by a neighbor from your hometown thousands of miles away.",
-  "primary_emotion": "homesickness",
-  "human_situation": "Smelling the exact scent of woodsmoke and damp pine needles while opening a jar of imported maple syrup given by a neighbor from your hometown thousands of miles away.",
-  "video_id": "n9MqlCt7zLQ",
+  "factory_topic": "friendship: Finding a faded photo booth strip tucked behind the clear plastic sleeve of a wallet, showing four silly faces from a high school road trip with a friend you haven't spoken to in a decade.",
+  "primary_emotion": "friendship",
+  "human_situation": "Finding a faded photo booth strip tucked behind the clear plastic sleeve of a wallet, showing four silly faces from a high school road trip with a friend you haven't spoken to in a decade.",
+  "video_id": "UzLSgnjw6RM",
   "social": {
     "instagram": {
-      "status": "published",
-      "media_id": "18071450267749271",
-      "container_id": "18496081204097136"
+      "status": "failed",
+      "attempt": 3,
+      "max_attempts": 3,
+      "error": "RuntimeError: Instagram resumable upload failed (400): {\"debug_info\": {\"retriable\": false, \"type\": \"ProcessingFailedError\", \"message\": \"Request processing failed\"}}"
     },
     "facebook": {
       "status": "published",
-      "video_id": "1654492099604687"
+      "video_id": "1417572123040155"
     },
     "strict": false,
-    "updated_at": 1790852917
+    "updated_at": 1790986161
   },
-  "uploaded_at": 1790853064
+  "uploaded_at": 1790986561
 }

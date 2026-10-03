@@ -1,17 +1,18 @@
 {
   "status": "uploaded",
   "final_path": "output/emotional_reel/final.mp4",
-  "final_sha256": "d701724205d6bcc33e4d00dc911740766b8c855201cae8bd0a03f72c99aeab73",
-  "cache_key": "emotional-reel-final-v2-d701724205d6bcc33e4d00dc91174076",
-  "title": "The Wallet Photo Strip",
-  "description": "Finding an old photo booth strip tucked in a wallet after ten years.",
+  "final_sha256": "a7165a2708127dc8669ebe4df3abd870fb0f6270767b080704f2ab1b3e018221",
+  "cache_key": "emotional-reel-final-v2-a7165a2708127dc8669ebe4df3abd870",
+  "title": "The Back Porch Screen Door",
+  "description": "A nostalgic memory about the distinct sound of a grandparents' back porch screen door and the profound sense of belonging it brings.",
   "hashtags": [
-    "#friendship",
-    "#memory",
+    "#childhoodmemories",
+    "#grandparents",
     "#nostalgia",
-    "#oldfriends"
+    "#belonging",
+    "#family"
   ],
-  "engagement_comment": "Send this to them today.",
+  "engagement_comment": "Never forget where you started.",
   "voice": {
     "provider": "kokoro",
     "voice_name": "af_heart",
@@ -21,27 +22,26 @@
     "speed": 0.92,
     "tone": "curious, confident, playful storyteller"
   },
-  "created_at": 1790985868,
-  "narration_word_count": 128,
+  "created_at": 1791021564,
+  "narration_word_count": 147,
   "complete_script_preserved": true,
   "final_duration_seconds": 53.76,
-  "factory_topic": "friendship: Finding a faded photo booth strip tucked behind the clear plastic sleeve of a wallet, showing four silly faces from a high school road trip with a friend you haven't spoken to in a decade.",
-  "primary_emotion": "friendship",
-  "human_situation": "Finding a faded photo booth strip tucked behind the clear plastic sleeve of a wallet, showing four silly faces from a high school road trip with a friend you haven't spoken to in a decade.",
-  "video_id": "UzLSgnjw6RM",
+  "factory_topic": "belonging: Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive.",
+  "primary_emotion": "belonging",
+  "human_situation": "Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive.",
+  "video_id": "QjSTeQGZVq8",
   "social": {
     "instagram": {
-      "status": "failed",
-      "attempt": 3,
-      "max_attempts": 3,
-      "error": "RuntimeError: Instagram resumable upload failed (400): {\"debug_info\": {\"retriable\": false, \"type\": \"ProcessingFailedError\", \"message\": \"Request processing failed\"}}"
+      "status": "published",
+      "media_id": "17964850295981999",
+      "container_id": "18496511407097136"
     },
     "facebook": {
       "status": "published",
-      "video_id": "1417572123040155"
+      "video_id": "1115087597650524"
     },
     "strict": false,
-    "updated_at": 1790986161
+    "updated_at": 1791021854
   },
-  "uploaded_at": 1790986561
+  "uploaded_at": 1791022123
 }

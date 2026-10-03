@@ -3230,5 +3230,23 @@
     "video_id": "pjp796PSOs0",
     "workdir": "output/1791012503",
     "published_at": 1791013565
+  },
+  {
+    "topic": "belonging: Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive.",
+    "normalized": "belonging hearing the exact unique creak of the screen door at your grandparents back porch that signals someone walking in with groceries after a long drive",
+    "workflow": "emotional",
+    "status": "published",
+    "reserved_at": 1791021275,
+    "recorded_at": 1791021275,
+    "metadata": {
+      "primary_emotion": "belonging",
+      "human_situation": "Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive.",
+      "creative_strategy": "wild",
+      "experiment_id": "creative_v3_wild_cycle14_slot7"
+    },
+    "title": "The Back Porch Screen Door",
+    "video_id": "QjSTeQGZVq8",
+    "workdir": "output/emotional_reel",
+    "published_at": 1791022123
   }
 ]

@@ -3138,22 +3138,6 @@
     "published_at": 1790928679
   },
   {
-    "topic": "relief: Finding the misplaced car keys inside the pocket of a winter coat you haven't worn since before a major cross-country move, right when you are running late for an important job interview.",
-    "normalized": "relief finding the misplaced car keys inside the pocket of a winter coat you haven t worn since before a major cross country move right when you are running late for an important job interview",
-    "workflow": "emotional",
-    "status": "reserved",
-    "reserved_at": 1790937178,
-    "recorded_at": 1790937178,
-    "metadata": {
-      "source": "emotional_topic_selection",
-      "memory_category": "daily life discovery",
-      "memory_trigger": "reaching into a forgotten pocket",
-      "primary_emotion": "relief",
-      "human_situation": "Finding the misplaced car keys inside the pocket of a winter coat you haven't worn since before a major cross-country move, right when you are running late for an important job interview.",
-      "topic_key": "finding missing keys in winter coat pocket"
-    }
-  },
-  {
     "topic": "Why honey crystallizes in the jar",
     "normalized": "why honey crystallizes in the jar",
     "workflow": "publish",
@@ -3248,5 +3232,21 @@
     "video_id": "QjSTeQGZVq8",
     "workdir": "output/emotional_reel",
     "published_at": 1791022123
+  },
+  {
+    "topic": "Why does a lock jam",
+    "normalized": "why does a lock jam",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1791031259,
+    "recorded_at": 1791031259,
+    "metadata": {
+      "next_topic": "Why do bananas turn brown",
+      "creative_strategy": "wild"
+    },
+    "title": "Why Does a Lock Jam",
+    "video_id": "VN2Vg2agfGY",
+    "workdir": "output/1791031307",
+    "published_at": 1791032098
   }
 ]

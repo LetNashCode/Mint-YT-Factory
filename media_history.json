@@ -10749,6 +10749,116 @@
       "shot": 2,
       "query": "soda fizz pressure escape also bread",
       "recorded_at": 1791012639
+    },
+    {
+      "asset_key": "pexels:video:9792637",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9792637/9792637-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "lock jam you slide your key",
+      "recorded_at": 1791031368
+    },
+    {
+      "asset_key": "pexels:video:33117481",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/33117481/14115799_720_1280_24fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "lock jam instantly hits brutal concrete",
+      "recorded_at": 1791031371
+    },
+    {
+      "asset_key": "pexels:video:8104039",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8104039/8104039-hd_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "lock jam yet your hands trapped",
+      "recorded_at": 1791031377
+    },
+    {
+      "asset_key": "pexels:video:6573544",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6573544/6573544-hd_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "lock jam tiny spring loaded pins",
+      "recorded_at": 1791031388
+    },
+    {
+      "asset_key": "pexels:video:7646797",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7646797/7646797-hd_720_1280_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "lock jam normally your key pushes",
+      "recorded_at": 1791031390
+    },
+    {
+      "asset_key": "pexels:video:8104041",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8104041/8104041-hd_1280_720_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "lock jam creating clean break line",
+      "recorded_at": 1791031391
+    },
+    {
+      "asset_key": "pexels:video:30124650",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30124650/12919863_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "lock jam but microscopic dust grit",
+      "recorded_at": 1791031393
+    },
+    {
+      "asset_key": "pexels:video:29801517",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/29801517/12802913_720_1280_60fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "lock jam one speck pocket lint",
+      "recorded_at": 1791031394
+    },
+    {
+      "asset_key": "pexels:video:8846989",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8846989/8846989-hd_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "lock jam locking door tighter than",
+      "recorded_at": 1791031396
+    },
+    {
+      "asset_key": "pexels:video:853827",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/853827/853827-hd_1280_720_24fps.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "lock jam microscopic speck dust creates",
+      "recorded_at": 1791031397
+    },
+    {
+      "asset_key": "pexels:video:14909668",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/14909668/14909668-hd_1280_720_24fps.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "lock jam microscopic speck dust creates",
+      "recorded_at": 1791031400
     }
   ]
 }

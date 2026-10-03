@@ -3214,5 +3214,21 @@
     "video_id": "UzLSgnjw6RM",
     "workdir": "output/emotional_reel",
     "published_at": 1790986561
+  },
+  {
+    "topic": "Why does soda fizz",
+    "normalized": "why does soda fizz",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1791012451,
+    "recorded_at": 1791012451,
+    "metadata": {
+      "next_topic": "Why does a lock jam",
+      "creative_strategy": "wild"
+    },
+    "title": "Why does soda fizz",
+    "video_id": "pjp796PSOs0",
+    "workdir": "output/1791012503",
+    "published_at": 1791013565
   }
 ]

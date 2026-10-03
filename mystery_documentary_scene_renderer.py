@@ -299,7 +299,7 @@ def _fallback_long_form_plan(item, duration, audio_analysis):
     """Build a narration-rich plan when Gemini cannot reliably emit a huge scene array."""
     protected = audio_analysis.get("protected_intervals", []) if isinstance(audio_analysis, dict) else []
     transcript = audio_analysis.get("transcript", "") if isinstance(audio_analysis, dict) else ""
-    target_seconds = max(30.0, duration * 0.68)
+    target_seconds = max(30.0, duration * 0.76)
     target_words = max(1800, int(target_seconds * 2.25))
     prompt = f"""Write the complete narration for an evidence-led mystery documentary based ONLY on the supplied case information and source transcript.
 
@@ -363,7 +363,7 @@ Generate the narration only from this evidence. Do not mention this prompt or th
     if not sentences:
         raise RuntimeError("Long-form Mystery narration fallback returned no sentences.")
 
-    narration_seconds = duration * 0.68
+    narration_seconds = duration * 0.76
     original_seconds = max(0.0, duration - narration_seconds)
     narration_scene_count = max(12, min(28, int(round(narration_seconds / 80.0))))
     narration_scene_count = min(narration_scene_count, max(1, len(sentences)))
@@ -425,7 +425,7 @@ Generate the narration only from this evidence. Do not mention this prompt or th
     narration_seconds_actual = sum(float(s["end"]) - float(s["start"]) for s in scenes if s["audio_mode"] == "narration" and s.get("narration"))
     narration_words = len(re.findall(r"\b[\w'-]+\b", " ".join(s["narration"] for s in scenes)))
     ratio = narration_seconds_actual / max(duration, 1.0)
-    if ratio < 0.60 or narration_words < MIN_NARRATION_WORDS:
+    if ratio < 0.65 or narration_words < MIN_NARRATION_WORDS:
         raise RuntimeError(
             f"Long-form Mystery fallback produced insufficient narration: scenes={sum(1 for s in scenes if s['audio_mode']=='narration')}, seconds={narration_seconds_actual:.1f}/{duration:.1f}, ratio={ratio:.2%}, words={narration_words}."
         )

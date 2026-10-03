@@ -1,19 +1,6 @@
 [
   {
     "format": "before_they_were_famous",
-    "person": "B.B. King",
-    "premise": "The humble beginnings of a Delta blues legend who played on street corners before recording hits.",
-    "hook": "He worked as a tractor driver in Mississippi cotton fields while earning coins by singing gospel and blues on street corners.",
-    "key_facts": [
-      "Worked on a cotton plantation in Indianola, Mississippi, during his youth.",
-      "Traveled to Memphis, Tennessee, seeking a radio break, eventually working as a disc jockey known as the Beale Street Blues Boy.",
-      "Named his signature Gibson electric guitars 'Lucille' after an incident involving a tavern fire.",
-      "Recorded dozens of influential blues standards over a decades-long touring career."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
     "person": "Jackie Chan",
     "premise": "His grueling decade training at the China Drama Academy as a child.",
     "hook": "Before he broke box office records, he trained for 19 hours a day under a master who promised teachers could break their bones.",
@@ -57,6 +44,102 @@
       "Graduated with a degree in aeronautical engineering from Punjab Engineering College.",
       "Obtained a Ph.D. in aerospace engineering from the University of Colorado Boulder.",
       "Joined NASA's astronaut corps in 1994."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Boman Irani",
+    "premise": "From working at his family's bakery and a waiter at the Taj Mahal Palace to entering Bollywood in his 40s.",
+    "hook": "He spent years behind a bakery counter and waiting tables before becoming one of India's most beloved actors at age 42.",
+    "key_facts": [
+      "Worked at the family's Mumbai wafer shop and as a waiter.",
+      "Served as a professional photographer before acting.",
+      "Made his feature film debut in the 2003 film 'Darna Mana Hai' and gained widespread fame in 'Munna Bhai M.B.B.S.'."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "J.K. Rowling",
+    "premise": "Refusing to change her pen name to something gender-neutral despite publisher advice.",
+    "hook": "Publishers told her that young boys wouldn't read a fantasy book written by a woman.",
+    "key_facts": [
+      "Bloomsbury advised her to use initials so male readers wouldn't be deterred.",
+      "She chose 'J.K.', using her grandmother's name for the 'K'.",
+      "The first Harry Potter book was published in 1997."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Jim Henson",
+    "premise": "Creating the earliest versions of Muppets out of discarded coats and ping pong balls before television fame.",
+    "hook": "Before ruling children's television, the creator of the Muppets built his first puppets using his mother's old winter coat.",
+    "key_facts": [
+      "Built early puppets in the 1950s while studying at the University of Maryland.",
+      "Used a ping-pong ball cut in half for the eyes of the character 'Kermit' in early iterations.",
+      "Worked on local Washington D.C. television shows before national syndication."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Srinivasa Ramanujan",
+    "premise": "Mailing a notebook of unproven mathematical theorems from India to a Cambridge professor who recognized his genius.",
+    "hook": "A self-taught clerk in colonial India mailed a letter filled with impossible math equations to a stranger across the ocean.",
+    "key_facts": [
+      "Worked as a shipping clerk in Madras to support his family.",
+      "Sent letters containing mathematical formulas to British mathematician G.H. Hardy in 1913.",
+      "Invited to Trinity College, Cambridge, based on his groundbreaking mathematical proofs."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Rosa Parks",
+    "premise": "Refusing to give up her bus seat in Montgomery, Alabama, sparking a massive civil rights boycott.",
+    "hook": "A single refusal to stand up changed the course of American history.",
+    "key_facts": [
+      "Arrested on December 1, 1955, for violating segregation ordinances in Montgomery.",
+      "Her arrest triggered the 381-day Montgomery bus boycott.",
+      "Worked as a seamstress and was active in the National Association for the Advancement of Colored People."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Sachin Tendulkar",
+    "premise": "Sleeping on the floor of cricket club facilities and practicing for hours under coach Ramakant Achrekar.",
+    "hook": "Before breaking every batting record in cricket, he was a tired teenager sleeping at railway stations after grueling practice sessions.",
+    "key_facts": [
+      "Trained under coach Ramakant Achrekar at Shivaji Park in Mumbai.",
+      "Made his international test cricket debut against Pakistan at age 16 in 1989.",
+      "Scored his first international test century against England at Manchester in 1990."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Ernest Shackleton",
+    "premise": "Surviving the destruction of his ship in Antarctic ice and leading his entire crew to safety across freezing seas.",
+    "hook": "His ship was crushed by Antarctic pack ice, stranding 28 men on floating ice floes for months.",
+    "key_facts": [
+      "The ship Endurance became trapped and was crushed by ice in the Weddell Sea in 1915.",
+      "Navigated an 800-mile journey in a small lifeboat to reach South Georgia Island for rescue.",
+      "Successfully rescued all members of the Imperial Trans-Antarctic Expedition without a single loss of life."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Alexander Fleming",
+    "premise": "Returning from vacation to find a mold spore accidentally contaminated a petri dish, leading to the discovery of penicillin.",
+    "hook": "The greatest breakthrough in modern medicine happened because a scientist left a window open while on holiday.",
+    "key_facts": [
+      "Noticed a mold colony had destroyed bacteria in a neglected culture dish in St Mary's Hospital, London, in 1928.",
+      "Identified the mold as Penicillium notatum.",
+      "Published his findings on penicillin in 1929 before it was later mass-produced as an antibiotic in the 1940s."
     ],
     "source": "gemini_original"
   }

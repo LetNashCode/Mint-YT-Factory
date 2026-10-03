@@ -1,7 +1,6 @@
 {
-  "status": "complete",
-  "video_id": "Dbe_O04_ivA",
-  "youtube_url": "https://www.youtube.com/shorts/Dbe_O04_ivA",
-  "reason": "",
-  "updated_at": 1790982773
+  "status": "deferred",
+  "video_id": "",
+  "youtube_url": "",
+  "reason": "No unused Story subject with real-video candidates found in eight attempts"
 }

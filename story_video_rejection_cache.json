@@ -270,6 +270,41 @@
       "source_id": "archive:Rosa_Parks_Farmers_Market_Spanish_Version",
       "source_url": "https://archive.org/details/Rosa_Parks_Farmers_Market_Spanish_Version",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "9d12532d7356c3dee4198821": {
+      "source_id": "archive:munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+      "source_url": "https://archive.org/details/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+      "reason": "strong metadata exclusion: commercial"
+    },
+    "f36c35341f130d6ea693164f": {
+      "source_id": "archive:romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "source_url": "https://archive.org/details/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "10ec443dece2ed3f8a0b72ef": {
+      "source_id": "archive:no-entry-2005-1080p-amzn-web-dl-ddp-2.0-h.-264",
+      "source_url": "https://archive.org/details/no-entry-2005-1080p-amzn-web-dl-ddp-2.0-h.-264",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "ecd9c8d3da2a6b2d10e229ff": {
+      "source_id": "archive:khosla-ka-ghosla-2006-webhd-1080-p-jhs",
+      "source_url": "https://archive.org/details/khosla-ka-ghosla-2006-webhd-1080-p-jhs",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "2032b70e3d1f38adac6722e6": {
+      "source_id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "8404ec17a69579eee76aceea": {
+      "source_id": "archive:kevin-spencer-season-4-episode-2-snowfort-greg-lawrence-thomasin-langlands-480p-_202601",
+      "source_url": "https://archive.org/details/kevin-spencer-season-4-episode-2-snowfort-greg-lawrence-thomasin-langlands-480p-_202601",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "fe9730bf887069043d2e6e09": {
+      "source_id": "archive:educativos4_10errorestecnologicosquellevaronagrandesavances_b6acb26d",
+      "source_url": "https://archive.org/details/educativos4_10errorestecnologicosquellevaronagrandesavances_b6acb26d",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
     }
   }
 }

@@ -6432,6 +6432,37 @@
       },
       "review_key": "7ffddacb5c186d0381ae7f10c64d18e679cb69a0ca5f9f6a5b7483c14b3c35b4",
       "reviewed_at": 1790982060.549113
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am/Parmanu.The.Story.Of.Pokhran.2018.1080p.BluRay.x264-%5BYTS.AM%5D.mp4",
+        "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+        "title": "Parmanu. The. Story. Of. Pokhran. 2018.1080p. Blu Ray.x 264 [ YTS. AM]",
+        "description": "Ashwat Raina and his teammates arrive in Pokhran to re-conduct a confidential nuclear test, where they face challenges from the American Lacrosse satellite and local spies. ['John Abraham', 'Boman Irani', 'Diana Penty']",
+        "creator": "Abhishek Sharma",
+        "license": "",
+        "subject": "['John Abraham', 'Boman Irani', 'Diana Penty']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 7433.08,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 5711.98,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames feature actor Boman Irani in character (wearing a military uniform) from the film 'Parmanu', walking through a control room setting. Although it is a fictional dramatization rather than documentary archival footage, it features the named subject clearly across the sequence and serves as filmography footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f727f9cad02795408941288c91ed78f635ef6897e52c5d02f88ef840e8adf7c5",
+      "reviewed_at": 1791023409.0322871
     }
   ]
 }

@@ -6463,6 +6463,37 @@
       },
       "review_key": "f727f9cad02795408941288c91ed78f635ef6897e52c5d02f88ef840e8adf7c5",
       "reviewed_at": 1791023409.0322871
+    },
+    {
+      "person": "Jim Henson",
+      "source": {
+        "id": "archive:Popcornarchive-theMuppetsCelebrateJimHenson",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Popcornarchive-theMuppetsCelebrateJimHenson/Popcornarchive-theMuppetsCelebrateJimHenson.mp4",
+        "source_url": "https://archive.org/details/Popcornarchive-theMuppetsCelebrateJimHenson",
+        "title": "The Muppets Celebrate Jim Henson",
+        "description": "The Muppets Celebrate Jim Henson Popcorn Maker",
+        "creator": "",
+        "license": "",
+        "subject": "Popcorn Maker",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3146.666667,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1691.82,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The clip features genuine archival footage showing Jim Henson himself working with and operating various Muppets across all three frames, perfectly matching the narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a03d87374ed19639aa32105cc9d04a6b07f576af3068b061606162091b38eef0",
+      "reviewed_at": 1791041254.345306
     }
   ]
 }

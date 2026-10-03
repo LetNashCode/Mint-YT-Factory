@@ -305,6 +305,121 @@
       "source_id": "archive:educativos4_10errorestecnologicosquellevaronagrandesavances_b6acb26d",
       "source_url": "https://archive.org/details/educativos4_10errorestecnologicosquellevaronagrandesavances_b6acb26d",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "f3b0b560e43f2dd5c22a728d": {
+      "source_id": "commons:69035196",
+      "source_url": "https://commons.wikimedia.org/wiki/File:SRINIVASA_RAMANUJAN-_The_Mathematician_%26_His_Legacy.webm",
+      "reason": "strong metadata exclusion: animation"
+    },
+    "9426b1493d9dfd9fad35938b": {
+      "source_id": "commons:77368566",
+      "source_url": "https://commons.wikimedia.org/wiki/File:SRINIVASA_RAMANUJAN-_The_Mathematician_%26_His_Legacy_(Abridged_Version).webm",
+      "reason": "strong metadata exclusion: animation"
+    },
+    "6751f21eb3a0b6c67469736e": {
+      "source_id": "archive:htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "source_url": "https://archive.org/details/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "37f916d7a7b49d1c2c95cb3d": {
+      "source_id": "archive:mcmd-County_Executive_Marc_Elrich_comments_about_Honoring_Rosa_Parks_from_12_06_24_Weekly_Updat",
+      "source_url": "https://archive.org/details/mcmd-County_Executive_Marc_Elrich_comments_about_Honoring_Rosa_Parks_from_12_06_24_Weekly_Updat",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "726da3e112071d8a31939035": {
+      "source_id": "archive:mccmd-Proclamation_recognizing_Rosa_Parks_Day_by_Council_President_Glass_and_the_County_Executiv",
+      "source_url": "https://archive.org/details/mccmd-Proclamation_recognizing_Rosa_Parks_Day_by_Council_President_Glass_and_the_County_Executiv",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "ab403345a9efb9fd39587acc": {
+      "source_id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "a8e8a217f70c3958b97ccb8a": {
+      "source_id": "archive:CRTW_-_Rosa_Parks_Middle_School_Honors_Namesake",
+      "source_url": "https://archive.org/details/CRTW_-_Rosa_Parks_Middle_School_Honors_Namesake",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "3db1e59fc35e2fe22e1596b2": {
+      "source_id": "archive:mcmd-Proclamation_Rosa_Parks_12_1_21",
+      "source_url": "https://archive.org/details/mcmd-Proclamation_Rosa_Parks_12_1_21",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "8e590cb81891e3dc3a476983": {
+      "source_id": "archive:the-magical-world-of-harry-potter-the-unauthorized-story-of-j.k.-rowling-full-vhs",
+      "source_url": "https://archive.org/details/the-magical-world-of-harry-potter-the-unauthorized-story-of-j.k.-rowling-full-vhs",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "bf43a6490d9b697f96451f6f": {
+      "source_id": "archive:j.-k.-rowling-goes-silent-as-imane-khelif-files-harassment-lawsuit-against-her-others",
+      "source_url": "https://archive.org/details/j.-k.-rowling-goes-silent-as-imane-khelif-files-harassment-lawsuit-against-her-others",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "f076d103e683c4e267372275": {
+      "source_id": "archive:transphobe-j.-k.-rowling-smears-david-tennant-then-gets-bodied-on-twitter-and-goes-silent",
+      "source_url": "https://archive.org/details/transphobe-j.-k.-rowling-smears-david-tennant-then-gets-bodied-on-twitter-and-goes-silent",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "ba8ba64e6cd68a2f43f8c62a": {
+      "source_id": "archive:HasCancelCultureGoneTooFarOpenLetterSignedByChomskyJKRowlingGoesViral",
+      "source_url": "https://archive.org/details/HasCancelCultureGoneTooFarOpenLetterSignedByChomskyJKRowlingGoesViral",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "c1e500ba4c98132a9e856735": {
+      "source_id": "commons:167797068",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Vintage_Jim_Henson_Commercials_-_Munchos.webm",
+      "reason": "strong metadata exclusion: commercial"
+    },
+    "c85c9c0eaa4befef174b47a0": {
+      "source_id": "commons:160588679",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Henson_Commercial_-_Kenner%27s_Easy_Bake_Oven_(1968).webm",
+      "reason": "strong metadata exclusion: commercial"
+    },
+    "873371c200c14eb622973001": {
+      "source_id": "commons:150551278",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Henson_-_McGarry%27s_Sausages_featuring_Kermit_and_Mack_(1964).webm",
+      "reason": "strong metadata exclusion: commercial"
+    },
+    "f75fcf86c1fe93da65d0e5d9": {
+      "source_id": "archive:jim-henson-documentaries",
+      "source_url": "https://archive.org/details/jim-henson-documentaries",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "d8cf33b7debe9f5d549cab2b": {
+      "source_id": "archive:jim-henson-doc",
+      "source_url": "https://archive.org/details/jim-henson-doc",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "e13e496a2fe394e2074e580e": {
+      "source_id": "archive:The_Wizard_of_Id_Test_Pilot_by_Jim_Henson_1969",
+      "source_url": "https://archive.org/details/The_Wizard_of_Id_Test_Pilot_by_Jim_Henson_1969",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "ab74192592a33a627b3d1150": {
+      "source_id": "archive:jim-henson-dogs-xexuson-real-life-dog-snow-winter-segment-2",
+      "source_url": "https://archive.org/details/jim-henson-dogs-xexuson-real-life-dog-snow-winter-segment-2",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "4f09447de1a64f6a9c6a799e": {
+      "source_id": "archive:the-babies-start-a-band-word-party-the-jim-henson-company",
+      "source_url": "https://archive.org/details/the-babies-start-a-band-word-party-the-jim-henson-company",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "d7c71615f543864bbce7c001": {
+      "source_id": "archive:Popcornarchive-theMuppetsCelebrateJimHenson",
+      "source_url": "https://archive.org/details/Popcornarchive-theMuppetsCelebrateJimHenson",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "3d145333aa70c5c94be9294d": {
+      "source_id": "commons:31011600",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Presentation_of_Bharat_Ratna_to_Prof._CNR_Rao_%26_Sachin_Tendulkar.webm",
+      "reason": "strong metadata exclusion: presentation"
+    },
+    "54b9edf7965cba46233a88cb": {
+      "source_id": "archive:sachinmrindia-scn",
+      "source_url": "https://archive.org/details/sachinmrindia-scn",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
     }
   }
 }

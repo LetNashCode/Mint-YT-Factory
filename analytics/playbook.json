@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-03T12:41:28.749194+00:00",
-  "video_count": 137,
+  "generated_at": "2026-10-03T15:15:44.866278+00:00",
+  "video_count": 138,
   "learning_ready": true,
   "metrics_available": true,
   "creative_learning_version": "v3",
@@ -16,13 +16,13 @@
       "score": 39.236,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.352
+      "weak_score": 0.288
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.352,
+      "score": 0.288,
       "sample_size": 10
     }
   ],
@@ -42,9 +42,9 @@
     "Why do lightbulbs pop"
   ],
   "avoid_topics": [
-    "Why do car tires roar",
     "Steve Jobs: A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
     "Why does ketchup resist pouring",
+    "Why does a lock jam",
     "friendship: Finding a faded photo booth strip tucked behind the clear plastic sleeve of a wallet, showing four silly faces from a high school road trip with a friend you haven't spoken to in a decade.",
     "Why do sponges get smelly",
     "homesickness: Smelling the exact scent of woodsmoke and damp pine needles while opening a jar of imported maple syrup given by a neighbor from your hometown thousands of miles away.",
@@ -53,7 +53,7 @@
     "Why do paper towels tear sideways",
     "Why do steering wheels lock"
   ],
-  "used_topic_count": 137,
+  "used_topic_count": 138,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

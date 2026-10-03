@@ -3138,18 +3138,6 @@
     "published_at": 1790928679
   },
   {
-    "topic": "Why honey crystallizes in the jar",
-    "normalized": "why honey crystallizes in the jar",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1790949654,
-    "recorded_at": 1790949654,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do car tires roar",
     "normalized": "why do car tires roar",
     "workflow": "publish",

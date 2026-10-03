@@ -3236,5 +3236,21 @@
     "video_id": "VN2Vg2agfGY",
     "workdir": "output/1791031307",
     "published_at": 1791032098
+  },
+  {
+    "topic": "Why do bananas turn brown",
+    "normalized": "why do bananas turn brown",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1791048805,
+    "recorded_at": 1791048805,
+    "metadata": {
+      "next_topic": "Why does static make hair rise",
+      "creative_strategy": "wild"
+    },
+    "title": "Why do bananas turn brown",
+    "video_id": "iCM6OgMrSlc",
+    "workdir": "output/1791048855",
+    "published_at": 1791050002
   }
 ]

@@ -142,7 +142,6 @@ def _bootstrap_legacy(rows: list[dict]) -> list[dict]:
                     break
 
     add_json_topics(ROOT / "story_topic_history.json", "story_legacy", ("topic",))
-    add_json_topics(ROOT / "mystery_footage_history.json", "mystery_legacy", ("title", "topic"))
     add_json_topics(ROOT / "used_topics.json", "publish_legacy", ("topic",))
     add_json_topics(ROOT / "analytics" / "videos.json", "analytics_legacy", ("topic", "title"))
 

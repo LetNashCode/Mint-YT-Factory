@@ -23,6 +23,19 @@ ADJACENT_EXPLORATION = 0.20
 WILD_EXPLORATION = 0.10
 MIN_PATTERN_EVIDENCE = 2
 
+CREATIVE_PROFILES = [
+    {"id": "contradiction", "hook": "contradiction", "story": "contradiction_to_reveal", "payoff": "mental_reframe", "guidance": "Open with something that appears impossible or opposite to expectation; delay explanation until the viewer commits to the question."},
+    {"id": "experiment", "hook": "challenge_experiment", "story": "try_it_then_explain", "payoff": "observable_result", "guidance": "Frame a simple prediction or test the viewer can imagine doing, then reveal what happens and why."},
+    {"id": "mystery", "hook": "consequence_first", "story": "mystery_reveal", "payoff": "hidden_cause", "guidance": "Start with the strangest consequence, hide the cause, expose clues, then reveal the mechanism."},
+    {"id": "mini_story", "hook": "mini_story", "story": "micro_story_arc", "payoff": "unexpected_consequence", "guidance": "Turn the phenomenon into a tiny real-world story or moment, then reveal the mechanism."},
+    {"id": "wrong_assumption", "hook": "wrong_assumption", "story": "assumption_then_reversal", "payoff": "wrong_belief_reframe", "guidance": "Begin with the explanation most people would guess, then overturn it with the real mechanism."},
+    {"id": "prediction", "hook": "prediction", "story": "predict_then_reveal", "payoff": "prediction_flip", "guidance": "Ask the viewer to mentally predict what happens next, then break that prediction with the true explanation."},
+    {"id": "visual_mystery", "hook": "visual_mystery", "story": "effect_before_cause", "payoff": "cause_reveal", "guidance": "Lead with a concrete visible effect before explaining its hidden physical cause."},
+    {"id": "pattern_break", "hook": "pattern_break", "story": "rapid_escalation", "payoff": "surprising_fact", "guidance": "Break the normal educational rhythm with a punchy opening and escalating true consequences."},
+]
+
+
+
 STOP_WORDS = {
     "that","this","with","from","your","they","them","then","than","into",
     "when","where","what","which","because","while","just","really","very",
@@ -236,56 +249,24 @@ def _discriminative_rank(
 
 
 def select_creative_strategy(playbook: dict | None = None) -> dict:
-    """Select the next creative experiment using an exact 70/20/10 schedule.
-
-    The slot is derived from the number of published videos, so no mutable
-    counter is required and the distribution survives retries/resumes.
-    """
+    """Select a measurable creative profile with controlled exploration."""
     pb = playbook or get_playbook()
     video_count = max(0, int(pb.get("video_count", 0) or 0))
     slot = video_count % 10
     cycle = video_count // 10 + 1
-    combinations = [
-        row for row in (pb.get("winning_combinations") or [])
-        if int(row.get("sample_size", 0) or 0) >= MIN_PATTERN_EVIDENCE
-    ]
-    pairs = [
-        row for row in (pb.get("winning_hook_payoff_pairs") or [])
-        if int(row.get("sample_size", 0) or 0) >= MIN_PATTERN_EVIDENCE
-    ]
-
-    if slot <= 6 and combinations:
-        strategy = "proven"
-        selected = combinations[(video_count // 10) % len(combinations)]
-        guidance = "Use this repeated winning combination as the structural baseline, while writing an entirely original story."
-    elif slot <= 6 and pairs:
-        strategy = "proven_pair"
-        selected = pairs[(video_count // 10) % len(pairs)]
-        guidance = "Use this repeated winning hook/payoff pair as the structural baseline, while keeping the story original."
-    elif slot <= 8 and pairs:
-        strategy = "adjacent"
-        selected = pairs[(video_count // 10) % len(pairs)]
-        guidance = "Keep the winning hook/payoff relationship, but deliberately change one major creative dimension such as story format, explanation timing, payoff timing, or narration pace."
+    ready = bool(pb.get("learning_ready"))
+    combinations = [row for row in (pb.get("winning_combinations") or []) if int(row.get("sample_size", 0) or 0) >= MIN_PATTERN_EVIDENCE]
+    pairs = [row for row in (pb.get("winning_hook_payoff_pairs") or []) if int(row.get("sample_size", 0) or 0) >= MIN_PATTERN_EVIDENCE]
+    profile = CREATIVE_PROFILES[slot % len(CREATIVE_PROFILES)]
+    selected = None
+    if ready and slot < 7 and combinations:
+        strategy = "proven"; selected = combinations[(video_count // 10) % len(combinations)]
+    elif ready and slot < 9 and pairs:
+        strategy = "adjacent"; selected = pairs[(video_count // 10) % len(pairs)]
     else:
-        strategy = "wild"
-        selected = None
-        guidance = "Do not rely on learned combinations. Try a genuinely new hook, story structure, pacing choice, or payoff pattern that still serves the topic."
-
-    experiment_id = f"creative_v3_{strategy}_cycle{cycle}_slot{slot + 1}"
-    return {
-        "strategy": strategy,
-        "experiment_id": experiment_id,
-        "slot": slot + 1,
-        "cycle": cycle,
-        "target_mix": {"proven": EXPLOITATION, "adjacent": ADJACENT_EXPLORATION, "wild": WILD_EXPLORATION},
-        "selected_pattern": (selected or {}).get("pattern", "") if selected else "",
-        "selected_score": float((selected or {}).get("score", 0) or 0) if selected else 0.0,
-        "selected_sample_size": int((selected or {}).get("sample_size", 0) or 0) if selected else 0,
-        "guidance": guidance,
-        "learning_ready": bool(pb.get("learning_ready")),
-        "evidence_based": bool(selected),
-    }
-
+        strategy = "wild" if (not ready or slot == 9) else "adjacent"
+    guidance = profile["guidance"] + (" Use learned evidence only as a secondary constraint." if selected else "")
+    return {"strategy":strategy,"experiment_id":f"creative_v4_{strategy}_cycle{cycle}_slot{slot + 1}_{profile['id']}","slot":slot+1,"cycle":cycle,"profile":profile["id"],"hook_mechanism":profile["hook"],"story_mechanism":profile["story"],"payoff_mechanism":profile["payoff"],"target_mix":{"proven":EXPLOITATION,"adjacent":ADJACENT_EXPLORATION,"wild":WILD_EXPLORATION},"selected_pattern":(selected or {}).get("pattern","") if selected else "","selected_score":float((selected or {}).get("score",0) or 0) if selected else 0.0,"selected_sample_size":int((selected or {}).get("sample_size",0) or 0) if selected else 0,"guidance":guidance,"learning_ready":ready,"evidence_based":bool(selected)}
 
 def build_playbook(records: list[dict]) -> dict:
     usable = [r for r in records if isinstance(r, dict) and r.get("video_id") and isinstance(r.get("latest", {}), dict)]
@@ -321,7 +302,7 @@ def build_playbook(records: list[dict]) -> dict:
         "learning_ready": count >= 3 and has_live_metrics,
         "metrics_available": has_live_metrics,
         "advanced_metrics_videos": advanced_metrics_count,
-        "creative_learning_version": "v3",
+        "creative_learning_version": "v4",
         "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
         "strategy": {"exploitation": EXPLOITATION, "adjacent_exploration": ADJACENT_EXPLORATION, "wild_exploration": WILD_EXPLORATION},
         "winning_patterns": winning_patterns,

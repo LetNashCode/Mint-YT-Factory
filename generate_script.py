@@ -316,9 +316,11 @@ RIDDLE / PUZZLE ANSWER-SPOILER LOCK:
 If a riddle answer and reveal scene are supplied, the answer is forbidden from every pre-reveal shot. Before the reveal, use neutral thinking/suspense visuals only: a thinking person, puzzled expression, brainstorming, generic question context, or countdown context. Do NOT show the answer, an identifiable representation of it, or an answer-related object. The answer becomes allowed only at and after the reveal.
 Translate the meaning into a real physical scene a camera could actually capture.
 
-For every scene create EXACTLY TWO distinct visual concepts/shots.
-Each scene must have 2–3 concrete visual concepts in total, with the two selected shots
-covering different physical evidence when possible.
+For every scene create 2–3 concrete visual concepts first, then produce exactly TWO selected shots.
+The scene-level visual_concepts list is the source of truth for the concrete demonstrations.
+Each concept must describe something a camera can actually capture and must directly
+demonstrate a specific spoken beat. The two selected shots must correspond to different
+concepts whenever possible.
 Shot 1 establishes the exact physical situation.
 Shot 2 advances it through a new physical action, state change, reveal, consequence,
 reaction, comparison, or viewpoint. Never give two generic shots of the same object.

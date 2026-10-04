@@ -4,7 +4,6 @@
 
 1. **Publish Shorts** — everyday curiosity/entertainment Shorts.
 2. **Story Shorts** — factual/person-centered story Shorts.
-3. **Emotional Shorts** — narration-led emotional Shorts with ordinary stock visuals.
 
 ## Factory-wide content lifecycle
 

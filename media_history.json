@@ -11279,6 +11279,146 @@
       "shot": 2,
       "query": "mustard stain while sunlight erases",
       "recorded_at": 1791120288
+    },
+    {
+      "asset_key": "pexels:video:19286012",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/19286012/19286012-hd_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "rubber you pop open fresh",
+      "recorded_at": 1791136237
+    },
+    {
+      "asset_key": "pexels:video:6217344",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6217344/6217344-hd_720_1280_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "rubber get hit unmistakable blast",
+      "recorded_at": 1791136242
+    },
+    {
+      "asset_key": "pexels:video:27999064",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/27999064/12285050_1280_720_50fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "rubber heavy slightly chemical",
+      "recorded_at": 1791136250
+    },
+    {
+      "asset_key": "pexels:video:4131831",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4131831/4131831-hd_1280_720_24fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "rubber clings air like uninvited",
+      "recorded_at": 1791136254
+    },
+    {
+      "asset_key": "pexels:video:13294234",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/13294234/13294234-hd_1280_720_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "rubber natural tree sap gooey",
+      "recorded_at": 1791136259
+    },
+    {
+      "asset_key": "pexels:video:17560180",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/17560180/17560180-hd_1280_720_60fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "rubber completely useless heavy duty",
+      "recorded_at": 1791136263
+    },
+    {
+      "asset_key": "pexels:video:35884280",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35884280/15219567_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "rubber fix factories cook sap",
+      "recorded_at": 1791136266
+    },
+    {
+      "asset_key": "pexels:video:27928827",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/27928827/12265966_1280_720_50fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "rubber sulfur process called vulcanization",
+      "recorded_at": 1791136270
+    },
+    {
+      "asset_key": "pexels:video:10186932",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10186932/10186932-hd_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "rubber sulfur creates invisible chemical",
+      "recorded_at": 1791136274
+    },
+    {
+      "asset_key": "pexels:video:35072674",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35072674/14856890_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "rubber lock floppy molecules",
+      "recorded_at": 1791136278
+    },
+    {
+      "asset_key": "pexels:video:8059611",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8059611/8059611-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "rubber lingering factory aroma sneaker",
+      "recorded_at": 1791136282
+    },
+    {
+      "asset_key": "pexels:video:7033613",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7033613/7033613-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "rubber residual ghost sulfur bonds",
+      "recorded_at": 1791136286
+    },
+    {
+      "asset_key": "pexels:video:8918120",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8918120/8918120-hd_1366_720_24fps.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "rubber every time you catch",
+      "recorded_at": 1791136290
+    },
+    {
+      "asset_key": "pexels:video:6506679",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6506679/6506679-hd_1366_720_25fps.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "rubber every time you catch",
+      "recorded_at": 1791136294
     }
   ]
 }

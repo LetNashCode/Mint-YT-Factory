@@ -3302,5 +3302,21 @@
     "video_id": "KLiJjAmDBq0",
     "workdir": "output/1791120159",
     "published_at": 1791121306
+  },
+  {
+    "topic": "Why does rubber smell",
+    "normalized": "why does rubber smell",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1791136098,
+    "recorded_at": 1791136098,
+    "metadata": {
+      "next_topic": "Why does a zipper catch",
+      "creative_strategy": "wild"
+    },
+    "title": "Why Does Rubber Smell",
+    "video_id": "vLmKGTYHkwY",
+    "workdir": "output/1791136168",
+    "published_at": 1791137595
   }
 ]

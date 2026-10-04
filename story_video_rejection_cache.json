@@ -545,6 +545,126 @@
       "source_id": "archive:twitter-1268396403711082496",
       "source_url": "https://archive.org/details/twitter-1268396403711082496",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "15412d16463635f1d3381099": {
+      "source_id": "archive:tootenge-nahin-covid-19-lockdown-song-sung-by-various-talented-singers_202005",
+      "source_url": "https://archive.org/details/tootenge-nahin-covid-19-lockdown-song-sung-by-various-talented-singers_202005",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "fe7aed6a1d526ec83ced91ed": {
+      "source_id": "archive:Power-Rangers-SPD-Volume-2-Tamil-Dub-Jetix-India-DishTV-Recording",
+      "source_url": "https://archive.org/details/Power-Rangers-SPD-Volume-2-Tamil-Dub-Jetix-India-DishTV-Recording",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "8fe30a94eab29f0a6074a761": {
+      "source_id": "archive:mtv-collection-026",
+      "source_url": "https://archive.org/details/mtv-collection-026",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "e8ce7a57600cd96874a2deb1": {
+      "source_id": "archive:mtv-video-clipes-v.a-203780-52022-2022",
+      "source_url": "https://archive.org/details/mtv-video-clipes-v.a-203780-52022-2022",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "d827dc30d05172bcb3f426fc": {
+      "source_id": "commons:155566464",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Two_by_Satyajit_Ray.webm",
+      "reason": "strong metadata exclusion: feature film"
+    },
+    "70e47601e7c959e78914ce0f": {
+      "source_id": "commons:155171267",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Rabindranath_Tagore_1961_-_Satyajit_Ray.webm",
+      "reason": "strong metadata exclusion: movie"
+    },
+    "6af7cfaf7753309c173d584a": {
+      "source_id": "commons:77375845",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Pride_of_India_-_Shama_Zaidi.webm",
+      "reason": "strong metadata exclusion: film"
+    },
+    "ab9ed2697ec47f3fb32e368c": {
+      "source_id": "commons:155162022",
+      "source_url": "https://commons.wikimedia.org/wiki/File:%E0%A6%A4%E0%A6%BF%E0%A6%A8_%E0%A6%95%E0%A6%A8%E0%A7%8D%E0%A6%AF%E0%A6%BE_-_%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE_%E0%A6%9A%E0%A6%B2%E0%A6%9A%E0%A7%8D%E0%A6%9A%E0%A6%BF%E0%A6%A4%E0%A7%8D%E0%A6%B0_(%E0%A7%A7%E0%A7%AF%E0%A7%AC%E0%A7%A7).webm",
+      "reason": "strong metadata exclusion: film"
+    },
+    "ec898c70ff53edef01246cbb": {
+      "source_id": "commons:77376130",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Pather_Panchali-_A_Living_Resonance.webm",
+      "reason": "strong metadata exclusion: film"
+    },
+    "52c0c5082ddb0e60b819075b": {
+      "source_id": "commons:155174032",
+      "source_url": "https://commons.wikimedia.org/wiki/File:%E0%A6%85%E0%A6%AA%E0%A7%81%E0%A6%B0_%E0%A6%B8%E0%A6%82%E0%A6%B8%E0%A6%BE%E0%A6%B0_-_%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE_%E0%A6%9A%E0%A6%B2%E0%A6%9A%E0%A7%8D%E0%A6%9A%E0%A6%BF%E0%A6%A4%E0%A7%8D%E0%A6%B0_(%E0%A7%A7%E0%A7%AF%E0%A7%AB%E0%A7%AF).webm",
+      "reason": "strong metadata exclusion: movie"
+    },
+    "9fd19eae01feb4d15769650d": {
+      "source_id": "commons:155142512",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Mahapurush_(The_Holy_Man)_1965_720p_-_Indian_Movies_in_Public_Domain.webm",
+      "reason": "strong metadata exclusion: movie"
+    },
+    "cffbb3523d566dfeeb4ab102": {
+      "source_id": "archive:SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "source_url": "https://archive.org/details/SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "ccfd2e93002cef1921269f48": {
+      "source_id": "archive:1971-satyajit-ray-sikkim-english",
+      "source_url": "https://archive.org/details/1971-satyajit-ray-sikkim-english",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "9851cc4cc2a5c1575d34678a": {
+      "source_id": "archive:satyajit-ray-collection_ttlp",
+      "source_url": "https://archive.org/details/satyajit-ray-collection_ttlp",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "10cb942669a163532c1f1886": {
+      "source_id": "archive:avseq-03-cd-1_202207",
+      "source_url": "https://archive.org/details/avseq-03-cd-1_202207",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "a4e984a9f1f1bf2ee7108d09": {
+      "source_id": "archive:aparajito.-1956.1080p.-blu-ray.x-264",
+      "source_url": "https://archive.org/details/aparajito.-1956.1080p.-blu-ray.x-264",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "fd023925cf8ff379f99c397f": {
+      "source_id": "archive:charulata.-1964.1080p.-blu-ray.x-264",
+      "source_url": "https://archive.org/details/charulata.-1964.1080p.-blu-ray.x-264",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "506752af17a72d83252968e1": {
+      "source_id": "archive:arena-agatha-christie-an-unfinished-portrait-1990",
+      "source_url": "https://archive.org/details/arena-agatha-christie-an-unfinished-portrait-1990",
+      "reason": "strong metadata exclusion: tv adaptation"
+    },
+    "bfd975cbe9dc08077a4f57b2": {
+      "source_id": "archive:Agatha100",
+      "source_url": "https://archive.org/details/Agatha100",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "db300907690b78a0d3bc5526": {
+      "source_id": "archive:vid-20251109-203719",
+      "source_url": "https://archive.org/details/vid-20251109-203719",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "71b90c86846fe5753f09d2ee": {
+      "source_id": "archive:AgathaChristiePoirot12",
+      "source_url": "https://archive.org/details/AgathaChristiePoirot12",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "9638791174dd3ab6c84dc4bd": {
+      "source_id": "archive:AgathaChristiePoirot10",
+      "source_url": "https://archive.org/details/AgathaChristiePoirot10",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "2ff13b3f9ef67ad0bdeb06df": {
+      "source_id": "archive:AgathaChristiePoirot9",
+      "source_url": "https://archive.org/details/AgathaChristiePoirot9",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "bcc96878054a47aa13f8d7dc": {
+      "source_id": "archive:agatha-christie-arena",
+      "source_url": "https://archive.org/details/agatha-christie-arena",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
     }
   }
 }

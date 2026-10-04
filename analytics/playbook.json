@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-04T13:21:53.886377+00:00",
-  "video_count": 141,
+  "generated_at": "2026-10-04T15:53:42.629947+00:00",
+  "video_count": 142,
   "learning_ready": true,
   "metrics_available": true,
   "creative_learning_version": "v3",
@@ -16,13 +16,13 @@
       "score": 41.484,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.298
+      "weak_score": 0.305
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.298,
+      "score": 0.305,
       "sample_size": 10
     }
   ],
@@ -53,7 +53,7 @@
     "Why do steering wheels lock",
     "Why does static make hair rise"
   ],
-  "used_topic_count": 141,
+  "used_topic_count": 142,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

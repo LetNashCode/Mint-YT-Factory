@@ -6618,6 +6618,37 @@
       },
       "review_key": "6644cecfe3cdf366fb742005bad1b19461de6f47a7a50d0b8e531f19018bbb7e",
       "reviewed_at": 1791113242.130677
+    },
+    {
+      "person": "Agatha Christie",
+      "source": {
+        "id": "archive:agatha-christie-arena",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/agatha-christie-arena/Agatha%20Christie%20_001.mp4",
+        "source_url": "https://archive.org/details/agatha-christie-arena",
+        "title": "Arena: Agatha Christie - Unfinished Portrait",
+        "description": "Profile celebrating the centenary of the famous author Agatha Christie’s birth. Looking at her life, her character and the key moments in her childhood that influenced her writing. ['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
+        "creator": "BBC",
+        "license": "",
+        "subject": "['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3656.42408,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2806.86,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The frames clearly show archival footage of Agatha Christie sitting at a desk and looking into a mirror, directly matching the biographical subject and narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "cb9c959022a8b3bfe4f6f040dde8184255c5687218226640e8ec33be34eaf529",
+      "reviewed_at": 1791129775.8803694
     }
   ]
 }

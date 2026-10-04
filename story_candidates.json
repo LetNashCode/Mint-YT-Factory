@@ -48,14 +48,41 @@
     "source": "gemini_original"
   },
   {
-    "format": "before_they_were_famous",
-    "person": "Sachin Tendulkar",
-    "premise": "The intense childhood routine of a prodigy who practiced cricket for hours under the guidance of his coach.",
-    "hook": "His coach placed a coin on top of the stumps, and any bowler who got him out got to keep it.",
+    "format": "one_decision",
+    "person": "Rosa Parks",
+    "premise": "The specific civil rights activist action in Montgomery that catalyzed a city-wide transit boycott.",
+    "hook": "One refusal to stand up from a bus seat triggered a 381-day protest.",
     "key_facts": [
-      "Trained rigorously under coach Ramakant Achrekar at Shivaji Park in Mumbai during his school years.",
-      "Set a world record partnership in school cricket alongside Vinod Kambli.",
-      "Made his international test debut for the Indian cricket team against Pakistan at age sixteen."
+      "Employed as a seamstress in Montgomery, Alabama.",
+      "Served as secretary for the local chapter of the NAACP.",
+      "Refused to surrender her seat to a white passenger on December 1, 1955.",
+      "Her arrest led directly to the Montgomery bus boycott."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Tom Hanks",
+    "premise": "Working as a lowly vendor selling peanuts and programs at Oakland Coliseum before breaking into acting.",
+    "hook": "Before winning back-to-back Oscars, he hawked peanuts in stadium bleachers.",
+    "key_facts": [
+      "Grew up in a transient household, moving frequently during childhood.",
+      "Worked various odd jobs including selling programs at Oakland Athletics games.",
+      "Acted in the Great Lakes Shakespeare Festival before moving to New York.",
+      "Landed his breakthrough television role in the sitcom Bosom Buddies."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Shah Rukh Khan",
+    "premise": "A young television actor in Delhi trying to process the loss of his parents before moving to Mumbai.",
+    "hook": "Before ruling Bollywood, he lost both his parents before turning 26 and arrived in Mumbai with very little.",
+    "key_facts": [
+      "Starred in the television series Fauji and Circus in the late 1980s.",
+      "Relocated to Mumbai following the death of his mother in 1991.",
+      "Played villainous roles in early films like Baazigar and Darr.",
+      "Achieved superstardom through romantic dramas in the mid-1990s."
     ],
     "source": "gemini_original"
   }

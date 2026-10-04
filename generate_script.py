@@ -776,6 +776,7 @@ def _merge(entertainment, visual, topic):
         "retention_self_check": {"weakest_scene": 4, "reason": "The story escalates from curiosity to physical explanation and payoff."},
         "story_blueprint": entertainment.get("story_blueprint") or {},
         "next_short": next_short,
+        "learning_experiment": entertainment.get("learning_experiment") or {},
         "riddle": entertainment.get("riddle") or {},
         "scene_plan": scenes,
         "publishing": {
@@ -802,6 +803,31 @@ def generate_script(topic, config, research=None, extra_feedback=""):
     client = genai.Client(api_key=_api_key())
     last_error = None
     retry_feedback = extra_feedback
+    try:
+        from factory_content_memory import select_strategy
+        learning_experiment = select_strategy()
+    except Exception:
+        learning_experiment = {
+            "strategy": "wild",
+            "experiment_id": "creative_v4_fallback",
+            "profile": "pattern_break",
+            "hook_mechanism": "pattern_break",
+            "story_mechanism": "rapid_escalation",
+            "payoff_mechanism": "surprising_fact",
+            "guidance": "Use a genuinely different creative mechanism.",
+            "learning_ready": False,
+            "evidence_based": False,
+        }
+    retry_feedback = (
+        (retry_feedback + "\n" if retry_feedback else "")
+        + "MANDATORY CREATIVE EXPERIMENT:\n"
+        + json.dumps(learning_experiment, ensure_ascii=False)
+    )
+    print(
+        f"🎯 Creative experiment: {learning_experiment.get('experiment_id')} | "
+        f"profile={learning_experiment.get('profile')} | strategy={learning_experiment.get('strategy')}",
+        flush=True,
+    )
 
     for attempt in range(1, MAX_ATTEMPTS + 1):
         try:
@@ -830,6 +856,7 @@ def generate_script(topic, config, research=None, extra_feedback=""):
                 0.90,
             )
             entertainment["story_blueprint"] = blueprint
+            entertainment["learning_experiment"] = learning_experiment
             word_count = _validate_entertainment(entertainment, topic)
             _validate_retired_subject_bleed(" ".join(str(s.get("narration") or "") for s in entertainment.get("scene_plan") or []), "narration")
             _validate_no_future_topic_in_story(entertainment, topic)

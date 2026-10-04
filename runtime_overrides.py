@@ -207,18 +207,12 @@ def patch_tts_result(main):
                     _regenerate_shorter(script, config, feedback + f"\nCONTENT GATE ERROR: {last_error}")
                     _refresh_script_artifact(script, workdir)
 
-                    # A content mismatch can be caused by a TTS provider producing
-                    # an anomalous/hallucinated tail. For recovery, force a clean
-                    # Edge-TTS synthesis instead of repeating the same Kokoro render.
-                    previous_provider = os.environ.get("MINT_TTS_PROVIDER")
-                    os.environ["MINT_TTS_PROVIDER"] = "edge"
-                    try:
-                        retry_result = original(script, config, workdir)
-                    finally:
-                        if previous_provider is None:
-                            os.environ.pop("MINT_TTS_PROVIDER", None)
-                        else:
-                            os.environ["MINT_TTS_PROVIDER"] = previous_provider
+                    # Recovery must use the same configured provider/voice as
+                    # the primary render. Switching providers here made a single
+                    # Publish Short change voices mid-recovery (Kokoro -> Edge).
+                    # Repeat the configured render instead; provider consistency is
+                    # more important than silently changing the narrator.
+                    retry_result = original(script, config, workdir)
 
                     retry_audio = str(
                         retry_result[0] if isinstance(retry_result, (list, tuple)) and retry_result else retry_result

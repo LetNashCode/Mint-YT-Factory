@@ -676,10 +676,24 @@ def _validate_visuals(visual_plan, entertainment, topic):
     for i, scene in enumerate(scenes):
         visuals = scene.get("visuals")
         concepts = scene.get("visual_concepts") or []
-        if not isinstance(concepts, list) or not 2 <= len(concepts) <= 3 or any(not _clean(x) for x in concepts):
-            raise RuntimeError(f"Visual director scene {i+1} must contain 2–3 concrete visual concepts.")
         if not isinstance(visuals, list) or len(visuals) != 2:
             raise RuntimeError(f"Visual director scene {i+1} must contain exactly 2 shots.")
+
+        # Check the highest-value visual continuity invariant before secondary
+        # metadata checks. This keeps a genuinely duplicated second shot from
+        # being hidden behind a missing/weak concept list and gives production
+        # the actionable "does not advance" failure.
+        first_focus = _clean(visuals[0].get("visual_focus")).lower()
+        first_action = _clean(visuals[0].get("visual_action")).lower()
+        second_focus = _clean(visuals[1].get("visual_focus")).lower()
+        second_action = _clean(visuals[1].get("visual_action")).lower()
+        if first_focus and second_focus and first_focus == second_focus:
+            raise RuntimeError(f"Visual director scene {i+1} shot 2 does not advance the physical action: duplicates shot 1.")
+        if first_action and second_action and first_action == second_action:
+            raise RuntimeError(f"Visual director scene {i+1} shot 2 does not advance the physical action.")
+
+        if not isinstance(concepts, list) or not 2 <= len(concepts) <= 3 or any(not _clean(x) for x in concepts):
+            raise RuntimeError(f"Visual director scene {i+1} must contain 2–3 concrete visual concepts.")
         narration = locked[i]["narration"].lower()
         previous_focus = ""
         for j, visual in enumerate(visuals):

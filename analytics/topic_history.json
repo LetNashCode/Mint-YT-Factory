@@ -3286,5 +3286,21 @@
     "video_id": "U3W_jhiNabs",
     "workdir": "output/emotional_reel",
     "published_at": 1791111135
+  },
+  {
+    "topic": "Why does mustard stain",
+    "normalized": "why does mustard stain",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1791120089,
+    "recorded_at": 1791120089,
+    "metadata": {
+      "next_topic": "Why does rubber smell",
+      "creative_strategy": "wild"
+    },
+    "title": "Why does mustard stain",
+    "video_id": "KLiJjAmDBq0",
+    "workdir": "output/1791120159",
+    "published_at": 1791121306
   }
 ]

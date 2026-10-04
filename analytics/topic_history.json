@@ -3318,5 +3318,17 @@
     "video_id": "vLmKGTYHkwY",
     "workdir": "output/1791136168",
     "published_at": 1791137595
+  },
+  {
+    "topic": "Why does a zipper catch",
+    "normalized": "why does a zipper catch",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791157144,
+    "recorded_at": 1791157144,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

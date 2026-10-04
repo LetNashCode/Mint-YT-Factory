@@ -1,9 +1,10 @@
 {
-  "generated_at": "2026-10-04T17:48:47.167955+00:00",
-  "video_count": 142,
+  "generated_at": "2026-10-04T23:39:06.008033+00:00",
+  "video_count": 149,
   "learning_ready": true,
   "metrics_available": true,
-  "creative_learning_version": "v3",
+  "advanced_metrics_videos": 137,
+  "creative_learning_version": "v5",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
     "exploitation": 0.7,
@@ -13,16 +14,16 @@
   "winning_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 41.484,
+      "score": 41.509,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.303
+      "weak_score": 0.531
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.303,
+      "score": 0.531,
       "sample_size": 10
     }
   ],
@@ -32,7 +33,7 @@
   "winning_topics": [
     "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
     "Why do clothes shrink in dryers",
-    "Why do sponges get smelly",
+    "Steve Jobs: A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
     "Israeli security forces shoot and kill Ahmad Zidani, Beit Rima, 18 Dec. 2016: Candidate discovered from Internet Archive; the footage and event context require factual review.",
     "Why do door knobs get loose",
     "Why do earbuds tangle in pockets",
@@ -42,18 +43,18 @@
     "Why window glass warps reflections"
   ],
   "avoid_topics": [
-    "Steve Jobs: A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
-    "Why does ketchup resist pouring",
+    "belonging: Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive.",
+    "Why do bananas turn brown",
+    "Why does mustard stain",
     "Why does a lock jam",
     "relief: Finding the misplaced car keys inside the pocket of your winter coat that has been hanging in the back of the hallway closet since last spring, right when you are running late and panicked.",
-    "friendship: Finding a faded photo booth strip tucked behind the clear plastic sleeve of a wallet, showing four silly faces from a high school road trip with a friend you haven't spoken to in a decade.",
     "Why does soda fizz",
+    "Why does static make hair rise",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
-    "Why do steering wheels lock",
-    "Why does static make hair rise"
+    "Why do steering wheels lock"
   ],
-  "used_topic_count": 142,
+  "used_topic_count": 149,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

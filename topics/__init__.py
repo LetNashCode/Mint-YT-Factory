@@ -296,9 +296,9 @@ def _generate_topic(used, exclude_topics=None):
         print(
             "🏆 Topic strategist winner: "
             f"{winner['topic']} | score={winner['score']} | "
-            f"curiosity={winner['curiosity']} | familiarity={winner['familiarity']} | "
-            f"visual={winner['visual_feasibility']} | novelty={winner['novelty']} | "
-            f"history_similarity={winner['history_similarity']}"
+            f"curiosity={winner.get('curiosity', 0)} | familiarity={winner.get('familiarity', 0)} | "
+            f"visual={winner.get('visual_feasibility', 0)} | novelty={winner.get('novelty', 0)} | "
+            f"history_similarity={winner.get('history_similarity', 0)}"
         )
         print(
             "🥇 Topic shortlist: "

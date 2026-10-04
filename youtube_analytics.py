@@ -25,6 +25,49 @@ def _credentials():
 def _youtube_service(): return build('youtube','v3',credentials=_credentials(),cache_discovery=False)
 def _analytics_service(): return build('youtubeAnalytics','v2',credentials=_credentials(),cache_discovery=False)
 
+
+def _read_durable_publications():
+    """Recover published video records from durable workflow state.
+
+    The analytics registry is derived state. A workflow can successfully publish
+    a video even if the registry write happened in a later step or an older
+    factory version used a different bookkeeping file. Reconcile those durable
+    publication records before fetching fresh YouTube metrics.
+    """
+    out = []
+    completed = _load(ROOT / "completed_publications.json", [])
+    if isinstance(completed, list):
+        for item in completed:
+            if not isinstance(item, dict):
+                continue
+            video_id = str(item.get("video_id") or "").strip()
+            if video_id:
+                out.append({
+                    "video_id": video_id,
+                    "topic": str(item.get("topic") or "").strip(),
+                    "title": str(item.get("title") or "").strip(),
+                    "workdir": str(item.get("workdir") or "").strip(),
+                    "published_at": item.get("completed_at"),
+                    "workflow": "publish",
+                })
+    story_rows = _load(ANALYTICS_DIR / "story_videos.json", [])
+    if isinstance(story_rows, list):
+        for item in story_rows:
+            if not isinstance(item, dict):
+                continue
+            video_id = str(item.get("video_id") or "").strip()
+            if video_id:
+                out.append({
+                    "video_id": video_id,
+                    "topic": str(item.get("topic") or "").strip(),
+                    "title": str(item.get("title") or "").strip(),
+                    "workdir": str(item.get("workdir") or "").strip(),
+                    "workflow": "story",
+                    "person": str(item.get("person") or "").strip(),
+                    "pillar": str(item.get("pillar") or "").strip(),
+                })
+    return out
+
 def _read_registry_markers():
     raw=_load(USED_TOPICS_PATH,[]); out=[]
     if not isinstance(raw,list): return out
@@ -96,21 +139,40 @@ def record_upload(video_id,topic,title,workdir='',production_metadata=None):
 
 def _engagement_rate(v,l,c): return round(((l+c)/v)*100,4) if v>0 else 0.0
 def _materialize_records():
-    files=_load(REGISTRY_PATH,[]); files=files if isinstance(files,list) else []; by_id={str(x.get('video_id')):x for x in files if isinstance(x,dict) and x.get('video_id')}
-    for marker in _read_registry_markers():
-        vid=str(marker['video_id']); by_id[vid]=({**marker,'latest':{},'snapshots':[]} if vid not in by_id else {**by_id[vid],**{k:v for k,v in marker.items() if v}})
+    files=_load(REGISTRY_PATH,[])
+    files=files if isinstance(files,list) else []
+    by_id={str(x.get('video_id')):x for x in files if isinstance(x,dict) and x.get('video_id')}
+    for source in [*_read_registry_markers(), *_read_durable_publications()]:
+        vid=str(source.get('video_id') or '').strip()
+        if not vid:
+            continue
+        if vid not in by_id:
+            by_id[vid]={**source,'latest':{},'snapshots':[]}
+        else:
+            for key,value in source.items():
+                if value not in ('',None,{}) and not by_id[vid].get(key):
+                    by_id[vid][key]=value
     return list(by_id.values())
+
+def _has_advanced_metrics(records):
+    return sum(
+        1 for record in records
+        if isinstance(record.get('latest'),dict)
+        and 'average_view_percentage' in record.get('latest',{})
+        and 'analytics_views' in record.get('latest',{})
+    )
+
 def _has_live_metrics(records):
     return any(any(float((r.get('latest',{}) or {}).get(k,0) or 0)>0 for k in ('views','likes','comments','average_view_percentage','subscribers_gained','shares')) for r in records)
 
 def refresh_registry():
     records=_materialize_records()
     if not records:
-        summary={'generated_at':_utc_now(),'video_count':0,'optimization_ready':False,'live_metrics_ready':False,'reason':'Need published videos before optimizing content.','totals':{},'averages':{},'top_videos':[],'topic_performance':[]}; _write(REGISTRY_PATH,[]); _write(SUMMARY_PATH,summary); return summary
+        summary={'generated_at':_utc_now(),'video_count':0,'optimization_ready':False,'live_metrics_ready':False,'advanced_metrics_videos':0,'reason':'Need published videos before optimizing content.','totals':{},'averages':{},'top_videos':[],'topic_performance':[]}; _write(REGISTRY_PATH,[]); _write(SUMMARY_PATH,summary); return summary
     _write(REGISTRY_PATH,records); ids=[str(x['video_id']) for x in records]
     try: basic=fetch_video_stats(ids)
     except Exception as exc:
-        print(f'⚠️ YouTube Data API unavailable: {exc}'); existing=_load(SUMMARY_PATH,{}); existing.update({'generated_at':_utc_now(),'video_count':len(records),'optimization_ready':_has_live_metrics(records),'live_metrics_ready':False,'reason':'Live YouTube statistics unavailable; durable registry remains available.'}); _write(SUMMARY_PATH,existing); return existing
+        print(f'⚠️ YouTube Data API unavailable: {exc}'); existing=_load(SUMMARY_PATH,{}); existing.update({'generated_at':_utc_now(),'video_count':len(records),'optimization_ready':_has_live_metrics(records),'live_metrics_ready':False,'advanced_metrics_videos':0,'reason':'Live YouTube statistics unavailable; durable registry remains available.'}); _write(SUMMARY_PATH,existing); return existing
     advanced=fetch_analytics_metrics(ids); now=_utc_now()
     for r in records:
         vid=str(r['video_id']); cur=basic.get(vid)
@@ -121,7 +183,7 @@ def refresh_registry():
     rows=[]
     for r in sorted(records,key=lambda x:int(x.get('latest',{}).get('views',0)),reverse=True):
         x=r.get('latest',{}); rows.append({'topic':r.get('topic',''),'video_id':r.get('video_id'),'title':r.get('title',''),'views':int(x.get('views',0)),'likes':int(x.get('likes',0)),'comments':int(x.get('comments',0)),'shares':int(x.get('shares',0)),'average_view_duration':float(x.get('average_view_duration',0)),'average_view_percentage':float(x.get('average_view_percentage',0)),'subscribers_gained':int(x.get('subscribers_gained',0)),'subscribers_lost':int(x.get('subscribers_lost',0)),'engagement_rate':float(x.get('engagement_rate',0))})
-    ready=count>=3 and live_ready; summary={'generated_at':now,'video_count':count,'optimization_ready':ready,'live_metrics_ready':live_ready,'reason':'' if ready else ('Need live YouTube metrics and at least 3 published videos before optimizing content.'),'totals':{'views':total_views,'likes':total_likes,'comments':total_comments},'averages':avg,'top_videos':rows[:10],'topic_performance':rows[:50],'optimization_rules':['Learn patterns, never copy winning topics literally.','Optimize for retention, subscriber conversion, comments and shares.','Prefer strong curiosity gaps and concrete everyday mysteries.','Keep experiments so the model does not overfit to one topic.'] if ready else []}; _write(SUMMARY_PATH,summary); print(f'📊 Tracked videos: {count}'); print(f'📊 Total views: {total_views:,}'); print(f'🧠 Optimization ready: {"YES" if ready else "NO"}'); return summary
+    advanced_count=_has_advanced_metrics(records); ready=count>=3 and advanced_count>=3; summary={'generated_at':now,'video_count':count,'optimization_ready':ready,'live_metrics_ready':live_ready,'advanced_metrics_videos':advanced_count,'reason':'' if ready else ('Need live YouTube metrics and at least 3 published videos before optimizing content.'),'totals':{'views':total_views,'likes':total_likes,'comments':total_comments},'averages':avg,'top_videos':rows[:10],'topic_performance':rows[:50],'optimization_rules':['Learn patterns, never copy winning topics literally.','Optimize for retention, subscriber conversion, comments and shares.','Prefer strong curiosity gaps and concrete everyday mysteries.','Keep experiments so the model does not overfit to one topic.'] if ready else []}; _write(SUMMARY_PATH,summary); print(f'📊 Tracked videos: {count}'); print(f'📊 Total views: {total_views:,}'); print(f'🧠 Optimization ready: {"YES" if ready else "NO"}'); return summary
 
 def main():
     parser=argparse.ArgumentParser(); parser.add_argument('--refresh',action='store_true'); args=parser.parse_args()

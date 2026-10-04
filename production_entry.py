@@ -801,8 +801,45 @@ def _patch_publish_resume(main):
     main.upload_video = resumable_upload
 
 
+def _patch_publish_tts_lock(main):
+    """Make every Publish Shorts render use the same Kokoro voice and provider."""
+    provider = "kokoro"
+    voice_name = "af_heart"
+    lang = "a"
+
+    os.environ["MINT_TTS_PROVIDER"] = provider
+    os.environ["MINT_KOKORO_VOICE"] = voice_name
+    os.environ["MINT_KOKORO_LANG"] = lang
+    os.environ["MINT_EDGE_TTS_FALLBACK"] = "0"
+
+    original_load_config = main.load_config
+    if getattr(original_load_config, "_mint_publish_tts_lock", False):
+        return
+
+    def load_config_locked(*args, **kwargs):
+        config = original_load_config(*args, **kwargs)
+        if not isinstance(config, dict):
+            raise RuntimeError("Publish TTS lock requires a dictionary production config.")
+        voice = dict(config.get("voice") or {})
+        voice["provider"] = provider
+        voice["voice_name"] = voice_name
+        voice["kokoro_lang"] = lang
+        voice["edge_voice"] = "en-US-GuyNeural"
+        voice["speed"] = 1.0
+        config["voice"] = voice
+        print(
+            f"🔒 Publish TTS config locked: provider={provider} | "
+            f"voice={voice_name} | lang={lang} | speed=1.0x | Edge fallback=DISABLED"
+        )
+        return config
+
+    load_config_locked._mint_publish_tts_lock = True
+    main.load_config = load_config_locked
+
+
 def main_entry():
     import main
+    _patch_publish_tts_lock(main)
     _patch_topic_retirement_guard()
     patch_continuation(main)
     patch_tts_result(main)

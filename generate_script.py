@@ -681,8 +681,11 @@ def _validate_visuals(visual_plan, entertainment, topic):
             action = _clean(visual.get("visual_action"))
             prompt = _clean(visual.get("image_prompt"))
             spoken = _clean(visual.get("spoken_line"))
-            if not focus or not prompt:
+            concept = _clean(visual.get("visual_concept"))
+            if not focus or not action or not concept or not prompt:
                 raise RuntimeError(f"Visual director scene {i+1} shot {j+1} has missing fields.")
+            if len(concept.split()) < 3:
+                raise RuntimeError(f"Visual director scene {i+1} shot {j+1} has an underspecified visual concept.")
             must_show = visual.get("must_show") or []
             must_not_show = visual.get("must_not_show") or []
             if len(must_show) < 3:
@@ -743,6 +746,7 @@ def _merge(entertainment, visual, topic):
             v["spoken_line"] = _clean(v.get("spoken_line")) or narration
             v["visual_focus"] = _clean(v.get("visual_focus"))
             v["visual_action"] = _clean(v.get("visual_action"))
+            v["visual_concept"] = _clean(v.get("visual_concept")) or f"{v[\"visual_focus\"]}: {v[\"visual_action\"]}"
             v["must_show"] = [_clean(x) for x in v.get("must_show", []) if _clean(x)][:6]
             v["must_not_show"] = [_clean(x) for x in v.get("must_not_show", []) if _clean(x)][:8]
             v["image_prompt"] = _clean(v.get("image_prompt"), 900)

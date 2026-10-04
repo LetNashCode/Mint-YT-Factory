@@ -3268,5 +3268,23 @@
     "video_id": "LVnEtYGmdLo",
     "workdir": "output/1791099745",
     "published_at": 1791101184
+  },
+  {
+    "topic": "relief: Finding the misplaced car keys inside the pocket of your winter coat that has been hanging in the back of the hallway closet since last spring, right when you are running late and panicked.",
+    "normalized": "relief finding the misplaced car keys inside the pocket of your winter coat that has been hanging in the back of the hallway closet since last spring right when you are running late and panicked",
+    "workflow": "emotional",
+    "status": "published",
+    "reserved_at": 1791110264,
+    "recorded_at": 1791110264,
+    "metadata": {
+      "primary_emotion": "relief",
+      "human_situation": "Finding the misplaced car keys inside the pocket of your winter coat that has been hanging in the back of the hallway closet since last spring, right when you are running late and panicked.",
+      "creative_strategy": "wild",
+      "experiment_id": "creative_v3_wild_cycle15_slot1"
+    },
+    "title": "The Heavy Wool Pocket",
+    "video_id": "U3W_jhiNabs",
+    "workdir": "output/emotional_reel",
+    "published_at": 1791111135
   }
 ]

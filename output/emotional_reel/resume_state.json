@@ -1,18 +1,18 @@
 {
   "status": "uploaded",
   "final_path": "output/emotional_reel/final.mp4",
-  "final_sha256": "a7165a2708127dc8669ebe4df3abd870fb0f6270767b080704f2ab1b3e018221",
-  "cache_key": "emotional-reel-final-v2-a7165a2708127dc8669ebe4df3abd870",
-  "title": "The Back Porch Screen Door",
-  "description": "A nostalgic memory about the distinct sound of a grandparents' back porch screen door and the profound sense of belonging it brings.",
+  "final_sha256": "906188013ab95794e79d6cdad6dcaaa9982597d1eb73ae8abf3c001e487c56d6",
+  "cache_key": "emotional-reel-final-v2-906188013ab95794e79d6cdad6dcaaa9",
+  "title": "The Heavy Wool Pocket",
+  "description": "A split second of pure panic transforms into sudden relief when keys turn up in an unexpected winter coat pocket.",
   "hashtags": [
-    "#childhoodmemories",
-    "#grandparents",
-    "#nostalgia",
-    "#belonging",
-    "#family"
+    "relief",
+    "everydaymoments",
+    "wintercoat",
+    "panic",
+    "smalljoys"
   ],
-  "engagement_comment": "Never forget where you started.",
+  "engagement_comment": "Sometimes the things we lose were just waiting safely in yesterday's pockets.",
   "voice": {
     "provider": "kokoro",
     "voice_name": "af_heart",
@@ -22,26 +22,26 @@
     "speed": 0.92,
     "tone": "curious, confident, playful storyteller"
   },
-  "created_at": 1791021564,
-  "narration_word_count": 147,
+  "created_at": 1791110574,
+  "narration_word_count": 134,
   "complete_script_preserved": true,
   "final_duration_seconds": 53.76,
-  "factory_topic": "belonging: Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive.",
-  "primary_emotion": "belonging",
-  "human_situation": "Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive.",
-  "video_id": "QjSTeQGZVq8",
+  "factory_topic": "relief: Finding the misplaced car keys inside the pocket of your winter coat that has been hanging in the back of the hallway closet since last spring, right when you are running late and panicked.",
+  "primary_emotion": "relief",
+  "human_situation": "Finding the misplaced car keys inside the pocket of your winter coat that has been hanging in the back of the hallway closet since last spring, right when you are running late and panicked.",
+  "video_id": "U3W_jhiNabs",
   "social": {
     "instagram": {
       "status": "published",
-      "media_id": "17964850295981999",
-      "container_id": "18496511407097136"
+      "media_id": "18038658542841959",
+      "container_id": "18496736434097136"
     },
     "facebook": {
       "status": "published",
-      "video_id": "1115087597650524"
+      "video_id": "28931452219877566"
     },
     "strict": false,
-    "updated_at": 1791021854
+    "updated_at": 1791110869
   },
-  "uploaded_at": 1791022123
+  "uploaded_at": 1791111135
 }

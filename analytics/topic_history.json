@@ -3252,5 +3252,21 @@
     "video_id": "iCM6OgMrSlc",
     "workdir": "output/1791048855",
     "published_at": 1791050002
+  },
+  {
+    "topic": "Why does static make hair rise",
+    "normalized": "why does static make hair rise",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1791099685,
+    "recorded_at": 1791099685,
+    "metadata": {
+      "next_topic": "Why does mustard stain",
+      "creative_strategy": "wild"
+    },
+    "title": "Why Does Static Make Hair Rise",
+    "video_id": "LVnEtYGmdLo",
+    "workdir": "output/1791099745",
+    "published_at": 1791101184
   }
 ]

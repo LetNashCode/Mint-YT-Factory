@@ -177,12 +177,13 @@ def _normalize_ladder(data: dict, anchors: list[str]) -> list[dict]:
 def direct(scene_no: int, shot_no: int, scene: dict, visual: dict, failed_queries=None, round_no=1, story_script: dict | None = None):
     spoken = clean(visual.get("spoken_line") or scene.get("narration"), 650); focus = clean(visual.get("visual_focus"), 350); action = clean(visual.get("visual_action"), 350); concept = clean(visual.get("visual_concept"), 350)
     must = [clean(x, 180) for x in visual.get("must_show", []) if clean(x)]; avoid = [clean(x, 180) for x in visual.get("must_not_show", []) if clean(x)]; failed = [clean(x, 100) for x in (failed_queries or []) if clean(x)]
-    is_story = isinstance(story_script, dict) and bool(story_script.get("story_person") or story_script.get("interactive_pillar") or story_script.get("story_visual_mode")); anchors = _story_context(story_script, scene_no) if is_story else _anchor_terms("", focus, action, must, concept); anchor_hint = ", ".join(anchors[:6])
+    is_story = isinstance(story_script, dict) and bool(story_script.get("story_person") or story_script.get("interactive_pillar") or story_script.get("story_visual_mode")); anchors = _story_context(story_script, scene_no) if is_story else _anchor_terms("", focus, action, must, " ".join(scene_concepts + [concept])); anchor_hint = ", ".join(anchors[:6])
     prompt = f'''You are the STOCK SEARCH DIRECTOR for a YouTube Short.
 Real production media comes ONLY from Pexels and Pixabay.
 SCENE {scene_no}, SHOT {shot_no}
 SPOKEN BEAT: {spoken}
-VISUAL CONCEPT: {concept}
+SCENE VISUAL CONCEPTS: {json.dumps(scene_concepts, ensure_ascii=False)}
+SELECTED VISUAL CONCEPT: {concept}
 VISUAL FOCUS: {focus}
 VISUAL ACTION: {action}
 MUST SHOW: {json.dumps(must, ensure_ascii=False)}

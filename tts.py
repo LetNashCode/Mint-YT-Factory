@@ -302,53 +302,56 @@ def _generate_edge(text, voice_config, output_path):
 
 
 def _synthesize_once(text, voice_config, out_path):
-    """Synthesize once, honoring an explicit provider override for recovery runs."""
-    last_error = None
-    forced = os.environ.get("MINT_TTS_PROVIDER", "").strip().lower()
+    """Synthesize using the explicitly configured provider and voice.
 
-    if forced == "edge":
-        if not EDGE_ENABLED:
-            raise RuntimeError("Edge TTS is disabled but MINT_TTS_PROVIDER=edge was requested")
-        for attempt in range(1, TTS_RETRIES + 1):
-            try:
-                return _generate_edge(text, voice_config, out_path)
-            except Exception as error:
-                last_error = error
-                print(f"⚠️ Forced Edge TTS attempt {attempt}/{TTS_RETRIES} failed: {type(error).__name__}: {error}")
-                if attempt < TTS_RETRIES:
-                    time.sleep(attempt)
-        raise RuntimeError("Forced Edge TTS synthesis failed") from last_error
+    Publish Shorts has one canonical narrator in config.yaml. Recovery and
+    retries must not silently switch providers because that changes the voice
+    heard by the audience. Provider fallback is intentionally disabled here;
+    if the configured provider fails, the production run fails rather than
+    publishing a different narrator.
+    """
+    voice_config = voice_config if isinstance(voice_config, dict) else {}
+    provider = str(voice_config.get("provider") or "kokoro").strip().lower()
 
-    if forced == "kokoro":
+    if provider == "kokoro":
+        last_error = None
         for attempt in range(1, TTS_RETRIES + 1):
             try:
                 return _generate_kokoro(text, voice_config, out_path)
             except Exception as error:
                 last_error = error
-                print(f"⚠️ Forced Kokoro TTS attempt {attempt}/{TTS_RETRIES} failed: {type(error).__name__}: {error}")
+                print(
+                    f"⚠️ Configured Kokoro TTS attempt {attempt}/{TTS_RETRIES} failed: "
+                    f"{type(error).__name__}: {error}"
+                )
                 if attempt < TTS_RETRIES:
                     time.sleep(attempt)
-        raise RuntimeError("Forced Kokoro TTS synthesis failed") from last_error
+        raise RuntimeError(
+            "Configured Kokoro TTS synthesis failed; refusing to switch narrator/provider."
+        ) from last_error
 
-    for attempt in range(1, TTS_RETRIES + 1):
-        try:
-            return _generate_kokoro(text, voice_config, out_path)
-        except Exception as error:
-            last_error = error
-            print(f"⚠️ Kokoro attempt {attempt}/{TTS_RETRIES} failed: {type(error).__name__}: {error}")
-            if attempt < TTS_RETRIES:
-                time.sleep(attempt)
-    if EDGE_ENABLED:
+    if provider == "edge":
+        if not EDGE_ENABLED:
+            raise RuntimeError("Edge TTS is disabled but config provider=edge was requested")
+        last_error = None
         for attempt in range(1, TTS_RETRIES + 1):
             try:
                 return _generate_edge(text, voice_config, out_path)
             except Exception as error:
                 last_error = error
-                print(f"⚠️ Edge fallback attempt {attempt}/{TTS_RETRIES} failed: {type(error).__name__}: {error}")
+                print(
+                    f"⚠️ Configured Edge TTS attempt {attempt}/{TTS_RETRIES} failed: "
+                    f"{type(error).__name__}: {error}"
+                )
                 if attempt < TTS_RETRIES:
                     time.sleep(attempt)
-    raise RuntimeError("All configured TTS providers failed") from last_error
+        raise RuntimeError(
+            "Configured Edge TTS synthesis failed; refusing to switch narrator/provider."
+        ) from last_error
 
+    raise RuntimeError(
+        f"Unsupported TTS provider {provider!r}; refusing implicit provider fallback."
+    )
 
 def synthesize_narration(text, config, out_path, target_duration=None):
     original_text = clean_text(text)

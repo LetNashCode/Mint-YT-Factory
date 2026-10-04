@@ -143,6 +143,28 @@ def build_generation_context(limit=24):
         lines.append("RECENT HOOK MECHANISM COUNTS: "+", ".join(f"{k}={v}" for k,v in hook_counts.most_common()))
     if tease_counts:
         lines.append("RECENT TEASE MECHANISM COUNTS: "+", ".join(f"{k}={v}" for k,v in tease_counts.most_common()))
+
+    # Cooldown dimensions are deliberately broader than topic uniqueness.
+    # This prevents a high-volume channel from making six cosmetic variants
+    # of the same creative template.
+    scripts = [_script(record) for record in _records()[-12:]]
+    visual_counts = Counter(
+        str((script.get("visual_identity") or {}).get("style") or "").strip()
+        for script in scripts
+        if str((script.get("visual_identity") or {}).get("style") or "").strip()
+    )
+    pacing_counts = Counter(
+        str((script.get("learning_experiment") or {}).get("pacing") or script.get("narration_pace") or
+            (script.get("voice_style") or {}).get("pace") or "").strip()
+        for script in scripts
+        if str((script.get("learning_experiment") or {}).get("pacing") or script.get("narration_pace") or
+               (script.get("voice_style") or {}).get("pace") or "").strip()
+    )
+    if visual_counts:
+        lines.append("RECENT VISUAL STYLE SATURATION: "+", ".join(f"{k}={v}" for k,v in visual_counts.most_common()))
+    if pacing_counts:
+        lines.append("RECENT PACING SATURATION: "+", ".join(f"{k}={v}" for k,v in pacing_counts.most_common()))
+    lines.append("COOLDOWN RULE: Do not repeat a hook, story structure, visual style, or pacing dimension simply because the topic is different.")
     return "\n".join(lines)
 
 def validate_candidate(topic, script):

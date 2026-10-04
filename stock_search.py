@@ -135,8 +135,13 @@ def _record_media_asset(item: dict, provider: str, video: bool, url: str, scene:
     assets.append({"asset_key": key, "provider": provider, "type": "video" if video else "photo", "source_url": url, "scene": scene, "shot": shot, "query": query, "recorded_at": int(time.time())}); _save_media_history(data)
     print(f"      📚 MEDIA HISTORY RECORDED: {key}")
 
-def _anchor_terms(spoken: str, focus: str, action: str, must: list[str]) -> list[str]:
-    text = " ".join([spoken, focus, action, *must]).lower()
+def _anchor_terms(spoken: str, focus: str, action: str, must: list[str], concept: str = "") -> list[str]:
+    """Build stock anchors ONLY from explicit visual direction.
+
+    Raw narration is intentionally excluded. The visual director must first
+    translate narration into a concrete, camera-visible concept.
+    """
+    text = " ".join([focus, action, concept, *must]).lower()
     replacements = {"popcorn kernels": "popcorn kernel", "kernels": "kernel", "maize": "corn", "pericarp": "corn shell", "starch": "corn", "pericarp shell": "corn shell"}
     for old, new in replacements.items(): text = text.replace(old, new)
     stop = {"the", "and", "with", "from", "that", "this", "into", "under", "over", "when", "your", "their", "same", "visible", "showing", "shows", "because", "like", "really", "actually", "tiny", "little", "hard", "white", "yellow", "single", "physical", "object", "thing", "surface", "state", "scene", "shot", "camera"}
@@ -170,13 +175,14 @@ def _normalize_ladder(data: dict, anchors: list[str]) -> list[dict]:
     return ladder
 
 def direct(scene_no: int, shot_no: int, scene: dict, visual: dict, failed_queries=None, round_no=1, story_script: dict | None = None):
-    spoken = clean(visual.get("spoken_line") or scene.get("narration"), 650); focus = clean(visual.get("visual_focus"), 350); action = clean(visual.get("visual_action"), 350)
+    spoken = clean(visual.get("spoken_line") or scene.get("narration"), 650); focus = clean(visual.get("visual_focus"), 350); action = clean(visual.get("visual_action"), 350); concept = clean(visual.get("visual_concept"), 350)
     must = [clean(x, 180) for x in visual.get("must_show", []) if clean(x)]; avoid = [clean(x, 180) for x in visual.get("must_not_show", []) if clean(x)]; failed = [clean(x, 100) for x in (failed_queries or []) if clean(x)]
-    is_story = isinstance(story_script, dict) and bool(story_script.get("story_person") or story_script.get("interactive_pillar") or story_script.get("story_visual_mode")); anchors = _story_context(story_script, scene_no) if is_story else _anchor_terms(spoken, focus, action, must); anchor_hint = ", ".join(anchors[:6])
+    is_story = isinstance(story_script, dict) and bool(story_script.get("story_person") or story_script.get("interactive_pillar") or story_script.get("story_visual_mode")); anchors = _story_context(story_script, scene_no) if is_story else _anchor_terms("", focus, action, must, concept); anchor_hint = ", ".join(anchors[:6])
     prompt = f'''You are the STOCK SEARCH DIRECTOR for a YouTube Short.
 Real production media comes ONLY from Pexels and Pixabay.
 SCENE {scene_no}, SHOT {shot_no}
 SPOKEN BEAT: {spoken}
+VISUAL CONCEPT: {concept}
 VISUAL FOCUS: {focus}
 VISUAL ACTION: {action}
 MUST SHOW: {json.dumps(must, ensure_ascii=False)}
@@ -210,7 +216,7 @@ Return ONLY JSON with search_ladder, casting_brief, must_match and avoid.'''
         for query in (base, f"{base} close up", f"{base} action", f"{base} outdoors", f"{base} hands"):
             query = clean(query.lower(), 80)
             if query and query not in existing and len(query.split()) <= 7: ladder.append({"query": query, "strategy": "local-fallback"}); existing.add(query)
-    return {"search_ladder": ladder[:SEARCH_PROMPTS], "queries": [x["query"] for x in ladder[:SEARCH_PROMPTS]], "casting_brief": clean(data.get("casting_brief"), 600), "must_match": [clean(x, 180) for x in data.get("must_match", [])[:10]], "avoid": [clean(x, 180) for x in data.get("avoid", [])[:10]], "spoken_beat": spoken, "visual_focus": focus, "visual_action": action, "anchor_terms": anchors}
+    return {"search_ladder": ladder[:SEARCH_PROMPTS], "queries": [x["query"] for x in ladder[:SEARCH_PROMPTS]], "casting_brief": clean(data.get("casting_brief"), 600), "must_match": [clean(x, 180) for x in data.get("must_match", [])[:10]], "avoid": [clean(x, 180) for x in data.get("avoid", [])[:10]], "spoken_beat": spoken, "visual_focus": focus, "visual_action": action, "visual_concept": concept, "anchor_terms": anchors}
 
 def build_plan(script):
     scenes = script.get("scene_plan")

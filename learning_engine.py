@@ -357,13 +357,22 @@ def score_candidate_topic(topic: str, playbook: dict | None = None) -> dict:
 def refresh_playbook() -> dict:
     records = _load(ANALYTICS_DIR / "videos.json", [])
     records = records if isinstance(records, list) else []
-    current = _load(PLAYBOOK_PATH, {})
     playbook = build_playbook(records)
-    if records and not playbook["metrics_available"] and isinstance(current, dict) and current.get("metrics_available"):
-        current["generated_at"] = datetime.now(timezone.utc).isoformat()
-        current["video_count"] = len(records)
-        current["metrics_stale"] = True
-        playbook = current
+    # Never preserve an old learned playbook when the current durable registry
+    # has no live metrics. Stale winners must never influence new generation.
+    if not playbook["metrics_available"]:
+        playbook["metrics_stale"] = True
+        playbook["stale_reason"] = (
+            "Current analytics registry does not contain live YouTube metrics; "
+            "no learned winners/losers are exposed to generation."
+        )
+        for key in (
+            "winning_patterns","weak_patterns","winning_combinations",
+            "winning_hook_payoff_pairs","creative_strategy_results",
+            "winning_topics","avoid_topics",
+        ):
+            playbook[key] = []
+        playbook["learning_ready"] = False
     _write(PLAYBOOK_PATH, playbook)
     print(f"🧠 Learning engine: {'READY' if playbook.get('learning_ready') else 'WARMING UP'}")
     print(f"🧠 Creative learning: {playbook.get('creative_learning_version', 'v1')}")

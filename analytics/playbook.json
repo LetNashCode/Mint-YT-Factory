@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-04T10:38:19.500733+00:00",
-  "video_count": 140,
+  "generated_at": "2026-10-04T11:11:55.648267+00:00",
+  "video_count": 141,
   "learning_ready": true,
   "metrics_available": true,
   "creative_learning_version": "v3",
@@ -16,13 +16,13 @@
       "score": 41.484,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.355
+      "weak_score": 0.296
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.355,
+      "score": 0.296,
       "sample_size": 10
     }
   ],
@@ -42,10 +42,10 @@
     "Why window glass warps reflections"
   ],
   "avoid_topics": [
-    "Why do car tires roar",
     "Steve Jobs: A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
     "Why does ketchup resist pouring",
     "Why does a lock jam",
+    "relief: Finding the misplaced car keys inside the pocket of your winter coat that has been hanging in the back of the hallway closet since last spring, right when you are running late and panicked.",
     "friendship: Finding a faded photo booth strip tucked behind the clear plastic sleeve of a wallet, showing four silly faces from a high school road trip with a friend you haven't spoken to in a decade.",
     "Why does soda fizz",
     "Why do phone screens attract dust",
@@ -53,7 +53,7 @@
     "Why do steering wheels lock",
     "Why does static make hair rise"
   ],
-  "used_topic_count": 140,
+  "used_topic_count": 141,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

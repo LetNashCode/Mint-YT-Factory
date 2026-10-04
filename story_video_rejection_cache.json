@@ -420,6 +420,131 @@
       "source_id": "archive:sachinmrindia-scn",
       "source_url": "https://archive.org/details/sachinmrindia-scn",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "d3fbd24a627571422de03059": {
+      "source_id": "commons:77369754",
+      "source_url": "https://commons.wikimedia.org/wiki/File:JAI_HO.webm",
+      "reason": "strong metadata exclusion: museum"
+    },
+    "c2d04569552a94135002c9e1": {
+      "source_id": "archive:JAIHO-AFILMONARRAHMAN-EXCERPT-20150526webm",
+      "source_url": "https://archive.org/details/JAIHO-AFILMONARRAHMAN-EXCERPT-20150526webm",
+      "reason": "strong metadata exclusion: film"
+    },
+    "0f515df7547f37aad60431a1": {
+      "source_id": "archive:bliptv-20131031-094006-Brianlippey-daveStewartRockBridgeGuitar813",
+      "source_url": "https://archive.org/details/bliptv-20131031-094006-Brianlippey-daveStewartRockBridgeGuitar813",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "3fb33e1c616a1ce63b02d358": {
+      "source_id": "archive:NifraZatLivEdotCoM",
+      "source_url": "https://archive.org/details/NifraZatLivEdotCoM",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "47820dbec6ecdc4275c81519": {
+      "source_id": "commons:83034875",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Wikipedia-VideoWiki-A._R._Rahman.webm",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "281c7fcf56a6f30b5f89f9fc": {
+      "source_id": "archive:robert-plant-full-interview-2019-house-of-strombo",
+      "source_url": "https://archive.org/details/robert-plant-full-interview-2019-house-of-strombo",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "2677c409e3af72ec3906a0d7": {
+      "source_id": "archive:lmtvma-Lexington_Pops_Chorus_presents_-_Around_the_World_in_Song",
+      "source_url": "https://archive.org/details/lmtvma-Lexington_Pops_Chorus_presents_-_Around_the_World_in_Song",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "73f032776a6c428db4202fc2": {
+      "source_id": "commons:45942680",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh%27s_Sunflowers.webm",
+      "reason": "strong metadata exclusion: museum"
+    },
+    "01527f2feebcb4d1f6ac4f7c": {
+      "source_id": "commons:46033488",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_Looking_to_Japan.webm",
+      "reason": "strong metadata exclusion: museum"
+    },
+    "aa27622564b5847a04963d91": {
+      "source_id": "commons:46033501",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_Practice_makes_perfect.webm",
+      "reason": "strong metadata exclusion: museum"
+    },
+    "22b8430959b2d26b973f33aa": {
+      "source_id": "commons:46545537",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Van_Gogh_Village_Simone_van_der_Heiden.webm",
+      "reason": "strong metadata exclusion: monument"
+    },
+    "35f2a401eff3256dbfa736a1": {
+      "source_id": "archive:twitter-1836681150837698610",
+      "source_url": "https://archive.org/details/twitter-1836681150837698610",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "55b2fcf4462ebf3c8c51a487": {
+      "source_id": "archive:shtvmi-Tammy_s_Top_Shelf_-_Get_down_with_the_Greek_Gods",
+      "source_url": "https://archive.org/details/shtvmi-Tammy_s_Top_Shelf_-_Get_down_with_the_Greek_Gods",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "aabd3a4b802d4c4ec734253b": {
+      "source_id": "archive:cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "source_url": "https://archive.org/details/cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "e4da6fa4b7d3b8e040778207": {
+      "source_id": "archive:detrmi-Louisiana_Creole_Opens_Second_Restaurant_In_The_Rosa_Parks_Transit_Center",
+      "source_url": "https://archive.org/details/detrmi-Louisiana_Creole_Opens_Second_Restaurant_In_The_Rosa_Parks_Transit_Center",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "748a5253f82d4e9d8dc0a5b1": {
+      "source_id": "archive:detrmi-4401_Rosa_Parks_Groundbreaking_-_Affordable_Housing_Igniting_Detroit_s_Community_Revival",
+      "source_url": "https://archive.org/details/detrmi-4401_Rosa_Parks_Groundbreaking_-_Affordable_Housing_Igniting_Detroit_s_Community_Revival",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "2d7a0051288b07e4b27072aa": {
+      "source_id": "archive:cogrmi-Time_lapse_-_laying_ice_at_Rosa_Parks_Circle",
+      "source_url": "https://archive.org/details/cogrmi-Time_lapse_-_laying_ice_at_Rosa_Parks_Circle",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "46e56df6c22c0b9d641f592b": {
+      "source_id": "archive:cogrmi-Rosa_Parks_Essay_Contest_Video",
+      "source_url": "https://archive.org/details/cogrmi-Rosa_Parks_Essay_Contest_Video",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "74e9d6ea7ca693fa6cfaa4da": {
+      "source_id": "archive:mccmd-Proclamation_Recognizing_Rosa_Parks_by_Council_President_Hucker",
+      "source_url": "https://archive.org/details/mccmd-Proclamation_Recognizing_Rosa_Parks_by_Council_President_Hucker",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "60790c43b0f960638236d013": {
+      "source_id": "archive:kelly-rohrbach-of-baywatch-talks-dwayne-johnson-beach-babes-and-sun-thr-next-big-thing",
+      "source_url": "https://archive.org/details/kelly-rohrbach-of-baywatch-talks-dwayne-johnson-beach-babes-and-sun-thr-next-big-thing",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "87cdd84d0cf7f82a55083f19": {
+      "source_id": "archive:colbca-Asian_American_and_Pacific_Islander_Heritage_Month_Spotlight_-_Dwayne_Johnson",
+      "source_url": "https://archive.org/details/colbca-Asian_American_and_Pacific_Islander_Heritage_Month_Spotlight_-_Dwayne_Johnson",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "15ec6f8f0f8ac97d8682e2ee": {
+      "source_id": "archive:twitter-1207842729415172096",
+      "source_url": "https://archive.org/details/twitter-1207842729415172096",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "0328d51b8e98c424cdec33a9": {
+      "source_id": "archive:dwayne-johnson-youre-welcome-from-moana-sing-along",
+      "source_url": "https://archive.org/details/dwayne-johnson-youre-welcome-from-moana-sing-along",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "10a1747710f3a1928495a8dd": {
+      "source_id": "archive:holiday-special-with-dwayne-johnson-some-good-news-with-john-krasinski",
+      "source_url": "https://archive.org/details/holiday-special-with-dwayne-johnson-some-good-news-with-john-krasinski",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "c097b20f8476269b9a24bd9e": {
+      "source_id": "archive:twitter-1268396403711082496",
+      "source_url": "https://archive.org/details/twitter-1268396403711082496",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
     }
   }
 }

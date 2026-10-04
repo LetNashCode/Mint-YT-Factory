@@ -46,5 +46,17 @@
       "Joined NASA's astronaut corps in 1994."
     ],
     "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Sachin Tendulkar",
+    "premise": "The intense childhood routine of a prodigy who practiced cricket for hours under the guidance of his coach.",
+    "hook": "His coach placed a coin on top of the stumps, and any bowler who got him out got to keep it.",
+    "key_facts": [
+      "Trained rigorously under coach Ramakant Achrekar at Shivaji Park in Mumbai during his school years.",
+      "Set a world record partnership in school cricket alongside Vinod Kambli.",
+      "Made his international test debut for the Indian cricket team against Pakistan at age sixteen."
+    ],
+    "source": "gemini_original"
   }
 ]

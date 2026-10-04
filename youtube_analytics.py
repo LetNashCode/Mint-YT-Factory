@@ -107,26 +107,73 @@ def fetch_video_stats(video_ids):
     return result
 
 def fetch_analytics_metrics(video_ids):
-    if not video_ids:return {}
-    try: yt=_analytics_service()
+    """Fetch advanced metrics in batched Analytics API reports.
+
+    YouTube supports multiple video IDs in one filter (up to 500), so avoid one
+    Analytics API request per video. This keeps learning refresh fast enough for
+    a growing channel while preserving per-video retention metrics.
+    """
+    if not video_ids:
+        return {}
+    try:
+        yt = _analytics_service()
     except Exception as exc:
-        print(f'⚠️ YouTube Analytics API unavailable: {exc}'); return {}
-    out={}
-    for vid in video_ids:
+        print(f"⚠️ YouTube Analytics API unavailable: {exc}")
+        return {}
+
+    requested = {str(video_id).strip() for video_id in video_ids if str(video_id).strip()}
+    out = {}
+    metrics = ("views,likes,comments,shares,averageViewDuration,"
+               "averageViewPercentage,subscribersGained,subscribersLost,estimatedMinutesWatched")
+    requested_list = list(requested)
+
+    for start_index in range(0, len(requested_list), 500):
+        batch = requested_list[start_index:start_index + 500]
+        if not batch:
+            continue
+        filter_value = ",".join(batch)
         for attempt in range(3):
             try:
-                response=yt.reports().query(ids='channel==MINE',startDate='2000-01-01',endDate=datetime.now(timezone.utc).date().isoformat(),metrics='views,likes,comments,shares,averageViewDuration,averageViewPercentage,subscribersGained,subscribersLost,estimatedMinutesWatched',dimensions='video',filters=f'video=={vid}').execute()
-                rows=response.get('rows',[])
-                if rows:
-                    row=rows[0]; out[vid]={'analytics_views':int(row[1] or 0),'analytics_likes':int(row[2] or 0),'analytics_comments':int(row[3] or 0),'shares':int(row[4] or 0),'average_view_duration':float(row[5] or 0),'average_view_percentage':float(row[6] or 0),'subscribers_gained':int(row[7] or 0),'subscribers_lost':int(row[8] or 0),'estimated_minutes_watched':float(row[9] or 0)}
+                response = yt.reports().query(
+                    ids="channel==MINE",
+                    startDate="2000-01-01",
+                    endDate=datetime.now(timezone.utc).date().isoformat(),
+                    metrics=metrics,
+                    dimensions="video",
+                    filters=f"video=={filter_value}",
+                    maxResults=500,
+                ).execute()
+                for row in response.get("rows", []):
+                    if not row:
+                        continue
+                    video_id = str(row[0] or "").strip()
+                    if video_id not in requested or len(row) < 10:
+                        continue
+                    out[video_id] = {
+                        "analytics_views": int(row[1] or 0),
+                        "analytics_likes": int(row[2] or 0),
+                        "analytics_comments": int(row[3] or 0),
+                        "shares": int(row[4] or 0),
+                        "average_view_duration": float(row[5] or 0),
+                        "average_view_percentage": float(row[6] or 0),
+                        "subscribers_gained": int(row[7] or 0),
+                        "subscribers_lost": int(row[8] or 0),
+                        "estimated_minutes_watched": float(row[9] or 0),
+                    }
                 break
             except HttpError as exc:
-                if attempt==2:
-                    print(f'⚠️ Analytics metrics unavailable for {vid}: {exc}')
-                else: time.sleep(2**attempt)
+                if attempt == 2:
+                    print(f"⚠️ Analytics metrics batch unavailable: {exc}")
+                else:
+                    time.sleep(2 ** attempt)
             except Exception as exc:
-                print(f'⚠️ Analytics metrics unavailable for {vid}: {exc}'); break
-    if not out: print('ℹ️ Advanced Analytics metrics were not refreshed. Basic YouTube statistics remain available.')
+                print(f"⚠️ Analytics metrics batch unavailable: {exc}")
+                break
+
+    if not out:
+        print("ℹ️ Advanced Analytics metrics were not refreshed. Basic YouTube statistics remain available.")
+    else:
+        print(f"📈 Advanced Analytics rows refreshed: {len(out)} videos")
     return out
 
 def record_upload(video_id,topic,title,workdir='',production_metadata=None):

@@ -241,7 +241,7 @@ Return ONLY a JSON array of {int(target_count)} topic strings.
     schema = {
         "type": "array",
         "items": {"type": "string"},
-        "minItems": max(1, int(target_count)),
+        "minItems": 1,
         "maxItems": max(1, int(target_count)),
     }
 

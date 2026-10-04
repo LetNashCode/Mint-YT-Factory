@@ -752,7 +752,7 @@ def _merge(entertainment, visual, topic):
             v["spoken_line"] = _clean(v.get("spoken_line")) or narration
             v["visual_focus"] = _clean(v.get("visual_focus"))
             v["visual_action"] = _clean(v.get("visual_action"))
-            v["visual_concept"] = _clean(v.get("visual_concept")) or f"{v[\"visual_focus\"]}: {v[\"visual_action\"]}"
+            v["visual_concept"] = _clean(v.get("visual_concept")) or f"{v.get('visual_focus', '')}: {v.get('visual_action', '')}"
             v["must_show"] = [_clean(x) for x in v.get("must_show", []) if _clean(x)][:6]
             v["must_not_show"] = [_clean(x) for x in v.get("must_not_show", []) if _clean(x)][:8]
             v["image_prompt"] = _clean(v.get("image_prompt"), 900)

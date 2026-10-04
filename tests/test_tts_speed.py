@@ -55,3 +55,35 @@ def test_publish_bridge_speed_maps_to_full_source_ending():
     mapped_end = float(time_map(target_duration))
     assert mapped_end >= source_duration - 0.002
     assert mapped_end <= source_duration
+
+def test_configured_kokoro_provider_cannot_silently_switch_to_edge(monkeypatch):
+    import tts
+
+    calls = []
+
+    def fake_kokoro(text, voice_config, output_path):
+        calls.append(("kokoro", voice_config["voice_name"]))
+        return output_path
+
+    def fake_edge(text, voice_config, output_path):
+        calls.append(("edge", voice_config["edge_voice"]))
+        return output_path
+
+    monkeypatch.setattr(tts, "_generate_kokoro", fake_kokoro)
+    monkeypatch.setattr(tts, "_generate_edge", fake_edge)
+    monkeypatch.setenv("MINT_TTS_PROVIDER", "edge")
+
+    result = tts._synthesize_once(
+        "test narration",
+        {
+            "provider": "kokoro",
+            "voice_name": "af_heart",
+            "kokoro_lang": "a",
+            "edge_voice": "en-US-GuyNeural",
+        },
+        "/tmp/test-publish-voice.wav",
+    )
+
+    assert result.endswith("test-publish-voice.wav")
+    assert calls == [("kokoro", "af_heart")]
+

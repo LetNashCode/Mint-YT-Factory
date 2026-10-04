@@ -294,7 +294,16 @@ def build_playbook(records: list[dict]) -> dict:
     top_n = max(3, min(10, math.ceil(count * 0.25))) if count else 0
     winners = [r for _, r in scored[:top_n]]
     losers = [r for _, r in scored[-top_n:]] if count >= 4 else []
-    has_live_metrics = any(any(float((r.get("latest", {}) or {}).get(k, 0) or 0) > 0 for k in ("views","likes","comments","average_view_percentage","subscribers_gained","shares")) for r in usable)
+    # Creative learning is only valid when YouTube Analytics retention rows are
+    # present. Basic view/like counts alone are not enough to label a creative
+    # pattern a winner because distribution can dominate those numbers.
+    advanced_metrics_count = sum(
+        1 for r in usable
+        if isinstance(r.get("latest"), dict)
+        and "analytics_views" in r.get("latest", {})
+        and "average_view_percentage" in r.get("latest", {})
+    )
+    has_live_metrics = advanced_metrics_count >= 3
 
     isolated_features = ("hook_type","story_format","payoff_position","explanation_position","script_length","narration_pace")
     combo_features = ("hook_type","story_format","payoff_type","tease_type","narration_pace")
@@ -311,6 +320,7 @@ def build_playbook(records: list[dict]) -> dict:
         "video_count": count,
         "learning_ready": count >= 3 and has_live_metrics,
         "metrics_available": has_live_metrics,
+        "advanced_metrics_videos": advanced_metrics_count,
         "creative_learning_version": "v3",
         "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
         "strategy": {"exploitation": EXPLOITATION, "adjacent_exploration": ADJACENT_EXPLORATION, "wild_exploration": WILD_EXPLORATION},

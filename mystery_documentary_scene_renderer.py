@@ -16,7 +16,7 @@ from mystery_audio_analysis import analyze_audio
 ROOT = Path(__file__).resolve().parent
 CATALOG = ROOT / "mystery_footage_catalog.json"
 OUT = ROOT / os.getenv("MYSTERY_DOCUMENTARY_OUTPUT_DIR", "artifacts/mystery-documentary")
-MODEL = os.getenv("MYSTERY_GEMINI_MODEL", "gemini-2.5-flash-lite")
+MODEL = os.getenv("MYSTERY_GEMINI_MODEL", "gemini-3.5-flash-lite")
 MYSTERY_KOKORO_VOICE = os.getenv("MYSTERY_KOKORO_VOICE", "am_onyx").strip() or "am_onyx"
 MYSTERY_KOKORO_LANG = os.getenv("MYSTERY_KOKORO_LANG", "a").strip() or "a"
 VOICE = {

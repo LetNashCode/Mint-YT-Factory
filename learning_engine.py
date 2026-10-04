@@ -24,14 +24,14 @@ WILD_EXPLORATION = 0.10
 MIN_PATTERN_EVIDENCE = 2
 
 CREATIVE_PROFILES = [
-    {"id": "contradiction", "hook": "contradiction", "story": "contradiction_to_reveal", "payoff": "mental_reframe", "guidance": "Open with something that appears impossible or opposite to expectation; delay explanation until the viewer commits to the question."},
-    {"id": "experiment", "hook": "challenge_experiment", "story": "try_it_then_explain", "payoff": "observable_result", "guidance": "Frame a simple prediction or test the viewer can imagine doing, then reveal what happens and why."},
-    {"id": "mystery", "hook": "consequence_first", "story": "mystery_reveal", "payoff": "hidden_cause", "guidance": "Start with the strangest consequence, hide the cause, expose clues, then reveal the mechanism."},
-    {"id": "mini_story", "hook": "mini_story", "story": "micro_story_arc", "payoff": "unexpected_consequence", "guidance": "Turn the phenomenon into a tiny real-world story or moment, then reveal the mechanism."},
-    {"id": "wrong_assumption", "hook": "wrong_assumption", "story": "assumption_then_reversal", "payoff": "wrong_belief_reframe", "guidance": "Begin with the explanation most people would guess, then overturn it with the real mechanism."},
-    {"id": "prediction", "hook": "prediction", "story": "predict_then_reveal", "payoff": "prediction_flip", "guidance": "Ask the viewer to mentally predict what happens next, then break that prediction with the true explanation."},
-    {"id": "visual_mystery", "hook": "visual_mystery", "story": "effect_before_cause", "payoff": "cause_reveal", "guidance": "Lead with a concrete visible effect before explaining its hidden physical cause."},
-    {"id": "pattern_break", "hook": "pattern_break", "story": "rapid_escalation", "payoff": "surprising_fact", "guidance": "Break the normal educational rhythm with a punchy opening and escalating true consequences."},
+    {"id":"contradiction","hook":"contradiction","story":"contradiction_to_reveal","payoff":"mental_reframe","visual_style":"tactile_real_world","pacing":"punchy","guidance":"Open on the strange result or contradiction; create an immediate information gap, delay the explanation, then reframe what the viewer thought was happening."},
+    {"id":"experiment","hook":"challenge_experiment","story":"try_it_then_explain","payoff":"observable_result","visual_style":"hands_on_demonstration","pacing":"punchy","guidance":"Frame a simple prediction or test the viewer can imagine doing; show the result before explaining why it happened."},
+    {"id":"mystery","hook":"consequence_first","story":"mystery_reveal","payoff":"hidden_cause","visual_style":"cinematic_closeup","pacing":"measured","guidance":"Start with the strangest consequence, hide the cause, plant clues, then reveal the mechanism."},
+    {"id":"mini_story","hook":"mini_story","story":"micro_story_arc","payoff":"unexpected_consequence","visual_style":"lived_in_real_world","pacing":"conversational","guidance":"Turn the phenomenon into a tiny real-world moment with a human beat, then reveal the unexpected mechanism."},
+    {"id":"wrong_assumption","hook":"wrong_assumption","story":"assumption_then_reversal","payoff":"wrong_belief_reframe","visual_style":"comparison_demo","pacing":"conversational","guidance":"Start with the explanation most people would guess, then overturn it with the real mechanism."},
+    {"id":"prediction","hook":"prediction","story":"predict_then_reveal","payoff":"prediction_flip","visual_style":"before_after_demo","pacing":"punchy","guidance":"Ask the viewer to predict what happens, create a short open loop, then break that prediction with the true explanation."},
+    {"id":"visual_mystery","hook":"visual_mystery","story":"effect_before_cause","payoff":"cause_reveal","visual_style":"macro_physical","pacing":"measured","guidance":"Lead with a concrete visible effect, then reveal its hidden physical cause through progressively closer evidence."},
+    {"id":"pattern_break","hook":"pattern_break","story":"rapid_escalation","payoff":"surprising_fact","visual_style":"rapid_variety","pacing":"fast","guidance":"Break the normal educational rhythm with a punchy cold open, frequent visual/action changes, escalating consequences, and a surprising true payoff."},
 ]
 
 
@@ -248,8 +248,36 @@ def _discriminative_rank(
     return sorted(result, key=lambda x: (x["score"], x["sample_size"]), reverse=True)
 
 
+def _recent_creative_cooldown() -> dict:
+    """Return recent creative dimensions that must cool down across Publish Shorts."""
+    rows = _load(ANALYTICS_DIR / "videos.json", [])
+    if not isinstance(rows, list):
+        return {"hook": {}, "story": {}, "visual": {}, "pacing": {}}
+    recent = []
+    for record in reversed(rows):
+        if not isinstance(record, dict):
+            continue
+        script = _script_for(record) or {}
+        experiment = script.get("learning_experiment") or {}
+        if not isinstance(experiment, dict):
+            experiment = {}
+        recent.append({
+            "hook": str(experiment.get("hook_mechanism") or script.get("hook_type") or "").strip(),
+            "story": str(experiment.get("story_mechanism") or script.get("story_format") or "").strip(),
+            "visual": str(experiment.get("visual_style") or (script.get("visual_identity") or {}).get("style") or "").strip(),
+            "pacing": str(experiment.get("pacing") or script.get("narration_pace") or (script.get("voice_style") or {}).get("pace") or "").strip(),
+        })
+        if len(recent) >= 8:
+            break
+    counts = {}
+    for dimension in ("hook","story","visual","pacing"):
+        counts[dimension] = {value: sum(1 for row in recent if row[dimension] == value)
+                             for value in set(row[dimension] for row in recent if row[dimension])}
+    return counts
+
+
 def select_creative_strategy(playbook: dict | None = None) -> dict:
-    """Select a measurable creative profile with controlled exploration."""
+    """Select creative strategy with independent cooldowns for hook/story/visual/pacing."""
     pb = playbook or get_playbook()
     video_count = max(0, int(pb.get("video_count", 0) or 0))
     slot = video_count % 10
@@ -257,16 +285,56 @@ def select_creative_strategy(playbook: dict | None = None) -> dict:
     ready = bool(pb.get("learning_ready"))
     combinations = [row for row in (pb.get("winning_combinations") or []) if int(row.get("sample_size", 0) or 0) >= MIN_PATTERN_EVIDENCE]
     pairs = [row for row in (pb.get("winning_hook_payoff_pairs") or []) if int(row.get("sample_size", 0) or 0) >= MIN_PATTERN_EVIDENCE]
-    profile = CREATIVE_PROFILES[slot % len(CREATIVE_PROFILES)]
+
+    cooldown = _recent_creative_cooldown()
+    # Score every profile by saturation. A profile is strongly penalized when
+    # any of its creative dimensions appeared in the last eight Shorts.
+    scored_profiles = []
+    for index, profile in enumerate(CREATIVE_PROFILES):
+        saturation = (
+            cooldown["hook"].get(profile["hook"], 0) * 4
+            + cooldown["story"].get(profile["story"], 0) * 3
+            + cooldown["visual"].get(profile["visual_style"], 0) * 2
+            + cooldown["pacing"].get(profile["pacing"], 0) * 2
+        )
+        distance = (index - slot) % len(CREATIVE_PROFILES)
+        scored_profiles.append((saturation, distance, profile))
+    scored_profiles.sort(key=lambda item: (item[0], item[1]))
+    profile = scored_profiles[0][2]
+
+    # Keep 70/20/10 evidence allocation, but never at the cost of a saturated
+    # creative dimension. This prevents six Shorts/day from becoming template clones.
     selected = None
     if ready and slot < 7 and combinations:
-        strategy = "proven"; selected = combinations[(video_count // 10) % len(combinations)]
+        strategy = "proven"
+        selected = combinations[(video_count // 10) % len(combinations)]
     elif ready and slot < 9 and pairs:
-        strategy = "adjacent"; selected = pairs[(video_count // 10) % len(pairs)]
+        strategy = "adjacent"
+        selected = pairs[(video_count // 10) % len(pairs)]
     else:
         strategy = "wild" if (not ready or slot == 9) else "adjacent"
+
     guidance = profile["guidance"] + (" Use learned evidence only as a secondary constraint." if selected else "")
-    return {"strategy":strategy,"experiment_id":f"creative_v4_{strategy}_cycle{cycle}_slot{slot + 1}_{profile['id']}","slot":slot+1,"cycle":cycle,"profile":profile["id"],"hook_mechanism":profile["hook"],"story_mechanism":profile["story"],"payoff_mechanism":profile["payoff"],"target_mix":{"proven":EXPLOITATION,"adjacent":ADJACENT_EXPLORATION,"wild":WILD_EXPLORATION},"selected_pattern":(selected or {}).get("pattern","") if selected else "","selected_score":float((selected or {}).get("score",0) or 0) if selected else 0.0,"selected_sample_size":int((selected or {}).get("sample_size",0) or 0) if selected else 0,"guidance":guidance,"learning_ready":ready,"evidence_based":bool(selected)}
+    return {
+        "strategy": strategy,
+        "experiment_id": f"creative_v5_{strategy}_cycle{cycle}_slot{slot + 1}_{profile['id']}",
+        "slot": slot + 1,
+        "cycle": cycle,
+        "profile": profile["id"],
+        "hook_mechanism": profile["hook"],
+        "story_mechanism": profile["story"],
+        "payoff_mechanism": profile["payoff"],
+        "visual_style": profile["visual_style"],
+        "pacing": profile["pacing"],
+        "target_mix": {"proven": EXPLOITATION, "adjacent": ADJACENT_EXPLORATION, "wild": WILD_EXPLORATION},
+        "selected_pattern": (selected or {}).get("pattern","") if selected else "",
+        "selected_score": float((selected or {}).get("score",0) or 0) if selected else 0.0,
+        "selected_sample_size": int((selected or {}).get("sample_size",0) or 0) if selected else 0,
+        "guidance": guidance,
+        "learning_ready": ready,
+        "evidence_based": bool(selected),
+        "cooldown": cooldown,
+    }
 
 def build_playbook(records: list[dict]) -> dict:
     usable = [r for r in records if isinstance(r, dict) and r.get("video_id") and isinstance(r.get("latest", {}), dict)]
@@ -302,7 +370,7 @@ def build_playbook(records: list[dict]) -> dict:
         "learning_ready": count >= 3 and has_live_metrics,
         "metrics_available": has_live_metrics,
         "advanced_metrics_videos": advanced_metrics_count,
-        "creative_learning_version": "v4",
+        "creative_learning_version": "v5",
         "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
         "strategy": {"exploitation": EXPLOITATION, "adjacent_exploration": ADJACENT_EXPLORATION, "wild_exploration": WILD_EXPLORATION},
         "winning_patterns": winning_patterns,

@@ -99,30 +99,218 @@ def _deterministic_fallback(used, exclude_topics=None):
             return candidate
     raise RuntimeError("Topic engine exhausted its deterministic fallback pool; manual topic maintenance is required.")
 
+def _topic_similarity_score(a, b):
+    """Cheap lexical similarity used only for ranking candidate topics."""
+    aa = set(re.findall(r"[a-z0-9]+", _clean_topic(a).lower()))
+    bb = set(re.findall(r"[a-z0-9]+", _clean_topic(b).lower()))
+    if not aa or not bb:
+        return 0.0
+    aa -= {"why", "how", "does", "do", "did", "is", "are", "the", "a", "an"}
+    bb -= {"why", "how", "does", "do", "did", "is", "are", "the", "a", "an"}
+    if not aa or not bb:
+        return 0.0
+    jaccard = len(aa & bb) / len(aa | bb)
+    sequence = __import__("difflib").SequenceMatcher(None, " ".join(sorted(aa)), " ".join(sorted(bb))).ratio()
+    return max(jaccard, sequence)
+
+
+def _topic_candidate_score(candidate, used):
+    """Rank a valid candidate before spending any script-generation work.
+
+    The score deliberately rewards curiosity + everyday familiarity + visual
+    feasibility, while penalizing historical similarity. Learned analytics are
+    only a small tie-breaker so stale/weak analytics cannot overpower a good
+    human-readable topic.
+    """
+    text = _clean_topic(candidate).lower()
+    words = re.findall(r"\\b[\\w'-]+\\b", text)
+    used_pool = list(used or []) + published_topics()
+    max_history_similarity = max(
+        (_topic_similarity_score(text, old) for old in used_pool if old),
+        default=0.0,
+    )
+
+    curiosity_terms = (
+        "strange", "weird", "odd", "suddenly", "actually", "really",
+        "secret", "unexpected", "always", "never", "sometimes", "turn",
+        "stick", "smell", "squeak", "fizz", "fog", "crack", "cling",
+        "drip", "pop", "whistle", "brown", "melt", "rise", "fade",
+    )
+    curiosity = 5.0
+    if re.match(r"^(why|how)\\s+", text):
+        curiosity += 2.0
+    if any(term in text for term in curiosity_terms):
+        curiosity += 2.0
+    if 4 <= len(words) <= 7:
+        curiosity += 1.0
+    curiosity = min(10.0, curiosity)
+
+    familiarity = 0.0
+    token_set = set(words)
+    for signal in _SIGNALS:
+        if " " in signal:
+            if signal in text:
+                familiarity += 1.0
+        elif signal in token_set or signal.rstrip("s") in token_set:
+            familiarity += 1.0
+    familiarity = min(10.0, 4.0 + min(6.0, familiarity))
+
+    visual_terms = {
+        "stick", "stuck", "smell", "squeak", "fog", "drip", "leak", "spill",
+        "melt", "freeze", "fizz", "pop", "crack", "snap", "rise", "fall",
+        "bounce", "shake", "spin", "whistle", "brown", "stain", "cling",
+        "wrinkle", "swell", "shrink", "glow", "steam", "bubble", "rust",
+        "splash", "boil", "burn", "open", "close", "bend", "break",
+    }
+    visual_hits = len(token_set & visual_terms)
+    visual = min(10.0, 5.0 + visual_hits * 1.5)
+
+    novelty = max(0.0, min(10.0, 10.0 * (1.0 - max_history_similarity)))
+    learned = 0.0
+    try:
+        from learning_engine import score_candidate_topic
+        learned_result = score_candidate_topic(candidate)
+        learned = max(-1.0, min(1.0, float(learned_result.get("score", 0.0) or 0.0)))
+    except Exception:
+        pass
+
+    # 100-point pre-script topic score.
+    score = (
+        curiosity * 2.5
+        + familiarity * 2.0
+        + visual * 2.0
+        + novelty * 2.5
+        + learned * 5.0
+    )
+    return {
+        "topic": _clean_topic(candidate),
+        "score": round(score, 3),
+        "curiosity": round(curiosity, 2),
+        "familiarity": round(familiarity, 2),
+        "visual_feasibility": round(visual, 2),
+        "novelty": round(novelty, 2),
+        "history_similarity": round(max_history_similarity, 3),
+        "learned_bonus": round(learned, 3),
+    }
+
+
+def _generate_topic_candidates(used, exclude_topics=None, target_count=20):
+    """Generate a batch of alternatives so topic selection can optimize, not guess."""
+    key = os.environ.get("GEMINI_API_KEY")
+    if not key:
+        return []
+
+    client = genai.Client(api_key=key)
+    previous = "\\n".join(used[-60:]) or "(none)"
+    excluded = ", ".join(
+        _clean_topic(x) for x in (exclude_topics or []) if _clean_topic(x)
+    ) or "(none)"
+    prompt = f"""You are the TOPIC STRATEGIST for a highly entertaining YouTube Shorts channel.
+
+Generate exactly {int(target_count)} DISTINCT candidate topics for the channel promise:
+"Things ordinary people experience all the time but almost never stop to ask why."
+
+Each candidate must be:
+- one familiar everyday mystery people can instantly recognize
+- 3 to 7 words
+- phrased as a short Why/How question
+- observable in normal life and easy to illustrate with real stock footage
+- curiosity-driven without clickbait, fearbait, medical advice, politics, conspiracy, or academic framing
+- genuinely different in object, situation, or underlying curiosity from the other candidates
+- different from the previously covered topics below
+
+IMPORTANT:
+- Science is the explanation, never the packaging.
+- Prefer concrete physical behavior: smell, stick, squeak, fog, drip, fizz, pop,
+  stain, cling, crack, melt, rust, wobble, bounce, fade, wrinkle, etc.
+- Deliberately spread candidates across different everyday categories:
+  home, food, clothing, technology, travel, sounds, weather, objects, body reactions,
+  cleaning, kitchen, vehicles, or other ordinary experiences.
+- Do not reuse a topic merely by swapping one noun.
+- Do not use examples from the exclusion list as inspiration.
+- Do not include numbering, explanations, or duplicates.
+
+PREVIOUSLY COVERED TOPICS:
+{previous}
+
+CURRENT TOPICS TO EXCLUDE:
+{excluded}
+
+Return ONLY a JSON array of {int(target_count)} topic strings.
+"""
+    schema = {
+        "type": "array",
+        "items": {"type": "string"},
+        "minItems": max(1, int(target_count)),
+        "maxItems": max(1, int(target_count)),
+    }
+
+    try:
+        response = client.models.generate_content(
+            model=MODEL,
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                response_mime_type="application/json",
+                response_json_schema=schema,
+                temperature=1.15,
+            ),
+        )
+        raw = getattr(response, "text", "") or ""
+        if raw.startswith("```"):
+            raw = re.sub(r"^```(?:json)?", "", raw, flags=re.I).strip()
+            raw = re.sub(r"```$", "", raw).strip()
+        values = json.loads(raw)
+        if not isinstance(values, list):
+            return []
+        candidates = []
+        seen = set()
+        for value in values:
+            candidate = _clean_topic(value)
+            key_value = _key(candidate)
+            if candidate and key_value and key_value not in seen:
+                candidates.append(candidate)
+                seen.add(key_value)
+        print(f"🧠 Topic strategist generated {len(candidates)}/{target_count} candidates")
+        return candidates
+    except Exception as error:
+        print(f"⚠️ Batch topic generation unavailable: {type(error).__name__}: {error}")
+        return []
+
+
 def _generate_topic(used, exclude_topics=None):
-    key=os.environ.get("GEMINI_API_KEY")
-    if not key: return _deterministic_fallback(used, exclude_topics=exclude_topics)
-    client=genai.Client(api_key=key); prompt=_PROMPT.format(previous="\n".join(used[-30:]) or "(none)") + "\nCURRENT TOPIC TO EXCLUDE: " + ", ".join(_clean_topic(x) for x in (exclude_topics or []) if _clean_topic(x))
-    for attempt in range(1,11):
-        try:
-            response=client.models.generate_content(model=MODEL,contents=prompt,config=types.GenerateContentConfig(temperature=1.1))
-            candidate=_clean_topic(getattr(response,"text","")); print(f"🧠 Topic attempt {attempt}/10: {candidate}")
-            if not _candidate_is_new(candidate, used, exclude_topics=exclude_topics): print("⚠️ Rejected: invalid, duplicate, near-duplicate, or current-topic candidate."); continue
-            return candidate
-        except Exception as error:
-            error_text = str(error).lower()
-            print(f"⚠️ Topic attempt failed: {error}")
-            # A project/day quota exhaustion is not transient. Retrying ten more
-            # times only burns workflow time while producing the same 429s.
-            # Switch immediately to the deterministic originality-gated pool.
-            if any(marker in error_text for marker in (
-                "resource_exhausted", "quota exceeded", "generaterequestsperday",
-                "rate limit", "too many requests",
-            )) or "429" in error_text:
-                print("🛡️ Gemini topic quota exhausted — disabling topic generation retries for this run.")
-                return _deterministic_fallback(used, exclude_topics=exclude_topics)
-            if attempt<10:time.sleep(min(2*attempt,8))
-    print("⚠️ Gemini topic generation exhausted 10 attempts; switching to deterministic unused-topic fallback.")
+    """Select the best topic from a batch, with deterministic fallback."""
+    candidates = _generate_topic_candidates(used, exclude_topics=exclude_topics, target_count=20)
+
+    valid = []
+    for candidate in candidates:
+        if _candidate_is_new(candidate, used, exclude_topics=exclude_topics):
+            valid.append(candidate)
+
+    if valid:
+        ranked = sorted(
+            (_topic_candidate_score(candidate, used) for candidate in valid),
+            key=lambda row: row["score"],
+            reverse=True,
+        )
+        winner = ranked[0]
+        print(
+            "🏆 Topic strategist winner: "
+            f"{winner['topic']} | score={winner['score']} | "
+            f"curiosity={winner['curiosity']} | familiarity={winner['familiarity']} | "
+            f"visual={winner['visual_feasibility']} | novelty={winner['novelty']} | "
+            f"history_similarity={winner['history_similarity']}"
+        )
+        print(
+            "🥇 Topic shortlist: "
+            + " | ".join(
+                f"{row['topic']} ({row['score']})" for row in ranked[:5]
+            )
+        )
+        return winner["topic"]
+
+    # Preserve the old quota-aware deterministic path. This is intentionally
+    # behind the batch strategist so a provider outage never blocks production.
+    print("🛟 Topic strategist produced no valid candidate; using deterministic originality-gated fallback.")
     return _deterministic_fallback(used, exclude_topics=exclude_topics)
 
 def get_next_topic():

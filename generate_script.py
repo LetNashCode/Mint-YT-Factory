@@ -216,9 +216,10 @@ def _visual_schema():
             "music": {"type": "object", "properties": {"search": {"type": "string"}, "arc": {"type": "string"}}, "required": ["search", "arc"]},
             "scene_plan": {"type": "array", "items": {"type": "object", "properties": {
                 "scene": {"type": "integer"}, "visual_priority": {"type": "string"}, "transition": {"type": "string"},
+                "visual_concepts": {"type": "array", "minItems": 2, "maxItems": 3, "items": {"type": "string"}},
                 "music_cue": {"type": "string"}, "sfx_cue": {"type": "object", "properties": {"term": {"type": "string"}, "at_ms": {"type": "integer"}}, "required": ["term", "at_ms"]},
                 "visuals": {"type": "array", "items": visual},
-            }, "required": ["scene", "visual_priority", "transition", "music_cue", "sfx_cue", "visuals"]}},
+            }, "required": ["scene", "visual_priority", "transition", "visual_concepts", "music_cue", "sfx_cue", "visuals"]}},
         },
         "required": ["visual_identity", "visual_continuity", "thumbnail_prompt", "music", "scene_plan"],
     }
@@ -672,6 +673,9 @@ def _validate_visuals(visual_plan, entertainment, topic):
     locked = entertainment["scene_plan"]
     for i, scene in enumerate(scenes):
         visuals = scene.get("visuals")
+        concepts = scene.get("visual_concepts") or []
+        if not isinstance(concepts, list) or not 2 <= len(concepts) <= 3 or any(not _clean(x) for x in concepts):
+            raise RuntimeError(f"Visual director scene {i+1} must contain 2–3 concrete visual concepts.")
         if not isinstance(visuals, list) or len(visuals) != 2:
             raise RuntimeError(f"Visual director scene {i+1} must contain exactly 2 shots.")
         narration = locked[i]["narration"].lower()
@@ -769,6 +773,7 @@ def _merge(entertainment, visual, topic):
             "pause_after_ms": 0 if i < 6 else 250,
             "emotional_tone": src.get("emotional_tone") if src.get("emotional_tone") in TONES else ("playful" if i in (0, 3) else "curious"),
             "visual_priority": _clean(vs.get("visual_priority")) or "primary",
+            "visual_concepts": [_clean(x) for x in (vs.get("visual_concepts") or []) if _clean(x)][:3],
             "transition": vs.get("transition") if vs.get("transition") in TRANSITIONS else "hard_cut",
             "sfx_cue": vs.get("sfx_cue") if isinstance(vs.get("sfx_cue"), dict) else {"term": "none", "at_ms": 0},
             "music_cue": vs.get("music_cue") if vs.get("music_cue") in MUSIC_CUES else ("intro" if i == 0 else "fade_out" if i == 6 else "build"),

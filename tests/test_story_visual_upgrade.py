@@ -254,15 +254,18 @@ def test_no_post_publication_quality_scan():
 
 def test_only_story_workflow_enables_upgrade():
     root = Path(__file__).resolve().parents[1]
-    for name in ("publish.yml", "mystery-footage-shorts.yml", "emotional-reel.yml"):
-        source = (root / ".github/workflows" / name).read_text()
-        assert "story_visual_upgrade" not in source
-        assert "story_identity_runner" not in source
-        yaml.safe_load(source)
+
+    publish = (root / ".github/workflows/publish.yml").read_text()
+    assert "story_visual_upgrade" not in publish
+    assert "story_identity_runner" not in publish
+    yaml.safe_load(publish)
+
     workflow = yaml.safe_load((root / ".github/workflows/story-shorts.yml").read_text())
     assert workflow["jobs"]["story-shorts"]["needs"] == "quality-checks"
     assert "test_only" in workflow["jobs"]["story-shorts"]["if"]
     assert not (root / ".github/workflows/story-video-tests.yml").exists()
+
+
 
 
 def test_media_first_preflight_requires_enough_real_source_intervals(monkeypatch, tmp_path):

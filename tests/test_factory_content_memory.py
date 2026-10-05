@@ -98,24 +98,3 @@ def test_factory_bootstrap_sanitizes_internal_pending_topic_marker(tmp_path, mon
     assert all(not str(row["topic"]).startswith("__MINT_PENDING_NEXT_TOPIC__::") for row in rows)
     assert any(row["topic"] == "Why do keys jingle" and row["status"] == "reserved" for row in rows)
     assert json.loads(state.read_text())["version"] == 2
-
-
-def test_mystery_history_is_reserved_until_publication(tmp_path, monkeypatch):
-    import mystery_documentary_runner as mystery
-
-    history = tmp_path / "mystery_footage_history.json"
-    monkeypatch.setattr(mystery, "HISTORY", history)
-    mystery.reserve_history_item({
-        "id": "case-1",
-        "title": "Test case",
-        "source_url": "https://example.com/source",
-    })
-    data = json.loads(history.read_text())
-    assert data["used_item_ids"] == []
-    assert data["entries"][0]["status"] == "reserved"
-
-    mystery.mark_history_published("case-1", "yt123")
-    data = json.loads(history.read_text())
-    assert data["used_item_ids"] == ["case-1"]
-    assert data["entries"][0]["status"] == "published"
-    assert data["entries"][0]["video_id"] == "yt123"

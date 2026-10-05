@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T02:40:03.189671+00:00",
+  "generated_at": "2026-10-05T08:07:06.202048+00:00",
   "video_count": 150,
   "learning_ready": true,
   "metrics_available": true,
@@ -17,13 +17,13 @@
       "score": 41.509,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.394
+      "weak_score": 0.434
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.394,
+      "score": 0.434,
       "sample_size": 10
     }
   ],
@@ -44,11 +44,11 @@
   ],
   "avoid_topics": [
     "Why do bananas turn brown",
-    "Why does mustard stain",
     "Why does a lock jam",
+    "Why does mustard stain",
     "relief: Finding the misplaced car keys inside the pocket of your winter coat that has been hanging in the back of the hallway closet since last spring, right when you are running late and panicked.",
-    "Why does soda fizz",
     "Why do plastic containers absorb smells",
+    "Why does soda fizz",
     "Why does static make hair rise",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",

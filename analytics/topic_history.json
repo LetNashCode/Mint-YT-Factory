@@ -3346,5 +3346,21 @@
     "video_id": "6VfQRi2A2aA",
     "workdir": "output/1791162562",
     "published_at": 1791163795
+  },
+  {
+    "topic": "Why do ceramic mugs clink",
+    "normalized": "why do ceramic mugs clink",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1791187622,
+    "recorded_at": 1791187622,
+    "metadata": {
+      "next_topic": "Why do toothpaste tubes wrinkle",
+      "creative_strategy": "adjacent"
+    },
+    "title": "Why Ceramic Mugs Clink",
+    "video_id": "X2r5y1kQdr8",
+    "workdir": "output/1791187705",
+    "published_at": 1791188902
   }
 ]

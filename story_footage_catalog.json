@@ -2162,37 +2162,6 @@
     {
       "person": "Shah Rukh Khan",
       "source": {
-        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent.mp4",
-        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
-        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent",
-        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'Social boycott']",
-        "creator": "",
-        "license": "",
-        "subject": "['Shah Rukh Khan', 'Social boycott']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 12.33,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows Shah Rukh Khan in an interview setting discussing social boycott, serving as biographical illustration of his public commentary, but it is presented with UI overlays (Facebook layout) and is not direct event footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "390faa8468871dcabc46d60f911fac543192a018d7b6d5c7a9a1316f40cc67ca",
-      "reviewed_at": 1790454635.5942042
-    },
-    {
-      "person": "Shah Rukh Khan",
-      "source": {
         "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
@@ -2220,37 +2189,6 @@
       },
       "review_key": "5a21e2347b2c50bbe4eec6a446d3cd88fc239827903edfbea3878a042653ef98",
       "reviewed_at": 1790454688.6028025
-    },
-    {
-      "person": "Shah Rukh Khan",
-      "source": {
-        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent.mp4",
-        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
-        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent",
-        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'Social boycott']",
-        "creator": "",
-        "license": "",
-        "subject": "['Shah Rukh Khan', 'Social boycott']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 3.17,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Shah Rukh Khan is clearly visible across all frames in an interview setting, serving as biographical illustration, though the framing includes UI elements from a social media post.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ff52820842da43d5d8035812b657d398fcd28d58bfe9cad05de82566c3b1f974",
-      "reviewed_at": 1790454693.309634
     },
     {
       "person": "Shah Rukh Khan",
@@ -6649,6 +6587,254 @@
       },
       "review_key": "cb9c959022a8b3bfe4f6f040dde8184255c5687218226640e8ec33be34eaf529",
       "reviewed_at": 1791129775.8803694
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'Social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'Social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 12.33,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features Shah Rukh Khan clearly visible across all frames in an interview setting, matching the biographical narration of archival life footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "204270961f8ea3f4431ac5de34a7051d3aed45b4613b26de6c2e7ef0ed5e340f",
+      "reviewed_at": 1791168393.4338977
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent.mp4",
+        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent",
+        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent",
+        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'Social boycott']",
+        "creator": "",
+        "license": "",
+        "subject": "['Shah Rukh Khan', 'Social boycott']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 3.17,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features actual footage of Shah Rukh Khan being interviewed in a talk show setting, making it suitable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5d0f3e87e7fe3833f96bd1cd9b068adf20a752bd5a98c10e726b6285fc32c537",
+      "reviewed_at": 1791168487.0626302
+    },
+    {
+      "person": "Dolph Lundgren",
+      "source": {
+        "id": "archive:dolph-lundgren-maximum-potential-workout-video-1986-uk-vhs",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dolph-lundgren-maximum-potential-workout-video-1986-uk-vhs/Dolph%20Lundgren%20%20%20Maximum%20Potential%20-%20workout%20video-%20%281986%20UK%20VHS%29.ia.mp4",
+        "source_url": "https://archive.org/details/dolph-lundgren-maximum-potential-workout-video-1986-uk-vhs",
+        "title": "Dolph Lundgren Maximum Potential Workout Video ( 1986 UK VHS)",
+        "description": ". ['Sport', 'Exercise', 'Entertainment']",
+        "creator": "MSD Video",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "subject": "['Sport', 'Exercise', 'Entertainment']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3114.84,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2390.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The frames show Dolph Lundgren clearly visible throughout the clip, performing stretches outdoors in 1986 archival workout footage, directly illustrating his life and physical training.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "eea8a49888e1767c3d3d1e484909f6f5cb2dd04abd77e52c90e5e530e40c2235",
+      "reviewed_at": 1791168755.2917533
+    },
+    {
+      "person": "Dolph Lundgren",
+      "source": {
+        "id": "archive:1146482264732",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/1146482264732/1146482264732.mp4",
+        "source_url": "https://archive.org/details/1146482264732",
+        "title": "BlackJack Dolph Lundgren",
+        "description": "Acción Acción",
+        "creator": "",
+        "license": "",
+        "subject": "Acción",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6482.7729,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 4980.98,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The frames clearly feature the named subject Dolph Lundgren in a scene from his film work (BlackJack), holding a weapon and interacting with a door in an interior setting.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d7429c0a5a17a88aa3ef4b0fc9b53d5caaa2cf3722a2e4dbb393378a9a3025c6",
+      "reviewed_at": 1791168775.5108244
+    },
+    {
+      "person": "Dolph Lundgren",
+      "source": {
+        "id": "archive:dolph-lundgren-maximum-potential-workout-video-1986-uk-vhs",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dolph-lundgren-maximum-potential-workout-video-1986-uk-vhs/Dolph%20Lundgren%20%20%20Maximum%20Potential%20-%20workout%20video-%20%281986%20UK%20VHS%29.ia.mp4",
+        "source_url": "https://archive.org/details/dolph-lundgren-maximum-potential-workout-video-1986-uk-vhs",
+        "title": "Dolph Lundgren Maximum Potential Workout Video ( 1986 UK VHS)",
+        "description": ". ['Sport', 'Exercise', 'Entertainment']",
+        "creator": "MSD Video",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "subject": "['Sport', 'Exercise', 'Entertainment']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3114.84,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 243.53,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Dolph Lundgren jogging on a beach from his 1986 workout video, matching the biographical narration about his life and fitness career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e6d3d9943a34707d5ce27b989eee03bc437696f7edf515a5df54b3cce3848f3d",
+      "reviewed_at": 1791168790.7297564
+    },
+    {
+      "person": "Dolph Lundgren",
+      "source": {
+        "id": "archive:dolph-lundgren-maximum-potential-workout-video-1986-uk-vhs",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dolph-lundgren-maximum-potential-workout-video-1986-uk-vhs/Dolph%20Lundgren%20%20%20Maximum%20Potential%20-%20workout%20video-%20%281986%20UK%20VHS%29.ia.mp4",
+        "source_url": "https://archive.org/details/dolph-lundgren-maximum-potential-workout-video-1986-uk-vhs",
+        "title": "Dolph Lundgren Maximum Potential Workout Video ( 1986 UK VHS)",
+        "description": ". ['Sport', 'Exercise', 'Entertainment']",
+        "creator": "MSD Video",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "subject": "['Sport', 'Exercise', 'Entertainment']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3114.84,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 482.05,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage shows Dolph Lundgren working out in archival video, directly matching the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "fa744d3801762fcc0b5d6b1858b12aac41b9cbd67490b43f7442af14f8867b45",
+      "reviewed_at": 1791168809.4332943
+    },
+    {
+      "person": "Dolph Lundgren",
+      "source": {
+        "id": "archive:dolph-lundgren-maximum-potential-workout-video-1986-uk-vhs",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dolph-lundgren-maximum-potential-workout-video-1986-uk-vhs/Dolph%20Lundgren%20%20%20Maximum%20Potential%20-%20workout%20video-%20%281986%20UK%20VHS%29.ia.mp4",
+        "source_url": "https://archive.org/details/dolph-lundgren-maximum-potential-workout-video-1986-uk-vhs",
+        "title": "Dolph Lundgren Maximum Potential Workout Video ( 1986 UK VHS)",
+        "description": ". ['Sport', 'Exercise', 'Entertainment']",
+        "creator": "MSD Video",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "subject": "['Sport', 'Exercise', 'Entertainment']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3114.84,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 720.58,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The frames show archival footage of Dolph Lundgren working out in a gym (from his 1986 workout video 'Maximum Potential'). He is visible across all three frames training with a punching bag.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "02dea91bb660ec71a1e18b60de73246478c016b840fa092ca3fc0515aa413006",
+      "reviewed_at": 1791168817.2850611
+    },
+    {
+      "person": "Dolph Lundgren",
+      "source": {
+        "id": "archive:dolph-lundgren-maximum-potential-workout-video-1986-uk-vhs",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dolph-lundgren-maximum-potential-workout-video-1986-uk-vhs/Dolph%20Lundgren%20%20%20Maximum%20Potential%20-%20workout%20video-%20%281986%20UK%20VHS%29.ia.mp4",
+        "source_url": "https://archive.org/details/dolph-lundgren-maximum-potential-workout-video-1986-uk-vhs",
+        "title": "Dolph Lundgren Maximum Potential Workout Video ( 1986 UK VHS)",
+        "description": ". ['Sport', 'Exercise', 'Entertainment']",
+        "creator": "MSD Video",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "subject": "['Sport', 'Exercise', 'Entertainment']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3114.84,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1197.63,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Dolph Lundgren exercising and working out in archival video from his 1986 workout video, perfectly matching the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4af6981f05c145c08bd81c4f06e37c15aa084aacc9ce6f3467d08f77b5fc091b",
+      "reviewed_at": 1791168840.8939576
     }
   ]
 }

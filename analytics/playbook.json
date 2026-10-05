@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-05T01:09:00.385675+00:00",
-  "video_count": 149,
+  "generated_at": "2026-10-05T02:40:03.189671+00:00",
+  "video_count": 150,
   "learning_ready": true,
   "metrics_available": true,
   "advanced_metrics_videos": 137,
@@ -17,13 +17,13 @@
       "score": 41.509,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.54
+      "weak_score": 0.394
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.54,
+      "score": 0.394,
       "sample_size": 10
     }
   ],
@@ -43,18 +43,18 @@
     "Why window glass warps reflections"
   ],
   "avoid_topics": [
-    "Why does rubber smell",
     "Why do bananas turn brown",
-    "Why does a lock jam",
     "Why does mustard stain",
+    "Why does a lock jam",
     "relief: Finding the misplaced car keys inside the pocket of your winter coat that has been hanging in the back of the hallway closet since last spring, right when you are running late and panicked.",
     "Why does soda fizz",
+    "Why do plastic containers absorb smells",
     "Why does static make hair rise",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
     "Why do steering wheels lock"
   ],
-  "used_topic_count": 149,
+  "used_topic_count": 150,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

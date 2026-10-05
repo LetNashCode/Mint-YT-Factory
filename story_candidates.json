@@ -49,40 +49,61 @@
   },
   {
     "format": "one_decision",
+    "person": "Sara Blakely",
+    "premise": "The choice to invest her entire life savings into a simple undergarment prototype.",
+    "hook": "She had zero background in fashion and only $5,000 to her name when she made one risky phone call to a patent attorney.",
+    "key_facts": [
+      "Worked as a door-to-door fax machine salesperson before founding Spanx.",
+      "Used her personal savings of $5,000 to fund the initial venture.",
+      "Wrote her own patent application using a textbook from Barnes & Noble."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "J.R.R. Tolkien",
+    "premise": "A single mundane grading session that sparked the creation of Middle-earth.",
+    "hook": "While grading boring exam papers on a hot summer day, he flipped over a blank page and wrote a single sentence about a hole in the ground.",
+    "key_facts": [
+      "Worked as a professor of Anglo-Saxon and Philology at Oxford University.",
+      "Wrote the opening line of The Hobbit on a blank examination paper sheet.",
+      "Constructed entirely functional fictional languages for his academic pleasure."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Sachin Tendulkar",
+    "premise": "The early domestic selection decision that put a teenage prodigy on the international cricket map.",
+    "hook": "At just sixteen years old, selectors chose to send him out to face one of the most ferocious bowling attacks in test history.",
+    "key_facts": [
+      "Made his international debut for the Indian cricket team at age sixteen.",
+      "Played professional international cricket for a span of twenty-four years.",
+      "Scored one hundred international centuries throughout his career."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
     "person": "Rosa Parks",
-    "premise": "The specific civil rights activist action in Montgomery that catalyzed a city-wide transit boycott.",
-    "hook": "One refusal to stand up from a bus seat triggered a 381-day protest.",
+    "premise": "Her decades of quiet activism and community work before the historic Montgomery bus boycott.",
+    "hook": "She was not just a tired passenger on a random afternoon; she was a trained activist with years of civil rights groundwork behind her.",
     "key_facts": [
-      "Employed as a seamstress in Montgomery, Alabama.",
+      "Worked as a seamstress in Montgomery, Alabama.",
       "Served as secretary for the local chapter of the NAACP.",
-      "Refused to surrender her seat to a white passenger on December 1, 1955.",
-      "Her arrest led directly to the Montgomery bus boycott."
+      "Refused to surrender her bus seat to a white passenger in December 1955."
     ],
     "source": "gemini_original"
   },
   {
-    "format": "before_they_were_famous",
-    "person": "Tom Hanks",
-    "premise": "Working as a lowly vendor selling peanuts and programs at Oakland Coliseum before breaking into acting.",
-    "hook": "Before winning back-to-back Oscars, he hawked peanuts in stadium bleachers.",
+    "format": "impossible_odds",
+    "person": "Ernest Shackleton",
+    "premise": "Keeping every member of his crew alive after their ship was crushed by Antarctic ice.",
+    "hook": "His ship was completely destroyed and sank beneath the ice pack, stranding twenty-eight men on floating floes for months.",
     "key_facts": [
-      "Grew up in a transient household, moving frequently during childhood.",
-      "Worked various odd jobs including selling programs at Oakland Athletics games.",
-      "Acted in the Great Lakes Shakespeare Festival before moving to New York.",
-      "Landed his breakthrough television role in the sitcom Bosom Buddies."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
-    "person": "Shah Rukh Khan",
-    "premise": "A young television actor in Delhi trying to process the loss of his parents before moving to Mumbai.",
-    "hook": "Before ruling Bollywood, he lost both his parents before turning 26 and arrived in Mumbai with very little.",
-    "key_facts": [
-      "Starred in the television series Fauji and Circus in the late 1980s.",
-      "Relocated to Mumbai following the death of his mother in 1991.",
-      "Played villainous roles in early films like Baazigar and Darr.",
-      "Achieved superstardom through romantic dramas in the mid-1990s."
+      "Led the Imperial Trans-Antarctic Expedition aboard the ship Endurance.",
+      "The ship became trapped and was crushed by ice in the Weddell Sea.",
+      "Navigated an open lifeboat across eight hundred miles of rough ocean for rescue."
     ],
     "source": "gemini_original"
   }

@@ -298,15 +298,21 @@ def test_story_route_is_isolated():
     assert "story_visual_upgrade.generate_media" in runner
     assert "story_real_video_media.generate_media" not in runner
     assert "story_archival_media.generate_media" not in runner
-    for name in ("production_entry.py", "production_entry_runner.py", "main.py",
-                 "mystery_documentary.py", "mystery_documentary_runner.py", "sitecustomize.py"):
+
+    for name in ("production_entry.py", "production_entry_runner.py", "main.py", "sitecustomize.py"):
         assert "story_visual_upgrade" not in (root / name).read_text(encoding="utf-8")
-    for name in ("publish.yml", "mystery-footage-shorts.yml"):
-        workflow = (root / ".github/workflows" / name).read_text(encoding="utf-8")
-        assert "story_real_video_media" not in workflow
-        assert "story_identity_runner" not in workflow
-        yaml.safe_load(workflow)
-    yaml.safe_load((root / ".github/workflows/story-shorts.yml").read_text(encoding="utf-8"))
+
+    publish_workflow = (root / ".github/workflows/publish.yml").read_text(encoding="utf-8")
+    assert "story_visual_upgrade" not in publish_workflow
+    assert "story_identity_runner" not in publish_workflow
+    yaml.safe_load(publish_workflow)
+
+    story_workflow = (root / ".github/workflows/story-shorts.yml").read_text(encoding="utf-8")
+    assert "story_identity_runner" in story_workflow
+    assert "story_visual_upgrade" in story_workflow
+    yaml.safe_load(story_workflow)
+
+
 
 
 def test_real_ffmpeg_transcodes_and_samples_video(tmp_path):

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T23:39:06.008033+00:00",
+  "generated_at": "2026-10-05T01:09:00.385675+00:00",
   "video_count": 149,
   "learning_ready": true,
   "metrics_available": true,
@@ -17,13 +17,13 @@
       "score": 41.509,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.531
+      "weak_score": 0.54
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.531,
+      "score": 0.54,
       "sample_size": 10
     }
   ],
@@ -43,10 +43,10 @@
     "Why window glass warps reflections"
   ],
   "avoid_topics": [
-    "belonging: Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive.",
+    "Why does rubber smell",
     "Why do bananas turn brown",
-    "Why does mustard stain",
     "Why does a lock jam",
+    "Why does mustard stain",
     "relief: Finding the misplaced car keys inside the pocket of your winter coat that has been hanging in the back of the hallway closet since last spring, right when you are running late and panicked.",
     "Why does soda fizz",
     "Why does static make hair rise",

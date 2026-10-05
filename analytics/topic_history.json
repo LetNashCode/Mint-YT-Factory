@@ -3330,5 +3330,21 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do plastic containers absorb smells",
+    "normalized": "why do plastic containers absorb smells",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1791162538,
+    "recorded_at": 1791162538,
+    "metadata": {
+      "next_topic": "Why do ceramic mugs clink",
+      "creative_strategy": "wild"
+    },
+    "title": "Why Plastic Containers Absorb Smells",
+    "video_id": "6VfQRi2A2aA",
+    "workdir": "output/1791162562",
+    "published_at": 1791163795
   }
 ]

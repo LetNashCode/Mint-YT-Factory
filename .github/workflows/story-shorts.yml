@@ -268,13 +268,15 @@ jobs:
           # so temporarily stash anything left over (while keeping render output in
           # place for the artifact upload), then restore it after the state push.
           story_stash_marker="$(git rev-parse --verify refs/stash 2>/dev/null || true)"
+          story_stash_created=false
           if ! git diff --quiet || ! git diff --cached --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
             echo "ℹ️ Stashing non-persisted Story workspace changes before rebase:"
             git status --short
-            git stash push -u -m "Story Shorts temporary persistence stash" -- . ':(exclude)output/**'
-            story_stash_created=true
-          else
-            story_stash_created=false
+            git stash push -u -m "Story Shorts temporary persistence stash" -- . ':(exclude)output/**' || true
+            new_story_stash_marker="$(git rev-parse --verify refs/stash 2>/dev/null || true)"
+            if [ -n "$new_story_stash_marker" ] && [ "$new_story_stash_marker" != "$story_stash_marker" ]; then
+              story_stash_created=true
+            fi
           fi
 
           restore_story_stash() {

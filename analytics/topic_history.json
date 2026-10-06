@@ -3414,5 +3414,21 @@
     "video_id": "hnDZZKeEhs8",
     "workdir": "output/1791321481",
     "published_at": 1791322288
+  },
+  {
+    "topic": "Why do corks pop out",
+    "normalized": "why do corks pop out",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1791327935,
+    "recorded_at": 1791327935,
+    "metadata": {
+      "next_topic": "Why do aluminum foil sheets tear",
+      "creative_strategy": "adjacent"
+    },
+    "title": "Why Corks Pop Out",
+    "video_id": "QEWhMq73B2I",
+    "workdir": "output/1791327993",
+    "published_at": 1791329232
   }
 ]

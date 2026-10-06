@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T22:17:13.527247+00:00",
+  "generated_at": "2026-10-06T23:05:38.004437+00:00",
   "video_count": 155,
   "learning_ready": true,
   "metrics_available": true,
@@ -17,13 +17,13 @@
       "score": 40.823,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 1.616
+      "weak_score": 1.658
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 1.616,
+      "score": 1.658,
       "sample_size": 10
     }
   ],
@@ -46,10 +46,10 @@
     "friendship: Finding a faded photo booth strip tucked behind the clear plastic sleeve of a wallet, showing four silly faces from a high school road trip with a friend you haven't spoken to in a decade.",
     "Why your phone screen gets greasy",
     "Why do ceramic mugs clink",
+    "Why do toaster coils glow red",
+    "Why do window blinds tilt crooked",
     "Why do toothpaste tubes wrinkle",
     "How do refrigerator seals stick",
-    "Why do window blinds tilt crooked",
-    "Why do toaster coils glow red",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
     "Why do steering wheels lock"

@@ -114,85 +114,100 @@ def _topic_similarity_score(a, b):
     return max(jaccard, sequence)
 
 
-def _topic_candidate_score(candidate, used):
-    """Rank a valid candidate before spending any script-generation work.
-
-    The score deliberately rewards curiosity + everyday familiarity + visual
-    feasibility, while penalizing historical similarity. Learned analytics are
-    only a small tie-breaker so stale/weak analytics cannot overpower a good
-    human-readable topic.
-    """
-    text = _clean_topic(candidate).lower()
-    words = re.findall(r"\\b[\\w'-]+\\b", text)
-    used_pool = list(used or []) + published_topics()
-    max_history_similarity = max(
-        (_topic_similarity_score(text, old) for old in used_pool if old),
-        default=0.0,
-    )
-
-    curiosity_terms = (
-        "strange", "weird", "odd", "suddenly", "actually", "really",
-        "secret", "unexpected", "always", "never", "sometimes", "turn",
-        "stick", "smell", "squeak", "fizz", "fog", "crack", "cling",
-        "drip", "pop", "whistle", "brown", "melt", "rise", "fade",
-    )
-    curiosity = 5.0
-    if re.match(r"^(why|how)\\s+", text):
-        curiosity += 2.0
-    if any(term in text for term in curiosity_terms):
-        curiosity += 2.0
-    if 4 <= len(words) <= 7:
-        curiosity += 1.0
-    curiosity = min(10.0, curiosity)
-
-    familiarity = 0.0
-    token_set = set(words)
-    for signal in _SIGNALS:
-        if " " in signal:
-            if signal in text:
-                familiarity += 1.0
-        elif signal in token_set or signal.rstrip("s") in token_set:
-            familiarity += 1.0
-    familiarity = min(10.0, 4.0 + min(6.0, familiarity))
-
-    visual_terms = {
-        "stick", "stuck", "smell", "squeak", "fog", "drip", "leak", "spill",
-        "melt", "freeze", "fizz", "pop", "crack", "snap", "rise", "fall",
-        "bounce", "shake", "spin", "whistle", "brown", "stain", "cling",
-        "wrinkle", "swell", "shrink", "glow", "steam", "bubble", "rust",
-        "splash", "boil", "burn", "open", "close", "bend", "break",
+def _topic_family(topic):
+    """Map a topic to a broad viewer-recognisable family for diversity control."""
+    text=_clean_topic(topic).lower()
+    families={
+        "food":("food","toast","bread","banana","pasta","cheese","butter","rice","egg","coffee","tea","chocolate","honey","jam","ketchup","mustard","salt","sugar","garlic","potato","popcorn","soda","mug","straw","plate","pan","spoon","fork","bowl"),
+        "home":("door","window","mirror","pillow","blanket","towel","sink","tap","toilet","drain","soap","shampoo","perfume","candle","paint","wall","hinge","lock","zipper"),
+        "clothing":("clothes","shirt","jeans","sock","shoelace","shoe","fabric","laundry","towel"),
+        "technology":("phone","screen","charger","battery","keyboard","computer","laptop","remote","wifi","headphone","earbuds","speaker"),
+        "vehicle":("car","tire","brake","engine","seatbelt","wheel","traffic","road","bus","train","airplane","helmet"),
+        "body":("skin","hair","finger","hand","teeth","mouth","nose","eye","tear","blink","sneeze","hiccup","yawn","goosebump","sweat","breath","sleep"),
+        "weather":("rain","umbrella","fog","cold","hot","snow","wind","storm","puddle","shadow"),
+        "materials":("metal","wood","plastic","rubber","glass","paper","tape","magnet","coin","rust"),
+        "sound":("sound","echo","squeak","whistle","hum","click","jingle","buzz","hiss","pitch"),
+        "kitchen":("oven","stove","microwave","toaster","kettle","boil","steam","pot","knife"),
     }
-    visual_hits = len(token_set & visual_terms)
-    visual = min(10.0, 5.0 + visual_hits * 1.5)
+    for family,terms in families.items():
+        if any(re.search(r"\b"+re.escape(term)+r"\b",text) for term in terms):
+            return family
+    return "other"
 
-    novelty = max(0.0, min(10.0, 10.0 * (1.0 - max_history_similarity)))
-    learned = 0.0
+def _recent_topic_families(used, window=10):
+    recent=[_clean_topic(x) for x in (used or []) if _clean_topic(x) and not str(x).startswith(_PENDING_PREFIX)]
+    counts={}
+    for topic in recent[-window:]:
+        family=_topic_family(topic)
+        counts[family]=counts.get(family,0)+1
+    return counts
+
+def _category_performance():
+    """Learn broad topic-family performance without overfitting to raw views."""
+    try:
+        path=_ROOT/"analytics"/"videos.json"
+        rows=json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+    except Exception:
+        return {}
+    aggregates={}
+    for row in rows if isinstance(rows,list) else []:
+        if not isinstance(row,dict) or not row.get("topic"):
+            continue
+        latest=row.get("latest") or {}
+        views=float(latest.get("views",latest.get("analytics_views",0)) or 0)
+        retention=float(latest.get("average_view_percentage",0) or 0)
+        if views<=0 and retention<=0:
+            continue
+        view_signal=min(100.0,math.log1p(views)*14.0)
+        quality=(retention if retention>0 else 0.0)*0.75+view_signal*0.25
+        family=_topic_family(row.get("topic",""))
+        aggregates.setdefault(family,[]).append(quality)
+    return {family:sum(values)/len(values) for family,values in aggregates.items() if values}
+
+def _topic_candidate_score(candidate, used):
+    """Rank topics for curiosity, familiarity, visual payoff, novelty and sustainable variety."""
+    text=_clean_topic(candidate).lower()
+    words=re.findall(r"\b[\w'-]+\b",text)
+    used_pool=list(used or [])+published_topics()
+    max_history_similarity=max((_topic_similarity_score(text,old) for old in used_pool if old),default=0.0)
+
+    curiosity_terms=("strange","weird","odd","suddenly","actually","really","secret","unexpected","always","never","sometimes","turn","stick","smell","squeak","fizz","fog","crack","cling","drip","pop","whistle","brown","melt","rise","fade","stain","wrinkle")
+    curiosity=5.0+(2.0 if re.match(r"^(why|how)\s+",text) else 0.0)+(2.0 if any(term in text for term in curiosity_terms) else 0.0)+(1.0 if 4<=len(words)<=7 else 0.0)
+    curiosity=min(10.0,curiosity)
+
+    token_set=set(words)
+    familiarity=min(10.0,4.0+min(6.0,sum(1 for signal in _SIGNALS if (" " in signal and signal in text) or (" " not in signal and (signal in token_set or signal.rstrip("s") in token_set)))))
+
+    visual_terms={"stick","stuck","smell","squeak","fog","drip","leak","spill","melt","freeze","fizz","pop","crack","snap","rise","fall","bounce","shake","spin","whistle","brown","stain","cling","wrinkle","swell","shrink","glow","steam","bubble","rust","splash","boil","burn","open","close","bend","break"}
+    visual=min(10.0,5.0+len(token_set & visual_terms)*1.5)
+    novelty=max(0.0,min(10.0,10.0*(1.0-max_history_similarity)))
+
+    family=_topic_family(text)
+    recent=_recent_topic_families(used,window=10)
+    family_fatigue=min(10.0,float(recent.get(family,0))*2.5)
+
+    performance=_category_performance()
+    performance_bonus=0.0
+    if family in performance and performance:
+        mean=sum(performance.values())/len(performance)
+        performance_bonus=max(-2.0,min(2.0,(performance[family]-mean)/max(mean,1.0)*4.0))
+
+    learned=0.0
     try:
         from learning_engine import score_candidate_topic
-        learned_result = score_candidate_topic(candidate)
-        learned = max(-1.0, min(1.0, float(learned_result.get("score", 0.0) or 0.0)))
+        learned=max(-1.0,min(1.0,float(score_candidate_topic(candidate).get("score",0.0) or 0.0)))
     except Exception:
         pass
 
-    # 100-point pre-script topic score.
-    score = (
-        curiosity * 2.5
-        + familiarity * 2.0
-        + visual * 2.0
-        + novelty * 2.5
-        + learned * 5.0
-    )
+    score=curiosity*2.5+familiarity*2.0+visual*2.0+novelty*2.5+learned*3.0+performance_bonus*2.0-family_fatigue*2.2
     return {
-        "topic": _clean_topic(candidate),
-        "score": round(score, 3),
-        "curiosity": round(curiosity, 2),
-        "familiarity": round(familiarity, 2),
-        "visual_feasibility": round(visual, 2),
-        "novelty": round(novelty, 2),
-        "history_similarity": round(max_history_similarity, 3),
-        "learned_bonus": round(learned, 3),
+        "topic":_clean_topic(candidate),"score":round(score,3),"family":family,
+        "curiosity":round(curiosity,2),"familiarity":round(familiarity,2),
+        "visual_feasibility":round(visual,2),"novelty":round(novelty,2),
+        "history_similarity":round(max_history_similarity,3),
+        "family_fatigue":round(family_fatigue,2),
+        "performance_bonus":round(performance_bonus,2),"learned_bonus":round(learned,3),
     }
-
 
 def _generate_topic_candidates(used, exclude_topics=None, target_count=20):
     """Generate a batch of alternatives so topic selection can optimize, not guess."""
@@ -205,6 +220,7 @@ def _generate_topic_candidates(used, exclude_topics=None, target_count=20):
     excluded = ", ".join(
         _clean_topic(x) for x in (exclude_topics or []) if _clean_topic(x)
     ) or "(none)"
+    recent_families = json.dumps(_recent_topic_families(used, window=10), sort_keys=True)
     prompt = f"""You are the TOPIC STRATEGIST for a highly entertaining YouTube Shorts channel.
 
 Generate exactly {int(target_count)} DISTINCT candidate topics for the channel promise:
@@ -232,6 +248,9 @@ IMPORTANT:
 
 PREVIOUSLY COVERED TOPICS:
 {previous}
+
+RECENT TOPIC FAMILY COUNTS:
+{recent_families}
 
 CURRENT TOPICS TO EXCLUDE:
 {excluded}
@@ -292,13 +311,19 @@ def _generate_topic(used, exclude_topics=None):
             key=lambda row: row["score"],
             reverse=True,
         )
+        recent_families = _recent_topic_families(used, window=10)
+        ranked = sorted(
+            ranked,
+            key=lambda row: (row["score"] - recent_families.get(row.get("family"), 0) * 0.35, row["novelty"], row["curiosity"]),
+            reverse=True,
+        )
         winner = ranked[0]
         print(
             "🏆 Topic strategist winner: "
-            f"{winner['topic']} | score={winner['score']} | "
+            f"{winner['topic']} | score={winner['score']} | family={winner.get('family')} | "
             f"curiosity={winner.get('curiosity', 0)} | familiarity={winner.get('familiarity', 0)} | "
             f"visual={winner.get('visual_feasibility', 0)} | novelty={winner.get('novelty', 0)} | "
-            f"history_similarity={winner.get('history_similarity', 0)}"
+            f"family_fatigue={winner.get('family_fatigue', 0)} | performance_bonus={winner.get('performance_bonus', 0)}"
         )
         print(
             "🥇 Topic shortlist: "

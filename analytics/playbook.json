@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-05T08:07:06.202048+00:00",
-  "video_count": 150,
+  "generated_at": "2026-10-06T12:13:54.760751+00:00",
+  "video_count": 151,
   "learning_ready": true,
   "metrics_available": true,
-  "advanced_metrics_videos": 137,
+  "advanced_metrics_videos": 141,
   "creative_learning_version": "v5",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
@@ -14,16 +14,16 @@
   "winning_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 41.509,
+      "score": 40.828,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.434
+      "weak_score": 0.835
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.434,
+      "score": 0.835,
       "sample_size": 10
     }
   ],
@@ -37,24 +37,24 @@
     "Israeli security forces shoot and kill Ahmad Zidani, Beit Rima, 18 Dec. 2016: Candidate discovered from Internet Archive; the footage and event context require factual review.",
     "Why do door knobs get loose",
     "Why do earbuds tangle in pockets",
-    "homesickness: Smelling the exact scent of woodsmoke and damp pine needles while opening a jar of imported maple syrup given by a neighbor from your hometown thousands of miles away.",
     "Why paperclips float on water",
     "Stephen King: The discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon.",
-    "Why window glass warps reflections"
+    "Why window glass warps reflections",
+    "Why ice cream gives you brain freeze"
   ],
   "avoid_topics": [
-    "Why do bananas turn brown",
-    "Why does a lock jam",
+    "Why your phone screen gets greasy",
+    "Why does rubber smell",
+    "Why do ceramic mugs clink",
     "Why does mustard stain",
-    "relief: Finding the misplaced car keys inside the pocket of your winter coat that has been hanging in the back of the hallway closet since last spring, right when you are running late and panicked.",
     "Why do plastic containers absorb smells",
-    "Why does soda fizz",
+    "relief: Finding the misplaced car keys inside the pocket of your winter coat that has been hanging in the back of the hallway closet since last spring, right when you are running late and panicked.",
     "Why does static make hair rise",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
     "Why do steering wheels lock"
   ],
-  "used_topic_count": 150,
+  "used_topic_count": 151,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

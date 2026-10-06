@@ -3320,18 +3320,6 @@
     "published_at": 1791137595
   },
   {
-    "topic": "Why does a zipper catch",
-    "normalized": "why does a zipper catch",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791157144,
-    "recorded_at": 1791157144,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do plastic containers absorb smells",
     "normalized": "why do plastic containers absorb smells",
     "workflow": "publish",
@@ -3362,5 +3350,21 @@
     "video_id": "X2r5y1kQdr8",
     "workdir": "output/1791187705",
     "published_at": 1791188902
+  },
+  {
+    "topic": "Why do toothpaste tubes wrinkle",
+    "normalized": "why do toothpaste tubes wrinkle",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1791288833,
+    "recorded_at": 1791288833,
+    "metadata": {
+      "next_topic": "How do refrigerator seals stick",
+      "creative_strategy": "adjacent"
+    },
+    "title": "Why Toothpaste Tubes Wrinkle",
+    "video_id": "WPNTROe0EoE",
+    "workdir": "output/1791288856",
+    "published_at": 1791290696
   }
 ]

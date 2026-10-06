@@ -96,6 +96,11 @@ def recover() -> bool:
         "status": "complete",
         "video_id": video_id,
         "youtube_url": f"https://www.youtube.com/shorts/{video_id}",
+        "platforms": {
+            "youtube": {"status": "published", "video_id": video_id},
+            "instagram": dict(social.get("instagram") or {}),
+            "facebook": dict(social.get("facebook") or {}),
+        },
     })
     print(f"♻️ Recovered and published completed Story render: {final}")
     return True

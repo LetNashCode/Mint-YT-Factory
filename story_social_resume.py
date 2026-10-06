@@ -66,7 +66,8 @@ def main() -> int:
         with open("config.yaml", encoding="utf-8") as handle:
             config = dict(yaml.safe_load(handle) or {})
         social = publish_social_reels(final, str(queue.get("title") or ""), str(queue.get("description") or ""), config, str(final.parent))
-        failures = [name for name, payload in social.items() if isinstance(payload, dict) and str(payload.get("status") or "").lower() == "failed"]
+        required = ("instagram", "facebook")
+        failures = [name for name in required if not isinstance(social.get(name), dict) or str(social[name].get("status") or "").lower() != "published"]
         if failures:
             raise RuntimeError("Story social resume still has failed destinations: " + ", ".join(failures))
 

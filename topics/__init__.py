@@ -314,7 +314,7 @@ def _generate_topic(used, exclude_topics=None):
         recent_families = _recent_topic_families(used, window=10)
         ranked = sorted(
             ranked,
-            key=lambda row: (row["score"] - recent_families.get(row.get("family"), 0) * 0.35, row["novelty"], row["curiosity"]),
+            key=lambda row: (row["score"] - recent_families.get(row.get("family"), 0) * 0.35, row.get("novelty", 0), row.get("curiosity", 0)),
             reverse=True,
         )
         winner = ranked[0]

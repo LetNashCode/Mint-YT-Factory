@@ -1,6 +1,6 @@
 """Entertainment-first everyday-curiosity topic engine."""
 from __future__ import annotations
-import json, os, re, time
+import json, math, os, re, time
 from pathlib import Path
 from google import genai
 from google.genai import types

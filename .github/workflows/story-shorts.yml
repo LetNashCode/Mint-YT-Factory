@@ -183,17 +183,14 @@ jobs:
           rc=$?
           set -e
 
-          # A temporary Gemini verifier outage is an intentional Story defer,
-          # not a broken production artifact. Keep the run green so the next
-          # scheduled run can retry the reserved subject.
-          if [ "$rc" -ne 0 ] && [ -f .story_publication_status.json ]; then
-            deferred_status="$(jq -r '.status // ""' .story_publication_status.json)"
-            if [ "$deferred_status" = "deferred" ]; then
-              echo "⏸️ Story publication deferred safely; no video was published."
-              exit 0
-            fi
+          # Any non-zero production result is a failed Story publication attempt.
+          # Deferred runs are intentionally NOT green: no video was published.
+          if [ "$rc" -ne 0 ]; then
+            status="$(jq -r '.status // ""' .story_publication_status.json 2>/dev/null || true)"
+            echo "::error::Story Shorts did not publish completely. Status=$status"
+            exit "$rc"
           fi
-          exit "$rc"
+          exit 0
       - name: Report Story media diagnostics
         if: failure()
         run: |
@@ -222,22 +219,23 @@ jobs:
           url="$(jq -r '.youtube_url // ""' "$status_file")"
           echo "Story publication status: $status"
 
-          if [ "$status" = "deferred" ]; then
-            reason="$(jq -r '.reason // "Temporary provider or verification issue; publication was safely deferred."' "$status_file")"
-            echo "⏸️ Story Shorts publication deferred: $reason"
-            {
-              echo "## Story Shorts publication deferred"
-              echo ""
-              echo "- Status: DEFERRED"
-              echo "- Reason: $reason"
-              echo "- No YouTube publication was confirmed."
-            } >> "$GITHUB_STEP_SUMMARY"
-            exit 0
+          if [ "$status" != "complete" ] || [ -z "$video_id" ]; then
+            reason="$(jq -r '.reason // "No complete multi-platform publication was confirmed."' "$status_file")"
+            echo "::error::Story Shorts did not complete successfully. Status=$status Reason=$reason"
+            exit 1
           fi
 
-          if [ "$status" != "complete" ] || [ -z "$video_id" ]; then
-            reason="$(jq -r '.reason // "No complete publication was confirmed."' "$status_file")"
-            echo "::error::Story Shorts did not complete successfully. Status=$status Reason=$reason"
+          for platform in youtube instagram facebook; do
+            platform_status="$(jq -r --arg platform "$platform" '.platforms[$platform].status // ""' "$status_file")"
+            if [ "$platform_status" != "published" ]; then
+              echo "::error::Story Shorts is not fully published: $platform status=$platform_status"
+              exit 1
+            fi
+          done
+
+          youtube_state_id="$(jq -r '.platforms.youtube.video_id // .video_id // ""' "$status_file")"
+          if [ -z "$youtube_state_id" ] || [ "$youtube_state_id" != "$video_id" ]; then
+            echo "::error::YouTube publication ID is missing or inconsistent in publication state."
             exit 1
           fi
           echo "## Story Shorts publication confirmed" >> "$GITHUB_STEP_SUMMARY"

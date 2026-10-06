@@ -18,7 +18,7 @@ DEFAULT_MAX_REQUESTS = 96
 # any later Gemini work. Once the visual verifier reaches this cap, production
 # must stop/defer instead of burning the remaining run-wide Gemini budget on
 # archival-frame rejection loops.
-DEFAULT_MAX_VISUAL_GEMINI_REQUESTS = 56
+DEFAULT_MAX_VISUAL_GEMINI_REQUESTS = 80
 
 _BUDGET = None
 

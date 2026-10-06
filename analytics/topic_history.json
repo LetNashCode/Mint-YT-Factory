@@ -3398,5 +3398,21 @@
     "video_id": "SyGhcnZH-JA",
     "workdir": "output/1791313416",
     "published_at": 1791314391
+  },
+  {
+    "topic": "Why do window blinds tilt crooked",
+    "normalized": "why do window blinds tilt crooked",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1791321460,
+    "recorded_at": 1791321460,
+    "metadata": {
+      "next_topic": "Why do corks pop out",
+      "creative_strategy": "adjacent"
+    },
+    "title": "Why Do Window Blinds Tilt Crooked",
+    "video_id": "hnDZZKeEhs8",
+    "workdir": "output/1791321481",
+    "published_at": 1791322288
   }
 ]

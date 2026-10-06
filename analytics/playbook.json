@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-06T19:02:43.698739+00:00",
-  "video_count": 153,
+  "generated_at": "2026-10-06T21:17:41.956723+00:00",
+  "video_count": 154,
   "learning_ready": true,
   "metrics_available": true,
   "advanced_metrics_videos": 146,
@@ -17,13 +17,13 @@
       "score": 40.823,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 4.026
+      "weak_score": 2.774
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 4.026,
+      "score": 2.774,
       "sample_size": 10
     }
   ],
@@ -43,7 +43,6 @@
     "Why ice cream gives you brain freeze"
   ],
   "avoid_topics": [
-    "relief: Finding the misplaced car keys inside the pocket of your winter coat that has been hanging in the back of the hallway closet since last spring, right when you are running late and panicked.",
     "Why do plastic containers absorb smells",
     "friendship: Finding a faded photo booth strip tucked behind the clear plastic sleeve of a wallet, showing four silly faces from a high school road trip with a friend you haven't spoken to in a decade.",
     "Why your phone screen gets greasy",
@@ -52,9 +51,10 @@
     "Why do toothpaste tubes wrinkle",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
-    "Why do steering wheels lock"
+    "Why do steering wheels lock",
+    "Why do toaster coils glow red"
   ],
-  "used_topic_count": 153,
+  "used_topic_count": 154,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

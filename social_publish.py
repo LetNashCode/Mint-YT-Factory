@@ -309,17 +309,27 @@ def publish_social_reels(video_path: str, title: str, description: str, config: 
         "updated_at": int(time.time()),
     }
 
+    # Story Shorts has a strict three-platform publication contract:
+    # YouTube + Instagram + Facebook must all be confirmed. Missing credentials
+    # are a publication failure, never a successful "skipped" destination.
     ig_enabled = bool(_env("INSTAGRAM_USER_ID") and _env("INSTAGRAM_ACCESS_TOKEN"))
     fb_enabled = bool(_env("FACEBOOK_PAGE_ID") and _env("FACEBOOK_PAGE_ACCESS_TOKEN"))
-    if not ig_enabled and not fb_enabled:
-        print("📱 Meta social publishing: DISABLED (no Instagram/Facebook credentials configured)")
-        result["instagram"] = {"status": "skipped", "reason": "not configured"}
-        result["facebook"] = {"status": "skipped", "reason": "not configured"}
+    missing = []
+    if not ig_enabled:
+        missing.append("instagram")
+        result["instagram"] = {"status": "failed", "reason": "Instagram credentials not configured"}
         state["instagram"] = result["instagram"]
+    if not fb_enabled:
+        missing.append("facebook")
+        result["facebook"] = {"status": "failed", "reason": "Facebook credentials not configured"}
         state["facebook"] = result["facebook"]
-        state["status"] = "uploaded"
+    if missing:
+        state["status"] = "partial"
+        state["uploaded"] = True
         _save_publish_state(output_dir, state)
-        return result
+        status_path = Path(output_dir) / "social_publish_status.json"
+        status_path.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        raise RuntimeError("Required social platforms are not configured: " + ", ".join(missing))
 
     failures = []
     for name, fn, enabled in (

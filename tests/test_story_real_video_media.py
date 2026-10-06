@@ -264,6 +264,11 @@ def test_story_publication_completion_requires_durable_complete_state(tmp_path):
         "status": "complete",
         "video_id": "X6z-7WPwVds",
         "youtube_url": "https://www.youtube.com/shorts/X6z-7WPwVds",
+        "platforms": {
+            "youtube": {"status": "published", "video_id": "X6z-7WPwVds"},
+            "instagram": {"status": "published", "media_id": "ig-123"},
+            "facebook": {"status": "published", "video_id": "fb-123"},
+        },
     }), encoding="utf-8")
     stale = tmp_path / ".story_deferred"
     stale.write_text("previous run deferred", encoding="utf-8")

@@ -3382,5 +3382,21 @@
     "video_id": "Qu23gKdFln8",
     "workdir": "output/1791296456",
     "published_at": 1791298082
+  },
+  {
+    "topic": "Why do toaster coils glow red",
+    "normalized": "why do toaster coils glow red",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1791313361,
+    "recorded_at": 1791313361,
+    "metadata": {
+      "next_topic": "Why do window blinds tilt crooked",
+      "creative_strategy": "adjacent"
+    },
+    "title": "Why Toaster Coils Glow Red",
+    "video_id": "SyGhcnZH-JA",
+    "workdir": "output/1791313416",
+    "published_at": 1791314391
   }
 ]

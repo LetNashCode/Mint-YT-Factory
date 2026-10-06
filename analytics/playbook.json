@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-06T14:20:38.351701+00:00",
-  "video_count": 152,
+  "generated_at": "2026-10-06T19:02:43.698739+00:00",
+  "video_count": 153,
   "learning_ready": true,
   "metrics_available": true,
-  "advanced_metrics_videos": 141,
+  "advanced_metrics_videos": 146,
   "creative_learning_version": "v5",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
@@ -14,16 +14,16 @@
   "winning_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 40.828,
+      "score": 40.823,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.47
+      "weak_score": 4.026
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.47,
+      "score": 4.026,
       "sample_size": 10
     }
   ],
@@ -43,18 +43,18 @@
     "Why ice cream gives you brain freeze"
   ],
   "avoid_topics": [
-    "Why does rubber smell",
-    "Why do ceramic mugs clink",
-    "Why does mustard stain",
-    "Why do plastic containers absorb smells",
     "relief: Finding the misplaced car keys inside the pocket of your winter coat that has been hanging in the back of the hallway closet since last spring, right when you are running late and panicked.",
-    "Why does static make hair rise",
+    "Why do plastic containers absorb smells",
+    "friendship: Finding a faded photo booth strip tucked behind the clear plastic sleeve of a wallet, showing four silly faces from a high school road trip with a friend you haven't spoken to in a decade.",
+    "Why your phone screen gets greasy",
+    "Why do ceramic mugs clink",
+    "How do refrigerator seals stick",
     "Why do toothpaste tubes wrinkle",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
     "Why do steering wheels lock"
   ],
-  "used_topic_count": 152,
+  "used_topic_count": 153,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

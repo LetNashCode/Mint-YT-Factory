@@ -37,7 +37,7 @@ MUSIC_CUES = {"intro", "build", "swell", "drop", "fade_out", "none"}
 IMAGE_STYLES = {"cinematic_photograph", "macro_photography", "realistic_3d_render"}
 
 BANNED_LECTURE_PHRASES = (
-    "did you know", "have you ever wondered", "today we're going to", "in this video",
+    "did you know", "today we're going to", "in this video",
     "according to scientists", "the scientific explanation is", "this phenomenon occurs because",
     "therefore", "thus", "hence", "in conclusion", "the reason is simply because",
 )
@@ -282,7 +282,7 @@ ENTERTAINMENT RULES:
 - Never pad the story to hit a word count.
 
 NEVER START WITH:
-"Did you know", "Have you ever wondered", "Today we're going to", "In this video",
+"Did you know", "Today we're going to", "In this video",
 "Let's talk about", "According to scientists".
 
 NEVER USE LECTURE FILLER:
@@ -703,7 +703,7 @@ def _validate_entertainment(script, topic):
             raise RuntimeError(f"Entertainment scene {i+1} contains lecture filler: {', '.join(hits)}")
     if total < 80 or total > 130:
         raise RuntimeError(f"Entertainment narration word count {total} is outside 80–130.")
-    if _clean(scenes[0].get("narration")).lower().startswith(("did you know", "have you ever wondered", "today we're", "in this video")):
+    if _clean(scenes[0].get("narration")).lower().startswith(("did you know", "today we're", "in this video")):
         raise RuntimeError("Entertainment hook is generic.")
     _validate_reference_story_style(script, topic)
     # Continuation is production-owned. The writer never selects or embeds a future topic.

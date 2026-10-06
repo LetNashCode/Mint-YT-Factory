@@ -253,7 +253,15 @@ def _publication_complete(path=".story_publication_status.json") -> bool:
         state = json.loads(Path(path).read_text(encoding="utf-8"))
     except (OSError, ValueError, TypeError):
         return False
-    return state.get("status") == "complete" and bool(str(state.get("video_id") or "").strip())
+    if state.get("status") != "complete" or not bool(str(state.get("video_id") or "").strip()):
+        return False
+    platforms = state.get("platforms") or {}
+    required = ("youtube", "instagram", "facebook")
+    return all(
+        isinstance(platforms.get(name), dict)
+        and str(platforms[name].get("status") or "").lower() == "published"
+        for name in required
+    )
 
 
 def main() -> None:

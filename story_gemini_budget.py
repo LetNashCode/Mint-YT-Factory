@@ -13,7 +13,7 @@ import os
 from pathlib import Path
 
 BUDGET_DEFER_FILE = ".story_gemini_budget_deferred"
-DEFAULT_MAX_REQUESTS = 64
+DEFAULT_MAX_REQUESTS = 96
 # Keep a protected slice of the run-wide Gemini budget for story scripting and
 # any later Gemini work. Once the visual verifier reaches this cap, production
 # must stop/defer instead of burning the remaining run-wide Gemini budget on

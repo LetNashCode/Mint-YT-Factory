@@ -85,8 +85,13 @@ def main() -> int:
             "status": "complete",
             "video_id": video_id,
             "youtube_url": f"https://www.youtube.com/shorts/{video_id}",
+            "platforms": {
+                "youtube": {"status": "published", "video_id": video_id},
+                "instagram": dict(social.get("instagram") or {}),
+                "facebook": dict(social.get("facebook") or {}),
+            },
         })
-        print(f"✅ Story social queue completed; YouTube video confirmed: https://www.youtube.com/shorts/{video_id}")
+        print(f"✅ Story social queue completed; all platforms confirmed; YouTube video: https://www.youtube.com/shorts/{video_id}")
         return 0
     finally:
         shutil.rmtree(root, ignore_errors=True)

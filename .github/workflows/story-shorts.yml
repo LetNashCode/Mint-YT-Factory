@@ -286,16 +286,7 @@ jobs:
             # Only auto-resolve the known machine-generated analytics JSON files.
             # Any source/workflow conflict remains a hard failure rather than being
             # silently overwritten.
-            unexpected="$(printf '%s\\n' "$conflicted" | grep -Ev '^(analytics/playbook\\.json|analytics/videos\\.json)
-      - name: Upload Story Shorts artifacts
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: story-shorts-${{ github.run_id }}
-          path: output/interactive/**
-          if-no-files-found: ignore
-          retention-days: 7
- || true)"
+            unexpected="$(printf '%s\\n' "$conflicted" | grep -Ev '^(analytics/playbook\\.json|analytics/videos\\.json)$' || true)"
             if [ -n "$unexpected" ]; then
               echo "::error::Unexpected Story state rebase conflict(s):"
               printf '%s\\n' "$unexpected"
@@ -401,3 +392,4 @@ jobs:
           path: output/interactive/**
           if-no-files-found: ignore
           retention-days: 7
+

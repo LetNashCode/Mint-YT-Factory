@@ -6835,6 +6835,130 @@
       },
       "review_key": "4af6981f05c145c08bd81c4f06e37c15aa084aacc9ce6f3467d08f77b5fc091b",
       "reviewed_at": 1791168840.8939576
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:JawaniDiwani-Chamatkar",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JawaniDiwani-Chamatkar/vlc-record-2023-07-30-17h57m58s-Colors%20Cineplex%20Bollywood%20%281080p%29-.mp4",
+        "source_url": "https://archive.org/details/JawaniDiwani-Chamatkar",
+        "title": "Jawani Diwani | Full Song | Chamatkar | Shah Rukh Khan, Urmila Matondkar",
+        "description": " ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 348.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 262.14,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The frames clearly feature Shah Rukh Khan dancing in a scene from the film Chamatkar, making it authentic archival identity footage suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "468955475e4b0de13c3c39d2a5c3c531df5ac1a1cd0c0056c076f36aa595586f",
+      "reviewed_at": 1791325968.1009278
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:JawaniDiwani-Chamatkar",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JawaniDiwani-Chamatkar/vlc-record-2023-07-30-17h57m58s-Colors%20Cineplex%20Bollywood%20%281080p%29-.mp4",
+        "source_url": "https://archive.org/details/JawaniDiwani-Chamatkar",
+        "title": "Jawani Diwani | Full Song | Chamatkar | Shah Rukh Khan, Urmila Matondkar",
+        "description": " ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 348.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 30.71,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames show genuine archival film footage from the movie 'Chamatkar' featuring Shah Rukh Khan performing on stage. Shah Rukh Khan is clearly visible across all three frames, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3a2cc5543731ddb8ba320c95b0650ebd89671ba2e59e1694ac40c37f5980fc8c",
+      "reviewed_at": 1791325992.3383079
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:JawaniDiwani-Chamatkar",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JawaniDiwani-Chamatkar/vlc-record-2023-07-30-17h57m58s-Colors%20Cineplex%20Bollywood%20%281080p%29-.mp4",
+        "source_url": "https://archive.org/details/JawaniDiwani-Chamatkar",
+        "title": "Jawani Diwani | Full Song | Chamatkar | Shah Rukh Khan, Urmila Matondkar",
+        "description": " ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 348.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 56.43,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The frames show Shah Rukh Khan dancing in a movie scene from Chamatkar, matching the biographical subject and context, though frame 2 is a close-up on legs/shoes. He is identifiable across the sequence.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1da51a2eeb4197ed95f71838cdf9c3c0023e2c2fd5b521ede023616889c262d0",
+      "reviewed_at": 1791326016.023704
+    },
+    {
+      "person": "Shah Rukh Khan",
+      "source": {
+        "id": "archive:JawaniDiwani-Chamatkar",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JawaniDiwani-Chamatkar/vlc-record-2023-07-30-17h57m58s-Colors%20Cineplex%20Bollywood%20%281080p%29-.mp4",
+        "source_url": "https://archive.org/details/JawaniDiwani-Chamatkar",
+        "title": "Jawani Diwani | Full Song | Chamatkar | Shah Rukh Khan, Urmila Matondkar",
+        "description": " ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 348.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 107.86,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6.0,
+        "reason": "Shah Rukh Khan is visible in the frames dancing in a movie scene, providing archival/biographical illustration footage, though the middle frame is heavily obscured and blurry.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "69c73fac4308f669c7d5d45456da7b0694efb774f827e9c7b3098103761796e6",
+      "reviewed_at": 1791326048.0538993
     }
   ]
 }

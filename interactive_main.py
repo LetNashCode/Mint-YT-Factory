@@ -173,11 +173,25 @@ Do not expose the loop with words like replay, loop, watch again, or back to the
     _set_publication_status("youtube_uploaded", vid)
     _save_social_queue({"schema_version":1,"run_id":str(os.environ.get("GITHUB_RUN_ID") or ""),"artifact_name":f"story-shorts-{os.environ.get('GITHUB_RUN_ID','')}","workdir":workdir,"final_relative":os.path.relpath(final,"."),"video_id":vid,"topic":topic,"pillar":pillar,"person":person,"number":number,"title":title,"description":desc})
     social_result=publish_social_reels(final,title,desc,config,workdir); print("📱 Story social publish summary:",json.dumps({name:(payload or {}).get("status") for name,payload in social_result.items() if name in {"instagram","facebook"}},ensure_ascii=False))
-    if _social_has_failures(social_result):
-        failed = [name for name, payload in (social_result or {}).items() if isinstance(payload, dict) and str(payload.get("status") or "").lower()=="failed"]
-        _set_publication_status("social_failed", vid, "Failed social destinations: " + ", ".join(failed))
-        raise RuntimeError("Story social publishing failed: " + ", ".join(failed))
+    required = ("instagram", "facebook")
+    incomplete = [name for name in required if not isinstance(social_result.get(name), dict) or str(social_result[name].get("status") or "").lower() != "published"]
+    if incomplete:
+        _set_publication_status("social_failed", vid, "Required social destinations not confirmed: " + ", ".join(incomplete))
+        raise RuntimeError("Story social publishing incomplete: " + ", ".join(incomplete))
     _clear_social_queue()
     _set_publication_status("complete", vid)
+    # Persist an auditable per-platform publication contract. This is the only
+    # state that the workflow is allowed to report as green.
+    status = {
+        "status": "complete",
+        "video_id": vid,
+        "youtube_url": f"https://www.youtube.com/shorts/{vid}",
+        "platforms": {
+            "youtube": {"status": "published", "video_id": vid},
+            "instagram": dict(social_result["instagram"]),
+            "facebook": dict(social_result["facebook"]),
+        },
+    }
+    save_publication_state(".story_publication_status.json", status)
     record_topic(topic,pillar,title,vid,workdir,person=person); save_pending_story(pillar,topic,person,number); record_analytics(vid,topic,pillar,title,workdir,person=person); print("📊 Story comparison:",json.dumps(build_comparison(),ensure_ascii=False))
 if __name__=="__main__": run()

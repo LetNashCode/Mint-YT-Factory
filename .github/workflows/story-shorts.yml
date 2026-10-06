@@ -262,6 +262,30 @@ jobs:
           # append/derived analytics JSON files at the data level instead of allowing
           # Git's line-based JSON merge to fail the entire Story run.
           branch="${GITHUB_REF_NAME}"
+
+          # Some Story tooling can touch auxiliary/generated files that are not part
+          # of the persisted state list above. Git refuses to rebase a dirty worktree,
+          # so temporarily stash anything left over (while keeping render output in
+          # place for the artifact upload), then restore it after the state push.
+          story_stash_marker="$(git rev-parse --verify refs/stash 2>/dev/null || true)"
+          if ! git diff --quiet || ! git diff --cached --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+            echo "ℹ️ Stashing non-persisted Story workspace changes before rebase:"
+            git status --short
+            git stash push -u -m "Story Shorts temporary persistence stash" -- . ':(exclude)output/**'
+            story_stash_created=true
+          else
+            story_stash_created=false
+          fi
+
+          restore_story_stash() {
+            if [ "$story_stash_created" = true ]; then
+              echo "🔄 Restoring temporary Story workspace changes"
+              if ! git stash pop; then
+                echo "::warning::Temporary Story workspace changes could not be reapplied cleanly; the persisted Story state was already pushed."
+              fi
+            fi
+          }
+
           max_attempts=5
           for attempt in $(seq 1 "$max_attempts"); do
             echo "🔄 Persist Story state: sync attempt $attempt/$max_attempts"
@@ -270,11 +294,13 @@ jobs:
             if git rebase "origin/$branch"; then
               if git push origin HEAD:"$branch"; then
                 echo "✅ Story Shorts state pushed successfully"
+                restore_story_stash
                 break
               fi
               echo "⚠️ Push raced with another commit; retrying after refetch."
               if [ "$attempt" -eq "$max_attempts" ]; then
                 echo "::error::Could not push Story Shorts state after $max_attempts attempts."
+                restore_story_stash
                 exit 1
               fi
               continue
@@ -291,6 +317,7 @@ jobs:
               echo "::error::Unexpected Story state rebase conflict(s):"
               printf '%s\\n' "$unexpected"
               git rebase --abort || true
+              restore_story_stash
               exit 1
             fi
 

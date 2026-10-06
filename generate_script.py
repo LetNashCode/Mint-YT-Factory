@@ -235,26 +235,27 @@ Write like a clever, mischievous friend showing someone a weird everyday mystery
 The viewer should feel: "Wait... seriously?!"
 
 VOICE:
-- conversational spoken English
-- playful, quirky, confident and energetic
-- natural rhythm: short punchy lines mixed with longer conversational lines
-- vivid everyday comparisons and occasional light humor
-- simple language first
-- technical terms only when genuinely useful, and explain them immediately
-- never sound like a textbook, documentary, classroom teacher, or AI assistant
+- conversational spoken English that sounds natural when read aloud
+- curious, playful, confident and energetic without sounding over-written
+- natural rhythm: short punchy lines mixed with longer conversational sentences
+- simple language first; use everyday words a viewer understands instantly
+- use "you", "your", "when", "if", "but", "actually", "well", "you see", and similar spoken turns when they fit naturally
+- technical terms only when genuinely useful, and explain them immediately in plain English
+- favor concrete actions and sensory details over abstract exposition
+- never sound like a textbook, documentary, classroom teacher, news report, or AI assistant
 
-STORY:
-1. Scene 1: hit immediately with the strangest observable behavior. No greeting or setup.
-2. Scene 2: make the mystery stranger and open a curiosity loop.
-3. Scene 3: reveal the first piece of the explanation.
-4. Scene 4: demonstrate the mechanism in an easy-to-understand way.
-5. Scene 5: reveal a consequence the viewer probably did not expect.
-6. Scene 6: strongest "WAIT, WHAT?" reveal, reframe, and satisfying payoff for the CURRENT topic.
-7. Scene 7: finish the CURRENT topic cleanly. Production will replace this final scene with
-its own single continuation bridge after the story is validated. Do not mention any future topic.
+STORY — FOLLOW THIS NARRATIVE SHAPE:
+1. Scene 1: open on a familiar, strange, or surprising situation that instantly makes the viewer wonder "why/how does that happen?" Do not announce the topic.
+2. Scene 2: deepen the curiosity gap. Introduce a common assumption, misconception, or obvious explanation, then create a reason to doubt it.
+3. Scene 3: use a conversational turn such as "but", "actually", "well", or "you see" to reveal the first useful piece of the answer.
+4. Scene 4: explain the mechanism as a simple chain of physical or human actions. Prefer concrete verbs and everyday language.
+5. Scene 5: escalate with a consequence, hidden detail, or unexpected step that changes the viewer's mental model.
+6. Scene 6: deliver the strongest "wait, what?" reveal and complete the CURRENT-topic payoff. Do not tease another topic.
+7. Scene 7: leave only the production-owned ending handoff slot. Do not mention a future topic and do not repeat the current topic just to fill space.
 
-The story must be one chain of curiosity -> discovery -> escalation -> reversal -> mindblowing-but-true payoff.
-Do not make a list of facts.
+The story must feel like a person telling a friend one weird thing they just learned:
+curiosity -> assumption -> correction -> explanation -> escalation -> satisfying reveal.
+Do not write a list of facts. Do not sound like a textbook, documentary, classroom lesson, or AI summary.
 
 ORIGINALITY:
 - Every hook must be creatively distinct from recent channel hooks, not merely reworded.
@@ -395,12 +396,22 @@ STORY BLUEPRINT — SOURCE OF TRUTH:
 Create exactly 7 scenes with durations 3, 5, 7, 7, 8, 8, 7 seconds.
 Target approximately 95–115 spoken words total.
 
-Make the opening strong enough to stop a scroll in the first 1–2 seconds. Open on the
-strangest observable result, contradiction, or consequence — never a topic announcement.
-Create an explicit open loop in Scene 1–2: the viewer should know something surprising
-happened but not yet know why. Delay the complete explanation until Scene 6.
-Insert a meaningful pattern break every 1–2 scenes through a new action, comparison,
-prediction, consequence, or viewpoint — never through random filler.
+Make the opening strong enough to stop a scroll in the first 1–2 seconds. The first
+sentence should describe a familiar, strange, surprising, or consequential situation rather
+than naming the topic or defining it. The viewer should immediately have a reason to wonder
+what is going on.
+
+Build the script like the reference storytelling pattern:
+- HOOK: observable situation or surprising consequence.
+- ASSUMPTION: what people naturally think is happening, or the obvious explanation.
+- CONTRAST: "but", "actually", "well", "you see", or an equivalent conversational turn that breaks the assumption.
+- MECHANISM: explain what physically or logically happens in simple language.
+- ESCALATION: add a second consequence or hidden detail that makes the story more interesting.
+- PAYOFF: reveal the strongest surprising TRUE detail and connect it back to the opening.
+
+Do not force those labels into the narration. They describe the underlying structure only.
+Use curiosity loops every 1–2 scenes, but each loop must advance the same central mystery.
+Delay the complete explanation until Scene 6.
 Scene 5 should change the viewer's mental model, and Scene 6 must deliver the complete,
 satisfying CURRENT-topic payoff.
 
@@ -449,7 +460,10 @@ Judge a finished narration ruthlessly from the viewer's perspective.
 This is not a prediction that a video will go viral. It is a pre-publish creative quality gate.
 
 Reject scripts that:
-- open generically or explain before creating curiosity
+- open generically, define the topic, or explain before creating curiosity
+- fail to start from a familiar/strange observable situation
+- never establish a natural assumption and then challenge or correct it
+- lack conversational turns such as "but", "actually", "well", or "you see" where they would naturally fit
 - reuse a recent hook mechanism too closely
 - repeat a recent topic or underlying fact
 - move from setup to explanation without escalation
@@ -625,6 +639,54 @@ def _validate_no_future_topic_in_story(script, topic):
             raise RuntimeError(f"Scene {index} contains a future-topic handoff before Scene 7.")
 
 
+REFERENCE_STORY_CONNECTORS = (
+    "but", "actually", "well", "you see", "in fact", "that's why",
+    "which is why", "because", "when", "if", "instead", "rather",
+)
+
+GENERIC_TOPIC_OPENERS = (
+    "the reason", "the explanation", "today we're", "in this video",
+    "let's talk about", "this video is about", "we're going to talk about",
+)
+
+
+def _validate_reference_story_style(script, topic):
+    """Enforce the conversational curiosity -> correction -> mechanism -> payoff shape."""
+    scenes = script.get("scene_plan") or []
+    if len(scenes) != 7:
+        raise RuntimeError("Reference-story style requires exactly 7 scenes.")
+
+    first = _clean(scenes[0].get("narration"))
+    first_words = _words(first)
+    first_lower = first.lower()
+    if len(first_words) < 8 or len(first_words) > 30:
+        raise RuntimeError("Reference-story hook must be a concise 8–30 word curiosity setup.")
+    if first_lower.startswith(GENERIC_TOPIC_OPENERS):
+        raise RuntimeError("Reference-story hook starts with a generic topic explanation.")
+
+    all_text = " ".join(_clean(scene.get("narration")) for scene in scenes[:6]).lower()
+    connector_hits = {phrase for phrase in REFERENCE_STORY_CONNECTORS if re.search(r"\b" + re.escape(phrase) + r"\b", all_text)}
+    if len(connector_hits) < 3:
+        raise RuntimeError(
+            "Reference-story narration needs at least 3 conversational curiosity/contrast connectors."
+        )
+
+    middle_text = " ".join(_clean(scene.get("narration")) for scene in scenes[1:6]).lower()
+    middle_hits = {phrase for phrase in REFERENCE_STORY_CONNECTORS if re.search(r"\b" + re.escape(phrase) + r"\b", middle_text)}
+    if len(middle_hits) < 2:
+        raise RuntimeError(
+            "Reference-story narration needs conversational turns in the explanation/escalation."
+        )
+
+    if not any(re.search(r"\bbut\b|\bactually\b|\bwell\b|\byou see\b|\bin fact\b", scene.get("narration",""), re.I) for scene in scenes[1:6]):
+        raise RuntimeError("Reference-story narration is missing the assumption-to-correction turn.")
+
+    if len(set(first_words[:8])) < 5:
+        raise RuntimeError("Reference-story hook is too repetitive.")
+
+    return True
+
+
 def _validate_entertainment(script, topic):
     scenes = script.get("scene_plan")
     if not isinstance(scenes, list) or len(scenes) != 7:
@@ -643,6 +705,7 @@ def _validate_entertainment(script, topic):
         raise RuntimeError(f"Entertainment narration word count {total} is outside 80–130.")
     if _clean(scenes[0].get("narration")).lower().startswith(("did you know", "have you ever wondered", "today we're", "in this video")):
         raise RuntimeError("Entertainment hook is generic.")
+    _validate_reference_story_style(script, topic)
     # Continuation is production-owned. The writer never selects or embeds a future topic.
     return total
 

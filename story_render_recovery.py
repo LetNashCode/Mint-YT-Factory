@@ -63,7 +63,8 @@ def recover() -> bool:
         "youtube_url": f"https://www.youtube.com/shorts/{video_id}",
     })
     social = publish_social_reels(final, title, description, config, workdir)
-    failures = [name for name, value in (social or {}).items() if isinstance(value, dict) and str(value.get("status", "")).lower() == "failed"]
+    required = ("instagram", "facebook")
+    failures = [name for name in required if not isinstance((social or {}).get(name), dict) or str((social or {})[name].get("status", "")).lower() != "published"]
     if failures:
         queue = {
             "schema_version": 1,

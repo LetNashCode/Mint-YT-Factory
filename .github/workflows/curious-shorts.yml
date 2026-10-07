@@ -95,7 +95,8 @@ jobs:
           set -euo pipefail
           python -u curious_upload_rescue.py
 
-      - name: Verify final video        run: |
+      - name: Verify final video
+        run: |
           set -euo pipefail
           final_file="$(find output -type f -name final.mp4 -print -quit || true)"
           test -n "$final_file"

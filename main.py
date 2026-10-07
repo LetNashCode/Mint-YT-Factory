@@ -74,7 +74,7 @@ def _lock_canonical_topic(script,current_topic,locked_topic=None):
     candidate=str(locked_topic or (script.get("next_short") or {}).get("topic","")).strip()
     if locked_topic:
         # reserve_next_short() is the authoritative validation point. Once it
-        # creates the pending reservation, Scene 7 must use that exact topic;
+        # creates the pending reservation, the successor remains metadata-only;
         # re-running novelty validation here can reject or replace a perfectly
         # valid reserved successor and break deterministic topic chaining.
         candidate=str(locked_topic).strip()

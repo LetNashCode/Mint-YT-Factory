@@ -635,27 +635,33 @@ def verify(person, scene, item, samples):
         request_timeout = max(15, int(os.environ.get("STORY_GEMINI_REQUEST_TIMEOUT", "45")))
     except ValueError:
         request_timeout = 45
-    # Network failures and provider 5xx responses use separate retry budgets.
-    # A timeout should not consume the entire 503/504 retry window.
-    max_attempts = max(network_retries + 1, transient_retries + 1)
-    for retry in range(max_attempts):
+    # Network failures and provider 5xx responses use independent retry budgets.
+    # A timeout must not consume the 503/504 retry window, and vice versa.
+    network_attempts = 0
+    transient_attempts = 0
+    while True:
         try:
             response = requests.post(
                 f"https://generativelanguage.googleapis.com/v1beta/models/{quote(model, safe='')}:generateContent",
                 headers={"x-goog-api-key": key}, json=payload, timeout=(10, request_timeout)
             )
         except (requests.Timeout, requests.ConnectionError):
+            network_attempts += 1
             last_error = "network timeout"
-            print(f"Story verifier network timeout: {model}; retry {retry + 1}/{network_retries + 1}", flush=True)
-            if retry < network_retries:
-                time.sleep(2 ** retry + 1)
+            print(
+                f"Story verifier network timeout: {model}; attempt "
+                f"{network_attempts}/{network_retries + 1}",
+                flush=True,
+            )
+            if network_attempts <= network_retries:
+                time.sleep(2 ** min(network_attempts - 1, 4) + 1)
                 continue
             Path(NETWORK_DEFER_FILE).write_text(
-                f"Story verifier network unavailable after {network_retries + 1} attempts on {model}.\n",
+                f"Story verifier network unavailable after {network_attempts} attempts on {model}.\n",
                 encoding="utf-8",
             )
             raise RuntimeError(
-                f"Story verifier network unavailable after {network_retries + 1} attempts on {model}"
+                f"Story verifier network unavailable after {network_attempts} attempts on {model}"
             )
 
         if response.status_code == 429 and _is_daily_quota_response(response):
@@ -696,12 +702,13 @@ def verify(person, scene, item, samples):
             break
 
         if response.status_code in (500, 502, 503, 504):
+            transient_attempts += 1
             last_error = f"HTTP {response.status_code}"
-            if retry < transient_retries:
-                delay = min(20, 2 ** min(retry, 4))
+            if transient_attempts <= transient_retries:
+                delay = min(20, 2 ** min(transient_attempts - 1, 4))
                 print(
                     f"Story verifier {model}: {last_error}; transient retry "
-                    f"{retry + 1}/{transient_retries}",
+                    f"{transient_attempts}/{transient_retries}",
                     flush=True,
                 )
                 time.sleep(delay)
@@ -713,7 +720,8 @@ def verify(person, scene, item, samples):
             print(f"Story verifier {model}: HTTP 404; model is unavailable", flush=True)
             break
 
-        response.raise_for_status()
+        if response.status_code < 200 or response.status_code >= 300:
+            response.raise_for_status()
         try:
             parts = response.json().get("candidates", [{}])[0].get("content", {}).get("parts", [])
             result = json.loads("".join(p.get("text", "") for p in parts))

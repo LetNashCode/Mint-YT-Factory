@@ -154,13 +154,20 @@ def main_entry():
 
     def curious_lock(script,current_topic,locked_topic=None,stale_topics=None):
         script["topic"]=current_topic
-        script.setdefault("next_short",{})
-        if locked_topic: script["next_short"]["topic"]=locked_topic
+        # Curious Shorts do not participate in Publish Shorts continuation chains.
+        script["next_short"]={}
         for scene in script.get("scene_plan") or []:
             scene["subtitle_text"]=clean(scene.get("narration"))
-        print("Curious ending lock: current-topic payoff only; no future-topic bridge",flush=True)
-        return script,clean((script.get("next_short") or {}).get("topic"))
+        print("Curious ending lock: no continuation topic; current-topic payoff only",flush=True)
+        return script,""
     main.lock_next_topic=curious_lock
+
+    # main.py normally reserves/saves a next_short topic. Disable that shared
+    # queue for Curious so unrelated pending Publish/Story topics never block it.
+    def curious_no_continuation(next_topic,current_topic=""):
+        return ""
+    main.reserve_next_short=curious_no_continuation
+    main.save_next_short=curious_no_continuation
 
     os.environ.update({"MINT_TTS_PROVIDER":"kokoro","MINT_KOKORO_VOICE":"af_heart","MINT_KOKORO_LANG":"a","MINT_EDGE_TTS_FALLBACK":"0"})
 

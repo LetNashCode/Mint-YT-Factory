@@ -694,10 +694,15 @@ def verify(person, scene, item, samples):
             raise RuntimeError("Story verifier daily Gemini quota exhausted")
 
         if response.status_code == 429:
+            transient_attempts += 1
             last_error = "HTTP 429"
-            print(f"Story verifier {model}: HTTP 429; retry {retry + 1}/3", flush=True)
-            if retry < transient_retries:
-                time.sleep(min(8, 1.5 * (retry + 1)))
+            print(
+                f"Story verifier {model}: HTTP 429; transient retry "
+                f"{transient_attempts}/{transient_retries}",
+                flush=True,
+            )
+            if transient_attempts <= transient_retries:
+                time.sleep(min(8, 1.5 * transient_attempts))
                 continue
             break
 
@@ -738,11 +743,11 @@ def verify(person, scene, item, samples):
     # for the next recovery attempt.
     if str(last_error).startswith("HTTP 5"):
         Path(NETWORK_DEFER_FILE).write_text(
-            f"Story verifier provider unavailable after transient retries on {GEMINI_MODEL}: {last_error}.\n",
+            f"Story verifier unavailable after retries on {GEMINI_MODEL}: {last_error}.\n",
             encoding="utf-8",
         )
         raise RuntimeError(
-            f"Story verifier network unavailable after transient retries on {GEMINI_MODEL}: {last_error}"
+            f"Story verifier unavailable after retries on {GEMINI_MODEL}: {last_error}"
         )
     raise RuntimeError(f"Story verifier unavailable after retries on {GEMINI_MODEL}: {last_error}")
 

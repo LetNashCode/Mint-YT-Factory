@@ -136,7 +136,7 @@ def _strip_future_continuations_from_prior_scenes(script, future_topics):
     return removed
 
 def lock_next_topic(script,current_topic,locked_topic=None,stale_topics=None):
-    """Lock the successor as metadata only; Publish has no spoken Scene 7."""
+    """Lock the successor as metadata only; Publish has no spoken continuation scene."""
     previous=str((script.get("next_short") or {}).get("topic") or "").strip()
     stale_topics=[str(x).strip() for x in (stale_topics or []) if str(x).strip()]
     canonical=_lock_canonical_topic(script,current_topic,locked_topic=locked_topic)

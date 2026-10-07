@@ -628,10 +628,17 @@ def verify(person, scene, item, samples):
     except ValueError:
         network_retries = 1
     try:
+        transient_retries = max(0, int(os.environ.get("STORY_GEMINI_TRANSIENT_RETRIES", "3")))
+    except ValueError:
+        transient_retries = 3
+    try:
         request_timeout = max(15, int(os.environ.get("STORY_GEMINI_REQUEST_TIMEOUT", "45")))
     except ValueError:
         request_timeout = 45
-    for retry in range(network_retries + 1):
+    # Network failures and provider 5xx responses use separate retry budgets.
+    # A timeout should not consume the entire 503/504 retry window.
+    max_attempts = max(network_retries + 1, transient_retries + 1)
+    for retry in range(max_attempts):
         try:
             response = requests.post(
                 f"https://generativelanguage.googleapis.com/v1beta/models/{quote(model, safe='')}:generateContent",
@@ -683,16 +690,21 @@ def verify(person, scene, item, samples):
         if response.status_code == 429:
             last_error = "HTTP 429"
             print(f"Story verifier {model}: HTTP 429; retry {retry + 1}/3", flush=True)
-            if retry < 2:
-                time.sleep(1.5 * (retry + 1))
+            if retry < transient_retries:
+                time.sleep(min(8, 1.5 * (retry + 1)))
                 continue
             break
 
         if response.status_code in (500, 502, 503, 504):
             last_error = f"HTTP {response.status_code}"
-            if retry < 2:
-                print(f"Story verifier {model}: {last_error}; retrying ({retry + 1}/3)", flush=True)
-                time.sleep(2)
+            if retry < transient_retries:
+                delay = min(12, 2 ** min(retry, 3))
+                print(
+                    f"Story verifier {model}: {last_error}; transient retry "
+                    f"{retry + 1}/{transient_retries}",
+                    flush=True,
+                )
+                time.sleep(delay)
                 continue
             break
 

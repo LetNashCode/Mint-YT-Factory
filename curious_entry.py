@@ -15,10 +15,25 @@ Previously covered:
 def clean(x):
     return re.sub(r"\s+", " ", str(x or "")).strip()
 
+_GENAI_CLIENT = None
+
 def client():
+    global _GENAI_CLIENT
     key=os.environ.get("GEMINI_API_KEY","").strip()
     if not key: raise RuntimeError("GEMINI_API_KEY is missing.")
-    return genai.Client(api_key=key)
+    if _GENAI_CLIENT is None:
+        _GENAI_CLIENT = genai.Client(api_key=key)
+    return _GENAI_CLIENT
+
+def reset_client():
+    global _GENAI_CLIENT
+    old = _GENAI_CLIENT
+    _GENAI_CLIENT = None
+    if old is not None:
+        try:
+            old.close()
+        except Exception:
+            pass
 
 def previous():
     import topics
@@ -28,18 +43,33 @@ def previous():
 def get_curious_topic():
     import topics
     old=previous()
-    for _ in range(12):
-        response=client().models.generate_content(
-            model="gemini-flash-lite-latest",
-            contents=TOPIC_PROMPT + ("\n".join(old) or "none"),
-            config=types.GenerateContentConfig(temperature=0.95,response_mime_type="application/json"),
-        )
-        data=json.loads(response.text)
-        topic=clean(data.get("topic"))
-        if topic and len(topic.split()) <= 9 and topics.validate_topic_for_pipeline(topic,used=old,check_duplicate=True):
-            print("CURIOUS TOPIC:",topic,flush=True)
-            return topic
-        old.append(topic)
+    last=None
+    for attempt in range(1,13):
+        try:
+            response=client().models.generate_content(
+                model="gemini-flash-lite-latest",
+                contents=TOPIC_PROMPT + ("\n".join(old) or "none"),
+                config=types.GenerateContentConfig(temperature=0.95,response_mime_type="application/json"),
+            )
+            data=json.loads(response.text)
+            topic=clean(data.get("topic"))
+            if topic and len(topic.split()) <= 9 and topics.validate_topic_for_pipeline(topic,used=old,check_duplicate=True):
+                print("CURIOUS TOPIC:",topic,flush=True)
+                return topic
+            old.append(topic)
+        except Exception as exc:
+            last=exc
+            message=str(exc).lower()
+            if "client has been closed" in message or "client is closed" in message:
+                reset_client()
+                print(f"⚠️ Curious Gemini client was closed; recreated client (attempt {attempt}/12)",flush=True)
+                continue
+            if any(code in message for code in ("429","500","502","503","504","timeout")):
+                reset_client()
+                print(f"⚠️ Curious topic Gemini transient failure; retrying (attempt {attempt}/12): {type(exc).__name__}: {exc}",flush=True)
+                continue
+            raise
+    raise RuntimeError(f"No Curious Short topic passed novelty gate after 12 attempts: {last}")
     raise RuntimeError("No Curious Short topic passed novelty gate after 12 attempts.")
 
 SCRIPT_PROMPT = """You write Mint Fever Curious Shorts for a United States audience.

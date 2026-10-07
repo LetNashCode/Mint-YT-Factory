@@ -27,11 +27,14 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install FFmpeg
+      - name: Install FFmpeg and Publish caption font
         run: |
           set -euo pipefail
           sudo apt-get update
-          sudo apt-get install -y --no-install-recommends ffmpeg espeak-ng
+          sudo apt-get install -y --no-install-recommends ffmpeg espeak-ng fontconfig
+          mkdir -p "$HOME/.local/share/fonts"
+          cp assets/Fonts/Poppins-ExtraBold.ttf "$HOME/.local/share/fonts/"
+          fc-cache -f
 
       - name: Install isolated dependencies
         run: |

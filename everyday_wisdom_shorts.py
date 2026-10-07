@@ -361,24 +361,34 @@ def _ass_escape(text):
     )
 
 
+def _publish_ass_color(index):
+    """Match Publish Shorts' colorful one-word caption palette."""
+    colors = [
+        "&H00FFFFFF",  # white
+        "&H0054D5FF",  # yellow
+        "&H00FFD749",  # cyan/blue in ASS BGR
+        "&H005E5AFF",  # pink
+        "&H0063FF8D",  # green
+    ]
+    return colors[index % len(colors)]
+
+
 def create_animated_captions(narration, duration):
-    """Create isolated, narration-timed kinetic captions for Everyday Wisdom."""
-    words = narration.split()
+    """Create Everyday Wisdom captions using the isolated Publish-style renderer.
+
+    Publish style:
+    - one spoken word at a time
+    - large Poppins-like bold presentation
+    - colorful rotating emphasis
+    - dark outline + offset shadow
+    - lower-center safe placement
+    - narration-weighted timing
+    """
+    words = [word for word in narration.split() if word.strip()]
     if not words:
         raise RuntimeError("Cannot create captions from empty narration")
 
-    groups = []
-    current = []
-    for word in words:
-        current.append(word)
-        if len(current) >= 3 or re.search(r"[.!?,;:]$", word):
-            groups.append(current)
-            current = []
-    if current:
-        groups.append(current)
-
-    weights = [max(1, len(" ".join(group))) for group in groups]
-    total_weight = float(sum(weights))
+    total_weight = float(sum(max(1, len(re.sub(r"[^A-Za-z0-9]", "", word))) for word in words))
     ass_path = RUN_ROOT / "captions.ass"
 
     header = """[Script Info]
@@ -390,7 +400,7 @@ WrapStyle: 2
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Wisdom,Arial,62,&H00FFFFFF,&H00FFFFFF,&H00101010,&H00000000,1,0,0,0,100,100,0,0,1,7,2,2,80,80,250,1
+Style: PublishWisdom,Arial,72,&H00FFFFFF,&H00FFFFFF,&H00111111,&H00000000,1,0,0,0,100,100,0,0,1,2,7,2,80,80,691,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -398,36 +408,81 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 
     current_time = 0.0
     lines = [header]
-    for index, (group, weight) in enumerate(zip(groups, weights)):
+    for index, word in enumerate(words):
+        weight = max(1, len(re.sub(r"[^A-Za-z0-9]", "", word)))
+        segment_duration = duration * (weight / total_weight)
         start = current_time
-        end = duration if index == len(groups) - 1 else current_time + duration * (weight / total_weight)
-        text = _ass_escape(" ".join(group))
-        events = (
-            "{\\fad(90,90)\\t(0,110,\\fscx92\\fscy92)\\t(110,220,\\fscx108\\fscy108)\\t(220,300,\\fscx100\\fscy100)}"
-            + text
-        )
+        end = duration if index == len(words) - 1 else min(duration, current_time + segment_duration)
+        if end <= start:
+            continue
+
+        color = _publish_ass_color(index)
+        text = _ass_escape(word)
         lines.append(
-            f"Dialogue: 0,{_ass_time(start)},{_ass_time(end)},Wisdom,,0,0,0,,{events}"
+            f"Dialogue: 0,{_ass_time(start)},{_ass_time(end)},PublishWisdom,,0,0,0,,"
+            f"{{\\c{color}}}{text}"
         )
         current_time = end
 
     ass_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"Animated captions created: {ass_path} | beats={len(groups)}")
+    print(
+        f"Publish-style captions created: {ass_path} | "
+        f"words={len(words)} | one-word beats | lower-center | colorful"
+    )
     return ass_path
 
 
+def _make_2_5_second_visual_segments(clips, total_duration):
+    """Build a hard-cut visual timeline that changes source every 2.5 seconds."""
+    if not clips:
+        raise RuntimeError("No stock clips available")
+
+    segment_duration = 2.5
+    segment_count = max(1, int((float(total_duration) + segment_duration - 1e-6) // segment_duration))
+    segment_paths = []
+    for index in range(segment_count):
+        source = clips[index % len(clips)]
+        segment_path = RUN_ROOT / "segments" / f"visual_{index:03d}.mp4"
+        segment_path.parent.mkdir(parents=True, exist_ok=True)
+        remaining = max(0.05, float(total_duration) - index * segment_duration)
+        duration = min(segment_duration, remaining)
+        # Rotate through the available stock sources so every 2.5s boundary
+        # presents a different source whenever the downloaded set allows it.
+        subprocess.run(
+            [
+                "ffmpeg", "-y",
+                "-stream_loop", "-1",
+                "-i", str(source),
+                "-t", f"{duration:.3f}",
+                "-an",
+                "-vf",
+                "scale=1080:1920:force_original_aspect_ratio=increase,"
+                "crop=1080:1920,setsar=1,fps=30,format=yuv420p",
+                "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+                "-pix_fmt", "yuv420p",
+                str(segment_path),
+            ],
+            check=True,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        segment_paths.append(segment_path)
+
+    concat = RUN_ROOT / "visual_segments.txt"
+    concat.write_text(
+        "".join(f"file '{p.resolve()}'\n" for p in segment_paths),
+        encoding="utf-8",
+    )
+    return concat
+
+
 def render(clips, audio, output, duration, narration):
-    concat = RUN_ROOT / "concat.txt"
-    concat.write_text("".join(f"file '{p.resolve()}'\n" for p in clips), encoding="utf-8")
     ass_path = create_animated_captions(narration, duration)
     subtitle_filter = f"subtitles='{ass_path.resolve()}'"
-    filter_complex = (
-        "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,"
-        "crop=1080:1920,setsar=1,fps=30,format=yuv420p,"
-        f"{subtitle_filter}[v]"
-    )
+    visual_concat = _make_2_5_second_visual_segments(clips, duration)
+    filter_complex = f"[0:v]{subtitle_filter}[v]"
     subprocess.run([
-        "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat),
+        "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(visual_concat),
         "-i", str(audio), "-filter_complex", filter_complex,
         "-map", "[v]", "-map", "1:a:0",
         "-t", f"{duration:.3f}",

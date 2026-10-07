@@ -20,7 +20,8 @@ VIDEO_DIR = RUN_ROOT / "stock"
 VIDEO_DIR.mkdir(parents=True, exist_ok=True)
 
 PEXELS_URL = "https://api.pexels.com/videos/search"
-# Keep Everyday Wisdom on the same Gemini model as Publish Shorts, but isolated to this workflow.\nMODEL = "gemini-flash-lite-latest"
+# Keep Everyday Wisdom on the same Gemini model as Publish Shorts, but isolated to this workflow.
+MODEL = "gemini-flash-lite-latest"
 VOICE = os.getenv("WISDOM_KOKORO_VOICE", "af_heart")
 TARGET_SECONDS = 42.0
 TOPIC_HISTORY_PATH = Path("everyday_wisdom_topic_history.json")

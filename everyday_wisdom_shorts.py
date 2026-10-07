@@ -198,18 +198,11 @@ def _ass_escape(text):
 
 
 def create_animated_captions(narration, duration):
-    """Create isolated, narration-timed kinetic captions for Everyday Wisdom.
-
-    Captions use short 2-4 word beats, a small pop/scale entrance, fade in/out,
-    thick outline and bottom-safe positioning. This file belongs only to this
-    workflow; Publish Shorts and Story Shorts do not use or import it.
-    """
+    """Create isolated, narration-timed kinetic captions for Everyday Wisdom."""
     words = narration.split()
     if not words:
         raise RuntimeError("Cannot create captions from empty narration")
 
-    # Keep each caption readable on a phone. Break at punctuation where possible,
-    # otherwise use 3-word beats.
     groups = []
     current = []
     for word in words:
@@ -220,8 +213,6 @@ def create_animated_captions(narration, duration):
     if current:
         groups.append(current)
 
-    # Timing is proportional to character count, which tracks spoken duration
-    # better than assigning identical time to every caption.
     weights = [max(1, len(" ".join(group))) for group in groups]
     total_weight = float(sum(weights))
     ass_path = RUN_ROOT / "captions.ass"
@@ -247,9 +238,6 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         start = current_time
         end = duration if index == len(groups) - 1 else current_time + duration * (weight / total_weight)
         text = _ass_escape(" ".join(group))
-
-        # Pop from 92% to 108% then settle, plus a short fade. The result is
-        # animated without requiring an external caption renderer.
         events = (
             "{\\fad(90,90)\\t(0,110,\\fscx92\\fscy92)\\t(110,220,\\fscx108\\fscy108)\\t(220,300,\\fscx100\\fscy100)}"
             + text
@@ -268,14 +256,16 @@ def render(clips, audio, output, duration, narration):
     concat = RUN_ROOT / "concat.txt"
     concat.write_text("".join(f"file '{p.resolve()}'\n" for p in clips), encoding="utf-8")
     ass_path = create_animated_captions(narration, duration)
+    subtitle_filter = f"subtitles='{ass_path.resolve()}'"
     filter_complex = (
         "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,"
-        "crop=1080:1920,setsar=1,fps=30,format=yuv420p[v]"
+        "crop=1080:1920,setsar=1,fps=30,format=yuv420p,"
+        f"{subtitle_filter}[v]"
     )
     subprocess.run([
         "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat),
         "-i", str(audio), "-filter_complex", filter_complex,
-        "-map", "[v]", "-map", "1:a:0", "-vf", f"subtitles={ass_path}",
+        "-map", "[v]", "-map", "1:a:0",
         "-t", f"{duration:.3f}",
         "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
         "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart",
@@ -284,11 +274,7 @@ def render(clips, audio, output, duration, narration):
 
 
 def build_caption(story):
-    """Everyday Wisdom's isolated copy of the Publish-style metadata pattern.
-
-    Keep this function local to this workflow so caption changes here can never
-    alter Publish Shorts metadata.
-    """
+    """Everyday Wisdom's isolated copy of the Publish-style metadata pattern."""
     topic = clean(story.get("topic"), 180)
     narration = clean(story.get("narration"), 3000)
     title = clean(story.get("title"), 90)

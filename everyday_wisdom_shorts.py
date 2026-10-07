@@ -191,22 +191,55 @@ def render(clips, audio, output, duration):
     ], check=True)
 
 
+def build_caption(story):
+    """Everyday Wisdom's isolated copy of the Publish-style metadata pattern.
+
+    Keep this function local to this workflow so caption changes here can never
+    alter Publish Shorts metadata.
+    """
+    topic = clean(story.get("topic"), 180)
+    narration = clean(story.get("narration"), 3000)
+    title = clean(story.get("title"), 90)
+
+    first_sentence = re.split(r"(?<=[.!?])\s+", narration.strip())[0].strip()
+    description = (
+        f"{topic}. "
+        "Here’s the everyday story, old wisdom, or simple reason hiding behind it. "
+        "Watch through the payoff and follow Everyday Wisdom for more familiar things with surprising explanations."
+    )
+    if first_sentence and len(first_sentence) <= 180 and first_sentence.lower() not in description.lower():
+        description += f"\n\n{first_sentence}"
+
+    hashtags = ["#shorts", "#everydaywisdom", "#americanlife", "#curiosity", "#history"]
+    description += "\n\n" + " ".join(hashtags)
+
+    tags = [
+        "shorts",
+        "everyday wisdom",
+        "american life",
+        "old sayings",
+        "everyday history",
+        "curiosity",
+        "common sayings",
+        "why we say it",
+    ]
+    return title, description[:2000], tags
+
+
 def upload(video, story):
     raw = os.getenv("YOUTUBE_TOKEN_JSON", "").strip()
     if not raw:
         raise RuntimeError("YOUTUBE_TOKEN_JSON is missing")
     credentials = Credentials.from_authorized_user_info(json.loads(raw))
     youtube = build("youtube", "v3", credentials=credentials)
-    description = (
-        f"{story['topic']}\n\n"
-        "Everyday sayings, familiar habits, and the stories hiding behind them.\n\n"
-        "#shorts #americanlife #sayings #history #curiosity"
-    )
+    title, description, tags = build_caption(story)
+    print("YouTube caption:")
+    print(description)
     body = {
         "snippet": {
-            "title": clean(story["title"], 90),
+            "title": title,
             "description": description,
-            "tags": ["shorts", "american life", "sayings", "history", "curiosity"],
+            "tags": tags,
             "categoryId": "27",
         },
         "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": False},

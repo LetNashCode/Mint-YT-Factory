@@ -292,9 +292,8 @@ NEVER USE LECTURE FILLER:
 A metaphor is allowed when it makes the story more fun. Do NOT turn the entire narration
 into metaphors. Keep the actual facts clear and natural.
 
-Scene 6 must finish the current story. Scene 7 is an ending handoff slot controlled by the
-production pipeline. Do not mention the current topic again in Scene 7 and do not invent a
-second future topic.
+Scene 6 must finish the current story with the complete current-topic payoff. There is no
+spoken continuation scene and no future-topic handoff.
 
 Return ONLY JSON matching the supplied schema.
 """
@@ -635,7 +634,7 @@ def _validate_no_future_topic_in_story(script, topic):
         if len(next_words) >= 2 and len(overlap) >= 2:
             raise RuntimeError(f"Scene {index} appears to reference the generated continuation topic: {next_topic}")
         if any(re.search(pattern, narration, re.I) for pattern in teaser_patterns):
-            raise RuntimeError(f"Scene {index} contains a future-topic handoff before Scene 7.")
+            raise RuntimeError(f"Scene {index} contains a future-topic handoff before the end of the six-scene story.")
 
 
 REFERENCE_STORY_CONNECTORS = (

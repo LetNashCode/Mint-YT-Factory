@@ -174,9 +174,100 @@ def download_stock(queries):
     return chosen
 
 
-def render(clips, audio, output, duration):
+def _ass_time(seconds):
+    seconds = max(0.0, float(seconds))
+    hours = int(seconds // 3600)
+    minutes = int((seconds % 3600) // 60)
+    centiseconds = int(round((seconds - int(seconds)) * 100))
+    whole = int(seconds) % 60
+    if centiseconds >= 100:
+        whole += 1
+        centiseconds = 0
+    return f"{hours}:{minutes:02d}:{whole:02d}.{centiseconds:02d}"
+
+
+def _ass_escape(text):
+    return (
+        str(text or "")
+        .replace("\\", "\\\\")
+        .replace("{", "\\{")
+        .replace("}", "\\}")
+        .replace("\n", " ")
+        .strip()
+    )
+
+
+def create_animated_captions(narration, duration):
+    """Create isolated, narration-timed kinetic captions for Everyday Wisdom.
+
+    Captions use short 2-4 word beats, a small pop/scale entrance, fade in/out,
+    thick outline and bottom-safe positioning. This file belongs only to this
+    workflow; Publish Shorts and Story Shorts do not use or import it.
+    """
+    words = narration.split()
+    if not words:
+        raise RuntimeError("Cannot create captions from empty narration")
+
+    # Keep each caption readable on a phone. Break at punctuation where possible,
+    # otherwise use 3-word beats.
+    groups = []
+    current = []
+    for word in words:
+        current.append(word)
+        if len(current) >= 3 or re.search(r"[.!?,;:]$", word):
+            groups.append(current)
+            current = []
+    if current:
+        groups.append(current)
+
+    # Timing is proportional to character count, which tracks spoken duration
+    # better than assigning identical time to every caption.
+    weights = [max(1, len(" ".join(group))) for group in groups]
+    total_weight = float(sum(weights))
+    ass_path = RUN_ROOT / "captions.ass"
+
+    header = """[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+ScaledBorderAndShadow: yes
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Wisdom,Arial,62,&H00FFFFFF,&H00FFFFFF,&H00101010,&H00000000,1,0,0,0,100,100,0,0,1,7,2,2,80,80,250,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+"""
+
+    current_time = 0.0
+    lines = [header]
+    for index, (group, weight) in enumerate(zip(groups, weights)):
+        start = current_time
+        end = duration if index == len(groups) - 1 else current_time + duration * (weight / total_weight)
+        text = _ass_escape(" ".join(group))
+
+        # Pop from 92% to 108% then settle, plus a short fade. The result is
+        # animated without requiring an external caption renderer.
+        events = (
+            "{\\fad(90,90)\\t(0,110,\\fscx92\\fscy92)\\t(110,220,\\fscx108\\fscy108)\\t(220,300,\\fscx100\\fscy100)}"
+            + text
+        )
+        lines.append(
+            f"Dialogue: 0,{_ass_time(start)},{_ass_time(end)},Wisdom,,0,0,0,,{events}"
+        )
+        current_time = end
+
+    ass_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"Animated captions created: {ass_path} | beats={len(groups)}")
+    return ass_path
+
+
+def render(clips, audio, output, duration, narration):
     concat = RUN_ROOT / "concat.txt"
     concat.write_text("".join(f"file '{p.resolve()}'\n" for p in clips), encoding="utf-8")
+    ass_path = create_animated_captions(narration, duration)
     filter_complex = (
         "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,"
         "crop=1080:1920,setsar=1,fps=30,format=yuv420p[v]"
@@ -184,7 +275,8 @@ def render(clips, audio, output, duration):
     subprocess.run([
         "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat),
         "-i", str(audio), "-filter_complex", filter_complex,
-        "-map", "[v]", "-map", "1:a:0", "-t", f"{duration:.3f}",
+        "-map", "[v]", "-map", "1:a:0", "-vf", f"subtitles={ass_path}",
+        "-t", f"{duration:.3f}",
         "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
         "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart",
         "-pix_fmt", "yuv420p", str(output),
@@ -265,7 +357,7 @@ def main():
     duration = synthesize(story["narration"], audio)
     clips = download_stock(story["search_queries"])
     video = RUN_ROOT / "final.mp4"
-    render(clips, audio, video, min(duration, TARGET_SECONDS))
+    render(clips, audio, video, min(duration, TARGET_SECONDS), story["narration"])
     if not video.exists() or video.stat().st_size < 100000:
         raise RuntimeError("Final video was not created")
     video_id = upload(video, story)

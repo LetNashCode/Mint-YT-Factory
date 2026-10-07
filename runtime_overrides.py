@@ -76,7 +76,7 @@ def patch_continuation(main):
         return result
 
     guarded._mint_six_scene_continuation_guard = True; main.lock_next_topic = guarded; main._mint_reserved_next_topic = ""
-    print("🛡️ Scene 7 continuation guard: ENABLED | successor persistence deferred until successful YouTube publication")
+    print("🛡️ Six-scene continuation guard: ENABLED | successor metadata persistence deferred until successful YouTube publication")
 
 def patch_tts_result(main):
     from tts_bridge import patch
@@ -113,7 +113,7 @@ def patch_tts_result(main):
             try:
                 retry_feedback = (
                     f"{feedback}\n"
-                    "RECOVERY CONTRACT: Generate a COMPLETE 7-scene current-topic narration. "
+                    "RECOVERY CONTRACT: Generate a COMPLETE 6-scene current-topic narration. "
                     "Target 90-115 CORE words, with no continuation bridge. "
                     "The complete spoken narration should normally land around 80-130 words; "
                     "never return a thin sub-90-word script. "
@@ -170,7 +170,7 @@ def patch_tts_result(main):
                 _regenerate_shorter(
                     script, config,
                     "HARD LENGTH REQUIREMENT: keep the CURRENT TOPIC, locked continuation, all important facts and payoff, "
-                    "but target 105-120 CORE words before the final continuation bridge. "
+                    "but target 90-115 CORE words with no continuation bridge. "
                     "The complete narration should land around 120-140 spoken words. "
                     "Every sentence must remain fully speakable. "
                     "Do not add another topic or omit the core explanation."

@@ -481,6 +481,9 @@ def build_caption(story):
         if tag and tag not in tags:
             tags.append(tag)
     tags = tags[:15]
+    # YouTube enforces a total tag-character limit; keep a safety margin.
+    while sum(len(tag) for tag in tags) + max(0, len(tags) - 1) > 450:
+        tags.pop()
 
     first_sentence = re.split(r"(?<=[.!?])\s+", narration.strip())[0].strip()
     description = (

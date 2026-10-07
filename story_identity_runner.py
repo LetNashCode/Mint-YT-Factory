@@ -1,6 +1,7 @@
 """Run Story Shorts with identity-first archival media and topic uniqueness protection."""
 from __future__ import annotations
 
+import os
 import runpy
 import time
 from pathlib import Path
@@ -137,8 +138,8 @@ def _patch_story_video_topics() -> None:
             release_reservation(pillar, topic, person)
             from factory_content_memory import release as release_factory_topic
             release_factory_topic(topic, "story")
-            print(f"Skipping Story subject without accessible video candidates ({attempt + 1}/8): {person}", flush=True)
-        raise RuntimeError("No unused Story subject with real-video candidates found in eight attempts")
+            print(f"Skipping Story subject without accessible video candidates ({attempt + 1}/{max_attempts}): {person}", flush=True)
+        raise RuntimeError(f"No unused Story subject with real-video candidates found in {max_attempts} attempts")
     video_ready_topic._mint_video_topic_preflight = True
     interactive_topics.get_next_topic = video_ready_topic
 

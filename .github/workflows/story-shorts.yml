@@ -1,5 +1,14 @@
 name: Story Shorts
 on:
+  push:
+    paths:
+      - 'story_*.py'
+      - 'interactive_main.py'
+      - 'interactive_topics.py'
+      - 'interactive_analytics.py'
+      - 'generate_script/interactive.py'
+      - 'tests/test_story_*.py'
+      - '.github/workflows/story-shorts.yml'
   schedule:
     - cron: '0 5 * * *'
     - cron: '0 11 * * *'
@@ -48,7 +57,7 @@ jobs:
         run: python -m py_compile factory_content_memory.py tts.py story_gemini_budget.py story_qwen_vision_fallback.py story_visual_upgrade.py story_youtube_metadata.py story_identity_runner.py story_real_video_media.py interactive_main.py production_entry.py production_entry_runner.py assemble.py
   story-shorts:
     needs: quality-checks
-    if: ${{ inputs.test_only != true }}
+    if: ${{ inputs.test_only != true && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -82,7 +91,7 @@ jobs:
             echo "ℹ️ No previous Story render artifact available"
           fi
       - name: Compile Story Shorts runtime and quality gates
-        run: python -m py_compile tts.py interactive_main.py story_render_recovery.py story_social_resume.py story_youtube_metadata.py story_identity_runner.py story_visual_upgrade.py story_real_video_media.py story_qwen_vision_fallback.py story_archival_media.py story_media_quality.py final_video_quality_gate.py publication_state.py social_retry_state.py upload_youtube.py validate_video.py assemble.py
+        run: python -m py_compile tts.py interactive_main.py interactive_topics.py interactive_analytics.py story_render_recovery.py story_social_resume.py story_youtube_metadata.py story_identity_runner.py story_visual_upgrade.py story_real_video_media.py story_qwen_vision_fallback.py story_archival_media.py story_media_quality.py story_topic_runtime.py story_topic_uniqueness.py story_stock_runtime.py story_topic_media_lock.py story_media_preflight.py story_gemini_budget.py final_video_quality_gate.py publication_state.py social_retry_state.py upload_youtube.py validate_video.py assemble.py
       - name: Resume pending Story social publication
         id: resume
         env:

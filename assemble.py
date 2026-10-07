@@ -697,7 +697,7 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
     print(f"Narration: {narration_duration:.2f}s")
 
     # Narration is the absolute master clock. Scale the complete 6-scene visual
-    # timeline to its real duration instead of hard-cutting Scene 7 when narration
+    # timeline to its real duration instead of hard-cutting the final scene when narration
     # finishes before the fixed 45-second storyboard clock.
     if narration_duration <= 0.05:
         raise RuntimeError("Narration duration is invalid; refusing to render a silent visual tail.")

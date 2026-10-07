@@ -62,7 +62,7 @@ def patch_continuation(main):
     main.commit_topic = atomic_commit
     def guarded(script, current_topic, locked_topic=None, stale_topics=None):
         # Six-scene Publish: the successor remains metadata-only. There is no
-        # spoken Scene 7 and therefore no continuation bridge to rewrite.
+        # spoken continuation scene and therefore no continuation bridge to rewrite.
         result = original_lock(
             script,
             current_topic,

@@ -17,7 +17,7 @@ def test_requires_seven_scenes():
         raise AssertionError("Expected seven-scene failure")
 
 def test_rejects_future_video_ending():
-    scenes=[{"narration":"You have seen this forever."}]*6
+    scenes=[{"narration":"You have seen this familiar thing forever and probably never stopped to ask why it works this way."}]*6
     scenes.append({"narration":"Follow us in the next video for more."})
     try:
         curious_entry.validate({"scene_plan":scenes})

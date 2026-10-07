@@ -38,6 +38,7 @@ VERIFIER_BUDGET_DEFER_FILE = story_gemini_budget.BUDGET_DEFER_FILE
 NETWORK_DEFER_FILE = ".story_gemini_network_deferred"
 DEFAULT_VERIFIER_REQUEST_BUDGET = story_gemini_budget.DEFAULT_MAX_REQUESTS
 GEMINI_MODEL = "gemini-flash-lite-latest"
+GEMINI_FALLBACK_MODEL = os.environ.get("STORY_GEMINI_FALLBACK_MODEL", "gemini-3.5-flash-lite").strip() or "gemini-3.5-flash-lite"
 
 PRECHECK_CACHE_FILE = Path("story_video_rejection_cache.json")
 PRECHECK_CACHE_VERSION = 3
@@ -737,11 +738,63 @@ def verify(person, scene, item, samples):
         _VERIFIER_MODELS[requested_model] = model
         return result
 
-    # A provider 5xx that survives the bounded retry window is an outage,
-    # not a content rejection. Persist the outage marker so the Story runner
-    # stops trying more subjects in the same run and preserves the reservation
-    # for the next recovery attempt.
-    if str(last_error).startswith("HTTP 5"):
+    # A provider 5xx/404 on the primary model is a provider/model availability
+    # failure, not a content rejection. Before deferring the entire Story run,
+    # make one bounded attempt on a stable Gemini multimodal fallback. This keeps
+    # the Publish-compatible primary model while preventing a temporary primary
+    # endpoint outage from killing an otherwise valid Story.
+    if str(last_error).startswith("HTTP 5") or str(last_error) == "HTTP 404":
+        fallback = GEMINI_FALLBACK_MODEL
+        if fallback and fallback != requested_model:
+            print(
+                f"🛟 Story verifier primary {requested_model} unavailable ({last_error}); "
+                f"trying stable Gemini fallback {fallback}",
+                flush=True,
+            )
+            fallback_url = (
+                f"https://generativelanguage.googleapis.com/v1beta/models/"
+                f"{quote(fallback, safe='')}:generateContent"
+            )
+            try:
+                fallback_response = requests.post(
+                    fallback_url,
+                    headers={"x-goog-api-key": key},
+                    json=payload,
+                    timeout=(10, request_timeout),
+                )
+            except (requests.Timeout, requests.ConnectionError):
+                fallback_response = None
+
+            if fallback_response is not None and 200 <= fallback_response.status_code < 300:
+                try:
+                    parts = fallback_response.json().get("candidates", [{}])[0].get("content", {}).get("parts", [])
+                    result = json.loads("".join(p.get("text", "") for p in parts))
+                except (ValueError, TypeError, AttributeError, IndexError):
+                    result = None
+                if isinstance(result, dict):
+                    _VERIFIER_MODELS[requested_model] = fallback
+                    print(
+                        f"✅ Story verifier fallback succeeded: {fallback}",
+                        flush=True,
+                    )
+                    return result
+            if fallback_response is not None and fallback_response.status_code == 429 and _is_daily_quota_response(fallback_response):
+                _mark_gemini_quota_deferred("Fallback Gemini model also reported daily/project quota exhaustion")
+                raise RuntimeError("Story verifier daily Gemini quota exhausted")
+            if fallback_response is not None:
+                print(
+                    f"⚠️ Story verifier fallback {fallback} also unavailable: "
+                    f"HTTP {fallback_response.status_code}",
+                    flush=True,
+                )
+
+        Path(NETWORK_DEFER_FILE).write_text(
+            f"Story verifier unavailable after retries on {GEMINI_MODEL}: {last_error}.\n",
+            encoding="utf-8",
+        )
+        raise RuntimeError(
+            f"Story verifier unavailable after retries on {GEMINI_MODEL}: {last_error}"
+        )
         Path(NETWORK_DEFER_FILE).write_text(
             f"Story verifier unavailable after retries on {GEMINI_MODEL}: {last_error}.\n",
             encoding="utf-8",

@@ -70,7 +70,6 @@ def get_curious_topic():
                 continue
             raise
     raise RuntimeError(f"No Curious Short topic passed novelty gate after 12 attempts: {last}")
-    raise RuntimeError("No Curious Short topic passed novelty gate after 12 attempts.")
 
 SCRIPT_PROMPT = """You write Mint Fever Curious Shorts for a United States audience.
 Create one entertaining 35-44 second mini-mystery about the CURRENT TOPIC.

@@ -166,6 +166,13 @@ or a second topic. The narration must work without visuals.
 Write 105-135 words, approximately 38-43 seconds, as one connected mini-story.
 The first sentence must create immediate curiosity. End with a satisfying answer.
 
+TITLE RULES:
+- Create a curiosity-driven title for US viewers.
+- Prefer 35-65 characters when natural.
+- Make the familiar subject obvious while creating a reason to watch.
+- Do not use "Did you know?", ALL CAPS, fake shock, misleading claims, or generic titles like "You Won't Believe This".
+- Do not stuff keywords into the title.
+
 Return JSON only:
 {"title":"...","topic":"...","topic_key":"...","narration":"...","search_queries":["...","...","..."]}
 Search queries must be concrete things a camera can show, 3-6 words each.
@@ -430,33 +437,83 @@ def render(clips, audio, output, duration, narration):
 
 
 def build_caption(story):
-    """Everyday Wisdom's isolated copy of the Publish-style metadata pattern."""
+    """Build topic-specific discovery metadata for Everyday Wisdom only."""
     topic = clean(story.get("topic"), 180)
     narration = clean(story.get("narration"), 3000)
     title = clean(story.get("title"), 90)
 
+    # Keep the title curiosity-driven but truthful. Gemini owns the creative
+    # title; this only removes noisy punctuation/whitespace.
+    title = re.sub(r"\s+", " ", title).strip(" .-")
+    if not title:
+        title = topic[:70].rstrip(" .-")
+    title = title[:70].rstrip(" .-")
+
+    # Derive searchable phrases from the actual topic rather than using a
+    # generic keyword wall. These remain isolated from Publish Shorts.
+    topic_terms = [
+        word.lower()
+        for word in re.findall(r"[A-Za-z]{3,}", topic)
+        if word.lower() not in {
+            "why", "does", "did", "the", "and", "for", "with",
+            "from", "about", "americans", "people", "common",
+        }
+    ]
+    topic_terms = list(dict.fromkeys(topic_terms))
+
+    keyword_phrases = [
+        topic,
+        f"why {topic.lower()}",
+        f"{topic.lower()} explained",
+        f"meaning of {topic.lower()}",
+        f"history of {topic.lower()}",
+        *topic_terms,
+        "everyday wisdom",
+        "american life",
+        "common sayings",
+        "everyday history",
+        "curiosity",
+    ]
+
+    tags = []
+    for value in keyword_phrases:
+        tag = re.sub(r"[^A-Za-z0-9 -]", "", str(value or "")).strip().lower()
+        if tag and tag not in tags:
+            tags.append(tag)
+    tags = tags[:15]
+
     first_sentence = re.split(r"(?<=[.!?])\s+", narration.strip())[0].strip()
     description = (
         f"{topic}. "
-        "Here’s the everyday story, old wisdom, or simple reason hiding behind it. "
-        "Watch through the payoff and follow Everyday Wisdom for more familiar things with surprising explanations."
+        f"Ever wondered why this is so common in American life? "
+        f"This short explains the history, meaning, or practical reason behind it "
+        f"through one simple story."
     )
-    if first_sentence and len(first_sentence) <= 180 and first_sentence.lower() not in description.lower():
-        description += f"\n\n{first_sentence}"
+    if first_sentence and len(first_sentence) <= 180:
+        if first_sentence.lower() not in description.lower():
+            description += f"\n\n{first_sentence}"
 
-    hashtags = ["#shorts", "#everydaywisdom", "#americanlife", "#curiosity", "#history"]
-    description += "\n\n" + " ".join(hashtags)
+    description += (
+        "\n\nFollow Everyday Wisdom for more familiar sayings, habits, objects, "
+        "and everyday mysteries with surprisingly simple explanations."
+    )
 
-    tags = [
-        "shorts",
-        "everyday wisdom",
-        "american life",
-        "old sayings",
-        "everyday history",
-        "curiosity",
-        "common sayings",
-        "why we say it",
+    # Keep hashtags tightly tied to this specific Short.
+    hashtag_candidates = [
+        "#shorts",
+        "#everydaywisdom",
+        "#americanlife",
+        "#curiosity",
     ]
+    if topic_terms:
+        hashtag_candidates.append("#" + "".join(topic_terms[:2]))
+    hashtags = []
+    for tag in hashtag_candidates:
+        tag = re.sub(r"[^A-Za-z0-9#]", "", tag).lower()
+        if tag not in hashtags:
+            hashtags.append(tag)
+    description += "\n\n" + " ".join(hashtags[:5])
+
     return title, description[:2000], tags
 
 

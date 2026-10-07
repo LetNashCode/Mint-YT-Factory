@@ -48,9 +48,9 @@ jobs:
 
       - name: Run Everyday Wisdom Short
         env:
-          GEMINI_API_KEY: \${{ secrets.GEMINI_API_KEY }}
-          PEXELS_API_KEY: \${{ secrets.PEXELS_API_KEY }}
-          YOUTUBE_TOKEN_JSON: \${{ secrets.YOUTUBE_TOKEN_JSON }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
           WISDOM_KOKORO_VOICE: af_heart
         run: |
           set -euo pipefail
@@ -60,7 +60,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: everyday-wisdom-\${{ github.run_id }}
+          name: everyday-wisdom-${{ github.run_id }}
           path: .everyday_wisdom_runs/**
           if-no-files-found: warn
           retention-days: 7

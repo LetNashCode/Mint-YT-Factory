@@ -4,7 +4,7 @@ Mint-YT-Factory
 
 Version 8.3
 
-Assembles the 7-scene / 14-visual YouTube Short.
+Assembles the 6-scene / 12-visual YouTube Short.
 """
 
 import os

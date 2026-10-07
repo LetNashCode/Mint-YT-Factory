@@ -2,7 +2,7 @@
 from __future__ import annotations
 import glob, json, os, sys
 from interactive_main import load_config, _title, save
-from upload_youtube import upload_video
+from upload_youtube import upload_video\nimport story_visual_upgrade
 from social_publish import publish_social_reels
 from interactive_topics import record_topic
 from interactive_analytics import record as record_analytics
@@ -48,10 +48,17 @@ def recover() -> bool:
     from final_video_quality_gate import validate as validate_final_render
     validate_final_render(final)
     print(f"✅ Recovered Story final quality gate passed: {final}")
-    title = _title(pillar, person)
-    description = f"A remarkable true story about {person} — the struggle, turning point, and moment that changed everything.\n\nWhat would you have done in {person}'s situation? 👇\n\nSubscribe and follow for more powerful stories about people who faced setbacks, made difficult choices, and changed their lives.\n\n#StoryShorts #TrueStory #Inspiration #Shorts"
+    from story_youtube_metadata import build_story_metadata
+    title, description, story_tags = build_story_metadata(script)
+    description += story_visual_upgrade.source_credits() if "story_visual_upgrade" in globals() else ""
     engagement = (script.get("engagement") or {}).get("comment") or f"What would you have done in {person}'s situation? 👇"
     config = dict(load_config() or {})
+    seo = dict(config.get("seo") or {})
+    seo["hashtags"] = ["storyshorts", "truestory", "inspiration", "shorts"]
+    config["seo"] = seo
+    upload = dict(config.get("upload") or {})
+    upload["_youtube_tags"] = list(story_tags)
+    config["upload"] = upload
     result = upload_video(final, title, description, config, engagement_comment=engagement)
     video_id = result if isinstance(result, str) else str(result.get("video_id") or result.get("id") or "") if isinstance(result, dict) else ""
     if not video_id:

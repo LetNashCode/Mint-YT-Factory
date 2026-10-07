@@ -78,7 +78,11 @@ def generate_curious_script(topic,config,research=None,extra_feedback=""):
             response=client().models.generate_content(
                 model="gemini-flash-lite-latest",
                 contents=prompt,
-                config=types.GenerateContentConfig(temperature=0.85,response_mime_type="application/json"),
+                config=types.GenerateContentConfig(
+                    temperature=0.85,
+                    response_mime_type="application/json",
+                    tools=[types.Tool(google_search=types.GoogleSearch())],
+                ),
             )
             script=json.loads(response.text)
             script["topic"]=topic

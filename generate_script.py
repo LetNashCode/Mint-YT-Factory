@@ -251,7 +251,7 @@ STORY — FOLLOW THIS NARRATIVE SHAPE:
 4. Scene 4: explain the mechanism as a simple chain of physical or human actions. Prefer concrete verbs and everyday language.
 5. Scene 5: escalate with a consequence, hidden detail, or unexpected step that changes the viewer's mental model.
 6. Scene 6: deliver the strongest "wait, what?" reveal and complete the CURRENT-topic payoff. Do not tease another topic.
-7. There is no Scene 7. Scene 6 is the complete current-topic ending and payoff.
+There is no seventh scene. Scene 6 is the complete current-topic ending and payoff.
 
 The story must feel like a person telling a friend one weird thing they just learned:
 curiosity -> assumption -> correction -> explanation -> escalation -> satisfying reveal.
@@ -412,7 +412,7 @@ Do not force those labels into the narration. They describe the underlying struc
 Use curiosity loops every 1–2 scenes, but each loop must advance the same central mystery.
 Delay the complete explanation until Scene 6.
 Scene 5 should change the viewer's mental model, and Scene 6 must deliver the complete,
-satisfying CURRENT-topic payoff. There is no Scene 7.
+satisfying CURRENT-topic payoff. No additional spoken scene exists.
 
 CREATIVE REQUIREMENTS:
 - hook_type must identify the actual hook mechanism.

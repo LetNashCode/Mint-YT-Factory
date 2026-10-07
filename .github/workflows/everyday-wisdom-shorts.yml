@@ -46,6 +46,33 @@ jobs:
             "google-auth>=2.29.0" \
             "google-api-python-client>=2.130.0"
 
+      - name: Preflight production inputs
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
+        run: |
+          set -euo pipefail
+          test -n "$GEMINI_API_KEY"
+          test -n "$PEXELS_API_KEY"
+          test -n "$YOUTUBE_TOKEN_JSON"
+          python -m py_compile everyday_wisdom_shorts.py
+          python - <<'PY'
+          import json
+          import os
+          from google import genai
+          from google.oauth2.credentials import Credentials
+          from kokoro import KPipeline
+
+          token = json.loads(os.environ["YOUTUBE_TOKEN_JSON"])
+          credentials = Credentials.from_authorized_user_info(token)
+          if not credentials.refresh_token:
+              raise SystemExit("YOUTUBE_TOKEN_JSON is missing refresh_token")
+          KPipeline(lang_code="a", model=False)
+          genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+          print("Production preflight passed.")
+          PY
+
       - name: Run Everyday Wisdom Short
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

@@ -604,22 +604,54 @@ def test_story_verifier_uses_publish_shorts_gemini_model(monkeypatch):
     assert media.GEMINI_MODEL == stock_search.GEMINI_MODEL == "gemini-flash-lite-latest"
 
 
-def test_story_verifier_never_falls_back_to_another_model(monkeypatch):
+def test_story_verifier_uses_stable_fallback_after_primary_5xx(monkeypatch):
     monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
     monkeypatch.setenv("STORY_GEMINI_TRANSIENT_RETRIES", "1")
+    monkeypatch.setenv("STORY_GEMINI_FALLBACK_MODEL", "gemini-3.5-flash-lite")
     monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
     calls = []
 
     def post(url, **kwargs):
         calls.append(url)
-        return SimpleNamespace(status_code=503, raise_for_status=lambda: None, json=lambda: {})
+        if "gemini-flash-lite-latest" in url:
+            return SimpleNamespace(status_code=503, raise_for_status=lambda: None, json=lambda: {})
+        return SimpleNamespace(
+            status_code=200,
+            raise_for_status=lambda: None,
+            json=lambda: {"candidates": [{"content": {"parts": [{"text": json.dumps(GOOD)}]}}]},
+        )
 
     monkeypatch.setattr(media.requests, "post", post)
-    with pytest.raises(RuntimeError, match="unavailable after retries on gemini-flash-lite-latest"):
+    result = media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
+    assert media.verification_passes(result)
+    assert len(calls) == 3
+    assert all("gemini-flash-lite-latest" in call for call in calls[:2])
+    assert "gemini-3.5-flash-lite" in calls[-1]
+
+
+def test_story_verifier_fallback_never_bypasses_daily_quota(monkeypatch):
+    monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
+    monkeypatch.setenv("STORY_GEMINI_TRANSIENT_RETRIES", "0")
+    monkeypatch.setenv("STORY_GEMINI_FALLBACK_MODEL", "gemini-3.5-flash-lite")
+    monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
+
+    quota_payload = {
+        "error": {
+            "message": "GenerateRequestsPerDayPerProject quota exceeded",
+            "status": "RESOURCE_EXHAUSTED",
+        }
+    }
+
+    def post(url, **kwargs):
+        return SimpleNamespace(
+            status_code=429,
+            raise_for_status=lambda: None,
+            json=lambda: quota_payload,
+        )
+
+    monkeypatch.setattr(media.requests, "post", post)
+    with pytest.raises(RuntimeError, match="daily Gemini quota exhausted"):
         media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
-    assert len(calls) == 2
-    assert all("gemini-flash-lite-latest" in call for call in calls)
-    assert not any("gemini-3." in call for call in calls)
 
 
 def test_direct_subject_category_is_retained(monkeypatch):

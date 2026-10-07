@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import difflib
 import json
 import os
 import re
@@ -22,9 +23,12 @@ PEXELS_URL = "https://api.pexels.com/videos/search"
 MODEL = "gemini-2.5-flash"
 VOICE = os.getenv("WISDOM_KOKORO_VOICE", "af_heart")
 TARGET_SECONDS = 42.0
+TOPIC_HISTORY_PATH = Path("everyday_wisdom_topic_history.json")
+MAX_HISTORY_FOR_PROMPT = 120
 
 
 def clean(value, limit=1000):
+
     return re.sub(r"\s+", " ", str(value or "")).strip()[:limit]
 
 
@@ -35,8 +39,110 @@ def client():
     return genai.Client(api_key=key)
 
 
+def normalize_topic(value):
+    value = re.sub(r"[^a-z0-9\s]", " ", str(value or "").lower())
+    value = re.sub(
+        r"\b(why|do|does|did|we|you|the|a|an|is|are|was|were|how|what|where|when|"
+        r"of|to|it|people|americans|say|saying|called|call|about|behind|reason)\b",
+        " ",
+        value,
+    )
+    return " ".join(value.split())
+
+
+def topic_similarity(left, right):
+    left_norm = normalize_topic(left)
+    right_norm = normalize_topic(right)
+    if not left_norm or not right_norm:
+        return 0.0
+    if left_norm == right_norm:
+        return 1.0
+
+    left_words = set(left_norm.split())
+    right_words = set(right_norm.split())
+    overlap = len(left_words & right_words) / max(1, len(left_words | right_words))
+    sequence = difflib.SequenceMatcher(None, left_norm, right_norm).ratio()
+    return max(overlap, sequence)
+
+
+def load_topic_history():
+    if not TOPIC_HISTORY_PATH.exists():
+        return []
+    try:
+        payload = json.loads(TOPIC_HISTORY_PATH.read_text(encoding="utf-8"))
+    except Exception as exc:
+        raise RuntimeError(f"Cannot read Everyday Wisdom topic history: {exc}") from exc
+    entries = payload.get("topics", []) if isinstance(payload, dict) else []
+    if not isinstance(entries, list):
+        raise RuntimeError("Everyday Wisdom topic history is malformed")
+    return [entry for entry in entries if isinstance(entry, dict)]
+
+
+def history_strings(history):
+    values = []
+    for entry in history:
+        for key in ("topic_key", "topic", "title"):
+            value = clean(entry.get(key), 180)
+            if value and value not in values:
+                values.append(value)
+    return values
+
+
+def is_duplicate_topic(candidate, history):
+    candidate_key = normalize_topic(candidate.get("topic_key"))
+    candidate_topic = clean(candidate.get("topic"), 200)
+    candidate_title = clean(candidate.get("title"), 120)
+
+    for entry in history:
+        old_values = [
+            clean(entry.get("topic_key"), 120),
+            clean(entry.get("topic"), 200),
+            clean(entry.get("title"), 120),
+        ]
+        old_key = normalize_topic(old_values[0])
+        if candidate_key and old_key and candidate_key == old_key:
+            return True
+
+        for old_value in old_values:
+            if not old_value:
+                continue
+            if normalize_topic(candidate_topic) == normalize_topic(old_value):
+                return True
+            if topic_similarity(candidate_key or candidate_topic, old_value) >= 0.78:
+                return True
+
+    return False
+
+
+def remember_topic(story):
+    history = load_topic_history()
+    entry = {
+        "topic_key": clean(story.get("topic_key"), 120),
+        "topic": clean(story.get("topic"), 200),
+        "title": clean(story.get("title"), 120),
+        "created_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+    }
+    if is_duplicate_topic(story, history):
+        raise RuntimeError(f"Topic already exists in history: {entry['topic']}")
+    history.append(entry)
+    TOPIC_HISTORY_PATH.write_text(
+        json.dumps({"version": 1, "topics": history}, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    print(f"Topic history updated: {entry['topic']} | key={entry['topic_key']}")
+    return entry
+
+
 def generate_story():
-    prompt = """
+    history = load_topic_history()
+    used = history_strings(history)[-MAX_HISTORY_FOR_PROMPT:]
+    history_block = (
+        "\nAlready used topics. Do NOT create the same idea, even with different wording:\n"
+        + "\n".join(f"- {item}" for item in used)
+        if used
+        else "\nNo previous topics have been used yet.\n"
+    )
+    base_prompt = """
 Create one YouTube Short for a US audience about something Americans have
 heard forever but rarely stop to ask why: an old grandma saying, familiar
 phrase, household rule, childhood warning, common habit, or ordinary object.
@@ -44,6 +150,14 @@ phrase, household rule, childhood warning, common habit, or ordinary object.
 The story must uncover the documented history, practical reason, cultural
 origin, or psychological reason behind it. Do not invent an origin; if the
 origin is uncertain, say so naturally and give the strongest explanation.
+
+IMPORTANT: The topic must be genuinely different from every topic in the
+provided history. Do not reuse an old topic by changing only the wording,
+angle, title, or example. Choose a different underlying subject/question.
+
+Create a short canonical "topic_key" of 2-6 content words that identifies the
+underlying idea. The topic_key must make the same subject obvious even if the
+title is phrased differently.
 
 Do not use politics, celebrities, medical advice, conspiracy, fearbait,
 lists, countdowns, "Did you know?", "Today we're going to", AI references,
@@ -53,35 +167,42 @@ Write 105-135 words, approximately 38-43 seconds, as one connected mini-story.
 The first sentence must create immediate curiosity. End with a satisfying answer.
 
 Return JSON only:
-{"title":"...","topic":"...","narration":"...","search_queries":["...","...","..."]}
+{"title":"...","topic":"...","topic_key":"...","narration":"...","search_queries":["...","...","..."]}
 Search queries must be concrete things a camera can show, 3-6 words each.
-"""
+""" + history_block
+
     c = client()
-    for attempt in range(3):
+    for attempt in range(5):
         try:
             response = c.models.generate_content(
                 model=MODEL,
-                contents=prompt,
-                config={"temperature": 0.9, "response_mime_type": "application/json"},
+                contents=base_prompt,
+                config={"temperature": 0.95, "response_mime_type": "application/json"},
             )
             data = json.loads(response.text)
-            narration = clean(data.get("narration"), 3000)
-            queries = [clean(x, 80) for x in data.get("search_queries", []) if clean(x, 80)]
-            words = re.findall(r"\b[\w'-]+\b", narration)
-            if not data.get("topic") or not narration or len(queries) < 3:
+            story = {
+                "title": clean(data.get("title"), 90),
+                "topic": clean(data.get("topic"), 200),
+                "topic_key": clean(data.get("topic_key"), 120),
+                "narration": clean(data.get("narration"), 3000),
+                "search_queries": [
+                    clean(x, 80) for x in data.get("search_queries", []) if clean(x, 80)
+                ][:3],
+            }
+            words = re.findall(r"\b[\w'-]+\b", story["narration"])
+            if not story["topic"] or not story["topic_key"] or not story["narration"] or len(story["search_queries"]) < 3:
                 raise RuntimeError("Incomplete story JSON")
             if not 105 <= len(words) <= 145:
                 raise RuntimeError(f"Narration word count {len(words)} outside 105-145")
-            return {
-                "title": clean(data.get("title"), 90),
-                "topic": clean(data.get("topic"), 200),
-                "narration": narration,
-                "search_queries": queries[:3],
-            }
+            if is_duplicate_topic(story, history):
+                raise RuntimeError(
+                    f"Duplicate topic rejected: {story['topic']} | key={story['topic_key']}"
+                )
+            return story
         except Exception as exc:
-            if attempt == 2:
+            if attempt == 4:
                 raise
-            print(f"Story generation retry {attempt + 1}/3: {type(exc).__name__}: {exc}")
+            print(f"Story generation retry {attempt + 1}/5: {type(exc).__name__}: {exc}")
             time.sleep(2 + attempt)
     raise RuntimeError("Story generation failed")
 
@@ -338,6 +459,7 @@ def upload(video, story):
 def main():
     print("EVERYDAY WISDOM SHORTS | isolated pipeline")
     story = generate_story()
+    remember_topic(story)
     (RUN_ROOT / "story.json").write_text(json.dumps(story, indent=2), encoding="utf-8")
     audio = RUN_ROOT / "narration.wav"
     duration = synthesize(story["narration"], audio)

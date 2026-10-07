@@ -945,6 +945,11 @@
       "source_id": "archive:amuppetfamilychristmasjimhensoncompany1987",
       "source_url": "https://archive.org/details/amuppetfamilychristmasjimhensoncompany1987",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "e87e0bb30c60750b7091f3b5": {
+      "source_id": "archive:3-chang-ngoc-1080p",
+      "source_url": "https://archive.org/details/3-chang-ngoc-1080p",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
     }
   }
 }

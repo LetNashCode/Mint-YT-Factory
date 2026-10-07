@@ -46,5 +46,43 @@
       "Joined NASA's astronaut corps in 1994."
     ],
     "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Sara Blakely",
+    "premise": "Using her entire $5,000 savings to patent an idea without hiring a lawyer.",
+    "hook": "She had $5,000 and zero fashion experience, so she wrote her own patent.",
+    "key_facts": [
+      "Worked as a door-to-door fax machine salesperson for seven years.",
+      "Saved $5,000 to fund the initial idea for footless pantyhose.",
+      "Wrote her own patent using a textbook bought from a bookstore.",
+      "Pitched her product directly to buyers at Neiman Marcus."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "R. Ramanathan",
+    "premise": "The legendary Indian classical Carnatic vocalist who started his career as a bank clerk.",
+    "hook": "He balanced ledgers by day and mastered ancient Carnatic ragas by night.",
+    "key_facts": [
+      "Worked for decades as an employee at the State Bank of India.",
+      "Studied music under veteran masters while maintaining a full-time banking job.",
+      "Transitioned to performing full-time later in life, earning widespread critical acclaim."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Amy Adams",
+    "premise": "Working as a greeter at a restaurant chain before landing her breakout film roles.",
+    "hook": "Before earning six Oscar nominations, she greeted diners at a local restaurant chain.",
+    "key_facts": [
+      "Sang and danced in dinner theater productions early in her career.",
+      "Worked as a greeter at Hooters restaurant in Georgia to make ends meet.",
+      "Moved to Los Angeles and made her feature film debut in 1999.",
+      "Received her first Academy Award nomination for the 2005 film Junebug."
+    ],
+    "source": "gemini_original"
   }
 ]

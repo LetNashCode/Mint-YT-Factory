@@ -41,35 +41,87 @@ def previous():
     return [str(x) for x in topics._read_used() if not str(x).startswith(prefix)][-80:]
 
 def get_curious_topic():
+    """Select a Curious topic without letting a strict single-candidate gate stall production."""
     import topics
     old=previous()
     last=None
-    for attempt in range(1,13):
+
+    # Keep a small direct-generation path for freshness, but do not burn the
+    # whole run on repeated candidates that fail the shared originality gate.
+    for attempt in range(1,5):
         try:
             response=client().models.generate_content(
                 model="gemini-flash-lite-latest",
                 contents=TOPIC_PROMPT + ("\n".join(old) or "none"),
-                config=types.GenerateContentConfig(temperature=0.95,response_mime_type="application/json"),
+                config=types.GenerateContentConfig(
+                    temperature=1.1,
+                    response_mime_type="application/json",
+                ),
             )
             data=json.loads(response.text)
             topic=clean(data.get("topic"))
-            if topic and len(topic.split()) <= 9 and topics.validate_topic_for_pipeline(topic,used=old,check_duplicate=True):
+            if topic and len(topic.split()) <= 7 and topics.validate_topic_for_pipeline(
+                topic, used=old, check_duplicate=True
+            ):
                 print("CURIOUS TOPIC:",topic,flush=True)
                 return topic
-            old.append(topic)
+
+            reason=[]
+            if not topic:
+                reason.append("empty")
+            elif len(topic.split()) > 7:
+                reason.append(f"too-long:{len(topic.split())}-words")
+            if topic and not topics._is_everyday_topic(topic):
+                reason.append("not-everyday")
+            if topic and not topics.validate_topic_for_pipeline(
+                topic, used=old, check_duplicate=True
+            ):
+                reason.append("duplicate/originality-gate")
+            print(
+                f"⚠️ Curious topic candidate rejected ({attempt}/4): "
+                f"{topic!r} | {','.join(reason) or 'validation'}",
+                flush=True,
+            )
+            if topic:
+                old.append(topic)
         except Exception as exc:
             last=exc
             message=str(exc).lower()
             if "client has been closed" in message or "client is closed" in message:
                 reset_client()
-                print(f"⚠️ Curious Gemini client was closed; recreated client (attempt {attempt}/12)",flush=True)
+                print(f"⚠️ Curious Gemini client was closed; recreated client (attempt {attempt}/4)",flush=True)
                 continue
             if any(code in message for code in ("429","500","502","503","504","timeout")):
                 reset_client()
-                print(f"⚠️ Curious topic Gemini transient failure; retrying (attempt {attempt}/12): {type(exc).__name__}: {exc}",flush=True)
+                print(f"⚠️ Curious topic Gemini transient failure; retrying (attempt {attempt}/4): {type(exc).__name__}: {exc}",flush=True)
                 continue
             raise
-    raise RuntimeError(f"No Curious Short topic passed novelty gate after 12 attempts: {last}")
+
+    # Use the existing batch strategist + deterministic fallback. It already
+    # applies the same originality/creative-memory gates and is designed not to
+    # block production when one Gemini candidate is unusable.
+    try:
+        topic=topics._generate_topic(old)
+        if topic and topics._candidate_is_new(topic, old):
+            print(f"CURIOUS TOPIC (STRATEGIST): {topic}",flush=True)
+            return topic
+        print(f"⚠️ Curious strategist returned an unverified topic: {topic!r}",flush=True)
+    except Exception as exc:
+        last=exc
+        print(
+            f"⚠️ Curious strategist unavailable; using deterministic fallback: "
+            f"{type(exc).__name__}: {exc}",
+            flush=True,
+        )
+
+    try:
+        topic=topics._deterministic_fallback(old)
+        print(f"CURIOUS TOPIC (FALLBACK): {topic}",flush=True)
+        return topic
+    except Exception as exc:
+        last=exc
+
+    raise RuntimeError(f"No Curious Short topic passed novelty gate after fallback: {last}")
 
 SCRIPT_PROMPT = """You write Mint Fever Curious Shorts for a United States audience.
 Create one entertaining 35-44 second mini-mystery about the CURRENT TOPIC.

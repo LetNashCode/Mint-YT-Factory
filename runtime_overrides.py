@@ -8,10 +8,10 @@ from pathlib import Path
 MAX_PUBLISH_CONTENT_REGEN = 3
 PUBLISH_CORE_REGEN_THRESHOLD = 125
 # Recovery must match the reconstructed generator contract.
-PUBLISH_CORE_RECOVERY_MIN = 90
+PUBLISH_CORE_RECOVERY_MIN = 80
 PUBLISH_CORE_RECOVERY_MAX = 115
-PUBLISH_TOTAL_RECOVERY_MIN = 105
-PUBLISH_TOTAL_RECOVERY_MAX = 135
+PUBLISH_TOTAL_RECOVERY_MIN = 80
+PUBLISH_TOTAL_RECOVERY_MAX = 130
 
 class AudioPath(list):
     def __init__(self, path: str): super().__init__([path])
@@ -23,7 +23,7 @@ class AudioPath(list):
 def patch_continuation(main):
     """Make Publish continuation production-owned and transactional."""
     original_lock = main.lock_next_topic
-    if getattr(original_lock, "_mint_scene7_continuation_guard", False): return
+    if getattr(original_lock, "_mint_six_scene_continuation_guard", False): return
     import topics
     def _clean(value): return topics._clean_topic(value)
     def _validate_and_hold(next_topic, current_topic):
@@ -61,14 +61,8 @@ def patch_continuation(main):
     main.save_next_short = deferred_save
     main.commit_topic = atomic_commit
     def guarded(script, current_topic, locked_topic=None, stale_topics=None):
-        scenes = script.get("scene_plan") or []
-        if scenes and isinstance(scenes[-1], dict):
-            scene7 = scenes[-1]; narration = str(scene7.get("narration") or "").strip()
-            cleaned = re.sub(r"(?:^|(?<=[.!?])\s+)Why\s+do\s+ice\s+cubes?\s+crack\s+in\s+water\??", "", narration, flags=re.IGNORECASE)
-            cleaned = re.sub(r"\s{2,}", " ", cleaned).strip()
-            if cleaned != narration:
-                scene7["narration"] = cleaned; scene7["subtitle_text"] = cleaned
-                print("🧹 Removed forbidden model continuation from Scene 7: ice-cube cracking")
+        # Six-scene Publish: the successor remains metadata-only. There is no
+        # spoken Scene 7 and therefore no continuation bridge to rewrite.
         result = original_lock(
             script,
             current_topic,
@@ -77,9 +71,11 @@ def patch_continuation(main):
         )
         locked = str((result[0].get("next_short") or {}).get("topic") or "").strip() if isinstance(result, tuple) else ""
         held = str(getattr(main, "_mint_reserved_next_topic", "") or "").strip()
-        if held and locked and topics._key(held) != topics._key(locked): raise RuntimeError(f"Canonical continuation changed: held={held!r} locked={locked!r}")
+        if held and locked and topics._key(held) != topics._key(locked):
+            raise RuntimeError(f"Canonical continuation changed: held={held!r} locked={locked!r}")
         return result
-    guarded._mint_scene7_continuation_guard = True; main.lock_next_topic = guarded; main._mint_reserved_next_topic = ""
+
+    guarded._mint_six_scene_continuation_guard = True; main.lock_next_topic = guarded; main._mint_reserved_next_topic = ""
     print("🛡️ Scene 7 continuation guard: ENABLED | successor persistence deferred until successful YouTube publication")
 
 def patch_tts_result(main):
@@ -118,8 +114,8 @@ def patch_tts_result(main):
                 retry_feedback = (
                     f"{feedback}\n"
                     "RECOVERY CONTRACT: Generate a COMPLETE 7-scene current-topic narration. "
-                    "Target 90-115 CORE words, plus the final continuation bridge. "
-                    "The complete spoken narration should normally land around 105-135 words; "
+                    "Target 90-115 CORE words, with no continuation bridge. "
+                    "The complete spoken narration should normally land around 80-130 words; "
                     "never return a thin sub-90-word script. "
                     "Keep the current-topic payoff substantial. Do not mention any retired topic, "
                     "especially onions. Do not invent or reuse facts from an older Short. "
@@ -196,10 +192,10 @@ def patch_tts_result(main):
             feedback = (
                 "HARD AUDIO REQUIREMENT: the previous TTS audio did not contain every part of the generated script. "
                 "Rewrite the COMPLETE CURRENT TOPIC narration so every scene is concise, natural, and fully speakable. "
-                "Target 90-115 core spoken words plus the final continuation bridge; "
+                "Target 90-115 core spoken words and no continuation bridge; "
                 "the complete narration should normally land around 105-135 words. "
                 "Do not remove the core explanation or payoff. Do not add a new topic. "
-                "Preserve the locked continuation metadata and make the final bridge the only continuation sentence."
+                "Preserve the locked continuation metadata and do not add a continuation sentence."
             )
             last_error = first_error
             for attempt in range(1, MAX_PUBLISH_CONTENT_REGEN + 1):

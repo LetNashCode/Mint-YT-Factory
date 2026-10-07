@@ -12569,6 +12569,146 @@
       "shot": 2,
       "query": "candle flames flicker relentless cycle appetite rebirth",
       "recorded_at": 1791366353
+    },
+    {
+      "asset_key": "pexels:video:8890622",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8890622/8890622-hd_1366_720_24fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "rubber boots squeak you step inside heavy",
+      "recorded_at": 1791412321
+    },
+    {
+      "asset_key": "pexels:video:3998662",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3998662/3998662-hd_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "rubber boots squeak floor suddenly screams",
+      "recorded_at": 1791412331
+    },
+    {
+      "asset_key": "pexels:video:4625825",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4625825/4625825-hd_1280_720_30fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "rubber boots squeak every single step makes",
+      "recorded_at": 1791412338
+    },
+    {
+      "asset_key": "pexels:video:7358236",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7358236/7358236-hd_1280_720_24fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "rubber boots squeak high-pitched chirp quiet kitchen",
+      "recorded_at": 1791412343
+    },
+    {
+      "asset_key": "pexels:video:7358242",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7358242/7358242-hd_1280_720_24fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "rubber boots squeak designed grip tight",
+      "recorded_at": 1791412347
+    },
+    {
+      "asset_key": "pexels:video:6959611",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6959611/6959611-hd_720_1280_25fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "rubber boots squeak but smooth tile gives",
+      "recorded_at": 1791412352
+    },
+    {
+      "asset_key": "pexels:video:6133540",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6133540/6133540-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "rubber boots squeak instead rolling smoothly across",
+      "recorded_at": 1791412356
+    },
+    {
+      "asset_key": "pexels:video:7358233",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7358233/7358233-hd_1280_720_24fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "rubber boots squeak catches stretches snaps",
+      "recorded_at": 1791412370
+    },
+    {
+      "asset_key": "pexels:video:8498879",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8498879/8498879-hd_1280_720_24fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "rubber boots squeak you might think boot",
+      "recorded_at": 1791412399
+    },
+    {
+      "asset_key": "pexels:video:8889788",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8889788/8889788-hd_1366_720_24fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "rubber boots squeak but stuttering micro-collisions",
+      "recorded_at": 1791412406
+    },
+    {
+      "asset_key": "pexels:video:3111744",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3111744/3111744-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "rubber boots squeak rapid-fire friction creates",
+      "recorded_at": 1791412414
+    },
+    {
+      "asset_key": "pexels:video:856298",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/856298/856298-hd_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "rubber boots squeak tiny acoustic speaker right",
+      "recorded_at": 1791412418
+    },
+    {
+      "asset_key": "pexels:video:7334250",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7334250/7334250-hd_1280_720_25fps.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "rubber boots squeak every your shoe",
+      "recorded_at": 1791412721
+    },
+    {
+      "asset_key": "pexels:video:6133549",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6133549/6133549-hd_1366_720_25fps.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "rubber boots squeak every your shoe",
+      "recorded_at": 1791412725
     }
   ]
 }

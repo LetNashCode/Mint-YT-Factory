@@ -3462,5 +3462,21 @@
     "video_id": "LZ2x3s1dnJ8",
     "workdir": "output/1791366264",
     "published_at": 1791367463
+  },
+  {
+    "topic": "Why do rubber boots squeak on tile",
+    "normalized": "why do rubber boots squeak on tile",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1791412176,
+    "recorded_at": 1791412176,
+    "metadata": {
+      "next_topic": "Why do glass windows rattle in windstorms",
+      "creative_strategy": "adjacent"
+    },
+    "title": "Why do rubber boots squeak on tile",
+    "video_id": "aVYR8KiviAk",
+    "workdir": "output/1791412216",
+    "published_at": 1791413984
   }
 ]

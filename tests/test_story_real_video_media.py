@@ -390,18 +390,25 @@ def test_verification_samples_the_rendered_opening_not_later_frames(monkeypatch)
     assert times == [0.0, 3.6, 7.2]
 
 
-def test_unavailable_publish_model_fails_without_model_fallback(monkeypatch):
+def test_unavailable_publish_model_uses_stable_fallback(monkeypatch):
     monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
+    monkeypatch.setenv("STORY_GEMINI_FALLBACK_MODEL", "gemini-3.5-flash-lite")
     monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
     calls = []
     def post(url, **kwargs):
         calls.append(url)
-        return SimpleNamespace(status_code=404, raise_for_status=lambda: None, json=lambda: {})
+        if "gemini-flash-lite-latest" in url:
+            return SimpleNamespace(status_code=404, raise_for_status=lambda: None, json=lambda: {})
+        return SimpleNamespace(
+            status_code=200,
+            raise_for_status=lambda: None,
+            json=lambda: {"candidates": [{"content": {"parts": [{"text": json.dumps(GOOD)}]}}]},
+        )
     monkeypatch.setattr(media.requests, "post", post)
-    with pytest.raises(RuntimeError, match="unavailable after retries on gemini-flash-lite-latest"):
-        media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
-    assert len(calls) == 1
-    assert "gemini-flash-lite-latest" in calls[0]
+    result = media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
+    assert media.verification_passes(result)
+    assert len(calls) == 2
+    assert "gemini-3.5-flash-lite" in calls[-1]
 
 @pytest.mark.parametrize("url", ["https://www.youtube.com/watch?v=abc", "https://youtu.be/abc",
     "https://www.youtube-nocookie.com/embed/abc", "https://rr1.googlevideo.com/videoplayback"])

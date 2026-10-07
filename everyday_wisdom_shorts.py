@@ -263,9 +263,23 @@ def search_videos(query):
     return response.json().get("videos", [])
 
 
-def download_stock(queries):
+def video_duration(path):
+    return float(subprocess.check_output(
+        [
+            "ffprobe", "-v", "error",
+            "-show_entries", "format=duration",
+            "-of", "default=noprint_wrappers=1:nokey=1",
+            str(path),
+        ],
+        text=True,
+    ).strip())
+
+
+def download_stock(queries, required_duration):
     chosen = []
     seen = set()
+    total_duration = 0.0
+    target_duration = float(required_duration) + 1.0
     for query in queries:
         for item in search_videos(query):
             vid = str(item.get("id") or "")
@@ -285,13 +299,34 @@ def download_stock(queries):
             if path.stat().st_size < 10000:
                 path.unlink(missing_ok=True)
                 continue
+            try:
+                clip_duration = video_duration(path)
+            except Exception:
+                path.unlink(missing_ok=True)
+                continue
+            if clip_duration < 1.0:
+                path.unlink(missing_ok=True)
+                continue
+
             chosen.append(path)
+            total_duration += clip_duration
             seen.add(vid)
-            print(f"Stock {len(chosen)}: {query} | Pexels {vid}")
-            if len(chosen) >= 6:
+            print(
+                f"Stock {len(chosen)}: {query} | Pexels {vid} | "
+                f"{clip_duration:.2f}s | total={total_duration:.2f}s"
+            )
+            if total_duration >= target_duration:
                 return chosen
-    if len(chosen) < 3:
-        raise RuntimeError(f"Only {len(chosen)} usable stock videos found")
+            if len(chosen) >= 10:
+                break
+        if total_duration >= target_duration or len(chosen) >= 10:
+            break
+
+    if len(chosen) < 3 or total_duration < target_duration:
+        raise RuntimeError(
+            f"Insufficient stock-video duration: {total_duration:.2f}s available, "
+            f"{target_duration:.2f}s required"
+        )
     return chosen
 
 
@@ -429,7 +464,13 @@ def upload(video, story):
     raw = os.getenv("YOUTUBE_TOKEN_JSON", "").strip()
     if not raw:
         raise RuntimeError("YOUTUBE_TOKEN_JSON is missing")
-    credentials = Credentials.from_authorized_user_info(json.loads(raw))
+    try:
+        token_info = json.loads(raw)
+        credentials = Credentials.from_authorized_user_info(token_info)
+    except Exception as exc:
+        raise RuntimeError(f"Invalid YOUTUBE_TOKEN_JSON: {exc}") from exc
+    if not credentials.refresh_token:
+        raise RuntimeError("YOUTUBE_TOKEN_JSON has no refresh_token; re-authorize the YouTube account")
     youtube = build("youtube", "v3", credentials=credentials)
     title, description, tags = build_caption(story)
     print("YouTube caption:")
@@ -450,7 +491,7 @@ def upload(video, story):
     )
     response = None
     while response is None:
-        status, response = request.next_chunk()
+        status, response = request.next_chunk(num_retries=5)
         if status:
             print(f"Upload: {int(status.progress() * 100)}%")
     return response["id"]
@@ -463,7 +504,7 @@ def main():
     (RUN_ROOT / "story.json").write_text(json.dumps(story, indent=2), encoding="utf-8")
     audio = RUN_ROOT / "narration.wav"
     duration = synthesize(story["narration"], audio)
-    clips = download_stock(story["search_queries"])
+    clips = download_stock(story["search_queries"], min(duration, TARGET_SECONDS))
     video = RUN_ROOT / "final.mp4"
     render(clips, audio, video, min(duration, TARGET_SECONDS), story["narration"])
     if not video.exists() or video.stat().st_size < 100000:

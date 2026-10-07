@@ -22,9 +22,9 @@ from google import genai
 from google.genai import types
 
 MODEL_NAME = "gemini-flash-lite-latest"
-SCENE_COUNT = 7
+SCENE_COUNT = 6
 VISUALS_PER_SCENE = 2
-SCENE_DURATIONS = [3, 5, 7, 7, 8, 8, 7]
+SCENE_DURATIONS = [3, 5, 7, 7, 8, 8]
 MAX_ATTEMPTS = 5
 
 CAMERAS = {"close_up", "medium", "wide", "macro", "top_down", "side", "aerial", "orbit"}
@@ -251,7 +251,7 @@ STORY — FOLLOW THIS NARRATIVE SHAPE:
 4. Scene 4: explain the mechanism as a simple chain of physical or human actions. Prefer concrete verbs and everyday language.
 5. Scene 5: escalate with a consequence, hidden detail, or unexpected step that changes the viewer's mental model.
 6. Scene 6: deliver the strongest "wait, what?" reveal and complete the CURRENT-topic payoff. Do not tease another topic.
-7. Scene 7: leave only the production-owned ending handoff slot. Do not mention a future topic and do not repeat the current topic just to fill space.
+7. There is no Scene 7. Scene 6 is the complete current-topic ending and payoff.
 
 The story must feel like a person telling a friend one weird thing they just learned:
 curiosity -> assumption -> correction -> explanation -> escalation -> satisfying reveal.
@@ -270,7 +270,7 @@ PAYOFF:
 
 ENDING:
 - Scene 6 must contain the complete CURRENT-topic payoff.
-- Scene 7 is reserved for the production-owned ending handoff and must not repeat the current topic.
+- There is no continuation scene. The Short ends on the complete current-topic payoff.
 - Return tease_type only as a creative metadata label. Do not write the bridge itself and do not name a future topic.
 
 ENTERTAINMENT RULES:
@@ -393,7 +393,7 @@ CURRENT TOPIC:
 STORY BLUEPRINT — SOURCE OF TRUTH:
 {json.dumps(blueprint, ensure_ascii=False)}
 
-Create exactly 7 scenes with durations 3, 5, 7, 7, 8, 8, 7 seconds.
+Create exactly 6 scenes with durations 3, 5, 7, 7, 8, 8 seconds.
 Target approximately 95–115 spoken words total.
 
 Make the opening strong enough to stop a scroll in the first 1–2 seconds. The first
@@ -413,7 +413,7 @@ Do not force those labels into the narration. They describe the underlying struc
 Use curiosity loops every 1–2 scenes, but each loop must advance the same central mystery.
 Delay the complete explanation until Scene 6.
 Scene 5 should change the viewer's mental model, and Scene 6 must deliver the complete,
-satisfying CURRENT-topic payoff.
+satisfying CURRENT-topic payoff. There is no Scene 7.
 
 CREATIVE REQUIREMENTS:
 - hook_type must identify the actual hook mechanism.
@@ -422,7 +422,7 @@ CREATIVE REQUIREMENTS:
 - tease_type must identify the ending bridge mechanism.
 - Optimize for retention and shareability: the viewer should feel compelled to finish and tell someone else.
 
-The CURRENT TOPIC is the only subject of the story.
+The CURRENT TOPIC is the only subject of the story. End the story in Scene 6.
 Retired subjects such as onion or onions are forbidden even as comparisons, examples, metaphors, or side references.
 Do not create a second story or a list of unrelated facts.
 {feedback}
@@ -541,7 +541,7 @@ CURRENT TOPIC: {topic}
 LOCKED NARRATION — DO NOT REWRITE IT:
 {joined}
 
-Create the visual plan for exactly these 7 narration scenes.
+Create the visual plan for exactly these 6 narration scenes.
 Each scene must contain exactly 2 shots.
 The narration is the source of truth. Do not add new facts or new story beats.
 
@@ -550,8 +550,7 @@ If the line is playful, translate the underlying physical meaning rather than il
 the metaphor literally.
 
 Scenes 1–6 should visually support the CURRENT topic and its payoff.
-Scene 7 is a production-owned verbal handoff; keep its visuals neutral and continuity-safe.
-Do not create visuals for the future/continuation topic; that topic is metadata and is handled separately.
+Do not create visuals for any future/continuation topic; continuation is metadata only.
 """
 
 
@@ -653,8 +652,8 @@ GENERIC_TOPIC_OPENERS = (
 def _validate_reference_story_style(script, topic):
     """Enforce the conversational curiosity -> correction -> mechanism -> payoff shape."""
     scenes = script.get("scene_plan") or []
-    if len(scenes) != 7:
-        raise RuntimeError("Reference-story style requires exactly 7 scenes.")
+    if len(scenes) != 6:
+        raise RuntimeError("Reference-story style requires exactly 6 scenes.")
 
     first = _clean(scenes[0].get("narration"))
     first_words = _words(first)
@@ -689,8 +688,8 @@ def _validate_reference_story_style(script, topic):
 
 def _validate_entertainment(script, topic):
     scenes = script.get("scene_plan")
-    if not isinstance(scenes, list) or len(scenes) != 7:
-        raise RuntimeError("Entertainment writer must return exactly 7 scenes.")
+    if not isinstance(scenes, list) or len(scenes) != 6:
+        raise RuntimeError("Entertainment writer must return exactly 6 scenes.")
     total = 0
     for i, scene in enumerate(scenes):
         narration = _clean(scene.get("narration"))
@@ -733,8 +732,8 @@ def _apply_riddle_spoiler_lock(visual_plan, entertainment):
 def _validate_visuals(visual_plan, entertainment, topic):
     _apply_riddle_spoiler_lock(visual_plan, entertainment)
     scenes = visual_plan.get("scene_plan")
-    if not isinstance(scenes, list) or len(scenes) != 7:
-        raise RuntimeError("Visual director must return exactly 7 scenes.")
+    if not isinstance(scenes, list) or len(scenes) != 6:
+        raise RuntimeError("Visual director must return exactly 6 scenes.")
     locked = entertainment["scene_plan"]
     for i, scene in enumerate(scenes):
         visuals = scene.get("visuals")
@@ -808,7 +807,7 @@ def _merge(entertainment, visual, topic):
         "continuity_rules": [],
     }
     visual_scenes = visual["scene_plan"]
-    for i in range(7):
+    for i in range(6):
         src = entertainment["scene_plan"][i]
         vs = visual_scenes[i]
         narration = _clean(src["narration"])
@@ -840,8 +839,8 @@ def _merge(entertainment, visual, topic):
         words = _words(narration)
         scenes.append({
             "scene": i + 1,
-            "purpose": src.get("purpose") if src.get("purpose") in PURPOSES else ("hook" if i == 0 else "ending" if i == 6 else "explanation"),
-            "retention_purpose": src.get("retention_purpose") if src.get("retention_purpose") in RETENTION else ("open_loop" if i < 2 else "payoff" if i >= 5 else "escalation"),
+            "purpose": src.get("purpose") if src.get("purpose") in PURPOSES else ("hook" if i == 0 else "ending" if i == 5 else "explanation"),
+            "retention_purpose": src.get("retention_purpose") if src.get("retention_purpose") in RETENTION else ("open_loop" if i < 2 else "payoff" if i >= 4 else "escalation"),
             "narration": narration,
             "source_ids": [],
             "subtitle_text": narration,
@@ -849,13 +848,13 @@ def _merge(entertainment, visual, topic):
             "subtitle_style": "dynamic",
             "emphasis_word": words[0] if words else "",
             "duration": SCENE_DURATIONS[i],
-            "pause_after_ms": 0 if i < 6 else 250,
+            "pause_after_ms": 0 if i < 5 else 250,
             "emotional_tone": src.get("emotional_tone") if src.get("emotional_tone") in TONES else ("playful" if i in (0, 3) else "curious"),
             "visual_priority": _clean(vs.get("visual_priority")) or "primary",
             "visual_concepts": [_clean(x) for x in (vs.get("visual_concepts") or []) if _clean(x)][:3],
             "transition": vs.get("transition") if vs.get("transition") in TRANSITIONS else "hard_cut",
             "sfx_cue": vs.get("sfx_cue") if isinstance(vs.get("sfx_cue"), dict) else {"term": "none", "at_ms": 0},
-            "music_cue": vs.get("music_cue") if vs.get("music_cue") in MUSIC_CUES else ("intro" if i == 0 else "fade_out" if i == 6 else "build"),
+            "music_cue": vs.get("music_cue") if vs.get("music_cue") in MUSIC_CUES else ("intro" if i == 0 else "fade_out" if i == 5 else "build"),
             "confidence": "high",
             "visuals": visuals,
         })
@@ -1004,7 +1003,7 @@ def generate_script(topic, config, research=None, extra_feedback=""):
             )
             _validate_visuals(visual, entertainment, topic)
             _validate_retired_subject_bleed(json.dumps(visual, ensure_ascii=False), "visual plan")
-            print("🎬 Visual director pass: 14 narration-mapped shots")
+            print("🎬 Visual director pass: 12 narration-mapped shots")
 
             return _merge(entertainment, visual, topic)
         except Exception as error:

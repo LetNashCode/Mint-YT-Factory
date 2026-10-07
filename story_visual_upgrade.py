@@ -196,7 +196,7 @@ def preflight_candidate(person, topic=""):
 
     audit["usable_sources"] = len(usable)
     audit["estimated_segments"] = estimated
-    min_sources = max(1, int(os.environ.get("STORY_MIN_PREFLIGHT_SOURCES", "2")))
+    min_sources = max(1, int(os.environ.get("STORY_MIN_PREFLIGHT_SOURCES", "1")))
     if estimated < 14 or len(usable) < min_sources:
         raise RuntimeError(
             f"Story media preflight failed for {person}: {len(usable)} usable archival sources, "

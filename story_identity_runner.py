@@ -60,7 +60,7 @@ def _patch_story_titles() -> None:
             story_script = {}
         story_title, story_description, story_tags = build_story_metadata(story_script)
         if not story_title:
-            story_title = optimized
+            story_title = raw_title or f"Story: {person}"
         story_description = str(story_description or description or "") + story_visual_upgrade.source_credits()
         upload_config = dict(config or {})
         seo = dict(upload_config.get("seo") or {})

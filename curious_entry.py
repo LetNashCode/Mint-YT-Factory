@@ -143,6 +143,8 @@ def main_entry():
         config["branding"]={"channel_name":"Mint Fever","ending_text":"Follow for more.","ending_text_enabled":True,"ending_text_in_narration":False,"overlay_branding":False,"watermark":False}
         return config
     main.load_config=load_config
+    # Keep Curious narration below the workflow's 43.9s maximum after the fixed TTS tail.
+    tts_bridge.MAX_FINAL_NARRATION_SECONDS = 43.50
     tts_bridge.patch(main)
     print("MINT FEVER CURIOUS SHORT | US audience | Kokoro af_heart single-pass",flush=True)
     main.run(dry_run=False)

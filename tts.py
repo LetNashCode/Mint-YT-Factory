@@ -115,7 +115,7 @@ _KOKORO_PIPELINE = None
 _KOKORO_PIPELINE_LANG = None
 
 
-def _get_kokoro_pipeline(lang):
+def _get_kokoro_pipeline(lang, voice=None):
     global _KOKORO_PIPELINE, _KOKORO_PIPELINE_LANG
     if _KOKORO_PIPELINE is not None and _KOKORO_PIPELINE_LANG == lang:
         return _KOKORO_PIPELINE
@@ -123,7 +123,7 @@ def _get_kokoro_pipeline(lang):
         from kokoro import KPipeline
     except ImportError as error:
         raise RuntimeError("kokoro is not installed") from error
-    print(f"🧠 Loading Kokoro-82M | lang={lang} | voice={KOKORO_VOICE}")
+    print(f"🧠 Loading Kokoro-82M | lang={lang} | requested_voice={voice or KOKORO_VOICE}")
     try:
         _KOKORO_PIPELINE = KPipeline(lang_code=lang)
     except Exception as error:
@@ -217,7 +217,7 @@ def _generate_kokoro(text, voice_config, output_path):
     except Exception:
         speed = 1.0
     speed = min(1.10, max(0.90, speed))
-    pipeline = _get_kokoro_pipeline(lang)
+    pipeline = _get_kokoro_pipeline(lang, voice=voice)
 
     chunks = _split_kokoro_text(text)
     if not chunks:

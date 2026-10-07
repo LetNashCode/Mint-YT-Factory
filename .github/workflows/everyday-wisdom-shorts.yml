@@ -68,7 +68,7 @@ jobs:
           credentials = Credentials.from_authorized_user_info(token)
           if not credentials.refresh_token:
               raise SystemExit("YOUTUBE_TOKEN_JSON is missing refresh_token")
-          KPipeline(lang_code="a", model=False)
+          KPipeline(lang_code="a")
           genai.Client(api_key=os.environ["GEMINI_API_KEY"])
           print("Production preflight passed.")
           PY

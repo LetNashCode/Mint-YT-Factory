@@ -624,11 +624,11 @@ def verify(person, scene, item, samples):
     # blocking on one verifier call while many other candidates are waiting.
     last_error = "unknown"
     try:
-        network_retries = max(0, int(os.environ.get("STORY_GEMINI_NETWORK_RETRIES", "1")))
+        network_retries = max(0, int(os.environ.get("STORY_GEMINI_NETWORK_RETRIES", "2")))
     except ValueError:
         network_retries = 1
     try:
-        transient_retries = max(0, int(os.environ.get("STORY_GEMINI_TRANSIENT_RETRIES", "3")))
+        transient_retries = max(0, int(os.environ.get("STORY_GEMINI_TRANSIENT_RETRIES", "5")))
     except ValueError:
         transient_retries = 3
     try:
@@ -698,7 +698,7 @@ def verify(person, scene, item, samples):
         if response.status_code in (500, 502, 503, 504):
             last_error = f"HTTP {response.status_code}"
             if retry < transient_retries:
-                delay = min(12, 2 ** min(retry, 3))
+                delay = min(20, 2 ** min(retry, 4))
                 print(
                     f"Story verifier {model}: {last_error}; transient retry "
                     f"{retry + 1}/{transient_retries}",
@@ -724,6 +724,18 @@ def verify(person, scene, item, samples):
         _VERIFIER_MODELS[requested_model] = model
         return result
 
+    # A provider 5xx that survives the bounded retry window is an outage,
+    # not a content rejection. Persist the outage marker so the Story runner
+    # stops trying more subjects in the same run and preserves the reservation
+    # for the next recovery attempt.
+    if str(last_error).startswith("HTTP 5"):
+        Path(NETWORK_DEFER_FILE).write_text(
+            f"Story verifier provider unavailable after transient retries on {GEMINI_MODEL}: {last_error}.\n",
+            encoding="utf-8",
+        )
+        raise RuntimeError(
+            f"Story verifier network unavailable after transient retries on {GEMINI_MODEL}: {last_error}"
+        )
     raise RuntimeError(f"Story verifier unavailable after retries on {GEMINI_MODEL}: {last_error}")
 
 

@@ -49,10 +49,31 @@ def _patch_story_titles() -> None:
         print(f"✅ Final video quality gate passed before upload: {video_path}")
         raw_title = str(title or "")
         person = raw_title.split(":", 1)[1].strip() if ":" in raw_title else ""
-        optimized = optimize_title(raw_title, person, raw_title, "")
-        print(f"🎯 Story title optimized: {optimized}")
-        description = str(description or "") + story_visual_upgrade.source_credits()
-        return original_upload(video_path, optimized, description, config, *args, **kwargs)
+        # Story Shorts owns its metadata independently. Do not reuse Publish
+        # or Everyday Wisdom title/description/tag builders.
+        from story_youtube_metadata import build_story_metadata
+        script_path = Path(video_path).parent / "script.json"
+        try:
+            import json
+            story_script = json.loads(script_path.read_text(encoding="utf-8"))
+        except Exception:
+            story_script = {}
+        story_title, story_description, story_tags = build_story_metadata(story_script)
+        if not story_title:
+            story_title = optimized
+        story_description = str(story_description or description or "") + story_visual_upgrade.source_credits()
+        upload_config = dict(config or {})
+        seo = dict(upload_config.get("seo") or {})
+        # Hashtags are for the description; keyword tags are sent separately
+        # through upload_youtube so Story changes cannot affect Publish.
+        seo["hashtags"] = ["storyshorts", "truestory", "inspiration", "shorts"]
+        upload_config["seo"] = seo
+        upload = dict(upload_config.get("upload") or {})
+        upload["_youtube_tags"] = list(story_tags)
+        upload_config["upload"] = upload
+        print(f"🎯 Story title optimized: {story_title}")
+        print(f"🔎 Story YouTube tags: {len(story_tags)} topic-specific keywords")
+        return original_upload(video_path, story_title, story_description, upload_config, *args, **kwargs)
     optimized_upload._mint_story_title_optimizer = True
     upload_youtube.upload_video = optimized_upload
 

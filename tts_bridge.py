@@ -1,9 +1,7 @@
 """Single-pass Publish Shorts narration protection.
 
-The Publish pipeline must synthesize the complete narration with one provider and
-one voice. Older versions synthesized the core narration and Scene 7 bridge in
-separate TTS passes, which could create an audible narrator/prosody jump even
-when both passes were configured with the same voice.
+The Publish pipeline synthesizes the complete six-scene narration with one
+provider and one voice. There is no spoken continuation scene.
 """
 from __future__ import annotations
 

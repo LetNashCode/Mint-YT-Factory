@@ -885,6 +885,66 @@
       "source_id": "archive:JawaniDiwani-Chamatkar",
       "source_url": "https://archive.org/details/JawaniDiwani-Chamatkar",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "7fc323c982a6e012691cc408": {
+      "source_id": "archive:Meet_the_cast_of_Agatha_Christie_s_Witness_for_the_Prosecution",
+      "source_url": "https://archive.org/details/Meet_the_cast_of_Agatha_Christie_s_Witness_for_the_Prosecution",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "4b82498ba104c3d70ef2a68c": {
+      "source_id": "archive:ACSpidersWeb",
+      "source_url": "https://archive.org/details/ACSpidersWeb",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "a572a7360e90341dc9e50012": {
+      "source_id": "archive:PC_Longplay_102_Agatha_Christie_Death_On_The_Nile",
+      "source_url": "https://archive.org/details/PC_Longplay_102_Agatha_Christie_Death_On_The_Nile",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "728c2a43be80c828f0f8ccae": {
+      "source_id": "archive:vid-20250628-235758",
+      "source_url": "https://archive.org/details/vid-20250628-235758",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "450d9d91d373e63c09174aac": {
+      "source_id": "archive:PC_Longplay_104_Agatha_Christie_Dead_Mans_Folly",
+      "source_url": "https://archive.org/details/PC_Longplay_104_Agatha_Christie_Dead_Mans_Folly",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "9bb2a4991639c613492eea6a": {
+      "source_id": "archive:2026-02-04-rosa-parks-day-losing-my-housing",
+      "source_url": "https://archive.org/details/2026-02-04-rosa-parks-day-losing-my-housing",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "cfe1ad04c8f25c83cb58c0be": {
+      "source_id": "archive:sfsdsd-Two-Way_Immersion_at_Hayward_and_Rosa_Parks-20240412",
+      "source_url": "https://archive.org/details/sfsdsd-Two-Way_Immersion_at_Hayward_and_Rosa_Parks-20240412",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "c8f263911b184287547deeda": {
+      "source_id": "archive:scoop-jim-henson-creature-shop-citv",
+      "source_url": "https://archive.org/details/scoop-jim-henson-creature-shop-citv",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "ce47041685ac99fbd77a84a6": {
+      "source_id": "archive:lvctvca-It_s_the_Muppet_Concert_-_A_Celebration_of_Jim_Henson_and_His_Beloved_Characters",
+      "source_url": "https://archive.org/details/lvctvca-It_s_the_Muppet_Concert_-_A_Celebration_of_Jim_Henson_and_His_Beloved_Characters",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "20e431e438e9e9dd39026255": {
+      "source_id": "archive:uvs-jim-henson-surprise-2-farscape",
+      "source_url": "https://archive.org/details/uvs-jim-henson-surprise-2-farscape",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "0000efe0f9e46b684c457950": {
+      "source_id": "archive:the-color-monster-word-party-the-jim-henson-company",
+      "source_url": "https://archive.org/details/the-color-monster-word-party-the-jim-henson-company",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "0cbe49e336e1472083b48f3e": {
+      "source_id": "archive:amuppetfamilychristmasjimhensoncompany1987",
+      "source_url": "https://archive.org/details/amuppetfamilychristmasjimhensoncompany1987",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
     }
   }
 }

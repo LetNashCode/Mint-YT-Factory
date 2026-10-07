@@ -6959,6 +6959,254 @@
       },
       "review_key": "69c73fac4308f669c7d5d45456da7b0694efb774f827e9c7b3098103761796e6",
       "reviewed_at": 1791326048.0538993
+    },
+    {
+      "person": "Jim Henson",
+      "source": {
+        "id": "archive:JimHensonBloopers",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JimHensonBloopers/jim%20henson%20bloopers.mp4",
+        "source_url": "https://archive.org/details/JimHensonBloopers",
+        "title": "jim henson bloopers",
+        "description": "down in fraggle rock bloopers ['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
+        "creator": "",
+        "license": "",
+        "subject": "['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 121.1,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 63.42,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "Jim Henson is clearly visible in all three frames of this archival behind-the-scenes footage, providing genuine biographical illustration for a video about his life and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "cdfa93aca0bb95b139d9275328cd75e95a74924b0a72983d534d38e6b3d1102b",
+      "reviewed_at": 1791331513.8844814
+    },
+    {
+      "person": "Jim Henson",
+      "source": {
+        "id": "archive:JimHensonBloopers",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JimHensonBloopers/jim%20henson%20bloopers.mp4",
+        "source_url": "https://archive.org/details/JimHensonBloopers",
+        "title": "jim henson bloopers",
+        "description": "down in fraggle rock bloopers ['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
+        "creator": "",
+        "license": "",
+        "subject": "['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 121.1,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Jim Henson in all three frames, featuring him in archival footage related to his work on Fraggle Rock, perfectly matching the biographical narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9975b9bfcaf6d2ec0fee47f47183d5a9d0b5b9419c743adc0376bb08e22eb2ef",
+      "reviewed_at": 1791331604.8460503
+    },
+    {
+      "person": "Jim Henson",
+      "source": {
+        "id": "archive:JimHensonBloopers",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JimHensonBloopers/jim%20henson%20bloopers.mp4",
+        "source_url": "https://archive.org/details/JimHensonBloopers",
+        "title": "jim henson bloopers",
+        "description": "down in fraggle rock bloopers ['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
+        "creator": "",
+        "license": "",
+        "subject": "['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 121.1,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 14.74,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Jim Henson in front of a green screen, interacting/reacting in what appears to be archival blooper/behind-the-scenes footage, which fits the biographical illustration context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "02cb14e1e428663f0a4583accae0b709b58f7e892fd3fc3d478c151efe734dcc",
+      "reviewed_at": 1791331610.0450263
+    },
+    {
+      "person": "Jim Henson",
+      "source": {
+        "id": "archive:JimHensonBloopers",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JimHensonBloopers/jim%20henson%20bloopers.mp4",
+        "source_url": "https://archive.org/details/JimHensonBloopers",
+        "title": "jim henson bloopers",
+        "description": "down in fraggle rock bloopers ['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
+        "creator": "",
+        "license": "",
+        "subject": "['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 121.1,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 24.47,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Jim Henson working with a puppet on set, which matches the biographical subject and context of illustrating his life and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f288bb76038057d38b76fc6c775ac8b36c3edd81ffc7eff5c176f55600d46ce3",
+      "reviewed_at": 1791331615.9327943
+    },
+    {
+      "person": "Jim Henson",
+      "source": {
+        "id": "archive:JimHensonBloopers",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JimHensonBloopers/jim%20henson%20bloopers.mp4",
+        "source_url": "https://archive.org/details/JimHensonBloopers",
+        "title": "jim henson bloopers",
+        "description": "down in fraggle rock bloopers ['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
+        "creator": "",
+        "license": "",
+        "subject": "['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 121.1,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 34.21,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames clearly show Jim Henson in archival footage against a green screen. The subject is visible in all three frames and usable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "11c55c2fdf7fff7c519af56aa0d8019ece4bf03d6eca389347a1a7c8cb9f33e1",
+      "reviewed_at": 1791331620.8301027
+    },
+    {
+      "person": "Jim Henson",
+      "source": {
+        "id": "archive:JimHensonBloopers",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JimHensonBloopers/jim%20henson%20bloopers.mp4",
+        "source_url": "https://archive.org/details/JimHensonBloopers",
+        "title": "jim henson bloopers",
+        "description": "down in fraggle rock bloopers ['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
+        "creator": "",
+        "license": "",
+        "subject": "['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 121.1,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 43.95,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The frames clearly show Jim Henson performing with a puppet from Fraggle Rock, providing authentic archival footage of the subject suitable for a biography Short.",
+        "usage": "direct_event"
+      },
+      "review_key": "584fc57abfea5c4b44ad38f28d40fd31ac79b30204da3d36dd462d65ac7e0bed",
+      "reviewed_at": 1791331626.8688765
+    },
+    {
+      "person": "Jim Henson",
+      "source": {
+        "id": "archive:JimHensonBloopers",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JimHensonBloopers/jim%20henson%20bloopers.mp4",
+        "source_url": "https://archive.org/details/JimHensonBloopers",
+        "title": "jim henson bloopers",
+        "description": "down in fraggle rock bloopers ['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
+        "creator": "",
+        "license": "",
+        "subject": "['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 121.1,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 53.68,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The clip features actual archival footage of Jim Henson working with a puppet on set, clearly showing him across all three frames. It provides direct, usable biographical illustration for his life and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "deb555b0e9b91e8f36865e6455f47494b97a353e881cd8453341a6f5afac39b0",
+      "reviewed_at": 1791331633.5919712
+    },
+    {
+      "person": "Jim Henson",
+      "source": {
+        "id": "archive:JimHensonBloopers",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JimHensonBloopers/jim%20henson%20bloopers.mp4",
+        "source_url": "https://archive.org/details/JimHensonBloopers",
+        "title": "jim henson bloopers",
+        "description": "down in fraggle rock bloopers ['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
+        "creator": "",
+        "license": "",
+        "subject": "['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 121.1,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 73.15,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Jim Henson in archival behind-the-scenes material interacting with his creations/production environment, serving as excellent biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e81ac159602dc722dcae92ee44b2aeb429638c96ce600f97b5ef6a7a86608706",
+      "reviewed_at": 1791331639.454196
     }
   ]
 }

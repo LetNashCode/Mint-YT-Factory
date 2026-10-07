@@ -132,7 +132,6 @@ def _patch_story_video_topics() -> None:
                     continue
                 if not _story_media_failure(exc):
                     raise
-                import os
                 if os.environ.get("STORY_PERSON", "").strip():
                     raise RuntimeError("Story video providers unavailable for requested subject; reservation preserved") from exc
             release_reservation(pillar, topic, person)

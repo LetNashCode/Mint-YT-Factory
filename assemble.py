@@ -33,10 +33,10 @@ from moviepy.editor import (
 # Video looping is intentionally handled locally below. `afx` only contains audio effects.
 
 
-EXPECTED_SCENES = 7
+EXPECTED_SCENES = 6
 VISUALS_PER_SCENE = 2
-EXPECTED_TOTAL_VISUALS = 14
-TARGET_DURATION = 45.0
+EXPECTED_TOTAL_VISUALS = 12
+TARGET_DURATION = 38.0
 # Protect the final spoken frame from MP4/AAC frame rounding. This tail is
 # intentionally visual-only after narration and is never used to truncate speech.
 RENDER_END_PADDING = 0.30
@@ -67,7 +67,7 @@ CAPTION_MAX_DURATION = 1.60
 CAPTION_MAX_WORDS = 1
 CAPTION_MAX_CHARS = 28
 CAPTION_SAFE_WIDTH = 0.88
-CAPTION_SIZE_BY_SCENE = (1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0)
+CAPTION_SIZE_BY_SCENE = (1.0, 1.0, 1.0, 1.0, 1.0, 1.0)
 DEFAULT_MUSIC_VOLUME = 0.25
 DEFAULT_SFX_VOLUME = 0.75
 
@@ -78,7 +78,7 @@ CAMERA_SCALE = {
     "top_down": 1.045, "side": 1.045, "aerial": 1.02, "orbit": 1.055,
 }
 
-SCENE_DURATIONS = [3.0, 5.0, 7.0, 7.0, 8.0, 8.0, 7.0]
+SCENE_DURATIONS = [3.0, 5.0, 7.0, 7.0, 8.0, 8.0]
 
 
 def _safe_float(value, default=0.0, minimum=None, maximum=None):
@@ -430,7 +430,7 @@ def _caption_style(scene_index, scene, phrase, phrase_index):
     highlights = get_caption_highlights(scene)
     normalized = [_normalize_caption_word(word) for word in phrase["words"]]
     has_highlight = any(word in highlights for word in normalized)
-    dramatic = "!" in phrase["text"] or phrase_index == 0 or scene_index in (0, 6)
+    dramatic = "!" in phrase["text"] or phrase_index == 0 or scene_index in (0, 5)
 
     if has_highlight:
         color = CAPTION_HIGHLIGHT_COLOR
@@ -549,7 +549,7 @@ def get_audio_config(config):
 
 def build_audio(narration, music_path, sfx_paths, script, total_duration, config):
     audio_config = get_audio_config(config)
-    # Never shorten narration: the full generated MP3, including Scene 7 teaser,
+    # Never shorten narration: the full generated MP3, for the complete six-scene narration,
     # must always survive the final mux.
     tracks = [narration.set_start(0)]
 
@@ -696,7 +696,7 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
     narration_duration = narration.duration
     print(f"Narration: {narration_duration:.2f}s")
 
-    # Narration is the absolute master clock. Scale the complete 7-scene visual
+    # Narration is the absolute master clock. Scale the complete 6-scene visual
     # timeline to its real duration instead of hard-cutting Scene 7 when narration
     # finishes before the fixed 45-second storyboard clock.
     if narration_duration <= 0.05:
@@ -711,7 +711,7 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
     print(f"🎙️ Narration master duration: {narration_master_duration:.2f}s")
     print(f"🛡️ Protected render duration: {final_duration:.2f}s (+{RENDER_END_PADDING:.2f}s tail)")
     print("=" * 80)
-    print("🖼️ BUILDING 14-SHOT VISUAL TIMELINE")
+    print("🖼️ BUILDING 12-SHOT VISUAL TIMELINE")
     print("=" * 80)
     visual_clips = build_visual_timeline(script, image_paths, frame_size, total_duration=final_duration)
     print(f"Visual clips created: {len(visual_clips)}")
@@ -746,7 +746,7 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
     print("🎥 RENDERING FINAL SHORT")
     print("=" * 80)
     print(f"Output: {out_path}")
-    print("Story structure: 7 scenes / 14 shots")
+    print("Story structure: 6 scenes / 12 shots")
     print("Captions: QUIRKY ONE-WORD-AT-A-TIME")
     print("Caption sizes: DYNAMIC SMALL / MEDIUM / BIG EMPHASIS")
     print("Caption colours: WHITE / YELLOW / CYAN / PINK / GREEN")

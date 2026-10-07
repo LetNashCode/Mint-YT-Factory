@@ -102,7 +102,8 @@ def _patch_story_video_topics() -> None:
         return
     def video_ready_topic():
         from story_topic_runtime import release_reservation
-        for attempt in range(8):
+        max_attempts = max(8, int(os.environ.get("STORY_TOPIC_ATTEMPTS", "16")))
+        for attempt in range(max_attempts):
             pillar, topic, person = original()
             factory_claimed = False
             try:

@@ -60,8 +60,14 @@ def _build_upload_body(title, description, hashtags, upload):
     if hashtag_text: clean_description = (clean_description + "\n\n" + hashtag_text).strip()
     final_description = _sanitize_youtube_text(clean_description, max_bytes=MAX_YOUTUBE_DESCRIPTION_BYTES)
     clean_title = _sanitize_youtube_text(title, max_bytes=MAX_YOUTUBE_TITLE_BYTES)
+    # Keep API tags separate from description hashtags when a workflow
+    # supplies an isolated youtube_tags list. Existing workflows that do not
+    # provide it continue using hashtags as their tag source.
+    tag_values = upload.get("_youtube_tags") if isinstance(upload, dict) else None
+    if not isinstance(tag_values, list) or not tag_values:
+        tag_values = hashtags
     clean_tags=[]; total_tag_chars=0
-    for tag in hashtags:
+    for tag in tag_values:
         clean_tag=_sanitize_youtube_text(tag, max_bytes=500)
         if not clean_tag: continue
         extra=len(clean_tag)+(1 if clean_tags else 0)

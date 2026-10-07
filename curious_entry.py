@@ -69,8 +69,32 @@ def validate(script):
         raise RuntimeError("Future-video teaser in ending")
     print("CURIOUS STORY GATE PASSED | words=",words,flush=True)
 
+def _research_topic(topic):
+    """Use Google Search grounding in a separate pass; keep final JSON generation structured."""
+    try:
+        response=client().models.generate_content(
+            model="gemini-flash-lite-latest",
+            contents=(
+                "Research the CURRENT TOPIC for a short factual story. "
+                "Return concise factual notes: origin or reason, key mechanism, "
+                "one surprising but well-supported detail, and useful source context. "
+                "Do not write narration or a second topic. CURRENT TOPIC: " + topic
+            ),
+            config=types.GenerateContentConfig(
+                temperature=0.2,
+                tools=[types.Tool(google_search=types.GoogleSearch())],
+            ),
+        )
+        return clean(getattr(response, "text", ""))[:7000]
+    except Exception as exc:
+        print(f"Curious research grounding unavailable; continuing without it: {type(exc).__name__}: {exc}",flush=True)
+        return ""
+
 def generate_curious_script(topic,config,research=None,extra_feedback=""):
+    research = clean(research) or _research_topic(topic)
     prompt=SCRIPT_PROMPT+topic
+    if research:
+        prompt+="\n\nVERIFIED RESEARCH NOTES — use only facts supported by these notes:\n"+research
     if extra_feedback: prompt+="\nRETRY:\n"+clean(extra_feedback)
     last=None
     for attempt in range(1,6):
@@ -81,7 +105,6 @@ def generate_curious_script(topic,config,research=None,extra_feedback=""):
                 config=types.GenerateContentConfig(
                     temperature=0.85,
                     response_mime_type="application/json",
-                    tools=[types.Tool(google_search=types.GoogleSearch())],
                 ),
             )
             script=json.loads(response.text)

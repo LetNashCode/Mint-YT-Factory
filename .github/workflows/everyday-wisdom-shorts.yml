@@ -1,0 +1,66 @@
+name: Everyday Wisdom Shorts
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "30 4 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: everyday-wisdom-shorts
+  cancel-in-progress: false
+
+jobs:
+  everyday-wisdom:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install FFmpeg
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg
+
+      - name: Install isolated dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          python -m pip install \
+            "google-genai>=1.30.0" \
+            "requests>=2.31.0" \
+            "kokoro>=0.9.4" \
+            "soundfile>=0.12.1" \
+            "numpy>=1.26.0" \
+            "google-auth>=2.29.0" \
+            "google-api-python-client>=2.130.0"
+
+      - name: Run Everyday Wisdom Short
+        env:
+          GEMINI_API_KEY: \${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: \${{ secrets.PEXELS_API_KEY }}
+          YOUTUBE_TOKEN_JSON: \${{ secrets.YOUTUBE_TOKEN_JSON }}
+          WISDOM_KOKORO_VOICE: af_heart
+        run: |
+          set -euo pipefail
+          python -u everyday_wisdom_shorts.py
+
+      - name: Upload production artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: everyday-wisdom-\${{ github.run_id }}
+          path: .everyday_wisdom_runs/**
+          if-no-files-found: warn
+          retention-days: 7

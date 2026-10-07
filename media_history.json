@@ -12339,6 +12339,96 @@
       "shot": 2,
       "query": "corks sudden release proves gas",
       "recorded_at": 1791328098
+    },
+    {
+      "asset_key": "pixabay:video:41666",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/06/10/41666-430090590_medium.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "aluminum foil sheets immediately rips into crooked",
+      "recorded_at": 1791360532
+    },
+    {
+      "asset_key": "pixabay:video:364463",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2026/07/16/364463_medium.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "aluminum foil sheets but tear dives sideways",
+      "recorded_at": 1791360541
+    },
+    {
+      "asset_key": "pixabay:video:233867",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2024/09/29/233867_medium.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "aluminum foil sheets secret hides inside shiny",
+      "recorded_at": 1791360544
+    },
+    {
+      "asset_key": "pixabay:video:199788",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2024/02/08/199788-911378451_medium.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "aluminum foil sheets factory rollers squeeze metal",
+      "recorded_at": 1791360549
+    },
+    {
+      "asset_key": "pixabay:video:32937",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/02/27/32937-395456375_medium.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "aluminum foil sheets massive steel cylinders stretch",
+      "recorded_at": 1791360555
+    },
+    {
+      "asset_key": "pixabay:video:232561",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2024/09/21/232561_medium.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "aluminum foil sheets into invisible parallel grain",
+      "recorded_at": 1791360561
+    },
+    {
+      "asset_key": "pixabay:video:330898",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2026/01/28/330898_medium.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "aluminum foil sheets like water rushing down",
+      "recorded_at": 1791360573
+    },
+    {
+      "asset_key": "pixabay:video:73847",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2021/05/11/73847-549547533_medium.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "aluminum foil sheets cross grain angle hands",
+      "recorded_at": 1791360578
+    },
+    {
+      "asset_key": "pixabay:video:192778",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2023/12/10/192778-893446884_medium.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "aluminum foil sheets metal fights back splitting",
+      "recorded_at": 1791360581
     }
   ]
 }

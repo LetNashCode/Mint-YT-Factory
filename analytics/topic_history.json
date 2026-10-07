@@ -3430,5 +3430,21 @@
     "video_id": "QEWhMq73B2I",
     "workdir": "output/1791327993",
     "published_at": 1791329232
+  },
+  {
+    "topic": "Why do aluminum foil sheets tear",
+    "normalized": "why do aluminum foil sheets tear",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1791360236,
+    "recorded_at": 1791360236,
+    "metadata": {
+      "next_topic": "Why do glass cups stick together",
+      "creative_strategy": "adjacent"
+    },
+    "title": "Why Do Aluminum Foil Sheets Tear?",
+    "video_id": "vy9IjgeTKAI",
+    "workdir": "output/1791360365",
+    "published_at": 1791361966
   }
 ]

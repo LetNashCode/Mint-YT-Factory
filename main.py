@@ -85,63 +85,8 @@ def _lock_canonical_topic(script,current_topic,locked_topic=None):
     if _word_count(candidate)>7: raise RuntimeError("Generated next topic is too long for continuation metadata: "+candidate)
     script.setdefault("next_short",{})["topic"]=candidate; return candidate
 
-def _strip_model_continuation_from_scene7(final_scene,stale_topics):
-    """Keep Scene 7 to the current-topic payoff plus exactly one pipeline bridge."""
-    narration=str(final_scene.get("narration","")).strip(); sentences=_split_sentences(narration)
-    retired_topics=[
-        "Why do ice cube crack when you pour warm water on them",
-        "Why do ice cubes crack when you pour warm water on them",
-    ]
-    stale_keys=[
-        _normalise_topic_text(x)
-        for x in list(stale_topics or []) + retired_topics
-        if _normalise_topic_text(x)
-    ]
-
-    # Gemini is explicitly told not to add a continuation, but it can still
-    # occasionally produce one or two teaser sentences. Do not rely on the
-    # future topic matching the canonical topic: any recognizable handoff is
-    # model-authored continuation and must be removed before the single
-    # production-owned bridge is appended below.
-    model_teaser_patterns=(
-        r"^and\s+once\s+you\s+know\s+that\b",
-        r"^but\s+(?:that|this)\s+(?:isn't|is not)\s+the\s+only\b",
-        r"^there(?:'s|\s+is)\s+another\b",
-        r"^there(?:'s|\s+is)\s+a\s+(?:completely\s+different|different|another)\b",
-        r"^one\s+mystery\s+down\b",
-        r"^next\s+time\s+you\b",
-        r"^next\s+(?:comes|up|is|one|mystery|question)\b",
-        r"^keep\s+an\s+eye\s+out\s+for\s+this\s+one\b",
-        r"^if\s+that\s+surprised\s+you\b",
-        r"^okay,?\s+but\s+that\s+leaves\b",
-        r"^one\s+more\s+mystery\b",
-        r"^another\s+(?:everyday|ordinary)\s+(?:mystery|thing)\b",
-        r"^the\s+same\s+(?:idea|trick)\s+(?:shows\s+up|appears)\s+in\b",
-        r"\bwhich\s+makes\s+you\s+wonder\s+(?:why|how|what)\b",
-        r"\b(?:and\s+)?here'?s\s+(?:where|the)\s+it\s+gets\s+(?:even\s+)?stranger\b",
-        r"^wait\s+until\s+you\s+see\s+what\s+happens\s+with\b",
-    )
-    kept=[]; removed=False
-    for sentence in sentences:
-        normalized=_normalise_topic_text(sentence)
-        stale_match=any(k and k in normalized for k in stale_keys)
-        teaser_match=any(re.search(pattern,str(sentence).strip(),re.I) for pattern in model_teaser_patterns)
-        if stale_match or teaser_match:
-            removed=True
-            print("🧹 Removed model-authored Scene 7 continuation: "+str(sentence).strip())
-        else:
-            kept.append(sentence)
-    payoff=" ".join(kept).strip() if removed else narration
-    if removed: print("🧹 Removed model-authored continuation from Scene 7 before canonical lock")
-    if payoff:
-        p=payoff.rstrip(".!? ").strip()
-        for visual in final_scene.get("visuals") or []:
-            if not isinstance(visual,dict): continue
-            visual["spoken_line"]=payoff; visual["visual_focus"]=p[:180]; visual["visual_action"]=f"Show the exact physical payoff described by: {p}."; visual["must_show"]=list(_content_words(p))[:6]; visual["must_not_show"]=["unrelated second topic","different object","new mystery","continuation topic"]; visual["image_prompt"]=("Realistic cinematic close-up showing the exact physical payoff: "+p+". Keep the same subject and environment as the current story, natural lighting, believable materials, no text.")[:900]
-    return payoff
-
 def _strip_future_continuations_from_prior_scenes(script, future_topics):
-    """Remove model-authored future-topic handoffs before the production-owned final bridge."""
+    """Remove any model-authored future-topic handoff from the six spoken scenes."""
     topic_keys = [_normalise_topic_text(x) for x in (future_topics or []) if _normalise_topic_text(x)]
     teaser_patterns = (
         r"^and\s+once\s+you\s+know\s+that\b",
@@ -164,7 +109,7 @@ def _strip_future_continuations_from_prior_scenes(script, future_topics):
         r"^part\s+2\b",
     )
     removed = 0
-    for scene in (script.get("scene_plan") or [])[:-1]:
+    for scene in (script.get("scene_plan") or []):
         narration = str(scene.get("narration") or "").strip()
         if not narration:
             continue
@@ -172,10 +117,6 @@ def _strip_future_continuations_from_prior_scenes(script, future_topics):
         for sentence in _split_sentences(narration):
             normalized = _normalise_topic_text(sentence)
             exact_future_topic = any(key and key in normalized for key in topic_keys)
-            # Models sometimes paraphrase the locked successor instead of
-            # repeating it verbatim (for example "why a guitar strings snap"
-            # instead of "why do guitar strings snap"). Use content-word
-            # overlap to catch malformed future-topic mentions.
             sentence_words = _content_words(sentence)
             topic_overlap = any(
                 len(sentence_words & _content_words(topic)) >= 2
@@ -185,291 +126,33 @@ def _strip_future_continuations_from_prior_scenes(script, future_topics):
             teaser = any(re.search(pattern, sentence, re.I) for pattern in teaser_patterns)
             if exact_future_topic or topic_overlap or teaser:
                 removed += 1
-                print("🧹 Removed pre-ending future-topic continuation: " + sentence)
+                print("🧹 Removed future-topic continuation from six-scene Publish narration: " + sentence)
             else:
                 kept.append(sentence)
         scene["narration"] = " ".join(kept).strip()
         scene["subtitle_text"] = scene["narration"]
     if removed:
-        print(f"🧹 Removed {removed} future-topic continuation sentence(s) before Scene 7")
+        print(f"🧹 Removed {removed} future-topic continuation sentence(s) from six-scene story")
     return removed
 
 def lock_next_topic(script,current_topic,locked_topic=None,stale_topics=None):
-    previous=str((script.get("next_short") or {}).get("topic") or "").strip(); stale_topics=[str(x).strip() for x in (stale_topics or []) if str(x).strip()]; canonical=_lock_canonical_topic(script,current_topic,locked_topic=locked_topic)
-    scenes=script.get("scene_plan") or []
-    prior_future = [previous] if _normalise_topic_text(previous) and _normalise_topic_text(previous) != _normalise_topic_text(current_topic) else []
-    # Preserve the writer-selected successor before reserve_next_short() overwrites
-    # next_short.topic with the authoritative canonical successor. Without this,
-    # a model-authored topic can survive in Scenes 1-6 while Scene 7 uses the
-    # reserved topic, producing two different future topics in one Short.
-    cleanup_topics = list(dict.fromkeys(prior_future + stale_topics + [canonical]))
+    """Lock the successor as metadata only; Publish has no spoken Scene 7."""
+    previous=str((script.get("next_short") or {}).get("topic") or "").strip()
+    stale_topics=[str(x).strip() for x in (stale_topics or []) if str(x).strip()]
+    canonical=_lock_canonical_topic(script,current_topic,locked_topic=locked_topic)
+    cleanup_topics=list(dict.fromkeys(
+        ([previous] if _normalise_topic_text(previous) and _normalise_topic_text(previous) != _normalise_topic_text(current_topic) else [])
+        + stale_topics + [canonical]
+    ))
     _strip_future_continuations_from_prior_scenes(script, cleanup_topics)
-    if len(scenes) < 2:
-        raise RuntimeError("Publish Short requires at least two scenes for the single-topic ending contract.")
-    final_scene=scenes[-1]
-    payoff=_strip_model_continuation_from_scene7(final_scene,[previous,canonical])
-    bridge_result=_generate_natural_bridge(current_topic,canonical)
-    bridge,tease_type=bridge_result if isinstance(bridge_result,tuple) else (str(bridge_result), "curiosity_connection")
-    if payoff and not payoff.endswith((".","!","?")): payoff+="."
+    scenes=script.get("scene_plan") or []
+    if len(scenes) != 6:
+        raise RuntimeError(f"Publish Short requires exactly 6 scenes, got {len(scenes)}.")
+    # The final scene is the complete current-topic payoff. No future topic is
+    # spoken and no continuation bridge is inserted.
+    script.pop("tease_type", None)
+    if isinstance(script.get("next_short"), dict):
+        script["next_short"].pop("teaser", None)
+    print("🔒 Canonical next topic stored as metadata only: "+canonical)
+    return script,canonical
 
-    # Scene 7 is now a continuation-only endpoint. The old implementation
-    # appended the current-topic payoff and the next-topic bridge together,
-    # which made the ending audibly mention two topics. Preserve the payoff by
-    # moving it to Scene 6, then make Scene 7 contain only the one canonical
-    # successor teaser.
-    if payoff:
-        penultimate=scenes[-2]
-        existing=str(penultimate.get("narration") or "").strip()
-        penultimate["narration"]=(existing+" "+payoff).strip() if existing else payoff
-        penultimate["subtitle_text"]=penultimate["narration"]
-        print("↪️ Moved current-topic payoff out of Scene 7 so the ending has one topic only")
-    final_scene["narration"]=bridge.strip()
-    final_scene["subtitle_text"]=final_scene["narration"]
-    script.setdefault("next_short",{})["teaser"]=bridge
-    script["tease_type"]=tease_type
-    print("🔒 Canonical next topic: "+canonical); print("🗣️ NATURAL FINAL BRIDGE: "+bridge); print("🧪 Tease mechanism: "+tease_type); return script,canonical
-
-def _is_gemini_quota_error(error):
-    text=str(error or "").lower()
-    return (
-        "resource_exhausted" in text
-        or "quota exceeded" in text
-        or "generaterequestsperday" in text
-        or "quota_id" in text
-        or "rate limit" in text
-        or "429" in text
-    )
-
-def _is_transient_gemini_error(error):
-    # Quota exhaustion is not a transient outage. Retrying only burns the
-    # workflow's time budget and cannot restore a daily/project quota.
-    if _is_gemini_quota_error(error):
-        return False
-    text=str(error or "").lower()
-    return any(x in text for x in ("503","unavailable","high demand","deadline exceeded","timeout","temporarily"))
-def write_continuation_manifest(current_topic,next_topic,status,workdir=""): save_json({"status":status,"current_topic":current_topic,"next_topic":next_topic,"workdir":workdir,"updated_at":int(time.time())},CONTINUATION_MANIFEST)
-def build_youtube_metadata(script):
-    """Build topic-specific YouTube metadata without stuffing keywords.
-    
-    Metadata supports discovery, but recommendation performance is driven much
-    more by viewer satisfaction, retention and engagement. Keep the metadata
-    accurate to the current Short and avoid generic/tag spam.
-    """
-    topic = re.sub(r"\\s+", " ", str(script.get("topic") or "Wonder Minute curiosity")).strip()
-    title = re.sub(r"\\s+", " ", str(script.get("title") or topic or "Wonder Minute Short")).strip()
-    title = title[:70].rstrip(" .-")
-
-    scenes = script.get("scene_plan") or []
-    narration = " ".join(
-        str(scene.get("narration") or "").strip()
-        for scene in scenes if isinstance(scene, dict)
-    )
-    clean = lambda value: re.sub(r"[^a-zA-Z0-9' -]", " ", str(value or ""))
-    topic_terms = [w.lower() for w in re.findall(r"[A-Za-z]{3,}", clean(topic))]
-    topic_terms = list(dict.fromkeys(topic_terms))
-
-    raw_tags = script.get("tags") if isinstance(script.get("tags"), list) else []
-    tags = []
-    for value in raw_tags:
-        tag = re.sub(r"[^A-Za-z0-9 -]", "", str(value or "")).strip().lower()
-        if tag and tag not in tags:
-            tags.append(tag)
-
-    # Add a small set of truthful search variants derived from the actual topic.
-    candidates = [
-        topic,
-        " ".join(topic_terms),
-        *topic_terms,
-        "Wonder Minute",
-        "science facts",
-        "curiosity",
-        "explained",
-        "how things work",
-    ]
-    for value in candidates:
-        tag = re.sub(r"[^A-Za-z0-9 -]", "", str(value or "")).strip().lower()
-        if tag and tag not in tags:
-            tags.append(tag)
-    tags = tags[:12]
-
-    # Description leads with the exact topic, gives the viewer useful context,
-    # and uses only a few relevant hashtags rather than a generic hashtag wall.
-    description = (
-        f"{topic}. "
-        f"Here's the surprising science, history, or everyday explanation behind it "
-        f"in under a minute. "
-        f"Watch through the payoff and follow Wonder Minute for more curious stories."
-    )
-    if narration:
-        first_sentence = re.split(r"(?<=[.!?])\\s+", narration.strip())[0].strip()
-        if first_sentence and len(first_sentence) <= 180 and first_sentence.lower() not in description.lower():
-            description += f"\\n\\n{first_sentence}"
-
-    # Keep hashtags tightly relevant; generic #shorts is retained because this
-    # is a Short, but avoid stuffing every configured hashtag into the description.
-    hashtag_pool = [topic, *tags[:3], "shorts"]
-    hashtags = []
-    for value in hashtag_pool:
-        tag = re.sub(r"[^A-Za-z0-9]", "", str(value or "")).strip().lower()
-        if tag and tag not in hashtags:
-            hashtags.append("#" + tag)
-    hashtags = hashtags[:5]
-    description += "\n\n" + " ".join(hashtags)
-    return title, description[:2000], tags
-def refresh_learning_before_generation():
-    print("="*80); print("📊 REFRESHING LIVE YOUTUBE ANALYTICS BEFORE GENERATION"); print("="*80)
-    try:
-        from youtube_analytics import refresh_registry; summary=refresh_registry(); print(f"📊 Analytics refreshed: {summary.get('video_count',0)} videos | optimization_ready={summary.get('optimization_ready',False)}")
-    except Exception as error: print(f"⚠️ Live analytics refresh unavailable: {type(error).__name__}: {error}")
-    try:
-        playbook=refresh_playbook(); print(f"🧠 Learning playbook refreshed: {playbook.get('video_count',0)} videos | learning_ready={playbook.get('learning_ready',False)}")
-    except Exception as error: print(f"⚠️ Learning playbook refresh unavailable: {type(error).__name__}: {error}")
-def _generate_valid_script(topic,config,learning_context,engagement_feedback):
-    feedback=learning_context+engagement_feedback+"""
-CONTINUATION ARCHITECTURE:
-Write ONLY the complete 7-scene story for the CURRENT TOPIC.
-Scene 6 must contain the satisfying CURRENT-topic payoff.
-Scene 7 is reserved for the production-owned ending handoff and should not repeat the CURRENT topic.
-Do not invent or discuss any future topic inside the story; the production pipeline inserts exactly one canonical next-topic bridge into Scene 7.
-Return next_short.topic as metadata when possible. The production pipeline can repair missing continuation metadata after the current story passes its quality gates.
-"""; last_error=None; valid_attempt=0; transient_attempt=0
-    while valid_attempt<MAX_SCRIPT_ATTEMPTS:
-        try: script=generate_script(topic,config,None,extra_feedback=feedback); _lock_canonical_topic(script,topic); return script
-        except Exception as error:
-            last_error=error
-            if _is_gemini_quota_error(error):
-                # Preserve the verified/pending topic chain and end this run
-                # cleanly. A project/day quota cannot recover by retrying.
-                raise RuntimeError(
-                    "GEMINI_QUOTA_DEFERRED: Gemini project/day quota is exhausted; "
-                    "production will resume on the next successful run."
-                ) from error
-            if _is_transient_gemini_error(error) and transient_attempt<MAX_TRANSIENT_GEMINI_RETRIES:
-                transient_attempt+=1; delay=min(45,5*transient_attempt); print(f"⏳ Transient Gemini failure — retrying without consuming script attempt ({transient_attempt}/{MAX_TRANSIENT_GEMINI_RETRIES}) in {delay}s: {error}"); time.sleep(delay); continue
-            valid_attempt+=1; print(f"⚠️ Story generation failed ({valid_attempt}/{MAX_SCRIPT_ATTEMPTS}): {error}")
-    raise RuntimeError(f"Could not generate a valid current-topic story after {MAX_SCRIPT_ATTEMPTS} attempts: {last_error}")
-
-def _find_pending_resume():
-    candidates=sorted(Path("output").glob("*/final.mp4"),key=lambda p:p.stat().st_mtime,reverse=True)
-    for video in candidates:
-        workdir=video.parent; manifest=workdir/"publish_state.json"; script_path=workdir/"script.json"
-        if manifest.exists() and script_path.exists():
-            try:
-                state=json.loads(manifest.read_text(encoding="utf-8"))
-                if state.get("status")=="ready_for_upload" and not state.get("uploaded"): return workdir,video,json.loads(script_path.read_text(encoding="utf-8")),state
-            except Exception: pass
-    return None
-def _save_publish_state(workdir,state): save_json(state,os.path.join(workdir,"publish_state.json"))
-
-def _mark_topic_bookkeeping(script,topic,next_topic,video_id,title,workdir):
-    """Commit current topic and reserve its successor immediately after YouTube publication."""
-    record_topic(topic,title=title,video_id=video_id,workdir=workdir,status="published")
-    try:
-        from youtube_analytics import record_upload
-        experiment=script.get("learning_experiment") or {}
-        production_metadata={"topic_category":str(script.get("category","")),"hook_type":str(script.get("hook_type") or (script.get("scene_plan") or [{}])[0].get("purpose","")),"hook_text":str((script.get("scene_plan") or [{}])[0].get("narration",""))[:500],"story_format":str(script.get("story_format","")),"payoff_type":str(script.get("payoff_type","")),"payoff_text":str((script.get("scene_plan") or [{},{},{},{},{},{},{}])[-2].get("narration","") if len(script.get("scene_plan") or []) >= 2 else "")[:700],"tease_type":str(script.get("tease_type","")),"story_structure":"7_scene_entertainment","visual_style":str((script.get("visual_identity") or {}).get("style","")),"music_type":str((script.get("music") or {}).get("search","")),"voice":str((script.get("voice_style") or {}).get("tone","")),"engagement_experiment":str((script.get("engagement") or {}).get("experiment","")),"audio_duration_seconds":float(script.get("audio_duration_seconds",0) or 0),"words_per_second":float(script.get("words_per_second",0) or 0),"creative_strategy":str(experiment.get("strategy","")),"creative_experiment_id":str(experiment.get("experiment_id","")),"creative_selected_pattern":str(experiment.get("selected_pattern",""))}; record_upload(video_id,topic,title,workdir=workdir,production_metadata=production_metadata); print("🧠 Published creative metadata recorded for future learning.")
-    except Exception as error: print(f"⚠️ Learning metadata recording skipped: {type(error).__name__}: {error}")
-    save_next_short(next_topic); commit_topic(topic); write_continuation_manifest(topic,next_topic,"published",workdir); print(f"✅ TOPIC PROGRESSION COMMITTED | current={topic} | next={next_topic}")
-
-def _record_audio_timing(script, audio_path):
-    """Persist the actual rendered narration duration so learning uses real pacing."""
-    try:
-        from moviepy.editor import AudioFileClip
-        clip=AudioFileClip(audio_path)
-        try:
-            duration=float(clip.duration or 0.0)
-        finally:
-            clip.close()
-        narration=" ".join(str(scene.get("narration","")) for scene in (script.get("scene_plan") or []) if isinstance(scene,dict))
-        words=_word_count(narration)
-        script["audio_duration_seconds"]=round(duration,3)
-        script["narration_word_count"]=words
-        script["words_per_second"]=round(words/duration,3) if duration>0 else 0.0
-        print(f"⏱️ Actual narration timing: {duration:.2f}s | words={words} | WPS={script['words_per_second']:.2f}")
-    except Exception as error:
-        print(f"⚠️ Could not record narration timing: {type(error).__name__}: {error}")
-
-def run(dry_run=False):
-    config=load_config(); resumed=_find_pending_resume()
-    if resumed:
-        workdir_path,video_path,script,publish_state=resumed; workdir=str(workdir_path); final_video=str(video_path); topic=str(script.get("topic","")); next_topic=str((script.get("next_short") or {}).get("topic","")); print(f"♻️ RESUMING UNPUBLISHED FINAL VIDEO: {final_video}"); print("⏭️ Skipping generation, narration, visuals and rendering.")
-    else: workdir=None; final_video=None
-    print("="*80); print("🚀 MINT-YT-FACTORY — ENTERTAINMENT-FIRST + SELF-LEARNING + SFX"); print("="*80); print("🧠 Self-learning: ENABLED"); print("💬 Engagement learning: sequential comment/share experiments ENABLED")
-    if not resumed:
-        # Topic selection is the first production decision. Do not spend time
-        # on learning, engagement, creative strategy, scripts, or media until
-        # the topic has passed the full NEW + UNIQUE gate.
-        print("🎯 TOPIC SELECTION — VERIFYING NEW + UNIQUE BEFORE ANY PRODUCTION WORK")
-        topic=get_next_topic()
-        print(f"🔐 VERIFIED TOPIC: {topic}")
-        refresh_learning_before_generation()
-    if not resumed and topic:
-        decision=score_candidate_topic(topic,get_playbook()); print(f"🧠 Learning topic score: {decision['score']} | features={decision['features']}");
-        if decision.get("reasons"): print("🧠 Learning signals: "+"; ".join(decision["reasons"]))
-    if not resumed and not topic: raise RuntimeError("No topic available.")
-    print(f"🎯 CURRENT TOPIC: {topic}")
-    if not resumed:
-        try:
-            from engagement_experiments import assign,summarize; engagement=assign(topic); print(f"🧪 Engagement experiment: {engagement['experiment']} | phase={engagement['phase']}"); print(f"💬 Planned comment: {engagement['comment']}"); print(f"🔄 Share trigger: {engagement['share_prompt']}"); print(f"📊 Existing experiment results: {json.dumps(summarize(),ensure_ascii=False)}")
-        except Exception as error: engagement={"experiment":"none","phase":"disabled","spoken_prompt":"","comment":"","share_prompt":""}; print(f"⚠️ Engagement experiment setup skipped: {type(error).__name__}: {error}")
-    else:
-        engagement=dict((script.get("engagement") or {})); engagement.setdefault("comment",""); engagement.setdefault("experiment","resume"); engagement.setdefault("phase","resume"); engagement.setdefault("spoken_prompt",""); engagement.setdefault("share_prompt","")
-    if not resumed:
-        playbook=get_playbook(); creative_strategy=select_creative_strategy(playbook); print(f"🧪 Creative strategy: {creative_strategy['strategy']} | mix={creative_strategy['slot']}/10 | id={creative_strategy['experiment_id']}")
-        try:
-            from creative_memory import build_generation_context
-            # get_next_topic() is the authoritative NEW + UNIQUE gate. Do not
-            # re-run topic novelty against mutable analytics/history here: the
-            # analytics refresh can legitimately add or reconcile records between
-            # selection and script generation, which can make the already-verified
-            # topic appear duplicated and abort a valid production run.
-            creative_memory_context = build_generation_context()
-        except Exception as error:
-            creative_memory_context = "Creative memory unavailable; maximize originality."
-            print(f"⚠️ Creative memory unavailable: {type(error).__name__}: {error}")
-        print("🧠 Creative memory loaded before writing.")
-        if creative_strategy.get("selected_pattern"): print(f"🧠 Selected learned pattern: {creative_strategy['selected_pattern']} | score={creative_strategy['selected_score']:.2f} | n={creative_strategy['selected_sample_size']}")
-        learning_context=load_learning_context(); creative_feedback=f"\nCREATIVE MEMORY — DO NOT REPEAT RECENT HOOKS OR TOPICS:\n{creative_memory_context}\n\nCREATIVE EXPERIMENT FOR THIS SHORT:\nStrategy: {creative_strategy['strategy']}\nExperiment ID: {creative_strategy['experiment_id']}\nTarget mix: 70% proven / 20% adjacent / 10% wild.\nSelected learned pattern: {creative_strategy.get('selected_pattern') or 'none'}\nExperiment guidance: {creative_strategy['guidance']}\nDo not copy any learned wording, topic, example, or visual concept. Preserve originality and story quality.\n"; engagement_feedback=f"\nENGAGEMENT EXPERIMENT FOR THIS SHORT: {engagement['experiment']}\nUse the mechanic naturally if it fits. Never sound like engagement bait.\nSuggested spoken interaction: {engagement['spoken_prompt']}\nDo not add generic like/subscribe language.\n"; print("✍️ GENERATING ENTERTAINING STORY WITH LEARNED PATTERNS");
-        try:
-            script=_generate_valid_script(topic,config,learning_context,creative_feedback+engagement_feedback)
-        except RuntimeError as error:
-            if str(error).startswith("GEMINI_QUOTA_DEFERRED:"):
-                print("🛑 Gemini project/day quota exhausted — deferring this production run without consuming the topic.");
-                print("🔁 The verified continuation topic remains authoritative for the next run.");
-                # Tell the GitHub Actions wrapper this was an intentional no-op.
-                # Without this marker, the downstream final-video guard would
-                # mistake a quota-deferred run for a broken production run.
-                os.makedirs("output", exist_ok=True)
-                Path("output/.mint_deferred").write_text(
-                    "GEMINI_QUOTA_DEFERRED\\n", encoding="utf-8"
-                )
-                return
-            raise
-        script["learning_experiment"]={"strategy":creative_strategy["strategy"],"experiment_id":creative_strategy["experiment_id"],"slot":creative_strategy["slot"],"cycle":creative_strategy["cycle"],"target_mix":creative_strategy["target_mix"],"selected_pattern":creative_strategy.get("selected_pattern",""),"selected_score":creative_strategy.get("selected_score",0.0),"selected_sample_size":creative_strategy.get("selected_sample_size",0),"evidence_based":creative_strategy.get("evidence_based",False)}; generated_next_topic=str((script.get("next_short") or {}).get("topic") or "").strip(); next_topic=reserve_next_short(generated_next_topic,current_topic=topic); script["next_short"]=dict(script.get("next_short") or {}); script["next_short"]["topic"]=next_topic; script,next_topic=lock_next_topic(script,topic,locked_topic=next_topic,stale_topics=[generated_next_topic]); script["engagement"]={"experiment":engagement["experiment"],"phase":engagement["phase"],"spoken_prompt":engagement["spoken_prompt"],"comment":engagement["comment"],"share_prompt":engagement["share_prompt"]}; workdir=os.path.join("output",str(int(time.time()))); os.makedirs(workdir,exist_ok=True); save_json(script,os.path.join(workdir,"script.json")); write_continuation_manifest(topic,next_topic,"locked",workdir); print(f"✅ Script ready: {workdir}/script.json");
-        if dry_run: print("✅ DRY RUN COMPLETE"); return
-    if not resumed:
-        audio=synthesize_script(script,config,os.path.join(workdir,"audio")); _record_audio_timing(script,audio); save_json(script,os.path.join(workdir,"script.json")); visuals=generate_media(script,os.path.join(workdir,"visuals"),config); sfx=generate_sfx(script,os.path.join(workdir,"sfx")); music=download_music(script,os.path.join(workdir,"music")); final_video=os.path.join(workdir,"final.mp4"); assemble_video(script,audio,visuals,music,sfx,config,final_video); _save_publish_state(workdir,{"status":"ready_for_upload","uploaded":False,"topic":topic,"next_topic":next_topic})
-    if not os.path.exists(final_video): raise RuntimeError("Final video was not created.")
-    quality=validate_final_video(final_video,expected_bitrate_mbps=EXPECTED_UPLOAD_BITRATE_MBPS); save_json(quality,os.path.join(workdir,"validation.json"))
-    if not quality.get("ok",False): raise RuntimeError("Final video validation failed.")
-    if (quality.get("width"),quality.get("height"))!=EXPECTED_UPLOAD_RESOLUTION: raise RuntimeError("Upload blocked: final video is not 2160x3840 4K portrait.")
-    if abs(float(quality.get("fps",0))-EXPECTED_UPLOAD_FPS)>0.05: raise RuntimeError("Upload blocked: final video is not 60 fps.")
-    if float(quality.get("bitrate_mbps",0))<MIN_UPLOAD_BITRATE_MBPS: raise RuntimeError(f"Upload blocked: final video bitrate is below the {MIN_UPLOAD_BITRATE_MBPS:.0f} Mbps production floor.")
-    title,description,youtube_tags=build_youtube_metadata(script)
-    # upload_youtube uses config SEO tags for the API tag field; pass the same
-    # topic-specific set used to build the description instead of generic defaults.
-    seo_config = config.setdefault("seo", {})
-    seo_config["hashtags"] = youtube_tags
-    engagement_comment=str((script.get("engagement") or {}).get("comment") or "").strip() or None; thumbnail_path=os.path.join(workdir,"thumbnail.jpg"); thumbnail_path=thumbnail_path if os.path.exists(thumbnail_path) else None
-    upload_result=upload_video(final_video,title,description,config,thumbnail_path=thumbnail_path,engagement_comment=engagement_comment); video_id=str(upload_result or "").strip()
-    if not video_id: raise RuntimeError("Upload succeeded without a video ID; refusing to mutate topic state.")
-    _save_publish_state(workdir,{"status":"youtube_published","uploaded":True,"topic":topic,"next_topic":next_topic,"video_id":video_id})
-    _mark_topic_bookkeeping(script,topic,next_topic,video_id,title,workdir)
-    social_result=publish_social_reels(final_video,title,description,config,workdir); print("📱 Social publish summary:",json.dumps({name:(payload or {}).get("status") for name,payload in social_result.items() if name in {"instagram","facebook"}},ensure_ascii=False))
-    state_path=Path(workdir)/"publish_state.json"
-    try: state=json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else {}
-    except Exception: state={}
-    state.update({"status":"uploaded","uploaded":True,"topic":topic,"next_topic":next_topic,"video_id":video_id}); _save_publish_state(workdir,state); print("✅ PUBLISH SHORTS COMPLETE | topic progression is already committed")
-
-if __name__=="__main__":
-    parser=argparse.ArgumentParser(); parser.add_argument("--dry-run",action="store_true"); args=parser.parse_args(); run(dry_run=args.dry_run)

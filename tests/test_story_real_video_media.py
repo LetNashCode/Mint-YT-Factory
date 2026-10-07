@@ -162,6 +162,53 @@ def test_source_precheck_rejects_historical_person_noise():
         assert media._source_precheck(item)
 
 
+def test_verifier_retries_transient_503(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("GEMINI_API_KEY", "test-key")
+    monkeypatch.setenv("STORY_GEMINI_NETWORK_RETRIES", "1")
+    monkeypatch.setenv("STORY_GEMINI_TRANSIENT_RETRIES", "3")
+    monkeypatch.setenv("STORY_GEMINI_REQUEST_TIMEOUT", "15")
+
+    class Response:
+        def __init__(self, status_code, payload=None):
+            self.status_code = status_code
+            self._payload = payload or {}
+
+        def json(self):
+            return self._payload
+
+        def raise_for_status(self):
+            raise requests.HTTPError(f"HTTP {self.status_code}")
+
+    good_payload = {
+        "candidates": [{
+            "content": {
+                "parts": [{
+                    "text": json.dumps(GOOD)
+                }]
+            }
+        }]
+    }
+    responses = [Response(503), Response(503), Response(200, good_payload)]
+    calls = []
+
+    def post(*args, **kwargs):
+        calls.append(1)
+        return responses.pop(0)
+
+    monkeypatch.setattr(media.requests, "post", post)
+    monkeypatch.setattr(media.time, "sleep", lambda *_args: None)
+
+    result = media.verify(
+        "Nelson Mandela",
+        {"narration": "A biography moment"},
+        candidate(),
+        ["a", "b", "c"],
+    )
+    assert result == GOOD
+    assert len(calls) == 3
+
+
 def test_verifier_network_timeout_creates_defer_marker(monkeypatch, tmp_path):
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("GEMINI_API_KEY", "test-key")

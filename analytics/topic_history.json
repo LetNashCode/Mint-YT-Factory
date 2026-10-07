@@ -3446,5 +3446,21 @@
     "video_id": "vy9IjgeTKAI",
     "workdir": "output/1791360365",
     "published_at": 1791361966
+  },
+  {
+    "topic": "Why do candle flames flicker",
+    "normalized": "why do candle flames flicker",
+    "workflow": "publish",
+    "status": "published",
+    "reserved_at": 1791366240,
+    "recorded_at": 1791366240,
+    "metadata": {
+      "next_topic": "Why do rubber boots squeak on tile",
+      "creative_strategy": "adjacent"
+    },
+    "title": "Why Do Candle Flames Flicker",
+    "video_id": "LZ2x3s1dnJ8",
+    "workdir": "output/1791366264",
+    "published_at": 1791367463
   }
 ]

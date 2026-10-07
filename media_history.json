@@ -12429,6 +12429,146 @@
       "shot": 2,
       "query": "aluminum foil sheets metal fights back splitting",
       "recorded_at": 1791360581
+    },
+    {
+      "asset_key": "pexels:video:8677058",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8677058/8677058-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "candle flames flicker tiny flame white",
+      "recorded_at": 1791366331
+    },
+    {
+      "asset_key": "pexels:video:17795658",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/17795658/17795658-hd_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "candle flames flicker shivering completely dead silent",
+      "recorded_at": 1791366336
+    },
+    {
+      "asset_key": "pexels:video:5555354",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5555354/5555354-hd_1280_720_24fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "candle flames flicker there zero wind yet",
+      "recorded_at": 1791366342
+    },
+    {
+      "asset_key": "pexels:video:14090582",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/14090582/14090582-hd_1280_720_60fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "candle flames flicker stutters like dodging invisible",
+      "recorded_at": 1791366343
+    },
+    {
+      "asset_key": "pexels:video:28495535",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/28495535/12399224_1280_720_60fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "candle flames flicker secret isn draft invisible",
+      "recorded_at": 1791366344
+    },
+    {
+      "asset_key": "pexels:video:29072078",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/29072078/12565078_1280_720_24fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "candle flames flicker staging tiny wrestling match",
+      "recorded_at": 1791366345
+    },
+    {
+      "asset_key": "pexels:video:6190100",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6190100/6190100-hd_1280_720_50fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "candle flames flicker hot air gets aggressively",
+      "recorded_at": 1791366346
+    },
+    {
+      "asset_key": "pexels:video:3344057",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3344057/3344057-hd_1260_720_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "candle flames flicker dragging cold air inward",
+      "recorded_at": 1791366347
+    },
+    {
+      "asset_key": "pexels:video:34807255",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34807255/14757831_720_1280_30fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "candle flames flicker you watching self-made hurricane",
+      "recorded_at": 1791366348
+    },
+    {
+      "asset_key": "pexels:video:8677061",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8677061/8677061-hd_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "candle flames flicker starves itself recovers repeats",
+      "recorded_at": 1791366349
+    },
+    {
+      "asset_key": "pexels:video:9473258",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9473258/9473258-hd_1366_720_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "candle flames flicker every single fire",
+      "recorded_at": 1791366350
+    },
+    {
+      "asset_key": "pexels:video:6961633",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6961633/6961633-hd_720_1280_24fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "candle flames flicker frantically chasing oxygen destroyed",
+      "recorded_at": 1791366351
+    },
+    {
+      "asset_key": "pexels:video:19997487",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/19997487/19997487-hd_720_1280_30fps.mp4",
+      "scene": 7,
+      "shot": 1,
+      "query": "candle flames flicker relentless cycle appetite rebirth",
+      "recorded_at": 1791366352
+    },
+    {
+      "asset_key": "pexels:video:8677063",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8677063/8677063-hd_1280_720_25fps.mp4",
+      "scene": 7,
+      "shot": 2,
+      "query": "candle flames flicker relentless cycle appetite rebirth",
+      "recorded_at": 1791366353
     }
   ]
 }

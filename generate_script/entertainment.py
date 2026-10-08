@@ -12,9 +12,9 @@ from google.genai import types
 
 MODEL_NAME = "gemini-flash-lite-latest"
 FALLBACK_MODEL_NAME = "Qwen/Qwen2.5-1.5B-Instruct"
-SCENE_COUNT = 7
+SCENE_COUNT = 6
 VISUALS_PER_SCENE = 2
-SCENE_DURATIONS = [3, 5, 7, 7, 8, 8, 7]
+SCENE_DURATIONS = [3, 5, 7, 7, 8, 8]
 MAX_ATTEMPTS = 3
 TRANSIENT_RETRIES = 3
 TRANSIENT_BACKOFF_SECONDS = (3, 8, 15)
@@ -62,9 +62,9 @@ STORY ARC:
 
 CONTINUATION OWNERSHIP: Do NOT write any next-topic teaser, preview, CTA, continuation bridge, second mystery, or future-topic sentence anywhere in the narration. The production pipeline alone reserves the next topic and appends exactly one canonical continuation after the current story passes quality gates.
 
-SCENE 7 HARD RULE: Scene 7 must contain ONLY the payoff/ending of the CURRENT topic. Do not introduce a second fact, second mystery, unrelated object, new animal, new invention, mini-story, or future question.
+SCENE 6 HARD RULE: Scene 6 must contain ONLY the payoff/ending of the CURRENT topic. Do not introduce a second fact, second mystery, unrelated object, new animal, new invention, mini-story, or future question.
 
-IMPORTANT FORMAT: Finish Scene 7 with a satisfying payoff sentence for the CURRENT TOPIC. next_short.topic is optional metadata only and must never appear in narration or visual fields.
+IMPORTANT FORMAT: Finish Scene 6 with a satisfying payoff sentence for the CURRENT TOPIC. next_short.topic is optional metadata only and must never appear in narration or visual fields.
 
 VISUAL DIRECTOR RULE: Every image must literally depict the exact physical beat being spoken. Illustrate the action, not the general topic. If narration describes an invisible phenomenon, use a truthful visible physical proxy. Never use random people, generic laboratories, microscopes, diagrams, arrows, equations, glowing particles, abstract science art, generic blue backgrounds, concept art, text, labels, logos, UI or watermarks unless narration explicitly requires them.
 

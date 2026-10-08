@@ -175,7 +175,7 @@ TITLE RULES:
 - Do not stuff keywords into the title.
 
 Return JSON only:
-{"title":"...","topic":"...","topic_key":"...","narration":"...","search_queries":["...","...","..."]}
+{"title":"...","topic":"...","topic_key":"...","narration":"...","search_queries":["...","...","..."],"visual_queries":["..."]}
 Search queries must be concrete things a camera can show, 3-6 words each.
 """ + history_block
 

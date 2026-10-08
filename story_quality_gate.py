@@ -109,7 +109,7 @@ def _strip_cta_sentences(text):
         if not sentence:
             continue
         if _hits(sentence, CTA_WORDS):
-            print(f"🧹 Removed accidental CTA from Scene 7 draft: {sentence}")
+            print(f"🧹 Removed accidental CTA from final-scene draft: {sentence}")
             continue
         kept.append(sentence)
     return _clean(" ".join(kept))
@@ -170,8 +170,8 @@ def _validate(script, topic):
     """
     errors = []
     scenes = script.get("scene_plan") or []
-    if len(scenes) != 7:
-        return [f"expected 7 scenes, got {len(scenes)}"]
+    if len(scenes) != 6:
+        return [f"expected 6 scenes, got {len(scenes)}"]
 
     next_topic = _clean((script.get("next_short") or {}).get("topic"))
     if not next_topic:
@@ -181,7 +181,7 @@ def _validate(script, topic):
 
     for si, scene in enumerate(scenes, 1):
         narration = _clean(scene.get("narration"))
-        if si == 7:
+        if si == len(scenes):
             narration = _strip_cta_sentences(narration)
             scene["narration"] = narration
             scene["subtitle_text"] = narration
@@ -194,7 +194,7 @@ def _validate(script, topic):
         # Narration QA: no marketing language and no premature continuation.
         if _hits(narration, CTA_WORDS):
             errors.append(f"Scene {si}: CTA/marketing language inside narration")
-        if si < 7 and _hits(narration, FUTURE_MARKERS):
+        if _hits(narration, FUTURE_MARKERS):
             errors.append(f"Scene {si}: future-topic transition leaked into story")
 
         visuals = scene.get("visuals") or []
@@ -272,7 +272,8 @@ actions, changes, or states in visual_focus, visual_action, must_show, must_not_
 4. Every visual must contain a concrete subject and either a physical action OR a clearly visible physical state.
 5. Shot 2 must advance or reveal a different physical state, action, angle, or consequence.
 6. Keep the story 80–112 words and avoid filler.
-7. The production continuation system owns the locked next-topic sentence.
+7. Return exactly 6 scenes. Scene 6 is the complete current-topic payoff.
+8. The next topic is metadata only; never add a spoken continuation sentence or bridge.
 """
             if last_error:
                 feedback += f"""

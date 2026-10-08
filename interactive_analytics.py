@@ -42,7 +42,7 @@ def refresh_live_metrics():
 
 def build_comparison():
     current=_load(ROOT/"analytics"/"story"/"videos.json",[]); stories=_load(PATH,[])
-    groups={"publish_shorts":current if isinstance(current,list) else []}
+    groups={"story_shorts":current if isinstance(current,list) else []}
     for x in stories if isinstance(stories,list) else []:
         if isinstance(x,dict):groups.setdefault(x.get("pillar","story"),[]).append(x)
     out={}

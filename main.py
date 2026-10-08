@@ -165,3 +165,203 @@ def _find_pending_resume():
     production_entry installs the authoritative implementation at runtime.
     """
     return None
+
+def refresh_learning_before_generation():
+    print("=" * 80)
+    print("📊 REFRESHING CHANNEL LEARNING")
+    print("=" * 80)
+    try:
+        playbook = refresh_playbook()
+        print(
+            f"🧠 Learning playbook refreshed: "
+            f"{playbook.get('video_count', 0)} videos | "
+            f"learning_ready={playbook.get('learning_ready', False)}"
+        )
+    except Exception as error:
+        print(f"⚠️ Learning refresh unavailable: {type(error).__name__}: {error}")
+
+
+def run(dry_run=False):
+    """Authoritative Publish Shorts production entry point.
+
+    production_entry.py installs the quality, topic, media, TTS, resume and
+    publication guards around this function before invoking it.
+    """
+    config = load_config()
+
+    print("=" * 80)
+    print("🚀 MINT-YT-FACTORY — PUBLISH SHORTS")
+    print("=" * 80)
+
+    refresh_learning_before_generation()
+
+    topic = get_next_topic()
+    if not topic:
+        raise RuntimeError("No topic available.")
+
+    print(f"🎯 CURRENT TOPIC: {topic}")
+
+    learning_context = ""
+    try:
+        learning_context = load_learning_context()
+        if learning_context:
+            print("🧠 Channel learning context loaded.")
+    except Exception as error:
+        print(f"⚠️ Learning context unavailable: {type(error).__name__}: {error}")
+
+    print("=" * 80)
+    print("✍️ GENERATING PUBLISH SHORT SCRIPT")
+    print("=" * 80)
+
+    script = generate_script(
+        topic,
+        config,
+        None,
+        extra_feedback=learning_context,
+    )
+
+    script, next_topic = lock_next_topic(script, topic)
+
+    script["topic"] = topic
+
+    workdir = os.path.join("output", str(int(time.time())))
+    os.makedirs(workdir, exist_ok=True)
+    save_json(script, os.path.join(workdir, "script.json"))
+
+    print(f"💾 Script saved: {workdir}/script.json")
+    print(f"🔒 Next topic locked as metadata: {next_topic}")
+
+    if dry_run:
+        print("✅ DRY RUN COMPLETE")
+        return
+
+    print("=" * 80)
+    print("🎙️ GENERATING NARRATION")
+    print("=" * 80)
+    audio = synthesize_script(
+        script,
+        config,
+        os.path.join(workdir, "audio"),
+    )
+
+    print("=" * 80)
+    print("🎬 GENERATING STOCK MEDIA")
+    print("=" * 80)
+    media = generate_media(
+        script,
+        os.path.join(workdir, "media"),
+        config,
+    )
+
+    print("=" * 80)
+    print("🎵 SELECTING MUSIC")
+    print("=" * 80)
+    music = download_music(script, workdir)
+
+    print("=" * 80)
+    print("💥 GENERATING SFX")
+    print("=" * 80)
+    sfx = generate_sfx(
+        script,
+        os.path.join(workdir, "sfx"),
+    )
+
+    save_json(script, os.path.join(workdir, "script.json"))
+
+    final_video = os.path.join(workdir, "final.mp4")
+
+    print("=" * 80)
+    print("🎬 ASSEMBLING SHORT")
+    print("=" * 80)
+    assemble_video(
+        script,
+        audio,
+        media,
+        music,
+        sfx,
+        config,
+        final_video,
+    )
+
+    if not os.path.exists(final_video):
+        raise RuntimeError("Final video was not created.")
+
+    print(f"✅ Video created: {final_video}")
+
+    print("=" * 80)
+    print("🔍 VALIDATING FINAL VIDEO")
+    print("=" * 80)
+    validate_final_video(final_video)
+
+    if not config.get("upload", {}).get("auto_upload", False):
+        print("⚠️ AUTO UPLOAD DISABLED — topic remains uncommitted.")
+        return
+
+    print("=" * 80)
+    print("🚀 UPLOADING SHORT")
+    print("=" * 80)
+
+    title = str(script.get("title") or topic).strip()[:100]
+    description = str(
+        script.get("description")
+        or f"A quick look at {topic} and the everyday mystery behind it."
+    ).strip()[:4500]
+    tags = script.get("tags", [])
+    if not isinstance(tags, list):
+        tags = []
+
+    upload_result = upload_video(
+        final_video,
+        title,
+        description,
+        config,
+    )
+    print(f"✅ Upload completed: {upload_result}")
+
+    print("=" * 80)
+    print("🔗 SAVING NEXT SHORT")
+    print("=" * 80)
+
+    queued_topic = save_next_short(next_topic)
+    if not queued_topic:
+        raise RuntimeError("Upload succeeded but next_short could not be saved.")
+
+    if _normalise_topic_text(queued_topic) != _normalise_topic_text(next_topic):
+        raise RuntimeError(
+            f"CONTINUATION INTEGRITY FAILURE: "
+            f"locked={next_topic!r}, queued={queued_topic!r}"
+        )
+
+    print(f"✅ Next Short queued: {queued_topic}")
+
+    print("=" * 80)
+    print("📌 COMMITTING CURRENT TOPIC")
+    print("=" * 80)
+
+    committed = commit_topic(topic)
+    if committed is False:
+        raise RuntimeError(
+            "Upload succeeded but current topic could not be committed."
+        )
+
+    try:
+        record_topic(
+            topic=topic,
+            title=title,
+            video_id=str(upload_result or ""),
+        )
+    except Exception as error:
+        print(f"⚠️ Topic-history bookkeeping skipped: {type(error).__name__}: {error}")
+
+    print("=" * 80)
+    print("🎉 PUBLISH SHORTS COMPLETE")
+    print("=" * 80)
+    print(f"Published: {topic}")
+    print(f"Next run: {next_topic}")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--dry-run", action="store_true")
+    args = parser.parse_args()
+    run(dry_run=args.dry_run)

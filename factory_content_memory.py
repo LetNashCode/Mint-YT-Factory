@@ -1,7 +1,6 @@
-"""Factory-wide topic memory, reservation, and learning bridge.
+"""Workflow-scoped topic memory, reservation, and learning bridge.
 
-Every content workflow uses this module before generation and after publication.
-The shared analytics/topic history is the source of truth across formats.
+The active workflow profile selects an independent analytics and topic-history namespace.
 """
 from __future__ import annotations
 

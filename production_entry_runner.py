@@ -49,7 +49,10 @@ def _install_factory_publication_memory():
     import main
     from factory_content_memory import publish
 
-    original = main._mark_topic_bookkeeping
+    original = getattr(main, "_mark_topic_bookkeeping", None)
+    if original is None:
+        print("ℹ️ Factory-wide learning memory: Publish bookkeeping hook not present; main pipeline already owns publication state")
+        return
     if getattr(original, "_mint_factory_publication_memory", False):
         return
 

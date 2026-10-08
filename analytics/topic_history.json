@@ -3490,5 +3490,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do cotton shirts twist in laundry",
+    "normalized": "why do cotton shirts twist in laundry",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791496709,
+    "recorded_at": 1791496709,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

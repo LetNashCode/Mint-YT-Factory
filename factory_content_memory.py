@@ -7,13 +7,16 @@ from __future__ import annotations
 
 import difflib
 import json
+import os
 import re
 import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-HISTORY = ROOT / "analytics" / "topic_history.json"
-BOOTSTRAP_STATE = ROOT / "analytics" / "factory_memory_state.json"
+_PROFILE = str(os.environ.get("MINT_WORKFLOW_PROFILE", "publish")).strip().lower()
+_PROFILE_ANALYTICS = ROOT / "analytics" / "story" if _PROFILE == "story" else ROOT / "analytics"
+HISTORY = _PROFILE_ANALYTICS / "topic_history.json"
+BOOTSTRAP_STATE = _PROFILE_ANALYTICS / "factory_memory_state.json"
 RESERVATION_TTL_SECONDS = 24 * 60 * 60
 DUPLICATE_THRESHOLD = 0.70
 MAX_HISTORY_ROWS = 5000
@@ -141,9 +144,16 @@ def _bootstrap_legacy(rows: list[dict]) -> list[dict]:
                     legacy_topics.append((workflow, topic))
                     break
 
-    add_json_topics(ROOT / "story_topic_history.json", "story_legacy", ("topic",))
-    add_json_topics(ROOT / "used_topics.json", "publish_legacy", ("topic",))
-    add_json_topics(ROOT / "analytics" / "videos.json", "analytics_legacy", ("topic", "title"))
+    if _PROFILE == "story":
+        # Story Shorts imports only its own legacy history. Never bootstrap
+        # from Publish Shorts' used_topics.json or analytics/videos.json.
+        add_json_topics(ROOT / "story_topic_history.json", "story_legacy", ("topic",))
+        add_json_topics(ROOT / "analytics" / "story_videos.json", "story_analytics_legacy", ("topic", "title"))
+    else:
+        # Publish keeps its existing root-level state and does not import Story
+        # topics into its duplicate guard.
+        add_json_topics(ROOT / "used_topics.json", "publish_legacy", ("topic",))
+        add_json_topics(ROOT / "analytics" / "videos.json", "analytics_legacy", ("topic", "title"))
 
     existing = _sanitize_internal_rows(list(rows))
     added = 0

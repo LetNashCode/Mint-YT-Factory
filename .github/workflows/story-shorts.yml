@@ -33,7 +33,7 @@ permissions:
   contents: write
   actions: read
 concurrency:
-  group: mint-content-factory
+  group: mint-story-shorts
   cancel-in-progress: false
 jobs:
   quality-checks:

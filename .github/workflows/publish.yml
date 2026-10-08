@@ -102,7 +102,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python -m pytest -q tests/test_tts_speed.py tests/test_publish_continuation.py tests/test_topic_intelligence.py tests/test_creative_cooldowns.py
+          python -m pytest -q tests/test_tts_speed.py tests/test_publish_continuation.py tests/test_topic_intelligence.py tests/test_creative_cooldowns.py tests/test_workflow_state_isolation.py
 
       - name: Restore previous failed Publish Shorts video
         shell: bash

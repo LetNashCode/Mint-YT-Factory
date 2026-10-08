@@ -3478,5 +3478,17 @@
     "video_id": "aVYR8KiviAk",
     "workdir": "output/1791412216",
     "published_at": 1791413984
+  },
+  {
+    "topic": "Why do glass windows rattle in windstorms",
+    "normalized": "why do glass window rattle in windstorms",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791495039,
+    "recorded_at": 1791495039,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

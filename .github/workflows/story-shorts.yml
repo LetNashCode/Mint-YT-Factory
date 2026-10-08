@@ -58,7 +58,7 @@ jobs:
           python-version: '3.11'
       - name: Install offline test tools
         run: |
-          pip install pytest requests PyYAML "Pillow<10" opencv-python-headless==4.10.0.84 google-genai
+          pip install pytest requests PyYAML "Pillow<10" opencv-python-headless==4.10.0.84 google-genai google-api-python-client google-auth
           sudo apt-get update
           sudo apt-get install -y ffmpeg
       - name: Story regression, isolation and portrait render tests

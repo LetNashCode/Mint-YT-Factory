@@ -8,7 +8,10 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 ROOT=Path(__file__).resolve().parent
-ANALYTICS_DIR=ROOT/'analytics'; REGISTRY_PATH=ANALYTICS_DIR/'videos.json'; SUMMARY_PATH=ANALYTICS_DIR/'summary.json'; USED_TOPICS_PATH=ROOT/'used_topics.json'
+_PROFILE=str(os.environ.get('MINT_WORKFLOW_PROFILE','publish')).strip().lower()
+ANALYTICS_DIR=ROOT/'analytics'/'story' if _PROFILE=='story' else ROOT/'analytics'
+REGISTRY_PATH=ANALYTICS_DIR/'videos.json'; SUMMARY_PATH=ANALYTICS_DIR/'summary.json'
+USED_TOPICS_PATH=(ANALYTICS_DIR/'used_topics.json') if _PROFILE=='story' else (ROOT/'used_topics.json')
 ANALYTICS_MARKER='__MINT_ANALYTICS__::'
 
 
@@ -27,14 +30,27 @@ def _analytics_service(): return build('youtubeAnalytics','v2',credentials=_cred
 
 
 def _read_durable_publications():
-    """Recover published video records from durable workflow state.
-
-    The analytics registry is derived state. A workflow can successfully publish
-    a video even if the registry write happened in a later step or an older
-    factory version used a different bookkeeping file. Reconcile those durable
-    publication records before fetching fresh YouTube metrics.
-    """
+    """Recover only publications belonging to the active workflow profile."""
     out = []
+    if _PROFILE == "story":
+        story_rows = _load(ROOT / "analytics" / "story_videos.json", [])
+        if isinstance(story_rows, list):
+            for item in story_rows:
+                if not isinstance(item, dict):
+                    continue
+                video_id = str(item.get("video_id") or "").strip()
+                if video_id:
+                    out.append({
+                        "video_id": video_id,
+                        "topic": str(item.get("topic") or "").strip(),
+                        "title": str(item.get("title") or "").strip(),
+                        "workdir": str(item.get("workdir") or "").strip(),
+                        "workflow": "story",
+                        "person": str(item.get("person") or "").strip(),
+                        "pillar": str(item.get("pillar") or "").strip(),
+                    })
+        return out
+
     completed = _load(ROOT / "completed_publications.json", [])
     if isinstance(completed, list):
         for item in completed:
@@ -49,22 +65,6 @@ def _read_durable_publications():
                     "workdir": str(item.get("workdir") or "").strip(),
                     "published_at": item.get("completed_at"),
                     "workflow": "publish",
-                })
-    story_rows = _load(ANALYTICS_DIR / "story_videos.json", [])
-    if isinstance(story_rows, list):
-        for item in story_rows:
-            if not isinstance(item, dict):
-                continue
-            video_id = str(item.get("video_id") or "").strip()
-            if video_id:
-                out.append({
-                    "video_id": video_id,
-                    "topic": str(item.get("topic") or "").strip(),
-                    "title": str(item.get("title") or "").strip(),
-                    "workdir": str(item.get("workdir") or "").strip(),
-                    "workflow": "story",
-                    "person": str(item.get("person") or "").strip(),
-                    "pillar": str(item.get("pillar") or "").strip(),
                 })
     return out
 

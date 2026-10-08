@@ -13,18 +13,6 @@
   },
   {
     "format": "before_they_were_famous",
-    "person": "Viswanathan Anand",
-    "premise": "A young chess prodigy in India sharpens his lightning-fast tactical skills in local clubs.",
-    "hook": "Before becoming a world champion, he earned the nickname 'Lightning Kid' for his rapid moves.",
-    "key_facts": [
-      "Became India's first Grandmaster in 1988",
-      "Won multiple World Chess Championships across different formats",
-      "Awarded India's highest civilian sporting honor, the Padma Vibhushan"
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
     "person": "R. Ramanathan",
     "premise": "The legendary Indian classical Carnatic vocalist who started his career as a bank clerk.",
     "hook": "He balanced ledgers by day and mastered ancient Carnatic ragas by night.",
@@ -36,93 +24,28 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Rosa Parks",
-    "premise": "The specific bus ride in Montgomery, Alabama, that catalyzed a major civil rights movement through a single act of steadfast resistance.",
-    "hook": "A routine bus ride home after a long day's work sparked a 381-day boycott that reshaped a nation.",
+    "format": "before_they_were_famous",
+    "person": "Dwayne Johnson",
+    "premise": "The former college football player who found himself with seven dollars and cut dreams after injuries derailed his sports career.",
+    "hook": "Cut from the Canadian Football League with just seven bucks in his pocket, he pivoted to the family business of professional wrestling.",
     "key_facts": [
-      "Worked as a seamstress and was an active member of the NAACP.",
-      "Refused to give up her bus seat to a white passenger in Montgomery on December 1, 1955.",
-      "Her arrest led directly to the Montgomery bus boycott.",
-      "The boycott lasted for over a year and led to a Supreme Court ruling against segregated buses."
+      "He played college football for the University of Miami and won a national championship.",
+      "Injuries ended his aspirations of playing professional football in the NFL.",
+      "He debuted in the World Wrestling Federation under the ring name Rocky Maivia before becoming 'The Rock'.",
+      "He successfully transitioned from sports entertainment to become a leading Hollywood box office draw."
     ],
     "source": "gemini_original"
   },
   {
     "format": "before_they_were_famous",
-    "person": "Dwayne Johnson",
-    "premise": "Before selling out stadiums and starring in blockbusters, a college football injury left him with seven dollars and no clear future.",
-    "hook": "Cut from his professional football dreams with only seven dollars in his pocket, he had to rebuild his life from scratch.",
-    "key_facts": [
-      "Played college football for the University of Miami, winning a national championship.",
-      "Went undrafted in the NFL and was later cut from the Canadian Football League.",
-      "Started his professional wrestling career in the WWF as Rocky Maivia before becoming The Rock.",
-      "Transitioned into Hollywood to become one of the world's highest-paid actors."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "When his ship was crushed by Antarctic ice, an experienced explorer kept all twenty-eight crew members alive across months of isolation.",
-    "hook": "Trapped on a frozen ocean with zero chance of rescue, one man decided to walk across hundreds of miles of freezing seas to save his crew.",
-    "key_facts": [
-      "Led the Imperial Trans-Antarctic Expedition aboard the Endurance in 1914.",
-      "His ship became trapped and was ultimately crushed by pack ice.",
-      "Camped on floating ice floes for months before sailing a small lifeboat to South Georgia Island.",
-      "Successfully rescued every single member of his crew without a single loss of life."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
     "person": "Kalpana Chawla",
-    "premise": "A girl growing up in a small town in northern India breaks conventional barriers to become the first woman of Indian origin in space.",
-    "hook": "She watched airplanes fly over her hometown as a child, years before becoming the first Indian-born woman to fly on the Space Shuttle.",
+    "premise": "The aeronautical engineering student from Karnal who broke geographical barriers to reach NASA.",
+    "hook": "Growing up in a small town in Haryana where aerospace opportunities were rare, she built model airplanes before studying aerospace engineering.",
     "key_facts": [
-      "Grew up in Karnal, Haryana, completing her early education there.",
-      "Graduated with an aeronautical engineering degree from Punjab Engineering College.",
-      "Moved to the United States to earn master's and doctoral degrees in aerospace engineering.",
-      "Joined NASA and flew on Space Shuttle missions STS-87 and STS-107."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Jonas Salk",
-    "premise": "A medical researcher makes the controversial decision to test his polio vaccine prototype directly on himself and his family.",
-    "hook": "To prove his new vaccine was safe against a terrifying epidemic, he injected it into his own children.",
-    "key_facts": [
-      "Led a research team at the University of Pittsburgh to develop a polio vaccine.",
-      "Utilized a killed-virus approach, which went against the live-virus consensus of some peers.",
-      "Tested the killed-virus vaccine on himself, his wife, and his children prior to massive trials.",
-      "The 1954 Francis Field Trial proved the vaccine was safe and effective, nearly eradicating polio in the US."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Louis Braille",
-    "premise": "Blinded by an accident in early childhood, a French boy creates a tactile reading system that transforms education for the blind worldwide.",
-    "hook": "Blinded at the age of three by a workshop tool, he invented a six-dot alphabet using an awl that adults initially rejected.",
-    "key_facts": [
-      "Blinded in his father's harness-making shop after an accidental injury with a sharp tool.",
-      "Attended the Royal Institution for Blind Youth in Paris, which used bulky embossed books.",
-      "Adapted a military night-writing code into a simpler, tactile six-dot matrix system.",
-      "The reading system was officially adopted worldwide long after his death."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Agatha Christie",
-    "premise": "An experienced wartime dispensary nurse uses her knowledge of poisons to write bestselling mystery novels that puzzle generations of readers.",
-    "hook": "Working quietly in a hospital pharmacy during World War I gave her the exact chemical knowledge she needed to craft complex murder mysteries.",
-    "key_facts": [
-      "Worked as a volunteer nurse and hospital dispenser during World War I.",
-      "Gained detailed, practical knowledge of various pharmaceutical drugs and lethal poisons.",
-      "Published her debut detective novel, The Mysterious Affair at Styles, in 1920.",
-      "Went on to become one of the best-selling fiction writers in history."
+      "She earned her bachelor's degree in aeronautical engineering from Punjab Engineering College.",
+      "She moved to the United States in the 1980s to pursue master's and doctoral degrees in aerospace engineering.",
+      "She joined NASA as a research scientist at Ames Research Center.",
+      "She flew her first space mission aboard the Space Shuttle Columbia in 1997 as a mission specialist."
     ],
     "source": "gemini_original"
   }

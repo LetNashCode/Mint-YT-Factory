@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T11:52:08.471606+00:00",
+  "generated_at": "2026-10-08T17:48:48.324928+00:00",
   "video_count": 159,
   "learning_ready": true,
   "metrics_available": true,
@@ -17,13 +17,13 @@
       "score": 40.827,
       "sample_size": 10,
       "weak_sample_size": 10,
-      "weak_score": 0.604
+      "weak_score": 0.677
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.604,
+      "score": 0.677,
       "sample_size": 10
     }
   ],
@@ -45,11 +45,11 @@
   "avoid_topics": [
     "Why do corks pop out",
     "Why do toothpaste tubes wrinkle",
+    "Why do rubber boots squeak on tile",
     "Why do candle flames flicker",
     "Why do aluminum foil sheets tear",
     "How do refrigerator seals stick",
     "Why do window blinds tilt crooked",
-    "Why do rubber boots squeak on tile",
     "Why do phone screens attract dust",
     "Why do paper towels tear sideways",
     "Why do steering wheels lock"

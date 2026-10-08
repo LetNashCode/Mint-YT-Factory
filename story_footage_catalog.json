@@ -6682,99 +6682,6 @@
       "reviewed_at": 1791331639.454196
     },
     {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 114.51,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Sir Alexander Fleming himself speaking in archival video from 1955, matching the subject and providing authentic historical context and biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "76903ed5721eef538eeed990ce4defc779cf51d69b49d3578d9f08318e842c8c",
-      "reviewed_at": 1791401382.6148255
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 37.85,
-      "length": 8.0,
-      "verification": {
-        "person_visible": false,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows archival moving images of Alexander Fleming's hands and petri dish experiments in the first two frames, and Fleming himself in the third frame, but because the subject's face is not clearly visible in all three frames simultaneously, person_visible is false. However, the moving footage is genuine historical context showing the subject and his work, making it usable with direct_event usage.",
-        "usage": "direct_event"
-      },
-      "review_key": "d51aa2d7d56c10921ba12adb09e79d4003ae0c249486ea5c15a7ce6c3d0699b2",
-      "reviewed_at": 1791401525.1889966
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 136.41,
-      "length": 8.0,
-      "verification": {
-        "person_visible": false,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows archival moving images of Alexander Fleming discussing his work and showing the original penicillin cultivation, but he is not clearly visible in all three frames (the third frame focuses closely on his hands and the petri dish). Because he is not visible in all three frames, direct_event must be used since the video depicts the actual historical subject speaking and demonstrating his work.",
-        "usage": "direct_event"
-      },
-      "review_key": "506e5c8f939bbe4a1a7b0c5f4871cadd7009964113b401dcdba665f7a5de8e51",
-      "reviewed_at": 1791401552.5528617
-    },
-    {
       "person": "James Cameron",
       "source": {
         "id": "archive:JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise",
@@ -7784,223 +7691,6 @@
         "identity_score": 13.0,
         "archival_signal": 0
       },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly and genuinely depicts Sir Alexander Fleming himself speaking about his discovery of penicillin in archival video, visible across all frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "0ad9832d2b5826d5323c8471092cd654da6a35e3d1d25de7e31aeea5357d7e0c",
-      "reviewed_at": 1791460922.1638224
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 26.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows genuine archival moving images of Alexander Fleming himself speaking and demonstrating in 1955, providing direct visual illustration for his biography.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "2ecc6c8f197b63149f1af7292d5119ea357f021963943ec5ef9961d4d5f9021b",
-      "reviewed_at": 1791460945.8656247
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 48.8,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Alexander Fleming himself speaking in archival BBC footage from 1955, discussing his discovery of penicillin. He is visible across all three frames, making it usable direct historical footage for his biography.",
-        "usage": "direct_event"
-      },
-      "review_key": "ad4c909b3d40af412ba71efc802c6631e47c5cb0889de91da184d66aa5375120",
-      "reviewed_at": 1791460970.5314915
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 59.75,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The frames feature genuine archival moving footage of Alexander Fleming himself speaking about his discovery of penicillin in 1955.",
-        "usage": "direct_event"
-      },
-      "review_key": "9a671d6197269f7de989652396da3d995109bcab5803b8f5524fdb9903cff9b2",
-      "reviewed_at": 1791460997.2727056
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 70.7,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage features the genuine historical figure Alexander Fleming speaking in an archival BBC interview, providing excellent biographical illustration for his life and work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "be05a77fb03604f57d68791be571e5361bfe2d7aaef9c3dee2fa713633eb7bd9",
-      "reviewed_at": 1791461024.8254275
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 103.56,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Alexander Fleming himself speaking in archival BBC footage from 1955, meeting the requirement for identity footage across all three frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "dfc561d362ab884fbd66e19ac8486cc4969aac8568d1d4a713dc05dd0f23bf89",
-      "reviewed_at": 1791461039.34558
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 125.46,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The frames clearly feature the actual Sir Alexander Fleming speaking in archival television footage, directly depicting the subject of the biography segment.",
-        "usage": "direct_event"
-      },
-      "review_key": "790946222424c66159e65c84bf2dd35a84bc5a1f70a10694001d703f3e62d049",
-      "reviewed_at": 1791461080.2519004
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
       "start": 15.95,
       "length": 8.0,
       "verification": {
@@ -8106,6 +7796,347 @@
       },
       "review_key": "0978e3804b3dc6924f708a82e451da4a17f0600923338b5351cbb0ca328d336a",
       "reviewed_at": 1791461235.7837179
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1642939444922818560",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1642939444922818560/1642924928461848578.mp4",
+        "source_url": "https://archive.org/details/twitter-1642939444922818560",
+        "title": "Walt Disney Studios - JUST ANNOUNCED: From Dwayne Johnson and Auli’i Cravalho, a live-action reimagining of Disney’s Moana is in the works!",
+        "description": "JUST ANNOUNCED: From Dwayne Johnson and Auli’i Cravalho, a live-action reimagining of Disney’s Moana is in the works! https://t.co/4rQXLSJ5Zn ['Twitter', 'video']",
+        "creator": "Walt Disney Studios",
+        "license": "",
+        "subject": "['Twitter', 'video']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 128.128,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 62.06,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly and continuously shows Dwayne Johnson speaking directly to the camera on a beach, perfectly matching the subject and biographical context.",
+        "usage": "direct_event"
+      },
+      "review_key": "ab7f35403bd55730b8482889480b5dc94f5ceb53bd6574a169f0d86058c4fc5b",
+      "reviewed_at": 1791483432.6479588
+    },
+    {
+      "person": "Alexander Fleming",
+      "source": {
+        "id": "archive:twitter-1349025542058733577",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
+        "source_url": "https://archive.org/details/twitter-1349025542058733577",
+        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
+        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Onthisday']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 114.51,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The frames clearly show the actual Alexander Fleming in archival moving footage from a 1955 BBC broadcast, perfectly illustrating his life and historical context.",
+        "usage": "direct_event"
+      },
+      "review_key": "308b25f220f708c8e61ccdac0cc6b60e55e0cc205255bacfcb0518ffc3b22779",
+      "reviewed_at": 1791483971.33303
+    },
+    {
+      "person": "Alexander Fleming",
+      "source": {
+        "id": "archive:twitter-1349025542058733577",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
+        "source_url": "https://archive.org/details/twitter-1349025542058733577",
+        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
+        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Onthisday']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 37.85,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows archival moving images of Alexander Fleming discussing and showing his original penicillin cultivation, but his face is only clearly visible in the final frame (not all three frames), so person_visible is false. However, it is genuine historical context directly depicting the narrated subject and event, making it usable as a direct_event.",
+        "usage": "direct_event"
+      },
+      "review_key": "15ef30426b3d8cad5c1a3287a59f666f9e3ae1cac91d28da6c256d0ec2068677",
+      "reviewed_at": 1791483998.1417603
+    },
+    {
+      "person": "Alexander Fleming",
+      "source": {
+        "id": "archive:twitter-1349025542058733577",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
+        "source_url": "https://archive.org/details/twitter-1349025542058733577",
+        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
+        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Onthisday']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 136.41,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows archival moving images of Alexander Fleming in 1955 discussing and showing his original cultivation of penicillin. However, the subject is not visible across all three frames (the third frame focuses on his hands and the petri dish while his head/face is out of frame), so person_visible is false. Because it is genuine archival footage directly depicting the historical event and subject matter described, it is usable with direct_event usage.",
+        "usage": "direct_event"
+      },
+      "review_key": "7c4417830851774e12515ef991dda92b42e2164c52de85c9c4c507b8a0d531cf",
+      "reviewed_at": 1791484020.1715815
+    },
+    {
+      "person": "Alexander Fleming",
+      "source": {
+        "id": "archive:twitter-1349025542058733577",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
+        "source_url": "https://archive.org/details/twitter-1349025542058733577",
+        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
+        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Onthisday']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The video features genuine archival footage of Sir Alexander Fleming himself speaking about his discovery of penicillin in 1955. He is clearly visible across all three frames, making it directly usable for a biographical short.",
+        "usage": "direct_event"
+      },
+      "review_key": "5637e3c1e3fe6f69e49aa939cae11fd5d6ce9de2395c67a733ece13a6ce5525b",
+      "reviewed_at": 1791484040.9897337
+    },
+    {
+      "person": "Alexander Fleming",
+      "source": {
+        "id": "archive:twitter-1349025542058733577",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
+        "source_url": "https://archive.org/details/twitter-1349025542058733577",
+        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
+        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Onthisday']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 26.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Alexander Fleming himself speaking in archival BBC footage from 1955, perfectly illustrating his biography.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0d2ac503c5e45387c279fc6d2d065a441a1d02c685e6b20ae2fb30a13283d402",
+      "reviewed_at": 1791484063.3167512
+    },
+    {
+      "person": "Alexander Fleming",
+      "source": {
+        "id": "archive:twitter-1349025542058733577",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
+        "source_url": "https://archive.org/details/twitter-1349025542058733577",
+        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
+        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Onthisday']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 48.8,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The frames clearly show archival moving footage of Alexander Fleming himself speaking about his discovery of penicillin in 1955, making it a direct depiction of the historical subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e620ec84d0de0e604dc6076d39639dea27daf52eae83b3a62f128c53724ad4f1",
+      "reviewed_at": 1791484082.955423
+    },
+    {
+      "person": "Alexander Fleming",
+      "source": {
+        "id": "archive:twitter-1349025542058733577",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
+        "source_url": "https://archive.org/details/twitter-1349025542058733577",
+        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
+        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Onthisday']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 59.75,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage features archival moving picture of Alexander Fleming himself speaking about his discovery of penicillin, making it highly relevant and usable authentic biographical material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4610a8d2307ba796ddab748a716a90a31a1b718bef98a8f2603bfcd112f43ecd",
+      "reviewed_at": 1791484100.0530822
+    },
+    {
+      "person": "Alexander Fleming",
+      "source": {
+        "id": "archive:twitter-1349025542058733577",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
+        "source_url": "https://archive.org/details/twitter-1349025542058733577",
+        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
+        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Onthisday']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 70.7,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Sir Alexander Fleming himself speaking in archival video from 1955, making it directly usable and highly relevant historical footage of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f98c84b3980c89f09ac23a41e9f16d5f04c78d0063333a77c995ec1712ca1e81",
+      "reviewed_at": 1791484136.6244066
+    },
+    {
+      "person": "Alexander Fleming",
+      "source": {
+        "id": "archive:twitter-1349025542058733577",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
+        "source_url": "https://archive.org/details/twitter-1349025542058733577",
+        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
+        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Onthisday']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 103.56,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Sir Alexander Fleming himself speaking in archival video from 1955, directly matching the subject of the biography and illustrating his life and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "67bf6c69d58a850740d7666cf7bb96ee8cb6cc1dde8afb7a3fbf8785b3382ea5",
+      "reviewed_at": 1791484159.3708498
+    },
+    {
+      "person": "Alexander Fleming",
+      "source": {
+        "id": "archive:twitter-1349025542058733577",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
+        "source_url": "https://archive.org/details/twitter-1349025542058733577",
+        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
+        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Onthisday']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 125.46,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames show authentic archival video footage of Alexander Fleming speaking in an interview, clearly visible across all three frames and usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "23de2675f3deba72911b0cdfeb6e7c7e46c8c875d8ba39f05c4cf9d072b7237d",
+      "reviewed_at": 1791484186.9567015
     }
   ]
 }

@@ -2,7 +2,8 @@
 from __future__ import annotations
 import glob, json, os, sys
 from interactive_main import load_config, _title, save
-from upload_youtube import upload_video\nimport story_visual_upgrade
+from upload_youtube import upload_video
+import story_visual_upgrade
 from social_publish import publish_social_reels
 from interactive_topics import record_topic
 from interactive_analytics import record as record_analytics

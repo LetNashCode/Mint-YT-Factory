@@ -98,3 +98,30 @@ def test_factory_bootstrap_sanitizes_internal_pending_topic_marker(tmp_path, mon
     assert all(not str(row["topic"]).startswith("__MINT_PENDING_NEXT_TOPIC__::") for row in rows)
     assert any(row["topic"] == "Why do keys jingle" and row["status"] == "reserved" for row in rows)
     assert json.loads(state.read_text())["version"] == 2
+
+
+
+def test_story_bootstrap_never_imports_publish_topics(tmp_path, monkeypatch):
+    monkeypatch.setattr(memory, "_PROFILE", "story")
+    monkeypatch.setattr(memory, "ROOT", tmp_path)
+    monkeypatch.setattr(memory, "HISTORY", tmp_path / "analytics" / "story" / "topic_history.json")
+    monkeypatch.setattr(memory, "BOOTSTRAP_STATE", tmp_path / "analytics" / "story" / "factory_memory_state.json")
+
+    (tmp_path / "analytics").mkdir(parents=True)
+    (tmp_path / "story_topic_history.json").write_text(json.dumps([
+        {"topic": "Story-only abandoned lighthouse mystery"}
+    ]))
+    (tmp_path / "used_topics.json").write_text(json.dumps([
+        {"topic": "Publish-only mirror reflection topic"}
+    ]))
+    (tmp_path / "analytics" / "videos.json").write_text(json.dumps([
+        {"topic": "Publish-only kettle whistle topic"}
+    ]))
+
+    rows = memory._bootstrap_legacy([])
+    topics = {row["topic"] for row in rows}
+
+    assert "Story-only abandoned lighthouse mystery" in topics
+    assert "Publish-only mirror reflection topic" not in topics
+    assert "Publish-only kettle whistle topic" not in topics
+    assert memory.HISTORY == tmp_path / "analytics" / "story" / "topic_history.json"

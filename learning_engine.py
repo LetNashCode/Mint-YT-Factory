@@ -6,6 +6,7 @@ selects an explicit 70/20/10 creative strategy for each new Short.
 from __future__ import annotations
 
 import json
+import os
 import math
 import re
 from collections import defaultdict
@@ -16,7 +17,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parent
 # Story Shorts learns only from its own publications; Publish Shorts keeps the
 # historical root-level registry and playbook for backward compatibility.
-_PROFILE = str(__import__("os").environ.get("MINT_WORKFLOW_PROFILE", "publish")).strip().lower()
+_PROFILE = str(os.environ.get("MINT_WORKFLOW_PROFILE", "publish")).strip().lower()
 ANALYTICS_DIR = ROOT / "analytics" / "story" if _PROFILE == "story" else ROOT / "analytics"
 PLAYBOOK_PATH = ANALYTICS_DIR / "playbook.json"
 USED_TOPICS_PATH = (ANALYTICS_DIR / "used_topics.json") if _PROFILE == "story" else (ROOT / "used_topics.json")

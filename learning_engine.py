@@ -14,9 +14,12 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parent
-ANALYTICS_DIR = ROOT / "analytics"
+# Story Shorts learns only from its own publications; Publish Shorts keeps the
+# historical root-level registry and playbook for backward compatibility.
+_PROFILE = str(__import__("os").environ.get("MINT_WORKFLOW_PROFILE", "publish")).strip().lower()
+ANALYTICS_DIR = ROOT / "analytics" / "story" if _PROFILE == "story" else ROOT / "analytics"
 PLAYBOOK_PATH = ANALYTICS_DIR / "playbook.json"
-USED_TOPICS_PATH = ROOT / "used_topics.json"
+USED_TOPICS_PATH = (ANALYTICS_DIR / "used_topics.json") if _PROFILE == "story" else (ROOT / "used_topics.json")
 
 EXPLOITATION = 0.70
 ADJACENT_EXPLORATION = 0.20

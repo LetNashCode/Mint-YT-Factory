@@ -250,8 +250,20 @@ def synthesize(text, output):
     sf.write(output, audio, 24000, subtype="PCM_16")
     duration = len(audio) / 24000.0
     if duration > TARGET_SECONDS:
+        # The narration WAV is the timing master for captions. Speed it to the
+        # target instead of merely capping the reported duration. The previous
+        # 1.12x ceiling could leave long narrations at 45s+, which then failed
+        # the production guard after the caption-sync fix.
         sped = output.with_name("narration_sped.wav")
-        factor = min(1.12, duration / TARGET_SECONDS)
+        target_audio_duration = TARGET_SECONDS - 0.10
+        factor = max(1.0, duration / target_audio_duration)
+        # atempo supports 0.5-2.0 per filter. A single factor is enough for
+        # the current 38-43s target and is derived from the actual WAV length.
+        factor = min(2.0, factor)
+        print(
+            f"Narration exceeds target: {duration:.2f}s; "
+            f"speeding audio by {factor:.4f}x toward {target_audio_duration:.2f}s"
+        )
         subprocess.run(
             ["ffmpeg", "-y", "-i", str(output), "-filter:a", f"atempo={factor:.6f}", str(sped)],
             check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
@@ -261,6 +273,10 @@ def synthesize(text, output):
             ["ffprobe", "-v", "error", "-show_entries", "format=duration",
              "-of", "default=noprint_wrappers=1:nokey=1", str(output)], text=True
         ).strip())
+        if duration > TARGET_SECONDS + 0.05:
+            raise RuntimeError(
+                f"Unable to normalize narration to target: {duration:.2f}s > {TARGET_SECONDS:.2f}s"
+            )
     return duration
 
 

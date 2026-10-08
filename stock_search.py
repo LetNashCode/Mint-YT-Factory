@@ -222,8 +222,12 @@ Return ONLY JSON with search_ladder, casting_brief, must_match and avoid.'''
 
 def build_plan(script):
     scenes = script.get("scene_plan")
-    if not isinstance(scenes, list) or len(scenes) != 7: raise RuntimeError("Stock search requires exactly 7 scenes.")
-    plan = []; is_story = isinstance(script, dict) and bool(script.get("story_person") or script.get("interactive_pillar") or script.get("story_visual_mode"))
+    is_story = isinstance(script, dict) and bool(script.get("story_person") or script.get("interactive_pillar") or script.get("story_visual_mode"))
+    expected_scenes = 7 if is_story else 6
+    if not isinstance(scenes, list) or len(scenes) != expected_scenes:
+        workflow = "Story Shorts" if is_story else "Publish Shorts"
+        raise RuntimeError(f"{workflow} stock search requires exactly {expected_scenes} scenes; received {len(scenes) if isinstance(scenes, list) else 'no scene list'}.")
+    plan = []
     if is_story: print("📖 STORY VISUAL LOCK: preserving per-scene concrete video queries; photo assets disabled")
     else: print(f"🧠 STOCK SEARCH DIRECTOR — {GEMINI_MODEL} — practical search ladder")
     for si, scene in enumerate(scenes, 1):

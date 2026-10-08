@@ -25,6 +25,7 @@ PEXELS_URL = "https://api.pexels.com/videos/search"
 MODEL = "gemini-flash-lite-latest"
 VOICE = os.getenv("WISDOM_KOKORO_VOICE", "af_heart")
 TARGET_SECONDS = 40.0
+MIN_NARRATION_WORDS = 95
 MAX_NARRATION_WORDS = 125
 TOPIC_HISTORY_PATH = Path("everyday_wisdom_topic_history.json")
 MAX_HISTORY_FOR_PROMPT = 120
@@ -167,7 +168,7 @@ Do not use politics, celebrities, medical advice, conspiracy, fearbait,
 lists, countdowns, "Did you know?", "Today we're going to", AI references,
 or a second topic. The narration must work without visuals.
 
-Write 105-125 words, approximately 34-39 seconds, as one connected mini-story.
+Write 95-125 words, approximately 32-39 seconds, as one connected mini-story.
 Never exceed 125 words. Keep sentences concise so the natural Kokoro narration fits under 40 seconds without speeding up.
 The first sentence must create immediate curiosity. End with a satisfying answer.
 
@@ -209,7 +210,7 @@ VISUAL BEATS: create 16-18 ordered visual_queries, one for each roughly 2.5-seco
             words = re.findall(r"\b[\w'-]+\b", story["narration"])
             if not story["topic"] or not story["topic_key"] or not story["narration"] or len(story["search_queries"]) < 3 or len(story["visual_queries"]) < 16:
                 raise RuntimeError("Incomplete story JSON or fewer than 16 narration-aligned visual queries")
-            if not 105 <= len(words) <= MAX_NARRATION_WORDS:
+            if not MIN_NARRATION_WORDS <= len(words) <= MAX_NARRATION_WORDS:
                 raise RuntimeError(f"Narration word count {len(words)} outside {MIN_NARRATION_WORDS}-{MAX_NARRATION_WORDS}")
             if is_duplicate_topic(story, history):
                 raise RuntimeError(

@@ -3550,5 +3550,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do ceramic tiles feel cold",
+    "normalized": "why do ceramic tiles feel cold",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791501920,
+    "recorded_at": 1791501920,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

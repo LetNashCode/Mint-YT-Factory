@@ -382,5 +382,8 @@ _entertainment_prompt = _LEGACY_PUBLISH._entertainment_prompt
 _validate_no_future_topic_in_story = _LEGACY_PUBLISH._validate_no_future_topic_in_story
 _validate_retired_subject_bleed = _LEGACY_PUBLISH._validate_retired_subject_bleed
 _validate_visuals = _LEGACY_PUBLISH._validate_visuals
+_validate_entertainment = _LEGACY_PUBLISH._validate_entertainment
+SCENE_COUNT = _LEGACY_PUBLISH.SCENE_COUNT
+SCENE_DURATIONS = _LEGACY_PUBLISH.SCENE_DURATIONS
 
-__all__ = ["generate_script", "build_system_prompt", "build_user_prompt", "validate_script", "_blueprint_schema", "_entertainment_schema", "_entertainment_prompt", "_validate_no_future_topic_in_story", "_validate_retired_subject_bleed", "_validate_visuals"]
+__all__ = ["generate_script", "build_system_prompt", "build_user_prompt", "validate_script", "_blueprint_schema", "_entertainment_schema", "_entertainment_prompt", "_validate_entertainment", "_validate_no_future_topic_in_story", "_validate_retired_subject_bleed", "_validate_visuals", "SCENE_COUNT", "SCENE_DURATIONS"]

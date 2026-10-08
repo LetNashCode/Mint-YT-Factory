@@ -177,6 +177,8 @@ TITLE RULES:
 Return JSON only:
 {"title":"...","topic":"...","topic_key":"...","narration":"...","search_queries":["...","...","..."],"visual_queries":["..."]}
 Search queries must be concrete things a camera can show, 3-6 words each.
+
+VISUAL BEATS: create 16-18 ordered visual_queries, one for each roughly 2.5-second beat of the narration. Each query must depict the exact object, action, setting, or concrete visual metaphor being spoken about at that moment. Make every query materially different from the previous one. Follow the narration chronologically. Never use generic filler such as "american lifestyle", "happy family", "person thinking", "stock footage", or "everyday life". Queries must be 3-7 words each.
 """ + history_block
 
     c = client()
@@ -196,6 +198,9 @@ Search queries must be concrete things a camera can show, 3-6 words each.
                 "search_queries": [
                     clean(x, 80) for x in data.get("search_queries", []) if clean(x, 80)
                 ][:3],
+                "visual_queries": [
+                    clean(x, 100) for x in data.get("visual_queries", []) if clean(x, 100)
+                ][:18],
             }
             words = re.findall(r"\b[\w'-]+\b", story["narration"])
             if not story["topic"] or not story["topic_key"] or not story["narration"] or len(story["search_queries"]) < 3 or len(story["visual_queries"]) < 16:

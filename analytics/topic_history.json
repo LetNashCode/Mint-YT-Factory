@@ -3526,5 +3526,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do leather shoes squeak loudly",
+    "normalized": "why do leather shoes squeak loudly",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791498880,
+    "recorded_at": 1791498880,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

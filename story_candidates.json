@@ -25,18 +25,6 @@
   },
   {
     "format": "before_they_were_famous",
-    "person": "Kalpana Chawla",
-    "premise": "A young engineering student in Karnal looks at pictures of planes and dreams of spaceflight.",
-    "hook": "She grew up in a small town where local girls rarely pursued aviation, yet she ended up working at NASA.",
-    "key_facts": [
-      "Graduated with a degree in aeronautical engineering from Punjab Engineering College.",
-      "Obtained a Ph.D. in aerospace engineering from the University of Colorado Boulder.",
-      "Joined NASA's astronaut corps in 1994."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
     "person": "R. Ramanathan",
     "premise": "The legendary Indian classical Carnatic vocalist who started his career as a bank clerk.",
     "hook": "He balanced ledgers by day and mastered ancient Carnatic ragas by night.",
@@ -49,27 +37,92 @@
   },
   {
     "format": "one_decision",
-    "person": "Sara Blakely",
-    "premise": "How a door-to-door fax machine salesperson used her entire life savings to patent and launch a footless pantyhose concept.",
-    "hook": "She had $5,000 to her name and zero fashion experience when she decided to cut the feet off her pantyhose.",
+    "person": "Rosa Parks",
+    "premise": "The specific bus ride in Montgomery, Alabama, that catalyzed a major civil rights movement through a single act of steadfast resistance.",
+    "hook": "A routine bus ride home after a long day's work sparked a 381-day boycott that reshaped a nation.",
     "key_facts": [
-      "Worked as a door-to-door sales representative selling fax machines in Florida.",
-      "Used $5,000 of personal savings to fund the initial Spanx patent and prototype.",
-      "Wrote her own patent application after purchasing a book on patents from a bookstore.",
-      "Personally pitched department stores like Neiman Marcus by demonstrating the product in fitting rooms."
+      "Worked as a seamstress and was an active member of the NAACP.",
+      "Refused to give up her bus seat to a white passenger in Montgomery on December 1, 1955.",
+      "Her arrest led directly to the Montgomery bus boycott.",
+      "The boycott lasted for over a year and led to a Supreme Court ruling against segregated buses."
     ],
     "source": "gemini_original"
   },
   {
     "format": "before_they_were_famous",
-    "person": "Sachin Tendulkar",
-    "premise": "The early years of a young Mumbai schoolboy who carried heavy cricket kits across local trains under the grueling coaching of Ramakant Achrekar.",
-    "hook": "Before breaking global cricket records, he fell asleep on Mumbai local trains exhausted from playing matches across the city twice a day.",
+    "person": "Dwayne Johnson",
+    "premise": "Before selling out stadiums and starring in blockbusters, a college football injury left him with seven dollars and no clear future.",
+    "hook": "Cut from his professional football dreams with only seven dollars in his pocket, he had to rebuild his life from scratch.",
     "key_facts": [
-      "Trained under coach Ramakant Achrekar at Shivaji Park in Dadar, Mumbai.",
-      "Played in a famous 664-run partnership in school cricket with Vinod Kambli in 1988.",
-      "Made his international Test debut against Pakistan in Karachi at the age of 16.",
-      "Became the youngest player to represent India in international cricket at the time."
+      "Played college football for the University of Miami, winning a national championship.",
+      "Went undrafted in the NFL and was later cut from the Canadian Football League.",
+      "Started his professional wrestling career in the WWF as Rocky Maivia before becoming The Rock.",
+      "Transitioned into Hollywood to become one of the world's highest-paid actors."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Ernest Shackleton",
+    "premise": "When his ship was crushed by Antarctic ice, an experienced explorer kept all twenty-eight crew members alive across months of isolation.",
+    "hook": "Trapped on a frozen ocean with zero chance of rescue, one man decided to walk across hundreds of miles of freezing seas to save his crew.",
+    "key_facts": [
+      "Led the Imperial Trans-Antarctic Expedition aboard the Endurance in 1914.",
+      "His ship became trapped and was ultimately crushed by pack ice.",
+      "Camped on floating ice floes for months before sailing a small lifeboat to South Georgia Island.",
+      "Successfully rescued every single member of his crew without a single loss of life."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Kalpana Chawla",
+    "premise": "A girl growing up in a small town in northern India breaks conventional barriers to become the first woman of Indian origin in space.",
+    "hook": "She watched airplanes fly over her hometown as a child, years before becoming the first Indian-born woman to fly on the Space Shuttle.",
+    "key_facts": [
+      "Grew up in Karnal, Haryana, completing her early education there.",
+      "Graduated with an aeronautical engineering degree from Punjab Engineering College.",
+      "Moved to the United States to earn master's and doctoral degrees in aerospace engineering.",
+      "Joined NASA and flew on Space Shuttle missions STS-87 and STS-107."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Jonas Salk",
+    "premise": "A medical researcher makes the controversial decision to test his polio vaccine prototype directly on himself and his family.",
+    "hook": "To prove his new vaccine was safe against a terrifying epidemic, he injected it into his own children.",
+    "key_facts": [
+      "Led a research team at the University of Pittsburgh to develop a polio vaccine.",
+      "Utilized a killed-virus approach, which went against the live-virus consensus of some peers.",
+      "Tested the killed-virus vaccine on himself, his wife, and his children prior to massive trials.",
+      "The 1954 Francis Field Trial proved the vaccine was safe and effective, nearly eradicating polio in the US."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Louis Braille",
+    "premise": "Blinded by an accident in early childhood, a French boy creates a tactile reading system that transforms education for the blind worldwide.",
+    "hook": "Blinded at the age of three by a workshop tool, he invented a six-dot alphabet using an awl that adults initially rejected.",
+    "key_facts": [
+      "Blinded in his father's harness-making shop after an accidental injury with a sharp tool.",
+      "Attended the Royal Institution for Blind Youth in Paris, which used bulky embossed books.",
+      "Adapted a military night-writing code into a simpler, tactile six-dot matrix system.",
+      "The reading system was officially adopted worldwide long after his death."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Agatha Christie",
+    "premise": "An experienced wartime dispensary nurse uses her knowledge of poisons to write bestselling mystery novels that puzzle generations of readers.",
+    "hook": "Working quietly in a hospital pharmacy during World War I gave her the exact chemical knowledge she needed to craft complex murder mysteries.",
+    "key_facts": [
+      "Worked as a volunteer nurse and hospital dispenser during World War I.",
+      "Gained detailed, practical knowledge of various pharmaceutical drugs and lethal poisons.",
+      "Published her debut detective novel, The Mysterious Affair at Styles, in 1920.",
+      "Went on to become one of the best-selling fiction writers in history."
     ],
     "source": "gemini_original"
   }

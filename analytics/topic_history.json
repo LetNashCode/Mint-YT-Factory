@@ -3514,5 +3514,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why does garlic turn green",
+    "normalized": "why does garlic turn green",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791498128,
+    "recorded_at": 1791498128,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

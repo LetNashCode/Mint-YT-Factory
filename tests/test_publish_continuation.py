@@ -84,3 +84,30 @@ def test_publish_generation_contract_has_no_writer_owned_next_topic():
     assert "next_short" not in props
     assert "next_short" not in schema.get("required", [])
 
+def test_stock_search_accepts_six_publish_scenes_and_seven_story_scenes(monkeypatch):
+    import stock_search
+
+    monkeypatch.setattr(
+        stock_search,
+        "direct",
+        lambda scene_no, shot_no, scene, visual, **kwargs: {
+            "search_ladder": [{"query": "ordinary object close up", "strategy": "test"}]
+        },
+    )
+    publish_script = {
+        "scene_plan": [
+            {"narration": f"Publish scene {i}", "visuals": [{}, {}]}
+            for i in range(1, 7)
+        ]
+    }
+    story_script = {
+        "story_person": "Test Person",
+        "scene_plan": [
+            {"narration": f"Story scene {i}", "visuals": [{}, {}]}
+            for i in range(1, 8)
+        ],
+    }
+
+    assert len(stock_search.build_plan(publish_script)) == 6
+    assert len(stock_search.build_plan(story_script)) == 7
+

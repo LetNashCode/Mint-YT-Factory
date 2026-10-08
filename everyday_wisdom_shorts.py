@@ -221,8 +221,6 @@ VISUAL BEATS: create 16-18 ordered visual_queries, one for each roughly 2.5-seco
             if attempt == 4:
                 raise
             print(f"Story generation retry {attempt + 1}/5: {type(exc).__name__}: {exc}")
-            if attempt < 4:
-                base_prompt += (\n                    "\n\nRETRY REQUIREMENT: Keep the narration strictly 80-95 words. " \n                    "Natural Kokoro delivery must remain below 40 seconds. " \n                    "Do not add filler, long quotations, or extra clauses."\n                )
             time.sleep(2 + attempt)
     raise RuntimeError("Story generation failed")
 

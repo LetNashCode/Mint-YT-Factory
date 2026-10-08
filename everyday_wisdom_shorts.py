@@ -298,13 +298,15 @@ def download_stock(queries, required_duration):
     chosen = []
     seen = set()
     target_duration = float(required_duration) + 1.0
-    beat_count = max(16, min(18, int(round(float(required_duration) / 2.5))))
     queries = [clean(q, 100) for q in queries if clean(q, 100)]
-
-    if len(queries) < beat_count:
+    # Gemini is allowed to return 16-18 narration-aligned beats. Do not derive
+    # a rigid count from duration: a 42s narration can be covered cleanly by
+    # 16 unique visuals, with the renderer distributing the time across them.
+    beat_count = min(18, len(queries))
+    if beat_count < 16:
         raise RuntimeError(
             f"Only {len(queries)} narration-aligned visual queries were generated; "
-            f"{beat_count} are required"
+            "at least 16 are required"
         )
 
     for beat_index, query in enumerate(queries[:beat_count]):
@@ -389,13 +391,11 @@ def _make_2_5_second_visual_segments(clips, total_duration):
     if not clips:
         raise RuntimeError("No stock clips available")
 
-    segment_duration = 2.5
-    segment_count = int((float(total_duration) + segment_duration - 1e-6) // segment_duration)
-    if segment_count > len(clips):
-        raise RuntimeError(
-            f"Visual timeline needs {segment_count} unique clips but only "
-            f"{len(clips)} were downloaded"
-        )
+    # Use every unique narration-aligned clip exactly once. The normal target
+    # is ~2.5s/beat, but the final duration is distributed across the available
+    # 16-18 beats so a valid 16-beat Gemini response cannot fail a 42s narration.
+    segment_count = min(len(clips), max(16, min(18, int(round(float(total_duration) / 2.5)))))
+    segment_duration = float(total_duration) / max(1, segment_count)
 
     segment_paths = []
     for index in range(segment_count):

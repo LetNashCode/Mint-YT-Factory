@@ -5,6 +5,14 @@ def test_publish_has_exactly_six_scenes():
     assert generate_script.SCENE_COUNT == 6
     assert generate_script.SCENE_DURATIONS == [3, 5, 7, 7, 8, 8]
 
+def test_publish_final_quality_gate_accepts_six_scene_structure():
+    import story_quality_gate
+
+    script = {"scene_plan": [{"narration": "A complete current-topic beat.", "visuals": [{}, {}]} for _ in range(6)]}
+    errors = story_quality_gate._validate(script, "Why do leather shoes squeak loudly")
+    assert not any("expected 7 scenes" in error for error in errors)
+    assert not any("expected 6 scenes" in error for error in errors)
+
 def test_publish_entertainment_contract_is_six_scenes():
     import generate_script
     script = {"scene_plan": [{"narration": f"Scene {i}."} for i in range(1, 7)]}

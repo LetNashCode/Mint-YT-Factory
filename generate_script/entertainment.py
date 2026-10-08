@@ -57,8 +57,7 @@ STORY ARC:
 3) 8–15s: simple explanation.
 4) 15–22s: concrete demonstration/example.
 5) 22–30s: reframe what the viewer thought was happening.
-6) 30–38s: strongest twist/payoff.
-7) 38–45s: satisfying ending that completes the CURRENT TOPIC only.
+6) 30–38s: strongest twist/payoff and satisfying ending that completes the CURRENT TOPIC only.
 
 CONTINUATION OWNERSHIP: Do NOT write any next-topic teaser, preview, CTA, continuation bridge, second mystery, or future-topic sentence anywhere in the narration. The production pipeline alone reserves the next topic and appends exactly one canonical continuation after the current story passes quality gates.
 
@@ -196,21 +195,23 @@ def _normalize(script,topic,enforce_word_contract=True):
         scene["scene"]=i+1; scene["duration"]=SCENE_DURATIONS[i]; narration=_clean(scene.get("narration"))
         if not narration: raise RuntimeError(f"Scene {i+1} narration is empty.")
         if i==0 and narration.lower().startswith(banned_openings): raise RuntimeError("Hook uses a forbidden generic opening.")
-        scene["narration"]=narration; scene["subtitle_text"]=narration; scene["source_ids"]=[]; scene["pause_after_ms"]=max(0,min(500,_safe_int(scene.get("pause_after_ms"),0))); scene["purpose"]=_clean(scene.get("purpose")) if _clean(scene.get("purpose")) in PURPOSES else ("hook" if i==0 else "ending" if i==6 else "explanation"); scene["retention_purpose"]=_clean(scene.get("retention_purpose")) if _clean(scene.get("retention_purpose")) in RETENTION else ("open_loop" if i<2 else "payoff" if i>=5 else "escalation"); scene["subtitle_style"]=_clean(scene.get("subtitle_style")) or "dynamic"; scene["emphasis_word"]=_clean(scene.get("emphasis_word")) or (_words(narration)[0] if _words(narration) else ""); scene["emotional_tone"]=_clean(scene.get("emotional_tone")) if _clean(scene.get("emotional_tone")) in TONES else ("urgent" if i==0 else "satisfied" if i==6 else "curious"); scene["visual_priority"]=_clean(scene.get("visual_priority")) or "primary"; scene["transition"]=_clean(scene.get("transition")) if _clean(scene.get("transition")) in TRANSITIONS else ("hard_cut" if i in (0,1,5) else "match_cut"); scene["music_cue"]=_clean(scene.get("music_cue")) if _clean(scene.get("music_cue")) in MUSIC_CUES else ("intro" if i==0 else "drop" if i==5 else "fade_out" if i==6 else "build"); scene["confidence"]=_clean(scene.get("confidence")) or "high"; scene["sfx_cue"]=scene.get("sfx_cue") if isinstance(scene.get("sfx_cue"),dict) else {"term":"","at_ms":0}
+        scene["narration"]=narration; scene["subtitle_text"]=narration; scene["source_ids"]=[]; scene["pause_after_ms"]=max(0,min(500,_safe_int(scene.get("pause_after_ms"),0))); scene["purpose"]=_clean(scene.get("purpose")) if _clean(scene.get("purpose")) in PURPOSES else ("hook" if i==0 else "ending" if i==SCENE_COUNT-1 else "explanation"); scene["retention_purpose"]=_clean(scene.get("retention_purpose")) if _clean(scene.get("retention_purpose")) in RETENTION else ("open_loop" if i<2 else "payoff" if i>=SCENE_COUNT-1 else "escalation"); scene["subtitle_style"]=_clean(scene.get("subtitle_style")) or "dynamic"; scene["emphasis_word"]=_clean(scene.get("emphasis_word")) or (_words(narration)[0] if _words(narration) else ""); scene["emotional_tone"]=_clean(scene.get("emotional_tone")) if _clean(scene.get("emotional_tone")) in TONES else ("urgent" if i==0 else "satisfied" if i==SCENE_COUNT-1 else "curious"); scene["visual_priority"]=_clean(scene.get("visual_priority")) or "primary"; scene["transition"]=_clean(scene.get("transition")) if _clean(scene.get("transition")) in TRANSITIONS else ("hard_cut" if i in (0,1,5) else "match_cut"); scene["music_cue"]=_clean(scene.get("music_cue")) if _clean(scene.get("music_cue")) in MUSIC_CUES else ("intro" if i==0 else "drop" if i==SCENE_COUNT-1 else "build"); scene["confidence"]=_clean(scene.get("confidence")) or "high"; scene["sfx_cue"]=scene.get("sfx_cue") if isinstance(scene.get("sfx_cue"),dict) else {"term":"","at_ms":0}
         visuals=scene.get("visuals")
         if not isinstance(visuals,list) or len(visuals)!=VISUALS_PER_SCENE: raise RuntimeError(f"Scene {i+1} must contain exactly 2 visuals.")
         durations=[scene["duration"]//2,scene["duration"]-scene["duration"]//2]
         for j,visual in enumerate(visuals):
             if not isinstance(visual,dict): raise RuntimeError(f"Scene {i+1} visual {j+1} is invalid.")
             visual["segment"]=j+1; visual["duration"]=durations[j]; visual["spoken_line"]=_clean(visual.get("spoken_line")) or narration; visual["visual_focus"]=_clean(visual.get("visual_focus")) or topic; visual["visual_action"]=_clean(visual.get("visual_action")) or "show the exact physical action described in the spoken line"; visual["must_show"]=[_clean(x)[:100] for x in visual.get("must_show",[]) if _clean(x)][:6] or [visual["visual_focus"],visual["visual_action"]]; visual["must_not_show"]=[_clean(x)[:100] for x in visual.get("must_not_show",[]) if _clean(x)][:8]; visual["camera"]=_clean(visual.get("camera")) if _clean(visual.get("camera")) in CAMERAS else ("close_up" if j==0 else "macro"); visual["animation"]=_clean(visual.get("animation")) if _clean(visual.get("animation")) in ANIMATIONS else (["zoom_in","pan_right","highlight","parallax"][i%4] if j==0 else ["pan_left","zoom_out","highlight","rotate"][i%4]); visual["zoom_strength"]=_clean(visual.get("zoom_strength")) or ("strong" if i==0 else "medium"); visual["motion_intensity"]=_clean(visual.get("motion_intensity")) or ("high" if i in (0,5) else "medium"); visual["visual_complexity"]=_clean(visual.get("visual_complexity")) or "focused"; visual["image_style"]=_clean(visual.get("image_style")) if _clean(visual.get("image_style")) in IMAGE_STYLES else ("macro_photography" if visual["camera"] in {"close_up","macro"} else "cinematic_photograph"); visual["lighting"]=_clean(visual.get("lighting")) or "natural believable lighting with realistic reflections and shadows"; visual["color_palette"]=_clean(visual.get("color_palette")) or script["visual_identity"]["palette"]; visual["overlay"]=visual.get("overlay") if isinstance(visual.get("overlay"),dict) else {"type":"none","description":""}; visual["visual_impact"]=max(1,min(10,_safe_int(visual.get("visual_impact"),8))); prompt_text=_clean(visual.get("image_prompt")); visual["image_prompt"]=(prompt_text or f"Realistic cinematic scene showing {visual['visual_action']} with {visual['visual_focus']} clearly visible.")[:900]
-    scene7=scenes[6]
-    scene7["narration"]=_ensure_scene7_boundary(scene7.get("narration"),next_topic)
-    scene7["narration"]=_sanitize_scene7(scene7,scenes[:6])
-    if not scene7["narration"]: raise RuntimeError("Scene 7 lost its current-topic payoff during continuation sanitization.")
-    bridge=_validate_natural_bridge(scene7["narration"],next_topic); scene7["subtitle_text"]=scene7["narration"]; script["next_short"]["teaser"]=bridge
+    # Publish now ends on Scene 6. The successor is metadata-only and is
+    # validated/locked by main.py after generation. Never index a legacy Scene 7.
+    final_scene=scenes[SCENE_COUNT-1]
+    if not _clean(final_scene.get("narration")):
+        raise RuntimeError("Final scene lost its current-topic payoff.")
+    final_scene["subtitle_text"]=final_scene["narration"]
     next_key=re.sub(r"[^a-z0-9 ]"," ",next_topic.lower()).strip()
-    for scene in scenes[:6]:
-        if next_key and next_key in re.sub(r"[^a-z0-9 ]"," ",scene["narration"].lower()): raise RuntimeError("Next topic appeared before Scene 7.")
+    for scene in scenes:
+        if next_key and next_key in re.sub(r"[^a-z0-9 ]"," ",scene["narration"].lower()):
+            raise RuntimeError("Next topic appeared in Publish narration.")
     total_words=sum(len(_words(scene["narration"])) for scene in scenes)
     if enforce_word_contract and (total_words<90 or total_words>135):
         raise RuntimeError(f"Narration length is {total_words} words; target is 90–135 words including continuation.")
@@ -233,7 +234,7 @@ def _generate_with_qwen(prompt,topic,last_error=None):
         _QWEN_TOKENIZER=AutoTokenizer.from_pretrained(FALLBACK_MODEL_NAME)
         _QWEN_MODEL=AutoModelForCausalLM.from_pretrained(FALLBACK_MODEL_NAME,dtype=torch.float32,low_cpu_mem_usage=True)
     tokenizer=_QWEN_TOKENIZER; model=_QWEN_MODEL
-    user_prompt=prompt+"\nOUTPUT CONTRACT: JSON only. EXACTLY 7 scene_plan objects. EXACTLY 2 visuals per scene. No markdown."+(f"\nPREVIOUS ERROR: {last_error}" if last_error else "")
+    user_prompt=prompt+"\nOUTPUT CONTRACT: JSON only. EXACTLY 6 scene_plan objects. EXACTLY 2 visuals per scene. No markdown."+(f"\nPREVIOUS ERROR: {last_error}" if last_error else "")
     messages=[{"role":"system","content":SYSTEM_PROMPT+"\nReturn only one valid JSON object."},{"role":"user","content":user_prompt}]
     rendered=tokenizer.apply_chat_template(messages,tokenize=False,add_generation_prompt=True)
     inputs=tokenizer(rendered,return_tensors="pt")
@@ -267,20 +268,18 @@ def generate_script(topic,config,research=None,extra_feedback=""):
 CURRENT TOPIC:
 {topic}
 
-Create exactly 7 scenes totaling about 45 seconds, durations 3, 5, 7, 7, 8, 8, 7.
-Write 90–135 spoken words total INCLUDING the final continuation sentence.
+Create exactly 6 scenes totaling about 38 seconds, durations 3, 5, 7, 7, 8, 8.
+Write 90–135 spoken words total for the current-topic story.
 Keep sentences short enough for natural TTS.
 
 Make the opening instantly visual and surprising. Make the middle feel like a tiny story, not a lecture. Use a concrete everyday demonstration. Give a clear payoff before the final continuation sentence.
 
 DESCRIPTION: write only about the current topic. Never mention the next topic.
 
-NEXT SHORT: invent one specific curiosity topic. It must appear only in the final sentence of Scene 7 and nowhere else. Scene 7 must NOT introduce any unrelated fact before that sentence.
-The final sentence should be the only bridge to the next Short.
+NEXT SHORT: invent one specific curiosity topic as metadata only. Do not mention it in any scene narration or visual field.
+Do not write a continuation bridge. main.py owns successor locking and any future-topic metadata.
 
-IMPORTANT FINAL BRIDGE: Write the final bridge sentence yourself. Do not use a fixed template or repeat a stock transition. The exact next_short.topic must appear once in that sentence. Make the wording feel like a natural continuation of the current story, not an announcement of the next video.
-
-VISUALS: every one of the 14 shots must represent a specific spoken beat. Return spoken_line, visual_focus, visual_action, must_show and must_not_show. The image_prompt must literally show the action. For invisible/microscopic phenomena, describe an honest visible physical proxy rather than an impossible camera view. No generic topic images and no unrelated filler.
+VISUALS: every one of the 12 shots must represent a specific spoken beat. Return spoken_line, visual_focus, visual_action, must_show and must_not_show. The image_prompt must literally show the action. For invisible/microscopic phenomena, describe an honest visible physical proxy rather than an impossible camera view. No generic topic images and no unrelated filler.
 {feedback}
 """
     last_error=None

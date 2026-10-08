@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import difflib
+from difflib import SequenceMatcher
 import json
 import os
 import re
@@ -26,6 +27,7 @@ VOICE = os.getenv("WISDOM_KOKORO_VOICE", "af_heart")
 TARGET_SECONDS = 42.0
 TOPIC_HISTORY_PATH = Path("everyday_wisdom_topic_history.json")
 MAX_HISTORY_FOR_PROMPT = 120
+WHISPER_MODEL = os.getenv("WISDOM_WHISPER_MODEL", "tiny.en")
 
 
 def clean(value, limit=1000):
@@ -467,16 +469,92 @@ def _publish_ass_color(index):
     return colors[index % len(colors)]
 
 
-def create_animated_captions(narration, duration):
-    words = [word for word in narration.split() if word.strip()]
-    if not words:
-        raise RuntimeError("Cannot create captions from empty narration")
+def _normalize_caption_token(value):
+    return re.sub(r"[^a-z0-9']+", "", str(value or "").lower()).strip("'")
 
-    total_weight = float(
-        sum(max(1, len(re.sub(r"[^A-Za-z0-9]", "", word))) for word in words)
+def _transcribe_word_timestamps(audio_path):
+    """Get word-level timestamps from the final Kokoro narration audio."""
+    try:
+        from faster_whisper import WhisperModel
+    except ImportError as exc:
+        raise RuntimeError("faster-whisper is required for narration-synced captions") from exc
+    print(f"Caption alignment: Whisper model={WHISPER_MODEL}")
+    model = WhisperModel(WHISPER_MODEL, device="cpu", compute_type="int8")
+    segments, info = model.transcribe(
+        str(audio_path), language="en", word_timestamps=True,
+        vad_filter=True, condition_on_previous_text=False, beam_size=5,
+    )
+    timed_words = []
+    for segment in segments:
+        for word in (segment.words or []):
+            token = _normalize_caption_token(word.word)
+            if token and word.end > word.start:
+                timed_words.append({"word": word.word, "token": token,
+                                    "start": float(word.start), "end": float(word.end)})
+    print(f"Caption alignment transcription complete: {len(timed_words)} words | language={info.language}")
+    return timed_words
+
+def _align_caption_words(narration, timed_words, duration):
+    """Align exact narration words to timestamps from the final audio."""
+    original = [word for word in narration.split() if word.strip()]
+    recognized = [item for item in timed_words if item.get("token")]
+    if not original or not recognized:
+        raise RuntimeError("Cannot align captions: missing narration or Whisper timestamps")
+    matcher = SequenceMatcher(
+        None,
+        [_normalize_caption_token(word) for word in original],
+        [item["token"] for item in recognized],
+        autojunk=False,
+    )
+    anchors = [None] * len(original)
+    matched = 0
+    for tag, i1, i2, j1, j2 in matcher.get_opcodes():
+        if tag == "equal" or (tag == "replace" and (i2 - i1) == (j2 - j1)):
+            for offset in range(i2 - i1):
+                item = recognized[j1 + offset]
+                anchors[i1 + offset] = (item["start"], item["end"])
+                matched += 1
+    minimum_match = max(1, int(len(original) * 0.70))
+    if matched < minimum_match:
+        raise RuntimeError(
+            f"Caption/audio alignment confidence too low: matched {matched}/{len(original)} words"
+        )
+
+    for index in range(len(original)):
+        if anchors[index] is not None:
+            continue
+        left_index = index - 1
+        while left_index >= 0 and anchors[left_index] is None:
+            left_index -= 1
+        right_index = index + 1
+        while right_index < len(original) and anchors[right_index] is None:
+            right_index += 1
+        start = anchors[left_index][1] if left_index >= 0 else 0.0
+        end = anchors[right_index][0] if right_index < len(original) else float(duration)
+        if end < start:
+            end = start
+        count = (right_index - left_index) if right_index < len(original) else (index - left_index + 1)
+        position = (index - left_index) if left_index >= 0 else (index + 1)
+        anchors[index] = (
+            start + (end - start) * ((position - 1) / max(1, count)),
+            start + (end - start) * (position / max(1, count)),
+        )
+
+    aligned = []
+    for index, word in enumerate(original):
+        start, end = anchors[index]
+        start = max(0.0, min(float(duration), start))
+        end = max(start + 0.015, min(float(duration), end))
+        if index > 0:
+            start = max(start, aligned[-1]["end"] - 0.015)
+        aligned.append({"word": word, "start": start, "end": end})
+    return aligned
+
+def create_animated_captions(narration, duration, audio_path):
+    aligned_words = _align_caption_words(
+        narration, _transcribe_word_timestamps(audio_path), duration
     )
     ass_path = RUN_ROOT / "captions.ass"
-
     header = """[Script Info]
 ScriptType: v4.00+
 PlayResX: 1080
@@ -491,32 +569,18 @@ Style: PublishWisdom,Poppins ExtraBold,72,&H00FFFFFF,&H00FFFFFF,&H00111111,&H000
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
-
-    current_time = 0.0
     lines = [header]
-    for index, word in enumerate(words):
-        weight = max(1, len(re.sub(r"[^A-Za-z0-9]", "", word)))
-        segment_duration = duration * (weight / total_weight)
-        start = current_time
-        end = duration if index == len(words) - 1 else min(
-            duration, current_time + segment_duration
-        )
-        if end <= start:
-            continue
-
+    for index, item in enumerate(aligned_words):
         lines.append(
-            f"Dialogue: 0,{_ass_time(start)},{_ass_time(end)},PublishWisdom,,0,0,0,,"
-            f"{{\\c{_publish_ass_color(index)}}}{_ass_escape(word)}"
+            f"Dialogue: 0,{_ass_time(item['start'])},{_ass_time(item['end'])},PublishWisdom,,0,0,0,,"
+            f"{{\\c{_publish_ass_color(index)}}}{_ass_escape(item['word'])}"
         )
-        current_time = end
-
     ass_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"Publish-style captions created: {ass_path} | words={len(words)}")
+    print(f"Narration-synced captions created: {ass_path} | words={len(aligned_words)}")
     return ass_path
 
-
 def render(clips, audio, output, duration, narration):
-    ass_path = create_animated_captions(narration, duration)
+    ass_path = create_animated_captions(narration, duration, audio)
     subtitle_filter = f"subtitles='{ass_path.resolve()}'"
     visual_concat = _make_2_5_second_visual_segments(clips, duration)
 
@@ -682,7 +746,8 @@ def main():
 
     audio = RUN_ROOT / "narration.wav"
     duration = synthesize(story["narration"], audio)
-    duration = min(duration, TARGET_SECONDS)
+    if duration > TARGET_SECONDS + 0.5:
+        raise RuntimeError(f"Narration exceeds target after synthesis: {duration:.2f}s")
     print(f"Narration ready: {duration:.2f}s")
 
     clips = download_stock(story["visual_queries"], duration)

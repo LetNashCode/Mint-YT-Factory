@@ -32,6 +32,8 @@ on:
 permissions:
   contents: write
   actions: read
+env:
+  MINT_WORKFLOW_PROFILE: story
 concurrency:
   group: mint-story-shorts
   cancel-in-progress: false
@@ -259,7 +261,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for state_file in story_topic_history.json pending_story.json story_counter.json story_candidates.json story_footage_catalog.json story_social_queue.json interactive_analytics.json interactive_analytics_history.json story_video_rejection_cache.json analytics/topic_history.json analytics/videos.json analytics/playbook.json analytics/factory_memory_state.json .story_publication_status.json .story_deferred .story_gemini_quota_deferred .story_verifier_budget_deferred .story_gemini_budget_deferred .story_gemini_network_deferred; do
+          for state_file in story_topic_history.json pending_story.json story_counter.json story_candidates.json story_footage_catalog.json story_social_queue.json interactive_analytics.json interactive_analytics_history.json story_video_rejection_cache.json analytics/story_videos.json analytics/story/topic_history.json analytics/story/videos.json analytics/story/summary.json analytics/story/playbook.json analytics/story/used_topics.json analytics/story/factory_memory_state.json analytics/story/story_comparison.json .story_publication_status.json .story_deferred .story_gemini_quota_deferred .story_verifier_budget_deferred .story_gemini_budget_deferred .story_gemini_network_deferred; do
             if [ -f "$state_file" ] || git ls-files --error-unmatch "$state_file" >/dev/null 2>&1; then
               git add -A -- "$state_file"
             fi
@@ -323,7 +325,7 @@ jobs:
             # Only auto-resolve the known machine-generated analytics JSON files.
             # Any source/workflow conflict remains a hard failure rather than being
             # silently overwritten.
-            unexpected="$(printf '%s\\n' "$conflicted" | grep -Ev '^(analytics/playbook\\.json|analytics/videos\\.json)$' || true)"
+            unexpected="$(printf '%s\\n' "$conflicted" | grep -Ev '^(analytics/story/playbook\\.json|analytics/story/videos\\.json)$' || true)"
             if [ -n "$unexpected" ]; then
               echo "::error::Unexpected Story state rebase conflict(s):"
               printf '%s\\n' "$unexpected"
@@ -337,7 +339,7 @@ jobs:
           import subprocess
           from pathlib import Path
 
-          PATHS = ("analytics/playbook.json", "analytics/videos.json")
+          PATHS = ("analytics/story/playbook.json", "analytics/story/videos.json")
 
           def stage(path, stage):
               try:
@@ -419,7 +421,7 @@ jobs:
               )
           PY
 
-            git add analytics/playbook.json analytics/videos.json
+            git add analytics/story/playbook.json analytics/story/videos.json
             GIT_EDITOR=true git rebase --continue
           done
       - name: Upload Story Shorts artifacts

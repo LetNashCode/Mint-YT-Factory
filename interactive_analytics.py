@@ -4,7 +4,7 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parent
 PATH=ROOT/"analytics"/"story_videos.json"
-REPORT=ROOT/"analytics"/"story_comparison.json"
+REPORT=ROOT/"analytics"/"story"/"story_comparison.json"
 
 def _load(p,d):
     try:return json.loads(p.read_text(encoding="utf-8"))
@@ -41,7 +41,7 @@ def refresh_live_metrics():
     _write(PATH,rows); build_comparison(); print(f"📊 Story analytics refreshed: {len(ids)} videos"); return True
 
 def build_comparison():
-    current=_load(ROOT/"analytics"/"videos.json",[]); stories=_load(PATH,[])
+    current=_load(ROOT/"analytics"/"story"/"videos.json",[]); stories=_load(PATH,[])
     groups={"publish_shorts":current if isinstance(current,list) else []}
     for x in stories if isinstance(stories,list) else []:
         if isinstance(x,dict):groups.setdefault(x.get("pillar","story"),[]).append(x)

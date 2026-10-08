@@ -1,10 +1,11 @@
 """Build compact, evidence-weighted creative learning context for Gemini."""
 from __future__ import annotations
 import json
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-_PROFILE = str(__import__("os").environ.get("MINT_WORKFLOW_PROFILE", "publish")).strip().lower()
+_PROFILE = str(os.environ.get("MINT_WORKFLOW_PROFILE", "publish")).strip().lower()
 PLAYBOOK = ROOT / "analytics" / "story" / "playbook.json" if _PROFILE == "story" else ROOT / "analytics" / "playbook.json"
 
 

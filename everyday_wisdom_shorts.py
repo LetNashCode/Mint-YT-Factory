@@ -432,3 +432,284 @@ def _make_2_5_second_visual_segments(clips, total_duration):
     )
     return concat
 
+
+def _ass_time(seconds):
+    seconds = max(0.0, float(seconds))
+    hours = int(seconds // 3600)
+    minutes = int((seconds % 3600) // 60)
+    centiseconds = int(round((seconds - int(seconds)) * 100))
+    whole = int(seconds) % 60
+    if centiseconds >= 100:
+        whole += 1
+        centiseconds = 0
+    return f"{hours}:{minutes:02d}:{whole:02d}.{centiseconds:02d}"
+
+
+def _ass_escape(text):
+    return (
+        str(text or "")
+        .replace("\\", "\\\\")
+        .replace("{", "\\{")
+        .replace("}", "\\}")
+        .replace("\n", " ")
+        .strip()
+    )
+
+
+def _publish_ass_color(index):
+    colors = [
+        "&H00FFFFFF",
+        "&H0054D5FF",
+        "&H00FFD749",
+        "&H005E5AFF",
+        "&H0063FF8D",
+    ]
+    return colors[index % len(colors)]
+
+
+def create_animated_captions(narration, duration):
+    words = [word for word in narration.split() if word.strip()]
+    if not words:
+        raise RuntimeError("Cannot create captions from empty narration")
+
+    total_weight = float(
+        sum(max(1, len(re.sub(r"[^A-Za-z0-9]", "", word))) for word in words)
+    )
+    ass_path = RUN_ROOT / "captions.ass"
+
+    header = """[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+ScaledBorderAndShadow: yes
+WrapStyle: 2
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: PublishWisdom,Poppins ExtraBold,72,&H00FFFFFF,&H00FFFFFF,&H00111111,&H00000000,1,0,0,0,100,100,0,0,1,2,7,2,80,80,691,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+"""
+
+    current_time = 0.0
+    lines = [header]
+    for index, word in enumerate(words):
+        weight = max(1, len(re.sub(r"[^A-Za-z0-9]", "", word)))
+        segment_duration = duration * (weight / total_weight)
+        start = current_time
+        end = duration if index == len(words) - 1 else min(
+            duration, current_time + segment_duration
+        )
+        if end <= start:
+            continue
+
+        lines.append(
+            f"Dialogue: 0,{_ass_time(start)},{_ass_time(end)},PublishWisdom,,0,0,0,,"
+            f"{{\\c{_publish_ass_color(index)}}}{_ass_escape(word)}"
+        )
+        current_time = end
+
+    ass_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"Publish-style captions created: {ass_path} | words={len(words)}")
+    return ass_path
+
+
+def render(clips, audio, output, duration, narration):
+    ass_path = create_animated_captions(narration, duration)
+    subtitle_filter = f"subtitles='{ass_path.resolve()}'"
+    visual_concat = _make_2_5_second_visual_segments(clips, duration)
+
+    subprocess.run(
+        [
+            "ffmpeg", "-y",
+            "-f", "concat", "-safe", "0", "-i", str(visual_concat),
+            "-i", str(audio),
+            "-filter_complex", f"[0:v]{subtitle_filter}[v]",
+            "-map", "[v]", "-map", "1:a:0",
+            "-t", f"{duration:.3f}",
+            "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+            "-c:a", "aac", "-b:a", "192k",
+            "-movflags", "+faststart",
+            "-pix_fmt", "yuv420p",
+            str(output),
+        ],
+        check=True,
+    )
+
+
+def build_caption(story):
+    topic = clean(story.get("topic"), 180)
+    narration = clean(story.get("narration"), 3000)
+    title = clean(story.get("title"), 90).strip(" .-")
+    if not title:
+        title = topic[:70].rstrip(" .-")
+    title = title[:70].rstrip(" .-")
+
+    topic_terms = [
+        word.lower()
+        for word in re.findall(r"[A-Za-z]{3,}", topic)
+        if word.lower() not in {
+            "why", "does", "did", "the", "and", "for", "with",
+            "from", "about", "americans", "people", "common",
+        }
+    ]
+    topic_terms = list(dict.fromkeys(topic_terms))
+
+    keyword_phrases = [
+        topic,
+        f"why {topic.lower()}",
+        f"{topic.lower()} explained",
+        f"meaning of {topic.lower()}",
+        f"history of {topic.lower()}",
+        *topic_terms,
+        "everyday wisdom",
+        "american life",
+        "common sayings",
+        "everyday history",
+        "curiosity",
+    ]
+
+    tags = []
+    for value in keyword_phrases:
+        tag = re.sub(r"[^A-Za-z0-9 -]", "", str(value or "")).strip().lower()
+        if tag and tag not in tags:
+            tags.append(tag)
+    tags = tags[:15]
+    while sum(len(tag) for tag in tags) + max(0, len(tags) - 1) > 450:
+        tags.pop()
+
+    first_sentence = re.split(r"(?<=[.!?])\s+", narration.strip())[0].strip()
+    description = (
+        f"{topic}. Ever wondered why this is so common in American life? "
+        "This short explains the history, meaning, or practical reason behind it "
+        "through one simple story."
+    )
+    if first_sentence and len(first_sentence) <= 180:
+        if first_sentence.lower() not in description.lower():
+            description += f"\n\n{first_sentence}"
+
+    description += (
+        "\n\nFollow Everyday Wisdom for more familiar sayings, habits, objects, "
+        "and everyday mysteries with surprisingly simple explanations."
+    )
+
+    hashtags = ["#shorts", "#everydaywisdom", "#americanlife", "#curiosity"]
+    if topic_terms:
+        hashtags.append("#" + "".join(topic_terms[:2]))
+    description += "\n\n" + " ".join(dict.fromkeys(hashtags[:5]))
+
+    return title, description[:2000], tags
+
+
+def upload(video, story):
+    raw = os.getenv("YOUTUBE_TOKEN_JSON", "").strip()
+    if not raw:
+        raise RuntimeError("YOUTUBE_TOKEN_JSON is missing")
+
+    try:
+        token_info = json.loads(raw)
+        credentials = Credentials.from_authorized_user_info(token_info)
+    except Exception as exc:
+        raise RuntimeError(f"Invalid YOUTUBE_TOKEN_JSON: {exc}") from exc
+
+    if not credentials.refresh_token:
+        raise RuntimeError(
+            "YOUTUBE_TOKEN_JSON has no refresh_token; re-authorize the YouTube account"
+        )
+
+    # Explicitly refresh when needed so an expired access token never prevents
+    # the upload merely because the workflow runner started with an old token.
+    from google.auth.transport.requests import Request
+    if credentials.expired:
+        print("YouTube access token expired; refreshing with stored refresh token")
+        credentials.refresh(Request())
+
+    youtube = build("youtube", "v3", credentials=credentials)
+    title, description, tags = build_caption(story)
+
+    print(f"Uploading Everyday Wisdom Short: {title}")
+    body = {
+        "snippet": {
+            "title": title,
+            "description": description,
+            "tags": tags,
+            "categoryId": "27",
+        },
+        "status": {
+            "privacyStatus": "public",
+            "selfDeclaredMadeForKids": False,
+        },
+    }
+
+    request = youtube.videos().insert(
+        part="snippet,status",
+        body=body,
+        media_body=MediaFileUpload(
+            str(video),
+            chunksize=-1,
+            resumable=True,
+            mimetype="video/mp4",
+        ),
+    )
+
+    response = None
+    while response is None:
+        status, response = request.next_chunk(num_retries=5)
+        if status:
+            print(f"YouTube upload progress: {int(status.progress() * 100)}%")
+
+    video_id = response.get("id")
+    if not video_id:
+        raise RuntimeError(f"YouTube upload returned no video ID: {response}")
+
+    print(f"YOUTUBE UPLOADED: https://www.youtube.com/watch?v={video_id}")
+    return video_id
+
+
+def main():
+    print("EVERYDAY WISDOM SHORTS | isolated pipeline | START")
+
+    story = generate_story()
+    print(f"Generated topic: {story['topic']} | title={story['title']}")
+
+    # Retire the topic before expensive media work so a failed render/upload
+    # cannot cause the same topic to be selected again.
+    remember_topic(story)
+    (RUN_ROOT / "story.json").write_text(
+        json.dumps(story, indent=2), encoding="utf-8"
+    )
+
+    audio = RUN_ROOT / "narration.wav"
+    duration = synthesize(story["narration"], audio)
+    duration = min(duration, TARGET_SECONDS)
+    print(f"Narration ready: {duration:.2f}s")
+
+    clips = download_stock(story["visual_queries"], duration)
+    print(f"Downloaded {len(clips)} unique narration-aligned visuals")
+
+    video = RUN_ROOT / "final.mp4"
+    render(clips, audio, video, duration, story["narration"])
+
+    if not video.exists() or video.stat().st_size < 100000:
+        raise RuntimeError("Final video was not created or is too small")
+
+    print(f"Final video ready: {video} ({video.stat().st_size} bytes)")
+
+    video_id = upload(video, story)
+    (RUN_ROOT / "publish.json").write_text(
+        json.dumps(
+            {
+                "video_id": video_id,
+                "topic": story["topic"],
+                "uploaded": True,
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
+    print(f"EVERYDAY WISDOM COMPLETE: {video_id}")
+
+
+if __name__ == "__main__":
+    main()

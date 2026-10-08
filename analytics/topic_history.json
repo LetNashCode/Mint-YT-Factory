@@ -3562,5 +3562,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do ice cream cones drip",
+    "normalized": "why do ice cream cones drip",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791502404,
+    "recorded_at": 1791502404,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

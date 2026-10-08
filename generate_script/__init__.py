@@ -68,8 +68,8 @@ def validate_script(script, verified_research=None):
     if not isinstance(script, dict):
         raise RuntimeError("Generated script must be a JSON object.")
     scenes = script.get("scene_plan")
-    if not isinstance(scenes, list) or len(scenes) != 7:
-        raise RuntimeError("Generated script must contain exactly 7 scenes.")
+    if not isinstance(scenes, list) or len(scenes) != 6:
+        raise RuntimeError("Generated script must contain exactly 6 scenes.")
     return True
 
 

@@ -156,3 +156,13 @@ def lock_next_topic(script,current_topic,locked_topic=None,stale_topics=None):
     print("🔒 Canonical next topic stored as metadata only: "+canonical)
     return script,canonical
 
+\n
+
+
+def _find_pending_resume():
+    """Compatibility hook for production_entry's cross-run resume patch.
+
+    The current Publish pipeline does not own resume discovery in main.py;
+    production_entry installs the authoritative implementation at runtime.
+    """
+    return None

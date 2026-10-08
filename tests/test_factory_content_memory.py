@@ -4,9 +4,18 @@ import time
 import factory_content_memory as memory
 
 
-def test_factory_topic_memory_rejects_near_duplicate(tmp_path, monkeypatch):
+
+def _isolate_memory_test(tmp_path, monkeypatch):
     path = tmp_path / "topic_history.json"
+    state = tmp_path / "factory_memory_state.json"
+    state.write_text(json.dumps({"version": 2, "migrated_topics": 0}))
     monkeypatch.setattr(memory, "HISTORY", path)
+    monkeypatch.setattr(memory, "BOOTSTRAP_STATE", state)
+    return path
+
+
+def test_factory_topic_memory_rejects_near_duplicate(tmp_path, monkeypatch):
+    path = _isolate_memory_test(tmp_path, monkeypatch)
     memory.claim("publish", "Why do mirrors reverse your reflection?")
     try:
         try:
@@ -20,8 +29,7 @@ def test_factory_topic_memory_rejects_near_duplicate(tmp_path, monkeypatch):
 
 
 def test_factory_topic_memory_allows_distinct_topic(tmp_path, monkeypatch):
-    path = tmp_path / "topic_history.json"
-    monkeypatch.setattr(memory, "HISTORY", path)
+    path = _isolate_memory_test(tmp_path, monkeypatch)
     memory.claim("story", "How a failed inventor rebuilt his laboratory")
     memory.claim("story", "The abandoned ship that vanished without a trace")
     rows = json.loads(path.read_text())
@@ -29,8 +37,7 @@ def test_factory_topic_memory_allows_distinct_topic(tmp_path, monkeypatch):
 
 
 def test_factory_topic_memory_expires_stale_reservation(tmp_path, monkeypatch):
-    path = tmp_path / "topic_history.json"
-    monkeypatch.setattr(memory, "HISTORY", path)
+    path = _isolate_memory_test(tmp_path, monkeypatch)
     old = int(time.time()) - memory.RESERVATION_TTL_SECONDS - 10
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps([{
@@ -47,8 +54,7 @@ def test_factory_topic_memory_expires_stale_reservation(tmp_path, monkeypatch):
 
 
 def test_factory_topic_memory_publishes_reservation(tmp_path, monkeypatch):
-    path = tmp_path / "topic_history.json"
-    monkeypatch.setattr(memory, "HISTORY", path)
+    path = _isolate_memory_test(tmp_path, monkeypatch)
     memory.claim("mystery", "The case of the vanished expedition")
     memory.publish(
         "The case of the vanished expedition",
@@ -62,8 +68,7 @@ def test_factory_topic_memory_publishes_reservation(tmp_path, monkeypatch):
 
 
 def test_factory_topic_memory_reuses_same_workflow_reservation(tmp_path, monkeypatch):
-    path = tmp_path / "topic_history.json"
-    monkeypatch.setattr(memory, "HISTORY", path)
+    path = _isolate_memory_test(tmp_path, monkeypatch)
     first = memory.claim("story", "The inventor who rebuilt after failure")
     second = memory.claim("story", "The inventor who rebuilt after failure")
     assert first == second

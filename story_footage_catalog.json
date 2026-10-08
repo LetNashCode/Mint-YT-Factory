@@ -4855,37 +4855,6 @@
     {
       "person": "Sylvester Stallone",
       "source": {
-        "id": "archive:sylvester-stallone-interview-with-barbara-walters-1988",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sylvester-stallone-interview-with-barbara-walters-1988/Sylvester%20Stallone%20Interview%20with%20Barbara%20Walters%20%281988%29.ia.mp4",
-        "source_url": "https://archive.org/details/sylvester-stallone-interview-with-barbara-walters-1988",
-        "title": "Sylvester Stallone Interview with Barbara Walters (1988)",
-        "description": "The Barbara Walters Special featuring Sylvester Stallone. ['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "creator": "ABC",
-        "license": "",
-        "subject": "['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1039.905506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 557.41,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features genuine archival footage of Sylvester Stallone participating in an interview with Barbara Walters, making it relevant biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "2145674ee6dafd96d6571ccc7e942222a00e2279be95ce668104ff782d5953e7",
-      "reviewed_at": 1790812103.7982109
-    },
-    {
-      "person": "Sylvester Stallone",
-      "source": {
         "id": "archive:Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01/Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01.mp4",
@@ -4944,37 +4913,6 @@
       },
       "review_key": "5c1da0c2d24ddc80830cb724da1a6f974cb8713d5c2e65017c0bb3b75f83f0f0",
       "reviewed_at": 1790854695.8348386
-    },
-    {
-      "person": "Sylvester Stallone",
-      "source": {
-        "id": "archive:sylvester-stallone-interview-with-barbara-walters-1988",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/sylvester-stallone-interview-with-barbara-walters-1988/Sylvester%20Stallone%20Interview%20with%20Barbara%20Walters%20%281988%29.ia.mp4",
-        "source_url": "https://archive.org/details/sylvester-stallone-interview-with-barbara-walters-1988",
-        "title": "Sylvester Stallone Interview with Barbara Walters (1988)",
-        "description": "The Barbara Walters Special featuring Sylvester Stallone. ['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "creator": "ABC",
-        "license": "",
-        "subject": "['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1039.905506,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 162.83,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames show archival footage of Sylvester Stallone outdoors. While it serves as general biographical illustration rather than depicting a specific narrated historical event directly, he is clearly visible and real footage is used.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "22fe58e690b7c8a4d6a94423e2d6368a414b3e4908545301bb93e56027e66246",
-      "reviewed_at": 1790854991.584449
     },
     {
       "person": "Rosa Parks",
@@ -5087,161 +5025,6 @@
         "identity_score": 13.0,
         "archival_signal": 0
       },
-      "start": 43.64,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The frames show Guillermo del Toro clearly visible during a televised interview (The Late Show in 2006), perfectly matching the biographical subject and context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f84c25e0174bebb70e078f328de8bb2709b701c6708d8f9aee63e0cec9b60843",
-      "reviewed_at": 1790887894.6978617
-    },
-    {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:twitter-1181834179241107456",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
-        "source_url": "https://archive.org/details/twitter-1181834179241107456",
-        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
-        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features real archival footage of Guillermo del Toro being interviewed by Mark Kermode on The Late Show in 2006. Guillermo del Toro is clearly visible across all three frames, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "378782768c0d7ee70d0f61eda8b25748e1dd91c2f46f455f619038ac31c74940",
-      "reviewed_at": 1790887915.0886576
-    },
-    {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:twitter-1181834179241107456",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
-        "source_url": "https://archive.org/details/twitter-1181834179241107456",
-        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
-        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 14.66,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage shows real, moving archival interview footage of Guillermo del Toro himself talking on The Late Show in 2006, perfectly illustrating his life and career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b80820cf5ab8c708d90de4b867a6c36a4faf4aafeb00c5e74a1cabcd7d3cf163",
-      "reviewed_at": 1790887921.2897096
-    },
-    {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:twitter-1181834179241107456",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
-        "source_url": "https://archive.org/details/twitter-1181834179241107456",
-        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
-        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 24.32,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage features Guillermo del Toro being interviewed on The Late Show in 2006, clearly visible across all frames, making it genuine biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "7ad740395f321ed799b78ebf65c05833d299ef93dcf8acb3ff51ad89266c960f",
-      "reviewed_at": 1790887927.4915557
-    },
-    {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:twitter-1181834179241107456",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
-        "source_url": "https://archive.org/details/twitter-1181834179241107456",
-        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
-        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 33.98,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Guillermo del Toro being interviewed on a talk show, which matches the biographical context and provides direct visual evidence of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "752af1702c814cda4ed10a37ccf6c0c975fa0883f14e5cb78e74cb022cf3f508",
-      "reviewed_at": 1790887932.8880517
-    },
-    {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:twitter-1181834179241107456",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
-        "source_url": "https://archive.org/details/twitter-1181834179241107456",
-        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
-        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
       "start": 53.3,
       "length": 8.0,
       "verification": {
@@ -5254,68 +5037,6 @@
       },
       "review_key": "1a738022f5c27f4d1ff9c99b3e75d34cc663ea326ab73baf08432922d2fd7ebb",
       "reviewed_at": 1790887938.086584
-    },
-    {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:twitter-1181834179241107456",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
-        "source_url": "https://archive.org/details/twitter-1181834179241107456",
-        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
-        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 62.96,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video shows Guillermo del Toro seated and being interviewed by Mark Kermode in archival footage from 2006. He is clearly visible across all three frames, making this genuine archival identity footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "07d8f26021532b6f88fc81028f1df30521742741053fda4b9cc8f0ddaf722dfc",
-      "reviewed_at": 1790887944.4902961
-    },
-    {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:twitter-1181834179241107456",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
-        "source_url": "https://archive.org/details/twitter-1181834179241107456",
-        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
-        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 72.62,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The frames clearly show Guillermo del Toro being interviewed on a talk show, featuring genuine archival footage of the named subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5a825b2fd1ab3899fe6933ce9fbaf9a386ff6f9ab184c40c427ab0a8e0fc1489",
-      "reviewed_at": 1790887949.981119
     },
     {
       "person": "Fred Smith",
@@ -7672,6 +7393,688 @@
       },
       "review_key": "9ddc56b4abb0304a527347051583df8d01426358fc2ffa2e3d50d32dea2dc69e",
       "reviewed_at": 1791401793.3009057
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceoutsider",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceoutsider/Cameron1.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceoutsider",
+        "title": "James Cameron Tar Sands Press Conference: \"Outsider\"",
+        "description": "James Cameron speaks to the media about his status as both an \"outsider\" and a Canadian in observing the tar sands - a status he thinks sharpens his observation and critique of the tar sands, and offers a fresh perspective on what needs to happen in the region. ['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "creator": "tarsandstour",
+        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
+        "subject": "['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "runtime": "1:34",
+        "direct_subject": true,
+        "duration_hint": 93.893894,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 64.92,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage clearly shows James Cameron speaking at a press conference, matching the biographical illustration requirement. However, since the narration simply says 'Archival footage illustrating the life of James Cameron' rather than describing a specific event depicted here, it functions as biographical illustration rather than direct event coverage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e00bf720f1c094069b3319c4a6475d6c55a75141ac1443756e61e18293358a23",
+      "reviewed_at": 1791458238.485532
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceMoratorium",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceMoratorium/Cameron4.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceMoratorium",
+        "title": "James Cameron Tar Sands Press Conference: Moratorium",
+        "description": "http://www.tarsandstour.com - James Cameron calls for a moratorium on new tar sands tailings ponds until the pollution from current projects is better understood. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
+        "creator": "tarsandstour",
+        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
+        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
+        "runtime": "2:23",
+        "direct_subject": true,
+        "duration_hint": 142.625959,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 74.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows real moving footage of James Cameron speaking at a podium, clearly visible across all frames, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d3f0e08a396dad06e0e1d166c9ef865b634966f9446555594d8854719ac339b6",
+      "reviewed_at": 1791458276.1398706
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceoutsider",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceoutsider/Cameron1.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceoutsider",
+        "title": "James Cameron Tar Sands Press Conference: \"Outsider\"",
+        "description": "James Cameron speaks to the media about his status as both an \"outsider\" and a Canadian in observing the tar sands - a status he thinks sharpens his observation and critique of the tar sands, and offers a fresh perspective on what needs to happen in the region. ['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "creator": "tarsandstour",
+        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
+        "subject": "['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "runtime": "1:34",
+        "direct_subject": true,
+        "duration_hint": 93.893894,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The frames show genuine moving archival footage of James Cameron speaking at a press conference about the tar sands, matching the narration and context.",
+        "usage": "direct_event"
+      },
+      "review_key": "511adf0914959fc40132d7f302dd9885bad4f5fd3b9b816793104c15e73dea81",
+      "reviewed_at": 1791458281.627787
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceMoratorium",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceMoratorium/Cameron4.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceMoratorium",
+        "title": "James Cameron Tar Sands Press Conference: Moratorium",
+        "description": "http://www.tarsandstour.com - James Cameron calls for a moratorium on new tar sands tailings ponds until the pollution from current projects is better understood. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
+        "creator": "tarsandstour",
+        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
+        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
+        "runtime": "2:23",
+        "direct_subject": true,
+        "duration_hint": 142.625959,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 14.89,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames clearly show the named subject, James Cameron, speaking at a podium. However, the footage is static/talking-head style and only serves as biographical illustration for general archival use rather than depicting a specific narrated event directly.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3284339fddc1d5f12045dc6a1ccf3c0f6d8c2cde6d578550b435c5a01dfe1100",
+      "reviewed_at": 1791458292.8687842
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceoutsider",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceoutsider/Cameron1.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceoutsider",
+        "title": "James Cameron Tar Sands Press Conference: \"Outsider\"",
+        "description": "James Cameron speaks to the media about his status as both an \"outsider\" and a Canadian in observing the tar sands - a status he thinks sharpens his observation and critique of the tar sands, and offers a fresh perspective on what needs to happen in the region. ['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "creator": "tarsandstour",
+        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
+        "subject": "['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "runtime": "1:34",
+        "direct_subject": true,
+        "duration_hint": 93.893894,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 14.99,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows James Cameron speaking at a press conference about the tar sands, matching the narration and context directly.",
+        "usage": "direct_event"
+      },
+      "review_key": "ab9588e8c5dc73f6afffb8b931e33af73c0b1ccf29e99317c2a283099c25ba48",
+      "reviewed_at": 1791458300.2929187
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceMoratorium",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceMoratorium/Cameron4.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceMoratorium",
+        "title": "James Cameron Tar Sands Press Conference: Moratorium",
+        "description": "http://www.tarsandstour.com - James Cameron calls for a moratorium on new tar sands tailings ponds until the pollution from current projects is better understood. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
+        "creator": "tarsandstour",
+        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
+        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
+        "runtime": "2:23",
+        "direct_subject": true,
+        "duration_hint": 142.625959,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 24.79,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage clearly shows James Cameron speaking at a podium (The Westin), providing good biographical illustration material for his life and public appearances.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "469e8e235fda8f53dcd1909901dd82dd54c5165b3482f7ebf483b2bcbcd44f13",
+      "reviewed_at": 1791458353.2470956
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceoutsider",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceoutsider/Cameron1.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceoutsider",
+        "title": "James Cameron Tar Sands Press Conference: \"Outsider\"",
+        "description": "James Cameron speaks to the media about his status as both an \"outsider\" and a Canadian in observing the tar sands - a status he thinks sharpens his observation and critique of the tar sands, and offers a fresh perspective on what needs to happen in the region. ['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "creator": "tarsandstour",
+        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
+        "subject": "['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "runtime": "1:34",
+        "direct_subject": true,
+        "duration_hint": 93.893894,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 24.97,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show James Cameron speaking at a press conference at The Westin Edmonton. This is genuine archival footage of the named subject, making it useful as biographical illustration, though the clip represents a specific press appearance rather than a defining cinematic event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "36ff31c2efbc23c63abf5375d03793aa121690ba667709dd5f274275318913ab",
+      "reviewed_at": 1791458358.9727516
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronPressConferenceAtSolidworksWorld2010",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronPressConferenceAtSolidworksWorld2010/JamesCameron_SWW2010_PressConf.mp4",
+        "source_url": "https://archive.org/details/JamesCameronPressConferenceAtSolidworksWorld2010",
+        "title": "James Cameron Press Conference at SolidWorks World 2010",
+        "description": "This is the press conference with director James Cameron after the SolidWorks World 2010 General Session on Tuesday, February 2, 2010. See full conference coverage at http://www.cadfanatic.com/category/solidworks-world/ ['James Cameron', 'press conference', 'Terminator', 'Titanic', 'Avatar', 'SolidWorks', 'SolidWorks World']",
+        "creator": "Brian McElyea",
+        "license": "http://creativecommons.org/licenses/by-sa/3.0/us/",
+        "subject": "['James Cameron', 'press conference', 'Terminator', 'Titanic', 'Avatar', 'SolidWorks', 'SolidWorks World']",
+        "runtime": "22:14",
+        "direct_subject": true,
+        "duration_hint": 1333.7,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 715.61,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage clearly shows James Cameron speaking at a podium during a press conference. While it is not a direct clip of his filmmaking process, it is genuine archival footage of the subject that can be used for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e61cb1360e01385bed71e41bc3ec27cc78dea48c86c584fdd065345668ef99ea",
+      "reviewed_at": 1791458399.8133047
+    },
+    {
+      "person": "Amy Adams",
+      "source": {
+        "id": "archive:hbo-amy-adams-justice-league-2017-liga-de-la-justicia-2017",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/hbo-amy-adams-justice-league-2017-liga-de-la-justicia-2017/HBO%20_%20Amy%20Adams_%20Justice%20League%20%282017%29%20_%20Liga%20De%20La%20Justicia%20%282017%29.mp4",
+        "source_url": "https://archive.org/details/hbo-amy-adams-justice-league-2017-liga-de-la-justicia-2017",
+        "title": "HBO | Amy Adams: Justice League (2017) / Liga De La Justicia (2017)",
+        "description": ". ['HBO', 'Amy Adams', 'Justice league', 'liga de la justicia', '2017']",
+        "creator": "",
+        "license": "",
+        "subject": "['HBO', 'Amy Adams', 'Justice league', 'liga de la justicia', '2017']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 279.4,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 209.15,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8.0,
+        "reason": "The footage clearly shows Amy Adams appearing in all three frames as Lois Lane from Justice League (2017). However, because this is fictional movie footage used in a biographical context about her career rather than a direct documentary recording of a biographical event, it serves as biographical illustration rather than direct event footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "deb5dfae202b87b1d410040fb592aab48aff4700d02220848a726694c71b6292",
+      "reviewed_at": 1791458629.7594976
+    },
+    {
+      "person": "Sylvester Stallone",
+      "source": {
+        "id": "archive:sylvester-stallone-interview-with-barbara-walters-1988",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/sylvester-stallone-interview-with-barbara-walters-1988/Sylvester%20Stallone%20Interview%20with%20Barbara%20Walters%20%281988%29.ia.mp4",
+        "source_url": "https://archive.org/details/sylvester-stallone-interview-with-barbara-walters-1988",
+        "title": "Sylvester Stallone Interview with Barbara Walters (1988)",
+        "description": "The Barbara Walters Special featuring Sylvester Stallone. ['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
+        "creator": "ABC",
+        "license": "",
+        "subject": "['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1039.905506,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 557.41,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features real archival footage of Sylvester Stallone being interviewed by Barbara Walters in 1988, showing him clearly across all frames. While it's an interview clip rather than direct film action, it provides authentic biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bd7d9368e2c22e5c2fa3b17bd7a61f14e6d55f841e472adaf23ad94e5f4a1042",
+      "reviewed_at": 1791458732.7757266
+    },
+    {
+      "person": "Sylvester Stallone",
+      "source": {
+        "id": "archive:Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01/Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01.mp4",
+        "source_url": "https://archive.org/details/Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01",
+        "title": "Legends Of Hollywood Sylvester Stallone TLC WOC 1995 01",
+        "description": "Legends Of Hollywood Sylvester Stallone TLC WOC 1995 01 ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1816.447967,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1391.5,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video clip features actual film footage starring Sylvester Stallone in a dramatic mountain/snow scene (Cliffhanger), confirming his identity across the frames and serving as valid biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9f108a079ac802fa582f749c3cc97d6d9ba6f395676e6d76761de78840de5dc8",
+      "reviewed_at": 1791458755.7309554
+    },
+    {
+      "person": "Sylvester Stallone",
+      "source": {
+        "id": "archive:sylvester-stallone-interview-with-barbara-walters-1988",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/sylvester-stallone-interview-with-barbara-walters-1988/Sylvester%20Stallone%20Interview%20with%20Barbara%20Walters%20%281988%29.ia.mp4",
+        "source_url": "https://archive.org/details/sylvester-stallone-interview-with-barbara-walters-1988",
+        "title": "Sylvester Stallone Interview with Barbara Walters (1988)",
+        "description": "The Barbara Walters Special featuring Sylvester Stallone. ['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
+        "creator": "ABC",
+        "license": "",
+        "subject": "['Sylvester Stallone', 'Barbara Walters', 'ABC', 'interview', 'The Barbara Walters Special']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1039.905506,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 162.83,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage clearly shows Sylvester Stallone in archival interview footage, making it usable as biographical illustration for a Short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9a11763f43e687177285f4c162179d90a5a9c2ed60a6c1444acdee2cdf20693c",
+      "reviewed_at": 1791458764.7796822
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:g4tv.com-video49139-flvhd",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/g4tv.com-video49139-flvhd/as20101007_guillermo_flvhd.mp4",
+        "source_url": "https://archive.org/details/g4tv.com-video49139-flvhd",
+        "title": "g4tv.com-video49139-flvhd: Guillermo del Toro Talks About His New Book, The Fall",
+        "description": "Guillermo del Toro, the director behind 'Hellboy' and 'Pan's Labyrinth' is returning to the literary world with his latest book, 'The Fall,' the second installment of 'The Strain' Trilogy. He stops by the studio to talk about writing, vampires and more! ['G4TV.com videos', 'flvhd']",
+        "creator": "G4TV.com",
+        "license": "",
+        "subject": "['G4TV.com videos', 'flvhd']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 419.686353,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 317.07,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip shows Guillermo del Toro being interviewed on a TV show (Attack of the Show). While it is interview footage rather than archival or biographical documentary footage, the subject is clearly visible throughout all three frames and talking about his work, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "651990386244928bcb891a5a38ef39b96f7ab927dc17bff5a24495e66585a903",
+      "reviewed_at": 1791459077.6827796
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:g4tv.com-video49139",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/g4tv.com-video49139/as20101007_guillermo_flv.mp4",
+        "source_url": "https://archive.org/details/g4tv.com-video49139",
+        "title": "g4tv.com-video49139: Guillermo del Toro Talks About His New Book, The Fall",
+        "description": "Guillermo del Toro, the director behind 'Hellboy' and 'Pan's Labyrinth' is returning to the literary world with his latest book, 'The Fall,' the second installment of 'The Strain' Trilogy. He stops by the studio to talk about writing, vampires and more! G4TV.com videos",
+        "creator": "G4TV.com",
+        "license": "",
+        "subject": "G4TV.com videos",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 420.787454,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 224.04,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows Guillermo del Toro being interviewed in a studio setting, which serves as biographical illustration for his life and career, but it is an interview rather than direct archival footage of a historical event being narrated.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "83f15a70880a7753550ece11483bea417ec3c7fbfd63ed392968bddba34f644c",
+      "reviewed_at": 1791459085.6565092
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:twitter-1181834179241107456",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
+        "source_url": "https://archive.org/details/twitter-1181834179241107456",
+        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
+        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 91.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 43.64,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Guillermo del Toro being interviewed on television in 2006, directly matching the biographical context and narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ef568feacc4579174b6a2bb8e66e09f9d23af4ac8ba95c892095458188a80064",
+      "reviewed_at": 1791459117.215784
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:twitter-1181834179241107456",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
+        "source_url": "https://archive.org/details/twitter-1181834179241107456",
+        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
+        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 91.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Guillermo del Toro participating in an interview, visible across all three frames, perfectly matching the biographical narration about his life and discussions on fantasy.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "412625165cf338630ede6fdf30516a9d43c79cece35461063811ec2e816f098f",
+      "reviewed_at": 1791459122.1604197
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:twitter-1181834179241107456",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
+        "source_url": "https://archive.org/details/twitter-1181834179241107456",
+        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
+        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 91.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 14.66,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage shows Guillermo del Toro speaking in an interview setting, providing authentic archival footage of the named subject, though it depicts an interview rather than the specific historical event of his birth.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f238e5827d9884a8c6eb542c4a06efcdb06e079906b44af9159d1745ebd86937",
+      "reviewed_at": 1791459127.3875425
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:twitter-1181834179241107456",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
+        "source_url": "https://archive.org/details/twitter-1181834179241107456",
+        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
+        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 91.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 24.32,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Guillermo del Toro being interviewed on The Late Show in 2006, satisfying the requirement for identity footage where the subject is visible across all frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1cd580d58af44b073bfc04e9e0f5e531ae9ab27c92a5e762a36edd7081856a6b",
+      "reviewed_at": 1791459142.610336
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:twitter-1181834179241107456",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
+        "source_url": "https://archive.org/details/twitter-1181834179241107456",
+        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
+        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 91.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 33.98,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Guillermo del Toro being interviewed on television, fulfilling the requirements for biographical illustration of his life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f292393e3e1b24205eff11d78d8087a7d6d6897a8f427bb1741fa4628e49413a",
+      "reviewed_at": 1791459148.0432675
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:twitter-1181834179241107456",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
+        "source_url": "https://archive.org/details/twitter-1181834179241107456",
+        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
+        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 91.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 62.96,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features genuine archival interview footage of Guillermo del Toro speaking with Mark Kermode on The Late Show in 2006. The subject is clearly visible across all three frames and provides direct biographical illustration for his life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "179487ab5491530d04efa3d87ad7d1bc42df085678a33effab073a5860055c57",
+      "reviewed_at": 1791459159.3776526
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:twitter-1181834179241107456",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
+        "source_url": "https://archive.org/details/twitter-1181834179241107456",
+        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
+        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 91.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 72.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Guillermo del Toro being interviewed by Mark Kermode on The Late Show in 2006, making it authentic and directly usable historical footage of the named subject across all frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "cec251e4e4ba8f7d2af1b2e2bd02c909fc8856f9da34a734807a6df965cb91de",
+      "reviewed_at": 1791459164.692734
+    },
+    {
+      "person": "J.R.R. Tolkien",
+      "source": {
+        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
+        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
+        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
+        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
+        "creator": "BBC Archive",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Tolkien', 'God', 'Creator']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 386.96,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 205.82,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows J.R.R. Tolkien himself in all three frames during a 1962 BBC interview, perfectly illustrating his life and discussion.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "43b70f02af6ec40f165c54da70e753e2c20c6556d2cd45900bded48912c8e73a",
+      "reviewed_at": 1791459315.04564
     }
   ]
 }

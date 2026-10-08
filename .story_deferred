@@ -1,1 +1,1 @@
-Story verifier unavailable after retries on gemini-flash-lite-latest: HTTP 503
+Story Gemini visual verification budget exhausted after 80 requests (visual_limit=80, total_limit=96)\n

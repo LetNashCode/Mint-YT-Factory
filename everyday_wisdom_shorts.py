@@ -427,7 +427,7 @@ def _make_2_5_second_visual_segments(clips, total_duration):
 
     concat = RUN_ROOT / "visual_segments.txt"
     concat.write_text(
-        "".join(f"file '{p.resolve()}'\\n" for p in segment_paths),
+        "".join(f"file '{p.resolve()}'\n" for p in segment_paths),
         encoding="utf-8",
     )
     return concat

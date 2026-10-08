@@ -12709,6 +12709,116 @@
       "shot": 2,
       "query": "rubber boots squeak every your shoe",
       "recorded_at": 1791412725
+    },
+    {
+      "asset_key": "pexels:video:32081453",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/32081453/13675064_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "loose hairs instantly stray hair leaps",
+      "recorded_at": 1791503358
+    },
+    {
+      "asset_key": "pexels:video:5155191",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5155191/5155191-hd_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "loose hairs try flick away finger",
+      "recorded_at": 1791503378
+    },
+    {
+      "asset_key": "pexels:video:5301043",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5301043/5301043-hd_720_1280_24fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "loose hairs bends right back refuses",
+      "recorded_at": 1791503399
+    },
+    {
+      "asset_key": "pexels:video:9558507",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9558507/9558507-hd_1366_720_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "loose hairs your sweater basically invisible",
+      "recorded_at": 1791503431
+    },
+    {
+      "asset_key": "pexels:video:7449995",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7449995/7449995-hd_720_1366_25fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "loose hairs stripping electrons away every",
+      "recorded_at": 1791503450
+    },
+    {
+      "asset_key": "pexels:video:28141930",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/28141930/12308440_720_1280_30fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "loose hairs charge builds until fabric",
+      "recorded_at": 1791503470
+    },
+    {
+      "asset_key": "pexels:video:3184621",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3184621/3184621-hd_1280_720_50fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "loose hairs becomes tiny magnet anything",
+      "recorded_at": 1791503491
+    },
+    {
+      "asset_key": "pexels:video:4813383",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4813383/4813383-hd_720_1366_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "loose hairs you aren dropping hair",
+      "recorded_at": 1791503501
+    },
+    {
+      "asset_key": "pexels:video:6654093",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6654093/6654093-hd_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "loose hairs sweater reaching out snatching",
+      "recorded_at": 1791503518
+    },
+    {
+      "asset_key": "pexels:video:7297997",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7297997/7297997-hd_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "loose hairs static charge turns your",
+      "recorded_at": 1791503535
+    },
+    {
+      "asset_key": "pexels:video:6943699",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6943699/6943699-hd_1280_720_24fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "loose hairs into inescapable hair trap",
+      "recorded_at": 1791503553
     }
   ]
 }

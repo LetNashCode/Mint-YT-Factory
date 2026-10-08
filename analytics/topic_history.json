@@ -3574,5 +3574,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do loose hairs stick to sweaters",
+    "normalized": "why do loose hairs stick to sweaters",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791503028,
+    "recorded_at": 1791503028,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

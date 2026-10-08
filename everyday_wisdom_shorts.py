@@ -25,8 +25,8 @@ PEXELS_URL = "https://api.pexels.com/videos/search"
 MODEL = "gemini-flash-lite-latest"
 VOICE = os.getenv("WISDOM_KOKORO_VOICE", "af_heart")
 TARGET_SECONDS = 40.0
-MIN_NARRATION_WORDS = 95
-MAX_NARRATION_WORDS = 125
+MIN_NARRATION_WORDS = 80
+MAX_NARRATION_WORDS = 95
 TOPIC_HISTORY_PATH = Path("everyday_wisdom_topic_history.json")
 MAX_HISTORY_FOR_PROMPT = 120
 WHISPER_MODEL = os.getenv("WISDOM_WHISPER_MODEL", "tiny.en")
@@ -168,8 +168,8 @@ Do not use politics, celebrities, medical advice, conspiracy, fearbait,
 lists, countdowns, "Did you know?", "Today we're going to", AI references,
 or a second topic. The narration must work without visuals.
 
-Write 95-125 words, approximately 32-39 seconds, as one connected mini-story.
-Never exceed 125 words. Keep sentences concise so the natural Kokoro narration fits under 40 seconds without speeding up.
+Write 80-95 words, approximately 30-38 seconds, as one connected mini-story.
+Never exceed 95 words. Keep sentences concise and natural so Kokoro narration fits under 40 seconds without speeding up.
 The first sentence must create immediate curiosity. End with a satisfying answer.
 
 TITLE RULES:
@@ -221,6 +221,8 @@ VISUAL BEATS: create 16-18 ordered visual_queries, one for each roughly 2.5-seco
             if attempt == 4:
                 raise
             print(f"Story generation retry {attempt + 1}/5: {type(exc).__name__}: {exc}")
+            if attempt < 4:
+                base_prompt += (\n                    "\n\nRETRY REQUIREMENT: Keep the narration strictly 80-95 words. " \n                    "Natural Kokoro delivery must remain below 40 seconds. " \n                    "Do not add filler, long quotations, or extra clauses."\n                )
             time.sleep(2 + attempt)
     raise RuntimeError("Story generation failed")
 

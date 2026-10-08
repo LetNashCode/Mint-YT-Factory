@@ -156,7 +156,6 @@ def lock_next_topic(script,current_topic,locked_topic=None,stale_topics=None):
     print("🔒 Canonical next topic stored as metadata only: "+canonical)
     return script,canonical
 
-\n
 
 
 def _find_pending_resume():

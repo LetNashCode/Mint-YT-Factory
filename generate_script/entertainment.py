@@ -214,10 +214,8 @@ def _normalize(script,topic,enforce_word_contract=True):
             raise RuntimeError("Next topic appeared in Publish narration.")
     total_words=sum(len(_words(scene["narration"])) for scene in scenes)
     if enforce_word_contract and (total_words<90 or total_words>135):
-        raise RuntimeError(f"Narration length is {total_words} words; target is 90–135 words including continuation.")
-    for visual in scene7.get("visuals",[]):
-        if isinstance(visual,dict) and not _clean(visual.get("spoken_line")): visual["spoken_line"]=scene7["narration"]
-    script["retention_self_check"]=script.get("retention_self_check") or {"weakest_scene":4,"reason":"Every scene advances the mystery."}; script["publishing"]={"research_verified":False,"research_sources_require_verification":False,"citations_ready":False,"claim_verification_required":False,"captions_match_narration":True,"semantic_image_prompts":True,"fourteen_visuals_required":True,"entertainment_first":True,"visual_relevance_constraints":True}; script["generated_at"]=int(time.time()); script["video_id"]=f"{re.sub(r'[^a-z0-9]+','-',script['title'].lower()).strip('-')[:40]}-{uuid.uuid4().hex[:8]}"; script["image_generation"]={"seed":int(time.time()),"style_lock":"realistic cinematic photography, natural materials, physically plausible lighting, no illustration look"}
+        raise RuntimeError(f"Narration length is {total_words} words; target is 90–135 words for the current-topic story.")
+    script["retention_self_check"]=script.get("retention_self_check") or {"weakest_scene":4,"reason":"Every scene advances the mystery."}; script["publishing"]={"research_verified":False,"research_sources_require_verification":False,"citations_ready":False,"claim_verification_required":False,"captions_match_narration":True,"semantic_image_prompts":True,"twelve_visuals_required":True,"entertainment_first":True,"visual_relevance_constraints":True}; script["generated_at"]=int(time.time()); script["video_id"]=f"{re.sub(r'[^a-z0-9]+','-',script['title'].lower()).strip('-')[:40]}-{uuid.uuid4().hex[:8]}"; script["image_generation"]={"seed":int(time.time()),"style_lock":"realistic cinematic photography, natural materials, physically plausible lighting, no illustration look"}
     return script
 
 def _is_quota_error(error_text):
@@ -269,10 +267,10 @@ CURRENT TOPIC:
 {topic}
 
 Create exactly 6 scenes totaling about 38 seconds, durations 3, 5, 7, 7, 8, 8.
-Write 90–135 spoken words total for the current-topic story.
+Write 90–135 spoken words total for the current-topic story. Aim for 100–120 words so the draft stays safely inside the contract.
 Keep sentences short enough for natural TTS.
 
-Make the opening instantly visual and surprising. Make the middle feel like a tiny story, not a lecture. Use a concrete everyday demonstration. Give a clear payoff before the final continuation sentence.
+Make the opening instantly visual and surprising. Make the middle feel like a tiny story, not a lecture. Use a concrete everyday demonstration. Give a clear current-topic payoff in Scene 6. Do not write a continuation sentence.
 
 DESCRIPTION: write only about the current topic. Never mention the next topic.
 
@@ -294,6 +292,8 @@ VISUALS: every one of the 12 shots must represent a specific spoken beat. Return
             return _normalize(_parse(text),topic)
         except Exception as error:
             last_error=f"{type(error).__name__}: {error}"
+            if not _is_quota_error(last_error) and "503" not in last_error and "unavailable" not in last_error.lower() and "high demand" not in last_error.lower():
+                print(f"⚠️ Script validation/generation retry {validation_attempts + 1}/{MAX_ATTEMPTS}: {last_error}", flush=True)
             quota_error=_is_quota_error(last_error)
             transient=(quota_error or "503" in last_error or "unavailable" in last_error.lower() or "high demand" in last_error.lower())
             if quota_error and ENABLE_CPU_QWEN_FALLBACK:

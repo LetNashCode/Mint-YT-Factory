@@ -3538,5 +3538,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do dry pasta noodles snap",
+    "normalized": "why do dry pasta noodles snap",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791500836,
+    "recorded_at": 1791500836,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

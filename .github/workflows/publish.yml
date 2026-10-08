@@ -16,6 +16,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
+  MINT_WORKFLOW_PROFILE: publish
   IMAGEMAGICK_BINARY: /usr/bin/convert
 
 jobs:

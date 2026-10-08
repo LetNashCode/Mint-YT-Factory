@@ -1,10 +1,11 @@
 """Persistent published-topic history with stronger idea-level duplicate guards."""
 from __future__ import annotations
-import difflib, json, re, time
+import difflib, json, os, re, time
 from pathlib import Path
 
 _ROOT = Path(__file__).resolve().parent
-_HISTORY_PATH = _ROOT / "analytics" / "topic_history.json"
+_PROFILE = str(os.environ.get("MINT_WORKFLOW_PROFILE", "publish")).strip().lower()
+_HISTORY_PATH = _ROOT / "analytics" / "story" / "topic_history.json" if _PROFILE == "story" else _ROOT / "analytics" / "topic_history.json"
 _STOPWORDS={"why","how","what","does","do","did","is","are","the","a","an","your","you","my","in","on","at","to","of","for","with","when","and","or","so","get","gets","make","makes","feel","feels"}
 _ALIAS={"cellphone":"phone","mobile":"phone","mobiles":"phone","screens":"screen","chargers":"charger","cables":"cable","onions":"onion","eyes":"eye","cubes":"cube","candles":"candle","mirrors":"mirror","windows":"window","bubbles":"bubble","bags":"bag","earbuds":"earbud"}
 

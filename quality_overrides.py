@@ -149,11 +149,11 @@ def patch_story_quality(main):
 
 MINT SCRIPT QUALITY CONTRACT — FOLLOW THIS ON EVERY DRAFT
 - Write one self-contained everyday mystery, not a mini lesson.
-- The current topic is the ONLY subject of all 7 scenes until the production system appends the locked continuation topic.
+- The current topic is the ONLY subject of all 6 scenes. The next topic is metadata only and is never spoken.
 - Do not introduce a second mystery, animal, object, state, comparison target, or question that is not needed to explain the current topic.
 - Scene 1 must create an immediate 'wait, why does THAT happen?' reaction without a generic YouTube intro.
 - Escalate the SAME mystery across Scenes 2–6. Each scene adds a new observation, demonstration, reveal, or consequence.
-- Scene 7 must finish the CURRENT story. The production system alone owns the continuation teaser.
+- Scene 6 must finish the CURRENT story with a satisfying payoff. Do not write a continuation teaser or bridge.
 - Never write a hidden side mystery such as 'see why frozen bubbles look like foggy marbles' before the continuation teaser.
 - Every visual's spoken_line must be a literal excerpt or tight paraphrase of that scene's narration. Never invent a new visual story inside the visual contract.
 - Keep the same concrete subject across the story. Do not switch to unrelated objects unless the narration explicitly requires that comparison.

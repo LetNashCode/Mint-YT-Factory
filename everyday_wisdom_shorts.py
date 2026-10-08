@@ -210,7 +210,7 @@ VISUAL BEATS: create 16-18 ordered visual_queries, one for each roughly 2.5-seco
             if not story["topic"] or not story["topic_key"] or not story["narration"] or len(story["search_queries"]) < 3 or len(story["visual_queries"]) < 16:
                 raise RuntimeError("Incomplete story JSON or fewer than 16 narration-aligned visual queries")
             if not 105 <= len(words) <= MAX_NARRATION_WORDS:
-                raise RuntimeError(f"Narration word count {len(words)} outside 105-{MAX_NARRATION_WORDS}")
+                raise RuntimeError(f"Narration word count {len(words)} outside {MIN_NARRATION_WORDS}-{MAX_NARRATION_WORDS}")
             if is_duplicate_topic(story, history):
                 raise RuntimeError(
                     f"Duplicate topic rejected: {story['topic']} | key={story['topic_key']}"

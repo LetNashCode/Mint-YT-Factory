@@ -59,7 +59,7 @@ STORY ARC:
 5) 22–30s: reframe what the viewer thought was happening.
 6) 30–38s: strongest twist/payoff and satisfying ending that completes the CURRENT TOPIC only.
 
-CONTINUATION OWNERSHIP: Do NOT write any next-topic teaser, preview, CTA, continuation bridge, second mystery, or future-topic sentence anywhere in the narration. The production pipeline alone reserves the next topic and appends exactly one canonical continuation after the current story passes quality gates.
+CONTINUATION OWNERSHIP: Do NOT write any next-topic teaser, preview, CTA, continuation bridge, second mystery, or future-topic sentence anywhere in the narration. The production pipeline reserves the next topic as metadata only. No continuation sentence is appended to the spoken story.
 
 SCENE 6 HARD RULE: Scene 6 must contain ONLY the payoff/ending of the CURRENT topic. Do not introduce a second fact, second mystery, unrelated object, new animal, new invention, mini-story, or future question.
 

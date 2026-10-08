@@ -4,7 +4,8 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-PLAYBOOK = ROOT / "analytics" / "playbook.json"
+_PROFILE = str(__import__("os").environ.get("MINT_WORKFLOW_PROFILE", "publish")).strip().lower()
+PLAYBOOK = ROOT / "analytics" / "story" / "playbook.json" if _PROFILE == "story" else ROOT / "analytics" / "playbook.json"
 
 
 def _rows(rows, limit=8, minimum=2):

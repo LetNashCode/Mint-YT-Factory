@@ -198,8 +198,8 @@ Search queries must be concrete things a camera can show, 3-6 words each.
                 ][:3],
             }
             words = re.findall(r"\b[\w'-]+\b", story["narration"])
-            if not story["topic"] or not story["topic_key"] or not story["narration"] or len(story["search_queries"]) < 3:
-                raise RuntimeError("Incomplete story JSON")
+            if not story["topic"] or not story["topic_key"] or not story["narration"] or len(story["search_queries"]) < 3 or len(story["visual_queries"]) < 16:
+                raise RuntimeError("Incomplete story JSON or fewer than 16 narration-aligned visual queries")
             if not 105 <= len(words) <= 145:
                 raise RuntimeError(f"Narration word count {len(words)} outside 105-145")
             if is_duplicate_topic(story, history):
@@ -284,170 +284,122 @@ def video_duration(path):
 
 
 def download_stock(queries, required_duration):
+    """Download one unique stock clip per narration visual beat.
+
+    The visual_queries are ordered to match the narration. We intentionally
+    download a separate source for each beat so the renderer never has to
+    recycle the same clip just because the narration moved to a new idea.
+    """
     chosen = []
     seen = set()
-    total_duration = 0.0
     target_duration = float(required_duration) + 1.0
-    for query in queries:
-        for item in search_videos(query):
+    beat_count = max(16, min(18, int(round(float(required_duration) / 2.5))))
+    queries = [clean(q, 100) for q in queries if clean(q, 100)]
+
+    if len(queries) < beat_count:
+        raise RuntimeError(
+            f"Only {len(queries)} narration-aligned visual queries were generated; "
+            f"{beat_count} are required"
+        )
+
+    for beat_index, query in enumerate(queries[:beat_count]):
+        candidates = []
+        for search_query in (query, f"{query} vertical"):
+            try:
+                candidates.extend(search_videos(search_query))
+            except Exception as exc:
+                print(f"Visual search failed for beat {beat_index + 1}: {search_query} | {exc}")
+        selected = None
+        for item in candidates:
             vid = str(item.get("id") or "")
             if not vid or vid in seen:
                 continue
             files = [f for f in item.get("video_files", []) if f.get("link")]
             if not files:
                 continue
-            files.sort(key=lambda f: abs((f.get("width", 0) / max(1, f.get("height", 1))) - 9 / 16))
-            path = VIDEO_DIR / f"{len(chosen):02d}.mp4"
-            with requests.get(files[0]["link"], stream=True, timeout=60) as dl:
-                dl.raise_for_status()
-                with path.open("wb") as handle:
-                    for chunk in dl.iter_content(1024 * 1024):
-                        if chunk:
-                            handle.write(chunk)
-            if path.stat().st_size < 10000:
-                path.unlink(missing_ok=True)
-                continue
-            try:
-                clip_duration = video_duration(path)
-            except Exception:
-                path.unlink(missing_ok=True)
-                continue
-            if clip_duration < 1.0:
-                path.unlink(missing_ok=True)
-                continue
-
-            chosen.append(path)
-            total_duration += clip_duration
-            seen.add(vid)
-            print(
-                f"Stock {len(chosen)}: {query} | Pexels {vid} | "
-                f"{clip_duration:.2f}s | total={total_duration:.2f}s"
+            files.sort(
+                key=lambda f: abs(
+                    (f.get("width", 0) / max(1, f.get("height", 1))) - 9 / 16
+                )
             )
-            if total_duration >= target_duration:
-                return chosen
-            if len(chosen) >= 10:
-                break
-        if total_duration >= target_duration or len(chosen) >= 10:
+            selected = (vid, files[0])
             break
 
-    if len(chosen) < 3 or total_duration < target_duration:
+        if selected is None:
+            raise RuntimeError(
+                f"No unique Pexels visual found for narration beat {beat_index + 1}: {query}"
+            )
+
+        vid, media = selected
+        path = VIDEO_DIR / f"{beat_index:02d}.mp4"
+        with requests.get(media["link"], stream=True, timeout=60) as dl:
+            dl.raise_for_status()
+            with path.open("wb") as handle:
+                for chunk in dl.iter_content(1024 * 1024):
+                    if chunk:
+                        handle.write(chunk)
+
+        if path.stat().st_size < 10000:
+            path.unlink(missing_ok=True)
+            raise RuntimeError(f"Downloaded visual is too small for beat {beat_index + 1}: {query}")
+
+        try:
+            clip_duration = video_duration(path)
+        except Exception as exc:
+            path.unlink(missing_ok=True)
+            raise RuntimeError(
+                f"Could not inspect visual for beat {beat_index + 1}: {query}"
+            ) from exc
+
+        if clip_duration < 1.0:
+            path.unlink(missing_ok=True)
+            raise RuntimeError(
+                f"Visual is too short for beat {beat_index + 1}: {query}"
+            )
+
+        chosen.append(path)
+        seen.add(vid)
+        print(
+            f"Visual beat {beat_index + 1}/{beat_count}: {query} | "
+            f"Pexels {vid} | {clip_duration:.2f}s"
+        )
+
+    if len(chosen) < beat_count:
         raise RuntimeError(
-            f"Insufficient stock-video duration: {total_duration:.2f}s available, "
-            f"{target_duration:.2f}s required"
+            f"Only {len(chosen)} unique visuals downloaded; {beat_count} required"
         )
+
+    # Keep this guard so future changes cannot silently revert to the old
+    # repeated-clip timeline.
+    if len({path.name for path in chosen}) != len(chosen):
+        raise RuntimeError("Every narration beat must use a different visual source")
+
     return chosen
-
-
-def _ass_time(seconds):
-    seconds = max(0.0, float(seconds))
-    hours = int(seconds // 3600)
-    minutes = int((seconds % 3600) // 60)
-    centiseconds = int(round((seconds - int(seconds)) * 100))
-    whole = int(seconds) % 60
-    if centiseconds >= 100:
-        whole += 1
-        centiseconds = 0
-    return f"{hours}:{minutes:02d}:{whole:02d}.{centiseconds:02d}"
-
-
-def _ass_escape(text):
-    return (
-        str(text or "")
-        .replace("\\", "\\\\")
-        .replace("{", "\\{")
-        .replace("}", "\\}")
-        .replace("\n", " ")
-        .strip()
-    )
-
-
-def _publish_ass_color(index):
-    """Match Publish Shorts' colorful one-word caption palette."""
-    colors = [
-        "&H00FFFFFF",  # white
-        "&H0054D5FF",  # yellow
-        "&H00FFD749",  # cyan/blue in ASS BGR
-        "&H005E5AFF",  # pink
-        "&H0063FF8D",  # green
-    ]
-    return colors[index % len(colors)]
-
-
-def create_animated_captions(narration, duration):
-    """Create Everyday Wisdom captions using the isolated Publish-style renderer.
-
-    Publish style:
-    - one spoken word at a time
-    - large Poppins-like bold presentation
-    - colorful rotating emphasis
-    - dark outline + offset shadow
-    - lower-center safe placement
-    - narration-weighted timing
-    """
-    words = [word for word in narration.split() if word.strip()]
-    if not words:
-        raise RuntimeError("Cannot create captions from empty narration")
-
-    total_weight = float(sum(max(1, len(re.sub(r"[^A-Za-z0-9]", "", word))) for word in words))
-    ass_path = RUN_ROOT / "captions.ass"
-
-    header = """[Script Info]
-ScriptType: v4.00+
-PlayResX: 1080
-PlayResY: 1920
-ScaledBorderAndShadow: yes
-WrapStyle: 2
-
-[V4+ Styles]
-Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: PublishWisdom,Poppins,72,&H00FFFFFF,&H00FFFFFF,&H00111111,&H00000000,1,0,0,0,100,100,0,0,1,2,7,2,80,80,691,1
-
-[Events]
-Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-"""
-
-    current_time = 0.0
-    lines = [header]
-    for index, word in enumerate(words):
-        weight = max(1, len(re.sub(r"[^A-Za-z0-9]", "", word)))
-        segment_duration = duration * (weight / total_weight)
-        start = current_time
-        end = duration if index == len(words) - 1 else min(duration, current_time + segment_duration)
-        if end <= start:
-            continue
-
-        color = _publish_ass_color(index)
-        text = _ass_escape(word)
-        lines.append(
-            f"Dialogue: 0,{_ass_time(start)},{_ass_time(end)},PublishWisdom,,0,0,0,,"
-            f"{{\\c{color}}}{text}"
-        )
-        current_time = end
-
-    ass_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(
-        f"Publish-style captions created: {ass_path} | "
-        f"words={len(words)} | one-word beats | lower-center | colorful"
-    )
-    return ass_path
-
-
 def _make_2_5_second_visual_segments(clips, total_duration):
-    """Build a hard-cut visual timeline that changes source every 2.5 seconds."""
+    """Build the narration-aligned 2.5s visual timeline.
+
+    Each downloaded clip belongs to exactly one narration beat. Clips are
+    consumed in order and never recycled for another beat.
+    """
     if not clips:
         raise RuntimeError("No stock clips available")
 
     segment_duration = 2.5
-    segment_count = max(1, int((float(total_duration) + segment_duration - 1e-6) // segment_duration))
+    segment_count = int((float(total_duration) + segment_duration - 1e-6) // segment_duration)
+    if segment_count > len(clips):
+        raise RuntimeError(
+            f"Visual timeline needs {segment_count} unique clips but only "
+            f"{len(clips)} were downloaded"
+        )
+
     segment_paths = []
     for index in range(segment_count):
-        source = clips[index % len(clips)]
+        source = clips[index]
         segment_path = RUN_ROOT / "segments" / f"visual_{index:03d}.mp4"
         segment_path.parent.mkdir(parents=True, exist_ok=True)
         remaining = max(0.05, float(total_duration) - index * segment_duration)
         duration = min(segment_duration, remaining)
-        # Rotate through the available stock sources so every 2.5s boundary
-        # presents a different source whenever the downloaded set allows it.
+
         subprocess.run(
             [
                 "ffmpeg", "-y",
@@ -470,168 +422,8 @@ def _make_2_5_second_visual_segments(clips, total_duration):
 
     concat = RUN_ROOT / "visual_segments.txt"
     concat.write_text(
-        "".join(f"file '{p.resolve()}'\n" for p in segment_paths),
+        "".join(f"file '{p.resolve()}'\\n" for p in segment_paths),
         encoding="utf-8",
     )
     return concat
 
-
-def render(clips, audio, output, duration, narration):
-    ass_path = create_animated_captions(narration, duration)
-    subtitle_filter = f"subtitles='{ass_path.resolve()}'"
-    visual_concat = _make_2_5_second_visual_segments(clips, duration)
-    filter_complex = f"[0:v]{subtitle_filter}[v]"
-    subprocess.run([
-        "ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(visual_concat),
-        "-i", str(audio), "-filter_complex", filter_complex,
-        "-map", "[v]", "-map", "1:a:0",
-        "-t", f"{duration:.3f}",
-        "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
-        "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart",
-        "-pix_fmt", "yuv420p", str(output),
-    ], check=True)
-
-
-def build_caption(story):
-    """Build topic-specific discovery metadata for Everyday Wisdom only."""
-    topic = clean(story.get("topic"), 180)
-    narration = clean(story.get("narration"), 3000)
-    title = clean(story.get("title"), 90)
-
-    # Keep the title curiosity-driven but truthful. Gemini owns the creative
-    # title; this only removes noisy punctuation/whitespace.
-    title = re.sub(r"\s+", " ", title).strip(" .-")
-    if not title:
-        title = topic[:70].rstrip(" .-")
-    title = title[:70].rstrip(" .-")
-
-    # Derive searchable phrases from the actual topic rather than using a
-    # generic keyword wall. These remain isolated from Publish Shorts.
-    topic_terms = [
-        word.lower()
-        for word in re.findall(r"[A-Za-z]{3,}", topic)
-        if word.lower() not in {
-            "why", "does", "did", "the", "and", "for", "with",
-            "from", "about", "americans", "people", "common",
-        }
-    ]
-    topic_terms = list(dict.fromkeys(topic_terms))
-
-    keyword_phrases = [
-        topic,
-        f"why {topic.lower()}",
-        f"{topic.lower()} explained",
-        f"meaning of {topic.lower()}",
-        f"history of {topic.lower()}",
-        *topic_terms,
-        "everyday wisdom",
-        "american life",
-        "common sayings",
-        "everyday history",
-        "curiosity",
-    ]
-
-    tags = []
-    for value in keyword_phrases:
-        tag = re.sub(r"[^A-Za-z0-9 -]", "", str(value or "")).strip().lower()
-        if tag and tag not in tags:
-            tags.append(tag)
-    tags = tags[:15]
-    # YouTube enforces a total tag-character limit; keep a safety margin.
-    while sum(len(tag) for tag in tags) + max(0, len(tags) - 1) > 450:
-        tags.pop()
-
-    first_sentence = re.split(r"(?<=[.!?])\s+", narration.strip())[0].strip()
-    description = (
-        f"{topic}. "
-        f"Ever wondered why this is so common in American life? "
-        f"This short explains the history, meaning, or practical reason behind it "
-        f"through one simple story."
-    )
-    if first_sentence and len(first_sentence) <= 180:
-        if first_sentence.lower() not in description.lower():
-            description += f"\n\n{first_sentence}"
-
-    description += (
-        "\n\nFollow Everyday Wisdom for more familiar sayings, habits, objects, "
-        "and everyday mysteries with surprisingly simple explanations."
-    )
-
-    # Keep hashtags tightly tied to this specific Short.
-    hashtag_candidates = [
-        "#shorts",
-        "#everydaywisdom",
-        "#americanlife",
-        "#curiosity",
-    ]
-    if topic_terms:
-        hashtag_candidates.append("#" + "".join(topic_terms[:2]))
-    hashtags = []
-    for tag in hashtag_candidates:
-        tag = re.sub(r"[^A-Za-z0-9#]", "", tag).lower()
-        if tag not in hashtags:
-            hashtags.append(tag)
-    description += "\n\n" + " ".join(hashtags[:5])
-
-    return title, description[:2000], tags
-
-
-def upload(video, story):
-    raw = os.getenv("YOUTUBE_TOKEN_JSON", "").strip()
-    if not raw:
-        raise RuntimeError("YOUTUBE_TOKEN_JSON is missing")
-    try:
-        token_info = json.loads(raw)
-        credentials = Credentials.from_authorized_user_info(token_info)
-    except Exception as exc:
-        raise RuntimeError(f"Invalid YOUTUBE_TOKEN_JSON: {exc}") from exc
-    if not credentials.refresh_token:
-        raise RuntimeError("YOUTUBE_TOKEN_JSON has no refresh_token; re-authorize the YouTube account")
-    youtube = build("youtube", "v3", credentials=credentials)
-    title, description, tags = build_caption(story)
-    print("YouTube caption:")
-    print(description)
-    body = {
-        "snippet": {
-            "title": title,
-            "description": description,
-            "tags": tags,
-            "categoryId": "27",
-        },
-        "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": False},
-    }
-    request = youtube.videos().insert(
-        part="snippet,status",
-        body=body,
-        media_body=MediaFileUpload(str(video), chunksize=-1, resumable=True, mimetype="video/mp4"),
-    )
-    response = None
-    while response is None:
-        status, response = request.next_chunk(num_retries=5)
-        if status:
-            print(f"Upload: {int(status.progress() * 100)}%")
-    return response["id"]
-
-
-def main():
-    print("EVERYDAY WISDOM SHORTS | isolated pipeline")
-    story = generate_story()
-    remember_topic(story)
-    (RUN_ROOT / "story.json").write_text(json.dumps(story, indent=2), encoding="utf-8")
-    audio = RUN_ROOT / "narration.wav"
-    duration = synthesize(story["narration"], audio)
-    clips = download_stock(story["search_queries"], min(duration, TARGET_SECONDS))
-    video = RUN_ROOT / "final.mp4"
-    render(clips, audio, video, min(duration, TARGET_SECONDS), story["narration"])
-    if not video.exists() or video.stat().st_size < 100000:
-        raise RuntimeError("Final video was not created")
-    video_id = upload(video, story)
-    (RUN_ROOT / "publish.json").write_text(
-        json.dumps({"video_id": video_id, "topic": story["topic"], "uploaded": True}, indent=2),
-        encoding="utf-8",
-    )
-    print(f"UPLOADED: https://www.youtube.com/watch?v={video_id}")
-
-
-if __name__ == "__main__":
-    main()

@@ -24,7 +24,8 @@ PEXELS_URL = "https://api.pexels.com/videos/search"
 # Keep Everyday Wisdom on the same Gemini model as Publish Shorts, but isolated to this workflow.
 MODEL = "gemini-flash-lite-latest"
 VOICE = os.getenv("WISDOM_KOKORO_VOICE", "af_heart")
-TARGET_SECONDS = 42.0
+TARGET_SECONDS = 40.0
+MAX_NARRATION_WORDS = 125
 TOPIC_HISTORY_PATH = Path("everyday_wisdom_topic_history.json")
 MAX_HISTORY_FOR_PROMPT = 120
 WHISPER_MODEL = os.getenv("WISDOM_WHISPER_MODEL", "tiny.en")
@@ -166,7 +167,8 @@ Do not use politics, celebrities, medical advice, conspiracy, fearbait,
 lists, countdowns, "Did you know?", "Today we're going to", AI references,
 or a second topic. The narration must work without visuals.
 
-Write 105-135 words, approximately 38-43 seconds, as one connected mini-story.
+Write 105-125 words, approximately 34-39 seconds, as one connected mini-story.
+Never exceed 125 words. Keep sentences concise so the natural Kokoro narration fits under 40 seconds without speeding up.
 The first sentence must create immediate curiosity. End with a satisfying answer.
 
 TITLE RULES:
@@ -207,8 +209,8 @@ VISUAL BEATS: create 16-18 ordered visual_queries, one for each roughly 2.5-seco
             words = re.findall(r"\b[\w'-]+\b", story["narration"])
             if not story["topic"] or not story["topic_key"] or not story["narration"] or len(story["search_queries"]) < 3 or len(story["visual_queries"]) < 16:
                 raise RuntimeError("Incomplete story JSON or fewer than 16 narration-aligned visual queries")
-            if not 105 <= len(words) <= 145:
-                raise RuntimeError(f"Narration word count {len(words)} outside 105-145")
+            if not 105 <= len(words) <= MAX_NARRATION_WORDS:
+                raise RuntimeError(f"Narration word count {len(words)} outside 105-{MAX_NARRATION_WORDS}")
             if is_duplicate_topic(story, history):
                 raise RuntimeError(
                     f"Duplicate topic rejected: {story['topic']} | key={story['topic_key']}"
@@ -249,34 +251,14 @@ def synthesize(text, output):
     audio = np.concatenate(parts)
     sf.write(output, audio, 24000, subtype="PCM_16")
     duration = len(audio) / 24000.0
+    # Narration is intentionally generated short enough to fit naturally.
+    # Do not time-compress speech: caption timestamps must reflect natural
+    # Kokoro delivery speed.
     if duration > TARGET_SECONDS:
-        # The narration WAV is the timing master for captions. Speed it to the
-        # target instead of merely capping the reported duration. The previous
-        # 1.12x ceiling could leave long narrations at 45s+, which then failed
-        # the production guard after the caption-sync fix.
-        sped = output.with_name("narration_sped.wav")
-        target_audio_duration = TARGET_SECONDS - 0.10
-        factor = max(1.0, duration / target_audio_duration)
-        # atempo supports 0.5-2.0 per filter. A single factor is enough for
-        # the current 38-43s target and is derived from the actual WAV length.
-        factor = min(2.0, factor)
-        print(
-            f"Narration exceeds target: {duration:.2f}s; "
-            f"speeding audio by {factor:.4f}x toward {target_audio_duration:.2f}s"
+        raise RuntimeError(
+            f"Narration synthesis exceeded 40s: {duration:.2f}s. "
+            "Regenerate with a shorter narration; audio speed-up is disabled."
         )
-        subprocess.run(
-            ["ffmpeg", "-y", "-i", str(output), "-filter:a", f"atempo={factor:.6f}", str(sped)],
-            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-        )
-        sped.replace(output)
-        duration = float(subprocess.check_output(
-            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
-             "-of", "default=noprint_wrappers=1:nokey=1", str(output)], text=True
-        ).strip())
-        if duration > TARGET_SECONDS + 0.05:
-            raise RuntimeError(
-                f"Unable to normalize narration to target: {duration:.2f}s > {TARGET_SECONDS:.2f}s"
-            )
     return duration
 
 
@@ -762,8 +744,8 @@ def main():
 
     audio = RUN_ROOT / "narration.wav"
     duration = synthesize(story["narration"], audio)
-    if duration > TARGET_SECONDS + 0.5:
-        raise RuntimeError(f"Narration exceeds target after synthesis: {duration:.2f}s")
+    if duration > TARGET_SECONDS:
+        raise RuntimeError(f"Narration exceeds 40-second target after synthesis: {duration:.2f}s")
     print(f"Narration ready: {duration:.2f}s")
 
     clips = download_stock(story["visual_queries"], duration)

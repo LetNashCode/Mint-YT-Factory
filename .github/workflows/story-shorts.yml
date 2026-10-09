@@ -175,7 +175,7 @@ jobs:
           STORY_PREFLIGHT_SOURCE_LIMIT: ${{ vars.STORY_PREFLIGHT_SOURCE_LIMIT || '6' }}
           STORY_MIN_PREFLIGHT_SOURCES: ${{ vars.STORY_MIN_PREFLIGHT_SOURCES || '1' }}
           STORY_TOPIC_ATTEMPTS: ${{ vars.STORY_TOPIC_ATTEMPTS || '16' }}
-          STORY_SOURCE_MAX_REJECTIONS: ${{ vars.STORY_SOURCE_MAX_REJECTIONS || '2' }}
+          STORY_SOURCE_MAX_REJECTIONS: ${{ vars.STORY_SOURCE_MAX_REJECTIONS || '4' }}
           # Qwen2-VL is intentionally disabled in GitHub Actions: CPU inference is too slow
           # for the 14-clip footage-first production path. Gemini remains the production verifier.
           ENABLE_CPU_QWEN_FALLBACK: '0'

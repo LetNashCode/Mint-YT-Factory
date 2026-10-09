@@ -4,7 +4,7 @@ Mint-YT-Factory
 
 Version 8.3
 
-Assembles the 6-scene / 12-visual YouTube Short.
+Assembles Publish Shorts (6 scenes / 12 visuals) and Story Shorts (7 scenes / 14 visuals).
 """
 
 import os
@@ -565,8 +565,7 @@ def get_audio_config(config):
 
 def build_audio(narration, music_path, sfx_paths, script, total_duration, config):
     audio_config = get_audio_config(config)
-    # Never shorten narration: the full generated MP3, for the complete six-scene narration,
-    # must always survive the final mux.
+    # Never shorten narration: the complete source narration must survive the final mux.
     tracks = [narration.set_start(0)]
 
     if music_path and os.path.exists(music_path):

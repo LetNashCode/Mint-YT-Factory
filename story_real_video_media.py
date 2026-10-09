@@ -1004,22 +1004,23 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                 source_rejections[sid] += 1
                                 source_consecutive_rejections[sid] += 1
                                 print(f"Story clip rejected: {item['provider']} {start}s | {clean(verdict.get('reason'))}", flush=True)
-                                configured_rejections = os.environ.get("STORY_SOURCE_MAX_REJECTIONS", "2")
+                                # A bad interval is not proof that the entire recording is unusable.
+                                # Keep exploring other intervals before blocking this source, and do
+                                # not persist a segment-level rejection as a source-wide cache entry.
+                                configured_rejections = os.environ.get("STORY_SOURCE_MAX_REJECTIONS", "4")
                                 try:
                                     rejection_limit = int(configured_rejections)
                                 except ValueError:
-                                    rejection_limit = 2
-                                rejection_limit = min(2, max(1, rejection_limit))
+                                    rejection_limit = 4
+                                rejection_limit = min(4, max(2, rejection_limit))
                                 if source_consecutive_rejections[sid] >= rejection_limit:
                                     blocked.add(sid)
-                                    if _precheck_cache_eligible(item):
-                                        precheck_cache[_precheck_cache_key(item, person)] = {
-                                            "source_id": item.get("id"),
-                                            "source_url": item.get("source_url"),
-                                            "reason": "visual verifier rejected source after configured consecutive unusable samples",
-                                        }
-                                        _save_precheck_cache(precheck_cache)
-                                    print(f"Skipping source after {source_consecutive_rejections[sid]} consecutive unusable samples: {item['source_url']}", flush=True)
+                                    print(
+                                        f"Skipping source for this run after "
+                                        f"{source_consecutive_rejections[sid]} consecutive unusable samples: "
+                                        f"{item['source_url']}",
+                                        flush=True,
+                                    )
                                     break
                                 continue
                             source_consecutive_rejections[sid] = 0

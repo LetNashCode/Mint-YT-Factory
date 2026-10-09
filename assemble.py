@@ -633,7 +633,7 @@ def validate_storyboard(script):
     total = 0.0
     for index, scene in enumerate(scenes):
         duration = get_scene_duration(scene, index, script)
-        if abs(duration - SCENE_DURATIONS[index]) > 0.01:
+        if abs(duration - durations[index]) > 0.01:
             raise RuntimeError(f"Scene {index + 1} duration mismatch.")
         visuals = scene.get("visuals", [])
         if not isinstance(visuals, list) or len(visuals) != VISUALS_PER_SCENE:

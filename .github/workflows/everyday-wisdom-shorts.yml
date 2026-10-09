@@ -60,6 +60,8 @@ jobs:
           test -n "$GEMINI_API_KEY"
           test -n "$PEXELS_API_KEY"
           test -n "$YOUTUBE_TOKEN_JSON"
+          test -s assets/music/blade_runner_2049.mp3
+          ffprobe -v error -select_streams a:0 -show_entries stream=codec_type -of csv=p=0 assets/music/blade_runner_2049.mp3 | grep -qx audio
           python -m py_compile everyday_wisdom_shorts.py
           python - <<'PY'
           import json

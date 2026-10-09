@@ -13119,6 +13119,126 @@
       "shot": 2,
       "query": "ceramic plates scratch you simply writing metal",
       "recorded_at": 1791543640
+    },
+    {
+      "asset_key": "pexels:video:2961375",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/2961375/2961375-hd_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "cast iron pans your pan",
+      "recorded_at": 1791556338
+    },
+    {
+      "asset_key": "pexels:video:6288324",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6288324/6288324-hd_1280_720_50fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "cast iron pans yet fried eggs slide",
+      "recorded_at": 1791556343
+    },
+    {
+      "asset_key": "pexels:video:4139333",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4139333/4139333-hd_1366_720_24fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "cast iron pans bare full microscopic",
+      "recorded_at": 1791556349
+    },
+    {
+      "asset_key": "pexels:video:30342459",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30342459/13006042_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "cast iron pans raw metal turn into",
+      "recorded_at": 1791556353
+    },
+    {
+      "asset_key": "pexels:video:10641434",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10641434/10641434-hd_720_1280_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "cast iron pans you rub thin layer",
+      "recorded_at": 1791556357
+    },
+    {
+      "asset_key": "pexels:video:35510472",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35510472/15044063_1280_720_24fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "cast iron pans greasy messy but humble",
+      "recorded_at": 1791556363
+    },
+    {
+      "asset_key": "pexels:video:5593558",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5593558/5593558-hd_1280_720_60fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "cast iron pans crank heat until oil",
+      "recorded_at": 1791556370
+    },
+    {
+      "asset_key": "pexels:video:18270789",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/18270789/18270789-hd_720_1280_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "cast iron pans instead burning away liquid",
+      "recorded_at": 1791556373
+    },
+    {
+      "asset_key": "pexels:video:4139330",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4139330/4139330-hd_1366_720_24fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "cast iron pans you not greasing pan",
+      "recorded_at": 1791556376
+    },
+    {
+      "asset_key": "pexels:video:6289328",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6289328/6289328-hd_720_1280_50fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "cast iron pans you baking brand new",
+      "recorded_at": 1791556380
+    },
+    {
+      "asset_key": "pexels:video:6287601",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6287601/6287601-hd_1280_720_50fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "cast iron pans rough microscopic gaps vanish",
+      "recorded_at": 1791556383
+    },
+    {
+      "asset_key": "pexels:video:34228462",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34228462/14506563_720_1280_60fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "cast iron pans turning your humble skillet",
+      "recorded_at": 1791556388
     }
   ]
 }

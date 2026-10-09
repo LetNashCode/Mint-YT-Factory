@@ -3622,5 +3622,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why cast iron pans turn nonstick",
+    "normalized": "why cast iron pans turn nonstick",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791556185,
+    "recorded_at": 1791556185,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

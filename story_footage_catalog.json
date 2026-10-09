@@ -8912,6 +8912,223 @@
       },
       "review_key": "1db9ed4e00cec3fc510eacb61ff1326d26a2b5943cfd3d8f15f4d8a86373e729",
       "reviewed_at": 1791582391.0524857
+    },
+    {
+      "person": "Jane Goodall",
+      "source": {
+        "id": "archive:interviewwithjanegoodallinbaselfebruary2008",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/interviewwithjanegoodallinbaselfebruary2008/janegoodall-long-1500mb_512kb.mp4",
+        "source_url": "https://archive.org/details/interviewwithjanegoodallinbaselfebruary2008",
+        "title": "Interview with Jane Goodall",
+        "description": "Jane Goodall is an English UN Messenger of Peace, primatologist, ethologist, and anthropologist. She is best-known for her study of chimpanzee social and family life in Gombe Stream National Park, Tanzania, for 45 years, and for founding the Jane Goodall Institute. She visited Basel, Switzerland, for a few days in feb. 2008 for a convention / congress called \"natur\". At this occasion this interview took place. jane goodall, chimpanzee, basel, switzerland",
+        "creator": "Patrik Tschudin",
+        "license": "",
+        "subject": "jane goodall, chimpanzee, basel, switzerland",
+        "runtime": "11:39",
+        "direct_subject": true,
+        "duration_hint": 699.96,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 374.36,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage clearly shows Jane Goodall being interviewed, appearing in all three frames, making it suitable as biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "85c446d86fe392a463fde7e29ef4a4045fcaaaa9dbab1e0f3b44de1980cb53fe",
+      "reviewed_at": 1791584654.963622
+    },
+    {
+      "person": "Jane Goodall",
+      "source": {
+        "id": "archive:JaneGoodall_2002",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JaneGoodall_2002/JaneGoodall_2002.mp4",
+        "source_url": "https://archive.org/details/JaneGoodall_2002",
+        "title": "Jane Goodall on what separates us from the apes",
+        "description": "Jane Goodall hasn't found the missing link, but she's come closer than nearly anyone else. The primatologist says the only real difference between humans and chimps is our sophisticated language. She urges us to start using it to change the world. ['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
+        "creator": "TED.com",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
+        "subject": "['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
+        "runtime": "00:27:28",
+        "direct_subject": true,
+        "duration_hint": 1647.266667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 130.64,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "Jane Goodall is clearly visible speaking in all three frames during a recorded talk/presentation, providing genuine archival footage illustrating her life and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c2bfa89eb318a2be230f968672754d6c98edd2e507cfefb48a03906909b61314",
+      "reviewed_at": 1791584798.6749158
+    },
+    {
+      "person": "Jane Goodall",
+      "source": {
+        "id": "archive:interviewwithjanegoodallinbaselfebruary2008",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/interviewwithjanegoodallinbaselfebruary2008/janegoodall-long-1500mb_512kb.mp4",
+        "source_url": "https://archive.org/details/interviewwithjanegoodallinbaselfebruary2008",
+        "title": "Interview with Jane Goodall",
+        "description": "Jane Goodall is an English UN Messenger of Peace, primatologist, ethologist, and anthropologist. She is best-known for her study of chimpanzee social and family life in Gombe Stream National Park, Tanzania, for 45 years, and for founding the Jane Goodall Institute. She visited Basel, Switzerland, for a few days in feb. 2008 for a convention / congress called \"natur\". At this occasion this interview took place. jane goodall, chimpanzee, basel, switzerland",
+        "creator": "Patrik Tschudin",
+        "license": "",
+        "subject": "jane goodall, chimpanzee, basel, switzerland",
+        "runtime": "11:39",
+        "direct_subject": true,
+        "duration_hint": 699.96,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 268.83,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features actual moving footage of Jane Goodall being interviewed, clearly visible across all three frames. However, because it is a modern talking head/interview clip used to illustrate her life story rather than depicting her original historical field research in Gombe, it serves as biographical illustration rather than direct event footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3c09cace10a99bc158b87268f28764dc5ea7ed7c8ed45704e27ca5753e3bbc68",
+      "reviewed_at": 1791584817.6308978
+    },
+    {
+      "person": "Jane Goodall",
+      "source": {
+        "id": "archive:JaneGoodall_2002",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JaneGoodall_2002/JaneGoodall_2002.mp4",
+        "source_url": "https://archive.org/details/JaneGoodall_2002",
+        "title": "Jane Goodall on what separates us from the apes",
+        "description": "Jane Goodall hasn't found the missing link, but she's come closer than nearly anyone else. The primatologist says the only real difference between humans and chimps is our sophisticated language. She urges us to start using it to change the world. ['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
+        "creator": "TED.com",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
+        "subject": "['TEDTalks', 'TED2002', 'TED', 'Talks', 'Africa', 'Featured', 'animals', 'culture', 'environment', 'global issues', 'nature', 'primates', 'science', '2002']",
+        "runtime": "00:27:28",
+        "direct_subject": true,
+        "duration_hint": 1647.266667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 633.18,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Jane Goodall is clearly visible in all three frames delivering a presentation/talk, providing genuine archival footage suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f66e2c0976d650b7ad05afb141a9bf033c577fa328b0fd6dcab27be5e167848a",
+      "reviewed_at": 1791584875.681908
+    },
+    {
+      "person": "Jane Goodall",
+      "source": {
+        "id": "archive:interviewwithjanegoodallinbaselfebruary2008",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/interviewwithjanegoodallinbaselfebruary2008/janegoodall-long-1500mb_512kb.mp4",
+        "source_url": "https://archive.org/details/interviewwithjanegoodallinbaselfebruary2008",
+        "title": "Interview with Jane Goodall",
+        "description": "Jane Goodall is an English UN Messenger of Peace, primatologist, ethologist, and anthropologist. She is best-known for her study of chimpanzee social and family life in Gombe Stream National Park, Tanzania, for 45 years, and for founding the Jane Goodall Institute. She visited Basel, Switzerland, for a few days in feb. 2008 for a convention / congress called \"natur\". At this occasion this interview took place. jane goodall, chimpanzee, basel, switzerland",
+        "creator": "Patrik Tschudin",
+        "license": "",
+        "subject": "jane goodall, chimpanzee, basel, switzerland",
+        "runtime": "11:39",
+        "direct_subject": true,
+        "duration_hint": 699.96,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 321.6,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features real archival footage of Jane Goodall speaking during an interview, clearly visible across all frames, serving as biographical illustration for her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4cb4bb66382e5cdd0408090feff56e731f79f8e98a8652c76da1a7dd8e565ce3",
+      "reviewed_at": 1791584879.5622952
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD/Vashmalle%20Song%20Thugs%20Of%20Hindostan%20-%20Amitabh%20Bachchan%20%20-%20%20Aamir%20Khan%20-%20Fresh%20Music%20HD.mp4",
+        "source_url": "https://archive.org/details/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
+        "title": "Vashmalle Song Thugs Of Hindostan Amitabh Bachchan Aamir Khan Fresh Music HD",
+        "description": "Thugs Of Hindostan Vashmalle",
+        "creator": "",
+        "license": "",
+        "subject": "Vashmalle",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 63.52,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 34.71,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show Amitabh Bachchan performing in a song sequence ('Thugs of Hindostan'). While it is a movie clip and not a documentary of his actual life events, he is clearly visible throughout the sequence, making it usable as biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "038de26954ba66b673955c0a1be5445356e9465b1e77d9b21328097e637dc9a5",
+      "reviewed_at": 1791584944.2699916
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD/AMITABH%20BACHCHAN%20LAUNCH%20HIMESH%20%26%20LULIA%20VANTUR%20MUSIC%20ALBUM%20AAP%20SE%20MAUSIIQUII%20%20HD.mp4",
+        "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "title": "Amitabh Bachchan unveils Himesh Reshammiya's album 'Aap Se Mausiiquii'",
+        "description": "Amitabh Bachchan launched Himesh Reshammiya's new album 'Aap Se Mausiiquii' along with Iulia Vantur, Alankrita Sahai and Manoj Muntashir. ['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "creator": "",
+        "license": "",
+        "subject": "['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 165.6,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 86.63,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "Amitabh Bachchan is clearly visible in all three frames participating in an event, serving as good biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "64c054cde319166d63df3762aa5d54648e24e4d295b3a90966cd5e4521a93e2f",
+      "reviewed_at": 1791584959.0373213
     }
   ]
 }

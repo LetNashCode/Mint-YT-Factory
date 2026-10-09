@@ -30,6 +30,26 @@
       "source_id": "commons:31011600",
       "source_url": "https://commons.wikimedia.org/wiki/File:Presentation_of_Bharat_Ratna_to_Prof._CNR_Rao_%26_Sachin_Tendulkar.webm",
       "reason": "strong metadata exclusion: presentation"
+    },
+    "f3b0b560e43f2dd5c22a728d": {
+      "source_id": "commons:69035196",
+      "source_url": "https://commons.wikimedia.org/wiki/File:SRINIVASA_RAMANUJAN-_The_Mathematician_%26_His_Legacy.webm",
+      "reason": "strong metadata exclusion: animation"
+    },
+    "9426b1493d9dfd9fad35938b": {
+      "source_id": "commons:77368566",
+      "source_url": "https://commons.wikimedia.org/wiki/File:SRINIVASA_RAMANUJAN-_The_Mathematician_%26_His_Legacy_(Abridged_Version).webm",
+      "reason": "strong metadata exclusion: animation"
+    },
+    "5d1d224960ed8cd0ec903b7b": {
+      "source_id": "commons:160620281",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Sites_hydrothermaux_profonds_de_la_dorsale_m%C3%A9dio-atlantique_(Ifremer_00699-81102).webm",
+      "reason": "strong metadata exclusion: museum"
+    },
+    "1b0a2e1349962c2e09173aad": {
+      "source_id": "commons:142926513",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Jane_Goodall_Film.webm",
+      "reason": "strong metadata exclusion: film"
     }
   }
 }

@@ -38,19 +38,6 @@
   },
   {
     "format": "before_they_were_famous",
-    "person": "B.R. Ambedkar",
-    "premise": "The early academic hardships and relentless pursuit of higher education by the chief architect of the Indian Constitution.",
-    "hook": "He had to sit outside the classroom floor during his schooling, yet he went on to earn doctorates from Columbia University and the London School of Economics.",
-    "key_facts": [
-      "He faced severe caste-based discrimination throughout his early education in British India.",
-      "He earned degrees and doctorates from institutions including Columbia University and the London School of Economics.",
-      "He practiced law at the Bombay High Court and founded institutions for depressed classes education.",
-      "He served as the chairman of the Drafting Committee of the Constitution of India."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
     "person": "Dwayne Johnson",
     "premise": "The former college football player who had seven dollars in his pocket after being cut from the Canadian Football League.",
     "hook": "Before he was Hollywood's highest-paid action star, he had just seven dollars to his name and had been cut from his dream sport.",
@@ -59,19 +46,6 @@
       "After going undrafted in the NFL, he signed with the Calgary Stampeders in the Canadian Football League.",
       "He was cut from the team two months into the season and returned to his parents' house with seven dollars.",
       "He subsequently transitioned to professional wrestling in the WWF, following in his father's and grandfather's footsteps."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Sachin Tendulkar",
-    "premise": "The decision by his coach to move him to Shardashram Vidyamandir school to focus intensely on cricket.",
-    "hook": "At age 11, his older brother realized he was spending too much time getting into trouble and handed him over to a famously strict cricket coach.",
-    "key_facts": [
-      "His brother Ajit introduced him to cricket coach Ramakant Achrekar at Shivaji Park in Mumbai.",
-      "Achrekar placed him on a strict trial period, watching him from behind a tree to avoid making the boy nervous.",
-      "He transferred to Shardashram Vidyamandir English High School, which was known for its powerhouse cricket program.",
-      "He made his international debut for the Indian cricket team in Pakistan in 1989 at the age of 16."
     ],
     "source": "gemini_original"
   }

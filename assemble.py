@@ -112,8 +112,24 @@ def _safe_lower(value, default=""):
         return default
 
 
-def get_scene_duration(scene, scene_index):
-    expected = SCENE_DURATIONS[scene_index]
+def _is_story_script(script):
+    return isinstance(script, dict) and bool(script.get("story_person"))
+
+def _scene_count(script):
+    return 7 if _is_story_script(script) else EXPECTED_SCENES
+
+def _scene_durations(script):
+    # Story Shorts owns a seven-scene loop contract. Publish Shorts keeps the
+    # original six-scene timeline and its established durations.
+    if _is_story_script(script) and len(script.get("scene_plan") or []) == 7:
+        return [3.0, 5.0, 6.0, 6.0, 6.0, 6.0, 6.0]
+    return SCENE_DURATIONS
+
+def get_scene_duration(scene, scene_index, script=None):
+    durations = _scene_durations(script or {})
+    if scene_index >= len(durations):
+        raise RuntimeError(f"Scene {scene_index + 1} has no duration in this storyboard contract.")
+    expected = durations[scene_index]
     duration = _safe_float(scene.get("duration", expected), expected, minimum=0.05)
     if abs(duration - expected) > 0.01:
         print(f"⚠️ Scene {scene_index + 1} duration changed from {duration}s to {expected}s.")
@@ -173,39 +189,37 @@ def get_scene_image_paths(image_paths, scene_index):
 # of 2. Normalize the new 14-item flat contract into the internal 7x2 form.
 # --------------------------------------------------------------------------
 
-def validate_image_contract(image_paths):
+def validate_image_contract(image_paths, script=None):
     if not isinstance(image_paths, list):
         raise RuntimeError("image_paths must be a list.")
 
-    if len(image_paths) == EXPECTED_TOTAL_VISUALS:
+    scene_count = _scene_count(script or {})
+    expected_visuals = scene_count * VISUALS_PER_SCENE
+    if len(image_paths) == expected_visuals:
         image_paths[:] = [
-            image_paths[
-                scene_index * VISUALS_PER_SCENE:
-                (scene_index + 1) * VISUALS_PER_SCENE
-            ]
-            for scene_index in range(EXPECTED_SCENES)
+            image_paths[scene_index * VISUALS_PER_SCENE:(scene_index + 1) * VISUALS_PER_SCENE]
+            for scene_index in range(scene_count)
         ]
 
-    if len(image_paths) != EXPECTED_SCENES:
+    if len(image_paths) != scene_count:
         raise RuntimeError(
-            f"Expected {EXPECTED_TOTAL_VISUALS} visuals "
-            f"(2 per scene), or {EXPECTED_SCENES} grouped image lists, "
+            f"Expected {expected_visuals} visuals (2 per scene), or {scene_count} grouped image lists, "
             f"got {len(image_paths)}."
         )
 
     total = 0
-    for scene_index in range(EXPECTED_SCENES):
+    for scene_index in range(scene_count):
         paths = get_scene_image_paths(image_paths, scene_index)
         count = len(paths)
-        print(f"Scene {scene_index + 1}: {count}/{VISUALS_PER_SCENE} images")
+        print(f"Scene {scene_index + 1}: {count}/{VISUALS_PER_SCENE} visuals")
         if count != VISUALS_PER_SCENE:
             raise RuntimeError(
-                f"Scene {scene_index + 1} requires {VISUALS_PER_SCENE} images, found {count}."
+                f"Scene {scene_index + 1} requires {VISUALS_PER_SCENE} visuals, found {count}."
             )
         total += count
 
-    if total != EXPECTED_TOTAL_VISUALS:
-        raise RuntimeError(f"Expected {EXPECTED_TOTAL_VISUALS} total images, found {total}.")
+    if total != expected_visuals:
+        raise RuntimeError(f"Expected {expected_visuals} total visuals, found {total}.")
 
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".bmp"}
@@ -327,15 +341,16 @@ def build_animated_image(image_path, duration, frame_size, scene, visual):
 
 def build_visual_timeline(script, image_paths, frame_size, total_duration=None):
     scenes = script.get("scene_plan", [])
-    if len(scenes) != EXPECTED_SCENES:
-        raise RuntimeError(f"Expected {EXPECTED_SCENES} scenes.")
+    expected_scenes = _scene_count(script)
+    if len(scenes) != expected_scenes:
+        raise RuntimeError(f"Expected {expected_scenes} scenes for this storyboard contract.")
 
-    base_total = float(sum(SCENE_DURATIONS))
+    base_total = float(sum(_scene_durations(script)))
     timeline_scale = (float(total_duration) / base_total) if total_duration and total_duration > 0 else 1.0
     clips = []
     current_time = 0.0
     for scene_index, scene in enumerate(scenes):
-        duration = get_scene_duration(scene, scene_index) * timeline_scale
+        duration = get_scene_duration(scene, scene_index, script) * timeline_scale
         paths = get_scene_image_paths(image_paths, scene_index)
         if len(paths) != VISUALS_PER_SCENE:
             raise RuntimeError(f"Scene {scene_index + 1} does not have exactly {VISUALS_PER_SCENE} images.")
@@ -495,15 +510,16 @@ def build_captions(narration_path, script, frame_size, total_duration=None):
     print(f"Detected words: {len(words)}")
 
     scenes = script.get("scene_plan", [])
-    if len(scenes) != EXPECTED_SCENES:
-        raise RuntimeError(f"Caption generation requires {EXPECTED_SCENES} scenes.")
+    expected_scenes = _scene_count(script)
+    if len(scenes) != expected_scenes:
+        raise RuntimeError(f"Caption generation requires {expected_scenes} scenes.")
 
     scene_ranges = []
     current = 0.0
-    base_total = float(sum(SCENE_DURATIONS))
+    base_total = float(sum(_scene_durations(script)))
     timeline_scale = (float(total_duration) / base_total) if total_duration and total_duration > 0 else 1.0
     for scene_index, scene in enumerate(scenes):
-        duration = get_scene_duration(scene, scene_index) * timeline_scale
+        duration = get_scene_duration(scene, scene_index, script) * timeline_scale
         scene_ranges.append({"start": current, "end": current + duration, "scene": scene})
         current += duration
 
@@ -565,7 +581,7 @@ def build_audio(narration, music_path, sfx_paths, script, total_duration, config
             if scene_index >= len(sfx_paths):
                 break
             sfx_path = sfx_paths[scene_index]
-            scene_duration = get_scene_duration(scene, scene_index)
+            scene_duration = get_scene_duration(scene, scene_index, script)
             if not (sfx_path and os.path.exists(sfx_path)):
                 current_time += scene_duration
                 continue
@@ -609,12 +625,14 @@ def get_video_config(config):
 
 def validate_storyboard(script):
     scenes = script.get("scene_plan", [])
-    if len(scenes) != EXPECTED_SCENES:
-        raise RuntimeError(f"Storyboard must contain {EXPECTED_SCENES} scenes.")
+    expected_scenes = _scene_count(script)
+    durations = _scene_durations(script)
+    if len(scenes) != expected_scenes:
+        raise RuntimeError(f"Storyboard must contain {expected_scenes} scenes.")
 
     total = 0.0
     for index, scene in enumerate(scenes):
-        duration = get_scene_duration(scene, index)
+        duration = get_scene_duration(scene, index, script)
         if abs(duration - SCENE_DURATIONS[index]) > 0.01:
             raise RuntimeError(f"Scene {index + 1} duration mismatch.")
         visuals = scene.get("visuals", [])
@@ -629,8 +647,9 @@ def validate_storyboard(script):
             scene["subtitle_text"] = narration
         total += duration
 
-    if abs(total - TARGET_DURATION) > 0.01:
-        raise RuntimeError(f"Storyboard duration is {total}s, expected {TARGET_DURATION}s.")
+    expected_duration = float(sum(durations))
+    if abs(total - expected_duration) > 0.01:
+        raise RuntimeError(f"Storyboard duration is {total}s, expected {expected_duration}s.")
 
 
 def _trim_clip_to_duration(clip, total_duration):
@@ -674,11 +693,11 @@ def _assert_output_matches_narration(out_path, narration_duration, tolerance=0.6
 
 def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, config, out_path):
     print("=" * 80)
-    print("🎬 MINT-YT-FACTORY ASSEMBLY v8.3")
+    print("🎬 MINT-YT-FACTORY ASSEMBLY v8.4 (contract-aware)")
     print("=" * 80)
 
     validate_storyboard(script)
-    validate_image_contract(image_paths)
+    validate_image_contract(image_paths, script)
 
     video_config = get_video_config(config)
     frame_size = video_config["size"]
@@ -696,27 +715,24 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
     narration_duration = narration.duration
     print(f"Narration: {narration_duration:.2f}s")
 
-    # Narration is the absolute master clock. Scale the complete 6-scene visual
-    # timeline to its real duration instead of hard-cutting the final scene when narration
-    # finishes before the fixed 45-second storyboard clock.
+    # Narration is the absolute master clock. Scale the complete contract-specific
+    # visual timeline to its real duration; never truncate the final spoken beat.
     if narration_duration <= 0.05:
         raise RuntimeError("Narration duration is invalid; refusing to render a silent visual tail.")
-    # Never cap the rendered timeline below the actual narration. A hard
-    # TARGET_DURATION ceiling can cut the final spoken words when Kokoro runs
-    # slightly long. The narration file is the authoritative master clock.
-    # Build visuals through the complete narration, then keep a short protected
-    # visual tail so the MP4/AAC encoder cannot chop the final teaser phoneme.
+    # Never cap the rendered timeline below the actual narration. Build visuals
+    # through the complete narration, then keep a short protected visual tail.
     narration_master_duration = float(narration_duration)
     final_duration = narration_master_duration + RENDER_END_PADDING
     print(f"🎙️ Narration master duration: {narration_master_duration:.2f}s")
     print(f"🛡️ Protected render duration: {final_duration:.2f}s (+{RENDER_END_PADDING:.2f}s tail)")
     print("=" * 80)
-    print("🖼️ BUILDING 12-SHOT VISUAL TIMELINE")
+    print(f"🖼️ BUILDING {len(script.get('scene_plan', [])) * VISUALS_PER_SCENE}-SHOT VISUAL TIMELINE")
     print("=" * 80)
     visual_clips = build_visual_timeline(script, image_paths, frame_size, total_duration=final_duration)
     print(f"Visual clips created: {len(visual_clips)}")
-    if len(visual_clips) != EXPECTED_TOTAL_VISUALS:
-        raise RuntimeError(f"Expected {EXPECTED_TOTAL_VISUALS} visual clips, got {len(visual_clips)}.")
+    expected_visuals = len(script.get("scene_plan", [])) * VISUALS_PER_SCENE
+    if len(visual_clips) != expected_visuals:
+        raise RuntimeError(f"Expected {expected_visuals} visual clips, got {len(visual_clips)}.")
 
     trimmed_visuals = []
     for clip in visual_clips:
@@ -746,7 +762,7 @@ def assemble_video(script, audio_paths, image_paths, music_path, sfx_paths, conf
     print("🎥 RENDERING FINAL SHORT")
     print("=" * 80)
     print(f"Output: {out_path}")
-    print("Story structure: 6 scenes / 12 shots")
+    print(f"Story structure: {len(script.get('scene_plan', []))} scenes / {len(script.get('scene_plan', [])) * VISUALS_PER_SCENE} shots")
     print("Captions: QUIRKY ONE-WORD-AT-A-TIME")
     print("Caption sizes: DYNAMIC SMALL / MEDIUM / BIG EMPHASIS")
     print("Caption colours: WHITE / YELLOW / CYAN / PINK / GREEN")

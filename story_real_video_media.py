@@ -41,7 +41,7 @@ GEMINI_MODEL = "gemini-flash-lite-latest"
 GEMINI_FALLBACK_MODEL = os.environ.get("STORY_GEMINI_FALLBACK_MODEL", "gemini-3.5-flash-lite").strip() or "gemini-3.5-flash-lite"
 
 PRECHECK_CACHE_FILE = Path("story_video_rejection_cache.json")
-PRECHECK_CACHE_VERSION = 3
+PRECHECK_CACHE_VERSION = 4  # discard legacy source-wide cache entries created by clip-level visual rejections
 _POSITIVE_ARCHIVAL_TERMS = (
     "interview", "speech", "talk", "address", "press conference",
     "news conference", "ceremony", "award", "summit", "documentary",

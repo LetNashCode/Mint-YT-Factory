@@ -13239,6 +13239,106 @@
       "shot": 2,
       "query": "cast iron pans turning your humble skillet",
       "recorded_at": 1791556388
+    },
+    {
+      "asset_key": "pixabay:video:172745",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2023/07/22/172745-847869800_medium.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "metal paperclips bend shouldn hold twisted shape",
+      "recorded_at": 1791572477
+    },
+    {
+      "asset_key": "pixabay:video:135851",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/10/21/135851-764362075_medium.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "metal paperclips bend steel feels brutally tough",
+      "recorded_at": 1791572483
+    },
+    {
+      "asset_key": "pixabay:video:26790",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2019/09/12/26790-361092012_medium.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "metal paperclips bend yet surrenders gentle nudge",
+      "recorded_at": 1791572488
+    },
+    {
+      "asset_key": "pixabay:video:150875",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2023/02/15/150875-799327606_medium.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "metal paperclips bend inside microscopic crystal",
+      "recorded_at": 1791572492
+    },
+    {
+      "asset_key": "pixabay:video:40347",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/05/27/40347-425442433_medium.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "metal paperclips bend slide past each other",
+      "recorded_at": 1791572497
+    },
+    {
+      "asset_key": "pixabay:video:9081",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/05/10/9081-217264504_medium.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "metal paperclips bend once pushed past their",
+      "recorded_at": 1791572501
+    },
+    {
+      "asset_key": "pixabay:video:32021",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/02/06/32021-390497693_medium.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "metal paperclips bend you aren fighting solid",
+      "recorded_at": 1791572509
+    },
+    {
+      "asset_key": "pixabay:video:350856",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2026/05/06/350856_medium.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "metal paperclips bend you forcing countless microscopic",
+      "recorded_at": 1791572512
+    },
+    {
+      "asset_key": "pixabay:video:34473",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/03/28/34473-402606909_medium.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "metal paperclips bend they stay bent because",
+      "recorded_at": 1791572515
+    },
+    {
+      "asset_key": "pixabay:video:375595",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2026/09/10/375595_medium.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "metal paperclips bend happily settle into their",
+      "recorded_at": 1791572518
     }
   ]
 }

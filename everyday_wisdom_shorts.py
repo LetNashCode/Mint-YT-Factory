@@ -30,6 +30,9 @@ MAX_NARRATION_WORDS = 95
 TOPIC_HISTORY_PATH = Path("everyday_wisdom_topic_history.json")
 MAX_HISTORY_FOR_PROMPT = 120
 WHISPER_MODEL = os.getenv("WISDOM_WHISPER_MODEL", "tiny.en")
+BACKGROUND_MUSIC_PATH = Path(__file__).resolve().parent / "assets" / "music" / "blade_runner_2049.mp3"
+BACKGROUND_MUSIC_VOLUME = 0.10
+NARRATION_VOLUME = 0.90
 
 
 def clean(value, limit=1000):
@@ -578,18 +581,39 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     print(f"Narration-synced captions created: {ass_path} | words={len(aligned_words)}")
     return ass_path
 
+def build_audio_filter(duration):
+    """Keep narration upfront while mixing the fixed, low-volume Blade Runner bed."""
+    fade_out_start = max(0.0, float(duration) - 1.0)
+    return (
+        f"[1:a]aresample=48000,volume={NARRATION_VOLUME:.3f}[narration];"
+        f"[2:a]aresample=48000,volume={BACKGROUND_MUSIC_VOLUME:.3f},"
+        f"afade=t=in:st=0:d=1,"
+        f"afade=t=out:st={fade_out_start:.3f}:d=1[music];"
+        "[narration][music]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[a]"
+    )
+
+
 def render(clips, audio, output, duration, narration):
     ass_path = create_animated_captions(narration, duration, audio)
     subtitle_filter = f"subtitles='{ass_path.resolve()}'"
     visual_concat = _make_2_5_second_visual_segments(clips, duration)
+    music_path = BACKGROUND_MUSIC_PATH
+    if not music_path.is_file():
+        raise RuntimeError(f"Everyday Wisdom background soundtrack is missing: {music_path}")
+    print(
+        f"Background music: {music_path.name} | volume={BACKGROUND_MUSIC_VOLUME:.0%} "
+        f"| narration volume={NARRATION_VOLUME:.0%}"
+    )
 
     subprocess.run(
         [
             "ffmpeg", "-y",
             "-f", "concat", "-safe", "0", "-i", str(visual_concat),
             "-i", str(audio),
-            "-filter_complex", f"[0:v]{subtitle_filter}[v]",
-            "-map", "[v]", "-map", "1:a:0",
+            "-stream_loop", "-1", "-i", str(music_path),
+            "-filter_complex",
+            f"[0:v]{subtitle_filter}[v];{build_audio_filter(duration)}",
+            "-map", "[v]", "-map", "[a]",
             "-t", f"{duration:.3f}",
             "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
             "-c:a", "aac", "-b:a", "192k",

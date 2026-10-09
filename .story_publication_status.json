@@ -1,6 +1,7 @@
 {
-  "status": "deferred",
+  "status": "pending",
   "video_id": "",
   "youtube_url": "",
-  "reason": "Story Gemini visual verification budget exhausted after 80 requests (visual_limit=80, total_limit=96)\\n"
+  "reason": "",
+  "updated_at": 1791580846
 }

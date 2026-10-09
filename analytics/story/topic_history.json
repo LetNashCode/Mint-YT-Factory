@@ -148,5 +148,18 @@
     "metadata": {
       "source": "legacy_bootstrap_v1"
     }
+  },
+  {
+    "topic": "Alexander Fleming: The laboratory contamination that led to the accidental discovery of penicillin.",
+    "normalized": "alexander fleming the laboratory contamination that led to the accidental discovery of penicillin",
+    "workflow": "story",
+    "status": "reserved",
+    "reserved_at": 1791582378,
+    "recorded_at": 1791582378,
+    "metadata": {
+      "person": "Alexander Fleming",
+      "pillar": "strange_turning_point",
+      "source": "story_topic_selection"
+    }
   }
 ]

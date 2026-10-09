@@ -7674,68 +7674,6 @@
       "reviewed_at": 1791459315.04564
     },
     {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 15.95,
-      "length": 8.0,
-      "verification": {
-        "person_visible": false,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows archival moving footage of Alexander Fleming's hands demonstrating how he grew microbes in Petri dishes, which directly illustrates his work and discovery of penicillin. However, his face is not clearly visible in all three frames (frames 2 and 3 show only his hands and the dish), so person_visible is false.",
-        "usage": "direct_event"
-      },
-      "review_key": "1e56665a15e126ef282640db6329be2dd51e96cec4b8c414077cfb63acce0dff",
-      "reviewed_at": 1791461100.0739603
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 92.61,
-      "length": 8.0,
-      "verification": {
-        "person_visible": false,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The archival footage clearly shows genuine historical visual aids comparing carbolic acid and penicillin as narrated, providing relevant historical context of Alexander Fleming's work, though Fleming himself is not visible in the frames.",
-        "usage": "direct_event"
-      },
-      "review_key": "f06ce6750bca435747b30f7280c3460e05e9f796f7ca5014af9fe00bedccf88d",
-      "reviewed_at": 1791461222.3113015
-    },
-    {
       "person": "Dwayne Johnson",
       "source": {
         "id": "archive:twitter-1642939444922818560",
@@ -8342,37 +8280,6 @@
         "identity_score": 13.0,
         "archival_signal": 0
       },
-      "start": 31.54,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Dwayne Johnson is clearly visible in all three frames speaking inside a vehicle. While it is casual/social media footage rather than a specific historical event, it provides a usable biographical illustration of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "0d1be83eb6922f17409469020a6fb91968515ce276293ddf016746011236233f",
-      "reviewed_at": 1791533219.0247004
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1592586083484651521",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
-        "source_url": "https://archive.org/details/twitter-1592586083484651521",
-        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
-        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "creator": "Dwayne Johnson",
-        "license": "",
-        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 359.01,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
       "start": 58.08,
       "length": 8.0,
       "verification": {
@@ -8385,37 +8292,6 @@
       },
       "review_key": "82f7907667371bdb45ca0b0d34aaf91a1e70f42735e82d280b4dfb78d3548792",
       "reviewed_at": 1791533227.7821186
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1592586083484651521",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
-        "source_url": "https://archive.org/details/twitter-1592586083484651521",
-        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
-        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "creator": "Dwayne Johnson",
-        "license": "",
-        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 359.01,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 84.62,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Dwayne Johnson is clearly visible across all three frames in a self-recorded video clip talking in his truck. While authentic footage of the subject, it serves as general biographical illustration rather than depicting a specific narrated historical event.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6fb56d8aa5aea5be8f67a68644889025bc626ceeb29fa35cfcba0f7364691aff",
-      "reviewed_at": 1791533236.3642526
     },
     {
       "person": "Dwayne Johnson",
@@ -8850,6 +8726,192 @@
       },
       "review_key": "a16ec4b2ca5a09d27d85eb0cfa03ae3ea07097bde92cedb13218643e1351ad89",
       "reviewed_at": 1791577854.6650932
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1642939444922818560",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1642939444922818560/1642924928461848578.mp4",
+        "source_url": "https://archive.org/details/twitter-1642939444922818560",
+        "title": "Walt Disney Studios - JUST ANNOUNCED: From Dwayne Johnson and Auli’i Cravalho, a live-action reimagining of Disney’s Moana is in the works!",
+        "description": "JUST ANNOUNCED: From Dwayne Johnson and Auli’i Cravalho, a live-action reimagining of Disney’s Moana is in the works! https://t.co/4rQXLSJ5Zn ['Twitter', 'video']",
+        "creator": "Walt Disney Studios",
+        "license": "",
+        "subject": "['Twitter', 'video']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 128.128,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 90.6,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Dwyane Johnson is clearly visible across all three frames in actual moving footage, serving as biographical illustration for a video segment about his life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8b923116f68f969482d1850553afca1ddaa45e8ac887d9ec0afdd7cd04d20678",
+      "reviewed_at": 1791581389.3893647
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1592586083484651521",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
+        "source_url": "https://archive.org/details/twitter-1592586083484651521",
+        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
+        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "creator": "Dwayne Johnson",
+        "license": "",
+        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 359.01,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 31.54,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Dwayne Johnson is clearly visible in all three frames speaking inside a vehicle, serving as usable biographical illustration of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8fd671c0d4bd9b72abd4e7ac2549989ed4dde57c8f782e35693068dfa3875cb0",
+      "reviewed_at": 1791581447.945539
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1592586083484651521",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
+        "source_url": "https://archive.org/details/twitter-1592586083484651521",
+        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
+        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "creator": "Dwayne Johnson",
+        "license": "",
+        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 359.01,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 84.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage clearly shows Dwayne Johnson speaking directly to the camera from his pickup truck, making it suitable as biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e2d4fef8df2c4f8c48983608dacdd512ebfeb8c77ec36798737cac141bea31b3",
+      "reviewed_at": 1791581473.5969572
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 20.59,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video shows real archival footage of J.K. Rowling at her book signing event (visible clearly in the third frame behind the desk signing books, while the first two show the crowd and the prankster Nimrod Kamer approaching). It provides good biographical illustration context for her career and public appearances.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4814c1b0fcf303c0cddc9dec3150e9d27d33028cd97c6687e431e9fd44e9692c",
+      "reviewed_at": 1791582204.2309754
+    },
+    {
+      "person": "Alexander Fleming",
+      "source": {
+        "id": "archive:twitter-1349025542058733577",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
+        "source_url": "https://archive.org/details/twitter-1349025542058733577",
+        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
+        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Onthisday']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 15.95,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows archival moving images of Alexander Fleming demonstrating how microbes are grown on petri dishes, which provides direct and usable historical context for his work.",
+        "usage": "direct_event"
+      },
+      "review_key": "992c97c89e2d7815ee144c25b7082cb356dd73a1da7b4082521857dafcd21e76",
+      "reviewed_at": 1791582385.0585365
+    },
+    {
+      "person": "Alexander Fleming",
+      "source": {
+        "id": "archive:twitter-1349025542058733577",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
+        "source_url": "https://archive.org/details/twitter-1349025542058733577",
+        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
+        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Onthisday']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 92.61,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames show archival demonstration graphics/models comparing carbolic acid and penicillin, matching the narration discussing Fleming's discovery and testing of penicillin. Alexander Fleming himself is not visible in the frames, but the footage provides authentic historical context related to his work.",
+        "usage": "direct_event"
+      },
+      "review_key": "1db9ed4e00cec3fc510eacb61ff1326d26a2b5943cfd3d8f15f4d8a86373e729",
+      "reviewed_at": 1791582391.0524857
     }
   ]
 }

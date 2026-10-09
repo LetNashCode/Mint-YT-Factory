@@ -25,6 +25,11 @@
       "source_id": "commons:135278250",
       "source_url": "https://commons.wikimedia.org/wiki/File:Scenes_of_Grytviken,_South_Georgia_Island.webm",
       "reason": "strong metadata exclusion: museum"
+    },
+    "3d145333aa70c5c94be9294d": {
+      "source_id": "commons:31011600",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Presentation_of_Bharat_Ratna_to_Prof._CNR_Rao_%26_Sachin_Tendulkar.webm",
+      "reason": "strong metadata exclusion: presentation"
     }
   }
 }

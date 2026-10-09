@@ -50,67 +50,28 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Sara Blakely",
-    "premise": "How a frustrated door-to-door fax machine salesperson used her entire $5,000 savings to patent a footless pantyhose concept without hiring a lawyer.",
-    "hook": "She had zero fashion industry experience and drafted her own patent using a textbook to protect her $5,000 idea.",
-    "key_facts": [
-      "Worked selling fax machines door-to-door for seven years before developing her product idea.",
-      "Used her personal savings of $5,000 to fund the initial prototype and trademark registration.",
-      "Wrote her own patent application using a book from a bookstore to save on legal fees.",
-      "Founded Spanx, eventually becoming one of the youngest self-made female billionaires."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Dwayne Johnson",
-    "premise": "Before global movie stardom and professional wrestling fame, a young athlete faced severe financial destitution and got cut from the Canadian Football League.",
-    "hook": "He was evicted from his apartment with only seven dollars in his pocket before becoming one of the highest-paid actors in history.",
+    "premise": "The former college football player who had seven dollars in his pocket after being cut from the Canadian Football League.",
+    "hook": "Before he was Hollywood's highest-paid action star, he had just seven dollars to his name and had been cut from his dream sport.",
     "key_facts": [
-      "Played college football for the University of Miami, winning a national championship in 1991.",
-      "Went undrafted in the NFL and was later cut from the Calgary Stampeders in the Canadian Football League.",
-      "Had only seven dollars in his pocket after being cut and returning to live with his parents.",
-      "Followed family tradition to enter professional wrestling before transitioning to a successful film career."
+      "He played college football for the University of Miami and won a national championship in 1991.",
+      "After going undrafted in the NFL, he signed with the Calgary Stampeders in the Canadian Football League.",
+      "He was cut from the team two months into the season and returned to his parents' house with seven dollars.",
+      "He subsequently transitioned to professional wrestling in the WWF, following in his father's and grandfather's footsteps."
     ],
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Viswanathan Anand",
-    "premise": "How India's first chess grandmaster rose to dominance against Soviet-dominated chess machinery by training in the pre-internet era.",
-    "hook": "He learned chess on the beaches of Chennai and grew up without a grandmaster coach, yet defeated the reigning world computer and human champions.",
-    "key_facts": [
-      "Learned the rules of chess from his mother at age six while living in the Philippines.",
-      "Became India's first grandmaster in 1988 at the age of 18.",
-      "Won the FIDE World Chess Championship five times across different formats.",
-      "Pioneered the popularity of chess in India, inspiring a subsequent generation of grandmasters."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
+    "format": "one_decision",
     "person": "Sachin Tendulkar",
-    "premise": "Before international cricket records and World Cup victories, a young Mumbai schoolboy practiced under grueling net schedules designed by his coach.",
-    "hook": "His coach placed a one-rupee coin on top of the middle stump, and any bowler who got him out got to keep the coin.",
+    "premise": "The decision by his coach to move him to Shardashram Vidyamandir school to focus intensely on cricket.",
+    "hook": "At age 11, his older brother realized he was spending too much time getting into trouble and handed him over to a famously strict cricket coach.",
     "key_facts": [
-      "Trained intensively under coach Ramakant Achrekar at Shivaji Park in Mumbai during his early teens.",
-      "Made his international test cricket debut against Pakistan in 1989 at the age of 16.",
-      "Became the first player to score a double century in a Men's One Day International match.",
-      "Played international cricket for 24 years, setting numerous batting records."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Percy Spencer",
-    "premise": "How an accidental candy bar melting near a vacuum tube radar magnetron led to the invention of the domestic microwave oven.",
-    "hook": "He was testing military radar equipment when a peanut cluster in his pocket melted, sparking the idea for quick cooking technology.",
-    "key_facts": [
-      "Worked as an engineer for Raytheon, designing magnetrons used in World War II radar systems.",
-      "Noticed a candy bar melted in his pocket while standing near an active radar transmitter in 1945.",
-      "Conducted experiments with popcorn kernels and an egg, confirming microwave energy caused rapid heating.",
-      "Patented the microwave cooking process, leading to the release of the first commercial countertop units."
+      "His brother Ajit introduced him to cricket coach Ramakant Achrekar at Shivaji Park in Mumbai.",
+      "Achrekar placed him on a strict trial period, watching him from behind a tree to avoid making the boy nervous.",
+      "He transferred to Shardashram Vidyamandir English High School, which was known for its powerhouse cricket program.",
+      "He made his international debut for the Indian cricket team in Pakistan in 1989 at the age of 16."
     ],
     "source": "gemini_original"
   }

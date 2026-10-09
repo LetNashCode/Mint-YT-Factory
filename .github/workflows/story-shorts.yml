@@ -31,9 +31,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   story-shorts:
-    # One explicit production verification run can be triggered by a specially named commit.
-    # Ordinary code pushes never publish; scheduled and manual runs remain unchanged.
-    if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && startsWith(github.event.head_commit.message, '[story-rebuild-verify]')) }}
+    if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

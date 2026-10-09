@@ -3586,5 +3586,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do baking sheets pop",
+    "normalized": "why do baking sheets pop",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791506971,
+    "recorded_at": 1791506971,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

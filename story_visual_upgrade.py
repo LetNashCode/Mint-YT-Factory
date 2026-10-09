@@ -192,7 +192,13 @@ def preflight_candidate(person, topic=""):
                 estimated += len(intervals)
         except Exception as exc:
             audit["sources_checked"] += 1
-            print(f"Story media preflight rejected source: {item.get('provider')} | {type(exc).__name__}", flush=True)
+            # The exception message distinguishes expired/blocked archive URLs,
+            # ffprobe failures, and unusable media without printing credentials.
+            print(
+                f"Story media preflight rejected source: {item.get('provider')} | "
+                f"{type(exc).__name__}: {str(exc)[:240]}",
+                flush=True,
+            )
 
     audit["usable_sources"] = len(usable)
     audit["estimated_segments"] = estimated

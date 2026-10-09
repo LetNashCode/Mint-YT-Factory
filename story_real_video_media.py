@@ -572,6 +572,17 @@ def frames(path, duration):
     return result
 
 
+def source_rejection_limit(value=None):
+    """Bound how many consecutive bad intervals can quarantine a source for this run."""
+    if value is None:
+        value = os.environ.get("STORY_SOURCE_MAX_REJECTIONS", "4")
+    try:
+        configured = int(value)
+    except (TypeError, ValueError):
+        configured = 4
+    return min(4, max(2, configured))
+
+
 def verification_passes(result):
     try:
         score = float(result.get("relevance", 0))
@@ -1007,12 +1018,7 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                 # A bad interval is not proof that the entire recording is unusable.
                                 # Keep exploring other intervals before blocking this source, and do
                                 # not persist a segment-level rejection as a source-wide cache entry.
-                                configured_rejections = os.environ.get("STORY_SOURCE_MAX_REJECTIONS", "4")
-                                try:
-                                    rejection_limit = int(configured_rejections)
-                                except ValueError:
-                                    rejection_limit = 4
-                                rejection_limit = min(4, max(2, rejection_limit))
+                                rejection_limit = source_rejection_limit()
                                 if source_consecutive_rejections[sid] >= rejection_limit:
                                     blocked.add(sid)
                                     print(

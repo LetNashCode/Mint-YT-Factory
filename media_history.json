@@ -12999,6 +12999,126 @@
       "shot": 1,
       "query": "frying pan handles long metal tails defeat",
       "recorded_at": 1791534282
+    },
+    {
+      "asset_key": "pexels:video:9736782",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9736782/9736782-hd_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "ceramic plates scratch ugly gray",
+      "recorded_at": 1791543458
+    },
+    {
+      "asset_key": "pexels:video:6949701",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6949701/6949701-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "ceramic plates scratch your favorite white plate",
+      "recorded_at": 1791543462
+    },
+    {
+      "asset_key": "pexels:video:9736771",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9736771/9736771-hd_1280_720_24fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "ceramic plates scratch glaze practically glass",
+      "recorded_at": 1791543491
+    },
+    {
+      "asset_key": "pexels:video:9733043",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9733043/9733043-hd_1280_720_24fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "ceramic plates scratch steel crumble against not",
+      "recorded_at": 1791543495
+    },
+    {
+      "asset_key": "pexels:video:9733028",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9733028/9733028-hd_1280_720_24fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "ceramic plates scratch here twist plate not",
+      "recorded_at": 1791543499
+    },
+    {
+      "asset_key": "pexels:video:6611031",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6611031/6611031-hd_1280_720_25fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "ceramic plates scratch instead soft steel losing",
+      "recorded_at": 1791543519
+    },
+    {
+      "asset_key": "pexels:video:5564616",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5564616/5564616-hd_1280_720_24fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "ceramic plates scratch think rubbing soft pencil",
+      "recorded_at": 1791543522
+    },
+    {
+      "asset_key": "pexels:video:9736718",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9736718/9736718-hd_1280_720_24fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "ceramic plates scratch paper wins graphite rubs",
+      "recorded_at": 1791543546
+    },
+    {
+      "asset_key": "pexels:video:9733042",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9733042/9733042-hd_1280_720_24fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "ceramic plates scratch your plate acts like",
+      "recorded_at": 1791543550
+    },
+    {
+      "asset_key": "pexels:video:7221154",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7221154/7221154-hd_1366_720_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "ceramic plates scratch microscopic peaks glaze",
+      "recorded_at": 1791543618
+    },
+    {
+      "asset_key": "pexels:video:9733260",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9733260/9733260-hd_1280_720_24fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "ceramic plates scratch plate completely fine clean",
+      "recorded_at": 1791543636
+    },
+    {
+      "asset_key": "pexels:video:7280439",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7280439/7280439-hd_1366_720_24fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "ceramic plates scratch you simply writing metal",
+      "recorded_at": 1791543640
     }
   ]
 }

@@ -20,23 +20,6 @@ on:
   schedule:
     - cron: '0 5 * * *'
     - cron: '0 11 * * *'
-  workflow_dispatch:
-    inputs:
-      test_only:
-        description: "Run offline Story tests only; no generation, uploads or state changes"
-        required: false
-        default: false
-        type: boolean
-      story_person:
-        description: "Optional person (provide the story premise too)"
-        required: false
-        default: ""
-        type: string
-      story_topic:
-        description: "Optional factual story premise for that person"
-        required: false
-        default: ""
-        type: string
 permissions:
   contents: write
   actions: read
@@ -47,7 +30,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   story-shorts:
-    if: ${{ inputs.test_only != true && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') }}
+    if: ${{ github.event_name == 'schedule' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -133,8 +116,6 @@ jobs:
         timeout-minutes: 75
         if: steps.recover.outputs.recovered != 'true' && steps.resume.outputs.resumed != 'true'
         env:
-          STORY_PERSON: ${{ inputs.story_person || '' }}
-          STORY_TOPIC: ${{ inputs.story_topic || '' }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           YOUTUBE_CLIENT_SECRET_JSON: ${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}
           YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}

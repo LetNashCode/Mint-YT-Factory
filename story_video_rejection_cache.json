@@ -1235,6 +1235,101 @@
       "source_id": "archive:twitter-1349025542058733577",
       "source_url": "https://archive.org/details/twitter-1349025542058733577",
       "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "09263ce920064e6abc0583d7": {
+      "source_id": "archive:jacques-cousteau-rediscovery-of-the-world-thailand-convicts-of-the-sea",
+      "source_url": "https://archive.org/details/jacques-cousteau-rediscovery-of-the-world-thailand-convicts-of-the-sea",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "74169699ef91df71ba26e4c1": {
+      "source_id": "archive:jacques-cousteau-rediscovery-of-the-world-western-australia-out-west-down-under",
+      "source_url": "https://archive.org/details/jacques-cousteau-rediscovery-of-the-world-western-australia-out-west-down-under",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "3d7e8fe60b7bd843c95f274d": {
+      "source_id": "archive:jacques-cousteau-rediscovery-of-the-world-borneo-forests-without-land",
+      "source_url": "https://archive.org/details/jacques-cousteau-rediscovery-of-the-world-borneo-forests-without-land",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "05a5741cbb0fda9db0a082a6": {
+      "source_id": "archive:jacques-cousteau-rediscovery-of-the-world-riders-of-the-wind",
+      "source_url": "https://archive.org/details/jacques-cousteau-rediscovery-of-the-world-riders-of-the-wind",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "4a8570d96d2d94324ac4d4df": {
+      "source_id": "archive:colecaojacquescousteau",
+      "source_url": "https://archive.org/details/colecaojacquescousteau",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "f6a17088a7e2f010c7bc3815": {
+      "source_id": "archive:Jacques_Cousteau-The_Undersea_World-Octopus_Octopus",
+      "source_url": "https://archive.org/details/Jacques_Cousteau-The_Undersea_World-Octopus_Octopus",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "f632fcf5320822bb621b2c87": {
+      "source_id": "archive:skpsor-Black_History_Moments_2020_-_Teja",
+      "source_url": "https://archive.org/details/skpsor-Black_History_Moments_2020_-_Teja",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "9c06e9700b810179923f768d": {
+      "source_id": "archive:csf15mi-Profiles_in_Black_History_-_6",
+      "source_url": "https://archive.org/details/csf15mi-Profiles_in_Black_History_-_6",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "71afae3aa5d47e3bbda29216": {
+      "source_id": "archive:detrmi-Black_History_Month_2018_SHARON_R._TRUVILLION",
+      "source_url": "https://archive.org/details/detrmi-Black_History_Month_2018_SHARON_R._TRUVILLION",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "9c3bd64fdaa9250aabc8d28d": {
+      "source_id": "archive:The_Better_Part_-_Antarctica",
+      "source_url": "https://archive.org/details/The_Better_Part_-_Antarctica",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "417f60fd7ee91cd89e7049bb": {
+      "source_id": "archive:nirmala-sitharaman",
+      "source_url": "https://archive.org/details/nirmala-sitharaman",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "a7987d903552a8ee6b806d1d": {
+      "source_id": "archive:nirmala-sitharaman-is-not-meeting-her-father-here",
+      "source_url": "https://archive.org/details/nirmala-sitharaman-is-not-meeting-her-father-here",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "49e399b10642d5544bcb1329": {
+      "source_id": "archive:red-pirate-1997",
+      "source_url": "https://archive.org/details/red-pirate-1997",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "c5af0203692e54cb036bfbc7": {
+      "source_id": "archive:twitter-1570836720433922050",
+      "source_url": "https://archive.org/details/twitter-1570836720433922050",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "124e96bee9c27402480f14fe": {
+      "source_id": "archive:colbca-Women_s_History_Month_Spotlight_-_Bessie_Coleman",
+      "source_url": "https://archive.org/details/colbca-Women_s_History_Month_Spotlight_-_Bessie_Coleman",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "0a9c8f7a2ac6676b7d46ee65": {
+      "source_id": "archive:cccomd-Bessie_Coleman",
+      "source_url": "https://archive.org/details/cccomd-Bessie_Coleman",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "a696ceb6ee3092fcdd361b9e": {
+      "source_id": "archive:desotx-The_Unsung_Bessie_Coleman_Black_History_Month",
+      "source_url": "https://archive.org/details/desotx-The_Unsung_Bessie_Coleman_Black_History_Month",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "d32816c4da0adf50a2a60ea8": {
+      "source_id": "archive:btvin-Bessie_Coleman_An_American_Aviator",
+      "source_url": "https://archive.org/details/btvin-Bessie_Coleman_An_American_Aviator",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
+    },
+    "2bcd392514cfb4e4eee20248": {
+      "source_id": "archive:Black_History_Month_Moment_-_Jazmin_Byers_Simpson_presents_Bessie_Coleman",
+      "source_url": "https://archive.org/details/Black_History_Month_Moment_-_Jazmin_Byers_Simpson_presents_Bessie_Coleman",
+      "reason": "visual verifier rejected source after configured consecutive unusable samples"
     }
   }
 }

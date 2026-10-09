@@ -8137,6 +8137,502 @@
       },
       "review_key": "23de2675f3deba72911b0cdfeb6e7c7e46c8c875d8ba39f05c4cf9d072b7237d",
       "reviewed_at": 1791484186.9567015
+    },
+    {
+      "person": "Jacques Cousteau",
+      "source": {
+        "id": "archive:Jacques_Cousteau-The_Undersea_World-Octopus_Octopus",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Jacques_Cousteau-The_Undersea_World-Octopus_Octopus/The%20Undersea%20World%20of%20Jacques%20Cousteau%20-%20Octopus%2C%20Octopus.mp4",
+        "source_url": "https://archive.org/details/Jacques_Cousteau-The_Undersea_World-Octopus_Octopus",
+        "title": "The Undersea World of Jacques Cousteau: Octopus, Octopus",
+        "description": " ['Jacques Cousteau', 'Jacques-Yves Cousteau', 'ocean', 'octopus', 'documentary', 'sea', 'marine', 'Andy White', 'Metromedia Productions', 'Les Réquins Associés', 'Albert Falco', 'Frederick Dumas', 'Marshall Flaum', 'Leonard Rosenman', 'Michel Deloire', 'Pierre Goupil', 'Yves Omer', 'Jacques Renoir', 'John Soh', 'Lawrence E. Neiman', 'Rod Serling', 'The Cousteau Odyssey', 'mollusk', 'mollusca', 'molluscs', 'mollusks', 'phylum', 'invertebrate']",
+        "creator": "Jacques Cousteau",
+        "license": "",
+        "subject": "['Jacques Cousteau', 'Jacques-Yves Cousteau', 'ocean', 'octopus', 'documentary', 'sea', 'marine', 'Andy White', 'Metromedia Productions', 'Les Réquins Associés', 'Albert Falco', 'Frederick Dumas', 'Marshall Flaum', 'Leonard Rosenman', 'Michel Deloire', 'Pierre Goupil', 'Yves Omer', 'Jacques Renoir', 'John Soh', 'Lawrence E. Neiman', 'Rod Serling', 'The Cousteau Odyssey', 'mollusk', 'mollusca', 'molluscs', 'mollusks', 'phylum', 'invertebrate']",
+        "runtime": "02:06:56",
+        "direct_subject": true,
+        "duration_hint": 7616.124878,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 4098.45,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows Jacques Cousteau handling an octopus on a boat, which directly and authentically illustrates his life and documentary work.",
+        "usage": "direct_event"
+      },
+      "review_key": "43a1006dfa2dc60fd73f27e855aef5ababe39d05d25d9f942f729cc7a97c4fc3",
+      "reviewed_at": 1791532455.8019388
+    },
+    {
+      "person": "Jacques Cousteau",
+      "source": {
+        "id": "archive:Jacques_Cousteau-The_Undersea_World-Octopus_Octopus",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Jacques_Cousteau-The_Undersea_World-Octopus_Octopus/The%20Undersea%20World%20of%20Jacques%20Cousteau%20-%20Octopus%2C%20Octopus.mp4",
+        "source_url": "https://archive.org/details/Jacques_Cousteau-The_Undersea_World-Octopus_Octopus",
+        "title": "The Undersea World of Jacques Cousteau: Octopus, Octopus",
+        "description": " ['Jacques Cousteau', 'Jacques-Yves Cousteau', 'ocean', 'octopus', 'documentary', 'sea', 'marine', 'Andy White', 'Metromedia Productions', 'Les Réquins Associés', 'Albert Falco', 'Frederick Dumas', 'Marshall Flaum', 'Leonard Rosenman', 'Michel Deloire', 'Pierre Goupil', 'Yves Omer', 'Jacques Renoir', 'John Soh', 'Lawrence E. Neiman', 'Rod Serling', 'The Cousteau Odyssey', 'mollusk', 'mollusca', 'molluscs', 'mollusks', 'phylum', 'invertebrate']",
+        "creator": "Jacques Cousteau",
+        "license": "",
+        "subject": "['Jacques Cousteau', 'Jacques-Yves Cousteau', 'ocean', 'octopus', 'documentary', 'sea', 'marine', 'Andy White', 'Metromedia Productions', 'Les Réquins Associés', 'Albert Falco', 'Frederick Dumas', 'Marshall Flaum', 'Leonard Rosenman', 'Michel Deloire', 'Pierre Goupil', 'Yves Omer', 'Jacques Renoir', 'John Soh', 'Lawrence E. Neiman', 'Rod Serling', 'The Cousteau Odyssey', 'mollusk', 'mollusca', 'molluscs', 'mollusks', 'phylum', 'invertebrate']",
+        "runtime": "02:06:56",
+        "direct_subject": true,
+        "duration_hint": 7616.124878,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 589.78,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows authentic archival underwater documentary footage of marine life (an octopus) directly relevant to Jacques Cousteau's work, but Jacques Cousteau is only clearly visible in the first frame, not all three frames. Therefore, person_visible is false, but it qualifies as genuine historical context (direct_event).",
+        "usage": "direct_event"
+      },
+      "review_key": "643174fe5bbaf1a5367ee64d44f21b6365366e869608792cf2dc8c6cda29dbbd",
+      "reviewed_at": 1791532585.4294856
+    },
+    {
+      "person": "Ke Huy Quan",
+      "source": {
+        "id": "archive:spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts/Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts.mp4",
+        "source_url": "https://archive.org/details/spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts",
+        "title": "Ke Huy Quan On Getting Ready for Everything Everywhere All At Once #shorts",
+        "description": "Ke Huy Quan shares how he got into character to play Waymond, which resulted in him winning best supporting actor at the Oscars. #shorts ['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'everything everywhere all at once', 'ke huy quan', 'everything everywhere all at once oscar', 'ke huy quan interview', 'ke huy quan everything everywhere all at once', 'everything everywhere all at once ke huy quan', 'waymond', 'ke huy quan waymond', 'ke huy quan on getting ready to play waymond', 'ke huy quan on getting ready for everything everywhere all at once', 'sneak peek', 'ke huy quan on playing waymond', 'ke huy quan oscars', 'best supporting actor ke huy quan', 'the oscars ke huy quan', 'eeaao', '2023']",
+        "creator": "Sneak Peek",
+        "license": "",
+        "subject": "['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'everything everywhere all at once', 'ke huy quan', 'everything everywhere all at once oscar', 'ke huy quan interview', 'ke huy quan everything everywhere all at once', 'everything everywhere all at once ke huy quan', 'waymond', 'ke huy quan waymond', 'ke huy quan on getting ready to play waymond', 'ke huy quan on getting ready for everything everywhere all at once', 'sneak peek', 'ke huy quan on playing waymond', 'ke huy quan oscars', 'best supporting actor ke huy quan', 'the oscars ke huy quan', 'eeaao', '2023']",
+        "runtime": "00:00:49",
+        "direct_subject": true,
+        "duration_hint": 48.666667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 39.67,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show Ke Huy Quan clearly in an interview setting, but it is presenter/interview footage rather than archival footage of his life or film roles, serving as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7fc2bb41119659d8a51841a571119777fec5814697d09f9c4a9ee4dd721c8ab4",
+      "reviewed_at": 1791533020.9534907
+    },
+    {
+      "person": "Ke Huy Quan",
+      "source": {
+        "id": "archive:ke-huy-quan-surprises-harrison-ford-at-the-indiana-jones-and-the-dial-of-destiny-premiere",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ke-huy-quan-surprises-harrison-ford-at-the-indiana-jones-and-the-dial-of-destiny-premiere/%23KeHuyQuan%20surprises%20%23HarrisonFord%20at%20the%20%23IndianaJones%20and%20the%20Dial%20of%20Destiny%20Premiere%20%F0%9F%AB%B6.mp4",
+        "source_url": "https://archive.org/details/ke-huy-quan-surprises-harrison-ford-at-the-indiana-jones-and-the-dial-of-destiny-premiere",
+        "title": "Ke Huy Quan Surprises Harrison Ford At The Indiana Jones And The Dial Of Destiny Premiere",
+        "description": "Ke Huy Quan Surprises Harrison Ford At The Indiana Jones And The Dial Of Destiny Premiere ['Ke Huy Quan, Harrison Ford, Indiana Jones, Indiana Jones and the Dial of Destiny', 'Harrison Ford', 'Indiana Jones and the Dial of Destiny']",
+        "creator": "Disney Studios",
+        "license": "",
+        "subject": "['Ke Huy Quan, Harrison Ford, Indiana Jones, Indiana Jones and the Dial of Destiny', 'Harrison Ford', 'Indiana Jones and the Dial of Destiny']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 28.6,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 19.6,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames clearly show Ke Huy Quan embracing Harrison Ford on a red carpet event, providing genuine biographical footage of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "489d1ee41b629b65856085d08cd475603fd3fc52a30033846baa09b5644abe31",
+      "reviewed_at": 1791533030.2906826
+    },
+    {
+      "person": "Ke Huy Quan",
+      "source": {
+        "id": "archive:spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts/Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts.mp4",
+        "source_url": "https://archive.org/details/spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts",
+        "title": "Ke Huy Quan On Getting Ready for Everything Everywhere All At Once #shorts",
+        "description": "Ke Huy Quan shares how he got into character to play Waymond, which resulted in him winning best supporting actor at the Oscars. #shorts ['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'everything everywhere all at once', 'ke huy quan', 'everything everywhere all at once oscar', 'ke huy quan interview', 'ke huy quan everything everywhere all at once', 'everything everywhere all at once ke huy quan', 'waymond', 'ke huy quan waymond', 'ke huy quan on getting ready to play waymond', 'ke huy quan on getting ready for everything everywhere all at once', 'sneak peek', 'ke huy quan on playing waymond', 'ke huy quan oscars', 'best supporting actor ke huy quan', 'the oscars ke huy quan', 'eeaao', '2023']",
+        "creator": "Sneak Peek",
+        "license": "",
+        "subject": "['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'everything everywhere all at once', 'ke huy quan', 'everything everywhere all at once oscar', 'ke huy quan interview', 'ke huy quan everything everywhere all at once', 'everything everywhere all at once ke huy quan', 'waymond', 'ke huy quan waymond', 'ke huy quan on getting ready to play waymond', 'ke huy quan on getting ready for everything everywhere all at once', 'sneak peek', 'ke huy quan on playing waymond', 'ke huy quan oscars', 'best supporting actor ke huy quan', 'the oscars ke huy quan', 'eeaao', '2023']",
+        "runtime": "00:00:49",
+        "direct_subject": true,
+        "duration_hint": 48.666667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 4.07,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames show actual moving footage of Ke Huy Quan participating in an interview at SXSW, talking about his role. Although it's an interview clip rather than direct historical archival footage of the event itself, it serves as good biographical illustration for a Short about him.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "447d4cc31ce0d1ca05c74391667021c0569b53d1c1e9b3d70de60b472d7b4c5c",
+      "reviewed_at": 1791533036.1064775
+    },
+    {
+      "person": "Ke Huy Quan",
+      "source": {
+        "id": "archive:spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts/Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts.mp4",
+        "source_url": "https://archive.org/details/spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts",
+        "title": "Ke Huy Quan On Getting Ready for Everything Everywhere All At Once #shorts",
+        "description": "Ke Huy Quan shares how he got into character to play Waymond, which resulted in him winning best supporting actor at the Oscars. #shorts ['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'everything everywhere all at once', 'ke huy quan', 'everything everywhere all at once oscar', 'ke huy quan interview', 'ke huy quan everything everywhere all at once', 'everything everywhere all at once ke huy quan', 'waymond', 'ke huy quan waymond', 'ke huy quan on getting ready to play waymond', 'ke huy quan on getting ready for everything everywhere all at once', 'sneak peek', 'ke huy quan on playing waymond', 'ke huy quan oscars', 'best supporting actor ke huy quan', 'the oscars ke huy quan', 'eeaao', '2023']",
+        "creator": "Sneak Peek",
+        "license": "",
+        "subject": "['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'everything everywhere all at once', 'ke huy quan', 'everything everywhere all at once oscar', 'ke huy quan interview', 'ke huy quan everything everywhere all at once', 'everything everywhere all at once ke huy quan', 'waymond', 'ke huy quan waymond', 'ke huy quan on getting ready to play waymond', 'ke huy quan on getting ready for everything everywhere all at once', 'sneak peek', 'ke huy quan on playing waymond', 'ke huy quan oscars', 'best supporting actor ke huy quan', 'the oscars ke huy quan', 'eeaao', '2023']",
+        "runtime": "00:00:49",
+        "direct_subject": true,
+        "duration_hint": 48.666667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 15.93,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames show Ke Huy Quan clearly in an interview setting discussing his role and experiences, which provides biographical illustration for his career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "014fbd25f44586123b16e7fc84749888b0b244159f729df931ec314e7bd7b737",
+      "reviewed_at": 1791533051.0121682
+    },
+    {
+      "person": "Ke Huy Quan",
+      "source": {
+        "id": "archive:spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts/Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts.mp4",
+        "source_url": "https://archive.org/details/spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts",
+        "title": "Ke Huy Quan On Getting Ready for Everything Everywhere All At Once #shorts",
+        "description": "Ke Huy Quan shares how he got into character to play Waymond, which resulted in him winning best supporting actor at the Oscars. #shorts ['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'everything everywhere all at once', 'ke huy quan', 'everything everywhere all at once oscar', 'ke huy quan interview', 'ke huy quan everything everywhere all at once', 'everything everywhere all at once ke huy quan', 'waymond', 'ke huy quan waymond', 'ke huy quan on getting ready to play waymond', 'ke huy quan on getting ready for everything everywhere all at once', 'sneak peek', 'ke huy quan on playing waymond', 'ke huy quan oscars', 'best supporting actor ke huy quan', 'the oscars ke huy quan', 'eeaao', '2023']",
+        "creator": "Sneak Peek",
+        "license": "",
+        "subject": "['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'everything everywhere all at once', 'ke huy quan', 'everything everywhere all at once oscar', 'ke huy quan interview', 'ke huy quan everything everywhere all at once', 'everything everywhere all at once ke huy quan', 'waymond', 'ke huy quan waymond', 'ke huy quan on getting ready to play waymond', 'ke huy quan on getting ready for everything everywhere all at once', 'sneak peek', 'ke huy quan on playing waymond', 'ke huy quan oscars', 'best supporting actor ke huy quan', 'the oscars ke huy quan', 'eeaao', '2023']",
+        "runtime": "00:00:49",
+        "direct_subject": true,
+        "duration_hint": 48.666667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 27.8,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The frames show genuine moving footage of the named subject, Ke Huy Quan, being interviewed at SXSW discussing his role, serving as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f6eb64e5d8de55c933ac8170163c0683a142f927c02e1e0b13aea2dc448b7ae6",
+      "reviewed_at": 1791533057.2141514
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1592586083484651521",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
+        "source_url": "https://archive.org/details/twitter-1592586083484651521",
+        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
+        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "creator": "Dwayne Johnson",
+        "license": "",
+        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 359.01,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 270.39,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Dwayne Johnson himself speaking directly to the camera in all three frames, matching the biographical subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "80b59525ca13675ef5e01f0843fc1d5a5f48c7e87d47a9679acd561804efb94f",
+      "reviewed_at": 1791533197.6211445
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1592586083484651521",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
+        "source_url": "https://archive.org/details/twitter-1592586083484651521",
+        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
+        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "creator": "Dwayne Johnson",
+        "license": "",
+        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 359.01,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 31.54,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Dwayne Johnson is clearly visible in all three frames speaking inside a vehicle. While it is casual/social media footage rather than a specific historical event, it provides a usable biographical illustration of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0d1be83eb6922f17409469020a6fb91968515ce276293ddf016746011236233f",
+      "reviewed_at": 1791533219.0247004
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1592586083484651521",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
+        "source_url": "https://archive.org/details/twitter-1592586083484651521",
+        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
+        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "creator": "Dwayne Johnson",
+        "license": "",
+        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 359.01,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 58.08,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Dwayne Johnson is clearly visible in all three frames speaking inside his truck, serving as biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "82f7907667371bdb45ca0b0d34aaf91a1e70f42735e82d280b4dfb78d3548792",
+      "reviewed_at": 1791533227.7821186
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1592586083484651521",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
+        "source_url": "https://archive.org/details/twitter-1592586083484651521",
+        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
+        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "creator": "Dwayne Johnson",
+        "license": "",
+        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 359.01,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 84.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Dwayne Johnson is clearly visible across all three frames in a self-recorded video clip talking in his truck. While authentic footage of the subject, it serves as general biographical illustration rather than depicting a specific narrated historical event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6fb56d8aa5aea5be8f67a68644889025bc626ceeb29fa35cfcba0f7364691aff",
+      "reviewed_at": 1791533236.3642526
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1592586083484651521",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
+        "source_url": "https://archive.org/details/twitter-1592586083484651521",
+        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
+        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "creator": "Dwayne Johnson",
+        "license": "",
+        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 359.01,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 111.16,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Dwayne Johnson is clearly visible across all three frames in actual moving video footage speaking in his truck, but it serves as general biographical illustration rather than depicting a specific historical archival event from his career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "16989aec2dceb7282542e21897bf6e5dcb08e25cf2210544a40ca1586e7cc2d0",
+      "reviewed_at": 1791533246.371141
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1592586083484651521",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
+        "source_url": "https://archive.org/details/twitter-1592586083484651521",
+        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
+        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "creator": "Dwayne Johnson",
+        "license": "",
+        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 359.01,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 137.7,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows Dwayne Johnson speaking inside a vehicle, serving as biographical illustration for his life and personality, though it is casual selfie footage rather than a direct depiction of a specific narrated historical event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "52bebeff3523d9caacc6daec613186cc66d842ce28a0ddfa6f3a5cd24d2194f9",
+      "reviewed_at": 1791533256.0684185
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1592586083484651521",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
+        "source_url": "https://archive.org/details/twitter-1592586083484651521",
+        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
+        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "creator": "Dwayne Johnson",
+        "license": "",
+        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 359.01,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 217.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage clearly shows Dwayne Johnson speaking directly to the camera from inside a vehicle, serving as usable biographical illustration of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "fe0a9d8ad5b7077da5e8b003dad18666c67d0a2b39cbb377e02a5e174cc216ce",
+      "reviewed_at": 1791533274.3162866
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1592586083484651521",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
+        "source_url": "https://archive.org/details/twitter-1592586083484651521",
+        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
+        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "creator": "Dwayne Johnson",
+        "license": "",
+        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 359.01,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 296.93,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage shows Dwayne Johnson clearly visible across all frames in a pickup truck, providing usable biographical illustration of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "21d223cd5cca1e49b5320564fb6b1ea2909caeffb8c2330fb17d76e810d08942",
+      "reviewed_at": 1791533292.0474362
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1592586083484651521",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
+        "source_url": "https://archive.org/details/twitter-1592586083484651521",
+        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
+        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "creator": "Dwayne Johnson",
+        "license": "",
+        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 359.01,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 350.01,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage clearly shows Dwayne Johnson speaking directly to the camera from a pickup truck, fitting the biographical illustration criteria well.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c3d73c66fc23e9213d31328ae0e5a80d43393b96d9bb04e0f384c2a4d1d4ec8f",
+      "reviewed_at": 1791533309.2758386
     }
   ]
 }

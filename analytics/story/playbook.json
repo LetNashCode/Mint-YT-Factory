@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-10-09T07:52:41.484814+00:00",
+  "video_count": 6,
+  "learning_ready": true,
+  "metrics_available": true,
+  "advanced_metrics_videos": 6,
+  "creative_learning_version": "v5",
+  "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
+  "strategy": {
+    "exploitation": 0.7,
+    "adjacent_exploration": 0.2,
+    "wild_exploration": 0.1
+  },
+  "winning_patterns": [
+    {
+      "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
+      "score": 26.904,
+      "sample_size": 3,
+      "weak_sample_size": 3,
+      "weak_score": 21.977
+    }
+  ],
+  "weak_patterns": [
+    {
+      "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
+      "score": 21.977,
+      "sample_size": 3
+    }
+  ],
+  "winning_combinations": [],
+  "winning_hook_payoff_pairs": [],
+  "creative_strategy_results": [],
+  "winning_topics": [
+    "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes.",
+    "Mary Kom: From a Farmer's Daughter in Rural Manipur to Six-Time World Boxing Champion.",
+    "Jim Carrey: Dropping Out at Age 15 to Work as a Factory Janitor in Canada."
+  ],
+  "avoid_topics": [
+    "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
+    "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",
+    "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia."
+  ],
+  "used_topic_count": 6,
+  "rules": [
+    "Learn combinations, not templates; never copy winning topics literally.",
+    "Only repeated creative evidence with n>=2 is considered a proven pattern.",
+    "Use the explicit 70/20/10 creative selector for future Shorts when evidence is available.",
+    "Use one winning combination at a time so future performance remains interpretable.",
+    "Use adjacent and wild exploration to avoid creative lock-in.",
+    "Retention is primary; shares and subscriber conversion are stronger growth signals than likes.",
+    "Use actual rendered narration duration when available to learn pacing.",
+    "Reject exact repeats and near-duplicate topics before generation."
+  ]
+}

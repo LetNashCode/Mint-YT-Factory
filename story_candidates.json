@@ -25,19 +25,6 @@
   },
   {
     "format": "before_they_were_famous",
-    "person": "Dwayne Johnson",
-    "premise": "The former college football player who found himself with seven dollars and cut dreams after injuries derailed his sports career.",
-    "hook": "Cut from the Canadian Football League with just seven bucks in his pocket, he pivoted to the family business of professional wrestling.",
-    "key_facts": [
-      "He played college football for the University of Miami and won a national championship.",
-      "Injuries ended his aspirations of playing professional football in the NFL.",
-      "He debuted in the World Wrestling Federation under the ring name Rocky Maivia before becoming 'The Rock'.",
-      "He successfully transitioned from sports entertainment to become a leading Hollywood box office draw."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
     "person": "Kalpana Chawla",
     "premise": "The aeronautical engineering student from Karnal who broke geographical barriers to reach NASA.",
     "hook": "Growing up in a small town in Haryana where aerospace opportunities were rare, she built model airplanes before studying aerospace engineering.",
@@ -46,6 +33,58 @@
       "She moved to the United States in the 1980s to pursue master's and doctoral degrees in aerospace engineering.",
       "She joined NASA as a research scientist at Ames Research Center.",
       "She flew her first space mission aboard the Space Shuttle Columbia in 1997 as a mission specialist."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "B.R. Ambedkar",
+    "premise": "The early academic hardships and relentless pursuit of higher education by the chief architect of the Indian Constitution.",
+    "hook": "He had to sit outside the classroom floor during his schooling, yet he went on to earn doctorates from Columbia University and the London School of Economics.",
+    "key_facts": [
+      "He faced severe caste-based discrimination throughout his early education in British India.",
+      "He earned degrees and doctorates from institutions including Columbia University and the London School of Economics.",
+      "He practiced law at the Bombay High Court and founded institutions for depressed classes education.",
+      "He served as the chairman of the Drafting Committee of the Constitution of India."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Sara Blakely",
+    "premise": "The fax machine salesperson who risked her entire life savings on a footless pantyhose concept.",
+    "hook": "She had zero background in fashion, retail, or manufacturing, but she made one phone call to a patent attorney that birthed a billion-dollar empire.",
+    "key_facts": [
+      "She worked selling fax machines door-to-door in Florida for seven years.",
+      "She used $5,000 of her personal savings to fund the initial Spanx prototype and patent application.",
+      "She wrote her own patent application using a book she bought from a bookstore.",
+      "She personally pitched department store buyers by traveling to stores and demonstrating the product in fitting rooms."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "J.R.R. Tolkien",
+    "premise": "How grading mundane exam papers led to the creation of Middle-earth.",
+    "hook": "He was staring at a blank, discarded exam booklet while grading papers when he wrote a single sentence that sparked an entire mythology.",
+    "key_facts": [
+      "He worked as an Oxford professor of Anglo-Saxon and philology.",
+      "While grading School Certificate exam papers in the early 1930s, he wrote 'In a hole in the ground there lived a hobbit' on a blank page.",
+      "The manuscript was initially written purely as a private bedtime story for his children without early publication intent.",
+      "It was published as 'The Hobbit' in 1937 after being read by the young son of publisher Stanley Unwin."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Pelé",
+    "premise": "The impoverished youth who played barefoot with stuffed rags before entering professional football at age fifteen.",
+    "hook": "He grew up so poor in the state of São Paulo that he practiced soccer using a sock stuffed with newspaper or a grapefruit.",
+    "key_facts": [
+      "His father was a professional footballer known as Dondinho, but the family struggled financially during his childhood.",
+      "He earned money as a young boy by shining shoes outside the Bauru railway station.",
+      "He played for local youth amateur clubs coached by former Brazilian player Waldemar de Brito.",
+      "De Brito brought him to Santos FC for a trial, leading to his professional debut at age 15 in 1956."
     ],
     "source": "gemini_original"
   }

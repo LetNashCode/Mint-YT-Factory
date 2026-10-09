@@ -407,7 +407,7 @@ def test_unavailable_publish_model_uses_stable_fallback(monkeypatch):
     monkeypatch.setattr(media.requests, "post", post)
     result = media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
     assert media.verification_passes(result)
-    assert len(calls) == 4
+    assert len(calls) == 2
     assert "gemini-3.5-flash-lite" in calls[-1]
 
 @pytest.mark.parametrize("url", ["https://www.youtube.com/watch?v=abc", "https://youtu.be/abc",
@@ -517,7 +517,7 @@ def test_unrelated_source_stops_after_four_identity_rejections(monkeypatch, tmp_
     monkeypatch.setattr(media, "verify", reject)
     with pytest.raises(RuntimeError, match="Insufficient verified"):
         media.generate_media(story(), str(tmp_path), {})
-    assert len(calls) == 2
+    assert len(calls) == 4
 
 
 def test_repeated_extraction_failure_is_bounded(monkeypatch, tmp_path):

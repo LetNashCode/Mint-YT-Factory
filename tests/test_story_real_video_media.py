@@ -407,7 +407,7 @@ def test_unavailable_publish_model_uses_stable_fallback(monkeypatch):
     monkeypatch.setattr(media.requests, "post", post)
     result = media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
     assert media.verification_passes(result)
-    assert len(calls) == 2
+    assert len(calls) == 4
     assert "gemini-3.5-flash-lite" in calls[-1]
 
 @pytest.mark.parametrize("url", ["https://www.youtube.com/watch?v=abc", "https://youtu.be/abc",
@@ -507,7 +507,7 @@ def test_manual_story_subject_keeps_history_protection(monkeypatch, person, topi
         assert writes[0]["person"] == person and writes[0]["status"] == "reserved"
 
 
-def test_unrelated_source_stops_after_two_identity_rejections(monkeypatch, tmp_path):
+def test_unrelated_source_stops_after_four_identity_rejections(monkeypatch, tmp_path):
     stub_pipeline(monkeypatch)
     monkeypatch.setattr(media, "discover", lambda *args: [candidate()])
     calls = []
@@ -1154,6 +1154,6 @@ def test_source_is_blocked_after_rejections_even_after_one_accepted_clip(monkeyp
     monkeypatch.setattr(media, "verify", mixed_verifier)
     with pytest.raises(RuntimeError, match="Insufficient verified"):
         media.generate_media(story(), str(tmp_path), {})
-    # One accepted clip plus two rejected clips must block the source instead
-    # of allowing an unbounded verifier loop on the same recording.
-    assert len(calls) == 3
+    # One accepted clip plus four consecutive rejected clips must block the source
+    # instead of allowing an unbounded verifier loop on the same recording.
+    assert len(calls) == 5

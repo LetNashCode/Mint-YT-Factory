@@ -3598,5 +3598,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do frying pan handles stay cool",
+    "normalized": "why do frying pan handles stay cool",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791533937,
+    "recorded_at": 1791533937,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

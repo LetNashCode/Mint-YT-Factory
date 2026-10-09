@@ -7722,37 +7722,6 @@
         "identity_score": 13.0,
         "archival_signal": 0
       },
-      "start": 81.66,
-      "length": 8.0,
-      "verification": {
-        "person_visible": false,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features archival footage of Alexander Fleming speaking about his discovery in the first two frames, and the third frame shows his original cultivation dishes of penicillin, directly matching the historical narrative.",
-        "usage": "direct_event"
-      },
-      "review_key": "8af2ea41eea2d9993a8b3422c433acc992ff637f357c7e343cd52d7ca647656e",
-      "reviewed_at": 1791461192.008289
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
       "start": 92.61,
       "length": 8.0,
       "verification": {
@@ -7765,37 +7734,6 @@
       },
       "review_key": "f06ce6750bca435747b30f7280c3460e05e9f796f7ca5014af9fe00bedccf88d",
       "reviewed_at": 1791461222.3113015
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 147.36,
-      "length": 8.0,
-      "verification": {
-        "person_visible": false,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows archival moving images related to Alexander Fleming's work, specifically demonstrating his penicillin cultivation/mould manipulation, though his face is not clearly visible in all frames.",
-        "usage": "direct_event"
-      },
-      "review_key": "0978e3804b3dc6924f708a82e451da4a17f0600923338b5351cbb0ca328d336a",
-      "reviewed_at": 1791461235.7837179
     },
     {
       "person": "Dwayne Johnson",
@@ -8633,6 +8571,285 @@
       },
       "review_key": "c3d73c66fc23e9213d31328ae0e5a80d43393b96d9bb04e0f384c2a4d1d4ec8f",
       "reviewed_at": 1791533309.2758386
+    },
+    {
+      "person": "Pelé",
+      "source": {
+        "id": "archive:pele-le-roi-tele-sahel-4-15-2026-incomplete",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/pele-le-roi-tele-sahel-4-15-2026-incomplete/Pel%C3%A9%20Le%20Roi%20%28April%2015%2C%202026%20T%C3%A9l%C3%A9%20Sahel%20airing%29%20%28partial%29.mp4",
+        "source_url": "https://archive.org/details/pele-le-roi-tele-sahel-4-15-2026-incomplete",
+        "title": "Pelé: Le Roi (April 15, 2026 Télé Sahel Airing) (partial)",
+        "description": "Documentary that aired on Télé Sahel. Une documentaire diffusée par Télé Sahel. ['Office de radiodiffusion et Télévision du Niger', 'Office of Radio and Television of Niger', 'Radio Television of Niger', 'Radio Télévision du Niger', 'RTN', 'ORTN', 'documentaire', 'documentary', 'old', '2010s', 'années 2010', '2000s', 'années 2000']",
+        "creator": "",
+        "license": "",
+        "subject": "['Office de radiodiffusion et Télévision du Niger', 'Office of Radio and Television of Niger', 'Radio Television of Niger', 'Radio Télévision du Niger', 'RTN', 'ORTN', 'documentaire', 'documentary', 'old', '2010s', 'années 2010', '2000s', 'années 2000']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3175.366667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2436.82,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The frames show archival footage of Pelé playing football on the field, which directly illustrates his life and career as a soccer player.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b6d68a96251dc5fb3b33b0e37c688c9fc1d27a28bd7eda99804e5d26862d8652",
+      "reviewed_at": 1791577165.7148893
+    },
+    {
+      "person": "Pelé",
+      "source": {
+        "id": "archive:pele-video",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/pele-video/pele%20video.mp4",
+        "source_url": "https://archive.org/details/pele-video",
+        "title": "Pele Video",
+        "description": "pele goles ['mundial', 'goles', 'pele']",
+        "creator": "Caleb Alvarez",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['mundial', 'goles', 'pele']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 807.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 615.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Pelé playing in a historical match (Brazil vs Peru, 1970 World Cup), directly illustrating his career and life as requested.",
+        "usage": "direct_event"
+      },
+      "review_key": "bdb3b28d2f5f84dbcbe404fcd797ab04d80b40f9059b2369b5fc089b912893a2",
+      "reviewed_at": 1791577207.7671885
+    },
+    {
+      "person": "Pelé",
+      "source": {
+        "id": "archive:pele-le-roi-tele-sahel-4-15-2026-incomplete",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/pele-le-roi-tele-sahel-4-15-2026-incomplete/Pel%C3%A9%20Le%20Roi%20%28April%2015%2C%202026%20T%C3%A9l%C3%A9%20Sahel%20airing%29%20%28partial%29.mp4",
+        "source_url": "https://archive.org/details/pele-le-roi-tele-sahel-4-15-2026-incomplete",
+        "title": "Pelé: Le Roi (April 15, 2026 Télé Sahel Airing) (partial)",
+        "description": "Documentary that aired on Télé Sahel. Une documentaire diffusée par Télé Sahel. ['Office de radiodiffusion et Télévision du Niger', 'Office of Radio and Television of Niger', 'Radio Television of Niger', 'Radio Télévision du Niger', 'RTN', 'ORTN', 'documentaire', 'documentary', 'old', '2010s', 'années 2010', '2000s', 'années 2000']",
+        "creator": "",
+        "license": "",
+        "subject": "['Office de radiodiffusion et Télévision du Niger', 'Office of Radio and Television of Niger', 'Radio Television of Niger', 'Radio Télévision du Niger', 'RTN', 'ORTN', 'documentaire', 'documentary', 'old', '2010s', 'années 2010', '2000s', 'années 2000']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3175.366667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 491.36,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows archival moving images of a historical football match matching the subject's career, but the named subject Pelé is not clearly visible across all three frames (frame 1 shows an unidentified speaker/presenter, while frames 2 and 3 show distant football action where players are not identifiable as Pelé). Therefore, person_visible is false, but it qualifies as usable historical context (direct_event).",
+        "usage": "direct_event"
+      },
+      "review_key": "1d6aaa1bfa379d83cad65f71caf167e3688afe89747cf1bf98b01a6db1ecaa1a",
+      "reviewed_at": 1791577291.9611914
+    },
+    {
+      "person": "Pelé",
+      "source": {
+        "id": "archive:pele-video",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/pele-video/pele%20video.mp4",
+        "source_url": "https://archive.org/details/pele-video",
+        "title": "Pele Video",
+        "description": "pele goles ['mundial', 'goles', 'pele']",
+        "creator": "Caleb Alvarez",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['mundial', 'goles', 'pele']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 807.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Pelé across all three frames (playing football in the first two and in archival black and white footage in the third), directly illustrating his life and career as narrated.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "576d1432f8cb0703e4d574c0715ad136d644e987bd0265bf30580de7c481ce55",
+      "reviewed_at": 1791577306.1428025
+    },
+    {
+      "person": "Pelé",
+      "source": {
+        "id": "archive:pele-le-roi-tele-sahel-4-15-2026-incomplete",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/pele-le-roi-tele-sahel-4-15-2026-incomplete/Pel%C3%A9%20Le%20Roi%20%28April%2015%2C%202026%20T%C3%A9l%C3%A9%20Sahel%20airing%29%20%28partial%29.mp4",
+        "source_url": "https://archive.org/details/pele-le-roi-tele-sahel-4-15-2026-incomplete",
+        "title": "Pelé: Le Roi (April 15, 2026 Télé Sahel Airing) (partial)",
+        "description": "Documentary that aired on Télé Sahel. Une documentaire diffusée par Télé Sahel. ['Office de radiodiffusion et Télévision du Niger', 'Office of Radio and Television of Niger', 'Radio Television of Niger', 'Radio Télévision du Niger', 'RTN', 'ORTN', 'documentaire', 'documentary', 'old', '2010s', 'années 2010', '2000s', 'années 2000']",
+        "creator": "",
+        "license": "",
+        "subject": "['Office de radiodiffusion et Télévision du Niger', 'Office of Radio and Television of Niger', 'Radio Television of Niger', 'Radio Télévision du Niger', 'RTN', 'ORTN', 'documentaire', 'documentary', 'old', '2010s', 'années 2010', '2000s', 'années 2000']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3175.366667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 734.55,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage shows historical archive moving footage depicting Pelé being helped or celebrating on the pitch, providing relevant biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9539ab0f110845c9d28f388d1786f0076da8954e438f2a77183482b5cf37be3e",
+      "reviewed_at": 1791577328.709719
+    },
+    {
+      "person": "Pelé",
+      "source": {
+        "id": "archive:pele-video",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/pele-video/pele%20video.mp4",
+        "source_url": "https://archive.org/details/pele-video",
+        "title": "Pele Video",
+        "description": "pele goles ['mundial', 'goles', 'pele']",
+        "creator": "Caleb Alvarez",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['mundial', 'goles', 'pele']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 807.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 66.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The archival footage clearly shows Pelé across all three frames, depicting him during his youth and professional career, making it directly relevant and usable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "36c411ff25e8aa37f48227f109871f6dd5d079a64bd060bbf7b1710b42c43193",
+      "reviewed_at": 1791577338.6272986
+    },
+    {
+      "person": "Pelé",
+      "source": {
+        "id": "archive:pele-le-roi-tele-sahel-4-15-2026-incomplete",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/pele-le-roi-tele-sahel-4-15-2026-incomplete/Pel%C3%A9%20Le%20Roi%20%28April%2015%2C%202026%20T%C3%A9l%C3%A9%20Sahel%20airing%29%20%28partial%29.mp4",
+        "source_url": "https://archive.org/details/pele-le-roi-tele-sahel-4-15-2026-incomplete",
+        "title": "Pelé: Le Roi (April 15, 2026 Télé Sahel Airing) (partial)",
+        "description": "Documentary that aired on Télé Sahel. Une documentaire diffusée par Télé Sahel. ['Office de radiodiffusion et Télévision du Niger', 'Office of Radio and Television of Niger', 'Radio Television of Niger', 'Radio Télévision du Niger', 'RTN', 'ORTN', 'documentaire', 'documentary', 'old', '2010s', 'années 2010', '2000s', 'années 2000']",
+        "creator": "",
+        "license": "",
+        "subject": "['Office de radiodiffusion et Télévision du Niger', 'Office of Radio and Television of Niger', 'Radio Television of Niger', 'Radio Télévision du Niger', 'RTN', 'ORTN', 'documentaire', 'documentary', 'old', '2010s', 'années 2010', '2000s', 'années 2000']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3175.366667,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1220.91,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The frames clearly depict Pelé playing soccer on the field in archival match footage, making him visible across all three frames and serving as direct event footage of his career.",
+        "usage": "direct_event"
+      },
+      "review_key": "f87bc982cb9ed99b0fccaaf61b9e27d97869255f3872ef1ebe5489dc8fe327fe",
+      "reviewed_at": 1791577379.7196674
+    },
+    {
+      "person": "Alexander Fleming",
+      "source": {
+        "id": "archive:twitter-1349025542058733577",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
+        "source_url": "https://archive.org/details/twitter-1349025542058733577",
+        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
+        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Onthisday']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 81.66,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video clip features archival footage from 1955 of Sir Alexander Fleming discussing his discovery and showing his original cultivation dishes. However, since the subject is not visible across all three continuous frames (the final frame cuts away to the cultivation dishes), person_visible is false. The footage directly and authentically depicts the historical subject and context, making it highly usable as direct_event footage.",
+        "usage": "direct_event"
+      },
+      "review_key": "7023a981c3707e7da5108dd2310d4b8aac7c555821323e86e58da1e99550f187",
+      "reviewed_at": 1791577834.0799875
+    },
+    {
+      "person": "Alexander Fleming",
+      "source": {
+        "id": "archive:twitter-1349025542058733577",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
+        "source_url": "https://archive.org/details/twitter-1349025542058733577",
+        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
+        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'Onthisday']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 147.36,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows Alexander Fleming's hands demonstrating the original penicillin cultivation in a petri dish, which directly depicts the historical discovery and context described, even though his face is not visible across the frames.",
+        "usage": "direct_event"
+      },
+      "review_key": "a16ec4b2ca5a09d27d85eb0cfa03ae3ea07097bde92cedb13218643e1351ad89",
+      "reviewed_at": 1791577854.6650932
     }
   ]
 }

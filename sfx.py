@@ -81,14 +81,23 @@ def _write_wav(path,samples):
         wf.setnchannels(1); wf.setsampwidth(2); wf.setframerate(SAMPLE_RATE)
         wf.writeframes(b"".join(struct.pack("<h",max(-32767,min(32767,int(x)))) for x in samples))
 
+def _is_story_script(script):
+    return isinstance(script, dict) and bool(
+        script.get("story_person") or script.get("interactive_pillar") or script.get("story_visual_mode")
+    )
+
 def generate_sfx(script,output_dir):
     scenes=script.get("scene_plan",[]) if isinstance(script,dict) else []
-    if len(scenes)!=7: raise RuntimeError("SFX generation requires exactly 7 scenes.")
+    is_story=_is_story_script(script)
+    expected_scenes=7 if is_story else 6
+    if len(scenes)!=expected_scenes:
+        workflow="Story" if is_story else "Publish"
+        raise RuntimeError(f"{workflow} SFX generation requires exactly {expected_scenes} scenes; got {len(scenes)}.")
     os.makedirs(output_dir,exist_ok=True)
     library=ensure_sfx_assets(); paths=[]; plan=[]
     print("="*80); print("🎭 NARRATION-AWARE FUN SFX DIRECTOR"); print("="*80)
     for i,scene in enumerate(scenes):
-        if i==6:
+        if is_story and i==6:
             path=os.path.join(output_dir,"scene_7_continuation_silent.wav")
             if not os.path.exists(path): _write_wav(path,[0.0]*int(.05*SAMPLE_RATE))
             cue={"enabled":False,"type":"none","category":"none","source":"disabled_for_continuation","at_ms":0,"intensity":"none","voice_priority":"absolute"}
@@ -107,10 +116,11 @@ def generate_sfx(script,output_dir):
     return paths
 
 def prepare_real_sfx(script):
-    # Keep compatibility with callers that expect a seven-item list.
+    # Story Shorts reserve scene 7 for a silent continuation; Publish has six active scenes.
+    is_story=_is_story_script(script)
     library=ensure_sfx_assets(); result=[]
     for i,scene in enumerate(script.get("scene_plan",[])):
-        if i==6: result.append(None); continue
+        if is_story and i==6: result.append(None); continue
         category=_category(scene,i); candidates=library.get(category,[])
         result.append(candidates[0] if candidates else None)
     return result

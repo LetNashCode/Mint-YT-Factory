@@ -76,6 +76,20 @@ jobs:
               raise SystemExit("YOUTUBE_TOKEN_JSON is missing refresh_token")
           KPipeline(lang_code="a")
           genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+
+          from everyday_wisdom_shorts import (
+              BACKGROUND_MUSIC_PATH,
+              BACKGROUND_MUSIC_VOLUME,
+              NARRATION_VOLUME,
+              build_audio_filter,
+          )
+          assert BACKGROUND_MUSIC_PATH.is_file(), f"Missing soundtrack: {BACKGROUND_MUSIC_PATH}"
+          assert 0 < BACKGROUND_MUSIC_VOLUME < NARRATION_VOLUME <= 1
+          audio_filter = build_audio_filter(40.0)
+          assert "[1:a]aresample=48000,volume=0.900[narration]" in audio_filter
+          assert "[2:a]aresample=48000,volume=0.100" in audio_filter
+          assert "[narration][music]amix=inputs=2:duration=first" in audio_filter
+          print(f"Background music preflight passed: {BACKGROUND_MUSIC_PATH.name}")
           print("Production preflight passed.")
           PY
 

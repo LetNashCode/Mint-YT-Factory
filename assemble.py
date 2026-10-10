@@ -439,23 +439,38 @@ def _build_caption_phrases(words):
         phrases.append({"text": item["word"], "words": [item["word"]], "start": start, "duration": duration})
     return phrases
 
+# Words that usually carry the strongest spoken beat. Explicit scene highlights
+# remain supported and take precedence; this only changes size/motion, never colour.
+CAPTION_EMPHASIS_WORDS = {
+    "never", "always", "secret", "truth", "why", "how", "but", "because",
+    "actually", "impossible", "dangerous", "mistake", "wrong", "hidden",
+    "nobody", "everyone", "nothing", "everything", "first", "last", "only",
+    "stop", "wait", "imagine", "remember", "suddenly", "instantly", "free",
+    "dead", "death", "brain", "fear", "money", "life", "love", "real",
+    "shocking", "proven", "fails", "works", "secretly", "turns", "until",
+}
+
+
 def _caption_style(scene_index, scene, phrase, phrase_index):
-    """Return playful size and colour for the current story beat."""
-    multiplier = CAPTION_SIZE_BY_SCENE[min(max(scene_index, 0), len(CAPTION_SIZE_BY_SCENE) - 1)]
+    """Keep existing colours/placement while making selected words pop."""
     highlights = get_caption_highlights(scene)
     normalized = [_normalize_caption_word(word) for word in phrase["words"]]
-    has_highlight = any(word in highlights for word in normalized)
-    dramatic = "!" in phrase["text"] or phrase_index == 0 or scene_index in (0, 5)
+    explicit_highlight = any(word in highlights for word in normalized)
+    word = _normalize_caption_word(phrase["text"])
+    emphasized = explicit_highlight or word in CAPTION_EMPHASIS_WORDS or (
+        len(word) >= 8 and word.isalpha()
+    )
 
-    if has_highlight:
+    # Preserve the existing colour-selection logic exactly.
+    if explicit_highlight:
         color = CAPTION_HIGHLIGHT_COLOR
     else:
         color = CAPTION_COLORS[(scene_index + phrase_index) % len(CAPTION_COLORS)]
 
-    # Publish Shorts uses one fixed caption size. Keep this renderer deterministic
-    # so Emotional/Story/Publish outputs cannot silently grow captions by scene.
-    multiplier = 1.0
-    return int(CAPTION_FONT_SIZE * multiplier), color
+    # A restrained size bump makes the key word read as a deliberate beat.
+    fontsize = int(CAPTION_FONT_SIZE * (1.38 if emphasized else 1.0))
+    angle = (-4.0 if phrase_index % 2 == 0 else 4.0) if emphasized else 0.0
+    return fontsize, color, emphasized, angle
 
 
 def _caption_font(fontsize):
@@ -487,11 +502,43 @@ def _caption_bitmap(text, fontsize, color, frame_size, shadow=False):
               stroke_width=CAPTION_STROKE_WIDTH, stroke_fill=stroke_fill)
     return np.array(image)
 
-def _make_caption_clip(text, fontsize, color, frame_size):
-    return ImageClip(_caption_bitmap(text, fontsize, color, frame_size, shadow=False))
+def _rotate_caption_bitmap(bitmap, angle):
+    """Tilt the rendered word around its own centre without changing its anchor."""
+    if not angle:
+        return bitmap
+    image = Image.fromarray(bitmap, mode="RGBA")
+    return np.array(image.rotate(angle, resample=Image.Resampling.BICUBIC, expand=True))
 
-def _make_caption_shadow(text, fontsize, frame_size):
-    return ImageClip(_caption_bitmap(text, fontsize, CAPTION_SHADOW_COLOR, frame_size, shadow=True))
+
+def _make_caption_clip(text, fontsize, color, frame_size, angle=0.0, emphasized=False):
+    bitmap = _rotate_caption_bitmap(
+        _caption_bitmap(text, fontsize, color, frame_size, shadow=False), angle
+    )
+    clip = ImageClip(bitmap)
+    if emphasized:
+        # Quick 70 ms scale-up gives the important word a crisp pop-in.
+        base_w, base_h = clip.w, clip.h
+        clip = clip.resize(lambda t: 1.0 + 0.10 * min(max(float(t) / 0.07, 0.0), 1.0))
+        anchor_y = int(frame_size[1] * CAPTION_VERTICAL_POSITION) + base_h / 2.0
+        clip = clip.set_position(
+            lambda t: ((frame_size[0] - clip.w) / 2.0, anchor_y - clip.h / 2.0)
+        )
+    return clip
+
+
+def _make_caption_shadow(text, fontsize, frame_size, angle=0.0, emphasized=False):
+    bitmap = _rotate_caption_bitmap(
+        _caption_bitmap(text, fontsize, CAPTION_SHADOW_COLOR, frame_size, shadow=True), angle
+    )
+    clip = ImageClip(bitmap)
+    if emphasized:
+        base_h = clip.h
+        clip = clip.resize(lambda t: 1.0 + 0.10 * min(max(float(t) / 0.07, 0.0), 1.0))
+        anchor_y = int(frame_size[1] * CAPTION_VERTICAL_POSITION) + base_h / 2.0 + CAPTION_SHADOW_OFFSET
+        clip = clip.set_position(
+            lambda t: ((frame_size[0] - clip.w) / 2.0, anchor_y - clip.h / 2.0)
+        )
+    return clip
 
 def _get_scene_index_for_time(scene_ranges, timestamp):
     for index, item in enumerate(scene_ranges):
@@ -530,17 +577,26 @@ def build_captions(narration_path, script, frame_size, total_duration=None):
     for phrase_index, phrase in enumerate(phrases):
         scene_index = _get_scene_index_for_time(scene_ranges, phrase["start"])
         scene = scene_ranges[scene_index]["scene"]
-        fontsize, color = _caption_style(scene_index, scene, phrase, phrase_index)
+        fontsize, color, emphasized, angle = _caption_style(
+            scene_index, scene, phrase, phrase_index
+        )
 
         text_clip = _make_caption_clip(
-            phrase["text"], fontsize, color, frame_size
-        ).set_start(phrase["start"]).set_duration(phrase["duration"]).set_position(position)
+            phrase["text"], fontsize, color, frame_size,
+            angle=angle, emphasized=emphasized,
+        ).set_start(phrase["start"]).set_duration(phrase["duration"])
+        if not emphasized:
+            text_clip = text_clip.set_position(position)
 
         shadow_clip = _make_caption_shadow(
-            phrase["text"], fontsize, frame_size
-        ).set_start(phrase["start"]).set_duration(phrase["duration"]).set_position(
-            ("center", position[1] + CAPTION_SHADOW_OFFSET)
-        ).set_opacity(CAPTION_SHADOW_OPACITY)
+            phrase["text"], fontsize, frame_size,
+            angle=angle, emphasized=emphasized,
+        ).set_start(phrase["start"]).set_duration(phrase["duration"])
+        if not emphasized:
+            shadow_clip = shadow_clip.set_position(
+                ("center", position[1] + CAPTION_SHADOW_OFFSET)
+            )
+        shadow_clip = shadow_clip.set_opacity(CAPTION_SHADOW_OPACITY)
 
         clips.extend([shadow_clip, text_clip])
 

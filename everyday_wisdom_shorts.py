@@ -417,9 +417,9 @@ def _make_2_5_second_visual_segments(clips, total_duration):
                 "-t", f"{duration:.3f}",
                 "-an",
                 "-vf",
-                "scale=1080:1920:force_original_aspect_ratio=increase,"
-                "crop=1080:1920,setsar=1,fps=30,format=yuv420p",
-                "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+                "scale=2160:3840:force_original_aspect_ratio=increase,"
+                "crop=2160:3840,setsar=1,fps=60,format=yuv420p",
+                "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
                 "-pix_fmt", "yuv420p",
                 str(segment_path),
             ],
@@ -615,14 +615,61 @@ def render(clips, audio, output, duration, narration):
             f"[0:v]{subtitle_filter}[v];{build_audio_filter(duration)}",
             "-map", "[v]", "-map", "[a]",
             "-t", f"{duration:.3f}",
-            "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
-            "-c:a", "aac", "-b:a", "192k",
+            "-r", "60",
+            "-c:v", "libx264", "-preset", "veryfast",
+            "-b:v", "120M", "-maxrate", "120M", "-bufsize", "240M",
+            "-c:a", "aac", "-b:a", "384k",
             "-movflags", "+faststart",
             "-pix_fmt", "yuv420p",
             str(output),
         ],
         check=True,
     )
+
+
+def validate_final_video(path):
+    """Fail closed unless Everyday Wisdom renders the agreed 4K/60 H.264 master."""
+    result = subprocess.run(
+        [
+            "ffprobe", "-v", "error", "-select_streams", "v:0",
+            "-show_entries", "stream=width,height,r_frame_rate,avg_frame_rate,codec_name,pix_fmt,bit_rate",
+            "-of", "json", str(path),
+        ],
+        check=True, capture_output=True, text=True,
+    )
+    streams = json.loads(result.stdout).get("streams") or []
+    if not streams:
+        raise RuntimeError("Final Everyday Wisdom video has no video stream")
+    stream = streams[0]
+    width, height = int(stream.get("width") or 0), int(stream.get("height") or 0)
+    fps_text = stream.get("avg_frame_rate") or stream.get("r_frame_rate") or "0/1"
+    try:
+        numerator, denominator = (int(part) for part in fps_text.split("/", 1))
+        fps = numerator / denominator if denominator else 0.0
+    except (TypeError, ValueError):
+        fps = 0.0
+    codec = str(stream.get("codec_name") or "")
+    pixel_format = str(stream.get("pix_fmt") or "")
+    bitrate = float(stream.get("bit_rate") or 0) / 1_000_000
+    print(
+        f"Final video quality: {width}x{height} | {fps:.3f} FPS | "
+        f"{codec}/{pixel_format} | {bitrate:.2f} Mbps measured "
+        f"(120 Mbps target)"
+    )
+    errors = []
+    if (width, height) != (2160, 3840):
+        errors.append(f"expected 2160x3840, got {width}x{height}")
+    if abs(fps - 60.0) > 0.05:
+        errors.append(f"expected 60 FPS, got {fps:.3f}")
+    if codec != "h264":
+        errors.append(f"expected H.264, got {codec or 'unknown'}")
+    if pixel_format != "yuv420p":
+        errors.append(f"expected yuv420p, got {pixel_format or 'unknown'}")
+    if bitrate <= 0:
+        errors.append("could not measure encoded video bitrate")
+    if errors:
+        raise RuntimeError("Everyday Wisdom video failed upload quality gate: " + "; ".join(errors))
+    print("Everyday Wisdom 4K/60 H.264 upload quality gate passed.")
 
 
 def build_caption(story):
@@ -783,6 +830,7 @@ def main():
         raise RuntimeError("Final video was not created or is too small")
 
     print(f"Final video ready: {video} ({video.stat().st_size} bytes)")
+    validate_final_video(video)
 
     video_id = upload(video, story)
     (RUN_ROOT / "publish.json").write_text(

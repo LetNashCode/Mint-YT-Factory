@@ -55,7 +55,6 @@ _STRONG_BAD_METADATA_TERMS = (
     # Do not reject interviews, podcasts, panels, speeches or presentations by metadata alone.
     # These are valid sources when the named person is actually visible in the chosen segment.
     "actor portraying", "actors portraying", "actress portraying",
-    "actor portraying", "actors portraying", "actress portraying",
     "actor playing", "actress playing", "portraying ",
     "reenactment", "dramatization", "dramatized", "fictionalized",
     "feature film", "biographical drama", "biopic",
@@ -73,7 +72,7 @@ _STRONG_BAD_METADATA_TERMS = (
     "five minute flashback", "5 minute flashback",
     "film adaptation", "television adaptation", "tv adaptation",
     "based on the novel", "based on a novel",
-    "movie", "film", "feature film", "short film", "gameplay", "video game",
+    "gameplay", "video game",
     "reenactment", "dramatisation", "dramatization", "fictional", "adapted from", "based on the play",
     "adaptation of", "adapted from", "novel adaptation", "play adaptation",
 )

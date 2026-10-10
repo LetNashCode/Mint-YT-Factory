@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-10-10T11:13:58.338791+00:00",
+  "generated_at": "2026-10-10T12:15:32.248571+00:00",
   "video_count": 7,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 6,
   "reason": "",
   "totals": {
-    "views": 4711,
-    "likes": 60,
+    "views": 4715,
+    "likes": 61,
     "comments": 0
   },
   "averages": {
-    "views": 673.0,
-    "likes": 8.57,
+    "views": 673.57,
+    "likes": 8.71,
     "comments": 0.0,
     "average_view_percentage": 37.52,
     "subscribers_gained": 0.71,
@@ -93,15 +93,15 @@
       "topic": "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
       "video_id": "jn4q2CUZJGI",
       "title": "The Untold Turning Point in Alexander Fleming's Story",
-      "views": 17,
-      "likes": 0,
+      "views": 21,
+      "likes": 1,
       "comments": 0,
       "shares": 0,
       "average_view_duration": 0.0,
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.0
+      "engagement_rate": 4.7619
     },
     {
       "topic": "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",
@@ -193,15 +193,15 @@
       "topic": "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
       "video_id": "jn4q2CUZJGI",
       "title": "The Untold Turning Point in Alexander Fleming's Story",
-      "views": 17,
-      "likes": 0,
+      "views": 21,
+      "likes": 1,
       "comments": 0,
       "shares": 0,
       "average_view_duration": 0.0,
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.0
+      "engagement_rate": 4.7619
     },
     {
       "topic": "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",

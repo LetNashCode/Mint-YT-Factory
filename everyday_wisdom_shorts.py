@@ -552,6 +552,21 @@ def _align_caption_words(narration, timed_words, duration):
         aligned.append({"word": word, "start": start, "end": end})
     return aligned
 
+WISDOM_CAPTION_EMPHASIS_WORDS = {
+    "never", "always", "secret", "truth", "why", "how", "but", "because",
+    "actually", "impossible", "dangerous", "mistake", "wrong", "hidden",
+    "nobody", "everyone", "nothing", "everything", "first", "last", "only",
+    "stop", "wait", "imagine", "remember", "suddenly", "instantly", "free",
+    "dead", "death", "brain", "fear", "money", "life", "love", "real",
+    "shocking", "proven", "fails", "works", "secretly", "turns", "until",
+}
+
+
+def _wisdom_caption_emphasized(item):
+    token = _normalize_caption_token(item.get("word", ""))
+    return token in WISDOM_CAPTION_EMPHASIS_WORDS or (len(token) >= 8 and token.isalpha())
+
+
 def create_animated_captions(narration, duration, audio_path):
     aligned_words = _align_caption_words(
         narration, _transcribe_word_timestamps(audio_path), duration
@@ -573,9 +588,16 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
     lines = [header]
     for index, item in enumerate(aligned_words):
+        overrides = ""
+        if _wisdom_caption_emphasized(item):
+            size = 99
+            angle = -4 if index % 2 == 0 else 4
+            # Start at 90% scale and pop to 100% over 70 ms. The ASS
+            # alignment and margins remain unchanged, preserving caption position.
+            overrides = f"\\fs{size}\\frz{angle}\\fscx90\\fscy90\\t(0,70,\\fscx100\\fscy100)"
         lines.append(
             f"Dialogue: 0,{_ass_time(item['start'])},{_ass_time(item['end'])},PublishWisdom,,0,0,0,,"
-            f"{{\\c{_publish_ass_color(index)}}}{_ass_escape(item['word'])}"
+            f"{{\\c{_publish_ass_color(index)}{overrides}}}{_ass_escape(item['word'])}"
         )
     ass_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"Narration-synced captions created: {ass_path} | words={len(aligned_words)}")

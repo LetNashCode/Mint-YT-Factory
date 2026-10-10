@@ -13579,6 +13579,76 @@
       "shot": 2,
       "query": "water drops bead forcing pull itself",
       "recorded_at": 1791629928
+    },
+    {
+      "asset_key": "pexels:video:6184893",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6184893/6184893-hd_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "metal gates sag heavy iron garden gate",
+      "recorded_at": 1791640644
+    },
+    {
+      "asset_key": "pexels:video:27732553",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/27732553/12214183_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "metal gates sag but give few months",
+      "recorded_at": 1791640646
+    },
+    {
+      "asset_key": "pixabay:video:18392",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2018/09/24/18392-291585315_medium.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "metal gates sag feels invincible but",
+      "recorded_at": 1791640651
+    },
+    {
+      "asset_key": "pexels:video:5735104",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5735104/5735104-hd_1280_720_24fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "metal gates sag without diagonal brace cutting",
+      "recorded_at": 1791640657
+    },
+    {
+      "asset_key": "pexels:video:35451865",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35451865/15019529_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "metal gates sag joints take entire load",
+      "recorded_at": 1791640657
+    },
+    {
+      "asset_key": "pexels:video:27732551",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/27732551/12214171_1280_720_24fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "metal gates sag close up",
+      "recorded_at": 1791640663
+    },
+    {
+      "asset_key": "pixabay:video:189018",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2023/11/13/189018-884234917_medium.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "metal gates sag close up",
+      "recorded_at": 1791640667
     }
   ]
 }

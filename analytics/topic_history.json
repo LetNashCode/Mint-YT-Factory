@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do ceramic plates scratch",
-    "normalized": "why do ceramic plates scratch",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791543287,
-    "recorded_at": 1791543287,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why cast iron pans turn nonstick",
     "normalized": "why cast iron pans turn nonstick",
     "workflow": "publish",
@@ -3534,6 +3522,18 @@
     "status": "reserved",
     "reserved_at": 1791629438,
     "recorded_at": 1791629438,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do metal gates sag",
+    "normalized": "why do metal gates sag",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791640542,
+    "recorded_at": 1791640542,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

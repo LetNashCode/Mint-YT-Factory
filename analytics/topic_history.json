@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do metal paperclips bend",
-    "normalized": "why do metal paperclips bend",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791572302,
-    "recorded_at": 1791572302,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why copper pennies turn green",
     "normalized": "why copper pennies turn green",
     "workflow": "publish",
@@ -3534,6 +3522,18 @@
     "status": "reserved",
     "reserved_at": 1791655144,
     "recorded_at": 1791655144,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why does a shadow move",
+    "normalized": "why does a shadow move",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791668499,
+    "recorded_at": 1791668499,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

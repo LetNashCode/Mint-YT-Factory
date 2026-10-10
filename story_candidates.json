@@ -50,42 +50,6 @@
   },
   {
     "format": "one_decision",
-    "person": "J.K. Rowling",
-    "premise": "A struggling single mother who typed her debut manuscript on a manual typewriter while sitting in Edinburgh cafes makes the decision to keep pitching her rejected children's fantasy novel.",
-    "hook": "Twelve major publishers rejected her manuscript before one small publishing house took a chance because of an eight-year-old reader.",
-    "key_facts": [
-      "Completed the first manuscript while living on state benefits in Edinburgh.",
-      "Received rejections from numerous mainstream publishers over several years.",
-      "Bloomsbury finally accepted the book after the chairman's young daughter read the first chapter."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Alexander Fleming",
-    "premise": "A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
-    "hook": "A messy laboratory bench and an accidental open window led to the discovery of the world's first antibiotic.",
-    "key_facts": [
-      "Noticed a zone of inhibited bacterial growth around a mold contaminant on a culture plate in 1928.",
-      "Identified the mold as Penicillium notatum and named the active substance penicillin.",
-      "Published his initial findings in the British Journal of Experimental Pathology in 1929."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
-    "person": "Radhakishan Damani",
-    "premise": "A reclusive Indian stock market investor who started with a small background in ball-bearing trading built a massive nationwide discount retail hypermarket chain.",
-    "hook": "He started as a humble ball-bearing trader with no retail background, then built India's most successful hypermarket empire.",
-    "key_facts": [
-      "Started his career trading ball bearings before entering stock market investing.",
-      "Acquired a small chain of cooperative stores before launching the D-Mart retail chain in 2002.",
-      "Built the business through a strict everyday-low-pricing model and owned real estate to cut rental costs."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
     "person": "Rosa Parks",
     "premise": "A quiet seamstress and civil rights activist makes the split-second decision to remain seated on a Montgomery city bus, sparking a historic transit boycott.",
     "hook": "One refusal to move to the back of a city bus ignited a 381-day protest that changed American history.",
@@ -105,30 +69,6 @@
       "Taught the rules of chess by his mother, Susheela, at age six.",
       "Became India's first international chess master in 1985 at age fifteen.",
       "Earned the title of grandmaster in 1988, establishing India on the global chess map."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "When his ship became trapped and crushed by Antarctic pack ice, an experienced polar explorer led his entire twenty-eight-man crew on a grueling survival journey across ice and open ocean.",
-    "hook": "His ship was crushed by Antarctic ice, stranding his crew on floating floes for months with no hope of rescue.",
-    "key_facts": [
-      "Led the Imperial Trans-Antarctic Expedition aboard the Endurance in 1914.",
-      "Successfully navigated an open lifeboat across 800 miles of stormy seas to reach South Georgia Island for help.",
-      "Achieved the survival and rescue of every single member of his stranded crew."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Spencer Silver",
-    "premise": "A 3M chemist trying to invent an ultra-strong aerospace adhesive accidentally creates a weak, reusable pressure-sensitive glue that initially seemed entirely useless.",
-    "hook": "He spent years trying to invent a super-strong aerospace glue, but accidentally created an adhesive that barely stuck.",
-    "key_facts": [
-      "Conducted research at 3M in 1968 attempting to develop a heavy-duty acrylate adhesive for aircraft.",
-      "Created a unique microsphere adhesive that stuck to surfaces lightly and could be peeled off without leaving residue.",
-      "The invention languished internally for years until a colleague used it to anchor bookmarks in a church hymnal."
     ],
     "source": "gemini_original"
   }

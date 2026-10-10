@@ -1,18 +1,18 @@
 {
   "story_shorts": {
     "videos": 7,
-    "avg_views": 673.57,
+    "avg_views": 674.0,
     "avg_comments": 0.0,
     "avg_shares": 0.0,
-    "avg_likes": 8.71,
+    "avg_likes": 8.57,
     "avg_view_percentage": 37.52
   },
   "strange_turning_point": {
     "videos": 3,
-    "avg_views": 375.0,
+    "avg_views": 375.67,
     "avg_comments": 0.0,
     "avg_shares": 0.0,
-    "avg_likes": 5.33,
+    "avg_likes": 5.0,
     "avg_view_percentage": 26.25
   },
   "impossible_odds": {
@@ -33,7 +33,7 @@
   },
   "one_decision": {
     "videos": 1,
-    "avg_views": 1078.0,
+    "avg_views": 1079.0,
     "avg_comments": 0.0,
     "avg_shares": 0.0,
     "avg_likes": 13.0,

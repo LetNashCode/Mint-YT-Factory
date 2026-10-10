@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-10-10T12:15:32.248571+00:00",
+  "generated_at": "2026-10-10T15:19:03.424706+00:00",
   "video_count": 7,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 6,
   "reason": "",
   "totals": {
-    "views": 4715,
-    "likes": 61,
+    "views": 4718,
+    "likes": 60,
     "comments": 0
   },
   "averages": {
-    "views": 673.57,
-    "likes": 8.71,
+    "views": 674.0,
+    "likes": 8.57,
     "comments": 0.0,
     "average_view_percentage": 37.52,
     "subscribers_gained": 0.71,
@@ -51,7 +51,7 @@
       "topic": "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes.",
       "video_id": "kW3x0znSFbM",
       "title": "The Decision That Changed Everything: Phil Knight",
-      "views": 1078,
+      "views": 1079,
       "likes": 13,
       "comments": 0,
       "shares": 0,
@@ -59,7 +59,7 @@
       "average_view_percentage": 60.9,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 1.2059
+      "engagement_rate": 1.2048
     },
     {
       "topic": "Jim Carrey: Dropping Out at Age 15 to Work as a Factory Janitor in Canada.",
@@ -93,15 +93,15 @@
       "topic": "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
       "video_id": "jn4q2CUZJGI",
       "title": "The Untold Turning Point in Alexander Fleming's Story",
-      "views": 21,
-      "likes": 1,
+      "views": 23,
+      "likes": 0,
       "comments": 0,
       "shares": 0,
       "average_view_duration": 0.0,
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 4.7619
+      "engagement_rate": 0.0
     },
     {
       "topic": "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",
@@ -151,7 +151,7 @@
       "topic": "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes.",
       "video_id": "kW3x0znSFbM",
       "title": "The Decision That Changed Everything: Phil Knight",
-      "views": 1078,
+      "views": 1079,
       "likes": 13,
       "comments": 0,
       "shares": 0,
@@ -159,7 +159,7 @@
       "average_view_percentage": 60.9,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 1.2059
+      "engagement_rate": 1.2048
     },
     {
       "topic": "Jim Carrey: Dropping Out at Age 15 to Work as a Factory Janitor in Canada.",
@@ -193,15 +193,15 @@
       "topic": "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
       "video_id": "jn4q2CUZJGI",
       "title": "The Untold Turning Point in Alexander Fleming's Story",
-      "views": 21,
-      "likes": 1,
+      "views": 23,
+      "likes": 0,
       "comments": 0,
       "shares": 0,
       "average_view_duration": 0.0,
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 4.7619
+      "engagement_rate": 0.0
     },
     {
       "topic": "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",

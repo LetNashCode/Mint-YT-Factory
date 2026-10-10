@@ -65,6 +65,21 @@
       "source_id": "archive:munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
       "source_url": "https://archive.org/details/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
       "reason": "strong metadata exclusion: commercial"
+    },
+    "024f1146a0cc0ad22362678d": {
+      "source_id": "commons:96226437",
+      "source_url": "https://commons.wikimedia.org/wiki/File:You_know_the_story_of_Rosa_Parks,_but_do_you_know_the_story_of_PFC_Sarah_Keys-_RAQOTvpUJsQ.webm",
+      "reason": "strong metadata exclusion: mural"
+    },
+    "c0b715f78a5fc6dadfa2ed3a": {
+      "source_id": "commons:54513990",
+      "source_url": "https://commons.wikimedia.org/wiki/File:West_Wing_Week-_03-01-13_or_%22Hope_Springs_Eternal%22.webm",
+      "reason": "strong metadata exclusion: monument"
+    },
+    "bf3ac997f61c58ad334edabe": {
+      "source_id": "commons:161344249",
+      "source_url": "https://commons.wikimedia.org/wiki/File:040213_FLOTUS_FilmWorkshop_HD.webm",
+      "reason": "strong metadata exclusion: portraying"
     }
   }
 }

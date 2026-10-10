@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-10-10T10:07:52.528947+00:00",
-  "video_count": 6,
+  "generated_at": "2026-10-10T11:13:58.338791+00:00",
+  "video_count": 7,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 6,
   "reason": "",
   "totals": {
-    "views": 4694,
+    "views": 4711,
     "likes": 60,
     "comments": 0
   },
   "averages": {
-    "views": 782.33,
-    "likes": 10.0,
+    "views": 673.0,
+    "likes": 8.57,
     "comments": 0.0,
-    "average_view_percentage": 43.77,
-    "subscribers_gained": 0.83,
+    "average_view_percentage": 37.52,
+    "subscribers_gained": 0.71,
     "shares": 0.0
   },
   "top_videos": [
@@ -88,6 +88,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.266
+    },
+    {
+      "topic": "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
+      "video_id": "jn4q2CUZJGI",
+      "title": "The Untold Turning Point in Alexander Fleming's Story",
+      "views": 17,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
     },
     {
       "topic": "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",
@@ -174,6 +188,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.266
+    },
+    {
+      "topic": "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
+      "video_id": "jn4q2CUZJGI",
+      "title": "The Untold Turning Point in Alexander Fleming's Story",
+      "views": 17,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
     },
     {
       "topic": "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",

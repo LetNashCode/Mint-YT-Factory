@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-10T10:07:52.743971+00:00",
-  "video_count": 6,
+  "generated_at": "2026-10-10T11:13:58.351311+00:00",
+  "video_count": 7,
   "learning_ready": true,
   "metrics_available": true,
   "advanced_metrics_videos": 6,
@@ -17,13 +17,13 @@
       "score": 26.904,
       "sample_size": 3,
       "weak_sample_size": 3,
-      "weak_score": 21.977
+      "weak_score": 14.482
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 21.977,
+      "score": 14.482,
       "sample_size": 3
     }
   ],
@@ -36,11 +36,11 @@
     "Jim Carrey: Dropping Out at Age 15 to Work as a Factory Janitor in Canada."
   ],
   "avoid_topics": [
-    "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
     "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",
-    "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia."
+    "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
+    "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever."
   ],
-  "used_topic_count": 6,
+  "used_topic_count": 7,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

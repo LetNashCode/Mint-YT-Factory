@@ -1,18 +1,6 @@
 [
   {
     "format": "before_they_were_famous",
-    "person": "Jackie Chan",
-    "premise": "His grueling decade training at the China Drama Academy as a child.",
-    "hook": "Before he broke box office records, he trained for 19 hours a day under a master who promised teachers could break their bones.",
-    "key_facts": [
-      "Enrolled in the Beijing Opera School (China Drama Academy) at age six by his parents.",
-      "Trained rigorously in martial arts, acrobatics, singing, and acting for ten years.",
-      "Worked as a stuntman and extra in Bruce Lee films before landing leading roles."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
     "person": "R. Ramanathan",
     "premise": "The legendary Indian classical Carnatic vocalist who started his career as a bank clerk.",
     "hook": "He balanced ledgers by day and mastered ancient Carnatic ragas by night.",
@@ -49,18 +37,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Rosa Parks",
-    "premise": "A quiet seamstress and civil rights activist makes the split-second decision to remain seated on a Montgomery city bus, sparking a historic transit boycott.",
-    "hook": "One refusal to move to the back of a city bus ignited a 381-day protest that changed American history.",
-    "key_facts": [
-      "Employed as a seamstress and served as secretary for the Montgomery chapter of the NAACP.",
-      "Arrested on December 1, 1955, for refusing to surrender her bus seat to a white passenger.",
-      "Her arrest catalyzed the Montgomery bus boycott led by emerging civil rights leaders."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Viswanathan Anand",
     "premise": "A young prodigy from Chennai who practiced the game with his mother using a traveling chessboard becomes India's first chess grandmaster.",
@@ -69,6 +45,19 @@
       "Taught the rules of chess by his mother, Susheela, at age six.",
       "Became India's first international chess master in 1985 at age fifteen.",
       "Earned the title of grandmaster in 1988, establishing India on the global chess map."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Agatha Christie",
+    "premise": "The bestselling mystery author whose mysterious ten-day disappearance triggered a massive national manhunt.",
+    "hook": "One night she abandoned her car by a quarry, vanished completely, and sparked one of Britain's biggest searches.",
+    "key_facts": [
+      "Disappeared from her home in Berkshire in December 1926.",
+      "Her abandoned car was discovered perched near a chalk quarry containing her coat and driving license.",
+      "Prompted a search involving over a thousand police officers and volunteers.",
+      "Found safe ten days later staying at a hotel under an assumed name."
     ],
     "source": "gemini_original"
   }

@@ -516,12 +516,13 @@ def _make_caption_clip(text, fontsize, color, frame_size, angle=0.0, emphasized=
     )
     clip = ImageClip(bitmap)
     if emphasized:
-        # Quick 70 ms scale-up gives the important word a crisp pop-in.
-        base_w, base_h = clip.w, clip.h
-        clip = clip.resize(lambda t: 1.0 + 0.10 * min(max(float(t) / 0.07, 0.0), 1.0))
-        anchor_y = int(frame_size[1] * CAPTION_VERTICAL_POSITION) + base_h / 2.0
+        # Pop scale around the same lower-centre anchor used by regular captions.
+        base_w = float(clip.w)
+        scale = lambda t: 1.0 + 0.10 * min(max(float(t) / 0.07, 0.0), 1.0)
+        clip = clip.resize(scale)
+        fixed_y = int(frame_size[1] * CAPTION_VERTICAL_POSITION)
         clip = clip.set_position(
-            lambda t: ((frame_size[0] - clip.w) / 2.0, anchor_y - clip.h / 2.0)
+            lambda t: ((frame_size[0] - base_w * scale(t)) / 2.0, fixed_y)
         )
     return clip
 
@@ -532,11 +533,12 @@ def _make_caption_shadow(text, fontsize, frame_size, angle=0.0, emphasized=False
     )
     clip = ImageClip(bitmap)
     if emphasized:
-        base_h = clip.h
-        clip = clip.resize(lambda t: 1.0 + 0.10 * min(max(float(t) / 0.07, 0.0), 1.0))
-        anchor_y = int(frame_size[1] * CAPTION_VERTICAL_POSITION) + base_h / 2.0 + CAPTION_SHADOW_OFFSET
+        base_w = float(clip.w)
+        scale = lambda t: 1.0 + 0.10 * min(max(float(t) / 0.07, 0.0), 1.0)
+        clip = clip.resize(scale)
+        fixed_y = int(frame_size[1] * CAPTION_VERTICAL_POSITION) + CAPTION_SHADOW_OFFSET
         clip = clip.set_position(
-            lambda t: ((frame_size[0] - clip.w) / 2.0, anchor_y - clip.h / 2.0)
+            lambda t: ((frame_size[0] - base_w * scale(t)) / 2.0, fixed_y)
         )
     return clip
 

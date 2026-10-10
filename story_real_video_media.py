@@ -287,11 +287,18 @@ def search_commons(person):
         f"Category:Videos of {clean_person}",
         f"Category:Videos of {clean_person.replace(' ', '_')}",
     ]
+    # Search actual video files with archival-format cues as well as exact-name
+    # matches. These are discovery hints only: sampled-frame verification remains
+    # mandatory, so a documentary mentioning the person is never accepted blindly.
     search_terms = [
         f'intitle:"{clean_person}" filetype:video',
         f'"{clean_person}" filetype:video',
         f'"{clean_person}" interview filetype:video',
         f'"{clean_person}" speech filetype:video',
+        f'"{clean_person}" newsreel filetype:video',
+        f'"{clean_person}" "oral history" filetype:video',
+        f'"{clean_person}" documentary filetype:video',
+        f'"{clean_person}" "press conference" filetype:video',
     ]
 
     def add_pages(pages):
@@ -377,10 +384,17 @@ def search_archive(person):
     # Keep discovery anchored to fields that identify the record itself.
     # Broad description/OR searches routinely return unrelated shows, games and
     # films merely mentioning the requested person, wasting verifier requests.
+    # Prefer archive records whose catalog fields actually identify the person,
+    # then broaden to common archival recording formats. Do not search the whole
+    # archive for a bare name: that floods verification with unrelated films.
+    # Every result still has to pass metadata, motion, and visual identity checks.
     queries = [
         f'mediatype:movies AND title:"{term}" AND NOT identifier:youtube-*',
         f'mediatype:movies AND subject:"{term}" AND NOT identifier:youtube-*',
-        f'mediatype:movies AND description:"{term}" AND NOT identifier:youtube-*',
+        f'mediatype:movies AND creator:"{term}" AND NOT identifier:youtube-*',
+        f'mediatype:movies AND title:"{term}" AND (interview OR speech OR appearance OR newsreel) AND NOT identifier:youtube-*',
+        f'mediatype:movies AND subject:"{term}" AND (interview OR "oral history" OR documentary OR newsreel) AND NOT identifier:youtube-*',
+        f'mediatype:movies AND description:"{term}" AND (interview OR speech OR appearance OR "oral history" OR newsreel) AND NOT identifier:youtube-*',
     ]
     results, seen = [], set()
 

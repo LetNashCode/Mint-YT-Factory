@@ -5845,37 +5845,6 @@
       "reviewed_at": 1790982060.549113
     },
     {
-      "person": "Boman Irani",
-      "source": {
-        "id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am/Parmanu.The.Story.Of.Pokhran.2018.1080p.BluRay.x264-%5BYTS.AM%5D.mp4",
-        "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
-        "title": "Parmanu. The. Story. Of. Pokhran. 2018.1080p. Blu Ray.x 264 [ YTS. AM]",
-        "description": "Ashwat Raina and his teammates arrive in Pokhran to re-conduct a confidential nuclear test, where they face challenges from the American Lacrosse satellite and local spies. ['John Abraham', 'Boman Irani', 'Diana Penty']",
-        "creator": "Abhishek Sharma",
-        "license": "",
-        "subject": "['John Abraham', 'Boman Irani', 'Diana Penty']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 7433.08,
-        "identity_score": 10.0,
-        "archival_signal": 0
-      },
-      "start": 5711.98,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames feature actor Boman Irani in character (wearing a military uniform) from the film 'Parmanu', walking through a control room setting. Although it is a fictional dramatization rather than documentary archival footage, it features the named subject clearly across the sequence and serves as filmography footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f727f9cad02795408941288c91ed78f635ef6897e52c5d02f88ef840e8adf7c5",
-      "reviewed_at": 1791023409.0322871
-    },
-    {
       "person": "Jim Henson",
       "source": {
         "id": "archive:Popcornarchive-theMuppetsCelebrateJimHenson",
@@ -6029,37 +5998,6 @@
       },
       "review_key": "6644cecfe3cdf366fb742005bad1b19461de6f47a7a50d0b8e531f19018bbb7e",
       "reviewed_at": 1791113242.130677
-    },
-    {
-      "person": "Agatha Christie",
-      "source": {
-        "id": "archive:agatha-christie-arena",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/agatha-christie-arena/Agatha%20Christie%20_001.mp4",
-        "source_url": "https://archive.org/details/agatha-christie-arena",
-        "title": "Arena: Agatha Christie - Unfinished Portrait",
-        "description": "Profile celebrating the centenary of the famous author Agatha Christie’s birth. Looking at her life, her character and the key moments in her childhood that influenced her writing. ['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
-        "creator": "BBC",
-        "license": "",
-        "subject": "['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3656.42408,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2806.86,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The frames clearly show archival footage of Agatha Christie sitting at a desk and looking into a mirror, directly matching the biographical subject and narration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "cb9c959022a8b3bfe4f6f040dde8184255c5687218226640e8ec33be34eaf529",
-      "reviewed_at": 1791129775.8803694
     },
     {
       "person": "Shah Rukh Khan",
@@ -6684,37 +6622,6 @@
     {
       "person": "James Cameron",
       "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise/Cameron7.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise",
-        "title": "James Cameron Tar Sands Press Conference: Allowed to Proceed on a Promise",
-        "description": "http://www.tarsandstour.com - James Cameron explains the pitfalls of tar sands mine land reclamation (unproven and very expensive) and criticizes the idea that companies should be allowed to \"proceed on a promise,\" when it will be our children left to make sure that the companies \"make good\" on their promises. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "creator": "tarsandstour",
-        "license": "",
-        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "runtime": "1:54",
-        "direct_subject": true,
-        "duration_hint": 114.364364,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 59.74,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage shows James Cameron speaking at a press conference, which serves as biographical illustration for his life and public appearances, although it does not directly depict the general biographical narration of his life story.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "14e69205fb6ec6e03e803a0a4a2fc1b09997944cae27b4889748d768f599da19",
-      "reviewed_at": 1791401635.1439104
-    },
-    {
-      "person": "James Cameron",
-      "source": {
         "id": "archive:JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands/Cameron9.mp4",
@@ -6773,37 +6680,6 @@
       },
       "review_key": "66bc478c066ffea716401c94934129fb0d392aaefc15c1193a66e98d269c1998",
       "reviewed_at": 1791401690.5153468
-    },
-    {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands/Cameron9.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
-        "title": "James Cameron Tar Sands Press Conference: Climate Change and Canada's Tar Sands",
-        "description": "http://www.tarsandstour.com - In the face of catastrophic climate change, James Cameron asks what the \"future proofing\" is for Alberta and the oil companies operating in the tar sands. He makes the case for strong regulation and boundaries to protect society from irresponsible resource extraction. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "creator": "tarsandstour",
-        "license": "",
-        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "runtime": "2:23",
-        "direct_subject": true,
-        "duration_hint": 142.692693,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames clearly feature the subject, James Cameron, speaking at a podium during a press conference. While it illustrates his public speaking and environmental advocacy rather than his filmmaking career, it is genuine archival footage of the named person.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "db0bbf823d20bcf8506b171101756852bbc5b6feb62419433ad69bf54e914e54",
-      "reviewed_at": 1791401714.9161484
     },
     {
       "person": "James Cameron",
@@ -6901,37 +6777,6 @@
     {
       "person": "James Cameron",
       "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands/Cameron9.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
-        "title": "James Cameron Tar Sands Press Conference: Climate Change and Canada's Tar Sands",
-        "description": "http://www.tarsandstour.com - In the face of catastrophic climate change, James Cameron asks what the \"future proofing\" is for Alberta and the oil companies operating in the tar sands. He makes the case for strong regulation and boundaries to protect society from irresponsible resource extraction. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "creator": "tarsandstour",
-        "license": "",
-        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "runtime": "2:23",
-        "direct_subject": true,
-        "duration_hint": 142.692693,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 34.7,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage clearly shows James Cameron speaking at a podium (The Westin), which serves as biographical illustration for his life and public appearances, though the frames are largely static.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "80af5c4fc500934eea53bdad4f95e8b9bc530bebb8480f101db94fa5fe3a18e4",
-      "reviewed_at": 1791401768.8849556
-    },
-    {
-      "person": "James Cameron",
-      "source": {
         "id": "archive:JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise/Cameron7.mp4",
@@ -6994,37 +6839,6 @@
     {
       "person": "James Cameron",
       "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceoutsider",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceoutsider/Cameron1.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceoutsider",
-        "title": "James Cameron Tar Sands Press Conference: \"Outsider\"",
-        "description": "James Cameron speaks to the media about his status as both an \"outsider\" and a Canadian in observing the tar sands - a status he thinks sharpens his observation and critique of the tar sands, and offers a fresh perspective on what needs to happen in the region. ['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
-        "creator": "tarsandstour",
-        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "subject": "['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
-        "runtime": "1:34",
-        "direct_subject": true,
-        "duration_hint": 93.893894,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 64.92,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage clearly shows James Cameron speaking at a press conference, matching the biographical illustration requirement. However, since the narration simply says 'Archival footage illustrating the life of James Cameron' rather than describing a specific event depicted here, it functions as biographical illustration rather than direct event coverage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e00bf720f1c094069b3319c4a6475d6c55a75141ac1443756e61e18293358a23",
-      "reviewed_at": 1791458238.485532
-    },
-    {
-      "person": "James Cameron",
-      "source": {
         "id": "archive:JamesCameronTarSandsPressConferenceMoratorium",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceMoratorium/Cameron4.mp4",
@@ -7052,37 +6866,6 @@
       },
       "review_key": "d3f0e08a396dad06e0e1d166c9ef865b634966f9446555594d8854719ac339b6",
       "reviewed_at": 1791458276.1398706
-    },
-    {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceoutsider",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceoutsider/Cameron1.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceoutsider",
-        "title": "James Cameron Tar Sands Press Conference: \"Outsider\"",
-        "description": "James Cameron speaks to the media about his status as both an \"outsider\" and a Canadian in observing the tar sands - a status he thinks sharpens his observation and critique of the tar sands, and offers a fresh perspective on what needs to happen in the region. ['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
-        "creator": "tarsandstour",
-        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "subject": "['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
-        "runtime": "1:34",
-        "direct_subject": true,
-        "duration_hint": 93.893894,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The frames show genuine moving archival footage of James Cameron speaking at a press conference about the tar sands, matching the narration and context.",
-        "usage": "direct_event"
-      },
-      "review_key": "511adf0914959fc40132d7f302dd9885bad4f5fd3b9b816793104c15e73dea81",
-      "reviewed_at": 1791458281.627787
     },
     {
       "person": "James Cameron",
@@ -7118,37 +6901,6 @@
     {
       "person": "James Cameron",
       "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceoutsider",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceoutsider/Cameron1.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceoutsider",
-        "title": "James Cameron Tar Sands Press Conference: \"Outsider\"",
-        "description": "James Cameron speaks to the media about his status as both an \"outsider\" and a Canadian in observing the tar sands - a status he thinks sharpens his observation and critique of the tar sands, and offers a fresh perspective on what needs to happen in the region. ['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
-        "creator": "tarsandstour",
-        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "subject": "['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
-        "runtime": "1:34",
-        "direct_subject": true,
-        "duration_hint": 93.893894,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 14.99,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows James Cameron speaking at a press conference about the tar sands, matching the narration and context directly.",
-        "usage": "direct_event"
-      },
-      "review_key": "ab9588e8c5dc73f6afffb8b931e33af73c0b1ccf29e99317c2a283099c25ba48",
-      "reviewed_at": 1791458300.2929187
-    },
-    {
-      "person": "James Cameron",
-      "source": {
         "id": "archive:JamesCameronTarSandsPressConferenceMoratorium",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceMoratorium/Cameron4.mp4",
@@ -7176,37 +6928,6 @@
       },
       "review_key": "469e8e235fda8f53dcd1909901dd82dd54c5165b3482f7ebf483b2bcbcd44f13",
       "reviewed_at": 1791458353.2470956
-    },
-    {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceoutsider",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceoutsider/Cameron1.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceoutsider",
-        "title": "James Cameron Tar Sands Press Conference: \"Outsider\"",
-        "description": "James Cameron speaks to the media about his status as both an \"outsider\" and a Canadian in observing the tar sands - a status he thinks sharpens his observation and critique of the tar sands, and offers a fresh perspective on what needs to happen in the region. ['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
-        "creator": "tarsandstour",
-        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "subject": "['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
-        "runtime": "1:34",
-        "direct_subject": true,
-        "duration_hint": 93.893894,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 24.97,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames show James Cameron speaking at a press conference at The Westin Edmonton. This is genuine archival footage of the named subject, making it useful as biographical illustration, though the clip represents a specific press appearance rather than a defining cinematic event.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "36ff31c2efbc23c63abf5375d03793aa121690ba667709dd5f274275318913ab",
-      "reviewed_at": 1791458358.9727516
     },
     {
       "person": "James Cameron",
@@ -9092,12 +8813,12 @@
         "person_visible": true,
         "real_footage": true,
         "usable": true,
-        "relevance": 6,
-        "reason": "The frames show Amitabh Bachchan performing in a song sequence ('Thugs of Hindostan'). While it is a movie clip and not a documentary of his actual life events, he is clearly visible throughout the sequence, making it usable as biographical illustration footage.",
+        "relevance": 8,
+        "reason": "Amitabh Bachchan is clearly visible across all three frames performing in a song sequence from 'Thugs of Hindostan', making it suitable as biographical illustration.",
         "usage": "biographical_illustration"
       },
-      "review_key": "038de26954ba66b673955c0a1be5445356e9465b1e77d9b21328097e637dc9a5",
-      "reviewed_at": 1791584944.2699916
+      "review_key": "015f7a8b9b99a3cafcba4556938377b57e25d01e20302ddb9edeb1ae1325d20b",
+      "reviewed_at": 1791620328.5562484
     },
     {
       "person": "Amitabh Bachchan",
@@ -9123,12 +8844,753 @@
         "person_visible": true,
         "real_footage": true,
         "usable": true,
-        "relevance": 8,
-        "reason": "Amitabh Bachchan is clearly visible in all three frames participating in an event, serving as good biographical illustration material.",
+        "relevance": 6,
+        "reason": "The named person, Amitabh Bachchan, is clearly visible across all three frames at an event, providing valid biographical illustration footage.",
         "usage": "biographical_illustration"
       },
-      "review_key": "64c054cde319166d63df3762aa5d54648e24e4d295b3a90966cd5e4521a93e2f",
-      "reviewed_at": 1791584959.0373213
+      "review_key": "6c577a44e15fb29703ce4fa37b21bd2762c89d71f85338968c5ca152bd47fc39",
+      "reviewed_at": 1791620342.1990788
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD/Vashmalle%20Song%20Thugs%20Of%20Hindostan%20-%20Amitabh%20Bachchan%20%20-%20%20Aamir%20Khan%20-%20Fresh%20Music%20HD.mp4",
+        "source_url": "https://archive.org/details/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
+        "title": "Vashmalle Song Thugs Of Hindostan Amitabh Bachchan Aamir Khan Fresh Music HD",
+        "description": "Thugs Of Hindostan Vashmalle",
+        "creator": "",
+        "license": "",
+        "subject": "Vashmalle",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 63.52,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 44.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features Amitabh Bachchan dancing in a scene from 'Thugs of Hindostan'. While it is movie footage rather than a real biographical documentary segment, he is clearly visible across all frames as requested, making it usable as biographical illustration for his career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6292696962a205878cf45ebd8e19bea2d4b5499a23f0d93a5910fa5ef90976cd",
+      "reviewed_at": 1791620398.1203156
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD/AMITABH%20BACHCHAN%20LAUNCH%20HIMESH%20%26%20LULIA%20VANTUR%20MUSIC%20ALBUM%20AAP%20SE%20MAUSIIQUII%20%20HD.mp4",
+        "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "title": "Amitabh Bachchan unveils Himesh Reshammiya's album 'Aap Se Mausiiquii'",
+        "description": "Amitabh Bachchan launched Himesh Reshammiya's new album 'Aap Se Mausiiquii' along with Iulia Vantur, Alankrita Sahai and Manoj Muntashir. ['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "creator": "",
+        "license": "",
+        "subject": "['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 165.6,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 28.32,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage shows Amitabh Bachchan clearly present at an event/album launch, interacting with others. It provides biographical illustration of his public appearances, though the narration is generic archival reference.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f57ce0a591f835c646d39971778fc23da337207419b2205fad29bd58a2f2757e",
+      "reviewed_at": 1791620483.4077904
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD/AMITABH%20BACHCHAN%20LAUNCH%20HIMESH%20%26%20LULIA%20VANTUR%20MUSIC%20ALBUM%20AAP%20SE%20MAUSIIQUII%20%20HD.mp4",
+        "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "title": "Amitabh Bachchan unveils Himesh Reshammiya's album 'Aap Se Mausiiquii'",
+        "description": "Amitabh Bachchan launched Himesh Reshammiya's new album 'Aap Se Mausiiquii' along with Iulia Vantur, Alankrita Sahai and Manoj Muntashir. ['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "creator": "",
+        "license": "",
+        "subject": "['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 165.6,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 39.98,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "Amitabh Bachchan is clearly visible across all three frames attending the album launch event, providing good biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5c9c52a621b27fc1799857d695b3814b9f4d088773387a178c9a5a0a9e5d756c",
+      "reviewed_at": 1791620512.6101472
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD/AMITABH%20BACHCHAN%20LAUNCH%20HIMESH%20%26%20LULIA%20VANTUR%20MUSIC%20ALBUM%20AAP%20SE%20MAUSIIQUII%20%20HD.mp4",
+        "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "title": "Amitabh Bachchan unveils Himesh Reshammiya's album 'Aap Se Mausiiquii'",
+        "description": "Amitabh Bachchan launched Himesh Reshammiya's new album 'Aap Se Mausiiquii' along with Iulia Vantur, Alankrita Sahai and Manoj Muntashir. ['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "creator": "",
+        "license": "",
+        "subject": "['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 165.6,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 74.97,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "Amitabh Bachchan is clearly visible across all three frames attending the album launch event, matching the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9fe05aa652c51c6be3cd08d36aedeabcaf2ee77f333baba30b7e13a82fb4032a",
+      "reviewed_at": 1791620554.7477307
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD/AMITABH%20BACHCHAN%20LAUNCH%20HIMESH%20%26%20LULIA%20VANTUR%20MUSIC%20ALBUM%20AAP%20SE%20MAUSIIQUII%20%20HD.mp4",
+        "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "title": "Amitabh Bachchan unveils Himesh Reshammiya's album 'Aap Se Mausiiquii'",
+        "description": "Amitabh Bachchan launched Himesh Reshammiya's new album 'Aap Se Mausiiquii' along with Iulia Vantur, Alankrita Sahai and Manoj Muntashir. ['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "creator": "",
+        "license": "",
+        "subject": "['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 165.6,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 98.29,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The footage clearly shows Amitabh Bachchan speaking at an event, serving as good biographical illustration of his public appearances, although it is not archival footage of his early career or major historical film events.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1307be903a28ada0a6996d52d49527fa068ebb2dbc8487638344ca2b0418007d",
+      "reviewed_at": 1791620568.1954484
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD/AMITABH%20BACHCHAN%20LAUNCH%20HIMESH%20%26%20LULIA%20VANTUR%20MUSIC%20ALBUM%20AAP%20SE%20MAUSIIQUII%20%20HD.mp4",
+        "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "title": "Amitabh Bachchan unveils Himesh Reshammiya's album 'Aap Se Mausiiquii'",
+        "description": "Amitabh Bachchan launched Himesh Reshammiya's new album 'Aap Se Mausiiquii' along with Iulia Vantur, Alankrita Sahai and Manoj Muntashir. ['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "creator": "",
+        "license": "",
+        "subject": "['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 165.6,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 121.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Amitabh Bachchan is clearly visible across all three frames at a public event, but the footage is modern event coverage used to illustrate his biography rather than a direct depiction of historical events from his life story.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "20d8ddb6b1c4178529b7c2ffbff6774deafd64250aea3710ce692ebe2b1a6eaa",
+      "reviewed_at": 1791620636.3375762
+    },
+    {
+      "person": "A. R. Rahman",
+      "source": {
+        "id": "archive:a-r-rahman-us-show",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a-r-rahman-us-show/A%20R%20Rahman%20US%20show.mp4",
+        "source_url": "https://archive.org/details/a-r-rahman-us-show",
+        "title": "A R Rahman US Show",
+        "description": "A R Rahman US Show Los Angeles 2000 On October 8th, 2000, the Cow Palace in San Francisco was the epicenter as Rahman took the stage, captivating the crowd with his soulful compositions leaving the audience in awe of his musical prowess https://rahmaniac.com/interviews/01-05/2001/san-francisco-ar-rahman-concert/ A R Rahman",
+        "creator": "",
+        "license": "",
+        "subject": "A R Rahman",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2964.094467,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2274.3,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows A. R. Rahman performing on stage in all three frames, matching the archival context of his US show.",
+        "usage": "direct_event"
+      },
+      "review_key": "14f7b18fa7e37c14dc24df5f27c8f0bbed1f0e1b3ce2187756f6ef35f82d4a30",
+      "reviewed_at": 1791620955.7889833
+    },
+    {
+      "person": "Agatha Christie",
+      "source": {
+        "id": "archive:agatha-christie-arena",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/agatha-christie-arena/Agatha%20Christie%20_001.mp4",
+        "source_url": "https://archive.org/details/agatha-christie-arena",
+        "title": "Arena: Agatha Christie - Unfinished Portrait",
+        "description": "Profile celebrating the centenary of the famous author Agatha Christie’s birth. Looking at her life, her character and the key moments in her childhood that influenced her writing. ['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
+        "creator": "BBC",
+        "license": "",
+        "subject": "['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3656.42408,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2806.86,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows Agatha Christie herself seated at a desk and visible in all three frames as she looks into/is reflected in a mirror while writing, perfectly illustrating her life and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "047f76f11e801b2d2ce4a80ba7e6ffbcfac9114a7746d99f734ef67155f57c7f",
+      "reviewed_at": 1791621170.8113189
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am/Parmanu.The.Story.Of.Pokhran.2018.1080p.BluRay.x264-%5BYTS.AM%5D.mp4",
+        "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+        "title": "Parmanu. The. Story. Of. Pokhran. 2018.1080p. Blu Ray.x 264 [ YTS. AM]",
+        "description": "Ashwat Raina and his teammates arrive in Pokhran to re-conduct a confidential nuclear test, where they face challenges from the American Lacrosse satellite and local spies. ['John Abraham', 'Boman Irani', 'Diana Penty']",
+        "creator": "Abhishek Sharma",
+        "license": "",
+        "subject": "['John Abraham', 'Boman Irani', 'Diana Penty']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 7433.08,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 5711.98,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The actor Boman Irani is clearly visible across all three frames as part of a movie scene set in a control room, illustrating his acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d0c0baf8ebcc7854bf17eb787a642654dac488d6d125ddacf08ff507d62de562",
+      "reviewed_at": 1791621573.6819687
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1/Romeo%20Akbar%20Walter%20%282019%29%201080p%20AMZN%20WEB.DL%20AVC%20DDP%205.1.mp4",
+        "source_url": "https://archive.org/details/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+        "title": "Romeo Akbar Walter (2019) 1080p AMZN WEB. DL AVC DDP 5.1",
+        "description": "1080p AMZN WEB. DL AVC DDP 5.1 ['JOHN ABRAHAM', 'GEETIKA VIDYA OHLYAN', 'ANIL GEORGE', 'MOUNI ROY', 'SIKANDER KHER', 'BOMAN IRANI', 'RAGHUBIR YADAV', 'GOVIND NAMDEV', 'JACKIE SHROFF']",
+        "creator": "BOLLYWEB",
+        "license": "",
+        "subject": "['JOHN ABRAHAM', 'GEETIKA VIDYA OHLYAN', 'ANIL GEORGE', 'MOUNI ROY', 'SIKANDER KHER', 'BOMAN IRANI', 'RAGHUBIR YADAV', 'GOVIND NAMDEV', 'JACKIE SHROFF']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 8176.88,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 632.91,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show Boman Irani clearly visible in a scene from the film 'Romeo Akbar Walter', making it suitable as biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "282acd5740420314c4c6093a1ee5b2ed49e1c42ef46bb2c7f88c32f6c582e11a",
+      "reviewed_at": 1791621652.6560411
+    },
+    {
+      "person": "J. R. R. Tolkien",
+      "source": {
+        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
+        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
+        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
+        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
+        "creator": "BBC Archive",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Tolkien', 'God', 'Creator']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 386.96,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 205.82,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The frames clearly show the actual J.R.R. Tolkien in authentic archival interview footage from 1952/1962, remaining visible across all three frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "751dcea6de61ba38aca9b510d7b169a1c308d4d231aa589a8e0ead8f2d004716",
+      "reviewed_at": 1791622176.3628392
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceoutsider",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceoutsider/Cameron1.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceoutsider",
+        "title": "James Cameron Tar Sands Press Conference: \"Outsider\"",
+        "description": "James Cameron speaks to the media about his status as both an \"outsider\" and a Canadian in observing the tar sands - a status he thinks sharpens his observation and critique of the tar sands, and offers a fresh perspective on what needs to happen in the region. ['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "creator": "tarsandstour",
+        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
+        "subject": "['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "runtime": "1:34",
+        "direct_subject": true,
+        "duration_hint": 93.893894,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 64.92,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage clearly shows James Cameron speaking at a podium, directly illustrating his life and public appearances as narrated.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5cc36ee20bcb1dfbb84d25efbbaf3084d6bccdd1cb0a1cc418e1095539f0c5a3",
+      "reviewed_at": 1791622501.8148396
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise/Cameron7.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise",
+        "title": "James Cameron Tar Sands Press Conference: Allowed to Proceed on a Promise",
+        "description": "http://www.tarsandstour.com - James Cameron explains the pitfalls of tar sands mine land reclamation (unproven and very expensive) and criticizes the idea that companies should be allowed to \"proceed on a promise,\" when it will be our children left to make sure that the companies \"make good\" on their promises. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
+        "creator": "tarsandstour",
+        "license": "",
+        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
+        "runtime": "1:54",
+        "direct_subject": true,
+        "duration_hint": 114.364364,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 59.74,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage clearly shows James Cameron speaking at a podium during a press conference about tar sands and environmental issues, providing relevant biographical illustration of his activism.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "131727e21ea363caebb6ff90e465d40334ed9bbc87899e1be930de2d241c0368",
+      "reviewed_at": 1791622507.4754062
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceoutsider",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceoutsider/Cameron1.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceoutsider",
+        "title": "James Cameron Tar Sands Press Conference: \"Outsider\"",
+        "description": "James Cameron speaks to the media about his status as both an \"outsider\" and a Canadian in observing the tar sands - a status he thinks sharpens his observation and critique of the tar sands, and offers a fresh perspective on what needs to happen in the region. ['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "creator": "tarsandstour",
+        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
+        "subject": "['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "runtime": "1:34",
+        "direct_subject": true,
+        "duration_hint": 93.893894,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "James Cameron is clearly visible standing at the podium speaking at the press conference across all three frames, providing direct archival footage of his actual public engagements related to the topic.",
+        "usage": "direct_event"
+      },
+      "review_key": "41525557ba667c74d6dcc39087b26738753f19341c5d4f8815fc41931b7a561b",
+      "reviewed_at": 1791622514.39965
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceoutsider",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceoutsider/Cameron1.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceoutsider",
+        "title": "James Cameron Tar Sands Press Conference: \"Outsider\"",
+        "description": "James Cameron speaks to the media about his status as both an \"outsider\" and a Canadian in observing the tar sands - a status he thinks sharpens his observation and critique of the tar sands, and offers a fresh perspective on what needs to happen in the region. ['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "creator": "tarsandstour",
+        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
+        "subject": "['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "runtime": "1:34",
+        "direct_subject": true,
+        "duration_hint": 93.893894,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 14.99,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows James Cameron speaking at a press conference about the tar sands, matching the narration and context directly with genuine archival video.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bfd4120bb03bf6bdb9f109bbc8c28726490282fb6e87d02b039668ccb7792ade",
+      "reviewed_at": 1791622538.3278863
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceoutsider",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceoutsider/Cameron1.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceoutsider",
+        "title": "James Cameron Tar Sands Press Conference: \"Outsider\"",
+        "description": "James Cameron speaks to the media about his status as both an \"outsider\" and a Canadian in observing the tar sands - a status he thinks sharpens his observation and critique of the tar sands, and offers a fresh perspective on what needs to happen in the region. ['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "creator": "tarsandstour",
+        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
+        "subject": "['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "runtime": "1:34",
+        "direct_subject": true,
+        "duration_hint": 93.893894,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 24.97,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows real historical footage of James Cameron speaking at a press conference, which fits biographical illustration of his life and public engagements.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "26776d1488491c564fc229a1b0bc4a26fece49a60af477970f37ace6c1df0109",
+      "reviewed_at": 1791622545.0338848
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceoutsider",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceoutsider/Cameron1.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceoutsider",
+        "title": "James Cameron Tar Sands Press Conference: \"Outsider\"",
+        "description": "James Cameron speaks to the media about his status as both an \"outsider\" and a Canadian in observing the tar sands - a status he thinks sharpens his observation and critique of the tar sands, and offers a fresh perspective on what needs to happen in the region. ['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "creator": "tarsandstour",
+        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
+        "subject": "['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "runtime": "1:34",
+        "direct_subject": true,
+        "duration_hint": 93.893894,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 34.96,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage clearly shows James Cameron speaking at a press conference, matching the archival context for a biographical short, though it is a presenter/speaking setup rather than a direct depiction of his filmmaking events.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e11b5bb9bee33ca3419855e94705e8543b41bf52bd0e9065432aeb73baf979ee",
+      "reviewed_at": 1791622551.944357
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceoutsider",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceoutsider/Cameron1.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceoutsider",
+        "title": "James Cameron Tar Sands Press Conference: \"Outsider\"",
+        "description": "James Cameron speaks to the media about his status as both an \"outsider\" and a Canadian in observing the tar sands - a status he thinks sharpens his observation and critique of the tar sands, and offers a fresh perspective on what needs to happen in the region. ['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "creator": "tarsandstour",
+        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
+        "subject": "['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "runtime": "1:34",
+        "direct_subject": true,
+        "duration_hint": 93.893894,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 54.93,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage clearly shows James Cameron speaking at a press conference, providing biographical illustration material suitable for a short, although it is a speaking engagement rather than a direct depiction of his major filmmaking achievements.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ca3a5cd39d11720b02e46bcce13e2f5a0ff7b7eeb7849695e30f6942f99f6f41",
+      "reviewed_at": 1791622561.9914098
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceoutsider",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceoutsider/Cameron1.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceoutsider",
+        "title": "James Cameron Tar Sands Press Conference: \"Outsider\"",
+        "description": "James Cameron speaks to the media about his status as both an \"outsider\" and a Canadian in observing the tar sands - a status he thinks sharpens his observation and critique of the tar sands, and offers a fresh perspective on what needs to happen in the region. ['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "creator": "tarsandstour",
+        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
+        "subject": "['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "runtime": "1:34",
+        "direct_subject": true,
+        "duration_hint": 93.893894,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 44.95,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The frames clearly show the named subject, James Cameron, speaking at a press conference, which serves as biographical illustration for his life and public activities.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ba086b3e5d06b28cc8ffabd1593e2a56b4f2840bf1a30071ceb7f2c71aa211f7",
+      "reviewed_at": 1791622566.8870776
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceoutsider",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceoutsider/Cameron1.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceoutsider",
+        "title": "James Cameron Tar Sands Press Conference: \"Outsider\"",
+        "description": "James Cameron speaks to the media about his status as both an \"outsider\" and a Canadian in observing the tar sands - a status he thinks sharpens his observation and critique of the tar sands, and offers a fresh perspective on what needs to happen in the region. ['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "creator": "tarsandstour",
+        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
+        "subject": "['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
+        "runtime": "1:34",
+        "direct_subject": true,
+        "duration_hint": 93.893894,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 84.89,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows James Cameron speaking at a press conference, matching the biographical illustration requirement for archival life footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ab701f1d6891a09e14eaff7a5f38dff90d872e633d470450a1a50b10e3be8727",
+      "reviewed_at": 1791622577.6609452
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands/Cameron9.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
+        "title": "James Cameron Tar Sands Press Conference: Climate Change and Canada's Tar Sands",
+        "description": "http://www.tarsandstour.com - In the face of catastrophic climate change, James Cameron asks what the \"future proofing\" is for Alberta and the oil companies operating in the tar sands. He makes the case for strong regulation and boundaries to protect society from irresponsible resource extraction. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
+        "creator": "tarsandstour",
+        "license": "",
+        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
+        "runtime": "2:23",
+        "direct_subject": true,
+        "duration_hint": 142.692693,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage clearly shows the named subject James Cameron speaking at a press conference, providing biographical illustration material for a short video about him.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bb9af58ddb81c78e130bd126c53ed5a347b5b36805ba8676f78c7a515f52abb0",
+      "reviewed_at": 1791622593.380016
+    },
+    {
+      "person": "James Cameron",
+      "source": {
+        "id": "archive:JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands/Cameron9.mp4",
+        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
+        "title": "James Cameron Tar Sands Press Conference: Climate Change and Canada's Tar Sands",
+        "description": "http://www.tarsandstour.com - In the face of catastrophic climate change, James Cameron asks what the \"future proofing\" is for Alberta and the oil companies operating in the tar sands. He makes the case for strong regulation and boundaries to protect society from irresponsible resource extraction. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
+        "creator": "tarsandstour",
+        "license": "",
+        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
+        "runtime": "2:23",
+        "direct_subject": true,
+        "duration_hint": 142.692693,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 34.7,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show James Cameron speaking at a press conference, which provides real archival footage of the subject himself, usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ff2f0d891e1f95d972f0c26a0e3436a52a4fc5317b73319b08ee330cf12f6291",
+      "reviewed_at": 1791622614.7313657
+    },
+    {
+      "person": "Dwayne Johnson",
+      "source": {
+        "id": "archive:twitter-1642939444922818560",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1642939444922818560/1642924928461848578.mp4",
+        "source_url": "https://archive.org/details/twitter-1642939444922818560",
+        "title": "Walt Disney Studios - JUST ANNOUNCED: From Dwayne Johnson and Auli’i Cravalho, a live-action reimagining of Disney’s Moana is in the works!",
+        "description": "JUST ANNOUNCED: From Dwayne Johnson and Auli’i Cravalho, a live-action reimagining of Disney’s Moana is in the works! https://t.co/4rQXLSJ5Zn ['Twitter', 'video']",
+        "creator": "Walt Disney Studios",
+        "license": "",
+        "subject": "['Twitter', 'video']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 128.128,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 43.04,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Dwayne Johnson speaking directly to the camera on a beach location, which matches his biography and public presence, although it serves as promotional/presenter style footage rather than a direct depiction of historical events.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ef3e506e2ff0b156f017f356a87d977be8c8ce70f06a044b6691a1686829e6da",
+      "reviewed_at": 1791622919.932099
+    },
+    {
+      "person": "A.R. Rahman",
+      "source": {
+        "id": "commons:83034875",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Wikipedia-VideoWiki-A._R._Rahman.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wikipedia-VideoWiki-A._R._Rahman.webm",
+        "title": "File:Wikipedia-VideoWiki-A. R. Rahman.webm",
+        "description": "Wikipedia:VideoWiki/A. R. Rahman",
+        "creator": "See script and authors listed in details below.",
+        "license": "CC BY-SA 3.0",
+        "direct_subject": false,
+        "identity_score": 10.0,
+        "duration_hint": 350.954
+      },
+      "start": 186.44,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The subject A.R. Rahman is clearly visible on stage with performers in the first two frames, providing authentic archival performance footage illustrating his life and career, despite the third frame being dark and pixelated.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ed1a80eda6b5d3af8411f8e29b9a87f2455f6144c19f91efcb93a893b167bc17",
+      "reviewed_at": 1791623102.4407523
     }
   ]
 }

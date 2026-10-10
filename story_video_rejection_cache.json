@@ -50,6 +50,21 @@
       "source_id": "commons:142926513",
       "source_url": "https://commons.wikimedia.org/wiki/File:Jane_Goodall_Film.webm",
       "reason": "strong metadata exclusion: film"
+    },
+    "f89b1f6f2ca71210a6d066ea": {
+      "source_id": "commons:77369754",
+      "source_url": "https://commons.wikimedia.org/wiki/File:JAI_HO.webm",
+      "reason": "strong metadata exclusion: museum"
+    },
+    "506752af17a72d83252968e1": {
+      "source_id": "archive:arena-agatha-christie-an-unfinished-portrait-1990",
+      "source_url": "https://archive.org/details/arena-agatha-christie-an-unfinished-portrait-1990",
+      "reason": "strong metadata exclusion: tv adaptation"
+    },
+    "9d12532d7356c3dee4198821": {
+      "source_id": "archive:munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+      "source_url": "https://archive.org/details/munna-bhai-m.-b.-b.-s.-2003-eros-dvdrip",
+      "reason": "strong metadata exclusion: commercial"
     }
   }
 }

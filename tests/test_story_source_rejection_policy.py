@@ -25,3 +25,20 @@ def test_legacy_rejection_cache_is_invalidated(tmp_path, monkeypatch):
     monkeypatch.setattr(media, "PRECHECK_CACHE_FILE", cache)
     assert media._load_precheck_cache() == {}
 
+
+
+def test_interview_and_podcast_metadata_are_not_automatic_rejections():
+    import story_real_video_media as media
+
+    for title in (
+        "Marie Curie archival interview",
+        "Podcast conversation with Marie Curie",
+        "Marie Curie panel discussion and speech",
+    ):
+        assert media._source_precheck({"title": title}) is None
+
+
+def test_animation_and_slideshow_metadata_remain_rejected():
+    import story_real_video_media as media
+
+    assert media._source_precheck({"title": "Animated slideshow about Marie Curie"}) is not None

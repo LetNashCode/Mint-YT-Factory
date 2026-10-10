@@ -191,10 +191,14 @@ def _story_media_failure(exc: Exception) -> bool:
     text = str(exc or "").lower()
     markers = (
         "insufficient verified real footage",
+        "insufficient verified story footage",
         "story media preflight failed",
         "no real video candidates found",
         "story video search budget exhausted",
         "no relevant downloadable archival media",
+        "could not decode sample frame",
+        "source has no usable video stream",
+        "truncated source interval",
     )
     return any(marker in text for marker in markers)
 
@@ -345,7 +349,15 @@ def main() -> None:
     # Georgia footage, but Gemini correctly rejected it). Treat that as a
     # content-availability failure, not a broken CI run: release the subject,
     # choose another unused subject, and retry the complete Story generation.
-    max_story_attempts = 4
+    # Keep trying unused people when archival clips are missing or fail visual
+    # identity verification. This is a content-recovery loop, not a quota retry:
+    # quota/network/budget failures still defer immediately below.
+    try:
+        max_story_attempts = max(1, min(30, int(os.environ.get(
+            "STORY_TOPIC_ATTEMPTS", "16"
+        ))))
+    except (TypeError, ValueError):
+        max_story_attempts = 16
     for attempt in range(1, max_story_attempts + 1):
         # A fresh subject needs up to the hard 14-clip minimum. Do not start
         # another full production attempt once the remaining run-wide budget

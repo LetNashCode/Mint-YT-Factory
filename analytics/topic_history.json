@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why cast iron pans turn nonstick",
-    "normalized": "why cast iron pans turn nonstick",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791556185,
-    "recorded_at": 1791556185,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do metal paperclips bend",
     "normalized": "why do metal paperclips bend",
     "workflow": "publish",
@@ -3534,6 +3522,18 @@
     "status": "reserved",
     "reserved_at": 1791640542,
     "recorded_at": 1791640542,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why wooden doors stick in summer",
+    "normalized": "why wooden doors stick in summer",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791655144,
+    "recorded_at": 1791655144,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

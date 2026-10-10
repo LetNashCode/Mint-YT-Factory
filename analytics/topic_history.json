@@ -3480,126 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do glass windows rattle in windstorms",
-    "normalized": "why do glass window rattle in windstorms",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791495039,
-    "recorded_at": 1791495039,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do cotton shirts twist in laundry",
-    "normalized": "why do cotton shirts twist in laundry",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791496709,
-    "recorded_at": 1791496709,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do felt tips squeak",
-    "normalized": "why do felt tips squeak",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791497368,
-    "recorded_at": 1791497368,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why does garlic turn green",
-    "normalized": "why does garlic turn green",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791498128,
-    "recorded_at": 1791498128,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do leather shoes squeak loudly",
-    "normalized": "why do leather shoes squeak loudly",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791498880,
-    "recorded_at": 1791498880,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do dry pasta noodles snap",
-    "normalized": "why do dry pasta noodles snap",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791500836,
-    "recorded_at": 1791500836,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do ceramic tiles feel cold",
-    "normalized": "why do ceramic tiles feel cold",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791501920,
-    "recorded_at": 1791501920,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do ice cream cones drip",
-    "normalized": "why do ice cream cones drip",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791502404,
-    "recorded_at": 1791502404,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do loose hairs stick to sweaters",
-    "normalized": "why do loose hairs stick to sweaters",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791503028,
-    "recorded_at": 1791503028,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do baking sheets pop",
-    "normalized": "why do baking sheets pop",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791506971,
-    "recorded_at": 1791506971,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do frying pan handles stay cool",
     "normalized": "why do frying pan handles stay cool",
     "workflow": "publish",
@@ -3642,6 +3522,18 @@
     "status": "reserved",
     "reserved_at": 1791572302,
     "recorded_at": 1791572302,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why copper pennies turn green",
+    "normalized": "why copper pennies turn green",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791619249,
+    "recorded_at": 1791619249,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

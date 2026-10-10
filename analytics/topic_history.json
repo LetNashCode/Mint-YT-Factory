@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do frying pan handles stay cool",
-    "normalized": "why do frying pan handles stay cool",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791533937,
-    "recorded_at": 1791533937,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do ceramic plates scratch",
     "normalized": "why do ceramic plates scratch",
     "workflow": "publish",
@@ -3534,6 +3522,18 @@
     "status": "reserved",
     "reserved_at": 1791619249,
     "recorded_at": 1791619249,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do water drops bead",
+    "normalized": "why do water drops bead",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791629438,
+    "recorded_at": 1791629438,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

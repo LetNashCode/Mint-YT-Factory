@@ -13459,6 +13459,126 @@
       "shot": 2,
       "query": "copper pennies made entirely weather coin",
       "recorded_at": 1791619780
+    },
+    {
+      "asset_key": "pexels:video:7702688",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7702688/7702688-hd_1366_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "water drops bead spill dusty floor",
+      "recorded_at": 1791629731
+    },
+    {
+      "asset_key": "pexels:video:3864099",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3864099/3864099-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "water drops bead panics into flat puddle",
+      "recorded_at": 1791629755
+    },
+    {
+      "asset_key": "pexels:video:9667861",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9667861/9667861-hd_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "water drops bead drop exact liquid onto",
+      "recorded_at": 1791629774
+    },
+    {
+      "asset_key": "pexels:video:11646451",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/11646451/11646451-hd_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "water drops bead suddenly curls into perfect",
+      "recorded_at": 1791629811
+    },
+    {
+      "asset_key": "pexels:video:39949397",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39949397/17046867_720_1280_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "water drops bead molecules fiercely cliquey",
+      "recorded_at": 1791629826
+    },
+    {
+      "asset_key": "pexels:video:8343538",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8343538/8343538-hd_1280_720_25fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "water drops bead they love hugging each",
+      "recorded_at": 1791629862
+    },
+    {
+      "asset_key": "pexels:video:4725696",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4725696/4725696-hd_1280_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "water drops bead deep inside drop center",
+      "recorded_at": 1791629889
+    },
+    {
+      "asset_key": "pexels:video:36016995",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/36016995/15272453_720_1280_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "water drops bead every little molecule gets",
+      "recorded_at": 1791629902
+    },
+    {
+      "asset_key": "pexels:video:35035972",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35035972/14841611_720_1280_30fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "water drops bead but ones right outside",
+      "recorded_at": 1791629909
+    },
+    {
+      "asset_key": "pexels:video:26793258",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/26793258/12007649_720_1280_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "water drops bead friends above them they",
+      "recorded_at": 1791629916
+    },
+    {
+      "asset_key": "pexels:video:2603665",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/2603665/2603665-hd_1280_720_24fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "water drops bead squeeze builds literal invisible",
+      "recorded_at": 1791629923
+    },
+    {
+      "asset_key": "pexels:video:5739297",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5739297/5739297-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "water drops bead forcing pull itself",
+      "recorded_at": 1791629928
     }
   ]
 }

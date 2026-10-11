@@ -41,7 +41,7 @@ GEMINI_MODEL = "gemini-flash-lite-latest"
 GEMINI_FALLBACK_MODEL = os.environ.get("STORY_GEMINI_FALLBACK_MODEL", "gemini-3.5-flash-lite").strip() or "gemini-3.5-flash-lite"
 
 PRECHECK_CACHE_FILE = Path("story_video_rejection_cache.json")
-PRECHECK_CACHE_VERSION = 4  # discard legacy source-wide cache entries created by clip-level visual rejections
+PRECHECK_CACHE_VERSION = 5  # versioned metadata + interval-level visual rejection cache
 _POSITIVE_ARCHIVAL_TERMS = (
     "interview", "speech", "talk", "address", "press conference",
     "news conference", "ceremony", "award", "summit", "documentary",
@@ -988,6 +988,16 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                         identity = (sid, start)
                         if identity in used or identity in rejected:
                             continue
+                        # Cache deterministic negative visual reviews per person/source/interval.
+                        # This avoids paying Gemini repeatedly for the same title cards,
+                        # unrelated interviewees, animation, or wrong-person footage on later runs.
+                        segment_cache_key = _precheck_cache_key(item, start, person)
+                        cached_rejection = precheck_cache.get(segment_cache_key)
+                        if isinstance(cached_rejection, dict):
+                            reviewed_at = float(cached_rejection.get("reviewed_at", 0) or 0)
+                            if cached_rejection.get("kind") == "segment_rejection" and 0 <= time.time() - reviewed_at < 30 * 86400:
+                                rejected.add(identity)
+                                continue
                         if time.monotonic() > deadline or len(audit["attempts"]) >= 84:
                             raise RuntimeError("Story video search budget exhausted; see story_video_audit.json")
                         digest = hashlib.sha256(f"{sid}:{start}".encode()).hexdigest()[:20]
@@ -1002,6 +1012,12 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                             frame_rejection = _frame_precheck(cached[identity])
                             if frame_rejection:
                                 rejected.add(identity)
+                                precheck_cache[segment_cache_key] = {
+                                    "kind": "segment_rejection", "source_id": item.get("id"),
+                                    "source_url": item.get("source_url"), "person": person,
+                                    "start": start, "reason": frame_rejection, "reviewed_at": time.time(),
+                                }
+                                _save_precheck_cache(precheck_cache)
                                 audit["attempts"].append({"scene": scene_no, "shot": shot_no, "source": item["source_url"],
                                                           "start": start, "stage": "frame_precheck", "rejected": frame_rejection})
                                 print(f"Story clip precheck rejected: {item['provider']} {start}s | {frame_rejection}", flush=True)
@@ -1030,6 +1046,12 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
                                                       "start": start, "verification": verdict})
                             if not (catalog.accepts(verdict) if catalog is not None else verification_passes(verdict)):
                                 rejected.add(identity)
+                                precheck_cache[segment_cache_key] = {
+                                    "kind": "segment_rejection", "source_id": item.get("id"),
+                                    "source_url": item.get("source_url"), "person": person,
+                                    "start": start, "reason": clean(verdict.get("reason")), "reviewed_at": time.time(),
+                                }
+                                _save_precheck_cache(precheck_cache)
                                 source_rejections[sid] += 1
                                 source_consecutive_rejections[sid] += 1
                                 print(f"Story clip rejected: {item['provider']} {start}s | {clean(verdict.get('reason'))}", flush=True)

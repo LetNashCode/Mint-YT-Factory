@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why wooden doors stick in summer",
-    "normalized": "why wooden doors stick in summer",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791655144,
-    "recorded_at": 1791655144,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why does a shadow move",
     "normalized": "why does a shadow move",
     "workflow": "publish",
@@ -3522,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1791728140,
     "recorded_at": 1791728140,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do leather shoes crease",
+    "normalized": "why do leather shoes crease",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791742902,
+    "recorded_at": 1791742902,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

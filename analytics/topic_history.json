@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why copper pennies turn green",
-    "normalized": "why copper pennies turn green",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791619249,
-    "recorded_at": 1791619249,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do water drops bead",
     "normalized": "why do water drops bead",
     "workflow": "publish",
@@ -3534,6 +3522,18 @@
     "status": "reserved",
     "reserved_at": 1791668499,
     "recorded_at": 1791668499,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why does a fan wobble",
+    "normalized": "why does a fan wobble",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791706118,
+    "recorded_at": 1791706118,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

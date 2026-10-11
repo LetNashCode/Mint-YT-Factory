@@ -1,18 +1,6 @@
 [
   {
     "format": "before_they_were_famous",
-    "person": "R. Ramanathan",
-    "premise": "The legendary Indian classical Carnatic vocalist who started his career as a bank clerk.",
-    "hook": "He balanced ledgers by day and mastered ancient Carnatic ragas by night.",
-    "key_facts": [
-      "Worked for decades as an employee at the State Bank of India.",
-      "Studied music under veteran masters while maintaining a full-time banking job.",
-      "Transitioned to performing full-time later in life, earning widespread critical acclaim."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
     "person": "Kalpana Chawla",
     "premise": "The aeronautical engineering student from Karnal who broke geographical barriers to reach NASA.",
     "hook": "Growing up in a small town in Haryana where aerospace opportunities were rare, she built model airplanes before studying aerospace engineering.",
@@ -37,42 +25,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "before_they_were_famous",
-    "person": "Viswanathan Anand",
-    "premise": "A young prodigy from Chennai who practiced the game with his mother using a traveling chessboard becomes India's first chess grandmaster.",
-    "hook": "Long before winning multiple world chess championships, he learned the game from his mother in the living rooms of Tamil Nadu.",
-    "key_facts": [
-      "Taught the rules of chess by his mother, Susheela, at age six.",
-      "Became India's first international chess master in 1985 at age fifteen.",
-      "Earned the title of grandmaster in 1988, establishing India on the global chess map."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Rosa Parks",
-    "premise": "The immediate choice to remain seated on a Montgomery bus that galvanized a historic civil rights movement.",
-    "hook": "One ordinary bus ride home from work permanently altered the course of American history.",
-    "key_facts": [
-      "Employed as a seamstress in Montgomery, Alabama.",
-      "Acted as secretary for the local chapter of the NAACP.",
-      "Refused to give up her bus seat to a white passenger on December 1, 1955."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
-    "person": "Morgan Freeman",
-    "premise": "Enduring over a decade of minor stage roles and day jobs before achieving mainstream cinematic recognition.",
-    "hook": "The voice of God spent years struggling to pay rent in New York City.",
-    "key_facts": [
-      "Served in the United States Air Force as a radar technician before pursuing acting.",
-      "Spent over a decade performing in off-Broadway productions and regional theatre.",
-      "Achieved his breakthrough film role in 'Street Smart' at the age of 50."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "impossible_odds",
     "person": "Tenzing Norgay",
     "premise": "Overcoming humble beginnings as a high-altitude porter to reach the highest point on Earth.",
@@ -81,30 +33,6 @@
       "Born in Tibet and grew up in a yak-herding family in Nepal.",
       "Worked for years as a high-altitude expedition porter for various mountaineering teams.",
       "Reached the summit of Mount Everest alongside Edmund Hillary on May 29, 1953."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "J.K. Rowling",
-    "premise": "Conceiving a magical train journey while stuck on a delayed locomotive that led to a global literary phenomenon.",
-    "hook": "A broken-down train in 1990 sparked an idea that changed children's literature forever.",
-    "key_facts": [
-      "Conceived the idea for a boy wizard while sitting on a delayed train from Manchester to London.",
-      "Wrote portions of the first manuscript in various Edinburgh cafes while facing financial hardship.",
-      "Published 'Harry Potter and the Philosopher's Stone' in the United Kingdom in 1997."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Sully Sullenberger",
-    "premise": "Making a split-second calculation to land a disabled commercial airliner on a freezing river.",
-    "hook": "With both engines destroyed at low altitude, a veteran pilot had seconds to choose a landing spot.",
-    "key_facts": [
-      "Served as a fighter pilot in the United States Air Force before joining commercial aviation.",
-      "Faced a multiple bird strike that disabled both engines of US Airways Flight 1549 in January 2009.",
-      "Successfully executed a water landing on the Hudson River with zero fatalities."
     ],
     "source": "gemini_original"
   },
@@ -122,13 +50,53 @@
   },
   {
     "format": "strange_turning_point",
-    "person": "Guillermo del Toro",
-    "premise": "Losing his entire completed master notebook that forced him to restart and refine his creative vision.",
-    "hook": "Leaving a notebook containing years of monster designs in a taxi cab changed his artistic process forever.",
+    "person": "Agatha Christie",
+    "premise": "How an Unsolved Disappearance Sparked a Legendary Mystery Writing Career.",
+    "hook": "When she mysteriously vanished for eleven days, launching a massive national manhunt, the resulting public scrutiny changed her life forever.",
     "key_facts": [
-      "Began his career in Mexican cinema working as a special effects makeup supervisor.",
-      "Left a personal journal filled with years of sketches and notes in a Mexico City taxi cab.",
-      "Went on to direct critically acclaimed fantasy and horror films such as 'Pan's Labyrinth'."
+      "Disappeared from her home in 1926, prompting a widespread police search involving thousands of volunteers.",
+      "Was found days later at a hotel registered under an assumed name.",
+      "Continued to write numerous globally renowned detective novels featuring Hercule Poirot and Miss Marple.",
+      "Became one of the best-selling fiction writers in history."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Jim Henson",
+    "premise": "The Early Years of Crafting Puppets Before Creating The Muppets.",
+    "hook": "Before entertaining millions worldwide, he sewed scrap fabric and ping-pong balls together to build television puppets in local broadcasts.",
+    "key_facts": [
+      "Created early puppet characters for local Washington, D.C. television stations in the 1950s.",
+      "Innovated soft-sculpture puppet construction techniques using foam rubber and fabric.",
+      "Developed iconic characters like Kermit the Frog years before the launch of Sesame Street.",
+      "Revolutionized puppetry as an art form for both children and adults."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Ernest Shackleton",
+    "premise": "The Survival of the Entire Imperial Trans-Antarctic Expedition After Their Ship Was Crushed.",
+    "hook": "Their ship was trapped and crushed by Antarctic pack ice, stranding twenty-eight men on floating ice floes for months.",
+    "key_facts": [
+      "Led the Imperial Trans-Antarctic Expedition which set sail in 1914.",
+      "The ship, Endurance, was trapped and eventually sunk by pack ice in the Weddell Sea.",
+      "Navigated a small lifeboat across 800 miles of stormy ocean to reach South Georgia Island for rescue.",
+      "Successfully saved the lives of every member of his crew without a single casualty."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Radhanath Sikdar",
+    "premise": "The Mathematician Who Calculated the Height of Everest Without Ever Climbing It.",
+    "hook": "Working from a desk hundreds of miles away from the Himalayas, a brilliant Indian mathematician used geometry to measure the world's tallest peak.",
+    "key_facts": [
+      "Joined the Great Trigonometrical Survey of India as a mathematical computer.",
+      "Calculated the height of Peak XV—later named Mount Everest—using complex trigonometric formulas in 1852.",
+      "Conducted calculations from stations located far away from the mountain itself.",
+      "His precise calculations established the mountain as the highest peak on Earth."
     ],
     "source": "gemini_original"
   }

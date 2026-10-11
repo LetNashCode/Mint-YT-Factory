@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-10-11T13:05:55.698707+00:00",
-  "video_count": 7,
+  "generated_at": "2026-10-11T16:37:38.343104+00:00",
+  "video_count": 8,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 6,
   "reason": "",
   "totals": {
-    "views": 4729,
-    "likes": 60,
+    "views": 4747,
+    "likes": 61,
     "comments": 0
   },
   "averages": {
-    "views": 675.57,
-    "likes": 8.57,
+    "views": 593.38,
+    "likes": 7.62,
     "comments": 0.0,
-    "average_view_percentage": 37.52,
-    "subscribers_gained": 0.71,
+    "average_view_percentage": 32.83,
+    "subscribers_gained": 0.62,
     "shares": 0.0
   },
   "top_videos": [
@@ -102,6 +102,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
+    },
+    {
+      "topic": "Viktor Frankl: Surviving multiple concentration camps to establish a groundbreaking school of psychological therapy.",
+      "video_id": "fEtQoH-07U0",
+      "title": "The Untold Turning Point in Viktor Frankl's Story",
+      "views": 18,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 5.5556
     },
     {
       "topic": "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",
@@ -202,6 +216,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
+    },
+    {
+      "topic": "Viktor Frankl: Surviving multiple concentration camps to establish a groundbreaking school of psychological therapy.",
+      "video_id": "fEtQoH-07U0",
+      "title": "The Untold Turning Point in Viktor Frankl's Story",
+      "views": 18,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 5.5556
     },
     {
       "topic": "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",

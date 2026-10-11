@@ -9035,37 +9035,6 @@
       "reviewed_at": 1791623102.4407523
     },
     {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows actual real footage of J.K. Rowling at a public event/book signing interacting with Nimrod Kamer, making it usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "1d93c4515c4b04d6e33fd0e85829c7ef58820b852007ef6c7b4cbd878c0b4d5d",
-      "reviewed_at": 1791627279.2416556
-    },
-    {
       "person": "Ernest Shackleton",
       "source": {
         "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
@@ -9529,37 +9498,6 @@
       },
       "review_key": "e4697294bf2dcef6d6934eabb7a4880596b29b4fa7c356c3a6b003876937c87c",
       "reviewed_at": 1791627952.6017349
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
-        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
-        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
-        "title": "The Rebellious Life of Mrs. Rosa Parks",
-        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "creator": "Devon Geen",
-        "license": "",
-        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 4454.52,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage shows archival moving images of Rosa Parks clearly visible and identifiable in multiple frames during a documentary segment.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "8da9de9979ecd5eac95ba129ea46301e2dfa4155e96ec2f04ffc92ca3ec1162d",
-      "reviewed_at": 1791631243.1556284
     },
     {
       "person": "Rosa Parks",
@@ -11482,6 +11420,1060 @@
       },
       "review_key": "c390d1c48559d2699d405735fbe64d3f554e94d1e24b7fe69f334fd697cfa434",
       "reviewed_at": 1791724084.044984
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
+        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+        "title": "The Rebellious Life of Mrs. Rosa Parks",
+        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "creator": "Devon Geen",
+        "license": "",
+        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 4454.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames feature genuine archival moving footage of Rosa Parks clearly visible and identifiable throughout the sequence, serving as biographical illustration for her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "fc27db0f021e18d268d0926cf16cedd1dc62a9921669cdd5d67116ff786bab8f",
+      "reviewed_at": 1791736816.959104
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary/Rosa_Parks_story_lives_on_at_Daily_Elementary.mp4",
+        "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+        "title": "Rosa Parks' story lives on at Daily Elementary",
+        "description": " ['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
+        "creator": "Houston Independent School District",
+        "license": "",
+        "subject": "['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
+        "runtime": "00:01:24",
+        "direct_subject": true,
+        "duration_hint": 84.317651,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 45.18,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The segment includes archival footage of Rosa Parks on a bus (making her clearly visible in the first two frames) followed by an interview with her niece, Urana McCauley, providing relevant biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b6d6f84a222b51f0bc4d4f65e2fcf2c10676ebd6fa624f5f1c4b20b1dca55d6a",
+      "reviewed_at": 1791736856.7204225
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary/Rosa_Parks_story_lives_on_at_Daily_Elementary.mp4",
+        "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+        "title": "Rosa Parks' story lives on at Daily Elementary",
+        "description": " ['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
+        "creator": "Houston Independent School District",
+        "license": "",
+        "subject": "['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
+        "runtime": "00:01:24",
+        "direct_subject": true,
+        "duration_hint": 84.317651,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 25.09,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The segment includes archival footage of Rosa Parks being fingerprinted/booked following her arrest, which directly illustrates her life and historical significance, though it shifts to modern school interviews later.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8f2020575a74a98a8b960f2aa737d7525e333f3693cbad958032ad6d91bafd4c",
+      "reviewed_at": 1791736909.0147996
+    },
+    {
+      "person": "Morgan Freeman",
+      "source": {
+        "id": "archive:bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113/bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+        "title": "AFI's Lifetime Achievement Award Winner Morgan Freeman",
+        "description": "[BlackTree TV - Los Angeles] BlackTree TV's Naja Hill donned the red carpet for a special evening honoring Academy Award Winner Morgan Freeman for his career on stage and film. Many honorees spoke on what he has meant to their career. American film's finest have confirmed their participation on the American Film Institute (AFI) Gala Benefit Committee honoring 39th Life Achievement Award recipient, Morgan Freeman. Members of this year's benefit committee are Ben Affleck, Jim Carrey, Clint Eastwood, Tom Hanks, Ashley Judd, Helen Mirren, Mike Nichols, Jack Nicholson, Brad Pitt, Sidney Poitier, Robert Redford, Tim Robbins, Steven Spielberg, Hilary Swank, Denzel Washington and Alfre Woodard. AFI will present the 39th AFI Life Achievement Award -- America's highest honor for a career in film -- to Freeman on June 9th. \"TV Land Presents: The AFI Life Achievement Award Honoring Morgan Freeman\" will air on TV Land on Sunday, June 26, 2011 at 8:00 p.m. ET/PT. The black-tie event will take place on historic Stage 15 at Sony Pictures Studios, where \"The Wizard of Oz,\" \"Grand Hotel,\" \"Spiderman\" and other classic movies were filmed. The stage will be transformed into an elegant ballroom to honor the storied career of Morgan Freeman. Proceeds from the AFI Life Achievement Award Gala directly support the Institute's national educational programs and the preservation of American film history. \"Morgan Freeman has embodied characters that range from prisoner to president, from gumshoe to God,\" said Bob Gazzale, AFI President and CEO. \"Over the years, Morgan has collaborated with American fil talk&interview",
+        "creator": "",
+        "license": "",
+        "subject": "talk&interview",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 156.964137,
+        "identity_score": 13.0,
+        "archival_signal": 3
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "Morgan Freeman is clearly visible in the first two frames during a red carpet event honoring him, providing valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7ff1a86950c5f969ab1d4b7907676e7137c11638dfca57b62f0e85339bac70fc",
+      "reviewed_at": 1791737084.8360932
+    },
+    {
+      "person": "Morgan Freeman",
+      "source": {
+        "id": "archive:a878fb30c6e5c0b0323c0c072e713fbe",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a878fb30c6e5c0b0323c0c072e713fbe/The%20Inside%20Reel%3A%20Morgan%20Freeman%20Interview-5267142.mp4",
+        "source_url": "https://archive.org/details/a878fb30c6e5c0b0323c0c072e713fbe",
+        "title": "2821220_The Inside Reel: Morgan Freeman Interview-5267142",
+        "description": " ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 147.633333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 76.96,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features Morgan Freeman clearly visible in interview/conversation footage, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0d0d3602983f9ef0fc8e01d990000959926e95199eaf770d3d700963c132c63b",
+      "reviewed_at": 1791737115.531049
+    },
+    {
+      "person": "Morgan Freeman",
+      "source": {
+        "id": "archive:a878fb30c6e5c0b0323c0c072e713fbe",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a878fb30c6e5c0b0323c0c072e713fbe/The%20Inside%20Reel%3A%20Morgan%20Freeman%20Interview-5267142.mp4",
+        "source_url": "https://archive.org/details/a878fb30c6e5c0b0323c0c072e713fbe",
+        "title": "2821220_The Inside Reel: Morgan Freeman Interview-5267142",
+        "description": " ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 147.633333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The clip features Morgan Freeman clearly visible in an interview setting discussing his work (specifically Feast of Love), providing biographical illustration footage for a Short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2c801447524daafa3ded655382d0864b4ca72a489ca5924b9b9f3f88f14fc4a2",
+      "reviewed_at": 1791737167.0768652
+    },
+    {
+      "person": "Morgan Freeman",
+      "source": {
+        "id": "archive:a878fb30c6e5c0b0323c0c072e713fbe",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a878fb30c6e5c0b0323c0c072e713fbe/The%20Inside%20Reel%3A%20Morgan%20Freeman%20Interview-5267142.mp4",
+        "source_url": "https://archive.org/details/a878fb30c6e5c0b0323c0c072e713fbe",
+        "title": "2821220_The Inside Reel: Morgan Freeman Interview-5267142",
+        "description": " ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 147.633333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 15.28,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features genuine interview footage of Morgan Freeman discussing his life and work, making it suitable for biographical illustration, though it has minor channel watermarks.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f2c4c44f5711514dc03d97ad04e7c0da6d8ae504d490c5ab20111c1c59bf48fd",
+      "reviewed_at": 1791737174.8491282
+    },
+    {
+      "person": "Morgan Freeman",
+      "source": {
+        "id": "archive:a878fb30c6e5c0b0323c0c072e713fbe",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a878fb30c6e5c0b0323c0c072e713fbe/The%20Inside%20Reel%3A%20Morgan%20Freeman%20Interview-5267142.mp4",
+        "source_url": "https://archive.org/details/a878fb30c6e5c0b0323c0c072e713fbe",
+        "title": "2821220_The Inside Reel: Morgan Freeman Interview-5267142",
+        "description": " ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 147.633333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 25.56,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features actual filmed interview footage of Morgan Freeman discussing his life and career, perfectly suitable as biographical illustration for a Short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f4fab69ef5d3cf2092f1915f0ab00dc5e09aa402df59eb520fbea648f3180307",
+      "reviewed_at": 1791737178.7895372
+    },
+    {
+      "person": "Morgan Freeman",
+      "source": {
+        "id": "archive:a878fb30c6e5c0b0323c0c072e713fbe",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a878fb30c6e5c0b0323c0c072e713fbe/The%20Inside%20Reel%3A%20Morgan%20Freeman%20Interview-5267142.mp4",
+        "source_url": "https://archive.org/details/a878fb30c6e5c0b0323c0c072e713fbe",
+        "title": "2821220_The Inside Reel: Morgan Freeman Interview-5267142",
+        "description": " ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 147.633333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 35.84,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The clip features genuine interview footage of Morgan Freeman discussing his work, which serves as valid biographical illustration material, though the segment is relatively static and standard interview B-roll.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "fdb8ea414c8aabbabd64958cb67caad90bea9123ef24b6d04e19fb917f2e7278",
+      "reviewed_at": 1791737183.3803673
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage features J.K. Rowling appearing on stage at a book event (visible in frames 2 and 3), making it genuine archival footage of the subject, though it is from a prank video segment rather than a formal biographical interview.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "de4244a639baa84eb61e6cbc352bf0f508b268d7b0c672db1d0da4fb23d568d8",
+      "reviewed_at": 1791737401.3727672
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 114.11,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features real footage of J.K. Rowling interacting with a prankster at a book signing. However, the framing focuses heavily on the prankster and mostly shows Rowling in profile/rear three-quarter view, limiting its usability for a biographical portrait.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "05329092f321dc73e07121557358302a818c99226fcbfec26ac165be611cd39e",
+      "reviewed_at": 1791737533.6033459
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 129.7,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "J.K. Rowling is visible sitting at the signing table in the later frames, making this actual identity footage of her at a public event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "38890ea35a5377cc248ad9e092a71d201b91bc2e5ed0a55b9f145e8e737e5294",
+      "reviewed_at": 1791737540.5322733
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:caltvca-CalTV_E_-_Guillermo_Del_Toro",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/caltvca-CalTV_E_-_Guillermo_Del_Toro/CalTV_E_-_Guillermo_Del_Toro.mp4",
+        "source_url": "https://archive.org/details/caltvca-CalTV_E_-_Guillermo_Del_Toro",
+        "title": "CalTV E: Guillermo Del Toro",
+        "description": "Follow Georgia to the San Francisco International Film Festival as she interviews the recipient of the Irving M. Levin Directing award, Guillermo Del Toro! ['California', 'Berkeley', 'CalTV', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'UC Berkeley', 'University of California Berkeley', 'UC', 'Cal', 'TV', 'Student-run', 'Station', 'San Francisco (US County)', 'San Francisco Film Society', 'San Francisco International Film Festival (Film Festival)', 'Guillermo Del Toro (Film Director)', 'Castro Theatre (Venue)', 'Festival (Type Of Conference)', 'Award Ceremony (Type Of Public Presentation)', 'Entertainment (TV Genre)', \"Pan's Labyrinth (Award-Winning Work)\", 'Pacific Rim (Adapted Work)', 'Georgia Peppe', '2015']",
+        "creator": "CalTV",
+        "license": "",
+        "subject": "['California', 'Berkeley', 'CalTV', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'UC Berkeley', 'University of California Berkeley', 'UC', 'Cal', 'TV', 'Student-run', 'Station', 'San Francisco (US County)', 'San Francisco Film Society', 'San Francisco International Film Festival (Film Festival)', 'Guillermo Del Toro (Film Director)', 'Castro Theatre (Venue)', 'Festival (Type Of Conference)', 'Award Ceremony (Type Of Public Presentation)', 'Entertainment (TV Genre)', \"Pan's Labyrinth (Award-Winning Work)\", 'Pacific Rim (Adapted Work)', 'Georgia Peppe', '2015']",
+        "runtime": "00:03:11",
+        "direct_subject": true,
+        "duration_hint": 191.157824,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 100.39,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage features an interview with Guillermo del Toro, showing him clearly across all sampled frames, serving as useful biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "78841f29c482aac3b7dc48b4448bcf3464b843b95487665a9f96f6c0ac26bad5",
+      "reviewed_at": 1791737625.9473233
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+        "title": "Pacific Rim Interview w/ Guillermo del Toro Interview",
+        "description": "Guillermo del Toro sits down to talk with us about his Epic new film Pacific Rim, he talks about what about the script attracted him to the film and why did he choose this cast of Cable TV Guys to star in this film. Check out this exclusive Interview right here on BlackTree TV From acclaimed filmmaker Guillermo del Toro comes the sci-fi action adventure \"Warner Bros. Pictures and Legendary Pictures Pacific Rim.\" When legions of monstrous creatures, known as Kaiju, started rising from the sea, a war began that would take millions of lives and consume humanity's resources for years on end. To combat the giant Kaiju, a special type of weapon was devised: massive robots, called Jaegers, which are controlled simultaneously by two pilots whose minds are synched via a neural bridge, called \"The Drift.\" But as the enemy grows more powerful with each attack, even the Jaegers are proving nearly defenseless in the face of the relentless Kaiju. On the verge of defeat, the forces defending mankind have no choice but to turn to two unlikely heroes—a washed up former pilot (Charlie Hunnam) and an untested trainee (Rinko Kikuchi)—who are teamed to drive a seemingly obsolete Jaeger. Together, they stand as mankind's last hope against the mounting apocalypse. Oscar® nominee Guillermo del Toro (\"Pan's Labyrinth\") directed the epic sci-fi action adventure from a script by Travis Beacham and del Toro, story by Beacham. Thomas Tull, Jon Jashni, del Toro and Mary Parent produced the film, with Callum Greene serving as executive producer and Jillian Zaks co-producing. \"Pacific Rim\" stars Charlie H ['talk&interview', 'blacktree media', 'blacktree tv', 'guillermo del toro', 'pacific rim (film)', 'footage', 'charlie hunnam (tvs sons of anarchy)', 'idris elba (thor)', 'oscarÂ', '®', 'nominee rinko kikuchi (babel)', 'charlie day (horrible bosses)', 'rob kazinsky', 'max martini', 'clifton collins', 'horrible bosses']",
+        "creator": "",
+        "license": "",
+        "subject": "['talk&interview', 'blacktree media', 'blacktree tv', 'guillermo del toro', 'pacific rim (film)', 'footage', 'charlie hunnam (tvs sons of anarchy)', 'idris elba (thor)', 'oscarÂ', '®', 'nominee rinko kikuchi (babel)', 'charlie day (horrible bosses)', 'rob kazinsky', 'max martini', 'clifton collins', 'horrible bosses']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 336.870204,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 253.36,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show Guillermo del Toro participating in an interview, clearly visible and identifiable throughout. It serves as biographical illustration footage for a video about his life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8277a8817046b04ae3a4a1939912d7da5622ed9baf524f61f71bce0d4fd0f5c9",
+      "reviewed_at": 1791737637.2512689
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:caltvca-CalTV_E_-_Guillermo_Del_Toro",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/caltvca-CalTV_E_-_Guillermo_Del_Toro/CalTV_E_-_Guillermo_Del_Toro.mp4",
+        "source_url": "https://archive.org/details/caltvca-CalTV_E_-_Guillermo_Del_Toro",
+        "title": "CalTV E: Guillermo Del Toro",
+        "description": "Follow Georgia to the San Francisco International Film Festival as she interviews the recipient of the Irving M. Levin Directing award, Guillermo Del Toro! ['California', 'Berkeley', 'CalTV', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'UC Berkeley', 'University of California Berkeley', 'UC', 'Cal', 'TV', 'Student-run', 'Station', 'San Francisco (US County)', 'San Francisco Film Society', 'San Francisco International Film Festival (Film Festival)', 'Guillermo Del Toro (Film Director)', 'Castro Theatre (Venue)', 'Festival (Type Of Conference)', 'Award Ceremony (Type Of Public Presentation)', 'Entertainment (TV Genre)', \"Pan's Labyrinth (Award-Winning Work)\", 'Pacific Rim (Adapted Work)', 'Georgia Peppe', '2015']",
+        "creator": "CalTV",
+        "license": "",
+        "subject": "['California', 'Berkeley', 'CalTV', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'UC Berkeley', 'University of California Berkeley', 'UC', 'Cal', 'TV', 'Student-run', 'Station', 'San Francisco (US County)', 'San Francisco Film Society', 'San Francisco International Film Festival (Film Festival)', 'Guillermo Del Toro (Film Director)', 'Castro Theatre (Venue)', 'Festival (Type Of Conference)', 'Award Ceremony (Type Of Public Presentation)', 'Entertainment (TV Genre)', \"Pan's Labyrinth (Award-Winning Work)\", 'Pacific Rim (Adapted Work)', 'Georgia Peppe', '2015']",
+        "runtime": "00:03:11",
+        "direct_subject": true,
+        "duration_hint": 191.157824,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 45.88,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Guillermo del Toro at the San Francisco International Film Festival where he receives an award, providing genuine biographical footage suitable for illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4faa8d1efdaa0cf36614d3645c45978788ba5557c902be46f2b3d7bc6ced325f",
+      "reviewed_at": 1791737666.6971335
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+        "title": "Pacific Rim Interview w/ Guillermo del Toro Interview",
+        "description": "Guillermo del Toro sits down to talk with us about his Epic new film Pacific Rim, he talks about what about the script attracted him to the film and why did he choose this cast of Cable TV Guys to star in this film. Check out this exclusive Interview right here on BlackTree TV From acclaimed filmmaker Guillermo del Toro comes the sci-fi action adventure \"Warner Bros. Pictures and Legendary Pictures Pacific Rim.\" When legions of monstrous creatures, known as Kaiju, started rising from the sea, a war began that would take millions of lives and consume humanity's resources for years on end. To combat the giant Kaiju, a special type of weapon was devised: massive robots, called Jaegers, which are controlled simultaneously by two pilots whose minds are synched via a neural bridge, called \"The Drift.\" But as the enemy grows more powerful with each attack, even the Jaegers are proving nearly defenseless in the face of the relentless Kaiju. On the verge of defeat, the forces defending mankind have no choice but to turn to two unlikely heroes—a washed up former pilot (Charlie Hunnam) and an untested trainee (Rinko Kikuchi)—who are teamed to drive a seemingly obsolete Jaeger. Together, they stand as mankind's last hope against the mounting apocalypse. Oscar® nominee Guillermo del Toro (\"Pan's Labyrinth\") directed the epic sci-fi action adventure from a script by Travis Beacham and del Toro, story by Beacham. Thomas Tull, Jon Jashni, del Toro and Mary Parent produced the film, with Callum Greene serving as executive producer and Jillian Zaks co-producing. \"Pacific Rim\" stars Charlie H ['talk&interview', 'blacktree media', 'blacktree tv', 'guillermo del toro', 'pacific rim (film)', 'footage', 'charlie hunnam (tvs sons of anarchy)', 'idris elba (thor)', 'oscarÂ', '®', 'nominee rinko kikuchi (babel)', 'charlie day (horrible bosses)', 'rob kazinsky', 'max martini', 'clifton collins', 'horrible bosses']",
+        "creator": "",
+        "license": "",
+        "subject": "['talk&interview', 'blacktree media', 'blacktree tv', 'guillermo del toro', 'pacific rim (film)', 'footage', 'charlie hunnam (tvs sons of anarchy)', 'idris elba (thor)', 'oscarÂ', '®', 'nominee rinko kikuchi (babel)', 'charlie day (horrible bosses)', 'rob kazinsky', 'max martini', 'clifton collins', 'horrible bosses']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 336.870204,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 79.51,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The clip features genuine interview footage of Guillermo del Toro speaking about his work (visible in multiple frames, such as 1 and 3), making it usable as biographical illustration despite some frames focusing on the interviewer.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1564b287a7c4effe40d7f3c98db1afadf6ecba9d19924221adbdfbaa086ad9fc",
+      "reviewed_at": 1791737697.4300451
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:caltvca-CalTV_E_-_Guillermo_Del_Toro",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/caltvca-CalTV_E_-_Guillermo_Del_Toro/CalTV_E_-_Guillermo_Del_Toro.mp4",
+        "source_url": "https://archive.org/details/caltvca-CalTV_E_-_Guillermo_Del_Toro",
+        "title": "CalTV E: Guillermo Del Toro",
+        "description": "Follow Georgia to the San Francisco International Film Festival as she interviews the recipient of the Irving M. Levin Directing award, Guillermo Del Toro! ['California', 'Berkeley', 'CalTV', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'UC Berkeley', 'University of California Berkeley', 'UC', 'Cal', 'TV', 'Student-run', 'Station', 'San Francisco (US County)', 'San Francisco Film Society', 'San Francisco International Film Festival (Film Festival)', 'Guillermo Del Toro (Film Director)', 'Castro Theatre (Venue)', 'Festival (Type Of Conference)', 'Award Ceremony (Type Of Public Presentation)', 'Entertainment (TV Genre)', \"Pan's Labyrinth (Award-Winning Work)\", 'Pacific Rim (Adapted Work)', 'Georgia Peppe', '2015']",
+        "creator": "CalTV",
+        "license": "",
+        "subject": "['California', 'Berkeley', 'CalTV', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'UC Berkeley', 'University of California Berkeley', 'UC', 'Cal', 'TV', 'Student-run', 'Station', 'San Francisco (US County)', 'San Francisco Film Society', 'San Francisco International Film Festival (Film Festival)', 'Guillermo Del Toro (Film Director)', 'Castro Theatre (Venue)', 'Festival (Type Of Conference)', 'Award Ceremony (Type Of Public Presentation)', 'Entertainment (TV Genre)', \"Pan's Labyrinth (Award-Winning Work)\", 'Pacific Rim (Adapted Work)', 'Georgia Peppe', '2015']",
+        "runtime": "00:03:11",
+        "direct_subject": true,
+        "duration_hint": 191.157824,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 59.51,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment contains real filmed footage of Guillermo del Toro clearly visible in the later frames, preceded by film clips associated with his work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b2acbe8c9cedd3ae0ce2d4e4ead7e4b1b03f9f8c86890ba3b5fef57f6483ad11",
+      "reviewed_at": 1791737703.5765214
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+        "title": "Pacific Rim Interview w/ Guillermo del Toro Interview",
+        "description": "Guillermo del Toro sits down to talk with us about his Epic new film Pacific Rim, he talks about what about the script attracted him to the film and why did he choose this cast of Cable TV Guys to star in this film. Check out this exclusive Interview right here on BlackTree TV From acclaimed filmmaker Guillermo del Toro comes the sci-fi action adventure \"Warner Bros. Pictures and Legendary Pictures Pacific Rim.\" When legions of monstrous creatures, known as Kaiju, started rising from the sea, a war began that would take millions of lives and consume humanity's resources for years on end. To combat the giant Kaiju, a special type of weapon was devised: massive robots, called Jaegers, which are controlled simultaneously by two pilots whose minds are synched via a neural bridge, called \"The Drift.\" But as the enemy grows more powerful with each attack, even the Jaegers are proving nearly defenseless in the face of the relentless Kaiju. On the verge of defeat, the forces defending mankind have no choice but to turn to two unlikely heroes—a washed up former pilot (Charlie Hunnam) and an untested trainee (Rinko Kikuchi)—who are teamed to drive a seemingly obsolete Jaeger. Together, they stand as mankind's last hope against the mounting apocalypse. Oscar® nominee Guillermo del Toro (\"Pan's Labyrinth\") directed the epic sci-fi action adventure from a script by Travis Beacham and del Toro, story by Beacham. Thomas Tull, Jon Jashni, del Toro and Mary Parent produced the film, with Callum Greene serving as executive producer and Jillian Zaks co-producing. \"Pacific Rim\" stars Charlie H ['talk&interview', 'blacktree media', 'blacktree tv', 'guillermo del toro', 'pacific rim (film)', 'footage', 'charlie hunnam (tvs sons of anarchy)', 'idris elba (thor)', 'oscarÂ', '®', 'nominee rinko kikuchi (babel)', 'charlie day (horrible bosses)', 'rob kazinsky', 'max martini', 'clifton collins', 'horrible bosses']",
+        "creator": "",
+        "license": "",
+        "subject": "['talk&interview', 'blacktree media', 'blacktree tv', 'guillermo del toro', 'pacific rim (film)', 'footage', 'charlie hunnam (tvs sons of anarchy)', 'idris elba (thor)', 'oscarÂ', '®', 'nominee rinko kikuchi (babel)', 'charlie day (horrible bosses)', 'rob kazinsky', 'max martini', 'clifton collins', 'horrible bosses']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 336.870204,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 104.34,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The footage shows director Guillermo del Toro in an interview setting discussing his work, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d4d39f349619239d5fb066861ccc94008edb6e35f01e8f33bfb738b29f23684a",
+      "reviewed_at": 1791737708.2623413
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:caltvca-CalTV_E_-_Guillermo_Del_Toro",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/caltvca-CalTV_E_-_Guillermo_Del_Toro/CalTV_E_-_Guillermo_Del_Toro.mp4",
+        "source_url": "https://archive.org/details/caltvca-CalTV_E_-_Guillermo_Del_Toro",
+        "title": "CalTV E: Guillermo Del Toro",
+        "description": "Follow Georgia to the San Francisco International Film Festival as she interviews the recipient of the Irving M. Levin Directing award, Guillermo Del Toro! ['California', 'Berkeley', 'CalTV', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'UC Berkeley', 'University of California Berkeley', 'UC', 'Cal', 'TV', 'Student-run', 'Station', 'San Francisco (US County)', 'San Francisco Film Society', 'San Francisco International Film Festival (Film Festival)', 'Guillermo Del Toro (Film Director)', 'Castro Theatre (Venue)', 'Festival (Type Of Conference)', 'Award Ceremony (Type Of Public Presentation)', 'Entertainment (TV Genre)', \"Pan's Labyrinth (Award-Winning Work)\", 'Pacific Rim (Adapted Work)', 'Georgia Peppe', '2015']",
+        "creator": "CalTV",
+        "license": "",
+        "subject": "['California', 'Berkeley', 'CalTV', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'UC Berkeley', 'University of California Berkeley', 'UC', 'Cal', 'TV', 'Student-run', 'Station', 'San Francisco (US County)', 'San Francisco Film Society', 'San Francisco International Film Festival (Film Festival)', 'Guillermo Del Toro (Film Director)', 'Castro Theatre (Venue)', 'Festival (Type Of Conference)', 'Award Ceremony (Type Of Public Presentation)', 'Entertainment (TV Genre)', \"Pan's Labyrinth (Award-Winning Work)\", 'Pacific Rim (Adapted Work)', 'Georgia Peppe', '2015']",
+        "runtime": "00:03:11",
+        "direct_subject": true,
+        "duration_hint": 191.157824,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 73.14,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features real interview footage of Guillermo del Toro clearly visible throughout the sampled frames, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ee85af5d7cf1b87ca571f792d33a8e0210d6b79995891e391c2baaf11802e821",
+      "reviewed_at": 1791737716.9491827
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+        "title": "Pacific Rim Interview w/ Guillermo del Toro Interview",
+        "description": "Guillermo del Toro sits down to talk with us about his Epic new film Pacific Rim, he talks about what about the script attracted him to the film and why did he choose this cast of Cable TV Guys to star in this film. Check out this exclusive Interview right here on BlackTree TV From acclaimed filmmaker Guillermo del Toro comes the sci-fi action adventure \"Warner Bros. Pictures and Legendary Pictures Pacific Rim.\" When legions of monstrous creatures, known as Kaiju, started rising from the sea, a war began that would take millions of lives and consume humanity's resources for years on end. To combat the giant Kaiju, a special type of weapon was devised: massive robots, called Jaegers, which are controlled simultaneously by two pilots whose minds are synched via a neural bridge, called \"The Drift.\" But as the enemy grows more powerful with each attack, even the Jaegers are proving nearly defenseless in the face of the relentless Kaiju. On the verge of defeat, the forces defending mankind have no choice but to turn to two unlikely heroes—a washed up former pilot (Charlie Hunnam) and an untested trainee (Rinko Kikuchi)—who are teamed to drive a seemingly obsolete Jaeger. Together, they stand as mankind's last hope against the mounting apocalypse. Oscar® nominee Guillermo del Toro (\"Pan's Labyrinth\") directed the epic sci-fi action adventure from a script by Travis Beacham and del Toro, story by Beacham. Thomas Tull, Jon Jashni, del Toro and Mary Parent produced the film, with Callum Greene serving as executive producer and Jillian Zaks co-producing. \"Pacific Rim\" stars Charlie H ['talk&interview', 'blacktree media', 'blacktree tv', 'guillermo del toro', 'pacific rim (film)', 'footage', 'charlie hunnam (tvs sons of anarchy)', 'idris elba (thor)', 'oscarÂ', '®', 'nominee rinko kikuchi (babel)', 'charlie day (horrible bosses)', 'rob kazinsky', 'max martini', 'clifton collins', 'horrible bosses']",
+        "creator": "",
+        "license": "",
+        "subject": "['talk&interview', 'blacktree media', 'blacktree tv', 'guillermo del toro', 'pacific rim (film)', 'footage', 'charlie hunnam (tvs sons of anarchy)', 'idris elba (thor)', 'oscarÂ', '®', 'nominee rinko kikuchi (babel)', 'charlie day (horrible bosses)', 'rob kazinsky', 'max martini', 'clifton collins', 'horrible bosses']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 336.870204,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 154.02,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment features genuine interview footage of Guillermo del Toro discussing his work on Pacific Rim, making it suitable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f36c39b35b5363557dd15a824129250b9c6ac611a63353f7a0d4e4bbc560f03b",
+      "reviewed_at": 1791737730.096101
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:caltvca-CalTV_E_-_Guillermo_Del_Toro",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/caltvca-CalTV_E_-_Guillermo_Del_Toro/CalTV_E_-_Guillermo_Del_Toro.mp4",
+        "source_url": "https://archive.org/details/caltvca-CalTV_E_-_Guillermo_Del_Toro",
+        "title": "CalTV E: Guillermo Del Toro",
+        "description": "Follow Georgia to the San Francisco International Film Festival as she interviews the recipient of the Irving M. Levin Directing award, Guillermo Del Toro! ['California', 'Berkeley', 'CalTV', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'UC Berkeley', 'University of California Berkeley', 'UC', 'Cal', 'TV', 'Student-run', 'Station', 'San Francisco (US County)', 'San Francisco Film Society', 'San Francisco International Film Festival (Film Festival)', 'Guillermo Del Toro (Film Director)', 'Castro Theatre (Venue)', 'Festival (Type Of Conference)', 'Award Ceremony (Type Of Public Presentation)', 'Entertainment (TV Genre)', \"Pan's Labyrinth (Award-Winning Work)\", 'Pacific Rim (Adapted Work)', 'Georgia Peppe', '2015']",
+        "creator": "CalTV",
+        "license": "",
+        "subject": "['California', 'Berkeley', 'CalTV', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'UC Berkeley', 'University of California Berkeley', 'UC', 'Cal', 'TV', 'Student-run', 'Station', 'San Francisco (US County)', 'San Francisco Film Society', 'San Francisco International Film Festival (Film Festival)', 'Guillermo Del Toro (Film Director)', 'Castro Theatre (Venue)', 'Festival (Type Of Conference)', 'Award Ceremony (Type Of Public Presentation)', 'Entertainment (TV Genre)', \"Pan's Labyrinth (Award-Winning Work)\", 'Pacific Rim (Adapted Work)', 'Georgia Peppe', '2015']",
+        "runtime": "00:03:11",
+        "direct_subject": true,
+        "duration_hint": 191.157824,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 86.77,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features real interview footage of Guillermo del Toro speaking at the San Francisco International Film Festival, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "db04fd3b0e305ad39e57953131517f18e19897df6673da452e82331d91e0a4e9",
+      "reviewed_at": 1791737737.7209682
+    },
+    {
+      "person": "Guillermo del Toro",
+      "source": {
+        "id": "archive:bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+        "title": "Pacific Rim Interview w/ Guillermo del Toro Interview",
+        "description": "Guillermo del Toro sits down to talk with us about his Epic new film Pacific Rim, he talks about what about the script attracted him to the film and why did he choose this cast of Cable TV Guys to star in this film. Check out this exclusive Interview right here on BlackTree TV From acclaimed filmmaker Guillermo del Toro comes the sci-fi action adventure \"Warner Bros. Pictures and Legendary Pictures Pacific Rim.\" When legions of monstrous creatures, known as Kaiju, started rising from the sea, a war began that would take millions of lives and consume humanity's resources for years on end. To combat the giant Kaiju, a special type of weapon was devised: massive robots, called Jaegers, which are controlled simultaneously by two pilots whose minds are synched via a neural bridge, called \"The Drift.\" But as the enemy grows more powerful with each attack, even the Jaegers are proving nearly defenseless in the face of the relentless Kaiju. On the verge of defeat, the forces defending mankind have no choice but to turn to two unlikely heroes—a washed up former pilot (Charlie Hunnam) and an untested trainee (Rinko Kikuchi)—who are teamed to drive a seemingly obsolete Jaeger. Together, they stand as mankind's last hope against the mounting apocalypse. Oscar® nominee Guillermo del Toro (\"Pan's Labyrinth\") directed the epic sci-fi action adventure from a script by Travis Beacham and del Toro, story by Beacham. Thomas Tull, Jon Jashni, del Toro and Mary Parent produced the film, with Callum Greene serving as executive producer and Jillian Zaks co-producing. \"Pacific Rim\" stars Charlie H ['talk&interview', 'blacktree media', 'blacktree tv', 'guillermo del toro', 'pacific rim (film)', 'footage', 'charlie hunnam (tvs sons of anarchy)', 'idris elba (thor)', 'oscarÂ', '®', 'nominee rinko kikuchi (babel)', 'charlie day (horrible bosses)', 'rob kazinsky', 'max martini', 'clifton collins', 'horrible bosses']",
+        "creator": "",
+        "license": "",
+        "subject": "['talk&interview', 'blacktree media', 'blacktree tv', 'guillermo del toro', 'pacific rim (film)', 'footage', 'charlie hunnam (tvs sons of anarchy)', 'idris elba (thor)', 'oscarÂ', '®', 'nominee rinko kikuchi (babel)', 'charlie day (horrible bosses)', 'rob kazinsky', 'max martini', 'clifton collins', 'horrible bosses']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 336.870204,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 203.69,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment contains genuine interview and behind-the-scenes footage of director Guillermo del Toro discussing his film Pacific Rim, making it useful as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6a6dc0cc088a3526c0e40464ac90f487f80c7683f5f11bcf1746f8b35505a0b3",
+      "reviewed_at": 1791737742.2149644
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 932.88,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The sampled frames clearly feature Narayana Murthy speaking at an event. The footage is authentic and usable for biographical illustration, though it is slightly static and features a persistent watermark.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "cc427158d6f894ed655b3eabc2bb7e0db62c0479c3bd19fa95853a1640d5749c",
+      "reviewed_at": 1791737770.447729
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 137.55,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Narayana Murthy participating in an interview ('Chai with Manjula'), providing genuine biographical footage suitable for illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "68d0f23008ed711a75cdf71025129399877cb0c7f9210962e80d14142ce9c9b3",
+      "reviewed_at": 1791737866.7569783
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 270.11,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features an interview with Narayana Murthy, where he is clearly visible and speaking. It is valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8b53038d15d98000cf7bdb3041bd10275709d4bea675f100fc35daef64d9fc1b",
+      "reviewed_at": 1791737873.790478
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 402.66,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The sampled frames clearly feature Narayana Murthy speaking in an interview setting, making it suitable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "14ab88eb7e96fe67c181125e8d93f56a4d3ce74bd7bdac0478fafda8d322a4ee",
+      "reviewed_at": 1791737880.5424726
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 667.77,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features real archival footage of Narayana Murthy speaking at an event, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "cadd068ac01a0c07e8e3eb0e242c7e69c907597b88dc1ef83d2730d2667ac9eb",
+      "reviewed_at": 1791737893.5553634
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 800.32,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment clearly shows Narayana Murthy speaking at an event, providing valid biographical illustration footage featuring the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "32f4eef54d16814337e81d3d44c231dfc08010749dee9ed37e7c00a13c23e815",
+      "reviewed_at": 1791737901.2184582
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1065.43,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Narayana Murthy speaking at an event, providing genuine biographical illustration footage of him.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "80cdda61adf999d40e257aca7207ab9acd8f2bfc7900a4119e3ce6cd8356b11e",
+      "reviewed_at": 1791737907.6762323
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1197.99,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Narayana Murthy speaking at an event, providing genuine biographical illustration footage that is suitable for a biographical short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a5c23888e24a031d6a821c1ec44809c54e752362f958bfbcc1e087224f987f58",
+      "reviewed_at": 1791737926.935354
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1330.54,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video segment shows genuine footage of Narayana Murthy speaking at an event, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0a1d0fe81ded83d3bb9824180d3ed9f0c3e188de99583fb33ffefd28854ed9cf",
+      "reviewed_at": 1791737932.3555582
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1463.1,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.0,
+        "reason": "The video features Narayana Murthy speaking at an event, captured in real footage with clear visibility across the sampled frames, serving as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "29e4c10476e63f4d1c9fa3367b6b3519ae19869310c60511079de56c5f345da1",
+      "reviewed_at": 1791737937.6838884
+    },
+    {
+      "person": "Narayana Murthy",
+      "source": {
+        "id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Chai_with_Manjula_-_Narayana_Murthy/Chai_with_Manjula_-_Narayana_Murthy.mp4",
+        "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+        "title": "Chai with Manjula - Narayana Murthy",
+        "description": "An insightful interview of Narayana Murthy as a philanthropist, and his address at an Akshaya Patra event . Mr. Murthy is Co-Founder/former Chairman/Chief Mentor of Infosys Technologies, one of India's top global companies. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', '2010']",
+        "runtime": "00:28:57",
+        "direct_subject": true,
+        "duration_hint": 1737.203871,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1595.65,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8.0,
+        "reason": "The video features real archival footage of Narayana Murthy speaking at an event, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4c8534fa2231058655e30280142ceffb964b985fd6e171355b20ca829b56d7a9",
+      "reviewed_at": 1791737943.040477
+    },
+    {
+      "person": "Jackie Chan",
+      "source": {
+        "id": "archive:jackie-chan-my-story-1999-uk-vhs",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jackie-chan-my-story-1999-uk-vhs/Jackie%20Chan%20My%20Story%20%281999%20UK%20VHS%29.ia.mp4",
+        "source_url": "https://archive.org/details/jackie-chan-my-story-1999-uk-vhs",
+        "title": "Jackie Chan My Story (1999 UK VHS)",
+        "description": "This is the Full VHS Tape of Jackie Chan My Story as it was Released in 1999! Enjoy! Documentary",
+        "creator": "Imperial Entertainment",
+        "license": "",
+        "subject": "Documentary",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 4677.639606,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2157.45,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The clip features genuine archival footage from Jackie Chan's film Police Story, showing Jackie Chan performing a stunt and sustaining an injury, perfectly matching the biographical narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d90242b3598c42c38efe9ab50fcae6bec630e8f62783b193d9db32acfc3f2c08",
+      "reviewed_at": 1791738416.174001
     }
   ]
 }

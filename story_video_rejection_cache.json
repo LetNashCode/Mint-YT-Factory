@@ -206,6 +206,780 @@
       "start": 4449.55,
       "reason": "static frames/no detectable motion",
       "reviewed_at": 1791724035.5351152
+    },
+    "87d973e1f662bf613cc0dc3a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "source_url": "https://archive.org/details/cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "person": "Rosa Parks",
+      "start": 1438.66,
+      "reason": "The video shows a modern 2018 local government event (a Rosa Parks Essay Contest announcement) featuring a speaker who is not Rosa Parks. Rosa Parks is not visible in the footage, and the segment does not depict her life or historical events.",
+      "reviewed_at": 1791736788.5156326
+    },
+    "8b336ef0212371a907cbf5cb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "source_url": "https://archive.org/details/cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "person": "Rosa Parks",
+      "start": 5.0,
+      "reason": "The footage shows a modern 2018 community event (Rosa Parks Essay Contest award ceremony) rather than the historical life or events of Rosa Parks herself. Rosa Parks passed away in 2005 and is not visible in the video.",
+      "reviewed_at": 1791736796.7403262
+    },
+    "680d31df1460077c74a98ee7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "source_url": "https://archive.org/details/cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "person": "Rosa Parks",
+      "start": 209.81,
+      "reason": "The footage shows a modern 2018 event (the Rosa Parks Essay Contest award announcement), which is relevant contextual illustration for a biography about Rosa Parks's enduring legacy, though Rosa Parks herself is deceased and not visible in the video.",
+      "reviewed_at": 1791736804.6228242
+    },
+    "032ee25c407cceabe28e6eba": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "source_url": "https://archive.org/details/cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "person": "Rosa Parks",
+      "start": 414.62,
+      "reason": "The footage shows a 2018 modern essay contest award announcement event related to Rosa Parks, not archival footage of Rosa Parks' actual life or historical events.",
+      "reviewed_at": 1791736810.3930664
+    },
+    "fc87b1b8c76573330f98d4a3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "source_url": "https://archive.org/details/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "person": "Rosa Parks",
+      "start": 60.26,
+      "reason": "The video shows modern city bus footage in Houston from 2019, which serves as a general biographical illustration of public transit related to Transit Equity Day and Rosa Parks, but does not feature Rosa Parks herself.",
+      "reviewed_at": 1791736828.3865433
+    },
+    "8959c9ca3c7b4b1a0b53114b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "source_url": "https://archive.org/details/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "person": "Rosa Parks",
+      "start": 87.89,
+      "reason": "The footage features a news report about Transit Equity Day and a city proclamation in Houston from 2019. Rosa Parks is not visible in any of the frames, and the video has no direct visual connection to her life or historical events.",
+      "reviewed_at": 1791736835.3012137
+    },
+    "70d149288a251c2f2e34d9c7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "source_url": "https://archive.org/details/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "person": "Rosa Parks",
+      "start": 5.0,
+      "reason": "The video footage shows modern local government officials presenting a proclamation in Houston in 2019. Rosa Parks is not visible in the footage and passed away long before this event took place; the clip only connects to her via a proclamation date, making it unsuitable as biographical footage for her life.",
+      "reviewed_at": 1791736841.85045
+    },
+    "07e675f8169888eddf66c63b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "source_url": "https://archive.org/details/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "person": "Rosa Parks",
+      "start": 14.21,
+      "reason": "The footage shows a contemporary news segment/event from 2019 about Transit Equity Day in Houston, featuring local officials such as Amanda Edwards. Rosa Parks is not visible in the footage and passed away long before this event; using this modern B-roll is misleading for a biographical video about Rosa Parks.",
+      "reviewed_at": 1791736851.55023
+    },
+    "9998211a2b3b268412f16e0a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+      "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+      "person": "Rosa Parks",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of studio branding and title cards ('A Peacock Original'), which do not contain any historical footage, context, or the named subject.",
+      "reviewed_at": 1791736864.8289235
+    },
+    "57a70f3845edfc29d821be66": {
+      "kind": "segment_rejection",
+      "source_id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+      "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+      "person": "Rosa Parks",
+      "start": 449.95,
+      "reason": "The sampled frames show historical footage of a crowd and a photograph of a man (likely related to her family, such as her father), but Rosa Parks herself is not visible in any of the frames.",
+      "reviewed_at": 1791736875.062884
+    },
+    "cbb5247152a046a246226f2a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+      "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+      "person": "Rosa Parks",
+      "start": 894.9,
+      "reason": "The footage shows historical context of the Civil Rights movement with Martin Luther King Jr., but Rosa Parks is not visible in any of the sampled frames.",
+      "reviewed_at": 1791736884.59809
+    },
+    "a91adc8a75d08f4b1ee541a1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+      "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+      "person": "Rosa Parks",
+      "start": 1339.86,
+      "reason": "The footage shows unrelated modern activists and a journalist (Tiffany Cross) speaking in an interview, but Rosa Parks is not visible in any frame.",
+      "reviewed_at": 1791736893.7782433
+    },
+    "3b878053d1fe503fb9aab36c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "person": "Rosa Parks",
+      "start": 5.0,
+      "reason": "The footage shows Urana McCauley (Rosa Parks' niece) speaking at a school event, but Rosa Parks herself is not visible as she passed away in 2005 before this recording.",
+      "reviewed_at": 1791736899.1619222
+    },
+    "d05cc2c72a41a49eb9a6c0bb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "person": "Rosa Parks",
+      "start": 15.05,
+      "reason": "The video segment shows modern school children and an event at Daily Elementary School from 2015, which is not archival footage of Rosa Parks and does not feature her.",
+      "reviewed_at": 1791736905.1585174
+    },
+    "bc1531c08f670bdc12aeaf0b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "person": "Rosa Parks",
+      "start": 35.14,
+      "reason": "The video shows a modern school assembly/presentation about Rosa Parks, but Rosa Parks herself (who passed away in 2005) is not visible in the footage. Therefore, it does not provide direct historical footage or a biographical illustration of Rosa Parks.",
+      "reviewed_at": 1791736936.5998693
+    },
+    "758871354c663adf0debafa3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+      "source_url": "https://archive.org/details/bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+      "person": "Morgan Freeman",
+      "start": 81.98,
+      "reason": "The sampled frames clearly depict a different person being interviewed on the red carpet (likely another attendee or speaker), not Morgan Freeman himself. Therefore, the person is not visible and the footage cannot be used as identity or direct event footage for Morgan Freeman.",
+      "reviewed_at": 1791737074.2380471
+    },
+    "465df30fa925fbfeebf8fa30": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+      "source_url": "https://archive.org/details/bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+      "person": "Morgan Freeman",
+      "start": 114.97,
+      "reason": "The sampled frames feature a red carpet interviewer and a separate unidentified person being interviewed, but Morgan Freeman is not visible in any of the frames.",
+      "reviewed_at": 1791737081.537529
+    },
+    "3f445abbdd35b1f7647ec5f3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+      "source_url": "https://archive.org/details/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+      "person": "Morgan Freeman",
+      "start": 123.5,
+      "reason": "The sampled frames show Christian Bale and cityscapes/title cards from a Batman movie trailer rather than Morgan Freeman, failing the identity requirement for a biography about Morgan Freeman.",
+      "reviewed_at": 1791737097.252838
+    },
+    "eea1ccc8e3ae38885eca8145": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+      "source_url": "https://archive.org/details/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+      "person": "Morgan Freeman",
+      "start": 174.28,
+      "reason": "The sampled frames show clips from a movie (The Dark Knight Rises) featuring fictional characters and actors other than Morgan Freeman, with no visible appearance of Morgan Freeman himself.",
+      "reviewed_at": 1791737102.0449283
+    },
+    "245d8baf7bb2afa75a5ddc41": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+      "source_url": "https://archive.org/details/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+      "person": "Morgan Freeman",
+      "start": 5.0,
+      "reason": "The sampled segment features an interviewer (Alex Hudgens) presenting a prop vehicle for The Dark Knight Rises. The named subject, Morgan Freeman, never appears in any of the frames.",
+      "reviewed_at": 1791737106.7130847
+    },
+    "a87b737265bc98e0f075dd6b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+      "source_url": "https://archive.org/details/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+      "person": "Morgan Freeman",
+      "start": 21.93,
+      "reason": "The sampled segment features an interviewer and footage from the movie The Dark Knight Rises (showing Heinz Field collapsing during a football scene), but Morgan Freeman is not visible in any of the sampled frames.",
+      "reviewed_at": 1791737112.2956462
+    },
+    "4df866b062532467502cd484": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+      "source_url": "https://archive.org/details/bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+      "person": "Morgan Freeman",
+      "start": 16.0,
+      "reason": "The sampled frames feature an interviewer and actor Cuba Gooding Jr., but the target subject Morgan Freeman is not visible in any of the frames.",
+      "reviewed_at": 1791737124.8307166
+    },
+    "a4df83fda2132789936f10cf": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+      "source_url": "https://archive.org/details/bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+      "person": "Morgan Freeman",
+      "start": 26.99,
+      "reason": "The video features actor Cuba Gooding Jr. being interviewed on a red carpet, not Morgan Freeman, who is the subject of the biography.",
+      "reviewed_at": 1791737147.5148828
+    },
+    "aede27a8c15a04a54ade2f52": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+      "source_url": "https://archive.org/details/bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+      "person": "Morgan Freeman",
+      "start": 48.99,
+      "reason": "The video shows actor Cuba Gooding Jr. being interviewed on the red carpet, not Morgan Freeman, making it unusable for a biography of Morgan Freeman.",
+      "reviewed_at": 1791737157.2179244
+    },
+    "5a10c40b1bb8676e9e76475b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+      "source_url": "https://archive.org/details/bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+      "person": "Morgan Freeman",
+      "start": 59.99,
+      "reason": "The sampled frames clearly show actor Cuba Gooding Jr. being interviewed on the red carpet, not Morgan Freeman, making this footage incorrect for a biography of Morgan Freeman.",
+      "reviewed_at": 1791737163.617093
+    },
+    "aeacac734f65345cc8e7c5bd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:a878fb30c6e5c0b0323c0c072e713fbe",
+      "source_url": "https://archive.org/details/a878fb30c6e5c0b0323c0c072e713fbe",
+      "person": "Morgan Freeman",
+      "start": 46.12,
+      "reason": "Although Morgan Freeman appears in the first frame (during an interview), the rest of the clip consists of movie scene footage (from 'Feast of Love') featuring Greg Kinnear, where Morgan Freeman is not visible.",
+      "reviewed_at": 1791737190.4939172
+    },
+    "40079d92295f2cb1c5102e59": {
+      "kind": "segment_rejection",
+      "source_id": "archive:a878fb30c6e5c0b0323c0c072e713fbe",
+      "source_url": "https://archive.org/details/a878fb30c6e5c0b0323c0c072e713fbe",
+      "person": "Morgan Freeman",
+      "start": 56.4,
+      "reason": "The clip features Morgan Freeman in a film scene (biographical illustration), but it is a fictional movie clip rather than documentary or interview footage about his life.",
+      "reviewed_at": 1791737194.2343647
+    },
+    "63b39a640fe7ccfea41bbe85": {
+      "kind": "segment_rejection",
+      "source_id": "archive:APN_Arlington_s_Next_J.K._Rowling",
+      "source_url": "https://archive.org/details/APN_Arlington_s_Next_J.K._Rowling",
+      "person": "J.K. Rowling",
+      "start": 27.0,
+      "reason": "The video shows local news footage about school children's stories displayed in a cafe in Arlington, completely unrelated to J.K. Rowling. J.K. Rowling is neither visible nor is the footage relevant to her biography.",
+      "reviewed_at": 1791737335.5718768
+    },
+    "676f0993f2c12d593e57601b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:APN_Arlington_s_Next_J.K._Rowling",
+      "source_url": "https://archive.org/details/APN_Arlington_s_Next_J.K._Rowling",
+      "person": "J.K. Rowling",
+      "start": 37.99,
+      "reason": "The video shows children in a library and school setting as part of a local news report on student authors, with no footage of J.K. Rowling. It lacks any historical or biographical connection to the subject.",
+      "reviewed_at": 1791737342.120628
+    },
+    "6d921a7bfe7596151ea2a5b4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:APN_Arlington_s_Next_J.K._Rowling",
+      "source_url": "https://archive.org/details/APN_Arlington_s_Next_J.K._Rowling",
+      "person": "J.K. Rowling",
+      "start": 5.0,
+      "reason": "The footage features Brenda Mahoney discussing local student author projects in Arlington, not J.K. Rowling. J.K. Rowling is neither visible nor is the segment about her life.",
+      "reviewed_at": 1791737349.256641
+    },
+    "f438425c0750e8d2ca8f04aa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:APN_Arlington_s_Next_J.K._Rowling",
+      "source_url": "https://archive.org/details/APN_Arlington_s_Next_J.K._Rowling",
+      "person": "J.K. Rowling",
+      "start": 16.0,
+      "reason": "The video footage features a local news segment about Arlington Public Schools and local children's stories, featuring literacy coach Alessandra Magalhaes and young students. J.K. Rowling is neither visible nor connected to the segment beyond a metaphorical title in the news report, making it completely irrelevant for a J.K. Rowling biography.",
+      "reviewed_at": 1791737356.5282779
+    },
+    "61d5485d2ea7e04999f46ebd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+      "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+      "person": "J.K. Rowling",
+      "start": 87.8,
+      "reason": "The footage shows an unrelated political figure speaking at a podium with South African and Zambian flags, completely unrelated to J.K. Rowling.",
+      "reviewed_at": 1791737366.5610878
+    },
+    "228f21da6f994d058c0959e8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+      "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+      "person": "J.K. Rowling",
+      "start": 123.28,
+      "reason": "J.K. Rowling is not visible in any of the sampled frames. The video shows unrelated news footage of Pride parades and an interview with Louise Melling from the ACLU, making it completely irrelevant to J.K. Rowling's biography.",
+      "reviewed_at": 1791737373.35868
+    },
+    "4dc6219800562ec484e6b7cf": {
+      "kind": "segment_rejection",
+      "source_id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+      "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+      "person": "J.K. Rowling",
+      "start": 5.0,
+      "reason": "The footage shows generic Pride parade scenes and does not feature J.K. Rowling or any specific historical event related to her, making it unusable as biographical illustration.",
+      "reviewed_at": 1791737380.9065936
+    },
+    "7540627ef601a3b93923fbcf": {
+      "kind": "segment_rejection",
+      "source_id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+      "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+      "person": "J.K. Rowling",
+      "start": 16.83,
+      "reason": "The footage shows generic Pride Month imagery and title cards with no connection to J.K. Rowling aside from the source title, making it unusable as biographical illustration.",
+      "reviewed_at": 1791737386.097038
+    },
+    "b084188507ee88ef59a42281": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NimrodTrollsJKRowling",
+      "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+      "person": "J.K. Rowling",
+      "start": 20.59,
+      "reason": "The sampled frames depict an audience and a book signing event, but J.K. Rowling is not clearly visible in any of the frames (she is obscured or absent, while prankster Nimrod Kamer and attendees are shown). Therefore, the footage cannot be used as identity footage for J.K. Rowling.",
+      "reviewed_at": 1791737396.8299332
+    },
+    "703a65b33e2e8153f00d3c43": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jk-rowling-contrapoints",
+      "source_url": "https://archive.org/details/jk-rowling-contrapoints",
+      "person": "J.K. Rowling",
+      "start": 2896.99,
+      "reason": "The footage shows ContraPoints (Natalie Wynn) in a staged comedic/theatrical skit, not J.K. Rowling. While the video essay is about J.K. Rowling, the person depicted is not J.K. Rowling, making it unsuitable as identity footage or direct event footage for J.K. Rowling's biography.",
+      "reviewed_at": 1791737434.482635
+    },
+    "a9d9c56b7b82a8e88aab1a1c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jk-rowling-contrapoints",
+      "source_url": "https://archive.org/details/jk-rowling-contrapoints",
+      "person": "J.K. Rowling",
+      "start": 4136.41,
+      "reason": "The footage features the YouTube creator ContraPoints (Natalie Wynn) dressed in a witch costume commenting on J.K. Rowling, not J.K. Rowling herself. Therefore, it does not contain the named subject.",
+      "reviewed_at": 1791737451.279493
+    },
+    "786f0c3e11f98fb7c06c2c61": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jk-rowling-contrapoints",
+      "source_url": "https://archive.org/details/jk-rowling-contrapoints",
+      "person": "J.K. Rowling",
+      "start": 5.0,
+      "reason": "The footage shows a cosplay/parody skit from a ContraPoints video (Natalie Wynn) dressed as a witch, not J.K. Rowling herself. Therefore, it is not authentic footage of the subject.",
+      "reviewed_at": 1791737466.1196299
+    },
+    "9f3e8379a5edb3168c2fc744": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jk-rowling-contrapoints",
+      "source_url": "https://archive.org/details/jk-rowling-contrapoints",
+      "person": "J.K. Rowling",
+      "start": 418.14,
+      "reason": "The footage features ContraPoints (Natalie Wynn) in a video essay, not J.K. Rowling herself. Therefore, the person is not visible and the footage is not usable as identity footage for J.K. Rowling.",
+      "reviewed_at": 1791737483.0354114
+    },
+    "f09a95e8b53ddeac80c62403": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NimrodTrollsJKRowling",
+      "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+      "person": "J.K. Rowling",
+      "start": 51.76,
+      "reason": "The video shows prankster Nimrod Kamer interacting with attendees at a book signing, but J.K. Rowling herself is not visible in any of the sampled frames.",
+      "reviewed_at": 1791737510.0619812
+    },
+    "c6f669ddb36c5cec44a36fab": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NimrodTrollsJKRowling",
+      "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+      "person": "J.K. Rowling",
+      "start": 98.53,
+      "reason": "J.K. Rowling is not visible in the provided frames. The footage shows a prankster trolling an event, but J.K. Rowling herself does not clearly appear, making it unusable for direct biographical illustration.",
+      "reviewed_at": 1791737528.1136413
+    },
+    "b905f2c2d8375451e14dac95": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+      "source_url": "https://archive.org/details/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+      "person": "Guillermo del Toro",
+      "start": 178.85,
+      "reason": "The sampled frames show an interviewer and other cast members/actors from Pacific Rim (such as Idris Elba and Charlie Hunnam), but Guillermo del Toro is not clearly identifiable in any of the sampled frames.",
+      "reviewed_at": 1791737634.2599783
+    },
+    "1097acaa17923c8580fa2b83": {
+      "kind": "segment_rejection",
+      "source_id": "archive:caltvca-CalTV_E_-_Guillermo_Del_Toro",
+      "source_url": "https://archive.org/details/caltvca-CalTV_E_-_Guillermo_Del_Toro",
+      "person": "Guillermo del Toro",
+      "start": 5.0,
+      "reason": "The sampled frames only show a student reporter interviewing or introducing the segment and CalTV logos/title cards. Guillermo del Toro is not visible in any of the frames, making the segment unusable for identity footage or direct biographical illustration of the subject.",
+      "reviewed_at": 1791737648.3600676
+    },
+    "0283b25bd6acfd2e4f688fdc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:caltvca-CalTV_E_-_Guillermo_Del_Toro",
+      "source_url": "https://archive.org/details/caltvca-CalTV_E_-_Guillermo_Del_Toro",
+      "person": "Guillermo del Toro",
+      "start": 18.63,
+      "reason": "The sampled frames show random attendees, venue staff, and theater exteriors/interiors, but Guillermo del Toro is not visible anywhere in the footage.",
+      "reviewed_at": 1791737657.5532632
+    },
+    "02a1c99e8b1a74fdcc2c7990": {
+      "kind": "segment_rejection",
+      "source_id": "archive:caltvca-CalTV_E_-_Guillermo_Del_Toro",
+      "source_url": "https://archive.org/details/caltvca-CalTV_E_-_Guillermo_Del_Toro",
+      "person": "Guillermo del Toro",
+      "start": 32.26,
+      "reason": "The footage shows exterior shots of the Castro Theatre and festival signage for an event honoring Guillermo del Toro at the San Francisco International Film Festival, but del Toro himself is not visible in any of the sampled frames.",
+      "reviewed_at": 1791737662.913856
+    },
+    "be8b526580728c208607aa46": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+      "source_url": "https://archive.org/details/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+      "person": "Guillermo del Toro",
+      "start": 5.0,
+      "reason": "The sampled frames show movie trailer footage from Pacific Rim with no appearance of Guillermo del Toro himself, making it unusable for his biography.",
+      "reviewed_at": 1791737675.9173546
+    },
+    "faa6f4bb9a30c8b8a839382e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+      "source_url": "https://archive.org/details/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+      "person": "Guillermo del Toro",
+      "start": 29.84,
+      "reason": "The clip consists entirely of movie trailer footage from Pacific Rim with a watermark and does not show Guillermo del Toro, making it unusable for a biography short.",
+      "reviewed_at": 1791737687.2360532
+    },
+    "4cd92eff8b4decd82075b989": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+      "source_url": "https://archive.org/details/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+      "person": "Guillermo del Toro",
+      "start": 54.67,
+      "reason": "The clip consists entirely of movie trailer footage from Pacific Rim directed by Guillermo del Toro, but the subject himself is never visible in the frames. It serves as biographical illustration for his work.",
+      "reviewed_at": 1791737694.0613382
+    },
+    "b0f4da4a8c81fe7914fd767e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+      "source_url": "https://archive.org/details/bliptv-20131013-122032-Blacktreetv-PacificRimInterviewWGuillermoDelToroInterview122",
+      "person": "Guillermo del Toro",
+      "start": 129.18,
+      "reason": "The sampled frames show an interviewer and an interviewee speaking, but the named subject Guillermo del Toro is not clearly visible in any of the frames.",
+      "reviewed_at": 1791737726.9348211
+    },
+    "8e428bce982b0b71a3969fe9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "source_url": "https://archive.org/details/telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "person": "Narayana Murthy",
+      "start": 1278.28,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791737782.8030539
+    },
+    "d2ac9ee41414b8de062935fa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "source_url": "https://archive.org/details/telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "person": "Narayana Murthy",
+      "start": 1823.97,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791737784.9911263
+    },
+    "89e53df3265f0519b840bac2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "source_url": "https://archive.org/details/telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "person": "Narayana Murthy",
+      "start": 5.0,
+      "reason": "The frames depict R. Narayana Murthy (an Indian actor/filmmaker) in a movie scene, not the biography subject Narayana Murthy (co-founder of Infosys).",
+      "reviewed_at": 1791737788.5398605
+    },
+    "8ca6affdb3f2c764e6c6110b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "source_url": "https://archive.org/details/telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "person": "Narayana Murthy",
+      "start": 186.9,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791737790.2756052
+    },
+    "2653ab27a769fd5244738453": {
+      "kind": "segment_rejection",
+      "source_id": "archive:telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "source_url": "https://archive.org/details/telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "person": "Narayana Murthy",
+      "start": 368.79,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791737791.7330494
+    },
+    "8d10d1537ecfa3f08711adfa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "source_url": "https://archive.org/details/telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "person": "Narayana Murthy",
+      "start": 550.69,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791737793.4032226
+    },
+    "4860846f15e7b0e7693a6757": {
+      "kind": "segment_rejection",
+      "source_id": "archive:telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "source_url": "https://archive.org/details/telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "person": "Narayana Murthy",
+      "start": 732.59,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791737794.775349
+    },
+    "6e824feaae4448c4dee29253": {
+      "kind": "segment_rejection",
+      "source_id": "archive:telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "source_url": "https://archive.org/details/telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "person": "Narayana Murthy",
+      "start": 914.49,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791737796.2832341
+    },
+    "ae109584585a00ad58680ec3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "source_url": "https://archive.org/details/telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "person": "Narayana Murthy",
+      "start": 1096.38,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791737797.7772813
+    },
+    "d92227d53b69c0cf36d0f01f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "source_url": "https://archive.org/details/telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "person": "Narayana Murthy",
+      "start": 1460.18,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791737799.5051448
+    },
+    "6c80df7d11b9587492ede4cb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "source_url": "https://archive.org/details/telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "person": "Narayana Murthy",
+      "start": 1642.08,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791737801.0328696
+    },
+    "8191ef28c077a15faf8c6331": {
+      "kind": "segment_rejection",
+      "source_id": "archive:telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "source_url": "https://archive.org/details/telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "person": "Narayana Murthy",
+      "start": 2005.87,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791737802.4739504
+    },
+    "9130e2a6db6b3f7d6e069d33": {
+      "kind": "segment_rejection",
+      "source_id": "archive:telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "source_url": "https://archive.org/details/telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "person": "Narayana Murthy",
+      "start": 2187.77,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791737804.1495032
+    },
+    "e67a93694afa867ca6f53757": {
+      "kind": "segment_rejection",
+      "source_id": "archive:telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "source_url": "https://archive.org/details/telugu-hit-songs-palleletla-audio-jukebox-r-narayana-murthy-vandematharam-srinivas-songs",
+      "person": "Narayana Murthy",
+      "start": 2369.67,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791737806.009055
+    },
+    "d0e48eea312cd235fde52f33": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Chai_with_Manjula_-_Akshaya_Patra",
+      "source_url": "https://archive.org/details/Chai_with_Manjula_-_Akshaya_Patra",
+      "person": "Narayana Murthy",
+      "start": 923.9,
+      "reason": "The sampled frames show an interview program ('Chai with Manjula') featuring an interviewer and a guest, but Narayana Murthy is not visible in any of the frames.",
+      "reviewed_at": 1791737812.1155798
+    },
+    "010b5e2fcf0ccecc4b662143": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Chai_with_Manjula_-_Akshaya_Patra",
+      "source_url": "https://archive.org/details/Chai_with_Manjula_-_Akshaya_Patra",
+      "person": "Narayana Murthy",
+      "start": 1317.71,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791737823.3727303
+    },
+    "7d7f289594ebbbae45e7774a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Chai_with_Manjula_-_Akshaya_Patra",
+      "source_url": "https://archive.org/details/Chai_with_Manjula_-_Akshaya_Patra",
+      "person": "Narayana Murthy",
+      "start": 5.0,
+      "reason": "The video segment shows the host/interviewer (Manjula) of the program 'Chai with Manjula' and opening title sequences, but the named subject Narayana Murthy is not visible in any of the sampled frames.",
+      "reviewed_at": 1791737831.9592168
+    },
+    "0103e2237fdae2347a2828ad": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Chai_with_Manjula_-_Akshaya_Patra",
+      "source_url": "https://archive.org/details/Chai_with_Manjula_-_Akshaya_Patra",
+      "person": "Narayana Murthy",
+      "start": 136.27,
+      "reason": "The sampled frames only show the interviewer (Manjula) and not the named subject, Narayana Murthy. Therefore, the footage cannot be used as identity footage for him.",
+      "reviewed_at": 1791737839.3897605
+    },
+    "b80ade5eb11dfdeafc48976e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Chai_with_Manjula_-_Akshaya_Patra",
+      "source_url": "https://archive.org/details/Chai_with_Manjula_-_Akshaya_Patra",
+      "person": "Narayana Murthy",
+      "start": 267.54,
+      "reason": "The video segment features an interview with an unknown woman on 'Chai with Manjula' discussing Akshaya Patra. Narayana Murthy is not visible in any of the sampled frames.",
+      "reviewed_at": 1791737845.4705527
+    },
+    "607ab74c21418317b61080bd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+      "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+      "person": "Narayana Murthy",
+      "start": 5.0,
+      "reason": "The sampled frames show only a title card sequence ('Chai with Manjula') with a teapot and flowers. The named subject, Narayana Murthy, is not visible in any of the frames, making this segment unusable as identity footage.",
+      "reviewed_at": 1791737851.0026712
+    },
+    "34d19df808e8a8083e3ee164": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+      "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+      "person": "Narayana Murthy",
+      "start": 535.22,
+      "reason": "The sampled frames show the interviewer (Manjula) talking, but the subject Narayana Murthy is not visible in any of the frames.",
+      "reviewed_at": 1791737890.5518398
+    },
+    "fbacdd18b953c023294760fa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "person": "Boman Irani",
+      "start": 5.0,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791738081.4941201
+    },
+    "7160fe6e766bb6b2ac7bad08": {
+      "kind": "segment_rejection",
+      "source_id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "person": "Boman Irani",
+      "start": 575.7,
+      "reason": "The frames feature John Abraham and other actors from the film 'Parmanu', but Boman Irani is not visible in any of the sampled frames.",
+      "reviewed_at": 1791738096.5058076
+    },
+    "d6bd9477e201f637dab87b40": {
+      "kind": "segment_rejection",
+      "source_id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "person": "Boman Irani",
+      "start": 1146.4,
+      "reason": "The footage features actor John Abraham from the movie 'Parmanu', but the subject of the biography is Boman Irani, who is not visible in these frames.",
+      "reviewed_at": 1791738108.156854
+    },
+    "d953475e4ed045c48635ec99": {
+      "kind": "segment_rejection",
+      "source_id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "person": "Boman Irani",
+      "start": 1717.1,
+      "reason": "The footage shows John Abraham, not Boman Irani, so Boman Irani is not visible in the clip.",
+      "reviewed_at": 1791738119.7429483
+    },
+    "4238793248cd007827c4f803": {
+      "kind": "segment_rejection",
+      "source_id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "person": "Boman Irani",
+      "start": 2858.49,
+      "reason": "The sampled frames feature a satellite view and scenes from the movie 'Parmanu: The Story of Pokhran' starring John Abraham and others, but Boman Irani is not visible in any of the frames.",
+      "reviewed_at": 1791738132.757715
+    },
+    "8680ee2cda7e50d6318bdc41": {
+      "kind": "segment_rejection",
+      "source_id": "archive:romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "source_url": "https://archive.org/details/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "person": "Boman Irani",
+      "start": 5.0,
+      "reason": "The sampled frames only show static disclaimer text screens from a movie, with no actual footage of Boman Irani or relevant historical context.",
+      "reviewed_at": 1791738144.923859
+    },
+    "b126acfa84ae758b35ce88b4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "source_url": "https://archive.org/details/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "person": "Boman Irani",
+      "start": 1888.74,
+      "reason": "The sampled frames from the movie 'Romeo Akbar Walter' feature other actors such as John Abraham, but Boman Irani is not visibly present in any of the frames.",
+      "reviewed_at": 1791738154.4673262
+    },
+    "c3bc35f4265bcf44405751e7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "source_url": "https://archive.org/details/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "person": "Boman Irani",
+      "start": 2516.66,
+      "reason": "The provided video segment features fictional scenes from the movie 'Romeo Akbar Walter' with actors other than Boman Irani visible in the frames, and Boman Irani is not clearly identifiable in any of the sampled frames.",
+      "reviewed_at": 1791738160.654256
+    },
+    "f72234b747234a0fbe78f853": {
+      "kind": "segment_rejection",
+      "source_id": "archive:romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "source_url": "https://archive.org/details/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "person": "Boman Irani",
+      "start": 3772.48,
+      "reason": "The sampled frames depict fictional movie scenes from 'Romeo Akbar Walter' with background characters and musicians, but Boman Irani is not clearly identifiable in any of the frames, making the segment unusable for biographical illustration.",
+      "reviewed_at": 1791738167.3517838
+    },
+    "7d081c96c376b8ffaf898fa2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:khosla-ka-ghosla-2006-webhd-1080-p-jhs",
+      "source_url": "https://archive.org/details/khosla-ka-ghosla-2006-webhd-1080-p-jhs",
+      "person": "Boman Irani",
+      "start": 5.0,
+      "reason": "The sampled frames only show a Censor Board certificate and a studio title/restoration card, with no appearance of Boman Irani or actual usable footage from the film.",
+      "reviewed_at": 1791738187.6161458
+    },
+    "602aa22f3fc188f6a85c0f98": {
+      "kind": "segment_rejection",
+      "source_id": "archive:khosla-ka-ghosla-2006-webhd-1080-p-jhs",
+      "source_url": "https://archive.org/details/khosla-ka-ghosla-2006-webhd-1080-p-jhs",
+      "person": "Boman Irani",
+      "start": 578.57,
+      "reason": "The sampled frames feature Anupam Kher and Vinay Pathak, but Boman Irani is not visible in any of the frames.",
+      "reviewed_at": 1791738203.159984
+    },
+    "ce657f295b670cf543966411": {
+      "kind": "segment_rejection",
+      "source_id": "archive:khosla-ka-ghosla-2006-webhd-1080-p-jhs",
+      "source_url": "https://archive.org/details/khosla-ka-ghosla-2006-webhd-1080-p-jhs",
+      "person": "Boman Irani",
+      "start": 1152.14,
+      "reason": "The sampled frames show other actors from the film Khosla Ka Ghosla (such as Parvin Dabas and Vinay Pathak), but Boman Irani is not visible in any of the frames.",
+      "reviewed_at": 1791738216.9353364
+    },
+    "797b24b616e48d4916e62dcf": {
+      "kind": "segment_rejection",
+      "source_id": "archive:khosla-ka-ghosla-2006-webhd-1080-p-jhs",
+      "source_url": "https://archive.org/details/khosla-ka-ghosla-2006-webhd-1080-p-jhs",
+      "person": "Boman Irani",
+      "start": 1725.72,
+      "reason": "The sampled frames feature another actor (Tara Sharma) from the film 'Khosla Ka Ghosla', and the named subject Boman Irani is not visible in any of the footage.",
+      "reviewed_at": 1791738230.2674243
+    },
+    "908559a5ec4b694158476969": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jackie-chan-my-story-1999-uk-vhs",
+      "source_url": "https://archive.org/details/jackie-chan-my-story-1999-uk-vhs",
+      "person": "Jackie Chan",
+      "start": 5.0,
+      "reason": "The sampled frames only show copyright warning text from a VHS cassette, with no appearance of Jackie Chan or relevant biographical footage.",
+      "reviewed_at": 1791738405.23693
+    },
+    "72f27fc2e99e29d713d4d835": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jackie-chan-my-story-1999-uk-vhs",
+      "source_url": "https://archive.org/details/jackie-chan-my-story-1999-uk-vhs",
+      "person": "Jackie Chan",
+      "start": 363.74,
+      "reason": "The footage features Jackie Chan in archival clips, but is heavily framed inside an animated television graphic overlay with a pointing hand, making it unsuitable for a clean biography short.",
+      "reviewed_at": 1791738412.1806264
     }
   }
 }

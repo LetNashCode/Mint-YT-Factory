@@ -49,15 +49,86 @@
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Agatha Christie",
-    "premise": "The bestselling mystery author whose mysterious ten-day disappearance triggered a massive national manhunt.",
-    "hook": "One night she abandoned her car by a quarry, vanished completely, and sparked one of Britain's biggest searches.",
+    "format": "one_decision",
+    "person": "Rosa Parks",
+    "premise": "The immediate choice to remain seated on a Montgomery bus that galvanized a historic civil rights movement.",
+    "hook": "One ordinary bus ride home from work permanently altered the course of American history.",
     "key_facts": [
-      "Disappeared from her home in Berkshire in December 1926.",
-      "Her abandoned car was discovered perched near a chalk quarry containing her coat and driving license.",
-      "Prompted a search involving over a thousand police officers and volunteers.",
-      "Found safe ten days later staying at a hotel under an assumed name."
+      "Employed as a seamstress in Montgomery, Alabama.",
+      "Acted as secretary for the local chapter of the NAACP.",
+      "Refused to give up her bus seat to a white passenger on December 1, 1955."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Morgan Freeman",
+    "premise": "Enduring over a decade of minor stage roles and day jobs before achieving mainstream cinematic recognition.",
+    "hook": "The voice of God spent years struggling to pay rent in New York City.",
+    "key_facts": [
+      "Served in the United States Air Force as a radar technician before pursuing acting.",
+      "Spent over a decade performing in off-Broadway productions and regional theatre.",
+      "Achieved his breakthrough film role in 'Street Smart' at the age of 50."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Tenzing Norgay",
+    "premise": "Overcoming humble beginnings as a high-altitude porter to reach the highest point on Earth.",
+    "hook": "He carried loads up mountains for decades as a laborer before making history at the summit.",
+    "key_facts": [
+      "Born in Tibet and grew up in a yak-herding family in Nepal.",
+      "Worked for years as a high-altitude expedition porter for various mountaineering teams.",
+      "Reached the summit of Mount Everest alongside Edmund Hillary on May 29, 1953."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "J.K. Rowling",
+    "premise": "Conceiving a magical train journey while stuck on a delayed locomotive that led to a global literary phenomenon.",
+    "hook": "A broken-down train in 1990 sparked an idea that changed children's literature forever.",
+    "key_facts": [
+      "Conceived the idea for a boy wizard while sitting on a delayed train from Manchester to London.",
+      "Wrote portions of the first manuscript in various Edinburgh cafes while facing financial hardship.",
+      "Published 'Harry Potter and the Philosopher's Stone' in the United Kingdom in 1997."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Sully Sullenberger",
+    "premise": "Making a split-second calculation to land a disabled commercial airliner on a freezing river.",
+    "hook": "With both engines destroyed at low altitude, a veteran pilot had seconds to choose a landing spot.",
+    "key_facts": [
+      "Served as a fighter pilot in the United States Air Force before joining commercial aviation.",
+      "Faced a multiple bird strike that disabled both engines of US Airways Flight 1549 in January 2009.",
+      "Successfully executed a water landing on the Hudson River with zero fatalities."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Harrison Ford",
+    "premise": "Working primarily as a professional carpenter while waiting years for a break in the film industry.",
+    "hook": "The man who would play Han Solo and Indiana Jones was hired to build cabinets for movie directors.",
+    "key_facts": [
+      "Signed a standard studio acting contract with Columbia Pictures early in his career but received mostly minor roles.",
+      "Taught himself professional carpentry to support his family in Los Angeles.",
+      "Built cabinets for filmmaker George Lucas, who later cast him in 'American Graffiti' and 'Star Wars'."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Guillermo del Toro",
+    "premise": "Losing his entire completed master notebook that forced him to restart and refine his creative vision.",
+    "hook": "Leaving a notebook containing years of monster designs in a taxi cab changed his artistic process forever.",
+    "key_facts": [
+      "Began his career in Mexican cinema working as a special effects makeup supervisor.",
+      "Left a personal journal filled with years of sketches and notes in a Mexico City taxi cab.",
+      "Went on to direct critically acclaimed fantasy and horror films such as 'Pan's Labyrinth'."
     ],
     "source": "gemini_original"
   }

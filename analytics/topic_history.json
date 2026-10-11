@@ -3480,30 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do water drops bead",
-    "normalized": "why do water drops bead",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791629438,
-    "recorded_at": 1791629438,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do metal gates sag",
-    "normalized": "why do metal gates sag",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791640542,
-    "recorded_at": 1791640542,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why wooden doors stick in summer",
     "normalized": "why wooden doors stick in summer",
     "workflow": "publish",
@@ -3534,6 +3510,18 @@
     "status": "reserved",
     "reserved_at": 1791706118,
     "recorded_at": 1791706118,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do paper straws collapse",
+    "normalized": "why do paper straws collapse",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791728140,
+    "recorded_at": 1791728140,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

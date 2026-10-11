@@ -13979,6 +13979,126 @@
       "shot": 2,
       "query": "fan wobble vanishes completely ceiling",
       "recorded_at": 1791706227
+    },
+    {
+      "asset_key": "pexels:video:7150197",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7150197/7150197-hd_1280_720_60fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "paper straws collapse your drink innocent cold",
+      "recorded_at": 1791728356
+    },
+    {
+      "asset_key": "pexels:video:6996560",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6996560/6996560-hd_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "paper straws collapse but your straw",
+      "recorded_at": 1791728360
+    },
+    {
+      "asset_key": "pexels:video:7653242",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7653242/7653242-hd_1366_720_25fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "paper straws collapse you take one normal",
+      "recorded_at": 1791728363
+    },
+    {
+      "asset_key": "pexels:video:7040125",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7040125/7040125-hd_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "paper straws collapse suddenly walls stick together",
+      "recorded_at": 1791728371
+    },
+    {
+      "asset_key": "pexels:video:8165985",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8165985/8165985-hd_720_1366_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "paper straws collapse giant mesh tiny",
+      "recorded_at": 1791728372
+    },
+    {
+      "asset_key": "pexels:video:40047470",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/40047470/17094915_720_1280_24fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "paper straws collapse water comes along breaks",
+      "recorded_at": 1791728373
+    },
+    {
+      "asset_key": "pexels:video:8903895",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8903895/8903895-hd_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "paper straws collapse you inhale vacuum inside",
+      "recorded_at": 1791728374
+    },
+    {
+      "asset_key": "pexels:video:6032132",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6032132/6032132-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "paper straws collapse outside air pressure crushes",
+      "recorded_at": 1791728375
+    },
+    {
+      "asset_key": "pexels:video:7653589",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7653589/7653589-hd_720_1366_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "paper straws collapse you not drinking juice",
+      "recorded_at": 1791728377
+    },
+    {
+      "asset_key": "pexels:video:19995525",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/19995525/19995525-hd_1280_720_60fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "paper straws collapse you staging atmospheric wrestling",
+      "recorded_at": 1791728378
+    },
+    {
+      "asset_key": "pexels:video:6996744",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6996744/6996744-hd_720_1280_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "paper straws collapse surrenders because moisture",
+      "recorded_at": 1791728379
+    },
+    {
+      "asset_key": "pexels:video:7040210",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7040210/7040210-hd_720_1280_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "paper straws collapse leaving air pressure finish",
+      "recorded_at": 1791728380
     }
   ]
 }

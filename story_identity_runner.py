@@ -13,6 +13,13 @@ import story_topic_uniqueness
 import interactive_topics
 from interactive_topics import validate_story_sequence_state
 
+_FAILED_PEOPLE_THIS_RUN: set[str] = set()
+
+
+def _person_key(value: str) -> str:
+    import re
+    return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
+
 
 def _patch_story_portrait_export() -> None:
     import assemble
@@ -127,6 +134,25 @@ def _patch_story_video_topics() -> None:
         max_attempts = max(8, int(os.environ.get("STORY_TOPIC_ATTEMPTS", "16")))
         for attempt in range(max_attempts):
             pillar, topic, person = original()
+            person_key = _person_key(person)
+            if person_key in _FAILED_PEOPLE_THIS_RUN:
+                # A failed person must not re-enter this run through regenerated
+                # candidates or a new premise for the same person.
+                from story_topic_runtime import release_reservation
+                release_reservation(pillar, topic, person)
+                try:
+                    from pathlib import Path
+                    candidate_path = Path(interactive_topics.CANDIDATES)
+                    rows = interactive_topics._load(candidate_path, [])
+                    interactive_topics._save(
+                        candidate_path,
+                        [row for row in rows if not isinstance(row, dict)
+                         or _person_key(row.get("person", "")) != person_key],
+                    )
+                except Exception as cleanup_error:
+                    print(f"⚠️ Could not remove repeated Story candidate {person}: {cleanup_error}", flush=True)
+                print(f"🚫 Skipping already-failed Story person for this run: {person}", flush=True)
+                continue
             factory_claimed = False
             try:
                 # Media-first gate happens before the global factory topic claim.
@@ -155,7 +181,11 @@ def _patch_story_video_topics() -> None:
                     raise
                 if os.environ.get("STORY_PERSON", "").strip():
                     raise RuntimeError("Story video providers unavailable for requested subject; reservation preserved") from exc
-            release_reservation(pillar, topic, person)
+            # Quarantine the entire person, not only this exact premise. The
+            # same person can otherwise be regenerated with a slightly different
+            # topic and consume another block of Gemini visual-verification calls.
+            _FAILED_PEOPLE_THIS_RUN.add(_person_key(person))
+            _release_failed_story(person)
             from factory_content_memory import release as release_factory_topic
             release_factory_topic(topic, "story")
             print(f"Skipping Story subject without accessible video candidates ({attempt + 1}/{max_attempts}): {person}", flush=True)

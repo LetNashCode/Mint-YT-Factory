@@ -164,5 +164,21 @@
     "video_id": "jn4q2CUZJGI",
     "workdir": "",
     "published_at": 1791628596
+  },
+  {
+    "topic": "Viktor Frankl: Surviving multiple concentration camps to establish a groundbreaking school of psychological therapy.",
+    "normalized": "viktor frankl surviving multiple concentration camps to establish a groundbreaking school of psychological therapy",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1791723976,
+    "recorded_at": 1791723976,
+    "metadata": {
+      "person": "Viktor Frankl",
+      "pillar": "impossible_odds"
+    },
+    "title": "Viktor Frankl: Surviving multiple concentration camps to establish a groundbreaking school of psychological therapy.",
+    "video_id": "fEtQoH-07U0",
+    "workdir": "",
+    "published_at": 1791724795
   }
 ]

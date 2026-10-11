@@ -80,6 +80,132 @@
       "source_id": "commons:161344249",
       "source_url": "https://commons.wikimedia.org/wiki/File:040213_FLOTUS_FilmWorkshop_HD.webm",
       "reason": "strong metadata exclusion: portraying"
+    },
+    "7b006bc7d93d940029ae14ad": {
+      "kind": "segment_rejection",
+      "source_id": "archive:save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "source_url": "https://archive.org/details/save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "person": "Viktor Frankl",
+      "start": 3893.98,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791723985.2637632
+    },
+    "551544b02b2a9e6d687d844a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "source_url": "https://archive.org/details/save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "person": "Viktor Frankl",
+      "start": 5560.69,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791723987.7848318
+    },
+    "04a3b363c60b0fed537d1260": {
+      "kind": "segment_rejection",
+      "source_id": "archive:save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "source_url": "https://archive.org/details/save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "person": "Viktor Frankl",
+      "start": 5.0,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791723990.7141705
+    },
+    "c66b99b9de0458f317763319": {
+      "kind": "segment_rejection",
+      "source_id": "archive:save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "source_url": "https://archive.org/details/save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "person": "Viktor Frankl",
+      "start": 560.57,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791723994.1868882
+    },
+    "ac4de4a27cb99c2cc681e2a5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "source_url": "https://archive.org/details/save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "person": "Viktor Frankl",
+      "start": 1116.14,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791723997.8128202
+    },
+    "ef300c2275e7b856b21983ba": {
+      "kind": "segment_rejection",
+      "source_id": "archive:save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "source_url": "https://archive.org/details/save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "person": "Viktor Frankl",
+      "start": 1671.71,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791724001.2935045
+    },
+    "6063204bc451888853650afd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "source_url": "https://archive.org/details/save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "person": "Viktor Frankl",
+      "start": 2227.28,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791724005.8395433
+    },
+    "0988ab1a525ba63369e678fd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "source_url": "https://archive.org/details/save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "person": "Viktor Frankl",
+      "start": 2782.85,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791724009.7629514
+    },
+    "9442d5aa5df3a0c57a905ba9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "source_url": "https://archive.org/details/save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "person": "Viktor Frankl",
+      "start": 3338.42,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791724013.4073234
+    },
+    "549fa6145518337116a7df95": {
+      "kind": "segment_rejection",
+      "source_id": "archive:save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "source_url": "https://archive.org/details/save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "person": "Viktor Frankl",
+      "start": 5005.12,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791724018.4468188
+    },
+    "4ae94ef81c935590e8893f5b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "source_url": "https://archive.org/details/save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "person": "Viktor Frankl",
+      "start": 6116.26,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791724022.0441117
+    },
+    "2e7abe4d3f1b6f1d16b39baf": {
+      "kind": "segment_rejection",
+      "source_id": "archive:save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "source_url": "https://archive.org/details/save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "person": "Viktor Frankl",
+      "start": 6671.83,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791724025.5759952
+    },
+    "8f990edf675b9fc6e085704a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "source_url": "https://archive.org/details/save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "person": "Viktor Frankl",
+      "start": 7227.4,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791724028.9575164
+    },
+    "ed8031ccdab3a2d9e67d83f3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "source_url": "https://archive.org/details/save-tube.io-palestra-viktor-frankl-na-puc-rs-em-1984.-english-portugues",
+      "person": "Viktor Frankl",
+      "start": 4449.55,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791724035.5351152
     }
   }
 }

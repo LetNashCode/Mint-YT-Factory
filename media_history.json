@@ -14449,6 +14449,86 @@
       "shot": 2,
       "query": "garlic you literally breathing out",
       "recorded_at": 1791824189
+    },
+    {
+      "asset_key": "pexels:video:5801269",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5801269/5801269-hd_720_1366_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "wooden doors scrapes floor jams hard",
+      "recorded_at": 1791842008
+    },
+    {
+      "asset_key": "pexels:video:2110196",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/2110196/2110196-hd_1280_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "wooden doors summer arrived heavy humidity",
+      "recorded_at": 1791842017
+    },
+    {
+      "asset_key": "pexels:video:11755693",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/11755693/11755693-hd_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "wooden doors trees used drink water",
+      "recorded_at": 1791842021
+    },
+    {
+      "asset_key": "pexels:video:13691891",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/13691891/13691891-hd_1280_720_25fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "wooden doors even lumber microscopic channels",
+      "recorded_at": 1791842025
+    },
+    {
+      "asset_key": "pexels:video:39877024",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39877024/17004988_1280_720_50fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "wooden doors sticky summer air surrounds",
+      "recorded_at": 1791842027
+    },
+    {
+      "asset_key": "pixabay:video:9005",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/05/06/9005-216332135_medium.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "wooden doors tiny tubes swell like",
+      "recorded_at": 1791842035
+    },
+    {
+      "asset_key": "pexels:video:14127174",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/14127174/14127174-hd_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "wooden doors forcing door expand outward",
+      "recorded_at": 1791842036
+    },
+    {
+      "asset_key": "pexels:video:2795377",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/2795377/2795377-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "wooden doors swallowed summer air grew",
+      "recorded_at": 1791842037
     }
   ]
 }

@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do leather shoes crease",
-    "normalized": "why do leather shoes crease",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791742902,
-    "recorded_at": 1791742902,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why does wood creak",
     "normalized": "why does wood creak",
     "workflow": "publish",
@@ -3510,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1791824037,
     "recorded_at": 1791824037,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do wooden doors stick in summer",
+    "normalized": "why do wooden doors stick in summer",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791841897,
+    "recorded_at": 1791841897,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

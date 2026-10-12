@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do paper straws collapse",
-    "normalized": "why do paper straws collapse",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791728140,
-    "recorded_at": 1791728140,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do leather shoes crease",
     "normalized": "why do leather shoes crease",
     "workflow": "publish",
@@ -3510,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1791793581,
     "recorded_at": 1791793581,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why does garlic smell linger",
+    "normalized": "why does garlic smell linger",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791824037,
+    "recorded_at": 1791824037,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

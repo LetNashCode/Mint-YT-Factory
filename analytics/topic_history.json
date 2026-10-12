@@ -3480,30 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why does a shadow move",
-    "normalized": "why does a shadow move",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791668499,
-    "recorded_at": 1791668499,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why does a fan wobble",
-    "normalized": "why does a fan wobble",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791706118,
-    "recorded_at": 1791706118,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do paper straws collapse",
     "normalized": "why do paper straws collapse",
     "workflow": "publish",
@@ -3522,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1791742902,
     "recorded_at": 1791742902,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why does wood creak",
+    "normalized": "why does wood creak",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791793581,
+    "recorded_at": 1791793581,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

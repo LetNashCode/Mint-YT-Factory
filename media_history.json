@@ -14529,6 +14529,116 @@
       "shot": 2,
       "query": "wooden doors swallowed summer air grew",
       "recorded_at": 1791842037
+    },
+    {
+      "asset_key": "pexels:video:3826639",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3826639/3826639-hd_720_1366_50fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "shadows you take one step",
+      "recorded_at": 1791881545
+    },
+    {
+      "asset_key": "pexels:video:3831765",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3831765/3831765-hd_720_1366_50fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "shadows suddenly your shadow like",
+      "recorded_at": 1791881549
+    },
+    {
+      "asset_key": "pexels:video:3826638",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3826638/3826638-hd_720_1366_50fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "shadows noon you basically compact",
+      "recorded_at": 1791881555
+    },
+    {
+      "asset_key": "pexels:video:26208558",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/26208558/11939960_1280_720_60fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "shadows but right sun dips",
+      "recorded_at": 1791881562
+    },
+    {
+      "asset_key": "pexels:video:11691978",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/11691978/11691978-hd_1280_720_60fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "shadows blame sun angle low",
+      "recorded_at": 1791881564
+    },
+    {
+      "asset_key": "pexels:video:12384690",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/12384690/12384690-hd_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "shadows earlier light slammed straight",
+      "recorded_at": 1791881565
+    },
+    {
+      "asset_key": "pexels:video:7505577",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7505577/7505577-hd_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "shadows now try shining flashlight",
+      "recorded_at": 1791881566
+    },
+    {
+      "asset_key": "pexels:video:8404562",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8404562/8404562-hd_1280_720_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "shadows versus holding flat against",
+      "recorded_at": 1791881566
+    },
+    {
+      "asset_key": "pexels:video:6319540",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6319540/6319540-hd_720_1280_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "shadows sun hugs horizon light",
+      "recorded_at": 1791881567
+    },
+    {
+      "asset_key": "pexels:video:36833845",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/36833845/15605962_1600_720_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "shadows you not growing looking",
+      "recorded_at": 1791881568
+    },
+    {
+      "asset_key": "pexels:video:3427753",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3427753/3427753-hd_1280_720_60fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "shadows you wearing giant optical",
+      "recorded_at": 1791881570
     }
   ]
 }

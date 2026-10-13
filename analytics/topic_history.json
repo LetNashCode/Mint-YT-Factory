@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why does wood creak",
-    "normalized": "why does wood creak",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791793581,
-    "recorded_at": 1791793581,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why does garlic smell linger",
     "normalized": "why does garlic smell linger",
     "workflow": "publish",
@@ -3510,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1791841897,
     "recorded_at": 1791841897,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do shadows stretch at sunset",
+    "normalized": "why do shadows stretch at sunset",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791881458,
+    "recorded_at": 1791881458,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

@@ -454,13 +454,19 @@ def search_archive(person):
             candidate["archival_signal"] = sum(
                 1 for term in _POSITIVE_ARCHIVAL_TERMS if term in metadata_text
             )
-            # Description matches are discovery candidates only; Gemini remains
-            # the actual visual identity/context gate. This lets documentaries
-            # mention the person in catalog metadata without forcing their name
-            # into the title or subject field.
+            # Prefer records that identify the person in the title/subject.
+            # Description-only matches are a major source of irrelevant films,
+            # commentary and documentaries about a person rather than footage of
+            # the person. Admit them only when the catalog title/subject/creator
+            # also has a clear archival-appearance signal; visual identity is
+            # still verified later and is never inferred from metadata.
             identity_fields = words(title + " " + subject)
             description_fields = words(description)
-            if not _person_tokens(person) <= (identity_fields | description_fields):
+            person_tokens = _person_tokens(person)
+            if not person_tokens <= (identity_fields | description_fields):
+                continue
+            direct_catalog_match = person_tokens <= identity_fields
+            if not direct_catalog_match and candidate["archival_signal"] < 1:
                 continue
             if candidate["identity_score"] < 4.0:
                 continue
@@ -587,14 +593,16 @@ def frames(path, duration):
 
 
 def source_rejection_limit(value=None):
-    """Bound how many consecutive bad intervals can quarantine a source for this run."""
+    """Stop spending verifier calls on a source after a small run of bad intervals."""
     if value is None:
-        value = os.environ.get("STORY_SOURCE_MAX_REJECTIONS", "4")
+        value = os.environ.get("STORY_SOURCE_MAX_REJECTIONS", "2")
     try:
         configured = int(value)
     except (TypeError, ValueError):
-        configured = 4
-    return min(4, max(2, configured))
+        configured = 2
+    # A single bad interval can be a cutaway; after two consecutive bad
+    # intervals the source is unlikely to yield enough useful footage.
+    return min(3, max(2, configured))
 
 
 def verification_passes(result):

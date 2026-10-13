@@ -2469,6 +2469,42 @@
       "start": 794.65,
       "reason": "The frames feature fictional scenes from the movie 3 Idiots, depicting characters other than Boman Irani (who is not visible or identifiable in any of the sampled frames). Therefore, it cannot be used as identity footage or valid historical context for a biography of Boman Irani.",
       "reviewed_at": 1791931850.5962398
+    },
+    "a9014e36c14d810451d127e8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "person": "Boman Irani",
+      "start": 4570.59,
+      "reason": "The frames depict fictional movie scenes featuring actor John Abraham and another actor, but do not show Boman Irani, making the footage unusable for a biography about Boman Irani.",
+      "reviewed_at": 1791932512.6097448
+    },
+    "c859a331713c234a111f6640": {
+      "kind": "segment_rejection",
+      "source_id": "archive:3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264",
+      "source_url": "https://archive.org/details/3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264",
+      "person": "Boman Irani",
+      "start": 2373.94,
+      "reason": "The sampled frames depict actor Aamir Khan in a scene from the movie 3 Idiots, but Boman Irani is not visible in any of the frames.",
+      "reviewed_at": 1791932557.4020405
+    },
+    "15207b9d09e5306c4da3cfdc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264",
+      "source_url": "https://archive.org/details/3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264",
+      "person": "Boman Irani",
+      "start": 3953.23,
+      "reason": "The frames show actors Sharman Joshi and Aamir Khan from the movie 3 Idiots, but the named subject Boman Irani is not visible in any of the sampled frames.",
+      "reviewed_at": 1791932569.0066473
+    },
+    "724fe693be483a62ffb8c2b0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264",
+      "source_url": "https://archive.org/details/3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264",
+      "person": "Boman Irani",
+      "start": 4742.88,
+      "reason": "The sampled frames feature Aamir Khan and Kareena Kapoor from the movie 3 Idiots, but Boman Irani is not visible in any of the frames.",
+      "reviewed_at": 1791932576.86952
     }
   }
 }

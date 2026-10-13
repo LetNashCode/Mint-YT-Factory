@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-13T22:06:45.025245+00:00",
+  "generated_at": "2026-10-13T23:00:37.589353+00:00",
   "video_count": 9,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 9,
   "reason": "",
   "totals": {
-    "views": 5774,
+    "views": 5777,
     "likes": 90,
     "comments": 0
   },
   "averages": {
-    "views": 641.56,
+    "views": 641.89,
     "likes": 10.0,
     "comments": 0.0,
     "average_view_percentage": 52.37,
@@ -79,7 +79,7 @@
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
       "video_id": "hLW3D1SJuYo",
       "title": "Before the Fame: Jackie Chan's Untold Struggle",
-      "views": 1012,
+      "views": 1015,
       "likes": 29,
       "comments": 0,
       "shares": 0,
@@ -87,7 +87,7 @@
       "average_view_percentage": 88.87,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 2.8656
+      "engagement_rate": 2.8571
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -207,7 +207,7 @@
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
       "video_id": "hLW3D1SJuYo",
       "title": "Before the Fame: Jackie Chan's Untold Struggle",
-      "views": 1012,
+      "views": 1015,
       "likes": 29,
       "comments": 0,
       "shares": 0,
@@ -215,7 +215,7 @@
       "average_view_percentage": 88.87,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 2.8656
+      "engagement_rate": 2.8571
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",

@@ -196,5 +196,21 @@
     "video_id": "hLW3D1SJuYo",
     "workdir": "",
     "published_at": 1791739092
+  },
+  {
+    "topic": "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
+    "normalized": "boman irani a journey from working at a family bakery and running a photographic studio to finding major acting success in hindi cinema at a mature age",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1791932454,
+    "recorded_at": 1791932454,
+    "metadata": {
+      "person": "Boman Irani",
+      "pillar": "rise_from_nothing"
+    },
+    "title": "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
+    "video_id": "negG-shOfpM",
+    "workdir": "",
+    "published_at": 1791933238
   }
 ]

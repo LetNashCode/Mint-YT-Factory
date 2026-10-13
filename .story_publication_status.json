@@ -1,6 +1,20 @@
 {
-  "status": "deferred",
-  "video_id": "",
-  "youtube_url": "",
-  "reason": "Story Gemini visual verification budget exhausted after 160 requests (visual_limit=160, total_limit=180)\\n"
+  "status": "complete",
+  "video_id": "negG-shOfpM",
+  "youtube_url": "https://www.youtube.com/shorts/negG-shOfpM",
+  "platforms": {
+    "youtube": {
+      "status": "published",
+      "video_id": "negG-shOfpM"
+    },
+    "instagram": {
+      "status": "published",
+      "media_id": "17887626249619557",
+      "container_id": "18498731608097136"
+    },
+    "facebook": {
+      "status": "published",
+      "video_id": "2403266427166079"
+    }
+  }
 }

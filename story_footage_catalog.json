@@ -13027,11 +13027,73 @@
         "real_footage": true,
         "usable": true,
         "relevance": 6,
-        "reason": "The clip features Boman Irani acting in a scene from the film 3 Idiots, making it valid biographical illustration footage of the actor.",
+        "reason": "The clip features Boman Irani acting in a scene from the film 3 Idiots. While it is fictional movie footage rather than a documentary about his life, it serves as acceptable biographical illustration of his acting career.",
         "usage": "biographical_illustration"
       },
-      "review_key": "5c96eaf1faae580d28ba8246b720698253dbe33fefeb0d3cc9ee2232a8d49687",
-      "reviewed_at": 1791931831.1341166
+      "review_key": "e168c184f4277b2b56663c2abdc5f99c6385be045079972846a8688b1cbffac0",
+      "reviewed_at": 1791932542.6691093
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264/3.Idiots%20%282009%29%201080p%20WEB-DL%20DDP5.1%20H.264.mp4",
+        "source_url": "https://archive.org/details/3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264",
+        "title": "3.Idiots (2009) 1080p WEB DL DDP 5.1 H 264",
+        "description": "1080p WEB DL DDP 5.1 H 264 ['AAMIR KHAN', 'SHARMAN JOSHI', 'R.MADHAVAN', 'KAREENA KAPOOR', 'BOMAN IRANI', 'OMI VAIDYA', 'MONA SINGH']",
+        "creator": "BOLLYWEB",
+        "license": "",
+        "subject": "['AAMIR KHAN', 'SHARMAN JOSHI', 'R.MADHAVAN', 'KAREENA KAPOOR', 'BOMAN IRANI', 'OMI VAIDYA', 'MONA SINGH']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 10279.3995,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 1584.29,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8.0,
+        "reason": "The sampled frames clearly feature actor Boman Irani in character (frames 3 and 4) along with other cast members from the film 3 Idiots, serving as biographical illustration of his film career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a3bc919bc4b71c39b551c8523a48dc87fddf942d2a6f081dd3239a3cace78acb",
+      "reviewed_at": 1791932549.931538
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264/3.Idiots%20%282009%29%201080p%20WEB-DL%20DDP5.1%20H.264.mp4",
+        "source_url": "https://archive.org/details/3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264",
+        "title": "3.Idiots (2009) 1080p WEB DL DDP 5.1 H 264",
+        "description": "1080p WEB DL DDP 5.1 H 264 ['AAMIR KHAN', 'SHARMAN JOSHI', 'R.MADHAVAN', 'KAREENA KAPOOR', 'BOMAN IRANI', 'OMI VAIDYA', 'MONA SINGH']",
+        "creator": "BOLLYWEB",
+        "license": "",
+        "subject": "['AAMIR KHAN', 'SHARMAN JOSHI', 'R.MADHAVAN', 'KAREENA KAPOOR', 'BOMAN IRANI', 'OMI VAIDYA', 'MONA SINGH']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 10279.3995,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 3163.58,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The segment features Boman Irani visibly present and performing in a scene from the film '3 Idiots'. While it is fictional movie footage rather than a direct biographical documentary, it is genuine filmed acting footage depicting his career work, making it useful as a biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a29bcd9e7e12fb6890b4bc481b067fe0328f5d930a4a626a5084548b41d75e09",
+      "reviewed_at": 1791932560.5556242
     }
   ]
 }

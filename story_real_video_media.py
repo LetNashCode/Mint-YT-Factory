@@ -259,6 +259,19 @@ def _identity_score(person, item):
     return score
 
 
+def archive_candidate_has_identity(person, title, subject, description, archival_signal):
+    """Reject weak description-only archive matches before metadata or Gemini calls."""
+    person_tokens = _person_tokens(person)
+    identity_fields = words(str(title or "") + " " + str(subject or ""))
+    description_fields = words(description)
+    if not person_tokens or not person_tokens <= (identity_fields | description_fields):
+        return False
+    # A title/subject match is stronger evidence than a name buried in a
+    # documentary description. Description-only candidates need an archival
+    # appearance clue in title/subject/creator to avoid generic films.
+    return person_tokens <= identity_fields or int(archival_signal or 0) >= 1
+
+
 def person_match(person, item):
     # Never include the search query itself as evidence: it was supplied by us.
     # Description matches are candidates only; Gemini must prove the footage.
@@ -460,13 +473,9 @@ def search_archive(person):
             # the person. Admit them only when the catalog title/subject/creator
             # also has a clear archival-appearance signal; visual identity is
             # still verified later and is never inferred from metadata.
-            identity_fields = words(title + " " + subject)
-            description_fields = words(description)
-            person_tokens = _person_tokens(person)
-            if not person_tokens <= (identity_fields | description_fields):
-                continue
-            direct_catalog_match = person_tokens <= identity_fields
-            if not direct_catalog_match and candidate["archival_signal"] < 1:
+            if not archive_candidate_has_identity(
+                person, title, subject, description, candidate["archival_signal"]
+            ):
                 continue
             if candidate["identity_score"] < 4.0:
                 continue

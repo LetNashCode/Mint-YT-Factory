@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-11T16:37:38.358926+00:00",
-  "video_count": 8,
+  "generated_at": "2026-10-13T12:04:46.982805+00:00",
+  "video_count": 9,
   "learning_ready": true,
   "metrics_available": true,
-  "advanced_metrics_videos": 6,
+  "advanced_metrics_videos": 7,
   "creative_learning_version": "v5",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
@@ -14,16 +14,16 @@
   "winning_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 26.903,
+      "score": 31.756,
       "sample_size": 3,
       "weak_sample_size": 3,
-      "weak_score": 7.789
+      "weak_score": 8.005
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 7.789,
+      "score": 8.005,
       "sample_size": 3
     }
   ],
@@ -31,16 +31,16 @@
   "winning_hook_payoff_pairs": [],
   "creative_strategy_results": [],
   "winning_topics": [
+    "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
     "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes.",
-    "Mary Kom: From a Farmer's Daughter in Rural Manipur to Six-Time World Boxing Champion.",
-    "Jim Carrey: Dropping Out at Age 15 to Work as a Factory Janitor in Canada."
+    "Mary Kom: From a Farmer's Daughter in Rural Manipur to Six-Time World Boxing Champion."
   ],
   "avoid_topics": [
     "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
-    "Viktor Frankl: Surviving multiple concentration camps to establish a groundbreaking school of psychological therapy.",
-    "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever."
+    "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
+    "Viktor Frankl: Surviving multiple concentration camps to establish a groundbreaking school of psychological therapy."
   ],
-  "used_topic_count": 8,
+  "used_topic_count": 9,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

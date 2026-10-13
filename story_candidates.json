@@ -1,19 +1,6 @@
 [
   {
     "format": "before_they_were_famous",
-    "person": "Kalpana Chawla",
-    "premise": "The aeronautical engineering student from Karnal who broke geographical barriers to reach NASA.",
-    "hook": "Growing up in a small town in Haryana where aerospace opportunities were rare, she built model airplanes before studying aerospace engineering.",
-    "key_facts": [
-      "She earned her bachelor's degree in aeronautical engineering from Punjab Engineering College.",
-      "She moved to the United States in the 1980s to pursue master's and doctoral degrees in aerospace engineering.",
-      "She joined NASA as a research scientist at Ames Research Center.",
-      "She flew her first space mission aboard the Space Shuttle Columbia in 1997 as a mission specialist."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
     "person": "Sachin Tendulkar",
     "premise": "The young prodigy who carried cricket gear across Mumbai train networks.",
     "hook": "Before facing international fast bowlers, he traveled across Mumbai with heavy cricket kits on crowded local trains.",
@@ -49,19 +36,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Agatha Christie",
-    "premise": "How an Unsolved Disappearance Sparked a Legendary Mystery Writing Career.",
-    "hook": "When she mysteriously vanished for eleven days, launching a massive national manhunt, the resulting public scrutiny changed her life forever.",
-    "key_facts": [
-      "Disappeared from her home in 1926, prompting a widespread police search involving thousands of volunteers.",
-      "Was found days later at a hotel registered under an assumed name.",
-      "Continued to write numerous globally renowned detective novels featuring Hercule Poirot and Miss Marple.",
-      "Became one of the best-selling fiction writers in history."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Jim Henson",
     "premise": "The Early Years of Crafting Puppets Before Creating The Muppets.",
@@ -84,19 +58,6 @@
       "The ship, Endurance, was trapped and eventually sunk by pack ice in the Weddell Sea.",
       "Navigated a small lifeboat across 800 miles of stormy ocean to reach South Georgia Island for rescue.",
       "Successfully saved the lives of every member of his crew without a single casualty."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Radhanath Sikdar",
-    "premise": "The Mathematician Who Calculated the Height of Everest Without Ever Climbing It.",
-    "hook": "Working from a desk hundreds of miles away from the Himalayas, a brilliant Indian mathematician used geometry to measure the world's tallest peak.",
-    "key_facts": [
-      "Joined the Great Trigonometrical Survey of India as a mathematical computer.",
-      "Calculated the height of Peak XV—later named Mount Everest—using complex trigonometric formulas in 1852.",
-      "Conducted calculations from stations located far away from the mountain itself.",
-      "His precise calculations established the mountain as the highest peak on Earth."
     ],
     "source": "gemini_original"
   }

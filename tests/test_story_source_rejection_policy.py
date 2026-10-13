@@ -46,17 +46,26 @@ def test_animation_and_slideshow_metadata_remain_rejected():
 
 
 def test_description_only_archive_match_needs_archival_signal():
-    """Description mentions alone should not admit generic films into verification."""
     import story_real_video_media as media
 
-    person_tokens = media._person_tokens("Boman Irani")
-    identity_fields = media.words("Interview with another actor")
-    description_fields = media.words("Boman Irani is mentioned in this film")
-    assert person_tokens <= (identity_fields | description_fields)
-    assert not person_tokens <= identity_fields
-    # Without an archival signal in title/subject/creator, this candidate is
-    # excluded by search_archive before metadata download and Gemini verification.
-    assert sum(
-        1 for term in media._POSITIVE_ARCHIVAL_TERMS
-        if term in "interview with another actor"
-    ) == 1
+    assert not media.archive_candidate_has_identity(
+        "Boman Irani",
+        "A film starring John Abraham",
+        "",
+        "Boman Irani is mentioned in this film",
+        0,
+    )
+    assert media.archive_candidate_has_identity(
+        "Boman Irani",
+        "Interview with Boman Irani",
+        "",
+        "Conversation",
+        1,
+    )
+    assert not media.archive_candidate_has_identity(
+        "Boman Irani",
+        "Interview with another actor",
+        "",
+        "Boman Irani is mentioned in this film",
+        0,
+    )

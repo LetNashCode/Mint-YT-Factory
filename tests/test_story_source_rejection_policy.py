@@ -45,7 +45,7 @@ def test_animation_and_slideshow_metadata_remain_rejected():
 
 
 
-def test_description_only_archive_match_needs_archival_signal():
+def test_archive_candidates_require_direct_catalog_identity():
     import story_real_video_media as media
 
     assert not media.archive_candidate_has_identity(

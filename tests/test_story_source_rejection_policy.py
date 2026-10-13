@@ -1,17 +1,17 @@
 from story_real_video_media import source_rejection_limit
 
 
-def test_source_rejection_limit_defaults_to_four(monkeypatch):
+def test_source_rejection_limit_defaults_to_two(monkeypatch):
     monkeypatch.delenv("STORY_SOURCE_MAX_REJECTIONS", raising=False)
-    assert source_rejection_limit() == 4
+    assert source_rejection_limit() == 2
 
 
 def test_source_rejection_limit_is_bounded():
     assert source_rejection_limit("2") == 2
     assert source_rejection_limit("3") == 3
-    assert source_rejection_limit("4") == 4
-    assert source_rejection_limit("20") == 4
-    assert source_rejection_limit("invalid") == 4
+    assert source_rejection_limit("4") == 3
+    assert source_rejection_limit("20") == 3
+    assert source_rejection_limit("invalid") == 2
 
 def test_legacy_rejection_cache_is_invalidated(tmp_path, monkeypatch):
     import json
@@ -42,3 +42,21 @@ def test_animation_and_slideshow_metadata_remain_rejected():
     import story_real_video_media as media
 
     assert media._source_precheck({"title": "Animated slideshow about Marie Curie"}) is not None
+
+
+
+def test_description_only_archive_match_needs_archival_signal():
+    """Description mentions alone should not admit generic films into verification."""
+    import story_real_video_media as media
+
+    person_tokens = media._person_tokens("Boman Irani")
+    identity_fields = media.words("Interview with another actor")
+    description_fields = media.words("Boman Irani is mentioned in this film")
+    assert person_tokens <= (identity_fields | description_fields)
+    assert not person_tokens <= identity_fields
+    # Without an archival signal in title/subject/creator, this candidate is
+    # excluded by search_archive before metadata download and Gemini verification.
+    assert sum(
+        1 for term in media._POSITIVE_ARCHIVAL_TERMS
+        if term in "interview with another actor"
+    ) == 1

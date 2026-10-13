@@ -4884,37 +4884,6 @@
       "reviewed_at": 1790854695.8348386
     },
     {
-      "person": "Rosa Parks",
-      "source": {
-        "id": "archive:DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks.mp4",
-        "source_url": "https://archive.org/details/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
-        "title": "DCTV Celebrates Black History Month - Rosa Parks",
-        "description": "Produced by DCTV (DeKalb County Television) Channel 23, this video recognizes those who made great impacts in and for the African American community and the world alike. Additional Information: DCTV celebrates Black History Month by recognizing Rosa Parks, known as the \"First Lady of Civil Rights.\" Parks is an American activist best known for not giving up her seat to a caucasian passenger in Alabama which helped spark the Montgomery Bus Boycott which started in December 1955. She received both the Presidential Medal of Freedom and the Congressional Gold Medal for her courageous act. For more DeKalb County news, visit http://www.dctvchannel23.tv. ['Georgia', 'DeKalb County', 'DeKalb County Television', 'DCTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'GA', 'Black History', 'Black History Month', 'Channel 23', 'Rosa Parks', '2020']",
-        "creator": "DCTV",
-        "license": "",
-        "subject": "['Georgia', 'DeKalb County', 'DeKalb County Television', 'DCTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'GA', 'Black History', 'Black History Month', 'Channel 23', 'Rosa Parks', '2020']",
-        "runtime": "00:00:47",
-        "direct_subject": true,
-        "duration_hint": 47.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 26.46,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The frames clearly show archival moving footage of Rosa Parks herself with overlaid quotes and title text, making it suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "1ee56047bd32e16bf89a35686f690461c1bb8c2e53948879cc4139aaf9130e54",
-      "reviewed_at": 1790887448.1030614
-    },
-    {
       "person": "Guillermo del Toro",
       "source": {
         "id": "archive:g4tv.com-video49139-flvhd",
@@ -8573,37 +8542,6 @@
       "reviewed_at": 1791620955.7889833
     },
     {
-      "person": "Agatha Christie",
-      "source": {
-        "id": "archive:agatha-christie-arena",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/agatha-christie-arena/Agatha%20Christie%20_001.mp4",
-        "source_url": "https://archive.org/details/agatha-christie-arena",
-        "title": "Arena: Agatha Christie - Unfinished Portrait",
-        "description": "Profile celebrating the centenary of the famous author Agatha Christie’s birth. Looking at her life, her character and the key moments in her childhood that influenced her writing. ['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
-        "creator": "BBC",
-        "license": "",
-        "subject": "['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3656.42408,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2806.86,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage shows Agatha Christie herself seated at a desk and visible in all three frames as she looks into/is reflected in a mirror while writing, perfectly illustrating her life and work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "047f76f11e801b2d2ce4a80ba7e6ffbcfac9114a7746d99f734ef67155f57c7f",
-      "reviewed_at": 1791621170.8113189
-    },
-    {
       "person": "J. R. R. Tolkien",
       "source": {
         "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
@@ -9686,37 +9624,6 @@
       "reviewed_at": 1791631975.3626385
     },
     {
-      "person": "Louis Braille",
-      "source": {
-        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
-        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
-        "title": "Louis Braille ~ The Braille Alphabet",
-        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "creator": "",
-        "license": "",
-        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 864.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 462.84,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video shows a dramatized historical reenactment featuring Louis Braille (or a depiction of him and an instructor/peer in a 19th-century setting), which works well as biographical illustration for a Short about his life, though it is a historical drama recreation rather than genuine historical recording.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6ec12712cb16045d42a70f9bbcc5668cdb7cebdaaace5d4db51094404f9e0f2a",
-      "reviewed_at": 1791632738.6773698
-    },
-    {
       "person": "Ernest Shackleton",
       "source": {
         "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
@@ -9901,37 +9808,6 @@
       },
       "review_key": "11cadb798783a750ef476da87d54ed6b3acda74152d31451301f1cc9b6e2be38",
       "reviewed_at": 1791633279.5839365
-    },
-    {
-      "person": "Srinivasa Ramanujan",
-      "source": {
-        "id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm/Srinivasa%20Ramanujan%20-%20The%20Mathematician%20and%20His%20Legacy-20170518.mp4",
-        "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
-        "title": "Srinivasa Ramanujan - The Mathematician and His Legacy-20170518",
-        "description": "Uncovering the fundamental principles governing our universe, through science and mathematics. / / Directed by- Nandan Kudhyadi / Producer & Commissioning Editor- Rajiv Mehrotra / / Festivals / India International Science Festival, India (Award) / Golemog, Serbia / Kolkata; Trivandrum, India / / Nandan Kudhyadi has more than sixty five documentaries to his credit on varied subjects. Several of these have won top national awards and been screened at various international film festivals like Cinema du Reel, Tokyo. Nandan graduated in Film Direction at the Film and Television Institute of India, Pune. He has worked with celebrated international filmmakers like Michelangelo Antonioni, Krzysztof Zanussi, Mani Kaul and Ketan Mehta. / / Rajiv Mehrotra is the Managing Trustee and Commissioning Editor of PSBT - his films have won more than 300 awards worldwide, including 32 in 31 years from the President of India. His nine books are available in 50 languages and editions. / / / / / PSBT is a not-for-profit that nurtures and supports the production of independent documentary films. Over two decades, it has produced some 700 documentary films. Each film averages two festival selections and every second film an award. / / Its Board of Trustees includes Adoor Gopalakrishnan, Fali Nariman, Kiran Karnik, Shyam Benegal, Sharmila Tagore and CEO, Prasar Bharati. / / Credits / Cinematographer: R V Ramani / Sound Recordist: Tushar Pandit / Editor: Nandkishor Jadhav / Animator: Milind Rairikar / / Produced by PSBT in partnership with Doordarshan India. / http://www.psbt.org/ ; http://www.ddindi ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3044.96,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1637.06,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features historical photographic and documentary evidence showing Srinivasa Ramanujan among his peers at Cambridge around 1916, directly illustrating his academic life as narrated.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6a86a3e4d28474687a78242ffde7c25a1455e04a82611c3b0dbec5e75a83a291",
-      "reviewed_at": 1791634554.2468202
     },
     {
       "person": "Srinivasa Ramanujan",
@@ -10771,99 +10647,6 @@
       "reviewed_at": 1791718691.062886
     },
     {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 36.18,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features real archival footage of J.K. Rowling at a book signing event, clearly visible sitting at a table signing books in frames 4 and 5.",
-        "usage": "direct_event"
-      },
-      "review_key": "cc7716c865893c97d67fc1051cb45dc8d20091fe06a18644df2970fbfcaccf75",
-      "reviewed_at": 1791718974.4021783
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 82.94,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video footage includes a clear shot of J.K. Rowling speaking at an event (frame 2), making her visible, along with documentary context related to her public appearances.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f5936b3ea8edad8bff5925c444548ef0e954506ae533f8be08958b6b7a6d5f89",
-      "reviewed_at": 1791719061.1250288
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 67.35,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage features J.K. Rowling speaking at an event, making her clearly visible and identifiable in multiple sampled frames while discussing relevant topics.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "facef8557f2476d1d0e16193eb233cee5396688b4eea3469b7452f6f8e1e283e",
-      "reviewed_at": 1791719067.9152439
-    },
-    {
       "person": "Boman Irani",
       "source": {
         "id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
@@ -11482,37 +11265,6 @@
       },
       "review_key": "b6d6f84a222b51f0bc4d4f65e2fcf2c10676ebd6fa624f5f1c4b20b1dca55d6a",
       "reviewed_at": 1791736856.7204225
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
-        "id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary/Rosa_Parks_story_lives_on_at_Daily_Elementary.mp4",
-        "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
-        "title": "Rosa Parks' story lives on at Daily Elementary",
-        "description": " ['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
-        "creator": "Houston Independent School District",
-        "license": "",
-        "subject": "['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
-        "runtime": "00:01:24",
-        "direct_subject": true,
-        "duration_hint": 84.317651,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 25.09,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The segment includes archival footage of Rosa Parks being fingerprinted/booked following her arrest, which directly illustrates her life and historical significance, though it shifts to modern school interviews later.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "8f2020575a74a98a8b960f2aa737d7525e333f3693cbad958032ad6d91bafd4c",
-      "reviewed_at": 1791736909.0147996
     },
     {
       "person": "Morgan Freeman",
@@ -12474,6 +12226,812 @@
       },
       "review_key": "d90242b3598c42c38efe9ab50fcae6bec630e8f62783b193d9db32acfc3f2c08",
       "reviewed_at": 1791738416.174001
+    },
+    {
+      "person": "Agatha Christie",
+      "source": {
+        "id": "archive:agatha-christie-arena",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/agatha-christie-arena/Agatha%20Christie%20_001.mp4",
+        "source_url": "https://archive.org/details/agatha-christie-arena",
+        "title": "Arena: Agatha Christie - Unfinished Portrait",
+        "description": "Profile celebrating the centenary of the famous author Agatha Christie’s birth. Looking at her life, her character and the key moments in her childhood that influenced her writing. ['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
+        "creator": "BBC",
+        "license": "",
+        "subject": "['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3656.42408,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2806.86,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The archival footage clearly shows Agatha Christie seated at a desk, visible both from behind and reflected in the mirror, serving as excellent biographical illustration for a documentary about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "79ea715595c792f8851f1e6ac564525ff91087a808b498a14eb7fe2c07e360d1",
+      "reviewed_at": 1791929314.0369558
+    },
+    {
+      "person": "Jim Henson",
+      "source": {
+        "id": "archive:tv-am-interview-1983",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tv-am-interview-1983/TV-am%20Interview%201983.mp4",
+        "source_url": "https://archive.org/details/tv-am-interview-1983",
+        "title": "Jim Henson \"The Dark Crystal\" TV Am Interview 1983",
+        "description": "Jim Henson and Frank Oz are interviewed about their recent movie, The Dark Crystal. They bring with them the Aughra puppet. Sourced from YouTube, TV-AM archive. https://www.youtube.com/watch?v=B_TCf0ANFHA The Dark Crystal",
+        "creator": "Jim Henson",
+        "license": "",
+        "subject": "The Dark Crystal",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 244.44,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 129.08,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Jim Henson being interviewed in 1983 about The Dark Crystal. The footage is genuine, historical, and well-framed, serving as excellent biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "86467a328340946fc205063603ad53bea50fab0184833e408448640b12c64dcc",
+      "reviewed_at": 1791929621.2259674
+    },
+    {
+      "person": "Jim Henson",
+      "source": {
+        "id": "archive:CNNPeopleProfilesJimHenson",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/CNNPeopleProfilesJimHenson/CNNPeopleProfilesHenson.mp4",
+        "source_url": "https://archive.org/details/CNNPeopleProfilesJimHenson",
+        "title": "CNN People Profiles: Jim Henson",
+        "description": "Files include original Lagarith AVI capture plus compressed 60p MP4. Digitized from Chris Stulz's tape archive. Many thanks, Chris! ['jim henson', 'muppet', 'documentary', 'the muppet show', 'sesame street', 'fraggle rock', 'the dark crystal', 'labyrinth', 'joan ganz cooney', 'caroll spinney', 'the jim henson company', 'jane henson', 'steve whitmire', 'frank oz', 'cnn', 'people profiles', 'kermit the frog', 'big bird']",
+        "creator": "CNN",
+        "license": "",
+        "subject": "['jim henson', 'muppet', 'documentary', 'the muppet show', 'sesame street', 'fraggle rock', 'the dark crystal', 'labyrinth', 'joan ganz cooney', 'caroll spinney', 'the jim henson company', 'jane henson', 'steve whitmire', 'frank oz', 'cnn', 'people profiles', 'kermit the frog', 'big bird']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2578.442533,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1977.65,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The clip features archival documentary footage showing Jim Henson clearly alongside another person in the opening frames, followed by an interview segment. This directly supports a biographical video about Jim Henson.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "aa56e709ce508c8af4bf38cae0e800528fe59caf407b78617670fd87ae234da5",
+      "reviewed_at": 1791929651.3379388
+    },
+    {
+      "person": "Jim Henson",
+      "source": {
+        "id": "archive:tv-am-interview-1983",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tv-am-interview-1983/TV-am%20Interview%201983.mp4",
+        "source_url": "https://archive.org/details/tv-am-interview-1983",
+        "title": "Jim Henson \"The Dark Crystal\" TV Am Interview 1983",
+        "description": "Jim Henson and Frank Oz are interviewed about their recent movie, The Dark Crystal. They bring with them the Aughra puppet. Sourced from YouTube, TV-AM archive. https://www.youtube.com/watch?v=B_TCf0ANFHA The Dark Crystal",
+        "creator": "Jim Henson",
+        "license": "",
+        "subject": "The Dark Crystal",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 244.44,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 40.45,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment features authentic archival footage of Jim Henson (along with Frank Oz) being interviewed on TV-AM in 1983 discussing The Dark Crystal, making it valid biographical illustration despite the timecode burn-in and close-up cutaways.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "57c5ff00e437072a7d7d6f67844435bf9b52a71b8898bf768fcc160fcced5919",
+      "reviewed_at": 1791929667.1118758
+    },
+    {
+      "person": "Jim Henson",
+      "source": {
+        "id": "archive:tv-am-interview-1983",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tv-am-interview-1983/TV-am%20Interview%201983.mp4",
+        "source_url": "https://archive.org/details/tv-am-interview-1983",
+        "title": "Jim Henson \"The Dark Crystal\" TV Am Interview 1983",
+        "description": "Jim Henson and Frank Oz are interviewed about their recent movie, The Dark Crystal. They bring with them the Aughra puppet. Sourced from YouTube, TV-AM archive. https://www.youtube.com/watch?v=B_TCf0ANFHA The Dark Crystal",
+        "creator": "Jim Henson",
+        "license": "",
+        "subject": "The Dark Crystal",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 244.44,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 58.18,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment features archival interview footage of Jim Henson discussing The Dark Crystal, making him clearly visible in the sampled frames and providing good biographical illustration material despite some visible timecode/watermark text.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7bc2ad114a7dcf2cdd38e13bc6fa0260af632a193a45429ea41ba213b32f49af",
+      "reviewed_at": 1791929709.3715796
+    },
+    {
+      "person": "Jim Henson",
+      "source": {
+        "id": "archive:tv-am-interview-1983",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tv-am-interview-1983/TV-am%20Interview%201983.mp4",
+        "source_url": "https://archive.org/details/tv-am-interview-1983",
+        "title": "Jim Henson \"The Dark Crystal\" TV Am Interview 1983",
+        "description": "Jim Henson and Frank Oz are interviewed about their recent movie, The Dark Crystal. They bring with them the Aughra puppet. Sourced from YouTube, TV-AM archive. https://www.youtube.com/watch?v=B_TCf0ANFHA The Dark Crystal",
+        "creator": "Jim Henson",
+        "license": "",
+        "subject": "The Dark Crystal",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 244.44,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 75.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment features genuine archival interview footage of Jim Henson (alongside Frank Oz and the Aughra puppet) discussing The Dark Crystal. Jim Henson is clearly identifiable in multiple sampled frames. The footage is suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1afb178ff4e7b3eee792721a7500b6fe463d681b4371cf20243caffc6f6d7c44",
+      "reviewed_at": 1791929713.8200817
+    },
+    {
+      "person": "Jim Henson",
+      "source": {
+        "id": "archive:tv-am-interview-1983",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tv-am-interview-1983/TV-am%20Interview%201983.mp4",
+        "source_url": "https://archive.org/details/tv-am-interview-1983",
+        "title": "Jim Henson \"The Dark Crystal\" TV Am Interview 1983",
+        "description": "Jim Henson and Frank Oz are interviewed about their recent movie, The Dark Crystal. They bring with them the Aughra puppet. Sourced from YouTube, TV-AM archive. https://www.youtube.com/watch?v=B_TCf0ANFHA The Dark Crystal",
+        "creator": "Jim Henson",
+        "license": "",
+        "subject": "The Dark Crystal",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 244.44,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 93.63,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Jim Henson being interviewed in 1983 about The Dark Crystal, making it a valid and highly relevant biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ad0f4489767790be6c0714dca52551e08ae7422775c578dee8ff80fab96effb9",
+      "reviewed_at": 1791929723.8866336
+    },
+    {
+      "person": "Jim Henson",
+      "source": {
+        "id": "archive:tv-am-interview-1983",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tv-am-interview-1983/TV-am%20Interview%201983.mp4",
+        "source_url": "https://archive.org/details/tv-am-interview-1983",
+        "title": "Jim Henson \"The Dark Crystal\" TV Am Interview 1983",
+        "description": "Jim Henson and Frank Oz are interviewed about their recent movie, The Dark Crystal. They bring with them the Aughra puppet. Sourced from YouTube, TV-AM archive. https://www.youtube.com/watch?v=B_TCf0ANFHA The Dark Crystal",
+        "creator": "Jim Henson",
+        "license": "",
+        "subject": "The Dark Crystal",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 244.44,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 111.36,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The clip shows genuine historical archival footage of Jim Henson (alongside Frank Oz) being interviewed about 'The Dark Crystal', matching the biographical context. While there is a timecode overlay (TCR PLAY LOCK), the footage is clear, authentic, and features the subject prominently.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "36dcab9c1da864a67908e4273e2198ce6fc586ca539fe554a60119e00a613859",
+      "reviewed_at": 1791929727.904316
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks.mp4",
+        "source_url": "https://archive.org/details/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
+        "title": "DCTV Celebrates Black History Month - Rosa Parks",
+        "description": "Produced by DCTV (DeKalb County Television) Channel 23, this video recognizes those who made great impacts in and for the African American community and the world alike. Additional Information: DCTV celebrates Black History Month by recognizing Rosa Parks, known as the \"First Lady of Civil Rights.\" Parks is an American activist best known for not giving up her seat to a caucasian passenger in Alabama which helped spark the Montgomery Bus Boycott which started in December 1955. She received both the Presidential Medal of Freedom and the Congressional Gold Medal for her courageous act. For more DeKalb County news, visit http://www.dctvchannel23.tv. ['Georgia', 'DeKalb County', 'DeKalb County Television', 'DCTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'GA', 'Black History', 'Black History Month', 'Channel 23', 'Rosa Parks', '2020']",
+        "creator": "DCTV",
+        "license": "",
+        "subject": "['Georgia', 'DeKalb County', 'DeKalb County Television', 'DCTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'GA', 'Black History', 'Black History Month', 'Channel 23', 'Rosa Parks', '2020']",
+        "runtime": "00:00:47",
+        "direct_subject": true,
+        "duration_hint": 47.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 26.46,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The clip features actual footage of Rosa Parks clearly visible with overlaid text and quotes, serving as good biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "270369378a7431042eec5a67fef86dd58fcf193b1497129999fe39c696a23da1",
+      "reviewed_at": 1791929847.1012006
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
+        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+        "title": "The Rebellious Life of Mrs. Rosa Parks",
+        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "creator": "Devon Geen",
+        "license": "",
+        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2674.71,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features historical dramatization/archival footage clearly showing Rosa Parks on a bus and contextual shots relevant to the narrated event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e281a7fd758faf79481b117d8965d758c6acdf9df64ca7474e321562436f49d2",
+      "reviewed_at": 1791929879.5202875
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
+        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+        "title": "The Rebellious Life of Mrs. Rosa Parks",
+        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "creator": "Devon Geen",
+        "license": "",
+        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 4899.47,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival footage showing Rosa Parks clearly in the first three sampled frames, making it highly relevant and usable for a biographical short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "553d6c359ed6f67ab31d2f417d231f61efeb3cb77a29b2c132447677bfd1470e",
+      "reviewed_at": 1791929937.0492935
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
+        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+        "title": "The Rebellious Life of Mrs. Rosa Parks",
+        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "creator": "Devon Geen",
+        "license": "",
+        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5344.42,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Rosa Parks seated in a church setting holding a candle, providing authentic documentary material illustrating her life and presence.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "009ca7ae4539699f883db4e0e50f52a88e68bd60658d1e8378919f1822d0a29e",
+      "reviewed_at": 1791929951.1068733
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary/Rosa_Parks_story_lives_on_at_Daily_Elementary.mp4",
+        "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+        "title": "Rosa Parks' story lives on at Daily Elementary",
+        "description": " ['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
+        "creator": "Houston Independent School District",
+        "license": "",
+        "subject": "['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
+        "runtime": "00:01:24",
+        "direct_subject": true,
+        "duration_hint": 84.317651,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 25.09,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment includes archival footage of Rosa Parks being fingerprinted, establishing historical context and depicting her life and civil rights significance, although the later frames show modern interview footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "17ba14418cddcbb47c55155a31b55eab8e5a2eaa5206dd9151fc9e6fb24074a6",
+      "reviewed_at": 1791930000.167796
+    },
+    {
+      "person": "Madam C.J. Walker",
+      "source": {
+        "id": "archive:yt_p3qjlLYszEI",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/yt_p3qjlLYszEI/p3qjlLYszEI.mp4",
+        "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+        "title": "US National Archives - Madam C.J. Walker in the National Archives (YouTube)",
+        "description": "Downloaded from US National Archives Youtube channel on 2025-02-05 12:03:02 https://youtube.com/watch?v=p3qjlLYszEI -------- Madam C.J. Walker, one of the great American entrepreneurs of the early 20th century, was born to former slaves and grew up in destitution. In this Inside the Vaults video short, her great-great granddaughter, A'Lelia Bundles, tells Madam Walker's story with help from documents in the National Archives. Bundles, a former broadcast network news executive and President of the Foundation for the National Archives, is the author of \"On Her Own Ground: The Life and Times of Madam C.J. Walker.\" She drew on documents in the Archives to depict the Louisiana plantation on which Madam Walker was born, Walker's early life as an orphan and washerwoman, and ultimately her triumph as one of the creators of the modern hair care and cosmetics industry. Bundles also found some surprises in the Archives: Madam Walker's philanthropy and civil rights activism led to her being targeted by the federal government as a \"subversive negro.\" For more information about Madam Walker, visit http://www.madamcjwalker.com. Inside the Vaults includes highlights from the National Archives in the Washington, DC, area and from the Presidential libraries and regional archives nationwide. These shorts present behind-the-scenes exclusives and offer surprising stories about the National Archives treasures. See more from Inside the Vaults at http://bit.ly/LzQNae. ",
+        "creator": "US National Archives",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 208.374833,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 154.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The segment features archival documents, photos of the Walker Building, and an interview with Madam C.J. Walker's great-great-granddaughter A'Lelia Bundles discussing her life and legacy, providing valid biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "59d7e440c937f0835e87d30d49d773d4cc4101217091b601e9789dd90cb97ccd",
+      "reviewed_at": 1791930073.8349652
+    },
+    {
+      "person": "Madam C.J. Walker",
+      "source": {
+        "id": "archive:yt_p3qjlLYszEI",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/yt_p3qjlLYszEI/p3qjlLYszEI.mp4",
+        "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+        "title": "US National Archives - Madam C.J. Walker in the National Archives (YouTube)",
+        "description": "Downloaded from US National Archives Youtube channel on 2025-02-05 12:03:02 https://youtube.com/watch?v=p3qjlLYszEI -------- Madam C.J. Walker, one of the great American entrepreneurs of the early 20th century, was born to former slaves and grew up in destitution. In this Inside the Vaults video short, her great-great granddaughter, A'Lelia Bundles, tells Madam Walker's story with help from documents in the National Archives. Bundles, a former broadcast network news executive and President of the Foundation for the National Archives, is the author of \"On Her Own Ground: The Life and Times of Madam C.J. Walker.\" She drew on documents in the Archives to depict the Louisiana plantation on which Madam Walker was born, Walker's early life as an orphan and washerwoman, and ultimately her triumph as one of the creators of the modern hair care and cosmetics industry. Bundles also found some surprises in the Archives: Madam Walker's philanthropy and civil rights activism led to her being targeted by the federal government as a \"subversive negro.\" For more information about Madam Walker, visit http://www.madamcjwalker.com. Inside the Vaults includes highlights from the National Archives in the Washington, DC, area and from the Presidential libraries and regional archives nationwide. These shorts present behind-the-scenes exclusives and offer surprising stories about the National Archives treasures. See more from Inside the Vaults at http://bit.ly/LzQNae. ",
+        "creator": "US National Archives",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 208.374833,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment features authentic archival photographs and historical context related to Madam C.J. Walker, including her manufacturing company and product packaging depicting her likeness.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8fbbef26d7b1e2fed0ba2362795fae9ac12559bede49901f07f03851823a3b01",
+      "reviewed_at": 1791930164.6353283
+    },
+    {
+      "person": "Srinivasa Ramanujan",
+      "source": {
+        "id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm/Srinivasa%20Ramanujan%20-%20The%20Mathematician%20and%20His%20Legacy-20170518.mp4",
+        "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+        "title": "Srinivasa Ramanujan - The Mathematician and His Legacy-20170518",
+        "description": "Uncovering the fundamental principles governing our universe, through science and mathematics. / / Directed by- Nandan Kudhyadi / Producer & Commissioning Editor- Rajiv Mehrotra / / Festivals / India International Science Festival, India (Award) / Golemog, Serbia / Kolkata; Trivandrum, India / / Nandan Kudhyadi has more than sixty five documentaries to his credit on varied subjects. Several of these have won top national awards and been screened at various international film festivals like Cinema du Reel, Tokyo. Nandan graduated in Film Direction at the Film and Television Institute of India, Pune. He has worked with celebrated international filmmakers like Michelangelo Antonioni, Krzysztof Zanussi, Mani Kaul and Ketan Mehta. / / Rajiv Mehrotra is the Managing Trustee and Commissioning Editor of PSBT - his films have won more than 300 awards worldwide, including 32 in 31 years from the President of India. His nine books are available in 50 languages and editions. / / / / / PSBT is a not-for-profit that nurtures and supports the production of independent documentary films. Over two decades, it has produced some 700 documentary films. Each film averages two festival selections and every second film an award. / / Its Board of Trustees includes Adoor Gopalakrishnan, Fali Nariman, Kiran Karnik, Shyam Benegal, Sharmila Tagore and CEO, Prasar Bharati. / / Credits / Cinematographer: R V Ramani / Sound Recordist: Tushar Pandit / Editor: Nandkishor Jadhav / Animator: Milind Rairikar / / Produced by PSBT in partnership with Doordarshan India. / http://www.psbt.org/ ; http://www.ddindi ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3044.96,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1637.06,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features historical archival documentation and photographs showing Srinivasa Ramanujan among his peers at Cambridge, directly aligning with the narration about his university degree and academic work.",
+        "usage": "direct_event"
+      },
+      "review_key": "347e34f6c5179c8d121ea484c5dbc2c14daf71f314e58c1cee26c163f1bfc5c7",
+      "reviewed_at": 1791930364.953387
+    },
+    {
+      "person": "Louis Braille",
+      "source": {
+        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
+        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+        "title": "Louis Braille ~ The Braille Alphabet",
+        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "creator": "",
+        "license": "",
+        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 864.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 462.84,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features a dramatic reenactment/archival footage depicting Louis Braille as a young boy presenting his work at a desk, directly illustrating his life and achievements.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1b969dba73939a162fc59b9a404138424f1abb6a0ef27031cd39719718933b81",
+      "reviewed_at": 1791930639.9580257
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/PrideMonthShowedProgressExceptforJKRowling/Pride%20Month%20Showed%20Progress%20%E2%80%94%20Except%20for%20J.K.%20Rowling%20%5BYSItxEJtW4s%5D.mp4",
+        "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+        "title": "Pride Month Showed Progress — Except for J.K. Rowling",
+        "description": "The yearly tradition of companies and politicians falling over themselves to recognize queer people is here. Here's how the 50th anniversary of Pride Month was (and wasn't) celebrated this year. Subscribe to VICE News here: [URL REMOVED] Check out VICE News for more: [URL REMOVED] Follow VICE News here: Facebook: [URL REMOVED] Twitter: [URL REMOVED] Tumblr: [URL REMOVED] Instagram: [URL REMOVED] More videos from the VICE network: [URL REMOVED] ",
+        "creator": "VICE News",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 167.767768,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 52.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment includes genuine archival footage and public appearances of J.K. Rowling, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "22f5666248ec29146d498a025734d2e8d3ccd0be772894e870f414c472458f87",
+      "reviewed_at": 1791930925.18401
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 67.35,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features real archival footage of J.K. Rowling speaking at an event in the first four frames, though the fifth frame shows a camera operator and does not include her. Since she is clearly identifiable in multiple frames, person_visible is true and the segment is useful as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e952b5a5bbb2b72938ee226b9f9fe104f76ca3a77d848e634c9958c3362f1576",
+      "reviewed_at": 1791930952.4434166
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 36.18,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment shows real archival footage of J.K. Rowling at a book signing event, making her clearly visible in several frames and providing authentic biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "319d5bd4252526c549a2d27a3928c2a3cfbed5ecb858cd3568a81825ba5fa3fd",
+      "reviewed_at": 1791931003.1782324
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 82.94,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video segment contains real archival footage of J.K. Rowling speaking in at least one frame, alongside related news coverage context from a prank video, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5b99265ac68219eb6628b365aede429cbe021dd364bb547fb20dbe521ce2a293",
+      "reviewed_at": 1791931011.0535524
+    },
+    {
+      "person": "Satyajit Ray",
+      "source": {
+        "id": "archive:dli.MoI.SatyajitRay_Eng",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dli.MoI.SatyajitRay_Eng/SatyajitRay_Eng.mp4",
+        "source_url": "https://archive.org/details/dli.MoI.SatyajitRay_Eng",
+        "title": "Satyajit Ray",
+        "description": "From the Government of India, Ministry of Information, Films Division. A biographical film is on Satyajit Ray, one of India's most significant film makers, who also attained international acclaim through his cinematographic creations. ['Persons of Eminence', 'GoI Films', 'Documentary']",
+        "creator": "Ministry of Information, Films Division",
+        "license": "",
+        "subject": "['Persons of Eminence', 'GoI Films', 'Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 7856.68,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 6037.83,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature archival footage of Satyajit Ray himself, making it highly relevant and usable as biographical illustration for a short about his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f95aca31c408965035e0383c5b5ad23af064a4f63ce1f670aeb5ffbd6bc31571",
+      "reviewed_at": 1791931422.7801511
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am/Parmanu.The.Story.Of.Pokhran.2018.1080p.BluRay.x264-%5BYTS.AM%5D.mp4",
+        "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+        "title": "Parmanu. The. Story. Of. Pokhran. 2018.1080p. Blu Ray.x 264 [ YTS. AM]",
+        "description": "Ashwat Raina and his teammates arrive in Pokhran to re-conduct a confidential nuclear test, where they face challenges from the American Lacrosse satellite and local spies. ['John Abraham', 'Boman Irani', 'Diana Penty']",
+        "creator": "Abhishek Sharma",
+        "license": "",
+        "subject": "['John Abraham', 'Boman Irani', 'Diana Penty']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 7433.08,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 6282.68,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Boman Irani is clearly visible in the third, fourth, and fifth sampled frames seated in military uniform. The footage is a scene from the film Parmanu, serving as biographical illustration for the actor.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2089d35457f5be6bb95b1ce77e443b3764d416f5ef6e3f2699380a0b1c17425d",
+      "reviewed_at": 1791931744.9047272
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am/Parmanu.The.Story.Of.Pokhran.2018.1080p.BluRay.x264-%5BYTS.AM%5D.mp4",
+        "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+        "title": "Parmanu. The. Story. Of. Pokhran. 2018.1080p. Blu Ray.x 264 [ YTS. AM]",
+        "description": "Ashwat Raina and his teammates arrive in Pokhran to re-conduct a confidential nuclear test, where they face challenges from the American Lacrosse satellite and local spies. ['John Abraham', 'Boman Irani', 'Diana Penty']",
+        "creator": "Abhishek Sharma",
+        "license": "",
+        "subject": "['John Abraham', 'Boman Irani', 'Diana Penty']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 7433.08,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 4570.59,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features Boman Irani performing in a scene from the movie Parmanu, which serves as valid biographical illustration of his acting career, though it is fictional feature film footage rather than direct documentary footage of his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "00167eab18d847afae7ef92c27741d23baf8bd8f9acc95cc2ce80a90e84384cf",
+      "reviewed_at": 1791931765.4057748
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1/Romeo%20Akbar%20Walter%20%282019%29%201080p%20AMZN%20WEB.DL%20AVC%20DDP%205.1.mp4",
+        "source_url": "https://archive.org/details/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+        "title": "Romeo Akbar Walter (2019) 1080p AMZN WEB. DL AVC DDP 5.1",
+        "description": "1080p AMZN WEB. DL AVC DDP 5.1 ['JOHN ABRAHAM', 'GEETIKA VIDYA OHLYAN', 'ANIL GEORGE', 'MOUNI ROY', 'SIKANDER KHER', 'BOMAN IRANI', 'RAGHUBIR YADAV', 'GOVIND NAMDEV', 'JACKIE SHROFF']",
+        "creator": "BOLLYWEB",
+        "license": "",
+        "subject": "['JOHN ABRAHAM', 'GEETIKA VIDYA OHLYAN', 'ANIL GEORGE', 'MOUNI ROY', 'SIKANDER KHER', 'BOMAN IRANI', 'RAGHUBIR YADAV', 'GOVIND NAMDEV', 'JACKIE SHROFF']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 8176.88,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 5028.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The sampled frames from the film 'Romeo Akbar Walter' show Boman Irani visibly present in the first frame, providing biographical illustration material for his acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2f7c1acae58dddab75f438f79ecf3851f88781e9110b226b48fb0b9f59fc99b8",
+      "reviewed_at": 1791931808.5608613
+    },
+    {
+      "person": "Boman Irani",
+      "source": {
+        "id": "archive:3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264/3.Idiots%20%282009%29%201080p%20WEB-DL%20DDP5.1%20H.264.mp4",
+        "source_url": "https://archive.org/details/3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264",
+        "title": "3.Idiots (2009) 1080p WEB DL DDP 5.1 H 264",
+        "description": "1080p WEB DL DDP 5.1 H 264 ['AAMIR KHAN', 'SHARMAN JOSHI', 'R.MADHAVAN', 'KAREENA KAPOOR', 'BOMAN IRANI', 'OMI VAIDYA', 'MONA SINGH']",
+        "creator": "BOLLYWEB",
+        "license": "",
+        "subject": "['AAMIR KHAN', 'SHARMAN JOSHI', 'R.MADHAVAN', 'KAREENA KAPOOR', 'BOMAN IRANI', 'OMI VAIDYA', 'MONA SINGH']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 10279.3995,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 5532.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features Boman Irani acting in a scene from the film 3 Idiots, making it valid biographical illustration footage of the actor.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5c96eaf1faae580d28ba8246b720698253dbe33fefeb0d3cc9ee2232a8d49687",
+      "reviewed_at": 1791931831.1341166
     }
   ]
 }

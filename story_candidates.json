@@ -36,19 +36,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "before_they_were_famous",
-    "person": "Jim Henson",
-    "premise": "The Early Years of Crafting Puppets Before Creating The Muppets.",
-    "hook": "Before entertaining millions worldwide, he sewed scrap fabric and ping-pong balls together to build television puppets in local broadcasts.",
-    "key_facts": [
-      "Created early puppet characters for local Washington, D.C. television stations in the 1950s.",
-      "Innovated soft-sculpture puppet construction techniques using foam rubber and fabric.",
-      "Developed iconic characters like Kermit the Frog years before the launch of Sesame Street.",
-      "Revolutionized puppetry as an art form for both children and adults."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "impossible_odds",
     "person": "Ernest Shackleton",
     "premise": "The Survival of the Entire Imperial Trans-Antarctic Expedition After Their Ship Was Crushed.",
@@ -58,6 +45,45 @@
       "The ship, Endurance, was trapped and eventually sunk by pack ice in the Weddell Sea.",
       "Navigated a small lifeboat across 800 miles of stormy ocean to reach South Georgia Island for rescue.",
       "Successfully saved the lives of every member of his crew without a single casualty."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "J.R.R. Tolkien",
+    "premise": "How a random grading note scribbled on a blank exam paper spawned the entire mythology of Middle-earth.",
+    "hook": "While grading student exam papers, a blank page inspired a professor to write five simple words that created modern fantasy.",
+    "key_facts": [
+      "Worked as a professor of Anglo-Saxon and English Language at Oxford University.",
+      "Scrawled 'In a hole in the ground there lived a hobbit' on the back of an ungraded exam script.",
+      "Published 'The Hobbit' in 1937 to unexpected commercial and critical success.",
+      "Spent decades developing complex languages and histories that formed the backdrop of 'The Lord of the Rings'."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Rosa Parks",
+    "premise": "The deliberate and courageous refusal to give up a bus seat that catalyzed the Montgomery bus boycott.",
+    "hook": "With one quiet sentence, a seamstress triggered a 381-day protest that shook the foundations of segregation.",
+    "key_facts": [
+      "Worked as a seamstress and served as secretary for the Montgomery branch of the NAACP.",
+      "Refused to surrender her bus seat to a white passenger on December 1, 1955.",
+      "Her arrest led directly to the formation of the Montgomery Improvement Association and the subsequent bus boycott.",
+      "Spent decades afterward continuing her advocacy work for civil rights alongside prominent organizers."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Kalpana Chawla",
+    "premise": "An engineering student in Karnal who broke local conventions to pursue aerospace engineering in the United States, ultimately reaching orbit.",
+    "hook": "Growing up in a small town in Haryana where engineering was considered an unusual path for women, she set her sights strictly on the stars.",
+    "key_facts": [
+      "Graduated with a degree in aeronautical engineering from Punjab Engineering College.",
+      "Moved to the United States to earn master's and doctoral degrees in aerospace engineering.",
+      "Selected by NASA as an astronaut candidate in 1994.",
+      "First woman of Indian origin to fly in space, completing her maiden flight aboard the Space Shuttle Columbia in 1997."
     ],
     "source": "gemini_original"
   }

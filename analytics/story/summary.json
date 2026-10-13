@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-10-13T12:04:46.970100+00:00",
+  "generated_at": "2026-10-13T22:06:45.025245+00:00",
   "video_count": 9,
   "optimization_ready": true,
   "live_metrics_ready": true,
-  "advanced_metrics_videos": 7,
+  "advanced_metrics_videos": 9,
   "reason": "",
   "totals": {
-    "views": 5766,
+    "views": 5774,
     "likes": 90,
     "comments": 0
   },
   "averages": {
-    "views": 640.67,
+    "views": 641.56,
     "likes": 10.0,
     "comments": 0.0,
-    "average_view_percentage": 37.15,
-    "subscribers_gained": 0.56,
+    "average_view_percentage": 52.37,
+    "subscribers_gained": 0.67,
     "shares": 0.0
   },
   "top_videos": [
@@ -79,15 +79,15 @@
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
       "video_id": "hLW3D1SJuYo",
       "title": "Before the Fame: Jackie Chan's Untold Struggle",
-      "views": 1005,
+      "views": 1012,
       "likes": 29,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
+      "average_view_duration": 39.0,
+      "average_view_percentage": 88.87,
+      "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 2.8856
+      "engagement_rate": 2.8656
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -121,15 +121,15 @@
       "topic": "Viktor Frankl: Surviving multiple concentration camps to establish a groundbreaking school of psychological therapy.",
       "video_id": "fEtQoH-07U0",
       "title": "The Untold Turning Point in Viktor Frankl's Story",
-      "views": 32,
+      "views": 33,
       "likes": 1,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
+      "average_view_duration": 21.0,
+      "average_view_percentage": 48.09,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 3.125
+      "engagement_rate": 3.0303
     },
     {
       "topic": "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",
@@ -207,15 +207,15 @@
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
       "video_id": "hLW3D1SJuYo",
       "title": "Before the Fame: Jackie Chan's Untold Struggle",
-      "views": 1005,
+      "views": 1012,
       "likes": 29,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
+      "average_view_duration": 39.0,
+      "average_view_percentage": 88.87,
+      "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 2.8856
+      "engagement_rate": 2.8656
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -249,15 +249,15 @@
       "topic": "Viktor Frankl: Surviving multiple concentration camps to establish a groundbreaking school of psychological therapy.",
       "video_id": "fEtQoH-07U0",
       "title": "The Untold Turning Point in Viktor Frankl's Story",
-      "views": 32,
+      "views": 33,
       "likes": 1,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
+      "average_view_duration": 21.0,
+      "average_view_percentage": 48.09,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 3.125
+      "engagement_rate": 3.0303
     },
     {
       "topic": "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",

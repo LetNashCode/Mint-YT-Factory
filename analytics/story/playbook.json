@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-13T12:04:46.982805+00:00",
+  "generated_at": "2026-10-13T22:06:45.035068+00:00",
   "video_count": 9,
   "learning_ready": true,
   "metrics_available": true,
-  "advanced_metrics_videos": 7,
+  "advanced_metrics_videos": 9,
   "creative_learning_version": "v5",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
@@ -14,16 +14,16 @@
   "winning_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 31.756,
+      "score": 39.734,
       "sample_size": 3,
       "weak_sample_size": 3,
-      "weak_score": 8.005
+      "weak_score": 21.977
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 8.005,
+      "score": 21.977,
       "sample_size": 3
     }
   ],
@@ -31,14 +31,14 @@
   "winning_hook_payoff_pairs": [],
   "creative_strategy_results": [],
   "winning_topics": [
+    "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
     "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
-    "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes.",
-    "Mary Kom: From a Farmer's Daughter in Rural Manipur to Six-Time World Boxing Champion."
+    "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes."
   ],
   "avoid_topics": [
-    "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
-    "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
-    "Viktor Frankl: Surviving multiple concentration camps to establish a groundbreaking school of psychological therapy."
+    "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
+    "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",
+    "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia."
   ],
   "used_topic_count": 9,
   "rules": [

@@ -980,6 +980,1495 @@
       "start": 363.74,
       "reason": "The footage features Jackie Chan in archival clips, but is heavily framed inside an animated television graphic overlay with a pointing hand, making it unsuitable for a clean biography short.",
       "reviewed_at": 1791738412.1806264
+    },
+    "6ebdd6e52388a4a17c96d8a8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Agatha100",
+      "source_url": "https://archive.org/details/Agatha100",
+      "person": "Agatha Christie",
+      "start": 2162.01,
+      "reason": "The segment features dramatized period footage (likely from an adaptation or documentary reconstruction) related to Agatha Christie's era and works, but Agatha Christie herself is not visibly present in the sampled frames. Therefore, it serves as biographical illustration rather than direct identity footage.",
+      "reviewed_at": 1791929326.605551
+    },
+    "615e194ea5591d32cb395251": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Agatha100",
+      "source_url": "https://archive.org/details/Agatha100",
+      "person": "Agatha Christie",
+      "start": 3086.45,
+      "reason": "The footage shows dramatized or fictional scenes featuring characters like Miss Marple or actors portraying fictional scenarios, but Agatha Christie herself is not visibly present in any of the sampled frames. Therefore, it cannot be used as identity footage of the subject.",
+      "reviewed_at": 1791929337.130654
+    },
+    "ec5abd0d9926302993d99d06": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Agatha100",
+      "source_url": "https://archive.org/details/Agatha100",
+      "person": "Agatha Christie",
+      "start": 5.0,
+      "reason": "The segment features dramatized adaptations and depictions of Agatha Christie's characters (such as Hercule Poirot and Miss Marple) rather than footage of Agatha Christie herself. However, it serves as usable biographical illustration of her literary legacy and works.",
+      "reviewed_at": 1791929342.8376644
+    },
+    "86f4b11a0299a95bf513940e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Agatha100",
+      "source_url": "https://archive.org/details/Agatha100",
+      "person": "Agatha Christie",
+      "start": 313.14,
+      "reason": "The video shows B-roll footage featuring a copy of Agatha Christie's book 'The Mysterious Affair at Styles' and a typewriter, which provides valid historical and biographical context for her work as an author, even though Agatha Christie herself is not visible.",
+      "reviewed_at": 1791929350.9440322
+    },
+    "34301cfba392d158ca1fb31b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "source_url": "https://archive.org/details/agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "person": "Agatha Christie",
+      "start": 3032.77,
+      "reason": "The footage is a dramatized television adaptation (Miss Marple) based on Agatha Christie's work, not actual archival footage of Christie herself. It can serve as biographical illustration of her works, but the subject is not visible.",
+      "reviewed_at": 1791929359.118728
+    },
+    "6c2c65572f1e41bc6e13c6a0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "source_url": "https://archive.org/details/agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "person": "Agatha Christie",
+      "start": 4330.38,
+      "reason": "The video shows a fictional dramatization based on an Agatha Christie work rather than documentary footage or an authentic depiction of Agatha Christie herself, making it unsuitable for a biography short.",
+      "reviewed_at": 1791929366.2602906
+    },
+    "ea1ac3bc0bb1858ee210ea3b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "source_url": "https://archive.org/details/agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "person": "Agatha Christie",
+      "start": 437.54,
+      "reason": "The footage shows fictional characters from a television adaptation of an Agatha Christie novel, but Agatha Christie herself is not visible in any of the frames.",
+      "reviewed_at": 1791929377.049015
+    },
+    "68130fcd6f8e7cf0aa8dde08": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "source_url": "https://archive.org/details/agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "person": "Agatha Christie",
+      "start": 1302.62,
+      "reason": "The footage is from a dramatic adaptation of an Agatha Christie work (Miss Marple) featuring actors portraying fictional characters, not archival footage or documentary coverage of Agatha Christie herself.",
+      "reviewed_at": 1791929390.4321473
+    },
+    "f691b50ebaa81f80c1ac4786": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20250628-235758",
+      "source_url": "https://archive.org/details/vid-20250628-235758",
+      "person": "Agatha Christie",
+      "start": 163.75,
+      "reason": "The footage shows an individual holding a book about Agatha Christie, but Agatha Christie herself is not visible, and a casual person holding a book does not constitute genuine historical context or archival footage of her life.",
+      "reviewed_at": 1791929403.349508
+    },
+    "4cc5cd571f4101600f98cfba": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20250628-235758",
+      "source_url": "https://archive.org/details/vid-20250628-235758",
+      "person": "Agatha Christie",
+      "start": 231.78,
+      "reason": "The video features an unidentified individual holding a book about Agatha Christie rather than historical footage or depictions of Agatha Christie herself, making it unusable for a biography short.",
+      "reviewed_at": 1791929412.809108
+    },
+    "6ec74f3336a930c4b78e22c2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20250628-235758",
+      "source_url": "https://archive.org/details/vid-20250628-235758",
+      "person": "Agatha Christie",
+      "start": 5.0,
+      "reason": "The video shows an unidentified individual speaking in a modern setting, completely unrelated to Agatha Christie.",
+      "reviewed_at": 1791929421.6023188
+    },
+    "0f017b09ccb3f4f494122c49": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20250628-235758",
+      "source_url": "https://archive.org/details/vid-20250628-235758",
+      "person": "Agatha Christie",
+      "start": 27.68,
+      "reason": "The video shows an unrelated modern individual speaking indoors, which has no connection to Agatha Christie.",
+      "reviewed_at": 1791929430.6676013
+    },
+    "34ef150fbf2b83a65843b21c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20251109-203719",
+      "source_url": "https://archive.org/details/vid-20251109-203719",
+      "person": "Agatha Christie",
+      "start": 172.54,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791929436.1138384
+    },
+    "a7e781a440ab35e36547c136": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20251109-203719",
+      "source_url": "https://archive.org/details/vid-20251109-203719",
+      "person": "Agatha Christie",
+      "start": 244.34,
+      "reason": "The video shows an unidentified modern man speaking indoors in front of curtains, which has no connection to the biography of Agatha Christie.",
+      "reviewed_at": 1791929443.1266298
+    },
+    "d142ebedaa56f022981105f3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20251109-203719",
+      "source_url": "https://archive.org/details/vid-20251109-203719",
+      "person": "Agatha Christie",
+      "start": 5.0,
+      "reason": "The video shows an unidentified modern man speaking indoors in front of curtains, which has no connection to Agatha Christie.",
+      "reviewed_at": 1791929449.409593
+    },
+    "a4b40a0418ca2bd2e3539aca": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20251109-203719",
+      "source_url": "https://archive.org/details/vid-20251109-203719",
+      "person": "Agatha Christie",
+      "start": 28.93,
+      "reason": "The video shows an unidentified modern individual speaking indoors, which has no connection to Agatha Christie.",
+      "reviewed_at": 1791929458.3447442
+    },
+    "5206a036fd4264e339c6a85f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20251109-203719",
+      "source_url": "https://archive.org/details/vid-20251109-203719",
+      "person": "Agatha Christie",
+      "start": 52.87,
+      "reason": "The video shows an unidentified modern individual speaking to a webcam, which has no connection to Agatha Christie.",
+      "reviewed_at": 1791929464.7846942
+    },
+    "ae3d952204a42874ed5798ff": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christie-arena",
+      "source_url": "https://archive.org/details/agatha-christie-arena",
+      "person": "Agatha Christie",
+      "start": 5.0,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791929479.9206717
+    },
+    "ddcd1ae0248358857a5d0b5f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christie-arena",
+      "source_url": "https://archive.org/details/agatha-christie-arena",
+      "person": "Agatha Christie",
+      "start": 285.19,
+      "reason": "The segment shows archival documentary footage illustrating Agatha Christie's childhood and early life with contextual shots and paintings, but Agatha Christie herself as an adult or identifiable person is not visible in the sampled frames.",
+      "reviewed_at": 1791929499.9089432
+    },
+    "c1e500ba4c98132a9e856735": {
+      "source_id": "commons:167797068",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Vintage_Jim_Henson_Commercials_-_Munchos.webm",
+      "reason": "strong metadata exclusion: commercial"
+    },
+    "c85c9c0eaa4befef174b47a0": {
+      "source_id": "commons:160588679",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Henson_Commercial_-_Kenner%27s_Easy_Bake_Oven_(1968).webm",
+      "reason": "strong metadata exclusion: commercial"
+    },
+    "873371c200c14eb622973001": {
+      "source_id": "commons:150551278",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Jim_Henson_-_McGarry%27s_Sausages_featuring_Kermit_and_Mack_(1964).webm",
+      "reason": "strong metadata exclusion: commercial"
+    },
+    "2dde5357c053d04d478dc65c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:defunct-tv-jim-henson",
+      "source_url": "https://archive.org/details/defunct-tv-jim-henson",
+      "person": "Jim Henson",
+      "start": 1159.52,
+      "reason": "The clip features archival footage of Big Bird (one of Jim Henson's most famous creations) performing at Jim Henson's memorial service, serving as strong biographical illustration for a segment about Jim Henson's life and work.",
+      "reviewed_at": 1791929592.8624609
+    },
+    "6235797408768558662b2d24": {
+      "kind": "segment_rejection",
+      "source_id": "archive:defunct-tv-jim-henson",
+      "source_url": "https://archive.org/details/defunct-tv-jim-henson",
+      "person": "Jim Henson",
+      "start": 1654.32,
+      "reason": "The footage shows other speakers/performers at an event (likely Jim Henson's memorial service), but Jim Henson himself is deceased and not visible in the frames.",
+      "reviewed_at": 1791929601.37166
+    },
+    "e96066731f7d1b6a0160acc0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:defunct-tv-jim-henson",
+      "source_url": "https://archive.org/details/defunct-tv-jim-henson",
+      "person": "Jim Henson",
+      "start": 5.0,
+      "reason": "The footage shows classic early Jim Henson puppets (Sam and Friends era style) performing, which serves as genuine and relevant biographical illustration of Jim Henson's early work, even though Henson himself is not visibly present in the frames.",
+      "reviewed_at": 1791929609.0989547
+    },
+    "23f246d02fe00f33a6798f8e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:defunct-tv-jim-henson",
+      "source_url": "https://archive.org/details/defunct-tv-jim-henson",
+      "person": "Jim Henson",
+      "start": 169.93,
+      "reason": "The segment features archival Muppet footage related to Jim Henson's work, serving as good biographical illustration, although Jim Henson himself is not visibly present in the frames.",
+      "reviewed_at": 1791929618.4850907
+    },
+    "4272c2b35c2f2e9b3a78b247": {
+      "kind": "segment_rejection",
+      "source_id": "archive:CNNPeopleProfilesJimHenson",
+      "source_url": "https://archive.org/details/CNNPeopleProfilesJimHenson",
+      "person": "Jim Henson",
+      "start": 1385.85,
+      "reason": "The frames depict Candice Bergen being interviewed, not Jim Henson, making the footage unusable for a biography about Jim Henson.",
+      "reviewed_at": 1791929645.1601806
+    },
+    "77329d572ad66adc318d718b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tv-am-interview-1983",
+      "source_url": "https://archive.org/details/tv-am-interview-1983",
+      "person": "Jim Henson",
+      "start": 5.0,
+      "reason": "The sampled frames show an interviewer or presenter, but Jim Henson is not visible in any of the frames.",
+      "reviewed_at": 1791929660.9707
+    },
+    "9855b212566e0310d7d2bb22": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tv-am-interview-1983",
+      "source_url": "https://archive.org/details/tv-am-interview-1983",
+      "person": "Jim Henson",
+      "start": 22.73,
+      "reason": "The sampled frames show an interviewer and clips from The Dark Crystal, but the subject (Jim Henson) is never visible in any of the sampled frames.",
+      "reviewed_at": 1791929665.2668498
+    },
+    "63924de1894e076a20bf7677": {
+      "kind": "segment_rejection",
+      "source_id": "archive:CNNPeopleProfilesJimHenson",
+      "source_url": "https://archive.org/details/CNNPeopleProfilesJimHenson",
+      "person": "Jim Henson",
+      "start": 5.0,
+      "reason": "The sampled frames show generic b-roll of people at a newsstand and flipping through magazines, with Jim Henson neither visibly present nor is there a concrete depiction of his life or work.",
+      "reviewed_at": 1791929680.6952274
+    },
+    "4184ceafdde4ab1326857d53": {
+      "kind": "segment_rejection",
+      "source_id": "archive:CNNPeopleProfilesJimHenson",
+      "source_url": "https://archive.org/details/CNNPeopleProfilesJimHenson",
+      "person": "Jim Henson",
+      "start": 202.26,
+      "reason": "The footage shows archival scenery of a swamp/river and an interview with Jim Henson's wife, Jane Henson, but Jim Henson himself is not visible in the sampled frames. It provides relevant biographical context.",
+      "reviewed_at": 1791929689.1949694
+    },
+    "358b32abdd7bc5f5bbecf635": {
+      "kind": "segment_rejection",
+      "source_id": "archive:CNNPeopleProfilesJimHenson",
+      "source_url": "https://archive.org/details/CNNPeopleProfilesJimHenson",
+      "person": "Jim Henson",
+      "start": 399.53,
+      "reason": "The segment consists of static photographs of Jim Henson being slowly dissolved/transitioned on screen, followed by a shot of a building. Static photographs are rejected per instructions.",
+      "reviewed_at": 1791929698.1953225
+    },
+    "7a947eec81cb7965459af9ec": {
+      "kind": "segment_rejection",
+      "source_id": "archive:CNNPeopleProfilesJimHenson",
+      "source_url": "https://archive.org/details/CNNPeopleProfilesJimHenson",
+      "person": "Jim Henson",
+      "start": 596.79,
+      "reason": "The frames show Cheryl Henson (Jim Henson's daughter) being interviewed, not Jim Henson himself. While it is real archival interview footage providing biographical context, the target subject Jim Henson is not visible.",
+      "reviewed_at": 1791929706.9921167
+    },
+    "a6b764ddec902c07e38520c1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+      "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+      "person": "Rosa Parks",
+      "start": 1784.81,
+      "reason": "The sampled frames show archival footage and documents (such as the Joanne Little Legal Defense Committee member list mentioning Rosa Parks in the final frame), but Rosa Parks herself is not visibly identifiable in any of the moving or still footage shown.",
+      "reviewed_at": 1791929859.702713
+    },
+    "fb02aed3faf45e5472805a0f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+      "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+      "person": "Rosa Parks",
+      "start": 2229.76,
+      "reason": "The footage shows archival B-roll of buildings, cars, and landscapes relevant to historical context, but Rosa Parks is not clearly identifiable in the sampled frames.",
+      "reviewed_at": 1791929872.07599
+    },
+    "8a0e67e18f29ac289f6d1b57": {
+      "kind": "segment_rejection",
+      "source_id": "archive:DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
+      "source_url": "https://archive.org/details/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
+      "person": "Rosa Parks",
+      "start": 3.87,
+      "reason": "The video segment contains a montage of historical figures including Rosa Parks, but consists mostly of title cards and graphic collages rather than dedicated archival footage of the subject's life.",
+      "reviewed_at": 1791929885.97569
+    },
+    "05a4d6c9895a02d658080697": {
+      "kind": "segment_rejection",
+      "source_id": "archive:DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
+      "source_url": "https://archive.org/details/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
+      "person": "Rosa Parks",
+      "start": 15.17,
+      "reason": "The video segment consists of a title card graphic containing a collage of static photographs and graphical elements rather than genuine moving archival footage.",
+      "reviewed_at": 1791929894.0126543
+    },
+    "73653392827cd6b0be51a85c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
+      "source_url": "https://archive.org/details/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
+      "person": "Rosa Parks",
+      "start": 37.75,
+      "reason": "The frames only show channel title cards and graphics (DCTV 23 Celebrates Black History Month) with no actual historical footage or depiction of Rosa Parks.",
+      "reviewed_at": 1791929901.271695
+    },
+    "747b8f383d06bf7d31e4c209": {
+      "kind": "segment_rejection",
+      "source_id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+      "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+      "person": "Rosa Parks",
+      "start": 3119.66,
+      "reason": "The sampled frames show archival footage of crowd scenes, street views, a newspaper headline, and buses, but Rosa Parks is not clearly visible in any of the frames. Therefore, it cannot be used for identity footage.",
+      "reviewed_at": 1791929908.4041858
+    },
+    "68afd29da909e46fc57b688b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+      "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+      "person": "Rosa Parks",
+      "start": 3564.62,
+      "reason": "The footage shows archival aerial shots of a city with titles like '1957' and 'The Northern Promised Land that wasn't - Rosa Parks', but Rosa Parks herself is not visible in the frames.",
+      "reviewed_at": 1791929917.9136605
+    },
+    "f08ee89777b9836a9eb35229": {
+      "kind": "segment_rejection",
+      "source_id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+      "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+      "person": "Rosa Parks",
+      "start": 4009.57,
+      "reason": "The sampled frames show Herb Boyd, a journalist interviewed in the documentary, rather than the named subject Rosa Parks.",
+      "reviewed_at": 1791929930.5956364
+    },
+    "749566028ec45c0e9f1aed1c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+      "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+      "person": "Rosa Parks",
+      "start": 5789.38,
+      "reason": "The frames consist only of production company and network title cards (SOB Productions and Peacock), containing no historical footage, context, or depiction of Rosa Parks.",
+      "reviewed_at": 1791929962.3753035
+    },
+    "05ee206bcec577e3af46103a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:coleefl-LeeTran_-_Rosa_Parks_Transportation_Center_Upgrades",
+      "source_url": "https://archive.org/details/coleefl-LeeTran_-_Rosa_Parks_Transportation_Center_Upgrades",
+      "person": "Rosa Parks",
+      "start": 15.07,
+      "reason": "The footage shows modern B-roll of the Rosa Parks Transportation Center in Florida (filmed around 2021), featuring contemporary buses, facilities, and signage. Since Rosa Parks passed away in 2005 and this center was named in her honor long after her historical era, the video lacks any direct historical or biographical relevance to her life, making it unusable for a biography short.",
+      "reviewed_at": 1791929979.8952537
+    },
+    "295385fe1465d6c9c4f7cf32": {
+      "kind": "segment_rejection",
+      "source_id": "archive:coleefl-LeeTran_-_Rosa_Parks_Transportation_Center_Upgrades",
+      "source_url": "https://archive.org/details/coleefl-LeeTran_-_Rosa_Parks_Transportation_Center_Upgrades",
+      "person": "Rosa Parks",
+      "start": 27.3,
+      "reason": "The footage shows a modern transportation center and public transit buses in Lee County, Florida, named after Rosa Parks, but has no concrete historical connection to Rosa Parks herself beyond bearing her name.",
+      "reviewed_at": 1791929986.630604
+    },
+    "a0b6b801fcbd10793051e092": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "person": "Rosa Parks",
+      "start": 45.18,
+      "reason": "The sampled segment features an interview with Rosa Parks' niece (Urana McCauley) at a school, not Rosa Parks herself. The archival image of Rosa Parks appears briefly in the first two frames, but the moving footage segment is entirely an interview about her legacy, failing to show the subject herself in motion or provide direct historical context of her life events.",
+      "reviewed_at": 1791929997.1525385
+    },
+    "40f3f4f8208bc221ddb86030": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "person": "Rosa Parks",
+      "start": 55.23,
+      "reason": "The video shows Urana McCauley (Rosa Parks' niece) and school children at an elementary school, but the historical subject Rosa Parks is not visible in the footage.",
+      "reviewed_at": 1791930015.5612073
+    },
+    "851f2dad965a12c0e53e50be": {
+      "kind": "segment_rejection",
+      "source_id": "archive:yt_p3qjlLYszEI",
+      "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+      "person": "Madam C.J. Walker",
+      "start": 109.66,
+      "reason": "The footage features A'Lelia Bundles (Madam C.J. Walker's great-great-granddaughter and biographer) examining historical documents at the National Archives. While the historical subject herself is not alive in the footage, it provides valid biographical illustration and expert context about Madam C.J. Walker's life.",
+      "reviewed_at": 1791930071.348591
+    },
+    "13994d9bb99645bd1104d754": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "person": "Madam C.J. Walker",
+      "start": 60.2,
+      "reason": "The video shows an audience and a speaker (A'Lelia Bundles, her great-great-granddaughter), but Madam C.J. Walker herself passed away in 1919 and cannot appear in this 2017 event footage. Therefore, the subject is not visible, making it unusable for direct representation of Madam C.J. Walker.",
+      "reviewed_at": 1791930087.8408713
+    },
+    "79b79ece94d475ce5b482728": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "person": "Madam C.J. Walker",
+      "start": 87.8,
+      "reason": "The footage shows A'Lelia Bundles (great-great-granddaughter of Madam C.J. Walker) speaking at an event, not Madam C.J. Walker herself, making it unsuitable as direct historical footage of the subject.",
+      "reviewed_at": 1791930103.6430278
+    },
+    "7bb8aebead567e6bf2b30963": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "person": "Madam C.J. Walker",
+      "start": 5.0,
+      "reason": "The sampled frames show title cards and a contemporary speaker (A'Lelia Bundles) at an MTSU event, but Madam C.J. Walker (who died in 1919) is not visible in the footage. Therefore, the footage does not depict the named historical subject.",
+      "reviewed_at": 1791930112.9641173
+    },
+    "240b53a2cb75bfc28334e0ef": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "person": "Madam C.J. Walker",
+      "start": 23.4,
+      "reason": "The sampled frames show projection slides and event calendars from a 2017 university event discussing Madam C.J. Walker. Madam C.J. Walker is not visibly present in the footage, and the material does not constitute historical footage of her life, making it unusable for direct biographical illustration.",
+      "reviewed_at": 1791930123.419754
+    },
+    "ab90cfc9cddd03c121813f4b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cpaz-Black_History_Inspirational_Quotes",
+      "source_url": "https://archive.org/details/cpaz-Black_History_Inspirational_Quotes",
+      "person": "Madam C.J. Walker",
+      "start": 43.65,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791930129.7268999
+    },
+    "2202fb0c0f839769093fdfa4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cpaz-Black_History_Inspirational_Quotes",
+      "source_url": "https://archive.org/details/cpaz-Black_History_Inspirational_Quotes",
+      "person": "Madam C.J. Walker",
+      "start": 62.97,
+      "reason": "The video segment shows static photographs and quote graphics of Mary McLeod Bethune and Booker T. Washington, but does not feature Madam C.J. Walker or actual moving archival footage of her.",
+      "reviewed_at": 1791930138.6960917
+    },
+    "a31070a7861c92eb7d715ac5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cpaz-Black_History_Inspirational_Quotes",
+      "source_url": "https://archive.org/details/cpaz-Black_History_Inspirational_Quotes",
+      "person": "Madam C.J. Walker",
+      "start": 5.0,
+      "reason": "The video consists of static graphic title cards and quotes featuring other historical figures such as Nelson Mandela, and does not contain actual moving footage or usable historical context depicting Madam C.J. Walker.",
+      "reviewed_at": 1791930144.5755801
+    },
+    "cb358db40c76a72ed2bfc7d7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cpaz-Black_History_Inspirational_Quotes",
+      "source_url": "https://archive.org/details/cpaz-Black_History_Inspirational_Quotes",
+      "person": "Madam C.J. Walker",
+      "start": 14.66,
+      "reason": "The sampled frames feature static photographs of other historical figures (Nelson Mandela and Ella Fitzgerald) rather than Madam C.J. Walker. Furthermore, the video consists of static graphic layouts with quotes, which is explicitly disqualified.",
+      "reviewed_at": 1791930153.756186
+    },
+    "94bdc3114fb89cafa3997503": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cpaz-Black_History_Inspirational_Quotes",
+      "source_url": "https://archive.org/details/cpaz-Black_History_Inspirational_Quotes",
+      "person": "Madam C.J. Walker",
+      "start": 33.98,
+      "reason": "The video consists of static photographs and graphic title cards/slideshow elements with quotes, which violates the requirement rejecting slideshows and static photographs.",
+      "reviewed_at": 1791930161.8363497
+    },
+    "9ddae1f3eda0eb3154d32e1b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:yt_p3qjlLYszEI",
+      "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+      "person": "Madam C.J. Walker",
+      "start": 19.95,
+      "reason": "The segment features archival footage of the 1917 convention related to Madam C.J. Walker's life and historical context, alongside an interview with her great-great-granddaughter A'Lelia Bundles. Madam C.J. Walker herself is not clearly identifiable in the footage, making it biographical illustration rather than direct identity footage, but it provides genuine and usable historical context.",
+      "reviewed_at": 1791930172.30827
+    },
+    "606d1095465f0290b883b24b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:yt_p3qjlLYszEI",
+      "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+      "person": "Madam C.J. Walker",
+      "start": 34.9,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791930174.1825252
+    },
+    "9bb6888a757b626725aa2a31": {
+      "kind": "segment_rejection",
+      "source_id": "archive:yt_p3qjlLYszEI",
+      "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+      "person": "Madam C.J. Walker",
+      "start": 49.86,
+      "reason": "The footage shows archival B-roll of the National Archives building and a researcher examining documents related to Madam C.J. Walker. While Madam Walker herself is not present in the footage (as she lived in the early 20th century), the segment serves as valid contextual biographical illustration for a short about her life and archival research.",
+      "reviewed_at": 1791930179.3091702
+    },
+    "7459ad3a21d4b2d9259969d4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:yt_p3qjlLYszEI",
+      "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+      "person": "Madam C.J. Walker",
+      "start": 64.81,
+      "reason": "The segment features A'Lelia Bundles (Madam C.J. Walker's great-great granddaughter and historian) discussing Walker's life, alongside archival photographs of her birthplace (Burney Plantation). While Madam C.J. Walker herself is not visibly present in the footage (as she lived before film), the documentary clip provides valid biographical context and expert commentary appropriate for biographical illustration.",
+      "reviewed_at": 1791930184.0940876
+    },
+    "fa664043785d9430b2d45fce": {
+      "kind": "segment_rejection",
+      "source_id": "archive:yt_p3qjlLYszEI",
+      "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+      "person": "Madam C.J. Walker",
+      "start": 79.76,
+      "reason": "The sampled frames show archival documents (such as plantation records) related to Madam C.J. Walker's history and an interview with her great-great-granddaughter A'Lelia Bundles discussing her life. While Madam C.J. Walker herself is not alive in the footage, the historical documents and descendant interview provide valid biographical illustration and historical context.",
+      "reviewed_at": 1791930195.8765328
+    },
+    "73f032776a6c428db4202fc2": {
+      "source_id": "commons:45942680",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh%27s_Sunflowers.webm",
+      "reason": "strong metadata exclusion: museum"
+    },
+    "01527f2feebcb4d1f6ac4f7c": {
+      "source_id": "commons:46033488",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_Looking_to_Japan.webm",
+      "reason": "strong metadata exclusion: museum"
+    },
+    "aa27622564b5847a04963d91": {
+      "source_id": "commons:46033501",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_Practice_makes_perfect.webm",
+      "reason": "strong metadata exclusion: museum"
+    },
+    "22b8430959b2d26b973f33aa": {
+      "source_id": "commons:46545537",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Van_Gogh_Village_Simone_van_der_Heiden.webm",
+      "reason": "strong metadata exclusion: monument"
+    },
+    "294e33b1871c4c429753d912": {
+      "kind": "segment_rejection",
+      "source_id": "archive:asdk12ak-Vincent_Van_Gogh_-_Art_History_Comes_Alive",
+      "source_url": "https://archive.org/details/asdk12ak-Vincent_Van_Gogh_-_Art_History_Comes_Alive",
+      "person": "Vincent van Gogh",
+      "start": 850.38,
+      "reason": "The video shows a modern educational performance or reenactment with a teacher dressed as Vincent van Gogh speaking to children, not actual historical footage of Vincent van Gogh himself.",
+      "reviewed_at": 1791930318.5963686
+    },
+    "47499dd26188069ffe58959d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:asdk12ak-Vincent_Van_Gogh_-_Art_History_Comes_Alive",
+      "source_url": "https://archive.org/details/asdk12ak-Vincent_Van_Gogh_-_Art_History_Comes_Alive",
+      "person": "Vincent van Gogh",
+      "start": 5.0,
+      "reason": "The video shows a modern school teacher in costume performing for children, which is not genuine archival footage of Vincent van Gogh, nor usable historical context.",
+      "reviewed_at": 1791930325.0766394
+    },
+    "6c85d5a22c2825b890198ec0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:asdk12ak-Vincent_Van_Gogh_-_Art_History_Comes_Alive",
+      "source_url": "https://archive.org/details/asdk12ak-Vincent_Van_Gogh_-_Art_History_Comes_Alive",
+      "person": "Vincent van Gogh",
+      "start": 125.77,
+      "reason": "The footage shows a modern school teacher in costume performing a first-person roleplay for children, not actual historical footage or a documentary about Vincent van Gogh.",
+      "reviewed_at": 1791930334.5255954
+    },
+    "8077c330804453aef38bc171": {
+      "kind": "segment_rejection",
+      "source_id": "archive:asdk12ak-Vincent_Van_Gogh_-_Art_History_Comes_Alive",
+      "source_url": "https://archive.org/details/asdk12ak-Vincent_Van_Gogh_-_Art_History_Comes_Alive",
+      "person": "Vincent van Gogh",
+      "start": 246.54,
+      "reason": "The video shows a modern art teacher in costume (Robin Murphy) telling stories to school children in 2014, not actual archival footage of Vincent van Gogh. Therefore, the person is not visible and it cannot serve as direct historical footage of van Gogh.",
+      "reviewed_at": 1791930341.7816362
+    },
+    "1c37957350ea667295742c2b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 86.29,
+      "reason": "The video segment shows mathematician Manjul Bhargava being interviewed, not Srinivasa Ramanujan. Srinivasa Ramanujan lived from 1887 to 1920, so modern interview footage of him is impossible.",
+      "reviewed_at": 1791930396.519673
+    },
+    "e13e7c3153b3ffe11c3d4424": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 121.12,
+      "reason": "The video segment consists solely of a title card with a statue/bust and subsequent credit screens. No actual historical footage or moving identity footage of Srinivasa Ramanujan is present.",
+      "reviewed_at": 1791930405.021815
+    },
+    "a48ecb55c67f36e7f291735b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 5.0,
+      "reason": "The sampled segment consists entirely of production title cards and an interview with a different person (K Srinivas), with no footage of Srinivasa Ramanujan.",
+      "reviewed_at": 1791930411.4888935
+    },
+    "ed80dd067fe4446ef06b7a92": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 16.61,
+      "reason": "The video clip features modern interviews with contemporary mathematicians (such as K. Srinivas, W. Kohnen, and K. Matsumoto) discussing science and mathematics, but Srinivasa Ramanujan (who lived from 1887 to 1920) is neither visible nor is historical footage of him shown.",
+      "reviewed_at": 1791930419.174868
+    },
+    "be3bd2d6dcdeb6328141f71f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TheManWhoLovedNumbers",
+      "source_url": "https://archive.org/details/TheManWhoLovedNumbers",
+      "person": "Srinivasa Ramanujan",
+      "start": 5.0,
+      "reason": "The sampled frames contain 4 consecutive frames of generic b-roll footage (a street scene with a cart) followed by a static photograph of Srinivasa Ramanujan. Since moving archival identity footage of Ramanujan does not exist, the segment relies on a static photo, which is explicitly rejected per instructions.",
+      "reviewed_at": 1791930442.8624709
+    },
+    "7b7a6f7d83d4ad3e87c99ad1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TheManWhoLovedNumbers",
+      "source_url": "https://archive.org/details/TheManWhoLovedNumbers",
+      "person": "Srinivasa Ramanujan",
+      "start": 1842.46,
+      "reason": "The footage shows a hand writing mathematical equations on paper, serving as relevant biographical illustration for the mathematician Srinivasa Ramanujan, though the person is not clearly identifiable.",
+      "reviewed_at": 1791930456.0073497
+    },
+    "2b4f4a4eb8399776470931b7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TheManWhoLovedNumbers",
+      "source_url": "https://archive.org/details/TheManWhoLovedNumbers",
+      "person": "Srinivasa Ramanujan",
+      "start": 2629.94,
+      "reason": "The segment shows archival documents relating to Srinivasa Ramanujan (such as admission records to Trinity College), providing useful historical context and biographical illustration, although the subject himself is not visible in the footage.",
+      "reviewed_at": 1791930491.288734
+    },
+    "b910148e66c7145ee55213ee": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TheManWhoLovedNumbers",
+      "source_url": "https://archive.org/details/TheManWhoLovedNumbers",
+      "person": "Srinivasa Ramanujan",
+      "start": 792.48,
+      "reason": "The footage shows archival-style dramatizations of Indian street life and cultural scenes relevant to Ramanujan's background, but Srinivasa Ramanujan himself is not identifiable among the crowd, making it useful only as general biographical illustration.",
+      "reviewed_at": 1791930515.6444647
+    },
+    "fdfaf1ec350401b8791045aa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 5.0,
+      "reason": "blank/near-blank frames",
+      "reviewed_at": 1791930518.8270836
+    },
+    "b2bf97641082fce0e7a919f3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 471.3,
+      "reason": "The footage shows modern interviewees/speakers discussing Srinivasa Ramanujan, but the historical subject himself (Srinivasa Ramanujan) is not visible in any frame, making this segment unsuitable as direct identity or contextual archival footage.",
+      "reviewed_at": 1791930531.5684168
+    },
+    "d834b2b032e39de2c5003360": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 704.45,
+      "reason": "The sampled frames consist entirely of an animated graphic illustrating prime numbers on a grid. Srinivasa Ramanujan is not visible, and the footage is generic graphical illustration rather than historical archival footage or usable biographical context.",
+      "reviewed_at": 1791930539.569753
+    },
+    "ff0a80ce75c8056ba585025c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 937.6,
+      "reason": "The segment features documentary interviews discussing the publication of Srinivasa Ramanujan's notebooks, providing relevant biographical context about his legacy, though the historical subject himself is not visible.",
+      "reviewed_at": 1791930549.6269891
+    },
+    "ad0f5907a7f9fd9165345986": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 1403.9,
+      "reason": "The video features an interview discussing mathematical history and Srinivasa Ramanujan's work, but the named subject Srinivasa Ramanujan is not visible in the frames (the person shown is an interviewee/historian).",
+      "reviewed_at": 1791930563.4106863
+    },
+    "07a1f8fed133f46afd3e6a88": {
+      "kind": "segment_rejection",
+      "source_id": "archive:WHIT09JohnPareInt",
+      "source_url": "https://archive.org/details/WHIT09JohnPareInt",
+      "person": "Louis Braille",
+      "start": 61.18,
+      "reason": "The footage shows a contemporary speaker (John Pare discussing a commemorative coin), not Louis Braille, who lived in the 19th century. Therefore, it cannot depict Louis Braille and is not usable for his biography.",
+      "reviewed_at": 1791930604.6495166
+    },
+    "f8f30ef08e9afb8e6ec1669d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:WHIT09JohnPareInt",
+      "source_url": "https://archive.org/details/WHIT09JohnPareInt",
+      "person": "Louis Braille",
+      "start": 89.27,
+      "reason": "The video shows John Pare discussing a commemorative coin for Louis Braille, but Louis Braille lived in the 19th century and is not visible in this modern footage. The segment provides biographical illustration about the legacy of Braille.",
+      "reviewed_at": 1791930613.1733863
+    },
+    "a9badc69222495264132ef50": {
+      "kind": "segment_rejection",
+      "source_id": "archive:WHIT09JohnPareInt",
+      "source_url": "https://archive.org/details/WHIT09JohnPareInt",
+      "person": "Louis Braille",
+      "start": 5.0,
+      "reason": "The footage shows John Pare speaking at a coin expo about a commemorative coin, not Louis Braille himself (who lived in the 19th century and cannot be present in 2009 modern video footage).",
+      "reviewed_at": 1791930624.0121024
+    },
+    "2d27f3cca359db8fa7af4187": {
+      "kind": "segment_rejection",
+      "source_id": "archive:WHIT09JohnPareInt",
+      "source_url": "https://archive.org/details/WHIT09JohnPareInt",
+      "person": "Louis Braille",
+      "start": 14.36,
+      "reason": "The video shows modern numismatic footage discussing a commemorative coin celebrating Louis Braille, featuring a modern speaker discussing the coin and close-ups of the coin design itself. Louis Braille is not personally visible (as he lived in the 19th century), but the footage provides valid biographical illustration related to his legacy.",
+      "reviewed_at": 1791930630.0204496
+    },
+    "18f2fb35195567f2ba88b5a2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "person": "Louis Braille",
+      "start": 733.13,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791930649.2866573
+    },
+    "35b34d4e789afa9aa3c0e278": {
+      "kind": "segment_rejection",
+      "source_id": "archive:orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "person": "Louis Braille",
+      "start": 1045.18,
+      "reason": "The video features a modern podcast host discussing the history of Louis Braille, but the subject of the biography (Louis Braille, who lived in the 19th century) is not visible in the footage. The segment shows a modern studio setting and cannot depict the historical figure directly.",
+      "reviewed_at": 1791930656.293012
+    },
+    "d8261302307a68cdc77c6783": {
+      "kind": "segment_rejection",
+      "source_id": "archive:orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "person": "Louis Braille",
+      "start": 5.0,
+      "reason": "The video shows aerial shots of Montpelier, Vermont and podcast hosts, which has no connection to Louis Braille, a 19th-century French educator.",
+      "reviewed_at": 1791930661.9221182
+    },
+    "632899a98b1935f66abf4bd6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "person": "Louis Braille",
+      "start": 109.02,
+      "reason": "The frames show a static title card/graphic for a TV chapter membership rather than any archival footage or historical context related to Louis Braille.",
+      "reviewed_at": 1791930668.6452475
+    },
+    "4b67baf5f3adc14a7cc344e2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "person": "Louis Braille",
+      "start": 213.04,
+      "reason": "The video shows a modern podcast studio discussing Louis Braille, but Louis Braille lived in the 19th century and is not visible in the footage. This is a modern discussion about him, making the footage unusable as direct historical context or footage of the subject.",
+      "reviewed_at": 1791930702.7090082
+    },
+    "acd4bce84896acb86530c569": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cunytv_BCSPA115",
+      "source_url": "https://archive.org/details/cunytv_BCSPA115",
+      "person": "Louis Braille",
+      "start": 2621.65,
+      "reason": "The video features C. Michael Mellor discussing Louis Braille in 2009. Louis Braille lived from 1809 to 1852, making contemporary footage of him impossible. Therefore, the person visible is not Louis Braille, and the segment cannot be used as direct identity footage.",
+      "reviewed_at": 1791930723.1693895
+    },
+    "2bdb9fca7d90e5291f7be3c5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cunytv_BCSPA115",
+      "source_url": "https://archive.org/details/cunytv_BCSPA115",
+      "person": "Louis Braille",
+      "start": 5.0,
+      "reason": "The frames consist entirely of title cards and institutional graphics for Baruch College, presenting no actual historical footage or biographical content about Louis Braille.",
+      "reviewed_at": 1791930732.7248366
+    },
+    "60dfae0a505f1233bd2faa01": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cunytv_BCSPA115",
+      "source_url": "https://archive.org/details/cunytv_BCSPA115",
+      "person": "Louis Braille",
+      "start": 266.67,
+      "reason": "The footage shows modern braille production processes (transcription, embossing, and finishing) which relates to the legacy and impact of Louis Braille, serving as biographical illustration.",
+      "reviewed_at": 1791930750.599997
+    },
+    "d8dc027abe4213e6ce04ddb3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cunytv_BCSPA115",
+      "source_url": "https://archive.org/details/cunytv_BCSPA115",
+      "person": "Louis Braille",
+      "start": 528.33,
+      "reason": "The footage shows C. Michael Mellor discussing the life and legacy of Louis Braille in a 2009 lecture. Although Louis Braille himself is not visible (as he lived in the 19th century), this archival presentation provides relevant biographical context and commentary about Braille.",
+      "reviewed_at": 1791930758.6419363
+    },
+    "e57c2c97ac6bd30591ff6b8a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Evenement-6-Janvier-1852",
+      "source_url": "https://archive.org/details/Evenement-6-Janvier-1852",
+      "person": "Louis Braille",
+      "start": 10.16,
+      "reason": "The video consists of generic still graphics, maps, compasses, and a portrait illustration overlaid with text, rather than real moving film footage or usable historical context.",
+      "reviewed_at": 1791930768.6913507
+    },
+    "57b9e50eabd86f9941a64fe3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Evenement-6-Janvier-1852",
+      "source_url": "https://archive.org/details/Evenement-6-Janvier-1852",
+      "person": "Louis Braille",
+      "start": 1.12,
+      "reason": "The video segment consists entirely of still graphical illustrations and text overlays rather than real filmed footage or usable historical context.",
+      "reviewed_at": 1791930776.7327783
+    },
+    "20197b7c31edda286a3e53bd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Louis_Braille",
+      "source_url": "https://archive.org/details/btvin-Louis_Braille",
+      "person": "Louis Braille",
+      "start": 43.35,
+      "reason": "The frames show still illustrations, book covers, and a Braille alphabet chart rather than genuine filmed archival footage of Louis Braille.",
+      "reviewed_at": 1791930792.9700036
+    },
+    "71e315a30a008c3e5b0c65a4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Louis_Braille",
+      "source_url": "https://archive.org/details/btvin-Louis_Braille",
+      "person": "Louis Braille",
+      "start": 62.53,
+      "reason": "The footage only shows a static plaque and a static bust of Louis Braille rather than real filmed footage or moving archival context featuring the person, making it unusable.",
+      "reviewed_at": 1791930799.752174
+    },
+    "85cdd80bac7718f557e53025": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Louis_Braille",
+      "source_url": "https://archive.org/details/btvin-Louis_Braille",
+      "person": "Louis Braille",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of stock graphics, text overlays, and a static historical portrait/drawing of Louis Braille rather than actual filmed footage, making it unsuitable as real video content.",
+      "reviewed_at": 1791930811.6372628
+    },
+    "1e433e643fbb60b2b928d099": {
+      "kind": "segment_rejection",
+      "source_id": "archive:APN_Arlington_s_Next_J.K._Rowling",
+      "source_url": "https://archive.org/details/APN_Arlington_s_Next_J.K._Rowling",
+      "person": "J.K. Rowling",
+      "start": 48.99,
+      "reason": "The video segment shows local school children holding up drawings in Arlington, with no connection to J.K. Rowling.",
+      "reviewed_at": 1791930903.9899154
+    },
+    "0bedc4fa1c26fb5cb034ee53": {
+      "kind": "segment_rejection",
+      "source_id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+      "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+      "person": "J.K. Rowling",
+      "start": 28.66,
+      "reason": "The video segment shows general Pride Month archival footage and headlines about Puerto Rico, with no appearance of J.K. Rowling or any direct connection to her biography.",
+      "reviewed_at": 1791930911.4336247
+    },
+    "c40a854cfcbadf2349061bb2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+      "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+      "person": "J.K. Rowling",
+      "start": 40.48,
+      "reason": "J.K. Rowling is not visible in any of the sampled frames, and the footage consists of general Pride parade b-roll that lacks a concrete connection to her biography.",
+      "reviewed_at": 1791930919.8238423
+    },
+    "40c60b048cc904bd025e8954": {
+      "kind": "segment_rejection",
+      "source_id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+      "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+      "person": "J.K. Rowling",
+      "start": 64.14,
+      "reason": "The segment consists of static images of a profile photo alongside scrolling text graphics (tweets), not real moving documentary or archival footage.",
+      "reviewed_at": 1791930972.203534
+    },
+    "69104b74c86772c61d6a3727": {
+      "kind": "segment_rejection",
+      "source_id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+      "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+      "person": "J.K. Rowling",
+      "start": 75.97,
+      "reason": "The sampled frames show static photographs of Daniel Radcliffe and text graphics related to transgender topics, but J.K. Rowling is not visibly present in any of the frames.",
+      "reviewed_at": 1791930980.7473118
+    },
+    "781d5aa2c08e6f1da6a14758": {
+      "kind": "segment_rejection",
+      "source_id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+      "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+      "person": "J.K. Rowling",
+      "start": 99.63,
+      "reason": "The footage shows unrelated archival scenes of a military parade and Pride Month celebrations from a Vice News segment. J.K. Rowling is neither visible nor is this specific context relevant to her biography.",
+      "reviewed_at": 1791930989.1131153
+    },
+    "1ee4b059305b9b33346f36d2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+      "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+      "person": "J.K. Rowling",
+      "start": 111.45,
+      "reason": "The video segment contains unrelated news footage about Pride Month and politics, and J.K. Rowling is neither visible nor is this segment usable for her biography.",
+      "reviewed_at": 1791930997.736913
+    },
+    "78abd2c5d9e2af96af1ccb28": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jk-rowling-contrapoints",
+      "source_url": "https://archive.org/details/jk-rowling-contrapoints",
+      "person": "J.K. Rowling",
+      "start": 831.28,
+      "reason": "The footage shows Natalie Wynn (ContraPoints) in a comedic video essay discussing J.K. Rowling, not J.K. Rowling herself.",
+      "reviewed_at": 1791931030.6675746
+    },
+    "d748cf17124d555860153780": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jk-rowling-contrapoints",
+      "source_url": "https://archive.org/details/jk-rowling-contrapoints",
+      "person": "J.K. Rowling",
+      "start": 1244.42,
+      "reason": "The video segment contains a commentary/satirical piece featuring ContraPoints in costume, not actual historical footage or identifiable identity footage of J.K. Rowling.",
+      "reviewed_at": 1791931044.6695848
+    },
+    "e59bf81528c877429173ec93": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jk-rowling-contrapoints",
+      "source_url": "https://archive.org/details/jk-rowling-contrapoints",
+      "person": "J.K. Rowling",
+      "start": 1657.57,
+      "reason": "The sampled frames depict ContraPoints (Natalie Wynn) discussing the trans debate and video essay content, but the subject J.K. Rowling is not visibly present in the identity footage, making this unsuitable for direct biographical representation of J.K. Rowling.",
+      "reviewed_at": 1791931058.0017629
+    },
+    "4f0c35dbefadf542b3aba64d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jk-rowling-contrapoints",
+      "source_url": "https://archive.org/details/jk-rowling-contrapoints",
+      "person": "J.K. Rowling",
+      "start": 2070.71,
+      "reason": "The frames depict a content creator (ContraPoints) in a staged, theatrical video set, not the biography subject J.K. Rowling. Therefore, this footage is unusable for a biography about J.K. Rowling.",
+      "reviewed_at": 1791931073.8674123
+    },
+    "b0d6983f915f271238cc0159": {
+      "kind": "segment_rejection",
+      "source_id": "archive:is-harry-potter-anti-semitic-the-j.-k.-rowling-accusations",
+      "source_url": "https://archive.org/details/is-harry-potter-anti-semitic-the-j.-k.-rowling-accusations",
+      "person": "J.K. Rowling",
+      "start": 511.45,
+      "reason": "The video features a VTuber live-streaming and browsing YouTube, with no actual archival or direct footage of J.K. Rowling present in the frames.",
+      "reviewed_at": 1791931086.9029438
+    },
+    "ed12dc34619f18c6daf42601": {
+      "kind": "segment_rejection",
+      "source_id": "archive:is-harry-potter-anti-semitic-the-j.-k.-rowling-accusations",
+      "source_url": "https://archive.org/details/is-harry-potter-anti-semitic-the-j.-k.-rowling-accusations",
+      "person": "J.K. Rowling",
+      "start": 728.5,
+      "reason": "The sampled frames feature a live streamer reacting to a video of Jon Stewart discussing internet controversies, but J.K. Rowling is not visible in any of the frames, making the footage unusable for a biography about her.",
+      "reviewed_at": 1791931100.6753309
+    },
+    "e07693a6ecf5c42b9504ccbc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:is-harry-potter-anti-semitic-the-j.-k.-rowling-accusations",
+      "source_url": "https://archive.org/details/is-harry-potter-anti-semitic-the-j.-k.-rowling-accusations",
+      "person": "J.K. Rowling",
+      "start": 5.0,
+      "reason": "The video segment is a VTuber livestream reacting to a YouTube video commentary about J.K. Rowling. J.K. Rowling is not visible in any of the sampled frames, and the footage consists of a desktop recording with a live streamer avatar, making it unsuitable as direct or biographical footage.",
+      "reviewed_at": 1791931108.5319986
+    },
+    "a5eff485375fa42009758801": {
+      "kind": "segment_rejection",
+      "source_id": "archive:HowardCarterOpeningKingTutsTomb",
+      "source_url": "https://archive.org/details/HowardCarterOpeningKingTutsTomb",
+      "person": "Howard Carter",
+      "start": 71.97,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931177.8040764
+    },
+    "bf8e21a90bf2fb8a3ef33650": {
+      "kind": "segment_rejection",
+      "source_id": "archive:HowardCarterOpeningKingTutsTomb",
+      "source_url": "https://archive.org/details/HowardCarterOpeningKingTutsTomb",
+      "person": "Howard Carter",
+      "start": 100.68,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931180.9591794
+    },
+    "9f3900bf98f92b36d5175b67": {
+      "kind": "segment_rejection",
+      "source_id": "archive:HowardCarterOpeningKingTutsTomb",
+      "source_url": "https://archive.org/details/HowardCarterOpeningKingTutsTomb",
+      "person": "Howard Carter",
+      "start": 5.0,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931183.0371797
+    },
+    "9e2734ad3a3e08867859ec53": {
+      "kind": "segment_rejection",
+      "source_id": "archive:HowardCarterOpeningKingTutsTomb",
+      "source_url": "https://archive.org/details/HowardCarterOpeningKingTutsTomb",
+      "person": "Howard Carter",
+      "start": 14.57,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931186.216823
+    },
+    "b2d409b39802f72f0acaab97": {
+      "kind": "segment_rejection",
+      "source_id": "archive:HowardCarterOpeningKingTutsTomb",
+      "source_url": "https://archive.org/details/HowardCarterOpeningKingTutsTomb",
+      "person": "Howard Carter",
+      "start": 24.14,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931189.2489998
+    },
+    "33aaa3c78ac04cd637e3199f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:HowardCarterOpeningKingTutsTomb",
+      "source_url": "https://archive.org/details/HowardCarterOpeningKingTutsTomb",
+      "person": "Howard Carter",
+      "start": 33.7,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931194.3441057
+    },
+    "21da63e731b6c24e90f9a190": {
+      "kind": "segment_rejection",
+      "source_id": "archive:HowardCarterOpeningKingTutsTomb",
+      "source_url": "https://archive.org/details/HowardCarterOpeningKingTutsTomb",
+      "person": "Howard Carter",
+      "start": 43.27,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931197.515457
+    },
+    "e8b8f99cf03f352fb4b0df54": {
+      "kind": "segment_rejection",
+      "source_id": "archive:HowardCarterOpeningKingTutsTomb",
+      "source_url": "https://archive.org/details/HowardCarterOpeningKingTutsTomb",
+      "person": "Howard Carter",
+      "start": 52.84,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931200.5369227
+    },
+    "8cc674f92e7218aa54d11489": {
+      "kind": "segment_rejection",
+      "source_id": "archive:HowardCarterOpeningKingTutsTomb",
+      "source_url": "https://archive.org/details/HowardCarterOpeningKingTutsTomb",
+      "person": "Howard Carter",
+      "start": 62.41,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931203.2375696
+    },
+    "a9ea15f7f40ae6200179042e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:HowardCarterOpeningKingTutsTomb",
+      "source_url": "https://archive.org/details/HowardCarterOpeningKingTutsTomb",
+      "person": "Howard Carter",
+      "start": 81.54,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931206.3939984
+    },
+    "e1269f94348d6c55f79d26c6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:HowardCarterOpeningKingTutsTomb",
+      "source_url": "https://archive.org/details/HowardCarterOpeningKingTutsTomb",
+      "person": "Howard Carter",
+      "start": 91.11,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931209.8914716
+    },
+    "a75db9f3e57212e9e3be37e3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:HowardCarterOpeningKingTutsTomb",
+      "source_url": "https://archive.org/details/HowardCarterOpeningKingTutsTomb",
+      "person": "Howard Carter",
+      "start": 110.24,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931213.0107672
+    },
+    "a67bfa13c49fedba4f6f62d9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:HowardCarterOpeningKingTutsTomb",
+      "source_url": "https://archive.org/details/HowardCarterOpeningKingTutsTomb",
+      "person": "Howard Carter",
+      "start": 119.81,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931216.1446161
+    },
+    "0d72dbb5589889a33dce0afe": {
+      "kind": "segment_rejection",
+      "source_id": "archive:HowardCarterOpeningKingTutsTomb",
+      "source_url": "https://archive.org/details/HowardCarterOpeningKingTutsTomb",
+      "person": "Howard Carter",
+      "start": 129.38,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931219.4354978
+    },
+    "286e47bc0be613788ab58463": {
+      "kind": "segment_rejection",
+      "source_id": "archive:siv_Arise_Young_Man_by_Howard_Carter",
+      "source_url": "https://archive.org/details/siv_Arise_Young_Man_by_Howard_Carter",
+      "person": "Howard Carter",
+      "start": 1397.95,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931227.4592152
+    },
+    "d05876b9e84b199da29eb89f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:siv_Arise_Young_Man_by_Howard_Carter",
+      "source_url": "https://archive.org/details/siv_Arise_Young_Man_by_Howard_Carter",
+      "person": "Howard Carter",
+      "start": 1994.92,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931233.9040506
+    },
+    "078b9b250d26122d9381fc52": {
+      "kind": "segment_rejection",
+      "source_id": "archive:siv_Arise_Young_Man_by_Howard_Carter",
+      "source_url": "https://archive.org/details/siv_Arise_Young_Man_by_Howard_Carter",
+      "person": "Howard Carter",
+      "start": 5.0,
+      "reason": "The provided video frames consist entirely of static photographs rather than moving footage. Furthermore, the subject shown is a different Howard Carter (an American clergyman/evangelist born in the 20th century) rather than the famous British archaeologist (1874–1939) associated with Tutankhamun's tomb. Therefore, it is unusable for a historical biography.",
+      "reviewed_at": 1791931241.3149192
+    },
+    "1258c679e44df7665c73d55c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:siv_Arise_Young_Man_by_Howard_Carter",
+      "source_url": "https://archive.org/details/siv_Arise_Young_Man_by_Howard_Carter",
+      "person": "Howard Carter",
+      "start": 203.99,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931246.9717276
+    },
+    "b14ece293821c2656f4d3e0f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:siv_Arise_Young_Man_by_Howard_Carter",
+      "source_url": "https://archive.org/details/siv_Arise_Young_Man_by_Howard_Carter",
+      "person": "Howard Carter",
+      "start": 601.98,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931258.7298222
+    },
+    "0863522dc97dc7b874c04890": {
+      "kind": "segment_rejection",
+      "source_id": "archive:siv_Arise_Young_Man_by_Howard_Carter",
+      "source_url": "https://archive.org/details/siv_Arise_Young_Man_by_Howard_Carter",
+      "person": "Howard Carter",
+      "start": 999.96,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931267.8201594
+    },
+    "61c0ae66075ca8db56acb39c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:siv_Arise_Young_Man_by_Howard_Carter",
+      "source_url": "https://archive.org/details/siv_Arise_Young_Man_by_Howard_Carter",
+      "person": "Howard Carter",
+      "start": 1198.95,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931272.7127125
+    },
+    "1d794dc533f9c15836fc5461": {
+      "kind": "segment_rejection",
+      "source_id": "archive:siv_Arise_Young_Man_by_Howard_Carter",
+      "source_url": "https://archive.org/details/siv_Arise_Young_Man_by_Howard_Carter",
+      "person": "Howard Carter",
+      "start": 1596.94,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931278.9251554
+    },
+    "a42d37c30a45e6934b3fefc6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:siv_Arise_Young_Man_by_Howard_Carter",
+      "source_url": "https://archive.org/details/siv_Arise_Young_Man_by_Howard_Carter",
+      "person": "Howard Carter",
+      "start": 1795.93,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931283.4640427
+    },
+    "245cab96914f4fd1b49dd421": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tut78",
+      "source_url": "https://archive.org/details/tut78",
+      "person": "Howard Carter",
+      "start": 1603.18,
+      "reason": "The footage shows historical artifacts from Tutankhamun's tomb discovered by Howard Carter, providing valid contextual illustration for his biography, although Carter himself is not visible in the frames.",
+      "reviewed_at": 1791931298.2596848
+    },
+    "b6ed08f57234d086706aebbf": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tut78",
+      "source_url": "https://archive.org/details/tut78",
+      "person": "Howard Carter",
+      "start": 2288.11,
+      "reason": "The footage shows historical artifacts from Tutankhamun's tomb, which provides relevant biographical illustration for Howard Carter's life and discoveries, even though Howard Carter himself is not visible in the frames.",
+      "reviewed_at": 1791931306.0885844
+    },
+    "5fae218ab9812efa440946b8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tut78",
+      "source_url": "https://archive.org/details/tut78",
+      "person": "Howard Carter",
+      "start": 5.0,
+      "reason": "The sampled frames only show distributor logos (Films Incorporated) and severely blurred, out-of-focus archival footage with no clear depiction of Howard Carter or relevant historical context.",
+      "reviewed_at": 1791931315.7137818
+    },
+    "2a135b987823dc08ffd2ddb1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tut78",
+      "source_url": "https://archive.org/details/tut78",
+      "person": "Howard Carter",
+      "start": 233.31,
+      "reason": "The footage shows historical archival moving images of archaeological excavations in Egypt related to the discovery of Tutankhamun's tomb, but Howard Carter himself is not clearly identifiable in the sampled frames.",
+      "reviewed_at": 1791931329.4945025
+    },
+    "d827dc30d05172bcb3f426fc": {
+      "source_id": "commons:155566464",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Two_by_Satyajit_Ray.webm",
+      "reason": "strong metadata exclusion: feature film"
+    },
+    "975843c45e58f24b71883f8f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.SatyajitRay_Eng",
+      "source_url": "https://archive.org/details/dli.MoI.SatyajitRay_Eng",
+      "person": "Satyajit Ray",
+      "start": 4227.98,
+      "reason": "The footage shows archival documentary material related to Satyajit Ray's life and work, but the person visible in the frames is not Satyajit Ray himself. It serves as valid biographical illustration context.",
+      "reviewed_at": 1791931418.1666484
+    },
+    "61485a204df67a7773788f99": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "source_url": "https://archive.org/details/SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "person": "Satyajit Ray",
+      "start": 929.54,
+      "reason": "The sampled frames show static manuscript text and lack any moving or historical contextual footage depicting Satyajit Ray, rendering it unusable as identity or direct event footage.",
+      "reviewed_at": 1791931442.8148417
+    },
+    "c3e7f8699b05a41dc895b9f3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "source_url": "https://archive.org/details/SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "person": "Satyajit Ray",
+      "start": 1325.77,
+      "reason": "The footage displays Bengali text and poetry related to the subject's family background, serving as biographical illustration without showing Satyajit Ray himself.",
+      "reviewed_at": 1791931453.2839375
+    },
+    "3d73a6ad3ba7480390bc1f57": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "source_url": "https://archive.org/details/SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "person": "Satyajit Ray",
+      "start": 5.0,
+      "reason": "The video segment consists entirely of title cards and opening credits text with no actual filmed footage or visual depiction of Satyajit Ray.",
+      "reviewed_at": 1791931463.4393687
+    },
+    "f660fafa5c4c48cd506a96c5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "source_url": "https://archive.org/details/SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "person": "Satyajit Ray",
+      "start": 269.15,
+      "reason": "The footage shows historical family photographs and a building related to Satyajit Ray's family history as narrated in the documentary, but Satyajit Ray himself is not visible in the clip.",
+      "reviewed_at": 1791931478.1536386
+    },
+    "ca7322c0955a2f416c0ad5e6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
+      "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
+      "person": "Satyajit Ray",
+      "start": 35.33,
+      "reason": "The footage contains film clips and promotional title cards for Satyajit Ray's films, but Satyajit Ray himself is not clearly visible in any of the sampled frames, and it features heavy promotional text overlays.",
+      "reviewed_at": 1791931494.6542385
+    },
+    "e99219278670888b5cef5a17": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
+      "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
+      "person": "Satyajit Ray",
+      "start": 45.44,
+      "reason": "The footage shows excerpts and scenes from Satyajit Ray's films (such as Nayak), serving as historical and biographical illustration of his cinematic work, though the director himself is not visible in the sampled frames.",
+      "reviewed_at": 1791931507.9304504
+    },
+    "2da206d067065c14b9751dcf": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_1",
+      "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_1",
+      "person": "Satyajit Ray",
+      "start": 36.36,
+      "reason": "The video features archival film clips from Satyajit Ray's cinematic works (such as Mahanagar and Charulata) illustrating his life and career, but the director himself is not visible in the frames.",
+      "reviewed_at": 1791931525.4838803
+    },
+    "a62864fb1980114afc50c11b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_1",
+      "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_1",
+      "person": "Satyajit Ray",
+      "start": 46.81,
+      "reason": "The footage shows film clips from Satyajit Ray's works (such as Charulata and Kapurush) with promotional text overlaid. While directed by Satyajit Ray, the subject himself is not visible in the video segment, making it useful as biographical illustration of his cinematic work rather than direct footage of Ray.",
+      "reviewed_at": 1791931534.2191365
+    },
+    "4640795cb008f18089032c05": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_1",
+      "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_1",
+      "person": "Satyajit Ray",
+      "start": 15.45,
+      "reason": "The footage shows scenes from Satyajit Ray's films (specifically 'Kapurush'), which provides valid biographical illustration for a video about his life and work, even though Satyajit Ray himself is not visible in the frames.",
+      "reviewed_at": 1791931542.523809
+    },
+    "c14492bf1ed9c27fdc491bd6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_1",
+      "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_1",
+      "person": "Satyajit Ray",
+      "start": 57.26,
+      "reason": "The footage shows scenes from a Satyajit Ray film (Charulata) rather than Satyajit Ray himself, and ends with a title card. Since the subject is not visible and it's a clip from his film rather than direct historical footage of the person, it is not suitable as biographical identity footage.",
+      "reviewed_at": 1791931552.3410842
+    },
+    "04f18f5546fcce1a7b69e34a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Satyajit",
+      "source_url": "https://archive.org/details/Satyajit",
+      "person": "Satyajit Ray",
+      "start": 95.0,
+      "reason": "The footage shows archival clips from a Satyajit Ray film, serving as biographical illustration of his filmmaking work, but the filmmaker himself is not visible.",
+      "reviewed_at": 1791931563.0813875
+    },
+    "4739f820c97d5dd8b1378762": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Satyajit",
+      "source_url": "https://archive.org/details/Satyajit",
+      "person": "Satyajit Ray",
+      "start": 133.57,
+      "reason": "The video segment shows archival footage from films and various unidentified speaking individuals, but Satyajit Ray himself is not clearly identifiable in any of the sampled frames. Therefore, person_visible is false and it cannot be used as identity footage for Ray.",
+      "reviewed_at": 1791931572.7163942
+    },
+    "fe61068741d886b18a17745e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Satyajit",
+      "source_url": "https://archive.org/details/Satyajit",
+      "person": "Satyajit Ray",
+      "start": 5.0,
+      "reason": "The footage consists of clips from Satyajit Ray's cinematic works (such as Apur Sansar / The World of Apu), which serve as excellent biographical illustration for a short about the famous filmmaker, even though Ray himself is not visible in the frames.",
+      "reviewed_at": 1791931582.7286472
+    },
+    "27330522a1e3c7316baaccfd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Satyajit",
+      "source_url": "https://archive.org/details/Satyajit",
+      "person": "Satyajit Ray",
+      "start": 17.86,
+      "reason": "The video shows dramatic black-and-white film scenes/archival footage relevant to filmmaking and Indian cinema contexts, serving as biographical illustration for Satyajit Ray's work, although Ray himself is not clearly visible in the sampled frames.",
+      "reviewed_at": 1791931591.3434703
+    },
+    "6ca9a8680d0b8008e158c61f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:satyajit-ray-films",
+      "source_url": "https://archive.org/details/satyajit-ray-films",
+      "person": "Satyajit Ray",
+      "start": 6714.06,
+      "reason": "The footage shows a scene from a Satyajit Ray film, but Satyajit Ray himself is not visible in any of the frames, and the person shown is an actor. Therefore, it does not serve as identity footage or direct biographical illustration of Ray.",
+      "reviewed_at": 1791931606.3350666
+    },
+    "f01ae4855e0aae19f4662b63": {
+      "kind": "segment_rejection",
+      "source_id": "archive:satyajit-ray-films",
+      "source_url": "https://archive.org/details/satyajit-ray-films",
+      "person": "Satyajit Ray",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of title cards and logos ('EUREKA!' and 'The Masters of Cinema Series') with a black background. No actual footage or depiction of Satyajit Ray is present.",
+      "reviewed_at": 1791931612.9065614
+    },
+    "0ca8f3f8eb4a8ddb46c5666e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "person": "Boman Irani",
+      "start": 3429.19,
+      "reason": "The sampled frames from the movie 'Parmanu' show fictional military scenes involving trucks and soldiers at night. Boman Irani is not clearly identifiable in any of the frames, making this clip unsuitable for identity footage.",
+      "reviewed_at": 1791931715.1084938
+    },
+    "5b3238e513c2e11c5f42fc28": {
+      "kind": "segment_rejection",
+      "source_id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "person": "Boman Irani",
+      "start": 5141.29,
+      "reason": "The sampled frames feature actor John Abraham and other cast members in a scene from the film 'Parmanu', but Boman Irani is not visible in any of the frames.",
+      "reviewed_at": 1791931734.7360137
+    },
+    "b329353542689ef09333e99c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "person": "Boman Irani",
+      "start": 6853.38,
+      "reason": "The subject Boman Irani is not visible in any of the sampled frames. The frames feature John Abraham and Diana Penty from the film Parmanu, so the footage is unusable for a biography of Boman Irani.",
+      "reviewed_at": 1791931783.939389
+    },
+    "516b0d16a484509bd4452bdc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
+      "person": "Boman Irani",
+      "start": 7424.08,
+      "reason": "The frames only show title cards and company logos, without any appearance of Boman Irani or historical context.",
+      "reviewed_at": 1791931795.1699328
+    },
+    "35148ebd9e7910738b7e410f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "source_url": "https://archive.org/details/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "person": "Boman Irani",
+      "start": 4400.4,
+      "reason": "The sampled frames show John Abraham and other actors from the film 'Romeo Akbar Walter', but Boman Irani is not visible in any of the sampled frames.",
+      "reviewed_at": 1791931805.3134646
+    },
+    "aae92e8419a50e1aaa9d40d8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "source_url": "https://archive.org/details/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "person": "Boman Irani",
+      "start": 6912.05,
+      "reason": "The subject Boman Irani is not visible in any of the sampled frames; the footage features John Abraham from the movie Romeo Akbar Walter.",
+      "reviewed_at": 1791931816.914079
+    },
+    "1fc618083dc0c21c54c9b3bc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "source_url": "https://archive.org/details/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "person": "Boman Irani",
+      "start": 7539.97,
+      "reason": "The provided video segment features Jackie Shroff and John Abraham from the movie Romeo Akbar Walter, but Boman Irani is not visible in any of the sampled frames.",
+      "reviewed_at": 1791931823.5990384
+    },
+    "238544b1396d7d17bcf961c5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "source_url": "https://archive.org/details/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
+      "person": "Boman Irani",
+      "start": 8167.88,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791931825.7985437
+    },
+    "c760c8536fd1f1bf07db04ef": {
+      "kind": "segment_rejection",
+      "source_id": "archive:3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264",
+      "source_url": "https://archive.org/details/3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264",
+      "person": "Boman Irani",
+      "start": 5.0,
+      "reason": "The sampled frames only show a static film certification document and a disclaimer title card, containing no actual footage or visible presence of Boman Irani.",
+      "reviewed_at": 1791931843.219556
+    },
+    "de2f8bf196a7fc59f822ea53": {
+      "kind": "segment_rejection",
+      "source_id": "archive:3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264",
+      "source_url": "https://archive.org/details/3.-idiots-2009-1080p-web-dl-ddp-5.1-h.-264",
+      "person": "Boman Irani",
+      "start": 794.65,
+      "reason": "The frames feature fictional scenes from the movie 3 Idiots, depicting characters other than Boman Irani (who is not visible or identifiable in any of the sampled frames). Therefore, it cannot be used as identity footage or valid historical context for a biography of Boman Irani.",
+      "reviewed_at": 1791931850.5962398
     }
   }
 }

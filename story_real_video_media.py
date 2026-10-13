@@ -338,10 +338,18 @@ def search_commons(person):
                     str(cat.get("title", "")).strip() in category_names for cat in categories
                 ),
             }
-            if _identity_score(person, item) >= 5.0:
-                item["identity_score"] = _identity_score(person, item)
-                results.append(item)
-                seen.add(item["id"])
+            # Commons search descriptions can mention the person while the
+            # video shows a presenter, adaptation, or unrelated subject. Keep
+            # only records whose title/artist/category directly identifies them.
+            if not archive_candidate_has_identity(
+                person, item["title"], " ".join(
+                    str(cat.get("title", "")) for cat in categories
+                ), item["description"], 0, item["creator"]
+            ):
+                continue
+            item["identity_score"] = _identity_score(person, item)
+            results.append(item)
+            seen.add(item["id"])
 
     for query in search_terms:
         continuation = {}

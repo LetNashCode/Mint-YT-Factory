@@ -1,20 +1,7 @@
 {
-  "status": "complete",
-  "video_id": "Pb1-aVVunGg",
-  "youtube_url": "https://www.youtube.com/shorts/Pb1-aVVunGg",
-  "platforms": {
-    "youtube": {
-      "status": "published",
-      "video_id": "Pb1-aVVunGg"
-    },
-    "instagram": {
-      "status": "published",
-      "media_id": "17909936769559304",
-      "container_id": "18498820075097136"
-    },
-    "facebook": {
-      "status": "published",
-      "video_id": "958603480142822"
-    }
-  }
+  "status": "pending",
+  "video_id": "",
+  "youtube_url": "",
+  "reason": "",
+  "updated_at": 1791971554
 }

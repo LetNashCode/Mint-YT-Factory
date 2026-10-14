@@ -2775,6 +2775,339 @@
       "start": 421.55,
       "reason": "The sampled frames show the interviewer (David Brenner) speaking, but Dolly Parton is not visible in any of the sampled frames for this segment.",
       "reviewed_at": 1791966407.8806474
+    },
+    "84e2ed68b590135e3f080308": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "source_url": "https://archive.org/details/ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "person": "Marie Curie",
+      "start": 243.79,
+      "reason": "The video segment shows actors and directors discussing a theatre production about Marie Curie, not Marie Curie herself.",
+      "reviewed_at": 1791971609.2369263
+    },
+    "e7c7223f2e1caf193918b600": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "source_url": "https://archive.org/details/ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "person": "Marie Curie",
+      "start": 346.13,
+      "reason": "The video shows modern actors and directors discussing a theatre production (\"The Half-Life of Marie Curie\"), not Marie Curie herself.",
+      "reviewed_at": 1791971618.8764758
+    },
+    "963284ef79e6c0047e05abd4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:rth_27169773_1200K",
+      "source_url": "https://archive.org/details/rth_27169773_1200K",
+      "person": "Marie Curie",
+      "start": 36.14,
+      "reason": "The footage shows a TV presenter talking in a studio set with historical backdrop imagery, but Marie Curie is neither visible nor is the segment genuine historical footage of her life.",
+      "reviewed_at": 1791971624.027864
+    },
+    "35c12cfae8f531072cb14d7f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:rth_27169773_1200K",
+      "source_url": "https://archive.org/details/rth_27169773_1200K",
+      "person": "Marie Curie",
+      "start": 46.52,
+      "reason": "The clip features a television host discussing Marie Curie in front of static photo displays and graphics, with no actual archival or direct footage of Marie Curie herself.",
+      "reviewed_at": 1791971628.394416
+    },
+    "7fcc3ca298c2b81b489f9bc1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+      "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+      "person": "Marie Curie",
+      "start": 68.7,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1791971632.094625
+    },
+    "5f1c160f7f937c20fc29a5c0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+      "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+      "person": "Marie Curie",
+      "start": 96.0,
+      "reason": "The footage shows generic stock footage of a modern scientist looking through a microscope and historical laboratory notes, but it does not depict Marie Curie herself, making it unsuitable as identity footage for her biography.",
+      "reviewed_at": 1791971638.322443
+    },
+    "22a88d36beaceced3409e79c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+      "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+      "person": "Marie Curie",
+      "start": 5.0,
+      "reason": "The clip consists entirely of title graphics and a static map of Poland, which does not constitute real moving historical footage or depict Marie Curie.",
+      "reviewed_at": 1791971643.785943
+    },
+    "b65a46f7951ee8c733d665ef": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 28.22,
+      "reason": "The segment consists of an interview clip of another person followed by animated slideshow graphics and mathematical formulas, without any actual moving footage of Srinivasa Ramanujan.",
+      "reviewed_at": 1791971670.9005256
+    },
+    "9919a66dd86af9c40e4588bb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 39.84,
+      "reason": "The segment consists of animated graphics and a cutaway to two interviewees, but Srinivasa Ramanujan (who died in 1920) is not visibly present in any real archival footage.",
+      "reviewed_at": 1791971676.674928
+    },
+    "959abd3efbf422cee9da643b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TheManWhoLovedNumbers",
+      "source_url": "https://archive.org/details/TheManWhoLovedNumbers",
+      "person": "Srinivasa Ramanujan",
+      "start": 267.49,
+      "reason": "The footage shows archival documentary B-roll of locations associated with Srinivasa Ramanujan's life in India, including streets and buildings, but Srinivasa Ramanujan himself is not visible. It serves as valid biographical illustration.",
+      "reviewed_at": 1791971686.7094367
+    },
+    "618b45c150906dfbfc2624cc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TheManWhoLovedNumbers",
+      "source_url": "https://archive.org/details/TheManWhoLovedNumbers",
+      "person": "Srinivasa Ramanujan",
+      "start": 529.99,
+      "reason": "The footage shows archival documentary b-roll of the Town Higher Secondary School in Kumbakonam where Ramanujan studied, but Ramanujan himself is not visible in the sampled frames.",
+      "reviewed_at": 1791971697.0741107
+    },
+    "63c9b077c2262feb5455db91": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 238.15,
+      "reason": "The segment shows dramatized archival footage of a child practicing writing and memory exercises on a slate, illustrating Srinivasa Ramanujan's early upbringing and educational background, but Srinivasa Ramanujan himself is not clearly identifiable as an adult subject in the frames.",
+      "reviewed_at": 1791971703.6778204
+    },
+    "bbe40912b5403ecf31d0c061": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 1170.75,
+      "reason": "The footage consists of static photographs and digital graphics overlaying mathematical formulas, which does not constitute real film footage or usable historical context.",
+      "reviewed_at": 1791971708.8267484
+    },
+    "0d5b8859d53dcb5841ae6391": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dan-schneider-video-interview-419-alexander-von-humboldt",
+      "source_url": "https://archive.org/details/dan-schneider-video-interview-419-alexander-von-humboldt",
+      "person": "Alexander von Humboldt",
+      "start": 3522.0,
+      "reason": "The footage shows a modern panel discussion/interview about Alexander von Humboldt featuring multiple speakers (Dan Schneider, Laura Walls, Niall Peach, Ricardo Quintana Vallejo), but Alexander von Humboldt himself lived in the 18th and 19th centuries and is not present.",
+      "reviewed_at": 1791971743.9667976
+    },
+    "9f2c42ab58170455ec6ec65f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dan-schneider-video-interview-419-alexander-von-humboldt",
+      "source_url": "https://archive.org/details/dan-schneider-video-interview-419-alexander-von-humboldt",
+      "person": "Alexander von Humboldt",
+      "start": 5029.29,
+      "reason": "The video shows a modern panel discussion or interview about Alexander von Humboldt featuring modern commentators (Dan Schneider, Niall Peach, Laura Walls, Ricardo Quintana Vallejo). Alexander von Humboldt lived in the 18th and 19th centuries and is not depicted in this modern video clip.",
+      "reviewed_at": 1791971749.582419
+    },
+    "b40fe112d29a54f921cc76a8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bronxny-Alexander_Von_Humboldt_The_History_Science_and_Poetry_of_Ecology",
+      "source_url": "https://archive.org/details/bronxny-Alexander_Von_Humboldt_The_History_Science_and_Poetry_of_Ecology",
+      "person": "Alexander von Humboldt",
+      "start": 87.76,
+      "reason": "The footage shows a contemporary interview with Brooke Beebe, former Director of the Nature and plant Center at Westchester Community College, completely unrelated to Alexander von Humboldt.",
+      "reviewed_at": 1791971756.6561213
+    },
+    "235af93bce587286c5429aa8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bronxny-Alexander_Von_Humboldt_The_History_Science_and_Poetry_of_Ecology",
+      "source_url": "https://archive.org/details/bronxny-Alexander_Von_Humboldt_The_History_Science_and_Poetry_of_Ecology",
+      "person": "Alexander von Humboldt",
+      "start": 123.23,
+      "reason": "The video shows modern event footage (a book signing) that has no relation to the historical subject Alexander von Humboldt, who lived in the 18th and 19th centuries.",
+      "reviewed_at": 1791971764.0134103
+    },
+    "ca032ba92f072bc90547a14a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Agatha100",
+      "source_url": "https://archive.org/details/Agatha100",
+      "person": "Agatha Christie",
+      "start": 621.29,
+      "reason": "The footage shows dramatic reconstruction/adaptation scenes (Hercule Poirot) and a documentary interview about Agatha Christie's works, but Agatha Christie herself is not visible in the sampled frames.",
+      "reviewed_at": 1791971832.5045176
+    },
+    "9795e48b1198233533a7062c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Agatha100",
+      "source_url": "https://archive.org/details/Agatha100",
+      "person": "Agatha Christie",
+      "start": 929.43,
+      "reason": "The segment consists of static historical photographs and dramatized/unrelated moving footage rather than genuine filmed identity footage of Agatha Christie.",
+      "reviewed_at": 1791971838.4806852
+    },
+    "9edb9f8845f4a8db62ba598b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "source_url": "https://archive.org/details/agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "person": "Agatha Christie",
+      "start": 5.0,
+      "reason": "The footage is from a dramatized adaptation of an Agatha Christie work ('Miss Marple'), depicting fictional characters in a dining scene rather than archival footage or biographical content about Agatha Christie herself. It can be used only as general biographical illustration for her work, but person_visible is false because Christie herself does not appear.",
+      "reviewed_at": 1791971844.3464549
+    },
+    "7f370af44bd9ead704743e81": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "source_url": "https://archive.org/details/agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "person": "Agatha Christie",
+      "start": 870.08,
+      "reason": "The footage shows a dramatized scene from an adaptation of an Agatha Christie work featuring fictional characters, not Agatha Christie herself, making it unusable for her biography.",
+      "reviewed_at": 1791971850.1038604
+    },
+    "e19f4e8794df37df6a5c5f13": {
+      "kind": "segment_rejection",
+      "source_id": "archive:actvma-Mary_Roberts_Reinhart_Americas_Agatha_Christie_with_Sari_Bitticks",
+      "source_url": "https://archive.org/details/actvma-Mary_Roberts_Reinhart_Americas_Agatha_Christie_with_Sari_Bitticks",
+      "person": "Agatha Christie",
+      "start": 1224.06,
+      "reason": "The video shows a modern presentation about Mary Roberts Reinhart, with no footage or mention of Agatha Christie.",
+      "reviewed_at": 1791971856.8233206
+    },
+    "f028f5d8cbc3dac81b2eebd4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:actvma-Mary_Roberts_Reinhart_Americas_Agatha_Christie_with_Sari_Bitticks",
+      "source_url": "https://archive.org/details/actvma-Mary_Roberts_Reinhart_Americas_Agatha_Christie_with_Sari_Bitticks",
+      "person": "Agatha Christie",
+      "start": 1746.51,
+      "reason": "The footage shows a local historical society presentation in a community room with an audience and a speaker. Agatha Christie is not present in the video, and the segment merely discusses her in a presentation format rather than providing genuine archival footage or historical context of Christie herself.",
+      "reviewed_at": 1791971862.2119124
+    },
+    "b01774fc58d7ca705936d21a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20251109-203719",
+      "source_url": "https://archive.org/details/vid-20251109-203719",
+      "person": "Agatha Christie",
+      "start": 76.8,
+      "reason": "The video shows an unidentified modern individual speaking indoors, completely unrelated to Agatha Christie.",
+      "reviewed_at": 1791971870.7568657
+    },
+    "a8c421b846f830aae927c463": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20251109-203719",
+      "source_url": "https://archive.org/details/vid-20251109-203719",
+      "person": "Agatha Christie",
+      "start": 100.74,
+      "reason": "The video shows an unidentified random man speaking indoors, which has no connection to Agatha Christie.",
+      "reviewed_at": 1791971877.8516977
+    },
+    "01e3bdae3552622f58e25293": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christie-arena",
+      "source_url": "https://archive.org/details/agatha-christie-arena",
+      "person": "Agatha Christie",
+      "start": 565.37,
+      "reason": "The video shows dramatic reconstruction footage from a documentary about Agatha Christie, featuring actors at a dinner party, but Agatha Christie herself is not visible in any of the frames.",
+      "reviewed_at": 1791971885.7754447
+    },
+    "fdcede988e6ce60fd525b305": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christie-arena",
+      "source_url": "https://archive.org/details/agatha-christie-arena",
+      "person": "Agatha Christie",
+      "start": 845.56,
+      "reason": "The frames show a historical document/ledger listing names, including 'CHRISTIE, A. M. C.', providing concrete historical context related to Agatha Christie's records, though she is not personally visible.",
+      "reviewed_at": 1791971894.2009568
+    },
+    "a280b2580e81c221c8b95c64": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "source_url": "https://archive.org/details/cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "person": "Rosa Parks",
+      "start": 824.23,
+      "reason": "The video shows a modern local government meeting announcing a Rosa Parks Essay Contest in 2018. Rosa Parks is not visible in the footage, and the modern event does not depict her historical life or legacy directly.",
+      "reviewed_at": 1791971955.7848938
+    },
+    "6ae2017c4ce57d1a6f51c1f2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "source_url": "https://archive.org/details/cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "person": "Rosa Parks",
+      "start": 1029.04,
+      "reason": "The footage shows a 2018 local government event (a Rosa Parks essay contest award announcement), not archival footage of historical subject Rosa Parks herself, who passed away in 2005. It is modern community video footage and not usable as direct historical or biographical identity footage for Rosa Parks.",
+      "reviewed_at": 1791971960.9036667
+    },
+    "0df5af3cd474c049b0a00afa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "source_url": "https://archive.org/details/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "person": "Rosa Parks",
+      "start": 32.63,
+      "reason": "The first frame shows archival footage depicting Rosa Parks on a bus, which directly relates to her historical significance, while the subsequent frames show a 2019 city proclamation event regarding Transit Equity Day mentioning her. Rosa Parks is visible in the first frame.",
+      "reviewed_at": 1791972004.1044393
+    },
+    "1e69992ba58ad056a770483b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "source_url": "https://archive.org/details/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "person": "Rosa Parks",
+      "start": 51.05,
+      "reason": "The video segment shows modern local news footage from 2019 about a transit equity proclamation in Houston. Rosa Parks is not visible in any of the sampled frames, and the modern context has no direct historical connection to Rosa Parks' life beyond sharing a calendar date.",
+      "reviewed_at": 1791972010.4679751
+    },
+    "15ffb56f6acc85edf89c07f4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Topeka_In_Two_-_Rosa_Parks_Unity_Walks",
+      "source_url": "https://archive.org/details/Topeka_In_Two_-_Rosa_Parks_Unity_Walks",
+      "person": "Rosa Parks",
+      "start": 70.89,
+      "reason": "The footage shows a modern 2015 community unity walk in Topeka, Kansas, celebrating 'Remember Rosa Parks Day'. Rosa Parks is not visible in the footage, and the modern event does not depict her life or historical events directly associated with her biography.",
+      "reviewed_at": 1791972016.0769987
+    },
+    "54a20e4849c5fb1ff7a82e82": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Topeka_In_Two_-_Rosa_Parks_Unity_Walks",
+      "source_url": "https://archive.org/details/Topeka_In_Two_-_Rosa_Parks_Unity_Walks",
+      "person": "Rosa Parks",
+      "start": 99.13,
+      "reason": "The footage shows a modern community event (a Unity Walk in Topeka in 2015) commemorating Rosa Parks, but Rosa Parks herself (who passed away in 2005) is not present. It serves as biographical illustration for her legacy rather than direct historical footage of her life.",
+      "reviewed_at": 1791972022.9407635
+    },
+    "7c3dd03bd826fe66ce8b2f05": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jrr-tolkien-1892-1973",
+      "source_url": "https://archive.org/details/jrr-tolkien-1892-1973",
+      "person": "J.R.R. Tolkien",
+      "start": 5.0,
+      "reason": "The clip features archival footage of J.R.R. Tolkien, but it is heavily overlaid with title cards, documentary text, and watermarks across the frames, making it unsuitable for a clean vertical video short.",
+      "reviewed_at": 1791972080.9501731
+    },
+    "794d85566daf29e2c5888bd4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jrr-tolkien-1892-1973",
+      "source_url": "https://archive.org/details/jrr-tolkien-1892-1973",
+      "person": "J.R.R. Tolkien",
+      "start": 501.99,
+      "reason": "The clip consists of an animation or drawing depicting a traditional hall with a fire, rather than real archival footage of J.R.R. Tolkien or concrete historical context. The subject is not visible.",
+      "reviewed_at": 1791972090.3238807
+    },
+    "1b71db9e1fe96d2777eb46b2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tolkienarchive",
+      "source_url": "https://archive.org/details/tolkienarchive",
+      "person": "J.R.R. Tolkien",
+      "start": 5.0,
+      "reason": "The frames show a static photograph or title card with superimposed text (\"a study of JOHN RONALD REUEL TOLKIEN\" and \"Narrated by JUDI DENCH\") rather than genuine moving historical footage.",
+      "reviewed_at": 1791972104.8382616
+    },
+    "51df021e540ede6aa9e7d366": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tolkienarchive",
+      "source_url": "https://archive.org/details/tolkienarchive",
+      "person": "J.R.R. Tolkien",
+      "start": 998.45,
+      "reason": "The footage shows a scenic river/canal view with punting boats, serving as generic biographical illustration for J.R.R. Tolkien's time in Oxford, though Tolkien himself is not visible.",
+      "reviewed_at": 1791972111.8769295
     }
   }
 }

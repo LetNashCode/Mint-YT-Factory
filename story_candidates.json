@@ -1,17 +1,5 @@
 [
   {
-    "format": "impossible_odds",
-    "person": "Tenzing Norgay",
-    "premise": "Overcoming humble beginnings as a high-altitude porter to reach the highest point on Earth.",
-    "hook": "He carried loads up mountains for decades as a laborer before making history at the summit.",
-    "key_facts": [
-      "Born in Tibet and grew up in a yak-herding family in Nepal.",
-      "Worked for years as a high-altitude expedition porter for various mountaineering teams.",
-      "Reached the summit of Mount Everest alongside Edmund Hillary on May 29, 1953."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Harrison Ford",
     "premise": "Working primarily as a professional carpenter while waiting years for a break in the film industry.",
@@ -37,19 +25,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "J.R.R. Tolkien",
-    "premise": "How a random grading note scribbled on a blank exam paper spawned the entire mythology of Middle-earth.",
-    "hook": "While grading student exam papers, a blank page inspired a professor to write five simple words that created modern fantasy.",
-    "key_facts": [
-      "Worked as a professor of Anglo-Saxon and English Language at Oxford University.",
-      "Scrawled 'In a hole in the ground there lived a hobbit' on the back of an ungraded exam script.",
-      "Published 'The Hobbit' in 1937 to unexpected commercial and critical success.",
-      "Spent decades developing complex languages and histories that formed the backdrop of 'The Lord of the Rings'."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Nawazuddin Siddiqui",
     "premise": "Working multiple odd jobs as a watchman and chemist while trying to get minor film roles in Mumbai.",
@@ -63,28 +38,41 @@
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Srinivasa Ramanujan",
-    "premise": "Mailing pages of complex mathematical formulas from a clerical job in Madras to a prominent professor in Cambridge.",
-    "hook": "A self-taught Indian shipping clerk mailed unsolicited theorems to a British mathematician, sparking one of the greatest collaborations in history.",
+    "format": "rise_from_nothing",
+    "person": "Radhanath Sikdar",
+    "premise": "The brilliant Indian mathematician who calculated the exact height of Mount Everest while working as a low-level computer in colonial India.",
+    "hook": "He calculated the roof of the world using complex geometry, yet his name was initially entirely absent from history books.",
     "key_facts": [
-      "Worked as a low-level shipping clerk in Madras while pursuing advanced mathematics independently.",
-      "Sent letters containing unproven mathematical theorems to G.H. Hardy at Cambridge University in 1913.",
-      "Recognized by Hardy for his genius and invited to travel to Trinity College, Cambridge.",
-      "Elected as a Fellow of the Royal Society for his contributions to mathematical analysis."
+      "Joined the Great Trigonometrical Survey of India in 1831 as a 'computor'.",
+      "Invented new mathematical formulas for spherical trigonometry and surveying.",
+      "Calculated the height of Peak XV (later named Mount Everest) in 1852.",
+      "His exact calculation of 29,002 feet remained the accepted standard for decades."
     ],
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Marie Curie",
-    "premise": "Leaving partitioned Poland to study in Paris, living in near-starvation conditions while pursuing higher education in physics.",
-    "hook": "She lived on bread, tea, and radishes in a cold garret in Paris while pursuing a degree that would change modern science.",
+    "format": "before_they_were_famous",
+    "person": "Zaha Hadid",
+    "premise": "The pioneering architect who spent decades designing visionary futuristic buildings that conservative committees refused to build.",
+    "hook": "For twenty years, she was known as a 'paper architect' because clients told her radical curved designs were completely unbuildable.",
     "key_facts": [
-      "Enrolled at the Sorbonne in Paris after studying secretly at the clandestine Flying University in Warsaw.",
-      "Graduated with degrees in both physics and mathematics.",
-      "Discovered the elements polonium and radium while analyzing pitchblende ore.",
-      "Became the first woman to win a Nobel Prize and the only person to win Nobel Prizes in two distinct scientific fields."
+      "Studied mathematics at the American University of Beirut before moving to the Architectural Association in London.",
+      "Opened her own practice in London in 1980 while facing widespread skepticism.",
+      "Won the competition to design the Cardiff Bay Opera House in 1994, but the project was canceled.",
+      "Became the first female architect to win the Pritzker Architecture Prize in 2004."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Louis Braille",
+    "premise": "How a blinded French teenager took a military night-writing code and simplified it into a tactile alphabet that empowered millions.",
+    "hook": "He was blinded by an accidental workshop injury at age three, yet revolutionized global literacy before turning twenty.",
+    "key_facts": [
+      "Attended the Royal Institution for Blind Youth in Paris using embossed books that were extremely difficult to read.",
+      "Adapted an artillery night-writing code based on raised dots created by Charles Barbier.",
+      "Published his reading and writing system for the blind in 1829 using a six-dot cell.",
+      "The system was universally adopted long after his death from tuberculosis in 1852."
     ],
     "source": "gemini_original"
   }

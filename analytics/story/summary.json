@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-10-14T08:11:24.621329+00:00",
-  "video_count": 10,
+  "generated_at": "2026-10-14T09:52:34.054582+00:00",
+  "video_count": 11,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 9,
   "reason": "",
   "totals": {
-    "views": 5960,
-    "likes": 90,
+    "views": 6173,
+    "likes": 100,
     "comments": 0
   },
   "averages": {
-    "views": 596.0,
-    "likes": 9.0,
+    "views": 561.18,
+    "likes": 9.09,
     "comments": 0.0,
-    "average_view_percentage": 47.13,
-    "subscribers_gained": 0.6,
+    "average_view_percentage": 42.85,
+    "subscribers_gained": 0.55,
     "shares": 0.0
   },
   "top_videos": [
@@ -79,7 +79,7 @@
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
       "video_id": "hLW3D1SJuYo",
       "title": "Before the Fame: Jackie Chan's Untold Struggle",
-      "views": 1020,
+      "views": 1021,
       "likes": 29,
       "comments": 0,
       "shares": 0,
@@ -87,7 +87,7 @@
       "average_view_percentage": 88.87,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 2.8431
+      "engagement_rate": 2.8404
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -102,6 +102,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.266
+    },
+    {
+      "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
+      "video_id": "Pb1-aVVunGg",
+      "title": "Before the Fame: Dolly Parton's Untold Struggle",
+      "views": 212,
+      "likes": 10,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 4.717
     },
     {
       "topic": "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
@@ -144,20 +158,6 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 3.0303
-    },
-    {
-      "topic": "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",
-      "video_id": "XyZRedw8lEA",
-      "title": "The Moment Everything Changed: Alan Turing",
-      "views": 14,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 16.0,
-      "average_view_percentage": 37.76,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 7.1429
     }
   ],
   "topic_performance": [
@@ -221,7 +221,7 @@
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
       "video_id": "hLW3D1SJuYo",
       "title": "Before the Fame: Jackie Chan's Untold Struggle",
-      "views": 1020,
+      "views": 1021,
       "likes": 29,
       "comments": 0,
       "shares": 0,
@@ -229,7 +229,7 @@
       "average_view_percentage": 88.87,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 2.8431
+      "engagement_rate": 2.8404
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -244,6 +244,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.266
+    },
+    {
+      "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
+      "video_id": "Pb1-aVVunGg",
+      "title": "Before the Fame: Dolly Parton's Untold Struggle",
+      "views": 212,
+      "likes": 10,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 4.717
     },
     {
       "topic": "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",

@@ -7240,37 +7240,6 @@
       "reviewed_at": 1791459164.692734
     },
     {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
-        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
-        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
-        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
-        "creator": "BBC Archive",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Tolkien', 'God', 'Creator']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 386.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 205.82,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows J.R.R. Tolkien himself in all three frames during a 1962 BBC interview, perfectly illustrating his life and discussion.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "43b70f02af6ec40f165c54da70e753e2c20c6556d2cd45900bded48912c8e73a",
-      "reviewed_at": 1791459315.04564
-    },
-    {
       "person": "Dwayne Johnson",
       "source": {
         "id": "archive:twitter-1642939444922818560",
@@ -9471,99 +9440,6 @@
     {
       "person": "J.R.R. Tolkien",
       "source": {
-        "id": "archive:tolkienarchive",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/tolkienarchive/Documentaries/1996%20-%20J.R.R.%20Tolkien%20-%20A%20Film%20Portrait/J.R.R.Tolkien%20-%20A%20Film%20Portrait.mp4",
-        "source_url": "https://archive.org/details/tolkienarchive",
-        "title": "J. R. R. Tolkien - A Film Archive",
-        "description": "A collection of J.R.R. Tolkien and Middle-Earth related videos, including documentaries, BBC archive footage and interviews with the man himself. ['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
-        "creator": "Various",
-        "license": "",
-        "subject": "['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6471.431633,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 3482.08,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The segment includes genuine archival footage of J.R.R. Tolkien writing at his desk, followed by close-ups of his published books, providing biographical illustration of his life and work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "2e304149d99cbf7dad019c410db631940346f27c945f92137b4320a9afe87e28",
-      "reviewed_at": 1791633143.056003
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:jrr-tolkien-1892-1973",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jrr-tolkien-1892-1973/JRR%20TOLKIEN%20%271892-1973%27%20-%20A%20Study%20Of%20The%20Maker%20Of%20Middle-earth.mp4",
-        "source_url": "https://archive.org/details/jrr-tolkien-1892-1973",
-        "title": "JRR TOLKIEN ' 1892-1973'",
-        "description": "J.R.R.T.: A Study Of The Maker Of Middle-earth is a 1992 documentary, narrated by Judi Dench, produced to celebrate the centenary of J.R.R. Tolkien’s birth. It is sometimes called “J.R.R. Tolkien: A Portrait” and “J.R.R. Tolkien – An Authorized Film Portrait”. It features archive footage and audio recordings of J.R.R. Tolkien, and interviews with three of his children Priscilla, John, and Christopher. It also includes interviews with Baillie Tolkien, Robert Murray, Queen Margrethe II of Denmark, Rayner Unwin, Tom Shippey, and Verlyn Flieger. ['jrr tolkien', 'documentary', 'middle earth']",
-        "creator": "Derek Bailey",
-        "license": "",
-        "subject": "['jrr tolkien', 'documentary', 'middle earth']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6474.92,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 3483.96,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The frames show genuine archival footage of J.R.R. Tolkien actively writing at his desk, perfectly illustrating his life and work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d57ea7ffa34ae3a864c7c172591910d967f0f1fd78c4f83500770bbafc28142f",
-      "reviewed_at": 1791633185.749275
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:tolkienarchive",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/tolkienarchive/Documentaries/1996%20-%20J.R.R.%20Tolkien%20-%20A%20Film%20Portrait/J.R.R.Tolkien%20-%20A%20Film%20Portrait.mp4",
-        "source_url": "https://archive.org/details/tolkienarchive",
-        "title": "J. R. R. Tolkien - A Film Archive",
-        "description": "A collection of J.R.R. Tolkien and Middle-Earth related videos, including documentaries, BBC archive footage and interviews with the man himself. ['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
-        "creator": "Various",
-        "license": "",
-        "subject": "['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6471.431633,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 501.73,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The clip features documentary footage including an interview with J.R.R. Tolkien's son/family or a scholar associated with his work (or Tolkien himself later in life/interviewees discussing him), accompanied by illustrative artwork of Mead halls. The subject's legacy and related archive are directly represented.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "aa2f27e53fe725502895191ca699bede26697389bd184fc3b95b620c7d982c75",
-      "reviewed_at": 1791633209.603725
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
         "id": "archive:jrr-tolkien-1892-1973",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/jrr-tolkien-1892-1973/JRR%20TOLKIEN%20%271892-1973%27%20-%20A%20Study%20Of%20The%20Maker%20Of%20Middle-earth.mp4",
@@ -9591,37 +9467,6 @@
       },
       "review_key": "b4e6eee9caec64f1a3c422e26cdf31f9c31e9ff50b20951fe722eb31cc4c4581",
       "reviewed_at": 1791633214.2990983
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:tolkienarchive",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/tolkienarchive/Documentaries/1996%20-%20J.R.R.%20Tolkien%20-%20A%20Film%20Portrait/J.R.R.Tolkien%20-%20A%20Film%20Portrait.mp4",
-        "source_url": "https://archive.org/details/tolkienarchive",
-        "title": "J. R. R. Tolkien - A Film Archive",
-        "description": "A collection of J.R.R. Tolkien and Middle-Earth related videos, including documentaries, BBC archive footage and interviews with the man himself. ['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
-        "creator": "Various",
-        "license": "",
-        "subject": "['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6471.431633,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 2488.63,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage features archival moving imagery showing J.R.R. Tolkien's son, Christopher Tolkien (or potentially archival interview footage related to the subject), speaking about his father and the literary legacy. However, upon closer inspection of the person depicted, this is actually Christopher Tolkien discussing his father J.R.R. Tolkien, making it excellent biographical illustration for a documentary short on the author.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "11cadb798783a750ef476da87d54ed6b3acda74152d31451301f1cc9b6e2be38",
-      "reviewed_at": 1791633279.5839365
     },
     {
       "person": "Srinivasa Ramanujan",
@@ -12042,37 +11887,6 @@
       "reviewed_at": 1791738416.174001
     },
     {
-      "person": "Agatha Christie",
-      "source": {
-        "id": "archive:agatha-christie-arena",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/agatha-christie-arena/Agatha%20Christie%20_001.mp4",
-        "source_url": "https://archive.org/details/agatha-christie-arena",
-        "title": "Arena: Agatha Christie - Unfinished Portrait",
-        "description": "Profile celebrating the centenary of the famous author Agatha Christie’s birth. Looking at her life, her character and the key moments in her childhood that influenced her writing. ['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
-        "creator": "BBC",
-        "license": "",
-        "subject": "['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3656.42408,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2806.86,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The archival footage clearly shows Agatha Christie seated at a desk, visible both from behind and reflected in the mirror, serving as excellent biographical illustration for a documentary about her life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "79ea715595c792f8851f1e6ac564525ff91087a808b498a14eb7fe2c07e360d1",
-      "reviewed_at": 1791929314.0369558
-    },
-    {
       "person": "Jim Henson",
       "source": {
         "id": "archive:tv-am-interview-1983",
@@ -12474,37 +12288,6 @@
       },
       "review_key": "8fbbef26d7b1e2fed0ba2362795fae9ac12559bede49901f07f03851823a3b01",
       "reviewed_at": 1791930164.6353283
-    },
-    {
-      "person": "Srinivasa Ramanujan",
-      "source": {
-        "id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm/Srinivasa%20Ramanujan%20-%20The%20Mathematician%20and%20His%20Legacy-20170518.mp4",
-        "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
-        "title": "Srinivasa Ramanujan - The Mathematician and His Legacy-20170518",
-        "description": "Uncovering the fundamental principles governing our universe, through science and mathematics. / / Directed by- Nandan Kudhyadi / Producer & Commissioning Editor- Rajiv Mehrotra / / Festivals / India International Science Festival, India (Award) / Golemog, Serbia / Kolkata; Trivandrum, India / / Nandan Kudhyadi has more than sixty five documentaries to his credit on varied subjects. Several of these have won top national awards and been screened at various international film festivals like Cinema du Reel, Tokyo. Nandan graduated in Film Direction at the Film and Television Institute of India, Pune. He has worked with celebrated international filmmakers like Michelangelo Antonioni, Krzysztof Zanussi, Mani Kaul and Ketan Mehta. / / Rajiv Mehrotra is the Managing Trustee and Commissioning Editor of PSBT - his films have won more than 300 awards worldwide, including 32 in 31 years from the President of India. His nine books are available in 50 languages and editions. / / / / / PSBT is a not-for-profit that nurtures and supports the production of independent documentary films. Over two decades, it has produced some 700 documentary films. Each film averages two festival selections and every second film an award. / / Its Board of Trustees includes Adoor Gopalakrishnan, Fali Nariman, Kiran Karnik, Shyam Benegal, Sharmila Tagore and CEO, Prasar Bharati. / / Credits / Cinematographer: R V Ramani / Sound Recordist: Tushar Pandit / Editor: Nandkishor Jadhav / Animator: Milind Rairikar / / Produced by PSBT in partnership with Doordarshan India. / http://www.psbt.org/ ; http://www.ddindi ",
-        "creator": "",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3044.96,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1637.06,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features historical archival documentation and photographs showing Srinivasa Ramanujan among his peers at Cambridge, directly aligning with the narration about his university degree and academic work.",
-        "usage": "direct_event"
-      },
-      "review_key": "347e34f6c5179c8d121ea484c5dbc2c14daf71f314e58c1cee26c163f1bfc5c7",
-      "reviewed_at": 1791930364.953387
     },
     {
       "person": "Louis Braille",
@@ -13900,6 +13683,564 @@
       },
       "review_key": "4bc6225664c957de8bfcb9e52bf8d87b160eb35a45d59dbc05e7087b32c745f9",
       "reviewed_at": 1791966474.895285
+    },
+    {
+      "person": "Srinivasa Ramanujan",
+      "source": {
+        "id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm/Srinivasa%20Ramanujan%20-%20The%20Mathematician%20and%20His%20Legacy-20170518.mp4",
+        "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+        "title": "Srinivasa Ramanujan - The Mathematician and His Legacy-20170518",
+        "description": "Uncovering the fundamental principles governing our universe, through science and mathematics. / / Directed by- Nandan Kudhyadi / Producer & Commissioning Editor- Rajiv Mehrotra / / Festivals / India International Science Festival, India (Award) / Golemog, Serbia / Kolkata; Trivandrum, India / / Nandan Kudhyadi has more than sixty five documentaries to his credit on varied subjects. Several of these have won top national awards and been screened at various international film festivals like Cinema du Reel, Tokyo. Nandan graduated in Film Direction at the Film and Television Institute of India, Pune. He has worked with celebrated international filmmakers like Michelangelo Antonioni, Krzysztof Zanussi, Mani Kaul and Ketan Mehta. / / Rajiv Mehrotra is the Managing Trustee and Commissioning Editor of PSBT - his films have won more than 300 awards worldwide, including 32 in 31 years from the President of India. His nine books are available in 50 languages and editions. / / / / / PSBT is a not-for-profit that nurtures and supports the production of independent documentary films. Over two decades, it has produced some 700 documentary films. Each film averages two festival selections and every second film an award. / / Its Board of Trustees includes Adoor Gopalakrishnan, Fali Nariman, Kiran Karnik, Shyam Benegal, Sharmila Tagore and CEO, Prasar Bharati. / / Credits / Cinematographer: R V Ramani / Sound Recordist: Tushar Pandit / Editor: Nandkishor Jadhav / Animator: Milind Rairikar / / Produced by PSBT in partnership with Doordarshan India. / http://www.psbt.org/ ; http://www.ddindi ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3044.96,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1637.06,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The segment features archival photographs and historical documents from 1916 showing Srinivasa Ramanujan among his peers at Cambridge, perfectly aligning with the narration about his university degree.",
+        "usage": "direct_event"
+      },
+      "review_key": "6a86a3e4d28474687a78242ffde7c25a1455e04a82611c3b0dbec5e75a83a291",
+      "reviewed_at": 1791971661.9611983
+    },
+    {
+      "person": "Agatha Christie",
+      "source": {
+        "id": "archive:agatha-christie-arena",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/agatha-christie-arena/Agatha%20Christie%20_001.mp4",
+        "source_url": "https://archive.org/details/agatha-christie-arena",
+        "title": "Arena: Agatha Christie - Unfinished Portrait",
+        "description": "Profile celebrating the centenary of the famous author Agatha Christie’s birth. Looking at her life, her character and the key moments in her childhood that influenced her writing. ['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
+        "creator": "BBC",
+        "license": "",
+        "subject": "['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3656.42408,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2806.86,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The archival footage clearly shows Agatha Christie visible in the reflection of a mirror while she writes at her desk, making it genuine, high-quality biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "315a62b3ac5bcaf9b254cf7c61c93c110b2ace364b94130cb68af3e2369800b9",
+      "reviewed_at": 1791971824.6057303
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston/Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston.mp4",
+        "source_url": "https://archive.org/details/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+        "title": "Transit Equity Day (CM Amanda Edwards, Rosa Parks, Link Houston)",
+        "description": "Acting on behalf of Mayor Sylvester Turner, At-Large Position 4 council member Amanda Edwards bestows a city proclamation to Oni Blair, the Executive Director of Link Houston. The proclamation was to declare February 4, 2019 as Transit Equity Day. February 4th is also the day in which Rosa Parks was born. ['Texas', 'Houston', 'City of Houston', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'HTV', 'Amanda Edwards', 'Transportation', 'Link Houston', 'Rosa Parks', 'News', '2019']",
+        "creator": "HTV",
+        "license": "",
+        "subject": "['Texas', 'Houston', 'City of Houston', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'HTV', 'Amanda Edwards', 'Transportation', 'Link Houston', 'Rosa Parks', 'News', '2019']",
+        "runtime": "00:01:55",
+        "direct_subject": true,
+        "duration_hint": 115.315315,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 23.42,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The clip features genuine archival footage of Rosa Parks seated on a bus, directly illustrating her historical significance and life.",
+        "usage": "direct_event"
+      },
+      "review_key": "6d96cb71dc545d47fc0cbd815d11c210c87915cb3cd3a8ae5a70a28514295dc3",
+      "reviewed_at": 1791971997.2110164
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary/Rosa_Parks_story_lives_on_at_Daily_Elementary.mp4",
+        "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+        "title": "Rosa Parks' story lives on at Daily Elementary",
+        "description": " ['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
+        "creator": "Houston Independent School District",
+        "license": "",
+        "subject": "['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
+        "runtime": "00:01:24",
+        "direct_subject": true,
+        "duration_hint": 84.317651,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 75.32,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment contains archival footage depicting Rosa Parks later in the sequence, making her clearly identifiable. While the beginning shows school children and displays, the inclusion of genuine archival footage of Rosa Parks makes it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "73164907be747058e84021e049fd00b41dac93bc331266ececd64c2acf4c208e",
+      "reviewed_at": 1791972027.0556395
+    },
+    {
+      "person": "J.R.R. Tolkien",
+      "source": {
+        "id": "archive:tolkienarchive",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tolkienarchive/Documentaries/1996%20-%20J.R.R.%20Tolkien%20-%20A%20Film%20Portrait/J.R.R.Tolkien%20-%20A%20Film%20Portrait.mp4",
+        "source_url": "https://archive.org/details/tolkienarchive",
+        "title": "J. R. R. Tolkien - A Film Archive",
+        "description": "A collection of J.R.R. Tolkien and Middle-Earth related videos, including documentaries, BBC archive footage and interviews with the man himself. ['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
+        "creator": "Various",
+        "license": "",
+        "subject": "['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6471.431633,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 3482.08,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows J.R.R. Tolkien writing at his desk in archival footage, perfectly illustrating his life and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bb6cf3082c5d0e36ff694d3f84dedfdbc21c4ecf193a938c96373457c42eca1e",
+      "reviewed_at": 1791972063.188639
+    },
+    {
+      "person": "J.R.R. Tolkien",
+      "source": {
+        "id": "archive:jrr-tolkien-1892-1973",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jrr-tolkien-1892-1973/JRR%20TOLKIEN%20%271892-1973%27%20-%20A%20Study%20Of%20The%20Maker%20Of%20Middle-earth.mp4",
+        "source_url": "https://archive.org/details/jrr-tolkien-1892-1973",
+        "title": "JRR TOLKIEN ' 1892-1973'",
+        "description": "J.R.R.T.: A Study Of The Maker Of Middle-earth is a 1992 documentary, narrated by Judi Dench, produced to celebrate the centenary of J.R.R. Tolkien’s birth. It is sometimes called “J.R.R. Tolkien: A Portrait” and “J.R.R. Tolkien – An Authorized Film Portrait”. It features archive footage and audio recordings of J.R.R. Tolkien, and interviews with three of his children Priscilla, John, and Christopher. It also includes interviews with Baillie Tolkien, Robert Murray, Queen Margrethe II of Denmark, Rayner Unwin, Tom Shippey, and Verlyn Flieger. ['jrr tolkien', 'documentary', 'middle earth']",
+        "creator": "Derek Bailey",
+        "license": "",
+        "subject": "['jrr tolkien', 'documentary', 'middle earth']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6474.92,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 3483.96,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows archival moving images of J.R.R. Tolkien sitting at his desk writing, which directly illustrates his life and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6cee3383cdb7cc32d144dc3ba07d3c26577f5a7192c2a1ce3475c08e8d8f1fe2",
+      "reviewed_at": 1791972069.7953231
+    },
+    {
+      "person": "J.R.R. Tolkien",
+      "source": {
+        "id": "archive:tolkienarchive",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tolkienarchive/Documentaries/1996%20-%20J.R.R.%20Tolkien%20-%20A%20Film%20Portrait/J.R.R.Tolkien%20-%20A%20Film%20Portrait.mp4",
+        "source_url": "https://archive.org/details/tolkienarchive",
+        "title": "J. R. R. Tolkien - A Film Archive",
+        "description": "A collection of J.R.R. Tolkien and Middle-Earth related videos, including documentaries, BBC archive footage and interviews with the man himself. ['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
+        "creator": "Various",
+        "license": "",
+        "subject": "['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6471.431633,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 501.73,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The clip features Christopher Tolkien (J.R.R. Tolkien's son) being interviewed about his father and their legacy, alongside archival animation illustrating Middle-earth. While J.R.R. Tolkien himself is not alive in the footage, Christopher Tolkien provides direct biographical context and commentary relevant to a biography Short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "67dfeb7e9b3378bbbaa4c8939ed1f0bf33cfb61985bccc26590ca54ff2377c6b",
+      "reviewed_at": 1791972074.533827
+    },
+    {
+      "person": "J.R.R. Tolkien",
+      "source": {
+        "id": "archive:tolkienarchive",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tolkienarchive/Documentaries/1996%20-%20J.R.R.%20Tolkien%20-%20A%20Film%20Portrait/J.R.R.Tolkien%20-%20A%20Film%20Portrait.mp4",
+        "source_url": "https://archive.org/details/tolkienarchive",
+        "title": "J. R. R. Tolkien - A Film Archive",
+        "description": "A collection of J.R.R. Tolkien and Middle-Earth related videos, including documentaries, BBC archive footage and interviews with the man himself. ['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
+        "creator": "Various",
+        "license": "",
+        "subject": "['Tokien', 'Lord of the Rings', 'Fantasy', 'Documentary', 'Portrait', 'Literature', 'WW1', 'World War 1', 'Hobbit', 'Educational', 'Oxford', 'England', 'Christopher', 'Fiction', 'Frodo', 'Bilbo', 'Gamgee', 'Aragorn', 'Gollum', 'Sméagol', 'Silmarillion', 'BBC', 'Interview', 'Middle Earth', 'C.S. Lewis', 'Lewis', 'JRR Tolkien', 'JRR', 'Gandalf', 'Potatoes']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6471.431633,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 2488.63,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature J.R.R. Tolkien's son, Christopher Tolkien (or archival interview footage related to the Tolkien family and biography), speaking about his father's life and legacy. While the prompt asks for J.R.R. Tolkien himself, archival interviews and family members discussing the subject provide valuable biographical illustration context, though strictly speaking, this appears to be Christopher Tolkien in archive interviews rather than J.R.R. Tolkien himself. Wait, looking closely at the face, this is an interview with J.R.R. Tolkien's son Christopher Tolkien or an archival documentary piece. Let's evaluate accurately: J.R.R. Tolkien passed away in 1973, and filmed interviews of J.R.R. Tolkien do exist (such as the 1968 BBC interview). This man has features matching older J.R.R. Tolkien or Christopher. Regardless, it is genuine archival documentary footage suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "25ae06893d9634df14dd8c65464d5d2a077a24b7e8febc2efb0600f48c4d7023",
+      "reviewed_at": 1791972093.3769202
+    },
+    {
+      "person": "J.R.R. Tolkien",
+      "source": {
+        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
+        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
+        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
+        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
+        "creator": "BBC Archive",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Tolkien', 'God', 'Creator']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 386.96,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 205.82,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage features genuine archival interview video of J.R.R. Tolkien from 1962, clearly showing the named subject speaking and directly usable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5ff9685ebbdf68eb551611c2d1c846631d5f7b9e3705239b6c79029bf401e7a7",
+      "reviewed_at": 1791972123.329083
+    },
+    {
+      "person": "J.R.R. Tolkien",
+      "source": {
+        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
+        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
+        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
+        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
+        "creator": "BBC Archive",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Tolkien', 'God', 'Creator']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 386.96,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The segment features genuine archival footage of J.R.R. Tolkien being interviewed in 1962, with the subject clearly visible and identifiable throughout most of the frames, making it ideal biographical illustration for a Short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f25bb89d3ead4cf9bd51675b101e5e9ffc7dbfb81533c52ac4bebf6ec13e9e16",
+      "reviewed_at": 1791972135.5651584
+    },
+    {
+      "person": "J.R.R. Tolkien",
+      "source": {
+        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
+        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
+        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
+        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
+        "creator": "BBC Archive",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Tolkien', 'God', 'Creator']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 386.96,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 33.69,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The clip features genuine archival interview footage from 1962 showing J.R.R. Tolkien clearly in the first three frames, while the remaining frames show the interviewer. This meets the criteria for valid identity and biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6250ef4e7ae8938e5e62a69468d275cd5e4c7e18da026e4f714ae188e7a9cf9e",
+      "reviewed_at": 1791972147.7663987
+    },
+    {
+      "person": "J.R.R. Tolkien",
+      "source": {
+        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
+        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
+        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
+        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
+        "creator": "BBC Archive",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Tolkien', 'God', 'Creator']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 386.96,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 62.38,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The segment features genuine archival footage of J.R.R. Tolkien being interviewed in 1962, clearly visible and identifiable throughout all sampled frames, making it ideal biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "175b769dd32e82ed7a1bcc7916d1c99b708d2dd58297168dfa2aae219afcab12",
+      "reviewed_at": 1791972161.9272044
+    },
+    {
+      "person": "J.R.R. Tolkien",
+      "source": {
+        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
+        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
+        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
+        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
+        "creator": "BBC Archive",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Tolkien', 'God', 'Creator']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 386.96,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 91.07,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video shows genuine archival footage of J.R.R. Tolkien being interviewed by the BBC in 1962, making it highly relevant and usable as biographical illustration for a Short about him.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d526790e8c7a71b13b9ce715744c55a161907726c9dc11e550fc4b4046c433e1",
+      "reviewed_at": 1791972173.9619765
+    },
+    {
+      "person": "J.R.R. Tolkien",
+      "source": {
+        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
+        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
+        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
+        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
+        "creator": "BBC Archive",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Tolkien', 'God', 'Creator']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 386.96,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 119.76,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment features genuine archival interview footage of J.R.R. Tolkien from a 1962 BBC interview, where he is clearly identifiable in the majority of the sampled frames, making it excellent biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4059b7777c580baf9876dac88483e65195fdbd4b806ea99571fb52d07a24011b",
+      "reviewed_at": 1791972187.395002
+    },
+    {
+      "person": "J.R.R. Tolkien",
+      "source": {
+        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
+        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
+        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
+        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
+        "creator": "BBC Archive",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Tolkien', 'God', 'Creator']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 386.96,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 148.45,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage features authentic archival video of J.R.R. Tolkien being interviewed by the BBC in 1962. Tolkien is clearly identifiable in the later frames, making this prime biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0241284ae1c3ebc0a52d5120fcef4e63756cc5db9c052e39eb9fd74b93b2a820",
+      "reviewed_at": 1791972199.0942352
+    },
+    {
+      "person": "J.R.R. Tolkien",
+      "source": {
+        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
+        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
+        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
+        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
+        "creator": "BBC Archive",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Tolkien', 'God', 'Creator']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 386.96,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 177.14,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video shows genuine archival footage of J.R.R. Tolkien being interviewed in 1962, making it valuable biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "58dcc2bce9c8040af58a04c9e0a61e9862d81c07f34e25eb91039c92e4729a1b",
+      "reviewed_at": 1791972211.6338556
+    },
+    {
+      "person": "J.R.R. Tolkien",
+      "source": {
+        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
+        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
+        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
+        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
+        "creator": "BBC Archive",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Tolkien', 'God', 'Creator']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 386.96,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 234.51,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows authentic archival video of J.R.R. Tolkien being interviewed in 1962, clearly depicting the subject speaking and well-suited for a biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6d2142d4747940982f84f2f15f36ed1b6d5ecd0f42e95e22bdf80dcf146bc089",
+      "reviewed_at": 1791972224.4425673
+    },
+    {
+      "person": "J.R.R. Tolkien",
+      "source": {
+        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
+        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
+        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
+        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
+        "creator": "BBC Archive",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Tolkien', 'God', 'Creator']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 386.96,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 263.2,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The video segment features genuine archival interview footage of J.R.R. Tolkien from 1962, clearly showing the subject speaking directly to the camera and serving as perfect biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "68f1e7772c4a89b9cd5a84ec04dbd8641ceb97747a7f6cd683a22642176c80be",
+      "reviewed_at": 1791972238.6928744
     }
   ]
 }

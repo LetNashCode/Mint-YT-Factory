@@ -267,9 +267,10 @@ RECENT STORY SUBJECTS — avoid repeating or closely mirroring:
 Return the normal production JSON schema. Put the person's name in the topic/title metadata where appropriate, but keep the narration story-first.
 {extra_feedback}"""
     last_error=None
-    # Keep narration retries bounded so malformed creative output cannot consume
-    # the Gemini budget reserved for the 14 verified media clips.
-    story_attempts=min(4, max(1, int(getattr(_base, "MAX_ATTEMPTS", 3))))
+    # Allow four bounded script attempts: the last failure can be a single
+    # scene-count issue even after the total-word count has been corrected.
+    # This remains a small fixed ceiling and does not relax the story contract.
+    story_attempts = 4
     for attempt in range(story_attempts):
         try:
             retry=""

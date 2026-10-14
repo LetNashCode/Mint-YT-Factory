@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-10-14T09:52:34.054582+00:00",
+  "generated_at": "2026-10-14T15:46:46.132544+00:00",
   "video_count": 11,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 9,
   "reason": "",
   "totals": {
-    "views": 6173,
-    "likes": 100,
-    "comments": 0
+    "views": 6901,
+    "likes": 127,
+    "comments": 2
   },
   "averages": {
-    "views": 561.18,
-    "likes": 9.09,
-    "comments": 0.0,
+    "views": 627.36,
+    "likes": 11.55,
+    "comments": 0.18,
     "average_view_percentage": 42.85,
     "subscribers_gained": 0.55,
     "shares": 0.0
@@ -79,7 +79,7 @@
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
       "video_id": "hLW3D1SJuYo",
       "title": "Before the Fame: Jackie Chan's Untold Struggle",
-      "views": 1021,
+      "views": 1024,
       "likes": 29,
       "comments": 0,
       "shares": 0,
@@ -87,7 +87,21 @@
       "average_view_percentage": 88.87,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 2.8404
+      "engagement_rate": 2.832
+    },
+    {
+      "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
+      "video_id": "Pb1-aVVunGg",
+      "title": "Before the Fame: Dolly Parton's Untold Struggle",
+      "views": 931,
+      "likes": 37,
+      "comments": 2,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 4.189
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -104,24 +118,10 @@
       "engagement_rate": 0.266
     },
     {
-      "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
-      "video_id": "Pb1-aVVunGg",
-      "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 212,
-      "likes": 10,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 4.717
-    },
-    {
       "topic": "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
       "video_id": "negG-shOfpM",
       "title": "The Untold Turning Point in Boman Irani's Story",
-      "views": 178,
+      "views": 184,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -221,7 +221,7 @@
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
       "video_id": "hLW3D1SJuYo",
       "title": "Before the Fame: Jackie Chan's Untold Struggle",
-      "views": 1021,
+      "views": 1024,
       "likes": 29,
       "comments": 0,
       "shares": 0,
@@ -229,7 +229,21 @@
       "average_view_percentage": 88.87,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 2.8404
+      "engagement_rate": 2.832
+    },
+    {
+      "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
+      "video_id": "Pb1-aVVunGg",
+      "title": "Before the Fame: Dolly Parton's Untold Struggle",
+      "views": 931,
+      "likes": 37,
+      "comments": 2,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 4.189
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -246,24 +260,10 @@
       "engagement_rate": 0.266
     },
     {
-      "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
-      "video_id": "Pb1-aVVunGg",
-      "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 212,
-      "likes": 10,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 4.717
-    },
-    {
       "topic": "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
       "video_id": "negG-shOfpM",
       "title": "The Untold Turning Point in Boman Irani's Story",
-      "views": 178,
+      "views": 184,
       "likes": 0,
       "comments": 0,
       "shares": 0,

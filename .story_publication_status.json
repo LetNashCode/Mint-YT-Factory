@@ -1,7 +1,7 @@
 {
-  "status": "pending",
-  "video_id": "",
-  "youtube_url": "",
+  "status": "youtube_uploaded",
+  "video_id": "YorYFuuuTOQ",
+  "youtube_url": "https://www.youtube.com/shorts/YorYFuuuTOQ",
   "reason": "",
-  "updated_at": 1791971554
+  "updated_at": 1791995088
 }

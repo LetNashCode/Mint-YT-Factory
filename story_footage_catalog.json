@@ -5194,37 +5194,6 @@
       "reviewed_at": 1790903391.8688688
     },
     {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:jonas-edward-salk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
-        "source_url": "https://archive.org/details/jonas-edward-salk",
-        "title": "JONAS EDWARD SALK",
-        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
-        "creator": "",
-        "license": "",
-        "subject": "JONAS SALK",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 79.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 42.23,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage shows Jonas Salk clearly across all three frames, actively engaged in lab/medical work, directly relevant to his biography as the inventor of the polio vaccine.",
-        "usage": "direct_event"
-      },
-      "review_key": "fc83d3df85e8a4f78d51e859737d10e214718c49aacafea3bc4d06c4ec843cc8",
-      "reviewed_at": 1790905107.1365566
-    },
-    {
       "person": "Bob Denver",
       "source": {
         "id": "archive:MonsterVisionBobDenver",
@@ -14241,6 +14210,471 @@
       },
       "review_key": "68f1e7772c4a89b9cd5a84ec04dbd8641ceb97747a7f6cd683a22642176c80be",
       "reviewed_at": 1791972238.6928744
+    },
+    {
+      "person": "Zaha Hadid",
+      "source": {
+        "id": "archive:Zaha_Hadid_speaks_at_Phaeno_Opening",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Zaha_Hadid_speaks_at_Phaeno_Opening/HadidOpeningPhaeno_512kb.mp4",
+        "source_url": "https://archive.org/details/Zaha_Hadid_speaks_at_Phaeno_Opening",
+        "title": "Zaha Hadid speaks at Phaeno Opening",
+        "description": "Listen to the speech of Zaha Hadid taken from the opening ceremony of the Science Center Phaeno. The phaeno buidling, created and realized by Zaha Hadid Partners London and Mayer Baehrle Architects, is already now a milestone of architectural history. VernissageTV shows pictures of the phaeno science center and the installations of Joe Ansel during the opening ceremony. ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 403.36,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 304.51,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows real archival recording from the opening of the Science Center Phaeno, featuring Zaha Hadid clearly visible in the final frame speaking at the event.",
+        "usage": "direct_event"
+      },
+      "review_key": "d789d14e87a9f500589f2ee03d6bb37dbaf8aa62122f11eb423cdf64c3900318",
+      "reviewed_at": 1791992927.8721235
+    },
+    {
+      "person": "Zaha Hadid",
+      "source": {
+        "id": "archive:Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015.mp4",
+        "source_url": "https://archive.org/details/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
+        "title": "Zaha Hadid Reflects on Favorite Projects in her Career - Citylab 2015",
+        "description": "Zaha Hadid with Christine Murray, Editor, The Architectural Review at City Lab 2015 in London. #CityLab2015 Watch full video at: https://youtu.be/0_rb9Emp544 (Recorded October 19, 2015). ---- The Aspen Institute is an educational and policy studies organization based in Washington, DC. Our mission is to foster leadership based on enduring values and provide a nonpartisan venue for dealing with critical issues. Learn more at: http://www.aspeninstitute.org/ Follow us on: Instagram: http://instagram.com/aspeninstitute Facebook: https://www.facebook.com/AspenInstitute Twitter: https://twitter.com/aspeninstitute ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
+        "runtime": "00:01:55",
+        "direct_subject": true,
+        "duration_hint": 115.3,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 60.25,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The footage shows Zaha Hadid speaking at an event in 2015, which provides valid biographical illustration material, though it is a panel discussion rather than direct footage of her architectural projects.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "86ffd74d18c43a0ad21a8257302fe08cc9f0151b0b9fb75d47d505d751e01b1c",
+      "reviewed_at": 1791992938.5050552
+    },
+    {
+      "person": "Zaha Hadid",
+      "source": {
+        "id": "archive:Zaha_Hadid_speaks_at_Phaeno_Opening",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Zaha_Hadid_speaks_at_Phaeno_Opening/HadidOpeningPhaeno_512kb.mp4",
+        "source_url": "https://archive.org/details/Zaha_Hadid_speaks_at_Phaeno_Opening",
+        "title": "Zaha Hadid speaks at Phaeno Opening",
+        "description": "Listen to the speech of Zaha Hadid taken from the opening ceremony of the Science Center Phaeno. The phaeno buidling, created and realized by Zaha Hadid Partners London and Mayer Baehrle Architects, is already now a milestone of architectural history. VernissageTV shows pictures of the phaeno science center and the installations of Joe Ansel during the opening ceremony. ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 403.36,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows the Phaeno Science Center designed by Zaha Hadid during its opening ceremony with fireworks and lighting, providing genuine historical context of her architectural work, even though Zaha Hadid herself is not visibly present in these frames.",
+        "usage": "direct_event"
+      },
+      "review_key": "ffb3f33760af43f83bf895b1a3cabd3d67a7ef0b67e09e5b2c46189364f54d84",
+      "reviewed_at": 1791992946.9548924
+    },
+    {
+      "person": "Zaha Hadid",
+      "source": {
+        "id": "archive:Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015.mp4",
+        "source_url": "https://archive.org/details/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
+        "title": "Zaha Hadid Reflects on Favorite Projects in her Career - Citylab 2015",
+        "description": "Zaha Hadid with Christine Murray, Editor, The Architectural Review at City Lab 2015 in London. #CityLab2015 Watch full video at: https://youtu.be/0_rb9Emp544 (Recorded October 19, 2015). ---- The Aspen Institute is an educational and policy studies organization based in Washington, DC. Our mission is to foster leadership based on enduring values and provide a nonpartisan venue for dealing with critical issues. Learn more at: http://www.aspeninstitute.org/ Follow us on: Instagram: http://instagram.com/aspeninstitute Facebook: https://www.facebook.com/AspenInstitute Twitter: https://twitter.com/aspeninstitute ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
+        "runtime": "00:01:55",
+        "direct_subject": true,
+        "duration_hint": 115.3,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features Zaha Hadid speaking at CityLab 2015, clearly visible and identifiable throughout the frames. It is genuine archival footage suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a9ad3ddfd792e8b6299b610c9a36b2151f7d588ec165b24c3a51e6e39d6aa71f",
+      "reviewed_at": 1791992955.362961
+    },
+    {
+      "person": "Zaha Hadid",
+      "source": {
+        "id": "archive:Zaha_Hadid_speaks_at_Phaeno_Opening",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Zaha_Hadid_speaks_at_Phaeno_Opening/HadidOpeningPhaeno_512kb.mp4",
+        "source_url": "https://archive.org/details/Zaha_Hadid_speaks_at_Phaeno_Opening",
+        "title": "Zaha Hadid speaks at Phaeno Opening",
+        "description": "Listen to the speech of Zaha Hadid taken from the opening ceremony of the Science Center Phaeno. The phaeno buidling, created and realized by Zaha Hadid Partners London and Mayer Baehrle Architects, is already now a milestone of architectural history. VernissageTV shows pictures of the phaeno science center and the installations of Joe Ansel during the opening ceremony. ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 403.36,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 34.95,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8.0,
+        "reason": "Zaha Hadid is clearly visible speaking at the opening ceremony of the Phaeno Science Center in the first frame, followed by footage of visitors at the building she designed.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b4dc29f911273b8481c3906179e716904f5e2219c71a72e6620bf1e66a093ced",
+      "reviewed_at": 1791992961.2172205
+    },
+    {
+      "person": "Zaha Hadid",
+      "source": {
+        "id": "archive:Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015.mp4",
+        "source_url": "https://archive.org/details/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
+        "title": "Zaha Hadid Reflects on Favorite Projects in her Career - Citylab 2015",
+        "description": "Zaha Hadid with Christine Murray, Editor, The Architectural Review at City Lab 2015 in London. #CityLab2015 Watch full video at: https://youtu.be/0_rb9Emp544 (Recorded October 19, 2015). ---- The Aspen Institute is an educational and policy studies organization based in Washington, DC. Our mission is to foster leadership based on enduring values and provide a nonpartisan venue for dealing with critical issues. Learn more at: http://www.aspeninstitute.org/ Follow us on: Instagram: http://instagram.com/aspeninstitute Facebook: https://www.facebook.com/AspenInstitute Twitter: https://twitter.com/aspeninstitute ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
+        "runtime": "00:01:55",
+        "direct_subject": true,
+        "duration_hint": 115.3,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 14.21,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The footage shows Zaha Hadid speaking at a panel event (CityLab 2015), making it usable as biographical illustration footage for a video about her life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7e36a2f06b6e21ce6437f5f9c8626fc45dec60fff93b51466e244affcd975eb5",
+      "reviewed_at": 1791992967.2073667
+    },
+    {
+      "person": "Zaha Hadid",
+      "source": {
+        "id": "archive:Zaha_Hadid_speaks_at_Phaeno_Opening",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Zaha_Hadid_speaks_at_Phaeno_Opening/HadidOpeningPhaeno_512kb.mp4",
+        "source_url": "https://archive.org/details/Zaha_Hadid_speaks_at_Phaeno_Opening",
+        "title": "Zaha Hadid speaks at Phaeno Opening",
+        "description": "Listen to the speech of Zaha Hadid taken from the opening ceremony of the Science Center Phaeno. The phaeno buidling, created and realized by Zaha Hadid Partners London and Mayer Baehrle Architects, is already now a milestone of architectural history. VernissageTV shows pictures of the phaeno science center and the installations of Joe Ansel during the opening ceremony. ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 403.36,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 94.85,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows actual archival footage of Zaha Hadid attending the Phaeno Science Center opening ceremony, making it usable biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e6d463d5e391a0fe1a6fbeeef3a7f663482e418356d486a2ed7ed18b1e35beb9",
+      "reviewed_at": 1791992990.6967466
+    },
+    {
+      "person": "Zaha Hadid",
+      "source": {
+        "id": "archive:Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015.mp4",
+        "source_url": "https://archive.org/details/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
+        "title": "Zaha Hadid Reflects on Favorite Projects in her Career - Citylab 2015",
+        "description": "Zaha Hadid with Christine Murray, Editor, The Architectural Review at City Lab 2015 in London. #CityLab2015 Watch full video at: https://youtu.be/0_rb9Emp544 (Recorded October 19, 2015). ---- The Aspen Institute is an educational and policy studies organization based in Washington, DC. Our mission is to foster leadership based on enduring values and provide a nonpartisan venue for dealing with critical issues. Learn more at: http://www.aspeninstitute.org/ Follow us on: Instagram: http://instagram.com/aspeninstitute Facebook: https://www.facebook.com/AspenInstitute Twitter: https://twitter.com/aspeninstitute ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
+        "runtime": "00:01:55",
+        "direct_subject": true,
+        "duration_hint": 115.3,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 23.42,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features Zaha Hadid speaking at CityLab 2015, providing good biographical illustration footage of her discussing her work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "856b685cfe487b1d9239ac6b807a4d532fd774b6905ec88c38d0a7380105f507",
+      "reviewed_at": 1791992997.127001
+    },
+    {
+      "person": "Zaha Hadid",
+      "source": {
+        "id": "archive:Zaha_Hadid_speaks_at_Phaeno_Opening",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Zaha_Hadid_speaks_at_Phaeno_Opening/HadidOpeningPhaeno_512kb.mp4",
+        "source_url": "https://archive.org/details/Zaha_Hadid_speaks_at_Phaeno_Opening",
+        "title": "Zaha Hadid speaks at Phaeno Opening",
+        "description": "Listen to the speech of Zaha Hadid taken from the opening ceremony of the Science Center Phaeno. The phaeno buidling, created and realized by Zaha Hadid Partners London and Mayer Baehrle Architects, is already now a milestone of architectural history. VernissageTV shows pictures of the phaeno science center and the installations of Joe Ansel during the opening ceremony. ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 403.36,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 124.8,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features authentic archival footage of architect Zaha Hadid speaking at an opening ceremony, with her clearly visible in all sampled frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "805863189161bb5cdaba158a161a91d24bf1b707e0961b847f6aeca2e92a51ec",
+      "reviewed_at": 1791993001.7832446
+    },
+    {
+      "person": "Zaha Hadid",
+      "source": {
+        "id": "archive:Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015.mp4",
+        "source_url": "https://archive.org/details/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
+        "title": "Zaha Hadid Reflects on Favorite Projects in her Career - Citylab 2015",
+        "description": "Zaha Hadid with Christine Murray, Editor, The Architectural Review at City Lab 2015 in London. #CityLab2015 Watch full video at: https://youtu.be/0_rb9Emp544 (Recorded October 19, 2015). ---- The Aspen Institute is an educational and policy studies organization based in Washington, DC. Our mission is to foster leadership based on enduring values and provide a nonpartisan venue for dealing with critical issues. Learn more at: http://www.aspeninstitute.org/ Follow us on: Instagram: http://instagram.com/aspeninstitute Facebook: https://www.facebook.com/AspenInstitute Twitter: https://twitter.com/aspeninstitute ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
+        "runtime": "00:01:55",
+        "direct_subject": true,
+        "duration_hint": 115.3,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 32.63,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The sampled frames clearly feature architect Zaha Hadid speaking at CityLab 2015. This is genuine archival interview footage providing biographical illustration for a Short about her life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "25a4c47966c007d0875174a6475cc78a02a485cc2b6a5293d393ade332c455c4",
+      "reviewed_at": 1791993008.1225197
+    },
+    {
+      "person": "Zaha Hadid",
+      "source": {
+        "id": "archive:Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015.mp4",
+        "source_url": "https://archive.org/details/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
+        "title": "Zaha Hadid Reflects on Favorite Projects in her Career - Citylab 2015",
+        "description": "Zaha Hadid with Christine Murray, Editor, The Architectural Review at City Lab 2015 in London. #CityLab2015 Watch full video at: https://youtu.be/0_rb9Emp544 (Recorded October 19, 2015). ---- The Aspen Institute is an educational and policy studies organization based in Washington, DC. Our mission is to foster leadership based on enduring values and provide a nonpartisan venue for dealing with critical issues. Learn more at: http://www.aspeninstitute.org/ Follow us on: Instagram: http://instagram.com/aspeninstitute Facebook: https://www.facebook.com/AspenInstitute Twitter: https://twitter.com/aspeninstitute ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
+        "runtime": "00:01:55",
+        "direct_subject": true,
+        "duration_hint": 115.3,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 41.84,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features architect Zaha Hadid speaking at CityLab 2015, making it suitable as biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "24cf43655e375a96e8bd91adce7e8371d7b46bdeac809bce247dc54fd7a5d207",
+      "reviewed_at": 1791993036.8252642
+    },
+    {
+      "person": "Zaha Hadid",
+      "source": {
+        "id": "archive:Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015.mp4",
+        "source_url": "https://archive.org/details/Zaha_Hadid_Reflects_on_Favorite_Projects_in_her_Career_-_Citylab_2015",
+        "title": "Zaha Hadid Reflects on Favorite Projects in her Career - Citylab 2015",
+        "description": "Zaha Hadid with Christine Murray, Editor, The Architectural Review at City Lab 2015 in London. #CityLab2015 Watch full video at: https://youtu.be/0_rb9Emp544 (Recorded October 19, 2015). ---- The Aspen Institute is an educational and policy studies organization based in Washington, DC. Our mission is to foster leadership based on enduring values and provide a nonpartisan venue for dealing with critical issues. Learn more at: http://www.aspeninstitute.org/ Follow us on: Instagram: http://instagram.com/aspeninstitute Facebook: https://www.facebook.com/AspenInstitute Twitter: https://twitter.com/aspeninstitute ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', '2015']",
+        "runtime": "00:01:55",
+        "direct_subject": true,
+        "duration_hint": 115.3,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 51.05,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features Zaha Hadid speaking at CityLab London 2015, providing valid biographical footage of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8271ea9187ab0a9c6cc09a08cf6cef55c7923d533c090abe118563d77b74fce1",
+      "reviewed_at": 1791993045.729448
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 42.23,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly depicts Jonas Salk in archival laboratory and medical settings, directly illustrating his work and life related to the polio vaccine.",
+        "usage": "direct_event"
+      },
+      "review_key": "a76d90cb3ab959ef6f5e50a508d2fd04e04cd206e758c88a6ca2674f201edd8a",
+      "reviewed_at": 1791993201.5600867
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:israel-wohltater-der-menschheit",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/israel-wohltater-der-menschheit/Israel_Wohlt%C3%A4ter_der_Menschheit.mp4",
+        "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+        "title": "Israel ist Wohltäter der Menschheit ( JONAS SALK )",
+        "description": "Israel ist nicht Gaza ; Kolonialismus ; Gewalt und Leid sondern Wohltäter der Menscheit. ( z.B.: Jonas Salk ) Israel is not Gaza; colonialism; violence and suffering but a benefactor of humanity. (e.g., Jonas Salk) Israël n’est pas Gaza ; colonialisme ; violence et souffrance mais bienfaiteur de l’humanité. (ex. : Jonas Salk) ['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
+        "creator": "BBC ( England )",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 249.233333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 131.66,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage includes archival imagery of Jonas Salk and his family, as well as an interview with his son Peter Salk discussing his father's work on the polio vaccine, making it highly relevant and usable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "27168d34fdb0e28f7e6796bd4f0436c4148e1e0721a218c0ad79c8656f100906",
+      "reviewed_at": 1791993208.5998714
+    },
+    {
+      "person": "Nawazuddin Siddiqui",
+      "source": {
+        "id": "archive:raat-akeli-hai-the-bansal-murders-2025",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/raat-akeli-hai-the-bansal-murders-2025/RaatAkeliHaiTheBansalMurders.2025.BRRip.mp4",
+        "source_url": "https://archive.org/details/raat-akeli-hai-the-bansal-murders-2025",
+        "title": "Raat Akeli Hai: The Bansal Murders (2025) – Hindi Crime Thriller",
+        "description": "Raat Akeli Hai: The Bansal Murders is a 2025 Indian Hindi-language crime thriller film. The story revolves around Inspector Jatil Yadav, who is assigned to investigate the brutal murder of the wealthy Bansal family inside their locked mansion. As Inspector Yadav examines the crime scene, he uncovers a disturbing trail of greed, betrayal, and long-buried secrets. With poisoned water, misleading evidence, and suspects hiding behind privilege and power, the investigation becomes increasingly complex. While the police attempt to close the case quickly by blaming an easy suspect, Inspector Yadav digs deeper, exposing a deadly conspiracy that unfolds until the final moments. The film explores themes of class divide, corruption, and moral decay within elite families, delivering a dark and suspenseful murder mystery. ['Raat Akeli Hai The Bansal Murders', 'Hindi crime thriller', 'Indian murder mystery', 'Nawazuddin Siddiqui', 'Radhika Apte', 'Inspector Jatil Yadav', 'Bollywood thriller 2025', 'locked room mystery', 'Indian detective film']",
+        "creator": "Nawazuddin Siddiqui, Radhika Apte, Chitrangda Singh, Rajat Kapoor, Ila Arun (Cast)",
+        "license": "",
+        "subject": "['Raat Akeli Hai The Bansal Murders', 'Hindi crime thriller', 'Indian murder mystery', 'Nawazuddin Siddiqui', 'Radhika Apte', 'Inspector Jatil Yadav', 'Bollywood thriller 2025', 'locked room mystery', 'Indian detective film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 8185.791667,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 6290.99,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage features actor Nawazuddin Siddiqui clearly visible in character from the film 'Raat Akeli Hai', making it valid biographical illustration material for a video about his work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3ea9f8f848b53a3c3fbe4d239a7f9dbc801d7694ca8390cdf8be4fff843c5795",
+      "reviewed_at": 1791993899.4980097
     }
   ]
 }

@@ -228,5 +228,18 @@
     "video_id": "Pb1-aVVunGg",
     "workdir": "",
     "published_at": 1791967173
+  },
+  {
+    "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
+    "normalized": "j r r tolkien while grading monotonous student exam papers an oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole",
+    "workflow": "story",
+    "status": "reserved",
+    "reserved_at": 1791994319,
+    "recorded_at": 1791994319,
+    "metadata": {
+      "person": "J.R.R. Tolkien",
+      "pillar": "strange_turning_point",
+      "source": "story_topic_selection"
+    }
   }
 ]

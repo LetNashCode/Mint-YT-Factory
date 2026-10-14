@@ -3108,6 +3108,465 @@
       "start": 998.45,
       "reason": "The footage shows a scenic river/canal view with punting boats, serving as generic biographical illustration for J.R.R. Tolkien's time in Oxford, though Tolkien himself is not visible.",
       "reviewed_at": 1791972111.8769295
+    },
+    "e19dd1a7375ac76d4fd2db30": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ZahaHadidArchitectsKAPSARCVideo",
+      "source_url": "https://archive.org/details/ZahaHadidArchitectsKAPSARCVideo",
+      "person": "Zaha Hadid",
+      "start": 34.68,
+      "reason": "The video shows real archival footage of the King Abdullah Petroleum Studies and Research Centre (KAPSARC), a major architectural work designed by Zaha Hadid, providing valid contextual illustration for her biography.",
+      "reviewed_at": 1791992864.319851
+    },
+    "0f2036ba049c463a5840e92e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ZahaHadidArchitectsKAPSARCVideo",
+      "source_url": "https://archive.org/details/ZahaHadidArchitectsKAPSARCVideo",
+      "person": "Zaha Hadid",
+      "start": 44.57,
+      "reason": "The video shows real architectural footage of the King Abdullah Petroleum Studies and Research Centre (KAPSARC), a famous project designed by Zaha Hadid, serving as strong biographical illustration despite the subject not being personally visible.",
+      "reviewed_at": 1791992916.3825374
+    },
+    "dc88647d6596431bb680d7ec": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Zaha_Hadid_speaks_at_Phaeno_Opening",
+      "source_url": "https://archive.org/details/Zaha_Hadid_speaks_at_Phaeno_Opening",
+      "person": "Zaha Hadid",
+      "start": 214.66,
+      "reason": "The sampled frames show real archival footage from the opening ceremony of the Science Center Phaeno, which is a major architectural work by Zaha Hadid. Although Zaha Hadid herself is not visible in these specific frames, the footage provides genuine and relevant historical context depicting an installation at her designed building.",
+      "reviewed_at": 1791992925.5865023
+    },
+    "ce568b4a0eccff52cf9988df": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Zaha_Hadid_speaks_at_Phaeno_Opening",
+      "source_url": "https://archive.org/details/Zaha_Hadid_speaks_at_Phaeno_Opening",
+      "person": "Zaha Hadid",
+      "start": 64.9,
+      "reason": "The video shows real archival footage of the Phaeno Science Center opening and crowds, but Zaha Hadid herself is not clearly identifiable in any of the sampled frames.",
+      "reviewed_at": 1791992983.7629158
+    },
+    "22817e9690a292113b043011": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Zaha_Hadid_speaks_at_Phaeno_Opening",
+      "source_url": "https://archive.org/details/Zaha_Hadid_speaks_at_Phaeno_Opening",
+      "person": "Zaha Hadid",
+      "start": 154.75,
+      "reason": "The sampled frames show crowd scenes and event attendees at the Phaeno Science Center opening, but Zaha Hadid is not clearly identifiable in any of the frames, making it unsuitable as identity footage.",
+      "reviewed_at": 1791993027.5709708
+    },
+    "5fd894abb4d5f4663e405ad9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Zaha_Hadid_speaks_at_Phaeno_Opening",
+      "source_url": "https://archive.org/details/Zaha_Hadid_speaks_at_Phaeno_Opening",
+      "person": "Zaha Hadid",
+      "start": 184.7,
+      "reason": "The sampled frames show attendees at the Phaeno Science Center opening and interior shots of the building designed by Zaha Hadid, but Zaha Hadid herself is not clearly identifiable in any of the frames. The footage provides useful historical/architectural context for her work, so it is usable as biographical illustration.",
+      "reviewed_at": 1791993032.9659507
+    },
+    "2f79e3e6f794c0320e199921": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jonas-edward-salk",
+      "source_url": "https://archive.org/details/jonas-edward-salk",
+      "person": "Jonas Salk",
+      "start": 5.0,
+      "reason": "The video segment consists of AI-generated dramatizations and lookalikes rather than authentic historical footage or identifiable identity footage of Jonas Salk.",
+      "reviewed_at": 1791993225.5436513
+    },
+    "43683c23261b794c89a81e2d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jonas-edward-salk",
+      "source_url": "https://archive.org/details/jonas-edward-salk",
+      "person": "Jonas Salk",
+      "start": 14.31,
+      "reason": "The footage consists of dramatized or AI-generated reenactments rather than genuine historical archival footage of Jonas Salk, making it unusable for a biographical short.",
+      "reviewed_at": 1791993243.3985705
+    },
+    "e11cf91f479717140a31de6b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:israel-wohltater-der-menschheit",
+      "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+      "person": "Jonas Salk",
+      "start": 5.0,
+      "reason": "The footage shows an interview with Dr. Peter Salk (son of Jonas Salk) and archival footage of patients and nurses, but Jonas Salk himself is not visibly present in the sampled frames, and the video layout features heavy website UI framing and text overlays making it unsuitable for a biographical Short.",
+      "reviewed_at": 1791993249.7077413
+    },
+    "64fc26632763467ed36dc720": {
+      "kind": "segment_rejection",
+      "source_id": "archive:israel-wohltater-der-menschheit",
+      "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+      "person": "Jonas Salk",
+      "start": 23.09,
+      "reason": "The video shows archival footage and an interview with Peter Salk (Jonas Salk's son), but Jonas Salk himself is not visibly present in the frames. Additionally, the formatting contains heavy webpage UI elements surrounding the video player, making it unsuitable for a clean biography Short.",
+      "reviewed_at": 1791993254.945122
+    },
+    "6c8aa8a433976b0990431371": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Agatha100",
+      "source_url": "https://archive.org/details/Agatha100",
+      "person": "Agatha Christie",
+      "start": 1237.58,
+      "reason": "The segment features a talking head interviewer followed by a static historical photograph of Agatha Christie. Since static photographs are rejected, the clip lacks usable moving archival footage of the subject.",
+      "reviewed_at": 1791993361.109442
+    },
+    "13dc0edd71be77e7cc2cca6a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Agatha100",
+      "source_url": "https://archive.org/details/Agatha100",
+      "person": "Agatha Christie",
+      "start": 1545.72,
+      "reason": "The sampled frames show a modern documentary interview segment and dramatic reenactments/adaptations related to Agatha Christie's work, but Agatha Christie herself is not visible in the footage. It serves as biographical illustration.",
+      "reviewed_at": 1791993372.1769133
+    },
+    "39c909b966930c2e13b1b5ca": {
+      "kind": "segment_rejection",
+      "source_id": "archive:actvma-Mary_Roberts_Reinhart_Americas_Agatha_Christie_with_Sari_Bitticks",
+      "source_url": "https://archive.org/details/actvma-Mary_Roberts_Reinhart_Americas_Agatha_Christie_with_Sari_Bitticks",
+      "person": "Agatha Christie",
+      "start": 5.0,
+      "reason": "The video segment is a presentation about Mary Roberts Reinhart, not Agatha Christie, and the subject Agatha Christie is not visible in the footage.",
+      "reviewed_at": 1791993380.556208
+    },
+    "bef5b6bd1d5a5ebc11db1bca": {
+      "kind": "segment_rejection",
+      "source_id": "archive:actvma-Mary_Roberts_Reinhart_Americas_Agatha_Christie_with_Sari_Bitticks",
+      "source_url": "https://archive.org/details/actvma-Mary_Roberts_Reinhart_Americas_Agatha_Christie_with_Sari_Bitticks",
+      "person": "Agatha Christie",
+      "start": 179.15,
+      "reason": "The video segment shows a modern local historical society lecture about Mary Roberts Reinhart, featuring a speaker and audience with presentation slides on a TV screen. Agatha Christie is not visible, and the footage consists entirely of modern community lecture recording, making it unsuitable for a biography of Agatha Christie.",
+      "reviewed_at": 1791993388.7563627
+    },
+    "b2d649c951e11d8c1f3793cd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20250628-235758",
+      "source_url": "https://archive.org/details/vid-20250628-235758",
+      "person": "Agatha Christie",
+      "start": 50.36,
+      "reason": "The footage shows an individual holding a book about Agatha Christie, but Agatha Christie herself is not visible, and the clip consists of user-generated content rather than genuine historical or archival footage of the subject.",
+      "reviewed_at": 1791993406.3588595
+    },
+    "942f545cfdb8332a92c5013d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20250628-235758",
+      "source_url": "https://archive.org/details/vid-20250628-235758",
+      "person": "Agatha Christie",
+      "start": 73.03,
+      "reason": "The footage shows an individual holding a book about Agatha Christie rather than archival footage or actual filmed material of Agatha Christie herself.",
+      "reviewed_at": 1791993417.3807595
+    },
+    "40e8b4591fa3920db25f955e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20251109-203719",
+      "source_url": "https://archive.org/details/vid-20251109-203719",
+      "person": "Agatha Christie",
+      "start": 124.67,
+      "reason": "The video shows an unidentified modern individual speaking indoors, which has no connection to Agatha Christie.",
+      "reviewed_at": 1791993428.9864373
+    },
+    "7aa50a06f4c73d2c036d4ddc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20251109-203719",
+      "source_url": "https://archive.org/details/vid-20251109-203719",
+      "person": "Agatha Christie",
+      "start": 148.61,
+      "reason": "The video shows an unrelated modern individual talking to a webcam, completely irrelevant to Agatha Christie.",
+      "reviewed_at": 1791993438.7101526
+    },
+    "b3c583d345ef6cfcc18b291d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christie-arena",
+      "source_url": "https://archive.org/details/agatha-christie-arena",
+      "person": "Agatha Christie",
+      "start": 1125.75,
+      "reason": "The frames show actor David Suchet getting makeup applied for his role as Poirot, not Agatha Christie herself. While related to an adaptation of her work, it does not depict Agatha Christie.",
+      "reviewed_at": 1791993449.5721111
+    },
+    "4d525b5185a1ea7576bafeb4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christie-arena",
+      "source_url": "https://archive.org/details/agatha-christie-arena",
+      "person": "Agatha Christie",
+      "start": 1405.93,
+      "reason": "The sampled frames depict paintings or illustrations of characters rather than actual documentary or filmed footage of Agatha Christie herself.",
+      "reviewed_at": 1791993462.7091908
+    },
+    "4119e60667c6f3f4e99859c9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:asdk12ak-Vincent_Van_Gogh_-_Art_History_Comes_Alive",
+      "source_url": "https://archive.org/details/asdk12ak-Vincent_Van_Gogh_-_Art_History_Comes_Alive",
+      "person": "Vincent van Gogh",
+      "start": 1212.68,
+      "reason": "The video shows a modern teacher in costume performing a first-person narrative for school children, not archival footage of Vincent van Gogh. The person visible is Robin Murphy portraying the artist, not van Gogh himself.",
+      "reviewed_at": 1791993545.9671896
+    },
+    "0131b5e5886c51caea048738": {
+      "kind": "segment_rejection",
+      "source_id": "archive:asdk12ak-Vincent_Van_Gogh_-_Art_History_Comes_Alive",
+      "source_url": "https://archive.org/details/asdk12ak-Vincent_Van_Gogh_-_Art_History_Comes_Alive",
+      "person": "Vincent van Gogh",
+      "start": 367.31,
+      "reason": "The footage shows a contemporary art teacher dressed in costume reading to school children in front of a painted backdrop, not archival or genuine historical footage of Vincent van Gogh.",
+      "reviewed_at": 1791993553.2062516
+    },
+    "f6366d84896ec8a1d4f8ceea": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalahadOfEverest",
+      "source_url": "https://archive.org/details/GalahadOfEverest",
+      "person": "Tenzing Norgay",
+      "start": 621.67,
+      "reason": "The footage features actor Brian Blessed on an Everest recreation climb in 1991, not Tenzing Norgay. Therefore, it is neither identity footage nor usable historical context for Tenzing Norgay's biography.",
+      "reviewed_at": 1791993589.4279823
+    },
+    "fd4b5dd55141a3b87cfa2a88": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalahadOfEverest",
+      "source_url": "https://archive.org/details/GalahadOfEverest",
+      "person": "Tenzing Norgay",
+      "start": 885.95,
+      "reason": "The footage shows Brian Blessed and other climbers re-enacting an Everest climb in a 1991 documentary, not Tenzing Norgay. Tenzing Norgay is not visible in any frame.",
+      "reviewed_at": 1791993596.7665982
+    },
+    "159c8cf13c6ed726249306c3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:44754ManAgainstMountEverest",
+      "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+      "person": "Tenzing Norgay",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of stock footage title cards and credit screens with no actual filmed footage of Tenzing Norgay or usable historical content.",
+      "reviewed_at": 1791993623.6113787
+    },
+    "079a9693c42cd6053d183767": {
+      "kind": "segment_rejection",
+      "source_id": "archive:44754ManAgainstMountEverest",
+      "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+      "person": "Tenzing Norgay",
+      "start": 85.72,
+      "reason": "The archival segment shows historical footage and map tracing of the 1952 Swiss Mount Everest expedition in which Tenzing Norgay participated as a key climber. While Tenzing is not clearly identifiable in these specific frames, the footage provides valid biographical illustration of the expedition context.",
+      "reviewed_at": 1791993631.0742788
+    },
+    "fd18bfb42ceafb1b55fe5ab0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+      "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+      "person": "J.K. Rowling",
+      "start": 158.77,
+      "reason": "The sampled frames feature Aimee Stephens and introductory title cards for a VICE News segment, with no appearance of J.K. Rowling.",
+      "reviewed_at": 1791993758.1467733
+    },
+    "59d086d8e5050ea9f8bef475": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NimrodTrollsJKRowling",
+      "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+      "person": "J.K. Rowling",
+      "start": 207.64,
+      "reason": "The sampled frames consist entirely of ending credits and Vice production logos, containing no biographical footage or relevant historical context regarding J.K. Rowling.",
+      "reviewed_at": 1791993801.8601696
+    },
+    "b7e50280277b90029b015ffb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jk-rowling-contrapoints",
+      "source_url": "https://archive.org/details/jk-rowling-contrapoints",
+      "person": "J.K. Rowling",
+      "start": 3723.27,
+      "reason": "The footage shows Natalie Wynn (ContraPoints) in a comedic sketch or video essay commentary, not J.K. Rowling. Therefore, it is not usable as identity footage for J.K. Rowling.",
+      "reviewed_at": 1791993820.61122
+    },
+    "87aa84ceb2e64ff3db950f37": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jk-rowling-contrapoints",
+      "source_url": "https://archive.org/details/jk-rowling-contrapoints",
+      "person": "J.K. Rowling",
+      "start": 4549.55,
+      "reason": "The footage features the YouTube creator ContraPoints (Natalie Wynn), not J.K. Rowling, making it unusable as identity footage for J.K. Rowling's biography.",
+      "reviewed_at": 1791993846.2978988
+    },
+    "beacdb353d370f7a1b92d414": {
+      "kind": "segment_rejection",
+      "source_id": "archive:haraamkhor-director-shlok-sharma-full-interview-nawazuddin-siddiqui-shweta-tripathi",
+      "source_url": "https://archive.org/details/haraamkhor-director-shlok-sharma-full-interview-nawazuddin-siddiqui-shweta-tripathi",
+      "person": "Nawazuddin Siddiqui",
+      "start": 363.74,
+      "reason": "The sampled frames depict director Shlok Sharma being interviewed, not Nawazuddin Siddiqui. Therefore, the person requested is not visible.",
+      "reviewed_at": 1791993874.2520468
+    },
+    "f4c4ac7528635b7410bc25b5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:haraamkhor-director-shlok-sharma-full-interview-nawazuddin-siddiqui-shweta-tripathi",
+      "source_url": "https://archive.org/details/haraamkhor-director-shlok-sharma-full-interview-nawazuddin-siddiqui-shweta-tripathi",
+      "person": "Nawazuddin Siddiqui",
+      "start": 5.0,
+      "reason": "The frames show a movie poster and a promotional event with director Shlok Sharma and actress Shweta Tripathi; Nawazuddin Siddiqui is not visibly present in the footage.",
+      "reviewed_at": 1791993884.4032068
+    },
+    "adcb1dfff6d54db6bc6a8a17": {
+      "kind": "segment_rejection",
+      "source_id": "archive:raat-akeli-hai-the-bansal-murders-2025",
+      "source_url": "https://archive.org/details/raat-akeli-hai-the-bansal-murders-2025",
+      "person": "Nawazuddin Siddiqui",
+      "start": 4405.2,
+      "reason": "Nawazuddin Siddiqui is visible in the scene (standing on the right in frames 1 and 4), serving as biographical illustration from his work in the crime thriller film.",
+      "reviewed_at": 1791993893.2570703
+    },
+    "247210e07362c8d4c636a10e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:raat-akeli-hai-the-bansal-murders-2025",
+      "source_url": "https://archive.org/details/raat-akeli-hai-the-bansal-murders-2025",
+      "person": "Nawazuddin Siddiqui",
+      "start": 5.0,
+      "reason": "The segment shows close-up cinematic footage of a typewriter mechanism and keys, which serves as a fitting biographical illustration for a crime thriller or acting career retrospective, though the subject Nawazuddin Siddiqui is not visibly present.",
+      "reviewed_at": 1791993948.1826212
+    },
+    "0468bf04351feb038a681a18": {
+      "kind": "segment_rejection",
+      "source_id": "archive:raat-akeli-hai-the-bansal-murders-2025",
+      "source_url": "https://archive.org/details/raat-akeli-hai-the-bansal-murders-2025",
+      "person": "Nawazuddin Siddiqui",
+      "start": 633.6,
+      "reason": "The sampled frames depict a scene from a crime thriller film featuring other characters, but the named subject Nawazuddin Siddiqui is not visible in any of the frames.",
+      "reviewed_at": 1791993980.3235831
+    },
+    "27b0a69e418142fa054cbd9c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TheManWhoLovedNumbers",
+      "source_url": "https://archive.org/details/TheManWhoLovedNumbers",
+      "person": "Srinivasa Ramanujan",
+      "start": 1579.96,
+      "reason": "The frames show handwritten mathematical formulas and notes directly related to Srinivasa Ramanujan's work, providing useful biographical illustration and historical context, although the person himself is not visible.",
+      "reviewed_at": 1791994053.871025
+    },
+    "db5c02d4e10fed1ad4088814": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TheManWhoLovedNumbers",
+      "source_url": "https://archive.org/details/TheManWhoLovedNumbers",
+      "person": "Srinivasa Ramanujan",
+      "start": 2104.95,
+      "reason": "The footage shows a modern reenactor or presenter sitting at a desk, not the historical Srinivasa Ramanujan (who lived from 1887 to 1920 and died long before color video/reenactments of this quality). Therefore, the person is not visible and the clip does not depict the actual historical subject.",
+      "reviewed_at": 1791994067.9064937
+    },
+    "511f94984ee17e632bfcbaba": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 2103.36,
+      "reason": "The video features an interview/commentary about Srinivasa Ramanujan, but the person speaking and visible in the frames is not Ramanujan himself (who lived from 1887 to 1920), but rather a contemporary expert or biographer discussing him. Since Ramanujan is not visible, person_visible is false, but it qualifies as usable biographical illustration.",
+      "reviewed_at": 1791994081.365228
+    },
+    "7e0fde938c1584f26efc1933": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 2336.51,
+      "reason": "The video features a documentary expert/speaker discussing Srinivasa Ramanujan's mathematical legacy in front of a chalkboard with relevant notes. While the historical subject Srinivasa Ramanujan is not visible (as he lived from 1887 to 1920), this is valid biographical commentary and illustration providing context about his work.",
+      "reviewed_at": 1791994090.7506895
+    },
+    "e92f7922b931c508bc95c14d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "source_url": "https://archive.org/details/cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "person": "Rosa Parks",
+      "start": 1233.85,
+      "reason": "The video shows modern footage from a 2018 Rosa Parks Essay Contest event in a city council chamber. Rosa Parks is not visible in the footage, and the clip depicts a modern local government event rather than historical context or archival footage of Rosa Parks herself.",
+      "reviewed_at": 1791994170.6659582
+    },
+    "3b5778adee0f68bc549f7898": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "source_url": "https://archive.org/details/cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "person": "Rosa Parks",
+      "start": 1643.47,
+      "reason": "The video shows a 2018 local government event (Rosa Parks Essay Contest award announcement), but Rosa Parks passed away in 2005 and is not depicted in the footage. Therefore, it is unusable as historical archival footage of Rosa Parks.",
+      "reviewed_at": 1791994180.751675
+    },
+    "38864b96dbcf447efe1321d2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ttval-Rosa_Parks_Day_-_TROY_TrojanVision_News",
+      "source_url": "https://archive.org/details/ttval-Rosa_Parks_Day_-_TROY_TrojanVision_News",
+      "person": "Rosa Parks",
+      "start": 5.0,
+      "reason": "The segment features news footage from the Rosa Parks Museum, including historical markers, artwork depicting the bus incident, and her arrest record, along with an interview of the museum director. Rosa Parks herself is not visibly present in the frames, but the archival context and museum exhibits provide useful biographical illustration for her life and legacy.",
+      "reviewed_at": 1791994235.1260622
+    },
+    "a7739a6d5c9522adaf3e601a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ttval-Rosa_Parks_Day_-_TROY_TrojanVision_News",
+      "source_url": "https://archive.org/details/ttval-Rosa_Parks_Day_-_TROY_TrojanVision_News",
+      "person": "Rosa Parks",
+      "start": 14.66,
+      "reason": "The footage shows Dr. Felicia Bell, Director of TROY's Rosa Parks Museum, discussing Rosa Parks. Rosa Parks herself is not visible in the frames, but it serves as valid contextual news/museum footage related to the subject.",
+      "reviewed_at": 1791994242.2587802
+    },
+    "d29d45c769155e377cb11e10": {
+      "kind": "segment_rejection",
+      "source_id": "archive:htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "source_url": "https://archive.org/details/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "person": "Rosa Parks",
+      "start": 41.84,
+      "reason": "The video shows modern news footage from 2019 regarding a proclamation for Transit Equity Day in Houston, featuring council member Amanda Edwards and Oni Blair. Rosa Parks is not visible and lived from 1913 to 2005, making modern news coverage unsuitable as direct historical footage for her biography.",
+      "reviewed_at": 1791994261.4390492
+    },
+    "0af11851909f01fd0fce602c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "source_url": "https://archive.org/details/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "person": "Rosa Parks",
+      "start": 69.47,
+      "reason": "The footage shows a modern city bus stopping at a station, relating to the historical context of Rosa Parks and public transit, but it features modern Houston transit in 2019 rather than historical events.",
+      "reviewed_at": 1791994271.072571
+    },
+    "bf9a4e6e4a4f4e6ffd5e57ea": {
+      "kind": "segment_rejection",
+      "source_id": "archive:j.-r.-r.-tolkien-the-origin-of-the-rings",
+      "source_url": "https://archive.org/details/j.-r.-r.-tolkien-the-origin-of-the-rings",
+      "person": "J.R.R. Tolkien",
+      "start": 2950.78,
+      "reason": "The sampled frames show a documentary interviewee and a book page illustration, but J.R.R. Tolkien passed away long before this documentary was filmed, meaning the person visible is an expert or relative, not J.R.R. Tolkien himself.",
+      "reviewed_at": 1791994345.831638
+    },
+    "430693565d4d66e15c8223c6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:j.-r.-r.-tolkien-the-origin-of-the-rings",
+      "source_url": "https://archive.org/details/j.-r.-r.-tolkien-the-origin-of-the-rings",
+      "person": "J.R.R. Tolkien",
+      "start": 5.0,
+      "reason": "The video segment contains only clouds and a production company title card ('Buck Productions'), providing no historical context, biographical value, or footage of J.R.R. Tolkien.",
+      "reviewed_at": 1791994354.7720406
+    },
+    "8b8be679671fb86e1bafd2db": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jrr-tolkien-1892-1973",
+      "source_url": "https://archive.org/details/jrr-tolkien-1892-1973",
+      "person": "J.R.R. Tolkien",
+      "start": 998.99,
+      "reason": "The footage shows generic river and boat scenery which serves as biographical illustration for J.R.R. Tolkien's life and environment, but the subject is not visible in any frame.",
+      "reviewed_at": 1791994380.7223175
+    },
+    "1edf0ac90bfeff2dbdd6b74e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jrr-tolkien-1892-1973",
+      "source_url": "https://archive.org/details/jrr-tolkien-1892-1973",
+      "person": "J.R.R. Tolkien",
+      "start": 1495.98,
+      "reason": "The footage shows Queen Margrethe II of Denmark being interviewed for a documentary about J.R.R. Tolkien, but J.R.R. Tolkien himself is not visible in the frames.",
+      "reviewed_at": 1791994388.52847
+    },
+    "4ce7e6b550cdfeaeae7e6548": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tolkienarchive",
+      "source_url": "https://archive.org/details/tolkienarchive",
+      "person": "J.R.R. Tolkien",
+      "start": 1495.18,
+      "reason": "The footage shows Queen Margrethe II of Denmark, not J.R.R. Tolkien. Therefore, the subject is incorrect.",
+      "reviewed_at": 1791994405.9853904
+    },
+    "b8f3824e5c28e88a61196fb8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tolkienarchive",
+      "source_url": "https://archive.org/details/tolkienarchive",
+      "person": "J.R.R. Tolkien",
+      "start": 1991.9,
+      "reason": "The segment features animated artwork/paintings illustrating fantasy themes related to Tolkien's work, but J.R.R. Tolkien himself is not visible in the footage. Therefore, person_visible is false, and usage is biographical illustration.",
+      "reviewed_at": 1791994427.6893265
     }
   }
 }

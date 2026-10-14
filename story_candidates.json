@@ -1,17 +1,5 @@
 [
   {
-    "format": "before_they_were_famous",
-    "person": "Harrison Ford",
-    "premise": "Working primarily as a professional carpenter while waiting years for a break in the film industry.",
-    "hook": "The man who would play Han Solo and Indiana Jones was hired to build cabinets for movie directors.",
-    "key_facts": [
-      "Signed a standard studio acting contract with Columbia Pictures early in his career but received mostly minor roles.",
-      "Taught himself professional carpentry to support his family in Los Angeles.",
-      "Built cabinets for filmmaker George Lucas, who later cast him in 'American Graffiti' and 'Star Wars'."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "impossible_odds",
     "person": "Ernest Shackleton",
     "premise": "The Survival of the Entire Imperial Trans-Antarctic Expedition After Their Ship Was Crushed.",
@@ -21,19 +9,6 @@
       "The ship, Endurance, was trapped and eventually sunk by pack ice in the Weddell Sea.",
       "Navigated a small lifeboat across 800 miles of stormy ocean to reach South Georgia Island for rescue.",
       "Successfully saved the lives of every member of his crew without a single casualty."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
-    "person": "Nawazuddin Siddiqui",
-    "premise": "Working multiple odd jobs as a watchman and chemist while trying to get minor film roles in Mumbai.",
-    "hook": "Before headlining acclaimed cinema, he worked night shifts as a watchman just to pay for his rent in Mumbai.",
-    "key_facts": [
-      "Graduated from the National School of Drama (NSD) in New Delhi.",
-      "Moved to Mumbai and initially survived by doing small, uncredited background roles in films like 'Sarfarosh'.",
-      "Experienced years of rejection and financial instability before his breakthrough role in 'Gangs of Wasseypur'.",
-      "Established a reputation as one of India's most versatile character actors."
     ],
     "source": "gemini_original"
   },
@@ -51,19 +26,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "before_they_were_famous",
-    "person": "Zaha Hadid",
-    "premise": "The pioneering architect who spent decades designing visionary futuristic buildings that conservative committees refused to build.",
-    "hook": "For twenty years, she was known as a 'paper architect' because clients told her radical curved designs were completely unbuildable.",
-    "key_facts": [
-      "Studied mathematics at the American University of Beirut before moving to the Architectural Association in London.",
-      "Opened her own practice in London in 1980 while facing widespread skepticism.",
-      "Won the competition to design the Cardiff Bay Opera House in 1994, but the project was canceled.",
-      "Became the first female architect to win the Pritzker Architecture Prize in 2004."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "impossible_odds",
     "person": "Louis Braille",
     "premise": "How a blinded French teenager took a military night-writing code and simplified it into a tactile alphabet that empowered millions.",
@@ -73,6 +35,45 @@
       "Adapted an artillery night-writing code based on raised dots created by Charles Barbier.",
       "Published his reading and writing system for the blind in 1829 using a six-dot cell.",
       "The system was universally adopted long after his death from tuberculosis in 1852."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Radhakishan Damani",
+    "premise": "A college dropout who initially traded in ball-bearings builds a massive Indian supermarket retail empire from scratch.",
+    "hook": "He started his career as a modest stock market speculator before building the country's most profitable retail chain.",
+    "key_facts": [
+      "Dropped out of Mumbai University commerce studies after his father's death.",
+      "Initially traded in the stock market before launching the Avenue Supermarts retail chain.",
+      "Founded the D-Mart supermarket brand in 2002.",
+      "Became one of India's wealthiest self-made entrepreneurs."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "J.K. Rowling",
+    "premise": "A struggling single mother living on state benefits writes a fantasy manuscript in Edinburgh cafes while trying to navigate extreme personal hardship.",
+    "hook": "She wrote her multi-billion-dollar magical world on napkins and cheap paper while surviving on welfare.",
+    "key_facts": [
+      "Lived in Edinburgh as a single mother on state support.",
+      "Completed the first Harry Potter manuscript amidst financial distress.",
+      "Received multiple rejections from publishing houses before acceptance.",
+      "The book series became a global publishing phenomenon."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Tenzing Norgay",
+    "premise": "An experienced mountain guide rises from humble origins as a yak herder to face freezing winds, thin oxygen, and sheer cliffs on the ultimate mountaineering quest.",
+    "hook": "He faced freezing winds and oxygen starvation to achieve what no human had ever done before.",
+    "key_facts": [
+      "Started as a high-altitude porter and working-class guide in the Himalayas.",
+      "Participated in multiple previous British expeditions to Everest.",
+      "Reached the summit of Mount Everest alongside Edmund Hillary on May 29, 1953.",
+      "Became an international symbol of mountaineering achievement."
     ],
     "source": "gemini_original"
   }

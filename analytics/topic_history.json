@@ -3480,24 +3480,24 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do shadows stretch at sunset",
-    "normalized": "why do shadows stretch at sunset",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791881458,
-    "recorded_at": 1791881458,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why does floor wood creak",
     "normalized": "why does floor wood creak",
     "workflow": "publish",
     "status": "reserved",
     "reserved_at": 1791961217,
     "recorded_at": 1791961217,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why window glass distorts old houses",
+    "normalized": "why window glass distorts old houses",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791982739,
+    "recorded_at": 1791982739,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

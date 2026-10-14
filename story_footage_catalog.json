@@ -9376,37 +9376,6 @@
       "reviewed_at": 1791631975.3626385
     },
     {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Shackleton Documentary Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 223.95,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video includes historical photographic footage showing Ernest Shackleton as a child, alongside relevant archival documentary context, making it useful as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "fcb5c6351afa9dffdf9c37ae6c5cdc1e81610976e1ce8fc78da2b9c9bd5399f9",
-      "reviewed_at": 1791632943.5591938
-    },
-    {
       "person": "J.R.R. Tolkien",
       "source": {
         "id": "archive:jrr-tolkien-1892-1973",
@@ -11110,37 +11079,6 @@
       },
       "review_key": "de4244a639baa84eb61e6cbc352bf0f508b268d7b0c672db1d0da4fb23d568d8",
       "reviewed_at": 1791737401.3727672
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 114.11,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video features real footage of J.K. Rowling interacting with a prankster at a book signing. However, the framing focuses heavily on the prankster and mostly shows Rowling in profile/rear three-quarter view, limiting its usability for a biographical portrait.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "05329092f321dc73e07121557358302a818c99226fcbfec26ac165be611cd39e",
-      "reviewed_at": 1791737533.6033459
     },
     {
       "person": "J.K. Rowling",
@@ -13065,161 +13003,6 @@
       "reviewed_at": 1791965971.3105593
     },
     {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:PrideMonthShowedProgressExceptforJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/PrideMonthShowedProgressExceptforJKRowling/Pride%20Month%20Showed%20Progress%20%E2%80%94%20Except%20for%20J.K.%20Rowling%20%5BYSItxEJtW4s%5D.mp4",
-        "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
-        "title": "Pride Month Showed Progress — Except for J.K. Rowling",
-        "description": "The yearly tradition of companies and politicians falling over themselves to recognize queer people is here. Here's how the 50th anniversary of Pride Month was (and wasn't) celebrated this year. Subscribe to VICE News here: [URL REMOVED] Check out VICE News for more: [URL REMOVED] Follow VICE News here: Facebook: [URL REMOVED] Twitter: [URL REMOVED] Tumblr: [URL REMOVED] Instagram: [URL REMOVED] More videos from the VICE network: [URL REMOVED] ",
-        "creator": "VICE News",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 167.767768,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 52.31,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The sampled frames feature genuine archival footage and public appearances of J.K. Rowling alongside clips related to her works, making it suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a5293cc039c56fcaf092c2a4fd506d6e8a72a6f278f95231fea7187ed1676c59",
-      "reviewed_at": 1791966183.5849154
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 67.35,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows J.K. Rowling participating in a public speaking event/book signing, with her face fully visible in multiple frames, making it authentic and usable biographical material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "facef8557f2476d1d0e16193eb233cee5396688b4eea3469b7452f6f8e1e283e",
-      "reviewed_at": 1791966215.3728938
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 36.18,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature J.K. Rowling at a book signing event, interacting with fans and signing copies of her books. The footage is authentic and directly relevant to her biography and career.",
-        "usage": "direct_event"
-      },
-      "review_key": "cc7716c865893c97d67fc1051cb45dc8d20091fe06a18644df2970fbfcaccf75",
-      "reviewed_at": 1791966222.8170156
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 82.94,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The sampled frames include actual footage of J.K. Rowling speaking at an event (frame 2), making her clearly identifiable. Other frames show archival news coverage and context related to her public appearances and controversies, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f5936b3ea8edad8bff5925c444548ef0e954506ae533f8be08958b6b7a6d5f89",
-      "reviewed_at": 1791966229.5267065
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 145.29,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features real archival footage of J.K. Rowling at a book signing event, making her clearly identifiable alongside the prankster.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "cb8b2b749d930e4d23337f2833c1bbc0baeeb364bb85ac3ad1aa515592537175",
-      "reviewed_at": 1791966237.1569393
-    },
-    {
       "person": "Dolly Parton",
       "source": {
         "id": "archive:LarryKingLive20030703DollyParton",
@@ -14675,6 +14458,409 @@
       },
       "review_key": "3ea9f8f848b53a3c3fbe4d239a7f9dbc801d7694ca8390cdf8be4fff843c5795",
       "reviewed_at": 1791993899.4980097
+    },
+    {
+      "person": "Tenzing Norgay",
+      "source": {
+        "id": "archive:44754ManAgainstMountEverest",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/44754ManAgainstMountEverest/44754%20Man%20Against%20Mount%20Everest.mp4",
+        "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+        "title": "\"MAN AGAINST EVEREST\" 1952 SWISS MOUNT EVEREST EXPEDITION TENZING NORGAY EDOUARD WYSS DUNANT 44754",
+        "description": "Directed by Dr. Futer, \"Man Against Everest\" shows the 1952 Swiss Mount Everest expedition led by Edouard Wyss-Dunant. His team including Raymond Lambert and Sherpa Tenzing Norgay reached a height of about 8,595 metres (28,199 ft) on the southeast ridge, setting a new climbing altitude record, opening up a new route to Mount Everest and paving the way for further successes by other expeditions. In 1952, a Swiss expedition set out from Kathmandu, Nepal, to attempt the first ascent of Mount Everest from the south, carrying five tons of equipment. After a grueling 175-mile trek through rugged terrain, the climbers established a base camp 2.5 miles below the summit. With only 22 Sherpas continuing alongside them, they navigated the treacherous Icefall and ascended the 4,000-foot Lhotse face to reach the South Col ridge. As monsoon winds and freezing conditions closed in, the team made a final push toward the summit, battling exhaustion, brutal cold, and high-altitude challenges. Despite reaching over 28,000 feet—the highest point any human had reached—they were forced to turn back just 900 feet from the top due to a lack of oxygen and strength. Though the expedition failed to summit, it paved the way for future success, laying the groundwork for Tenzing Norgay and Edmund Hillary’s historic climb the following year. 0:00 – The expedition begins in Kathmandu, Nepal, a city rarely visited by Westerners, where five tons of climbing equipment has arrived for an attempt to scale Mount Everest. 0:55 – From Kathmandu, the team embarks on a 175-mile uphill trek on foot to reach the Ever ['Stock Footage', 'High Definition']",
+        "creator": "",
+        "license": "",
+        "subject": "['Stock Footage', 'High Definition']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 538.657214,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 368.22,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The archival footage shows authentic historical documentation from the 1952 Swiss Mount Everest expedition, featuring Tenzing Norgay in the early frames alongside team members preparing equipment and checking oxygen tanks.",
+        "usage": "direct_event"
+      },
+      "review_key": "ff7a215d392f21d66ccd01a6bb1e5187801e5cc9564e820cfe80e80f0ee4917e",
+      "reviewed_at": 1792008464.3961642
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 23.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10.0,
+        "reason": "The footage clearly shows Jonas Salk in a laboratory setting handling scientific vials, directly illustrating his life and work as a medical researcher.",
+        "usage": "direct_event"
+      },
+      "review_key": "385fbdd712291c46012abfd4fef0d6c59703cc3b3976288627c88b41a6fe12f2",
+      "reviewed_at": 1792008793.8343804
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 32.93,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Jonas Salk working in a laboratory setting with lab equipment, perfectly matching the biographical subject and narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "06734464d45730e05b1b4d7efb71d01d4a1772a2647fc5ad090f8e6f9fa0c75c",
+      "reviewed_at": 1792008806.6089828
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 60.85,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features clear historical and archival-style moving imagery depicting Jonas Salk in laboratory and family settings, directly illustrating his life and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6d60448d945bb5d0074753d29f01368a49b08336e734378bc2c07b5fba157387",
+      "reviewed_at": 1792008838.838482
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/PrideMonthShowedProgressExceptforJKRowling/Pride%20Month%20Showed%20Progress%20%E2%80%94%20Except%20for%20J.K.%20Rowling%20%5BYSItxEJtW4s%5D.mp4",
+        "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+        "title": "Pride Month Showed Progress — Except for J.K. Rowling",
+        "description": "The yearly tradition of companies and politicians falling over themselves to recognize queer people is here. Here's how the 50th anniversary of Pride Month was (and wasn't) celebrated this year. Subscribe to VICE News here: [URL REMOVED] Check out VICE News for more: [URL REMOVED] Follow VICE News here: Facebook: [URL REMOVED] Twitter: [URL REMOVED] Tumblr: [URL REMOVED] Instagram: [URL REMOVED] More videos from the VICE network: [URL REMOVED] ",
+        "creator": "VICE News",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 167.767768,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 52.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment includes genuine archival footage featuring J.K. Rowling (visible in frames 2, 3, and 5) along with related media, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "22f5666248ec29146d498a025734d2e8d3ccd0be772894e870f414c472458f87",
+      "reviewed_at": 1792009104.22654
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 114.11,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features real archival footage of J.K. Rowling interacting with a prankster at an event, making her clearly visible and identifiable, though the context is a prank rather than formal biographical coverage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1ef4c23018f6e459847602ec5cdb2b4395df7cb2b6df9c9963bc41612df6be64",
+      "reviewed_at": 1792009121.8011053
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 67.35,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video shows J.K. Rowling speaking at an event in frames 1 through 4, making her clearly identifiable, while frame 5 shows the camera crew/interviewer context. This is valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e952b5a5bbb2b72938ee226b9f9fe104f76ca3a77d848e634c9958c3362f1576",
+      "reviewed_at": 1792009135.0373168
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 36.18,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment clearly shows J.K. Rowling seated at a book signing event, making her visible and identifiable in the later frames, making it useful biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "319d5bd4252526c549a2d27a3928c2a3cfbed5ecb858cd3568a81825ba5fa3fd",
+      "reviewed_at": 1792009143.6131585
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 82.94,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "J.K. Rowling is clearly visible in the second sampled frame during an event/interview, and the footage is genuine moving archival material relevant to her biography, though part of the clip features a prank involving a phone.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5b99265ac68219eb6628b365aede429cbe021dd364bb547fb20dbe521ce2a293",
+      "reviewed_at": 1792009153.408062
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 145.29,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The sampled frames clearly depict J.K. Rowling interacting with a pranker at a book signing event, making it genuine archival footage of the subject suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b888430ea1fed2a4dbc2b87fa707ce172a7c4d306d2519e94d9de4ae86704a06",
+      "reviewed_at": 1792009161.4297354
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Shackleton Documentary Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 223.95,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment includes genuine archival documentary footage featuring an interview discussing Ernest Shackleton alongside historical photographs of Shackleton as a child, providing valid biographical context and illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d2f899d34ecbb251e3fc3bbda12398b4421a70dd840621615df46d564d6bfb38",
+      "reviewed_at": 1792009306.8666835
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Shackleton Documentary Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 442.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The frames show authentic historical archival footage/photographs featuring Ernest Shackleton and his team during their Antarctic expedition, directly matching the narration.",
+        "usage": "direct_event"
+      },
+      "review_key": "5fa5117718892eec7a36487da1faf9e10812d856f29831f223a5ef4f1ba90ea8",
+      "reviewed_at": 1792009485.653079
+    },
+    {
+      "person": "Louis Braille",
+      "source": {
+        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
+        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+        "title": "Louis Braille ~ The Braille Alphabet",
+        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "creator": "",
+        "license": "",
+        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 864.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 70.41,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The first frame clearly depicts an actor portraying Louis Braille working on his tactile writing system at a desk, while the remaining frames show relevant historical contextual scenery (his hometown of Coupvray). This qualifies as usable biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ec681fc661e2017651f3373e87abf80a070400f7a06f3c12a153a9d3c5d12002",
+      "reviewed_at": 1792009707.0224266
     }
   ]
 }

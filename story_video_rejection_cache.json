@@ -3567,6 +3567,420 @@
       "start": 1991.9,
       "reason": "The segment features animated artwork/paintings illustrating fantasy themes related to Tolkien's work, but J.R.R. Tolkien himself is not visible in the footage. Therefore, person_visible is false, and usage is biographical illustration.",
       "reviewed_at": 1791994427.6893265
+    },
+    "01308b2d1a0163aca01b297b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalahadOfEverest",
+      "source_url": "https://archive.org/details/GalahadOfEverest",
+      "person": "Tenzing Norgay",
+      "start": 5.0,
+      "reason": "The footage shows archival documentary scenes of Everest expeditions and pack animals, but Tenzing Norgay is not clearly identifiable in any of the frames. It serves as biographical illustration for Himalayan climbing context.",
+      "reviewed_at": 1792008411.8922386
+    },
+    "6852c3463088288329561945": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalahadOfEverest",
+      "source_url": "https://archive.org/details/GalahadOfEverest",
+      "person": "Tenzing Norgay",
+      "start": 93.1,
+      "reason": "The footage shows Brian Blessed reenacting George Mallory's climb in 1991, not Tenzing Norgay. Tenzing Norgay is not visible in the frames.",
+      "reviewed_at": 1792008425.6459818
+    },
+    "2554683f1cefeb68d2eb04a7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:44754ManAgainstMountEverest",
+      "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+      "person": "Tenzing Norgay",
+      "start": 166.43,
+      "reason": "The clip features archival footage from the 1952 Swiss Mount Everest expedition, showing landscape shots of the mountain and terrain, but Tenzing Norgay is not clearly identifiable in the sampled frames.",
+      "reviewed_at": 1792008461.1940446
+    },
+    "516a08cbf2238e9928ba1041": {
+      "kind": "segment_rejection",
+      "source_id": "archive:44754ManAgainstMountEverest",
+      "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+      "person": "Tenzing Norgay",
+      "start": 408.58,
+      "reason": "The footage is from the authentic 1952 Swiss Mount Everest expedition in which Tenzing Norgay participated as a climber, providing valuable historical context. However, Tenzing Norgay's face is not clearly identifiable in the sampled frames, so person_visible is false and usage is biographical_illustration.",
+      "reviewed_at": 1792008509.2427838
+    },
+    "e504913a5c313d0b5d6a39e5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:44754ManAgainstMountEverest",
+      "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+      "person": "Tenzing Norgay",
+      "start": 448.94,
+      "reason": "The footage shows archival documentary moving pictures of the 1952 Swiss Mount Everest expedition, which Tenzing Norgay participated in as a key member. Although Tenzing's face is not clearly distinguishable in the frames, the footage provides genuine historical context depicting the exact expedition and environment relevant to his biography.",
+      "reviewed_at": 1792008528.0418956
+    },
+    "b961f55a3f502542930fee26": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 1637.06,
+      "reason": "The video segment shows historical documents and a composite/staged photograph overlaid with text about Srinivasa Ramanujan, but does not feature genuine moving archival identity footage of the subject himself.",
+      "reviewed_at": 1792008630.860677
+    },
+    "291bfb267616f96fe7feabfc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 1870.21,
+      "reason": "The footage shows a fictionalized dramatization/reenactment with an actor playing Srinivasa Ramanujan rather than actual historical or archival footage of the subject.",
+      "reviewed_at": 1792008644.265718
+    },
+    "08ee39d022394d1816d0925f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 51.45,
+      "reason": "The footage shows modern B-roll of Trinity College, Cambridge, along with dramatized/recreation shots representing Ramanujan studying, but Srinivasa Ramanujan himself is not historically visible in the footage. It provides relevant biographical context and illustration for his time at Cambridge.",
+      "reviewed_at": 1792008656.374802
+    },
+    "c80ddba3d177fb84d9c88279": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 63.06,
+      "reason": "The clip shows historical mathematical publications and an interview with a descendant or commentator (Kavita Ramanan), which serves as biographical illustration for Srinivasa Ramanujan's life and work, although the mathematician himself is not visible in the footage.",
+      "reviewed_at": 1792008670.0177088
+    },
+    "f136b0a8a08d1fa94a2881b5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TheManWhoLovedNumbers",
+      "source_url": "https://archive.org/details/TheManWhoLovedNumbers",
+      "person": "Srinivasa Ramanujan",
+      "start": 1054.98,
+      "reason": "The video features archival documentary footage, but the person shown is an elderly gentleman (likely a colleague or commentator such as Littlewood or another contemporary interviewed later in life), not Srinivasa Ramanujan himself, who died in 1920 at age 32. Therefore, Srinivasa Ramanujan is not visible in the footage, making it useful as biographical illustration of the context/associated figures rather than direct identity footage of the subject.",
+      "reviewed_at": 1792008700.7352142
+    },
+    "d524ea15b180951966050d8d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TheManWhoLovedNumbers",
+      "source_url": "https://archive.org/details/TheManWhoLovedNumbers",
+      "person": "Srinivasa Ramanujan",
+      "start": 1317.47,
+      "reason": "The frames show an elderly man being interviewed, likely a contemporary or acquaintance (such as J.E. Littlewood or someone connected to the story), but the named subject Srinivasa Ramanujan died in 1920 and is not the person visible in the footage. Therefore, person_visible is false, but it serves as valid biographical documentary illustration context.",
+      "reviewed_at": 1792008731.0470161
+    },
+    "cd07815d041d4161ab743b11": {
+      "kind": "segment_rejection",
+      "source_id": "archive:israel-wohltater-der-menschheit",
+      "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+      "person": "Jonas Salk",
+      "start": 131.66,
+      "reason": "The segment features archival photographs of Jonas Salk with his family and a modern interview with his son Peter Salk discussing his achievement, but Jonas Salk himself is not visibly present as a living subject in the moving footage.",
+      "reviewed_at": 1792008778.880167
+    },
+    "623952bfd64f0fc495c20086": {
+      "kind": "segment_rejection",
+      "source_id": "archive:israel-wohltater-der-menschheit",
+      "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+      "person": "Jonas Salk",
+      "start": 185.95,
+      "reason": "The video shows aerial and ground footage of the Salk Institute, a major institution founded by Jonas Salk, providing valid historical context related to his legacy, though Jonas Salk himself is not visible in the frames.",
+      "reviewed_at": 1792008787.7007513
+    },
+    "e636c7f69703eca0dc2ccf1d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jonas-edward-salk",
+      "source_url": "https://archive.org/details/jonas-edward-salk",
+      "person": "Jonas Salk",
+      "start": 51.54,
+      "reason": "The provided video frames consist of AI-generated or simulated imagery rather than authentic archival footage of Jonas Salk, making it unusable for a biographical short.",
+      "reviewed_at": 1792008833.438282
+    },
+    "783ca14f6a27782e58b55864": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jonas-edward-salk",
+      "source_url": "https://archive.org/details/jonas-edward-salk",
+      "person": "Jonas Salk",
+      "start": 70.16,
+      "reason": "The sampled frames depict AI-generated or synthetic imagery (such as a simulated old television set showing a generated depiction of Jonas Salk), which violates the requirement for real filmed historical footage.",
+      "reviewed_at": 1792008856.0626013
+    },
+    "b2dcd7e415b30be428c1e197": {
+      "kind": "segment_rejection",
+      "source_id": "archive:j.-k.-rowling-laughably-claims-shes-actually-not-transphobic-1080p",
+      "source_url": "https://archive.org/details/j.-k.-rowling-laughably-claims-shes-actually-not-transphobic-1080p",
+      "person": "J.K. Rowling",
+      "start": 14.1,
+      "reason": "The video features a podcast host (Mike Figueredo of The Humanist Report) discussing J.K. Rowling. While a static image of J.K. Rowling appears on a background screen monitor, J.K. Rowling herself is not visibly present in the actual moving footage, making this third-party commentary rather than usable identity footage of the subject.",
+      "reviewed_at": 1792009067.2042325
+    },
+    "1549167a22f85fa636c82134": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NimrodTrollsJKRowling",
+      "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+      "person": "J.K. Rowling",
+      "start": 5.0,
+      "reason": "The video shows J.K. Rowling appearing on stage at an event/book signing, making her clearly identifiable. However, it is a prank video by Nimrod Kamer rather than formal biographical archive footage, making its direct utility moderate.",
+      "reviewed_at": 1792009114.4029632
+    },
+    "07735603c607c77c6d4ae255": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NimrodTrollsJKRowling",
+      "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+      "person": "J.K. Rowling",
+      "start": 129.7,
+      "reason": "The video shows a prankster trolling at a book signing, but J.K. Rowling herself is not clearly visible in any of the sampled frames (she is seated behind a desk partially obscured or not recognizable, and the framing focuses on other attendees). Therefore, person_visible is false and the segment is not usable.",
+      "reviewed_at": 1792009132.0154314
+    },
+    "65472f3037da5aad49f94882": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NimrodTrollsJKRowling",
+      "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+      "person": "J.K. Rowling",
+      "start": 192.05,
+      "reason": "J.K. Rowling is not visible in the sampled frames; the footage shows Nimrod Kamer trolling people at a book signing and browsing eBay listings, which does not constitute valid identity footage or direct event coverage for a biography of Rowling.",
+      "reviewed_at": 1792009182.1140025
+    },
+    "0e67b92070ab81a31544177d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jk-rowling-contrapoints",
+      "source_url": "https://archive.org/details/jk-rowling-contrapoints",
+      "person": "J.K. Rowling",
+      "start": 4962.7,
+      "reason": "The footage shows Natalie Wynn (ContraPoints) speaking in a video essay, not J.K. Rowling. The segment is completely unrelated to actual footage of the subject.",
+      "reviewed_at": 1792009206.0406177
+    },
+    "4245c6d7961a8bd19940d885": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jk-rowling-contrapoints",
+      "source_url": "https://archive.org/details/jk-rowling-contrapoints",
+      "person": "J.K. Rowling",
+      "start": 5375.84,
+      "reason": "The sampled frames show the credits rolling over a shot of a moth in a jar, with no appearance of J.K. Rowling or relevant historical context.",
+      "reviewed_at": 1792009219.7512345
+    },
+    "b14f08ef204b9f3ca494693d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+      "person": "Ernest Shackleton",
+      "start": 223.95,
+      "reason": "The segment features an interview with an expert (Harry King) discussing Ernest Shackleton, followed by historical photograph illustration of Shackleton as a child. While Shackleton is not visibly present in the interview frame, the segment provides valid biographical illustration context for a documentary short.",
+      "reviewed_at": 1792009280.7683766
+    },
+    "ea70a5daaedbebee4c6f81e5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+      "person": "Ernest Shackleton",
+      "start": 1537.63,
+      "reason": "The footage shows aerial views of Antarctic ice and a contemporary interviewee discussing the subject, which serves as valid biographical illustration for Ernest Shackleton's expeditions, though Shackleton himself lived long before and is not visible.",
+      "reviewed_at": 1792009303.5137703
+    },
+    "97cfcb61b262a2234ef8fcba": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202512",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
+      "person": "Ernest Shackleton",
+      "start": 2376.58,
+      "reason": "The video shows unrelated historical street footage and a modern or dramatized interview segment featuring an unidentified person sitting indoors, which has no connection to Ernest Shackleton or his Antarctic expeditions.",
+      "reviewed_at": 1792009337.824288
+    },
+    "6f74757dd2e95f5010267b98": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202512",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
+      "person": "Ernest Shackleton",
+      "start": 3392.97,
+      "reason": "The video footage shows an unidentified modern person in a garden setting, which bears no relation to Ernest Shackleton or his Antarctic expeditions.",
+      "reviewed_at": 1792009346.5943944
+    },
+    "deeb1899aa5a685555c4ecdb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:shackletons-expedition",
+      "source_url": "https://archive.org/details/shackletons-expedition",
+      "person": "Ernest Shackleton",
+      "start": 714.09,
+      "reason": "The segment shows documentary footage related to Antarctic exploration and a modern narrator discussing historical events, featuring archival imagery of Frank Worsley, but Ernest Shackleton is not visibly present in the sampled frames. It provides general historical context and documentary illustration.",
+      "reviewed_at": 1792009389.34684
+    },
+    "5d17ee0b294808b774683aa9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:shackletons-expedition",
+      "source_url": "https://archive.org/details/shackletons-expedition",
+      "person": "Ernest Shackleton",
+      "start": 1017.98,
+      "reason": "The frames show a modern documentary host/presenter speaking to the camera, not the biographical subject Ernest Shackleton.",
+      "reviewed_at": 1792009404.0818574
+    },
+    "7e694f6b31baf6a1cd24badc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:antarctica-a-frozen-history",
+      "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+      "person": "Ernest Shackleton",
+      "start": 2964.33,
+      "reason": "The footage shows archival documentary shots of Antarctic landscapes (snow plains and rocky slopes) relevant to Ernest Shackleton's expeditions, but the subject himself is not visible. Thus, it serves as usable contextual biographical illustration.",
+      "reviewed_at": 1792009443.278493
+    },
+    "f736951d62c67c2511f7aa4e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:antarctica-a-frozen-history",
+      "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+      "person": "Ernest Shackleton",
+      "start": 5.0,
+      "reason": "The footage shows generic archival scenery of Antarctica (icebergs and moonlit landscape) which serves as biographical illustration for Ernest Shackleton's expeditions, but the subject is not visible.",
+      "reviewed_at": 1792009471.8470612
+    },
+    "34a9a3dd07c6daab59ed9070": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+      "person": "Ernest Shackleton",
+      "start": 5.0,
+      "reason": "The footage shows an old-style sailing ship and a map overlay, which does not depict Ernest Shackleton (who lived in the 20th century and sailed on ships like the Endurance, not this 16th/17th-century galleon). Therefore, the historical context is completely inaccurate for Shackleton.",
+      "reviewed_at": 1792009483.4177432
+    },
+    "015f44fb649064d0febac13e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+      "person": "Ernest Shackleton",
+      "start": 661.84,
+      "reason": "The footage shows a dramatization or reenactment of an Antarctic explorer in cold-weather gear packing supplies, which provides historical context and biographical illustration for Ernest Shackleton's expeditions. However, the specific individual depicted is an actor or unidentified, meaning Shackleton himself is not visibly present.",
+      "reviewed_at": 1792009498.389348
+    },
+    "8cdc734d5dd22d17544f35bb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+      "person": "Ernest Shackleton",
+      "start": 880.79,
+      "reason": "The video segment contains archival documentary footage showing historical context relevant to Ernest Shackleton's expeditions (specifically ponies used during the Antarctic expeditions), but the subject Ernest Shackleton is not visible in the footage.",
+      "reviewed_at": 1792009508.204562
+    },
+    "76fc088f52f7da653d162eb7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:WHIT09JohnPareInt",
+      "source_url": "https://archive.org/details/WHIT09JohnPareInt",
+      "person": "Louis Braille",
+      "start": 23.73,
+      "reason": "The footage shows a modern numismatics expert discussing a commemorative coin featuring Louis Braille. Louis Braille himself is not visible as he lived long before film, but the clip provides valid biographical illustration related to his legacy.",
+      "reviewed_at": 1792009537.9962466
+    },
+    "05bd4aaac86d43c9fcfa3663": {
+      "kind": "segment_rejection",
+      "source_id": "archive:WHIT09JohnPareInt",
+      "source_url": "https://archive.org/details/WHIT09JohnPareInt",
+      "person": "Louis Braille",
+      "start": 33.09,
+      "reason": "The video shows a modern numismatics convention and an interview about a commemorative coin for Louis Braille. Louis Braille lived in the 19th century and is not present in the footage; the person speaking is John Pare, discussing the modern coin. Therefore, this footage cannot depict Louis Braille himself.",
+      "reviewed_at": 1792009552.226946
+    },
+    "2cfae6cfac67ddd5a7712073": {
+      "kind": "segment_rejection",
+      "source_id": "archive:orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "person": "Louis Braille",
+      "start": 317.05,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792009563.7302928
+    },
+    "082f85cb5b9a2d4b4673507e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "person": "Louis Braille",
+      "start": 421.07,
+      "reason": "The video segment consists entirely of static portrait illustrations of Louis Braille and podcast studio footage of modern hosts, containing no real historical footage or moving footage depicting Louis Braille.",
+      "reviewed_at": 1792009575.8640344
+    },
+    "59fc711c218c8e1c9ffbc7af": {
+      "kind": "segment_rejection",
+      "source_id": "archive:orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "person": "Louis Braille",
+      "start": 525.09,
+      "reason": "The video shows a modern podcast studio ('Abled and on Air') featuring a contemporary speaker, which has no connection to Louis Braille (1809–1852).",
+      "reviewed_at": 1792009586.251493
+    },
+    "ff6f7720270f6e7167d35e8d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cunytv_BCSPA115",
+      "source_url": "https://archive.org/details/cunytv_BCSPA115",
+      "person": "Louis Braille",
+      "start": 1836.66,
+      "reason": "The footage features C. Michael Mellor discussing Louis Braille and his biography, but the subject Louis Braille (who lived in the 19th century) is not visible in the archival lecture footage.",
+      "reviewed_at": 1792009600.6379213
+    },
+    "b9dfae010a2939309761646a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cunytv_BCSPA115",
+      "source_url": "https://archive.org/details/cunytv_BCSPA115",
+      "person": "Louis Braille",
+      "start": 790.0,
+      "reason": "The video shows a modern academic lecture and discussion about Louis Braille (featuring guest C. Michael Mellor in 2009), but Louis Braille lived in the 19th century. Therefore, the footage does not depict Louis Braille himself nor historical events from his life.",
+      "reviewed_at": 1792009617.592855
+    },
+    "dcb6cc0adaccee55478e2c94": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Louis_Braille",
+      "source_url": "https://archive.org/details/btvin-Louis_Braille",
+      "person": "Louis Braille",
+      "start": 14.59,
+      "reason": "The segment consists entirely of static portraits and animated illustrations rather than real archival footage or usable historical context.",
+      "reviewed_at": 1792009675.541963
+    },
+    "619776fc79aaf1ef05a13391": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Louis_Braille",
+      "source_url": "https://archive.org/details/btvin-Louis_Braille",
+      "person": "Louis Braille",
+      "start": 24.18,
+      "reason": "The video consists entirely of illustrated/animated drawings and static sketches depicting Louis Braille's life rather than actual filmed footage, photographs, or genuine historical context.",
+      "reviewed_at": 1792009687.2245529
+    },
+    "2ee796d0e57fe1315745a896": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LouisBrailleAndTheBrailleAlphabet",
+      "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+      "person": "Louis Braille",
+      "start": 5.0,
+      "reason": "The video segment starts with a generic television series title card (\"Great Moments in Science and Technology\") and transitions to unrelated basket weaving footage, lacking any direct connection or depiction of Louis Braille or his life.",
+      "reviewed_at": 1792009702.2066925
+    },
+    "ca4259f18edf9086e35c1971": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LouisBrailleAndTheBrailleAlphabet",
+      "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+      "person": "Louis Braille",
+      "start": 135.81,
+      "reason": "The footage shows an empty institutional hallway, serving as generic archival illustration for Louis Braille's life and education at the institute, though no specific historical event or person is depicted.",
+      "reviewed_at": 1792009725.6714594
+    },
+    "7efff45a8ed449b3428083f6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LouisBrailleAndTheBrailleAlphabet",
+      "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+      "person": "Louis Braille",
+      "start": 201.22,
+      "reason": "The footage shows historical embossed tactile writing (braille/raised letters) which directly illustrates the invention and work of Louis Braille, even though the person himself is not visible.",
+      "reviewed_at": 1792009735.3351426
+    },
+    "7f5932ed0f1207c325696cb6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:asdk12ak-Vincent_Van_Gogh_-_Art_History_Comes_Alive",
+      "source_url": "https://archive.org/details/asdk12ak-Vincent_Van_Gogh_-_Art_History_Comes_Alive",
+      "person": "Vincent van Gogh",
+      "start": 608.84,
+      "reason": "The video features a modern school teacher in costume portraying Vincent van Gogh for children, which is a reenactment and not actual historical footage of the subject.",
+      "reviewed_at": 1792009815.1260192
+    },
+    "253634bc12482265369ba3da": {
+      "kind": "segment_rejection",
+      "source_id": "archive:asdk12ak-Vincent_Van_Gogh_-_Art_History_Comes_Alive",
+      "source_url": "https://archive.org/details/asdk12ak-Vincent_Van_Gogh_-_Art_History_Comes_Alive",
+      "person": "Vincent van Gogh",
+      "start": 729.61,
+      "reason": "The footage shows a modern educational presentation or theatrical performance with an actor portraying Vincent van Gogh for children, not actual historical footage or biographical media depicting the subject directly.",
+      "reviewed_at": 1792009825.321466
     }
   }
 }

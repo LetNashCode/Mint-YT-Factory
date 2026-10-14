@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-14T15:46:46.150065+00:00",
-  "video_count": 11,
+  "generated_at": "2026-10-14T20:06:07.362085+00:00",
+  "video_count": 12,
   "learning_ready": true,
   "metrics_available": true,
   "advanced_metrics_videos": 9,
@@ -14,16 +14,16 @@
   "winning_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 39.73,
+      "score": 39.632,
       "sample_size": 3,
       "weak_sample_size": 3,
-      "weak_score": 7.893
+      "weak_score": 1.129
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 7.893,
+      "score": 1.129,
       "sample_size": 3
     }
   ],
@@ -36,11 +36,11 @@
     "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes."
   ],
   "avoid_topics": [
-    "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
     "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
-    "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age."
+    "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
+    "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole."
   ],
-  "used_topic_count": 11,
+  "used_topic_count": 12,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

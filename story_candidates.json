@@ -1,18 +1,5 @@
 [
   {
-    "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "The Survival of the Entire Imperial Trans-Antarctic Expedition After Their Ship Was Crushed.",
-    "hook": "Their ship was trapped and crushed by Antarctic pack ice, stranding twenty-eight men on floating ice floes for months.",
-    "key_facts": [
-      "Led the Imperial Trans-Antarctic Expedition which set sail in 1914.",
-      "The ship, Endurance, was trapped and eventually sunk by pack ice in the Weddell Sea.",
-      "Navigated a small lifeboat across 800 miles of stormy ocean to reach South Georgia Island for rescue.",
-      "Successfully saved the lives of every member of his crew without a single casualty."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "rise_from_nothing",
     "person": "Radhanath Sikdar",
     "premise": "The brilliant Indian mathematician who calculated the exact height of Mount Everest while working as a low-level computer in colonial India.",
@@ -22,19 +9,6 @@
       "Invented new mathematical formulas for spherical trigonometry and surveying.",
       "Calculated the height of Peak XV (later named Mount Everest) in 1852.",
       "His exact calculation of 29,002 feet remained the accepted standard for decades."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Louis Braille",
-    "premise": "How a blinded French teenager took a military night-writing code and simplified it into a tactile alphabet that empowered millions.",
-    "hook": "He was blinded by an accidental workshop injury at age three, yet revolutionized global literacy before turning twenty.",
-    "key_facts": [
-      "Attended the Royal Institution for Blind Youth in Paris using embossed books that were extremely difficult to read.",
-      "Adapted an artillery night-writing code based on raised dots created by Charles Barbier.",
-      "Published his reading and writing system for the blind in 1829 using a six-dot cell.",
-      "The system was universally adopted long after his death from tuberculosis in 1852."
     ],
     "source": "gemini_original"
   },
@@ -52,28 +26,106 @@
     "source": "gemini_original"
   },
   {
-    "format": "before_they_were_famous",
-    "person": "J.K. Rowling",
-    "premise": "A struggling single mother living on state benefits writes a fantasy manuscript in Edinburgh cafes while trying to navigate extreme personal hardship.",
-    "hook": "She wrote her multi-billion-dollar magical world on napkins and cheap paper while surviving on welfare.",
+    "format": "strange_turning_point",
+    "person": "Agatha Christie",
+    "premise": "The bestselling novelist of all time whose mysterious 11-day disappearance triggered a massive national manhunt in Britain.",
+    "hook": "The world's most famous mystery writer engineered a real-life disappearance that baffled police and captured global headlines.",
     "key_facts": [
-      "Lived in Edinburgh as a single mother on state support.",
-      "Completed the first Harry Potter manuscript amidst financial distress.",
-      "Received multiple rejections from publishing houses before acceptance.",
-      "The book series became a global publishing phenomenon."
+      "Disappeared from her home in Berkshire in December 1926 amidst personal turmoil.",
+      "Sparked a massive 1,000-police-officer manhunt involving airplanes and bloodhounds.",
+      "Found safe 11 days later registered under an assumed name at a Harrogate hotel.",
+      "Continued her career to become the best-selling fiction writer of all time."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Madam C.J. Walker",
+    "premise": "An orphaned daughter of emancipated slaves who built a haircare empire to become one of the first self-made female millionaires in America.",
+    "hook": "Born into poverty just years after the end of American slavery, she turned a scalp ailment into a multi-million-dollar enterprise.",
+    "key_facts": [
+      "Born Sarah Breedlove on a cotton plantation in Louisiana in 1867.",
+      "Suffered severe hair loss due to poor scalp health and harsh chemical products of the era.",
+      "Developed and marketed a specialized line of hair products and treatments for African American hair.",
+      "Employed thousands of women as sales agents, providing financial independence."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Sara Blakely",
+    "premise": "The turning point when a fax machine salesperson used her entire life savings to patent and prototype shapewear.",
+    "hook": "With only $5,000 in savings, she drafted her own patent using a textbook because she couldn't afford a lawyer.",
+    "key_facts": [
+      "Worked as a door-to-door fax machine salesperson in Florida.",
+      "Cut the feet off her pantyhose to create a smooth look under white pants.",
+      "Spent her $5,000 life savings on the initial patent and prototype.",
+      "Founded Spanx without taking any outside venture capital."
     ],
     "source": "gemini_original"
   },
   {
     "format": "impossible_odds",
-    "person": "Tenzing Norgay",
-    "premise": "An experienced mountain guide rises from humble origins as a yak herder to face freezing winds, thin oxygen, and sheer cliffs on the ultimate mountaineering quest.",
-    "hook": "He faced freezing winds and oxygen starvation to achieve what no human had ever done before.",
+    "person": "Srinivasa Ramanujan",
+    "premise": "A self-taught mathematical genius from rural India who mailed his unproven theorems to British professors.",
+    "hook": "He had no formal university training and failed his college exams because he spent all his time doing advanced mathematics.",
     "key_facts": [
-      "Started as a high-altitude porter and working-class guide in the Himalayas.",
-      "Participated in multiple previous British expeditions to Everest.",
-      "Reached the summit of Mount Everest alongside Edmund Hillary on May 29, 1953.",
-      "Became an international symbol of mountaineering achievement."
+      "Grew up in Erode, Tamil Nadu, with access to only one outdated math textbook.",
+      "Failed his Fellow of Arts exam due to neglecting non-mathematical subjects.",
+      "Mailed a notebook of complex theorems to British mathematician G.H. Hardy in 1913.",
+      "Elected a Fellow of the Royal Society for his groundbreaking contributions to number theory."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Roald Amundsen",
+    "premise": "Shifting his Arctic expedition plans at the very last moment to chase the South Pole instead.",
+    "hook": "He was sailing north to conquer the North Pole when he secretly changed his destination south, knowing his crew would mutiny if they knew.",
+    "key_facts": [
+      "Initially planned an expedition to the North Pole using Fridtjof Nansen's ship, the Fram.",
+      "Learned that American explorers claimed to have already reached the North Pole.",
+      "Secretly redirected his ship toward Antarctica without informing the public or most of his crew.",
+      "Led the first expedition to successfully reach the geographic South Pole in 1911."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Radhanath Swami",
+    "premise": "A young American hitchhiker who traveled across Europe and the Middle East on foot to find spiritual truth in India.",
+    "hook": "He left home with almost no money, traveling across continents with just a sleeping bag and a backpack.",
+    "key_facts": [
+      "Grew up in Chicago in a middle-class family.",
+      "Hitchhiked across Europe and the Middle East during the early 1970s.",
+      "Crossed the border into India with minimal resources.",
+      "Became a prominent spiritual leader and author based in Mumbai."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Akio Morita",
+    "premise": "Risking a fledgling electronics company's future by deciding to target the American consumer market directly.",
+    "hook": "He moved his family to New York City and rented a small apartment just to understand American buyers, despite having very little capital.",
+    "key_facts": [
+      "Co-founded Tokyo Telecommunications Research Institute (later Sony) in post-war Japan.",
+      "Decided to abandon domestic branding conventions to sell products globally under the Sony name.",
+      "Relocated to Manhattan to directly oversee the American expansion.",
+      "Transformed Sony into a globally recognized consumer electronics giant."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Morgan Freeman",
+    "premise": "Spending years serving in the United States Air Force before getting his big break on television and film.",
+    "hook": "Before playing iconic cinematic roles, he turned down a university drama scholarship to enlist as a radar technician.",
+    "key_facts": [
+      "Served in the United States Air Force from 1955 to 1959 as an automatic tracking radar repairman.",
+      "Moved to Los Angeles in the 1960s to pursue acting while working as a transcript clerk.",
+      "Gained widespread recognition on the children's television show 'The Electric Company' in the 1970s.",
+      "Achieved major Hollywood film success later in his career."
     ],
     "source": "gemini_original"
   }

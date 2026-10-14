@@ -135,6 +135,32 @@ def _is_gemini_quota_error(error):
     )
 
 
+def _retry_word_budget_guidance(last_error):
+    """Give the model a concrete correction for the observed narration-count failure."""
+    error = str(last_error or "").lower()
+    targets = (
+        "Allocate narration deliberately: Scene 1 = 10-14 words; Scenes 2-6 = 12-16 words EACH; Scene 7 = 14-18 words across exactly two sentences. Aim for 96-104 words total.",
+        "Every scene must stay within its validator band: Scene 1 = 8-18 words; Scenes 2-6 = 7-22 words each; Scene 7 = 10-28 words. Keep the full narration between 80 and 120 words.",
+    )
+    if "narration total" in error and "outside 80-120" in error:
+        try:
+            found = re.search(r"total (\d+) words", error)
+            count = int(found.group(1)) if found else 0
+        except (TypeError, ValueError):
+            count = 0
+        if count < STORY_MIN_WORDS:
+            return targets[0] + " The previous draft was too short: add meaningful, factual cause-and-effect details to Scenes 2-6; do not pad with generic motivation. Count every spoken word before returning."
+        if count > STORY_MAX_WORDS:
+            return targets[1] + " The previous draft was too long: remove redundant wording without losing the key factual beats."
+    scene_match = re.search(r"scene (\d+) word count (\d+) outside (\d+)-(\d+)", error)
+    if scene_match:
+        scene, count, low, high = map(int, scene_match.groups())
+        if count < low:
+            return targets[0] + f" Scene {scene} was underlength ({count}); add one concise, specific fact or action to that scene."
+        if count > high:
+            return targets[0] + f" Scene {scene} was overlength ({count}); shorten that scene to its target band without changing other scenes unnecessarily."
+    return targets[0] + " Verify the total and each scene count before returning the JSON."
+
 def _validate_story(scenes):
     """Validate the Story Shorts creative contract before expensive TTS/media work."""
     if not isinstance(scenes,list) or len(scenes)!=7:
@@ -177,8 +203,9 @@ FORMAT DIRECTION: {story_format['direction']}
 
 Create exactly 7 scenes for a vertical YouTube Short about this person.
 The story must stand on narration alone. Real-person photos/footage may be used for key identity or historical moments when available; supporting Pexels/Pixabay stock footage/images are atmosphere and context only. Viewers must never need a particular image, face, map, screenshot, or caption to understand the story.
-TARGET: 80-120 spoken words. Aim for 95-110 words. Naturally paced. Every line must move the story forward.
-SCENE BANDS: 1=8-18, 2=7-22, 3=7-22, 4=7-22, 5=7-22, 6=7-22, 7=10-28.
+TARGET: 80-120 spoken words, with a strong target of 96-104. Naturally paced. Every line must move the story forward.
+SCENE WORD TARGETS (follow these narrow targets, not just the validator maximums): Scene 1=10-14 words; Scenes 2-6=12-16 words EACH; Scene 7=14-18 words total. These targets normally produce 84-112 words. Before returning JSON, count each scene and the complete narration.
+VALIDATOR HARD BANDS: Scene 1=8-18 words; Scenes 2-6=7-22 words each; Scene 7=10-28 words.
 
 RETENTION ARCHITECTURE — CRITICAL:
 - Scene 1 first 1-2 seconds must be a scroll-stopping contradiction, risk, rejection, mystery, or surprising claim. Do NOT open with the subject as a biography introduction.
@@ -247,7 +274,8 @@ Return the normal production JSON schema. Put the person's name in the topic/tit
         try:
             retry=""
             if last_error:
-                retry=f"\nRETRY {attempt+1}: Rewrite ONLY the parts necessary to fix the validation error while preserving the strongest factual beats. TARGET 95-110 WORDS TOTAL; HARD LIMIT 80-120. Scene 1 must be a hard curiosity hook, not a biography opener. Scene 7 MUST be EXACTLY TWO spoken sentences: payoff first, loop callback second. The second sentence MUST echo TWO distinctive content words from Scene 1's FIRST sentence. Scene 7 must contain NO subscribe/follow CTA. Keep every scene within its stated word band. If the previous error is a scene word-count error, shorten or redistribute wording instead of adding filler. Previous error: {last_error}"
+                budget_guidance = _retry_word_budget_guidance(last_error)
+                retry=f"\nRETRY {attempt+1}: Fix the reported validation error while preserving the strongest factual beats. {budget_guidance} Scene 1 must be a hard curiosity hook, not a biography opener. Scene 7 MUST be EXACTLY TWO spoken sentences: payoff first, loop callback second. The second sentence MUST echo TWO distinctive content words from Scene 1's FIRST sentence. Scene 7 must contain NO subscribe/follow CTA. Previous error: {last_error}"
             story_gemini_budget.consume("script_generation")
             response=client.models.generate_content(model=_base.MODEL_NAME,contents=prompt+retry,config=types.GenerateContentConfig(system_instruction=_base.SYSTEM_PROMPT,response_mime_type="application/json",response_json_schema=_base._build_schema(),temperature=.55))
             raw=getattr(response,"text",None)

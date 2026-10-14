@@ -1,17 +1,5 @@
 [
   {
-    "format": "before_they_were_famous",
-    "person": "Sachin Tendulkar",
-    "premise": "The young prodigy who carried cricket gear across Mumbai train networks.",
-    "hook": "Before facing international fast bowlers, he traveled across Mumbai with heavy cricket kits on crowded local trains.",
-    "key_facts": [
-      "He trained under coach Ramakant Achrekar at Shivaji Park in Dadar.",
-      "He scored a record 664-run partnership in school cricket with teammate Vinod Kambli.",
-      "He made his international test debut against Pakistan at the age of sixteen."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "impossible_odds",
     "person": "Tenzing Norgay",
     "premise": "Overcoming humble beginnings as a high-altitude porter to reach the highest point on Earth.",
@@ -62,28 +50,41 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Rosa Parks",
-    "premise": "The deliberate and courageous refusal to give up a bus seat that catalyzed the Montgomery bus boycott.",
-    "hook": "With one quiet sentence, a seamstress triggered a 381-day protest that shook the foundations of segregation.",
+    "format": "before_they_were_famous",
+    "person": "Nawazuddin Siddiqui",
+    "premise": "Working multiple odd jobs as a watchman and chemist while trying to get minor film roles in Mumbai.",
+    "hook": "Before headlining acclaimed cinema, he worked night shifts as a watchman just to pay for his rent in Mumbai.",
     "key_facts": [
-      "Worked as a seamstress and served as secretary for the Montgomery branch of the NAACP.",
-      "Refused to surrender her bus seat to a white passenger on December 1, 1955.",
-      "Her arrest led directly to the formation of the Montgomery Improvement Association and the subsequent bus boycott.",
-      "Spent decades afterward continuing her advocacy work for civil rights alongside prominent organizers."
+      "Graduated from the National School of Drama (NSD) in New Delhi.",
+      "Moved to Mumbai and initially survived by doing small, uncredited background roles in films like 'Sarfarosh'.",
+      "Experienced years of rejection and financial instability before his breakthrough role in 'Gangs of Wasseypur'.",
+      "Established a reputation as one of India's most versatile character actors."
     ],
     "source": "gemini_original"
   },
   {
-    "format": "before_they_were_famous",
-    "person": "Kalpana Chawla",
-    "premise": "An engineering student in Karnal who broke local conventions to pursue aerospace engineering in the United States, ultimately reaching orbit.",
-    "hook": "Growing up in a small town in Haryana where engineering was considered an unusual path for women, she set her sights strictly on the stars.",
+    "format": "strange_turning_point",
+    "person": "Srinivasa Ramanujan",
+    "premise": "Mailing pages of complex mathematical formulas from a clerical job in Madras to a prominent professor in Cambridge.",
+    "hook": "A self-taught Indian shipping clerk mailed unsolicited theorems to a British mathematician, sparking one of the greatest collaborations in history.",
     "key_facts": [
-      "Graduated with a degree in aeronautical engineering from Punjab Engineering College.",
-      "Moved to the United States to earn master's and doctoral degrees in aerospace engineering.",
-      "Selected by NASA as an astronaut candidate in 1994.",
-      "First woman of Indian origin to fly in space, completing her maiden flight aboard the Space Shuttle Columbia in 1997."
+      "Worked as a low-level shipping clerk in Madras while pursuing advanced mathematics independently.",
+      "Sent letters containing unproven mathematical theorems to G.H. Hardy at Cambridge University in 1913.",
+      "Recognized by Hardy for his genius and invited to travel to Trinity College, Cambridge.",
+      "Elected as a Fellow of the Royal Society for his contributions to mathematical analysis."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Marie Curie",
+    "premise": "Leaving partitioned Poland to study in Paris, living in near-starvation conditions while pursuing higher education in physics.",
+    "hook": "She lived on bread, tea, and radishes in a cold garret in Paris while pursuing a degree that would change modern science.",
+    "key_facts": [
+      "Enrolled at the Sorbonne in Paris after studying secretly at the clandestine Flying University in Warsaw.",
+      "Graduated with degrees in both physics and mathematics.",
+      "Discovered the elements polonium and radium while analyzing pitchblende ore.",
+      "Became the first woman to win a Nobel Prize and the only person to win Nobel Prizes in two distinct scientific fields."
     ],
     "source": "gemini_original"
   }

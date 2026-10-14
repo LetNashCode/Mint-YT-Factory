@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-13T23:00:37.605336+00:00",
-  "video_count": 9,
+  "generated_at": "2026-10-14T08:11:24.638433+00:00",
+  "video_count": 10,
   "learning_ready": true,
   "metrics_available": true,
   "advanced_metrics_videos": 9,
@@ -14,16 +14,16 @@
   "winning_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 39.733,
+      "score": 39.732,
       "sample_size": 3,
       "weak_sample_size": 3,
-      "weak_score": 21.977
+      "weak_score": 14.577
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 21.977,
+      "score": 14.577,
       "sample_size": 3
     }
   ],
@@ -36,11 +36,11 @@
     "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes."
   ],
   "avoid_topics": [
-    "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
     "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",
-    "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia."
+    "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
+    "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age."
   ],
-  "used_topic_count": 9,
+  "used_topic_count": 10,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

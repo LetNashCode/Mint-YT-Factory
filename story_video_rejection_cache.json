@@ -2505,6 +2505,276 @@
       "start": 4742.88,
       "reason": "The sampled frames feature Aamir Khan and Kareena Kapoor from the movie 3 Idiots, but Boman Irani is not visible in any of the frames.",
       "reviewed_at": 1791932576.86952
+    },
+    "8e3d36e6b93275d8ef5b4d1d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "source_url": "https://archive.org/details/cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "person": "Rosa Parks",
+      "start": 2053.08,
+      "reason": "The video shows a 2018 essay contest award ceremony featuring contemporary participants, not historical footage or depictions of Rosa Parks herself.",
+      "reviewed_at": 1791965549.3653586
+    },
+    "b370c7892b83c08bc066e995": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "source_url": "https://archive.org/details/cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "person": "Rosa Parks",
+      "start": 619.43,
+      "reason": "The footage shows a 2018 essay contest event and modern speakers, but Rosa Parks passed away in 2005 and is not visibly present in the video. Therefore, it does not provide direct historical footage or valid biographical illustration of Rosa Parks herself.",
+      "reviewed_at": 1791965554.521381
+    },
+    "cee2a9ca46eac06fa7a75dfd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ttval-Rosa_Parks_Day_-_TROY_TrojanVision_News",
+      "source_url": "https://archive.org/details/ttval-Rosa_Parks_Day_-_TROY_TrojanVision_News",
+      "person": "Rosa Parks",
+      "start": 53.28,
+      "reason": "The video features contemporary news footage related to Rosa Parks Day celebrations and memorials, but Rosa Parks herself (who passed away in 2005) is not visible in the footage. It serves as biographical illustration for modern context.",
+      "reviewed_at": 1791965593.6110094
+    },
+    "deb6e2f8be497aadb8449dc8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ttval-Rosa_Parks_Day_-_TROY_TrojanVision_News",
+      "source_url": "https://archive.org/details/ttval-Rosa_Parks_Day_-_TROY_TrojanVision_News",
+      "person": "Rosa Parks",
+      "start": 72.59,
+      "reason": "The footage shows B-roll of museum exhibits related to Rosa Parks (such as a 'Colored Waiting Room' sign and busts/paintings) followed by a news interview with a student commenting on Rosa Parks Day. Rosa Parks herself is not visible in the footage, but the contextual museum artifacts provide relevant biographical illustration.",
+      "reviewed_at": 1791965599.3151166
+    },
+    "824a4c15f398c06cd4731e17": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mccmd-Joint_proclamation_recognizing_Rosa_Parks_Day_by_Councilmember_Sayles_and_Will_Jawando_moc",
+      "source_url": "https://archive.org/details/mccmd-Joint_proclamation_recognizing_Rosa_Parks_Day_by_Councilmember_Sayles_and_Will_Jawando_moc",
+      "person": "Rosa Parks",
+      "start": 45.75,
+      "reason": "The video shows modern council members presenting a proclamation about Rosa Parks, but Rosa Parks is not visible in the footage (she passed away in 2005, and the clip is from 2025). Therefore, person_visible is false and direct_event is required, but this footage does not depict any historical event related to her life.",
+      "reviewed_at": 1791965603.42251
+    },
+    "22a49650adf7e59c8d688a4a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mccmd-Joint_proclamation_recognizing_Rosa_Parks_Day_by_Councilmember_Sayles_and_Will_Jawando_moc",
+      "source_url": "https://archive.org/details/mccmd-Joint_proclamation_recognizing_Rosa_Parks_Day_by_Councilmember_Sayles_and_Will_Jawando_moc",
+      "person": "Rosa Parks",
+      "start": 66.13,
+      "reason": "The footage shows modern council members presenting a proclamation recognizing Rosa Parks Day in 2025. Rosa Parks is not visible in the video, and this modern government proceeding is not historical archival footage of Rosa Parks' life.",
+      "reviewed_at": 1791965607.5172427
+    },
+    "ed93a632155290ffc285e243": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "person": "Rosa Parks",
+      "start": 25.09,
+      "reason": "The video segment features archival footage of Rosa Parks in the first few frames, which is relevant to her biography, although the remaining frames show an educational access interview.",
+      "reviewed_at": 1791965612.663555
+    },
+    "62ccbc676bfbc751b9a382a0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+      "person": "Rosa Parks",
+      "start": 65.27,
+      "reason": "The video shows a modern school presentation or assembly about Rosa Parks at Daily Elementary in 2015, not historical footage of Rosa Parks herself. While it is real filmed footage, it only provides loose contemporary biographical illustration rather than direct historical context.",
+      "reviewed_at": 1791965619.1315417
+    },
+    "3d8fc63f221b54d440fc7c8c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "person": "Kalpana Chawla",
+      "start": 221.09,
+      "reason": "The clip features a U.S. Senator speaking on the Senate floor with a photograph of the Columbia crew displayed beside him, in which Kalpana Chawla is visibly present.",
+      "reviewed_at": 1791965651.601558
+    },
+    "75758d8dd7d2c970de0cfa84": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "person": "Kalpana Chawla",
+      "start": 313.7,
+      "reason": "The footage shows Senator John Cornyn speaking in the US Senate next to a photograph of the Columbia crew, which includes Kalpana Chawla. While Kalpana Chawla is only depicted via a static photograph on a poster rather than active archival video footage of herself, the video is genuine legislative context remembering the astronaut.",
+      "reviewed_at": 1791965656.7306745
+    },
+    "99d4b8d7f416e24fec8a9d5f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+      "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+      "person": "Kalpana Chawla",
+      "start": 83.76,
+      "reason": "The footage shows archival rocket/space shuttle launches and an interview in front of a memorial, but Kalpana Chawla herself is not visibly present in the frames. However, it provides valid contextual and illustrative historical material related to her career and legacy.",
+      "reviewed_at": 1791965685.8152165
+    },
+    "298193b4232512ec85609793": {
+      "kind": "segment_rejection",
+      "source_id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+      "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+      "person": "Kalpana Chawla",
+      "start": 131.02,
+      "reason": "The video features an interview related to Kalpana Chawla's legacy at UT Arlington, but Kalpana Chawla herself is not visible in the frames (only the interviewee is shown), so it serves as biographical illustration context.",
+      "reviewed_at": 1791965706.724399
+    },
+    "6dde3f09743c95361e09f2eb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+      "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+      "person": "Kalpana Chawla",
+      "start": 146.77,
+      "reason": "The video segment shows archival footage including university newspaper clips, memorial boards, and framed photos related to Kalpana Chawla, but does not feature moving identity footage of the subject herself; thus it serves as biographical illustration.",
+      "reviewed_at": 1791965712.4777908
+    },
+    "489cda78a4bce9e395c9668a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
+      "source_url": "https://archive.org/details/barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
+      "person": "Amitabh Bachchan",
+      "start": 5627.44,
+      "reason": "The sampled frames show other actors (such as Amjad Khan) but Amitabh Bachchan is not visibly present in any of the five frames.",
+      "reviewed_at": 1791965768.7946794
+    },
+    "a5cddf8e67e67af29297d31d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
+      "source_url": "https://archive.org/details/barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
+      "person": "Amitabh Bachchan",
+      "start": 5.0,
+      "reason": "The sampled frames consist of abstract motion graphics/animations with no actual footage or visible appearance of Amitabh Bachchan, making it unusable as direct biographical evidence.",
+      "reviewed_at": 1791965801.5309036
+    },
+    "ffae6e6fc7ffbf1bc19424c5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
+      "source_url": "https://archive.org/details/barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
+      "person": "Amitabh Bachchan",
+      "start": 808.21,
+      "reason": "The sampled frames show actors Rakhee and Amjad Khan from a Hindi movie associated with Amitabh Bachchan's film collection, but Amitabh Bachchan himself is not clearly identifiable in the footage.",
+      "reviewed_at": 1791965810.7424967
+    },
+    "cfa168952c5515080669a67b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+      "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+      "person": "Amitabh Bachchan",
+      "start": 86.63,
+      "reason": "The footage shows Amitabh Bachchan speaking at an album launch event, which is real archival footage of the subject, useful as biographical illustration.",
+      "reviewed_at": 1791965899.6365402
+    },
+    "765a1418f743b7c80d914474": {
+      "kind": "segment_rejection",
+      "source_id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+      "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+      "person": "Amitabh Bachchan",
+      "start": 39.98,
+      "reason": "The video shows Amitabh Bachchan at an album launch event, which provides real biographical footage of the subject, though it is a general event appearance rather than specific archival history.",
+      "reviewed_at": 1791965928.6675115
+    },
+    "57f26fe192b6b57b6723b820": {
+      "kind": "segment_rejection",
+      "source_id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+      "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+      "person": "Amitabh Bachchan",
+      "start": 98.29,
+      "reason": "The footage shows Amitabh Bachchan speaking at a public event (launching an album), which provides valid biographical illustration of his public appearances, though not a direct depiction of his core historical milestones.",
+      "reviewed_at": 1791965958.8529873
+    },
+    "bb720281d1c1882e6d55e529": {
+      "kind": "segment_rejection",
+      "source_id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+      "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+      "person": "Amitabh Bachchan",
+      "start": 5.0,
+      "reason": "The video shows an event related to Himesh Reshammiya's album launch, but Amitabh Bachchan is not visible in any of the sampled frames.",
+      "reviewed_at": 1791965984.795215
+    },
+    "76736804ef96863c78aab248": {
+      "kind": "segment_rejection",
+      "source_id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+      "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+      "person": "Amitabh Bachchan",
+      "start": 16.66,
+      "reason": "The footage shows Amitabh Bachchan walking through a venue, but it is general event coverage rather than specific archival life footage illustrating his biography.",
+      "reviewed_at": 1791966000.539468
+    },
+    "7ec6d0a2fab729f6f09dd686": {
+      "kind": "segment_rejection",
+      "source_id": "archive:j.-k.-rowling-laughably-claims-shes-actually-not-transphobic-1080p",
+      "source_url": "https://archive.org/details/j.-k.-rowling-laughably-claims-shes-actually-not-transphobic-1080p",
+      "person": "J.K. Rowling",
+      "start": 32.28,
+      "reason": "The video features J.K. Rowling clearly visible in multiple sampled frames (archive/public appearance footage), serving as biographical illustration for her life and public statements.",
+      "reviewed_at": 1791966158.1335945
+    },
+    "37fb851378a033e18f385f76": {
+      "kind": "segment_rejection",
+      "source_id": "archive:j.-k.-rowling-laughably-claims-shes-actually-not-transphobic-1080p",
+      "source_url": "https://archive.org/details/j.-k.-rowling-laughably-claims-shes-actually-not-transphobic-1080p",
+      "person": "J.K. Rowling",
+      "start": 5.0,
+      "reason": "The sampled video frames show a political podcaster (The Humanist Report) talking in a studio setting, not J.K. Rowling. Although a photo of J.K. Rowling is visible on a background monitor, the subject herself is not visibly present in the footage.",
+      "reviewed_at": 1791966179.3937168
+    },
+    "7aa8466b15edc5bbc73ffce3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+      "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+      "person": "J.K. Rowling",
+      "start": 135.11,
+      "reason": "The video segment shows general Pride protest footage and unrelated individuals, but J.K. Rowling is not present in any of the sampled frames.",
+      "reviewed_at": 1791966195.861263
+    },
+    "4f598dc0b6e49e2ae44ecd81": {
+      "kind": "segment_rejection",
+      "source_id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+      "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+      "person": "J.K. Rowling",
+      "start": 146.94,
+      "reason": "The footage shows Aimee Stephens, not J.K. Rowling, and has no direct relevance to J.K. Rowling's biography.",
+      "reviewed_at": 1791966200.7648451
+    },
+    "3c4acce9907ef433f34ee4fd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NimrodTrollsJKRowling",
+      "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+      "person": "J.K. Rowling",
+      "start": 160.88,
+      "reason": "The sampled frames and video source depict a prankster (Nimrod Kamer) trolling at a book signing, but J.K. Rowling herself is not visible in the footage. Therefore, it cannot be used as direct or biographical footage of the subject.",
+      "reviewed_at": 1791966265.1420581
+    },
+    "8fc8637a062793736dff9f5c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NimrodTrollsJKRowling",
+      "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+      "person": "J.K. Rowling",
+      "start": 176.46,
+      "reason": "The video shows a prankster (Nimrod Kamer) at a book signing event, but J.K. Rowling herself is never visibly present in the sampled frames. Therefore, it cannot be used for direct identity footage or historical context depicting her.",
+      "reviewed_at": 1791966277.9087014
+    },
+    "a9576fb476b9e9e9daf49844": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jk-rowling-contrapoints",
+      "source_url": "https://archive.org/details/jk-rowling-contrapoints",
+      "person": "J.K. Rowling",
+      "start": 2483.85,
+      "reason": "The footage shows Natalie Wynn (ContraPoints) in a bath, not J.K. Rowling. This is a third-party commentary video essayist discussing J.K. Rowling, so the subject is not visible.",
+      "reviewed_at": 1791966296.0471783
+    },
+    "ea2982a608031b24828db3c3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jk-rowling-contrapoints",
+      "source_url": "https://archive.org/details/jk-rowling-contrapoints",
+      "person": "J.K. Rowling",
+      "start": 3310.13,
+      "reason": "The footage shows a video essay by ContraPoints discussing J.K. Rowling, featuring the creator in a bathtub and various cinematic clips, but J.K. Rowling herself is not visible in the segment.",
+      "reviewed_at": 1791966311.5497136
+    },
+    "fc42b08e37c9e5e77451fd04": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dolly-parton-and-david-brenner",
+      "source_url": "https://archive.org/details/dolly-parton-and-david-brenner",
+      "person": "Dolly Parton",
+      "start": 421.55,
+      "reason": "The sampled frames show the interviewer (David Brenner) speaking, but Dolly Parton is not visible in any of the sampled frames for this segment.",
+      "reviewed_at": 1791966407.8806474
     }
   }
 }

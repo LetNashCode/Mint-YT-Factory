@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-10-13T23:00:37.589353+00:00",
-  "video_count": 9,
+  "generated_at": "2026-10-14T08:11:24.621329+00:00",
+  "video_count": 10,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 9,
   "reason": "",
   "totals": {
-    "views": 5777,
+    "views": 5960,
     "likes": 90,
     "comments": 0
   },
   "averages": {
-    "views": 641.89,
-    "likes": 10.0,
+    "views": 596.0,
+    "likes": 9.0,
     "comments": 0.0,
-    "average_view_percentage": 52.37,
-    "subscribers_gained": 0.67,
+    "average_view_percentage": 47.13,
+    "subscribers_gained": 0.6,
     "shares": 0.0
   },
   "top_videos": [
@@ -79,7 +79,7 @@
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
       "video_id": "hLW3D1SJuYo",
       "title": "Before the Fame: Jackie Chan's Untold Struggle",
-      "views": 1015,
+      "views": 1020,
       "likes": 29,
       "comments": 0,
       "shares": 0,
@@ -87,7 +87,7 @@
       "average_view_percentage": 88.87,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 2.8571
+      "engagement_rate": 2.8431
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -102,6 +102,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.266
+    },
+    {
+      "topic": "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
+      "video_id": "negG-shOfpM",
+      "title": "The Untold Turning Point in Boman Irani's Story",
+      "views": 178,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
     },
     {
       "topic": "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
@@ -207,7 +221,7 @@
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
       "video_id": "hLW3D1SJuYo",
       "title": "Before the Fame: Jackie Chan's Untold Struggle",
-      "views": 1015,
+      "views": 1020,
       "likes": 29,
       "comments": 0,
       "shares": 0,
@@ -215,7 +229,7 @@
       "average_view_percentage": 88.87,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 2.8571
+      "engagement_rate": 2.8431
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -230,6 +244,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.266
+    },
+    {
+      "topic": "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
+      "video_id": "negG-shOfpM",
+      "title": "The Untold Turning Point in Boman Irani's Story",
+      "views": 178,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
     },
     {
       "topic": "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",

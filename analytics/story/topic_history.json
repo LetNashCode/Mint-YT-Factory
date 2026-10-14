@@ -212,5 +212,21 @@
     "video_id": "negG-shOfpM",
     "workdir": "",
     "published_at": 1791933238
+  },
+  {
+    "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
+    "normalized": "dolly parton growing up in a one room cabin with twelve siblings in the great smoky mountains before becoming a global country music icon",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1791966395,
+    "recorded_at": 1791966395,
+    "metadata": {
+      "person": "Dolly Parton",
+      "pillar": "rise_from_nothing"
+    },
+    "title": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
+    "video_id": "Pb1-aVVunGg",
+    "workdir": "",
+    "published_at": 1791967173
   }
 ]

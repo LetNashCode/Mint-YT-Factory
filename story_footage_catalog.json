@@ -5070,37 +5070,6 @@
       "reviewed_at": 1790902807.602891
     },
     {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 52.26,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The frames clearly show astronaut Kalpana Chawla in archival footage, wearing a space helmet and training suit.",
-        "usage": "direct_event"
-      },
-      "review_key": "beb9c597ea300a9992a8e8d1d9ff4fef5fb4b9f4c5c0968e0fe5246239153a7c",
-      "reviewed_at": 1790902937.894752
-    },
-    {
       "person": "Dwayne Johnson",
       "source": {
         "id": "archive:twitter-1268396403711082496",
@@ -8265,37 +8234,6 @@
     {
       "person": "Amitabh Bachchan",
       "source": {
-        "id": "archive:VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD/Vashmalle%20Song%20Thugs%20Of%20Hindostan%20-%20Amitabh%20Bachchan%20%20-%20%20Aamir%20Khan%20-%20Fresh%20Music%20HD.mp4",
-        "source_url": "https://archive.org/details/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
-        "title": "Vashmalle Song Thugs Of Hindostan Amitabh Bachchan Aamir Khan Fresh Music HD",
-        "description": "Thugs Of Hindostan Vashmalle",
-        "creator": "",
-        "license": "",
-        "subject": "Vashmalle",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 63.52,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 34.71,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "Amitabh Bachchan is clearly visible across all three frames performing in a song sequence from 'Thugs of Hindostan', making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "015f7a8b9b99a3cafcba4556938377b57e25d01e20302ddb9edeb1ae1325d20b",
-      "reviewed_at": 1791620328.5562484
-    },
-    {
-      "person": "Amitabh Bachchan",
-      "source": {
         "id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD/AMITABH%20BACHCHAN%20LAUNCH%20HIMESH%20%26%20LULIA%20VANTUR%20MUSIC%20ALBUM%20AAP%20SE%20MAUSIIQUII%20%20HD.mp4",
@@ -8323,68 +8261,6 @@
       },
       "review_key": "6c577a44e15fb29703ce4fa37b21bd2762c89d71f85338968c5ca152bd47fc39",
       "reviewed_at": 1791620342.1990788
-    },
-    {
-      "person": "Amitabh Bachchan",
-      "source": {
-        "id": "archive:VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD/Vashmalle%20Song%20Thugs%20Of%20Hindostan%20-%20Amitabh%20Bachchan%20%20-%20%20Aamir%20Khan%20-%20Fresh%20Music%20HD.mp4",
-        "source_url": "https://archive.org/details/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
-        "title": "Vashmalle Song Thugs Of Hindostan Amitabh Bachchan Aamir Khan Fresh Music HD",
-        "description": "Thugs Of Hindostan Vashmalle",
-        "creator": "",
-        "license": "",
-        "subject": "Vashmalle",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 63.52,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 44.62,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The clip features Amitabh Bachchan dancing in a scene from 'Thugs of Hindostan'. While it is movie footage rather than a real biographical documentary segment, he is clearly visible across all frames as requested, making it usable as biographical illustration for his career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6292696962a205878cf45ebd8e19bea2d4b5499a23f0d93a5910fa5ef90976cd",
-      "reviewed_at": 1791620398.1203156
-    },
-    {
-      "person": "Amitabh Bachchan",
-      "source": {
-        "id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD/AMITABH%20BACHCHAN%20LAUNCH%20HIMESH%20%26%20LULIA%20VANTUR%20MUSIC%20ALBUM%20AAP%20SE%20MAUSIIQUII%20%20HD.mp4",
-        "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
-        "title": "Amitabh Bachchan unveils Himesh Reshammiya's album 'Aap Se Mausiiquii'",
-        "description": "Amitabh Bachchan launched Himesh Reshammiya's new album 'Aap Se Mausiiquii' along with Iulia Vantur, Alankrita Sahai and Manoj Muntashir. ['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
-        "creator": "",
-        "license": "",
-        "subject": "['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 165.6,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 28.32,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage shows Amitabh Bachchan clearly present at an event/album launch, interacting with others. It provides biographical illustration of his public appearances, though the narration is generic archival reference.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f57ce0a591f835c646d39971778fc23da337207419b2205fad29bd58a2f2757e",
-      "reviewed_at": 1791620483.4077904
     },
     {
       "person": "Amitabh Bachchan",
@@ -8435,37 +8311,6 @@
         "identity_score": 13.0,
         "archival_signal": 0
       },
-      "start": 74.97,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "Amitabh Bachchan is clearly visible across all three frames attending the album launch event, matching the biographical context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9fe05aa652c51c6be3cd08d36aedeabcaf2ee77f333baba30b7e13a82fb4032a",
-      "reviewed_at": 1791620554.7477307
-    },
-    {
-      "person": "Amitabh Bachchan",
-      "source": {
-        "id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD/AMITABH%20BACHCHAN%20LAUNCH%20HIMESH%20%26%20LULIA%20VANTUR%20MUSIC%20ALBUM%20AAP%20SE%20MAUSIIQUII%20%20HD.mp4",
-        "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
-        "title": "Amitabh Bachchan unveils Himesh Reshammiya's album 'Aap Se Mausiiquii'",
-        "description": "Amitabh Bachchan launched Himesh Reshammiya's new album 'Aap Se Mausiiquii' along with Iulia Vantur, Alankrita Sahai and Manoj Muntashir. ['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
-        "creator": "",
-        "license": "",
-        "subject": "['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 165.6,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
       "start": 98.29,
       "length": 8.0,
       "verification": {
@@ -8478,37 +8323,6 @@
       },
       "review_key": "1307be903a28ada0a6996d52d49527fa068ebb2dbc8487638344ca2b0418007d",
       "reviewed_at": 1791620568.1954484
-    },
-    {
-      "person": "Amitabh Bachchan",
-      "source": {
-        "id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD/AMITABH%20BACHCHAN%20LAUNCH%20HIMESH%20%26%20LULIA%20VANTUR%20MUSIC%20ALBUM%20AAP%20SE%20MAUSIIQUII%20%20HD.mp4",
-        "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
-        "title": "Amitabh Bachchan unveils Himesh Reshammiya's album 'Aap Se Mausiiquii'",
-        "description": "Amitabh Bachchan launched Himesh Reshammiya's new album 'Aap Se Mausiiquii' along with Iulia Vantur, Alankrita Sahai and Manoj Muntashir. ['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
-        "creator": "",
-        "license": "",
-        "subject": "['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 165.6,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 121.62,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Amitabh Bachchan is clearly visible across all three frames at a public event, but the footage is modern event coverage used to illustrate his biography rather than a direct depiction of historical events from his life story.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "20d8ddb6b1c4178529b7c2ffbff6774deafd64250aea3710ce692ebe2b1a6eaa",
-      "reviewed_at": 1791620636.3375762
     },
     {
       "person": "A. R. Rahman",
@@ -12478,37 +12292,6 @@
     {
       "person": "Rosa Parks",
       "source": {
-        "id": "archive:DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks.mp4",
-        "source_url": "https://archive.org/details/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
-        "title": "DCTV Celebrates Black History Month - Rosa Parks",
-        "description": "Produced by DCTV (DeKalb County Television) Channel 23, this video recognizes those who made great impacts in and for the African American community and the world alike. Additional Information: DCTV celebrates Black History Month by recognizing Rosa Parks, known as the \"First Lady of Civil Rights.\" Parks is an American activist best known for not giving up her seat to a caucasian passenger in Alabama which helped spark the Montgomery Bus Boycott which started in December 1955. She received both the Presidential Medal of Freedom and the Congressional Gold Medal for her courageous act. For more DeKalb County news, visit http://www.dctvchannel23.tv. ['Georgia', 'DeKalb County', 'DeKalb County Television', 'DCTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'GA', 'Black History', 'Black History Month', 'Channel 23', 'Rosa Parks', '2020']",
-        "creator": "DCTV",
-        "license": "",
-        "subject": "['Georgia', 'DeKalb County', 'DeKalb County Television', 'DCTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'GA', 'Black History', 'Black History Month', 'Channel 23', 'Rosa Parks', '2020']",
-        "runtime": "00:00:47",
-        "direct_subject": true,
-        "duration_hint": 47.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 26.46,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The clip features actual footage of Rosa Parks clearly visible with overlaid text and quotes, serving as good biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "270369378a7431042eec5a67fef86dd58fcf193b1497129999fe39c696a23da1",
-      "reviewed_at": 1791929847.1012006
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
         "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
@@ -12755,130 +12538,6 @@
       "reviewed_at": 1791930639.9580257
     },
     {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:PrideMonthShowedProgressExceptforJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/PrideMonthShowedProgressExceptforJKRowling/Pride%20Month%20Showed%20Progress%20%E2%80%94%20Except%20for%20J.K.%20Rowling%20%5BYSItxEJtW4s%5D.mp4",
-        "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
-        "title": "Pride Month Showed Progress — Except for J.K. Rowling",
-        "description": "The yearly tradition of companies and politicians falling over themselves to recognize queer people is here. Here's how the 50th anniversary of Pride Month was (and wasn't) celebrated this year. Subscribe to VICE News here: [URL REMOVED] Check out VICE News for more: [URL REMOVED] Follow VICE News here: Facebook: [URL REMOVED] Twitter: [URL REMOVED] Tumblr: [URL REMOVED] Instagram: [URL REMOVED] More videos from the VICE network: [URL REMOVED] ",
-        "creator": "VICE News",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 167.767768,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 52.31,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The segment includes genuine archival footage and public appearances of J.K. Rowling, making it usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "22f5666248ec29146d498a025734d2e8d3ccd0be772894e870f414c472458f87",
-      "reviewed_at": 1791930925.18401
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 67.35,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features real archival footage of J.K. Rowling speaking at an event in the first four frames, though the fifth frame shows a camera operator and does not include her. Since she is clearly identifiable in multiple frames, person_visible is true and the segment is useful as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e952b5a5bbb2b72938ee226b9f9fe104f76ca3a77d848e634c9958c3362f1576",
-      "reviewed_at": 1791930952.4434166
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 36.18,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video segment shows real archival footage of J.K. Rowling at a book signing event, making her clearly visible in several frames and providing authentic biographical context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "319d5bd4252526c549a2d27a3928c2a3cfbed5ecb858cd3568a81825ba5fa3fd",
-      "reviewed_at": 1791931003.1782324
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 82.94,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video segment contains real archival footage of J.K. Rowling speaking in at least one frame, alongside related news coverage context from a prank video, making it usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5b99265ac68219eb6628b365aede429cbe021dd364bb547fb20dbe521ce2a293",
-      "reviewed_at": 1791931011.0535524
-    },
-    {
       "person": "Satyajit Ray",
       "source": {
         "id": "archive:dli.MoI.SatyajitRay_Eng",
@@ -13094,6 +12753,1153 @@
       },
       "review_key": "a29bcd9e7e12fb6890b4bc481b067fe0328f5d930a4a626a5084548b41d75e09",
       "reviewed_at": 1791932560.5556242
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks.mp4",
+        "source_url": "https://archive.org/details/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
+        "title": "DCTV Celebrates Black History Month - Rosa Parks",
+        "description": "Produced by DCTV (DeKalb County Television) Channel 23, this video recognizes those who made great impacts in and for the African American community and the world alike. Additional Information: DCTV celebrates Black History Month by recognizing Rosa Parks, known as the \"First Lady of Civil Rights.\" Parks is an American activist best known for not giving up her seat to a caucasian passenger in Alabama which helped spark the Montgomery Bus Boycott which started in December 1955. She received both the Presidential Medal of Freedom and the Congressional Gold Medal for her courageous act. For more DeKalb County news, visit http://www.dctvchannel23.tv. ['Georgia', 'DeKalb County', 'DeKalb County Television', 'DCTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'GA', 'Black History', 'Black History Month', 'Channel 23', 'Rosa Parks', '2020']",
+        "creator": "DCTV",
+        "license": "",
+        "subject": "['Georgia', 'DeKalb County', 'DeKalb County Television', 'DCTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'GA', 'Black History', 'Black History Month', 'Channel 23', 'Rosa Parks', '2020']",
+        "runtime": "00:00:47",
+        "direct_subject": true,
+        "duration_hint": 47.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 26.46,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature archival footage of Rosa Parks herself with an overlay of her name and quote, making it valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "27ab387f3220474b5fd95bee07f676988a3a5d778809380828a5f66f2fd4db76",
+      "reviewed_at": 1791965565.7925394
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 52.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment shows real archival footage of astronaut Kalpana Chawla in training wearing space gear, making it highly relevant and usable for a biographical short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "41b43d2cb4741f913cd33bb060c1ad69e38a4ce4457d6e921541065ac716a2b7",
+      "reviewed_at": 1791965641.448398
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features archival footage and an interview segment directly discussing astronaut Kalpana Chawla, with her portrait and identity clearly visible in the opening frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "44bd87a6cf83cf06a39a22725c71c0e100ce38230774b2b715c155f0d1afdb40",
+      "reviewed_at": 1791965660.0686126
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 20.75,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "Kalpana Chawla is clearly visible in the first two sampled archive frames alongside a display board, providing authentic biographical illustration of her life and university legacy.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f30aa43d5483e6036a82ffed1ad6ee0c91ed3dfa94532d4c1810a5a4c4c61d6b",
+      "reviewed_at": 1791965665.4356732
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 36.51,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features an interview with Dr. Don Wilson discussing Kalpana Chawla, with a large poster of Chawla clearly visible in the background throughout the sampled frames. This serves as valid biographical illustration for a video about Chawla.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e2201f0be967aef2af54a8c13a858dff4332a4f5f9b43c7707cb5d3be58cb394",
+      "reviewed_at": 1791965670.8109565
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 68.01,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment contains real archival footage and photos featuring Kalpana Chawla speaking at a microphone, alongside historical group astronaut photos, providing strong biographical illustration for a Short about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c078f1c659160967974d33df838e92593f2da624c4f46891735fa5f731a47241",
+      "reviewed_at": 1791965678.072556
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 99.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly show archival footage of Kalpana Chawla (visibly identifiable among the astronauts in orange flight suits walking out) and historical imagery illustrating her life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8bc9484dd6e47dd56724173a34254670ec804dc7f30366db9643fb396d1af24f",
+      "reviewed_at": 1791965690.0392137
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 115.27,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Kalpana Chawla is clearly visible in the archival crew photograph shown in the first frames, followed by relevant interview footage discussing her life and legacy.",
+        "usage": "direct_event"
+      },
+      "review_key": "cd1637b2d0b8428214bc8a6f7148416853493932c5428db01e253dcdfbcc4706",
+      "reviewed_at": 1791965696.2942421
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano/Agneepath%20%281990%29%20Hindi.WEB.DL.1080p.x264.AAC.Arabic.ESub.BY%20Juleyano.ia.mp4",
+        "source_url": "https://archive.org/details/barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
+        "title": "Amitabh Bachchan film collection",
+        "description": "Hindi Movie, Hindi Film,Bollywood, Amitabh Bachchan film collection Amitabh Bachchan, Rakhee, Amjad Khan, Bombay to Goa (1972) Ek Rishtaa The Bond of Love (2001) Aks (2001) Dev (2004) Barsaat Ki Ek Raat (1981) Mard (1985) Mohabbatein (2000) Kaalia (1981) Saat Hindustani ( 1969) Mrityudaata (1997) The Path of Fire -Agneepath (1990) Kaalia (1981) Aakhree Raasta (1986) Abhimaan (1973) Aks (2001) Kabhie Kabhie (1976) Cheeni Kum (2007) Hera Pheri (1976) Don (1978) Jaadugar (1989) Kaun Jeeta Kaun Haara (1987) Pyar Ki Kahani (1971) Parwana (1971) Sanjog (1971) Mili (1975) Mahaan (1983) Sholay (1975) Saudagar (1973) Namak Haraam (1973) Raaste Kaa Patthar (1972) Shahenshah (1988) Zanjeer (1973) Zameer (1975) Bandhe Haath (1973) Laawaris (1981) Andhaa Kaanoon (1983) Yaar Meri Zindagi ( 1973-2008 ) Benaam (1974) Gangaa Jamunaa Saraswathi (1988) Gehri Chaal (1973) Geraftaar (1985) Satte Pe Satta (1982) Eklavya The Royal Guard (2007) Suhaag (1979) Silsila (1981) Nastik (1983) Muqaddar Ka Sikandar ( 1978) Alaap (1977) Adalat (1976) Ek Nazar (1972) Do Anjaane (1976) Roti Kapada Aur Makaan (1974) Bemisal (1982) Ajooba (1991) Armaan (2003) Namak Halaal (1982) Yaarana (1981) Main Azaad Hoon (1989) Akayla (1991) Amar Akbar Anthony (1977) Trishul (1978) Kohram (1999) Do Aur Do Paanch (1980) The Great Gambler (1979) Mr Natwarlal (1979) Pukar (1983) Kaala Patthar (1979) Bade Miyan Chote Miyan (1998) Reshma Aur Shera (1971) Inquilaab (1984) Kasme Vaade (1978) Bansi Birju (1972) Majboor (1974) Bunty Aur Babli (2005) Manzil (1979) Aankhen (2002) Major Saab (1998) Hindustan Ki Kasam (1999) Khuda Gaw ['Hindi Movie', 'Hindi Film', 'Bollywood', 'Amitabh Bachchan', 'Rakhee', 'Amjad Khan']",
+        "creator": "juleyano",
+        "license": "",
+        "subject": "['Hindi Movie', 'Hindi Film', 'Bollywood', 'Amitabh Bachchan', 'Rakhee', 'Amjad Khan']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 10455.68,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 8037.06,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage clearly features Amitabh Bachchan in a classic film scene from his collection, serving as a good biographical illustration of his acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b8828f00e62d093e8caea107200a6d02ca048f82aea1be2da74cf7a272e7d215",
+      "reviewed_at": 1791965776.6172926
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD/Vashmalle%20Song%20Thugs%20Of%20Hindostan%20-%20Amitabh%20Bachchan%20%20-%20%20Aamir%20Khan%20-%20Fresh%20Music%20HD.mp4",
+        "source_url": "https://archive.org/details/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
+        "title": "Vashmalle Song Thugs Of Hindostan Amitabh Bachchan Aamir Khan Fresh Music HD",
+        "description": "Thugs Of Hindostan Vashmalle",
+        "creator": "",
+        "license": "",
+        "subject": "Vashmalle",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 63.52,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 34.71,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage features Amitabh Bachchan dancing in a scene from the movie 'Thugs of Hindostan', which is valid biographical illustration of his film career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b75207c39400551613674c199607be49d1e2631c7984acc44ebd0fcaabf8aef1",
+      "reviewed_at": 1791965791.553253
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD/Vashmalle%20Song%20Thugs%20Of%20Hindostan%20-%20Amitabh%20Bachchan%20%20-%20%20Aamir%20Khan%20-%20Fresh%20Music%20HD.mp4",
+        "source_url": "https://archive.org/details/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
+        "title": "Vashmalle Song Thugs Of Hindostan Amitabh Bachchan Aamir Khan Fresh Music HD",
+        "description": "Thugs Of Hindostan Vashmalle",
+        "creator": "",
+        "license": "",
+        "subject": "Vashmalle",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 63.52,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 44.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.0,
+        "reason": "The footage shows Amitabh Bachchan performing in a song sequence from the film 'Thugs of Hindostan', which is valid biographical illustration of his film career, though it features a watermark in the upper left corner.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b102042df9c7e035c5ca1f4f394994f1be58fa40bd0e2eb48c0d9a012cc1ae10",
+      "reviewed_at": 1791965823.3777452
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD/Vashmalle%20Song%20Thugs%20Of%20Hindostan%20-%20Amitabh%20Bachchan%20%20-%20%20Aamir%20Khan%20-%20Fresh%20Music%20HD.mp4",
+        "source_url": "https://archive.org/details/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
+        "title": "Vashmalle Song Thugs Of Hindostan Amitabh Bachchan Aamir Khan Fresh Music HD",
+        "description": "Thugs Of Hindostan Vashmalle",
+        "creator": "",
+        "license": "",
+        "subject": "Vashmalle",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 63.52,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The sampled frames clearly show Amitabh Bachchan (along with Aamir Khan) performing in the song 'Vashmalle' from 'Thugs of Hindostan'. While it is a movie clip and not a documentary, it serves as valid biographical illustration of his film career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c68d3d79d9cfef7a2a1453ca759fd6f54db8b5a997bc1bdc85a7eafe307c1656",
+      "reviewed_at": 1791965837.6791978
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD/Vashmalle%20Song%20Thugs%20Of%20Hindostan%20-%20Amitabh%20Bachchan%20%20-%20%20Aamir%20Khan%20-%20Fresh%20Music%20HD.mp4",
+        "source_url": "https://archive.org/details/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
+        "title": "Vashmalle Song Thugs Of Hindostan Amitabh Bachchan Aamir Khan Fresh Music HD",
+        "description": "Thugs Of Hindostan Vashmalle",
+        "creator": "",
+        "license": "",
+        "subject": "Vashmalle",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 63.52,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 14.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The clip features Amitabh Bachchan dancing in 'Thugs of Hindostan', making it suitable biographical illustration footage showing his later career work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "30e081a2b2ba0308c9ed17206373f1f73f01ab712c3fb05e03ded5c3d653e726",
+      "reviewed_at": 1791965853.5123518
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD/Vashmalle%20Song%20Thugs%20Of%20Hindostan%20-%20Amitabh%20Bachchan%20%20-%20%20Aamir%20Khan%20-%20Fresh%20Music%20HD.mp4",
+        "source_url": "https://archive.org/details/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
+        "title": "Vashmalle Song Thugs Of Hindostan Amitabh Bachchan Aamir Khan Fresh Music HD",
+        "description": "Thugs Of Hindostan Vashmalle",
+        "creator": "",
+        "license": "",
+        "subject": "Vashmalle",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 63.52,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 24.81,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The clip features Amitabh Bachchan performing in the song sequence from Thugs of Hindostan, making it valid biographical illustration footage, although it has a channel watermark in the top left.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e560db9f524d23eb2928b316d544c441bf3f5c7ce9bbcdbaad5194f4e92a2879",
+      "reviewed_at": 1791965868.3908076
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD/Vashmalle%20Song%20Thugs%20Of%20Hindostan%20-%20Amitabh%20Bachchan%20%20-%20%20Aamir%20Khan%20-%20Fresh%20Music%20HD.mp4",
+        "source_url": "https://archive.org/details/VashmalleSongThugsOfHindostanAmitabhBachchanAamirKhanFreshMusicHD",
+        "title": "Vashmalle Song Thugs Of Hindostan Amitabh Bachchan Aamir Khan Fresh Music HD",
+        "description": "Thugs Of Hindostan Vashmalle",
+        "creator": "",
+        "license": "",
+        "subject": "Vashmalle",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 63.52,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 54.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features real footage of Amitabh Bachchan from the film Thugs of Hindostan, making it suitable as biographical illustration for a video about him, though it contains title cards and transitions.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ad8f568a9be14dede543118a151c0ad6e8bf1576d71246edf6dca623cc25b0f5",
+      "reviewed_at": 1791965881.243763
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD/AMITABH%20BACHCHAN%20LAUNCH%20HIMESH%20%26%20LULIA%20VANTUR%20MUSIC%20ALBUM%20AAP%20SE%20MAUSIIQUII%20%20HD.mp4",
+        "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "title": "Amitabh Bachchan unveils Himesh Reshammiya's album 'Aap Se Mausiiquii'",
+        "description": "Amitabh Bachchan launched Himesh Reshammiya's new album 'Aap Se Mausiiquii' along with Iulia Vantur, Alankrita Sahai and Manoj Muntashir. ['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "creator": "",
+        "license": "",
+        "subject": "['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 165.6,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 28.32,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage shows Amitabh Bachchan attending an album launch event, interacting with other artists. While it is genuine and features the correct subject, it is a promotional event rather than key biographical or direct historical footage, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3e5ff4251ba73e7acb5601ff38f72882f0b63a44586f3121433a9c4defa1a1ec",
+      "reviewed_at": 1791965912.5765176
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD/AMITABH%20BACHCHAN%20LAUNCH%20HIMESH%20%26%20LULIA%20VANTUR%20MUSIC%20ALBUM%20AAP%20SE%20MAUSIIQUII%20%20HD.mp4",
+        "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "title": "Amitabh Bachchan unveils Himesh Reshammiya's album 'Aap Se Mausiiquii'",
+        "description": "Amitabh Bachchan launched Himesh Reshammiya's new album 'Aap Se Mausiiquii' along with Iulia Vantur, Alankrita Sahai and Manoj Muntashir. ['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "creator": "",
+        "license": "",
+        "subject": "['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 165.6,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 74.97,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows actual footage of Amitabh Bachchan at a public event launching an album, making it valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9b3d9c2044a7066caef06883e1c681625350b926ecf056c34e18218192582638",
+      "reviewed_at": 1791965942.2995791
+    },
+    {
+      "person": "Amitabh Bachchan",
+      "source": {
+        "id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD/AMITABH%20BACHCHAN%20LAUNCH%20HIMESH%20%26%20LULIA%20VANTUR%20MUSIC%20ALBUM%20AAP%20SE%20MAUSIIQUII%20%20HD.mp4",
+        "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
+        "title": "Amitabh Bachchan unveils Himesh Reshammiya's album 'Aap Se Mausiiquii'",
+        "description": "Amitabh Bachchan launched Himesh Reshammiya's new album 'Aap Se Mausiiquii' along with Iulia Vantur, Alankrita Sahai and Manoj Muntashir. ['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "creator": "",
+        "license": "",
+        "subject": "['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 165.6,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 121.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The sampled frames clearly feature Amitabh Bachchan speaking at an album launch event, providing valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "31673e43ad033600916edf8f7be5c8bcef03cec7444d92bc4947701a7b2161cc",
+      "reviewed_at": 1791965971.3105593
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/PrideMonthShowedProgressExceptforJKRowling/Pride%20Month%20Showed%20Progress%20%E2%80%94%20Except%20for%20J.K.%20Rowling%20%5BYSItxEJtW4s%5D.mp4",
+        "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+        "title": "Pride Month Showed Progress — Except for J.K. Rowling",
+        "description": "The yearly tradition of companies and politicians falling over themselves to recognize queer people is here. Here's how the 50th anniversary of Pride Month was (and wasn't) celebrated this year. Subscribe to VICE News here: [URL REMOVED] Check out VICE News for more: [URL REMOVED] Follow VICE News here: Facebook: [URL REMOVED] Twitter: [URL REMOVED] Tumblr: [URL REMOVED] Instagram: [URL REMOVED] More videos from the VICE network: [URL REMOVED] ",
+        "creator": "VICE News",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 167.767768,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 52.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The sampled frames feature genuine archival footage and public appearances of J.K. Rowling alongside clips related to her works, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a5293cc039c56fcaf092c2a4fd506d6e8a72a6f278f95231fea7187ed1676c59",
+      "reviewed_at": 1791966183.5849154
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 67.35,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows J.K. Rowling participating in a public speaking event/book signing, with her face fully visible in multiple frames, making it authentic and usable biographical material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "facef8557f2476d1d0e16193eb233cee5396688b4eea3469b7452f6f8e1e283e",
+      "reviewed_at": 1791966215.3728938
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 36.18,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature J.K. Rowling at a book signing event, interacting with fans and signing copies of her books. The footage is authentic and directly relevant to her biography and career.",
+        "usage": "direct_event"
+      },
+      "review_key": "cc7716c865893c97d67fc1051cb45dc8d20091fe06a18644df2970fbfcaccf75",
+      "reviewed_at": 1791966222.8170156
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 82.94,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The sampled frames include actual footage of J.K. Rowling speaking at an event (frame 2), making her clearly identifiable. Other frames show archival news coverage and context related to her public appearances and controversies, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f5936b3ea8edad8bff5925c444548ef0e954506ae533f8be08958b6b7a6d5f89",
+      "reviewed_at": 1791966229.5267065
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 145.29,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features real archival footage of J.K. Rowling at a book signing event, making her clearly identifiable alongside the prankster.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "cb8b2b749d930e4d23337f2833c1bbc0baeeb364bb85ac3ad1aa515592537175",
+      "reviewed_at": 1791966237.1569393
+    },
+    {
+      "person": "Dolly Parton",
+      "source": {
+        "id": "archive:LarryKingLive20030703DollyParton",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LarryKingLive20030703DollyParton/Larry%20King%20Live%202003-07-03%20Dolly%20Parton.mp4",
+        "source_url": "https://archive.org/details/LarryKingLive20030703DollyParton",
+        "title": "Larry King Live 2003-07-03 Dolly Parton",
+        "description": "Dolly Parton discusses her album \"For God and Country,\" her fourth of July special, Dollywood, \"Nine to Five,\" her family and early career, former musical partner Porter Wagoner, Whitney Houston's cover of \"I Will Always Love You,\" plastic surgery, the tabloids, and much more. ['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
+        "creator": "CNN",
+        "license": "",
+        "subject": "['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2770.437104,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 1489.24,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.0,
+        "reason": "The video segment shows real archival interview footage of Dolly Parton on Larry King Live in 2003, with Dolly Parton clearly visible in frames 3 through 5, making it usable biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "21f56a542aaf162423a5ea2e72529ffc092dbfdd593c6dfa4cce7534f8e07c5f",
+      "reviewed_at": 1791966400.6025178
+    },
+    {
+      "person": "Dolly Parton",
+      "source": {
+        "id": "archive:dolly-parton-and-david-brenner",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dolly-parton-and-david-brenner/Dolly%20Parton%20and%20David%20Brenner.ia.mp4",
+        "source_url": "https://archive.org/details/dolly-parton-and-david-brenner",
+        "title": "Dolly Parton and David Brenner",
+        "description": "David Brenner interviews Dolly Parton R.I.P. Dolly Parton ['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
+        "creator": "Motown Productions and Kingworld",
+        "license": "",
+        "subject": "['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 787.586787,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 600.07,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Dolly Parton during a talk show interview (along with host David Brenner), making it valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2a13c0acec0536311ade435004a6acb2cf15c705f15069fb51889e18390e5eb7",
+      "reviewed_at": 1791966410.0263317
+    },
+    {
+      "person": "Dolly Parton",
+      "source": {
+        "id": "archive:LarryKingLive20030703DollyParton",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LarryKingLive20030703DollyParton/Larry%20King%20Live%202003-07-03%20Dolly%20Parton.mp4",
+        "source_url": "https://archive.org/details/LarryKingLive20030703DollyParton",
+        "title": "Larry King Live 2003-07-03 Dolly Parton",
+        "description": "Dolly Parton discusses her album \"For God and Country,\" her fourth of July special, Dollywood, \"Nine to Five,\" her family and early career, former musical partner Porter Wagoner, Whitney Houston's cover of \"I Will Always Love You,\" plastic surgery, the tabloids, and much more. ['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
+        "creator": "CNN",
+        "license": "",
+        "subject": "['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2770.437104,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.5,
+        "reason": "The segment features genuine archival interview footage of Dolly Parton on Larry King Live, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c0662265fb4d4b9407860afcf7601f8d538c45a51c828a3e1d296d53e458c22d",
+      "reviewed_at": 1791966420.0471966
+    },
+    {
+      "person": "Dolly Parton",
+      "source": {
+        "id": "archive:dolly-parton-and-david-brenner",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dolly-parton-and-david-brenner/Dolly%20Parton%20and%20David%20Brenner.ia.mp4",
+        "source_url": "https://archive.org/details/dolly-parton-and-david-brenner",
+        "title": "Dolly Parton and David Brenner",
+        "description": "David Brenner interviews Dolly Parton R.I.P. Dolly Parton ['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
+        "creator": "Motown Productions and Kingworld",
+        "license": "",
+        "subject": "['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 787.586787,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "Dolly Parton is clearly identifiable entering the stage in the later frames of this talk show interview segment, making it suitable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8cf8616baf6b71bb397610f8f4cf1cb52a4842543cc3c73d60b30612911bf702",
+      "reviewed_at": 1791966424.4057925
+    },
+    {
+      "person": "Dolly Parton",
+      "source": {
+        "id": "archive:LarryKingLive20030703DollyParton",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LarryKingLive20030703DollyParton/Larry%20King%20Live%202003-07-03%20Dolly%20Parton.mp4",
+        "source_url": "https://archive.org/details/LarryKingLive20030703DollyParton",
+        "title": "Larry King Live 2003-07-03 Dolly Parton",
+        "description": "Dolly Parton discusses her album \"For God and Country,\" her fourth of July special, Dollywood, \"Nine to Five,\" her family and early career, former musical partner Porter Wagoner, Whitney Houston's cover of \"I Will Always Love You,\" plastic surgery, the tabloids, and much more. ['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
+        "creator": "CNN",
+        "license": "",
+        "subject": "['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2770.437104,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 217.03,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.0,
+        "reason": "The clip features Dolly Parton being interviewed on Larry King Live in 2003, providing valid archival/interview footage suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a941285cd0e18f44dfe45fcc2fb204fee9eb63c2b0f21b830dfe51ba221d645c",
+      "reviewed_at": 1791966430.716249
+    },
+    {
+      "person": "Dolly Parton",
+      "source": {
+        "id": "archive:dolly-parton-and-david-brenner",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dolly-parton-and-david-brenner/Dolly%20Parton%20and%20David%20Brenner.ia.mp4",
+        "source_url": "https://archive.org/details/dolly-parton-and-david-brenner",
+        "title": "Dolly Parton and David Brenner",
+        "description": "David Brenner interviews Dolly Parton R.I.P. Dolly Parton ['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
+        "creator": "Motown Productions and Kingworld",
+        "license": "",
+        "subject": "['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 787.586787,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 64.51,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Dolly Parton being interviewed by David Brenner on a talk show, making it genuine archival footage suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "de634af0209fe83dd2e7f79929949083f9ac669a40a1685fd0055d88cf8e95e9",
+      "reviewed_at": 1791966435.0415652
+    },
+    {
+      "person": "Dolly Parton",
+      "source": {
+        "id": "archive:LarryKingLive20030703DollyParton",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LarryKingLive20030703DollyParton/Larry%20King%20Live%202003-07-03%20Dolly%20Parton.mp4",
+        "source_url": "https://archive.org/details/LarryKingLive20030703DollyParton",
+        "title": "Larry King Live 2003-07-03 Dolly Parton",
+        "description": "Dolly Parton discusses her album \"For God and Country,\" her fourth of July special, Dollywood, \"Nine to Five,\" her family and early career, former musical partner Porter Wagoner, Whitney Houston's cover of \"I Will Always Love You,\" plastic surgery, the tabloids, and much more. ['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
+        "creator": "CNN",
+        "license": "",
+        "subject": "['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2770.437104,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 429.07,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The segment shows genuine archival interview footage of Dolly Parton on Larry King Live in 2003. While it is standard talking-head interview footage rather than direct footage of a specific historical event, it is authentic biographical illustration featuring the subject clearly visible and speaking.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1a24dcdef2184957a140c9f66528db5d105ad7863e43b43c158679b7db01fa6b",
+      "reviewed_at": 1791966440.6184268
+    },
+    {
+      "person": "Dolly Parton",
+      "source": {
+        "id": "archive:dolly-parton-and-david-brenner",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dolly-parton-and-david-brenner/Dolly%20Parton%20and%20David%20Brenner.ia.mp4",
+        "source_url": "https://archive.org/details/dolly-parton-and-david-brenner",
+        "title": "Dolly Parton and David Brenner",
+        "description": "David Brenner interviews Dolly Parton R.I.P. Dolly Parton ['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
+        "creator": "Motown Productions and Kingworld",
+        "license": "",
+        "subject": "['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 787.586787,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 124.01,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment features genuine archival interview footage of Dolly Parton appearing on a talk show with David Brenner, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1bdab20eec95da269a3fb6a61ebf79784601db0658f63700dd81c04eb522bed1",
+      "reviewed_at": 1791966445.267465
+    },
+    {
+      "person": "Dolly Parton",
+      "source": {
+        "id": "archive:LarryKingLive20030703DollyParton",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LarryKingLive20030703DollyParton/Larry%20King%20Live%202003-07-03%20Dolly%20Parton.mp4",
+        "source_url": "https://archive.org/details/LarryKingLive20030703DollyParton",
+        "title": "Larry King Live 2003-07-03 Dolly Parton",
+        "description": "Dolly Parton discusses her album \"For God and Country,\" her fourth of July special, Dollywood, \"Nine to Five,\" her family and early career, former musical partner Porter Wagoner, Whitney Houston's cover of \"I Will Always Love You,\" plastic surgery, the tabloids, and much more. ['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
+        "creator": "CNN",
+        "license": "",
+        "subject": "['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2770.437104,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 641.1,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8.0,
+        "reason": "The video segment features archival television interview footage of Dolly Parton alongside historical photos of her and Porter Wagoner, directly supporting her biographical narrative.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c562e77c076c7111a73800c2b7f38a2ec1b3a35d3ef606a1031ce1763e9a7732",
+      "reviewed_at": 1791966450.6426022
+    },
+    {
+      "person": "Dolly Parton",
+      "source": {
+        "id": "archive:dolly-parton-and-david-brenner",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dolly-parton-and-david-brenner/Dolly%20Parton%20and%20David%20Brenner.ia.mp4",
+        "source_url": "https://archive.org/details/dolly-parton-and-david-brenner",
+        "title": "Dolly Parton and David Brenner",
+        "description": "David Brenner interviews Dolly Parton R.I.P. Dolly Parton ['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
+        "creator": "Motown Productions and Kingworld",
+        "license": "",
+        "subject": "['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 787.586787,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 183.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The clip is genuine archival interview footage showing Dolly Parton being interviewed by David Brenner, making it highly relevant and usable biographical illustration for a video about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f900ef71fcf15c3a287c4dbef551f8310da901e3e524541fd5fbd53dd8a684a5",
+      "reviewed_at": 1791966454.5448003
+    },
+    {
+      "person": "Dolly Parton",
+      "source": {
+        "id": "archive:LarryKingLive20030703DollyParton",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LarryKingLive20030703DollyParton/Larry%20King%20Live%202003-07-03%20Dolly%20Parton.mp4",
+        "source_url": "https://archive.org/details/LarryKingLive20030703DollyParton",
+        "title": "Larry King Live 2003-07-03 Dolly Parton",
+        "description": "Dolly Parton discusses her album \"For God and Country,\" her fourth of July special, Dollywood, \"Nine to Five,\" her family and early career, former musical partner Porter Wagoner, Whitney Houston's cover of \"I Will Always Love You,\" plastic surgery, the tabloids, and much more. ['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
+        "creator": "CNN",
+        "license": "",
+        "subject": "['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2770.437104,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 853.13,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage features Dolly Parton clearly visible during a Larry King Live interview, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "13b254b5f431e25df3477a86ead588177055772f3260d0c74aa48377e7db22ff",
+      "reviewed_at": 1791966460.4338248
+    },
+    {
+      "person": "Dolly Parton",
+      "source": {
+        "id": "archive:dolly-parton-and-david-brenner",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dolly-parton-and-david-brenner/Dolly%20Parton%20and%20David%20Brenner.ia.mp4",
+        "source_url": "https://archive.org/details/dolly-parton-and-david-brenner",
+        "title": "Dolly Parton and David Brenner",
+        "description": "David Brenner interviews Dolly Parton R.I.P. Dolly Parton ['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
+        "creator": "Motown Productions and Kingworld",
+        "license": "",
+        "subject": "['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 787.586787,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 243.03,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Dolly Parton participating in a television interview/talk show, making it valid biographical illustration footage for a video about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "17a15799441f0822755a0dd4f37bbd0d2958df804d29fb713a69ba5d92dafb54",
+      "reviewed_at": 1791966464.7811875
+    },
+    {
+      "person": "Dolly Parton",
+      "source": {
+        "id": "archive:LarryKingLive20030703DollyParton",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LarryKingLive20030703DollyParton/Larry%20King%20Live%202003-07-03%20Dolly%20Parton.mp4",
+        "source_url": "https://archive.org/details/LarryKingLive20030703DollyParton",
+        "title": "Larry King Live 2003-07-03 Dolly Parton",
+        "description": "Dolly Parton discusses her album \"For God and Country,\" her fourth of July special, Dollywood, \"Nine to Five,\" her family and early career, former musical partner Porter Wagoner, Whitney Houston's cover of \"I Will Always Love You,\" plastic surgery, the tabloids, and much more. ['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
+        "creator": "CNN",
+        "license": "",
+        "subject": "['Dolly Parton', 'Larry King', 'Talk Show', 'Interview', 'VHS']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2770.437104,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 1065.17,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment shows genuine archival interview footage of Dolly Parton on Larry King Live in 2003, clearly depicting her speaking. It is well-suited for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c00ef93c04d4f078577cbf309216cdc575d10c60fc800022cb711c37bb9748a0",
+      "reviewed_at": 1791966470.8041303
+    },
+    {
+      "person": "Dolly Parton",
+      "source": {
+        "id": "archive:dolly-parton-and-david-brenner",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dolly-parton-and-david-brenner/Dolly%20Parton%20and%20David%20Brenner.ia.mp4",
+        "source_url": "https://archive.org/details/dolly-parton-and-david-brenner",
+        "title": "Dolly Parton and David Brenner",
+        "description": "David Brenner interviews Dolly Parton R.I.P. Dolly Parton ['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
+        "creator": "Motown Productions and Kingworld",
+        "license": "",
+        "subject": "['talk show', 'interview', 'Nightlife', 'David Brenner', 'Dolly Parton']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 787.586787,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 302.53,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "Dolly Parton is clearly visible in the first two sampled frames during her interview with David Brenner, satisfying the identity requirement, even though subsequent frames focus on the interviewer.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4bc6225664c957de8bfcb9e52bf8d87b160eb35a45d59dbc05e7087b32c745f9",
+      "reviewed_at": 1791966474.895285
     }
   ]
 }

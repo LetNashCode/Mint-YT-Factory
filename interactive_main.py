@@ -99,8 +99,8 @@ def _render_is_reusable(final_path,manifest_path,script_path):
     except (OSError,ValueError,TypeError): return False
 def run():
     _set_publication_status("pending")
-    config=dict(load_config() or {}); voice=dict(config.get("voice") or {}); voice.update({"provider":"kokoro","voice_name":"am_michael","kokoro_lang":"a","tone":"cinematic, warm, conversational storyteller"}); config["voice"]=voice
-    print("🎙️ Story Shorts voice: am_michael (Kokoro)"); refresh_live_metrics()
+    config=dict(load_config() or {}); voice=dict(config.get("voice") or {}); voice.update({"provider":"kokoro","voice_name":"bm_george","kokoro_lang":"b","tone":"cinematic, warm, conversational storyteller"}); config["voice"]=voice
+    print("🎙️ Story Shorts voice: bm_george (Kokoro British English)"); refresh_live_metrics()
     previous=get_pending_story(); pillar,topic,person=get_next_topic(); number=next_story_number()
     if previous and number<=int(previous.get("number",0)): raise RuntimeError(f"Invalid story sequence state: next #{number} must follow pending Story #{previous.get('number')}.")
     print(f"📖 STORY SHORT #{number} | {pillar} | {person}")

@@ -3480,36 +3480,24 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why does garlic smell linger",
-    "normalized": "why does garlic smell linger",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791824037,
-    "recorded_at": 1791824037,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do wooden doors stick in summer",
-    "normalized": "why do wooden doors stick in summer",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791841897,
-    "recorded_at": 1791841897,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do shadows stretch at sunset",
     "normalized": "why do shadows stretch at sunset",
     "workflow": "publish",
     "status": "reserved",
     "reserved_at": 1791881458,
     "recorded_at": 1791881458,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why does floor wood creak",
+    "normalized": "why does floor wood creak",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1791961217,
+    "recorded_at": 1791961217,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

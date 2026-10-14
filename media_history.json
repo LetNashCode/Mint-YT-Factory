@@ -14869,6 +14869,126 @@
       "shot": 2,
       "query": "window glass distorts proving old didn",
       "recorded_at": 1791982916
+    },
+    {
+      "asset_key": "pexels:video:18573201",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/18573201/18573201-hd_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "stairs squeak old ghost hiding under your",
+      "recorded_at": 1792001502
+    },
+    {
+      "asset_key": "pexels:video:3952420",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3952420/3952420-hd_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "stairs squeak old geometry screaming mercy stair",
+      "recorded_at": 1792001506
+    },
+    {
+      "asset_key": "pexels:video:15749909",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/15749909/15749909-hd_720_1280_50fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "stairs squeak old every single midnight snack",
+      "recorded_at": 1792001529
+    },
+    {
+      "asset_key": "pexels:video:5742324",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5742324/5742324-hd_1280_720_30fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "stairs squeak old wakes entire house symphony",
+      "recorded_at": 1792001533
+    },
+    {
+      "asset_key": "pexels:video:35150261",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35150261/14890857_1280_720_24fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "stairs squeak old not one solid",
+      "recorded_at": 1792001555
+    },
+    {
+      "asset_key": "pexels:video:11662299",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/11662299/11662299-hd_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "stairs squeak old wooden boards wedges rusty",
+      "recorded_at": 1792001580
+    },
+    {
+      "asset_key": "pexels:video:3048206",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3048206/3048206-hd_1280_720_24fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "stairs squeak old your foot drops sneaker",
+      "recorded_at": 1792001584
+    },
+    {
+      "asset_key": "pexels:video:39626654",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39626654/16891904_720_1280_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "stairs squeak old horizontal board bends downward",
+      "recorded_at": 1792001589
+    },
+    {
+      "asset_key": "pexels:video:6711918",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6711918/6711918-hd_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "stairs squeak old tiny movement causes wood",
+      "recorded_at": 1792001594
+    },
+    {
+      "asset_key": "pexels:video:5730598",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5730598/5730598-hd_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "stairs squeak old grind violently against nails",
+      "recorded_at": 1792001599
+    },
+    {
+      "asset_key": "pexels:video:20143635",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/20143635/20143635-hd_1280_720_24fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "stairs squeak old friction turns raw kinetic",
+      "recorded_at": 1792001605
+    },
+    {
+      "asset_key": "pexels:video:36902359",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/36902359/15631959_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "stairs squeak old into screeching sound wave",
+      "recorded_at": 1792001608
     }
   ]
 }

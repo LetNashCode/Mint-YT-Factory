@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-10-14T20:06:07.350296+00:00",
+  "generated_at": "2026-10-15T09:31:34.060270+00:00",
   "video_count": 12,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 9,
   "reason": "",
   "totals": {
-    "views": 7016,
-    "likes": 129,
+    "views": 7136,
+    "likes": 131,
     "comments": 2
   },
   "averages": {
-    "views": 584.67,
-    "likes": 10.75,
+    "views": 594.67,
+    "likes": 10.92,
     "comments": 0.17,
     "average_view_percentage": 39.05,
     "subscribers_gained": 0.5,
@@ -34,6 +34,20 @@
       "engagement_rate": 1.2844
     },
     {
+      "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
+      "video_id": "Pb1-aVVunGg",
+      "title": "Before the Fame: Dolly Parton's Untold Struggle",
+      "views": 1085,
+      "likes": 40,
+      "comments": 2,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 3.871
+    },
+    {
       "topic": "Mary Kom: From a Farmer's Daughter in Rural Manipur to Six-Time World Boxing Champion.",
       "video_id": "V4St4b322QA",
       "title": "The Impossible Comeback: Mary Kom",
@@ -79,7 +93,7 @@
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
       "video_id": "hLW3D1SJuYo",
       "title": "Before the Fame: Jackie Chan's Untold Struggle",
-      "views": 1026,
+      "views": 1030,
       "likes": 29,
       "comments": 0,
       "shares": 0,
@@ -87,21 +101,7 @@
       "average_view_percentage": 88.31,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 2.8265
-    },
-    {
-      "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
-      "video_id": "Pb1-aVVunGg",
-      "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1016,
-      "likes": 39,
-      "comments": 2,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 4.0354
+      "engagement_rate": 2.8155
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -121,7 +121,7 @@
       "topic": "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
       "video_id": "negG-shOfpM",
       "title": "The Untold Turning Point in Boman Irani's Story",
-      "views": 195,
+      "views": 192,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -130,6 +130,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
+    },
+    {
+      "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
+      "video_id": "YorYFuuuTOQ",
+      "title": "The Untold Turning Point in J.R.R. Tolkien's Story",
+      "views": 67,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 1.4925
     },
     {
       "topic": "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
@@ -144,20 +158,6 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
-    },
-    {
-      "topic": "Viktor Frankl: Surviving multiple concentration camps to establish a groundbreaking school of psychological therapy.",
-      "video_id": "fEtQoH-07U0",
-      "title": "The Untold Turning Point in Viktor Frankl's Story",
-      "views": 33,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 20.0,
-      "average_view_percentage": 45.99,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 3.0303
     }
   ],
   "topic_performance": [
@@ -176,6 +176,20 @@
       "engagement_rate": 1.2844
     },
     {
+      "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
+      "video_id": "Pb1-aVVunGg",
+      "title": "Before the Fame: Dolly Parton's Untold Struggle",
+      "views": 1085,
+      "likes": 40,
+      "comments": 2,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 3.871
+    },
+    {
       "topic": "Mary Kom: From a Farmer's Daughter in Rural Manipur to Six-Time World Boxing Champion.",
       "video_id": "V4St4b322QA",
       "title": "The Impossible Comeback: Mary Kom",
@@ -221,7 +235,7 @@
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
       "video_id": "hLW3D1SJuYo",
       "title": "Before the Fame: Jackie Chan's Untold Struggle",
-      "views": 1026,
+      "views": 1030,
       "likes": 29,
       "comments": 0,
       "shares": 0,
@@ -229,21 +243,7 @@
       "average_view_percentage": 88.31,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 2.8265
-    },
-    {
-      "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
-      "video_id": "Pb1-aVVunGg",
-      "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1016,
-      "likes": 39,
-      "comments": 2,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 4.0354
+      "engagement_rate": 2.8155
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -263,7 +263,7 @@
       "topic": "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
       "video_id": "negG-shOfpM",
       "title": "The Untold Turning Point in Boman Irani's Story",
-      "views": 195,
+      "views": 192,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -272,6 +272,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
+    },
+    {
+      "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
+      "video_id": "YorYFuuuTOQ",
+      "title": "The Untold Turning Point in J.R.R. Tolkien's Story",
+      "views": 67,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 1.4925
     },
     {
       "topic": "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
@@ -300,20 +314,6 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 3.0303
-    },
-    {
-      "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
-      "video_id": "YorYFuuuTOQ",
-      "title": "The Untold Turning Point in J.R.R. Tolkien's Story",
-      "views": 17,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 0.0
     },
     {
       "topic": "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",

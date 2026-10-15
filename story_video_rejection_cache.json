@@ -3981,6 +3981,42 @@
       "start": 729.61,
       "reason": "The footage shows a modern educational presentation or theatrical performance with an actor portraying Vincent van Gogh for children, not actual historical footage or biographical media depicting the subject directly.",
       "reviewed_at": 1792009825.321466
+    },
+    "0dcaae395ef15768d0abc467": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+      "source_url": "https://archive.org/details/bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+      "person": "Morgan Freeman",
+      "start": 37.99,
+      "reason": "The video segment shows Cuba Gooding Jr. being interviewed on the red carpet, not Morgan Freeman, although the event is related to honoring Morgan Freeman. Therefore, the target person is not visible.",
+      "reviewed_at": 1792056783.8039963
+    },
+    "c228c73dfaef86ab56740962": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+      "source_url": "https://archive.org/details/bliptv-20131013-230112-Blacktreetv-AFIsLifetimeAchievementAwardWinnerMorganFreeman113",
+      "person": "Morgan Freeman",
+      "start": 70.98,
+      "reason": "The sampled segment features Ben Vereen being interviewed on the red carpet, not the subject Morgan Freeman, making it unusable for a biography of Morgan Freeman.",
+      "reviewed_at": 1792056795.7917619
+    },
+    "5c33ae0cb32f0be1e31d39a9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+      "source_url": "https://archive.org/details/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+      "person": "Morgan Freeman",
+      "start": 106.57,
+      "reason": "The segment features real archival interview footage of Morgan Freeman discussing his work, making it usable as biographical illustration, though some frames cut away to film clips.",
+      "reviewed_at": 1792056831.8125148
+    },
+    "84b6f118740005f6af9ee80a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+      "source_url": "https://archive.org/details/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+      "person": "Morgan Freeman",
+      "start": 140.43,
+      "reason": "The video segment contains clips from the movie The Dark Knight Rises (featuring characters like Bruce Wayne, Catwoman, and Bane), but the subject Morgan Freeman is never visibly present in any of the sampled frames.",
+      "reviewed_at": 1792056837.7469184
     }
   }
 }

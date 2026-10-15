@@ -14861,6 +14861,254 @@
       },
       "review_key": "ec681fc661e2017651f3373e87abf80a070400f7a06f3c12a153a9d3c5d12002",
       "reviewed_at": 1792009707.0224266
+    },
+    {
+      "person": "Morgan Freeman",
+      "source": {
+        "id": "archive:bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+        "title": "Morgan Freeman Interview for The Dark Knight Rises",
+        "description": "Check out this Exclusive Interview with actor Morgan Freeman for the new Batman film \"The Dark Knight Rises\"! MORGAN FREEMAN (Lucius Fox) won an Academy Award® for Best Supporting Actor for his role in Clint Eastwood's \"Million Dollar Baby,\" for which he also won a Screen Actors Guild (SAG) Award® and received a Golden Globe nomination. In 2009, he reunited with Eastwood to star in the director's true-life drama \"Invictus,\" on which Freeman also served as an executive producer under his Revelations Entertainment banner. For his portrayal of Nelson Mandela in the film, Freeman garnered Oscar®, Golden Globe and Critics' Choice Award nominations, and won the National Board of Review Award for Best Actor. Freeman has been honored with three additional Oscar® nominations, the first for his chilling performance in the 1987 drama \"Street Smart,\" which also brought him Los Angeles Film Critics, New York Film Critics, and National Society of Film Critics Awards, and an Independent Spirit Award for Best Supporting Actor, as well as his first Golden Globe Award nomination. He earned his second Oscar® nomination and won Golden Globe and National Board of Review Awards for Best Actor for the 1989 film \"Driving Miss Daisy,\" in which he recreated his award-winning off-Broadway role. He gained his third Oscar® nod, as well as Golden Globe and SAG Award® nominations, for his performance in Frank Darabont's 1994 drama \"The Shawshank Redemption.\" Among his many other accolades, Freeman was named a Kennedy Center Honoree in 2008, and, in 2011, was honored with the 39th AFI Lifetime Achievement ['talk&interview', 'blacktree', 'media', 'tv', 'the', 'dark', 'knight', 'rises', 'interview', 'morgan', 'freeman', 'shawn', 'edwards', '(film', 'actor)', 'batman', '(fictional', 'character)', 'movie', 'christian', 'bale']",
+        "creator": "",
+        "license": "",
+        "subject": "['talk&interview', 'blacktree', 'media', 'tv', 'the', 'dark', 'knight', 'rises', 'interview', 'morgan', 'freeman', 'shawn', 'edwards', '(film', 'actor)', 'batman', '(fictional', 'character)', 'movie', 'christian', 'bale']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 234.067167,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 38.86,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video segment shows real interview footage of Morgan Freeman discussing The Dark Knight Rises, serving as good biographical illustration material for a profile on him, though it does not directly depict the specific historical events narrated in a broader life story.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6de6e98c8463332d2e43daaf894508316146298c79bbb19ce2c6485929697a8c",
+      "reviewed_at": 1792056775.6576254
+    },
+    {
+      "person": "Morgan Freeman",
+      "source": {
+        "id": "archive:bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+        "title": "Morgan Freeman Interview for The Dark Knight Rises",
+        "description": "Check out this Exclusive Interview with actor Morgan Freeman for the new Batman film \"The Dark Knight Rises\"! MORGAN FREEMAN (Lucius Fox) won an Academy Award® for Best Supporting Actor for his role in Clint Eastwood's \"Million Dollar Baby,\" for which he also won a Screen Actors Guild (SAG) Award® and received a Golden Globe nomination. In 2009, he reunited with Eastwood to star in the director's true-life drama \"Invictus,\" on which Freeman also served as an executive producer under his Revelations Entertainment banner. For his portrayal of Nelson Mandela in the film, Freeman garnered Oscar®, Golden Globe and Critics' Choice Award nominations, and won the National Board of Review Award for Best Actor. Freeman has been honored with three additional Oscar® nominations, the first for his chilling performance in the 1987 drama \"Street Smart,\" which also brought him Los Angeles Film Critics, New York Film Critics, and National Society of Film Critics Awards, and an Independent Spirit Award for Best Supporting Actor, as well as his first Golden Globe Award nomination. He earned his second Oscar® nomination and won Golden Globe and National Board of Review Awards for Best Actor for the 1989 film \"Driving Miss Daisy,\" in which he recreated his award-winning off-Broadway role. He gained his third Oscar® nod, as well as Golden Globe and SAG Award® nominations, for his performance in Frank Darabont's 1994 drama \"The Shawshank Redemption.\" Among his many other accolades, Freeman was named a Kennedy Center Honoree in 2008, and, in 2011, was honored with the 39th AFI Lifetime Achievement ['talk&interview', 'blacktree', 'media', 'tv', 'the', 'dark', 'knight', 'rises', 'interview', 'morgan', 'freeman', 'shawn', 'edwards', '(film', 'actor)', 'batman', '(fictional', 'character)', 'movie', 'christian', 'bale']",
+        "creator": "",
+        "license": "",
+        "subject": "['talk&interview', 'blacktree', 'media', 'tv', 'the', 'dark', 'knight', 'rises', 'interview', 'morgan', 'freeman', 'shawn', 'edwards', '(film', 'actor)', 'batman', '(fictional', 'character)', 'movie', 'christian', 'bale']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 234.067167,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 55.78,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The footage features Morgan Freeman speaking in an interview setting, which serves as valid biographical illustration material, though it contains a channel watermark.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "37f2926d0fe0fc076367f1b53d7548da61770b3bc730f8b8b7776aacb7a58eea",
+      "reviewed_at": 1792056799.207422
+    },
+    {
+      "person": "Morgan Freeman",
+      "source": {
+        "id": "archive:bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+        "title": "Morgan Freeman Interview for The Dark Knight Rises",
+        "description": "Check out this Exclusive Interview with actor Morgan Freeman for the new Batman film \"The Dark Knight Rises\"! MORGAN FREEMAN (Lucius Fox) won an Academy Award® for Best Supporting Actor for his role in Clint Eastwood's \"Million Dollar Baby,\" for which he also won a Screen Actors Guild (SAG) Award® and received a Golden Globe nomination. In 2009, he reunited with Eastwood to star in the director's true-life drama \"Invictus,\" on which Freeman also served as an executive producer under his Revelations Entertainment banner. For his portrayal of Nelson Mandela in the film, Freeman garnered Oscar®, Golden Globe and Critics' Choice Award nominations, and won the National Board of Review Award for Best Actor. Freeman has been honored with three additional Oscar® nominations, the first for his chilling performance in the 1987 drama \"Street Smart,\" which also brought him Los Angeles Film Critics, New York Film Critics, and National Society of Film Critics Awards, and an Independent Spirit Award for Best Supporting Actor, as well as his first Golden Globe Award nomination. He earned his second Oscar® nomination and won Golden Globe and National Board of Review Awards for Best Actor for the 1989 film \"Driving Miss Daisy,\" in which he recreated his award-winning off-Broadway role. He gained his third Oscar® nod, as well as Golden Globe and SAG Award® nominations, for his performance in Frank Darabont's 1994 drama \"The Shawshank Redemption.\" Among his many other accolades, Freeman was named a Kennedy Center Honoree in 2008, and, in 2011, was honored with the 39th AFI Lifetime Achievement ['talk&interview', 'blacktree', 'media', 'tv', 'the', 'dark', 'knight', 'rises', 'interview', 'morgan', 'freeman', 'shawn', 'edwards', '(film', 'actor)', 'batman', '(fictional', 'character)', 'movie', 'christian', 'bale']",
+        "creator": "",
+        "license": "",
+        "subject": "['talk&interview', 'blacktree', 'media', 'tv', 'the', 'dark', 'knight', 'rises', 'interview', 'morgan', 'freeman', 'shawn', 'edwards', '(film', 'actor)', 'batman', '(fictional', 'character)', 'movie', 'christian', 'bale']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 234.067167,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 72.71,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment shows real archival interview footage of Morgan Freeman discussing his career and work on The Dark Knight Rises, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2cf0718e1dc94fddc41729bdf69ac921230ddb3922cf3826aa8da8df866a4f72",
+      "reviewed_at": 1792056805.2814808
+    },
+    {
+      "person": "Morgan Freeman",
+      "source": {
+        "id": "archive:bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131014-000245-Blacktreetv-MorganFreemanInterviewForTheDarkKnightRises827",
+        "title": "Morgan Freeman Interview for The Dark Knight Rises",
+        "description": "Check out this Exclusive Interview with actor Morgan Freeman for the new Batman film \"The Dark Knight Rises\"! MORGAN FREEMAN (Lucius Fox) won an Academy Award® for Best Supporting Actor for his role in Clint Eastwood's \"Million Dollar Baby,\" for which he also won a Screen Actors Guild (SAG) Award® and received a Golden Globe nomination. In 2009, he reunited with Eastwood to star in the director's true-life drama \"Invictus,\" on which Freeman also served as an executive producer under his Revelations Entertainment banner. For his portrayal of Nelson Mandela in the film, Freeman garnered Oscar®, Golden Globe and Critics' Choice Award nominations, and won the National Board of Review Award for Best Actor. Freeman has been honored with three additional Oscar® nominations, the first for his chilling performance in the 1987 drama \"Street Smart,\" which also brought him Los Angeles Film Critics, New York Film Critics, and National Society of Film Critics Awards, and an Independent Spirit Award for Best Supporting Actor, as well as his first Golden Globe Award nomination. He earned his second Oscar® nomination and won Golden Globe and National Board of Review Awards for Best Actor for the 1989 film \"Driving Miss Daisy,\" in which he recreated his award-winning off-Broadway role. He gained his third Oscar® nod, as well as Golden Globe and SAG Award® nominations, for his performance in Frank Darabont's 1994 drama \"The Shawshank Redemption.\" Among his many other accolades, Freeman was named a Kennedy Center Honoree in 2008, and, in 2011, was honored with the 39th AFI Lifetime Achievement ['talk&interview', 'blacktree', 'media', 'tv', 'the', 'dark', 'knight', 'rises', 'interview', 'morgan', 'freeman', 'shawn', 'edwards', '(film', 'actor)', 'batman', '(fictional', 'character)', 'movie', 'christian', 'bale']",
+        "creator": "",
+        "license": "",
+        "subject": "['talk&interview', 'blacktree', 'media', 'tv', 'the', 'dark', 'knight', 'rises', 'interview', 'morgan', 'freeman', 'shawn', 'edwards', '(film', 'actor)', 'batman', '(fictional', 'character)', 'movie', 'christian', 'bale']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 234.067167,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 89.64,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features real interview footage of Morgan Freeman discussing his career and roles, making it suitable as biographical illustration for a Short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0a92fdfcd7946a17bd04205a005814b932dbcde3f4285ad31aad62fec9e485c8",
+      "reviewed_at": 1792056810.8804984
+    },
+    {
+      "person": "Morgan Freeman",
+      "source": {
+        "id": "archive:a878fb30c6e5c0b0323c0c072e713fbe",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a878fb30c6e5c0b0323c0c072e713fbe/The%20Inside%20Reel%3A%20Morgan%20Freeman%20Interview-5267142.mp4",
+        "source_url": "https://archive.org/details/a878fb30c6e5c0b0323c0c072e713fbe",
+        "title": "2821220_The Inside Reel: Morgan Freeman Interview-5267142",
+        "description": " ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 147.633333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 66.68,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show Morgan Freeman seated in a cafe interacting with another person in film footage, making it usable as biographical illustration, although the clip is from a movie scene rather than archival documentary footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "16b2905783b9d1495343c39e024adc65d3eeef0abc5b268430dbef713ce918af",
+      "reviewed_at": 1792056857.385534
+    },
+    {
+      "person": "Morgan Freeman",
+      "source": {
+        "id": "archive:a878fb30c6e5c0b0323c0c072e713fbe",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a878fb30c6e5c0b0323c0c072e713fbe/The%20Inside%20Reel%3A%20Morgan%20Freeman%20Interview-5267142.mp4",
+        "source_url": "https://archive.org/details/a878fb30c6e5c0b0323c0c072e713fbe",
+        "title": "2821220_The Inside Reel: Morgan Freeman Interview-5267142",
+        "description": " ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 147.633333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 87.24,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage features clear, genuine interview footage of Morgan Freeman discussing his life and career, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "794d2d5e1dee7dc786d1292841b2f536461394d24c2110545394cb1d0f9fcd07",
+      "reviewed_at": 1792056868.1491902
+    },
+    {
+      "person": "Morgan Freeman",
+      "source": {
+        "id": "archive:a878fb30c6e5c0b0323c0c072e713fbe",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a878fb30c6e5c0b0323c0c072e713fbe/The%20Inside%20Reel%3A%20Morgan%20Freeman%20Interview-5267142.mp4",
+        "source_url": "https://archive.org/details/a878fb30c6e5c0b0323c0c072e713fbe",
+        "title": "2821220_The Inside Reel: Morgan Freeman Interview-5267142",
+        "description": " ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 147.633333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 97.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video shows Morgan Freeman in an interview setting, making it valid biographical illustration footage, though it is not a direct event depiction.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "27e9de522a363c7a9366eb2b2f4a19d5a784753dd673f86f52cd15750dbfacf7",
+      "reviewed_at": 1792056873.2529159
+    },
+    {
+      "person": "Morgan Freeman",
+      "source": {
+        "id": "archive:a878fb30c6e5c0b0323c0c072e713fbe",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/a878fb30c6e5c0b0323c0c072e713fbe/The%20Inside%20Reel%3A%20Morgan%20Freeman%20Interview-5267142.mp4",
+        "source_url": "https://archive.org/details/a878fb30c6e5c0b0323c0c072e713fbe",
+        "title": "2821220_The Inside Reel: Morgan Freeman Interview-5267142",
+        "description": " ",
+        "creator": "",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 147.633333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 107.79,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video segment shows Morgan Freeman clearly during an interview discussion, making it valid biographical illustration footage, though it lacks direct depiction of historical events.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d757dc083412669a412d30ce2d305fb2031b3d4276f7c69397a3c4f59c71f585",
+      "reviewed_at": 1792056878.3513007
     }
   ]
 }

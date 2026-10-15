@@ -115,18 +115,5 @@
       "Transformed Sony into a globally recognized consumer electronics giant."
     ],
     "source": "gemini_original"
-  },
-  {
-    "format": "before_they_were_famous",
-    "person": "Morgan Freeman",
-    "premise": "Spending years serving in the United States Air Force before getting his big break on television and film.",
-    "hook": "Before playing iconic cinematic roles, he turned down a university drama scholarship to enlist as a radar technician.",
-    "key_facts": [
-      "Served in the United States Air Force from 1955 to 1959 as an automatic tracking radar repairman.",
-      "Moved to Los Angeles in the 1960s to pursue acting while working as a transcript clerk.",
-      "Gained widespread recognition on the children's television show 'The Electric Company' in the 1970s.",
-      "Achieved major Hollywood film success later in his career."
-    ],
-    "source": "gemini_original"
   }
 ]

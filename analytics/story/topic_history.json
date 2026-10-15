@@ -241,5 +241,21 @@
       "pillar": "strange_turning_point",
       "source": "story_topic_selection"
     }
+  },
+  {
+    "topic": "Morgan Freeman: Spending years serving in the United States Air Force before getting his big break on television and film.",
+    "normalized": "morgan freeman spending years serving in the united states air force before getting his big break on television and film",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1792056765,
+    "recorded_at": 1792056765,
+    "metadata": {
+      "person": "Morgan Freeman",
+      "pillar": "before_they_were_famous"
+    },
+    "title": "Morgan Freeman: Spending years serving in the United States Air Force before getting his big break on television and film.",
+    "video_id": "3FgMmn1g8Ks",
+    "workdir": "",
+    "published_at": 1792057482
   }
 ]

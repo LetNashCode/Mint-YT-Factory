@@ -75,7 +75,7 @@ def _generate_candidates(count=10):
         people = [str(x.get("person", "")) for x in recent if x.get("person")]
         prompt = f"""Generate {count} fresh YouTube Shorts story ideas about REAL, recognizable people.
 Mix these formats: rise_from_nothing, one_decision, before_they_were_famous, impossible_odds, strange_turning_point.
-Prefer a mix of Indian and international people from science, sport, business, entertainment, exploration, arts and history.
+Prefer a mix of Indian and international people from science, sport, business, entertainment, exploration, arts and history. PRIORITIZE people with plentiful, authentic moving-image footage likely to be available from Wikimedia Commons or Internet Archive (public interviews, speeches, press appearances, newsreels, sporting footage, or recorded demonstrations). Prefer subjects with multiple documented recordings over ancient figures, people known mainly from still photographs, or subjects whose available material is mostly adaptations, commentary, or generic contextual B-roll. Do not invent footage availability; this is a selection preference, and the media verifier remains authoritative.
 Each idea needs one strong human hook and a concrete obstacle, failure, decision, or turning point.
 Use only broadly established facts. Do not invent quotes, dialogue, private thoughts, dates, achievements, causes, or disputed anecdotes.
 Return JSON array only with: format, person, premise, hook, key_facts. key_facts must contain 3-5 short factual anchors.

@@ -3490,5 +3490,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do stairs squeak when stepped on",
+    "normalized": "why do stairs squeak when stepped on",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1792102963,
+    "recorded_at": 1792102963,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

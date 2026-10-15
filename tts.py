@@ -33,8 +33,8 @@ TRAILING_SILENCE_MIN_SECONDS = 0.35
 NARRATION_END_PADDING_SECONDS = 0.22
 
 KOKORO_ENABLED = os.environ.get("MINT_KOKORO_TTS", "1").strip().lower() not in {"0", "false", "no"}
-KOKORO_VOICE = os.environ.get("MINT_KOKORO_VOICE", "bm_george").strip() or "bm_george"
-KOKORO_LANG = os.environ.get("MINT_KOKORO_LANG", "b").strip() or "b"
+KOKORO_VOICE = os.environ.get("MINT_KOKORO_VOICE", "af_heart").strip() or "af_heart"
+KOKORO_LANG = os.environ.get("MINT_KOKORO_LANG", "a").strip() or "a"
 EDGE_ENABLED = os.environ.get("MINT_EDGE_TTS_FALLBACK", "1").strip().lower() not in {"0", "false", "no"}
 
 PRONUNCIATION_REPLACEMENTS = {

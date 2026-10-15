@@ -947,12 +947,12 @@ def generate_media(script, output_dir, config, gim=None, catalog=None):
 
         try:
             configured_max_sources = int(
-                os.environ.get("STORY_MAX_VERIFICATION_SOURCES", "8")
+                os.environ.get("STORY_MAX_VERIFICATION_SOURCES", "12")
             )
         except ValueError:
             configured_max_sources = 8
         # Hard production ceiling even when an old Actions variable is larger.
-        max_sources = min(8, max(4, configured_max_sources))
+        max_sources = min(12, max(6, configured_max_sources))
         pool.sort(key=lambda item: (
             -float(item.get("identity_score", _identity_score(person, item))),
             -int(item.get("archival_signal", 0)),

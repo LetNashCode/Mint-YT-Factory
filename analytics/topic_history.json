@@ -3480,36 +3480,12 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why does floor wood creak",
-    "normalized": "why does floor wood creak",
+    "topic": "Why do light switches click so loudly",
+    "normalized": "why do light switches click so loudly",
     "workflow": "publish",
     "status": "reserved",
-    "reserved_at": 1791961217,
-    "recorded_at": 1791961217,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why window glass distorts old houses",
-    "normalized": "why window glass distorts old houses",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1791982739,
-    "recorded_at": 1791982739,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why stairs squeak in old wooden houses",
-    "normalized": "why stairs squeak in old wooden houses",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1792001413,
-    "recorded_at": 1792001413,
+    "reserved_at": 1792099549,
+    "recorded_at": 1792099549,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

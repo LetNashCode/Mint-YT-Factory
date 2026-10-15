@@ -14989,6 +14989,116 @@
       "shot": 2,
       "query": "stairs squeak old into screeching sound wave",
       "recorded_at": 1792001608
+    },
+    {
+      "asset_key": "pexels:video:855423",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/855423/855423-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "light switches click tiny plastic switch your",
+      "recorded_at": 1792099604
+    },
+    {
+      "asset_key": "pexels:video:7702049",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7702049/7702049-hd_1366_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "light switches click sounds like gunshot silent",
+      "recorded_at": 1792099609
+    },
+    {
+      "asset_key": "pexels:video:4207976",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4207976/4207976-hd_1366_720_24fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "light switches click you push gently fingertip",
+      "recorded_at": 1792099621
+    },
+    {
+      "asset_key": "pexels:video:6520448",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6520448/6520448-hd_1280_720_24fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "light switches click yet answers violent metallic",
+      "recorded_at": 1792099625
+    },
+    {
+      "asset_key": "pexels:video:6520278",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6520278/6520278-hd_1280_720_24fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "light switches click your finger doesn connect",
+      "recorded_at": 1792099633
+    },
+    {
+      "asset_key": "pexels:video:35999374",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35999374/15264806_1280_720_60fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "light switches click like pulling back rubber",
+      "recorded_at": 1792099637
+    },
+    {
+      "asset_key": "pexels:video:5498990",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5498990/5498990-hd_1280_720_50fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "light switches click until hold more strained",
+      "recorded_at": 1792099640
+    },
+    {
+      "asset_key": "pexels:video:8089529",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8089529/8089529-hd_720_1366_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "light switches click you assume control speed",
+      "recorded_at": 1792099645
+    },
+    {
+      "asset_key": "pexels:video:32027758",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/32027758/13651653_720_1280_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "light switches click but spring takes over",
+      "recorded_at": 1792099650
+    },
+    {
+      "asset_key": "pexels:video:1793230",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/1793230/1793230-hd_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "light switches click slams shut blinding speed",
+      "recorded_at": 1792099653
+    },
+    {
+      "asset_key": "pexels:video:39477149",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39477149/16814927_720_1280_60fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "light switches click creating famous loud snap",
+      "recorded_at": 1792099658
     }
   ]
 }

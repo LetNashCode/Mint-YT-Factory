@@ -173,7 +173,7 @@ def _generate_kokoro(text, voice_config, output_path):
         speed = 1.0
     speed = min(1.10, max(0.90, speed))
     pipeline = _get_kokoro_pipeline(lang, voice=voice)
-    word_count = len(re.findall(r"\\b[\\w'-]+\\b", source))
+    word_count = len(re.findall(r"\b[\w'-]+\b", source))
     print(
         f"🎙️ Kokoro single-request narration | words={word_count} "
         f"| voice={voice} | speed={speed:.2f}x"
@@ -183,7 +183,7 @@ def _generate_kokoro(text, voice_config, output_path):
         # One full-text call; do not divide the narration into word-count chunks.
         # clean_text removes embedded newlines, so Kokoro's newline splitter
         # receives the entire narration as one synthesis input.
-        generator = pipeline(source, voice=voice, speed=speed, split_pattern=r"\\n+")
+        generator = pipeline(source, voice=voice, speed=speed, split_pattern=r"\n+")
         audio_parts = []
         for result in generator:
             audio = result[2] if isinstance(result, tuple) else result.audio

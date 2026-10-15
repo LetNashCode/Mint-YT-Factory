@@ -167,7 +167,7 @@ def preflight_candidate(person, topic=""):
     if cache_changed:
         media._save_precheck_cache(precheck_cache)
 
-    max_sources = max(4, int(os.environ.get("STORY_PREFLIGHT_SOURCE_LIMIT", "6")))
+    max_sources = min(12, max(6, int(os.environ.get("STORY_PREFLIGHT_SOURCE_LIMIT", "10"))))
     pool.sort(key=lambda item: (
         -float(item.get("identity_score", media._identity_score(person, item))),
         -int(item.get("archival_signal", 0)),

@@ -1,19 +1,6 @@
 [
   {
     "format": "rise_from_nothing",
-    "person": "Radhanath Sikdar",
-    "premise": "The brilliant Indian mathematician who calculated the exact height of Mount Everest while working as a low-level computer in colonial India.",
-    "hook": "He calculated the roof of the world using complex geometry, yet his name was initially entirely absent from history books.",
-    "key_facts": [
-      "Joined the Great Trigonometrical Survey of India in 1831 as a 'computor'.",
-      "Invented new mathematical formulas for spherical trigonometry and surveying.",
-      "Calculated the height of Peak XV (later named Mount Everest) in 1852.",
-      "His exact calculation of 29,002 feet remained the accepted standard for decades."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
     "person": "Radhakishan Damani",
     "premise": "A college dropout who initially traded in ball-bearings builds a massive Indian supermarket retail empire from scratch.",
     "hook": "He started his career as a modest stock market speculator before building the country's most profitable retail chain.",
@@ -52,32 +39,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "one_decision",
-    "person": "Sara Blakely",
-    "premise": "The turning point when a fax machine salesperson used her entire life savings to patent and prototype shapewear.",
-    "hook": "With only $5,000 in savings, she drafted her own patent using a textbook because she couldn't afford a lawyer.",
-    "key_facts": [
-      "Worked as a door-to-door fax machine salesperson in Florida.",
-      "Cut the feet off her pantyhose to create a smooth look under white pants.",
-      "Spent her $5,000 life savings on the initial patent and prototype.",
-      "Founded Spanx without taking any outside venture capital."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Srinivasa Ramanujan",
-    "premise": "A self-taught mathematical genius from rural India who mailed his unproven theorems to British professors.",
-    "hook": "He had no formal university training and failed his college exams because he spent all his time doing advanced mathematics.",
-    "key_facts": [
-      "Grew up in Erode, Tamil Nadu, with access to only one outdated math textbook.",
-      "Failed his Fellow of Arts exam due to neglecting non-mathematical subjects.",
-      "Mailed a notebook of complex theorems to British mathematician G.H. Hardy in 1913.",
-      "Elected a Fellow of the Royal Society for his groundbreaking contributions to number theory."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "strange_turning_point",
     "person": "Roald Amundsen",
     "premise": "Shifting his Arctic expedition plans at the very last moment to chase the South Pole instead.",
@@ -100,19 +61,6 @@
       "Hitchhiked across Europe and the Middle East during the early 1970s.",
       "Crossed the border into India with minimal resources.",
       "Became a prominent spiritual leader and author based in Mumbai."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Akio Morita",
-    "premise": "Risking a fledgling electronics company's future by deciding to target the American consumer market directly.",
-    "hook": "He moved his family to New York City and rented a small apartment just to understand American buyers, despite having very little capital.",
-    "key_facts": [
-      "Co-founded Tokyo Telecommunications Research Institute (later Sony) in post-war Japan.",
-      "Decided to abandon domestic branding conventions to sell products globally under the Sony name.",
-      "Relocated to Manhattan to directly oversee the American expansion.",
-      "Transformed Sony into a globally recognized consumer electronics giant."
     ],
     "source": "gemini_original"
   }

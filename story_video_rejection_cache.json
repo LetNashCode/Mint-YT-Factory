@@ -4017,6 +4017,42 @@
       "start": 140.43,
       "reason": "The video segment contains clips from the movie The Dark Knight Rises (featuring characters like Bruce Wayne, Catwoman, and Bane), but the subject Morgan Freeman is never visibly present in any of the sampled frames.",
       "reviewed_at": 1792056837.7469184
+    },
+    "11f9b00ee1c8bb2a203d17b6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 2569.66,
+      "reason": "The video features documentary interviews and presenters discussing Srinivasa Ramanujan's life and legacy, but Ramanujan himself (who lived from 1887 to 1920) is not visibly present in the footage, making it useful as biographical illustration rather than direct event footage.",
+      "reviewed_at": 1792078626.949248
+    },
+    "29dc66a8a56ceb6eba0605d9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 3035.96,
+      "reason": "blank/near-blank frames",
+      "reviewed_at": 1792078634.3795059
+    },
+    "5b07281bbd6474600c6eb6d1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 97.9,
+      "reason": "The sampled frames show an interview with a contemporary mathematician (Chandrashekar Khare) and a static portrait painting of Srinivasa Ramanujan rather than actual footage or photos of the subject, making it unusable for direct biographical identity footage.",
+      "reviewed_at": 1792078646.9453635
+    },
+    "757755968e40152048b517cb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 132.74,
+      "reason": "blank/near-blank frames",
+      "reviewed_at": 1792078651.1957357
     }
   }
 }

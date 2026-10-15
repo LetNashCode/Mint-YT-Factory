@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-15T09:31:34.077791+00:00",
-  "video_count": 12,
+  "generated_at": "2026-10-15T15:35:37.947531+00:00",
+  "video_count": 13,
   "learning_ready": true,
   "metrics_available": true,
   "advanced_metrics_videos": 9,
@@ -14,17 +14,17 @@
   "winning_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 39.631,
-      "sample_size": 3,
-      "weak_sample_size": 3,
-      "weak_score": 1.34
+      "score": 36.077,
+      "sample_size": 4,
+      "weak_sample_size": 4,
+      "weak_score": 1.957
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 1.34,
-      "sample_size": 3
+      "score": 1.957,
+      "sample_size": 4
     }
   ],
   "winning_combinations": [],
@@ -33,14 +33,16 @@
   "winning_topics": [
     "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
     "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
-    "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes."
+    "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes.",
+    "Viktor Frankl: Surviving multiple concentration camps to establish a groundbreaking school of psychological therapy."
   ],
   "avoid_topics": [
+    "Morgan Freeman: Spending years serving in the United States Air Force before getting his big break on television and film.",
     "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
     "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
     "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age."
   ],
-  "used_topic_count": 12,
+  "used_topic_count": 13,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

@@ -1,24 +1,38 @@
 {
-  "generated_at": "2026-10-15T09:31:34.060270+00:00",
-  "video_count": 12,
+  "generated_at": "2026-10-15T15:35:37.929657+00:00",
+  "video_count": 13,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 9,
   "reason": "",
   "totals": {
-    "views": 7136,
-    "likes": 131,
+    "views": 7163,
+    "likes": 133,
     "comments": 2
   },
   "averages": {
-    "views": 594.67,
-    "likes": 10.92,
-    "comments": 0.17,
-    "average_view_percentage": 39.05,
-    "subscribers_gained": 0.5,
+    "views": 551.0,
+    "likes": 10.23,
+    "comments": 0.15,
+    "average_view_percentage": 36.05,
+    "subscribers_gained": 0.46,
     "shares": 0.0
   },
   "top_videos": [
+    {
+      "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
+      "video_id": "Pb1-aVVunGg",
+      "title": "Before the Fame: Dolly Parton's Untold Struggle",
+      "views": 1100,
+      "likes": 41,
+      "comments": 2,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 3.9091
+    },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
       "video_id": "lWEk3Duj4Q0",
@@ -32,20 +46,6 @@
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 1.2844
-    },
-    {
-      "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
-      "video_id": "Pb1-aVVunGg",
-      "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1085,
-      "likes": 40,
-      "comments": 2,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 3.871
     },
     {
       "topic": "Mary Kom: From a Farmer's Daughter in Rural Manipur to Six-Time World Boxing Champion.",
@@ -93,7 +93,7 @@
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
       "video_id": "hLW3D1SJuYo",
       "title": "Before the Fame: Jackie Chan's Untold Struggle",
-      "views": 1030,
+      "views": 1031,
       "likes": 29,
       "comments": 0,
       "shares": 0,
@@ -101,7 +101,7 @@
       "average_view_percentage": 88.31,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 2.8155
+      "engagement_rate": 2.8128
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -135,7 +135,7 @@
       "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
       "video_id": "YorYFuuuTOQ",
       "title": "The Untold Turning Point in J.R.R. Tolkien's Story",
-      "views": 67,
+      "views": 68,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -143,7 +143,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.4925
+      "engagement_rate": 1.4706
     },
     {
       "topic": "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
@@ -162,6 +162,20 @@
   ],
   "topic_performance": [
     {
+      "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
+      "video_id": "Pb1-aVVunGg",
+      "title": "Before the Fame: Dolly Parton's Untold Struggle",
+      "views": 1100,
+      "likes": 41,
+      "comments": 2,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 3.9091
+    },
+    {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
       "video_id": "lWEk3Duj4Q0",
       "title": "The Moment Everything Changed: Harland Sanders",
@@ -174,20 +188,6 @@
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 1.2844
-    },
-    {
-      "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
-      "video_id": "Pb1-aVVunGg",
-      "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1085,
-      "likes": 40,
-      "comments": 2,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 3.871
     },
     {
       "topic": "Mary Kom: From a Farmer's Daughter in Rural Manipur to Six-Time World Boxing Champion.",
@@ -235,7 +235,7 @@
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
       "video_id": "hLW3D1SJuYo",
       "title": "Before the Fame: Jackie Chan's Untold Struggle",
-      "views": 1030,
+      "views": 1031,
       "likes": 29,
       "comments": 0,
       "shares": 0,
@@ -243,7 +243,7 @@
       "average_view_percentage": 88.31,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 2.8155
+      "engagement_rate": 2.8128
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -277,7 +277,7 @@
       "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
       "video_id": "YorYFuuuTOQ",
       "title": "The Untold Turning Point in J.R.R. Tolkien's Story",
-      "views": 67,
+      "views": 68,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -285,7 +285,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.4925
+      "engagement_rate": 1.4706
     },
     {
       "topic": "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
@@ -328,6 +328,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 7.1429
+    },
+    {
+      "topic": "Morgan Freeman: Spending years serving in the United States Air Force before getting his big break on television and film.",
+      "video_id": "3FgMmn1g8Ks",
+      "title": "Before the Fame: Morgan Freeman's Untold Struggle",
+      "views": 10,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 10.0
     }
   ],
   "optimization_rules": [

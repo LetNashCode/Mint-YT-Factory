@@ -8697,34 +8697,6 @@
       "reviewed_at": 1791622919.932099
     },
     {
-      "person": "A.R. Rahman",
-      "source": {
-        "id": "commons:83034875",
-        "provider": "Wikimedia Commons",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Wikipedia-VideoWiki-A._R._Rahman.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Wikipedia-VideoWiki-A._R._Rahman.webm",
-        "title": "File:Wikipedia-VideoWiki-A. R. Rahman.webm",
-        "description": "Wikipedia:VideoWiki/A. R. Rahman",
-        "creator": "See script and authors listed in details below.",
-        "license": "CC BY-SA 3.0",
-        "direct_subject": false,
-        "identity_score": 10.0,
-        "duration_hint": 350.954
-      },
-      "start": 186.44,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The subject A.R. Rahman is clearly visible on stage with performers in the first two frames, providing authentic archival performance footage illustrating his life and career, despite the third frame being dark and pixelated.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ed1a80eda6b5d3af8411f8e29b9a87f2455f6144c19f91efcb93a893b167bc17",
-      "reviewed_at": 1791623102.4407523
-    },
-    {
       "person": "Ernest Shackleton",
       "source": {
         "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
@@ -13468,99 +13440,6 @@
       "reviewed_at": 1791971661.9611983
     },
     {
-      "person": "Agatha Christie",
-      "source": {
-        "id": "archive:agatha-christie-arena",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/agatha-christie-arena/Agatha%20Christie%20_001.mp4",
-        "source_url": "https://archive.org/details/agatha-christie-arena",
-        "title": "Arena: Agatha Christie - Unfinished Portrait",
-        "description": "Profile celebrating the centenary of the famous author Agatha Christie’s birth. Looking at her life, her character and the key moments in her childhood that influenced her writing. ['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
-        "creator": "BBC",
-        "license": "",
-        "subject": "['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3656.42408,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2806.86,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The archival footage clearly shows Agatha Christie visible in the reflection of a mirror while she writes at her desk, making it genuine, high-quality biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "315a62b3ac5bcaf9b254cf7c61c93c110b2ace364b94130cb68af3e2369800b9",
-      "reviewed_at": 1791971824.6057303
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
-        "id": "archive:htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston/Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston.mp4",
-        "source_url": "https://archive.org/details/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
-        "title": "Transit Equity Day (CM Amanda Edwards, Rosa Parks, Link Houston)",
-        "description": "Acting on behalf of Mayor Sylvester Turner, At-Large Position 4 council member Amanda Edwards bestows a city proclamation to Oni Blair, the Executive Director of Link Houston. The proclamation was to declare February 4, 2019 as Transit Equity Day. February 4th is also the day in which Rosa Parks was born. ['Texas', 'Houston', 'City of Houston', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'HTV', 'Amanda Edwards', 'Transportation', 'Link Houston', 'Rosa Parks', 'News', '2019']",
-        "creator": "HTV",
-        "license": "",
-        "subject": "['Texas', 'Houston', 'City of Houston', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'HTV', 'Amanda Edwards', 'Transportation', 'Link Houston', 'Rosa Parks', 'News', '2019']",
-        "runtime": "00:01:55",
-        "direct_subject": true,
-        "duration_hint": 115.315315,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 23.42,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The clip features genuine archival footage of Rosa Parks seated on a bus, directly illustrating her historical significance and life.",
-        "usage": "direct_event"
-      },
-      "review_key": "6d96cb71dc545d47fc0cbd815d11c210c87915cb3cd3a8ae5a70a28514295dc3",
-      "reviewed_at": 1791971997.2110164
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
-        "id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary/Rosa_Parks_story_lives_on_at_Daily_Elementary.mp4",
-        "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
-        "title": "Rosa Parks' story lives on at Daily Elementary",
-        "description": " ['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
-        "creator": "Houston Independent School District",
-        "license": "",
-        "subject": "['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
-        "runtime": "00:01:24",
-        "direct_subject": true,
-        "duration_hint": 84.317651,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 75.32,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video segment contains archival footage depicting Rosa Parks later in the sequence, making her clearly identifiable. While the beginning shows school children and displays, the inclusion of genuine archival footage of Rosa Parks makes it usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "73164907be747058e84021e049fd00b41dac93bc331266ececd64c2acf4c208e",
-      "reviewed_at": 1791972027.0556395
-    },
-    {
       "person": "J.R.R. Tolkien",
       "source": {
         "id": "archive:tolkienarchive",
@@ -15109,6 +14988,251 @@
       },
       "review_key": "d757dc083412669a412d30ce2d305fb2031b3d4276f7c69397a3c4f59c71f585",
       "reviewed_at": 1792056878.3513007
+    },
+    {
+      "person": "Agatha Christie",
+      "source": {
+        "id": "archive:agatha-christie-arena",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/agatha-christie-arena/Agatha%20Christie%20_001.mp4",
+        "source_url": "https://archive.org/details/agatha-christie-arena",
+        "title": "Arena: Agatha Christie - Unfinished Portrait",
+        "description": "Profile celebrating the centenary of the famous author Agatha Christie’s birth. Looking at her life, her character and the key moments in her childhood that influenced her writing. ['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
+        "creator": "BBC",
+        "license": "",
+        "subject": "['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3656.42408,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2806.86,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The archival footage clearly shows Agatha Christie seated at a desk, visible both from behind and reflected in the mirror, making it authentic and highly relevant biographical illustration for a Short about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "79ea715595c792f8851f1e6ac564525ff91087a808b498a14eb7fe2c07e360d1",
+      "reviewed_at": 1792100584.2026358
+    },
+    {
+      "person": "A.R. Rahman",
+      "source": {
+        "id": "commons:83034875",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Wikipedia-VideoWiki-A._R._Rahman.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Wikipedia-VideoWiki-A._R._Rahman.webm",
+        "title": "File:Wikipedia-VideoWiki-A. R. Rahman.webm",
+        "description": "Wikipedia:VideoWiki/A. R. Rahman",
+        "creator": "See script and authors listed in details below.",
+        "license": "CC BY-SA 3.0",
+        "direct_subject": false,
+        "identity_score": 10.0,
+        "duration_hint": 350.954
+      },
+      "start": 186.44,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment shows A.R. Rahman performing live on stage with musicians and dancers, serving as good biographical illustration for his musical career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "868f753b06e7abb38840dd45ef11084327e57e0d1c0bf0a700f209d99327ee9b",
+      "reviewed_at": 1792100767.8051262
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston/Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston.mp4",
+        "source_url": "https://archive.org/details/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+        "title": "Transit Equity Day (CM Amanda Edwards, Rosa Parks, Link Houston)",
+        "description": "Acting on behalf of Mayor Sylvester Turner, At-Large Position 4 council member Amanda Edwards bestows a city proclamation to Oni Blair, the Executive Director of Link Houston. The proclamation was to declare February 4, 2019 as Transit Equity Day. February 4th is also the day in which Rosa Parks was born. ['Texas', 'Houston', 'City of Houston', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'HTV', 'Amanda Edwards', 'Transportation', 'Link Houston', 'Rosa Parks', 'News', '2019']",
+        "creator": "HTV",
+        "license": "",
+        "subject": "['Texas', 'Houston', 'City of Houston', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'HTV', 'Amanda Edwards', 'Transportation', 'Link Houston', 'Rosa Parks', 'News', '2019']",
+        "runtime": "00:01:55",
+        "direct_subject": true,
+        "duration_hint": 115.315315,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 23.42,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames clearly feature historical footage of Rosa Parks seated on a bus, directly illustrating her life and the historic event.",
+        "usage": "direct_event"
+      },
+      "review_key": "aecd948ab7121708aab42c51f64a92b0e3722e09e468beea01333e8dc58a7055",
+      "reviewed_at": 1792100915.0251157
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary/Rosa_Parks_story_lives_on_at_Daily_Elementary.mp4",
+        "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+        "title": "Rosa Parks' story lives on at Daily Elementary",
+        "description": " ['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
+        "creator": "Houston Independent School District",
+        "license": "",
+        "subject": "['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
+        "runtime": "00:01:24",
+        "direct_subject": true,
+        "duration_hint": 84.317651,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 75.32,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment includes genuine archival footage of Rosa Parks seated and working near a sewing machine (frames 4 and 5), directly illustrating her life and history, despite the first few frames showing unrelated school children.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9ae7e9e84eee0018975eab854b5eb6bca611e4f41534725af890152901a15298",
+      "reviewed_at": 1792100966.9179077
+    },
+    {
+      "person": "Marie Curie",
+      "source": {
+        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+        "title": "Marie Curie A Scientific Hero",
+        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "runtime": "00:02:12",
+        "direct_subject": true,
+        "duration_hint": 132.3,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 23.2,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video segment includes archival photos and biographical imagery related to Marie Curie and Pierre Curie, though some frames show Pierre Curie or graphic overlays. Marie Curie is clearly identifiable in the fifth frame, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "cac72da352e3db334f006f6184574dde384c52b3b97775b155502ad111907ecb",
+      "reviewed_at": 1792101103.4098778
+    },
+    {
+      "person": "Marie Curie",
+      "source": {
+        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+        "title": "Marie Curie A Scientific Hero",
+        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "runtime": "00:02:12",
+        "direct_subject": true,
+        "duration_hint": 132.3,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 32.3,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature historical photographs and archival footage of Marie Curie in her laboratory environment, directly illustrating her life and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "cd68060affd48e8d3c2eed7285714fc3f29184cea3dd90184da1178b7ae03453",
+      "reviewed_at": 1792101112.2130897
+    },
+    {
+      "person": "Marie Curie",
+      "source": {
+        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+        "title": "Marie Curie A Scientific Hero",
+        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "runtime": "00:02:12",
+        "direct_subject": true,
+        "duration_hint": 132.3,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 41.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features authentic historical footage and archival imagery depicting Marie Curie working in her laboratory and alongside Pierre Curie, directly illustrating her scientific career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9896d6c31d4dcd7a1d8a750a15ddab25d5797b48ea296f4d3f716b9dafa92d38",
+      "reviewed_at": 1792101119.1682143
+    },
+    {
+      "person": "Marie Curie",
+      "source": {
+        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+        "title": "Marie Curie A Scientific Hero",
+        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "runtime": "00:02:12",
+        "direct_subject": true,
+        "duration_hint": 132.3,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 59.6,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature archival photographs and footage of Marie Curie, serving as valid biographical illustration for her life and legacy.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "dce02f6fdb51c81609e810da16d8561ed6aa827b2b3e2e86cc0b276674863cf9",
+      "reviewed_at": 1792101131.4816816
     }
   ]
 }

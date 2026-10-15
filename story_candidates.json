@@ -13,19 +13,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Agatha Christie",
-    "premise": "The bestselling novelist of all time whose mysterious 11-day disappearance triggered a massive national manhunt in Britain.",
-    "hook": "The world's most famous mystery writer engineered a real-life disappearance that baffled police and captured global headlines.",
-    "key_facts": [
-      "Disappeared from her home in Berkshire in December 1926 amidst personal turmoil.",
-      "Sparked a massive 1,000-police-officer manhunt involving airplanes and bloodhounds.",
-      "Found safe 11 days later registered under an assumed name at a Harrogate hotel.",
-      "Continued her career to become the best-selling fiction writer of all time."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "rise_from_nothing",
     "person": "Madam C.J. Walker",
     "premise": "An orphaned daughter of emancipated slaves who built a haircare empire to become one of the first self-made female millionaires in America.",
@@ -39,19 +26,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Roald Amundsen",
-    "premise": "Shifting his Arctic expedition plans at the very last moment to chase the South Pole instead.",
-    "hook": "He was sailing north to conquer the North Pole when he secretly changed his destination south, knowing his crew would mutiny if they knew.",
-    "key_facts": [
-      "Initially planned an expedition to the North Pole using Fridtjof Nansen's ship, the Fram.",
-      "Learned that American explorers claimed to have already reached the North Pole.",
-      "Secretly redirected his ship toward Antarctica without informing the public or most of his crew.",
-      "Led the first expedition to successfully reach the geographic South Pole in 1911."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "rise_from_nothing",
     "person": "Radhanath Swami",
     "premise": "A young American hitchhiker who traveled across Europe and the Middle East on foot to find spiritual truth in India.",
@@ -61,6 +35,58 @@
       "Hitchhiked across Europe and the Middle East during the early 1970s.",
       "Crossed the border into India with minimal resources.",
       "Became a prominent spiritual leader and author based in Mumbai."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Narayana Murthy",
+    "premise": "How an engineer pooled a small amount of capital borrowed from his wife to build a global IT giant from a small bedroom.",
+    "hook": "One of India's most successful technology pioneers started his company with just a few hundred dollars and a vision for software outsourcing.",
+    "key_facts": [
+      "Co-founded Infosys in Pune, India, in 1981 with six other software professionals.",
+      "Started operations with minimal capital, initially borrowing seed money from his wife Sudha Murthy.",
+      "Helped pioneer the global software services industry model in India.",
+      "Served as CEO and later Chairman of the Board, transforming the firm into a multinational corporation."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Agatha Christie",
+    "premise": "The famous disappearance of the detective novelist in 1926 that triggered a massive 11-day national manhunt.",
+    "hook": "The world's bestselling mystery writer pulled off a real-life disappearance that baffled police and captivated the British press.",
+    "key_facts": [
+      "Her abandoned car was found perched above a chalk quarry in Surrey in December 1926",
+      "Sparked a 10-day police search involving over 1,000 officers and hundreds of civilian volunteers",
+      "Found staying at the Swan Hydropathic Hotel in Harrogate under an assumed name linked to her husband's mistress",
+      "Never publicly explained the exact reasons behind her sudden disappearance"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "before_they_were_famous",
+    "person": "Viswanathan Anand",
+    "premise": "How a young boy from Tamil Nadu learned chess in the Philippines and became India's first grandmaster.",
+    "hook": "Before he became a five-time World Chess Champion, he learned the rules of the game from his mother in a quiet coastal suburb.",
+    "key_facts": [
+      "Born in Mayiladuthurai, Tamil Nadu, and raised partly in Chennai and the Philippines",
+      "Taught the rules of chess by his mother, Susheela, at age six",
+      "Became India's first International Grandmaster in 1988 at the age of 18",
+      "Won the World Chess Championship five times across different formats"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Srinivasa Ramanujan",
+    "premise": "The self-taught mathematical genius from Erode who mailed pages of complex formulas to a Cambridge professor out of the blue.",
+    "hook": "A low-level shipping clerk with no formal university degree mailed raw mathematical theorems to England that changed modern math forever.",
+    "key_facts": [
+      "Grew up in Erode and Kumbakonam, Tamil Nadu, failing college exams because he neglected non-math subjects",
+      "Worked as a routine shipping clerk in Madras to support his family while doing mathematics on slates",
+      "Sent unrequested letters containing advanced theorems to British mathematician G.H. Hardy in 1913",
+      "Traveled to Trinity College, Cambridge, where he was elected a Fellow of the Royal Society"
     ],
     "source": "gemini_original"
   }

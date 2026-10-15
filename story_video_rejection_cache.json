@@ -4053,6 +4053,492 @@
       "start": 132.74,
       "reason": "blank/near-blank frames",
       "reviewed_at": 1792078651.1957357
+    },
+    "948997151671751c96f812f7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 2802.81,
+      "reason": "The frames show a modern documentary interviewee or commentator discussing mathematics, but Srinivasa Ramanujan lived from 1887 to 1920. Therefore, the person visible is a modern speaker/commentator, not the historical subject Srinivasa Ramanujan.",
+      "reviewed_at": 1792100438.084898
+    },
+    "b678c59dfaefa806040e71d8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 74.67,
+      "reason": "The footage shows modern overpasses, nighttime city traffic, and abstract digital map/word graphics, which have no historical or biographical connection to Srinivasa Ramanujan (1887–1920).",
+      "reviewed_at": 1792100449.5660255
+    },
+    "4939591a96c3ec9945609012": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 144.35,
+      "reason": "The sampled frames consist entirely of title cards, credits, and production logos ('THE END' and partner credits) with no actual historical footage or depiction of Srinivasa Ramanujan.",
+      "reviewed_at": 1792100456.8074563
+    },
+    "d9c68d19cece96907b847fee": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TheManWhoLovedNumbers",
+      "source_url": "https://archive.org/details/TheManWhoLovedNumbers",
+      "person": "Srinivasa Ramanujan",
+      "start": 2892.43,
+      "reason": "The footage shows an archival interview from a documentary about Srinivasa Ramanujan, but the person speaking and visible in the frames is a commentator or expert talking about Ramanujan, not Srinivasa Ramanujan himself (who lived from 1887 to 1920 and died long before this footage was recorded). Therefore, person_visible is false, but it is valid biographical illustration material.",
+      "reviewed_at": 1792100483.2713654
+    },
+    "1eaf68bcaa49d3e965ca4b1b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TheManWhoLovedNumbers",
+      "source_url": "https://archive.org/details/TheManWhoLovedNumbers",
+      "person": "Srinivasa Ramanujan",
+      "start": 3154.93,
+      "reason": "The footage shows an archival or historical interior (likely Trinity College dining hall), which serves as relevant contextual B-roll for Ramanujan's time in England, but the subject is not visible.",
+      "reviewed_at": 1792100496.3983407
+    },
+    "fdadbcfbd87c82cec43d355d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Agatha100",
+      "source_url": "https://archive.org/details/Agatha100",
+      "person": "Agatha Christie",
+      "start": 1853.87,
+      "reason": "The sampled segment features documentary discussion and a dramatic reconstruction of a train scene related to Agatha Christie's work (Murder on the Orient Express), but Agatha Christie herself is not visibly present in the footage.",
+      "reviewed_at": 1792100593.9991786
+    },
+    "1623ddaf7b5900878d29e93f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Agatha100",
+      "source_url": "https://archive.org/details/Agatha100",
+      "person": "Agatha Christie",
+      "start": 2470.16,
+      "reason": "The footage shows scenic views and atmospheric B-roll related to Agatha Christie's settings, but the subject is not visible, making it suitable as biographical illustration.",
+      "reviewed_at": 1792100600.3720205
+    },
+    "ff492ed355ceb8289f611707": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "source_url": "https://archive.org/details/agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "person": "Agatha Christie",
+      "start": 1735.15,
+      "reason": "The footage is from a dramatic television adaptation of an Agatha Christie novel ('Miss Marple'), not biographical or archival footage of Agatha Christie herself. Agatha Christie is not visible in the frames.",
+      "reviewed_at": 1792100610.8577259
+    },
+    "dbe11a04941aa2106a49d54c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "source_url": "https://archive.org/details/agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "person": "Agatha Christie",
+      "start": 2167.69,
+      "reason": "The footage shows a dramatic adaptation based on Agatha Christie's work, not Agatha Christie herself, making it unusable as direct identity or biographical evidence for her.",
+      "reviewed_at": 1792100617.2203863
+    },
+    "29cdbdf269c0db5b77a8e62d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20251109-203719",
+      "source_url": "https://archive.org/details/vid-20251109-203719",
+      "person": "Agatha Christie",
+      "start": 196.48,
+      "reason": "The video shows an unidentified individual speaking in a modern room, which has no connection to Agatha Christie or archival footage of her life.",
+      "reviewed_at": 1792100624.994612
+    },
+    "95d072872959bce5247b55e3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20251109-203719",
+      "source_url": "https://archive.org/details/vid-20251109-203719",
+      "person": "Agatha Christie",
+      "start": 220.41,
+      "reason": "The footage features an unidentified modern individual speaking indoors, which has no connection to Agatha Christie.",
+      "reviewed_at": 1792100632.6657653
+    },
+    "81ed71b9b4b66c4fbc7ea92f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christie-arena",
+      "source_url": "https://archive.org/details/agatha-christie-arena",
+      "person": "Agatha Christie",
+      "start": 1686.12,
+      "reason": "The footage shows an elderly woman who is clearly not Agatha Christie (who passed away in 1976; this documentary was made for the centenary in 1990, likely featuring a relative or dramatization/recreation), making it inaccurate to present her as the actual subject.",
+      "reviewed_at": 1792100641.5397005
+    },
+    "3e86a944e4eb663b51036467": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christie-arena",
+      "source_url": "https://archive.org/details/agatha-christie-arena",
+      "person": "Agatha Christie",
+      "start": 1966.31,
+      "reason": "The sampled frames show an unidentified person speaking in an interview and a close-up of a book page ('Chapter Four The Unsolved Mystery'). Agatha Christie passed away in 1976 and was not alive to be filmed in this 1990 BBC documentary segment, meaning the subject is not visibly present.",
+      "reviewed_at": 1792100648.8460977
+    },
+    "fc9ad5b3ddeddfab94cd5d66": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalahadOfEverest",
+      "source_url": "https://archive.org/details/GalahadOfEverest",
+      "person": "Tenzing Norgay",
+      "start": 181.19,
+      "reason": "The footage shows archival documentary mountain climbing/expedition scenery with pack animals, relevant to Tenzing Norgay's life and Himalayan mountaineering context, but Tenzing Norgay himself is not clearly identifiable in the frames.",
+      "reviewed_at": 1792100693.1180634
+    },
+    "1277a5ca45cf3db768d148bc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalahadOfEverest",
+      "source_url": "https://archive.org/details/GalahadOfEverest",
+      "person": "Tenzing Norgay",
+      "start": 269.29,
+      "reason": "The footage shows a climber and mountaineering boot/crampons on snow/ice from a 1991 documentary. While it depicts mountaineering context relevant to Tenzing Norgay, Tenzing Norgay himself is not visible (the climber shown is likely Brian Blessed recreating a 1924 climb), making it usable only as biographical illustration.",
+      "reviewed_at": 1792100700.911113
+    },
+    "84e10284593dc39443cbad3e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:44754ManAgainstMountEverest",
+      "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+      "person": "Tenzing Norgay",
+      "start": 489.3,
+      "reason": "The archival footage shows mountain climbing scenes from the 1952 Swiss expedition which Tenzing Norgay participated in, providing authentic historical context for his mountaineering career, even though he is not clearly identifiable as an individual in these specific distant or obscured frames.",
+      "reviewed_at": 1792100729.619765
+    },
+    "5eb4010f0d28e16c69fcd197": {
+      "kind": "segment_rejection",
+      "source_id": "archive:44754ManAgainstMountEverest",
+      "source_url": "https://archive.org/details/44754ManAgainstMountEverest",
+      "person": "Tenzing Norgay",
+      "start": 529.66,
+      "reason": "The sampled frames consist of title cards, black screens, and stock footage distributor end cards rather than usable historical or identity footage of Tenzing Norgay.",
+      "reviewed_at": 1792100734.8535001
+    },
+    "a8389dde3153f34a3b69d863": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131031-094006-Brianlippey-daveStewartRockBridgeGuitar813",
+      "source_url": "https://archive.org/details/bliptv-20131031-094006-Brianlippey-daveStewartRockBridgeGuitar813",
+      "person": "A.R. Rahman",
+      "start": 143.87,
+      "reason": "The sampled frames feature Dave Stewart and another musician, but A.R. Rahman is not present or visible in any of the footage.",
+      "reviewed_at": 1792100757.3240554
+    },
+    "be0478103f388a9b9899a0aa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131031-094006-Brianlippey-daveStewartRockBridgeGuitar813",
+      "source_url": "https://archive.org/details/bliptv-20131031-094006-Brianlippey-daveStewartRockBridgeGuitar813",
+      "person": "A.R. Rahman",
+      "start": 203.39,
+      "reason": "The sampled frames feature Dave Stewart and another musician playing instruments, but A.R. Rahman is not visible anywhere in the video segment.",
+      "reviewed_at": 1792100764.520093
+    },
+    "55323d153465c189c69d1a04": {
+      "kind": "segment_rejection",
+      "source_id": "commons:83034875",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Wikipedia-VideoWiki-A._R._Rahman.webm",
+      "person": "A.R. Rahman",
+      "start": 5.0,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792100772.1446521
+    },
+    "5c91e45d0af5ee035eb90bd1": {
+      "kind": "segment_rejection",
+      "source_id": "commons:83034875",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Wikipedia-VideoWiki-A._R._Rahman.webm",
+      "person": "A.R. Rahman",
+      "start": 30.92,
+      "reason": "The sampled frames show a recording studio mixing console and studio environment, which relates to A.R. Rahman's career as a composer and music producer, serving as biographical illustration without depicting the subject himself.",
+      "reviewed_at": 1792100777.531459
+    },
+    "8047e331d7b1985957ff3ee4": {
+      "kind": "segment_rejection",
+      "source_id": "commons:83034875",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Wikipedia-VideoWiki-A._R._Rahman.webm",
+      "person": "A.R. Rahman",
+      "start": 56.84,
+      "reason": "The sampled frames show architectural footage of a building and a static photograph or low-quality crop, with no clear or identifiable footage of A.R. Rahman across the segment.",
+      "reviewed_at": 1792100782.9110181
+    },
+    "e1b6c318ff8c8759ba6377ee": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "source_url": "https://archive.org/details/cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "person": "Rosa Parks",
+      "start": 1848.28,
+      "reason": "The footage shows a modern 2018 event (the Rosa Parks Essay Contest), not archival footage of Rosa Parks herself. Since Rosa Parks is not visible and this is a contemporary event rather than historical context directly depicting her life, the clip is unusable.",
+      "reviewed_at": 1792100872.051422
+    },
+    "686c3277d3b463e5167d1171": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "source_url": "https://archive.org/details/cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "person": "Rosa Parks",
+      "start": 2257.89,
+      "reason": "The video shows a 2018 Rosa Parks Essay Contest award ceremony, not archival footage of historical subject Rosa Parks herself, making it irrelevant for a biographical short.",
+      "reviewed_at": 1792100877.376029
+    },
+    "6c097911ca4d192dc3e8f278": {
+      "kind": "segment_rejection",
+      "source_id": "archive:DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
+      "source_url": "https://archive.org/details/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
+      "person": "Rosa Parks",
+      "start": 26.46,
+      "reason": "The sampled frames are nearly static, featuring heavily edited graphics, text overlays, and title cards over an image of Rosa Parks, lacking genuine moving historical footage.",
+      "reviewed_at": 1792100895.5644338
+    },
+    "8e7c35448c0fbb35bb38c914": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ttval-Rosa_Parks_Day_-_TROY_TrojanVision_News",
+      "source_url": "https://archive.org/details/ttval-Rosa_Parks_Day_-_TROY_TrojanVision_News",
+      "person": "Rosa Parks",
+      "start": 24.31,
+      "reason": "The footage shows B-roll of a statue and museum exhibit, followed by an interview with a random visitor commenting on the subject, but Rosa Parks herself is never visibly present in the sampled frames.",
+      "reviewed_at": 1792100903.094601
+    },
+    "80d75ef729483b6956ec8174": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ttval-Rosa_Parks_Day_-_TROY_TrojanVision_News",
+      "source_url": "https://archive.org/details/ttval-Rosa_Parks_Day_-_TROY_TrojanVision_News",
+      "person": "Rosa Parks",
+      "start": 33.97,
+      "reason": "The segment features news reporting and historical display imagery related to Rosa Parks, including a news correspondent and historical plaques, but Rosa Parks herself is not visibly present in the actual moving footage.",
+      "reviewed_at": 1792100908.4649885
+    },
+    "d1fb1fa2a1d1fe022f51e86d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "source_url": "https://archive.org/details/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "person": "Rosa Parks",
+      "start": 78.68,
+      "reason": "The video footage shows a 2019 local news report and city proclamation event in Houston regarding Transit Equity Day (which is on Rosa Parks' birthday). Rosa Parks is not personally visible in any of the frames, and the footage consists entirely of contemporary local government officials and figures rather than historical material depicting Rosa Parks herself.",
+      "reviewed_at": 1792100932.5580397
+    },
+    "1cfab01bff9e75bc0e47b3b0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "source_url": "https://archive.org/details/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "person": "Rosa Parks",
+      "start": 97.1,
+      "reason": "The footage shows a modern city bus and transit station in Houston from 2019, which serves as general biographical illustration for transit themes related to Rosa Parks, though Rosa Parks herself is not visible.",
+      "reviewed_at": 1792100939.4286687
+    },
+    "fda774ce293e5ba21dfee031": {
+      "kind": "segment_rejection",
+      "source_id": "archive:coleefl-LeeTran_-_Rosa_Parks_Transportation_Center_Upgrades",
+      "source_url": "https://archive.org/details/coleefl-LeeTran_-_Rosa_Parks_Transportation_Center_Upgrades",
+      "person": "Rosa Parks",
+      "start": 2.83,
+      "reason": "The footage shows a modern news report about the Rosa Parks Transportation Center in Florida, featuring a reporter named Stacey Perkins. Rosa Parks is not visible, and the content is modern local transit news rather than historical biography or context for Rosa Parks.",
+      "reviewed_at": 1792100961.145359
+    },
+    "2bffd2517d2f5adc2488649e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "source_url": "https://archive.org/details/ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "person": "Marie Curie",
+      "start": 5.0,
+      "reason": "The sampled frames consist of abstract close-ups of an eye and title cards for a local public access show ('Scene in Humboldt'). Marie Curie is not visible, and the content does not depict historical context relevant to Marie Curie's biography.",
+      "reviewed_at": 1792101073.6153228
+    },
+    "0f587a0ade1640dff336c6f3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "source_url": "https://archive.org/details/ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "person": "Marie Curie",
+      "start": 39.11,
+      "reason": "The video segment shows contemporary interviews and theatrical discussions about a play concerning Marie Curie, rather than authentic historical footage or accurate biographical depictions of Marie Curie herself.",
+      "reviewed_at": 1792101078.8646238
+    },
+    "52b15a4d6957ce1d17e171b8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:rth_27169773_1200K",
+      "source_url": "https://archive.org/details/rth_27169773_1200K",
+      "person": "Marie Curie",
+      "start": 5.0,
+      "reason": "The footage shows a modern TV studio presenter discussing Marie Curie in front of a backdrop featuring historical photos, but Marie Curie herself is not visibly present in the video.",
+      "reviewed_at": 1792101086.7773266
+    },
+    "341ba48cef44aa2a80d7acff": {
+      "kind": "segment_rejection",
+      "source_id": "archive:rth_27169773_1200K",
+      "source_url": "https://archive.org/details/rth_27169773_1200K",
+      "person": "Marie Curie",
+      "start": 15.38,
+      "reason": "The footage features a modern TV host discussing Marie Curie in a studio setting, not Marie Curie herself. Additionally, it contains lower-third news chyrons and graphics, making it unsuitable for a biographical short about Marie Curie.",
+      "reviewed_at": 1792101092.6073103
+    },
+    "1aa9872da7b880e4aa4dee3b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+      "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+      "person": "Marie Curie",
+      "start": 14.1,
+      "reason": "The frames consist of digital cartoon/vector animations of laboratory glassware and a still photograph of a street scene in Paris, with no actual filmed footage of Marie Curie.",
+      "reviewed_at": 1792101099.7679422
+    },
+    "c252271ffc3c228d9ca99d55": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+      "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+      "person": "Marie Curie",
+      "start": 50.5,
+      "reason": "The segment consists of slideshow-like historical photographs and periodic table graphics rather than genuine archival moving footage of Marie Curie.",
+      "reviewed_at": 1792101127.4062586
+    },
+    "47e31443601341c0a14ab143": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+      "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+      "person": "Marie Curie",
+      "start": 77.8,
+      "reason": "The segment features historical archival photos and documents related to Marie Curie's work, including early X-ray equipment and her Nobel Prize certificate, serving as valid biographical illustration despite the subject not being visibly present.",
+      "reviewed_at": 1792101142.8478518
+    },
+    "88d78d019e5cfdc7b9bf223a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+      "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+      "person": "Marie Curie",
+      "start": 86.9,
+      "reason": "The sampled frames show archival documents (such as a certificate) and a gravestone, but Marie Curie is not visibly present in any of the frames.",
+      "reviewed_at": 1792101149.5212185
+    },
+    "7bc573f620d983c08d201ac0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cosdaz-Roald_Amundsen_Pullman_Car",
+      "source_url": "https://archive.org/details/cosdaz-Roald_Amundsen_Pullman_Car",
+      "person": "Roald Amundsen",
+      "start": 519.24,
+      "reason": "The sampled frames depict an unrelated interview subject (Earl D. Eisenhower) and a static historical photograph of a woman, neither of whom is Roald Amundsen. Furthermore, the segment is a slideshow of static photographs and unrelated archive footage, failing all criteria for usable moving footage of the subject.",
+      "reviewed_at": 1792101193.665632
+    },
+    "4f4f7230a58b862f0bed3afe": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cosdaz-Roald_Amundsen_Pullman_Car",
+      "source_url": "https://archive.org/details/cosdaz-Roald_Amundsen_Pullman_Car",
+      "person": "Roald Amundsen",
+      "start": 5.0,
+      "reason": "The video segment consists entirely of title cards and intro graphics for a local TV show about a railroad car named after Roald Amundsen, with no actual biographical footage or relevant historical context regarding the explorer himself.",
+      "reviewed_at": 1792101198.916622
+    },
+    "364a75d908d68e029c158fd9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Roald_Amundsen_High_School",
+      "source_url": "https://archive.org/details/Roald_Amundsen_High_School",
+      "person": "Roald Amundsen",
+      "start": 294.65,
+      "reason": "The video footage shows modern high school students presenting a project at the 2016 Aspen Challenge, completely unrelated to the historical polar explorer Roald Amundsen.",
+      "reviewed_at": 1792101206.1865256
+    },
+    "27d40f16dbbf750ccb086c0a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Roald_Amundsen_High_School",
+      "source_url": "https://archive.org/details/Roald_Amundsen_High_School",
+      "person": "Roald Amundsen",
+      "start": 418.78,
+      "reason": "The video shows modern students presenting a project at the Aspen Challenge, which has no connection to the historical explorer Roald Amundsen, despite the school sharing his name.",
+      "reviewed_at": 1792101211.6226134
+    },
+    "4a3fc8358bbdc9b2090707c0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:israel-wohltater-der-menschheit",
+      "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+      "person": "Jonas Salk",
+      "start": 41.19,
+      "reason": "The video segment is an interview/documentary clip about Jonas Salk featuring his son, but it is presented with heavy website UI framing (BBC webpage wrapper with menus, article text, and share buttons) surrounding a small letterboxed video player. This constitutes poor formatting and severe UI clutter that makes it unusable for a clean vertical video biography.",
+      "reviewed_at": 1792101378.4309795
+    },
+    "a7775f39c2696f9f2f232a1e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:israel-wohltater-der-menschheit",
+      "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+      "person": "Jonas Salk",
+      "start": 59.28,
+      "reason": "The footage is embedded within a screen recording of a web page article, surrounded by web UI elements, text, and bad layout formatting making it unusable for vertical short video.",
+      "reviewed_at": 1792101383.6185277
+    },
+    "d1b37a5f1383eb713d7ce8e2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+      "person": "Ernest Shackleton",
+      "start": 2194.48,
+      "reason": "The footage shows an unidentified modern commentator or expert being interviewed against a map background, not Ernest Shackleton (who lived from 1874 to 1922).",
+      "reviewed_at": 1792101478.9838386
+    },
+    "5ad803250aecc857c25aff35": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+      "person": "Ernest Shackleton",
+      "start": 5.0,
+      "reason": "The footage shows an old-style sailing ship on water and a vintage map overlay, which does not accurately represent Ernest Shackleton's early 20th-century polar expedition ship (the Endurance), making it historically inaccurate and unusable biographical illustration.",
+      "reviewed_at": 1792101485.189468
+    },
+    "a16ded99d243090e61950c1b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202512",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
+      "person": "Ernest Shackleton",
+      "start": 5.0,
+      "reason": "The frames show a title card and a bust/statue of General Gordon ('Gordon of Khartoum'), not Ernest Shackleton. Therefore, the subject is not visible and the footage is irrelevant to Shackleton.",
+      "reviewed_at": 1792101494.4782345
+    },
+    "b2b823bf3d181ffdd8496e6d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202512",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
+      "person": "Ernest Shackleton",
+      "start": 343.8,
+      "reason": "The footage shows a statue and monuments in an unspecified Middle Eastern or colonial context, which has no connection to Ernest Shackleton or his Antarctic expeditions.",
+      "reviewed_at": 1792101500.5106165
+    },
+    "83db6a52b42992a250bb3140": {
+      "kind": "segment_rejection",
+      "source_id": "archive:shackletons-expedition",
+      "source_url": "https://archive.org/details/shackletons-expedition",
+      "person": "Ernest Shackleton",
+      "start": 5.0,
+      "reason": "The footage shows modern aerial and satellite views of Antarctica, icebergs, and coastal landscapes. While Ernest Shackleton is not visible, this serves as biographical illustration footage depicting the setting of his Antarctic expeditions.",
+      "reviewed_at": 1792101513.8098826
+    },
+    "8258c1d46341bee9d5cb881f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:shackletons-expedition",
+      "source_url": "https://archive.org/details/shackletons-expedition",
+      "person": "Ernest Shackleton",
+      "start": 106.3,
+      "reason": "The video consists entirely of still photographs and landscape stock footage rather than actual moving archival film footage of Ernest Shackleton, making it unusable for genuine identity or direct event footage.",
+      "reviewed_at": 1792101526.1155968
+    },
+    "2e9fe979b3f86714f347d2b6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:antarctica-a-frozen-history",
+      "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+      "person": "Ernest Shackleton",
+      "start": 427.76,
+      "reason": "The footage shows an old wreckage or boat remnant on an Antarctic shore, serving as biographical illustration for Ernest Shackleton's expeditions, though Shackleton himself is not visible.",
+      "reviewed_at": 1792101564.6033292
+    },
+    "10447595efeaad3d5f893d87": {
+      "kind": "segment_rejection",
+      "source_id": "archive:antarctica-a-frozen-history",
+      "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+      "person": "Ernest Shackleton",
+      "start": 850.52,
+      "reason": "The footage shows men pulling sledges through a blizzard in Antarctica, which serves as historical context and illustration for Ernest Shackleton's expeditions, although Shackleton himself is not clearly distinguishable among the figures in heavy polar gear.",
+      "reviewed_at": 1792101587.718775
+    },
+    "d100b0826758e0215c11fc6d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+      "person": "Ernest Shackleton",
+      "start": 1099.74,
+      "reason": "The footage features an interview discussing Ernest Shackleton and shots of Antarctic ice, but the historical subject Ernest Shackleton (who died in 1922) is not personally visible in the frames.",
+      "reviewed_at": 1792101595.3657475
+    },
+    "89da4a8b2307f7a400c980f6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+      "person": "Ernest Shackleton",
+      "start": 1318.69,
+      "reason": "The frames show geographical maps and satellite-style imagery of Antarctica (Vahsel Bay, Weddell Sea, McMurdo Sound) relevant to Ernest Shackleton's expeditions, serving as useful biographical illustration despite the subject not being visible.",
+      "reviewed_at": 1792101599.7327993
     }
   }
 }

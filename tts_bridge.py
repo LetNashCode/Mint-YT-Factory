@@ -66,6 +66,7 @@ def patch(main):
             config,
             final_path,
             target_duration=MAX_FINAL_NARRATION_SECONDS,
+            end_padding_seconds=0.0,
         )
         print(
             "🔒 Publish narration single-pass complete | "

@@ -233,26 +233,30 @@ def synthesize(text, output):
     import soundfile as sf
     from kokoro import KPipeline
 
+    source = clean(text, limit=3000)
+    if not source:
+        raise RuntimeError("Cannot synthesize empty Everyday Wisdom narration")
+
     pipeline = KPipeline(lang_code="a")
-    words = text.split()
-    chunks = [" ".join(words[i:i + 42]) for i in range(0, len(words), 42)]
-    parts = []
-    for index, chunk in enumerate(chunks, 1):
-        print(f"TTS chunk {index}/{len(chunks)}")
-        audio_parts = []
-        for result in pipeline(chunk, voice=VOICE, speed=1.0, split_pattern=r"\n+"):
-            audio = result[2] if isinstance(result, tuple) else result.audio
-            if hasattr(audio, "detach"):
-                audio = audio.detach().cpu().numpy()
-            audio = np.asarray(audio, dtype=np.float32).reshape(-1)
-            if audio.size:
-                audio_parts.append(audio)
-        if not audio_parts:
-            raise RuntimeError(f"Kokoro returned no audio for chunk {index}")
-        parts.append(np.concatenate(audio_parts))
-        if index < len(chunks):
-            parts.append(np.zeros(int(0.035 * 24000), dtype=np.float32))
-    audio = np.concatenate(parts)
+    word_count = len(source.split())
+    print(f"Kokoro single-pass narration | words={word_count} | voice={VOICE}")
+
+    # Submit the complete narration once; do not split into word-count chunks
+    # or insert artificial pauses between separately synthesized sections.
+    audio_parts = []
+    for result in pipeline(source, voice=VOICE, speed=1.0, split_pattern=r"\\n+"):
+        audio = result[2] if isinstance(result, tuple) else result.audio
+        if audio is None:
+            continue
+        if hasattr(audio, "detach"):
+            audio = audio.detach().cpu().numpy()
+        audio = np.asarray(audio, dtype=np.float32).reshape(-1)
+        if audio.size:
+            audio_parts.append(audio)
+    if not audio_parts:
+        raise RuntimeError("Kokoro returned no audio for the complete narration")
+
+    audio = np.concatenate(audio_parts)
     sf.write(output, audio, 24000, subtype="PCM_16")
     duration = len(audio) / 24000.0
     # Narration is intentionally generated short enough to fit naturally.
@@ -264,7 +268,6 @@ def synthesize(text, output):
             "Regenerate with a shorter narration; audio speed-up is disabled."
         )
     return duration
-
 
 def search_videos(query):
     key = os.getenv("PEXELS_API_KEY", "").strip()

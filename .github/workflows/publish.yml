@@ -2,8 +2,8 @@ name: Publish Short
 
 on:
   schedule:
-    - cron: "0 2 * * *"
     - cron: "30 13 * * *"
+    - cron: "30 17 * * *"
   workflow_dispatch: {}
 
 permissions:

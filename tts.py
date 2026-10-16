@@ -403,7 +403,7 @@ def _apply_riddle_personality(script, config):
     return effective
 
 
-def synthesize_script(script, config, out_dir):
+def synthesize_script(script, config, out_dir, end_padding_seconds=NARRATION_END_PADDING_SECONDS):
     if not isinstance(script, dict):
         raise RuntimeError("Script must be a dictionary")
     narration = _script_narration(script)
@@ -414,4 +414,4 @@ def synthesize_script(script, config, out_dir):
     effective_config = _apply_riddle_personality(script, config)
     target = STORY_TARGET_MAX_DURATION if _is_story_script(script) else TARGET_MAX_DURATION
     print(f"🎬 TTS narration mode: {'STORY FULL-NARRATION' if _is_story_script(script) else 'STANDARD'} | target={target:.2f}s")
-    return synthesize_narration(narration, effective_config, output_path, target_duration=target)
+    return synthesize_narration(narration, effective_config, output_path, target_duration=target, end_padding_seconds=end_padding_seconds)

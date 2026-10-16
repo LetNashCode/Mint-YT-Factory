@@ -19,8 +19,8 @@ on:
       - '.github/workflows/story-shorts.yml'
   workflow_dispatch:
   schedule:
-    - cron: '0 5 * * *'
-    - cron: '0 11 * * *'
+    - cron: '0 14 * * *'
+    - cron: '0 16 * * *'
 permissions:
   contents: write
   actions: read

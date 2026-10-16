@@ -244,5 +244,18 @@
     "video_id": "3FgMmn1g8Ks",
     "workdir": "",
     "published_at": 1792057482
+  },
+  {
+    "topic": "Jane Goodall: Traveling to the Gombe Stream Reserve without a college degree to live among wild chimpanzees.",
+    "normalized": "jane goodall traveling to the gombe stream reserve without a college degree to live among wild chimpanzees",
+    "workflow": "story",
+    "status": "reserved",
+    "reserved_at": 1792158280,
+    "recorded_at": 1792158280,
+    "metadata": {
+      "person": "Jane Goodall",
+      "pillar": "one_decision",
+      "source": "story_topic_selection"
+    }
   }
 ]

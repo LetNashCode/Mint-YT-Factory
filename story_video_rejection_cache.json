@@ -5732,6 +5732,15 @@
       "start": 197.68,
       "reason": "The video segment contains archival and nature footage illustrating themes of environmentalism and wildlife, fitting for a biography of Jane Goodall, but Jane Goodall herself is not visible in the sampled frames.",
       "reviewed_at": 1792144399.085832
+    },
+    "233a35c2ed31e1e60b470682": {
+      "kind": "segment_rejection",
+      "source_id": "archive:JaneGoodall_2002",
+      "source_url": "https://archive.org/details/JaneGoodall_2002",
+      "person": "Jane Goodall",
+      "start": 5.0,
+      "reason": "The frames only show TED title cards and intro animations, lacking any footage of Jane Goodall or her historical context.",
+      "reviewed_at": 1792157521.9010358
     }
   }
 }

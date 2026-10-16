@@ -869,7 +869,7 @@ def verify(person, scene, item, samples):
 
         Path(NETWORK_DEFER_FILE).write_text(
             f"Story verifier unavailable after retries on {GEMINI_MODEL}: {last_error}; "
-            f"fallback {GEMINI_FALLBACK_MODEL}: {fallback_last_error}.\\n",
+            f"fallback {GEMINI_FALLBACK_MODEL}: {fallback_last_error}.\n",
             encoding="utf-8",
         )
         raise RuntimeError(

@@ -142,7 +142,7 @@ Do not expose the loop with words like replay, loop, watch again, or back to the
             print(f"⚠️ Story factory topic release failed: {type(factory_release_error).__name__}: {factory_release_error}")
         raise
     workdir=os.path.join("output","interactive",str(int(time.time()))); os.makedirs(workdir,exist_ok=True); script_path=os.path.join(workdir,"script.json"); save(script,script_path)
-    audio=synthesize_script(script,config,os.path.join(workdir,"audio"))
+    audio=synthesize_script(script,config,os.path.join(workdir,"audio"), end_padding_seconds=0.0)
     if isinstance(audio,dict): audio=audio.get("audio_path") or audio.get("path") or audio.get("output_path")
     elif isinstance(audio,(tuple,list)): audio=next((x for x in audio if isinstance(x,(str,os.PathLike)) and os.path.isfile(os.fspath(x))),audio[0] if audio else None)
     if not isinstance(audio,(str,os.PathLike)) or not os.path.isfile(os.fspath(audio)): raise RuntimeError(f"Story narration file invalid: {audio!r}")

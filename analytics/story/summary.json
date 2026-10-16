@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-16T08:34:01.111918+00:00",
+  "generated_at": "2026-10-16T09:25:12.943604+00:00",
   "video_count": 13,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 10,
   "reason": "",
   "totals": {
-    "views": 7209,
+    "views": 7218,
     "likes": 131,
     "comments": 2
   },
   "averages": {
-    "views": 554.54,
+    "views": 555.23,
     "likes": 10.08,
     "comments": 0.15,
     "average_view_percentage": 38.03,
@@ -23,7 +23,7 @@
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
       "video_id": "Pb1-aVVunGg",
       "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1107,
+      "views": 1116,
       "likes": 39,
       "comments": 2,
       "shares": 0,
@@ -31,7 +31,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7037
+      "engagement_rate": 3.6738
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -165,7 +165,7 @@
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
       "video_id": "Pb1-aVVunGg",
       "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1107,
+      "views": 1116,
       "likes": 39,
       "comments": 2,
       "shares": 0,
@@ -173,7 +173,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7037
+      "engagement_rate": 3.6738
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",

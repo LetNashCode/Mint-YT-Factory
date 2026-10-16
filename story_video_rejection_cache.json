@@ -5102,6 +5102,636 @@
       "start": 2627.95,
       "reason": "The frames show William Holden dancing with Martha Hyer, not Audrey Hepburn. Therefore, Audrey Hepburn is not visible in the footage.",
       "reviewed_at": 1792141660.650566
+    },
+    "19ca72370a24e7d490765a37": {
+      "kind": "segment_rejection",
+      "source_id": "archive:israel-wohltater-der-menschheit",
+      "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+      "person": "Jonas Salk",
+      "start": 149.76,
+      "reason": "The sampled frames show a webpage containing archival photos and text about the polio vaccine, but the video is essentially a static or poorly framed screenshot of an article rather than usable moving archival footage of Jonas Salk himself.",
+      "reviewed_at": 1792142791.2790403
+    },
+    "ca03a0eb1ef05311b9c5f347": {
+      "kind": "segment_rejection",
+      "source_id": "archive:israel-wohltater-der-menschheit",
+      "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+      "person": "Jonas Salk",
+      "start": 167.85,
+      "reason": "The footage shows real archival moving images of Jonas Salk, but the video is presented as a screen recording of a website article (BBC News) with heavy UI elements, browser chrome, and text covering the bottom half, making it unusable for a biography Short.",
+      "reviewed_at": 1792142798.8654666
+    },
+    "65bb2865be48f8a1f0a00232": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SirEdmundHillaryJohnMeekInterview",
+      "source_url": "https://archive.org/details/SirEdmundHillaryJohnMeekInterview",
+      "person": "Edmund Hillary",
+      "start": 2824.42,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792142852.3347466
+    },
+    "da485158460fcef99d53dd00": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SirEdmundHillaryJohnMeekInterview",
+      "source_url": "https://archive.org/details/SirEdmundHillaryJohnMeekInterview",
+      "person": "Edmund Hillary",
+      "start": 5.0,
+      "reason": "The sampled frames only show production company title cards and location/date text screens. Edmund Hillary is not visible in any of the frames.",
+      "reviewed_at": 1792142879.6007936
+    },
+    "e5b1fc287259285924a6e13f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SirEdmundHillaryJohnMeekInterview",
+      "source_url": "https://archive.org/details/SirEdmundHillaryJohnMeekInterview",
+      "person": "Edmund Hillary",
+      "start": 407.77,
+      "reason": "The frames clearly identify the person on screen as John Martin Meek (Interviewer), not Edmund Hillary. Since Edmund Hillary is not visible in the footage, it fails the identity requirement.",
+      "reviewed_at": 1792142905.748393
+    },
+    "b97b28db7d27eaaa19e5edca": {
+      "kind": "segment_rejection",
+      "source_id": "archive:fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM",
+      "source_url": "https://archive.org/details/fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM",
+      "person": "Edmund Hillary",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of stock footage title cards and watermarked title screens ('Periscope Film' and 'Foothold on Antarctica'), with no actual filmed footage of Edmund Hillary or usable historical context.",
+      "reviewed_at": 1792142925.4018688
+    },
+    "e1f455598973685f6624cf06": {
+      "kind": "segment_rejection",
+      "source_id": "archive:fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM",
+      "source_url": "https://archive.org/details/fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM",
+      "person": "Edmund Hillary",
+      "start": 199.05,
+      "reason": "The frames show a historical animated map/diagram of Antarctica and surrounding regions related to the Commonwealth Trans-Antarctic Expedition. Edmund Hillary is not visible, but the footage provides valid geographical and historical context for his expedition.",
+      "reviewed_at": 1792142949.9619546
+    },
+    "f0aeccfa3588436ffecb0bba": {
+      "kind": "segment_rejection",
+      "source_id": "archive:fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM",
+      "source_url": "https://archive.org/details/fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM",
+      "person": "Edmund Hillary",
+      "start": 296.07,
+      "reason": "The footage shows archival documentary moving pictures of a ship from the Commonwealth Trans-Antarctic Expedition (1955-1958), which provides valid historical context for Edmund Hillary's expedition involvement, although Edmund Hillary himself is not clearly identifiable in these specific frames.",
+      "reviewed_at": 1792142958.5990841
+    },
+    "41813771b7454f32b305a7a3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sir-edmund-hillary-the-race-for-everest",
+      "source_url": "https://archive.org/details/sir-edmund-hillary-the-race-for-everest",
+      "person": "Edmund Hillary",
+      "start": 5.0,
+      "reason": "The footage shows authentic archival mountain climbing and expedition scenes relevant to Edmund Hillary's historic Everest ascent, although Hillary's face is not clearly identifiable due to heavy winter gear and distant shots. It provides strong historical context for the narrative.",
+      "reviewed_at": 1792142979.761271
+    },
+    "66e6350309bff6e02bc0e063": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sir-edmund-hillary-the-race-for-everest",
+      "source_url": "https://archive.org/details/sir-edmund-hillary-the-race-for-everest",
+      "person": "Edmund Hillary",
+      "start": 275.86,
+      "reason": "The footage shows real archival shots of Mount Everest's terrain and glaciers, directly illustrating the setting of Edmund Hillary's historic climb, although Hillary himself is not visible in these frames.",
+      "reviewed_at": 1792143002.3807793
+    },
+    "bf10fd7f031f016009b044ea": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hctvva-Black_History_Month_promo_-_Hometown_Hero_Arthur_Ashe_Jr.",
+      "source_url": "https://archive.org/details/hctvva-Black_History_Month_promo_-_Hometown_Hero_Arthur_Ashe_Jr.",
+      "person": "Arthur Ashe",
+      "start": 4.01,
+      "reason": "The video features an unidentified speaker discussing Arthur Ashe rather than Arthur Ashe himself, making it unusable as identity footage for the subject.",
+      "reviewed_at": 1792143074.7141693
+    },
+    "e559ebc631d9e381460abc30": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ualrar-Arthur_Ashe_-_A_Life_-_Raymond_Arsenault_PROMO",
+      "source_url": "https://archive.org/details/ualrar-Arthur_Ashe_-_A_Life_-_Raymond_Arsenault_PROMO",
+      "person": "Arthur Ashe",
+      "start": 5.0,
+      "reason": "The frames show Raymond Arsenault speaking at a podium about Arthur Ashe, but Arthur Ashe himself is not visible in any of the frames, making this unsuitable as identity or direct event footage for Ashe.",
+      "reviewed_at": 1792143099.974112
+    },
+    "2cf64f0421df38e43ae9c6a6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ualrar-Arthur_Ashe_-_A_Life_-_Raymond_Arsenault_PROMO",
+      "source_url": "https://archive.org/details/ualrar-Arthur_Ashe_-_A_Life_-_Raymond_Arsenault_PROMO",
+      "person": "Arthur Ashe",
+      "start": 14.9,
+      "reason": "The video shows historian Raymond Arsenault discussing Arthur Ashe's life in a lecture format. While Arthur Ashe is not visibly present in the frames (person_visible is false), the footage provides valid biographical commentary and context about Arthur Ashe from his biographer, making it usable as biographical illustration.",
+      "reviewed_at": 1792143107.8699412
+    },
+    "19b510c734468d6542441193": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsva-First_Day_-_Arthur_Ashe_Jr._Elementary",
+      "source_url": "https://archive.org/details/hcpsva-First_Day_-_Arthur_Ashe_Jr._Elementary",
+      "person": "Arthur Ashe",
+      "start": 5.0,
+      "reason": "The footage shows modern elementary school students arriving at Arthur Ashe Elementary School in 2026. Arthur Ashe passed away in 1993, so this contemporary B-roll does not depict the historical subject or his life.",
+      "reviewed_at": 1792143121.558312
+    },
+    "808c09dd13886775a6d7fc04": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsva-First_Day_-_Arthur_Ashe_Jr._Elementary",
+      "source_url": "https://archive.org/details/hcpsva-First_Day_-_Arthur_Ashe_Jr._Elementary",
+      "person": "Arthur Ashe",
+      "start": 15.28,
+      "reason": "The video footage is from a 2026 school year segment at Arthur Ashe Jr. Elementary school, featuring modern students and teachers. It does not depict the historical subject Arthur Ashe himself, nor does it provide usable historical context for a biography of him.",
+      "reviewed_at": 1792143129.1119933
+    },
+    "3c2a6cfd49ee0f5a62c4b0de": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsva-First_Day_of_School_-_Arthur_Ashe_Jr._Elementary_School",
+      "source_url": "https://archive.org/details/hcpsva-First_Day_of_School_-_Arthur_Ashe_Jr._Elementary_School",
+      "person": "Arthur Ashe",
+      "start": 5.0,
+      "reason": "The footage shows modern children arriving at Arthur Ashe Jr. Elementary School in 2021, but the historical subject Arthur Ashe is not visible and the modern B-roll lacks direct relevance to his life story.",
+      "reviewed_at": 1792143137.8100932
+    },
+    "0e8a427823ef8a9c883f28a5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsva-First_Day_of_School_-_Arthur_Ashe_Jr._Elementary_School",
+      "source_url": "https://archive.org/details/hcpsva-First_Day_of_School_-_Arthur_Ashe_Jr._Elementary_School",
+      "person": "Arthur Ashe",
+      "start": 15.78,
+      "reason": "The footage shows modern elementary school students arriving at Arthur Ashe Jr. Elementary School in 2021, but Arthur Ashe himself died in 1993 and is not depicted in this contemporary news segment.",
+      "reviewed_at": 1792143146.1062493
+    },
+    "312369779b73b403aaead024": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cig_0868-Invitation_from_Mayor_Stoney_-_Arthur_Ashe_Boulevard_Celebration",
+      "source_url": "https://archive.org/details/cig_0868-Invitation_from_Mayor_Stoney_-_Arthur_Ashe_Boulevard_Celebration",
+      "person": "Arthur Ashe",
+      "start": 3.42,
+      "reason": "The frames show a modern government official speaking (Mayor Stoney), not the subject of the biography (Arthur Ashe). This is recent contemporary footage unrelated to Arthur Ashe's historical life.",
+      "reviewed_at": 1792143160.310369
+    },
+    "64ea940e46780065e88e453b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cig_0868-Invitation_from_Mayor_Stoney_-_Arthur_Ashe_Boulevard_Celebration",
+      "source_url": "https://archive.org/details/cig_0868-Invitation_from_Mayor_Stoney_-_Arthur_Ashe_Boulevard_Celebration",
+      "person": "Arthur Ashe",
+      "start": 13.34,
+      "reason": "The footage shows a speaker introducing the topic followed by shots of a monument dedicated to Arthur Ashe in Richmond, providing valid biographical illustration and historical context, although Arthur Ashe himself is not visibly present as a living person in the frames.",
+      "reviewed_at": 1792143173.3511524
+    },
+    "d9992708d611442e973bc2f6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "source_url": "https://archive.org/details/cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "person": "Rosa Parks",
+      "start": 2462.7,
+      "reason": "The footage shows a modern 2018 event (the Rosa Parks Essay Contest) and does not feature historical footage or depictions of Rosa Parks herself. It is irrelevant to a biographical short about Rosa Parks.",
+      "reviewed_at": 1792143262.7811277
+    },
+    "0477cc1af630f72ff432d131": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "source_url": "https://archive.org/details/cogrmi-Rosa_Parks_Essay_Contest_Award_Announcement",
+      "person": "Rosa Parks",
+      "start": 2667.51,
+      "reason": "The footage shows a 2018 Rosa Parks Essay Contest award announcement in Grand Rapids, Michigan. Rosa Parks passed away in 2005 and is not present in the video. The clip only depicts modern event participants and lacks a direct connection to Rosa Parks' historical life.",
+      "reviewed_at": 1792143269.7082741
+    },
+    "412a15b07e493046c773988d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "source_url": "https://archive.org/details/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "person": "Rosa Parks",
+      "start": 23.42,
+      "reason": "The footage shows Rosa Parks seated on a bus, which directly depicts her historical context and life, but the clip consists of static photographic frames with a watermark ('Getty Images') making it unusable moving footage.",
+      "reviewed_at": 1792143291.0775049
+    },
+    "fc5ee9729617b5d62891517a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "source_url": "https://archive.org/details/htvtx-Transit_Equity_Day_CM_Amanda_Edwards_Rosa_Parks_Link_Houston",
+      "person": "Rosa Parks",
+      "start": 106.32,
+      "reason": "The footage shows modern Houston transit buses on a city street in 2019, used as B-roll for a proclamation. Rosa Parks is not visible and the footage is modern rather than historical, but it serves as illustrative biographical/contextual imagery regarding public transit and Transit Equity Day.",
+      "reviewed_at": 1792143342.493509
+    },
+    "e9b6a846b25d1079aac290ba": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Rosa_Parks_Farmers_Market_Spanish_Version",
+      "source_url": "https://archive.org/details/Rosa_Parks_Farmers_Market_Spanish_Version",
+      "person": "Rosa Parks",
+      "start": 72.33,
+      "reason": "The video shows modern footage of a local farmers market named after Rosa Parks in Charlotte, NC, featuring contemporary interviews and children at a booth in 2016. It does not depict Rosa Parks herself nor provide relevant historical context about her life.",
+      "reviewed_at": 1792143360.4058392
+    },
+    "597560efa465f2d5746ef9bb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Rosa_Parks_Farmers_Market_Spanish_Version",
+      "source_url": "https://archive.org/details/Rosa_Parks_Farmers_Market_Spanish_Version",
+      "person": "Rosa Parks",
+      "start": 101.18,
+      "reason": "The footage shows a modern community farmers market named after Rosa Parks in 2016, not historical footage of Rosa Parks herself or her life events. It is irrelevant and unusable for a biographical short about Rosa Parks.",
+      "reviewed_at": 1792143381.2226863
+    },
+    "ccdb0c3fe68df90e65b8cc0c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:the-dark-side-of-billie-eilish-apple-the-industry-plant-documentary",
+      "source_url": "https://archive.org/details/the-dark-side-of-billie-eilish-apple-the-industry-plant-documentary",
+      "person": "Billie Eilish",
+      "start": 3286.89,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792143473.858937
+    },
+    "274dc7f824d91c85eb1af469": {
+      "kind": "segment_rejection",
+      "source_id": "archive:the-dark-side-of-billie-eilish-apple-the-industry-plant-documentary",
+      "source_url": "https://archive.org/details/the-dark-side-of-billie-eilish-apple-the-industry-plant-documentary",
+      "person": "Billie Eilish",
+      "start": 4693.41,
+      "reason": "The video features generic stylistic night driving and b-roll footage with no appearance of Billie Eilish, serving as biographical illustration rather than direct event footage.",
+      "reviewed_at": 1792143494.2909563
+    },
+    "c414b85eeaf3c870a0150f2a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:the-dark-side-of-billie-eilish-apple-the-industry-plant-documentary",
+      "source_url": "https://archive.org/details/the-dark-side-of-billie-eilish-apple-the-industry-plant-documentary",
+      "person": "Billie Eilish",
+      "start": 5.0,
+      "reason": "The frames show only an animated audio waveform graphic with text reading 'February 2007' against a dark background. Billie Eilish is not visible, and this constitutes motion graphics/animation rather than real historical footage or usable biographical context.",
+      "reviewed_at": 1792143510.8145971
+    },
+    "c0698076c7723ccd87dd0e7e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-clips-397772423",
+      "source_url": "https://archive.org/details/twitch-clips-397772423",
+      "person": "Billie Eilish",
+      "start": 16.4,
+      "reason": "The video shows a male Twitch streamer/content creator (Letstaddl), not Billie Eilish.",
+      "reviewed_at": 1792143543.700975
+    },
+    "42e9ebab64e2457cb3f95d94": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-clips-397772423",
+      "source_url": "https://archive.org/details/twitch-clips-397772423",
+      "person": "Billie Eilish",
+      "start": 1.74,
+      "reason": "The footage features an unidentified male streamer/content creator and does not depict Billie Eilish or any relevant historical context.",
+      "reviewed_at": 1792143572.2899754
+    },
+    "45c567e25695c7a5c89ee0e5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:korona-dlia-korolia-billie-eilish-cover",
+      "source_url": "https://archive.org/details/korona-dlia-korolia-billie-eilish-cover",
+      "person": "Billie Eilish",
+      "start": 73.69,
+      "reason": "The video features an internet cover artist and lookalike performing a Billie Eilish song using Instagram filters, not Billie Eilish herself.",
+      "reviewed_at": 1792143586.177108
+    },
+    "f84c02752565c7a257749f36": {
+      "kind": "segment_rejection",
+      "source_id": "archive:korona-dlia-korolia-billie-eilish-cover",
+      "source_url": "https://archive.org/details/korona-dlia-korolia-billie-eilish-cover",
+      "person": "Billie Eilish",
+      "start": 103.12,
+      "reason": "The video features a cover singer (Mari Govori) using Instagram filters, not Billie Eilish herself. The person visible is a lookalike/cover artist, making the footage unusable for a biography of Billie Eilish.",
+      "reviewed_at": 1792143597.371157
+    },
+    "a59925b8e22e25e306199101": {
+      "kind": "segment_rejection",
+      "source_id": "archive:2022-05-27_PapaGutLeftovers_Billie_Eilish_Tourettes",
+      "source_url": "https://archive.org/details/2022-05-27_PapaGutLeftovers_Billie_Eilish_Tourettes",
+      "person": "Billie Eilish",
+      "start": 324.72,
+      "reason": "The footage shows a live stream commentary reacting to search results about ADHD and Tourette's, featuring an unrelated commentator. Billie Eilish is not visible anywhere in the frames, making the segment completely unusable for a biography about her.",
+      "reviewed_at": 1792143610.7051156
+    },
+    "ec32c21f611a1f52c55415bd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:2022-05-27_PapaGutLeftovers_Billie_Eilish_Tourettes",
+      "source_url": "https://archive.org/details/2022-05-27_PapaGutLeftovers_Billie_Eilish_Tourettes",
+      "person": "Billie Eilish",
+      "start": 461.74,
+      "reason": "The video shows a reaction stream featuring a streamer watching a TikTok video by another creator, with only a background image of Billie Eilish rather than actual footage or interviews of the subject.",
+      "reviewed_at": 1792143625.1873748
+    },
+    "92611134c149379a4bc11af6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:billie-eilish-mix",
+      "source_url": "https://archive.org/details/billie-eilish-mix",
+      "person": "Billie Eilish",
+      "start": 3327.13,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792143629.9559917
+    },
+    "b4667ca92336a297e20bd277": {
+      "kind": "segment_rejection",
+      "source_id": "archive:billie-eilish-mix",
+      "source_url": "https://archive.org/details/billie-eilish-mix",
+      "person": "Billie Eilish",
+      "start": 4750.9,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792143633.2813962
+    },
+    "70be39741465fb772055b83e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:billie-eilish-mix",
+      "source_url": "https://archive.org/details/billie-eilish-mix",
+      "person": "Billie Eilish",
+      "start": 5.0,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792143636.17974
+    },
+    "5d35befe380a786c211389ac": {
+      "kind": "segment_rejection",
+      "source_id": "archive:billie-eilish-mix",
+      "source_url": "https://archive.org/details/billie-eilish-mix",
+      "person": "Billie Eilish",
+      "start": 479.59,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792143639.563341
+    },
+    "88414d4e300d8e04c1aaf411": {
+      "kind": "segment_rejection",
+      "source_id": "archive:billie-eilish-mix",
+      "source_url": "https://archive.org/details/billie-eilish-mix",
+      "person": "Billie Eilish",
+      "start": 954.18,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792143644.5738895
+    },
+    "84baf722ae6314ccfff1f21a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:billie-eilish-mix",
+      "source_url": "https://archive.org/details/billie-eilish-mix",
+      "person": "Billie Eilish",
+      "start": 1428.77,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792143648.48109
+    },
+    "a922223bcbc3c490a6ee3a1a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:billie-eilish-mix",
+      "source_url": "https://archive.org/details/billie-eilish-mix",
+      "person": "Billie Eilish",
+      "start": 1903.36,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792143652.3754072
+    },
+    "a4cb5fccffd2726d01ae7452": {
+      "kind": "segment_rejection",
+      "source_id": "archive:billie-eilish-mix",
+      "source_url": "https://archive.org/details/billie-eilish-mix",
+      "person": "Billie Eilish",
+      "start": 2377.95,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792143655.8820188
+    },
+    "3ee1489dec81782f848a7afc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:billie-eilish-mix",
+      "source_url": "https://archive.org/details/billie-eilish-mix",
+      "person": "Billie Eilish",
+      "start": 2852.54,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792143659.3255978
+    },
+    "37bf8aad07ffb18963a73411": {
+      "kind": "segment_rejection",
+      "source_id": "archive:billie-eilish-mix",
+      "source_url": "https://archive.org/details/billie-eilish-mix",
+      "person": "Billie Eilish",
+      "start": 3801.72,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792143662.6820216
+    },
+    "abb88adcf7c19e7289b43c39": {
+      "kind": "segment_rejection",
+      "source_id": "archive:billie-eilish-mix",
+      "source_url": "https://archive.org/details/billie-eilish-mix",
+      "person": "Billie Eilish",
+      "start": 4276.31,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792143666.3493803
+    },
+    "2b70c967c0fc83dd65ad632f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:billie-eilish-mix",
+      "source_url": "https://archive.org/details/billie-eilish-mix",
+      "person": "Billie Eilish",
+      "start": 5225.49,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792143669.632503
+    },
+    "6c68887dc602c16d2efa5dea": {
+      "kind": "segment_rejection",
+      "source_id": "archive:billie-eilish-mix",
+      "source_url": "https://archive.org/details/billie-eilish-mix",
+      "person": "Billie Eilish",
+      "start": 5700.08,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792143673.267824
+    },
+    "c0530a56585fa9348e5f10ae": {
+      "kind": "segment_rejection",
+      "source_id": "archive:billie-eilish-mix",
+      "source_url": "https://archive.org/details/billie-eilish-mix",
+      "person": "Billie Eilish",
+      "start": 6174.67,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792143677.0949867
+    },
+    "c6574cfb2b19e33b32af0ada": {
+      "kind": "segment_rejection",
+      "source_id": "archive:amelia.-earhart.-docu.-final",
+      "source_url": "https://archive.org/details/amelia.-earhart.-docu.-final",
+      "person": "Amelia Earhart",
+      "start": 5.0,
+      "reason": "The video shows modern commercial airplane footage (takeoff and modern wing view), which is anachronistic and irrelevant as historical context for Amelia Earhart's 1930s aviation career.",
+      "reviewed_at": 1792143773.1344182
+    },
+    "f42badd0161a5c634181032e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:amelia.-earhart.-docu.-final",
+      "source_url": "https://archive.org/details/amelia.-earhart.-docu.-final",
+      "person": "Amelia Earhart",
+      "start": 31.79,
+      "reason": "The footage shows an unidentified young person being interviewed, which has no connection to Amelia Earhart or her life story.",
+      "reviewed_at": 1792143803.415339
+    },
+    "0f9e2726466646dfc3403310": {
+      "kind": "segment_rejection",
+      "source_id": "archive:lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "source_url": "https://archive.org/details/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "person": "Amelia Earhart",
+      "start": 5.0,
+      "reason": "The sampled frames only show title cards and distributor logos from a 1937 newsreel compilation ('The News Parade of the Year'). Amelia Earhart is not visible, and the segment contains no footage illustrating her life or disappearance.",
+      "reviewed_at": 1792143811.9152286
+    },
+    "8102d5dff52819c0c396d160": {
+      "kind": "segment_rejection",
+      "source_id": "archive:lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "source_url": "https://archive.org/details/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "person": "Amelia Earhart",
+      "start": 48.85,
+      "reason": "The footage shows archival newsreel content about the Spanish Civil War and military operations in 1937, which has no connection to Amelia Earhart's biography.",
+      "reviewed_at": 1792143820.5956664
+    },
+    "722e6d8236593483ba3c8392": {
+      "kind": "segment_rejection",
+      "source_id": "archive:42424-europes-powder-keg-vwr",
+      "source_url": "https://archive.org/details/42424-europes-powder-keg-vwr",
+      "person": "Amelia Earhart",
+      "start": 5.0,
+      "reason": "The sampled frames only show title cards and distributor splash screens with no footage of Amelia Earhart or her life.",
+      "reviewed_at": 1792143828.2611134
+    },
+    "6ca5b87d3484856bf8fb433c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:42424-europes-powder-keg-vwr",
+      "source_url": "https://archive.org/details/42424-europes-powder-keg-vwr",
+      "person": "Amelia Earhart",
+      "start": 48.85,
+      "reason": "The video segment shows archival footage of the Spanish Civil War (artillery, explosions, soldiers), which has no connection to Amelia Earhart's biography other than being part of the same general 1937 newsreel compilation.",
+      "reviewed_at": 1792143838.4558148
+    },
+    "f08f5865a9a017ba10a0ec91": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cg_0740-Amelia_Earhart_Day_2026",
+      "source_url": "https://archive.org/details/cg_0740-Amelia_Earhart_Day_2026",
+      "person": "Amelia Earhart",
+      "start": 19.6,
+      "reason": "The video footage shows modern-day scenes from Amelia Earhart Park in Miami (pedal boats, bridges, ducks, and a windmill), which has no historical connection to the life, aviation career, or events associated with Amelia Earhart herself. Furthermore, Amelia Earhart is not visible in any frame.",
+      "reviewed_at": 1792143851.6731267
+    },
+    "4f43cc9b95e71de07032f8c9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cg_0740-Amelia_Earhart_Day_2026",
+      "source_url": "https://archive.org/details/cg_0740-Amelia_Earhart_Day_2026",
+      "person": "Amelia Earhart",
+      "start": 2.06,
+      "reason": "The footage shows modern recreational activities, park signage, and animals at Amelia Earhart Park, which is named after Amelia Earhart but has no direct connection to her life, historical events, or biographical narrative.",
+      "reviewed_at": 1792143858.7574842
+    },
+    "c2627187195cc6d361b6a5af": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cg_0740-Bark_Park_at_Amelia_Earhart_Park",
+      "source_url": "https://archive.org/details/cg_0740-Bark_Park_at_Amelia_Earhart_Park",
+      "person": "Amelia Earhart",
+      "start": 13.86,
+      "reason": "The video shows a modern dog park named after Amelia Earhart, but it has no historical connection to Amelia Earhart herself, making it irrelevant for a biography.",
+      "reviewed_at": 1792143868.7157614
+    },
+    "aea7d8979d938f8833e1bd05": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cg_0740-Bark_Park_at_Amelia_Earhart_Park",
+      "source_url": "https://archive.org/details/cg_0740-Bark_Park_at_Amelia_Earhart_Park",
+      "person": "Amelia Earhart",
+      "start": 1.49,
+      "reason": "The footage shows modern video of dogs and people at Amelia Earhart Park in Miami, which shares a name with the historical figure but has no connection to Amelia Earhart's life or history.",
+      "reviewed_at": 1792143892.8575842
+    },
+    "78d00d8ada9ca09616644520": {
+      "kind": "segment_rejection",
+      "source_id": "archive:stan-lees-marvel-magneto-from-superhumans",
+      "source_url": "https://archive.org/details/stan-lees-marvel-magneto-from-superhumans",
+      "person": "Stan Lee",
+      "start": 0.66,
+      "reason": "The footage shows an unidentified individual handling pots and bowls, not the subject of the biography (Stan Lee). Therefore, it is unusable for this segment.",
+      "reviewed_at": 1792144012.185247
+    },
+    "e9ef41e02ebab1b274068981": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-025025-Cbr-StanLeeEBook114",
+      "source_url": "https://archive.org/details/bliptv-20131014-025025-Cbr-StanLeeEBook114",
+      "person": "Stan Lee",
+      "start": 34.34,
+      "reason": "The video clip shows children interacting with a Spider-Man AR book on an iPad/iPhone, but Stan Lee is not visible in any of the sampled frames.",
+      "reviewed_at": 1792144038.9573846
+    },
+    "4d4a916ba7269ccaaff6a136": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131031-021101-Cbr-StanLeePowersUpInLEGOMarvelSuperHeroes864",
+      "source_url": "https://archive.org/details/bliptv-20131031-021101-Cbr-StanLeePowersUpInLEGOMarvelSuperHeroes864",
+      "person": "Stan Lee",
+      "start": 5.0,
+      "reason": "The video segment shows gameplay/cinematic footage from LEGO Marvel Super Heroes containing various Marvel characters (Thor, Iron Man, Captain America, Wolverine) but does not feature Stan Lee, making it unusable for a biographical short.",
+      "reviewed_at": 1792144061.2759464
+    },
+    "4e4bf6ffe86dcbcdc1f042e1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131031-021101-Cbr-StanLeePowersUpInLEGOMarvelSuperHeroes864",
+      "source_url": "https://archive.org/details/bliptv-20131031-021101-Cbr-StanLeePowersUpInLEGOMarvelSuperHeroes864",
+      "person": "Stan Lee",
+      "start": 14.51,
+      "reason": "The footage includes real video of Stan Lee in a recording studio (frame 3), along with gameplay/animation of his Lego counterpart from LEGO Marvel Super Heroes. Stan Lee is clearly identifiable in at least one frame.",
+      "reviewed_at": 1792144070.4031646
+    },
+    "c6e8697c2b9a2cead6da0512": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-025025-Cbr-StanLeeEBook114",
+      "source_url": "https://archive.org/details/bliptv-20131014-025025-Cbr-StanLeeEBook114",
+      "person": "Stan Lee",
+      "start": 5.0,
+      "reason": "The sampled frames show children interacting with a Spider-Man augmented reality book on an iPad, but Stan Lee is not visible anywhere in the footage.",
+      "reviewed_at": 1792144084.8631623
+    },
+    "ef1340b53a9433e9bbd83b67": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-025025-Cbr-StanLeeEBook114",
+      "source_url": "https://archive.org/details/bliptv-20131014-025025-Cbr-StanLeeEBook114",
+      "person": "Stan Lee",
+      "start": 14.78,
+      "reason": "The video features children interacting with a Spider-Man AR book on a tablet, but Stan Lee is not present in any of the sampled frames.",
+      "reviewed_at": 1792144096.742225
+    },
+    "95917bc54aa2875e6eb67658": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576",
+      "source_url": "https://archive.org/details/bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576",
+      "person": "Stan Lee",
+      "start": 15.3,
+      "reason": "The sampled frames show comic book panels of Falcon, which directly illustrates Stan Lee's work in introducing diverse characters to Marvel Comics as described in the narration. The target person is not visible, but the footage serves as valid contextual/biographical illustration.",
+      "reviewed_at": 1792144129.974417
+    },
+    "84adc16f95c44291398d2c04": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576",
+      "source_url": "https://archive.org/details/bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576",
+      "person": "Stan Lee",
+      "start": 46.2,
+      "reason": "The video clip features archival comic book art of the X-Men and an interview discussing Stan Lee's creation of mutant characters, but Stan Lee himself is not visibly present in the sampled frames.",
+      "reviewed_at": 1792144148.932677
+    },
+    "94c50614c5f6ff2615e78153": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576",
+      "source_url": "https://archive.org/details/bliptv-20131015-054856-Cbr-EXCLUSIVECLIPWithGreatPowerTheStanLeeStory576",
+      "person": "Stan Lee",
+      "start": 56.5,
+      "reason": "The sampled frames consist entirely of comic book panels and promotional title cards for a documentary, containing no actual footage or images of Stan Lee.",
+      "reviewed_at": 1792144156.3519692
+    },
+    "d28e66a13bb785cf8850adfc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:interview-with-stan-lees-superhuman-a-disney-marvel-magneto",
+      "source_url": "https://archive.org/details/interview-with-stan-lees-superhuman-a-disney-marvel-magneto",
+      "person": "Stan Lee",
+      "start": 280.15,
+      "reason": "The video features Miroslaw Magola speaking outdoors, not Stan Lee, making it unsuitable for a biography of Stan Lee.",
+      "reviewed_at": 1792144177.6793094
+    },
+    "3cca32a983880cac9a7e5912": {
+      "kind": "segment_rejection",
+      "source_id": "archive:interview-with-stan-lees-superhuman-a-disney-marvel-magneto",
+      "source_url": "https://archive.org/details/interview-with-stan-lees-superhuman-a-disney-marvel-magneto",
+      "person": "Stan Lee",
+      "start": 398.07,
+      "reason": "The video features Miroslaw Magola speaking about his experiences, not Stan Lee, and does not depict Stan Lee or relevant historical context about him.",
+      "reviewed_at": 1792144198.3244777
+    },
+    "83410ba707d7b769bb7588cb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:a-call-to-action-by-jane-goodall",
+      "source_url": "https://archive.org/details/a-call-to-action-by-jane-goodall",
+      "person": "Jane Goodall",
+      "start": 197.68,
+      "reason": "The video segment contains archival and nature footage illustrating themes of environmentalism and wildlife, fitting for a biography of Jane Goodall, but Jane Goodall herself is not visible in the sampled frames.",
+      "reviewed_at": 1792144399.085832
     }
   }
 }

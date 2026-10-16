@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-10-15T21:40:08.036301+00:00",
+  "generated_at": "2026-10-16T08:34:01.111918+00:00",
   "video_count": 13,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 10,
   "reason": "",
   "totals": {
-    "views": 7195,
-    "likes": 132,
+    "views": 7209,
+    "likes": 131,
     "comments": 2
   },
   "averages": {
-    "views": 553.46,
-    "likes": 10.15,
+    "views": 554.54,
+    "likes": 10.08,
     "comments": 0.15,
     "average_view_percentage": 38.03,
     "subscribers_gained": 0.46,
@@ -23,15 +23,15 @@
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
       "video_id": "Pb1-aVVunGg",
       "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1104,
-      "likes": 40,
+      "views": 1107,
+      "likes": 39,
       "comments": 2,
       "shares": 0,
       "average_view_duration": 0.0,
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 3.8043
+      "engagement_rate": 3.7037
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -135,7 +135,7 @@
       "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
       "video_id": "YorYFuuuTOQ",
       "title": "The Untold Turning Point in J.R.R. Tolkien's Story",
-      "views": 73,
+      "views": 76,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -143,7 +143,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.3699
+      "engagement_rate": 1.3158
     },
     {
       "topic": "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
@@ -165,15 +165,15 @@
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
       "video_id": "Pb1-aVVunGg",
       "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1104,
-      "likes": 40,
+      "views": 1107,
+      "likes": 39,
       "comments": 2,
       "shares": 0,
       "average_view_duration": 0.0,
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 3.8043
+      "engagement_rate": 3.7037
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -277,7 +277,7 @@
       "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
       "video_id": "YorYFuuuTOQ",
       "title": "The Untold Turning Point in J.R.R. Tolkien's Story",
-      "views": 73,
+      "views": 76,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -285,7 +285,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.3699
+      "engagement_rate": 1.3158
     },
     {
       "topic": "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
@@ -319,7 +319,7 @@
       "topic": "Morgan Freeman: Spending years serving in the United States Air Force before getting his big break on television and film.",
       "video_id": "3FgMmn1g8Ks",
       "title": "Before the Fame: Morgan Freeman's Untold Struggle",
-      "views": 24,
+      "views": 32,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -327,7 +327,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 4.1667
+      "engagement_rate": 3.125
     },
     {
       "topic": "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",

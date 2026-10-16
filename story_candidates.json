@@ -1,32 +1,6 @@
 [
   {
     "format": "rise_from_nothing",
-    "person": "Radhakishan Damani",
-    "premise": "A college dropout who initially traded in ball-bearings builds a massive Indian supermarket retail empire from scratch.",
-    "hook": "He started his career as a modest stock market speculator before building the country's most profitable retail chain.",
-    "key_facts": [
-      "Dropped out of Mumbai University commerce studies after his father's death.",
-      "Initially traded in the stock market before launching the Avenue Supermarts retail chain.",
-      "Founded the D-Mart supermarket brand in 2002.",
-      "Became one of India's wealthiest self-made entrepreneurs."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
-    "person": "Madam C.J. Walker",
-    "premise": "An orphaned daughter of emancipated slaves who built a haircare empire to become one of the first self-made female millionaires in America.",
-    "hook": "Born into poverty just years after the end of American slavery, she turned a scalp ailment into a multi-million-dollar enterprise.",
-    "key_facts": [
-      "Born Sarah Breedlove on a cotton plantation in Louisiana in 1867.",
-      "Suffered severe hair loss due to poor scalp health and harsh chemical products of the era.",
-      "Developed and marketed a specialized line of hair products and treatments for African American hair.",
-      "Employed thousands of women as sales agents, providing financial independence."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
     "person": "Radhanath Swami",
     "premise": "A young American hitchhiker who traveled across Europe and the Middle East on foot to find spiritual truth in India.",
     "hook": "He left home with almost no money, traveling across continents with just a sleeping bag and a backpack.",
@@ -40,53 +14,40 @@
   },
   {
     "format": "rise_from_nothing",
-    "person": "Narayana Murthy",
-    "premise": "How an engineer pooled a small amount of capital borrowed from his wife to build a global IT giant from a small bedroom.",
-    "hook": "One of India's most successful technology pioneers started his company with just a few hundred dollars and a vision for software outsourcing.",
+    "person": "Kalpana Chawla",
+    "premise": "Journeying from a small town in Karnal, India, to become the first Indian-born woman in space.",
+    "hook": "Growing up in a conservative town where career options for women were limited, she dreamed only of the stars.",
     "key_facts": [
-      "Co-founded Infosys in Pune, India, in 1981 with six other software professionals.",
-      "Started operations with minimal capital, initially borrowing seed money from his wife Sudha Murthy.",
-      "Helped pioneer the global software services industry model in India.",
-      "Served as CEO and later Chairman of the Board, transforming the firm into a multinational corporation."
+      "Born in Karnal, Haryana, India.",
+      "Graduated with an aeronautical engineering degree from Punjab Engineering College.",
+      "Moved to the United States to earn master's and doctoral degrees in aerospace engineering.",
+      "Flew on Space Shuttle Columbia in 1997 and 2003."
     ],
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Agatha Christie",
-    "premise": "The famous disappearance of the detective novelist in 1926 that triggered a massive 11-day national manhunt.",
-    "hook": "The world's bestselling mystery writer pulled off a real-life disappearance that baffled police and captivated the British press.",
+    "format": "one_decision",
+    "person": "Arthur Ashe",
+    "premise": "Deciding to speak publicly about his HIV diagnosis in 1992 after a newspaper threatened to publish it.",
+    "hook": "When a major newspaper threatened to expose his private medical records, tennis legend Arthur Ashe decided to control his own narrative.",
     "key_facts": [
-      "Her abandoned car was found perched above a chalk quarry in Surrey in December 1926",
-      "Sparked a 10-day police search involving over 1,000 officers and hundreds of civilian volunteers",
-      "Found staying at the Swan Hydropathic Hotel in Harrogate under an assumed name linked to her husband's mistress",
-      "Never publicly explained the exact reasons behind her sudden disappearance"
+      "First Black player selected to the United States Davis Cup team and Wimbledon singles champion.",
+      "Contracted HIV through a blood transfusion during heart bypass surgery.",
+      "Established the Arthur Ashe Foundation for the Defeat of AIDS after his public announcement.",
+      "Posthumously awarded the Presidential Medal of Freedom by Bill Clinton."
     ],
     "source": "gemini_original"
   },
   {
-    "format": "before_they_were_famous",
-    "person": "Viswanathan Anand",
-    "premise": "How a young boy from Tamil Nadu learned chess in the Philippines and became India's first grandmaster.",
-    "hook": "Before he became a five-time World Chess Champion, he learned the rules of the game from his mother in a quiet coastal suburb.",
+    "format": "impossible_odds",
+    "person": "Shakuntala Devi",
+    "premise": "Performing complex mental calculations faster than early computers without any formal university education.",
+    "hook": "Born into a circus family in India, she never went to college, yet she left professional mainframe computers in the dust.",
     "key_facts": [
-      "Born in Mayiladuthurai, Tamil Nadu, and raised partly in Chennai and the Philippines",
-      "Taught the rules of chess by his mother, Susheela, at age six",
-      "Became India's first International Grandmaster in 1988 at the age of 18",
-      "Won the World Chess Championship five times across different formats"
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Srinivasa Ramanujan",
-    "premise": "The self-taught mathematical genius from Erode who mailed pages of complex formulas to a Cambridge professor out of the blue.",
-    "hook": "A low-level shipping clerk with no formal university degree mailed raw mathematical theorems to England that changed modern math forever.",
-    "key_facts": [
-      "Grew up in Erode and Kumbakonam, Tamil Nadu, failing college exams because he neglected non-math subjects",
-      "Worked as a routine shipping clerk in Madras to support his family while doing mathematics on slates",
-      "Sent unrequested letters containing advanced theorems to British mathematician G.H. Hardy in 1913",
-      "Traveled to Trinity College, Cambridge, where he was elected a Fellow of the Royal Society"
+      "Demonstrated innate mathematical talent at a young age through street performances.",
+      "Traveled globally in the 20th century showcasing her mental calculation abilities.",
+      "Computed the 23rd root of a 201-digit number in 50 seconds at Imperial College London in 1980.",
+      "Authored several books on mathematics puzzles, astrology, and cookery."
     ],
     "source": "gemini_original"
   }

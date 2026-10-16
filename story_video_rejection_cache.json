@@ -4539,6 +4539,569 @@
       "start": 1318.69,
       "reason": "The frames show geographical maps and satellite-style imagery of Antarctica (Vahsel Bay, Weddell Sea, McMurdo Sound) relevant to Ernest Shackleton's expeditions, serving as useful biographical illustration despite the subject not being visible.",
       "reviewed_at": 1792101599.7327993
+    },
+    "3750fc661e11146ccd11a6e1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 109.51,
+      "reason": "The clip consists entirely of static title cards and a bust of Srinivasa Ramanujan against a chalkboard background, lacking actual filmed footage of the subject.",
+      "reviewed_at": 1792139680.3325794
+    },
+    "bca09f4deace119b8c7861db": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Srinivasa Ramanujan",
+      "start": 155.96,
+      "reason": "blank/near-blank frames",
+      "reviewed_at": 1792139683.6830094
+    },
+    "561322aeb8ae202345a1ccd2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TheManWhoLovedNumbers",
+      "source_url": "https://archive.org/details/TheManWhoLovedNumbers",
+      "person": "Srinivasa Ramanujan",
+      "start": 2367.45,
+      "reason": "The frames show a modern documentary talking head or actor, not Srinivasa Ramanujan himself (who lived from 1887 to 1920, long before color video and modern wristwatches). However, it is genuine archival documentary footage illustrating his biography.",
+      "reviewed_at": 1792139702.351505
+    },
+    "2f41c5f48cff0c1748c54be4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TheManWhoLovedNumbers",
+      "source_url": "https://archive.org/details/TheManWhoLovedNumbers",
+      "person": "Srinivasa Ramanujan",
+      "start": 3417.42,
+      "reason": "The frames show commercial sponsor and network logos (Johnson & Johnson and PBS) rather than any historical context or footage related to Srinivasa Ramanujan.",
+      "reviewed_at": 1792139716.605169
+    },
+    "3239a8bb93205da8a65c5aef": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Agatha100",
+      "source_url": "https://archive.org/details/Agatha100",
+      "person": "Agatha Christie",
+      "start": 2778.3,
+      "reason": "The sampled frames show B-roll footage of a vintage reel-to-reel tape recorder and a bookshelf containing Agatha Christie's books. While the subject is not visibly present, the footage provides relevant biographical illustration for a documentary segment about her life and works.",
+      "reviewed_at": 1792139866.129846
+    },
+    "5e799d7c2fd330036ce6255e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Agatha100",
+      "source_url": "https://archive.org/details/Agatha100",
+      "person": "Agatha Christie",
+      "start": 3394.59,
+      "reason": "The video segment shows fictional dramatization or adaptation footage (actors portraying characters from an Agatha Christie mystery story), not archival footage of Agatha Christie herself or genuine historical context.",
+      "reviewed_at": 1792139874.5238302
+    },
+    "1826393668b28acd38198380": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Meet_the_cast_of_Agatha_Christie_s_Witness_for_the_Prosecution",
+      "source_url": "https://archive.org/details/Meet_the_cast_of_Agatha_Christie_s_Witness_for_the_Prosecution",
+      "person": "Agatha Christie",
+      "start": 282.95,
+      "reason": "The footage shows local community theater cast members being interviewed about a production of Agatha Christie's Witness for the Prosecution. Agatha Christie herself is not visible, and the video is modern local access television coverage rather than archival material depicting Agatha Christie's life.",
+      "reviewed_at": 1792139886.709969
+    },
+    "16dee0e10669841eb2bc3a4d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Meet_the_cast_of_Agatha_Christie_s_Witness_for_the_Prosecution",
+      "source_url": "https://archive.org/details/Meet_the_cast_of_Agatha_Christie_s_Witness_for_the_Prosecution",
+      "person": "Agatha Christie",
+      "start": 402.07,
+      "reason": "The footage shows a contemporary interview about a stage production of an Agatha Christie play, but Agatha Christie herself (who died in 1976) is not visible in the video, making this unsuitable as archival footage of her life.",
+      "reviewed_at": 1792139897.2311728
+    },
+    "94960b0cd914f072bc7f318a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "source_url": "https://archive.org/details/agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "person": "Agatha Christie",
+      "start": 3465.31,
+      "reason": "The footage shows a fictional dramatization / adaptation of Agatha Christie's work (Miss Marple) rather than genuine archival footage or biographical footage of Agatha Christie herself.",
+      "reviewed_at": 1792139922.8093667
+    },
+    "c1d1d213eed37481db021481": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "source_url": "https://archive.org/details/agatha-christies-marple-s-01-e-01-the-body-in-the-library",
+      "person": "Agatha Christie",
+      "start": 3897.85,
+      "reason": "The video shows dramatic fictionalization/adaptation footage from a television adaptation of an Agatha Christie novel ('Miss Marple'), but the subject herself (Agatha Christie) is not visibly present in the frames.",
+      "reviewed_at": 1792139932.3837168
+    },
+    "8bdfd97ef4391d8ef6796b90": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20250628-235758",
+      "source_url": "https://archive.org/details/vid-20250628-235758",
+      "person": "Agatha Christie",
+      "start": 95.71,
+      "reason": "The footage shows an individual holding a book about Agatha Christie, but Agatha Christie herself is not visible in the frames, and the user-generated content format is unsuitable for a biographical documentary short.",
+      "reviewed_at": 1792139948.5428333
+    },
+    "4dff9dda9de9697e26dcfb93": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20250628-235758",
+      "source_url": "https://archive.org/details/vid-20250628-235758",
+      "person": "Agatha Christie",
+      "start": 118.39,
+      "reason": "The footage shows an individual holding a book about Agatha Christie, but Agatha Christie herself is not visible, and this does not constitute archival or historical footage illustrating her life.",
+      "reviewed_at": 1792139962.3155715
+    },
+    "92197f95cbc4b5970ae195df": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20251109-203719",
+      "source_url": "https://archive.org/details/vid-20251109-203719",
+      "person": "Agatha Christie",
+      "start": 268.28,
+      "reason": "The video shows an unidentified modern individual speaking to a camera, completely unrelated to the historical subject Agatha Christie.",
+      "reviewed_at": 1792139975.5180182
+    },
+    "326a50548d3a884a7513e4a4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vid-20251109-203719",
+      "source_url": "https://archive.org/details/vid-20251109-203719",
+      "person": "Agatha Christie",
+      "start": 292.21,
+      "reason": "The video shows an unrelated modern individual speaking indoors, which has no connection to Agatha Christie.",
+      "reviewed_at": 1792139986.4753673
+    },
+    "328b911a8a133726144b41c5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christie-arena",
+      "source_url": "https://archive.org/details/agatha-christie-arena",
+      "person": "Agatha Christie",
+      "start": 2246.49,
+      "reason": "The frames show authentic archival footage of Agatha Christie's actual handwritten notes, providing tangible historical context to her writing process. While the person is not visibly present, it serves as usable biographical illustration.",
+      "reviewed_at": 1792140017.084027
+    },
+    "18948808df9d0b5c9707a45f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:agatha-christie-arena",
+      "source_url": "https://archive.org/details/agatha-christie-arena",
+      "person": "Agatha Christie",
+      "start": 2526.68,
+      "reason": "The footage shows scenic shots of the English countryside (specifically Devon, where Agatha Christie lived and set many of her works), serving as biographical illustration for her life and background, though Agatha Christie herself is not visible.",
+      "reviewed_at": 1792140040.0084708
+    },
+    "5eee718c9eff77def26fcbcd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:israel-wohltater-der-menschheit",
+      "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+      "person": "Jonas Salk",
+      "start": 95.47,
+      "reason": "The video features Dr. Peter Salk (Jonas Salk's son) speaking in an interview, not Jonas Salk himself. Additionally, the video layout contains heavy webpage borders and text overlays.",
+      "reviewed_at": 1792140123.1701496
+    },
+    "3638c160721e0b5ce0517802": {
+      "kind": "segment_rejection",
+      "source_id": "archive:israel-wohltater-der-menschheit",
+      "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+      "person": "Jonas Salk",
+      "start": 113.57,
+      "reason": "The footage contains a website layout with a BBC article, screenshots, and an interview with Dr. Peter Salk (Jonas Salk's son), but Jonas Salk himself is not visibly present in the sampled historical or documentary footage (only mentioned via archival context and interview about him). Furthermore, the web-page framing makes it unsuitable for a direct biographical short.",
+      "reviewed_at": 1792140129.7817204
+    },
+    "74f1fc47876b7c0040b393a5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalahadOfEverest",
+      "source_url": "https://archive.org/details/GalahadOfEverest",
+      "person": "Tenzing Norgay",
+      "start": 357.38,
+      "reason": "The footage is from a 1991 documentary about recreating George Mallory's 1924 Everest climb, featuring actor Brian Blessed in period mountaineering gear. While it depicts historical reenactment footage rather than Tenzing Norgay himself, it serves as usable biographical illustration for early Everest expeditions.",
+      "reviewed_at": 1792140199.3623152
+    },
+    "578d057f05af4a3b9e8091c0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:GalahadOfEverest",
+      "source_url": "https://archive.org/details/GalahadOfEverest",
+      "person": "Tenzing Norgay",
+      "start": 445.48,
+      "reason": "The frames show Brian Blessed portraying George Mallory in a 1991 documentary about Mt. Everest, not Tenzing Norgay.",
+      "reviewed_at": 1792140207.9149408
+    },
+    "a16f86d5da8e94d2663900be": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hctvva-Black_History_Month_promo_-_Hometown_Hero_Arthur_Ashe_Jr.",
+      "source_url": "https://archive.org/details/hctvva-Black_History_Month_promo_-_Hometown_Hero_Arthur_Ashe_Jr.",
+      "person": "Arthur Ashe",
+      "start": 27.44,
+      "reason": "The sampled frames show an interviewer speaking and a still photograph of Arthur Ashe with a trophy rather than actual footage of Arthur Ashe moving or participating in a direct event. Therefore, person_visible is false and the segment is not usable as authentic biographical video footage.",
+      "reviewed_at": 1792140316.7474647
+    },
+    "e37363d7bfc65e39fd8026e8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hctvva-Black_History_Month_promo_-_Hometown_Hero_Arthur_Ashe_Jr.",
+      "source_url": "https://archive.org/details/hctvva-Black_History_Month_promo_-_Hometown_Hero_Arthur_Ashe_Jr.",
+      "person": "Arthur Ashe",
+      "start": 39.15,
+      "reason": "The frames consist entirely of promotional title cards and text requesting the viewer to visit a YouTube playlist, lacking any actual filmed footage or historical context of Arthur Ashe.",
+      "reviewed_at": 1792140330.291151
+    },
+    "135c0456ab7aaa7ebedb4ef4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ualrar-Arthur_Ashe_-_A_Life_-_Raymond_Arsenault_PROMO",
+      "source_url": "https://archive.org/details/ualrar-Arthur_Ashe_-_A_Life_-_Raymond_Arsenault_PROMO",
+      "person": "Arthur Ashe",
+      "start": 44.59,
+      "reason": "The frames show historian Raymond Arsenault speaking about Arthur Ashe at a podium. While it is real archival footage of a discussion on Ashe's biography, Arthur Ashe himself is not visible in the frames.",
+      "reviewed_at": 1792140343.7367163
+    },
+    "82c9ea40bc651511079f652d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ualrar-Arthur_Ashe_-_A_Life_-_Raymond_Arsenault_PROMO",
+      "source_url": "https://archive.org/details/ualrar-Arthur_Ashe_-_A_Life_-_Raymond_Arsenault_PROMO",
+      "person": "Arthur Ashe",
+      "start": 64.39,
+      "reason": "The video shows historian Raymond Arsenault discussing Arthur Ashe at a podium. Since Arthur Ashe is not visible in the footage, person_visible is false, but it serves as valid biographical illustration for a discussion of his life by a biographer.",
+      "reviewed_at": 1792140368.0163403
+    },
+    "109ec6cff56b2af9cf96f31e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsva-First_Day_-_Arthur_Ashe_Jr._Elementary",
+      "source_url": "https://archive.org/details/hcpsva-First_Day_-_Arthur_Ashe_Jr._Elementary",
+      "person": "Arthur Ashe",
+      "start": 35.84,
+      "reason": "The footage shows modern B-roll from a 2026 school year opening at Arthur Ashe Elementary, but Arthur Ashe is not depicted and this modern school footage does not provide historical context for his life story.",
+      "reviewed_at": 1792140376.5317948
+    },
+    "f32ea71a7f11dba787b55853": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsva-First_Day_-_Arthur_Ashe_Jr._Elementary",
+      "source_url": "https://archive.org/details/hcpsva-First_Day_-_Arthur_Ashe_Jr._Elementary",
+      "person": "Arthur Ashe",
+      "start": 46.12,
+      "reason": "The video shows modern footage from Arthur Ashe Jr. Elementary School, which provides relevant biographical illustration for Arthur Ashe, though Arthur Ashe himself is not visible as he passed away before this footage was filmed.",
+      "reviewed_at": 1792140388.0136008
+    },
+    "b13af2a20a2a6c191523fa56": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsva-First_Day_of_School_-_Arthur_Ashe_Jr._Elementary_School",
+      "source_url": "https://archive.org/details/hcpsva-First_Day_of_School_-_Arthur_Ashe_Jr._Elementary_School",
+      "person": "Arthur Ashe",
+      "start": 37.34,
+      "reason": "The video footage shows modern children and teachers in an elementary school named after Arthur Ashe, but Arthur Ashe himself is not present in the video, making it unusable as direct biographical footage.",
+      "reviewed_at": 1792140401.060252
+    },
+    "4ceca472d950289172a7eb12": {
+      "kind": "segment_rejection",
+      "source_id": "archive:hcpsva-First_Day_of_School_-_Arthur_Ashe_Jr._Elementary_School",
+      "source_url": "https://archive.org/details/hcpsva-First_Day_of_School_-_Arthur_Ashe_Jr._Elementary_School",
+      "person": "Arthur Ashe",
+      "start": 48.12,
+      "reason": "The footage shows modern B-roll from Arthur Ashe Jr. Elementary School, serving as biographical illustration of his legacy, but Arthur Ashe himself is not visible.",
+      "reviewed_at": 1792140411.2876089
+    },
+    "e71661378d7129f621e7cffd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cig_0868-Celebrating_Arthur_Ashe",
+      "source_url": "https://archive.org/details/cig_0868-Celebrating_Arthur_Ashe",
+      "person": "Arthur Ashe",
+      "start": 15.6,
+      "reason": "The video shows B-roll footage of tennis courts and a mural of Arthur Ashe in Richmond, but the actual person is not visible in any frame. It serves as biographical illustration of his hometown and legacy.",
+      "reviewed_at": 1792140419.8010325
+    },
+    "abce2c488109c31de695beca": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cig_0868-Celebrating_Arthur_Ashe",
+      "source_url": "https://archive.org/details/cig_0868-Celebrating_Arthur_Ashe",
+      "person": "Arthur Ashe",
+      "start": 1.66,
+      "reason": "The video segment shows B-roll footage of landmarks in Richmond related to Arthur Ashe, including a statue, tennis courts, and a street sign named after him. Arthur Ashe himself is not visibly present in the frames as he passed away before these modern recordings, but the footage provides valid biographical illustration of his legacy and hometown memorials.",
+      "reviewed_at": 1792140432.993592
+    },
+    "84f015b74916ec4e7a92c0b0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cig_0868-Invitation_from_Mayor_Stoney_-_Arthur_Ashe_Boulevard_Celebration",
+      "source_url": "https://archive.org/details/cig_0868-Invitation_from_Mayor_Stoney_-_Arthur_Ashe_Boulevard_Celebration",
+      "person": "Arthur Ashe",
+      "start": 23.26,
+      "reason": "The footage shows a local official speaking and a plaque related to Arthur Ashe, but the subject Arthur Ashe is not visible in any of the sampled frames.",
+      "reviewed_at": 1792140455.4250538
+    },
+    "70acee141f340f2dd67741a1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cig_0868-Invitation_from_Mayor_Stoney_-_Arthur_Ashe_Boulevard_Celebration",
+      "source_url": "https://archive.org/details/cig_0868-Invitation_from_Mayor_Stoney_-_Arthur_Ashe_Boulevard_Celebration",
+      "person": "Arthur Ashe",
+      "start": 33.18,
+      "reason": "The video shows Mayor Stoney speaking about Arthur Ashe Boulevard in 2019, not Arthur Ashe himself. Arthur Ashe is not visible in the footage, making it unsuitable as identity footage for his biography.",
+      "reviewed_at": 1792140468.3282936
+    },
+    "3747246b0ada8670f2d4d626": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+      "person": "Ernest Shackleton",
+      "start": 661.84,
+      "reason": "The frames show a dramatization or reenactment actor in polar gear rather than actual historical footage of Ernest Shackleton.",
+      "reviewed_at": 1792140592.4904
+    },
+    "8023534f092351399ea9f28c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+      "person": "Ernest Shackleton",
+      "start": 880.79,
+      "reason": "The segment features archival documentary footage showing historical expedition scenes (horses/men in Antarctica), but Ernest Shackleton himself is not visibly present in the frames; the person shown speaking in the beginning is an interviewer/commentator.",
+      "reviewed_at": 1792140605.617075
+    },
+    "590b8474c653c88c35548e09": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+      "person": "Ernest Shackleton",
+      "start": 1537.63,
+      "reason": "The sampled frames show Antarctic landscape and an unidentified commentator/expert talking about Ernest Shackleton, but Ernest Shackleton himself (who lived from 1874 to 1922) is not visible in any of the frames.",
+      "reviewed_at": 1792140651.534944
+    },
+    "ca1f4ab814924431691935bd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+      "person": "Ernest Shackleton",
+      "start": 1975.53,
+      "reason": "The footage features modern dramatic reenactments or actors portraying Ernest Shackleton and his crew rather than actual historical archival footage of Ernest Shackleton.",
+      "reviewed_at": 1792140678.651857
+    },
+    "c97e2c970669066d7fe6ea3e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+      "person": "Ernest Shackleton",
+      "start": 2194.48,
+      "reason": "The frames show a modern documentary interviewee discussing Ernest Shackleton, not Shackleton himself, making it biographical illustration footage.",
+      "reviewed_at": 1792140696.960225
+    },
+    "8e9319a067732982250754aa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202512",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
+      "person": "Ernest Shackleton",
+      "start": 682.59,
+      "reason": "The footage shows archival exterior shots of a historical building, serving as biographical illustration for Ernest Shackleton's life, though the subject himself is not visible.",
+      "reviewed_at": 1792140722.971255
+    },
+    "5dbe54fd1254a7bbe190fdf6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202512",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
+      "person": "Ernest Shackleton",
+      "start": 1021.39,
+      "reason": "The footage shows close-up archival-style hand-writing with a quill and ink, illustrating Ernest Shackleton's personal writing and correspondence. While Ernest Shackleton's face is not visible in the frames, it serves as usable historical context and biographical illustration for his expedition logs and letters.",
+      "reviewed_at": 1792140735.5877018
+    },
+    "73571c1b768b670b9d43c4ab": {
+      "kind": "segment_rejection",
+      "source_id": "archive:shackletons-expedition",
+      "source_url": "https://archive.org/details/shackletons-expedition",
+      "person": "Ernest Shackleton",
+      "start": 207.6,
+      "reason": "The footage shows a modern documentary presenter (Simon Whistler) talking to the camera, not the subject Ernest Shackleton.",
+      "reviewed_at": 1792140750.8160753
+    },
+    "93e65643c6cdb31e294a57c5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:shackletons-expedition",
+      "source_url": "https://archive.org/details/shackletons-expedition",
+      "person": "Ernest Shackleton",
+      "start": 308.89,
+      "reason": "The frames show a modern documentary presenter (Simon Whistler) discussing Ernest Shackleton, not Ernest Shackleton himself. Therefore, the person is not visible and the footage is not usable as biographical identity footage for Shackleton.",
+      "reviewed_at": 1792140774.4310374
+    },
+    "3b4a5258fe1e23001bd53404": {
+      "kind": "segment_rejection",
+      "source_id": "archive:antarctica-a-frozen-history",
+      "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+      "person": "Ernest Shackleton",
+      "start": 4232.62,
+      "reason": "The frames show computer-generated imagery (CGI) or digital animation of an Antarctic landscape rather than real archival historical footage or actual filmed footage.",
+      "reviewed_at": 1792140808.3514352
+    },
+    "59b6f5e71fdf655d0b5bc6ba": {
+      "kind": "segment_rejection",
+      "source_id": "archive:antarctica-a-frozen-history",
+      "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+      "person": "Ernest Shackleton",
+      "start": 1273.29,
+      "reason": "The footage shows archival moving images of ponies and sledges used in Antarctic exploration, fitting the biographical context of Ernest Shackleton's expeditions, although Shackleton himself is not clearly visible in the frames.",
+      "reviewed_at": 1792140833.9371238
+    },
+    "ef49a30d9ba8f2c072341945": {
+      "source_id": "commons:80178644",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Yesterdays_Newsreel_20th_Century,_Amelia_Earhart,_Cologne_Cathedral,_New_York_City_62424b.webm",
+      "reason": "strong metadata exclusion: episode"
+    },
+    "2b5cd6a90a00c9bfb8dc1c08": {
+      "kind": "segment_rejection",
+      "source_id": "archive:amelia.-earhart.-docu.-final",
+      "source_url": "https://archive.org/details/amelia.-earhart.-docu.-final",
+      "person": "Amelia Earhart",
+      "start": 192.54,
+      "reason": "The video segment shows modern students or creators in a podcast studio discussing Amelia Earhart, but Amelia Earhart is not visible in the footage, making it unsuitable for direct biography illustration.",
+      "reviewed_at": 1792140936.666043
+    },
+    "501f2e32bdc533f89b131a95": {
+      "kind": "segment_rejection",
+      "source_id": "archive:amelia.-earhart.-docu.-final",
+      "source_url": "https://archive.org/details/amelia.-earhart.-docu.-final",
+      "person": "Amelia Earhart",
+      "start": 272.92,
+      "reason": "The sampled frames show modern students/commentators in a podcast or interview studio discussing Amelia Earhart, but Amelia Earhart is not visible in any frame, and modern commentary/discussion footage is not usable as historical context for her biography.",
+      "reviewed_at": 1792140961.5970082
+    },
+    "3fcf64b21498459022d3e694": {
+      "kind": "segment_rejection",
+      "source_id": "archive:lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "source_url": "https://archive.org/details/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "person": "Amelia Earhart",
+      "start": 311.98,
+      "reason": "The frames consist entirely of a static title card (\"London to New York in 24 Hours\") rather than moving archival footage of Amelia Earhart or her actual historical context.",
+      "reviewed_at": 1792140972.6704926
+    },
+    "8dd74011ffa644a73f8c6df9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "source_url": "https://archive.org/details/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "person": "Amelia Earhart",
+      "start": 443.55,
+      "reason": "The frames show a title card for Mussolini visiting Hitler in Germany, which has no connection to Amelia Earhart and consists entirely of text rather than actual filmed footage of the subject or relevant historical context.",
+      "reviewed_at": 1792140988.0546362
+    },
+    "3da3c870ed08d1bbe34a3d7b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:42424-europes-powder-keg-vwr",
+      "source_url": "https://archive.org/details/42424-europes-powder-keg-vwr",
+      "person": "Amelia Earhart",
+      "start": 311.98,
+      "reason": "The sampled frames consist entirely of a static title card (\"London to New York in 24 Hours\") rather than actual filmed footage of Amelia Earhart or genuine historical context showing her or her aircraft, making it unusable.",
+      "reviewed_at": 1792141001.8025882
+    },
+    "626e9fed98f079e9b56063ec": {
+      "kind": "segment_rejection",
+      "source_id": "archive:42424-europes-powder-keg-vwr",
+      "source_url": "https://archive.org/details/42424-europes-powder-keg-vwr",
+      "person": "Amelia Earhart",
+      "start": 443.55,
+      "reason": "The sampled frames consist entirely of a title card about Mussolini visiting Hitler, with no connection to Amelia Earhart or her life.",
+      "reviewed_at": 1792141032.9467638
+    },
+    "bba7c9016918f06c47114038": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cg_0740-Mountain_Biking_at_Amelia_Earhart_Park",
+      "source_url": "https://archive.org/details/cg_0740-Mountain_Biking_at_Amelia_Earhart_Park",
+      "person": "Amelia Earhart",
+      "start": 0.7,
+      "reason": "The video footage is from a modern promotional clip about mountain biking at Amelia Earhart Park (named after the aviation pioneer), completely unrelated to the life, history, or biography of Amelia Earhart herself.",
+      "reviewed_at": 1792141061.4071064
+    },
+    "392b92896a5c19f6cfacbfa2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "person": "Madam C.J. Walker",
+      "start": 14.2,
+      "reason": "The video shows A'Lelia Bundles (the great-great-granddaughter and biographer of Madam C.J. Walker) giving a speech about her at MTSU. While Madam C.J. Walker herself is historical and not visibly present, the footage provides biographical illustration regarding her legacy through her descendant and historian.",
+      "reviewed_at": 1792141134.552622
+    },
+    "68fc5fc97854e82349b655ca": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "person": "Madam C.J. Walker",
+      "start": 32.6,
+      "reason": "The video features A'Lelia Bundles (great-great-granddaughter of Madam C.J. Walker) giving a speech and showing a slide of Madam C.J. Walker. However, Madam C.J. Walker herself is not visibly present in the footage as she died in 1919; the person shown is her descendant and biographer.",
+      "reviewed_at": 1792141163.126797
+    },
+    "022aa5025eb3b8c86f8aba2e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cpaz-Black_History_Inspirational_Quotes",
+      "source_url": "https://archive.org/details/cpaz-Black_History_Inspirational_Quotes",
+      "person": "Madam C.J. Walker",
+      "start": 24.32,
+      "reason": "The video consists of static graphic quote cards featuring other historical figures such as Ella Fitzgerald and Martin Luther King Jr., and Madam C.J. Walker is neither visible nor featured in the sampled frames.",
+      "reviewed_at": 1792141173.11995
+    },
+    "c1b1a6a7956d83546e4d1d61": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cpaz-Black_History_Inspirational_Quotes",
+      "source_url": "https://archive.org/details/cpaz-Black_History_Inspirational_Quotes",
+      "person": "Madam C.J. Walker",
+      "start": 53.31,
+      "reason": "The video segment shows Barack Obama and Mary McLeod Bethune, but does not feature Madam C.J. Walker. Additionally, the frames consist of static graphic templates rather than real historical footage.",
+      "reviewed_at": 1792141181.7154825
+    },
+    "3d4af67ce9d0eaf91dcce191": {
+      "kind": "segment_rejection",
+      "source_id": "archive:yt_p3qjlLYszEI",
+      "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+      "person": "Madam C.J. Walker",
+      "start": 94.71,
+      "reason": "The footage shows A'Lelia Bundles, Madam C.J. Walker's great-great granddaughter and biographer, discussing and presenting archival documents related to Walker's life in the National Archives. While Madam C.J. Walker herself is not visible (as she lived prior to film/video documentation of this nature), this contemporary documentary footage provides valid biographical illustration through an expert relative and historical documents.",
+      "reviewed_at": 1792141194.9798229
+    },
+    "234c04f416ee866f8139e442": {
+      "kind": "segment_rejection",
+      "source_id": "archive:yt_p3qjlLYszEI",
+      "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+      "person": "Madam C.J. Walker",
+      "start": 124.62,
+      "reason": "The footage displays archival historical documents related to the subject's family history from the National Archives, providing valid contextual illustration without depicting the subject herself.",
+      "reviewed_at": 1792141202.5382254
+    },
+    "5c0e690e682f0dfa47a3a935": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Chai_with_Manjula_-_Akshaya_Patra",
+      "source_url": "https://archive.org/details/Chai_with_Manjula_-_Akshaya_Patra",
+      "person": "Narayana Murthy",
+      "start": 398.81,
+      "reason": "The sampled segment features an interview with an unidentified woman (host/guest), but the named subject Narayana Murthy is not visible in any of the frames. Therefore, it fails the identity footage requirement.",
+      "reviewed_at": 1792141235.4134085
+    },
+    "f9842bdb70b9d1c1690c2495": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Chai_with_Manjula_-_Akshaya_Patra",
+      "source_url": "https://archive.org/details/Chai_with_Manjula_-_Akshaya_Patra",
+      "person": "Narayana Murthy",
+      "start": 530.08,
+      "reason": "The sampled frames show an interview between an interviewer and another guest, but Narayana Murthy is not visible in any of the frames.",
+      "reviewed_at": 1792141247.2632113
+    },
+    "3aad709862f866355845ae42": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Chai_with_Manjula_-_Narayana_Murthy",
+      "source_url": "https://archive.org/details/Chai_with_Manjula_-_Narayana_Murthy",
+      "person": "Narayana Murthy",
+      "start": 1728.2,
+      "reason": "The sampled frames show musicians performing on stage and abstract cutaways, but Narayana Murthy is not visible anywhere in the footage, making it unsuitable for a biographical segment about him.",
+      "reviewed_at": 1792141307.4668298
+    },
+    "7c91bccd53b6abdc661be4ba": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sabrina-audrey-hepburn",
+      "source_url": "https://archive.org/details/sabrina-audrey-hepburn",
+      "person": "Audrey Hepburn",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of title cards and opening credits from the film Sabrina, without showing Audrey Hepburn or any substantive historical action.",
+      "reviewed_at": 1792141503.6706061
+    },
+    "6948342844b49988c1afc30e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sabrina-audrey-hepburn",
+      "source_url": "https://archive.org/details/sabrina-audrey-hepburn",
+      "person": "Audrey Hepburn",
+      "start": 1578.77,
+      "reason": "The video segment shows scenes from the 1954 film Sabrina featuring other cast members and vintage cars, but Audrey Hepburn is not clearly visible in any of the sampled frames.",
+      "reviewed_at": 1792141580.4985363
+    },
+    "0c61b2072947f8ed806b0a09": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sabrina-audrey-hepburn",
+      "source_url": "https://archive.org/details/sabrina-audrey-hepburn",
+      "person": "Audrey Hepburn",
+      "start": 2627.95,
+      "reason": "The frames show William Holden dancing with Martha Hyer, not Audrey Hepburn. Therefore, Audrey Hepburn is not visible in the footage.",
+      "reviewed_at": 1792141660.650566
     }
   }
 }

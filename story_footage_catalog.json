@@ -14432,37 +14432,6 @@
       "reviewed_at": 1792008806.6089828
     },
     {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:jonas-edward-salk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
-        "source_url": "https://archive.org/details/jonas-edward-salk",
-        "title": "JONAS EDWARD SALK",
-        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
-        "creator": "",
-        "license": "",
-        "subject": "JONAS SALK",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 79.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 60.85,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features clear historical and archival-style moving imagery depicting Jonas Salk in laboratory and family settings, directly illustrating his life and work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6d60448d945bb5d0074753d29f01368a49b08336e734378bc2c07b5fba157387",
-      "reviewed_at": 1792008838.838482
-    },
-    {
       "person": "J.K. Rowling",
       "source": {
         "id": "archive:PrideMonthShowedProgressExceptforJKRowling",
@@ -14647,68 +14616,6 @@
       },
       "review_key": "b888430ea1fed2a4dbc2b87fa707ce172a7c4d306d2519e94d9de4ae86704a06",
       "reviewed_at": 1792009161.4297354
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Shackleton Documentary Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 223.95,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment includes genuine archival documentary footage featuring an interview discussing Ernest Shackleton alongside historical photographs of Shackleton as a child, providing valid biographical context and illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d2f899d34ecbb251e3fc3bbda12398b4421a70dd840621615df46d564d6bfb38",
-      "reviewed_at": 1792009306.8666835
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Shackleton Documentary Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 442.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The frames show authentic historical archival footage/photographs featuring Ernest Shackleton and his team during their Antarctic expedition, directly matching the narration.",
-        "usage": "direct_event"
-      },
-      "review_key": "5fa5117718892eec7a36487da1faf9e10812d856f29831f223a5ef4f1ba90ea8",
-      "reviewed_at": 1792009485.653079
     },
     {
       "person": "Louis Braille",
@@ -14990,37 +14897,6 @@
       "reviewed_at": 1792056878.3513007
     },
     {
-      "person": "Agatha Christie",
-      "source": {
-        "id": "archive:agatha-christie-arena",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/agatha-christie-arena/Agatha%20Christie%20_001.mp4",
-        "source_url": "https://archive.org/details/agatha-christie-arena",
-        "title": "Arena: Agatha Christie - Unfinished Portrait",
-        "description": "Profile celebrating the centenary of the famous author Agatha Christie’s birth. Looking at her life, her character and the key moments in her childhood that influenced her writing. ['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
-        "creator": "BBC",
-        "license": "",
-        "subject": "['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3656.42408,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2806.86,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The archival footage clearly shows Agatha Christie seated at a desk, visible both from behind and reflected in the mirror, making it authentic and highly relevant biographical illustration for a Short about her life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "79ea715595c792f8851f1e6ac564525ff91087a808b498a14eb7fe2c07e360d1",
-      "reviewed_at": 1792100584.2026358
-    },
-    {
       "person": "A.R. Rahman",
       "source": {
         "id": "commons:83034875",
@@ -15233,6 +15109,750 @@
       },
       "review_key": "dce02f6fdb51c81609e810da16d8561ed6aa827b2b3e2e86cc0b276674863cf9",
       "reviewed_at": 1792101131.4816816
+    },
+    {
+      "person": "Agatha Christie",
+      "source": {
+        "id": "archive:agatha-christie-arena",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/agatha-christie-arena/Agatha%20Christie%20_001.mp4",
+        "source_url": "https://archive.org/details/agatha-christie-arena",
+        "title": "Arena: Agatha Christie - Unfinished Portrait",
+        "description": "Profile celebrating the centenary of the famous author Agatha Christie’s birth. Looking at her life, her character and the key moments in her childhood that influenced her writing. ['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
+        "creator": "BBC",
+        "license": "",
+        "subject": "['documentary', 'bbc', 'arena', 'agatha christie', 'miss marple', 'poirot']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3656.42408,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2806.86,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The archival footage clearly shows Agatha Christie at a desk, reflected in a mirror, providing direct and engaging visual context for her life as an author.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "315a62b3ac5bcaf9b254cf7c61c93c110b2ace364b94130cb68af3e2369800b9",
+      "reviewed_at": 1792139814.3317614
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:israel-wohltater-der-menschheit",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/israel-wohltater-der-menschheit/Israel_Wohlt%C3%A4ter_der_Menschheit.mp4",
+        "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+        "title": "Israel ist Wohltäter der Menschheit ( JONAS SALK )",
+        "description": "Israel ist nicht Gaza ; Kolonialismus ; Gewalt und Leid sondern Wohltäter der Menscheit. ( z.B.: Jonas Salk ) Israel is not Gaza; colonialism; violence and suffering but a benefactor of humanity. (e.g., Jonas Salk) Israël n’est pas Gaza ; colonialisme ; violence et souffrance mais bienfaiteur de l’humanité. (ex. : Jonas Salk) ['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
+        "creator": "BBC ( England )",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 249.233333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 77.38,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment contains real archival footage featuring Jonas Salk in a laboratory setting working on the polio vaccine, making it relevant biographical footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4ded2ab2866bb1017e66b299114a9201efd5b2e4b79ccc0bb825429696ffeafd",
+      "reviewed_at": 1792140102.0861807
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 60.85,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly depicts Jonas Salk in both laboratory and family settings, directly illustrating his life and work for a biography short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "22d5c1e8d20a27f8cf1e9941234416bd4ab68945d5ffac27460d63ce1d519b47",
+      "reviewed_at": 1792140149.751684
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Ernest Shackleton Documentaries Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 442.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly show archival photographs of Ernest Shackleton and his expedition team in Antarctica during their historic polar journey, providing direct and relevant historical context for a biographical short.",
+        "usage": "direct_event"
+      },
+      "review_key": "0259a0cf16d412ef2a7dc0f30d0a6a396bb38f07125d802542d4592ed9507a6a",
+      "reviewed_at": 1792140542.8021095
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Shackleton Documentary Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 223.95,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment features archival footage and photographs depicting Ernest Shackleton during his youth, accompanied by commentary from an expert, providing strong biographical illustration for a documentary on his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "db42ebf5fff80780448f3ca96474c0ef2608d96e713c8259da50b2d2f5eec323",
+      "reviewed_at": 1792140553.0148978
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Shackleton Documentary Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 442.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames show archival footage featuring Ernest Shackleton and his expedition team in Antarctica during their historic Nimrod Expedition, providing direct and authentic visual context.",
+        "usage": "direct_event"
+      },
+      "review_key": "b7ea0f763824e6ae12d21127d56a43ceb0d1cefb6febcb736ff6e89719c96be1",
+      "reviewed_at": 1792140609.1581812
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Shackleton Documentary Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1756.58,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows authentic historical archival footage of the Endurance ship trapped in the Antarctic ice pack with expedition members nearby, which directly illustrates Ernest Shackleton's famous Imperial Trans-Antarctic Expedition. Although Shackleton himself is not clearly identifiable among the distant figures, the footage is genuine historical context and highly relevant to his biographical narrative.",
+        "usage": "direct_event"
+      },
+      "review_key": "4bf1b3cdf4186ae28b57f64edf20de33e5cde1cd6584d749acd579cc0c01b1c6",
+      "reviewed_at": 1792140658.9326806
+    },
+    {
+      "person": "Amelia Earhart",
+      "source": {
+        "id": "archive:ADC-10127d",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ADC-10127d/ADC-10127d.mp4",
+        "source_url": "https://archive.org/details/ADC-10127d",
+        "title": "Pathe Newsreel: Amelia Earhart Londonderry, Ireland, 1932",
+        "description": "Extracted from U.S. Army Film \"General Marshall Is Sworn In As The New Secretary Of State, 02/21/1947\" National Archives description:\"Amelia Earhart acclaimed in England after her famous flight.\" National Archives Identifier: 23889 ['Newsreel', 'Earhart, Amelia, 1897-1937']",
+        "creator": "United States. Army",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Newsreel', 'Earhart, Amelia, 1897-1937']",
+        "runtime": "0:35",
+        "direct_subject": true,
+        "duration_hint": 35.268602,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 14.5,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly features archival moving images of Amelia Earhart exiting an airplane, directly matching the biographical subject and context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "47f736dff1487e981a5d801a1d8cb7c0849770bf405a10caec102882db1df9ea",
+      "reviewed_at": 1792141043.1238964
+    },
+    {
+      "person": "Amelia Earhart",
+      "source": {
+        "id": "archive:ADC-10127d",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ADC-10127d/ADC-10127d.mp4",
+        "source_url": "https://archive.org/details/ADC-10127d",
+        "title": "Pathe Newsreel: Amelia Earhart Londonderry, Ireland, 1932",
+        "description": "Extracted from U.S. Army Film \"General Marshall Is Sworn In As The New Secretary Of State, 02/21/1947\" National Archives description:\"Amelia Earhart acclaimed in England after her famous flight.\" National Archives Identifier: 23889 ['Newsreel', 'Earhart, Amelia, 1897-1937']",
+        "creator": "United States. Army",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Newsreel', 'Earhart, Amelia, 1897-1937']",
+        "runtime": "0:35",
+        "direct_subject": true,
+        "duration_hint": 35.268602,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2.73,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Amelia Earhart herself standing by her airplane in authentic archival newsreel footage, directly illustrating her life and historical achievements.",
+        "usage": "direct_event"
+      },
+      "review_key": "9dcd2c6d67613c9612003b13f5d5c4aac9fa4b85271dbc790b53d1744c737db3",
+      "reviewed_at": 1792141065.3933926
+    },
+    {
+      "person": "Amelia Earhart",
+      "source": {
+        "id": "archive:ADC-10127d",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ADC-10127d/ADC-10127d.mp4",
+        "source_url": "https://archive.org/details/ADC-10127d",
+        "title": "Pathe Newsreel: Amelia Earhart Londonderry, Ireland, 1932",
+        "description": "Extracted from U.S. Army Film \"General Marshall Is Sworn In As The New Secretary Of State, 02/21/1947\" National Archives description:\"Amelia Earhart acclaimed in England after her famous flight.\" National Archives Identifier: 23889 ['Newsreel', 'Earhart, Amelia, 1897-1937']",
+        "creator": "United States. Army",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Newsreel', 'Earhart, Amelia, 1897-1937']",
+        "runtime": "0:35",
+        "direct_subject": true,
+        "duration_hint": 35.268602,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 26.27,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The archival footage clearly shows Amelia Earhart in Ireland following her historic transatlantic flight, perfectly matching the biographical context.",
+        "usage": "direct_event"
+      },
+      "review_key": "dab2f5da060b7de0fe426d2eb80ceeb785db7f575e8206e6e17b08a1fd1757ba",
+      "reviewed_at": 1792141077.7402859
+    },
+    {
+      "person": "Audrey Hepburn",
+      "source": {
+        "id": "archive:twitter-1338797197635145728",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1338797197635145728/1338797197635145728.mp4",
+        "source_url": "https://archive.org/details/twitter-1338797197635145728",
+        "title": "BBC Archive - What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989.",
+        "description": "What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989. https://t.co/WF9TYY87wZ Source: https://twitter.com/BBCArchive/status/1338797197635145728 Uploader: BBC Archive ['Twitter', 'video', 'ArchiveAdventCalendar']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'ArchiveAdventCalendar']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 243.785208,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 128.73,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features genuine archival footage of Audrey Hepburn, clearly identifiable in both her younger years (filmed footage/photoshoot style) and during a later interview in 1989, making it highly relevant and usable for a biographical Short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5bff376219308a3227bf6873a3902ef597e0dcc7021b59aeedca6f1b01a3be0b",
+      "reviewed_at": 1792141387.7262368
+    },
+    {
+      "person": "Audrey Hepburn",
+      "source": {
+        "id": "archive:sabrina-audrey-hepburn",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/sabrina-audrey-hepburn/Sabrina%20Audrey%20Hepburn.mp4",
+        "source_url": "https://archive.org/details/sabrina-audrey-hepburn",
+        "title": "Sabrina Audrey Hepburn",
+        "description": "(From Wiki) Sabrina Fairchild is the young daughter of the Larrabee family's chauffeur, Thomas, and has been in love with David Larrabee all her life. David is a three-times-married playboy who has never paid attention to Sabrina because to him she was still a child. 1954 American romantic comedy-drama film directed by Billy Wilder, adapted for the screen by Wilder, Samuel A. Taylor, and Ernest Lehman[4] from Taylor's 1953 play Sabrina Fair. The picture stars Humphrey Bogart, Audrey Hepburn and William Holden. This was Wilder's last film released by Paramount Pictures, ending a 12-year business relationship between Wilder and the company. ['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
+        "creator": "",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6833.666667,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 3677.13,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage features genuine film archival content from 'Sabrina' (1954), clearly showing Audrey Hepburn alongside Humphrey Bogart, perfectly illustrating her acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3b0610af358dac32f73e3f4ca36de70d11be08db1ea0fd7eb256a8005324af52",
+      "reviewed_at": 1792141406.5259213
+    },
+    {
+      "person": "Audrey Hepburn",
+      "source": {
+        "id": "archive:twitter-1338797197635145728",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1338797197635145728/1338797197635145728.mp4",
+        "source_url": "https://archive.org/details/twitter-1338797197635145728",
+        "title": "BBC Archive - What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989.",
+        "description": "What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989. https://t.co/WF9TYY87wZ Source: https://twitter.com/BBCArchive/status/1338797197635145728 Uploader: BBC Archive ['Twitter', 'video', 'ArchiveAdventCalendar']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'ArchiveAdventCalendar']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 243.785208,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Audrey Hepburn being interviewed on Wogan in 1989. It is genuine archival television footage featuring the named subject clearly visible throughout the segment.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "52fd8917412034cf3c94e8a92bf2d82777bfca8ac4915e3d2fedd88a5ad52a83",
+      "reviewed_at": 1792141418.3013296
+    },
+    {
+      "person": "Audrey Hepburn",
+      "source": {
+        "id": "archive:sabrina-audrey-hepburn",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/sabrina-audrey-hepburn/Sabrina%20Audrey%20Hepburn.mp4",
+        "source_url": "https://archive.org/details/sabrina-audrey-hepburn",
+        "title": "Sabrina Audrey Hepburn",
+        "description": "(From Wiki) Sabrina Fairchild is the young daughter of the Larrabee family's chauffeur, Thomas, and has been in love with David Larrabee all her life. David is a three-times-married playboy who has never paid attention to Sabrina because to him she was still a child. 1954 American romantic comedy-drama film directed by Billy Wilder, adapted for the screen by Wilder, Samuel A. Taylor, and Ernest Lehman[4] from Taylor's 1953 play Sabrina Fair. The picture stars Humphrey Bogart, Audrey Hepburn and William Holden. This was Wilder's last film released by Paramount Pictures, ending a 12-year business relationship between Wilder and the company. ['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
+        "creator": "",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6833.666667,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 529.59,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment features genuine film footage from Sabrina (1954), clearly showing Audrey Hepburn acting in character, which serves as strong biographical illustration for her career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3f7b013bafe3a59ae7662e2156818fdddff6b6ab79cb87d071f037f8f56855cd",
+      "reviewed_at": 1792141439.7157376
+    },
+    {
+      "person": "Audrey Hepburn",
+      "source": {
+        "id": "archive:twitter-1338797197635145728",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1338797197635145728/1338797197635145728.mp4",
+        "source_url": "https://archive.org/details/twitter-1338797197635145728",
+        "title": "BBC Archive - What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989.",
+        "description": "What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989. https://t.co/WF9TYY87wZ Source: https://twitter.com/BBCArchive/status/1338797197635145728 Uploader: BBC Archive ['Twitter', 'video', 'ArchiveAdventCalendar']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'ArchiveAdventCalendar']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 243.785208,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 22.68,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment clearly shows archival interview footage of Audrey Hepburn on Wogan in 1989, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "552f814bfee37e3e86b05e3427e3958e261a7350dde3fb0e20eb699f24a4b4b6",
+      "reviewed_at": 1792141460.9854286
+    },
+    {
+      "person": "Audrey Hepburn",
+      "source": {
+        "id": "archive:sabrina-audrey-hepburn",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/sabrina-audrey-hepburn/Sabrina%20Audrey%20Hepburn.mp4",
+        "source_url": "https://archive.org/details/sabrina-audrey-hepburn",
+        "title": "Sabrina Audrey Hepburn",
+        "description": "(From Wiki) Sabrina Fairchild is the young daughter of the Larrabee family's chauffeur, Thomas, and has been in love with David Larrabee all her life. David is a three-times-married playboy who has never paid attention to Sabrina because to him she was still a child. 1954 American romantic comedy-drama film directed by Billy Wilder, adapted for the screen by Wilder, Samuel A. Taylor, and Ernest Lehman[4] from Taylor's 1953 play Sabrina Fair. The picture stars Humphrey Bogart, Audrey Hepburn and William Holden. This was Wilder's last film released by Paramount Pictures, ending a 12-year business relationship between Wilder and the company. ['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
+        "creator": "",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6833.666667,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1054.18,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment features genuine historical film footage from Sabrina (1954), showing Audrey Hepburn being carried by Humphrey Bogart, making it highly relevant biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "09bc3aa5ae060c10fcd15001b6400f188becd00c6c37d9dfbfb9497ccdc8e449",
+      "reviewed_at": 1792141519.5799532
+    },
+    {
+      "person": "Audrey Hepburn",
+      "source": {
+        "id": "archive:twitter-1338797197635145728",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1338797197635145728/1338797197635145728.mp4",
+        "source_url": "https://archive.org/details/twitter-1338797197635145728",
+        "title": "BBC Archive - What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989.",
+        "description": "What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989. https://t.co/WF9TYY87wZ Source: https://twitter.com/BBCArchive/status/1338797197635145728 Uploader: BBC Archive ['Twitter', 'video', 'ArchiveAdventCalendar']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'ArchiveAdventCalendar']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 243.785208,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 40.35,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment clearly shows real archival interview footage of Audrey Hepburn on Wogan in 1989. Audrey Hepburn is visibly present and identifiable in multiple sampled frames (frames 1, 4, and 5), while frame 2 and 3 show the interviewer, which is fully permissible.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "972fff69ada73cac87371f461bdcd8474da206af90ba25d6f192d4d27c83e6f3",
+      "reviewed_at": 1792141532.2882774
+    },
+    {
+      "person": "Audrey Hepburn",
+      "source": {
+        "id": "archive:sabrina-audrey-hepburn",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/sabrina-audrey-hepburn/Sabrina%20Audrey%20Hepburn.mp4",
+        "source_url": "https://archive.org/details/sabrina-audrey-hepburn",
+        "title": "Sabrina Audrey Hepburn",
+        "description": "(From Wiki) Sabrina Fairchild is the young daughter of the Larrabee family's chauffeur, Thomas, and has been in love with David Larrabee all her life. David is a three-times-married playboy who has never paid attention to Sabrina because to him she was still a child. 1954 American romantic comedy-drama film directed by Billy Wilder, adapted for the screen by Wilder, Samuel A. Taylor, and Ernest Lehman[4] from Taylor's 1953 play Sabrina Fair. The picture stars Humphrey Bogart, Audrey Hepburn and William Holden. This was Wilder's last film released by Paramount Pictures, ending a 12-year business relationship between Wilder and the company. ['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
+        "creator": "",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6833.666667,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2103.36,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features genuine archival footage from the film Sabrina starring Audrey Hepburn, with Hepburn clearly identifiable in the later frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "04bd20579607319b8b6a5912e3cd41f85dd065ce457f80f8998c4ee4bff370bb",
+      "reviewed_at": 1792141602.520305
+    },
+    {
+      "person": "Audrey Hepburn",
+      "source": {
+        "id": "archive:twitter-1338797197635145728",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1338797197635145728/1338797197635145728.mp4",
+        "source_url": "https://archive.org/details/twitter-1338797197635145728",
+        "title": "BBC Archive - What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989.",
+        "description": "What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989. https://t.co/WF9TYY87wZ Source: https://twitter.com/BBCArchive/status/1338797197635145728 Uploader: BBC Archive ['Twitter', 'video', 'ArchiveAdventCalendar']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'ArchiveAdventCalendar']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 243.785208,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 58.03,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature archival interview footage of Audrey Hepburn, making it authentic and suitable biographical illustration for a video about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ccaa4a6724310969f97e0bce02c54e8870d1340b984b6fc0ebf1893420557bd8",
+      "reviewed_at": 1792141612.4386804
+    },
+    {
+      "person": "Audrey Hepburn",
+      "source": {
+        "id": "archive:sabrina-audrey-hepburn",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/sabrina-audrey-hepburn/Sabrina%20Audrey%20Hepburn.mp4",
+        "source_url": "https://archive.org/details/sabrina-audrey-hepburn",
+        "title": "Sabrina Audrey Hepburn",
+        "description": "(From Wiki) Sabrina Fairchild is the young daughter of the Larrabee family's chauffeur, Thomas, and has been in love with David Larrabee all her life. David is a three-times-married playboy who has never paid attention to Sabrina because to him she was still a child. 1954 American romantic comedy-drama film directed by Billy Wilder, adapted for the screen by Wilder, Samuel A. Taylor, and Ernest Lehman[4] from Taylor's 1953 play Sabrina Fair. The picture stars Humphrey Bogart, Audrey Hepburn and William Holden. This was Wilder's last film released by Paramount Pictures, ending a 12-year business relationship between Wilder and the company. ['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
+        "creator": "",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6833.666667,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 3152.54,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The clip features archival film footage from Sabrina (1954), clearly showing Audrey Hepburn dancing in several of the sampled frames (such as the first three), making it valid and relevant biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "457de3826731fa10af92fa231ebf21a61fc87481c5ff6e6f35de2035d5c278bb",
+      "reviewed_at": 1792141678.1405861
+    },
+    {
+      "person": "Audrey Hepburn",
+      "source": {
+        "id": "archive:twitter-1338797197635145728",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1338797197635145728/1338797197635145728.mp4",
+        "source_url": "https://archive.org/details/twitter-1338797197635145728",
+        "title": "BBC Archive - What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989.",
+        "description": "What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989. https://t.co/WF9TYY87wZ Source: https://twitter.com/BBCArchive/status/1338797197635145728 Uploader: BBC Archive ['Twitter', 'video', 'ArchiveAdventCalendar']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'ArchiveAdventCalendar']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 243.785208,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 75.7,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features real archival footage of Audrey Hepburn being interviewed on Wogan in 1989, making it a valid biographical illustration of her later life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d771e0e5b72d9803c26a6355f83d62211f7ed90453d7f27169bba78fce4140f7",
+      "reviewed_at": 1792141689.082138
+    },
+    {
+      "person": "Audrey Hepburn",
+      "source": {
+        "id": "archive:sabrina-audrey-hepburn",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/sabrina-audrey-hepburn/Sabrina%20Audrey%20Hepburn.mp4",
+        "source_url": "https://archive.org/details/sabrina-audrey-hepburn",
+        "title": "Sabrina Audrey Hepburn",
+        "description": "(From Wiki) Sabrina Fairchild is the young daughter of the Larrabee family's chauffeur, Thomas, and has been in love with David Larrabee all her life. David is a three-times-married playboy who has never paid attention to Sabrina because to him she was still a child. 1954 American romantic comedy-drama film directed by Billy Wilder, adapted for the screen by Wilder, Samuel A. Taylor, and Ernest Lehman[4] from Taylor's 1953 play Sabrina Fair. The picture stars Humphrey Bogart, Audrey Hepburn and William Holden. This was Wilder's last film released by Paramount Pictures, ending a 12-year business relationship between Wilder and the company. ['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
+        "creator": "",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6833.666667,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 4201.72,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Audrey Hepburn (alongside Humphrey Bogart) in genuine archival footage from the 1954 film Sabrina, making it highly suitable as biographical illustration for a documentary Short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ffa5d45827a8aa2544728c8022432d6d655851d1688a6ccb188c2a4f246b99c0",
+      "reviewed_at": 1792141723.5390732
+    },
+    {
+      "person": "Audrey Hepburn",
+      "source": {
+        "id": "archive:twitter-1338797197635145728",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1338797197635145728/1338797197635145728.mp4",
+        "source_url": "https://archive.org/details/twitter-1338797197635145728",
+        "title": "BBC Archive - What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989.",
+        "description": "What's today's #ArchiveAdventCalendar surprise? Why, it's this interview with Audrey Hepburn, on Wogan, in 1989. https://t.co/WF9TYY87wZ Source: https://twitter.com/BBCArchive/status/1338797197635145728 Uploader: BBC Archive ['Twitter', 'video', 'ArchiveAdventCalendar']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'ArchiveAdventCalendar']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 243.785208,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 93.38,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment shows genuine archival footage of Audrey Hepburn being interviewed on Wogan in 1989. Audrey Hepburn is clearly visible and identifiable in multiple sampled frames (frames 2 through 5), while frame 1 shows the interviewer, making this a valid biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "53517bec8b074f76b03224591fd5078d018262f8004ad88a72e5eb520dc20ec5",
+      "reviewed_at": 1792141741.4310508
+    },
+    {
+      "person": "Audrey Hepburn",
+      "source": {
+        "id": "archive:sabrina-audrey-hepburn",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/sabrina-audrey-hepburn/Sabrina%20Audrey%20Hepburn.mp4",
+        "source_url": "https://archive.org/details/sabrina-audrey-hepburn",
+        "title": "Sabrina Audrey Hepburn",
+        "description": "(From Wiki) Sabrina Fairchild is the young daughter of the Larrabee family's chauffeur, Thomas, and has been in love with David Larrabee all her life. David is a three-times-married playboy who has never paid attention to Sabrina because to him she was still a child. 1954 American romantic comedy-drama film directed by Billy Wilder, adapted for the screen by Wilder, Samuel A. Taylor, and Ernest Lehman[4] from Taylor's 1953 play Sabrina Fair. The picture stars Humphrey Bogart, Audrey Hepburn and William Holden. This was Wilder's last film released by Paramount Pictures, ending a 12-year business relationship between Wilder and the company. ['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
+        "creator": "",
+        "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Sabrina', 'Audrey Hepburn', 'Humphrey Bogart', 'William Holden']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6833.666667,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 4726.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The clip features genuine historical film footage of Audrey Hepburn alongside Humphrey Bogart in 'Sabrina' (1954), making it highly relevant biographical illustration for a video about her life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "179952cd1f9f93b1adbcf0f16be2db4259946b69666f06eecf8e03e35d294e57",
+      "reviewed_at": 1792141755.7535355
     }
   ]
 }

@@ -791,12 +791,13 @@ def verify(person, scene, item, samples):
         return result
 
     # A provider 5xx/404 on the primary model is a provider/model availability
-    # failure, not a content rejection. Before deferring the entire Story run,
-    # make one bounded attempt on a stable Gemini multimodal fallback. This keeps
-    # the Publish-compatible primary model while preventing a temporary primary
-    # endpoint outage from killing an otherwise valid Story.
+    # failure, not a content rejection. Try the stable Gemini fallback with a
+    # bounded retry window too: a single fallback request can hit the same brief
+    # regional 503 outage as the primary. These retries never alter the visual
+    # acceptance criteria and never turn an unavailable verdict into approval.
     if str(last_error).startswith("HTTP 5") or str(last_error) == "HTTP 404":
         fallback = GEMINI_FALLBACK_MODEL
+        fallback_last_error = "unavailable"
         if fallback and fallback != requested_model:
             print(
                 f"🛟 Story verifier primary {requested_model} unavailable ({last_error}); "
@@ -808,51 +809,72 @@ def verify(person, scene, item, samples):
                 f"{quote(fallback, safe='')}:generateContent"
             )
             try:
-                fallback_response = requests.post(
-                    fallback_url,
-                    headers={"x-goog-api-key": key},
-                    json=payload,
-                    timeout=(10, request_timeout),
-                )
-            except (requests.Timeout, requests.ConnectionError):
-                fallback_response = None
-
-            if fallback_response is not None and 200 <= fallback_response.status_code < 300:
+                fallback_retries = max(0, min(3, int(os.environ.get("STORY_GEMINI_FALLBACK_RETRIES", "2"))))
+            except (TypeError, ValueError):
+                fallback_retries = 2
+            for fallback_attempt in range(fallback_retries + 1):
                 try:
-                    parts = fallback_response.json().get("candidates", [{}])[0].get("content", {}).get("parts", [])
-                    result = json.loads("".join(p.get("text", "") for p in parts))
-                except (ValueError, TypeError, AttributeError, IndexError):
-                    result = None
-                if isinstance(result, dict):
-                    _VERIFIER_MODELS[requested_model] = fallback
+                    fallback_response = requests.post(
+                        fallback_url,
+                        headers={"x-goog-api-key": key},
+                        json=payload,
+                        timeout=(10, request_timeout),
+                    )
+                except (requests.Timeout, requests.ConnectionError):
+                    fallback_last_error = "network timeout"
                     print(
-                        f"✅ Story verifier fallback succeeded: {fallback}",
+                        f"Story verifier fallback {fallback}: network timeout; retry "
+                        f"{fallback_attempt + 1}/{fallback_retries + 1}",
                         flush=True,
                     )
-                    return result
-            if fallback_response is not None and fallback_response.status_code == 429 and _is_daily_quota_response(fallback_response):
-                _mark_gemini_quota_deferred("Fallback Gemini model also reported daily/project quota exhaustion")
-                raise RuntimeError("Story verifier daily Gemini quota exhausted")
-            if fallback_response is not None:
+                    if fallback_attempt < fallback_retries:
+                        time.sleep(min(8, 2 ** fallback_attempt))
+                        continue
+                    break
+
+                if 200 <= fallback_response.status_code < 300:
+                    try:
+                        parts = fallback_response.json().get("candidates", [{}])[0].get("content", {}).get("parts", [])
+                        result = json.loads("".join(p.get("text", "") for p in parts))
+                    except (ValueError, TypeError, AttributeError, IndexError):
+                        result = None
+                    if isinstance(result, dict):
+                        _VERIFIER_MODELS[requested_model] = fallback
+                        print(
+                            f"✅ Story verifier fallback succeeded: {fallback}",
+                            flush=True,
+                        )
+                        return result
+                    fallback_last_error = "invalid JSON response"
+                    break
+
+                if fallback_response.status_code == 429 and _is_daily_quota_response(fallback_response):
+                    _mark_gemini_quota_deferred("Fallback Gemini model also reported daily/project quota exhaustion")
+                    raise RuntimeError("Story verifier daily Gemini quota exhausted")
+
+                fallback_last_error = f"HTTP {fallback_response.status_code}"
+                if fallback_response.status_code in (500, 502, 503, 504) and fallback_attempt < fallback_retries:
+                    print(
+                        f"Story verifier fallback {fallback}: {fallback_last_error}; retry "
+                        f"{fallback_attempt + 1}/{fallback_retries}",
+                        flush=True,
+                    )
+                    time.sleep(min(8, 2 ** fallback_attempt))
+                    continue
                 print(
-                    f"⚠️ Story verifier fallback {fallback} also unavailable: "
-                    f"HTTP {fallback_response.status_code}",
+                    f"⚠️ Story verifier fallback {fallback} unavailable: {fallback_last_error}",
                     flush=True,
                 )
+                break
 
         Path(NETWORK_DEFER_FILE).write_text(
-            f"Story verifier unavailable after retries on {GEMINI_MODEL}: {last_error}.\n",
+            f"Story verifier unavailable after retries on {GEMINI_MODEL}: {last_error}; "
+            f"fallback {GEMINI_FALLBACK_MODEL}: {fallback_last_error}.\\n",
             encoding="utf-8",
         )
         raise RuntimeError(
-            f"Story verifier unavailable after retries on {GEMINI_MODEL}: {last_error}"
-        )
-        Path(NETWORK_DEFER_FILE).write_text(
-            f"Story verifier unavailable after retries on {GEMINI_MODEL}: {last_error}.\n",
-            encoding="utf-8",
-        )
-        raise RuntimeError(
-            f"Story verifier unavailable after retries on {GEMINI_MODEL}: {last_error}"
+            f"Story verifier unavailable after retries on {GEMINI_MODEL}: {last_error}; "
+            f"fallback {GEMINI_FALLBACK_MODEL}: {fallback_last_error}"
         )
     raise RuntimeError(f"Story verifier unavailable after retries on {GEMINI_MODEL}: {last_error}")
 

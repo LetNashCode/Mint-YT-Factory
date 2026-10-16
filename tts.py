@@ -297,7 +297,7 @@ def _synthesize_once(text, voice_config, out_path):
         f"Unsupported TTS provider {provider!r}; refusing implicit provider fallback."
     )
 
-def synthesize_narration(text, config, out_path, target_duration=None):
+def synthesize_narration(text, config, out_path, target_duration=None, end_padding_seconds=NARRATION_END_PADDING_SECONDS):
     original_text = clean_text(text)
     if not original_text:
         raise RuntimeError("Cannot synthesize empty narration")
@@ -324,12 +324,17 @@ def synthesize_narration(text, config, out_path, target_duration=None):
             print(f"Raw narration duration: {clip.duration:.2f}s")
             processed = apply_narration_speed(clip, target_duration=effective_target)
             print(f"Processed narration duration: {processed.duration:.2f}s")
-            sample_count = max(1, int(round(NARRATION_END_PADDING_SECONDS * SAMPLE_RATE)))
-            silence = np.zeros((sample_count, 2), dtype=np.float32)
-            silence_clip = AudioArrayClip(silence, fps=SAMPLE_RATE)
-            final_narration = __import__("moviepy.editor", fromlist=["concatenate_audioclips"]).concatenate_audioclips([processed, silence_clip])
-            print(f"Final narration duration: {final_narration.duration:.2f}s (includes natural end tail)")
-            final_narration.write_audiofile(out_path, fps=SAMPLE_RATE, codec="libmp3lame", bitrate="192k", verbose=False, logger=None)
+            padding_seconds = max(0.0, float(end_padding_seconds))
+            if padding_seconds > 0:
+                sample_count = int(round(padding_seconds * SAMPLE_RATE))
+                silence = np.zeros((sample_count, 2), dtype=np.float32)
+                silence_clip = AudioArrayClip(silence, fps=SAMPLE_RATE)
+                final_narration = __import__("moviepy.editor", fromlist=["concatenate_audioclips"]).concatenate_audioclips([processed, silence_clip])
+                print(f"Final narration duration: {final_narration.duration:.2f}s (includes {padding_seconds:.2f}s end padding)")
+                final_narration.write_audiofile(out_path, fps=SAMPLE_RATE, codec="libmp3lame", bitrate="192k", verbose=False, logger=None)
+            else:
+                print(f"Final narration duration: {processed.duration:.2f}s (no added end silence)")
+                processed.write_audiofile(out_path, fps=SAMPLE_RATE, codec="libmp3lame", bitrate="192k", verbose=False, logger=None)
         finally:
             if final_narration is not None:
                 try: final_narration.close()

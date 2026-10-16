@@ -15339,6 +15339,126 @@
       "shot": 2,
       "query": "mirror you glass simply showed",
       "recorded_at": 1792154489
+    },
+    {
+      "asset_key": "pexels:video:30615532",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30615532/13106396_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "metal faucets drip you crank handle shut",
+      "recorded_at": 1792172618
+    },
+    {
+      "asset_key": "pexels:video:30615530",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30615530/13106406_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "metal faucets drip you hear squeak yet",
+      "recorded_at": 1792172665
+    },
+    {
+      "asset_key": "pexels:video:9200530",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9200530/9200530-hd_1280_720_30fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "metal faucets drip seal locked tight",
+      "recorded_at": 1792172679
+    },
+    {
+      "asset_key": "pexels:video:2236002",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/2236002/2236002-hd_1280_720_24fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "metal faucets drip earth phantom water hiding",
+      "recorded_at": 1792172686
+    },
+    {
+      "asset_key": "pexels:video:34186121",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34186121/14491145_1280_720_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "metal faucets drip your eyes smooth",
+      "recorded_at": 1792172701
+    },
+    {
+      "asset_key": "pexels:video:39556135",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39556135/16855827_1280_720_24fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "metal faucets drip but under microscopic lens",
+      "recorded_at": 1792172709
+    },
+    {
+      "asset_key": "pexels:video:33891663",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/33891663/14383384_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "metal faucets drip press two rough stones",
+      "recorded_at": 1792172761
+    },
+    {
+      "asset_key": "pexels:video:30615528",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30615528/13106403_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "metal faucets drip even they touch countless",
+      "recorded_at": 1792172771
+    },
+    {
+      "asset_key": "pexels:video:5698926",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5698926/5698926-hd_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "metal faucets drip inside your faucet valves",
+      "recorded_at": 1792172785
+    },
+    {
+      "asset_key": "pexels:video:30615535",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30615535/13106383_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "metal faucets drip water quietly creeps through",
+      "recorded_at": 1792172806
+    },
+    {
+      "asset_key": "pexels:video:4571346",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4571346/4571346-hd_1280_720_25fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "metal faucets drip trapped droplets pool together",
+      "recorded_at": 1792172813
+    },
+    {
+      "asset_key": "pexels:video:9890451",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/9890451/9890451-hd_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "metal faucets drip another falls water",
+      "recorded_at": 1792172824
     }
   ]
 }

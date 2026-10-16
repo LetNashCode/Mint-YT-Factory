@@ -3,7 +3,6 @@ name: Publish Short
 on:
   schedule:
     - cron: "0 2 * * *"
-    - cron: "30 7 * * *"
     - cron: "30 13 * * *"
   workflow_dispatch: {}
 

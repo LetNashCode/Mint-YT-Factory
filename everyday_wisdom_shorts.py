@@ -244,7 +244,7 @@ def synthesize(text, output):
     # Submit the complete narration once; do not split into word-count chunks
     # or insert artificial pauses between separately synthesized sections.
     audio_parts = []
-    for result in pipeline(source, voice=VOICE, speed=1.0, split_pattern=r"\\n+"):
+    for result in pipeline(source, voice=VOICE, speed=1.0, split_pattern=r"\n+"):
         audio = result[2] if isinstance(result, tuple) else result.audio
         if audio is None:
             continue

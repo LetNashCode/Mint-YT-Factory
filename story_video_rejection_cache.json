@@ -6146,6 +6146,24 @@
       "start": 5241.07,
       "reason": "The sampled frames contain only a company production logo (\"an HMI, Inc. production\") and abstract graphic animations against a starfield background, with no footage of Edmund Hillary or relevant historical context.",
       "reviewed_at": 1792231632.1809175
+    },
+    "b5999e8611051748d94d7f75": {
+      "kind": "segment_rejection",
+      "source_id": "archive:barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
+      "source_url": "https://archive.org/details/barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
+      "person": "Amitabh Bachchan",
+      "start": 4824.24,
+      "reason": "The sampled frames depict another actor (Danny Denzongpa) and a woman on a beach, not the subject Amitabh Bachchan. Therefore, the person is not visible and the segment is not usable for this biography.",
+      "reviewed_at": 1792256715.7371542
+    },
+    "f088cb0e27c2c16545ea39ac": {
+      "kind": "segment_rejection",
+      "source_id": "archive:barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
+      "source_url": "https://archive.org/details/barsaat-ki-ek-raat-1981-hindi.-ntsc.-dv-drip.-480p.-x-264.-aac.-5.1.-esubs.-chapters.-by.juleyano",
+      "person": "Amitabh Bachchan",
+      "start": 8840.27,
+      "reason": "The segment contains archival/film footage related to Amitabh Bachchan (from his film collection), but Amitabh Bachchan himself is not clearly visible in the sampled frames (showing other actors like Rakhee and Amjad Khan). It serves as usable biographical illustration.",
+      "reviewed_at": 1792256768.2144637
     }
   }
 }

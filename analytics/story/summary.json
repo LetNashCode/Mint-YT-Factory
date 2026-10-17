@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-10-17T09:45:21.952510+00:00",
-  "video_count": 14,
+  "generated_at": "2026-10-17T17:01:00.472840+00:00",
+  "video_count": 15,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 12,
   "reason": "",
   "totals": {
-    "views": 7263,
-    "likes": 132,
+    "views": 7286,
+    "likes": 133,
     "comments": 2
   },
   "averages": {
-    "views": 518.79,
-    "likes": 9.43,
-    "comments": 0.14,
-    "average_view_percentage": 49.65,
-    "subscribers_gained": 0.64,
+    "views": 485.73,
+    "likes": 8.87,
+    "comments": 0.13,
+    "average_view_percentage": 46.34,
+    "subscribers_gained": 0.6,
     "shares": 0.07
   },
   "top_videos": [
@@ -23,7 +23,7 @@
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
       "video_id": "Pb1-aVVunGg",
       "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1151,
+      "views": 1159,
       "likes": 40,
       "comments": 2,
       "shares": 1,
@@ -31,7 +31,7 @@
       "average_view_percentage": 62.93,
       "subscribers_gained": 3,
       "subscribers_lost": 0,
-      "engagement_rate": 3.649
+      "engagement_rate": 3.6238
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -165,7 +165,7 @@
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
       "video_id": "Pb1-aVVunGg",
       "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1151,
+      "views": 1159,
       "likes": 40,
       "comments": 2,
       "shares": 1,
@@ -173,7 +173,7 @@
       "average_view_percentage": 62.93,
       "subscribers_gained": 3,
       "subscribers_lost": 0,
-      "engagement_rate": 3.649
+      "engagement_rate": 3.6238
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -347,7 +347,7 @@
       "topic": "Jane Goodall: Traveling to the Gombe Stream Reserve without a college degree to live among wild chimpanzees.",
       "video_id": "r7zA06lyxqo",
       "title": "The Untold Turning Point in Jane Goodall's Story",
-      "views": 9,
+      "views": 14,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -356,6 +356,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
+    },
+    {
+      "topic": "Edmund Hillary: The decades-long preparation and final push to conquer the world's highest peak.",
+      "video_id": "bGhh7WNvjJU",
+      "title": "The Untold Turning Point in Edmund Hillary's Story",
+      "views": 10,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 10.0
     }
   ],
   "optimization_rules": [

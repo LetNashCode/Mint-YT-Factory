@@ -246,19 +246,6 @@
     "published_at": 1792057482
   },
   {
-    "topic": "Jane Goodall: Traveling to the Gombe Stream Reserve without a college degree to live among wild chimpanzees.",
-    "normalized": "jane goodall traveling to the gombe stream reserve without a college degree to live among wild chimpanzees",
-    "workflow": "story",
-    "status": "reserved",
-    "reserved_at": 1792158280,
-    "recorded_at": 1792158280,
-    "metadata": {
-      "person": "Jane Goodall",
-      "pillar": "one_decision",
-      "source": "story_topic_selection"
-    }
-  },
-  {
     "topic": "Edmund Hillary: The decades-long preparation and final push to conquer the world's highest peak.",
     "normalized": "edmund hillary the decades long preparation and final push to conquer the world s highest peak",
     "workflow": "story",
@@ -273,5 +260,21 @@
     "video_id": "bGhh7WNvjJU",
     "workdir": "",
     "published_at": 1792232023
+  },
+  {
+    "topic": "Amitabh Bachchan: Facing persistent rejection from All India Radio due to his deep voice before becoming the defining star of Indian cinema.",
+    "normalized": "amitabh bachchan facing persistent rejection from all india radio due to his deep voice before becoming the defining star of indian cinema",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1792256530,
+    "recorded_at": 1792256530,
+    "metadata": {
+      "person": "Amitabh Bachchan",
+      "pillar": "before_they_were_famous"
+    },
+    "title": "Amitabh Bachchan: Facing persistent rejection from All India Radio due to his deep voice before becoming the defining star of Indian cinema.",
+    "video_id": "OMXqyVG5lnw",
+    "workdir": "",
+    "published_at": 1792257504
   }
 ]

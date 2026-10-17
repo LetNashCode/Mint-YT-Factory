@@ -1,19 +1,6 @@
 [
   {
     "format": "rise_from_nothing",
-    "person": "Kalpana Chawla",
-    "premise": "Journeying from a small town in Karnal, India, to become the first Indian-born woman in space.",
-    "hook": "Growing up in a conservative town where career options for women were limited, she dreamed only of the stars.",
-    "key_facts": [
-      "Born in Karnal, Haryana, India.",
-      "Graduated with an aeronautical engineering degree from Punjab Engineering College.",
-      "Moved to the United States to earn master's and doctoral degrees in aerospace engineering.",
-      "Flew on Space Shuttle Columbia in 1997 and 2003."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
     "person": "Viswanathan Anand",
     "premise": "Rising from a small chess community in India to challenge the global Soviet dominance in chess.",
     "hook": "He learned the game from his mother in a quiet home in Chennai before putting India on the global chess map.",
@@ -61,6 +48,71 @@
       "Utilized a 'killed' virus approach rather than a live-attenuated one.",
       "Announced successful nationwide clinical trial results in April 1955.",
       "Declined to patent the polio vaccine, ensuring it remained accessible globally."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Carl Sagan",
+    "premise": "The choice to include Earth sounds and music on a golden record aboard Voyager spacecraft, risking ridicule from orthodox scientists.",
+    "hook": "What would you say to an alien civilization if you only had one chance to represent all of humanity?",
+    "key_facts": [
+      "Led the committee that placed the Voyager Golden Record aboard the 1977 spacecraft.",
+      "Curated sounds of Earth including greetings in 55 languages and music ranging from Bach to Chuck Berry.",
+      "Served as professor of astronomy at Cornell University and popularized science through the television series Cosmos.",
+      "Co-wrote and presented the landmark PBS series watched by hundreds of millions globally."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Harrison Ford",
+    "premise": "Working as a master carpenter in Hollywood and getting cast in Star Wars only because he was hired to build cabinets for the director.",
+    "hook": "He was literally fixing the door frames on the audition lot when the director asked him to read lines for other actors.",
+    "key_facts": [
+      "Worked as a professional carpenter in Los Angeles to support his family after struggling to land acting roles.",
+      "Built cabinets and studios for prominent entertainment figures, including Francis Ford Coppola.",
+      "Was hired by George Lucas simply to read lines with auditioning actors for Star Wars.",
+      "Cast as Han Solo, launching an iconic decades-long film career."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Sylvester Stallone",
+    "premise": "Writing the script for Rocky while living in extreme poverty and refusing to sell it unless he played the lead role.",
+    "hook": "He was so broke he had to sell his beloved dog for fifty dollars just to buy food, only to buy him back a week later.",
+    "key_facts": [
+      "Struggled for years in New York and Hollywood with virtually no money or steady acting work.",
+      "Wrote the screenplay for Rocky in three days after watching the Ali-Wepner fight.",
+      "Turned down substantial offers for the script because studios wanted a bankable star instead of him.",
+      "Rocky went on to win the Academy Award for Best Picture and spawned a massive franchise."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Nala Damayanti / Historic context placeholder or switch to recognizable figure: Diana Nyad",
+    "premise": "Swimming 110 miles from Cuba to Florida at age 64 without a shark cage after decades of failed attempts.",
+    "hook": "At age 64, after jellyfish stings and asthma attacks stopped her previous tries, she stepped back into shark-infested waters.",
+    "key_facts": [
+      "Attempted the Cuba-to-Florida swim for the first time in 1978 without success.",
+      "Resumed long-distance marathon swimming decades later at age 60.",
+      "Completed the historic 110-mile crossing from Havana to Key West in 2013.",
+      "Spent over 52 hours continuously swimming in open ocean."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Freddie Mercury",
+    "premise": "Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
+    "hook": "Before fronting Queen, one of rock music's greatest vocalists was lifting heavy luggage at Heathrow Airport.",
+    "key_facts": [
+      "Studied graphic design at Ealing Art College in London.",
+      "Met the members of the band Smile through shared college connections and airport work.",
+      "Helped form Queen in 1970 alongside Brian May and Roger Taylor.",
+      "Wrote numerous global chart-topping anthems including Bohemian Rhapsody."
     ],
     "source": "gemini_original"
   }

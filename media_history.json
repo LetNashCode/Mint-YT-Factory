@@ -15459,6 +15459,126 @@
       "shot": 2,
       "query": "metal faucets drip another falls water",
       "recorded_at": 1792172824
+    },
+    {
+      "asset_key": "pexels:video:8116705",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8116705/8116705-hd_1366_720_24fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "dry skin flake you scratch your arm",
+      "recorded_at": 1792255148
+    },
+    {
+      "asset_key": "pexels:video:35208507",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35208507/14915566_1366_720_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "dry skin flake suddenly snow falls indoors",
+      "recorded_at": 1792255153
+    },
+    {
+      "asset_key": "pexels:video:7477541",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7477541/7477541-hd_720_1280_24fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "dry skin flake your body constantly builds",
+      "recorded_at": 1792255157
+    },
+    {
+      "asset_key": "pexels:video:8347382",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8347382/8347382-hd_1366_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "dry skin flake but air gets bone",
+      "recorded_at": 1792255163
+    },
+    {
+      "asset_key": "pexels:video:6730263",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6730263/6730263-hd_720_1366_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "dry skin flake instead sliding off smoothly",
+      "recorded_at": 1792255167
+    },
+    {
+      "asset_key": "pexels:video:7234023",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7234023/7234023-hd_1280_720_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "dry skin flake dead cells curl like",
+      "recorded_at": 1792255174
+    },
+    {
+      "asset_key": "pexels:video:8588705",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8588705/8588705-hd_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "dry skin flake watch you rub two",
+      "recorded_at": 1792255175
+    },
+    {
+      "asset_key": "pexels:video:31035607",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/31035607/13265348_720_1280_60fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "dry skin flake they break apart into",
+      "recorded_at": 1792255176
+    },
+    {
+      "asset_key": "pexels:video:4812673",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4812673/4812673-hd_720_1366_25fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "dry skin flake you probably thought your",
+      "recorded_at": 1792255177
+    },
+    {
+      "asset_key": "pexels:video:28714615",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/28714615/12458795_1280_720_25fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "dry skin flake but shedding old armor",
+      "recorded_at": 1792255178
+    },
+    {
+      "asset_key": "pexels:video:30812420",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30812420/13178851_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "dry skin flake every tiny shield",
+      "recorded_at": 1792255179
+    },
+    {
+      "asset_key": "pexels:video:39118802",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/39118802/16645232_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "dry skin flake clearing runway brand new",
+      "recorded_at": 1792255180
     }
   ]
 }

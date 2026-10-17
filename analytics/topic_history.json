@@ -3480,60 +3480,24 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do light switches click so loudly",
-    "normalized": "why do light switches click so loudly",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1792099549,
-    "recorded_at": 1792099549,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do stairs squeak when stepped on",
-    "normalized": "why do stairs squeak when stepped on",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1792102963,
-    "recorded_at": 1792102963,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why does old window glass distort",
-    "normalized": "why does old window glass distort",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1792132799,
-    "recorded_at": 1792132799,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do mirrors reverse left and right",
-    "normalized": "why do mirror reverse left and right",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1792154209,
-    "recorded_at": 1792154209,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do metal faucets drip",
     "normalized": "why do metal faucets drip",
     "workflow": "publish",
     "status": "reserved",
     "reserved_at": 1792172399,
     "recorded_at": 1792172399,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why does dry skin flake",
+    "normalized": "why does dry skin flake",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1792255053,
+    "recorded_at": 1792255053,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

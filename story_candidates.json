@@ -1,19 +1,6 @@
 [
   {
     "format": "rise_from_nothing",
-    "person": "Radhanath Swami",
-    "premise": "A young American hitchhiker who traveled across Europe and the Middle East on foot to find spiritual truth in India.",
-    "hook": "He left home with almost no money, traveling across continents with just a sleeping bag and a backpack.",
-    "key_facts": [
-      "Grew up in Chicago in a middle-class family.",
-      "Hitchhiked across Europe and the Middle East during the early 1970s.",
-      "Crossed the border into India with minimal resources.",
-      "Became a prominent spiritual leader and author based in Mumbai."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
     "person": "Kalpana Chawla",
     "premise": "Journeying from a small town in Karnal, India, to become the first Indian-born woman in space.",
     "hook": "Growing up in a conservative town where career options for women were limited, she dreamed only of the stars.",
@@ -22,45 +9,6 @@
       "Graduated with an aeronautical engineering degree from Punjab Engineering College.",
       "Moved to the United States to earn master's and doctoral degrees in aerospace engineering.",
       "Flew on Space Shuttle Columbia in 1997 and 2003."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Shakuntala Devi",
-    "premise": "Performing complex mental calculations faster than early computers without any formal university education.",
-    "hook": "Born into a circus family in India, she never went to college, yet she left professional mainframe computers in the dust.",
-    "key_facts": [
-      "Demonstrated innate mathematical talent at a young age through street performances.",
-      "Traveled globally in the 20th century showcasing her mental calculation abilities.",
-      "Computed the 23rd root of a 201-digit number in 50 seconds at Imperial College London in 1980.",
-      "Authored several books on mathematics puzzles, astrology, and cookery."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Freddie Mercury",
-    "premise": "Joining a struggling local band after fleeing political conflict in Zanzibar to become rock royalty.",
-    "hook": "An art student with a distinctive four-octave vocal range stumbled into a band that was looking for a temporary lead singer.",
-    "key_facts": [
-      "Born Farrokh Bulsara in Zanzibar and raised in India before moving to England.",
-      "Studied graphic art and design at Ealing Art College in London.",
-      "Joined the band Smile in 1970, which soon renamed itself Queen.",
-      "Helped write and produce some of the best-selling rock anthems in history."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Subrahmanyan Chandrasekhar",
-    "premise": "A young Indian astrophysicist facing harsh academic rejection in 1930s Britain over his theoretical limits on stars.",
-    "hook": "The scientific establishment publicly humiliated his math at age 19, but he was proven right decades later with a Nobel Prize.",
-    "key_facts": [
-      "Derived the maximum mass of a white dwarf star while traveling by boat from India to England in 1930.",
-      "His mathematical calculations were publicly ridiculed by leading British astrophysicist Arthur Eddington.",
-      "Continued his research in the United States despite decades of professional isolation from the rejection.",
-      "Was awarded the Nobel Prize in Physics in 1983 for his work on stellar evolution."
     ],
     "source": "gemini_original"
   },
@@ -78,19 +26,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Audrey Hepburn",
-    "premise": "Surviving severe malnutrition in Nazi-occupied Netherlands before a ballet injury redirected her to acting.",
-    "hook": "She dreamed of becoming a prima ballerina, but wartime starvation left her too physically weak to dance professionally.",
-    "key_facts": [
-      "Endured severe famine, malnutrition, and respiratory illnesses during the Dutch famine of 1944.",
-      "Used ballet dancing to raise secret funds for the Dutch resistance movement as a teenager.",
-      "Was told by dance instructors in London that her height and wartime health damage prevented a ballet career.",
-      "Transitioned to stage acting and film, starring in 'Roman Holiday' and winning an Academy Award."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Pelé",
     "premise": "Growing up in poverty in Bauru, Brazil, playing football with a sock stuffed with rags or a grapefruit.",
@@ -104,15 +39,28 @@
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "Keeping his entire 28-man crew alive for nearly two years after their ship was crushed by Antarctic pack ice.",
-    "hook": "His ship was completely destroyed by ice, leaving his crew stranded on floating floes in sub-zero temperatures with no rescue coming.",
+    "format": "one_decision",
+    "person": "Louis Braille",
+    "premise": "Adapting a military night-writing code into a tactile reading system for the blind.",
+    "hook": "A twelve-year-old boy used a discarded military cipher originally meant for soldiers to read in the dark without speaking.",
     "key_facts": [
-      "His ship, the Endurance, became trapped and was crushed by pack ice in the Weddell Sea in 1915.",
-      "The crew camped on drifting ice floes for months before sailing lifeboats to Elephant Island.",
-      "Traveled 800 miles across treacherous Southern Ocean waters in a 22-foot lifeboat to seek help in South Georgia.",
-      "Successfully rescued every member of his stranded expedition without a single casualty."
+      "Blinded in childhood following an accident in his father's harness shop.",
+      "Attended the Royal Institution for Blind Youth in Paris.",
+      "Modified Captain Charles Barbier's 'night writing' twelve-dot code into a simpler six-dot cell.",
+      "Published his system in 1829, though it was only widely adopted long after his death."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Jonas Salk",
+    "premise": "Choosing to test his experimental polio vaccine on himself and his own family.",
+    "hook": "To prove his vaccine was safe, a medical researcher injected the untested formula directly into the arms of his wife and children.",
+    "key_facts": [
+      "Led a research team at the University of Pittsburgh in the early 1950s.",
+      "Utilized a 'killed' virus approach rather than a live-attenuated one.",
+      "Announced successful nationwide clinical trial results in April 1955.",
+      "Declined to patent the polio vaccine, ensuring it remained accessible globally."
     ],
     "source": "gemini_original"
   }

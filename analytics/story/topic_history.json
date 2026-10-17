@@ -257,5 +257,21 @@
       "pillar": "one_decision",
       "source": "story_topic_selection"
     }
+  },
+  {
+    "topic": "Edmund Hillary: The decades-long preparation and final push to conquer the world's highest peak.",
+    "normalized": "edmund hillary the decades long preparation and final push to conquer the world s highest peak",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1792231526,
+    "recorded_at": 1792231526,
+    "metadata": {
+      "person": "Edmund Hillary",
+      "pillar": "impossible_odds"
+    },
+    "title": "Edmund Hillary: The decades-long preparation and final push to conquer the world's highest peak.",
+    "video_id": "bGhh7WNvjJU",
+    "workdir": "",
+    "published_at": 1792232023
   }
 ]

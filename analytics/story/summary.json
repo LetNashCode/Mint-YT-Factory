@@ -1,37 +1,37 @@
 {
-  "generated_at": "2026-10-16T13:43:51.304241+00:00",
-  "video_count": 13,
+  "generated_at": "2026-10-17T09:45:21.952510+00:00",
+  "video_count": 14,
   "optimization_ready": true,
   "live_metrics_ready": true,
-  "advanced_metrics_videos": 10,
+  "advanced_metrics_videos": 12,
   "reason": "",
   "totals": {
-    "views": 7224,
-    "likes": 131,
+    "views": 7263,
+    "likes": 132,
     "comments": 2
   },
   "averages": {
-    "views": 555.69,
-    "likes": 10.08,
-    "comments": 0.15,
-    "average_view_percentage": 38.03,
-    "subscribers_gained": 0.46,
-    "shares": 0.0
+    "views": 518.79,
+    "likes": 9.43,
+    "comments": 0.14,
+    "average_view_percentage": 49.65,
+    "subscribers_gained": 0.64,
+    "shares": 0.07
   },
   "top_videos": [
     {
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
       "video_id": "Pb1-aVVunGg",
       "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1122,
-      "likes": 39,
+      "views": 1151,
+      "likes": 40,
       "comments": 2,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
+      "shares": 1,
+      "average_view_duration": 28.0,
+      "average_view_percentage": 62.93,
+      "subscribers_gained": 3,
       "subscribers_lost": 0,
-      "engagement_rate": 3.6542
+      "engagement_rate": 3.649
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -79,7 +79,7 @@
       "topic": "Jim Carrey: Dropping Out at Age 15 to Work as a Factory Janitor in Canada.",
       "video_id": "IcKrCshqe3Q",
       "title": "Before the Fame: Jim Carrey",
-      "views": 1055,
+      "views": 1056,
       "likes": 15,
       "comments": 0,
       "shares": 0,
@@ -87,7 +87,7 @@
       "average_view_percentage": 41.55,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 1.4218
+      "engagement_rate": 1.4205
     },
     {
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
@@ -98,7 +98,7 @@
       "comments": 0,
       "shares": 0,
       "average_view_duration": 39.0,
-      "average_view_percentage": 87.39,
+      "average_view_percentage": 87.24,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 2.7885
@@ -126,7 +126,7 @@
       "comments": 0,
       "shares": 0,
       "average_view_duration": 12.0,
-      "average_view_percentage": 28.52,
+      "average_view_percentage": 28.470000000000002,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -139,8 +139,8 @@
       "likes": 1,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
+      "average_view_duration": 58.0,
+      "average_view_percentage": 138.1,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 1.3158
@@ -165,15 +165,15 @@
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
       "video_id": "Pb1-aVVunGg",
       "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1122,
-      "likes": 39,
+      "views": 1151,
+      "likes": 40,
       "comments": 2,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
+      "shares": 1,
+      "average_view_duration": 28.0,
+      "average_view_percentage": 62.93,
+      "subscribers_gained": 3,
       "subscribers_lost": 0,
-      "engagement_rate": 3.6542
+      "engagement_rate": 3.649
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -221,7 +221,7 @@
       "topic": "Jim Carrey: Dropping Out at Age 15 to Work as a Factory Janitor in Canada.",
       "video_id": "IcKrCshqe3Q",
       "title": "Before the Fame: Jim Carrey",
-      "views": 1055,
+      "views": 1056,
       "likes": 15,
       "comments": 0,
       "shares": 0,
@@ -229,7 +229,7 @@
       "average_view_percentage": 41.55,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 1.4218
+      "engagement_rate": 1.4205
     },
     {
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
@@ -240,7 +240,7 @@
       "comments": 0,
       "shares": 0,
       "average_view_duration": 39.0,
-      "average_view_percentage": 87.39,
+      "average_view_percentage": 87.24,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 2.7885
@@ -268,7 +268,7 @@
       "comments": 0,
       "shares": 0,
       "average_view_duration": 12.0,
-      "average_view_percentage": 28.52,
+      "average_view_percentage": 28.470000000000002,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -281,8 +281,8 @@
       "likes": 1,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
+      "average_view_duration": 58.0,
+      "average_view_percentage": 138.1,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 1.3158
@@ -342,6 +342,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 7.1429
+    },
+    {
+      "topic": "Jane Goodall: Traveling to the Gombe Stream Reserve without a college degree to live among wild chimpanzees.",
+      "video_id": "r7zA06lyxqo",
+      "title": "The Untold Turning Point in Jane Goodall's Story",
+      "views": 9,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
     }
   ],
   "optimization_rules": [

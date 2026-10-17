@@ -5741,6 +5741,411 @@
       "start": 5.0,
       "reason": "The frames only show TED title cards and intro animations, lacking any footage of Jane Goodall or her historical context.",
       "reviewed_at": 1792157521.9010358
+    },
+    "2b45b7c4c8744f80456dcb4b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Audrey_Hepburn_Film_Festival_in_March_2014_at_The_Library",
+      "source_url": "https://archive.org/details/Audrey_Hepburn_Film_Festival_in_March_2014_at_The_Library",
+      "person": "Audrey Hepburn",
+      "start": 44.06,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792230484.9088807
+    },
+    "623a1defcaf4fe8b89c09ca1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Audrey_Hepburn_Film_Festival_in_March_2014_at_The_Library",
+      "source_url": "https://archive.org/details/Audrey_Hepburn_Film_Festival_in_March_2014_at_The_Library",
+      "person": "Audrey Hepburn",
+      "start": 63.58,
+      "reason": "The segment consists entirely of static promotional title cards and movie posters for a local library screening, containing no actual archival footage or moving identity footage of Audrey Hepburn.",
+      "reviewed_at": 1792230489.758417
+    },
+    "85d8f2a404be9e8236b3cd95": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Audrey_Hepburn_Film_Festival_in_March_2014_at_The_Library",
+      "source_url": "https://archive.org/details/Audrey_Hepburn_Film_Festival_in_March_2014_at_The_Library",
+      "person": "Audrey Hepburn",
+      "start": 5.0,
+      "reason": "The video consists of static promotional images, title cards, and movie posters for a local library film festival rather than actual filmed archival footage or moving historical footage of Audrey Hepburn.",
+      "reviewed_at": 1792230494.1344635
+    },
+    "c39deb4c5516ba81a2e26a14": {
+      "kind": "segment_rejection",
+      "source_id": "archive:turner_video_114819",
+      "source_url": "https://archive.org/details/turner_video_114819",
+      "person": "Audrey Hepburn",
+      "start": 54.37,
+      "reason": "The video segment consists of a fictional biographical drama/movie recreation rather than actual archival footage or real documentary footage of Audrey Hepburn, making it unusable for a biographical Short.",
+      "reviewed_at": 1792230501.6818812
+    },
+    "d2c2e73d4aa35213d9ac0437": {
+      "kind": "segment_rejection",
+      "source_id": "archive:turner_video_114819",
+      "source_url": "https://archive.org/details/turner_video_114819",
+      "person": "Audrey Hepburn",
+      "start": 84.0,
+      "reason": "The video segment is from a fictional biographical drama ('The Audrey Hepburn Story') starring Jennifer Love Hewitt as Audrey Hepburn, not actual archival footage or genuine historical context of Audrey Hepburn herself.",
+      "reviewed_at": 1792230507.7359517
+    },
+    "489775717cf8dec64e7fbe81": {
+      "kind": "segment_rejection",
+      "source_id": "archive:charade-1963-cary-grant-audrey-hepburn-walter-matthau-1080p-reup",
+      "source_url": "https://archive.org/details/charade-1963-cary-grant-audrey-hepburn-walter-matthau-1080p-reup",
+      "person": "Audrey Hepburn",
+      "start": 5.0,
+      "reason": "The frames show only the Criterion Collection animation logo and text, with no footage of Audrey Hepburn or the film content.",
+      "reviewed_at": 1792230523.1913638
+    },
+    "7afc121e2e0267bbb33e296f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+      "person": "Ernest Shackleton",
+      "start": 223.95,
+      "reason": "The segment includes archival documentary footage featuring a photograph of Ernest Shackleton as a boy, along with a historical commentary, providing relevant biographical illustration for the subject.",
+      "reviewed_at": 1792230622.263086
+    },
+    "41226723b4256458fe8155c7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+      "person": "Ernest Shackleton",
+      "start": 1099.74,
+      "reason": "The segment shows archival documentary footage related to Antarctica/polar exploration, which serves as valid contextual illustration for Ernest Shackleton's life, even though Shackleton himself (who lived from 1874 to 1922) is not visibly present in the modern interview and landscape clips.",
+      "reviewed_at": 1792230646.3214955
+    },
+    "b1be7b395377f0e67b0ff068": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+      "person": "Ernest Shackleton",
+      "start": 1318.69,
+      "reason": "The frames show animated map illustrations of Antarctica with labels like Weddel Sea, Vahsel Bay, and McMurdo Sound rather than real filmed footage or historical context directly depicting Ernest Shackleton's actions.",
+      "reviewed_at": 1792230651.122861
+    },
+    "bffe4bda3d4243d38a7d9a98": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+      "person": "Ernest Shackleton",
+      "start": 2632.37,
+      "reason": "The segment features aerial footage of an Antarctic landscape relevant to Ernest Shackleton's expeditions, followed by an interview speaker discussing the subject. While Ernest Shackleton himself is not visible in the footage due to the historical era, the aerial landscape provides valid contextual illustration.",
+      "reviewed_at": 1792230661.8308
+    },
+    "5ace39ac64b24e9e4ffe317f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+      "person": "Ernest Shackleton",
+      "start": 2851.32,
+      "reason": "The frames consist entirely of production title cards and copyright screens ('Cromwell Productions 1999' with credits), which contain no usable historical context or footage of Ernest Shackleton.",
+      "reviewed_at": 1792230668.015752
+    },
+    "0a6605f9af08c5fc310b66db": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202512",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
+      "person": "Ernest Shackleton",
+      "start": 1360.19,
+      "reason": "The video shows an unidentified modern speaker discussing a topic, not Ernest Shackleton, and the person visible is definitely not the historical subject.",
+      "reviewed_at": 1792230675.1968272
+    },
+    "8f9158ef53642e9ecaf8e222": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202512",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
+      "person": "Ernest Shackleton",
+      "start": 1698.98,
+      "reason": "The footage shows an unidentified actor in a dramatic/fictional reenactment or interview setting, not actual historical footage of Ernest Shackleton (who lived from 1874 to 1922, whereas this appears to be modern dramatic television or documentary footage from the late 20th century depicting someone else entirely).",
+      "reviewed_at": 1792230680.8338084
+    },
+    "dacdd20cbd9f6097b339e2f7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:shackletons-expedition",
+      "source_url": "https://archive.org/details/shackletons-expedition",
+      "person": "Ernest Shackleton",
+      "start": 410.19,
+      "reason": "The footage shows Simon Whistler speaking and archival images of a ship (labeled Deutschland, which is actually Wilhelm Filchner's ship rather than Shackleton's Endurance). Ernest Shackleton is not visible, and the historical context contains an inaccurate depiction/labeling relative to Shackleton's expedition.",
+      "reviewed_at": 1792230691.726984
+    },
+    "4205138de33febab16ec5eb2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:shackletons-expedition",
+      "source_url": "https://archive.org/details/shackletons-expedition",
+      "person": "Ernest Shackleton",
+      "start": 511.49,
+      "reason": "The footage shows a modern documentary presenter (Simon Whistler) talking in a studio, not Ernest Shackleton. The subject of the biography is Ernest Shackleton, who lived from 1874 to 1922, so this is modern commentary rather than archival footage of Shackleton himself.",
+      "reviewed_at": 1792230701.0779092
+    },
+    "0e7f9f2a88493298df55047e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:antarctica-a-frozen-history",
+      "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+      "person": "Ernest Shackleton",
+      "start": 2118.81,
+      "reason": "The footage shows historical archival moving images of explorers in Antarctica camping and eating, providing authentic context for Ernest Shackleton's expeditions, although Shackleton himself cannot be distinctly identified among the crew members in these frames.",
+      "reviewed_at": 1792230743.5204816
+    },
+    "6e78c943fe927306280e7686": {
+      "kind": "segment_rejection",
+      "source_id": "archive:antarctica-a-frozen-history",
+      "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+      "person": "Ernest Shackleton",
+      "start": 2541.57,
+      "reason": "The segment features archival documentary footage including a map of the Antarctic route and a historical expert or commentator discussing the expedition. While Ernest Shackleton himself is not visible in the frames, the footage provides valid historical context and illustration about Antarctic exploration.",
+      "reviewed_at": 1792230754.5556748
+    },
+    "ef7fd5fe7da52ea057b9781e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary",
+      "source_url": "https://archive.org/details/Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary",
+      "person": "Luciano Pavarotti",
+      "start": 5477.95,
+      "reason": "The sampled footage shows unrelated documentary interviews and text, with no appearance of Luciano Pavarotti.",
+      "reviewed_at": 1792230853.3004127
+    },
+    "677b779de146eb075130f95d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary",
+      "source_url": "https://archive.org/details/Luciano_Pavarotti_World_Concert_Jackson_Heights_Documentary",
+      "person": "Luciano Pavarotti",
+      "start": 7823.5,
+      "reason": "The video segment contains title cards and promotional broadcast overlays for a documentary about Queens, with no footage or mention of Luciano Pavarotti.",
+      "reviewed_at": 1792230860.0245073
+    },
+    "791740e9653823e55472d025": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tributoalucianopavarotti",
+      "source_url": "https://archive.org/details/tributoalucianopavarotti",
+      "person": "Luciano Pavarotti",
+      "start": 18818.2,
+      "reason": "The sampled frames show an unidentified host/presenter in a tuxedo, not Luciano Pavarotti, making it unusable as identity footage for the subject.",
+      "reviewed_at": 1792230871.9189572
+    },
+    "5e2cad798991b5171a4cba4d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:luciano-pavarotti-says-ness",
+      "source_url": "https://archive.org/details/luciano-pavarotti-says-ness",
+      "person": "Luciano Pavarotti",
+      "start": 0.52,
+      "reason": "The footage shows real archival performance of Luciano Pavarotti, but it contains distracting meme text overlays ('Me: What's the name of the main kid character from Earthbound? The late great Luciano Pavarotti:') and a watermark ('Not-So Superman'), making it unsuitable for a serious biography short.",
+      "reviewed_at": 1792230890.327458
+    },
+    "fcc00a51e547a5663d57b451": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tributoalucianopavarotti",
+      "source_url": "https://archive.org/details/tributoalucianopavarotti",
+      "person": "Luciano Pavarotti",
+      "start": 5.0,
+      "reason": "The provided frames show a static photograph overlaid with heavy text, which violates the requirement for actual moving footage/filmed video. It is a slideshow-style image rather than genuine video footage.",
+      "reviewed_at": 1792230910.9544
+    },
+    "bbc3780b34dc69c9ac17206b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tributoalucianopavarotti",
+      "source_url": "https://archive.org/details/tributoalucianopavarotti",
+      "person": "Luciano Pavarotti",
+      "start": 2692.6,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792230916.9996872
+    },
+    "1596df0668985f52d4f1f907": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tributoalucianopavarotti",
+      "source_url": "https://archive.org/details/tributoalucianopavarotti",
+      "person": "Luciano Pavarotti",
+      "start": 5380.2,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792230922.695822
+    },
+    "35c9cb354413e927358a471f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tributoalucianopavarotti",
+      "source_url": "https://archive.org/details/tributoalucianopavarotti",
+      "person": "Luciano Pavarotti",
+      "start": 8067.8,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792230927.7663035
+    },
+    "99f583eb48d6a156f0880d82": {
+      "kind": "segment_rejection",
+      "source_id": "archive:luciano-pavarotti-nessun-dorma_202412",
+      "source_url": "https://archive.org/details/luciano-pavarotti-nessun-dorma_202412",
+      "person": "Luciano Pavarotti",
+      "start": 5.0,
+      "reason": "The person visible in the footage is conductor Zubin Mehta, not Luciano Pavarotti.",
+      "reviewed_at": 1792230948.7443209
+    },
+    "d65932e1d9b0cfbf83b3ba0b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:amelia.-earhart.-docu.-final",
+      "source_url": "https://archive.org/details/amelia.-earhart.-docu.-final",
+      "person": "Amelia Earhart",
+      "start": 58.58,
+      "reason": "The footage shows a contemporary young person speaking in an interview setting, unrelated to Amelia Earhart, making it unusable for a biography on her.",
+      "reviewed_at": 1792231144.319595
+    },
+    "ae6f0491f5e455cb89ab519a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:amelia.-earhart.-docu.-final",
+      "source_url": "https://archive.org/details/amelia.-earhart.-docu.-final",
+      "person": "Amelia Earhart",
+      "start": 85.38,
+      "reason": "The video segment shows a modern student or documentary participant speaking about Amelia Earhart, but Amelia Earhart herself is not visible in the footage. Therefore, person_visible is false and the segment is unusable for depicting Earhart directly.",
+      "reviewed_at": 1792231160.0134726
+    },
+    "1e1de322e452e14549278926": {
+      "kind": "segment_rejection",
+      "source_id": "archive:lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "source_url": "https://archive.org/details/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "person": "Amelia Earhart",
+      "start": 92.71,
+      "reason": "The footage shows archival newsreel coverage of flooding in London in 1937, which has no concrete or defensible historical connection to the life or biography of Amelia Earhart.",
+      "reviewed_at": 1792231167.6908402
+    },
+    "300ea1c74bb4aa37e9ba1e97": {
+      "kind": "segment_rejection",
+      "source_id": "archive:lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "source_url": "https://archive.org/details/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "person": "Amelia Earhart",
+      "start": 136.56,
+      "reason": "The footage shows general newsreel content from 1937 about floods and historical events, but has no connection to Amelia Earhart.",
+      "reviewed_at": 1792231173.9428208
+    },
+    "32538881f938cb1888bc20f9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:42424-europes-powder-keg-vwr",
+      "source_url": "https://archive.org/details/42424-europes-powder-keg-vwr",
+      "person": "Amelia Earhart",
+      "start": 92.71,
+      "reason": "The footage shows archival newsreel coverage of floods in London from 1937, which has no connection to Amelia Earhart's biography beyond being in the same general compilation newsreel.",
+      "reviewed_at": 1792231183.2179472
+    },
+    "ac76a10a9f7ad71cefa1b32f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:42424-europes-powder-keg-vwr",
+      "source_url": "https://archive.org/details/42424-europes-powder-keg-vwr",
+      "person": "Amelia Earhart",
+      "start": 136.56,
+      "reason": "The footage shows general archival newsreel content about floods and rescue efforts in 1937, with no appearance of Amelia Earhart or any direct connection to her biography.",
+      "reviewed_at": 1792231189.2622845
+    },
+    "475a2a8921d55129b7940849": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cpaz-Women_s_History_Vignette_Amelia_Earhart",
+      "source_url": "https://archive.org/details/cpaz-Women_s_History_Vignette_Amelia_Earhart",
+      "person": "Amelia Earhart",
+      "start": 10.18,
+      "reason": "The segment consists entirely of static photographs and title cards from a television program, which fails the requirement for real moving footage.",
+      "reviewed_at": 1792231201.9186506
+    },
+    "2773114c8d1be1dca35f013d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cpaz-Women_s_History_Vignette_Amelia_Earhart",
+      "source_url": "https://archive.org/details/cpaz-Women_s_History_Vignette_Amelia_Earhart",
+      "person": "Amelia Earhart",
+      "start": 1.12,
+      "reason": "The video consists of title cards and static photographs (slideshow format) rather than genuine moving historical footage.",
+      "reviewed_at": 1792231206.6280777
+    },
+    "216c634418f44b32f0ddca2f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cg_0740-Miami_Watersports_Complex_at_Amelia_Earhart_Park",
+      "source_url": "https://archive.org/details/cg_0740-Miami_Watersports_Complex_at_Amelia_Earhart_Park",
+      "person": "Amelia Earhart",
+      "start": 0.7,
+      "reason": "The video shows modern watersports at Amelia Earhart Park in 2015, which has no connection to the historical aviator Amelia Earhart herself beyond sharing a name.",
+      "reviewed_at": 1792231214.042168
+    },
+    "3225c532214200a660e81a9c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:freddie-mercury-the-final-act",
+      "source_url": "https://archive.org/details/freddie-mercury-the-final-act",
+      "person": "Freddie Mercury",
+      "start": 2891.43,
+      "reason": "The footage shows B-roll and an interview subject discussing the documentary topic, but Freddie Mercury is not visible in any frame.",
+      "reviewed_at": 1792231334.6112368
+    },
+    "2dbdde3abeeff02901f4c5f1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:freddie-mercury-the-final-act",
+      "source_url": "https://archive.org/details/freddie-mercury-the-final-act",
+      "person": "Freddie Mercury",
+      "start": 4128.48,
+      "reason": "The footage shows archival concert performance footage and interviews related to the Freddie Mercury Tribute Concert, but Freddie Mercury himself is not visible in the sampled frames.",
+      "reviewed_at": 1792231349.536251
+    },
+    "df674992f5dd6d2744993954": {
+      "kind": "segment_rejection",
+      "source_id": "archive:FreddieMS1",
+      "source_url": "https://archive.org/details/FreddieMS1",
+      "person": "Freddie Mercury",
+      "start": 686.46,
+      "reason": "The footage shows archival B-roll of the CDC headquarters and a Newsweek magazine cover about the AIDS epidemic, which provides historical context related to Freddie Mercury's death from AIDS, though Freddie Mercury himself is not visible.",
+      "reviewed_at": 1792231361.6910503
+    },
+    "50066ad0a83cf106e3f6f1a7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:freddie-mercury-the-great-pretender-2012",
+      "source_url": "https://archive.org/details/freddie-mercury-the-great-pretender-2012",
+      "person": "Freddie Mercury",
+      "start": 788.85,
+      "reason": "The sampled frames show archival footage of a ballet performance and a documentary interviewee discussing Freddie Mercury, but Freddie Mercury himself is not visible in any of the frames. Therefore, it serves as biographical illustration rather than direct footage of the subject.",
+      "reviewed_at": 1792231406.2963238
+    },
+    "24ca5392fc5317a01fa37682": {
+      "kind": "segment_rejection",
+      "source_id": "archive:freddie-mercury-the-great-pretender-2012",
+      "source_url": "https://archive.org/details/freddie-mercury-the-great-pretender-2012",
+      "person": "Freddie Mercury",
+      "start": 1572.69,
+      "reason": "The clip shows generic studio equipment, rooms, and abstract lighting with no appearance of Freddie Mercury or any specific historical event related to him, making it unsuitable as biographical illustration.",
+      "reviewed_at": 1792231432.9525888
+    },
+    "c81ba259d6d039a41d01b7a4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:FreddieMS1",
+      "source_url": "https://archive.org/details/FreddieMS1",
+      "person": "Freddie Mercury",
+      "start": 297.05,
+      "reason": "The video segment shows an interview with a producer/colleague discussing Freddie Mercury in a recording studio. Freddie Mercury is not visible in the frames, making this biographical illustration rather than direct event footage, but it provides valid and usable context about his life and recording process.",
+      "reviewed_at": 1792231449.0876472
+    },
+    "ad95d548a591800181f173e4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:FreddieMS1",
+      "source_url": "https://archive.org/details/FreddieMS1",
+      "person": "Freddie Mercury",
+      "start": 394.4,
+      "reason": "The sampled frames feature host A.J. Benza standing on a set with Queen's instruments, introducing the segment about Freddie Mercury. Although Freddie Mercury himself is not visible in the frames, the footage serves as biographical illustration for a documentary segment about the band and subject.",
+      "reviewed_at": 1792231459.8862007
+    },
+    "ff9d4018e87b3ce1ac27b71f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM",
+      "source_url": "https://archive.org/details/fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM",
+      "person": "Edmund Hillary",
+      "start": 490.12,
+      "reason": "The archival footage shows a ship navigating through icy waters related to the Commonwealth Trans-Antarctic Expedition, providing general historical context for Edmund Hillary's expedition era, but Edmund Hillary himself is not visible in these specific frames.",
+      "reviewed_at": 1792231582.7421868
+    },
+    "6be224eb0c6f3480166b8a33": {
+      "kind": "segment_rejection",
+      "source_id": "archive:fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM",
+      "source_url": "https://archive.org/details/fVKG6Megyjc0rcWXCQ0XbXvDtB8rdM",
+      "person": "Edmund Hillary",
+      "start": 587.14,
+      "reason": "The footage shows archival documentary material related to the Antarctic expedition, but Sir Edmund Hillary is not clearly identifiable in any of the sampled frames.",
+      "reviewed_at": 1792231589.5871112
+    },
+    "5df3c90b655ebce69717b481": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SirEdmundHillaryJohnMeekInterview",
+      "source_url": "https://archive.org/details/SirEdmundHillaryJohnMeekInterview",
+      "person": "Edmund Hillary",
+      "start": 5241.07,
+      "reason": "The sampled frames contain only a company production logo (\"an HMI, Inc. production\") and abstract graphic animations against a starfield background, with no footage of Edmund Hillary or relevant historical context.",
+      "reviewed_at": 1792231632.1809175
     }
   }
 }

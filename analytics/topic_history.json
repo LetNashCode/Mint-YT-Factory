@@ -3480,24 +3480,24 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do metal faucets drip",
-    "normalized": "why do metal faucets drip",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1792172399,
-    "recorded_at": 1792172399,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why does dry skin flake",
     "normalized": "why does dry skin flake",
     "workflow": "publish",
     "status": "reserved",
     "reserved_at": 1792255053,
     "recorded_at": 1792255053,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why does butter wrapper stick",
+    "normalized": "why does butter wrapper stick",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1792266046,
+    "recorded_at": 1792266046,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

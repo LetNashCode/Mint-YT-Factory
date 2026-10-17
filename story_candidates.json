@@ -1,18 +1,5 @@
 [
   {
-    "format": "rise_from_nothing",
-    "person": "Viswanathan Anand",
-    "premise": "Rising from a small chess community in India to challenge the global Soviet dominance in chess.",
-    "hook": "He learned the game from his mother in a quiet home in Chennai before putting India on the global chess map.",
-    "key_facts": [
-      "Learned chess from his mother Sushila at the age of six in Tamil Nadu, India.",
-      "Became India's first Grandmaster in 1988 at the age of 18.",
-      "Won the FIDE World Chess Championship multiple times across different formats.",
-      "Popularized chess significantly across India, inspiring subsequent generations of grandmasters."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "before_they_were_famous",
     "person": "Pelé",
     "premise": "Growing up in poverty in Bauru, Brazil, playing football with a sock stuffed with rags or a grapefruit.",
@@ -65,19 +52,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Harrison Ford",
-    "premise": "Working as a master carpenter in Hollywood and getting cast in Star Wars only because he was hired to build cabinets for the director.",
-    "hook": "He was literally fixing the door frames on the audition lot when the director asked him to read lines for other actors.",
-    "key_facts": [
-      "Worked as a professional carpenter in Los Angeles to support his family after struggling to land acting roles.",
-      "Built cabinets and studios for prominent entertainment figures, including Francis Ford Coppola.",
-      "Was hired by George Lucas simply to read lines with auditioning actors for Star Wars.",
-      "Cast as Han Solo, launching an iconic decades-long film career."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "rise_from_nothing",
     "person": "Sylvester Stallone",
     "premise": "Writing the script for Rocky while living in extreme poverty and refusing to sell it unless he played the lead role.",
@@ -100,19 +74,6 @@
       "Resumed long-distance marathon swimming decades later at age 60.",
       "Completed the historic 110-mile crossing from Havana to Key West in 2013.",
       "Spent over 52 hours continuously swimming in open ocean."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Freddie Mercury",
-    "premise": "Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
-    "hook": "Before fronting Queen, one of rock music's greatest vocalists was lifting heavy luggage at Heathrow Airport.",
-    "key_facts": [
-      "Studied graphic design at Ealing Art College in London.",
-      "Met the members of the band Smile through shared college connections and airport work.",
-      "Helped form Queen in 1970 alongside Brian May and Roger Taylor.",
-      "Wrote numerous global chart-topping anthems including Bohemian Rhapsody."
     ],
     "source": "gemini_original"
   }

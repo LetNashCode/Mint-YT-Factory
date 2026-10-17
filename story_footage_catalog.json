@@ -17961,6 +17961,99 @@
       },
       "review_key": "4ed5cd21c66b48fcbf4cd720fca6d241626b20306f58a1c4788171e49e7d1eae",
       "reviewed_at": 1792256776.511327
+    },
+    {
+      "person": "Freddie Mercury",
+      "source": {
+        "id": "archive:FreddieMS1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/FreddieMS1/videoplayback.mp4",
+        "source_url": "https://archive.org/details/FreddieMS1",
+        "title": "Freddie Mercury S1E48",
+        "description": "Host A.J. Benza looks at the lives of Hollywood's fallen stars. #hollywoodmysteriesandscandals",
+        "creator": "",
+        "license": "",
+        "subject": "#hollywoodmysteriesandscandals",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1279.56,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 491.75,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "Freddie Mercury is clearly visible in multiple archival frames within the segment, accompanied by biographical narration and commentary, making it valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a875ca4144558d4f08dfaf4eff3d859d69b49c01ef5fbc4e098d57fa2b6f2916",
+      "reviewed_at": 1792261064.0388582
+    },
+    {
+      "person": "Freddie Mercury",
+      "source": {
+        "id": "archive:FreddieMS1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/FreddieMS1/videoplayback.mp4",
+        "source_url": "https://archive.org/details/FreddieMS1",
+        "title": "Freddie Mercury S1E48",
+        "description": "Host A.J. Benza looks at the lives of Hollywood's fallen stars. #hollywoodmysteriesandscandals",
+        "creator": "",
+        "license": "",
+        "subject": "#hollywoodmysteriesandscandals",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1279.56,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 783.81,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8.0,
+        "reason": "Freddie Mercury is clearly identifiable in frames 2 and 3 alongside archival interview footage, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "aa49d5398a6fef5db1dd1fcb8ebd60c1e1837430996fe8ae96b740624126a496",
+      "reviewed_at": 1792261086.8285
+    },
+    {
+      "person": "Freddie Mercury",
+      "source": {
+        "id": "archive:FreddieMS1",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/FreddieMS1/videoplayback.mp4",
+        "source_url": "https://archive.org/details/FreddieMS1",
+        "title": "Freddie Mercury S1E48",
+        "description": "Host A.J. Benza looks at the lives of Hollywood's fallen stars. #hollywoodmysteriesandscandals",
+        "creator": "",
+        "license": "",
+        "subject": "#hollywoodmysteriesandscandals",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1279.56,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 881.16,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The video features genuine archival footage of Freddie Mercury performing alongside Brian May, directly illustrating his life and career as narrated.",
+        "usage": "direct_event"
+      },
+      "review_key": "195dad0825f79e793efd6e78c38f7889e1d945554e18cf9d0de72e0c5540c744",
+      "reviewed_at": 1792261100.8775444
     }
   ]
 }

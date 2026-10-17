@@ -6164,6 +6164,15 @@
       "start": 8840.27,
       "reason": "The segment contains archival/film footage related to Amitabh Bachchan (from his film collection), but Amitabh Bachchan himself is not clearly visible in the sampled frames (showing other actors like Rakhee and Amjad Khan). It serves as usable biographical illustration.",
       "reviewed_at": 1792256768.2144637
+    },
+    "72847fc0f70f4f34ad61dbb1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:FreddieMS1",
+      "source_url": "https://archive.org/details/FreddieMS1",
+      "person": "Freddie Mercury",
+      "start": 589.1,
+      "reason": "The segment features archival documentary footage and an interview about Freddie Mercury's life, but Freddie Mercury himself is not visibly present in the sampled frames (which show an interviewee and historical behind-the-scenes footage). It serves as biographical illustration.",
+      "reviewed_at": 1792261078.795463
     }
   }
 }

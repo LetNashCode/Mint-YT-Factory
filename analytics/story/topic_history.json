@@ -276,5 +276,21 @@
     "video_id": "OMXqyVG5lnw",
     "workdir": "",
     "published_at": 1792257504
+  },
+  {
+    "topic": "Freddie Mercury: Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
+    "normalized": "freddie mercury joining the band smile in london after casually meeting its members while working as an airport baggage handler",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1792261009,
+    "recorded_at": 1792261009,
+    "metadata": {
+      "person": "Freddie Mercury",
+      "pillar": "strange_turning_point"
+    },
+    "title": "Freddie Mercury: Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
+    "video_id": "IT9pWnp_XvY",
+    "workdir": "",
+    "published_at": 1792261568
   }
 ]

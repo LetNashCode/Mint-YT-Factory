@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-17T17:01:00.492037+00:00",
-  "video_count": 15,
+  "generated_at": "2026-10-17T18:14:43.390280+00:00",
+  "video_count": 16,
   "learning_ready": true,
   "metrics_available": true,
   "advanced_metrics_videos": 12,
@@ -17,13 +17,13 @@
       "score": 43.465,
       "sample_size": 4,
       "weak_sample_size": 4,
-      "weak_score": 5.283
+      "weak_score": 1.405
     }
   ],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 5.283,
+      "score": 1.405,
       "sample_size": 4
     }
   ],
@@ -37,12 +37,12 @@
     "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon."
   ],
   "avoid_topics": [
-    "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
     "Edmund Hillary: The decades-long preparation and final push to conquer the world's highest peak.",
     "Morgan Freeman: Spending years serving in the United States Air Force before getting his big break on television and film.",
-    "Jane Goodall: Traveling to the Gombe Stream Reserve without a college degree to live among wild chimpanzees."
+    "Jane Goodall: Traveling to the Gombe Stream Reserve without a college degree to live among wild chimpanzees.",
+    "Amitabh Bachchan: Facing persistent rejection from All India Radio due to his deep voice before becoming the defining star of Indian cinema."
   ],
-  "used_topic_count": 15,
+  "used_topic_count": 16,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

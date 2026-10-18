@@ -131,3 +131,52 @@ def test_build_playbook_does_not_learn_from_overlapping_small_cohorts(monkeypatc
     assert playbook["weak_patterns"] == []
     assert playbook["winning_topics"] == []
     assert playbook["avoid_topics"] == []
+
+
+def test_new_upload_does_not_enter_learning_cohorts(monkeypatch):
+    from datetime import datetime, timezone
+
+    monkeypatch.setattr(engine, "_performance", lambda record: record["_score"])
+    monkeypatch.setattr(engine, "_creative_features", lambda record: {
+        "hook_type": "same_hook",
+        "story_format": "same_story",
+        "payoff_position": "mid",
+        "explanation_position": "mid",
+        "script_length": "short",
+        "narration_pace": "natural",
+        "payoff_type": "reveal",
+        "tease_type": "open",
+        "creative_strategy": "wild",
+    })
+    mature = [
+        {
+            "video_id": f"mature-{score}",
+            "topic": f"mature topic {score}",
+            "published_at": "2026-01-01T00:00:00+00:00",
+            "_score": score,
+            "latest": {
+                "views": score * 100,
+                "analytics_views": score * 100,
+                "average_view_percentage": float(score),
+            },
+        }
+        for score in (10, 20, 30, 40, 50, 60)
+    ]
+    mature.append({
+        "video_id": "fresh",
+        "topic": "fresh upload must not be a loser or winner",
+        "published_at": datetime.now(timezone.utc).isoformat(),
+        "_score": 10000,
+        "latest": {
+            "views": 5000,
+            "analytics_views": 5000,
+            "average_view_percentage": 99.0,
+        },
+    })
+
+    playbook = engine.build_playbook(mature)
+
+    assert playbook["video_count"] == 7
+    assert playbook["learning_sample_size"] == 6
+    assert "fresh upload must not be a loser or winner" not in playbook["winning_topics"]
+    assert "fresh upload must not be a loser or winner" not in playbook["avoid_topics"]

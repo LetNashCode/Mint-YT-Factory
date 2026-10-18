@@ -93,3 +93,40 @@ def test_discriminative_rank_rejects_pattern_equally_common_in_both_cohorts(monk
         2,
     )
     assert result == []
+
+
+def test_build_playbook_does_not_learn_from_overlapping_small_cohorts(monkeypatch):
+    monkeypatch.setattr(engine, "_performance", lambda record: record["_score"])
+    monkeypatch.setattr(engine, "_creative_features", lambda record: {
+        "hook_type": "same_hook",
+        "story_format": "same_story",
+        "payoff_position": "mid",
+        "explanation_position": "mid",
+        "script_length": "short",
+        "narration_pace": "natural",
+        "payoff_type": "reveal",
+        "tease_type": "open",
+        "creative_strategy": "wild",
+    })
+    records = [
+        {
+            "video_id": f"v{score}",
+            "topic": f"topic {score}",
+            "_score": score,
+            "latest": {
+                "views": score * 100,
+                "analytics_views": score * 100,
+                "average_view_percentage": float(score),
+            },
+        }
+        for score in (10, 20, 30, 40, 50)
+    ]
+
+    playbook = engine.build_playbook(records)
+
+    assert playbook["metrics_available"] is True
+    assert playbook["comparative_learning_ready"] is False
+    assert playbook["winning_patterns"] == []
+    assert playbook["weak_patterns"] == []
+    assert playbook["winning_topics"] == []
+    assert playbook["avoid_topics"] == []

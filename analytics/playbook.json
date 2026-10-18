@@ -1,29 +1,23 @@
 {
-  "generated_at": "2026-10-17T19:40:46.717035+00:00",
+  "generated_at": "2026-10-18T10:25:50.664464+00:00",
   "video_count": 159,
+  "learning_sample_size": 146,
   "learning_ready": true,
   "metrics_available": true,
-  "advanced_metrics_videos": 147,
-  "creative_learning_version": "v5",
+  "comparative_learning_ready": true,
+  "advanced_metrics_videos": 146,
+  "creative_learning_version": "v6",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
     "exploitation": 0.7,
     "adjacent_exploration": 0.2,
     "wild_exploration": 0.1
   },
-  "winning_patterns": [
-    {
-      "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 40.827,
-      "sample_size": 10,
-      "weak_sample_size": 10,
-      "weak_score": 0.677
-    }
-  ],
+  "winning_patterns": [],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 0.677,
+      "score": 15.132,
       "sample_size": 10
     }
   ],
@@ -34,25 +28,25 @@
     "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
     "Why do clothes shrink in dryers",
     "Steve Jobs: A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
-    "Israeli security forces shoot and kill Ahmad Zidani, Beit Rima, 18 Dec. 2016: Candidate discovered from Internet Archive; the footage and event context require factual review.",
-    "Why do door knobs get loose",
     "Why do earbuds tangle in pockets",
     "Why paperclips float on water",
     "Stephen King: The discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon.",
     "Why window glass warps reflections",
-    "Why ice cream gives you brain freeze"
+    "Why ice cream gives you brain freeze",
+    "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes.",
+    "Why do wooden hangers smell"
   ],
   "avoid_topics": [
-    "Why do corks pop out",
-    "Why do toothpaste tubes wrinkle",
-    "Why do rubber boots squeak on tile",
-    "Why do candle flames flicker",
+    "Why do dry erase markers squeak",
+    "Why do tea bags float",
+    "Why do socks roll up",
+    "Why does a lock jam",
+    "Why do buttons pop off coats",
+    "Why do ceramic mugs clink",
+    "Why do envelopes taste sweet",
     "Why do aluminum foil sheets tear",
-    "How do refrigerator seals stick",
-    "Why do window blinds tilt crooked",
-    "Why do phone screens attract dust",
-    "Why do paper towels tear sideways",
-    "Why do steering wheels lock"
+    "Why do plastic containers absorb smells",
+    "belonging: Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive."
   ],
   "used_topic_count": 159,
   "rules": [

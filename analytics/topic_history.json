@@ -3502,5 +3502,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do metal faucets drip in rhythm",
+    "normalized": "why do metal faucets drip in rhythm",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1792318940,
+    "recorded_at": 1792318940,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why does dry skin flake",
-    "normalized": "why does dry skin flake",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1792255053,
-    "recorded_at": 1792255053,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why does butter wrapper stick",
     "normalized": "why does butter wrapper stick",
     "workflow": "publish",
@@ -3510,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1792318940,
     "recorded_at": 1792318940,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do ice cream cones drip fast",
+    "normalized": "why do ice cream cones drip fast",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1792342008,
+    "recorded_at": 1792342008,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

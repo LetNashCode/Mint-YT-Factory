@@ -142,7 +142,7 @@ def performance_guidance():
     winners = eligible[:3]
     weaker = eligible[-3:]
     lines = [
-        "\\nHistorical channel evidence (use as creative guidance, not as a topic blacklist):",
+        "\nHistorical channel evidence (use as creative guidance, not as a topic blacklist):",
         "Stronger retention examples:",
     ]
     lines.extend(
@@ -158,7 +158,7 @@ def performance_guidance():
         "Infer what may have made the stronger hooks/payoffs clearer. Do not copy these topics, "
         "do not assume low views alone mean a bad topic, and choose a genuinely new subject."
     )
-    return "\\n" + "\\n".join(lines) + "\\n"
+    return "\n" + "\n".join(lines) + "\n"
 
 
 def is_duplicate_topic(candidate, history):
@@ -239,6 +239,13 @@ or a second topic. The narration must work without visuals.
 Write 80-95 words, approximately 30-38 seconds, as one connected mini-story.
 Never exceed 95 words. Keep sentences concise and natural so Kokoro narration fits under 40 seconds without speeding up.
 The first sentence must create immediate curiosity. End with a satisfying answer.
+
+FIRST TWO SECONDS:
+- Start with the familiar phrase, belief, or object already in the viewer's mind.
+- Introduce a concrete contradiction, surprising consequence, or unanswered "why" immediately.
+- Do not begin with background, a date, a definition, greetings, or a generic question.
+- Make every sentence add a new clue; delay the core explanation until the final third.
+- The final sentence must deliver a specific, memorable answer rather than a vague summary.
 
 TITLE RULES:
 - Create a curiosity-driven title for US viewers.

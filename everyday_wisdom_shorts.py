@@ -139,8 +139,9 @@ def performance_guidance():
         return ""
 
     eligible.sort(key=lambda row: row["retention"], reverse=True)
-    winners = eligible[:3]
-    weaker = eligible[-3:]
+    cohort_size = max(2, min(3, len(eligible) // 2))
+    winners = eligible[:cohort_size]
+    weaker = eligible[-cohort_size:]
     lines = [
         "\nHistorical channel evidence (use as creative guidance, not as a topic blacklist):",
         "Stronger retention examples:",

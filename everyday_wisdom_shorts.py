@@ -8,6 +8,7 @@ import re
 import subprocess
 import time
 from pathlib import Path
+from datetime import datetime, timezone
 
 import requests
 from google import genai
@@ -94,6 +95,70 @@ def history_strings(history):
             if value and value not in values:
                 values.append(value)
     return values
+
+
+def performance_guidance():
+    """Use mature, retention-rich Wisdom uploads as evidence without hard-banning topics."""
+    path = Path("analytics/everyday_wisdom/videos.json")
+    try:
+        records = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+    except Exception as exc:
+        print(f"Performance guidance unavailable; continuing without it: {exc}")
+        return ""
+
+    now = datetime.now(timezone.utc)
+    eligible = []
+    for record in records if isinstance(records, list) else []:
+        if not isinstance(record, dict):
+            continue
+        latest = record.get("latest") or {}
+        if not isinstance(latest, dict):
+            continue
+        retention = float(latest.get("average_view_percentage") or 0)
+        published = str(record.get("published_at") or "")
+        if retention <= 0 or not published:
+            continue
+        try:
+            published_dt = datetime.fromisoformat(published.replace("Z", "+00:00"))
+            if published_dt.tzinfo is None:
+                published_dt = published_dt.replace(tzinfo=timezone.utc)
+        except ValueError:
+            continue
+        age_hours = (now - published_dt.astimezone(timezone.utc)).total_seconds() / 3600
+        if age_hours < 24:
+            continue
+        eligible.append({
+            "title": clean(record.get("title"), 90),
+            "topic": clean(record.get("topic"), 180),
+            "retention": retention,
+            "views": int(latest.get("views") or 0),
+            "age_hours": age_hours,
+        })
+
+    if len(eligible) < 5:
+        return ""
+
+    eligible.sort(key=lambda row: row["retention"], reverse=True)
+    winners = eligible[:3]
+    weaker = eligible[-3:]
+    lines = [
+        "\\nHistorical channel evidence (use as creative guidance, not as a topic blacklist):",
+        "Stronger retention examples:",
+    ]
+    lines.extend(
+        f"- {row['title'] or row['topic']} ({row['retention']:.1f}% average viewed)"
+        for row in winners
+    )
+    lines.append("Lower-retention examples to learn from:")
+    lines.extend(
+        f"- {row['title'] or row['topic']} ({row['retention']:.1f}% average viewed)"
+        for row in weaker
+    )
+    lines.append(
+        "Infer what may have made the stronger hooks/payoffs clearer. Do not copy these topics, "
+        "do not assume low views alone mean a bad topic, and choose a genuinely new subject."
+    )
+    return "\\n" + "\\n".join(lines) + "\\n"
 
 
 def is_duplicate_topic(candidate, history):
@@ -187,7 +252,7 @@ Return JSON only:
 Search queries must be concrete things a camera can show, 3-6 words each.
 
 VISUAL BEATS: create 16-18 ordered visual_queries, one for each roughly 2.5-second beat of the narration. Each query must depict the exact object, action, setting, or concrete visual metaphor being spoken about at that moment. Make every query materially different from the previous one. Follow the narration chronologically. Never use generic filler such as "american lifestyle", "happy family", "person thinking", "stock footage", or "everyday life". Queries must be 3-7 words each.
-""" + history_block
+""" + history_block + performance_guidance()
 
     c = client()
     for attempt in range(5):
@@ -858,6 +923,19 @@ def main():
     validate_final_video(video)
 
     video_id = upload(video, story)
+    # Analytics is best-effort: never turn a successful YouTube upload into a failed run.
+    try:
+        os.environ["MINT_WORKFLOW_PROFILE"] = "wisdom"
+        from youtube_analytics import record_upload
+        record_upload(
+            video_id,
+            story["topic"],
+            story["title"],
+            str(RUN_ROOT),
+            production_metadata={"workflow": "everyday_wisdom"},
+        )
+    except Exception as exc:
+        print(f"WARNING: Everyday Wisdom analytics registration failed: {exc}")
     (RUN_ROOT / "publish.json").write_text(
         json.dumps(
             {

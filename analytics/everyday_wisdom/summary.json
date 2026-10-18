@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-10-18T10:26:54.319054+00:00",
+  "refresh_attempted_at": "2026-10-18T10:26:54.319054+00:00",
+  "refresh_status": "partial",
+  "video_count": 1,
+  "optimization_ready": false,
+  "live_metrics_ready": false,
+  "advanced_metrics_videos": 0,
+  "reason": "Basic YouTube statistics refreshed, but advanced retention metrics are incomplete.",
+  "totals": {
+    "views": 0,
+    "likes": 0,
+    "comments": 0
+  },
+  "averages": {
+    "views": 0.0,
+    "likes": 0.0,
+    "comments": 0.0,
+    "average_view_percentage": 0.0,
+    "subscribers_gained": 0.0,
+    "shares": 0.0
+  },
+  "top_videos": [
+    {
+      "topic": "The historical railroad and shipping signal origin behind why traffic lights use red, yellow, and green.",
+      "video_id": "5kXHdieMq34",
+      "title": "Why Are Stoplight Lights Red Yellow and Green?",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    }
+  ],
+  "topic_performance": [
+    {
+      "topic": "The historical railroad and shipping signal origin behind why traffic lights use red, yellow, and green.",
+      "video_id": "5kXHdieMq34",
+      "title": "Why Are Stoplight Lights Red Yellow and Green?",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    }
+  ],
+  "optimization_rules": []
+}

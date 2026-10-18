@@ -1,18 +1,5 @@
 [
   {
-    "format": "before_they_were_famous",
-    "person": "Pelé",
-    "premise": "Growing up in poverty in Bauru, Brazil, playing football with a sock stuffed with rags or a grapefruit.",
-    "hook": "Before he became a three-time World Cup champion, his family was too poor to afford a real football.",
-    "key_facts": [
-      "Grew up in impoverished conditions in the interior of São Paulo state, Brazil.",
-      "Practiced football using makeshift balls made of rolled-up socks, paper tied with string, or fruit.",
-      "Worked as a shoe-shine boy on the streets to earn extra money for his family.",
-      "Signed with Santos FC at age 15 and joined the senior Brazil national team at 16."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "one_decision",
     "person": "Louis Braille",
     "premise": "Adapting a military night-writing code into a tactile reading system for the blind.",
@@ -48,19 +35,6 @@
       "Curated sounds of Earth including greetings in 55 languages and music ranging from Bach to Chuck Berry.",
       "Served as professor of astronomy at Cornell University and popularized science through the television series Cosmos.",
       "Co-wrote and presented the landmark PBS series watched by hundreds of millions globally."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
-    "person": "Sylvester Stallone",
-    "premise": "Writing the script for Rocky while living in extreme poverty and refusing to sell it unless he played the lead role.",
-    "hook": "He was so broke he had to sell his beloved dog for fifty dollars just to buy food, only to buy him back a week later.",
-    "key_facts": [
-      "Struggled for years in New York and Hollywood with virtually no money or steady acting work.",
-      "Wrote the screenplay for Rocky in three days after watching the Ali-Wepner fight.",
-      "Turned down substantial offers for the script because studios wanted a bankable star instead of him.",
-      "Rocky went on to win the Academy Award for Best Picture and spawned a massive franchise."
     ],
     "source": "gemini_original"
   },

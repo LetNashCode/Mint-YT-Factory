@@ -1,30 +1,24 @@
 {
-  "generated_at": "2026-10-17T18:14:43.390280+00:00",
-  "video_count": 16,
+  "generated_at": "2026-10-18T10:34:55.781643+00:00",
+  "video_count": 18,
+  "learning_sample_size": 9,
   "learning_ready": true,
   "metrics_available": true,
-  "advanced_metrics_videos": 12,
-  "creative_learning_version": "v5",
+  "comparative_learning_ready": true,
+  "advanced_metrics_videos": 9,
+  "creative_learning_version": "v6",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
     "exploitation": 0.7,
     "adjacent_exploration": 0.2,
     "wild_exploration": 0.1
   },
-  "winning_patterns": [
-    {
-      "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 43.465,
-      "sample_size": 4,
-      "weak_sample_size": 4,
-      "weak_score": 1.405
-    }
-  ],
+  "winning_patterns": [],
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 1.405,
-      "sample_size": 4
+      "score": 19.639,
+      "sample_size": 3
     }
   ],
   "winning_combinations": [],
@@ -33,16 +27,14 @@
   "winning_topics": [
     "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
     "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
-    "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
     "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon."
   ],
   "avoid_topics": [
-    "Edmund Hillary: The decades-long preparation and final push to conquer the world's highest peak.",
-    "Morgan Freeman: Spending years serving in the United States Air Force before getting his big break on television and film.",
-    "Jane Goodall: Traveling to the Gombe Stream Reserve without a college degree to live among wild chimpanzees.",
-    "Amitabh Bachchan: Facing persistent rejection from All India Radio due to his deep voice before becoming the defining star of Indian cinema."
+    "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
+    "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
+    "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age."
   ],
-  "used_topic_count": 16,
+  "used_topic_count": 18,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

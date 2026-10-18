@@ -292,5 +292,21 @@
     "video_id": "IT9pWnp_XvY",
     "workdir": "",
     "published_at": 1792261568
+  },
+  {
+    "topic": "Sylvester Stallone: Writing the script for Rocky while living in extreme poverty and refusing to sell it unless he played the lead role.",
+    "normalized": "sylvester stallone writing the script for rocky while living in extreme poverty and refusing to sell it unless he played the lead role",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1792319032,
+    "recorded_at": 1792319032,
+    "metadata": {
+      "person": "Sylvester Stallone",
+      "pillar": "rise_from_nothing"
+    },
+    "title": "Sylvester Stallone: Writing the script for Rocky while living in extreme poverty and refusing to sell it unless he played the lead role.",
+    "video_id": "oiqGFKDULVE",
+    "workdir": "",
+    "published_at": 1792319692
   }
 ]

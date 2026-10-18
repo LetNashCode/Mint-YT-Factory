@@ -6173,6 +6173,42 @@
       "start": 589.1,
       "reason": "The segment features archival documentary footage and an interview about Freddie Mercury's life, but Freddie Mercury himself is not visibly present in the sampled frames (which show an interviewee and historical behind-the-scenes footage). It serves as biographical illustration.",
       "reviewed_at": 1792261078.795463
+    },
+    "43500a40002c42bfb56803da": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NitrogenesissMsxSylvesterStalloneInRambobadEndingIn0139.64",
+      "source_url": "https://archive.org/details/NitrogenesissMsxSylvesterStalloneInRambobadEndingIn0139.64",
+      "person": "Sylvester Stallone",
+      "start": 76.95,
+      "reason": "The video segment shows gameplay footage from an MSX Rambo video game, not actual filmed footage of Sylvester Stallone. Therefore, it is unsuitable as archival identity or historical context footage for a biographical short.",
+      "reviewed_at": 1792319041.292789
+    },
+    "0763778de24b7151c9e9560e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NitrogenesissMsxSylvesterStalloneInRambobadEndingIn0139.64",
+      "source_url": "https://archive.org/details/NitrogenesissMsxSylvesterStalloneInRambobadEndingIn0139.64",
+      "person": "Sylvester Stallone",
+      "start": 107.78,
+      "reason": "The video segment consists of gameplay footage from an MSX computer game ('Rambo'). Sylvester Stallone is not visible, and video game footage is not usable as real historical context or biographical footage.",
+      "reviewed_at": 1792319044.6719534
+    },
+    "0f5d1d2d87826f7c2de4ba9d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01",
+      "source_url": "https://archive.org/details/Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01",
+      "person": "Sylvester Stallone",
+      "start": 5.0,
+      "reason": "The video segment consists entirely of TV network and program title cards ('The Learning Channel' and 'Desmond Morris The Human Animal') with no appearance of Sylvester Stallone or relevant historical context.",
+      "reviewed_at": 1792319072.4259894
+    },
+    "4281eba67085b66875f5537c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01",
+      "source_url": "https://archive.org/details/Legends_Of_Hollywood_Sylvester_Stallone_TLC_WOC_1995-01",
+      "person": "Sylvester Stallone",
+      "start": 143.65,
+      "reason": "The segment features archival documentary footage with an interviewer/narrator speaking, followed by static photographs of a young Sylvester Stallone. Since Sylvester Stallone is not visibly present as moving filmed footage in the sampled frames, person_visible is false and usage is direct_event, but it provides biographical illustration context.",
+      "reviewed_at": 1792319078.4174423
     }
   }
 }

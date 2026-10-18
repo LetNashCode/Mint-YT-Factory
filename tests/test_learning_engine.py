@@ -112,6 +112,7 @@ def test_build_playbook_does_not_learn_from_overlapping_small_cohorts(monkeypatc
         {
             "video_id": f"v{score}",
             "topic": f"topic {score}",
+            "published_at": "2026-01-01T00:00:00+00:00",
             "_score": score,
             "latest": {
                 "views": score * 100,

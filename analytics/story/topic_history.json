@@ -324,5 +324,21 @@
     "video_id": "LNw-QAQN8A0",
     "workdir": "",
     "published_at": 1792344993
+  },
+  {
+    "topic": "James Cameron: Conceiving the terrifying cyborg antagonist of 'The Terminator' after experiencing a high fever and delirium while sick in Rome.",
+    "normalized": "james cameron conceiving the terrifying cyborg antagonist of the terminator after experiencing a high fever and delirium while sick in rome",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1792349727,
+    "recorded_at": 1792349727,
+    "metadata": {
+      "person": "James Cameron",
+      "pillar": "strange_turning_point"
+    },
+    "title": "James Cameron: Conceiving the terrifying cyborg antagonist of 'The Terminator' after experiencing a high fever and delirium while sick in Rome.",
+    "video_id": "JWLDsHHpGc4",
+    "workdir": "",
+    "published_at": 1792350643
   }
 ]

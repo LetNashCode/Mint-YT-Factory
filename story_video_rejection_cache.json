@@ -6272,6 +6272,155 @@
       "start": 5.0,
       "reason": "The sampled frames exclusively show the interviewer Terry Wogan, not the named subject Carl Sagan.",
       "reviewed_at": 1792344120.5894554
+    },
+    "13c900e3daf1b35ee7bb1662": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131031-021101-Cbr-StanLeePowersUpInLEGOMarvelSuperHeroes864",
+      "source_url": "https://archive.org/details/bliptv-20131031-021101-Cbr-StanLeePowersUpInLEGOMarvelSuperHeroes864",
+      "person": "Stan Lee",
+      "start": 24.02,
+      "reason": "The first frame shows Stan Lee in an interview setting, making him clearly identifiable. The subsequent frames feature gameplay footage from LEGO Marvel Super Heroes illustrating his presence in the game, serving as biographical illustration rather than direct historical documentation.",
+      "reviewed_at": 1792348532.3282762
+    },
+    "973aa6e871f88277ab7b757a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131031-021101-Cbr-StanLeePowersUpInLEGOMarvelSuperHeroes864",
+      "source_url": "https://archive.org/details/bliptv-20131031-021101-Cbr-StanLeePowersUpInLEGOMarvelSuperHeroes864",
+      "person": "Stan Lee",
+      "start": 43.05,
+      "reason": "The video features fictional LEGO game animation rather than actual filmed footage of Stan Lee, making it unsuitable for a biography short.",
+      "reviewed_at": 1792348566.3661652
+    },
+    "76e836a6fef0c7ddb0db7ee2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131014-025025-Cbr-StanLeeEBook114",
+      "source_url": "https://archive.org/details/bliptv-20131014-025025-Cbr-StanLeeEBook114",
+      "person": "Stan Lee",
+      "start": 24.56,
+      "reason": "The footage shows children interacting with a Spider-Man AR book app on a tablet, but Stan Lee is not visible in any of the frames, making it irrelevant for biographical identity footage of Stan Lee.",
+      "reviewed_at": 1792348606.6557624
+    },
+    "2618969d6464e7e6ca477bb6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:interview-with-stan-lees-superhuman-a-disney-marvel-magneto",
+      "source_url": "https://archive.org/details/interview-with-stan-lees-superhuman-a-disney-marvel-magneto",
+      "person": "Stan Lee",
+      "start": 5.0,
+      "reason": "The video features an interview with Miroslaw Magola, not Stan Lee, making it unusable for a biography of Stan Lee.",
+      "reviewed_at": 1792348766.055308
+    },
+    "a1187ef46511634538355c82": {
+      "kind": "segment_rejection",
+      "source_id": "archive:interview-with-stan-lees-superhuman-a-disney-marvel-magneto",
+      "source_url": "https://archive.org/details/interview-with-stan-lees-superhuman-a-disney-marvel-magneto",
+      "person": "Stan Lee",
+      "start": 44.31,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792348778.446662
+    },
+    "350a487c78252a28e4bbab85": {
+      "kind": "segment_rejection",
+      "source_id": "archive:interview-with-stan-lees-superhuman-a-disney-marvel-magneto",
+      "source_url": "https://archive.org/details/interview-with-stan-lees-superhuman-a-disney-marvel-magneto",
+      "person": "Stan Lee",
+      "start": 83.61,
+      "reason": "The footage features Miroslaw Magola speaking about his experiences, not Stan Lee. Stan Lee is the subject of the biography, but he is not visible in this video segment, making it unusable for representing Stan Lee directly.",
+      "reviewed_at": 1792348817.4809947
+    },
+    "83b322040f8749e067e3f33a": {
+      "source_id": "commons:44025568",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Neil_deGrasse_Tyson_Thanks_Teachers.webm",
+      "reason": "strong metadata exclusion: museum"
+    },
+    "5e106396a3c4053f38c1fb16": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Clip_of_the_Month_-_Inspiration_from_Neil_deGrasse_Tyson",
+      "source_url": "https://archive.org/details/Clip_of_the_Month_-_Inspiration_from_Neil_deGrasse_Tyson",
+      "person": "Neil deGrasse Tyson",
+      "start": 131.71,
+      "reason": "The sampled frames show a city council meeting with a young girl speaking and audience members, but Neil deGrasse Tyson is not present in any of the frames, nor does the footage depict him or his life.",
+      "reviewed_at": 1792349144.3684566
+    },
+    "152e421f1fd6c91c7fc19c2f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Clip_of_the_Month_-_Inspiration_from_Neil_deGrasse_Tyson",
+      "source_url": "https://archive.org/details/Clip_of_the_Month_-_Inspiration_from_Neil_deGrasse_Tyson",
+      "person": "Neil deGrasse Tyson",
+      "start": 186.01,
+      "reason": "The footage shows a city council meeting in Sacramento involving a young science student, but Neil deGrasse Tyson is neither present nor visibly identifiable in any of the frames. The connection is merely a passing mention in metadata/tags, making it unusable for direct biographical representation of Tyson.",
+      "reviewed_at": 1792349183.1557999
+    },
+    "ed0172a93886b28c40ccf36a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Neil-deGrasse-Tyson",
+      "source_url": "https://archive.org/details/Neil-deGrasse-Tyson",
+      "person": "Neil deGrasse Tyson",
+      "start": 5.0,
+      "reason": "The named person (Neil deGrasse Tyson) is not visible in any of the sampled frames; the video shows other speakers/interviewers at the Montclair Kimberley Academy.",
+      "reviewed_at": 1792349233.0923407
+    },
+    "890a20e70c19a653242af04f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Neil-deGrasse-Tyson",
+      "source_url": "https://archive.org/details/Neil-deGrasse-Tyson",
+      "person": "Neil deGrasse Tyson",
+      "start": 332.72,
+      "reason": "The person visible in the footage is an older Caucasian man reading from a paper, which is clearly not Neil deGrasse Tyson. Therefore, the footage does not depict the named subject.",
+      "reviewed_at": 1792349240.341056
+    },
+    "27979adbd9af7d093b22fa6f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:DianaNyad_2011P",
+      "source_url": "https://archive.org/details/DianaNyad_2011P",
+      "person": "Diana Nyad",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of TED and TEDMED title cards, logos, and blank screens, lacking any footage of Diana Nyad or relevant historical context.",
+      "reviewed_at": 1792349363.5678463
+    },
+    "5e8abb84bff20e12964f028d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:DianaNyad_2013W",
+      "source_url": "https://archive.org/details/DianaNyad_2013W",
+      "person": "Diana Nyad",
+      "start": 5.0,
+      "reason": "The segment consists entirely of TED title cards and intro animations without showing the subject or providing usable footage for a biography short.",
+      "reviewed_at": 1792349401.132004
+    },
+    "7d2d9194cd5912f10d794162": {
+      "kind": "segment_rejection",
+      "source_id": "archive:DianaNyad_2011P",
+      "source_url": "https://archive.org/details/DianaNyad_2011P",
+      "person": "Diana Nyad",
+      "start": 159.38,
+      "reason": "The footage shows Diana Nyad speaking at a TEDMED event, which is valid biographical footage of the subject, though it is a speech rather than direct event footage of her swims.",
+      "reviewed_at": 1792349446.5425432
+    },
+    "27764c9e9cac69bf8998affd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:DianaNyad_2011P",
+      "source_url": "https://archive.org/details/DianaNyad_2011P",
+      "person": "Diana Nyad",
+      "start": 313.76,
+      "reason": "The footage shows Diana Nyad speaking on a TED stage about her life and achievements, which serves as biographical illustration.",
+      "reviewed_at": 1792349497.4221325
+    },
+    "661c7f78d3cef8ad922f37ab": {
+      "kind": "segment_rejection",
+      "source_id": "archive:DianaNyad_2011P",
+      "source_url": "https://archive.org/details/DianaNyad_2011P",
+      "person": "Diana Nyad",
+      "start": 622.52,
+      "reason": "Diana Nyad is clearly visible giving a TEDMED talk on stage, providing biographical illustration footage for her life and accomplishments.",
+      "reviewed_at": 1792349561.4313457
+    },
+    "3849fd5ac3b50bb1971b9b5d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:JamesCameronTarSandsPressConferenceAConstructiveWayForward",
+      "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceAConstructiveWayForward",
+      "person": "James Cameron",
+      "start": 33.97,
+      "reason": "The sampled frames clearly feature James Cameron speaking at a press conference, providing biographical illustration material suitable for a documentary short.",
+      "reviewed_at": 1792350005.196971
     }
   }
 }

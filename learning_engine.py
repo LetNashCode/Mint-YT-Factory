@@ -361,15 +361,16 @@ def build_playbook(records: list[dict]) -> dict:
         and "average_view_percentage" in r.get("latest", {})
     )
     has_live_metrics = advanced_metrics_count >= 3
+    comparative_learning_ready = cohorts_are_comparable and has_live_metrics
 
     isolated_features = ("hook_type","story_format","payoff_position","explanation_position","script_length","narration_pace")
     combo_features = ("hook_type","story_format","payoff_type","tease_type","narration_pace")
     pair_features = ("hook_type","payoff_type","tease_type")
-    winning_patterns = _discriminative_rank(winners, losers, {x:x for x in isolated_features}, 2)[:40] if has_live_metrics else []
-    weak_patterns = _rank(_rows(losers, {x:x for x in isolated_features}), 2)[:30] if has_live_metrics else []
-    winning_combinations = _discriminative_rank(winners, losers, {x:x for x in combo_features}, 2)[:20] if has_live_metrics else []
-    winning_hook_payoff_pairs = _discriminative_rank(winners, losers, {x:x for x in pair_features}, 2)[:12] if has_live_metrics else []
-    creative_strategy_results = _rank(_rows(usable, {"creative_strategy":"creative_strategy"}), 2)[:10] if has_live_metrics else []
+    winning_patterns = _discriminative_rank(winners, losers, {x:x for x in isolated_features}, 2)[:40] if comparative_learning_ready else []
+    weak_patterns = _rank(_rows(losers, {x:x for x in isolated_features}), 2)[:30] if comparative_learning_ready else []
+    winning_combinations = _discriminative_rank(winners, losers, {x:x for x in combo_features}, 2)[:20] if comparative_learning_ready else []
+    winning_hook_payoff_pairs = _discriminative_rank(winners, losers, {x:x for x in pair_features}, 2)[:12] if comparative_learning_ready else []
+    creative_strategy_results = _rank(_rows(usable, {"creative_strategy":"creative_strategy"}), 2)[:10] if comparative_learning_ready else []
 
     topics = [_norm_topic(r.get("topic", "")) for r in usable if r.get("topic")]
     return {
@@ -377,6 +378,7 @@ def build_playbook(records: list[dict]) -> dict:
         "video_count": count,
         "learning_ready": count >= 3 and has_live_metrics,
         "metrics_available": has_live_metrics,
+        "comparative_learning_ready": comparative_learning_ready,
         "advanced_metrics_videos": advanced_metrics_count,
         "creative_learning_version": "v5",
         "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
@@ -386,8 +388,8 @@ def build_playbook(records: list[dict]) -> dict:
         "winning_combinations": winning_combinations,
         "winning_hook_payoff_pairs": winning_hook_payoff_pairs,
         "creative_strategy_results": creative_strategy_results,
-        "winning_topics": [r.get("topic", "") for r in winners if r.get("topic")][:10] if has_live_metrics else [],
-        "avoid_topics": [r.get("topic", "") for r in losers if r.get("topic")][:10] if has_live_metrics else [],
+        "winning_topics": [r.get("topic", "") for r in winners if r.get("topic")][:10] if comparative_learning_ready else [],
+        "avoid_topics": [r.get("topic", "") for r in losers if r.get("topic")][:10] if comparative_learning_ready else [],
         "used_topic_count": len(set(topics)),
         "rules": [
             "Learn combinations, not templates; never copy winning topics literally.",

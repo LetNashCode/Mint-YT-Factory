@@ -9,9 +9,23 @@ from googleapiclient.errors import HttpError
 
 ROOT=Path(__file__).resolve().parent
 _PROFILE=str(os.environ.get('MINT_WORKFLOW_PROFILE','publish')).strip().lower()
-ANALYTICS_DIR=ROOT/'analytics'/'story' if _PROFILE=='story' else ROOT/'analytics'
-REGISTRY_PATH=ANALYTICS_DIR/'videos.json'; SUMMARY_PATH=ANALYTICS_DIR/'summary.json'
-USED_TOPICS_PATH=(ANALYTICS_DIR/'used_topics.json') if _PROFILE=='story' else (ROOT/'used_topics.json')
+if _PROFILE == "everyday_wisdom":
+    _PROFILE = "wisdom"
+if _PROFILE == "story":
+    ANALYTICS_DIR = ROOT / "analytics" / "story"
+elif _PROFILE == "wisdom":
+    ANALYTICS_DIR = ROOT / "analytics" / "everyday_wisdom"
+else:
+    _PROFILE = "publish"
+    ANALYTICS_DIR = ROOT / "analytics"
+REGISTRY_PATH = ANALYTICS_DIR / "videos.json"
+SUMMARY_PATH = ANALYTICS_DIR / "summary.json"
+if _PROFILE == "story":
+    USED_TOPICS_PATH = ANALYTICS_DIR / "used_topics.json"
+elif _PROFILE == "wisdom":
+    USED_TOPICS_PATH = ANALYTICS_DIR / "used_topics.json"
+else:
+    USED_TOPICS_PATH = ROOT / "used_topics.json"
 ANALYTICS_MARKER='__MINT_ANALYTICS__::'
 
 

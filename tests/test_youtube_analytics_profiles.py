@@ -43,5 +43,7 @@ def test_failed_refresh_does_not_make_stale_summary_look_fresh(tmp_path, monkeyp
 
     assert summary["generated_at"] == old_timestamp
     assert summary["refresh_status"] == "failed"
+    assert summary["optimization_ready"] is False
+    assert summary["live_metrics_ready"] is False
     assert summary["refresh_attempted_at"] != old_timestamp
     assert "last successful refresh" in summary["reason"]

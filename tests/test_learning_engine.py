@@ -159,6 +159,7 @@ def test_new_upload_does_not_enter_learning_cohorts(monkeypatch):
                 "views": score * 100,
                 "analytics_views": score * 100,
                 "average_view_percentage": float(score),
+                "checked_at": "2026-10-18T00:00:00+00:00",
             },
         }
         for score in (10, 20, 30, 40, 50, 60)

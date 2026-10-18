@@ -344,9 +344,13 @@ def build_playbook(records: list[dict]) -> dict:
     usable = [r for r in records if isinstance(r, dict) and r.get("video_id") and isinstance(r.get("latest", {}), dict)]
     scored = sorted(((_performance(r), r) for r in usable), key=lambda x: x[0], reverse=True)
     count = len(scored)
-    top_n = max(3, min(10, math.ceil(count * 0.25))) if count else 0
+    # Keep winner and weak cohorts disjoint. With only 4–5 videos, the old
+    # minimum of three caused the same records to appear in both cohorts,
+    # contaminating the learned pattern comparisons.
+    top_n = min(10, max(2, math.ceil(count * 0.25))) if count else 0
+    cohorts_are_comparable = count >= 6 and (2 * top_n) <= count
     winners = [r for _, r in scored[:top_n]]
-    losers = [r for _, r in scored[-top_n:]] if count >= 4 else []
+    losers = [r for _, r in scored[-top_n:]] if cohorts_are_comparable else []
     # Creative learning is only valid when YouTube Analytics retention rows are
     # present. Basic view/like counts alone are not enough to label a creative
     # pattern a winner because distribution can dominate those numbers.

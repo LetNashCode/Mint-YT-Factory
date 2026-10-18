@@ -233,9 +233,18 @@ jobs:
           YOUTUBE_TOKEN_JSON: ${{ secrets.YOUTUBE_TOKEN_JSON }}
           MINT_WORKFLOW_PROFILE: story
         run: |
-          set -euo pipefail
+          set +e
           python -u youtube_analytics.py --refresh
+          analytics_status=$?
           python -u learning_engine.py
+          learning_status=$?
+          if [ "$analytics_status" -ne 0 ]; then
+            echo "::warning::Story analytics refresh exited with status $analytics_status."
+          fi
+          if [ "$learning_status" -ne 0 ]; then
+            echo "::warning::Story learning playbook refresh exited with status $learning_status."
+          fi
+          exit 0
       - name: Persist Story Shorts state
         if: always()
         run: |

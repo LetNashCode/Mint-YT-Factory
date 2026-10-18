@@ -1,0 +1,47 @@
+name: Views Feedback Regression
+
+on:
+  pull_request:
+    paths:
+      - "youtube_analytics.py"
+      - "learning_engine.py"
+      - "everyday_wisdom_shorts.py"
+      - "tests/test_learning_engine.py"
+      - "tests/test_everyday_wisdom_feedback.py"
+      - "tests/test_youtube_analytics_profiles.py"
+      - ".github/workflows/views-feedback-regression.yml"
+  push:
+    branches: [main]
+    paths:
+      - "youtube_analytics.py"
+      - "learning_engine.py"
+      - "everyday_wisdom_shorts.py"
+      - "tests/test_learning_engine.py"
+      - "tests/test_everyday_wisdom_feedback.py"
+      - "tests/test_youtube_analytics_profiles.py"
+      - ".github/workflows/views-feedback-regression.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install focused test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest google-genai requests google-auth google-api-python-client
+      - name: Compile changed production modules
+        run: |
+          python -m py_compile youtube_analytics.py learning_engine.py everyday_wisdom_shorts.py
+      - name: Run feedback-loop regression tests
+        run: |
+          python -m pytest -q tests/test_learning_engine.py tests/test_everyday_wisdom_feedback.py tests/test_youtube_analytics_profiles.py

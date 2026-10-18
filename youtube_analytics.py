@@ -65,6 +65,11 @@ def _read_durable_publications():
                     })
         return out
 
+    if _PROFILE == "wisdom":
+        # Everyday Wisdom has its own registry and must never ingest Publish
+        # Shorts' completed_publications.json.
+        return out
+
     completed = _load(ROOT / "completed_publications.json", [])
     if isinstance(completed, list):
         for item in completed:

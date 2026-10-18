@@ -127,6 +127,7 @@ def test_build_playbook_does_not_learn_from_overlapping_small_cohorts(monkeypatc
     playbook = engine.build_playbook(records)
 
     assert playbook["metrics_available"] is True
+    assert playbook["creative_learning_version"] == "v6"
     assert playbook["comparative_learning_ready"] is False
     assert playbook["winning_patterns"] == []
     assert playbook["weak_patterns"] == []

@@ -245,7 +245,7 @@ def refresh_registry():
             'refresh_attempted_at': attempted_at,
             'refresh_status': 'failed',
             'video_count': len(records),
-            'optimization_ready': _has_live_metrics(records),
+            'optimization_ready': False,
             'live_metrics_ready': False,
             'reason': 'Live YouTube statistics unavailable; displayed metrics are from the last successful refresh.',
         })

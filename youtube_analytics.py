@@ -238,7 +238,21 @@ def refresh_registry():
     _write(REGISTRY_PATH,records); ids=[str(x['video_id']) for x in records]
     try: basic=fetch_video_stats(ids)
     except Exception as exc:
-        print(f'⚠️ YouTube Data API unavailable: {exc}'); existing=_load(SUMMARY_PATH,{}); existing.update({'generated_at':_utc_now(),'video_count':len(records),'optimization_ready':_has_live_metrics(records),'live_metrics_ready':False,'advanced_metrics_videos':0,'reason':'Live YouTube statistics unavailable; durable registry remains available.'}); _write(SUMMARY_PATH,existing); return existing
+        attempted_at = _utc_now()
+        print(f'⚠️ YouTube Data API unavailable: {exc}')
+        existing = _load(SUMMARY_PATH, {})
+        existing.update({
+            'refresh_attempted_at': attempted_at,
+            'refresh_status': 'failed',
+            'video_count': len(records),
+            'optimization_ready': False,
+            'live_metrics_ready': False,
+            'reason': 'Live YouTube statistics unavailable; displayed metrics are from the last successful refresh.',
+        })
+        # Preserve generated_at as the last successful refresh timestamp. Never
+        # make stale data look fresh merely because a refresh was attempted.
+        _write(SUMMARY_PATH, existing)
+        return existing
     advanced=fetch_analytics_metrics(ids); now=_utc_now()
     for r in records:
         vid=str(r['video_id']); cur=basic.get(vid)
@@ -249,7 +263,7 @@ def refresh_registry():
     rows=[]
     for r in sorted(records,key=lambda x:int(x.get('latest',{}).get('views',0)),reverse=True):
         x=r.get('latest',{}); rows.append({'topic':r.get('topic',''),'video_id':r.get('video_id'),'title':r.get('title',''),'views':int(x.get('views',0)),'likes':int(x.get('likes',0)),'comments':int(x.get('comments',0)),'shares':int(x.get('shares',0)),'average_view_duration':float(x.get('average_view_duration',0)),'average_view_percentage':float(x.get('average_view_percentage',0)),'subscribers_gained':int(x.get('subscribers_gained',0)),'subscribers_lost':int(x.get('subscribers_lost',0)),'engagement_rate':float(x.get('engagement_rate',0))})
-    advanced_count=_has_advanced_metrics(records); ready=count>=3 and advanced_count>=3; summary={'generated_at':now,'video_count':count,'optimization_ready':ready,'live_metrics_ready':live_ready,'advanced_metrics_videos':advanced_count,'reason':'' if ready else ('Need live YouTube metrics and at least 3 published videos before optimizing content.'),'totals':{'views':total_views,'likes':total_likes,'comments':total_comments},'averages':avg,'top_videos':rows[:10],'topic_performance':rows[:50],'optimization_rules':['Learn patterns, never copy winning topics literally.','Optimize for retention, subscriber conversion, comments and shares.','Prefer strong curiosity gaps and concrete everyday mysteries.','Keep experiments so the model does not overfit to one topic.'] if ready else []}; _write(SUMMARY_PATH,summary); print(f'📊 Tracked videos: {count}'); print(f'📊 Total views: {total_views:,}'); print(f'🧠 Optimization ready: {"YES" if ready else "NO"}'); return summary
+    advanced_count=_has_advanced_metrics(records); ready=count>=3 and advanced_count>=3; summary={'generated_at':now,'refresh_attempted_at':now,'refresh_status':'success' if advanced_count>=3 else 'partial','video_count':count,'optimization_ready':ready,'live_metrics_ready':live_ready,'advanced_metrics_videos':advanced_count,'reason':'' if ready else ('Basic YouTube statistics refreshed, but advanced retention metrics are incomplete.' if advanced_count<3 else 'Need at least 3 published videos before optimizing content.'),'totals':{'views':total_views,'likes':total_likes,'comments':total_comments},'averages':avg,'top_videos':rows[:10],'topic_performance':rows[:50],'optimization_rules':['Learn patterns, never copy winning topics literally.','Optimize for retention, subscriber conversion, comments and shares.','Prefer strong curiosity gaps and concrete everyday mysteries.','Keep experiments so the model does not overfit to one topic.'] if ready else []}; _write(SUMMARY_PATH,summary); print(f'📊 Tracked videos: {count}'); print(f'📊 Total views: {total_views:,}'); print(f'🧠 Optimization ready: {"YES" if ready else "NO"}'); return summary
 
 def main():
     parser=argparse.ArgumentParser(); parser.add_argument('--refresh',action='store_true'); args=parser.parse_args()

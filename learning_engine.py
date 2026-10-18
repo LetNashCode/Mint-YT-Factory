@@ -355,6 +355,21 @@ def _mature_for_learning(record: dict, now: datetime | None = None) -> bool:
         return False
     if int(latest.get("analytics_views") or latest.get("views") or 0) < 50:
         return False
+    checked_at = str(latest.get("checked_at") or "").strip()
+    if not checked_at:
+        return False
+    try:
+        checked = datetime.fromisoformat(checked_at.replace("Z", "+00:00"))
+        if checked.tzinfo is None:
+            checked = checked.replace(tzinfo=timezone.utc)
+    except ValueError:
+        return False
+    reference = now or datetime.now(timezone.utc)
+    metric_age = (reference - checked.astimezone(timezone.utc)).total_seconds()
+    # Production refreshes run twice daily; older than 72 hours is too stale
+    # to drive creative decisions safely.
+    if metric_age < 0 or metric_age > 72 * 60 * 60:
+        return False
     published_at = str(record.get("published_at") or "").strip()
     if not published_at:
         return False
@@ -364,7 +379,6 @@ def _mature_for_learning(record: dict, now: datetime | None = None) -> bool:
             published = published.replace(tzinfo=timezone.utc)
     except ValueError:
         return False
-    reference = now or datetime.now(timezone.utc)
     return (reference - published.astimezone(timezone.utc)).total_seconds() >= 24 * 60 * 60
 
 

@@ -6209,6 +6209,69 @@
       "start": 143.65,
       "reason": "The segment features archival documentary footage with an interviewer/narrator speaking, followed by static photographs of a young Sylvester Stallone. Since Sylvester Stallone is not visibly present as moving filmed footage in the sampled frames, person_visible is false and usage is direct_event, but it provides biographical illustration context.",
       "reviewed_at": 1792319078.4174423
+    },
+    "f087222c6970865cf7ec2ad8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131104-215744-Armchairdirectors-42JackieRobinsonStoryMovieReviewByArmchairDirectors965",
+      "source_url": "https://archive.org/details/bliptv-20131104-215744-Armchairdirectors-42JackieRobinsonStoryMovieReviewByArmchairDirectors965",
+      "person": "Jackie Robinson",
+      "start": 312.29,
+      "reason": "The footage shows two movie reviewers discussing the film '42', not Jackie Robinson himself. Therefore, Jackie Robinson is not visible and the segment is not usable for a biographical short about him.",
+      "reviewed_at": 1792343893.971923
+    },
+    "8b68e76f6a78861ff81ad48a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131104-215744-Armchairdirectors-42JackieRobinsonStoryMovieReviewByArmchairDirectors965",
+      "source_url": "https://archive.org/details/bliptv-20131104-215744-Armchairdirectors-42JackieRobinsonStoryMovieReviewByArmchairDirectors965",
+      "person": "Jackie Robinson",
+      "start": 443.99,
+      "reason": "The sampled frames show a movie review show with two contemporary male hosts discussing the film '42', neither of whom is Jackie Robinson. Jackie Robinson is not visible in any frame.",
+      "reviewed_at": 1792343900.9740927
+    },
+    "4c36dd66bd8d78e8a978cbb4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:pontimi-Mayor_Tim_Greimel_celebrates_Jackie_Robinson_for_breaking_the_color_line_Brooklyn_Dodgers_",
+      "source_url": "https://archive.org/details/pontimi-Mayor_Tim_Greimel_celebrates_Jackie_Robinson_for_breaking_the_color_line_Brooklyn_Dodgers_",
+      "person": "Jackie Robinson",
+      "start": 36.03,
+      "reason": "The video features a modern contemporary speaker (Mayor Tim Greimel) discussing Jackie Robinson rather than archival footage or actual appearance of Jackie Robinson himself.",
+      "reviewed_at": 1792343911.5112793
+    },
+    "e9cec4d720ac13ec9fa88488": {
+      "kind": "segment_rejection",
+      "source_id": "archive:pontimi-Mayor_Tim_Greimel_celebrates_Jackie_Robinson_for_breaking_the_color_line_Brooklyn_Dodgers_",
+      "source_url": "https://archive.org/details/pontimi-Mayor_Tim_Greimel_celebrates_Jackie_Robinson_for_breaking_the_color_line_Brooklyn_Dodgers_",
+      "person": "Jackie Robinson",
+      "start": 46.38,
+      "reason": "The footage shows a contemporary speaker (Mayor Tim Greimel) discussing Jackie Robinson rather than archival footage of Jackie Robinson himself, making it unsuitable as historical identity or contextual footage for a biography.",
+      "reviewed_at": 1792343919.69888
+    },
+    "076549a9046ea854ae564871": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Jackie_Robinson",
+      "source_url": "https://archive.org/details/btvin-Jackie_Robinson",
+      "person": "Jackie Robinson",
+      "start": 18.92,
+      "reason": "The sampled frames show a modern suburban residential house, which has no direct connection or historical relevance to Jackie Robinson's life or archival material.",
+      "reviewed_at": 1792343955.5737343
+    },
+    "d24101840445912973f12794": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Jackie_Robinson",
+      "source_url": "https://archive.org/details/btvin-Jackie_Robinson",
+      "person": "Jackie Robinson",
+      "start": 32.83,
+      "reason": "The footage shows track and field running, but does not clearly depict Jackie Robinson as an identifiable subject in the frames. Furthermore, the video is of low quality and cropped poorly, making verification impossible.",
+      "reviewed_at": 1792343965.6029806
+    },
+    "099f0445770f898b5b951a15": {
+      "kind": "segment_rejection",
+      "source_id": "archive:vhsvault_Wogan_interviews_Carl_Sagan",
+      "source_url": "https://archive.org/details/vhsvault_Wogan_interviews_Carl_Sagan",
+      "person": "Carl Sagan",
+      "start": 5.0,
+      "reason": "The sampled frames exclusively show the interviewer Terry Wogan, not the named subject Carl Sagan.",
+      "reviewed_at": 1792344120.5894554
     }
   }
 }

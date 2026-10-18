@@ -1,19 +1,6 @@
 [
   {
     "format": "one_decision",
-    "person": "Louis Braille",
-    "premise": "Adapting a military night-writing code into a tactile reading system for the blind.",
-    "hook": "A twelve-year-old boy used a discarded military cipher originally meant for soldiers to read in the dark without speaking.",
-    "key_facts": [
-      "Blinded in childhood following an accident in his father's harness shop.",
-      "Attended the Royal Institution for Blind Youth in Paris.",
-      "Modified Captain Charles Barbier's 'night writing' twelve-dot code into a simpler six-dot cell.",
-      "Published his system in 1829, though it was only widely adopted long after his death."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
     "person": "Jonas Salk",
     "premise": "Choosing to test his experimental polio vaccine on himself and his own family.",
     "hook": "To prove his vaccine was safe, a medical researcher injected the untested formula directly into the arms of his wife and children.",
@@ -22,19 +9,6 @@
       "Utilized a 'killed' virus approach rather than a live-attenuated one.",
       "Announced successful nationwide clinical trial results in April 1955.",
       "Declined to patent the polio vaccine, ensuring it remained accessible globally."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Carl Sagan",
-    "premise": "The choice to include Earth sounds and music on a golden record aboard Voyager spacecraft, risking ridicule from orthodox scientists.",
-    "hook": "What would you say to an alien civilization if you only had one chance to represent all of humanity?",
-    "key_facts": [
-      "Led the committee that placed the Voyager Golden Record aboard the 1977 spacecraft.",
-      "Curated sounds of Earth including greetings in 55 languages and music ranging from Bach to Chuck Berry.",
-      "Served as professor of astronomy at Cornell University and popularized science through the television series Cosmos.",
-      "Co-wrote and presented the landmark PBS series watched by hundreds of millions globally."
     ],
     "source": "gemini_original"
   },
@@ -48,6 +22,84 @@
       "Resumed long-distance marathon swimming decades later at age 60.",
       "Completed the historic 110-mile crossing from Havana to Key West in 2013.",
       "Spent over 52 hours continuously swimming in open ocean."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Shakuntala Devi",
+    "premise": "A self-taught mathematical prodigy from India who performed complex calculations faster than early computers without any formal education.",
+    "hook": "She left school at a very young age, yet traveled the world effortlessly outperforming massive electronic mainframes.",
+    "key_facts": [
+      "Born in Bangalore, India, with no formal mathematical training.",
+      "Demonstrated her calculation abilities through public roadshows across India from childhood.",
+      "Computed the 23rd root of a 201-digit number in 50 seconds at Imperial College London in 1980.",
+      "Earned the moniker 'Human Computer' for her exceptional mental arithmetic feats."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Harrison Ford",
+    "premise": "A struggling actor who quit Hollywood to work as a professional carpenter until a chance encounter on a casual job changed his life.",
+    "hook": "He built cabinets for George Lucas's office just to pay the rent, never expecting it would lead to one of cinema's greatest roles.",
+    "key_facts": [
+      "Spent over a decade taking minor television roles while struggling to make a living in Los Angeles.",
+      "Taught himself carpentry and built cabinets for prominent directors and studios.",
+      "Hired to build a doorway at a casting office where George Lucas was holding auditions.",
+      "Cast as Han Solo in Star Wars after initially just reading lines for other actors during auditions."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Viswanathan Anand",
+    "premise": "Emerging from a modest background in southern India to become the country's first chess Grandmaster and multi-time World Champion.",
+    "hook": "He learned the complex rules of chess from his mother in a quiet suburban home, long before India had any chess infrastructure.",
+    "key_facts": [
+      "Born in Mayiladuthurai, Tamil Nadu, and learned chess at the age of six.",
+      "Became India's first Grandmaster in 1988 at the age of 18.",
+      "Won the FIDE World Chess Championship multiple times across different formats.",
+      "Popularized chess significantly across India, inspiring a new generation of grandmasters."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Maurice Sendak",
+    "premise": "Deciding to ignore conservative children's book publishing standards to depict raw, scary childhood emotions.",
+    "hook": "Editors warned him that his monsters were far too terrifying for young readers, but he refused to change a single line.",
+    "key_facts": [
+      "Grew up in New York City with frail health, spending much of his childhood indoors drawing.",
+      "Worked as an illustrator before writing and illustrating his own children's books.",
+      "Authored and illustrated 'Where the Wild Things Are' in 1963.",
+      "The book initially faced controversy for its dark themes before becoming an international classic."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Diana Nyad",
+    "premise": "Attempting a grueling 110-mile open-ocean swim from Cuba to Florida at age 64 after multiple prior failures.",
+    "hook": "Stung by jellyfish and battered by brutal currents, she refused to give up on a lifelong dream that beat her four times before.",
+    "key_facts": [
+      "First attempted the Cuba-to-Florida swim in 1978 without a shark cage and failed.",
+      "Resumed training in her sixties after decades away from extreme marathon swimming.",
+      "Endured severe box jellyfish stings and asthma attacks during her final attempt.",
+      "Successfully completed the continuous swim from Havana to Key West in 2013 at age 64."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Neil deGrasse Tyson",
+    "premise": "A teenage amateur astronomer whose life changed after a prestigious observatory invited him to speak because of a postcard.",
+    "hook": "A simple postcard he mailed about a celestial observation landed him a mentorship with the director of the Hayden Planetarium.",
+    "key_facts": [
+      "Grew up in New York City and built his own telescope as a high school student.",
+      "Photographed the moon and planets from his Bronx apartment rooftop.",
+      "Noticed by the director of the Hayden Planetarium after writing about a sky observation.",
+      "Went on to earn a PhD in astrophysics and become the director of the same planetarium."
     ],
     "source": "gemini_original"
   }

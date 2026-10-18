@@ -1,31 +1,31 @@
 {
-  "generated_at": "2026-10-18T10:34:55.689907+00:00",
-  "refresh_attempted_at": "2026-10-18T10:34:55.689907+00:00",
+  "generated_at": "2026-10-18T17:36:36.545532+00:00",
+  "refresh_attempted_at": "2026-10-18T17:36:36.545532+00:00",
   "refresh_status": "success",
-  "video_count": 18,
+  "video_count": 19,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 13,
   "reason": "",
   "totals": {
-    "views": 8423,
-    "likes": 172,
-    "comments": 3
+    "views": 8582,
+    "likes": 181,
+    "comments": 4
   },
   "averages": {
-    "views": 467.94,
-    "likes": 9.56,
-    "comments": 0.17,
-    "average_view_percentage": 40.86,
-    "subscribers_gained": 0.5,
-    "shares": 0.06
+    "views": 451.68,
+    "likes": 9.53,
+    "comments": 0.21,
+    "average_view_percentage": 38.71,
+    "subscribers_gained": 0.47,
+    "shares": 0.05
   },
   "top_videos": [
     {
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
       "video_id": "Pb1-aVVunGg",
       "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1208,
+      "views": 1209,
       "likes": 43,
       "comments": 2,
       "shares": 1,
@@ -33,7 +33,7 @@
       "average_view_percentage": 62.79,
       "subscribers_gained": 3,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7252
+      "engagement_rate": 3.7221
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -64,6 +64,20 @@
       "engagement_rate": 1.4801
     },
     {
+      "topic": "Freddie Mercury: Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
+      "video_id": "IT9pWnp_XvY",
+      "title": "The Untold Turning Point in Freddie Mercury's Story",
+      "views": 1081,
+      "likes": 38,
+      "comments": 2,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 3.7003
+    },
+    {
       "topic": "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes.",
       "video_id": "kW3x0znSFbM",
       "title": "The Decision That Changed Everything: Phil Knight",
@@ -90,20 +104,6 @@
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 1.4205
-    },
-    {
-      "topic": "Freddie Mercury: Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
-      "video_id": "IT9pWnp_XvY",
-      "title": "The Untold Turning Point in Freddie Mercury's Story",
-      "views": 1056,
-      "likes": 36,
-      "comments": 1,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 3.5038
     },
     {
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
@@ -148,18 +148,18 @@
       "engagement_rate": 0.0
     },
     {
-      "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
-      "video_id": "YorYFuuuTOQ",
-      "title": "The Untold Turning Point in J.R.R. Tolkien's Story",
-      "views": 76,
-      "likes": 1,
+      "topic": "Amitabh Bachchan: Facing persistent rejection from All India Radio due to his deep voice before becoming the defining star of Indian cinema.",
+      "video_id": "OMXqyVG5lnw",
+      "title": "Amitabh Bachchan Was Rejected... Then Everything Changed",
+      "views": 78,
+      "likes": 5,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 49.0,
-      "average_view_percentage": 118.77,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.3158
+      "engagement_rate": 6.4103
     }
   ],
   "topic_performance": [
@@ -167,7 +167,7 @@
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
       "video_id": "Pb1-aVVunGg",
       "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1208,
+      "views": 1209,
       "likes": 43,
       "comments": 2,
       "shares": 1,
@@ -175,7 +175,7 @@
       "average_view_percentage": 62.79,
       "subscribers_gained": 3,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7252
+      "engagement_rate": 3.7221
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -206,6 +206,20 @@
       "engagement_rate": 1.4801
     },
     {
+      "topic": "Freddie Mercury: Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
+      "video_id": "IT9pWnp_XvY",
+      "title": "The Untold Turning Point in Freddie Mercury's Story",
+      "views": 1081,
+      "likes": 38,
+      "comments": 2,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 3.7003
+    },
+    {
       "topic": "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes.",
       "video_id": "kW3x0znSFbM",
       "title": "The Decision That Changed Everything: Phil Knight",
@@ -232,20 +246,6 @@
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 1.4205
-    },
-    {
-      "topic": "Freddie Mercury: Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
-      "video_id": "IT9pWnp_XvY",
-      "title": "The Untold Turning Point in Freddie Mercury's Story",
-      "views": 1056,
-      "likes": 36,
-      "comments": 1,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 3.5038
     },
     {
       "topic": "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
@@ -290,6 +290,20 @@
       "engagement_rate": 0.0
     },
     {
+      "topic": "Amitabh Bachchan: Facing persistent rejection from All India Radio due to his deep voice before becoming the defining star of Indian cinema.",
+      "video_id": "OMXqyVG5lnw",
+      "title": "Amitabh Bachchan Was Rejected... Then Everything Changed",
+      "views": 78,
+      "likes": 5,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 6.4103
+    },
+    {
       "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
       "video_id": "YorYFuuuTOQ",
       "title": "The Untold Turning Point in J.R.R. Tolkien's Story",
@@ -304,18 +318,46 @@
       "engagement_rate": 1.3158
     },
     {
+      "topic": "Sylvester Stallone: Writing the script for Rocky while living in extreme poverty and refusing to sell it unless he played the lead role.",
+      "video_id": "oiqGFKDULVE",
+      "title": "Before the Fame: Sylvester Stallone's Untold Struggle",
+      "views": 48,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 2.0833
+    },
+    {
+      "topic": "Edmund Hillary: The decades-long preparation and final push to conquer the world's highest peak.",
+      "video_id": "bGhh7WNvjJU",
+      "title": "The Untold Turning Point in Edmund Hillary's Story",
+      "views": 41,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 2.439
+    },
+    {
       "topic": "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
       "video_id": "jn4q2CUZJGI",
       "title": "The Untold Turning Point in Alexander Fleming's Story",
-      "views": 34,
-      "likes": 0,
+      "views": 35,
+      "likes": 1,
       "comments": 0,
       "shares": 0,
       "average_view_duration": 32.0,
       "average_view_percentage": 71.81,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.0
+      "engagement_rate": 2.8571
     },
     {
       "topic": "Morgan Freeman: Spending years serving in the United States Air Force before getting his big break on television and film.",
@@ -346,20 +388,6 @@
       "engagement_rate": 3.0303
     },
     {
-      "topic": "Edmund Hillary: The decades-long preparation and final push to conquer the world's highest peak.",
-      "video_id": "bGhh7WNvjJU",
-      "title": "The Untold Turning Point in Edmund Hillary's Story",
-      "views": 29,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 3.4483
-    },
-    {
       "topic": "Jane Goodall: Traveling to the Gombe Stream Reserve without a college degree to live among wild chimpanzees.",
       "video_id": "r7zA06lyxqo",
       "title": "The Untold Turning Point in Jane Goodall's Story",
@@ -388,23 +416,9 @@
       "engagement_rate": 7.1429
     },
     {
-      "topic": "Amitabh Bachchan: Facing persistent rejection from All India Radio due to his deep voice before becoming the defining star of Indian cinema.",
-      "video_id": "OMXqyVG5lnw",
-      "title": "Amitabh Bachchan Was Rejected... Then Everything Changed",
-      "views": 6,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 0.0
-    },
-    {
-      "topic": "Sylvester Stallone: Writing the script for Rocky while living in extreme poverty and refusing to sell it unless he played the lead role.",
-      "video_id": "oiqGFKDULVE",
-      "title": "Before the Fame: Sylvester Stallone's Untold Struggle",
+      "topic": "Carl Sagan: The choice to include Earth sounds and music on a golden record aboard Voyager spacecraft, risking ridicule from orthodox scientists.",
+      "video_id": "LNw-QAQN8A0",
+      "title": "The Decision That Changed Carl Sagan's Life",
       "views": 0,
       "likes": 0,
       "comments": 0,

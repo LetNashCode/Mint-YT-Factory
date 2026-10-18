@@ -308,5 +308,21 @@
     "video_id": "oiqGFKDULVE",
     "workdir": "",
     "published_at": 1792319692
+  },
+  {
+    "topic": "Carl Sagan: The choice to include Earth sounds and music on a golden record aboard Voyager spacecraft, risking ridicule from orthodox scientists.",
+    "normalized": "carl sagan the choice to include earth sounds and music on a golden record aboard voyager spacecraft risking ridicule from orthodox scientists",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1792344089,
+    "recorded_at": 1792344089,
+    "metadata": {
+      "person": "Carl Sagan",
+      "pillar": "one_decision"
+    },
+    "title": "Carl Sagan: The choice to include Earth sounds and music on a golden record aboard Voyager spacecraft, risking ridicule from orthodox scientists.",
+    "video_id": "LNw-QAQN8A0",
+    "workdir": "",
+    "published_at": 1792344993
   }
 ]

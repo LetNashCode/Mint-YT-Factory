@@ -344,10 +344,38 @@ def select_creative_strategy(playbook: dict | None = None) -> dict:
         "cooldown": cooldown,
     }
 
+def _mature_for_learning(record: dict, now: datetime | None = None) -> bool:
+    """Only compare videos with enough time and data to make a fair judgment."""
+    latest = record.get("latest") or {}
+    if not isinstance(latest, dict):
+        return False
+    if "analytics_views" not in latest or "average_view_percentage" not in latest:
+        return False
+    if float(latest.get("average_view_percentage") or 0) <= 0:
+        return False
+    if int(latest.get("analytics_views") or latest.get("views") or 0) < 50:
+        return False
+    published_at = str(record.get("published_at") or "").strip()
+    if not published_at:
+        return False
+    try:
+        published = datetime.fromisoformat(published_at.replace("Z", "+00:00"))
+        if published.tzinfo is None:
+            published = published.replace(tzinfo=timezone.utc)
+    except ValueError:
+        return False
+    reference = now or datetime.now(timezone.utc)
+    return (reference - published.astimezone(timezone.utc)).total_seconds() >= 24 * 60 * 60
+
+
 def build_playbook(records: list[dict]) -> dict:
     usable = [r for r in records if isinstance(r, dict) and r.get("video_id") and isinstance(r.get("latest", {}), dict)]
-    scored = sorted(((_performance(r), r) for r in usable), key=lambda x: x[0], reverse=True)
+    # Never let brand-new or data-starved uploads enter winner/loser cohorts.
+    # Their initial lack of views is a distribution fact, not proof of poor creative.
+    training_records = [r for r in usable if _mature_for_learning(r)]
+    scored = sorted(((_performance(r), r) for r in training_records), key=lambda x: x[0], reverse=True)
     count = len(scored)
+    total_video_count = len(usable)
     # Keep winner and weak cohorts disjoint. With only 4–5 videos, the old
     # minimum of three caused the same records to appear in both cohorts,
     # contaminating the learned pattern comparisons.
@@ -359,7 +387,7 @@ def build_playbook(records: list[dict]) -> dict:
     # present. Basic view/like counts alone are not enough to label a creative
     # pattern a winner because distribution can dominate those numbers.
     advanced_metrics_count = sum(
-        1 for r in usable
+        1 for r in training_records
         if isinstance(r.get("latest"), dict)
         and "analytics_views" in r.get("latest", {})
         and "average_view_percentage" in r.get("latest", {})
@@ -379,7 +407,8 @@ def build_playbook(records: list[dict]) -> dict:
     topics = [_norm_topic(r.get("topic", "")) for r in usable if r.get("topic")]
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "video_count": count,
+        "video_count": total_video_count,
+        "learning_sample_size": count,
         "learning_ready": count >= 3 and has_live_metrics,
         "metrics_available": has_live_metrics,
         "comparative_learning_ready": comparative_learning_ready,

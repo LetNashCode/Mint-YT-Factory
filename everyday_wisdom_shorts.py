@@ -116,9 +116,16 @@ def performance_guidance():
             continue
         retention = float(latest.get("average_view_percentage") or 0)
         published = str(record.get("published_at") or "")
-        if retention <= 0 or not published:
+        checked_at = str(latest.get("checked_at") or "")
+        if retention <= 0 or not published or not checked_at:
             continue
         try:
+            checked_dt = datetime.fromisoformat(checked_at.replace("Z", "+00:00"))
+            if checked_dt.tzinfo is None:
+                checked_dt = checked_dt.replace(tzinfo=timezone.utc)
+            metric_age = (now - checked_dt.astimezone(timezone.utc)).total_seconds()
+            if metric_age < 0 or metric_age > 72 * 60 * 60:
+                continue
             published_dt = datetime.fromisoformat(published.replace("Z", "+00:00"))
             if published_dt.tzinfo is None:
                 published_dt = published_dt.replace(tzinfo=timezone.utc)

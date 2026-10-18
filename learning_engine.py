@@ -427,7 +427,7 @@ def build_playbook(records: list[dict]) -> dict:
         "metrics_available": has_live_metrics,
         "comparative_learning_ready": comparative_learning_ready,
         "advanced_metrics_videos": advanced_metrics_count,
-        "creative_learning_version": "v5",
+        "creative_learning_version": "v6",
         "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
         "strategy": {"exploitation": EXPLOITATION, "adjacent_exploration": ADJACENT_EXPLORATION, "wild_exploration": WILD_EXPLORATION},
         "winning_patterns": winning_patterns,

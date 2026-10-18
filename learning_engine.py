@@ -238,9 +238,13 @@ def _discriminative_rank(
         weak_values = loser_rows.get(pattern, [])
         winner_score = sum(values) / len(values)
         weak_score = sum(weak_values) / len(weak_values) if weak_values else None
-        # A pattern shared by winners and losers is not evidence of a winning
-        # combination unless its winner performance is measurably higher.
-        if weak_score is not None and winner_score <= weak_score:
+        # A pattern shared equally often by winners and losers is not
+        # discriminative: its apparent lift can be caused by selecting the
+        # cohorts on the same performance score. Require both better outcomes
+        # and stronger prevalence in the winner cohort.
+        if weak_score is not None and (
+            winner_score <= weak_score or len(values) <= len(weak_values)
+        ):
             continue
         result.append({
             "pattern": pattern,

@@ -238,9 +238,13 @@ def _discriminative_rank(
         weak_values = loser_rows.get(pattern, [])
         winner_score = sum(values) / len(values)
         weak_score = sum(weak_values) / len(weak_values) if weak_values else None
-        # A pattern shared by winners and losers is not evidence of a winning
-        # combination unless its winner performance is measurably higher.
-        if weak_score is not None and winner_score <= weak_score:
+        # A pattern shared equally often by winners and losers is not
+        # discriminative: its apparent lift can be caused by selecting the
+        # cohorts on the same performance score. Require both better outcomes
+        # and stronger prevalence in the winner cohort.
+        if weak_score is not None and (
+            winner_score <= weak_score or len(values) <= len(weak_values)
+        ):
             continue
         result.append({
             "pattern": pattern,
@@ -340,39 +344,74 @@ def select_creative_strategy(playbook: dict | None = None) -> dict:
         "cooldown": cooldown,
     }
 
+def _mature_for_learning(record: dict, now: datetime | None = None) -> bool:
+    """Only compare videos with enough time and data to make a fair judgment."""
+    latest = record.get("latest") or {}
+    if not isinstance(latest, dict):
+        return False
+    if "analytics_views" not in latest or "average_view_percentage" not in latest:
+        return False
+    if float(latest.get("average_view_percentage") or 0) <= 0:
+        return False
+    if int(latest.get("analytics_views") or latest.get("views") or 0) < 50:
+        return False
+    published_at = str(record.get("published_at") or "").strip()
+    if not published_at:
+        return False
+    try:
+        published = datetime.fromisoformat(published_at.replace("Z", "+00:00"))
+        if published.tzinfo is None:
+            published = published.replace(tzinfo=timezone.utc)
+    except ValueError:
+        return False
+    reference = now or datetime.now(timezone.utc)
+    return (reference - published.astimezone(timezone.utc)).total_seconds() >= 24 * 60 * 60
+
+
 def build_playbook(records: list[dict]) -> dict:
     usable = [r for r in records if isinstance(r, dict) and r.get("video_id") and isinstance(r.get("latest", {}), dict)]
-    scored = sorted(((_performance(r), r) for r in usable), key=lambda x: x[0], reverse=True)
+    # Never let brand-new or data-starved uploads enter winner/loser cohorts.
+    # Their initial lack of views is a distribution fact, not proof of poor creative.
+    training_records = [r for r in usable if _mature_for_learning(r)]
+    scored = sorted(((_performance(r), r) for r in training_records), key=lambda x: x[0], reverse=True)
     count = len(scored)
-    top_n = max(3, min(10, math.ceil(count * 0.25))) if count else 0
+    total_video_count = len(usable)
+    # Keep winner and weak cohorts disjoint. With only 4–5 videos, the old
+    # minimum of three caused the same records to appear in both cohorts,
+    # contaminating the learned pattern comparisons.
+    top_n = min(10, max(2, math.ceil(count * 0.25))) if count else 0
+    cohorts_are_comparable = count >= 6 and (2 * top_n) <= count
     winners = [r for _, r in scored[:top_n]]
-    losers = [r for _, r in scored[-top_n:]] if count >= 4 else []
+    losers = [r for _, r in scored[-top_n:]] if cohorts_are_comparable else []
     # Creative learning is only valid when YouTube Analytics retention rows are
     # present. Basic view/like counts alone are not enough to label a creative
     # pattern a winner because distribution can dominate those numbers.
     advanced_metrics_count = sum(
-        1 for r in usable
+        1 for r in training_records
         if isinstance(r.get("latest"), dict)
         and "analytics_views" in r.get("latest", {})
         and "average_view_percentage" in r.get("latest", {})
     )
     has_live_metrics = advanced_metrics_count >= 3
+    comparative_learning_ready = cohorts_are_comparable and has_live_metrics
 
     isolated_features = ("hook_type","story_format","payoff_position","explanation_position","script_length","narration_pace")
     combo_features = ("hook_type","story_format","payoff_type","tease_type","narration_pace")
     pair_features = ("hook_type","payoff_type","tease_type")
-    winning_patterns = _discriminative_rank(winners, losers, {x:x for x in isolated_features}, 2)[:40] if has_live_metrics else []
-    weak_patterns = _rank(_rows(losers, {x:x for x in isolated_features}), 2)[:30] if has_live_metrics else []
-    winning_combinations = _discriminative_rank(winners, losers, {x:x for x in combo_features}, 2)[:20] if has_live_metrics else []
-    winning_hook_payoff_pairs = _discriminative_rank(winners, losers, {x:x for x in pair_features}, 2)[:12] if has_live_metrics else []
-    creative_strategy_results = _rank(_rows(usable, {"creative_strategy":"creative_strategy"}), 2)[:10] if has_live_metrics else []
+    winning_patterns = _discriminative_rank(winners, losers, {x:x for x in isolated_features}, 2)[:40] if comparative_learning_ready else []
+    weak_patterns = _rank(_rows(losers, {x:x for x in isolated_features}), 2)[:30] if comparative_learning_ready else []
+    winning_combinations = _discriminative_rank(winners, losers, {x:x for x in combo_features}, 2)[:20] if comparative_learning_ready else []
+    winning_hook_payoff_pairs = _discriminative_rank(winners, losers, {x:x for x in pair_features}, 2)[:12] if comparative_learning_ready else []
+    creative_strategy_results = _rank(_rows(usable, {"creative_strategy":"creative_strategy"}), 2)[:10] if comparative_learning_ready else []
 
     topics = [_norm_topic(r.get("topic", "")) for r in usable if r.get("topic")]
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "video_count": count,
+        "video_count": total_video_count,
+        "learning_sample_size": count,
         "learning_ready": count >= 3 and has_live_metrics,
         "metrics_available": has_live_metrics,
+        "comparative_learning_ready": comparative_learning_ready,
         "advanced_metrics_videos": advanced_metrics_count,
         "creative_learning_version": "v5",
         "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
@@ -382,8 +421,8 @@ def build_playbook(records: list[dict]) -> dict:
         "winning_combinations": winning_combinations,
         "winning_hook_payoff_pairs": winning_hook_payoff_pairs,
         "creative_strategy_results": creative_strategy_results,
-        "winning_topics": [r.get("topic", "") for r in winners if r.get("topic")][:10] if has_live_metrics else [],
-        "avoid_topics": [r.get("topic", "") for r in losers if r.get("topic")][:10] if has_live_metrics else [],
+        "winning_topics": [r.get("topic", "") for r in winners if r.get("topic")][:10] if comparative_learning_ready else [],
+        "avoid_topics": [r.get("topic", "") for r in losers if r.get("topic")][:10] if comparative_learning_ready else [],
         "used_topic_count": len(set(topics)),
         "rules": [
             "Learn combinations, not templates; never copy winning topics literally.",

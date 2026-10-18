@@ -15699,6 +15699,126 @@
       "shot": 2,
       "query": "butter wrapper you literally fighting microscopic",
       "recorded_at": 1792266162
+    },
+    {
+      "asset_key": "pexels:video:3967235",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3967235/3967235-hd_1366_720_24fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "ceramic tiles sudden foot stepping onto",
+      "recorded_at": 1792352387
+    },
+    {
+      "asset_key": "pexels:video:6023466",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6023466/6023466-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "ceramic tiles hollow clack underfoot means",
+      "recorded_at": 1792352408
+    },
+    {
+      "asset_key": "pexels:video:24906851",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/24906851/11898908_1280_720_60fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "ceramic tiles most floor sounds solid",
+      "recorded_at": 1792352412
+    },
+    {
+      "asset_key": "pexels:video:7221528",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7221528/7221528-hd_1366_720_25fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "ceramic tiles but one single tile",
+      "recorded_at": 1792352427
+    },
+    {
+      "asset_key": "pexels:video:24906852",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/24906852/11898902_1280_720_60fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "ceramic tiles acoustic trick sticky mortar",
+      "recorded_at": 1792352447
+    },
+    {
+      "asset_key": "pexels:video:24906850",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/24906850/11898934_1280_720_60fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "ceramic tiles leaving hidden air pocket",
+      "recorded_at": 1792352450
+    },
+    {
+      "asset_key": "pexels:video:6343568",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6343568/6343568-hd_1366_720_30fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "ceramic tiles tile bonds flat against",
+      "recorded_at": 1792352460
+    },
+    {
+      "asset_key": "pexels:video:6611032",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6611032/6611032-hd_1280_720_25fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "ceramic tiles sound waves travel straight",
+      "recorded_at": 1792352464
+    },
+    {
+      "asset_key": "pexels:video:35495443",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35495443/15037016_1280_720_24fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "ceramic tiles add air gap",
+      "recorded_at": 1792352469
+    },
+    {
+      "asset_key": "pexels:video:4002685",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4002685/4002685-hd_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "ceramic tiles every tap bounces inside",
+      "recorded_at": 1792352474
+    },
+    {
+      "asset_key": "pexels:video:24906849",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/24906849/11898926_1280_720_60fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "ceramic tiles hollow ring your floor",
+      "recorded_at": 1792352479
+    },
+    {
+      "asset_key": "pexels:video:6486439",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6486439/6486439-hd_1366_720_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "ceramic tiles proving there space hiding",
+      "recorded_at": 1792352483
     }
   ]
 }

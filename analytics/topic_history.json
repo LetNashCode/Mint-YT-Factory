@@ -3514,5 +3514,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do ceramic tiles sound hollow",
+    "normalized": "why do ceramic tiles sound hollow",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1792352160,
+    "recorded_at": 1792352160,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

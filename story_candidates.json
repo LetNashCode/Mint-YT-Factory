@@ -1,18 +1,5 @@
 [
   {
-    "format": "rise_from_nothing",
-    "person": "Viswanathan Anand",
-    "premise": "Emerging from a modest background in southern India to become the country's first chess Grandmaster and multi-time World Champion.",
-    "hook": "He learned the complex rules of chess from his mother in a quiet suburban home, long before India had any chess infrastructure.",
-    "key_facts": [
-      "Born in Mayiladuthurai, Tamil Nadu, and learned chess at the age of six.",
-      "Became India's first Grandmaster in 1988 at the age of 18.",
-      "Won the FIDE World Chess Championship multiple times across different formats.",
-      "Popularized chess significantly across India, inspiring a new generation of grandmasters."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "one_decision",
     "person": "Maurice Sendak",
     "premise": "Deciding to ignore conservative children's book publishing standards to depict raw, scary childhood emotions.",
@@ -52,15 +39,41 @@
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Diana Nyad",
-    "premise": "Attempting a historic 110-mile open-ocean swim from Cuba to Florida at the age of 64 after multiple prior failures.",
-    "hook": "Stung by jellyfish and battered by storms, she refused to give up on a lifelong dream that nearly killed her.",
+    "format": "rise_from_nothing",
+    "person": "Viswanathan Anand",
+    "premise": "Rising from chess clubs in Chennai to become India's first chess Grandmaster and undisputed World Champion.",
+    "hook": "He learned the game from his mother in a quiet corner of India long before the country had any grandmasters.",
     "key_facts": [
-      "Completed the swim from Havana to Key West in September 2013 without a shark cage.",
-      "Endured dangerous Portuguese man-o'-war stings and severe asthma attacks during the 53-hour journey.",
-      "Made four previous unsuccessful attempts earlier in her life.",
-      "Became the first person to swim across the Florida Straits without shark cage protection."
+      "Learned chess at age six from his mother, Susheela.",
+      "Became India's first Grandmaster in 1988 at the age of 18.",
+      "Won the FIDE World Chess Championship five times across different formats.",
+      "Popularized chess significantly across India, inspiring a new generation of players."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Audrey Hepburn",
+    "premise": "Walking away from a lucrative Hollywood contract to dedicate the rest of her life to UNICEF field work.",
+    "hook": "At the height of her film career, she chose to board cargo planes to war zones instead of movie sets.",
+    "key_facts": [
+      "Survived severe malnutrition and hardship in Nazi-occupied Netherlands during World War II.",
+      "Won an Academy Award for Best Actress for 'Roman Holiday' in 1953.",
+      "Appointed as a UNICEF Goodwill Ambassador in 1988.",
+      "Spent her final years traveling extensively to impoverished regions in Africa, Asia, and Latin America."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Neil Armstrong",
+    "premise": "Transitioning from a combat fighter pilot in Korea to an experimental test pilot, eventually leading to the Apollo 11 moon landing.",
+    "hook": "His spacecraft once bounced off the upper atmosphere during a critical test flight, nearly ending his career.",
+    "key_facts": [
+      "Flew 78 combat missions as a US Navy pilot during the Korean War.",
+      "Served as a civilian test pilot for the X-15 rocket plane program at Edwards Air Force Base.",
+      "Selected as an astronaut in NASA Astronaut Group 2 in 1962.",
+      "Commanded Apollo 11 and became the first human to walk on the Moon on July 20, 1969."
     ],
     "source": "gemini_original"
   }

@@ -340,5 +340,21 @@
     "video_id": "JWLDsHHpGc4",
     "workdir": "",
     "published_at": 1792350643
+  },
+  {
+    "topic": "Diana Nyad: Attempting a historic 110-mile open-ocean swim from Cuba to Florida at the age of 64 after multiple prior failures.",
+    "normalized": "diana nyad attempting a historic 110 mile open ocean swim from cuba to florida at the age of 64 after multiple prior failures",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1792439595,
+    "recorded_at": 1792439595,
+    "metadata": {
+      "person": "Diana Nyad",
+      "pillar": "impossible_odds"
+    },
+    "title": "Diana Nyad: Attempting a historic 110-mile open-ocean swim from Cuba to Florida at the age of 64 after multiple prior failures.",
+    "video_id": "MPBaQ6ywruY",
+    "workdir": "",
+    "published_at": 1792440263
   }
 ]

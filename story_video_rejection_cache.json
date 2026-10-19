@@ -6421,6 +6421,105 @@
       "start": 33.97,
       "reason": "The sampled frames clearly feature James Cameron speaking at a press conference, providing biographical illustration material suitable for a documentary short.",
       "reviewed_at": 1792350005.196971
+    },
+    "116173a07f43d7cacd24a8c1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:WHIT09JohnPareInt",
+      "source_url": "https://archive.org/details/WHIT09JohnPareInt",
+      "person": "Louis Braille",
+      "start": 42.45,
+      "reason": "The footage features an interview about a commemorative coin celebrating Louis Braille, serving as biographical illustration rather than depicting Louis Braille himself (who lived in the 19th century).",
+      "reviewed_at": 1792439456.7544808
+    },
+    "c24d860370d02f8930085b05": {
+      "kind": "segment_rejection",
+      "source_id": "archive:WHIT09JohnPareInt",
+      "source_url": "https://archive.org/details/WHIT09JohnPareInt",
+      "person": "Louis Braille",
+      "start": 51.82,
+      "reason": "The footage shows a contemporary speaker discussing a commemorative coin honoring Louis Braille, not Louis Braille himself (who lived in the 19th century). Therefore, the subject is not visible and the footage is not usable as biographical illustration or direct event footage of Louis Braille.",
+      "reviewed_at": 1792439462.3147392
+    },
+    "89511f9861f8abb341324a67": {
+      "kind": "segment_rejection",
+      "source_id": "archive:orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "person": "Louis Braille",
+      "start": 629.11,
+      "reason": "The footage shows a modern public access television podcast set ('Abled and on Air') with contemporary hosts and equipment, which has no connection to Louis Braille's historical biography.",
+      "reviewed_at": 1792439495.0206213
+    },
+    "8aa0db509393bcd9401e0b53": {
+      "kind": "segment_rejection",
+      "source_id": "archive:orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "person": "Louis Braille",
+      "start": 837.14,
+      "reason": "The footage shows a modern podcast host discussing history, not Louis Braille himself, and does not provide usable biographical illustration or direct historical context.",
+      "reviewed_at": 1792439500.2477303
+    },
+    "57a98917b531d16413a92f4a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cunytv_BCSPA115",
+      "source_url": "https://archive.org/details/cunytv_BCSPA115",
+      "person": "Louis Braille",
+      "start": 1051.66,
+      "reason": "The footage features C. Michael Mellor discussing the life and legacy of Louis Braille at Baruch College in 2009. While Louis Braille himself is not visible (as he lived in the 19th century), this serves as genuine biographical commentary and archival discussion about his life.",
+      "reviewed_at": 1792439507.3291306
+    },
+    "8b1221aac6c24f18320649d1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cunytv_BCSPA115",
+      "source_url": "https://archive.org/details/cunytv_BCSPA115",
+      "person": "Louis Braille",
+      "start": 1313.33,
+      "reason": "The video features a modern lecture or presentation about Louis Braille at Baruch College in 2009, with a speaker (C. Michael Mellor) discussing the topic. Louis Braille lived in the 19th century and cannot appear in this footage. Therefore, the clip does not depict Louis Braille or historical context directly related to his life, making it unusable for a biographical short.",
+      "reviewed_at": 1792439513.1434565
+    },
+    "ffa2da74f441d69b381c6cd0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Louis_Braille",
+      "source_url": "https://archive.org/details/btvin-Louis_Braille",
+      "person": "Louis Braille",
+      "start": 33.76,
+      "reason": "The sampled frames consist of a static drawing illustration of Louis Braille overlaid with Braille alphabet charts, which violates the requirement for real filmed footage and constitutes static imagery/slideshow content.",
+      "reviewed_at": 1792439519.664543
+    },
+    "94b444be1f6869aaa9bb7256": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Louis_Braille",
+      "source_url": "https://archive.org/details/btvin-Louis_Braille",
+      "person": "Louis Braille",
+      "start": 52.94,
+      "reason": "The segment consists entirely of still illustrations and book covers depicting Louis Braille rather than real, moving historical footage of the subject.",
+      "reviewed_at": 1792439525.651186
+    },
+    "6d8f54cd43984e18272a6f02": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LouisBrailleAndTheBrailleAlphabet",
+      "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+      "person": "Louis Braille",
+      "start": 266.62,
+      "reason": "The video segment shows historical documents and tactile charts depicting the braille alphabet and its mechanics, which is directly relevant to Louis Braille's life and invention, although Louis Braille himself (who lived from 1809 to 1852) is not visibly present in the archival footage.",
+      "reviewed_at": 1792439536.9398959
+    },
+    "502d961dd600e1312e66a5c0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LouisBrailleAndTheBrailleAlphabet",
+      "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+      "person": "Louis Braille",
+      "start": 397.44,
+      "reason": "The segment features archival B-roll demonstrating tactile braille letters and the braille alphabet, serving as good biographical illustration for Louis Braille's invention, although Louis Braille himself is not visible (as he lived in the 19th century).",
+      "reviewed_at": 1792439551.0773504
+    },
+    "c6e51516322daecb71e7875e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LouisBrailleAndTheBrailleAlphabet",
+      "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+      "person": "Louis Braille",
+      "start": 528.25,
+      "reason": "The footage shows a dramatic reconstruction or biographical illustration of a young boy representing Louis Braille using a tactile writing slate, fitting the historical context of his invention. However, since Louis Braille lived in the 19th century before moving film existed, this is a dramatized reenactment rather than authentic identity footage of Braille himself.",
+      "reviewed_at": 1792439556.9762282
     }
   }
 }

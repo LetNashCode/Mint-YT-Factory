@@ -1,19 +1,6 @@
 [
   {
     "format": "one_decision",
-    "person": "Maurice Sendak",
-    "premise": "Deciding to ignore conservative children's book publishing standards to depict raw, scary childhood emotions.",
-    "hook": "Editors warned him that his monsters were far too terrifying for young readers, but he refused to change a single line.",
-    "key_facts": [
-      "Grew up in New York City with frail health, spending much of his childhood indoors drawing.",
-      "Worked as an illustrator before writing and illustrating his own children's books.",
-      "Authored and illustrated 'Where the Wild Things Are' in 1963.",
-      "The book initially faced controversy for its dark themes before becoming an international classic."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
     "person": "Harrison Ford",
     "premise": "Working as a carpenter on a film set when a chance casting favor led to him reading lines for auditions, landing the role of Han Solo.",
     "hook": "He was just hired to build cabinets on the set until the director asked him to read lines for an auditioner.",
@@ -61,19 +48,6 @@
       "Won an Academy Award for Best Actress for 'Roman Holiday' in 1953.",
       "Appointed as a UNICEF Goodwill Ambassador in 1988.",
       "Spent her final years traveling extensively to impoverished regions in Africa, Asia, and Latin America."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Neil Armstrong",
-    "premise": "Transitioning from a combat fighter pilot in Korea to an experimental test pilot, eventually leading to the Apollo 11 moon landing.",
-    "hook": "His spacecraft once bounced off the upper atmosphere during a critical test flight, nearly ending his career.",
-    "key_facts": [
-      "Flew 78 combat missions as a US Navy pilot during the Korean War.",
-      "Served as a civilian test pilot for the X-15 rocket plane program at Edwards Air Force Base.",
-      "Selected as an astronaut in NASA Astronaut Group 2 in 1962.",
-      "Commanded Apollo 11 and became the first human to walk on the Moon on July 20, 1969."
     ],
     "source": "gemini_original"
   }

@@ -6520,6 +6520,42 @@
       "start": 528.25,
       "reason": "The footage shows a dramatic reconstruction or biographical illustration of a young boy representing Louis Braille using a tactile writing slate, fitting the historical context of his invention. However, since Louis Braille lived in the 19th century before moving film existed, this is a dramatized reenactment rather than authentic identity footage of Braille himself.",
       "reviewed_at": 1792439556.9762282
+    },
+    "c81a8043b7fd6d9227084b6e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NeilArmstrongInterview2011",
+      "source_url": "https://archive.org/details/NeilArmstrongInterview2011",
+      "person": "Neil Armstrong",
+      "start": 1722.85,
+      "reason": "The footage shows archival scenes of NASA mission control during a space mission, providing relevant historical context for Neil Armstrong's career, although Neil Armstrong himself is not visible in the sampled frames.",
+      "reviewed_at": 1792443708.1598775
+    },
+    "4e88a141c83b4e25645af4a6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NeilArmstrongInterview2011",
+      "source_url": "https://archive.org/details/NeilArmstrongInterview2011",
+      "person": "Neil Armstrong",
+      "start": 5.0,
+      "reason": "The video features an unidentified man in a suit speaking, not Neil Armstrong, and later shows title cards for CPA Australia. Therefore, the person is not visible and the footage is not usable.",
+      "reviewed_at": 1792443990.779574
+    },
+    "67cb91110736a733adc2ef75": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NeilArmstrongInterview2011",
+      "source_url": "https://archive.org/details/NeilArmstrongInterview2011",
+      "person": "Neil Armstrong",
+      "start": 741.22,
+      "reason": "The video features an unidentified speaker discussing Neil Armstrong, but Neil Armstrong himself is not visible in any of the sampled frames.",
+      "reviewed_at": 1792444228.8190994
+    },
+    "93449a9d410b6c52e3861e5c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NeilArmstrongInterview2011",
+      "source_url": "https://archive.org/details/NeilArmstrongInterview2011",
+      "person": "Neil Armstrong",
+      "start": 1477.45,
+      "reason": "The video features an unidentified speaker discussing space-related topics rather than Neil Armstrong, and the person visible in the footage is definitely not Neil Armstrong.",
+      "reviewed_at": 1792444503.7223125
     }
   }
 }

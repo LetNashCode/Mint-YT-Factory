@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-10-19T20:04:26.202888+00:00",
-  "refresh_attempted_at": "2026-10-19T20:04:26.202888+00:00",
+  "generated_at": "2026-10-19T21:26:43.537219+00:00",
+  "refresh_attempted_at": "2026-10-19T21:26:43.537219+00:00",
   "refresh_status": "success",
-  "video_count": 21,
+  "video_count": 22,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 17,
   "reason": "",
   "totals": {
-    "views": 8804,
+    "views": 8818,
     "likes": 189,
     "comments": 5
   },
   "averages": {
-    "views": 419.24,
-    "likes": 9.0,
-    "comments": 0.24,
-    "average_view_percentage": 41.93,
-    "subscribers_gained": 0.48,
+    "views": 400.82,
+    "likes": 8.59,
+    "comments": 0.23,
+    "average_view_percentage": 40.02,
+    "subscribers_gained": 0.45,
     "shares": 0.05
   },
   "top_videos": [
@@ -39,7 +39,7 @@
       "topic": "Freddie Mercury: Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
       "video_id": "IT9pWnp_XvY",
       "title": "The Untold Turning Point in Freddie Mercury's Story",
-      "views": 1144,
+      "views": 1156,
       "likes": 44,
       "comments": 2,
       "shares": 0,
@@ -47,7 +47,7 @@
       "average_view_percentage": 43.23,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 4.021
+      "engagement_rate": 3.9792
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -181,7 +181,7 @@
       "topic": "Freddie Mercury: Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
       "video_id": "IT9pWnp_XvY",
       "title": "The Untold Turning Point in Freddie Mercury's Story",
-      "views": 1144,
+      "views": 1156,
       "likes": 44,
       "comments": 2,
       "shares": 0,
@@ -189,7 +189,7 @@
       "average_view_percentage": 43.23,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 4.021
+      "engagement_rate": 3.9792
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -307,7 +307,7 @@
       "topic": "Amitabh Bachchan: Facing persistent rejection from All India Radio due to his deep voice before becoming the defining star of Indian cinema.",
       "video_id": "OMXqyVG5lnw",
       "title": "Amitabh Bachchan Was Rejected... Then Everything Changed",
-      "views": 80,
+      "views": 81,
       "likes": 5,
       "comments": 0,
       "shares": 0,
@@ -315,7 +315,7 @@
       "average_view_percentage": 26.69,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 6.25
+      "engagement_rate": 6.1728
     },
     {
       "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
@@ -335,7 +335,7 @@
       "topic": "Sylvester Stallone: Writing the script for Rocky while living in extreme poverty and refusing to sell it unless he played the lead role.",
       "video_id": "oiqGFKDULVE",
       "title": "Before the Fame: Sylvester Stallone's Untold Struggle",
-      "views": 53,
+      "views": 52,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -343,13 +343,13 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.8868
+      "engagement_rate": 1.9231
     },
     {
       "topic": "Edmund Hillary: The decades-long preparation and final push to conquer the world's highest peak.",
       "video_id": "bGhh7WNvjJU",
       "title": "The Untold Turning Point in Edmund Hillary's Story",
-      "views": 50,
+      "views": 51,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -357,7 +357,7 @@
       "average_view_percentage": 38.91,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 2.0
+      "engagement_rate": 1.9608
     },
     {
       "topic": "Alexander Fleming: A routine laboratory mess involving neglected petri dishes leads to an accidental fungal spore contamination that changes modern medicine forever.",
@@ -405,7 +405,7 @@
       "topic": "James Cameron: Conceiving the terrifying cyborg antagonist of 'The Terminator' after experiencing a high fever and delirium while sick in Rome.",
       "video_id": "JWLDsHHpGc4",
       "title": "The Untold Turning Point in James Cameron's Story",
-      "views": 31,
+      "views": 32,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -447,6 +447,20 @@
       "topic": "Diana Nyad: Attempting a historic 110-mile open-ocean swim from Cuba to Florida at the age of 64 after multiple prior failures.",
       "video_id": "MPBaQ6ywruY",
       "title": "Diana Nyad Was Rejected... Then Everything Changed",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    },
+    {
+      "topic": "Neil Armstrong: Transitioning from a combat fighter pilot in Korea to an experimental test pilot, eventually leading to the Apollo 11 moon landing.",
+      "video_id": "2Yjsc0D8RMg",
+      "title": "The Untold Turning Point in Neil Armstrong's Story",
       "views": 0,
       "likes": 0,
       "comments": 0,

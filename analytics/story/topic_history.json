@@ -356,5 +356,21 @@
     "video_id": "MPBaQ6ywruY",
     "workdir": "",
     "published_at": 1792440263
+  },
+  {
+    "topic": "Neil Armstrong: Transitioning from a combat fighter pilot in Korea to an experimental test pilot, eventually leading to the Apollo 11 moon landing.",
+    "normalized": "neil armstrong transitioning from a combat fighter pilot in korea to an experimental test pilot eventually leading to the apollo 11 moon landing",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1792443501,
+    "recorded_at": 1792443501,
+    "metadata": {
+      "person": "Neil Armstrong",
+      "pillar": "strange_turning_point"
+    },
+    "title": "Neil Armstrong: Transitioning from a combat fighter pilot in Korea to an experimental test pilot, eventually leading to the Apollo 11 moon landing.",
+    "video_id": "2Yjsc0D8RMg",
+    "workdir": "",
+    "published_at": 1792445200
   }
 ]

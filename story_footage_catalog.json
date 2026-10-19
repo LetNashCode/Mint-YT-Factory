@@ -2,399 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Oprah Winfrey",
-      "source": {
-        "id": "commons:54153792",
-        "provider": "Wikimedia Commons",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
-        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
-        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
-        "creator": "The White House",
-        "license": "Public domain",
-        "direct_subject": true,
-        "identity_score": 13.0
-      },
-      "start": 96.29,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "Oprah Winfrey is clearly visible across all three frames in genuine interview/archival footage discussing her life and work, serving as a solid biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "07667cbe5d950f7a0da382f095a41961a93a4953ac0e4534e4f8ed6213cdc709",
-      "reviewed_at": 1790415915.034838
-    },
-    {
-      "person": "Oprah Winfrey",
-      "source": {
-        "id": "archive:the-oprah-winfrey-show-march-17-1994-most",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-oprah-winfrey-show-march-17-1994-most/The%20Oprah%20Winfrey%20Show-%20March%2017%2C%201994%20%28most%29.ia.mp4",
-        "source_url": "https://archive.org/details/the-oprah-winfrey-show-march-17-1994-most",
-        "title": "The Oprah Winfrey Show- March 17, 1994 (most)",
-        "description": "Oprah discusses the challenges of life and how various emotional obstacles can hold the purpose of life back. Today's two guests describe the turning points of their lives and discuss how unfulfilling their lives have been. Oprah Winfrey 90s talk show season 8",
-        "creator": "",
-        "license": "",
-        "subject": "Oprah Winfrey 90s talk show season 8",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0
-      },
-      "start": 1005.35,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Oprah Winfrey is clearly visible hosting her talk show in all three frames, providing valid biographical illustration footage, though it does not depict a specific narrated historical event.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d9a8ca654c9a7391a939867b1da0fd22e9bd8053ff5bd7feae9e34d73f98355b",
-      "reviewed_at": 1790415971.3880613
-    },
-    {
-      "person": "Oprah Winfrey",
-      "source": {
-        "id": "commons:54153792",
-        "provider": "Wikimedia Commons",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
-        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
-        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
-        "creator": "The White House",
-        "license": "Public domain",
-        "direct_subject": true,
-        "identity_score": 13.0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The clip shows real, moving footage of Oprah Winfrey speaking, which serves as good biographical illustration for her life and achievements, though it is not direct footage of the specific historical events narrated.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "1c3bb17e87599b8c6310314ab49bdb3078f96701851b6924b7c475ae015b7596",
-      "reviewed_at": 1790415976.1358404
-    },
-    {
-      "person": "Oprah Winfrey",
-      "source": {
-        "id": "archive:the-oprah-winfrey-show-march-17-1994-most",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-oprah-winfrey-show-march-17-1994-most/The%20Oprah%20Winfrey%20Show-%20March%2017%2C%201994%20%28most%29.ia.mp4",
-        "source_url": "https://archive.org/details/the-oprah-winfrey-show-march-17-1994-most",
-        "title": "The Oprah Winfrey Show- March 17, 1994 (most)",
-        "description": "Oprah discusses the challenges of life and how various emotional obstacles can hold the purpose of life back. Today's two guests describe the turning points of their lives and discuss how unfulfilling their lives have been. Oprah Winfrey 90s talk show season 8",
-        "creator": "",
-        "license": "",
-        "subject": "Oprah Winfrey 90s talk show season 8",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "Oprah Winfrey is clearly visible across all frames hosting her talk show in 1994, serving as biographical illustration of her career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "abd93b7224d8de91664450d3ca081871f22c4e0a26fc93031ffa65b5d2c34762",
-      "reviewed_at": 1790415977.4032187
-    },
-    {
-      "person": "Oprah Winfrey",
-      "source": {
-        "id": "commons:54153792",
-        "provider": "Wikimedia Commons",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
-        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
-        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
-        "creator": "The White House",
-        "license": "Public domain",
-        "direct_subject": true,
-        "identity_score": 13.0
-      },
-      "start": 18.04,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "Oprah Winfrey is clearly visible throughout all three frames in real filmed footage, speaking while wearing the Presidential Medal of Freedom. While it illustrates her life and awards, it does not depict a specific historical event being narrated, making it suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f81a3f1976cd3215fd7c5a8fa785ab74d0ac9f2984965869485103f6823f8615",
-      "reviewed_at": 1790415981.9738762
-    },
-    {
-      "person": "Oprah Winfrey",
-      "source": {
-        "id": "archive:the-oprah-winfrey-show-march-17-1994-most",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-oprah-winfrey-show-march-17-1994-most/The%20Oprah%20Winfrey%20Show-%20March%2017%2C%201994%20%28most%29.ia.mp4",
-        "source_url": "https://archive.org/details/the-oprah-winfrey-show-march-17-1994-most",
-        "title": "The Oprah Winfrey Show- March 17, 1994 (most)",
-        "description": "Oprah discusses the challenges of life and how various emotional obstacles can hold the purpose of life back. Today's two guests describe the turning points of their lives and discuss how unfulfilling their lives have been. Oprah Winfrey 90s talk show season 8",
-        "creator": "",
-        "license": "",
-        "subject": "Oprah Winfrey 90s talk show season 8",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0
-      },
-      "start": 1805.62,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Oprah Winfrey is clearly visible across all three frames hosting her talk show. While it provides biographical illustration rather than depicting a specific narrated event, the footage is genuine and usable.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "53b3491e4c8048012904066083dd7c640b8c6c7078210df1f28e695ca13ecc93",
-      "reviewed_at": 1790416000.866466
-    },
-    {
-      "person": "Oprah Winfrey",
-      "source": {
-        "id": "commons:54153792",
-        "provider": "Wikimedia Commons",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
-        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
-        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
-        "creator": "The White House",
-        "license": "Public domain",
-        "direct_subject": true,
-        "identity_score": 13.0
-      },
-      "start": 44.12,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "Oprah Winfrey is clearly visible in all three frames of this filmed footage, serving as valid biographical illustration for a video about her life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "490df90015c58b3a6dcdeddc1c831c5a2db2bb4c867b74d1a160340551788320",
-      "reviewed_at": 1790416008.0349956
-    },
-    {
-      "person": "Oprah Winfrey",
-      "source": {
-        "id": "archive:the-oprah-winfrey-show-march-17-1994-most",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-oprah-winfrey-show-march-17-1994-most/The%20Oprah%20Winfrey%20Show-%20March%2017%2C%201994%20%28most%29.ia.mp4",
-        "source_url": "https://archive.org/details/the-oprah-winfrey-show-march-17-1994-most",
-        "title": "The Oprah Winfrey Show- March 17, 1994 (most)",
-        "description": "Oprah discusses the challenges of life and how various emotional obstacles can hold the purpose of life back. Today's two guests describe the turning points of their lives and discuss how unfulfilling their lives have been. Oprah Winfrey 90s talk show season 8",
-        "creator": "",
-        "license": "",
-        "subject": "Oprah Winfrey 90s talk show season 8",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0
-      },
-      "start": 2205.76,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Oprah Winfrey is clearly visible across all three frames hosting her talk show. While it shows her professional career, it is archival talk show footage rather than direct footage of the specific life events narrated, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "1f7afdaca742caef0271c6f7ba2850fd3b80d6709fd7d2afc4a61ed744a38b97",
-      "reviewed_at": 1790416014.4629166
-    },
-    {
-      "person": "Oprah Winfrey",
-      "source": {
-        "id": "commons:54153792",
-        "provider": "Wikimedia Commons",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
-        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
-        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
-        "creator": "The White House",
-        "license": "Public domain",
-        "direct_subject": true,
-        "identity_score": 13.0
-      },
-      "start": 57.16,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows actual moving footage of Oprah Winfrey speaking, which serves as valid biographical illustration, though it does not depict a specific narrated historical event.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "4c61fcb94c253d9d7a680f0d720e7d8592d3fff364c9a41cf78e12ac07b4e771",
-      "reviewed_at": 1790416019.3762758
-    },
-    {
-      "person": "Oprah Winfrey",
-      "source": {
-        "id": "commons:54153792",
-        "provider": "Wikimedia Commons",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
-        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
-        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
-        "creator": "The White House",
-        "license": "Public domain",
-        "direct_subject": true,
-        "identity_score": 13.0
-      },
-      "start": 70.2,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video shows real, filmed footage of Oprah Winfrey speaking, suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "781db9e8f1eb0f1ad2ec46c44ccb3ec9f5e8c3d617bfaeac402a9b4314734dc9",
-      "reviewed_at": 1790416036.2057405
-    },
-    {
-      "person": "Oprah Winfrey",
-      "source": {
-        "id": "commons:54153792",
-        "provider": "Wikimedia Commons",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
-        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
-        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
-        "creator": "The White House",
-        "license": "Public domain",
-        "direct_subject": true,
-        "identity_score": 13.0
-      },
-      "start": 83.25,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The footage features Oprah Winfrey speaking directly on camera in an archival interview setting, making it suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6dadfbafbf9e5c05c14d6946859414c07977e97e88f85cdeabb42dd3f4fd37d4",
-      "reviewed_at": 1790416040.8739042
-    },
-    {
-      "person": "Oprah Winfrey",
-      "source": {
-        "id": "commons:54153792",
-        "provider": "Wikimedia Commons",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
-        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
-        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
-        "creator": "The White House",
-        "license": "Public domain",
-        "direct_subject": true,
-        "identity_score": 13.0
-      },
-      "start": 109.33,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "Oprah Winfrey is clearly visible speaking in all three frames of this interview footage, serving as valid biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "2ba96c56bdd948235b1fc5a47ab7e21c11df0e49acf8823a84267f2aae26ec05",
-      "reviewed_at": 1790416045.7391143
-    },
-    {
-      "person": "Oprah Winfrey",
-      "source": {
-        "id": "commons:54153792",
-        "provider": "Wikimedia Commons",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-        "source_url": "https://commons.wikimedia.org/wiki/File:Presidential_Medal_of_Freedom_Recipient_-_Oprah_Winfrey.webm",
-        "title": "File:Presidential Medal of Freedom Recipient - Oprah Winfrey.webm",
-        "description": "Oprah Winfrey is one of the world's most successful broadcast journalists. She is best known for creating The Oprah Winfrey Show, which became the highest-rated talk show in America for 25 years. Ms. Winfrey has long been active in philanthropic causes and expanding opportunities for young women. She has received numerous awards throughout her career, including the Bob Hope Humanitarian Award in 2002 and the Kennedy Center Honors in 2010. For more information visit http://www.whitehouse.gov/medal-of-freedom",
-        "creator": "The White House",
-        "license": "Public domain",
-        "direct_subject": true,
-        "identity_score": 13.0
-      },
-      "start": 122.37,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video shows actual filmed footage of Oprah Winfrey speaking, serving as good biographical illustration of her later career, although it is a talking head interview clip rather than direct footage of a specific narrated event.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "49f47e29342283099cf79643c82498fdf36151618b129ba3b269489b15a5c85e",
-      "reviewed_at": 1790416050.452469
-    },
-    {
-      "person": "Keanu Reeves",
-      "source": {
-        "id": "archive:spautx-Man_of_Tai_Chi_-_Keanu_Reeves_Tiger_Chen_Red_Carpet_Interivew",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/spautx-Man_of_Tai_Chi_-_Keanu_Reeves_Tiger_Chen_Red_Carpet_Interivew/Man_of_Tai_Chi_-_Keanu_Reeves_Tiger_Chen_Red_Carpet_Interivew.mp4",
-        "source_url": "https://archive.org/details/spautx-Man_of_Tai_Chi_-_Keanu_Reeves_Tiger_Chen_Red_Carpet_Interivew",
-        "title": "Man of Tai Chi - Keanu Reeves & Tiger Chen Red Carpet Interivew",
-        "description": "We attended Fantastic Fest to cover the \"Man of Tai Chi\" red carpet where Jenny Zurita spoke with Keanu Reeves and Tiger Chen. This film is Keanu Reeves's directorial debut! ------ For full episodes of Sneak Peek, go to our NEW website: http://texasstudenttv.com/show/sneak-peek And to get regular updates, check out our twitter at: https://twitter.com/sneakpeektv And you can become a fan of our show at https://www.facebook.com/pages/Sneak-Peek/75042441415?ref=ts&fref=ts And of course, come back for new videos every week here on our channel: http://www.youtube.com/sneakpeektelev... ['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'ut', 'university', 'of', 'texas', 'at', 'austin', 'atx', 'tx', 'tstv', 'student', 'television', 'tv', 'sneak', 'peek', 'entertainment', 'news', 'show', 'fantastic fest', 'festival', 'Fantastic Fest (Film Festival)', 'Alamo Drafthouse Cinema (Organization)', 'alamo drafthouse', 'lakeline', 'theater', 'film', 'movie', 'interview', 'red carpet', 'Man Of Tai Chi (Film)', 'Keanu Reeves (TV Actor)', 'Red', 'keanu reeves', 'director', 'debut', 'actor', 'tiger chen', 'martial arts', 'tai chi', '2013']",
-        "creator": "Sneak Peek",
-        "license": "",
-        "subject": "['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'ut', 'university', 'of', 'texas', 'at', 'austin', 'atx', 'tx', 'tstv', 'student', 'television', 'tv', 'sneak', 'peek', 'entertainment', 'news', 'show', 'fantastic fest', 'festival', 'Fantastic Fest (Film Festival)', 'Alamo Drafthouse Cinema (Organization)', 'alamo drafthouse', 'lakeline', 'theater', 'film', 'movie', 'interview', 'red carpet', 'Man Of Tai Chi (Film)', 'Keanu Reeves (TV Actor)', 'Red', 'keanu reeves', 'director', 'debut', 'actor', 'tiger chen', 'martial arts', 'tai chi', '2013']",
-        "runtime": "00:03:31",
-        "direct_subject": true,
-        "duration_hint": 211.0,
-        "identity_score": 13.0
-      },
-      "start": 50.47,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows actual moving footage of Keanu Reeves being interviewed on a red carpet, clearly visible across all three frames. While it does not depict the specific historical event being narrated, it serves as valid biographical illustration footage of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f6cc42c231e565bb1fa9b040ed7fbe3521644d68334e1bfd0bdbb5aafaba325b",
-      "reviewed_at": 1790428543.7394357
-    },
-    {
       "person": "Keanu Reeves",
       "source": {
         "id": "archive:video_7226090689669516587_0",
@@ -18532,6 +18139,440 @@
       },
       "review_key": "3e084f5248a825a9417b3598151080d7c2ed4c4584bbca2c913fc1d0c95f3d4d",
       "reviewed_at": 1792439672.0837204
+    },
+    {
+      "person": "Neil Armstrong",
+      "source": {
+        "id": "archive:73512NASAApollo11Interview",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/73512NASAApollo11Interview/73512%20NASA%20Apollo%2011%20interview.mp4",
+        "source_url": "https://archive.org/details/73512NASAApollo11Interview",
+        "title": "PRE-LAUNCH APOLLO 11 LUNAR MISSION CREW INTERVIEW NEIL ARMSTRONG BUZZ ALDRIN 73512",
+        "description": "Made prior to the Apollo 11 mission, this press conference presents astronauts Neil Armstrong, Buzz Aldrin and Michael Collins discussing their historic flight. A NASA narrator states the questions from the assembled press corps, which apparently were less than audible in the original recording. The film features interviews with astronauts Neil Armstrong, Michael Collins, and Edwin Aldrin discussing their roles and responsibilities during the Apollo 11 mission. Armstrong, the command pilot, talks about the mission's purpose to demonstrate the ability to travel to the moon, land, and return to Earth, and compares it to Columbus's voyage. Collins, the command module pilot, explains the results and possibilities of the flight, emphasizing his role in maintaining the command module and assisting with the lunar module's operations. Aldrin, the lunar module pilot, describes the initial tasks after landing, the exploration of the moon's surface, and the deployment of experiments. The narrative highlights the detailed planning and teamwork required for the historic mission, showcasing the astronauts' dedication and preparation for their groundbreaking journey. 0:00 - Introduction to astronaut Neil Armstrong, command pilot for the Apollo 11 moon landing mission. 0:12 - Purpose of the Apollo 11 mission: to demonstrate the ability to go to the moon, land, and return to Earth. 0:36 - Armstrong's responsibilities as commander: making onboard decisions, overseeing crew duties, monitoring launch work procedures, and controlling the vehicle during descent. 2:00 - Description of events just Stock Footage",
+        "creator": "",
+        "license": "",
+        "subject": "Stock Footage",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 741.367807,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 396.66,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Neil Armstrong speaking during a pre-launch press interview, providing authentic archival footage for a biographical video.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "de8639e5bef5ff9825ef089a919e139e66a24624d2ede105229b194851d93d4d",
+      "reviewed_at": 1792443505.8641548
+    },
+    {
+      "person": "Neil Armstrong",
+      "source": {
+        "id": "archive:NeilArmstrongInterview2011",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NeilArmstrongInterview2011/Neil%20Armstrong%20Interview%202011.mp4",
+        "source_url": "https://archive.org/details/NeilArmstrongInterview2011",
+        "title": "Neil Armstrong Interview 2011",
+        "description": "Neil Armstrong Interview 2011 ['Neil Armstrong', 'Moon', 'Space']",
+        "creator": "",
+        "license": "",
+        "subject": "['Neil Armstrong', 'Moon', 'Space']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3204.3,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2459.08,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The first frame clearly shows Neil Armstrong being interviewed in 2011, making him identifiable and the footage highly relevant as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "58bd070d845971d8198486f508e87a4d175edc936c365693adff1359e5460ec1",
+      "reviewed_at": 1792443711.2307928
+    },
+    {
+      "person": "Neil Armstrong",
+      "source": {
+        "id": "archive:73512NASAApollo11Interview",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/73512NASAApollo11Interview/73512%20NASA%20Apollo%2011%20interview.mp4",
+        "source_url": "https://archive.org/details/73512NASAApollo11Interview",
+        "title": "PRE-LAUNCH APOLLO 11 LUNAR MISSION CREW INTERVIEW NEIL ARMSTRONG BUZZ ALDRIN 73512",
+        "description": "Made prior to the Apollo 11 mission, this press conference presents astronauts Neil Armstrong, Buzz Aldrin and Michael Collins discussing their historic flight. A NASA narrator states the questions from the assembled press corps, which apparently were less than audible in the original recording. The film features interviews with astronauts Neil Armstrong, Michael Collins, and Edwin Aldrin discussing their roles and responsibilities during the Apollo 11 mission. Armstrong, the command pilot, talks about the mission's purpose to demonstrate the ability to travel to the moon, land, and return to Earth, and compares it to Columbus's voyage. Collins, the command module pilot, explains the results and possibilities of the flight, emphasizing his role in maintaining the command module and assisting with the lunar module's operations. Aldrin, the lunar module pilot, describes the initial tasks after landing, the exploration of the moon's surface, and the deployment of experiments. The narrative highlights the detailed planning and teamwork required for the historic mission, showcasing the astronauts' dedication and preparation for their groundbreaking journey. 0:00 - Introduction to astronaut Neil Armstrong, command pilot for the Apollo 11 moon landing mission. 0:12 - Purpose of the Apollo 11 mission: to demonstrate the ability to go to the moon, land, and return to Earth. 0:36 - Armstrong's responsibilities as commander: making onboard decisions, overseeing crew duties, monitoring launch work procedures, and controlling the vehicle during descent. 2:00 - Description of events just Stock Footage",
+        "creator": "",
+        "license": "",
+        "subject": "Stock Footage",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 741.367807,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage features genuine archival interview footage of Neil Armstrong prior to the Apollo 11 mission, with him clearly visible in frames 2 through 5. Frame 1 shows a stock footage provider title screen, but the remaining frames contain clear, usable historical footage of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "51ecb2cf121b107df1e474633cfd3c65c9bba9009881ad70079b486f8108f07d",
+      "reviewed_at": 1792443812.8978047
+    },
+    {
+      "person": "Neil Armstrong",
+      "source": {
+        "id": "archive:NeilArmstrongInterview2011",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NeilArmstrongInterview2011/Neil%20Armstrong%20Interview%202011.mp4",
+        "source_url": "https://archive.org/details/NeilArmstrongInterview2011",
+        "title": "Neil Armstrong Interview 2011",
+        "description": "Neil Armstrong Interview 2011 ['Neil Armstrong', 'Moon', 'Space']",
+        "creator": "",
+        "license": "",
+        "subject": "['Neil Armstrong', 'Moon', 'Space']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3204.3,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 250.41,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.0,
+        "reason": "The footage shows a 2011 interview with Neil Armstrong. Since it's an interview rather than direct historical footage of the Apollo 11 moon landing, it serves as biographical illustration for a video about his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c34599d5becd7807bf70b1fd2e35fb3782d10f950b11792f8142b1f07716f09f",
+      "reviewed_at": 1792443993.215571
+    },
+    {
+      "person": "Neil Armstrong",
+      "source": {
+        "id": "archive:73512NASAApollo11Interview",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/73512NASAApollo11Interview/73512%20NASA%20Apollo%2011%20interview.mp4",
+        "source_url": "https://archive.org/details/73512NASAApollo11Interview",
+        "title": "PRE-LAUNCH APOLLO 11 LUNAR MISSION CREW INTERVIEW NEIL ARMSTRONG BUZZ ALDRIN 73512",
+        "description": "Made prior to the Apollo 11 mission, this press conference presents astronauts Neil Armstrong, Buzz Aldrin and Michael Collins discussing their historic flight. A NASA narrator states the questions from the assembled press corps, which apparently were less than audible in the original recording. The film features interviews with astronauts Neil Armstrong, Michael Collins, and Edwin Aldrin discussing their roles and responsibilities during the Apollo 11 mission. Armstrong, the command pilot, talks about the mission's purpose to demonstrate the ability to travel to the moon, land, and return to Earth, and compares it to Columbus's voyage. Collins, the command module pilot, explains the results and possibilities of the flight, emphasizing his role in maintaining the command module and assisting with the lunar module's operations. Aldrin, the lunar module pilot, describes the initial tasks after landing, the exploration of the moon's surface, and the deployment of experiments. The narrative highlights the detailed planning and teamwork required for the historic mission, showcasing the astronauts' dedication and preparation for their groundbreaking journey. 0:00 - Introduction to astronaut Neil Armstrong, command pilot for the Apollo 11 moon landing mission. 0:12 - Purpose of the Apollo 11 mission: to demonstrate the ability to go to the moon, land, and return to Earth. 0:36 - Armstrong's responsibilities as commander: making onboard decisions, overseeing crew duties, monitoring launch work procedures, and controlling the vehicle during descent. 2:00 - Description of events just Stock Footage",
+        "creator": "",
+        "license": "",
+        "subject": "Stock Footage",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 741.367807,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 60.95,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature genuine archival footage of Neil Armstrong speaking during a pre-launch Apollo 11 press conference, making it highly relevant and usable for his biography.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "688ddc1c8211c8109f3564eeb1098eeba257b6109fe4b5341eff3b8bb3509d69",
+      "reviewed_at": 1792444037.196395
+    },
+    {
+      "person": "Neil Armstrong",
+      "source": {
+        "id": "archive:NeilArmstrongInterview2011",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NeilArmstrongInterview2011/Neil%20Armstrong%20Interview%202011.mp4",
+        "source_url": "https://archive.org/details/NeilArmstrongInterview2011",
+        "title": "Neil Armstrong Interview 2011",
+        "description": "Neil Armstrong Interview 2011 ['Neil Armstrong', 'Moon', 'Space']",
+        "creator": "",
+        "license": "",
+        "subject": "['Neil Armstrong', 'Moon', 'Space']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3204.3,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 495.82,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage features a clear interview with Neil Armstrong discussing his life and experiences, making it suitable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "fb9cdbcf3fb52a89e7fde2ae4c466a5c0b1e819d2cd28e98d2763c6625faf3d0",
+      "reviewed_at": 1792444115.7762914
+    },
+    {
+      "person": "Neil Armstrong",
+      "source": {
+        "id": "archive:73512NASAApollo11Interview",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/73512NASAApollo11Interview/73512%20NASA%20Apollo%2011%20interview.mp4",
+        "source_url": "https://archive.org/details/73512NASAApollo11Interview",
+        "title": "PRE-LAUNCH APOLLO 11 LUNAR MISSION CREW INTERVIEW NEIL ARMSTRONG BUZZ ALDRIN 73512",
+        "description": "Made prior to the Apollo 11 mission, this press conference presents astronauts Neil Armstrong, Buzz Aldrin and Michael Collins discussing their historic flight. A NASA narrator states the questions from the assembled press corps, which apparently were less than audible in the original recording. The film features interviews with astronauts Neil Armstrong, Michael Collins, and Edwin Aldrin discussing their roles and responsibilities during the Apollo 11 mission. Armstrong, the command pilot, talks about the mission's purpose to demonstrate the ability to travel to the moon, land, and return to Earth, and compares it to Columbus's voyage. Collins, the command module pilot, explains the results and possibilities of the flight, emphasizing his role in maintaining the command module and assisting with the lunar module's operations. Aldrin, the lunar module pilot, describes the initial tasks after landing, the exploration of the moon's surface, and the deployment of experiments. The narrative highlights the detailed planning and teamwork required for the historic mission, showcasing the astronauts' dedication and preparation for their groundbreaking journey. 0:00 - Introduction to astronaut Neil Armstrong, command pilot for the Apollo 11 moon landing mission. 0:12 - Purpose of the Apollo 11 mission: to demonstrate the ability to go to the moon, land, and return to Earth. 0:36 - Armstrong's responsibilities as commander: making onboard decisions, overseeing crew duties, monitoring launch work procedures, and controlling the vehicle during descent. 2:00 - Description of events just Stock Footage",
+        "creator": "",
+        "license": "",
+        "subject": "Stock Footage",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 741.367807,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 116.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage features genuine archival interview footage of Neil Armstrong prior to the Apollo 11 mission, clearly showing him speaking and discussing his role, making it highly relevant and usable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "baf96cd8720e5f8ec266bcad5dc3bb173d3ed9ae10c23fa100b04cb87d94930f",
+      "reviewed_at": 1792444143.225396
+    },
+    {
+      "person": "Neil Armstrong",
+      "source": {
+        "id": "archive:NeilArmstrongInterview2011",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NeilArmstrongInterview2011/Neil%20Armstrong%20Interview%202011.mp4",
+        "source_url": "https://archive.org/details/NeilArmstrongInterview2011",
+        "title": "Neil Armstrong Interview 2011",
+        "description": "Neil Armstrong Interview 2011 ['Neil Armstrong', 'Moon', 'Space']",
+        "creator": "",
+        "license": "",
+        "subject": "['Neil Armstrong', 'Moon', 'Space']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3204.3,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 986.63,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows Neil Armstrong clearly in an interview setting, matching the biographical subject and providing great archival context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a615e28fd1368764b3cd0a895e876d53e3a6ecdfdeca7d47ebe29efa3c954f15",
+      "reviewed_at": 1792444231.876698
+    },
+    {
+      "person": "Neil Armstrong",
+      "source": {
+        "id": "archive:73512NASAApollo11Interview",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/73512NASAApollo11Interview/73512%20NASA%20Apollo%2011%20interview.mp4",
+        "source_url": "https://archive.org/details/73512NASAApollo11Interview",
+        "title": "PRE-LAUNCH APOLLO 11 LUNAR MISSION CREW INTERVIEW NEIL ARMSTRONG BUZZ ALDRIN 73512",
+        "description": "Made prior to the Apollo 11 mission, this press conference presents astronauts Neil Armstrong, Buzz Aldrin and Michael Collins discussing their historic flight. A NASA narrator states the questions from the assembled press corps, which apparently were less than audible in the original recording. The film features interviews with astronauts Neil Armstrong, Michael Collins, and Edwin Aldrin discussing their roles and responsibilities during the Apollo 11 mission. Armstrong, the command pilot, talks about the mission's purpose to demonstrate the ability to travel to the moon, land, and return to Earth, and compares it to Columbus's voyage. Collins, the command module pilot, explains the results and possibilities of the flight, emphasizing his role in maintaining the command module and assisting with the lunar module's operations. Aldrin, the lunar module pilot, describes the initial tasks after landing, the exploration of the moon's surface, and the deployment of experiments. The narrative highlights the detailed planning and teamwork required for the historic mission, showcasing the astronauts' dedication and preparation for their groundbreaking journey. 0:00 - Introduction to astronaut Neil Armstrong, command pilot for the Apollo 11 moon landing mission. 0:12 - Purpose of the Apollo 11 mission: to demonstrate the ability to go to the moon, land, and return to Earth. 0:36 - Armstrong's responsibilities as commander: making onboard decisions, overseeing crew duties, monitoring launch work procedures, and controlling the vehicle during descent. 2:00 - Description of events just Stock Footage",
+        "creator": "",
+        "license": "",
+        "subject": "Stock Footage",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 741.367807,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 172.85,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Neil Armstrong during a pre-launch Apollo 11 press interview, providing authentic historical footage of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5707fb4d92d73aced8e04ca3dee4b8ed44427ad649995809e76eaf3cc5bc15dc",
+      "reviewed_at": 1792444299.7050133
+    },
+    {
+      "person": "Neil Armstrong",
+      "source": {
+        "id": "archive:NeilArmstrongInterview2011",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NeilArmstrongInterview2011/Neil%20Armstrong%20Interview%202011.mp4",
+        "source_url": "https://archive.org/details/NeilArmstrongInterview2011",
+        "title": "Neil Armstrong Interview 2011",
+        "description": "Neil Armstrong Interview 2011 ['Neil Armstrong', 'Moon', 'Space']",
+        "creator": "",
+        "license": "",
+        "subject": "['Neil Armstrong', 'Moon', 'Space']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3204.3,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1232.04,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video shows real archival interview footage of Neil Armstrong speaking, which is highly relevant and suitable as biographical illustration for a short about his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a1ceb3710cd502fec4c1c1b3ed9c64eda7a33dfda09f591ab3e25e52425e4461",
+      "reviewed_at": 1792444337.9771533
+    },
+    {
+      "person": "Neil Armstrong",
+      "source": {
+        "id": "archive:73512NASAApollo11Interview",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/73512NASAApollo11Interview/73512%20NASA%20Apollo%2011%20interview.mp4",
+        "source_url": "https://archive.org/details/73512NASAApollo11Interview",
+        "title": "PRE-LAUNCH APOLLO 11 LUNAR MISSION CREW INTERVIEW NEIL ARMSTRONG BUZZ ALDRIN 73512",
+        "description": "Made prior to the Apollo 11 mission, this press conference presents astronauts Neil Armstrong, Buzz Aldrin and Michael Collins discussing their historic flight. A NASA narrator states the questions from the assembled press corps, which apparently were less than audible in the original recording. The film features interviews with astronauts Neil Armstrong, Michael Collins, and Edwin Aldrin discussing their roles and responsibilities during the Apollo 11 mission. Armstrong, the command pilot, talks about the mission's purpose to demonstrate the ability to travel to the moon, land, and return to Earth, and compares it to Columbus's voyage. Collins, the command module pilot, explains the results and possibilities of the flight, emphasizing his role in maintaining the command module and assisting with the lunar module's operations. Aldrin, the lunar module pilot, describes the initial tasks after landing, the exploration of the moon's surface, and the deployment of experiments. The narrative highlights the detailed planning and teamwork required for the historic mission, showcasing the astronauts' dedication and preparation for their groundbreaking journey. 0:00 - Introduction to astronaut Neil Armstrong, command pilot for the Apollo 11 moon landing mission. 0:12 - Purpose of the Apollo 11 mission: to demonstrate the ability to go to the moon, land, and return to Earth. 0:36 - Armstrong's responsibilities as commander: making onboard decisions, overseeing crew duties, monitoring launch work procedures, and controlling the vehicle during descent. 2:00 - Description of events just Stock Footage",
+        "creator": "",
+        "license": "",
+        "subject": "Stock Footage",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 741.367807,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 228.81,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features authentic archival interview footage of Neil Armstrong speaking prior to the Apollo 11 mission, clearly identifying him across the sampled frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2030219327538cc3227ba53fa4db265c0d9166693878b0aba9b94b17297ce7b6",
+      "reviewed_at": 1792444430.8991537
+    },
+    {
+      "person": "Neil Armstrong",
+      "source": {
+        "id": "archive:NeilArmstrongInterview2011",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NeilArmstrongInterview2011/Neil%20Armstrong%20Interview%202011.mp4",
+        "source_url": "https://archive.org/details/NeilArmstrongInterview2011",
+        "title": "Neil Armstrong Interview 2011",
+        "description": "Neil Armstrong Interview 2011 ['Neil Armstrong', 'Moon', 'Space']",
+        "creator": "",
+        "license": "",
+        "subject": "['Neil Armstrong', 'Moon', 'Space']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3204.3,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1968.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment features a genuine 2011 interview with Neil Armstrong, where he is clearly visible seated on the right side of the frame alongside an interviewer.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "78d2659e8e45fdd29f714bd06a128d9aad7e0efa349ef179f60c50b5a6d190c7",
+      "reviewed_at": 1792444507.190263
+    },
+    {
+      "person": "Neil Armstrong",
+      "source": {
+        "id": "archive:73512NASAApollo11Interview",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/73512NASAApollo11Interview/73512%20NASA%20Apollo%2011%20interview.mp4",
+        "source_url": "https://archive.org/details/73512NASAApollo11Interview",
+        "title": "PRE-LAUNCH APOLLO 11 LUNAR MISSION CREW INTERVIEW NEIL ARMSTRONG BUZZ ALDRIN 73512",
+        "description": "Made prior to the Apollo 11 mission, this press conference presents astronauts Neil Armstrong, Buzz Aldrin and Michael Collins discussing their historic flight. A NASA narrator states the questions from the assembled press corps, which apparently were less than audible in the original recording. The film features interviews with astronauts Neil Armstrong, Michael Collins, and Edwin Aldrin discussing their roles and responsibilities during the Apollo 11 mission. Armstrong, the command pilot, talks about the mission's purpose to demonstrate the ability to travel to the moon, land, and return to Earth, and compares it to Columbus's voyage. Collins, the command module pilot, explains the results and possibilities of the flight, emphasizing his role in maintaining the command module and assisting with the lunar module's operations. Aldrin, the lunar module pilot, describes the initial tasks after landing, the exploration of the moon's surface, and the deployment of experiments. The narrative highlights the detailed planning and teamwork required for the historic mission, showcasing the astronauts' dedication and preparation for their groundbreaking journey. 0:00 - Introduction to astronaut Neil Armstrong, command pilot for the Apollo 11 moon landing mission. 0:12 - Purpose of the Apollo 11 mission: to demonstrate the ability to go to the moon, land, and return to Earth. 0:36 - Armstrong's responsibilities as commander: making onboard decisions, overseeing crew duties, monitoring launch work procedures, and controlling the vehicle during descent. 2:00 - Description of events just Stock Footage",
+        "creator": "",
+        "license": "",
+        "subject": "Stock Footage",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 741.367807,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 284.76,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly show Neil Armstrong during a pre-launch Apollo 11 press conference/interview, providing genuine biographical footage of the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "80b0dc488be9de7e257e1893c598a4cd62f6787ff85b063657e9fd1606f9f293",
+      "reviewed_at": 1792444532.5792704
+    },
+    {
+      "person": "Neil Armstrong",
+      "source": {
+        "id": "archive:NeilArmstrongInterview2011",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NeilArmstrongInterview2011/Neil%20Armstrong%20Interview%202011.mp4",
+        "source_url": "https://archive.org/details/NeilArmstrongInterview2011",
+        "title": "Neil Armstrong Interview 2011",
+        "description": "Neil Armstrong Interview 2011 ['Neil Armstrong', 'Moon', 'Space']",
+        "creator": "",
+        "license": "",
+        "subject": "['Neil Armstrong', 'Moon', 'Space']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3204.3,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2213.67,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows genuine historical Apollo 11 archival video where Neil Armstrong is visible on the lunar surface and descending the ladder, directly depicting the historical event.",
+        "usage": "direct_event"
+      },
+      "review_key": "836835e2c530be7718171e5009d12d92e063e2faa912e07833ad9b34ce3baf5d",
+      "reviewed_at": 1792444552.3634455
     }
   ]
 }

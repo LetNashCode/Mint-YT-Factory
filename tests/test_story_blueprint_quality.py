@@ -106,3 +106,13 @@ def test_blueprint_validator_still_rejects_retired_subject_bleed():
     blueprint["hook_observation"] = "An onion grows droplets outside the glass"
     with pytest.raises(RuntimeError, match="retired onion subject bleed"):
         generate_script._validate_blueprint(blueprint)
+
+
+
+def test_blueprint_quality_gate_rejects_negated_closure():
+    import generate_script
+
+    blueprint = valid_blueprint()
+    blueprint["scene_progression"][-1]["question_left_open"] = "The central question remains unanswered"
+    with pytest.raises(RuntimeError, match="must explicitly close"):
+        generate_script._validate_blueprint(blueprint)

@@ -7,11 +7,11 @@
     "published_at": "2026-10-18T10:27:40Z",
     "workflow": "everyday_wisdom",
     "latest": {
-      "views": 93,
-      "likes": 1,
+      "views": 203,
+      "likes": 2,
       "comments": 0,
-      "engagement_rate": 1.0753,
-      "checked_at": "2026-10-18T18:20:17.411644+00:00"
+      "engagement_rate": 0.9852,
+      "checked_at": "2026-10-19T18:54:42.501396+00:00"
     },
     "snapshots": [
       {
@@ -34,6 +34,13 @@
         "comments": 0,
         "engagement_rate": 1.0753,
         "checked_at": "2026-10-18T18:20:17.411644+00:00"
+      },
+      {
+        "views": 203,
+        "likes": 2,
+        "comments": 0,
+        "engagement_rate": 0.9852,
+        "checked_at": "2026-10-19T18:54:42.501396+00:00"
       }
     ]
   },
@@ -45,11 +52,11 @@
     "published_at": "2026-10-18T16:08:53Z",
     "workflow": "everyday_wisdom",
     "latest": {
-      "views": 20,
-      "likes": 0,
+      "views": 107,
+      "likes": 2,
       "comments": 0,
-      "engagement_rate": 0.0,
-      "checked_at": "2026-10-18T18:20:17.411644+00:00"
+      "engagement_rate": 1.8692,
+      "checked_at": "2026-10-19T18:54:42.501396+00:00"
     },
     "snapshots": [
       {
@@ -65,6 +72,13 @@
         "comments": 0,
         "engagement_rate": 0.0,
         "checked_at": "2026-10-18T18:20:17.411644+00:00"
+      },
+      {
+        "views": 107,
+        "likes": 2,
+        "comments": 0,
+        "engagement_rate": 1.8692,
+        "checked_at": "2026-10-19T18:54:42.501396+00:00"
       }
     ]
   },
@@ -73,14 +87,14 @@
     "topic": "The historical and functional reason why golf club handles are wrapped in rubber or leather grips.",
     "title": "Why Are Golf Club Grips Always Wrapped?",
     "workdir": ".everyday_wisdom_runs/1792347321",
-    "published_at": "2026-10-18T18:20:10Z",
+    "published_at": "2026-10-18T18:22:37Z",
     "workflow": "everyday_wisdom",
     "latest": {
-      "views": 0,
+      "views": 381,
       "likes": 0,
       "comments": 0,
       "engagement_rate": 0.0,
-      "checked_at": "2026-10-18T18:20:17.411644+00:00"
+      "checked_at": "2026-10-19T18:54:42.501396+00:00"
     },
     "snapshots": [
       {
@@ -89,6 +103,37 @@
         "comments": 0,
         "engagement_rate": 0.0,
         "checked_at": "2026-10-18T18:20:17.411644+00:00"
+      },
+      {
+        "views": 381,
+        "likes": 0,
+        "comments": 0,
+        "engagement_rate": 0.0,
+        "checked_at": "2026-10-19T18:54:42.501396+00:00"
+      }
+    ]
+  },
+  {
+    "video_id": "jDFm9C8F1Ds",
+    "topic": "The historical and mythological origin of knocking on wood for good luck",
+    "title": "Why Do We Knock on Wood for Luck?",
+    "workdir": ".everyday_wisdom_runs/1792435869",
+    "published_at": "2026-10-19T18:54:37Z",
+    "workflow": "everyday_wisdom",
+    "latest": {
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "engagement_rate": 0.0,
+      "checked_at": "2026-10-19T18:54:42.501396+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 0,
+        "likes": 0,
+        "comments": 0,
+        "engagement_rate": 0.0,
+        "checked_at": "2026-10-19T18:54:42.501396+00:00"
       }
     ]
   }

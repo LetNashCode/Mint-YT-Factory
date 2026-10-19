@@ -692,9 +692,15 @@ def _validate_blueprint(blueprint):
         raise RuntimeError("Story blueprint factual_anchor.core_claim must be a concrete claim.")
     if not anchor.get("verification_needed") and len(_words(anchor["basis"])) < 5:
         raise RuntimeError("Story blueprint must explain the evidence basis for an unflagged factual claim.")
-    final_open_loop = _clean(progression[-1]["question_left_open"]).lower()
-    closure_terms = ("none", "closed", "resolved", "answered", "no open", "central question", "central mystery", "fully explained", "no question remains", "no further question", "complete")
-    if not any(term in final_open_loop for term in closure_terms):
+    final_open_loop = re.sub(r"[^a-z0-9]+", " ", _clean(progression[-1]["question_left_open"]).lower()).strip()
+    closure_patterns = (
+        r"\\bnone\\b",
+        r"\\bno (?:open )?(?:question|loop|mystery) remains\\b",
+        r"\\b(?:central question|central mystery) (?:is )?(?:answered|resolved|closed)\\b",
+        r"\\b(?:fully )?(?:answered|resolved|closed)\\b",
+        r"\\bthe answer is complete\\b",
+    )
+    if not any(re.search(pattern, final_open_loop) for pattern in closure_patterns):
         raise RuntimeError("Story blueprint Scene 6 must explicitly close the central question.")
 
     comparable = list(required) + ["factual_anchor_core_claim"]

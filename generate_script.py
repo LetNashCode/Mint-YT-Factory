@@ -693,7 +693,7 @@ def _validate_blueprint(blueprint):
     if not anchor.get("verification_needed") and len(_words(anchor["basis"])) < 5:
         raise RuntimeError("Story blueprint must explain the evidence basis for an unflagged factual claim.")
     final_open_loop = _clean(progression[-1]["question_left_open"]).lower()
-    closure_terms = ("none", "closed", "resolved", "answered", "no open", "central question")
+    closure_terms = ("none", "closed", "resolved", "answered", "no open", "central question", "central mystery", "fully explained", "no question remains", "no further question", "complete")
     if not any(term in final_open_loop for term in closure_terms):
         raise RuntimeError("Story blueprint Scene 6 must explicitly close the central question.")
 

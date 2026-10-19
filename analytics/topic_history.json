@@ -3502,5 +3502,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why cast iron pans get sticky",
+    "normalized": "why cast iron pans get sticky",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1792438068,
+    "recorded_at": 1792438068,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

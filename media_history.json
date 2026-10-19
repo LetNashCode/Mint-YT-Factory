@@ -15859,6 +15859,76 @@
       "shot": 2,
       "query": "wooden doors gorges water puffs swollen",
       "recorded_at": 1792428839
+    },
+    {
+      "asset_key": "pixabay:video:240531",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2024/11/09/240531_medium.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "cast iron pans feels like coated fresh",
+      "recorded_at": 1792438131
+    },
+    {
+      "asset_key": "pixabay:video:137603",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2022/11/03/137603-767056172_medium.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "cast iron pans you washed dried put",
+      "recorded_at": 1792438136
+    },
+    {
+      "asset_key": "pexels:video:4139328",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4139328/4139328-hd_1366_720_24fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "cast iron pans mysterious glue come skillet",
+      "recorded_at": 1792438143
+    },
+    {
+      "asset_key": "pixabay:video:285663",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2025/06/13/285663_medium.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "cast iron pans you apply layer way",
+      "recorded_at": 1792438145
+    },
+    {
+      "asset_key": "pixabay:video:59785",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/12/20/59785-494332137_medium.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "cast iron pans trapped oil molecules get",
+      "recorded_at": 1792438148
+    },
+    {
+      "asset_key": "pixabay:video:7954",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2017/02/26/7954-205810619_medium.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "cast iron pans wipe completely dry like",
+      "recorded_at": 1792438151
+    },
+    {
+      "asset_key": "pixabay:video:274936",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2025/04/27/274936_medium.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "cast iron pans your pan stay smooth",
+      "recorded_at": 1792438152
     }
   ]
 }

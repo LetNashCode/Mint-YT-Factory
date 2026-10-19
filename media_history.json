@@ -15819,6 +15819,46 @@
       "shot": 2,
       "query": "ceramic tiles proving there space hiding",
       "recorded_at": 1792352483
+    },
+    {
+      "asset_key": "pexels:video:2845957",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/2845957/2845957-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "wooden doors turns into stubborn fortress",
+      "recorded_at": 1792428802
+    },
+    {
+      "asset_key": "pexels:video:8710930",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8710930/8710930-hd_1280_720_30fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "wooden doors wood itself expanding grain",
+      "recorded_at": 1792428814
+    },
+    {
+      "asset_key": "pexels:video:7876831",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7876831/7876831-hd_1366_720_25fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "wooden doors think dry kitchen sponge",
+      "recorded_at": 1792428831
+    },
+    {
+      "asset_key": "pixabay:video:364783",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2026/07/18/364783_medium.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "wooden doors gorges water puffs swollen",
+      "recorded_at": 1792428839
     }
   ]
 }

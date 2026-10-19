@@ -3480,48 +3480,24 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why does butter wrapper stick",
-    "normalized": "why does butter wrapper stick",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1792266046,
-    "recorded_at": 1792266046,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do metal faucets drip in rhythm",
-    "normalized": "why do metal faucets drip in rhythm",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1792318940,
-    "recorded_at": 1792318940,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do ice cream cones drip fast",
-    "normalized": "why do ice cream cones drip fast",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1792342008,
-    "recorded_at": 1792342008,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do ceramic tiles sound hollow",
     "normalized": "why do ceramic tiles sound hollow",
     "workflow": "publish",
     "status": "reserved",
     "reserved_at": 1792352160,
     "recorded_at": 1792352160,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "How do wooden doors stick in summer",
+    "normalized": "how do wooden doors stick in summer",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1792428676,
+    "recorded_at": 1792428676,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

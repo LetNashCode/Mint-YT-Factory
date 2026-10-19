@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do ceramic tiles sound hollow",
-    "normalized": "why do ceramic tiles sound hollow",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1792352160,
-    "recorded_at": 1792352160,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "How do wooden doors stick in summer",
     "normalized": "how do wooden doors stick in summer",
     "workflow": "publish",
@@ -3510,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1792438068,
     "recorded_at": 1792438068,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why does a car windshield fog",
+    "normalized": "why does a car windshield fog",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1792446208,
+    "recorded_at": 1792446208,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

@@ -222,11 +222,12 @@ def _generate_topic_candidates(used, exclude_topics=None, target_count=20):
     ) or "(none)"
     recent_families = json.dumps(_recent_topic_families(used, window=10), sort_keys=True)
     competitor_brief = []
-    try:
-        from competitor_research import collect_competitor_outliers
-        competitor_brief = collect_competitor_outliers()
-    except Exception as error:
-        print(f"ℹ️ Competitor intelligence skipped; originality-gated topic selection continues: {type(error).__name__}")
+    if os.environ.get("MINT_COMPETITOR_RESEARCH", "false").strip().lower() in {"1", "true", "yes", "on"}:
+        try:
+            from competitor_research import collect_competitor_outliers
+            competitor_brief = collect_competitor_outliers()
+        except Exception as error:
+            print(f"ℹ️ Competitor intelligence skipped; originality-gated topic selection continues: {type(error).__name__}")
     competitor_context = (
         "\nPUBLIC COMPETITOR OUTLIERS (use only as evidence of formats/curiosity patterns; never copy titles or subjects):\n"
         + json.dumps(competitor_brief, ensure_ascii=False)[:5000]

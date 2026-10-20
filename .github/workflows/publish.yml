@@ -16,6 +16,7 @@ concurrency:
 
 env:
   MINT_WORKFLOW_PROFILE: publish
+  MINT_COMPETITOR_RESEARCH: "true"
   IMAGEMAGICK_BINARY: /usr/bin/convert
 
 jobs:

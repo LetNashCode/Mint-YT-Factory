@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why cast iron pans get sticky",
-    "normalized": "why cast iron pans get sticky",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1792438068,
-    "recorded_at": 1792438068,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why does a car windshield fog",
     "normalized": "why does a car windshield fog",
     "workflow": "publish",
@@ -3510,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1792519639,
     "recorded_at": 1792519639,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do garlic smells linger",
+    "normalized": "why do garlic smells linger",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1792529409,
+    "recorded_at": 1792529409,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

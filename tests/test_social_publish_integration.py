@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_publish_shorts_saves_youtube_state_then_publishes_meta():
     source = (ROOT / "main.py").read_text(encoding="utf-8")
-    state_write = source.index('save_json(publish_state, os.path.join(workdir, "publish_state.json"))')
+    state_write = source.index("save_json(publish_state, publish_state_path)")
     social_call = source.index("publish_social_reels(final_video, title, description, config, workdir)")
     next_topic_commit = source.index("queued_topic = save_next_short(next_topic)")
     assert state_write < social_call < next_topic_commit

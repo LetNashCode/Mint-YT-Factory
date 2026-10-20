@@ -16039,6 +16039,126 @@
       "shot": 1,
       "query": "car tiny drops scatter light",
       "recorded_at": 1792446381
+    },
+    {
+      "asset_key": "pexels:video:7123831",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7123831/7123831-hd_720_1366_30fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "paper napkins tear you grab napkin",
+      "recorded_at": 1792519924
+    },
+    {
+      "asset_key": "pexels:video:7235113",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7235113/7235113-hd_720_1280_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "paper napkins tear rips completely crooked ragged",
+      "recorded_at": 1792519948
+    },
+    {
+      "asset_key": "pexels:video:4153005",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4153005/4153005-hd_1280_720_50fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "paper napkins tear try tearing other way",
+      "recorded_at": 1792519985
+    },
+    {
+      "asset_key": "pexels:video:4153411",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4153411/4153411-hd_1280_720_50fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "paper napkins tear cheap stubbornly biased",
+      "recorded_at": 1792519995
+    },
+    {
+      "asset_key": "pexels:video:4150999",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4150999/4150999-hd_1280_720_50fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "paper napkins tear comes down born",
+      "recorded_at": 1792520010
+    },
+    {
+      "asset_key": "pexels:video:854938",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/854938/854938-hd_1280_720_25fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "paper napkins tear giant firehose sprays liquid",
+      "recorded_at": 1792520020
+    },
+    {
+      "asset_key": "pexels:video:6670603",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6670603/6670603-hd_1280_720_24fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "paper napkins tear belt races forward yanking",
+      "recorded_at": 1792520030
+    },
+    {
+      "asset_key": "pexels:video:8774827",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/8774827/8774827-hd_1280_720_50fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "paper napkins tear they all line like",
+      "recorded_at": 1792520040
+    },
+    {
+      "asset_key": "pexels:video:6962893",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6962893/6962893-hd_1280_720_50fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "paper napkins tear you thought were tearing",
+      "recorded_at": 1792520049
+    },
+    {
+      "asset_key": "pexels:video:3826632",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3826632/3826632-hd_720_1366_50fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "paper napkins tear against millions tiny aligned",
+      "recorded_at": 1792520064
+    },
+    {
+      "asset_key": "pexels:video:30653723",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/30653723/13118681_720_1280_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "paper napkins tear pulling grain lets you",
+      "recorded_at": 1792520073
+    },
+    {
+      "asset_key": "pexels:video:4002585",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4002585/4002585-hd_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "paper napkins tear pulling across means you",
+      "recorded_at": 1792520082
     }
   ]
 }

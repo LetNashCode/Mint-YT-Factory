@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "How do wooden doors stick in summer",
-    "normalized": "how do wooden doors stick in summer",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1792428676,
-    "recorded_at": 1792428676,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why cast iron pans get sticky",
     "normalized": "why cast iron pans get sticky",
     "workflow": "publish",
@@ -3510,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1792446208,
     "recorded_at": 1792446208,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do paper napkins tear",
+    "normalized": "why do paper napkins tear",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1792519639,
+    "recorded_at": 1792519639,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

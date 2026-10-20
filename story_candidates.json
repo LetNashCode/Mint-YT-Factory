@@ -1,56 +1,5 @@
 [
   {
-    "format": "impossible_odds",
-    "person": "Valentina Tereshkova",
-    "premise": "Going from a textile factory worker and amateur parachutist to the first woman to fly in space.",
-    "hook": "She was a factory worker with a passion for skydiving when the Soviet space program selected her for history.",
-    "key_facts": [
-      "Worked in a textile mill and trained as an amateur parachutist in her youth.",
-      "Selected out of hundreds of applicants for the female cosmonaut group.",
-      "Orbited the Earth 48 times aboard Vostok 6 in June 1963.",
-      "Remains the only woman to have flown a solo space mission."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
-    "person": "Viswanathan Anand",
-    "premise": "Rising from chess clubs in Chennai to become India's first chess Grandmaster and undisputed World Champion.",
-    "hook": "He learned the game from his mother in a quiet corner of India long before the country had any grandmasters.",
-    "key_facts": [
-      "Learned chess at age six from his mother, Susheela.",
-      "Became India's first Grandmaster in 1988 at the age of 18.",
-      "Won the FIDE World Chess Championship five times across different formats.",
-      "Popularized chess significantly across India, inspiring a new generation of players."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Audrey Hepburn",
-    "premise": "Walking away from a lucrative Hollywood contract to dedicate the rest of her life to UNICEF field work.",
-    "hook": "At the height of her film career, she chose to board cargo planes to war zones instead of movie sets.",
-    "key_facts": [
-      "Survived severe malnutrition and hardship in Nazi-occupied Netherlands during World War II.",
-      "Won an Academy Award for Best Actress for 'Roman Holiday' in 1953.",
-      "Appointed as a UNICEF Goodwill Ambassador in 1988.",
-      "Spent her final years traveling extensively to impoverished regions in Africa, Asia, and Latin America."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
-    "person": "M. S. Dhoni",
-    "premise": "From working as a ticket collector at a railway station to captaining India to multiple ICC World Cup trophies.",
-    "hook": "He spent his days checking tickets on damp railway platforms, just hours before practicing under stadium floodlights.",
-    "key_facts": [
-      "Worked as a Travelling Ticket Examiner (TTE) for South Eastern Railway in Kharagpur.",
-      "Made his international debut for India in ODI cricket in December 2004.",
-      "Led India to victory in the 2007 ICC World Twenty20 and 2011 ICC Cricket World Cup."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "strange_turning_point",
     "person": "Harrison Ford",
     "premise": "Working primarily as a carpenter for Hollywood directors until a chance carpentry job on a casting set led to his audition for Star Wars.",
@@ -83,6 +32,54 @@
       "Diagnosed with scoliosis, a condition that caused his spine to curve and one leg to be shorter than the other.",
       "Won eight Olympic gold medals across three consecutive Olympic Games.",
       "Set world records in the 100-meter and 200-meter sprints at the 2008 Beijing Olympics."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Viswanathan Anand",
+    "premise": "Rising from the chess clubs of Southern India to shatter the Soviet domination of world chess.",
+    "hook": "He learned the game from his mother in a small town before global databases or chess computers existed.",
+    "key_facts": [
+      "Became India's first grandmaster in 1988 at the age of 18.",
+      "Won the FIDE World Chess Championship five times.",
+      "Earned the nickname 'The Tiger of Madras' for his exceptionally fast playing style."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Dick Fosbury",
+    "premise": "Reinventing the high jump at the 1968 Mexico City Olympics with a radical, upside-down technique.",
+    "hook": "Every coach told him his backward jumping style was dangerous and useless, until he won Olympic gold.",
+    "key_facts": [
+      "Introduced the 'Fosbury Flop' technique to international competition.",
+      "Won the gold medal in high jump at the 1968 Summer Olympics.",
+      "Permanently changed how athletes approach the high jump discipline worldwide."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Valentina Tereshkova",
+    "premise": "A textile factory worker and amateur parachutist selected to become the first woman in space.",
+    "hook": "She kept her secret training mission hidden from her own mother until the launch was broadcast globally.",
+    "key_facts": [
+      "Worked as a spinner in a local textile mill before joining the cosmonaut corps.",
+      "Piloted the Vostok 6 mission in June 1963.",
+      "Remains the only woman to have flown a solo space mission."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Linus Pauling",
+    "premise": "Transitioning from quantum chemistry to molecular biology and global activism after a passport revocation.",
+    "hook": "When the US government confiscated his passport during the Cold War, it accidentally changed his life's mission.",
+    "key_facts": [
+      "Won the Nobel Prize in Chemistry in 1954 for his research into the nature of chemical bonds.",
+      "Awarded the Nobel Peace Prize in 1962 for his campaign against atmospheric nuclear testing.",
+      "One of the few people in history to win two unshared Nobel Prizes in different fields."
     ],
     "source": "gemini_original"
   }

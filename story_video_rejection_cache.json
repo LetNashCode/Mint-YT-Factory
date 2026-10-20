@@ -6574,6 +6574,177 @@
       "start": 97.61,
       "reason": "The video shows a U.S. Senator speaking at a podium next to a poster of the Space Shuttle Columbia crew. Kalpana Chawla is not visibly present as a moving subject in the footage, and the clip fails to provide genuine historical footage of her life or work.",
       "reviewed_at": 1792521057.51973
+    },
+    "42fd265a8d4f6887978902b4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "source_url": "https://archive.org/details/m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "person": "M. S. Dhoni",
+      "start": 5963.91,
+      "reason": "The footage shows actors portraying M. S. Dhoni and his father in a biographical film/dramatization rather than authentic archival footage or actual identity footage of M. S. Dhoni himself.",
+      "reviewed_at": 1792526121.6863816
+    },
+    "fa76dc9aa8dc79194f7ae4ce": {
+      "kind": "segment_rejection",
+      "source_id": "archive:m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "source_url": "https://archive.org/details/m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "person": "M. S. Dhoni",
+      "start": 8517.72,
+      "reason": "The sampled frames show actor Sushant Singh Rajput portraying M. S. Dhoni in a biopic film, an interview/narrative scene, and a skyline shot. Because this is a fictional biographical film rather than actual archival/identity footage of M. S. Dhoni himself, it is not usable as authentic identity or direct event footage for the subject.",
+      "reviewed_at": 1792526140.2629218
+    },
+    "da3ed84d20c70fd8714dbfda": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "source_url": "https://archive.org/details/kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "person": "M. S. Dhoni",
+      "start": 113.5,
+      "reason": "The sampled frames show scenes from a biopic film ('M. S. Dhoni: The Untold Story') featuring actors portraying characters rather than the actual M. S. Dhoni. While it is real filmed footage, the subject himself is not visible, making it useful only as biographical illustration rather than direct archival footage of Dhoni.",
+      "reviewed_at": 1792526155.2450488
+    },
+    "84cb34cd2edfd607aed55b2d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "source_url": "https://archive.org/details/kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "person": "M. S. Dhoni",
+      "start": 160.0,
+      "reason": "The frames show actors playing roles from a biopic film (M. S. Dhoni: The Untold Story), not actual archival footage or direct appearances of M. S. Dhoni himself.",
+      "reviewed_at": 1792526185.5264874
+    },
+    "89218bf813fd79b13805893c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:KaunTujheM.SDhoniPalakMuchhalRaveenaMehta",
+      "source_url": "https://archive.org/details/KaunTujheM.SDhoniPalakMuchhalRaveenaMehta",
+      "person": "M. S. Dhoni",
+      "start": 128.37,
+      "reason": "The video shows singer Raveena Mehta performing a cover song related to the movie M.S. Dhoni, but the named subject M.S. Dhoni is never visible in the footage.",
+      "reviewed_at": 1792526218.5867088
+    },
+    "a36052613595cfe7d670cfbf": {
+      "kind": "segment_rejection",
+      "source_id": "archive:KaunTujheM.SDhoniPalakMuchhalRaveenaMehta",
+      "source_url": "https://archive.org/details/KaunTujheM.SDhoniPalakMuchhalRaveenaMehta",
+      "person": "M. S. Dhoni",
+      "start": 181.25,
+      "reason": "The footage shows a music video performance by Raveena Mehta covering a song related to M.S. Dhoni, but M.S. Dhoni is not visible in any of the frames.",
+      "reviewed_at": 1792526233.282651
+    },
+    "757bee20aab70218215acb64": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Www.TamilMv.OrgM.S.Dhoni2016TamilBRRip720pX264DD5.12.5GBESub.mkv1",
+      "source_url": "https://archive.org/details/Www.TamilMv.OrgM.S.Dhoni2016TamilBRRip720pX264DD5.12.5GBESub.mkv1",
+      "person": "M. S. Dhoni",
+      "start": 5963.91,
+      "reason": "The frames show actors from a biographical feature film (M.S. Dhoni: The Untold Story), not actual archival or documentary footage of M.S. Dhoni himself. Dramatized film footage is rejected.",
+      "reviewed_at": 1792526249.8965914
+    },
+    "0c5f41af977c821bf8dab27b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "source_url": "https://archive.org/details/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "person": "M. S. Dhoni",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of disclaimer text, production notices, and company logos on black backgrounds, containing no actual footage or depiction of M. S. Dhoni.",
+      "reviewed_at": 1792526281.8205693
+    },
+    "9c4749683ad2f49ae5ad0a57": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "source_url": "https://archive.org/details/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "person": "M. S. Dhoni",
+      "start": 856.28,
+      "reason": "The sampled frames are from a biographical feature film (a dramatization starring lookalike actors playing M.S. Dhoni's family members, and a young actor playing Dhoni), not authentic archival footage or documentary clips of the actual M.S. Dhoni. Per instructions, dramatizations/lookalikes are rejected.",
+      "reviewed_at": 1792526347.8883998
+    },
+    "de24d54f12b3b54bbb8e4e48": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Www.TamilMv.OrgM.S.Dhoni2016TamilBRRip720pX264DD5.12.5GBESub.mkv1",
+      "source_url": "https://archive.org/details/Www.TamilMv.OrgM.S.Dhoni2016TamilBRRip720pX264DD5.12.5GBESub.mkv1",
+      "person": "M. S. Dhoni",
+      "start": 5.0,
+      "reason": "The sampled frames contain only title cards, disclaimers, and company logos, with no actual footage or depiction of M.S. Dhoni.",
+      "reviewed_at": 1792526357.2613842
+    },
+    "8a23a9c19034836f4fae466e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Www.TamilMv.OrgM.S.Dhoni2016TamilBRRip720pX264DD5.12.5GBESub.mkv1",
+      "source_url": "https://archive.org/details/Www.TamilMv.OrgM.S.Dhoni2016TamilBRRip720pX264DD5.12.5GBESub.mkv1",
+      "person": "M. S. Dhoni",
+      "start": 856.27,
+      "reason": "The segment shows dramatic biographical film footage representing M.S. Dhoni's early family life with his parents and sister, but M.S. Dhoni himself is not visible in the sampled frames.",
+      "reviewed_at": 1792526370.609687
+    },
+    "afcb179ba05b715cada8fefc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "person": "Kalpana Chawla",
+      "start": 128.48,
+      "reason": "The footage shows a senator speaking on the Senate floor next to a poster of the Space Shuttle Columbia crew. Kalpana Chawla is only seen as part of a static photograph on a display poster, not in actual archival footage of herself.",
+      "reviewed_at": 1792526455.268092
+    },
+    "26f0b4bb29f580749b2ed761": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "person": "Kalpana Chawla",
+      "start": 159.35,
+      "reason": "The video features a US Senator speaking in Congress alongside a large official portrait of the STS-107 crew, where Kalpana Chawla is clearly visible. While it is congressional footage rather than direct archival footage of Chawla herself, it is genuine moving footage honoring the crew and serves as biographical illustration for a Short.",
+      "reviewed_at": 1792526471.2076004
+    },
+    "cb8915b644e8f4b1d63aede2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jim-hensons-muppets-miss-piggy-gonzo-first-appearances-johnny-carson-herb-alpert",
+      "source_url": "https://archive.org/details/jim-hensons-muppets-miss-piggy-gonzo-first-appearances-johnny-carson-herb-alpert",
+      "person": "Jim Henson",
+      "start": 1674.45,
+      "reason": "The frames show Jim Henson's puppet characters and Herb Alpert, but Jim Henson himself is not visible in the sampled frames.",
+      "reviewed_at": 1792526666.1094875
+    },
+    "020702d8d920856d5d4848cc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jim-hensons-muppets-miss-piggy-gonzo-first-appearances-johnny-carson-herb-alpert",
+      "source_url": "https://archive.org/details/jim-hensons-muppets-miss-piggy-gonzo-first-appearances-johnny-carson-herb-alpert",
+      "person": "Jim Henson",
+      "start": 2389.92,
+      "reason": "The sampled frames depict Herb Alpert and another individual (likely one of the band members or guests), but Jim Henson is not visible in any of the frames.",
+      "reviewed_at": 1792526699.2522433
+    },
+    "0162a480df37525632e2a804": {
+      "kind": "segment_rejection",
+      "source_id": "archive:muppet-guys-talking",
+      "source_url": "https://archive.org/details/muppet-guys-talking",
+      "person": "Jim Henson",
+      "start": 3108.69,
+      "reason": "The sampled frames show a video conference panel of Muppet performers (Frank Oz, Bill Barretta, Fran Brill, David Goelz, and Victoria Labalme) discussing Jim Henson, but Jim Henson himself is not visible in any of the frames, as he passed away prior to this 2020 live stream.",
+      "reviewed_at": 1792526715.892287
+    },
+    "6a745888e7cbc01c93b3101e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:muppet-guys-talking",
+      "source_url": "https://archive.org/details/muppet-guys-talking",
+      "person": "Jim Henson",
+      "start": 4438.84,
+      "reason": "The video clip features a memorial panel discussion with Frank Oz, Dave Goelz, and others discussing Jim Henson, but Jim Henson himself is not visible in the footage.",
+      "reviewed_at": 1792526732.2665014
+    },
+    "eb731086628ed686c198089b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jim-henson-documentaries",
+      "source_url": "https://archive.org/details/jim-henson-documentaries",
+      "person": "Jim Henson",
+      "start": 5.0,
+      "reason": "The video clip features abstract archival animation depicting stylized facial features, aligning with Jim Henson's experimental filmmaking background (such as his early short film 'Cube'), but Jim Henson himself is not visibly present in the frames.",
+      "reviewed_at": 1792526771.6235845
+    },
+    "411f8fb279dc537d181d3655": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jim-henson-documentaries",
+      "source_url": "https://archive.org/details/jim-henson-documentaries",
+      "person": "Jim Henson",
+      "start": 1495.55,
+      "reason": "The segment shows archival footage of early Jim Henson commercials featuring early Muppet characters (such as early Kermit and other puppets), which is highly relevant as biographical illustration of his early career work, even though Jim Henson himself is not visibly present in the frames.",
+      "reviewed_at": 1792526901.0142553
     }
   }
 }

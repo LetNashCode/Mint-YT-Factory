@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-10-20T18:44:40.288850+00:00",
-  "refresh_attempted_at": "2026-10-20T18:44:40.288850+00:00",
+  "generated_at": "2026-10-20T20:27:22.425317+00:00",
+  "refresh_attempted_at": "2026-10-20T20:27:22.425317+00:00",
   "refresh_status": "success",
-  "video_count": 23,
+  "video_count": 24,
   "optimization_ready": true,
   "live_metrics_ready": true,
-  "advanced_metrics_videos": 17,
+  "advanced_metrics_videos": 20,
   "reason": "",
   "totals": {
-    "views": 9101,
+    "views": 9119,
     "likes": 194,
     "comments": 5
   },
   "averages": {
-    "views": 395.7,
-    "likes": 8.43,
-    "comments": 0.22,
-    "average_view_percentage": 38.28,
-    "subscribers_gained": 0.43,
+    "views": 379.96,
+    "likes": 8.08,
+    "comments": 0.21,
+    "average_view_percentage": 44.62,
+    "subscribers_gained": 0.46,
     "shares": 0.04
   },
   "top_videos": [
@@ -39,15 +39,15 @@
       "topic": "Freddie Mercury: Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
       "video_id": "IT9pWnp_XvY",
       "title": "The Untold Turning Point in Freddie Mercury's Story",
-      "views": 1190,
+      "views": 1196,
       "likes": 44,
       "comments": 2,
       "shares": 0,
       "average_view_duration": 19.0,
-      "average_view_percentage": 43.23,
+      "average_view_percentage": 44.1,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 3.8655
+      "engagement_rate": 3.8462
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -151,7 +151,7 @@
       "topic": "Diana Nyad: Attempting a historic 110-mile open-ocean swim from Cuba to Florida at the age of 64 after multiple prior failures.",
       "video_id": "MPBaQ6ywruY",
       "title": "Diana Nyad Was Rejected... Then Everything Changed",
-      "views": 179,
+      "views": 191,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -159,7 +159,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.1173
+      "engagement_rate": 1.0471
     }
   ],
   "topic_performance": [
@@ -181,15 +181,15 @@
       "topic": "Freddie Mercury: Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
       "video_id": "IT9pWnp_XvY",
       "title": "The Untold Turning Point in Freddie Mercury's Story",
-      "views": 1190,
+      "views": 1196,
       "likes": 44,
       "comments": 2,
       "shares": 0,
       "average_view_duration": 19.0,
-      "average_view_percentage": 43.23,
+      "average_view_percentage": 44.1,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 3.8655
+      "engagement_rate": 3.8462
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -293,7 +293,7 @@
       "topic": "Diana Nyad: Attempting a historic 110-mile open-ocean swim from Cuba to Florida at the age of 64 after multiple prior failures.",
       "video_id": "MPBaQ6ywruY",
       "title": "Diana Nyad Was Rejected... Then Everything Changed",
-      "views": 179,
+      "views": 191,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -301,7 +301,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.1173
+      "engagement_rate": 1.0471
     },
     {
       "topic": "Carl Sagan: The choice to include Earth sounds and music on a golden record aboard Voyager spacecraft, risking ridicule from orthodox scientists.",
@@ -311,8 +311,8 @@
       "likes": 2,
       "comments": 1,
       "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
+      "average_view_duration": 18.0,
+      "average_view_percentage": 41.02,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 2.5641
@@ -325,9 +325,9 @@
       "likes": 5,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 10.0,
-      "average_view_percentage": 26.69,
-      "subscribers_gained": 0,
+      "average_view_duration": 18.0,
+      "average_view_percentage": 48.85,
+      "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 6.0976
     },
@@ -353,8 +353,8 @@
       "likes": 2,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
+      "average_view_duration": 27.0,
+      "average_view_percentage": 72.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 3.2787
@@ -367,8 +367,8 @@
       "likes": 1,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 12.0,
-      "average_view_percentage": 38.91,
+      "average_view_duration": 14.0,
+      "average_view_percentage": 45.11,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 1.7544
@@ -395,8 +395,8 @@
       "likes": 0,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
+      "average_view_duration": 17.0,
+      "average_view_percentage": 48.13,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -475,6 +475,20 @@
       "topic": "Stan Lee: Planning to quit the comic book industry out of frustration in the early 1960s before his wife suggested writing a story he actually cared about.",
       "video_id": "8Y1Qjegiprs",
       "title": "Before the Fame: Stan Lee's Untold Struggle",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    },
+    {
+      "topic": "Audrey Hepburn: Walking away from a lucrative Hollywood contract to dedicate the rest of her life to UNICEF field work.",
+      "video_id": "rK7ls_MANYg",
+      "title": "The Untold Turning Point in Audrey Hepburn's Story",
       "views": 0,
       "likes": 0,
       "comments": 0,

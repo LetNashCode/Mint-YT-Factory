@@ -977,6 +977,7 @@ def main():
                 "video_id": video_id,
                 "topic": story["topic"],
                 "uploaded": True,
+                "social": social_result,
             },
             indent=2,
         ),

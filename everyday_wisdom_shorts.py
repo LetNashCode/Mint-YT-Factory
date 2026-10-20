@@ -951,7 +951,7 @@ def main():
         "youtube": {"status": "published", "enabled": True, "video_id": str(video_id)},
     }
     (RUN_ROOT / "publish_state.json").write_text(
-        json.dumps(publish_state, indent=2, ensure_ascii=False) + "\\n",
+        json.dumps(publish_state, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
     from social_publish import publish_social_reels

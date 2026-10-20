@@ -938,6 +938,26 @@ def main():
     validate_final_video(video)
 
     video_id = upload(video, story)
+
+    # Save YouTube success before attempting Meta. The shared publisher records
+    # per-platform status and retries Instagram/Facebook independently.
+    title, description, _ = build_caption(story)
+    publish_state = {
+        "video_id": str(video_id),
+        "uploaded": True,
+        "status": "partial",
+        "topic": story["topic"],
+        "title": title,
+        "youtube": {"status": "published", "enabled": True, "video_id": str(video_id)},
+    }
+    (RUN_ROOT / "publish_state.json").write_text(
+        json.dumps(publish_state, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    from social_publish import publish_social_reels
+    social_result = publish_social_reels(str(video), title, description, {}, str(RUN_ROOT))
+    print("META PUBLICATION SUMMARY: " + json.dumps(social_result, ensure_ascii=False))
+
     # Analytics is best-effort: never turn a successful YouTube upload into a failed run.
     try:
         os.environ["MINT_WORKFLOW_PROFILE"] = "wisdom"
@@ -957,6 +977,7 @@ def main():
                 "video_id": video_id,
                 "topic": story["topic"],
                 "uploaded": True,
+                "social": social_result,
             },
             indent=2,
         ),

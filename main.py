@@ -321,15 +321,26 @@ def run(dry_run=False):
     # Persist the successful YouTube upload before contacting Meta so a failed
     # social publish can be resumed from the existing Publish Shorts artifact.
     youtube_video_id = str(upload_result or "").strip()
-    publish_state = {
+    publish_state_path = os.path.join(workdir, "publish_state.json")
+    try:
+        with open(publish_state_path, "r", encoding="utf-8") as handle:
+            publish_state = json.load(handle)
+        if not isinstance(publish_state, dict):
+            publish_state = {}
+    except (OSError, ValueError):
+        publish_state = {}
+    publish_state.update({
         "video_id": youtube_video_id,
         "uploaded": True,
         "status": "partial",
         "topic": topic,
         "title": title,
-        "youtube": {"status": "published", "enabled": True, "video_id": youtube_video_id},
+    })
+    publish_state["youtube"] = {
+        "status": "published", "enabled": True, "video_id": youtube_video_id,
     }
-    save_json(publish_state, os.path.join(workdir, "publish_state.json"))
+    # Preserve any already-published Instagram/Facebook statuses when resuming.
+    save_json(publish_state, publish_state_path)
     social_result = publish_social_reels(final_video, title, description, config, workdir)
     print("📣 Meta publication summary: " + json.dumps(social_result, ensure_ascii=False))
 

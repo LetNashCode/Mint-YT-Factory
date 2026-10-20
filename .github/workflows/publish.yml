@@ -16,6 +16,7 @@ concurrency:
 
 env:
   MINT_WORKFLOW_PROFILE: publish
+  MINT_COMPETITOR_RESEARCH: "true"
   IMAGEMAGICK_BINARY: /usr/bin/convert
 
 jobs:
@@ -92,7 +93,9 @@ jobs:
           test -f stock_media_resilient.py
           test -f youtube_auth_preflight.py
           test -f portrait_export_guard.py
-          python -m py_compile main.py generate_script.py creative_memory.py learning_engine.py production_entry.py production_entry_runner.py stock_search.py stock_media_resilient.py tts.py tts_bridge.py tts_content_guard.py social_publish.py runtime_overrides.py youtube_auth_preflight.py portrait_export_guard.py
+          test -f publish_short_intelligence.py
+          test -f competitor_research.py
+          python -m py_compile main.py generate_script.py publish_short_intelligence.py competitor_research.py creative_memory.py learning_engine.py production_entry.py production_entry_runner.py stock_search.py stock_media_resilient.py tts.py tts_bridge.py tts_content_guard.py social_publish.py runtime_overrides.py youtube_auth_preflight.py portrait_export_guard.py
           python - <<'PY'
           import stock_media_resilient, tts_content_guard, youtube_auth_preflight, portrait_export_guard
           print("Stock media + TTS content guard + TTS bridge + YouTube auth preflight + portrait guard imports OK")
@@ -101,7 +104,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python -m pytest -q tests/test_tts_speed.py tests/test_publish_continuation.py tests/test_sfx_scene_contract.py tests/test_topic_intelligence.py tests/test_creative_cooldowns.py tests/test_workflow_state_isolation.py tests/test_learning_engine.py tests/test_everyday_wisdom_feedback.py tests/test_youtube_analytics_profiles.py tests/test_social_publish_integration.py
+          python -m pytest -q tests/test_tts_speed.py tests/test_publish_continuation.py tests/test_sfx_scene_contract.py tests/test_topic_intelligence.py tests/test_creative_cooldowns.py tests/test_workflow_state_isolation.py tests/test_learning_engine.py tests/test_everyday_wisdom_feedback.py tests/test_youtube_analytics_profiles.py tests/test_social_publish_integration.py tests/test_publish_short_intelligence.py
 
       - name: Restore previous failed Publish Shorts video
         shell: bash

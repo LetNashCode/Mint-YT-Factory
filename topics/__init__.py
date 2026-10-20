@@ -216,11 +216,24 @@ def _generate_topic_candidates(used, exclude_topics=None, target_count=20):
         return []
 
     client = genai.Client(api_key=key)
-    previous = "\\n".join(used[-60:]) or "(none)"
+    previous = "\n".join(used[-60:]) or "(none)"
     excluded = ", ".join(
         _clean_topic(x) for x in (exclude_topics or []) if _clean_topic(x)
     ) or "(none)"
     recent_families = json.dumps(_recent_topic_families(used, window=10), sort_keys=True)
+    competitor_brief = []
+    if os.environ.get("MINT_COMPETITOR_RESEARCH", "false").strip().lower() in {"1", "true", "yes", "on"}:
+        try:
+            from competitor_research import collect_competitor_outliers
+            competitor_brief = collect_competitor_outliers()
+        except Exception as error:
+            print(f"ℹ️ Competitor intelligence skipped; originality-gated topic selection continues: {type(error).__name__}")
+    competitor_context = (
+        "\nPUBLIC COMPETITOR OUTLIERS (use only as evidence of formats/curiosity patterns; never copy titles or subjects):\n"
+        + json.dumps(competitor_brief, ensure_ascii=False)[:5000]
+        if competitor_brief else
+        "\nNO RELIABLE CHANNEL-RELATIVE COMPETITOR OUTLIERS AVAILABLE. Do not invent trend data.\n"
+    )
     prompt = f"""You are the TOPIC STRATEGIST for a highly entertaining YouTube Shorts channel.
 
 Generate exactly {int(target_count)} DISTINCT candidate topics for the channel promise:
@@ -251,6 +264,13 @@ PREVIOUSLY COVERED TOPICS:
 
 RECENT TOPIC FAMILY COUNTS:
 {recent_families}
+{competitor_context}
+
+COMPETITOR RESEARCH RULES:
+- If outlier evidence is supplied, infer only broad curiosity patterns or formats that could inspire an original everyday topic.
+- Never copy a competitor title, subject, wording, or distinctive premise.
+- The topic must still pass the channel's everyday-topic rules and originality checks.
+- Do not treat view counts or outlier multiples as proof that a format caused success.
 
 CURRENT TOPICS TO EXCLUDE:
 {excluded}

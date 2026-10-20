@@ -20,6 +20,7 @@ import uuid
 
 from google import genai
 from google.genai import types
+from publish_short_intelligence import score_hook
 
 MODEL_NAME = "gemini-flash-lite-latest"
 SCENE_COUNT = 6
@@ -558,7 +559,9 @@ Return ONLY JSON.
 """
 
 
-def _critic_script(client, topic, entertainment, recent_context):
+def _critic_script(client, topic, entertainment, recent_context, learning_feedback=""):
+    first_scene = (entertainment.get("scene_plan") or [{}])[0]
+    heuristic = score_hook(first_scene.get("narration", ""))
     prompt = f"""
 CURRENT TOPIC:
 {topic}
@@ -566,11 +569,20 @@ CURRENT TOPIC:
 RECENT CHANNEL CREATIVE MEMORY:
 {_clean(recent_context, 6000)}
 
+CHANNEL PERFORMANCE / RETENTION PLAYBOOK:
+{_clean(learning_feedback, 5000) or "No reliable performance playbook supplied; do not invent retention trends."}
+
+DETERMINISTIC HOOK CHECK (heuristic, not a virality prediction):
+{json.dumps(heuristic, ensure_ascii=False)}
+
 CANDIDATE SCRIPT:
 {json.dumps(entertainment, ensure_ascii=False)}
 
 Evaluate the candidate. Compare the hook and topic against recent memory at the IDEA level,
 not just exact wording. A cosmetic rewrite of a recent hook or topic is not original.
+Use the deterministic hook check as a diagnostic: address its concrete weaknesses when
+they apply, but do not sacrifice truth, natural speech, or topic fit just to maximize a score.
+Use available channel retention evidence to prioritize the opening when it is a repeated weakness.
 
 If it fails, give one concrete rewrite instruction that targets the biggest weakness.
 Do not ask for a completely different topic unless the current topic itself is duplicated.
@@ -989,6 +1001,7 @@ def _merge(entertainment, visual, topic):
         "visual_identity": identity,
         "visual_continuity": continuity,
         "retention_self_check": {"weakest_scene": 4, "reason": "The story escalates from curiosity to physical explanation and payoff."},
+        "hook_quality": score_hook(scenes[0]["narration"] if scenes else ""),
         "story_blueprint": entertainment.get("story_blueprint") or {},
         "next_short": next_short,
         "learning_experiment": entertainment.get("learning_experiment") or {},
@@ -1073,6 +1086,11 @@ def generate_script(topic, config, research=None, extra_feedback=""):
             entertainment["story_blueprint"] = blueprint
             entertainment["learning_experiment"] = learning_experiment
             word_count = _validate_entertainment(entertainment, topic)
+            hook_check = score_hook((entertainment.get("scene_plan") or [{}])[0].get("narration", ""))
+            print(
+                f"🪝 Deterministic hook check: {hook_check['score']}/10 "
+                f"({hook_check['word_count']} words; advisory, not a virality prediction)"
+            )
             _validate_retired_subject_bleed(" ".join(str(s.get("narration") or "") for s in entertainment.get("scene_plan") or []), "narration")
             _validate_no_future_topic_in_story(entertainment, topic)
             print(f"🎭 Entertainment writer pass: {word_count} words")
@@ -1087,7 +1105,7 @@ def generate_script(topic, config, research=None, extra_feedback=""):
 
             # PASS 1.5: retention/originality critic
             recent_context = _recent_creative_context()
-            critique = _critic_script(client, topic, entertainment, recent_context)
+            critique = _critic_script(client, topic, entertainment, recent_context, extra_feedback)
             print("🧠 Creative critic: overall=%s hook=%s payoff=%s originality=%s approved=%s" % (
                 critique.get("overall_score"), critique.get("hook_score"),
                 critique.get("payoff_score"), critique.get("originality_score"),

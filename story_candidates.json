@@ -1,18 +1,5 @@
 [
   {
-    "format": "one_decision",
-    "person": "Harrison Ford",
-    "premise": "Working as a carpenter on a film set when a chance casting favor led to him reading lines for auditions, landing the role of Han Solo.",
-    "hook": "He was just hired to build cabinets on the set until the director asked him to read lines for an auditioner.",
-    "key_facts": [
-      "Worked primarily as a carpenter in Los Angeles to support his family while pursuing acting intermittently.",
-      "Built cabinets for filmmaker George Lucas.",
-      "Asked to read lines for actors auditioning for 'Star Wars'.",
-      "Cast as Han Solo, launching a legendary Hollywood career."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "impossible_odds",
     "person": "Valentina Tereshkova",
     "premise": "Going from a textile factory worker and amateur parachutist to the first woman to fly in space.",
@@ -48,6 +35,54 @@
       "Won an Academy Award for Best Actress for 'Roman Holiday' in 1953.",
       "Appointed as a UNICEF Goodwill Ambassador in 1988.",
       "Spent her final years traveling extensively to impoverished regions in Africa, Asia, and Latin America."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "M. S. Dhoni",
+    "premise": "From working as a ticket collector at a railway station to captaining India to multiple ICC World Cup trophies.",
+    "hook": "He spent his days checking tickets on damp railway platforms, just hours before practicing under stadium floodlights.",
+    "key_facts": [
+      "Worked as a Travelling Ticket Examiner (TTE) for South Eastern Railway in Kharagpur.",
+      "Made his international debut for India in ODI cricket in December 2004.",
+      "Led India to victory in the 2007 ICC World Twenty20 and 2011 ICC Cricket World Cup."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Harrison Ford",
+    "premise": "Working primarily as a carpenter for Hollywood directors until a chance carpentry job on a casting set led to his audition for Star Wars.",
+    "hook": "He was building cabinets for George Lucas's office when he was suddenly asked to read lines for other auditioning actors.",
+    "key_facts": [
+      "Worked extensively as a professional carpenter in Los Angeles to support his young family.",
+      "Built cabinets for the home of director George Lucas prior to casting Star Wars.",
+      "Cast as Han Solo after initially participating only to help read dialogue for other actors."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Rosa Parks",
+    "premise": "The split-second decision to remain seated on a Montgomery bus that ignited the Civil Rights Movement.",
+    "hook": "She didn't plan to start a historic movement that afternoon; her feet were simply tired, and she refused to move.",
+    "key_facts": [
+      "Arrested on December 1, 1955, in Montgomery, Alabama, for refusing to obey a bus driver's order.",
+      "Her arrest triggered the successful 381-day Montgomery bus boycott.",
+      "Worked as a seamstress and served as secretary for the Montgomery branch of the NAACP."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Usain Bolt",
+    "premise": "Overcoming severe scoliosis and chronic hamstring injuries to become the fastest human in history.",
+    "hook": "Doctors told him a severe spinal curvature would make professional sprinting nearly impossible.",
+    "key_facts": [
+      "Diagnosed with scoliosis, a condition that caused his spine to curve and one leg to be shorter than the other.",
+      "Won eight Olympic gold medals across three consecutive Olympic Games.",
+      "Set world records in the 100-meter and 200-meter sprints at the 2008 Beijing Olympics."
     ],
     "source": "gemini_original"
   }

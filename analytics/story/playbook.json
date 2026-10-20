@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-19T21:26:43.614453+00:00",
-  "video_count": 22,
+  "generated_at": "2026-10-20T18:44:40.364400+00:00",
+  "video_count": 23,
   "learning_sample_size": 10,
   "learning_ready": true,
   "metrics_available": true,
@@ -34,7 +34,7 @@
     "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
     "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age."
   ],
-  "used_topic_count": 22,
+  "used_topic_count": 23,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

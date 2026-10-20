@@ -372,5 +372,21 @@
     "video_id": "2Yjsc0D8RMg",
     "workdir": "",
     "published_at": 1792445200
+  },
+  {
+    "topic": "Stan Lee: Planning to quit the comic book industry out of frustration in the early 1960s before his wife suggested writing a story he actually cared about.",
+    "normalized": "stan lee planning to quit the comic book industry out of frustration in the early 1960s before his wife suggested writing a story he actually cared about",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1792521213,
+    "recorded_at": 1792521213,
+    "metadata": {
+      "person": "Stan Lee",
+      "pillar": "strange_turning_point"
+    },
+    "title": "Stan Lee: Planning to quit the comic book industry out of frustration in the early 1960s before his wife suggested writing a story he actually cared about.",
+    "video_id": "8Y1Qjegiprs",
+    "workdir": "",
+    "published_at": 1792521876
   }
 ]

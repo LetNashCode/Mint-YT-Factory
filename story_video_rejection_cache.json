@@ -6556,6 +6556,24 @@
       "start": 1477.45,
       "reason": "The video features an unidentified speaker discussing space-related topics rather than Neil Armstrong, and the person visible in the footage is definitely not Neil Armstrong.",
       "reviewed_at": 1792444503.7223125
+    },
+    "9b829872954dcaf19b503af2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "person": "Kalpana Chawla",
+      "start": 66.74,
+      "reason": "The footage shows Senator John Cornyn speaking in the Senate alongside a static photograph/poster of the Columbia crew, but Kalpana Chawla herself is not visibly present as a moving subject in the footage (only depicted in the background photo), making this unsuitable as direct biographical footage.",
+      "reviewed_at": 1792521031.9357164
+    },
+    "96f154be0439f9479ad34114": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "person": "Kalpana Chawla",
+      "start": 97.61,
+      "reason": "The video shows a U.S. Senator speaking at a podium next to a poster of the Space Shuttle Columbia crew. Kalpana Chawla is not visibly present as a moving subject in the footage, and the clip fails to provide genuine historical footage of her life or work.",
+      "reviewed_at": 1792521057.51973
     }
   }
 }

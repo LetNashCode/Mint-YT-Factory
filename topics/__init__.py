@@ -216,7 +216,7 @@ def _generate_topic_candidates(used, exclude_topics=None, target_count=20):
         return []
 
     client = genai.Client(api_key=key)
-    previous = "\\n".join(used[-60:]) or "(none)"
+    previous = "\n".join(used[-60:]) or "(none)"
     excluded = ", ".join(
         _clean_topic(x) for x in (exclude_topics or []) if _clean_topic(x)
     ) or "(none)"
@@ -228,10 +228,10 @@ def _generate_topic_candidates(used, exclude_topics=None, target_count=20):
     except Exception as error:
         print(f"ℹ️ Competitor intelligence skipped; originality-gated topic selection continues: {type(error).__name__}")
     competitor_context = (
-        "\\nPUBLIC COMPETITOR OUTLIERS (use only as evidence of formats/curiosity patterns; never copy titles or subjects):\\n"
+        "\nPUBLIC COMPETITOR OUTLIERS (use only as evidence of formats/curiosity patterns; never copy titles or subjects):\n"
         + json.dumps(competitor_brief, ensure_ascii=False)[:5000]
         if competitor_brief else
-        "\\nNO RELIABLE CHANNEL-RELATIVE COMPETITOR OUTLIERS AVAILABLE. Do not invent trend data.\\n"
+        "\nNO RELIABLE CHANNEL-RELATIVE COMPETITOR OUTLIERS AVAILABLE. Do not invent trend data.\n"
     )
     prompt = f"""You are the TOPIC STRATEGIST for a highly entertaining YouTube Shorts channel.
 

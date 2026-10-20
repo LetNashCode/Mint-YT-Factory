@@ -559,15 +559,18 @@ Return ONLY JSON.
 """
 
 
-def _critic_script(client, topic, entertainment, recent_context):
+def _critic_script(client, topic, entertainment, recent_context, learning_feedback=""):
     first_scene = (entertainment.get("scene_plan") or [{}])[0]
     heuristic = score_hook(first_scene.get("narration", ""))
     prompt = f"""
 CURRENT TOPIC:
 {topic}
 
-RECENT CHANNEL CREATIVE MEMORY AND RETENTION LEARNING:
+RECENT CHANNEL CREATIVE MEMORY:
 {_clean(recent_context, 6000)}
+
+CHANNEL PERFORMANCE / RETENTION PLAYBOOK:
+{_clean(learning_feedback, 5000) or "No reliable performance playbook supplied; do not invent retention trends."}
 
 DETERMINISTIC HOOK CHECK (heuristic, not a virality prediction):
 {json.dumps(heuristic, ensure_ascii=False)}
@@ -1102,7 +1105,7 @@ def generate_script(topic, config, research=None, extra_feedback=""):
 
             # PASS 1.5: retention/originality critic
             recent_context = _recent_creative_context()
-            critique = _critic_script(client, topic, entertainment, recent_context)
+            critique = _critic_script(client, topic, entertainment, recent_context, extra_feedback)
             print("🧠 Creative critic: overall=%s hook=%s payoff=%s originality=%s approved=%s" % (
                 critique.get("overall_score"), critique.get("hook_score"),
                 critique.get("payoff_score"), critique.get("originality_score"),

@@ -7,11 +7,11 @@
     "published_at": "2026-10-18T10:27:40Z",
     "workflow": "everyday_wisdom",
     "latest": {
-      "views": 204,
+      "views": 250,
       "likes": 2,
       "comments": 0,
-      "engagement_rate": 0.9804,
-      "checked_at": "2026-10-19T20:46:36.043860+00:00"
+      "engagement_rate": 0.8,
+      "checked_at": "2026-10-20T17:26:49.814152+00:00"
     },
     "snapshots": [
       {
@@ -48,6 +48,13 @@
         "comments": 0,
         "engagement_rate": 0.9804,
         "checked_at": "2026-10-19T20:46:36.043860+00:00"
+      },
+      {
+        "views": 250,
+        "likes": 2,
+        "comments": 0,
+        "engagement_rate": 0.8,
+        "checked_at": "2026-10-20T17:26:49.814152+00:00"
       }
     ]
   },
@@ -59,11 +66,11 @@
     "published_at": "2026-10-18T16:08:53Z",
     "workflow": "everyday_wisdom",
     "latest": {
-      "views": 109,
+      "views": 110,
       "likes": 2,
       "comments": 0,
-      "engagement_rate": 1.8349,
-      "checked_at": "2026-10-19T20:46:36.043860+00:00"
+      "engagement_rate": 1.8182,
+      "checked_at": "2026-10-20T17:26:49.814152+00:00"
     },
     "snapshots": [
       {
@@ -93,6 +100,13 @@
         "comments": 0,
         "engagement_rate": 1.8349,
         "checked_at": "2026-10-19T20:46:36.043860+00:00"
+      },
+      {
+        "views": 110,
+        "likes": 2,
+        "comments": 0,
+        "engagement_rate": 1.8182,
+        "checked_at": "2026-10-20T17:26:49.814152+00:00"
       }
     ]
   },
@@ -104,11 +118,11 @@
     "published_at": "2026-10-18T18:22:37Z",
     "workflow": "everyday_wisdom",
     "latest": {
-      "views": 448,
+      "views": 613,
       "likes": 0,
       "comments": 0,
       "engagement_rate": 0.0,
-      "checked_at": "2026-10-19T20:46:36.043860+00:00"
+      "checked_at": "2026-10-20T17:26:49.814152+00:00"
     },
     "snapshots": [
       {
@@ -131,6 +145,13 @@
         "comments": 0,
         "engagement_rate": 0.0,
         "checked_at": "2026-10-19T20:46:36.043860+00:00"
+      },
+      {
+        "views": 613,
+        "likes": 0,
+        "comments": 0,
+        "engagement_rate": 0.0,
+        "checked_at": "2026-10-20T17:26:49.814152+00:00"
       }
     ]
   },
@@ -142,11 +163,11 @@
     "published_at": "2026-10-19T18:55:27Z",
     "workflow": "everyday_wisdom",
     "latest": {
-      "views": 2,
+      "views": 20,
       "likes": 0,
       "comments": 0,
       "engagement_rate": 0.0,
-      "checked_at": "2026-10-19T20:46:36.043860+00:00"
+      "checked_at": "2026-10-20T17:26:49.814152+00:00"
     },
     "snapshots": [
       {
@@ -162,6 +183,13 @@
         "comments": 0,
         "engagement_rate": 0.0,
         "checked_at": "2026-10-19T20:46:36.043860+00:00"
+      },
+      {
+        "views": 20,
+        "likes": 0,
+        "comments": 0,
+        "engagement_rate": 0.0,
+        "checked_at": "2026-10-20T17:26:49.814152+00:00"
       }
     ]
   },
@@ -170,14 +198,14 @@
     "topic": "The structural engineering reason behind circular airplane windows",
     "title": "Why Are Airplane Windows Always Round?",
     "workdir": ".everyday_wisdom_runs/1792442507",
-    "published_at": "2026-10-19T20:46:28Z",
+    "published_at": "2026-10-19T20:48:15Z",
     "workflow": "everyday_wisdom",
     "latest": {
-      "views": 0,
-      "likes": 0,
+      "views": 171,
+      "likes": 1,
       "comments": 0,
-      "engagement_rate": 0.0,
-      "checked_at": "2026-10-19T20:46:36.043860+00:00"
+      "engagement_rate": 0.5848,
+      "checked_at": "2026-10-20T17:26:49.814152+00:00"
     },
     "snapshots": [
       {
@@ -186,6 +214,13 @@
         "comments": 0,
         "engagement_rate": 0.0,
         "checked_at": "2026-10-19T20:46:36.043860+00:00"
+      },
+      {
+        "views": 171,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 0.5848,
+        "checked_at": "2026-10-20T17:26:49.814152+00:00"
       }
     ]
   }

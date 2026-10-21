@@ -16239,6 +16239,126 @@
       "shot": 2,
       "query": "garlic metal strips stubborn sulfur",
       "recorded_at": 1792529851
+    },
+    {
+      "asset_key": "pexels:video:32320836",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/32320836/13786305_1280_720_24fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "pinecones dry open pinecone scales",
+      "recorded_at": 1792613830
+    },
+    {
+      "asset_key": "pexels:video:10498786",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/10498786/10498786-hd_1280_720_30fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "pinecones swallowed its own seeds",
+      "recorded_at": 1792613834
+    },
+    {
+      "asset_key": "pexels:video:4706880",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4706880/4706880-hd_1280_720_30fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "pinecones drop water droplet falling",
+      "recorded_at": 1792613838
+    },
+    {
+      "asset_key": "pexels:video:34783404",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/34783404/14747039_1280_720_50fps.mp4",
+      "scene": 2,
+      "shot": 2,
+      "query": "pinecones wooden arms slam shut",
+      "recorded_at": 1792613842
+    },
+    {
+      "asset_key": "pexels:video:35745901",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/35745901/15151785_720_1280_60fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "pinecones there muscles here pinecone",
+      "recorded_at": 1792613846
+    },
+    {
+      "asset_key": "pexels:video:32239559",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/32239559/13749288_720_1280_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "pinecones tiny brains plotting weather",
+      "recorded_at": 1792613849
+    },
+    {
+      "asset_key": "pexels:video:6098993",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6098993/6098993-hd_720_1280_50fps.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "pinecones instead each scale built",
+      "recorded_at": 1792613853
+    },
+    {
+      "asset_key": "pexels:video:5703253",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/5703253/5703253-hd_1366_720_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "pinecones like tiny double-sided wooden",
+      "recorded_at": 1792613857
+    },
+    {
+      "asset_key": "pexels:video:11970696",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/11970696/11970696-hd_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "pinecones rain hits outer layer",
+      "recorded_at": 1792613860
+    },
+    {
+      "asset_key": "pexels:video:1390546",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/1390546/1390546-hd_1280_720_30fps.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "pinecones while inner layer stays",
+      "recorded_at": 1792613937
+    },
+    {
+      "asset_key": "pexels:video:1456895",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/1456895/1456895-hd_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "pinecones living machine powered entirely",
+      "recorded_at": 1792613941
+    },
+    {
+      "asset_key": "pexels:video:1390533",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/1390533/1390533-hd_1280_720_30fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "pinecones sealing its valuable seeds",
+      "recorded_at": 1792613946
     }
   ]
 }

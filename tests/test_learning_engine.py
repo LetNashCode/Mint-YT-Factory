@@ -1,4 +1,11 @@
+from datetime import datetime, timedelta, timezone
+
 import learning_engine as engine
+
+
+def _fresh_checked_at():
+    """Stable fresh analytics timestamp independent of the calendar date CI runs."""
+    return (datetime.now(timezone.utc) - timedelta(hours=2)).isoformat()
 
 
 def _record(score, hook="question", payoff="reveal", tease="open"):
@@ -118,7 +125,7 @@ def test_build_playbook_does_not_learn_from_overlapping_small_cohorts(monkeypatc
                 "views": score * 100,
                 "analytics_views": score * 100,
                 "average_view_percentage": float(score),
-                "checked_at": "2026-10-18T00:00:00+00:00",
+                "checked_at": _fresh_checked_at(),
             },
         }
         for score in (10, 20, 30, 40, 50)
@@ -160,7 +167,7 @@ def test_new_upload_does_not_enter_learning_cohorts(monkeypatch):
                 "views": score * 100,
                 "analytics_views": score * 100,
                 "average_view_percentage": float(score),
-                "checked_at": "2026-10-18T00:00:00+00:00",
+                "checked_at": _fresh_checked_at(),
             },
         }
         for score in (10, 20, 30, 40, 50, 60)

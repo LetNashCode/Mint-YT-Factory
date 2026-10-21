@@ -16359,6 +16359,56 @@
       "shot": 2,
       "query": "pinecones sealing its valuable seeds",
       "recorded_at": 1792613946
+    },
+    {
+      "asset_key": "pixabay:video:257093",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2025/02/07/257093_medium.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "metal faucets drip close up",
+      "recorded_at": 1792616198
+    },
+    {
+      "asset_key": "pixabay:video:257092",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2025/02/07/257092_medium.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "metal faucets drip close up",
+      "recorded_at": 1792616204
+    },
+    {
+      "asset_key": "pixabay:video:230060",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2024/09/06/230060_medium.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "metal faucets drip gravity collect enough mass",
+      "recorded_at": 1792616205
+    },
+    {
+      "asset_key": "pixabay:video:2805",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/04/15/2805-162943479_medium.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "metal faucets drip enough weight clean chrome",
+      "recorded_at": 1792616208
+    },
+    {
+      "asset_key": "pixabay:video:82043",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2021/07/19/82043-577017489_medium.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "metal faucets drip tug-of-war against surface tension",
+      "recorded_at": 1792616210
     }
   ]
 }

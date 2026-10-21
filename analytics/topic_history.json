@@ -3480,24 +3480,24 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do garlic smells linger",
-    "normalized": "why do garlic smells linger",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1792529409,
-    "recorded_at": 1792529409,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "How do pinecones close up in rain",
     "normalized": "how do pinecones close up in rain",
     "workflow": "publish",
     "status": "reserved",
     "reserved_at": 1792613653,
     "recorded_at": 1792613653,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do metal faucets drip slowly",
+    "normalized": "why do metal faucets drip slowly",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1792615949,
+    "recorded_at": 1792615949,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

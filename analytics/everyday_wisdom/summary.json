@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-10-21T21:03:35.514506+00:00",
-  "refresh_attempted_at": "2026-10-21T21:03:35.514506+00:00",
+  "generated_at": "2026-10-22T14:58:32.621893+00:00",
+  "refresh_attempted_at": "2026-10-22T14:58:32.621893+00:00",
   "refresh_status": "success",
-  "video_count": 5,
+  "video_count": 6,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 5,
   "reason": "",
   "totals": {
-    "views": 1424,
-    "likes": 6,
+    "views": 1436,
+    "likes": 7,
     "comments": 0
   },
   "averages": {
-    "views": 284.8,
-    "likes": 1.2,
+    "views": 239.33,
+    "likes": 1.17,
     "comments": 0.0,
-    "average_view_percentage": 45.0,
-    "subscribers_gained": 0.2,
+    "average_view_percentage": 37.5,
+    "subscribers_gained": 0.17,
     "shares": 0.0
   },
   "top_videos": [
@@ -25,7 +25,7 @@
       "topic": "The historical and functional reason why golf club handles are wrapped in rubber or leather grips.",
       "video_id": "iHTa4HKzsJo",
       "title": "Why Are Golf Club Grips Always Wrapped?",
-      "views": 647,
+      "views": 648,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -33,21 +33,21 @@
       "average_view_percentage": 45.25,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.1546
+      "engagement_rate": 0.1543
     },
     {
       "topic": "The structural engineering reason behind circular airplane windows",
       "video_id": "x8lk78h_aNM",
       "title": "Why Are Airplane Windows Always Round?",
-      "views": 386,
-      "likes": 1,
+      "views": 397,
+      "likes": 2,
       "comments": 0,
       "shares": 0,
       "average_view_duration": 16.0,
       "average_view_percentage": 42.33,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.2591
+      "engagement_rate": 0.5038
     },
     {
       "topic": "The historical railroad and shipping signal origin behind why traffic lights use red, yellow, and green.",
@@ -90,6 +90,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
+    },
+    {
+      "topic": "The historical reason behind the fabric button located on top of mortarboard graduation caps.",
+      "video_id": "oc4a0qVkla0",
+      "title": "Why Do Graduation Caps Have Buttons on Top?",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
     }
   ],
   "topic_performance": [
@@ -97,7 +111,7 @@
       "topic": "The historical and functional reason why golf club handles are wrapped in rubber or leather grips.",
       "video_id": "iHTa4HKzsJo",
       "title": "Why Are Golf Club Grips Always Wrapped?",
-      "views": 647,
+      "views": 648,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -105,21 +119,21 @@
       "average_view_percentage": 45.25,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.1546
+      "engagement_rate": 0.1543
     },
     {
       "topic": "The structural engineering reason behind circular airplane windows",
       "video_id": "x8lk78h_aNM",
       "title": "Why Are Airplane Windows Always Round?",
-      "views": 386,
-      "likes": 1,
+      "views": 397,
+      "likes": 2,
       "comments": 0,
       "shares": 0,
       "average_view_duration": 16.0,
       "average_view_percentage": 42.33,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.2591
+      "engagement_rate": 0.5038
     },
     {
       "topic": "The historical railroad and shipping signal origin behind why traffic lights use red, yellow, and green.",
@@ -159,6 +173,20 @@
       "shares": 0,
       "average_view_duration": 7.0,
       "average_view_percentage": 21.71,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    },
+    {
+      "topic": "The historical reason behind the fabric button located on top of mortarboard graduation caps.",
+      "video_id": "oc4a0qVkla0",
+      "title": "Why Do Graduation Caps Have Buttons on Top?",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0

@@ -1157,3 +1157,65 @@ def test_source_is_blocked_after_rejections_even_after_one_accepted_clip(monkeyp
     # One accepted clip plus four consecutive rejected clips must block the source
     # instead of allowing an unbounded verifier loop on the same recording.
     assert len(calls) == 5
+
+def test_story_verifier_tries_multiple_stable_fallback_models(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
+    monkeypatch.setenv("STORY_GEMINI_TRANSIENT_RETRIES", "0")
+    monkeypatch.setenv("STORY_GEMINI_FALLBACK_RETRIES", "0")
+    monkeypatch.setenv(
+        "STORY_GEMINI_FALLBACK_MODELS",
+        "gemini-3.5-flash-lite,gemini-3.1-flash-lite,gemini-2.5-flash-lite",
+    )
+    monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
+    calls = []
+
+    def post(url, **kwargs):
+        calls.append(url)
+        if "gemini-3.1-flash-lite" in url:
+            return SimpleNamespace(
+                status_code=200,
+                raise_for_status=lambda: None,
+                json=lambda: {"candidates": [{"content": {"parts": [{"text": json.dumps(GOOD)}]}}]},
+            )
+        return SimpleNamespace(status_code=503, raise_for_status=lambda: None, json=lambda: {})
+
+    monkeypatch.setattr(media.requests, "post", post)
+    monkeypatch.setattr(media.time, "sleep", lambda *_args: None)
+    result = media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
+
+    assert media.verification_passes(result)
+    assert len(calls) == 3
+    assert "gemini-flash-lite-latest" in calls[0]
+    assert "gemini-3.5-flash-lite" in calls[1]
+    assert "gemini-3.1-flash-lite" in calls[2]
+    assert not Path(media.NETWORK_DEFER_FILE).exists()
+
+
+def test_story_verifier_tries_fallback_chain_after_primary_network_timeout(monkeypatch, tmp_path):
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("GEMINI_API_KEY", "offline-test-only")
+    monkeypatch.setenv("STORY_GEMINI_NETWORK_RETRIES", "0")
+    monkeypatch.setenv("STORY_GEMINI_FALLBACK_RETRIES", "0")
+    monkeypatch.setenv("STORY_GEMINI_FALLBACK_MODELS", "gemini-3.5-flash-lite,gemini-3.1-flash-lite")
+    monkeypatch.setattr(media, "_VERIFIER_MODELS", {})
+    calls = []
+
+    def post(url, **kwargs):
+        calls.append(url)
+        if "gemini-flash-lite-latest" in url:
+            raise requests.Timeout("primary timed out")
+        return SimpleNamespace(
+            status_code=200,
+            raise_for_status=lambda: None,
+            json=lambda: {"candidates": [{"content": {"parts": [{"text": json.dumps(GOOD)}]}}]},
+        )
+
+    monkeypatch.setattr(media.requests, "post", post)
+    monkeypatch.setattr(media.time, "sleep", lambda *_args: None)
+    result = media.verify("Nelson Mandela", {}, candidate(), ["a", "b", "c"])
+
+    assert media.verification_passes(result)
+    assert len(calls) == 2
+    assert "gemini-3.5-flash-lite" in calls[1]
+    assert not Path(media.NETWORK_DEFER_FILE).exists()

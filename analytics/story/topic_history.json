@@ -404,5 +404,21 @@
     "video_id": "rK7ls_MANYg",
     "workdir": "",
     "published_at": 1792528039
+  },
+  {
+    "topic": "Valentina Tereshkova: A textile factory worker and amateur parachutist selected to become the first woman in space.",
+    "normalized": "valentina tereshkova a textile factory worker and amateur parachutist selected to become the first woman in space",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1792695553,
+    "recorded_at": 1792695553,
+    "metadata": {
+      "person": "Valentina Tereshkova",
+      "pillar": "impossible_odds"
+    },
+    "title": "Valentina Tereshkova: A textile factory worker and amateur parachutist selected to become the first woman in space.",
+    "video_id": "J6alrNPd3lc",
+    "workdir": "",
+    "published_at": 1792696224
   }
 ]

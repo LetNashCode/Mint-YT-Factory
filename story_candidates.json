@@ -1,17 +1,5 @@
 [
   {
-    "format": "impossible_odds",
-    "person": "Viswanathan Anand",
-    "premise": "Rising from the chess clubs of Southern India to shatter the Soviet domination of world chess.",
-    "hook": "He learned the game from his mother in a small town before global databases or chess computers existed.",
-    "key_facts": [
-      "Became India's first grandmaster in 1988 at the age of 18.",
-      "Won the FIDE World Chess Championship five times.",
-      "Earned the nickname 'The Tiger of Madras' for his exceptionally fast playing style."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "one_decision",
     "person": "Dick Fosbury",
     "premise": "Reinventing the high jump at the 1968 Mexico City Olympics with a radical, upside-down technique.",
@@ -24,18 +12,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Valentina Tereshkova",
-    "premise": "A textile factory worker and amateur parachutist selected to become the first woman in space.",
-    "hook": "She kept her secret training mission hidden from her own mother until the launch was broadcast globally.",
-    "key_facts": [
-      "Worked as a spinner in a local textile mill before joining the cosmonaut corps.",
-      "Piloted the Vostok 6 mission in June 1963.",
-      "Remains the only woman to have flown a solo space mission."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "strange_turning_point",
     "person": "Linus Pauling",
     "premise": "Transitioning from quantum chemistry to molecular biology and global activism after a passport revocation.",
@@ -44,6 +20,32 @@
       "Won the Nobel Prize in Chemistry in 1954 for his research into the nature of chemical bonds.",
       "Awarded the Nobel Peace Prize in 1962 for his campaign against atmospheric nuclear testing.",
       "One of the few people in history to win two unshared Nobel Prizes in different fields."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Harrison Ford",
+    "premise": "How a Hollywood carpenter's refusal to quit woodworking led directly to his casting as Han Solo.",
+    "hook": "He was building cabinets for George Lucas's office when he was asked to just read lines for other auditioning actors.",
+    "key_facts": [
+      "Worked primarily as a professional carpenter in Los Angeles to support his family.",
+      "Built cabinets and office furniture for producer and director George Lucas.",
+      "Read lines for actors auditioning for 'Star Wars' without intending to audition himself.",
+      "Was eventually offered the role of Han Solo based on his line readings."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Louis Braille",
+    "premise": "How a blinded French boy adapted a military night-writing code into a universal tactile alphabet that transformed education.",
+    "hook": "He was blinded in his father's workshop at age three, and later invented his reading system using an awl borrowed from that same harness shop.",
+    "key_facts": [
+      "Lost his sight due to an accidental eye injury in his childhood in Coupvray, France.",
+      "Attended the Royal Institution for Blind Youth in Paris.",
+      "Adapted Captain Charles Barbier's military 'night writing' tactile code into a simpler six-dot system.",
+      "The Braille system became the global standard for reading and writing among blind and visually impaired people."
     ],
     "source": "gemini_original"
   }

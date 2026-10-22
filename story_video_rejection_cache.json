@@ -7375,6 +7375,69 @@
       "start": 5.0,
       "reason": "The video shows a high school theatre production and interview about Jane Austen's 'Emma', but Jane Austen herself lived centuries earlier and cannot be present in the footage. Therefore, person_visible is false and direct_event is not applicable.",
       "reviewed_at": 1792678807.6313832
+    },
+    "ed0b58868ec658b1c4bfcd69": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.111",
+      "source_url": "https://archive.org/details/dli.MoI.films.111",
+      "person": "Satyen Bose",
+      "start": 177.95,
+      "reason": "The footage shows archival exterior shots of a building associated with Satyen Bose's life, but the person himself is not visible in any of the frames. It serves as useful biographical illustration context.",
+      "reviewed_at": 1792694218.0056682
+    },
+    "e6c9d741537dc526a89c5821": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.111",
+      "source_url": "https://archive.org/details/dli.MoI.films.111",
+      "person": "Satyen Bose",
+      "start": 264.43,
+      "reason": "The segment shows archival panning shots of an illustrated mural depicting famous scientists and historical figures in physics and science, serving as biographical illustration for a film about Satyen Bose.",
+      "reviewed_at": 1792694256.1889372
+    },
+    "4662240c74be12ce0cc2cd56": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v1962061853",
+      "source_url": "https://archive.org/details/twitch-vod-v1962061853",
+      "person": "Colonel Sanders",
+      "start": 5.0,
+      "reason": "The footage shows a contemporary gaming streamer, not Colonel Sanders, making it entirely irrelevant to the biographical subject.",
+      "reviewed_at": 1792694350.6669967
+    },
+    "496b23162a07f3a206578205": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v1962061853",
+      "source_url": "https://archive.org/details/twitch-vod-v1962061853",
+      "person": "Colonel Sanders",
+      "start": 652.99,
+      "reason": "The video shows a Twitch streamer reacting to a movie trailer ('The Wailing'), with no footage of Colonel Sanders or relevant historical context.",
+      "reviewed_at": 1792694409.132469
+    },
+    "ace763d3dde8d216bc8218aa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
+      "source_url": "https://archive.org/details/thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
+      "person": "Rosa Parks",
+      "start": 3.19,
+      "reason": "The video segment contains archival footage and historical illustrations depicting the historical context of Rosa Parks and the Montgomery bus boycott, but Rosa Parks herself is not clearly identifiable as the subject in the sampled frames.",
+      "reviewed_at": 1792695318.592312
+    },
+    "76ecbe5466861fb879587b93": {
+      "kind": "segment_rejection",
+      "source_id": "archive:thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
+      "source_url": "https://archive.org/details/thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
+      "person": "Rosa Parks",
+      "start": 30.91,
+      "reason": "The footage shows an interview/discussion about Rosa Parks on The Laura Flanders Show, but Rosa Parks herself is not visible in any of the sampled frames. Therefore, it is unusable for direct identity footage or historical context depicting her.",
+      "reviewed_at": 1792695384.8615792
+    },
+    "bbd74edfaea28bfb5f8db938": {
+      "kind": "segment_rejection",
+      "source_id": "archive:xd-14174-first-womanin-space-mos-vwr",
+      "source_url": "https://archive.org/details/xd-14174-first-womanin-space-mos-vwr",
+      "person": "Valentina Tereshkova",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of dark/blank film and title cards without any clear depiction of Valentina Tereshkova, making the segment unusable for biographical illustration.",
+      "reviewed_at": 1792695585.524335
     }
   }
 }

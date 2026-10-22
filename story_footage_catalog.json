@@ -2,563 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Shah Rukh Khan",
-      "source": {
-        "id": "archive:ShahRukhKhan_2017",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ShahRukhKhan_2017/ShahRukhKhan_2017.mp4",
-        "source_url": "https://archive.org/details/ShahRukhKhan_2017",
-        "title": "Shah Rukh Khan: Thoughts on humanity, fame and love",
-        "description": "\"I sell dreams, and I peddle love to millions of people,\" says Shah Rukh Khan, Bollywood's biggest star. In this charming, funny talk, Khan traces the arc of his life, showcases a few of his famous dance moves and shares hard-earned wisdom from a life spent in the spotlight. ['Tedtalks', 'TED', 'Talks', 'aging', 'art', 'communication', 'dance', 'entertainment', 'family', 'future', 'happiness', 'humanity', 'india', 'love', 'movies', 'music', 'personal growth', 'success', 'technology', 'TED2017', '2017']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['Tedtalks', 'TED', 'Talks', 'aging', 'art', 'communication', 'dance', 'entertainment', 'family', 'future', 'happiness', 'humanity', 'india', 'love', 'movies', 'music', 'personal growth', 'success', 'technology', 'TED2017', '2017']",
-        "runtime": "00:17:51",
-        "direct_subject": true,
-        "duration_hint": 1071.0,
-        "identity_score": 13.0
-      },
-      "start": 86.61,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows Shah Rukh Khan speaking on stage (from a TED talk), which provides good visual footage of the subject for biographical illustration, though it does not depict a specific historical event directly.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "de336f9d909346212535eba7a3a59378b09c412411eba06c3efa434f58f8995c",
-      "reviewed_at": 1790434808.6674035
-    },
-    {
-      "person": "Shah Rukh Khan",
-      "source": {
-        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
-        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
-        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
-        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
-        "creator": "",
-        "license": "",
-        "subject": "['Shah Rukh Khan', 'social boycott']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6.0,
-        "reason": "Shah Rukh Khan is clearly visible across all three frames participating in an interview, which can be used as biographical illustration. However, the video player UI elements and surrounding webpage clutter make it poorly formatted for direct use without cropping.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5a21e2347b2c50bbe4eec6a446d3cd88fc239827903edfbea3878a042653ef98",
-      "reviewed_at": 1790454688.6028025
-    },
-    {
-      "person": "Shah Rukh Khan",
-      "source": {
-        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
-        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
-        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
-        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
-        "creator": "",
-        "license": "",
-        "subject": "['Shah Rukh Khan', 'social boycott']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 42.53,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames show Shah Rukh Khan in an interview setting, which serves as biographical illustration, but the video capture includes website UI elements and player controls around the actual footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "da1c1d62e815bdaf7f55e0422f4675390ca13f122225b5cd7b4c3d183b4e17f5",
-      "reviewed_at": 1790454734.1808496
-    },
-    {
-      "person": "Shah Rukh Khan",
-      "source": {
-        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
-        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1",
-        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
-        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
-        "creator": "",
-        "license": "",
-        "subject": "['Shah Rukh Khan', 'social boycott']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 89.45,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames show genuine video footage of Shah Rukh Khan in an interview setting, making it suitable for biographical illustration, though the video player UI elements around the frame reduce quality.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "1800a482477069535a5635c03316ffd4ae4c8a761e3ac587cb59fb6565ef2ab8",
-      "reviewed_at": 1790454776.6399496
-    },
-    {
-      "person": "Shah Rukh Khan",
-      "source": {
-        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
-        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
-        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
-        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
-        "creator": "",
-        "license": "",
-        "subject": "['Shah Rukh Khan', 'social boycott']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 68.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows Shah Rukh Khan in an interview setting across all three frames. While it's genuine footage of the subject, it's an interview clip being used for biographical illustration rather than depicting a specific narrated historical event.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "dda4c2f277fe31795a45afb07434b374706f9e127651608246f5da502d231c00",
-      "reviewed_at": 1790454806.9703345
-    },
-    {
-      "person": "Shah Rukh Khan",
-      "source": {
-        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
-        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
-        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
-        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
-        "creator": "",
-        "license": "",
-        "subject": "['Shah Rukh Khan', 'social boycott']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 32.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows actual footage of Shah Rukh Khan participating in an interview, which can be used as biographical illustration. However, it contains UI elements from the video player surrounding the footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "969ddea1e0a18d5be1d042b21b63b83311af7d0ac9e029a8c6a4e79dec8fc396",
-      "reviewed_at": 1790454840.9510589
-    },
-    {
-      "person": "Shah Rukh Khan",
-      "source": {
-        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
-        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
-        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
-        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
-        "creator": "",
-        "license": "",
-        "subject": "['Shah Rukh Khan', 'social boycott']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 41.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows Shah Rukh Khan in an interview setting (Z-Etc Bollywood), which can be used as biographical illustration, but it is displayed within a website interface containing browser elements and ads.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "abffdb940ec8adfcebdb5f8477b83e0b0a13ef15414041fa70efd3a654721303",
-      "reviewed_at": 1790454850.2924964
-    },
-    {
-      "person": "Shah Rukh Khan",
-      "source": {
-        "id": "archive:old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212/Old%20video%20of%20Shah%20Rukh%20Khan%20talking%20about%20social%20boycott%20viral%20as%20recent1.mp4",
-        "source_url": "https://archive.org/details/old-video-of-shah-rukh-khan-talking-about-social-boycott-viral-as-recent-1_202212",
-        "title": "Old Video Of Shah Rukh Khan Talking About Social Boycott Viral As Recent 1",
-        "description": "Old video of Shah Rukh Khan talking about social boycott viral as recent ['Shah Rukh Khan', 'social boycott']",
-        "creator": "",
-        "license": "",
-        "subject": "['Shah Rukh Khan', 'social boycott']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 50.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows Shah Rukh Khan clearly in an interview setting across all frames. However, the source is formatted as a webpage with heavy UI elements and letterboxing around the video player, making it less than ideal for direct 9:16 vertical crop without losing parts of the subject or framing.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "4f265492dc809402da4f34e0385626788199fc6427be24d2d2ab840f0d29b744",
-      "reviewed_at": 1790454856.4852307
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
-        "id": "archive:TWiST-E282",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
-        "source_url": "https://archive.org/details/TWiST-E282",
-        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
-        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "creator": "ThisWeekIn Network",
-        "license": "",
-        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 3474.01,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The clip shows an interview with Nolan Bushnell, but the framing pans across the host and changes shots rather than keeping Nolan clearly visible throughout the entire sequence, and it's a podcast setting rather than archival footage of his historical work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b8979490d835cfa430a82d2e5a6c8c67a4f677ffc0dbf1ed4f0b976053372377",
-      "reviewed_at": 1790461902.7836936
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
-        "id": "archive:TWiST-E282",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
-        "source_url": "https://archive.org/details/TWiST-E282",
-        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
-        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "creator": "ThisWeekIn Network",
-        "license": "",
-        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 351.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames show Nolan Bushnell being interviewed on a podcast (This Week in Startups), which can serve as biographical illustration, though it does not depict any specific historical events directly.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c5bdd6308c58b2f1d00d9a803225f4033410fd89fddd75741c8c2e65afbb16c0",
-      "reviewed_at": 1790462641.3059566
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
-        "id": "archive:TWiST-E282",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
-        "source_url": "https://archive.org/details/TWiST-E282",
-        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
-        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "creator": "ThisWeekIn Network",
-        "license": "",
-        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 698.8,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows Nolan Bushnell being interviewed on a podcast, which can serve as biographical illustration, but it is not direct footage of the historical events being narrated.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ebf142094c434854a1b80c4e2918e939db5ff1ca7533f29210fc3863425d476c",
-      "reviewed_at": 1790464818.8310165
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
-        "id": "archive:TWiST-E282",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
-        "source_url": "https://archive.org/details/TWiST-E282",
-        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
-        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "creator": "ThisWeekIn Network",
-        "license": "",
-        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 2433.31,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames show Nolan Bushnell being interviewed on a podcast. While it is real footage of the subject, it is a modern interview setting rather than direct historical footage of the narrated events, making it useful as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6db84df39597c4a70f9a7c50f2b461784fcf374c5514be4c8bab6f9cf600887e",
-      "reviewed_at": 1790483800.1903481
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
-        "id": "archive:TWiST-E282",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
-        "source_url": "https://archive.org/details/TWiST-E282",
-        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
-        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "creator": "ThisWeekIn Network",
-        "license": "",
-        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 3820.91,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video features actual footage of Nolan Bushnell participating in a podcast interview. While it doesn't show historical events directly, it serves as good biographical illustration of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f39655728f8d7592f493fa1f64c415138253af8c1d1bed86fb0ad6d6df88fc25",
-      "reviewed_at": 1790504455.0198867
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
-        "id": "archive:TWiST-E282",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/TWiST-E282/TWiST-E282.mp4",
-        "source_url": "https://archive.org/details/TWiST-E282",
-        "title": "This Week in Startups 282: Nolan Bushnell of Brainrush",
-        "description": "Today on TWiST, we welcomed a true legend to the broadcast: Nolan Bushnell. Nolan is know for many things, including founding Atari, being Steve Jobs’ boss, starting the restaurant chain Chuck E. Cheese’s and, most recently, creating the educational startup Brainrush. ['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "creator": "ThisWeekIn Network",
-        "license": "",
-        "subject": "['TWiST', 'thisweekin', 'This Week In Startups', 'Jason Calacanis']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 2780.21,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames show Nolan Bushnell being interviewed on a podcast. While this is not direct footage of the historical events being narrated (such as founding Atari), it is genuine filmed footage of the subject suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ed59f17bac5e5a208074e5153530aedf9e67240e32f6a9124693bf109fd686c0",
-      "reviewed_at": 1790504517.434427
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
-        "id": "archive:twitter-1333048067122085888",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1333048067122085888/1333048067122085888.mp4",
-        "source_url": "https://archive.org/details/twitter-1333048067122085888",
-        "title": "BBC Archive - #OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
-        "description": "#OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/ibQhx6nEF5 Source: https://twitter.com/BBCArchive/status/1333048067122085888 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 26.78,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video shows real archival interview footage of Nolan Bushnell, clear and centered, suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "934cc1cd79593f11beb89c8a16d9e75d468bcd2e4d69fac66d8cd59ce67d5e23",
-      "reviewed_at": 1790504537.2046273
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
-        "id": "archive:twitter-1333048067122085888",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1333048067122085888/1333048067122085888.mp4",
-        "source_url": "https://archive.org/details/twitter-1333048067122085888",
-        "title": "BBC Archive - #OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
-        "description": "#OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/ibQhx6nEF5 Source: https://twitter.com/BBCArchive/status/1333048067122085888 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 48.6,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames show Nolan Bushnell being interviewed in archive footage. While it features him speaking rather than depicting the direct historical creation of Pong, it serves as good biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "2e0dce819c991757dcc9d2f9ca2e04b3a424c58a00a298ca5798099b6cc62d1e",
-      "reviewed_at": 1790504557.5998113
-    },
-    {
-      "person": "Nolan Bushnell",
-      "source": {
-        "id": "archive:twitter-1200420398178816001",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1200420398178816001/1200420398178816001.mp4",
-        "source_url": "https://archive.org/details/twitter-1200420398178816001",
-        "title": "BBC Archive - #OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping...",
-        "description": "#OnThisDay 1972: Atari unveiled Pong, perhaps the most iconic videogame of all time. According to Nolan Bushnell, in the UK it was called Ping... https://t.co/TA1mebdGMa Source: https://twitter.com/BBCArchive/status/1200420398178816001 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 26.78,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features real archival interview footage of Nolan Bushnell, showing him clearly across all frames. It serves as biographical illustration for the narrative about Atari and Pong.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6dd5557eb95b8b43041146f9813e25ca4935e045288fef8e36832cd747a44413",
-      "reviewed_at": 1790504565.845849
-    },
-    {
-      "person": "Dharmendra",
-      "source": {
-        "id": "archive:phagun-1973-hindi.-dv-d.-rip.-480p.-avc.x-264.-ac-3.5.1.-esub-ex-dt-by.juleyano",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/phagun-1973-hindi.-dv-d.-rip.-480p.-avc.x-264.-ac-3.5.1.-esub-ex-dt-by.juleyano/Pyar%20Ka%20Karz%20%281990%29%20Hindi.Ultra.WEB.DL1080p.AVCx264.AAC.ESubs.BY%20juleyano.mp4",
-        "source_url": "https://archive.org/details/phagun-1973-hindi.-dv-d.-rip.-480p.-avc.x-264.-ac-3.5.1.-esub-ex-dt-by.juleyano",
-        "title": "A collection of Dharmendra films",
-        "description": "Hindi Movie, Hindi Film,Bollywood, Dharmendra, Here you will find approximately 130 films by Dharmendra. https://archive.org/details/@jule_suleyman?and%5B%5D=subject%3A%22Dharmendra%22 List of movies found here Phagun (1973) Jhutha Sach ( 1984) Aag Ka Toofaan (1993) Aatank (1996) Aazmayish (1995) Baghavat (1982) Mahaveera ( 1988) Mardon Wali Baat (1988) Alibaba Aur 40 Chor (1980) Mafia (1996) Tahalka (1992) Anupama (1966) Krodhi (1981) Dream Girl (1977) Baharon Ki Manzil (1968) Charas (1976) Ek Mahal Ho Sapno Ka (1975) Katilon Ke Kaatil (1981) Aag Hi Aag (1987) Dadagiri (1987) Chand Aur Suraj (1965) Mohabbat Zindagi Hai (1966) Nafrat Ki Aandhi (1989) Do Chor (1972) Fauladi No.1 (2001) International Crook (1974) Jugnu (1973) Kaajal (1965) Naya Zamana (1971) Raja Jani (1972) Yakeen (1969) Loafer (1973) Mera Karam Mera Dharam (1987) Pyar Hi Pyar (1969) Sikka (1989) Dil Kaa Heera (1979) Dil Ne Phir Yaad Kiya (1966) Insaf Ki Pukar (1987) Izzat (1968) Jwar Bhata (1973) Kahani Kismat Ki (1973) Paap Ko Jalaa Kar Raakh Kar Doonga (1988) Purnima (1965) Dushman Devta (1991) Khatron Ke Khiladi (1988) Kundan (1993) Kohraam (1991) Apne Dushman (1975) Ishq Par Zor Nahin (1970) Shola Aur Shabnam (1961) Paap Ki Aandhi (1991) Hukumat (1987) Hum Sab Chor Hain (1995) Khel Khilari Ka (1977) Aas Paas (1981) Anpadh (1962) Bandini (1963) Ghazab (1982) Jab Yaad Kisi Ki Aati Hai (1967) Kab Kyoon Aur Kahan (1970) Man Ki Aankhen (1970) Resham Ki Dori (1974) Sitamgar (1985) Saazish (1975) Smuggler (1996) thalaivi (1981) Dil Bhi Tera Hum Bhi Tere (1960) Aap Ki Parchhaiyan (1964) Majhli Didi (1967) Haqee ['Hindi Movie', 'Hindi Film', 'Bollywood', 'Dharmendra']",
-        "creator": "juleyano",
-        "license": "",
-        "subject": "['Hindi Movie', 'Hindi Film', 'Bollywood', 'Dharmendra']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5027.28,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames show actor Dharmendra (on the left in the black suit) in genuine film footage, serving as biographical illustration for a documentary short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "aadc2117050eed6260b9cf3b0c0a31247156571d450a380398e62066edb98c8b",
-      "reviewed_at": 1790504633.4549046
-    },
-    {
       "person": "Dharmendra",
       "source": {
         "id": "archive:dil-ne-phir-yaad-kiya-1966-zee-movie-dharmendra-nutan-rehman",
@@ -17852,37 +17295,6 @@
     {
       "person": "Rosa Parks",
       "source": {
-        "id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary/Rosa_Parks_story_lives_on_at_Daily_Elementary.mp4",
-        "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
-        "title": "Rosa Parks' story lives on at Daily Elementary",
-        "description": " ['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
-        "creator": "Houston Independent School District",
-        "license": "",
-        "subject": "['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
-        "runtime": "00:01:24",
-        "direct_subject": true,
-        "duration_hint": 84.317651,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 75.32,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment contains archival footage clearly depicting Rosa Parks in the later frames, making it suitable as biographical illustration for her life story.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "97143a9c50bcf14ffbfde00597e229f671ceeeb1428a937310bac44c43acb24c",
-      "reviewed_at": 1792675192.5758562
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
         "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
@@ -18311,37 +17723,6 @@
     {
       "person": "Ernest Shackleton",
       "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Ernest Shackleton Documentaries Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 442.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature Ernest Shackleton (along with members of his expedition) in archival footage from his Antarctic expeditions, perfectly illustrating his life and historical context.",
-        "usage": "direct_event"
-      },
-      "review_key": "02ef616fe98df805259849b0c9564ef9e4c1c650af1b0415a7107af4497145cd",
-      "reviewed_at": 1792677061.3713484
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
         "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
@@ -18369,37 +17750,6 @@
       },
       "review_key": "790c5c7cd4fd4553c4f8cfc96422c22b35e5b1ffc9f02548f1b4e7c1ce22420e",
       "reviewed_at": 1792677206.4700477
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Ernest Shackleton Documentaries Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1756.58,
-      "length": 8.0,
-      "verification": {
-        "person_visible": false,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows authentic historical archival moving imagery of the Endurance expedition in the Antarctic ice pack (with crew and dogs), directly illustrating Ernest Shackleton's famous expeditions. While Shackleton himself is not clearly identifiable as an individual in the frames, the historical context and visual depiction of the event/setting are entirely genuine and relevant.",
-        "usage": "direct_event"
-      },
-      "review_key": "75915e06dd450ed1dcd91b89d1cef145cac665cff36d1c84229cd394fcec3704",
-      "reviewed_at": 1792677224.291258
     },
     {
       "person": "Ernest Shackleton",
@@ -18586,6 +17936,657 @@
       },
       "review_key": "94d56e1e5ff3c1814ecea13d0319ae21ae109eda3cb493bdd67a42d946da9b4a",
       "reviewed_at": 1792678336.5642583
+    },
+    {
+      "person": "Satyen Bose",
+      "source": {
+        "id": "archive:dli.MoI.films.111",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dli.MoI.films.111/Dr%20Satyen%20Bose.ia.mp4",
+        "source_url": "https://archive.org/details/dli.MoI.films.111",
+        "title": "Dr. Satyen Bose",
+        "description": "['In January 1974, Calcutta celebrated the 50th Anniversary of the Bose Statistics. In 1924, at the age of thirty Dr. Satyen Bosemade an original contribution to theoretical Physics. This biographical film, informs the viewer about the life story of the great scientist, to whom Rabindra Nath Tagore dedicated his work Viswa Parichaya way back in 1937. The Bangiya Vigyan Parishad was founded by Dr. Bose in 1948. In 1958 he became National Professor. A world-renowned scientist, Dr. Bose was also a great humanist. Dr. Bose died on February 4, 1974. Director: Gopal Sanyal', 'From the Government of India, Ministry of Information, Films Division'] GoI Films",
+        "creator": "Ministry of Information, Films Division",
+        "license": "",
+        "subject": "GoI Films",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1138.2,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 610.34,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment shows genuine historical archival footage featuring Satyen Bose seated at a desk surrounded by colleagues/students, fitting biographical illustration of his life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1ac632e3cf214e6cc1522b5743e2bcff09ed878df97889d0dd42b2a4b4accaa0",
+      "reviewed_at": 1792694148.0473497
+    },
+    {
+      "person": "Satyen Bose",
+      "source": {
+        "id": "archive:dli.MoI.films.111",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dli.MoI.films.111/Dr%20Satyen%20Bose.ia.mp4",
+        "source_url": "https://archive.org/details/dli.MoI.films.111",
+        "title": "Dr. Satyen Bose",
+        "description": "['In January 1974, Calcutta celebrated the 50th Anniversary of the Bose Statistics. In 1924, at the age of thirty Dr. Satyen Bosemade an original contribution to theoretical Physics. This biographical film, informs the viewer about the life story of the great scientist, to whom Rabindra Nath Tagore dedicated his work Viswa Parichaya way back in 1937. The Bangiya Vigyan Parishad was founded by Dr. Bose in 1948. In 1958 he became National Professor. A world-renowned scientist, Dr. Bose was also a great humanist. Dr. Bose died on February 4, 1974. Director: Gopal Sanyal', 'From the Government of India, Ministry of Information, Films Division'] GoI Films",
+        "creator": "Ministry of Information, Films Division",
+        "license": "",
+        "subject": "GoI Films",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1138.2,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature archival footage of Satyen Bose during the title sequence of his biographical documentary, making it highly usable and relevant as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "20819c413a41cf24ccb5c6a87d3087d1a3ceebb686866b9d1ef3ae624c874479",
+      "reviewed_at": 1792694162.060575
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Ernest Shackleton Documentaries Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1756.58,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows authentic historical archival material depicting Ernest Shackleton's ship trapped in the Antarctic ice during the Imperial Trans-Antarctic Expedition, providing direct historical context and illustration for his biography, although Shackleton himself is not clearly distinguishable among the figures in the distance.",
+        "usage": "direct_event"
+      },
+      "review_key": "85017721f68369df98afbd9b1a0b142e408ca2f3aa6ccad36e9a664d69892c7b",
+      "reviewed_at": 1792694637.1452606
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Ernest Shackleton Documentaries Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 442.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The frames depict authentic historical footage of Ernest Shackleton and his expedition team in Antarctica during their historic journey, perfectly matching the biographical narration.",
+        "usage": "direct_event"
+      },
+      "review_key": "ea125380e6f5cbfff1583ab7b5443ae2557e0559ccdb205064cdce22e4d8b224",
+      "reviewed_at": 1792694683.767534
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor/The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_history_film.mp4",
+        "source_url": "https://archive.org/details/thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
+        "title": "The FIRST #documentary on Rosa Parks is out this week. Learn more at our YT channel #history #film",
+        "description": " ['New York', 'The Laura Flanders Show', 'Youtube', '2022']",
+        "creator": "LF",
+        "license": "",
+        "subject": "['New York', 'The Laura Flanders Show', 'Youtube', '2022']",
+        "runtime": "00:00:40",
+        "direct_subject": true,
+        "duration_hint": 39.906573,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 21.67,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature archival footage of Rosa Parks herself (such as sitting on a bus and seated on a porch) alongside documentary/interview context, directly illustrating her life and history.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f81ca36f09e99373ce9e8f274c0e82fabc36c9dbf878c6efd1b31cfc928f3750",
+      "reviewed_at": 1792695243.4398298
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor/The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_history_film.mp4",
+        "source_url": "https://archive.org/details/thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
+        "title": "The FIRST #documentary on Rosa Parks is out this week. Learn more at our YT channel #history #film",
+        "description": " ['New York', 'The Laura Flanders Show', 'Youtube', '2022']",
+        "creator": "LF",
+        "license": "",
+        "subject": "['New York', 'The Laura Flanders Show', 'Youtube', '2022']",
+        "runtime": "00:00:40",
+        "direct_subject": true,
+        "duration_hint": 39.906573,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 12.43,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features archival footage related to the civil rights movement and brief appearances of Rosa Parks seated near Martin Luther King Jr. in historical group footage, interspersed with modern interview commentary about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4835f8047ab3a335a09b411f6b84a0174f267e812f7be4081bdf4a1772563f42",
+      "reviewed_at": 1792695324.5245662
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary/Rosa_Parks_story_lives_on_at_Daily_Elementary.mp4",
+        "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+        "title": "Rosa Parks' story lives on at Daily Elementary",
+        "description": " ['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
+        "creator": "Houston Independent School District",
+        "license": "",
+        "subject": "['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
+        "runtime": "00:01:24",
+        "direct_subject": true,
+        "duration_hint": 84.317651,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 75.32,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment includes archival footage clearly showing Rosa Parks in later frames, providing biographical illustration for her life story, despite opening with school children and classroom exhibits.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "27a7be29fb18ec587c76822a0e43c9bc553a80138f2eda81e4d4bcc99f6071dd",
+      "reviewed_at": 1792695434.0336752
+    },
+    {
+      "person": "Valentina Tereshkova",
+      "source": {
+        "id": "archive:xd-14174-first-womanin-space-mos-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/xd-14174-first-womanin-space-mos-vwr/XD14174%2BFirst%2BWoman%2Bin%2BSpace_mos_vwr.mp4",
+        "source_url": "https://archive.org/details/xd-14174-first-womanin-space-mos-vwr",
+        "title": "VALENTINA TERESHKOVA FIRST WOMAN IN SPACE SOVIET SPACE PROGRAM VOSTOK-6 MISSION 1963 XD14174",
+        "description": "This silent movie, entitled \"First Woman-Cosmonaut\" is a short extract of a 1974 documentary about the first woman in space. It was sold for the home market in the former Soviet Union. The film was directed by Maria Goldovskaya, Yuri Letunov, Leonid Yerokhin and S. Tsvetkova, and tells the story of Valentina Tereshkova. Tereshkova was born and raised by a single mother and began her career as a worker in a textile factory, before becoming a female cosmonaut. She was one of the so-called \"First Batch\" of 5 women who were selected in the Vostok human space flight program. She orbited the Earth 48 times starting on 16 June 1963 and spent almost three days in space, and remains the only woman in history to have been on a solo space mission. She is currently a member of the Russian State Duma. 00:25 Two women cosmonauts– Valentina Tereshkova and Valentina Ponomaryova, walk and sit on a bench in a birch grove 00:45 Card: \"She used to work as a spinstress in Yaroslavl. Valentina Tereshkova\" 00:54 Valentina threading an automated loom 1:09 Card: \"In 1962, Tereshkova enrolled in the cosmonaut's group\" 1:18 Tereshkova walks along with other cosmonauts, including Leonov, Gagarin, Titov and others. 1:27 Studying celestial mechanics, physics, etc. 1:45 Card: \"Yuri Gagarin introduced Valentina to spatial technologies\" 1:54 Tereshkova along with a female engineer examining a transmitter module with a deployable antenna and a solar array. 2:03 Closeup of Yuri Gagarin explaining the array. 2:17 Vostok space capsule 2:21 Card: \"At the Zvyozdny Gorodok Museum \" 2:26 Inside the Star City museu ['Valentina', 'Tereshkova', 'First Women', 'Vostok', 'Mission', '1963', 'Pogram', 'Vostok-6', 'Stock Footage', 'Periscope Film']",
+        "creator": "PeriscopeFilm",
+        "license": "",
+        "subject": "['Valentina', 'Tereshkova', 'First Women', 'Vostok', 'Mission', '1963', 'Pogram', 'Vostok-6', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 867.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 464.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8.0,
+        "reason": "Valentina Tereshkova and other female cosmonauts are clearly visible in the archival documentary footage interacting with each other, serving as good biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "74e79c58959f533d0c126d40f0a48fb79ab0d49af71d0247874611f79458b44b",
+      "reviewed_at": 1792695562.0430884
+    },
+    {
+      "person": "Valentina Tereshkova",
+      "source": {
+        "id": "archive:twitter-1272831284058996738",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1272831284058996738/1272831284058996738.mp4",
+        "source_url": "https://archive.org/details/twitter-1272831284058996738",
+        "title": "BBC Archive - #OnThisDay 1963: Valentina Tereshkova became the first woman to fly to space. She recalled her experience on Tonight in 1977.",
+        "description": "#OnThisDay 1963: Valentina Tereshkova became the first woman to fly to space. She recalled her experience on Tonight in 1977. https://t.co/p2zQvzZEII Source: https://twitter.com/BBCArchive/status/1272831284058996738 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 198.72,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 104.46,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Valentina Tereshkova speaking in archival interview footage, providing genuine biographical illustration for a Short about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1f35ec931d4af566708d16517506a505fe2a64215acacb220302e7ef20d6f6b9",
+      "reviewed_at": 1792695568.9602215
+    },
+    {
+      "person": "Valentina Tereshkova",
+      "source": {
+        "id": "archive:xd-14174-first-womanin-space-mos-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/xd-14174-first-womanin-space-mos-vwr/XD14174%2BFirst%2BWoman%2Bin%2BSpace_mos_vwr.mp4",
+        "source_url": "https://archive.org/details/xd-14174-first-womanin-space-mos-vwr",
+        "title": "VALENTINA TERESHKOVA FIRST WOMAN IN SPACE SOVIET SPACE PROGRAM VOSTOK-6 MISSION 1963 XD14174",
+        "description": "This silent movie, entitled \"First Woman-Cosmonaut\" is a short extract of a 1974 documentary about the first woman in space. It was sold for the home market in the former Soviet Union. The film was directed by Maria Goldovskaya, Yuri Letunov, Leonid Yerokhin and S. Tsvetkova, and tells the story of Valentina Tereshkova. Tereshkova was born and raised by a single mother and began her career as a worker in a textile factory, before becoming a female cosmonaut. She was one of the so-called \"First Batch\" of 5 women who were selected in the Vostok human space flight program. She orbited the Earth 48 times starting on 16 June 1963 and spent almost three days in space, and remains the only woman in history to have been on a solo space mission. She is currently a member of the Russian State Duma. 00:25 Two women cosmonauts– Valentina Tereshkova and Valentina Ponomaryova, walk and sit on a bench in a birch grove 00:45 Card: \"She used to work as a spinstress in Yaroslavl. Valentina Tereshkova\" 00:54 Valentina threading an automated loom 1:09 Card: \"In 1962, Tereshkova enrolled in the cosmonaut's group\" 1:18 Tereshkova walks along with other cosmonauts, including Leonov, Gagarin, Titov and others. 1:27 Studying celestial mechanics, physics, etc. 1:45 Card: \"Yuri Gagarin introduced Valentina to spatial technologies\" 1:54 Tereshkova along with a female engineer examining a transmitter module with a deployable antenna and a solar array. 2:03 Closeup of Yuri Gagarin explaining the array. 2:17 Vostok space capsule 2:21 Card: \"At the Zvyozdny Gorodok Museum \" 2:26 Inside the Star City museu ['Valentina', 'Tereshkova', 'First Women', 'Vostok', 'Mission', '1963', 'Pogram', 'Vostok-6', 'Stock Footage', 'Periscope Film']",
+        "creator": "PeriscopeFilm",
+        "license": "",
+        "subject": "['Valentina', 'Tereshkova', 'First Women', 'Vostok', 'Mission', '1963', 'Pogram', 'Vostok-6', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 867.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 70.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Authentic archival footage showing Valentina Tereshkova walking and interacting with fellow cosmonauts, perfectly illustrating her early career and involvement in the Soviet space program.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1517105f4189b5214707f31363dd90b16c794ef400164662de11ef76a7947e43",
+      "reviewed_at": 1792695599.6063347
+    },
+    {
+      "person": "Valentina Tereshkova",
+      "source": {
+        "id": "archive:twitter-1272831284058996738",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1272831284058996738/1272831284058996738.mp4",
+        "source_url": "https://archive.org/details/twitter-1272831284058996738",
+        "title": "BBC Archive - #OnThisDay 1963: Valentina Tereshkova became the first woman to fly to space. She recalled her experience on Tonight in 1977.",
+        "description": "#OnThisDay 1963: Valentina Tereshkova became the first woman to fly to space. She recalled her experience on Tonight in 1977. https://t.co/p2zQvzZEII Source: https://twitter.com/BBCArchive/status/1272831284058996738 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 198.72,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage features archival interview footage of Valentina Tereshkova speaking about her experience, which serves as strong biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b2fe46d877b5409be4812b6142d465625ddd8f2a1dbe4a2246399d6cf46f29c8",
+      "reviewed_at": 1792695616.5831316
+    },
+    {
+      "person": "Valentina Tereshkova",
+      "source": {
+        "id": "archive:xd-14174-first-womanin-space-mos-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/xd-14174-first-womanin-space-mos-vwr/XD14174%2BFirst%2BWoman%2Bin%2BSpace_mos_vwr.mp4",
+        "source_url": "https://archive.org/details/xd-14174-first-womanin-space-mos-vwr",
+        "title": "VALENTINA TERESHKOVA FIRST WOMAN IN SPACE SOVIET SPACE PROGRAM VOSTOK-6 MISSION 1963 XD14174",
+        "description": "This silent movie, entitled \"First Woman-Cosmonaut\" is a short extract of a 1974 documentary about the first woman in space. It was sold for the home market in the former Soviet Union. The film was directed by Maria Goldovskaya, Yuri Letunov, Leonid Yerokhin and S. Tsvetkova, and tells the story of Valentina Tereshkova. Tereshkova was born and raised by a single mother and began her career as a worker in a textile factory, before becoming a female cosmonaut. She was one of the so-called \"First Batch\" of 5 women who were selected in the Vostok human space flight program. She orbited the Earth 48 times starting on 16 June 1963 and spent almost three days in space, and remains the only woman in history to have been on a solo space mission. She is currently a member of the Russian State Duma. 00:25 Two women cosmonauts– Valentina Tereshkova and Valentina Ponomaryova, walk and sit on a bench in a birch grove 00:45 Card: \"She used to work as a spinstress in Yaroslavl. Valentina Tereshkova\" 00:54 Valentina threading an automated loom 1:09 Card: \"In 1962, Tereshkova enrolled in the cosmonaut's group\" 1:18 Tereshkova walks along with other cosmonauts, including Leonov, Gagarin, Titov and others. 1:27 Studying celestial mechanics, physics, etc. 1:45 Card: \"Yuri Gagarin introduced Valentina to spatial technologies\" 1:54 Tereshkova along with a female engineer examining a transmitter module with a deployable antenna and a solar array. 2:03 Closeup of Yuri Gagarin explaining the array. 2:17 Vostok space capsule 2:21 Card: \"At the Zvyozdny Gorodok Museum \" 2:26 Inside the Star City museu ['Valentina', 'Tereshkova', 'First Women', 'Vostok', 'Mission', '1963', 'Pogram', 'Vostok-6', 'Stock Footage', 'Periscope Film']",
+        "creator": "PeriscopeFilm",
+        "license": "",
+        "subject": "['Valentina', 'Tereshkova', 'First Women', 'Vostok', 'Mission', '1963', 'Pogram', 'Vostok-6', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 867.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 136.23,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The segment shows archival footage of Valentina Tereshkova visiting the Star City museum, providing biographical illustration of her life and post-flight activities.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "86ff2a5b4d327b6224ab5fb44950a4d07f1e6dac7f75afa88fbd158c9e15ffae",
+      "reviewed_at": 1792695630.913729
+    },
+    {
+      "person": "Valentina Tereshkova",
+      "source": {
+        "id": "archive:twitter-1272831284058996738",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1272831284058996738/1272831284058996738.mp4",
+        "source_url": "https://archive.org/details/twitter-1272831284058996738",
+        "title": "BBC Archive - #OnThisDay 1963: Valentina Tereshkova became the first woman to fly to space. She recalled her experience on Tonight in 1977.",
+        "description": "#OnThisDay 1963: Valentina Tereshkova became the first woman to fly to space. She recalled her experience on Tonight in 1977. https://t.co/p2zQvzZEII Source: https://twitter.com/BBCArchive/status/1272831284058996738 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 198.72,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 19.21,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features real archival interview footage of Valentina Tereshkova speaking about her spaceflight experience, making it valuable biographical illustration despite not showing the actual 1963 space launch event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "19a7a598864ea43af613a468a5a9d236eab2ce558b9a36443643e603895f7eb3",
+      "reviewed_at": 1792695639.1109977
+    },
+    {
+      "person": "Valentina Tereshkova",
+      "source": {
+        "id": "archive:xd-14174-first-womanin-space-mos-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/xd-14174-first-womanin-space-mos-vwr/XD14174%2BFirst%2BWoman%2Bin%2BSpace_mos_vwr.mp4",
+        "source_url": "https://archive.org/details/xd-14174-first-womanin-space-mos-vwr",
+        "title": "VALENTINA TERESHKOVA FIRST WOMAN IN SPACE SOVIET SPACE PROGRAM VOSTOK-6 MISSION 1963 XD14174",
+        "description": "This silent movie, entitled \"First Woman-Cosmonaut\" is a short extract of a 1974 documentary about the first woman in space. It was sold for the home market in the former Soviet Union. The film was directed by Maria Goldovskaya, Yuri Letunov, Leonid Yerokhin and S. Tsvetkova, and tells the story of Valentina Tereshkova. Tereshkova was born and raised by a single mother and began her career as a worker in a textile factory, before becoming a female cosmonaut. She was one of the so-called \"First Batch\" of 5 women who were selected in the Vostok human space flight program. She orbited the Earth 48 times starting on 16 June 1963 and spent almost three days in space, and remains the only woman in history to have been on a solo space mission. She is currently a member of the Russian State Duma. 00:25 Two women cosmonauts– Valentina Tereshkova and Valentina Ponomaryova, walk and sit on a bench in a birch grove 00:45 Card: \"She used to work as a spinstress in Yaroslavl. Valentina Tereshkova\" 00:54 Valentina threading an automated loom 1:09 Card: \"In 1962, Tereshkova enrolled in the cosmonaut's group\" 1:18 Tereshkova walks along with other cosmonauts, including Leonov, Gagarin, Titov and others. 1:27 Studying celestial mechanics, physics, etc. 1:45 Card: \"Yuri Gagarin introduced Valentina to spatial technologies\" 1:54 Tereshkova along with a female engineer examining a transmitter module with a deployable antenna and a solar array. 2:03 Closeup of Yuri Gagarin explaining the array. 2:17 Vostok space capsule 2:21 Card: \"At the Zvyozdny Gorodok Museum \" 2:26 Inside the Star City museu ['Valentina', 'Tereshkova', 'First Women', 'Vostok', 'Mission', '1963', 'Pogram', 'Vostok-6', 'Stock Footage', 'Periscope Film']",
+        "creator": "PeriscopeFilm",
+        "license": "",
+        "subject": "['Valentina', 'Tereshkova', 'First Women', 'Vostok', 'Mission', '1963', 'Pogram', 'Vostok-6', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 867.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 201.85,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled archival footage shows Valentina Tereshkova working and training during her preparation as a cosmonaut, making it relevant biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "02db1e2ceb6861e4ef5b56ea6ee4df542a82feed5673628e628ed98ce04b1080",
+      "reviewed_at": 1792695652.2905834
+    },
+    {
+      "person": "Valentina Tereshkova",
+      "source": {
+        "id": "archive:twitter-1272831284058996738",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1272831284058996738/1272831284058996738.mp4",
+        "source_url": "https://archive.org/details/twitter-1272831284058996738",
+        "title": "BBC Archive - #OnThisDay 1963: Valentina Tereshkova became the first woman to fly to space. She recalled her experience on Tonight in 1977.",
+        "description": "#OnThisDay 1963: Valentina Tereshkova became the first woman to fly to space. She recalled her experience on Tonight in 1977. https://t.co/p2zQvzZEII Source: https://twitter.com/BBCArchive/status/1272831284058996738 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 198.72,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 33.42,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features genuine archival footage of Valentina Tereshkova being interviewed in 1977, discussing her historic space flight. She is clearly visible throughout the sampled frames, making it suitable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "27a8d59f02e1ee63e7c89ac97272a7a573949789a9546efc036649e6f583c967",
+      "reviewed_at": 1792695666.6142812
+    },
+    {
+      "person": "Valentina Tereshkova",
+      "source": {
+        "id": "archive:xd-14174-first-womanin-space-mos-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/xd-14174-first-womanin-space-mos-vwr/XD14174%2BFirst%2BWoman%2Bin%2BSpace_mos_vwr.mp4",
+        "source_url": "https://archive.org/details/xd-14174-first-womanin-space-mos-vwr",
+        "title": "VALENTINA TERESHKOVA FIRST WOMAN IN SPACE SOVIET SPACE PROGRAM VOSTOK-6 MISSION 1963 XD14174",
+        "description": "This silent movie, entitled \"First Woman-Cosmonaut\" is a short extract of a 1974 documentary about the first woman in space. It was sold for the home market in the former Soviet Union. The film was directed by Maria Goldovskaya, Yuri Letunov, Leonid Yerokhin and S. Tsvetkova, and tells the story of Valentina Tereshkova. Tereshkova was born and raised by a single mother and began her career as a worker in a textile factory, before becoming a female cosmonaut. She was one of the so-called \"First Batch\" of 5 women who were selected in the Vostok human space flight program. She orbited the Earth 48 times starting on 16 June 1963 and spent almost three days in space, and remains the only woman in history to have been on a solo space mission. She is currently a member of the Russian State Duma. 00:25 Two women cosmonauts– Valentina Tereshkova and Valentina Ponomaryova, walk and sit on a bench in a birch grove 00:45 Card: \"She used to work as a spinstress in Yaroslavl. Valentina Tereshkova\" 00:54 Valentina threading an automated loom 1:09 Card: \"In 1962, Tereshkova enrolled in the cosmonaut's group\" 1:18 Tereshkova walks along with other cosmonauts, including Leonov, Gagarin, Titov and others. 1:27 Studying celestial mechanics, physics, etc. 1:45 Card: \"Yuri Gagarin introduced Valentina to spatial technologies\" 1:54 Tereshkova along with a female engineer examining a transmitter module with a deployable antenna and a solar array. 2:03 Closeup of Yuri Gagarin explaining the array. 2:17 Vostok space capsule 2:21 Card: \"At the Zvyozdny Gorodok Museum \" 2:26 Inside the Star City museu ['Valentina', 'Tereshkova', 'First Women', 'Vostok', 'Mission', '1963', 'Pogram', 'Vostok-6', 'Stock Footage', 'Periscope Film']",
+        "creator": "PeriscopeFilm",
+        "license": "",
+        "subject": "['Valentina', 'Tereshkova', 'First Women', 'Vostok', 'Mission', '1963', 'Pogram', 'Vostok-6', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 867.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 267.46,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The sampled frames show archival documentary footage including Valentina Tereshkova inside a spacecraft simulator/training apparatus, though the later frames transition to title cards.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a06cd0f3caac44ae6abf74257d222248a5b19e2e8fa1e60fbb3d50f9189ee6bb",
+      "reviewed_at": 1792695696.7869048
+    },
+    {
+      "person": "Valentina Tereshkova",
+      "source": {
+        "id": "archive:twitter-1272831284058996738",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1272831284058996738/1272831284058996738.mp4",
+        "source_url": "https://archive.org/details/twitter-1272831284058996738",
+        "title": "BBC Archive - #OnThisDay 1963: Valentina Tereshkova became the first woman to fly to space. She recalled her experience on Tonight in 1977.",
+        "description": "#OnThisDay 1963: Valentina Tereshkova became the first woman to fly to space. She recalled her experience on Tonight in 1977. https://t.co/p2zQvzZEII Source: https://twitter.com/BBCArchive/status/1272831284058996738 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 198.72,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 47.63,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly show Valentina Tereshkova speaking in archival interview footage, making it useful biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0f283df688c40f3f9c760e20ae4f31be03edda8cc754d4d8a130242b6694e742",
+      "reviewed_at": 1792695719.24844
+    },
+    {
+      "person": "Valentina Tereshkova",
+      "source": {
+        "id": "archive:xd-14174-first-womanin-space-mos-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/xd-14174-first-womanin-space-mos-vwr/XD14174%2BFirst%2BWoman%2Bin%2BSpace_mos_vwr.mp4",
+        "source_url": "https://archive.org/details/xd-14174-first-womanin-space-mos-vwr",
+        "title": "VALENTINA TERESHKOVA FIRST WOMAN IN SPACE SOVIET SPACE PROGRAM VOSTOK-6 MISSION 1963 XD14174",
+        "description": "This silent movie, entitled \"First Woman-Cosmonaut\" is a short extract of a 1974 documentary about the first woman in space. It was sold for the home market in the former Soviet Union. The film was directed by Maria Goldovskaya, Yuri Letunov, Leonid Yerokhin and S. Tsvetkova, and tells the story of Valentina Tereshkova. Tereshkova was born and raised by a single mother and began her career as a worker in a textile factory, before becoming a female cosmonaut. She was one of the so-called \"First Batch\" of 5 women who were selected in the Vostok human space flight program. She orbited the Earth 48 times starting on 16 June 1963 and spent almost three days in space, and remains the only woman in history to have been on a solo space mission. She is currently a member of the Russian State Duma. 00:25 Two women cosmonauts– Valentina Tereshkova and Valentina Ponomaryova, walk and sit on a bench in a birch grove 00:45 Card: \"She used to work as a spinstress in Yaroslavl. Valentina Tereshkova\" 00:54 Valentina threading an automated loom 1:09 Card: \"In 1962, Tereshkova enrolled in the cosmonaut's group\" 1:18 Tereshkova walks along with other cosmonauts, including Leonov, Gagarin, Titov and others. 1:27 Studying celestial mechanics, physics, etc. 1:45 Card: \"Yuri Gagarin introduced Valentina to spatial technologies\" 1:54 Tereshkova along with a female engineer examining a transmitter module with a deployable antenna and a solar array. 2:03 Closeup of Yuri Gagarin explaining the array. 2:17 Vostok space capsule 2:21 Card: \"At the Zvyozdny Gorodok Museum \" 2:26 Inside the Star City museu ['Valentina', 'Tereshkova', 'First Women', 'Vostok', 'Mission', '1963', 'Pogram', 'Vostok-6', 'Stock Footage', 'Periscope Film']",
+        "creator": "PeriscopeFilm",
+        "license": "",
+        "subject": "['Valentina', 'Tereshkova', 'First Women', 'Vostok', 'Mission', '1963', 'Pogram', 'Vostok-6', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 867.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 333.08,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly show Valentina Tereshkova inside a space helmet during pre-flight preparation, followed by mission control footage, offering direct archival context of her historic space flight.",
+        "usage": "direct_event"
+      },
+      "review_key": "58438d1e7a3d72358ee32eda82ea9cfce12d26972c5c508ef96ef514324185dd",
+      "reviewed_at": 1792695733.1657176
+    },
+    {
+      "person": "Valentina Tereshkova",
+      "source": {
+        "id": "archive:twitter-1272831284058996738",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1272831284058996738/1272831284058996738.mp4",
+        "source_url": "https://archive.org/details/twitter-1272831284058996738",
+        "title": "BBC Archive - #OnThisDay 1963: Valentina Tereshkova became the first woman to fly to space. She recalled her experience on Tonight in 1977.",
+        "description": "#OnThisDay 1963: Valentina Tereshkova became the first woman to fly to space. She recalled her experience on Tonight in 1977. https://t.co/p2zQvzZEII Source: https://twitter.com/BBCArchive/status/1272831284058996738 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 198.72,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 61.84,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature archival interview footage of Valentina Tereshkova speaking about her experience, perfectly serving as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "fac31b393765ab2f19900c3d4b6c8f508be695a8984de1d21a216c0010faa642",
+      "reviewed_at": 1792695739.4145577
+    },
+    {
+      "person": "Valentina Tereshkova",
+      "source": {
+        "id": "archive:xd-14174-first-womanin-space-mos-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/xd-14174-first-womanin-space-mos-vwr/XD14174%2BFirst%2BWoman%2Bin%2BSpace_mos_vwr.mp4",
+        "source_url": "https://archive.org/details/xd-14174-first-womanin-space-mos-vwr",
+        "title": "VALENTINA TERESHKOVA FIRST WOMAN IN SPACE SOVIET SPACE PROGRAM VOSTOK-6 MISSION 1963 XD14174",
+        "description": "This silent movie, entitled \"First Woman-Cosmonaut\" is a short extract of a 1974 documentary about the first woman in space. It was sold for the home market in the former Soviet Union. The film was directed by Maria Goldovskaya, Yuri Letunov, Leonid Yerokhin and S. Tsvetkova, and tells the story of Valentina Tereshkova. Tereshkova was born and raised by a single mother and began her career as a worker in a textile factory, before becoming a female cosmonaut. She was one of the so-called \"First Batch\" of 5 women who were selected in the Vostok human space flight program. She orbited the Earth 48 times starting on 16 June 1963 and spent almost three days in space, and remains the only woman in history to have been on a solo space mission. She is currently a member of the Russian State Duma. 00:25 Two women cosmonauts– Valentina Tereshkova and Valentina Ponomaryova, walk and sit on a bench in a birch grove 00:45 Card: \"She used to work as a spinstress in Yaroslavl. Valentina Tereshkova\" 00:54 Valentina threading an automated loom 1:09 Card: \"In 1962, Tereshkova enrolled in the cosmonaut's group\" 1:18 Tereshkova walks along with other cosmonauts, including Leonov, Gagarin, Titov and others. 1:27 Studying celestial mechanics, physics, etc. 1:45 Card: \"Yuri Gagarin introduced Valentina to spatial technologies\" 1:54 Tereshkova along with a female engineer examining a transmitter module with a deployable antenna and a solar array. 2:03 Closeup of Yuri Gagarin explaining the array. 2:17 Vostok space capsule 2:21 Card: \"At the Zvyozdny Gorodok Museum \" 2:26 Inside the Star City museu ['Valentina', 'Tereshkova', 'First Women', 'Vostok', 'Mission', '1963', 'Pogram', 'Vostok-6', 'Stock Footage', 'Periscope Film']",
+        "creator": "PeriscopeFilm",
+        "license": "",
+        "subject": "['Valentina', 'Tereshkova', 'First Women', 'Vostok', 'Mission', '1963', 'Pogram', 'Vostok-6', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 867.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 398.69,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Valentina Tereshkova is clearly visible in the archival footage segment, illustrating her life and career as part of the Soviet space program context, although the specific timestamp falls outside the primary 1963 mission narrative.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0b8f5ab0fd202db314192474f5234522ba1f5d638f4c5f27119afc476e253c01",
+      "reviewed_at": 1792695749.7638843
+    },
+    {
+      "person": "Valentina Tereshkova",
+      "source": {
+        "id": "archive:twitter-1272831284058996738",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/twitter-1272831284058996738/1272831284058996738.mp4",
+        "source_url": "https://archive.org/details/twitter-1272831284058996738",
+        "title": "BBC Archive - #OnThisDay 1963: Valentina Tereshkova became the first woman to fly to space. She recalled her experience on Tonight in 1977.",
+        "description": "#OnThisDay 1963: Valentina Tereshkova became the first woman to fly to space. She recalled her experience on Tonight in 1977. https://t.co/p2zQvzZEII Source: https://twitter.com/BBCArchive/status/1272831284058996738 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
+        "creator": "BBC Archive",
+        "license": "",
+        "subject": "['Twitter', 'video', 'OnThisDay']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 198.72,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 76.05,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features real archival footage of Valentina Tereshkova speaking in a 1977 interview about her space flight experience, making it valuable biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c15a3998400d30fc5191b6790cba9530e8d8ebf8ff845f6a3df5dd1ed6d768c7",
+      "reviewed_at": 1792695774.2487497
     }
   ]
 }

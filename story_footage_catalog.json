@@ -2,216 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Keanu Reeves",
-      "source": {
-        "id": "archive:one-step-away-1985",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/one-step-away-1985/One%20Step%20Away%201985.mp4",
-        "source_url": "https://archive.org/details/one-step-away-1985",
-        "title": "One Step Away 1985 Starring Keanu Reeves",
-        "description": "Before he became famous, Keanu Reeves was just getting started, and this short film was one of those entries on his way to becoming famous. One Step Away 1985 Keanu Reeves",
-        "creator": "",
-        "license": "",
-        "subject": "One Step Away 1985 Keanu Reeves",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0
-      },
-      "start": 1535.37,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The frames show a young Keanu Reeves acting in early archival footage from the 1985 short film 'One Step Away'. He is clearly visible across the frames, making it useful biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ee50ab71c82238f4874fbdd647ec165ac880c8c56363ab3255cce13ab5898131",
-      "reviewed_at": 1790429051.408477
-    },
-    {
-      "person": "APJ Abdul Kalam",
-      "source": {
-        "id": "archive:APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3/%22APJ_Abdul_Kalam_interacts_with_Children%22-Asianet_News_Edufest%3A_Part_3.mp4",
-        "source_url": "https://archive.org/details/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "title": "\" APJ Abdul Kalam Interacts With Children\" Asianet News Edufest: Part 3",
-        "description": "Motivation speech Love",
-        "creator": "Durai",
-        "license": "",
-        "subject": "Love",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6.0,
-        "reason": "The frames show APJ Abdul Kalam speaking at an event. This constitutes real biographical footage suitable for illustration, though it does not depict a specific narrated historical event.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6229303a79c6ec6c3fcc1ffaae62aa230fa1c8b620cccaf377b59a7b0607b734",
-      "reviewed_at": 1790434422.9641929
-    },
-    {
-      "person": "APJ Abdul Kalam",
-      "source": {
-        "id": "archive:APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3/%22APJ_Abdul_Kalam_interacts_with_Children%22-Asianet_News_Edufest%3A_Part_3.mp4",
-        "source_url": "https://archive.org/details/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
-        "title": "\" APJ Abdul Kalam Interacts With Children\" Asianet News Edufest: Part 3",
-        "description": "Motivation speech Love",
-        "creator": "Durai",
-        "license": "",
-        "subject": "Love",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0
-      },
-      "start": 356.51,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "APJ Abdul Kalam is clearly visible across all three frames speaking at a podium. Since the narration refers generically to archival footage illustrating his life rather than a specific historical event depicted in video, it serves as useful biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5a05ecc6a730c9e868de5635bfb1e61541dbf1cc027d0ccb757f44bf1a503866",
-      "reviewed_at": 1790434584.126073
-    },
-    {
-      "person": "Shah Rukh Khan",
-      "source": {
-        "id": "archive:ShahRukhKhan_2017",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ShahRukhKhan_2017/ShahRukhKhan_2017.mp4",
-        "source_url": "https://archive.org/details/ShahRukhKhan_2017",
-        "title": "Shah Rukh Khan: Thoughts on humanity, fame and love",
-        "description": "\"I sell dreams, and I peddle love to millions of people,\" says Shah Rukh Khan, Bollywood's biggest star. In this charming, funny talk, Khan traces the arc of his life, showcases a few of his famous dance moves and shares hard-earned wisdom from a life spent in the spotlight. ['Tedtalks', 'TED', 'Talks', 'aging', 'art', 'communication', 'dance', 'entertainment', 'family', 'future', 'happiness', 'humanity', 'india', 'love', 'movies', 'music', 'personal growth', 'success', 'technology', 'TED2017', '2017']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['Tedtalks', 'TED', 'Talks', 'aging', 'art', 'communication', 'dance', 'entertainment', 'family', 'future', 'happiness', 'humanity', 'india', 'love', 'movies', 'music', 'personal growth', 'success', 'technology', 'TED2017', '2017']",
-        "runtime": "00:17:51",
-        "direct_subject": true,
-        "duration_hint": 1071.0,
-        "identity_score": 13.0
-      },
-      "start": 576.26,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Shah Rukh Khan is clearly visible in all three frames delivering a talk/interview on stage, which serves as biographical illustration for a video about his life, though it does not depict a specific historical event directly.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "31d4603adef499321006c707aede9c9b58b0b76198e33706a68a3a56533f0152",
-      "reviewed_at": 1790434717.6156285
-    },
-    {
-      "person": "Shah Rukh Khan",
-      "source": {
-        "id": "archive:dyavol.x_reel_30_11_2025_08_44_573777157327293198972",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/dyavol.x_reel_30_11_2025_08_44_573777157327293198972/dyavol.x_reel_30_11_2025_08_44_573777157327293198972.mp4",
-        "source_url": "https://archive.org/details/dyavol.x_reel_30_11_2025_08_44_573777157327293198972",
-        "title": "Aryan Khan,Shah Rukh Khan Kajol dyavol.x_reel_30_11_2025_08_44_573",
-        "description": "D'YAVOL X is owned by a collective including Aryan Khan , Shah Rukh Khan , Leti Blagoeva , and Bunty Singh , with Aryan Khan as the driving force behind the streetwear line and co-founder of the overall luxury brand, which also includes spirits and has seen investment from Nikhil Kamath and Radico Khaitan . The brand, which began with spirits and expanded into luxury streetwear (D'YAVOL X), is built on a partnership stemming from existing friendships and a shared vision for luxury lifestyle products, notes The Hindu . Key Owners & Partners: Aryan Khan: Entrepreneur, filmmaker, and the primary founder of D'YAVOL X streetwear. Shah Rukh Khan: Bollywood superstar, co-founder, and a key figure in the brand's luxury positioning. Leti Blagoeva & Bunty Singh: Partners with backgrounds in management consultancy and entrepreneurship, instrumental in bringing the concept to reality. Nikhil Kamath & Radico Khaitan: Investors in the spirits arm (D'YAVOL Spirits), adding manufacturing and distribution power. Brand Structure: D'YAVOL: The overarching luxury collective, focusing on spirits like vodka and Scotch whisky. D'YAVOL X: The limited-release, high-end streetwear line established by Aryan Khan, Leti Blagoeva, and Bunty Singh, featuring designs from collaborations with international artists srk king of bollywood 2025 2026 2027 2030 netflix",
-        "creator": "SRK",
-        "license": "",
-        "subject": "srk king of bollywood 2025 2026 2027 2030 netflix",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0
-      },
-      "start": 33.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames feature close-up shots of Shah Rukh Khan wearing sunglasses in promotional or cinematic footage, which can be used as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "4b4c203f5c550cc9161c4999844b3d93b47ba8a71745ef69c0bebe509c18c19a",
-      "reviewed_at": 1790434751.7363992
-    },
-    {
-      "person": "Shah Rukh Khan",
-      "source": {
-        "id": "archive:ShahRukhKhan_2017",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ShahRukhKhan_2017/ShahRukhKhan_2017.mp4",
-        "source_url": "https://archive.org/details/ShahRukhKhan_2017",
-        "title": "Shah Rukh Khan: Thoughts on humanity, fame and love",
-        "description": "\"I sell dreams, and I peddle love to millions of people,\" says Shah Rukh Khan, Bollywood's biggest star. In this charming, funny talk, Khan traces the arc of his life, showcases a few of his famous dance moves and shares hard-earned wisdom from a life spent in the spotlight. ['Tedtalks', 'TED', 'Talks', 'aging', 'art', 'communication', 'dance', 'entertainment', 'family', 'future', 'happiness', 'humanity', 'india', 'love', 'movies', 'music', 'personal growth', 'success', 'technology', 'TED2017', '2017']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['Tedtalks', 'TED', 'Talks', 'aging', 'art', 'communication', 'dance', 'entertainment', 'family', 'future', 'happiness', 'humanity', 'india', 'love', 'movies', 'music', 'personal growth', 'success', 'technology', 'TED2017', '2017']",
-        "runtime": "00:17:51",
-        "direct_subject": true,
-        "duration_hint": 1071.0,
-        "identity_score": 13.0
-      },
-      "start": 168.22,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows Shah Rukh Khan speaking at a TED talk, which serves as biographical illustration of his public speaking and life as a celebrity, though it is not direct footage of the specific narrated historical events.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9af4de9070d639a373771751cea87340f1b405a66006959aa020886f17be8284",
-      "reviewed_at": 1790434774.6520827
-    },
-    {
-      "person": "Shah Rukh Khan",
-      "source": {
-        "id": "archive:dyavol.x_reel_30_11_2025_08_44_573777157327293198972",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/dyavol.x_reel_30_11_2025_08_44_573777157327293198972/dyavol.x_reel_30_11_2025_08_44_573777157327293198972.mp4",
-        "source_url": "https://archive.org/details/dyavol.x_reel_30_11_2025_08_44_573777157327293198972",
-        "title": "Aryan Khan,Shah Rukh Khan Kajol dyavol.x_reel_30_11_2025_08_44_573",
-        "description": "D'YAVOL X is owned by a collective including Aryan Khan , Shah Rukh Khan , Leti Blagoeva , and Bunty Singh , with Aryan Khan as the driving force behind the streetwear line and co-founder of the overall luxury brand, which also includes spirits and has seen investment from Nikhil Kamath and Radico Khaitan . The brand, which began with spirits and expanded into luxury streetwear (D'YAVOL X), is built on a partnership stemming from existing friendships and a shared vision for luxury lifestyle products, notes The Hindu . Key Owners & Partners: Aryan Khan: Entrepreneur, filmmaker, and the primary founder of D'YAVOL X streetwear. Shah Rukh Khan: Bollywood superstar, co-founder, and a key figure in the brand's luxury positioning. Leti Blagoeva & Bunty Singh: Partners with backgrounds in management consultancy and entrepreneurship, instrumental in bringing the concept to reality. Nikhil Kamath & Radico Khaitan: Investors in the spirits arm (D'YAVOL Spirits), adding manufacturing and distribution power. Brand Structure: D'YAVOL: The overarching luxury collective, focusing on spirits like vodka and Scotch whisky. D'YAVOL X: The limited-release, high-end streetwear line established by Aryan Khan, Leti Blagoeva, and Bunty Singh, featuring designs from collaborations with international artists srk king of bollywood 2025 2026 2027 2030 netflix",
-        "creator": "SRK",
-        "license": "",
-        "subject": "srk king of bollywood 2025 2026 2027 2030 netflix",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0
-      },
-      "start": 53.16,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows Shah Rukh Khan in a promotional commercial setting (D'YAVOL X), featuring real filmed footage of the subject. While not depicting a specific historical biographical event, it serves as biographical illustration of his career and brand partnerships.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "82d889827dbeaeb5f5e6e3ff038e772a80c2d796d0a0e8345465aa401c6b0ba0",
-      "reviewed_at": 1790434807.081185
-    },
-    {
       "person": "Shah Rukh Khan",
       "source": {
         "id": "archive:ShahRukhKhan_2017",
@@ -8331,37 +8121,6 @@
     {
       "person": "Rosa Parks",
       "source": {
-        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
-        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
-        "title": "The Rebellious Life of Mrs. Rosa Parks",
-        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "creator": "Devon Geen",
-        "license": "",
-        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 4454.52,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames feature genuine archival moving footage of Rosa Parks clearly visible and identifiable throughout the sequence, serving as biographical illustration for her life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "fc27db0f021e18d268d0926cf16cedd1dc62a9921669cdd5d67116ff786bab8f",
-      "reviewed_at": 1791736816.959104
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
         "id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary/Rosa_Parks_story_lives_on_at_Daily_Elementary.mp4",
@@ -9354,99 +9113,6 @@
     {
       "person": "Rosa Parks",
       "source": {
-        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
-        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
-        "title": "The Rebellious Life of Mrs. Rosa Parks",
-        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "creator": "Devon Geen",
-        "license": "",
-        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2674.71,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features historical dramatization/archival footage clearly showing Rosa Parks on a bus and contextual shots relevant to the narrated event.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e281a7fd758faf79481b117d8965d758c6acdf9df64ca7474e321562436f49d2",
-      "reviewed_at": 1791929879.5202875
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
-        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
-        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
-        "title": "The Rebellious Life of Mrs. Rosa Parks",
-        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "creator": "Devon Geen",
-        "license": "",
-        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 4899.47,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features archival footage showing Rosa Parks clearly in the first three sampled frames, making it highly relevant and usable for a biographical short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "553d6c359ed6f67ab31d2f417d231f61efeb3cb77a29b2c132447677bfd1470e",
-      "reviewed_at": 1791929937.0492935
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
-        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
-        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
-        "title": "The Rebellious Life of Mrs. Rosa Parks",
-        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "creator": "Devon Geen",
-        "license": "",
-        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5344.42,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Rosa Parks seated in a church setting holding a candle, providing authentic documentary material illustrating her life and presence.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "009ca7ae4539699f883db4e0e50f52a88e68bd60658d1e8378919f1822d0a29e",
-      "reviewed_at": 1791929951.1068733
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
         "id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary/Rosa_Parks_story_lives_on_at_Daily_Elementary.mp4",
@@ -9493,37 +9159,6 @@
         "identity_score": 13.0,
         "archival_signal": 0
       },
-      "start": 154.52,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The segment features archival documents, photos of the Walker Building, and an interview with Madam C.J. Walker's great-great-granddaughter A'Lelia Bundles discussing her life and legacy, providing valid biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "59d7e440c937f0835e87d30d49d773d4cc4101217091b601e9789dd90cb97ccd",
-      "reviewed_at": 1791930073.8349652
-    },
-    {
-      "person": "Madam C.J. Walker",
-      "source": {
-        "id": "archive:yt_p3qjlLYszEI",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/yt_p3qjlLYszEI/p3qjlLYszEI.mp4",
-        "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
-        "title": "US National Archives - Madam C.J. Walker in the National Archives (YouTube)",
-        "description": "Downloaded from US National Archives Youtube channel on 2025-02-05 12:03:02 https://youtube.com/watch?v=p3qjlLYszEI -------- Madam C.J. Walker, one of the great American entrepreneurs of the early 20th century, was born to former slaves and grew up in destitution. In this Inside the Vaults video short, her great-great granddaughter, A'Lelia Bundles, tells Madam Walker's story with help from documents in the National Archives. Bundles, a former broadcast network news executive and President of the Foundation for the National Archives, is the author of \"On Her Own Ground: The Life and Times of Madam C.J. Walker.\" She drew on documents in the Archives to depict the Louisiana plantation on which Madam Walker was born, Walker's early life as an orphan and washerwoman, and ultimately her triumph as one of the creators of the modern hair care and cosmetics industry. Bundles also found some surprises in the Archives: Madam Walker's philanthropy and civil rights activism led to her being targeted by the federal government as a \"subversive negro.\" For more information about Madam Walker, visit http://www.madamcjwalker.com. Inside the Vaults includes highlights from the National Archives in the Washington, DC, area and from the Presidential libraries and regional archives nationwide. These shorts present behind-the-scenes exclusives and offer surprising stories about the National Archives treasures. See more from Inside the Vaults at http://bit.ly/LzQNae. ",
-        "creator": "US National Archives",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 208.374833,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
       "start": 5.0,
       "length": 8.0,
       "verification": {
@@ -9536,37 +9171,6 @@
       },
       "review_key": "8fbbef26d7b1e2fed0ba2362795fae9ac12559bede49901f07f03851823a3b01",
       "reviewed_at": 1791930164.6353283
-    },
-    {
-      "person": "Satyajit Ray",
-      "source": {
-        "id": "archive:dli.MoI.SatyajitRay_Eng",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/dli.MoI.SatyajitRay_Eng/SatyajitRay_Eng.mp4",
-        "source_url": "https://archive.org/details/dli.MoI.SatyajitRay_Eng",
-        "title": "Satyajit Ray",
-        "description": "From the Government of India, Ministry of Information, Films Division. A biographical film is on Satyajit Ray, one of India's most significant film makers, who also attained international acclaim through his cinematographic creations. ['Persons of Eminence', 'GoI Films', 'Documentary']",
-        "creator": "Ministry of Information, Films Division",
-        "license": "",
-        "subject": "['Persons of Eminence', 'GoI Films', 'Documentary']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 7856.68,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 6037.83,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature archival footage of Satyajit Ray himself, making it highly relevant and usable as biographical illustration for a short about his life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f95aca31c408965035e0383c5b5ad23af064a4f63ce1f670aeb5ffbd6bc31571",
-      "reviewed_at": 1791931422.7801511
     },
     {
       "person": "Boman Irani",
@@ -11369,37 +10973,6 @@
     {
       "person": "Jonas Salk",
       "source": {
-        "id": "archive:jonas-edward-salk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
-        "source_url": "https://archive.org/details/jonas-edward-salk",
-        "title": "JONAS EDWARD SALK",
-        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
-        "creator": "",
-        "license": "",
-        "subject": "JONAS SALK",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 79.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 42.23,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly depicts Jonas Salk in archival laboratory and medical settings, directly illustrating his work and life related to the polio vaccine.",
-        "usage": "direct_event"
-      },
-      "review_key": "a76d90cb3ab959ef6f5e50a508d2fd04e04cd206e758c88a6ca2674f201edd8a",
-      "reviewed_at": 1791993201.5600867
-    },
-    {
-      "person": "Jonas Salk",
-      "source": {
         "id": "archive:israel-wohltater-der-menschheit",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/israel-wohltater-der-menschheit/Israel_Wohlt%C3%A4ter_der_Menschheit.mp4",
@@ -11489,68 +11062,6 @@
       },
       "review_key": "ff7a215d392f21d66ccd01a6bb1e5187801e5cc9564e820cfe80e80f0ee4917e",
       "reviewed_at": 1792008464.3961642
-    },
-    {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:jonas-edward-salk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
-        "source_url": "https://archive.org/details/jonas-edward-salk",
-        "title": "JONAS EDWARD SALK",
-        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
-        "creator": "",
-        "license": "",
-        "subject": "JONAS SALK",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 79.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 23.62,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10.0,
-        "reason": "The footage clearly shows Jonas Salk in a laboratory setting handling scientific vials, directly illustrating his life and work as a medical researcher.",
-        "usage": "direct_event"
-      },
-      "review_key": "385fbdd712291c46012abfd4fef0d6c59703cc3b3976288627c88b41a6fe12f2",
-      "reviewed_at": 1792008793.8343804
-    },
-    {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:jonas-edward-salk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
-        "source_url": "https://archive.org/details/jonas-edward-salk",
-        "title": "JONAS EDWARD SALK",
-        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
-        "creator": "",
-        "license": "",
-        "subject": "JONAS SALK",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 79.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 32.93,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Jonas Salk working in a laboratory setting with lab equipment, perfectly matching the biographical subject and narration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "06734464d45730e05b1b4d7efb71d01d4a1772a2647fc5ad090f8e6f9fa0c75c",
-      "reviewed_at": 1792008806.6089828
     },
     {
       "person": "J.K. Rowling",
@@ -12201,68 +11712,6 @@
       "reviewed_at": 1792139814.3317614
     },
     {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:israel-wohltater-der-menschheit",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/israel-wohltater-der-menschheit/Israel_Wohlt%C3%A4ter_der_Menschheit.mp4",
-        "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
-        "title": "Israel ist Wohltäter der Menschheit ( JONAS SALK )",
-        "description": "Israel ist nicht Gaza ; Kolonialismus ; Gewalt und Leid sondern Wohltäter der Menscheit. ( z.B.: Jonas Salk ) Israel is not Gaza; colonialism; violence and suffering but a benefactor of humanity. (e.g., Jonas Salk) Israël n’est pas Gaza ; colonialisme ; violence et souffrance mais bienfaiteur de l’humanité. (ex. : Jonas Salk) ['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
-        "creator": "BBC ( England )",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 249.233333,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 77.38,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video segment contains real archival footage featuring Jonas Salk in a laboratory setting working on the polio vaccine, making it relevant biographical footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "4ded2ab2866bb1017e66b299114a9201efd5b2e4b79ccc0bb825429696ffeafd",
-      "reviewed_at": 1792140102.0861807
-    },
-    {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:jonas-edward-salk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
-        "source_url": "https://archive.org/details/jonas-edward-salk",
-        "title": "JONAS EDWARD SALK",
-        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
-        "creator": "",
-        "license": "",
-        "subject": "JONAS SALK",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 79.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 60.85,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly depicts Jonas Salk in both laboratory and family settings, directly illustrating his life and work for a biography short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "22d5c1e8d20a27f8cf1e9941234416bd4ab68945d5ffac27460d63ce1d519b47",
-      "reviewed_at": 1792140149.751684
-    },
-    {
       "person": "Ernest Shackleton",
       "source": {
         "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
@@ -12323,37 +11772,6 @@
       },
       "review_key": "ba4d44d6a22d5177cc78e56bfe0c0639c7667127f06735200f9daaa62a12832b",
       "reviewed_at": 1792143078.8496037
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
-        "id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary/Rosa_Parks_story_lives_on_at_Daily_Elementary.mp4",
-        "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
-        "title": "Rosa Parks' story lives on at Daily Elementary",
-        "description": " ['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
-        "creator": "Houston Independent School District",
-        "license": "",
-        "subject": "['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
-        "runtime": "00:01:24",
-        "direct_subject": true,
-        "duration_hint": 84.317651,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 75.32,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames clearly depict archival footage of Rosa Parks in the later frames, making her identifiable and providing relevant biographical illustration for the segment.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "73164907be747058e84021e049fd00b41dac93bc331266ececd64c2acf4c208e",
-      "reviewed_at": 1792143297.3266985
     },
     {
       "person": "Billie Eilish",
@@ -13036,130 +12454,6 @@
       },
       "review_key": "d7ae51fc9fe5cc2bc28b14cf90bd970d99da8451c84e3b4c10e0923a4dacd978",
       "reviewed_at": 1792230544.4856532
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Shackleton Documentary Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 442.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The frames show authentic historical photographic and film footage from Ernest Shackleton's expeditions in Antarctica, depicting Shackleton and his crew members in polar gear.",
-        "usage": "direct_event"
-      },
-      "review_key": "2308371d9b56ead957f6ef4d745598595383553da16dc0ca32480a01c85446a9",
-      "reviewed_at": 1792230625.3446012
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Ernest Shackleton Documentaries Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 442.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The frames show archival photographic/film footage of Ernest Shackleton and his expedition team in Antarctica during their historic exploration, directly matching the narration.",
-        "usage": "direct_event"
-      },
-      "review_key": "ea125380e6f5cbfff1583ab7b5443ae2557e0559ccdb205064cdce22e4d8b224",
-      "reviewed_at": 1792230631.788601
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Shackleton Documentary Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1756.58,
-      "length": 8.0,
-      "verification": {
-        "person_visible": false,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows authentic historical archival footage of an expedition ship trapped in Antarctic ice with crew members and dogs nearby, perfectly illustrating Ernest Shackleton's expeditions, though Shackleton himself is not clearly identifiable in the frames.",
-        "usage": "direct_event"
-      },
-      "review_key": "aec722341d42829f7298ba31f193a3a4b4765eb813118db8b529eb901a7858cd",
-      "reviewed_at": 1792230636.4190183
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Shackleton Documentary Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 2413.42,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The archival documentary footage depicts explorers in polar gear, directly illustrating Ernest Shackleton's Antarctic expeditions.",
-        "usage": "direct_event"
-      },
-      "review_key": "b49ef3afb004ff72430a3e9a1d72726d3b6e97c9746443f64bd5854e820df4a0",
-      "reviewed_at": 1792230654.115228
     },
     {
       "person": "Luciano Pavarotti",
@@ -17130,68 +16424,6 @@
       "reviewed_at": 1792439468.631329
     },
     {
-      "person": "Louis Braille",
-      "source": {
-        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
-        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
-        "title": "Louis Braille ~ The Braille Alphabet",
-        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "creator": "",
-        "license": "",
-        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 864.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 70.41,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7.0,
-        "reason": "The video segment shows dramatized archival footage depicting Louis Braille as a young boy using a slate and stylus to develop his tactile writing system, followed by establishing shots of his historical environment. Louis Braille is clearly visible in the first frame.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "cc42a0faf776834cc8a9033eeca2c7768d1d721da75ca841957aa270e330204d",
-      "reviewed_at": 1792439528.9121127
-    },
-    {
-      "person": "Louis Braille",
-      "source": {
-        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
-        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
-        "title": "Louis Braille ~ The Braille Alphabet",
-        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "creator": "",
-        "license": "",
-        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 864.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 332.03,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment shows dramatized archival footage of Louis Braille as a young person working with tactile objects and braille concepts, making it useful biographical illustration despite being a dramatic recreation.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "bf4eaa2090cc4c6631481104a89113b4048e16a416fad535ac40c00a8537dfab",
-      "reviewed_at": 1792439541.3067358
-    },
-    {
       "person": "Diana Nyad",
       "source": {
         "id": "archive:DianaNyad_2013W",
@@ -18585,6 +17817,775 @@
       },
       "review_key": "9b3ffe3da7e14db54aee2ecbe442f2145686e1ce908971cec489e3eda01d3316",
       "reviewed_at": 1792527356.7093892
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
+        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+        "title": "The Rebellious Life of Mrs. Rosa Parks",
+        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "creator": "Devon Geen",
+        "license": "",
+        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 4454.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival footage clearly showing Rosa Parks in several sampled frames, serving as excellent biographical illustration for a short about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3ec9f44b1331e87d5fc798ba961ef827829834f138dc09a0dee6a2f7d78b408b",
+      "reviewed_at": 1792675113.024595
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary/Rosa_Parks_story_lives_on_at_Daily_Elementary.mp4",
+        "source_url": "https://archive.org/details/hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
+        "title": "Rosa Parks' story lives on at Daily Elementary",
+        "description": " ['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
+        "creator": "Houston Independent School District",
+        "license": "",
+        "subject": "['Texas', 'Houston', 'Houston Independent School District', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Houston Independent School District (School District)', 'Ray Daily Elementary School', 'Rosa Parks', 'Urana McCauley', 'Civil Rights', '2015']",
+        "runtime": "00:01:24",
+        "direct_subject": true,
+        "duration_hint": 84.317651,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 75.32,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment contains archival footage clearly depicting Rosa Parks in the later frames, making it suitable as biographical illustration for her life story.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "97143a9c50bcf14ffbfde00597e229f671ceeeb1428a937310bac44c43acb24c",
+      "reviewed_at": 1792675192.5758562
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
+        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+        "title": "The Rebellious Life of Mrs. Rosa Parks",
+        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "creator": "Devon Geen",
+        "license": "",
+        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2674.71,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features historical dramatic/archival footage depicting Rosa Parks on a bus and interactions with police, aligning directly with her biography and the narrated context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "52db62cfccd23a18f4de392dbf754cbfbb33b12a291c073c20dd0a5e883d3bc8",
+      "reviewed_at": 1792675223.9095755
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
+        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+        "title": "The Rebellious Life of Mrs. Rosa Parks",
+        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "creator": "Devon Geen",
+        "license": "",
+        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 4899.47,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames feature genuine archival video of Rosa Parks in an interview/discussion setting, directly illustrating her life and biography.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "41701c2ae269a527a9a6a4f0f4ec5962ffc969a535d1dfffba1a5b3ad0e417fe",
+      "reviewed_at": 1792675258.1975675
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:the-rebellious-life-of-mrs.-rosa-parks",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/the-rebellious-life-of-mrs.-rosa-parks/The%20Rebellious%20Life%20of%20Mrs.%20Rosa%20Parks.mp4",
+        "source_url": "https://archive.org/details/the-rebellious-life-of-mrs.-rosa-parks",
+        "title": "The Rebellious Life of Mrs. Rosa Parks",
+        "description": "The Rebellious Life of Mrs. Rosa Parks is a biographical documentary about the life of famous Civil Rights Activist Rosa Parks. ['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "creator": "Devon Geen",
+        "license": "",
+        "subject": "['The Rebellious Life of Mrs. Rosa Parks', 'Rosa Parks', 'Martin Luther King Jr', 'Civil Rights Movement', 'Biography', 'Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 0.0,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5344.42,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Rosa Parks seated in a church setting holding a candle, providing authentic biographical illustration material for a documentary about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "dddb2729612a6d94e130253225592d1079c4266dea91631d867614a4a98591c7",
+      "reviewed_at": 1792675289.682213
+    },
+    {
+      "person": "A.P.J. Abdul Kalam",
+      "source": {
+        "id": "commons:82812902",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm",
+        "title": "File:En.Wikipedia-VideoWiki-A. P. J. Abdul Kalam.webm",
+        "description": "Wikipedia:VideoWiki/A._P._J._Abdul_Kalam",
+        "creator": "See script and authors listed in details below.",
+        "license": "Public domain",
+        "direct_subject": false,
+        "identity_score": 10.0,
+        "duration_hint": 258.269
+      },
+      "start": 192.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage shows A.P.J. Abdul Kalam speaking at a podium, which serves as valid archival/biographical illustration for a video about his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3d9ffe2a70a45c0071ffe35161ec05acc40fdbe0f8a0af09b00dafb5f9df95ab",
+      "reviewed_at": 1792675517.0458317
+    },
+    {
+      "person": "A.P.J. Abdul Kalam",
+      "source": {
+        "id": "commons:82812902",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm",
+        "title": "File:En.Wikipedia-VideoWiki-A. P. J. Abdul Kalam.webm",
+        "description": "Wikipedia:VideoWiki/A._P._J._Abdul_Kalam",
+        "creator": "See script and authors listed in details below.",
+        "license": "Public domain",
+        "direct_subject": false,
+        "identity_score": 10.0,
+        "duration_hint": 258.269
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8.0,
+        "reason": "The sampled frames clearly feature A.P.J. Abdul Kalam speaking in archival footage, making it suitable and usable as biographical illustration for a Short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b278218c8198e1e00a99783b11919c8624eae9b162be54e4b877419621a27f61",
+      "reviewed_at": 1792675546.0348196
+    },
+    {
+      "person": "Madam C.J. Walker",
+      "source": {
+        "id": "archive:yt_p3qjlLYszEI",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/yt_p3qjlLYszEI/p3qjlLYszEI.mp4",
+        "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+        "title": "US National Archives - Madam C.J. Walker in the National Archives (YouTube)",
+        "description": "Downloaded from US National Archives Youtube channel on 2025-02-05 12:03:02 https://youtube.com/watch?v=p3qjlLYszEI -------- Madam C.J. Walker, one of the great American entrepreneurs of the early 20th century, was born to former slaves and grew up in destitution. In this Inside the Vaults video short, her great-great granddaughter, A'Lelia Bundles, tells Madam Walker's story with help from documents in the National Archives. Bundles, a former broadcast network news executive and President of the Foundation for the National Archives, is the author of \"On Her Own Ground: The Life and Times of Madam C.J. Walker.\" She drew on documents in the Archives to depict the Louisiana plantation on which Madam Walker was born, Walker's early life as an orphan and washerwoman, and ultimately her triumph as one of the creators of the modern hair care and cosmetics industry. Bundles also found some surprises in the Archives: Madam Walker's philanthropy and civil rights activism led to her being targeted by the federal government as a \"subversive negro.\" For more information about Madam Walker, visit http://www.madamcjwalker.com. Inside the Vaults includes highlights from the National Archives in the Washington, DC, area and from the Presidential libraries and regional archives nationwide. These shorts present behind-the-scenes exclusives and offer surprising stories about the National Archives treasures. See more from Inside the Vaults at http://bit.ly/LzQNae. ",
+        "creator": "US National Archives",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 208.374833,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 154.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The segment features archival documents, historical images of the Walker Building, and an interview with A'Lelia Bundles (the great-great granddaughter of Madam C.J. Walker), providing biographical illustration and historical context about Madam C.J. Walker's legacy.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "db1f7c6dcb0387b21dd035889d33c74b5f6e5e5273472317ac02ea53b835ac42",
+      "reviewed_at": 1792675693.2550569
+    },
+    {
+      "person": "Satyajit Ray",
+      "source": {
+        "id": "archive:dli.MoI.SatyajitRay_Eng",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dli.MoI.SatyajitRay_Eng/SatyajitRay_Eng.mp4",
+        "source_url": "https://archive.org/details/dli.MoI.SatyajitRay_Eng",
+        "title": "Satyajit Ray",
+        "description": "From the Government of India, Ministry of Information, Films Division. A biographical film is on Satyajit Ray, one of India's most significant film makers, who also attained international acclaim through his cinematographic creations. ['Persons of Eminence', 'GoI Films', 'Documentary']",
+        "creator": "Ministry of Information, Films Division",
+        "license": "",
+        "subject": "['Persons of Eminence', 'GoI Films', 'Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 7856.68,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 6037.83,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage clearly shows filmmaker Satyajit Ray in archival documentary footage, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "169393276748afa5f10e1470e88b5c70f8219b164e7cf3e488c1c7c57a2d85d5",
+      "reviewed_at": 1792676012.2131698
+    },
+    {
+      "person": "Satyajit Ray",
+      "source": {
+        "id": "archive:dli.MoI.SatyajitRay_Eng",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dli.MoI.SatyajitRay_Eng/SatyajitRay_Eng.mp4",
+        "source_url": "https://archive.org/details/dli.MoI.SatyajitRay_Eng",
+        "title": "Satyajit Ray",
+        "description": "From the Government of India, Ministry of Information, Films Division. A biographical film is on Satyajit Ray, one of India's most significant film makers, who also attained international acclaim through his cinematographic creations. ['Persons of Eminence', 'GoI Films', 'Documentary']",
+        "creator": "Ministry of Information, Films Division",
+        "license": "",
+        "subject": "['Persons of Eminence', 'GoI Films', 'Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 7856.68,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 608.28,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features authentic archival footage of the renowned filmmaker Satyajit Ray actively working on a film set, clearly identifiable in multiple frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f2a7bf66acf68cd5ef5734d5cbff1e5853b1f1dbdbe25f6f696bbc61611e4797",
+      "reviewed_at": 1792676453.103596
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 42.23,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly depicts Jonas Salk in archival laboratory and medical settings, directly illustrating his work and life as creator of the polio vaccine.",
+        "usage": "direct_event"
+      },
+      "review_key": "917df97324d872a0013f5987f70db2a720416848b388e95632cca52a9c2b96de",
+      "reviewed_at": 1792676588.081204
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:israel-wohltater-der-menschheit",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/israel-wohltater-der-menschheit/Israel_Wohlt%C3%A4ter_der_Menschheit.mp4",
+        "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+        "title": "Israel ist Wohltäter der Menschheit ( JONAS SALK )",
+        "description": "Israel ist nicht Gaza ; Kolonialismus ; Gewalt und Leid sondern Wohltäter der Menscheit. ( z.B.: Jonas Salk ) Israel is not Gaza; colonialism; violence and suffering but a benefactor of humanity. (e.g., Jonas Salk) Israël n’est pas Gaza ; colonialisme ; violence et souffrance mais bienfaiteur de l’humanité. (ex. : Jonas Salk) ['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
+        "creator": "BBC ( England )",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 249.233333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 77.38,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features real archival footage of Jonas Salk working in his laboratory and historical context related to the polio epidemic, with Salk clearly identifiable in the opening frames.",
+        "usage": "direct_event"
+      },
+      "review_key": "6d33d4d8cb3075d5a3efbed1d9353ea247414a3464dee55bb5f63d50f54e3e68",
+      "reviewed_at": 1792676618.047626
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 23.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage clearly shows Jonas Salk in a laboratory setting handling a vial, perfectly matching the biographical narration about his life and work.",
+        "usage": "direct_event"
+      },
+      "review_key": "6d5b90e7d0ef74c371e92299e88fc63c84dc15bd52917bf257b3cd8daf8b4fe0",
+      "reviewed_at": 1792676651.1938975
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:israel-wohltater-der-menschheit",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/israel-wohltater-der-menschheit/Israel_Wohlt%C3%A4ter_der_Menschheit.mp4",
+        "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+        "title": "Israel ist Wohltäter der Menschheit ( JONAS SALK )",
+        "description": "Israel ist nicht Gaza ; Kolonialismus ; Gewalt und Leid sondern Wohltäter der Menscheit. ( z.B.: Jonas Salk ) Israel is not Gaza; colonialism; violence and suffering but a benefactor of humanity. (e.g., Jonas Salk) Israël n’est pas Gaza ; colonialisme ; violence et souffrance mais bienfaiteur de l’humanité. (ex. : Jonas Salk) ['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
+        "creator": "BBC ( England )",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 249.233333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 204.04,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The frames show Dr. Peter Salk (Jonas Salk's son) speaking about his father's achievements in archival BBC footage. While Jonas Salk himself is not the person visible in the frames, the video provides biographical illustration and context regarding his legacy, though the framing and website UI make it less than ideal for direct identity footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "94672da7867bbaf9a3d82ad06bbcede0df89a844f7e31cb845ab9c27908c22ef",
+      "reviewed_at": 1792676684.6002665
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 32.93,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment features genuine historical archival footage clearly showing Jonas Salk in a laboratory setting working with scientific equipment and chemicals, directly illustrating his life and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a386e3a447143b598f42c18ba365f168f0b264f73e4d97699455c36b3ac40bf3",
+      "reviewed_at": 1792676724.595044
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 60.85,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows Jonas Salk (portrayed or archival representation) in laboratory settings and with his family, fitting the biographical context of his life and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "61cf5de8741a212cbf919ff318890559031e9935ea98eb5584101c5a1815145c",
+      "reviewed_at": 1792676914.034734
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Ernest Shackleton Documentaries Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 442.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Ernest Shackleton (along with members of his expedition) in archival footage from his Antarctic expeditions, perfectly illustrating his life and historical context.",
+        "usage": "direct_event"
+      },
+      "review_key": "02ef616fe98df805259849b0c9564ef9e4c1c650af1b0415a7107af4497145cd",
+      "reviewed_at": 1792677061.3713484
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Shackleton Documentary Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 442.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows genuine historical documentary imagery of Ernest Shackleton and his men on the Antarctic expedition, directly matching the biography subject and narration.",
+        "usage": "direct_event"
+      },
+      "review_key": "790c5c7cd4fd4553c4f8cfc96422c22b35e5b1ffc9f02548f1b4e7c1ce22420e",
+      "reviewed_at": 1792677206.4700477
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Ernest Shackleton Documentaries Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1756.58,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows authentic historical archival moving imagery of the Endurance expedition in the Antarctic ice pack (with crew and dogs), directly illustrating Ernest Shackleton's famous expeditions. While Shackleton himself is not clearly identifiable as an individual in the frames, the historical context and visual depiction of the event/setting are entirely genuine and relevant.",
+        "usage": "direct_event"
+      },
+      "review_key": "75915e06dd450ed1dcd91b89d1cef145cac665cff36d1c84229cd394fcec3704",
+      "reviewed_at": 1792677224.291258
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Shackleton Documentary Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1756.58,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows authentic archival moving footage of the Endurance expedition in the Antarctic ice pack with crew members and sled dogs, matching the biographical context of Ernest Shackleton's life and expeditions, although Shackleton himself is not clearly identifiable among the distant crew members.",
+        "usage": "direct_event"
+      },
+      "review_key": "08059b781560e83ad003d5722e3c31cf42a11eb142bb734226136aa89237ccb2",
+      "reviewed_at": 1792677249.136149
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Shackleton Documentary Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2413.42,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows archival moving images of explorers in polar gear, depicting the historical context of polar expeditions relevant to Ernest Shackleton's life.",
+        "usage": "direct_event"
+      },
+      "review_key": "560778fbe3c7268fed930ca398bddea68ef236674b4ca8d8054d207016502c4c",
+      "reviewed_at": 1792677326.865848
+    },
+    {
+      "person": "Colonel Sanders",
+      "source": {
+        "id": "archive:rth_24344699_1200K",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/rth_24344699_1200K/rth_24344699_1200K.mp4",
+        "source_url": "https://archive.org/details/rth_24344699_1200K",
+        "title": "The BlazeTV Highlights: Colonel Sanders",
+        "description": "Glenn explains why KFC is the perfect example of the American dream... ['theblaze', 'gbtv', 'beck_archive', 'The BlazeTV Highlights', 'Glenn Beck', 'American Dream', 'Radio Program', 'Shareable PlayOnFacebook', 'highlight', 'THEBLAZE_SHORT_FEATURE', 'MEDIA_ARCHIVE', 'Embeddable', 'THEBLAZE_RTH']",
+        "creator": "TheBlaze",
+        "license": "",
+        "subject": "['theblaze', 'gbtv', 'beck_archive', 'The BlazeTV Highlights', 'Glenn Beck', 'American Dream', 'Radio Program', 'Shareable PlayOnFacebook', 'highlight', 'THEBLAZE_SHORT_FEATURE', 'MEDIA_ARCHIVE', 'Embeddable', 'THEBLAZE_RTH']",
+        "runtime": "00:09:55",
+        "direct_subject": true,
+        "duration_hint": 595.728467,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 318.24,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The sampled frames feature Colonel Sanders in archival footage/photograph displayed on screen, along with the talk show host discussing the subject. While part of the segment shows the host talking, the target historical figure is clearly visible in the initial frames, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b9554b1fc6578b6b555a95f6e1543289c6a50a7c0db9e0cd67c0cdabde4f5907",
+      "reviewed_at": 1792677950.5518787
+    },
+    {
+      "person": "Colonel Sanders",
+      "source": {
+        "id": "archive:colonel-sanders-americas-chicken-king_202503",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/colonel-sanders-americas-chicken-king_202503/Colonel%20Sanders%20-%20America%27s%20Chicken%20King.mp4",
+        "source_url": "https://archive.org/details/colonel-sanders-americas-chicken-king_202503",
+        "title": "Colonel Sanders: America's Chicken King",
+        "description": "Harland Sanders finds wealth and fame in later life after he begins serving his personal recipe for chicken to his customers. KFC, Kentucky Fried Chicken, Harland Sanders, Colonel Sanders, Fast Food",
+        "creator": "Biography",
+        "license": "",
+        "subject": "KFC, Kentucky Fried Chicken, Harland Sanders, Colonel Sanders, Fast Food",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2771.471471,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2126.13,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features real archival footage of Colonel Sanders preparing chicken in a kitchen, directly matching the biography narration.",
+        "usage": "direct_event"
+      },
+      "review_key": "c4b31c032c39dfd351ec6121124acdf5b5743bb7c85a00d0726239ba0edc2304",
+      "reviewed_at": 1792677987.506657
+    },
+    {
+      "person": "Louis Braille",
+      "source": {
+        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
+        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+        "title": "Louis Braille ~ The Braille Alphabet",
+        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "creator": "",
+        "license": "",
+        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 864.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 70.41,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features dramatized historical footage depicting a young Louis Braille working on his tactile writing system in the first frame, followed by period-appropriate landscape and village shots of his hometown, providing good biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5b2b4237d4c40a54101f34a1189fa1c4d42013f6f7943fd8b2e794e993ae60ab",
+      "reviewed_at": 1792678320.0680847
+    },
+    {
+      "person": "Louis Braille",
+      "source": {
+        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
+        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+        "title": "Louis Braille ~ The Braille Alphabet",
+        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "creator": "",
+        "license": "",
+        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 864.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 332.03,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment shows dramatized biographical footage of Louis Braille as a young boy interacting with tactile objects and learning, which directly illustrates the subject's life and invention.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "94d56e1e5ff3c1814ecea13d0319ae21ae109eda3cb493bdd67a42d946da9b4a",
+      "reviewed_at": 1792678336.5642583
     }
   ]
 }

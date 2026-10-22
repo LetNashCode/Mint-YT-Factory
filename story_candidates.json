@@ -1,41 +1,5 @@
 [
   {
-    "format": "strange_turning_point",
-    "person": "Harrison Ford",
-    "premise": "Working primarily as a carpenter for Hollywood directors until a chance carpentry job on a casting set led to his audition for Star Wars.",
-    "hook": "He was building cabinets for George Lucas's office when he was suddenly asked to read lines for other auditioning actors.",
-    "key_facts": [
-      "Worked extensively as a professional carpenter in Los Angeles to support his young family.",
-      "Built cabinets for the home of director George Lucas prior to casting Star Wars.",
-      "Cast as Han Solo after initially participating only to help read dialogue for other actors."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Rosa Parks",
-    "premise": "The split-second decision to remain seated on a Montgomery bus that ignited the Civil Rights Movement.",
-    "hook": "She didn't plan to start a historic movement that afternoon; her feet were simply tired, and she refused to move.",
-    "key_facts": [
-      "Arrested on December 1, 1955, in Montgomery, Alabama, for refusing to obey a bus driver's order.",
-      "Her arrest triggered the successful 381-day Montgomery bus boycott.",
-      "Worked as a seamstress and served as secretary for the Montgomery branch of the NAACP."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Usain Bolt",
-    "premise": "Overcoming severe scoliosis and chronic hamstring injuries to become the fastest human in history.",
-    "hook": "Doctors told him a severe spinal curvature would make professional sprinting nearly impossible.",
-    "key_facts": [
-      "Diagnosed with scoliosis, a condition that caused his spine to curve and one leg to be shorter than the other.",
-      "Won eight Olympic gold medals across three consecutive Olympic Games.",
-      "Set world records in the 100-meter and 200-meter sprints at the 2008 Beijing Olympics."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "impossible_odds",
     "person": "Viswanathan Anand",
     "premise": "Rising from the chess clubs of Southern India to shatter the Soviet domination of world chess.",

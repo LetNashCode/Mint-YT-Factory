@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-21T19:58:34.984866+00:00",
+  "generated_at": "2026-10-22T14:20:09.153446+00:00",
   "video_count": 24,
-  "learning_sample_size": 13,
+  "learning_sample_size": 14,
   "learning_ready": true,
   "metrics_available": true,
   "comparative_learning_ready": true,
-  "advanced_metrics_videos": 13,
+  "advanced_metrics_videos": 14,
   "creative_learning_version": "v6",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
@@ -17,7 +17,7 @@
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 20.517,
+      "score": 20.416,
       "sample_size": 4
     }
   ],
@@ -31,8 +31,8 @@
     "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon."
   ],
   "avoid_topics": [
-    "Jim Carrey: Dropping Out at Age 15 to Work as a Factory Janitor in Canada.",
     "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
+    "Carl Sagan: The choice to include Earth sounds and music on a golden record aboard Voyager spacecraft, risking ridicule from orthodox scientists.",
     "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
     "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age."
   ],

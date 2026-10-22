@@ -6745,6 +6745,636 @@
       "start": 1495.55,
       "reason": "The segment shows archival footage of early Jim Henson commercials featuring early Muppet characters (such as early Kermit and other puppets), which is highly relevant as biographical illustration of his early career work, even though Jim Henson himself is not visibly present in the frames.",
       "reviewed_at": 1792526901.0142553
+    },
+    "1c0a8db4c25323791ee11e67": {
+      "kind": "segment_rejection",
+      "source_id": "archive:CRTW_-_Rosa_Parks_Middle_School_Honors_Namesake",
+      "source_url": "https://archive.org/details/CRTW_-_Rosa_Parks_Middle_School_Honors_Namesake",
+      "person": "Rosa Parks",
+      "start": 68.25,
+      "reason": "The video features modern students and parents being interviewed at Rosa Parks Middle School in 2013, but Rosa Parks herself is not visible in any frame.",
+      "reviewed_at": 1792675358.763791
+    },
+    "0603239a4948a62a1c78655d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:CRTW_-_Rosa_Parks_Middle_School_Honors_Namesake",
+      "source_url": "https://archive.org/details/CRTW_-_Rosa_Parks_Middle_School_Honors_Namesake",
+      "person": "Rosa Parks",
+      "start": 95.36,
+      "reason": "The video segment shows a local official (Isiah Leggett, Montgomery County Executive) speaking in 2013, completely unrelated to Rosa Parks herself, and Rosa Parks is not visible in any of the frames.",
+      "reviewed_at": 1792675400.8718848
+    },
+    "23375898c757381ea0b2aea3": {
+      "kind": "segment_rejection",
+      "source_id": "commons:82812902",
+      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm",
+      "person": "A.P.J. Abdul Kalam",
+      "start": 136.53,
+      "reason": "The segment shows illustrations and images related to A.P.J. Abdul Kalam's life and achievements, such as medical devices and awards (Bharat Ratna), but the subject himself is not visible in the frames.",
+      "reviewed_at": 1792675512.9924364
+    },
+    "b1d181f32aa724fe4a238ba1": {
+      "kind": "segment_rejection",
+      "source_id": "commons:82812902",
+      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm",
+      "person": "A.P.J. Abdul Kalam",
+      "start": 23.79,
+      "reason": "The sampled frames show a static photograph of an unidentified person on a bicycle (from Marjorie Georgina Ruddy's collection), which is unrelated to A.P.J. Abdul Kalam and represents a static photograph rather than usable moving archival footage of the subject.",
+      "reviewed_at": 1792675637.2939644
+    },
+    "a3c8b4d0cedbe43c0088ea1e": {
+      "kind": "segment_rejection",
+      "source_id": "commons:82812902",
+      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm",
+      "person": "A.P.J. Abdul Kalam",
+      "start": 42.58,
+      "reason": "The sampled frames show military personnel in front of an Indian Air Force transport plane and an institutional building, but A.P.J. Abdul Kalam is not visible in any of the footage, and the connection to his specific biography is generic archival B-roll rather than a direct depiction of a narrated event.",
+      "reviewed_at": 1792675663.2206366
+    },
+    "d3220e0440ff0de258ba25f7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "person": "Madam C.J. Walker",
+      "start": 41.8,
+      "reason": "The video shows modern event footage featuring A'Lelia Bundles (Madam C.J. Walker's great-great-granddaughter) and attendees at an MTSU event in 2017, not Madam C.J. Walker herself.",
+      "reviewed_at": 1792675757.7210155
+    },
+    "f3e80301ee0f578d0bdd4f5d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "person": "Madam C.J. Walker",
+      "start": 51.0,
+      "reason": "The video shows modern footage of a university event and lecture by A'Lelia Bundles (Madam C.J. Walker's great-great-granddaughter), but Madam C.J. Walker herself is deceased and not present in the footage.",
+      "reviewed_at": 1792675785.6205802
+    },
+    "0b7ce55e4bcad48aeb78665a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cpaz-Black_History_Inspirational_Quotes",
+      "source_url": "https://archive.org/details/cpaz-Black_History_Inspirational_Quotes",
+      "person": "Madam C.J. Walker",
+      "start": 72.63,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792675791.3464494
+    },
+    "ad9b0528b543004f2186decf": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cpaz-Black_History_Inspirational_Quotes",
+      "source_url": "https://archive.org/details/cpaz-Black_History_Inspirational_Quotes",
+      "person": "Madam C.J. Walker",
+      "start": 82.29,
+      "reason": "The video consists of title cards, quotes attributed to other figures (like Kamala Harris), and static photographic slideshows. Madam C.J. Walker is not visibly present in any moving footage within the sampled frames, making the segment unusable for biographical illustration.",
+      "reviewed_at": 1792675864.5391517
+    },
+    "ac3d35d18b91376cf10a1cbc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:yt_p3qjlLYszEI",
+      "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+      "person": "Madam C.J. Walker",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of static historical photographs and product packaging rather than moving historical footage, rendering it unusable as video content.",
+      "reviewed_at": 1792675889.5590832
+    },
+    "1fa01f6c1240019f7739a026": {
+      "kind": "segment_rejection",
+      "source_id": "archive:yt_p3qjlLYszEI",
+      "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+      "person": "Madam C.J. Walker",
+      "start": 139.57,
+      "reason": "The segment features A'Lelia Bundles (Madam C.J. Walker's great-great-granddaughter and biographer) discussing Walker's life and archival documents in an interview format. While Madam C.J. Walker herself is not visible in the footage (as she lived prior to film/video of her life), the interviewee provides direct historical context and expert narration, making it suitable as biographical illustration.",
+      "reviewed_at": 1792675935.3516243
+    },
+    "42e456ab830ba9e9087b3809": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "source_url": "https://archive.org/details/SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "person": "Satyajit Ray",
+      "start": 137.08,
+      "reason": "The footage shows archival photographs/portraits of members of Satyajit Ray's family (his grandfather Upendrakishore Ray and relatives) as described in the documentary, serving as biographical illustration rather than depicting Satyajit Ray himself.",
+      "reviewed_at": 1792676078.7213192
+    },
+    "c34845169bed6b8bdf014f1f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "source_url": "https://archive.org/details/SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "person": "Satyajit Ray",
+      "start": 401.23,
+      "reason": "The sampled frames show archival manuscript pages and an unidentified speaker reciting lines, but Satyajit Ray himself is not clearly visible in the footage.",
+      "reviewed_at": 1792676103.987303
+    },
+    "e9406589a1c196b6e3d43389": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
+      "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
+      "person": "Satyajit Ray",
+      "start": 5.0,
+      "reason": "The footage shows film clips and scenery related to Satyajit Ray's work (specifically scenes from his films like the Apu trilogy/Pather Panchali), but Satyajit Ray himself is not clearly visible in the sampled frames. Therefore, person_visible is false, and usage is biographical_illustration.",
+      "reviewed_at": 1792676138.771436
+    },
+    "ce5d0ab83faf39a065a411bc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
+      "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
+      "person": "Satyajit Ray",
+      "start": 15.11,
+      "reason": "The footage shows film clips from Satyajit Ray's cinema, but Satyajit Ray himself is not visible in the sampled frames.",
+      "reviewed_at": 1792676168.5010638
+    },
+    "aef989b29b772561a076db99": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_1",
+      "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_1",
+      "person": "Satyajit Ray",
+      "start": 5.0,
+      "reason": "The sampled frames show archival film clips and scenes from Satyajit Ray's films, which serve as valid biographical illustration for a video about his life and work, even though Satyajit Ray himself is not visible in the frames.",
+      "reviewed_at": 1792676206.6149285
+    },
+    "693d2c999f1cb8db0b8d9a3f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_1",
+      "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_1",
+      "person": "Satyajit Ray",
+      "start": 25.91,
+      "reason": "The footage shows actors in clips from Satyajit Ray's films, but Satyajit Ray himself (the subject of the biography) is not visible in the sampled frames.",
+      "reviewed_at": 1792676231.8388178
+    },
+    "b4027165b583934b44488748": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Satyajit",
+      "source_url": "https://archive.org/details/Satyajit",
+      "person": "Satyajit Ray",
+      "start": 30.71,
+      "reason": "The video shows authentic archival clips from Satyajit Ray's masterwork films (such as The Apu Trilogy), which directly illustrate his life's work as a filmmaker. Satyajit Ray himself is not visible in the frames, but the footage serves as excellent biographical illustration of his cinematic career.",
+      "reviewed_at": 1792676264.582563
+    },
+    "b00b52bd2b391e0888f31508": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Satyajit",
+      "source_url": "https://archive.org/details/Satyajit",
+      "person": "Satyajit Ray",
+      "start": 43.57,
+      "reason": "The video shows authentic archival film footage from Satyajit Ray's films, serving as valid biographical illustration and contextual footage, though the filmmaker himself is not visible in the sampled frames.",
+      "reviewed_at": 1792676291.8602712
+    },
+    "b9cb405145dca63a5a414780": {
+      "kind": "segment_rejection",
+      "source_id": "archive:satyajit-ray-films",
+      "source_url": "https://archive.org/details/satyajit-ray-films",
+      "person": "Satyajit Ray",
+      "start": 4701.34,
+      "reason": "The footage shows scenes from Satyajit Ray's films, serving as valid biographical illustration for a segment about his life and work, even though Satyajit Ray himself is not visible in the frames.",
+      "reviewed_at": 1792676368.9431858
+    },
+    "4fc71492e0180962e6273dd8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:satyajit-ray-films",
+      "source_url": "https://archive.org/details/satyajit-ray-films",
+      "person": "Satyajit Ray",
+      "start": 675.91,
+      "reason": "The footage shows a scene from one of Satyajit Ray's films (featuring characters rather than Ray himself), which serves as valid biographical illustration for a Short about his life and work.",
+      "reviewed_at": 1792676399.163885
+    },
+    "1e924b37fb9292fb7d7c4490": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.SatyajitRay_Eng",
+      "source_url": "https://archive.org/details/dli.MoI.SatyajitRay_Eng",
+      "person": "Satyajit Ray",
+      "start": 5.0,
+      "reason": "The sampled frames show a static certification document title card and subsequent blank/black frames, containing no actual filmed footage of Satyajit Ray or usable historical context.",
+      "reviewed_at": 1792676444.8904028
+    },
+    "1c5d05934a94d90dfd49a9b5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.SatyajitRay_Eng",
+      "source_url": "https://archive.org/details/dli.MoI.SatyajitRay_Eng",
+      "person": "Satyajit Ray",
+      "start": 1211.57,
+      "reason": "The footage shows a scene from one of Satyajit Ray's films, serving as biographical illustration of his work, but Satyajit Ray himself is not visible in the clip.",
+      "reviewed_at": 1792676505.323621
+    },
+    "e2590f4470d2bf8870b5c33d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.SatyajitRay_Eng",
+      "source_url": "https://archive.org/details/dli.MoI.SatyajitRay_Eng",
+      "person": "Satyajit Ray",
+      "start": 1814.85,
+      "reason": "The sampled frames consist entirely of illustrated line drawings and animated sketches rather than real filmed footage or usable historical context.",
+      "reviewed_at": 1792676528.5845106
+    },
+    "cd057e66e46410c6b341b5d1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:israel-wohltater-der-menschheit",
+      "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+      "person": "Jonas Salk",
+      "start": 222.14,
+      "reason": "The sampled frames show a webpage containing a BBC article and video featuring Dr. Peter Salk (Jonas Salk's son), not Jonas Salk himself. Furthermore, the video clip is embedded within a digital webpage interface with browser elements, making it unsuitable for direct use in a biography short.",
+      "reviewed_at": 1792676856.194101
+    },
+    "7ef014ccd073e2e847590ff8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:israel-wohltater-der-menschheit",
+      "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+      "person": "Jonas Salk",
+      "start": 240.23,
+      "reason": "The frames show a web page playback of a BBC Witness History program featuring Dr. Peter Salk (Jonas Salk's son), credits, and static title cards rather than actual archival footage or usable historical context of Jonas Salk himself.",
+      "reviewed_at": 1792676903.7417302
+    },
+    "f3098faa0be590b2b8694cfa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+      "person": "Ernest Shackleton",
+      "start": 1975.53,
+      "reason": "The footage features modern historical reenactors or a dramatized docudrama rather than actual archival footage or direct historical evidence of Ernest Shackleton.",
+      "reviewed_at": 1792677305.5474336
+    },
+    "4cab52c3696bb4121c6d7f3f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+      "person": "Ernest Shackleton",
+      "start": 2413.42,
+      "reason": "The footage shows historical reenactment or archival material of polar explorers in heavy winter gear braving harsh conditions, fitting the context of Ernest Shackleton's expeditions. However, individual identification of Shackleton himself is not clearly established, making it suitable as biographical illustration rather than direct identity footage.",
+      "reviewed_at": 1792677322.2975793
+    },
+    "6d9ab6af92c0e6b6f6df2a95": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202512",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
+      "person": "Ernest Shackleton",
+      "start": 2037.78,
+      "reason": "The footage shows a man looking out at the water from a boat, which serves as general archival/dramatized illustration for an Antarctic expedition. However, Ernest Shackleton lived from 1874 to 1922 and died long before colour video or this specific footage was filmed, so the person shown is clearly not Shackleton himself, but rather a modern reenactor or presenter.",
+      "reviewed_at": 1792677383.2341692
+    },
+    "7bd9faae5d0100a555b27d94": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202512",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
+      "person": "Ernest Shackleton",
+      "start": 2715.38,
+      "reason": "The footage shows a Middle Eastern/African architectural building (likely a shrine or tomb), which has no connection to Ernest Shackleton or his Antarctic expeditions.",
+      "reviewed_at": 1792677399.5286086
+    },
+    "a6c1e3888bd0e660d4c7a535": {
+      "kind": "segment_rejection",
+      "source_id": "archive:shackletons-expedition",
+      "source_url": "https://archive.org/details/shackletons-expedition",
+      "person": "Ernest Shackleton",
+      "start": 612.79,
+      "reason": "The footage shows a documentary host (Simon Whistler) discussing Ernest Shackleton's expedition, accompanied by archival graphics and B-roll. The named subject, Ernest Shackleton, is not visible in the frames, but it serves as valid biographical illustration for a documentary segment.",
+      "reviewed_at": 1792677505.7334638
+    },
+    "62ce9a0818d975e7407cc63e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:shackletons-expedition",
+      "source_url": "https://archive.org/details/shackletons-expedition",
+      "person": "Ernest Shackleton",
+      "start": 815.38,
+      "reason": "The footage shows a modern presenter (Simon Whistler) discussing Ernest Shackleton in a studio setting, which does not depict the historical subject or era being narrated.",
+      "reviewed_at": 1792677544.4459965
+    },
+    "5ddaec3f2fd1e79fe84b4d2f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:antarctica-a-frozen-history",
+      "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+      "person": "Ernest Shackleton",
+      "start": 1696.05,
+      "reason": "The clip contains animated map graphics illustrating Antarctic exploration routes, which serves as useful biographical and historical illustration for Ernest Shackleton's expeditions, even though the subject is not visibly present in the frames.",
+      "reviewed_at": 1792677596.2294014
+    },
+    "f2a039085058579330749226": {
+      "kind": "segment_rejection",
+      "source_id": "archive:antarctica-a-frozen-history",
+      "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+      "person": "Ernest Shackleton",
+      "start": 3387.1,
+      "reason": "The footage shows generic open ocean waves, which serves as biographical illustration for Antarctic exploration and sea voyages, but Ernest Shackleton is not visible.",
+      "reviewed_at": 1792677629.1712983
+    },
+    "a002fb06d7e54e1b42b2e32c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v1962061853",
+      "source_url": "https://archive.org/details/twitch-vod-v1962061853",
+      "person": "Colonel Sanders",
+      "start": 4540.95,
+      "reason": "The video shows a Twitch streamer playing the video game PUBG during a KFC collaboration event, not archival footage or biographical content about Colonel Sanders.",
+      "reviewed_at": 1792677813.861845
+    },
+    "1a38598b0bf017d06dd474aa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v1962061853",
+      "source_url": "https://archive.org/details/twitch-vod-v1962061853",
+      "person": "Colonel Sanders",
+      "start": 6484.92,
+      "reason": "The video shows a live stream of a video game (PUBG) being played by a streamer, completely unrelated to Colonel Sanders or any historical biography.",
+      "reviewed_at": 1792677866.1964595
+    },
+    "0d7ac7d65d718a098d3dd6e9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Colonel_Anthony_Sanders_KFC_Recipe",
+      "source_url": "https://archive.org/details/Colonel_Anthony_Sanders_KFC_Recipe",
+      "person": "Colonel Sanders",
+      "start": 91.91,
+      "reason": "The footage features an unknown modern internet creator impersonating Colonel Sanders and discussing a fake recipe, not the actual historical figure Colonel Sanders.",
+      "reviewed_at": 1792677886.057164
+    },
+    "67ba2bcd42a4b08019d3f758": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Colonel_Anthony_Sanders_KFC_Recipe",
+      "source_url": "https://archive.org/details/Colonel_Anthony_Sanders_KFC_Recipe",
+      "person": "Colonel Sanders",
+      "start": 129.15,
+      "reason": "The video features a TikTok creator impersonating or discussing Colonel Sanders, not the historical figure Colonel Sanders himself.",
+      "reviewed_at": 1792677902.4321532
+    },
+    "f6cc89151946cf316446a576": {
+      "kind": "segment_rejection",
+      "source_id": "archive:uvmtvvt-Kentucky_Fried_Grind_-_the_Colonel_Sanders_Mindset",
+      "source_url": "https://archive.org/details/uvmtvvt-Kentucky_Fried_Grind_-_the_Colonel_Sanders_Mindset",
+      "person": "Colonel Sanders",
+      "start": 151.74,
+      "reason": "The footage shows a Standard Oil gas station sign, which relates generally to Colonel Sanders' early career working at a service station, but the subject is not visible and the connection is merely illustrative context.",
+      "reviewed_at": 1792677923.3245618
+    },
+    "38a687acfd4a848791fc8ff0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:uvmtvvt-Kentucky_Fried_Grind_-_the_Colonel_Sanders_Mindset",
+      "source_url": "https://archive.org/details/uvmtvvt-Kentucky_Fried_Grind_-_the_Colonel_Sanders_Mindset",
+      "person": "Colonel Sanders",
+      "start": 214.63,
+      "reason": "The footage shows random actors or stuntmen holding guns in suits outdoors, which has no connection to Colonel Sanders' life or biography.",
+      "reviewed_at": 1792677938.6770809
+    },
+    "4b975ddb55cbe0f2a6886c27": {
+      "kind": "segment_rejection",
+      "source_id": "archive:colonel-sanders-americas-chicken-king_202503",
+      "source_url": "https://archive.org/details/colonel-sanders-americas-chicken-king_202503",
+      "person": "Colonel Sanders",
+      "start": 1489.79,
+      "reason": "The sampled frames show Pete Harman, the first KFC franchisee, and archival menu materials rather than Colonel Sanders himself. However, this constitutes valid biographical illustration and historical context for a documentary about the life and business of Colonel Sanders.",
+      "reviewed_at": 1792677981.3787847
+    },
+    "5f24531c0e7bf3965b4c6c40": {
+      "kind": "segment_rejection",
+      "source_id": "archive:rth_24344699_1200K",
+      "source_url": "https://archive.org/details/rth_24344699_1200K",
+      "person": "Colonel Sanders",
+      "start": 5.0,
+      "reason": "The video features Glenn Beck discussing KFC and the American dream on a talk show, but Colonel Sanders is not visible in any of the sampled frames.",
+      "reviewed_at": 1792678015.5820823
+    },
+    "00633e72e1235e243d05710b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:rth_24344699_1200K",
+      "source_url": "https://archive.org/details/rth_24344699_1200K",
+      "person": "Colonel Sanders",
+      "start": 49.75,
+      "reason": "The footage shows Glenn Beck speaking on a talk show/podcast, not Colonel Sanders. Therefore, Colonel Sanders is not visible and the video has no relevance to his biography.",
+      "reviewed_at": 1792678032.5012882
+    },
+    "fec5212c7a98f461efa66b28": {
+      "kind": "segment_rejection",
+      "source_id": "archive:colonel-sanders-americas-chicken-king_202503",
+      "source_url": "https://archive.org/details/colonel-sanders-americas-chicken-king_202503",
+      "person": "Colonel Sanders",
+      "start": 5.0,
+      "reason": "The frames show an FBI copyright warning screen and an unrelated man eating something on a street, neither of which depict Colonel Sanders or relevant biographical content.",
+      "reviewed_at": 1792678058.153087
+    },
+    "49478d840f533c08e495616d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:colonel-sanders-americas-chicken-king_202503",
+      "source_url": "https://archive.org/details/colonel-sanders-americas-chicken-king_202503",
+      "person": "Colonel Sanders",
+      "start": 217.11,
+      "reason": "The sampled frames show static historical photographs rather than real moving footage, which violates the requirement for actual filmed footage.",
+      "reviewed_at": 1792678073.492202
+    },
+    "8fdc6d01c36888b16a07f216": {
+      "kind": "segment_rejection",
+      "source_id": "archive:roosterteeth-35083",
+      "source_url": "https://archive.org/details/roosterteeth-35083",
+      "person": "Colonel Sanders",
+      "start": 1601.25,
+      "reason": "The footage shows gameplay from a fictional dating simulator video game ('I Love You, Colonel Sanders!') rather than real archival footage or documentary footage of the actual Colonel Sanders. Therefore, it is unsuitable as biographical illustration.",
+      "reviewed_at": 1792678101.308771
+    },
+    "d32dd96d516489309751b99f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:roosterteeth-35083",
+      "source_url": "https://archive.org/details/roosterteeth-35083",
+      "person": "Colonel Sanders",
+      "start": 2285.36,
+      "reason": "The footage shows gameplay from a dating simulator video game ('I Love You, Colonel Sanders!'), featuring an anime-style fictional drawing of the subject rather than real filmed archival footage or a biographical illustration of the actual historical person.",
+      "reviewed_at": 1792678121.076501
+    },
+    "2ccfe9915d2566264ea7bec5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:WHIT09JohnPareInt",
+      "source_url": "https://archive.org/details/WHIT09JohnPareInt",
+      "person": "Louis Braille",
+      "start": 70.54,
+      "reason": "The video shows a modern speaker/commentator discussing a commemorative coin for Louis Braille, but Louis Braille lived in the 19th century and is not visible in the footage. Therefore, person_visible is false and relevance is low, serving only as biographical illustration commentary.",
+      "reviewed_at": 1792678176.9218578
+    },
+    "d4a35139fd057a4b672f3b6e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:WHIT09JohnPareInt",
+      "source_url": "https://archive.org/details/WHIT09JohnPareInt",
+      "person": "Louis Braille",
+      "start": 79.91,
+      "reason": "The video shows a modern numismatics convention/interview discussing a commemorative coin for Louis Braille, but Louis Braille lived in the 19th century and is not visible in the footage. Therefore, it serves as biographical illustration rather than direct historical event footage.",
+      "reviewed_at": 1792678189.7573953
+    },
+    "aff466bc8598a19323fdd5c8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "person": "Louis Braille",
+      "start": 941.16,
+      "reason": "The footage shows a modern podcast studio discussing the history of Louis Braille, but Louis Braille (who lived in the 19th century) is not visible in the frames. The person on screen is a modern podcast host, making this irrelevant as identity footage of the subject.",
+      "reviewed_at": 1792678217.159666
+    },
+    "c336f985a2a5fb819351250c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "person": "Louis Braille",
+      "start": 1149.2,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792678222.323871
+    },
+    "e3b2d23c73ed45ce50e59575": {
+      "kind": "segment_rejection",
+      "source_id": "archive:orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "person": "Louis Braille",
+      "start": 1253.21,
+      "reason": "The sampled frames consist entirely of title cards and credits (text on blue backgrounds) rather than real filmed footage, historical context, or a visible subject.",
+      "reviewed_at": 1792678235.7963588
+    },
+    "4b0b1e9a010821af0b0b2b34": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cunytv_BCSPA115",
+      "source_url": "https://archive.org/details/cunytv_BCSPA115",
+      "person": "Louis Braille",
+      "start": 1574.99,
+      "reason": "The footage shows a modern academic lecture or panel discussion at Baruch College in 2009 about Louis Braille's legacy, featuring C. Michael Mellor. Louis Braille lived in the 19th century and could not possibly appear in this footage. Therefore, it does not depict Louis Braille and is unusable as biographical footage for him.",
+      "reviewed_at": 1792678252.4674497
+    },
+    "6e4d15cf421bd0e1d52f4059": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cunytv_BCSPA115",
+      "source_url": "https://archive.org/details/cunytv_BCSPA115",
+      "person": "Louis Braille",
+      "start": 2098.32,
+      "reason": "The sampled frames depict C. Michael Mellor speaking at Baruch College in 2009, not the historical subject Louis Braille (who lived from 1809 to 1852). Therefore, this footage cannot represent Louis Braille.",
+      "reviewed_at": 1792678268.9787705
+    },
+    "86478760c1546fa376fcf463": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Louis_Braille",
+      "source_url": "https://archive.org/details/btvin-Louis_Braille",
+      "person": "Louis Braille",
+      "start": 72.11,
+      "reason": "The segment consists of credits and text overlays on black screens, alongside a static shot of a statue. No actual moving archival footage or genuine historical context depicting Louis Braille is present.",
+      "reviewed_at": 1792678286.0736248
+    },
+    "c76242bcc530ac864bfc4f53": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Louis_Braille",
+      "source_url": "https://archive.org/details/btvin-Louis_Braille",
+      "person": "Louis Braille",
+      "start": 81.7,
+      "reason": "The video consists entirely of dark title and credits cards with text like 'MADE BY JACOB ALLSOP' and 'Thank you for watching'. There is no actual filmed historical context or footage of Louis Braille.",
+      "reviewed_at": 1792678313.1587377
+    },
+    "85ff9b9ba7e8ff22a9df5873": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LouisBrailleAndTheBrailleAlphabet",
+      "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+      "person": "Louis Braille",
+      "start": 593.66,
+      "reason": "The footage illustrates the braille alphabet system invented by Louis Braille, serving as good contextual biographical illustration even though Louis Braille himself is not visible.",
+      "reviewed_at": 1792678370.7707338
+    },
+    "a057d5618e9593b27f7881a2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LouisBrailleAndTheBrailleAlphabet",
+      "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+      "person": "Louis Braille",
+      "start": 659.06,
+      "reason": "The footage shows books by J.R.R. Tolkien, which has no connection to the biography of Louis Braille.",
+      "reviewed_at": 1792678390.217995
+    },
+    "fd81219dd137621b2cea7c3a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Persuasion1971Part2",
+      "source_url": "https://archive.org/details/Persuasion1971Part2",
+      "person": "Jane Austen",
+      "start": 3688.95,
+      "reason": "The footage shows a 1971 television adaptation of Jane Austen's novel 'Persuasion', featuring actors portraying characters from the book. While Jane Austen herself is not visible (as she lived long before film), this serves as valid biographical illustration of her literary legacy and works.",
+      "reviewed_at": 1792678518.3252187
+    },
+    "ae2f5a2770a3b2f0165fd3bb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Persuasion1971Part2",
+      "source_url": "https://archive.org/details/Persuasion1971Part2",
+      "person": "Jane Austen",
+      "start": 5267.78,
+      "reason": "The footage shows a 1971 television adaptation of Jane Austen's novel Persuasion, featuring actors portraying characters from the book. Jane Austen herself is not present in the footage, making it unsuitable as biographical evidence or direct historical footage of the author.",
+      "reviewed_at": 1792678532.741402
+    },
+    "d8c36e2b3ff0f7b253e13f63": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitter-908265328223821825",
+      "source_url": "https://archive.org/details/twitter-908265328223821825",
+      "person": "Jane Austen",
+      "start": 72.02,
+      "reason": "The footage shows a contestant on a BBC quiz show (Mastermind) answering questions about Jane Austen, not Jane Austen herself (who lived centuries before film and photography). The person shown is not Jane Austen, making this archival television clip unusable for direct depiction.",
+      "reviewed_at": 1792678549.98855
+    },
+    "e2b414f8e1e6fecea91ec890": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitter-908265328223821825",
+      "source_url": "https://archive.org/details/twitter-908265328223821825",
+      "person": "Jane Austen",
+      "start": 100.75,
+      "reason": "The video shows a participant in a television quiz show about Jane Austen, not Jane Austen herself (who lived centuries before the invention of moving images). Therefore, Jane Austen is not visible, and the footage is not usable as identity footage or direct historical context for her life.",
+      "reviewed_at": 1792678565.1346462
+    },
+    "cc86ec213f7a10420577507f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:coglaz-Jane_Austen_and_Zoom_Paul_Gordon_and_Stephanie_Kane_Gordon_interview",
+      "source_url": "https://archive.org/details/coglaz-Jane_Austen_and_Zoom_Paul_Gordon_and_Stephanie_Kane_Gordon_interview",
+      "person": "Jane Austen",
+      "start": 2485.45,
+      "reason": "The video shows a modern interview with composer Paul Gordon and producer Stephanie Kane Gordon discussing Jane Austen musicals. Jane Austen lived in the 18th/19th century and is not visible in the footage; the video features contemporary interviewees rather than historical or biographical footage of Jane Austen.",
+      "reviewed_at": 1792678593.5448763
+    },
+    "eb1424687f48df324610afba": {
+      "kind": "segment_rejection",
+      "source_id": "archive:coglaz-Jane_Austen_and_Zoom_Paul_Gordon_and_Stephanie_Kane_Gordon_interview",
+      "source_url": "https://archive.org/details/coglaz-Jane_Austen_and_Zoom_Paul_Gordon_and_Stephanie_Kane_Gordon_interview",
+      "person": "Jane Austen",
+      "start": 3548.5,
+      "reason": "The video features a modern interview with Paul Gordon and Stephanie Kane Gordon discussing Jane Austen musicals. Jane Austen, the historical subject, is not visible in any frame, and the contemporary interview footage does not provide usable historical context or direct depiction of Austen's life.",
+      "reviewed_at": 1792678616.173529
+    },
+    "8686ba8fff041b5143c6ae8a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nstvmav-A_Chat_with_Jane_Austen_The_James_Library_Center_for_the_Arts",
+      "source_url": "https://archive.org/details/nstvmav-A_Chat_with_Jane_Austen_The_James_Library_Center_for_the_Arts",
+      "person": "Jane Austen",
+      "start": 1273.49,
+      "reason": "The video features a modern theatrical performance/portrayal of Jane Austen by an actress, not actual historical footage or direct representation of the historical subject.",
+      "reviewed_at": 1792678633.1714838
+    },
+    "3be338eac32dbd968470bfbb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nstvmav-A_Chat_with_Jane_Austen_The_James_Library_Center_for_the_Arts",
+      "source_url": "https://archive.org/details/nstvmav-A_Chat_with_Jane_Austen_The_James_Library_Center_for_the_Arts",
+      "person": "Jane Austen",
+      "start": 1817.13,
+      "reason": "The footage shows a modern theatrical performance or historical reenactment portraying Jane Austen, featuring an actress in costume speaking to an audience. This is not genuine archival footage of Jane Austen (who lived 1775–1817, long before the invention of film), and dramatic reenactments performed by modern actors are not suitable as biographical documentary evidence.",
+      "reviewed_at": 1792678678.127315
+    },
+    "892318f53b7e61fbfd530c85": {
+      "kind": "segment_rejection",
+      "source_id": "archive:comivca-On_Friday_Mission_Viejo_Library_hosted_the_Jane_Austen_Holiday_Ball_at_the_Norman_P._Murra",
+      "source_url": "https://archive.org/details/comivca-On_Friday_Mission_Viejo_Library_hosted_the_Jane_Austen_Holiday_Ball_at_the_Norman_P._Murra",
+      "person": "Jane Austen",
+      "start": 12.04,
+      "reason": "The video shows modern people at a Jane Austen Holiday Ball in Mission Viejo (2024), which is completely unrelated to the life of the historical author Jane Austen (1775-1817) and depicts no direct historical events or context concerning her.",
+      "reviewed_at": 1792678739.030461
+    },
+    "f2e77005428cad064f9aec4d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:comivca-On_Friday_Mission_Viejo_Library_hosted_the_Jane_Austen_Holiday_Ball_at_the_Norman_P._Murra",
+      "source_url": "https://archive.org/details/comivca-On_Friday_Mission_Viejo_Library_hosted_the_Jane_Austen_Holiday_Ball_at_the_Norman_P._Murra",
+      "person": "Jane Austen",
+      "start": 21.8,
+      "reason": "The footage shows modern people at a themed Jane Austen holiday ball event in Mission Viejo, California, not historical footage or any depiction of Jane Austen herself.",
+      "reviewed_at": 1792678749.8218644
+    },
+    "93244d3381d5fb9599f4ce4f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:qactvmd-Emma_by_Jane_Austen_at_QACHS",
+      "source_url": "https://archive.org/details/qactvmd-Emma_by_Jane_Austen_at_QACHS",
+      "person": "Jane Austen",
+      "start": 184.13,
+      "reason": "The footage shows modern high school students and teachers participating in a local community TV interview about a stage production of Emma, not Jane Austen herself.",
+      "reviewed_at": 1792678792.1420915
+    },
+    "e27788a07d5d44f2e6ba44f1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:qactvmd-Emma_by_Jane_Austen_at_QACHS",
+      "source_url": "https://archive.org/details/qactvmd-Emma_by_Jane_Austen_at_QACHS",
+      "person": "Jane Austen",
+      "start": 5.0,
+      "reason": "The video shows a high school theatre production and interview about Jane Austen's 'Emma', but Jane Austen herself lived centuries earlier and cannot be present in the footage. Therefore, person_visible is false and direct_event is not applicable.",
+      "reviewed_at": 1792678807.6313832
     }
   }
 }

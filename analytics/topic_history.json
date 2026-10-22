@@ -3480,36 +3480,24 @@
     "published_at": 1791413984
   },
   {
-    "topic": "How do pinecones close up in rain",
-    "normalized": "how do pinecones close up in rain",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1792613653,
-    "recorded_at": 1792613653,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do metal faucets drip slowly",
-    "normalized": "why do metal faucets drip slowly",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1792615949,
-    "recorded_at": 1792615949,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do apples squeak when polished",
     "normalized": "why do apples squeak when polished",
     "workflow": "publish",
     "status": "reserved",
     "reserved_at": 1792692579,
     "recorded_at": 1792692579,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do rubber erasers smudge graphite",
+    "normalized": "why do rubber erasers smudge graphite",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1792711315,
+    "recorded_at": 1792711315,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

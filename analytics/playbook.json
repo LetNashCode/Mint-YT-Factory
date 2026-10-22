@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-22T21:43:35.279467+00:00",
-  "video_count": 164,
+  "generated_at": "2026-10-22T23:47:44.786503+00:00",
+  "video_count": 165,
   "learning_sample_size": 146,
   "learning_ready": true,
   "metrics_available": true,
@@ -48,7 +48,7 @@
     "Why do plastic containers absorb smells",
     "belonging: Hearing the exact unique creak of the screen door at your grandparents' back porch that signals someone walking in with groceries after a long drive."
   ],
-  "used_topic_count": 164,
+  "used_topic_count": 165,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

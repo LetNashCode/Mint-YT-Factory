@@ -16519,6 +16519,106 @@
       "shot": 2,
       "query": "apples squeak polished across millions microscopic wax",
       "recorded_at": 1792693003
+    },
+    {
+      "asset_key": "pexels:video:36080865",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/36080865/15301565_720_1280_25fps.mp4",
+      "scene": 1,
+      "shot": 1,
+      "query": "rubber erasers smudge you wanted clean page",
+      "recorded_at": 1792711442
+    },
+    {
+      "asset_key": "pexels:video:853819",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/853819/853819-hd_1280_720_25fps.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "rubber erasers smudge you got greasy gray",
+      "recorded_at": 1792711446
+    },
+    {
+      "asset_key": "pexels:video:16029662",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/16029662/16029662-hd_720_1280_30fps.mp4",
+      "scene": 2,
+      "shot": 1,
+      "query": "rubber erasers smudge pink block supposed",
+      "recorded_at": 1792711450
+    },
+    {
+      "asset_key": "pexels:video:7744196",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/7744196/7744196-hd_1366_720_25fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "rubber erasers smudge your eraser isn dissolving",
+      "recorded_at": 1792711456
+    },
+    {
+      "asset_key": "pexels:video:6186642",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/6186642/6186642-hd_1366_720_30fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "rubber erasers smudge grabbing loose flakes graphite",
+      "recorded_at": 1792711459
+    },
+    {
+      "asset_key": "pixabay:video:364184",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2026/07/15/364184_medium.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "rubber erasers smudge has microscopic stickiness",
+      "recorded_at": 1792711463
+    },
+    {
+      "asset_key": "pexels:video:856211",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/856211/856211-hd_1280_720_30fps.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "rubber erasers smudge you scrub back forth",
+      "recorded_at": 1792711467
+    },
+    {
+      "asset_key": "pixabay:video:47633",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/08/19/47633-451695638_medium.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "rubber erasers smudge your eraser gets overloaded",
+      "recorded_at": 1792711472
+    },
+    {
+      "asset_key": "pixabay:video:27541",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2019/10/04/27541-364430960_medium.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "rubber erasers smudge instead starts rubbing loaded",
+      "recorded_at": 1792711476
+    },
+    {
+      "asset_key": "pexels:video:3796261",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/3796261/3796261-hd_1366_720_50fps.mp4",
+      "scene": 6,
+      "shot": 2,
+      "query": "rubber erasers smudge you finger painting your",
+      "recorded_at": 1792711483
     }
   ]
 }

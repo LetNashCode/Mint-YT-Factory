@@ -420,5 +420,21 @@
     "video_id": "J6alrNPd3lc",
     "workdir": "",
     "published_at": 1792696224
+  },
+  {
+    "topic": "B-B King: The pivotal moment a damaged guitar and a dangerous fire shaped the signature sound of the Blues Boy.",
+    "normalized": "b b king the pivotal moment a damaged guitar and a dangerous fire shaped the signature sound of the blues boy",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1792703033,
+    "recorded_at": 1792703033,
+    "metadata": {
+      "person": "B-B King",
+      "pillar": "one_decision"
+    },
+    "title": "B-B King: The pivotal moment a damaged guitar and a dangerous fire shaped the signature sound of the Blues Boy.",
+    "video_id": "-zuakI9IPVU",
+    "workdir": "",
+    "published_at": 1792703814
   }
 ]

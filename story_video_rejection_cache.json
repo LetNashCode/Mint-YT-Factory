@@ -7438,6 +7438,466 @@
       "start": 5.0,
       "reason": "The sampled frames consist entirely of dark/blank film and title cards without any clear depiction of Valentina Tereshkova, making the segment unusable for biographical illustration.",
       "reviewed_at": 1792695585.524335
+    },
+    "6b3b5f04e52b59f1890c17f7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitter-1285529961009254401",
+      "source_url": "https://archive.org/details/twitter-1285529961009254401",
+      "person": "Ridley Scott",
+      "start": 51.44,
+      "reason": "The footage shows behind-the-scenes or test footage related to the production of Blade Runner, which is directed by Ridley Scott. While Ridley Scott himself is not visible in the sampled frames, the clip serves as valid historical context illustrating his work on the film.",
+      "reviewed_at": 1792700925.4965026
+    },
+    "1d42371933d50a4a85da54f9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitter-1285529961009254401",
+      "source_url": "https://archive.org/details/twitter-1285529961009254401",
+      "person": "Ridley Scott",
+      "start": 5.0,
+      "reason": "The footage shows Douglas Trumbull, the special effects supervisor for Blade Runner, discussing his work on Ridley Scott's film. While Ridley Scott is not visible in the frames, the archival interview provides genuine historical context about Scott's production.",
+      "reviewed_at": 1792701005.377335
+    },
+    "f0eb97a36441d6701610b638": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitter-1285529961009254401",
+      "source_url": "https://archive.org/details/twitter-1285529961009254401",
+      "person": "Ridley Scott",
+      "start": 14.29,
+      "reason": "The footage shows behind-the-scenes set work and special effects setup for Blade Runner, directly illustrating Ridley Scott's work as a director, although Ridley Scott himself is not clearly visible in the sampled frames.",
+      "reviewed_at": 1792701012.657735
+    },
+    "f771d2852817becfbcd93039": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nasa_tv-The_Martian_Director_Ridley_Scott_Discusses_NASA_s_Journey_to_Mars",
+      "source_url": "https://archive.org/details/nasa_tv-The_Martian_Director_Ridley_Scott_Discusses_NASA_s_Journey_to_Mars",
+      "person": "Ridley Scott",
+      "start": 23.03,
+      "reason": "The footage shows CGI/animation of a rocket and Mars rovers, which illustrates the theme of space exploration and Ridley Scott's film 'The Martian', but Ridley Scott himself is not visible in the frames.",
+      "reviewed_at": 1792701073.1394508
+    },
+    "a7229a4515358d49dbb7ef0b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nasa_tv-The_Martian_Director_Ridley_Scott_Discusses_NASA_s_Journey_to_Mars",
+      "source_url": "https://archive.org/details/nasa_tv-The_Martian_Director_Ridley_Scott_Discusses_NASA_s_Journey_to_Mars",
+      "person": "Ridley Scott",
+      "start": 32.04,
+      "reason": "The footage shows archival Mars scenery and a rover relevant to Ridley Scott's film 'The Martian', but Ridley Scott himself is not visible in any of the frames.",
+      "reviewed_at": 1792701092.6181383
+    },
+    "0ec48904aaf6b329cadd149f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aqntvz-iv-z-5x-fx-dc-greb-y-5d-5ziq-39-mr-bf-6-dd-5-1l-hnm-xah-8-nym-vh-xt-8-smz",
+      "source_url": "https://archive.org/details/aqntvz-iv-z-5x-fx-dc-greb-y-5d-5ziq-39-mr-bf-6-dd-5-1l-hnm-xah-8-nym-vh-xt-8-smz",
+      "person": "Ridley Scott",
+      "start": 3245.25,
+      "reason": "The footage shows a scene from Ridley Scott's film The Duellists (1977), depicting a historical Napoleonic war setting. While Ridley Scott himself is not visible, it serves as valid biographical illustration of his cinematic work.",
+      "reviewed_at": 1792701117.8106098
+    },
+    "a3d48b2a840cdae59e338ac7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aqntvz-iv-z-5x-fx-dc-greb-y-5d-5ziq-39-mr-bf-6-dd-5-1l-hnm-xah-8-nym-vh-xt-8-smz",
+      "source_url": "https://archive.org/details/aqntvz-iv-z-5x-fx-dc-greb-y-5d-5ziq-39-mr-bf-6-dd-5-1l-hnm-xah-8-nym-vh-xt-8-smz",
+      "person": "Ridley Scott",
+      "start": 4633.93,
+      "reason": "The footage shows a scene from Ridley Scott's film 'The Duellists' (1977), which serves as biographical illustration for a video about his life and career, though Ridley Scott himself is not visible in the clip.",
+      "reviewed_at": 1792701134.513861
+    },
+    "3112661d55a3579d53c0dde7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kvid-2866",
+      "source_url": "https://archive.org/details/kvid-2866",
+      "person": "Ridley Scott",
+      "start": 178.38,
+      "reason": "The footage shows microscopic illustrations of pathogens and has no connection to Ridley Scott, making it irrelevant and unusable.",
+      "reviewed_at": 1792701201.7802382
+    },
+    "da1f921f070d6b87566c18bd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:imga-0029_202401",
+      "source_url": "https://archive.org/details/imga-0029_202401",
+      "person": "Ridley Scott",
+      "start": 292.29,
+      "reason": "The frames show animated storyboards or drawings on a screen rather than actual filmed footage of Ridley Scott, making it unsuitable as real identity or direct historical context footage.",
+      "reviewed_at": 1792701321.7471552
+    },
+    "4267f66454d54e8f80e83f48": {
+      "kind": "segment_rejection",
+      "source_id": "archive:imga-0029_202401",
+      "source_url": "https://archive.org/details/imga-0029_202401",
+      "person": "Ridley Scott",
+      "start": 415.42,
+      "reason": "The frames show video footage of storyboards rather than actual filmed footage of Ridley Scott himself or concrete historical events involving him, making it unsuitable for a biographical narrative segment.",
+      "reviewed_at": 1792701369.84279
+    },
+    "45dbe211dc504ba308342cbe": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Opera_s_Influence_on_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Opera_s_Influence_on_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 73.26,
+      "reason": "The video shows Jon Batiste performing on stage, which has no connection to Louis Armstrong beyond generic musical context, making it unusable for a biography about Louis Armstrong.",
+      "reviewed_at": 1792701659.6907928
+    },
+    "dae174c07e68956c7cb38c28": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Opera_s_Influence_on_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Opera_s_Influence_on_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 102.52,
+      "reason": "The footage shows musician Jon Batiste performing at the Aspen Ideas Festival, which does not depict Louis Armstrong or his life.",
+      "reviewed_at": 1792701665.8386164
+    },
+    "db1b049691bcf1b15f7f706b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Jon_Batiste_explains_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Jon_Batiste_explains_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 412.33,
+      "reason": "The video features Jon Batiste discussing music and Louis Armstrong at the Aspen Ideas Festival, but Louis Armstrong himself is not visible in the footage.",
+      "reviewed_at": 1792701706.6592047
+    },
+    "aafabada53894c0276b756f2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Jon_Batiste_explains_Louis_Armstrong",
+      "source_url": "https://archive.org/details/Jon_Batiste_explains_Louis_Armstrong",
+      "person": "Louis Armstrong",
+      "start": 586.9,
+      "reason": "The video features Jon Batiste and Walter Isaacson discussing music at the Aspen Ideas Festival. Louis Armstrong is not visible in any of the sampled frames, making this footage unusable for a biography about Louis Armstrong.",
+      "reviewed_at": 1792701718.4174495
+    },
+    "f1ffa1cca6f54fe22ab51bbb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "source_url": "https://archive.org/details/Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "person": "Louis Armstrong",
+      "start": 951.46,
+      "reason": "The footage shows a press conference about the Louis Armstrong International Airport expansion featuring city officials like Cynthia Hedge-Morrell, but Louis Armstrong himself is not visible (having passed away decades prior in 1971), making this unsuitable as biographical footage of the subject.",
+      "reviewed_at": 1792701738.3836496
+    },
+    "0a90a23f3ad3a23ed838b4c8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "source_url": "https://archive.org/details/Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "person": "Louis Armstrong",
+      "start": 1357.08,
+      "reason": "The footage shows an interview with Nolan Rollins discussing the Louis Armstrong International Airport expansion in 2013, but Louis Armstrong (who passed away in 1971) is not visible and the clip has no direct connection to his life or career beyond sharing a namesake airport.",
+      "reviewed_at": 1792701749.1669452
+    },
+    "62e5ad6ddacffb3190841951": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "source_url": "https://archive.org/details/Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "person": "Louis Armstrong",
+      "start": 99.31,
+      "reason": "The footage shows local politicians and children welcoming veterans at an airport named after Louis Armstrong, but Louis Armstrong himself is not visible (he passed away decades before this event). Therefore, it fails the criteria for biographical identity or direct historical event illustration.",
+      "reviewed_at": 1792701767.245327
+    },
+    "e1437b1ab555a36f354ccfb7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "source_url": "https://archive.org/details/Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "person": "Louis Armstrong",
+      "start": 139.74,
+      "reason": "The footage shows modern archival video from 2015 of veterans arriving at the Louis Armstrong International Airport, but Louis Armstrong (who died in 1971) is not present and the video does not depict his life or events related to him.",
+      "reviewed_at": 1792701782.532508
+    },
+    "a49acdab31dd295817d05341": {
+      "kind": "segment_rejection",
+      "source_id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+      "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+      "person": "Louis Armstrong",
+      "start": 5.0,
+      "reason": "The video clip features archival black-and-white film footage from Paris Blues (1961), showing a crowded jazz club scene with musicians and dancers. However, Louis Armstrong is not clearly identifiable in any of the sampled frames. Therefore, person_visible is false, but it serves as valid biographical illustration for the documentary context.",
+      "reviewed_at": 1792701797.7501643
+    },
+    "48a086311d765b2f2f247baa": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "source_url": "https://archive.org/details/SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "person": "Satyajit Ray",
+      "start": 533.31,
+      "reason": "The footage features a fictional scene from a film/documentary unrelated to Satyajit Ray himself, and Satyajit Ray is not visible in any of the sampled frames.",
+      "reviewed_at": 1792702156.7098968
+    },
+    "1be8699d830b45c669918c58": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "source_url": "https://archive.org/details/SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "person": "Satyajit Ray",
+      "start": 665.38,
+      "reason": "The clip shows historical print advertisements and documentation for U. Ray & Sons, providing relevant contextual footage about Satyajit Ray's family history and printing press background, though Satyajit Ray himself is not visible.",
+      "reviewed_at": 1792702185.8630683
+    },
+    "86a834683112b9e68af1a11d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Satyajit",
+      "source_url": "https://archive.org/details/Satyajit",
+      "person": "Satyajit Ray",
+      "start": 56.43,
+      "reason": "The clip shows scenes from Satyajit Ray's films (e.g., Charulata, The Music Room), serving as biographical illustration of his filmmaking work, though Satyajit Ray himself is not visible in the footage.",
+      "reviewed_at": 1792702316.899255
+    },
+    "844b7553b08823f0b6ce99d4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Satyajit",
+      "source_url": "https://archive.org/details/Satyajit",
+      "person": "Satyajit Ray",
+      "start": 82.14,
+      "reason": "The footage contains authentic archival clips from Satyajit Ray's classic film Pather Panchali, serving as valid biographical illustration of his filmmaking work, though Satyajit Ray himself is not visible in the frames.",
+      "reviewed_at": 1792702381.5894773
+    },
+    "0f0a4a7e264773dcf9dcc825": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Satyajit",
+      "source_url": "https://archive.org/details/Satyajit",
+      "person": "Satyajit Ray",
+      "start": 107.85,
+      "reason": "The sampled frames show archival footage from a film set or scene (featuring musicians and an elderly actor from Satyajit Ray's works), which serves as valid biographical illustration for a segment about the famous filmmaker, even though Satyajit Ray himself is not visible in these frames.",
+      "reviewed_at": 1792702392.030582
+    },
+    "e170269fe128eccfa11952ee": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.SatyajitRay_Eng",
+      "source_url": "https://archive.org/details/dli.MoI.SatyajitRay_Eng",
+      "person": "Satyajit Ray",
+      "start": 3021.42,
+      "reason": "The footage is archival and shows a person acting in a dramatic or illustrative scene representing the subject's life/milieu, but Satyajit Ray himself is not visibly present in the frames; it serves as biographical illustration.",
+      "reviewed_at": 1792702479.8481698
+    },
+    "bebd28c3dc1b40c861837c36": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.SatyajitRay_Eng",
+      "source_url": "https://archive.org/details/dli.MoI.SatyajitRay_Eng",
+      "person": "Satyajit Ray",
+      "start": 5434.55,
+      "reason": "The footage shows a scene from Satyajit Ray's film 'Pather Panchali', serving as good archival/biographical illustration of his work, although Satyajit Ray himself is not visible in the frames.",
+      "reviewed_at": 1792702543.712338
+    },
+    "edcdaca6e31ee45c3f3febee": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.SatyajitRay_Eng",
+      "source_url": "https://archive.org/details/dli.MoI.SatyajitRay_Eng",
+      "person": "Satyajit Ray",
+      "start": 6641.11,
+      "reason": "The clip shows archival cinematic footage (scenes from Satyajit Ray's films), but Satyajit Ray himself as the director is not visible in the frames; however, it serves as good biographical illustration of his work.",
+      "reviewed_at": 1792702551.6753244
+    },
+    "0f23c03eec09a4189323eb32": {
+      "kind": "segment_rejection",
+      "source_id": "archive:satyajit-ray-films",
+      "source_url": "https://archive.org/details/satyajit-ray-films",
+      "person": "Satyajit Ray",
+      "start": 1346.81,
+      "reason": "The footage shows archival black and white scenes of a street, car, and an unidentified local man walking, but Satyajit Ray himself is not visible in the frames. However, it serves as generic biographical illustration footage reflecting the era and setting.",
+      "reviewed_at": 1792702568.8400018
+    },
+    "21fb05c6c07f0fb264be7c86": {
+      "kind": "segment_rejection",
+      "source_id": "archive:satyajit-ray-films",
+      "source_url": "https://archive.org/details/satyajit-ray-films",
+      "person": "Satyajit Ray",
+      "start": 2017.72,
+      "reason": "The footage shows a scene from one of Satyajit Ray's films (likely Pather Panchali or similar classic work), serving as biographical illustration of his cinematic career, although Satyajit Ray himself is not visible in the frames.",
+      "reviewed_at": 1792702574.3188164
+    },
+    "71f52177c621010f7beb3ee6": {
+      "source_id": "commons:69035196",
+      "source_url": "https://commons.wikimedia.org/wiki/File:SRINIVASA_RAMANUJAN-_The_Mathematician_%26_His_Legacy.webm",
+      "reason": "strong metadata exclusion: animation"
+    },
+    "219d522893999a8ce83d3dee": {
+      "source_id": "commons:77368566",
+      "source_url": "https://commons.wikimedia.org/wiki/File:SRINIVASA_RAMANUJAN-_The_Mathematician_%26_His_Legacy_(Abridged_Version).webm",
+      "reason": "strong metadata exclusion: animation"
+    },
+    "9718000f3b8e23449efc0685": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Ramanujan",
+      "start": 1637.06,
+      "reason": "The segment consists of documentary graphics, historical document close-ups, and a reenactment or stylized composite photo rather than genuine archival moving footage of Ramanujan, making it unsuitable for direct identity or direct event usage.",
+      "reviewed_at": 1792702622.7000566
+    },
+    "03e705031890e0c996d991d1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Ramanujan",
+      "start": 2336.51,
+      "reason": "The footage shows a contemporary commentator speaking about Ramanujan's mathematical legacy in front of a chalkboard. The subject Ramanujan (who lived from 1887 to 1920) is not visible in the modern documentary interview footage, so person_visible is false, but it qualifies as useful biographical illustration discussing his work.",
+      "reviewed_at": 1792702629.4229333
+    },
+    "2ef72cf348ca8b2ef8e26a74": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Microsoft_Research_Video_118020",
+      "source_url": "https://archive.org/details/Microsoft_Research_Video_118020",
+      "person": "Ramanujan",
+      "start": 1686.81,
+      "reason": "The frames consist entirely of slides with mathematical diagrams explaining spectral graph theory and physical models of interlacing, with no footage or depiction of Ramanujan, making it unusable for a biography.",
+      "reviewed_at": 1792702636.8285532
+    },
+    "8d36270146204691e1a3c9cb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Microsoft_Research_Video_118020",
+      "source_url": "https://archive.org/details/Microsoft_Research_Video_118020",
+      "person": "Ramanujan",
+      "start": 2407.59,
+      "reason": "The video shows a modern computer scientist (Nikhil Srivastava) giving a research talk about graph sparsifiers, not the historical mathematician Srinivasa Ramanujan.",
+      "reviewed_at": 1792702643.4750178
+    },
+    "807e6660ecb5eca49a6fe931": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Microsoft_Research_Video_143258",
+      "source_url": "https://archive.org/details/Microsoft_Research_Video_143258",
+      "person": "Ramanujan",
+      "start": 2256.83,
+      "reason": "The video features a contemporary researcher (likely Nikhil Srivastava or another modern mathematician discussing Ramanujan-related graph sparsifiers), not the historical mathematician Srinivasa Ramanujan who lived from 1887 to 1920. Therefore, this is footage of a modern individual rather than the biographical subject.",
+      "reviewed_at": 1792702653.23415
+    },
+    "2878946461efbad8abce50d6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Microsoft_Research_Video_143258",
+      "source_url": "https://archive.org/details/Microsoft_Research_Video_143258",
+      "person": "Ramanujan",
+      "start": 3221.89,
+      "reason": "The video features a modern lecture on computer science and graph theory (specifically Nikhil Srivastava discussing Ramanujan expander graphs), not the historical mathematician Srinivasa Ramanujan. The person in the video is a contemporary researcher, making this footage completely anachronistic and irrelevant as a biography of the historical figure Ramanujan.",
+      "reviewed_at": 1792702659.4283097
+    },
+    "0e3f29a20b04642db7278c8a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Ramanujan",
+      "start": 86.29,
+      "reason": "The video features an interview with Manjul Bhargava discussing Ramanujan's legacy, but the subject of the biography is Srinivasa Ramanujan, who is not visible in the footage.",
+      "reviewed_at": 1792702667.2507436
+    },
+    "8f8cb5a1d8e5b970256cc0b9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Ramanujan",
+      "start": 121.12,
+      "reason": "The video segment consists entirely of static title cards and production credits, lacking actual filmed footage of Ramanujan or valid historical context.",
+      "reviewed_at": 1792702674.435272
+    },
+    "64b7aeb880b9278c32d70a1c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dni.ncaa.ICCR-2121-VHS",
+      "source_url": "https://archive.org/details/dni.ncaa.ICCR-2121-VHS",
+      "person": "Ramanujan",
+      "start": 2194.92,
+      "reason": "The footage shows a different person named Shri K. V. Ramanujan performing a flute recital, whereas the subject of the biography is the famous mathematician Srinivasa Ramanujan. The video is entirely unrelated to the historical mathematician.",
+      "reviewed_at": 1792702689.9356754
+    },
+    "588279e31370bf8cda59bb5e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dni.ncaa.ICCR-2121-VHS",
+      "source_url": "https://archive.org/details/dni.ncaa.ICCR-2121-VHS",
+      "person": "Ramanujan",
+      "start": 5.0,
+      "reason": "The sampled frames show title graphics ('Sri Rama Jayam') rather than the mathematician Srinivasa Ramanujan, and the source is an unrelated flute recital by someone sharing a similar name.",
+      "reviewed_at": 1792702710.576064
+    },
+    "5d5caa118da9e5086aeb42fe": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v383511641",
+      "source_url": "https://archive.org/details/twitch-vod-v383511641",
+      "person": "Ramanujan",
+      "start": 2071.57,
+      "reason": "The video shows gameplay footage from a Harry Potter video game, which is completely irrelevant to the biography of mathematician Srinivasa Ramanujan.",
+      "reviewed_at": 1792702727.3817518
+    },
+    "5c98a2ee6772863b5a3fdca9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v383511641",
+      "source_url": "https://archive.org/details/twitch-vod-v383511641",
+      "person": "Ramanujan",
+      "start": 2957.24,
+      "reason": "The video footage shows gameplay from a Harry Potter video game, which has no connection to the mathematician Ramanujan.",
+      "reviewed_at": 1792702740.82573
+    },
+    "b841e00e62f238c3b8a29906": {
+      "kind": "segment_rejection",
+      "source_id": "archive:amelia.-earhart.-docu.-final",
+      "source_url": "https://archive.org/details/amelia.-earhart.-docu.-final",
+      "person": "Amelia Earhart",
+      "start": 112.17,
+      "reason": "The footage shows a contemporary individual in a modern office setting being interviewed for a student documentary project, not Amelia Earhart herself or any historical context related to her life.",
+      "reviewed_at": 1792702871.854141
+    },
+    "76189cfe6c1d99928cacc486": {
+      "kind": "segment_rejection",
+      "source_id": "archive:amelia.-earhart.-docu.-final",
+      "source_url": "https://archive.org/details/amelia.-earhart.-docu.-final",
+      "person": "Amelia Earhart",
+      "start": 138.96,
+      "reason": "The footage shows a modern individual wearing a face mask in an office setting, which is completely unrelated to historical archival footage of Amelia Earhart.",
+      "reviewed_at": 1792702885.56777
+    },
+    "78c9f0585d4674ee0b5e8adc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:42424-europes-powder-keg-vwr",
+      "source_url": "https://archive.org/details/42424-europes-powder-keg-vwr",
+      "person": "Amelia Earhart",
+      "start": 180.42,
+      "reason": "The video segment shows archival footage of King George VI and Queen Elizabeth reviewing the Grand Fleet in 1937, which has no connection to Amelia Earhart.",
+      "reviewed_at": 1792702895.520264
+    },
+    "9eec8dd87feaf41852b5fdea": {
+      "kind": "segment_rejection",
+      "source_id": "archive:42424-europes-powder-keg-vwr",
+      "source_url": "https://archive.org/details/42424-europes-powder-keg-vwr",
+      "person": "Amelia Earhart",
+      "start": 224.27,
+      "reason": "The sampled frames consist entirely of a title card ('U.S. LABOR STRIKES') from a 1937 newsreel, with no footage of Amelia Earhart or any relevant biographical context.",
+      "reviewed_at": 1792702925.7757826
+    },
+    "4415ca1a4221e643e1dc71b3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "source_url": "https://archive.org/details/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "person": "Amelia Earhart",
+      "start": 180.42,
+      "reason": "The footage shows archival newsreel content about British royalty and general 1937 events, but Amelia Earhart is not visible in any of the frames, making this segment irrelevant to her biography.",
+      "reviewed_at": 1792702937.048086
+    },
+    "4116fda731bf0608597dac80": {
+      "kind": "segment_rejection",
+      "source_id": "archive:lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "source_url": "https://archive.org/details/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "person": "Amelia Earhart",
+      "start": 224.27,
+      "reason": "The sampled frames consist entirely of title cards ('U.S. LABOR STRIKES') rather than actual moving footage, and the segment lacks any connection to Amelia Earhart.",
+      "reviewed_at": 1792702981.125488
+    },
+    "e9d7410a83e2e75d8a3b37c1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:WAKAFLOKASHOWNYCB.B.KING.SUGARWATERRADIO.COMPART1",
+      "source_url": "https://archive.org/details/WAKAFLOKASHOWNYCB.B.KING.SUGARWATERRADIO.COMPART1",
+      "person": "B-B King",
+      "start": 224.17,
+      "reason": "The video shows concert footage of Waka Flocka Flame, not blues legend B.B. King. The subject depicted is incorrect.",
+      "reviewed_at": 1792703052.884653
+    },
+    "5773df0f097194f7c13c10da": {
+      "kind": "segment_rejection",
+      "source_id": "archive:WAKAFLOKASHOWNYCB.B.KING.SUGARWATERRADIO.COMPART1",
+      "source_url": "https://archive.org/details/WAKAFLOKASHOWNYCB.B.KING.SUGARWATERRADIO.COMPART1",
+      "person": "B-B King",
+      "start": 318.11,
+      "reason": "The video shows rapper Waka Flocka Flame performing at B.B. King Blues Club & Grill in NYC, not the blues musician B.B. King himself. The name mismatch leads to an incorrect attribution.",
+      "reviewed_at": 1792703061.7872593
+    },
+    "ac33adc22c46962cb277b6b1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TMTWBBKingLiveAtTheRoyalAlbertHall2011",
+      "source_url": "https://archive.org/details/TMTWBBKingLiveAtTheRoyalAlbertHall2011",
+      "person": "B-B King",
+      "start": 5.0,
+      "reason": "The sampled frames only show a concert schedule/billboard sign with B.B. King's name on it, not the artist himself or actual performance footage.",
+      "reviewed_at": 1792703081.2755842
     }
   }
 }

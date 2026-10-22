@@ -1,17 +1,5 @@
 [
   {
-    "format": "one_decision",
-    "person": "Dick Fosbury",
-    "premise": "Reinventing the high jump at the 1968 Mexico City Olympics with a radical, upside-down technique.",
-    "hook": "Every coach told him his backward jumping style was dangerous and useless, until he won Olympic gold.",
-    "key_facts": [
-      "Introduced the 'Fosbury Flop' technique to international competition.",
-      "Won the gold medal in high jump at the 1968 Summer Olympics.",
-      "Permanently changed how athletes approach the high jump discipline worldwide."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "strange_turning_point",
     "person": "Linus Pauling",
     "premise": "Transitioning from quantum chemistry to molecular biology and global activism after a passport revocation.",
@@ -20,19 +8,6 @@
       "Won the Nobel Prize in Chemistry in 1954 for his research into the nature of chemical bonds.",
       "Awarded the Nobel Peace Prize in 1962 for his campaign against atmospheric nuclear testing.",
       "One of the few people in history to win two unshared Nobel Prizes in different fields."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Harrison Ford",
-    "premise": "How a Hollywood carpenter's refusal to quit woodworking led directly to his casting as Han Solo.",
-    "hook": "He was building cabinets for George Lucas's office when he was asked to just read lines for other auditioning actors.",
-    "key_facts": [
-      "Worked primarily as a professional carpenter in Los Angeles to support his family.",
-      "Built cabinets and office furniture for producer and director George Lucas.",
-      "Read lines for actors auditioning for 'Star Wars' without intending to audition himself.",
-      "Was eventually offered the role of Han Solo based on his line readings."
     ],
     "source": "gemini_original"
   },
@@ -46,6 +21,84 @@
       "Attended the Royal Institution for Blind Youth in Paris.",
       "Adapted Captain Charles Barbier's military 'night writing' tactile code into a simpler six-dot system.",
       "The Braille system became the global standard for reading and writing among blind and visually impaired people."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Bob Ross",
+    "premise": "Transforming a strict military demeanor into a soothing artistic persona during his time in the United States Air Force.",
+    "hook": "The calmest painter on television spent two decades barking orders as a military master sergeant.",
+    "key_facts": [
+      "Served for 20 years in the United States Air Force, rising to the rank of master sergeant.",
+      "Promised himself that if he ever left the military, he would never yell at anyone again.",
+      "Developed the quick-drying 'wet-on-wet' oil painting technique to complete canvases within short broadcast windows.",
+      "Hosted the long-running public television program The Joy of Painting."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Marie Curie",
+    "premise": "Processing tons of raw pitchblende ore by hand in a drafty, unventilated shed to isolate pure radium and polonium.",
+    "hook": "She spent four exhausting years shoveling boiling minerals in a leaky shed with zero institutional support.",
+    "key_facts": [
+      "Conducted pioneering research on radioactivity with her husband Pierre Curie in Paris.",
+      "Processed one ton of pitchblende ore in a poorly insulated shed to extract radioactive elements.",
+      "Became the first woman to win a Nobel Prize in 1903 (Physics).",
+      "Won a second Nobel Prize in 1911 (Chemistry), remaining the only person to win in two distinct scientific fields."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Satyajit Ray",
+    "premise": "Financing and completing the masterwork 'Pather Panchali' over several agonizingly slow years of empty pockets.",
+    "hook": "He had no production budget and paused filming for months at a time whenever the money completely ran out.",
+    "key_facts": [
+      "Worked full-time as an advertising art director while trying to make his debut film.",
+      "Pawned his wife's jewelry and his own extensive book collection to fund initial shooting days.",
+      "Used an amateur cast and crew, working only on Sundays when funds or time permitted.",
+      "The finished film won Best Human Document at the 1956 Cannes Film Festival."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Julia Child",
+    "premise": "How a simple sole meuniere meal in Rouen, France, transformed an intelligence officer into America's most famous culinary authority.",
+    "hook": "She was nearly forty years old and had never cooked a professional meal when a single lunch in Normandy changed her life.",
+    "key_facts": [
+      "Served with the Office of Strategic Services (OSS) during World War II.",
+      "Moved to France due to her husband's diplomatic posting in the late 1940s.",
+      "Enrolled in the rigorous Le Cordon Bleu cooking school in Paris.",
+      "Co-authored the landmark cookbook 'Mastering the Art of French Cooking'."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Subrahmanyan Chandrasekhar",
+    "premise": "Deriving the maximum mass of white dwarf stars on a steamship voyage, only to face public ridicule from the scientific establishment.",
+    "hook": "A brilliant young astrophysicist proved a star could collapse under its own weight, and a legendary British scientist publicly humiliated him for it.",
+    "key_facts": [
+      "Calculated the upper limit for white dwarf star masses while traveling from India to England in 1930.",
+      "His mathematical model implied the existence of black holes, which leading astronomers rejected at the time.",
+      "Endured decades of scientific skepticism before his theoretical predictions were universally vindicated.",
+      "Awarded the Nobel Prize in Physics in 1983 for his studies on the physical processes important to the structure and evolution of stars."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Stanislas Wawrinka",
+    "premise": "Tattooing a Samuel Beckett quote on his arm to embrace failure on his path to Grand Slam tennis glory.",
+    "hook": "He permanently inked a famous quote about failing better onto his skin after years of losing to the sport's dominant champions.",
+    "key_facts": [
+      "Competed for over a decade in the shadow of tennis greats like Roger Federer and Rafael Nadal.",
+      "Inked the phrase 'Ever tried. Ever failed. No matter. Try again. Fail again. Fail better.' on his forearm.",
+      "Brokered his mental breakthrough by accepting defeat as part of the process of improvement.",
+      "Won three Grand Slam singles titles at the Australian Open, French Open, and US Open."
     ],
     "source": "gemini_original"
   }

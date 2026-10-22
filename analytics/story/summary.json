@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-10-22T19:10:27.371112+00:00",
-  "refresh_attempted_at": "2026-10-22T19:10:27.371112+00:00",
+  "generated_at": "2026-10-22T21:16:59.322153+00:00",
+  "refresh_attempted_at": "2026-10-22T21:16:59.322153+00:00",
   "refresh_status": "success",
-  "video_count": 25,
+  "video_count": 26,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 24,
   "reason": "",
   "totals": {
-    "views": 9810,
+    "views": 9892,
     "likes": 201,
     "comments": 5
   },
   "averages": {
-    "views": 392.4,
-    "likes": 8.04,
-    "comments": 0.2,
-    "average_view_percentage": 51.51,
-    "subscribers_gained": 0.48,
+    "views": 380.46,
+    "likes": 7.73,
+    "comments": 0.19,
+    "average_view_percentage": 49.53,
+    "subscribers_gained": 0.46,
     "shares": 0.04
   },
   "top_videos": [
@@ -123,7 +123,7 @@
       "topic": "Audrey Hepburn: Walking away from a lucrative Hollywood contract to dedicate the rest of her life to UNICEF field work.",
       "video_id": "rK7ls_MANYg",
       "title": "The Untold Turning Point in Audrey Hepburn's Story",
-      "views": 415,
+      "views": 428,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -131,7 +131,7 @@
       "average_view_percentage": 52.18000000000001,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.4819
+      "engagement_rate": 0.4673
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -265,7 +265,7 @@
       "topic": "Audrey Hepburn: Walking away from a lucrative Hollywood contract to dedicate the rest of her life to UNICEF field work.",
       "video_id": "rK7ls_MANYg",
       "title": "The Untold Turning Point in Audrey Hepburn's Story",
-      "views": 415,
+      "views": 428,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -273,7 +273,7 @@
       "average_view_percentage": 52.18000000000001,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.4819
+      "engagement_rate": 0.4673
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -321,7 +321,7 @@
       "topic": "Stan Lee: Planning to quit the comic book industry out of frustration in the early 1960s before his wife suggested writing a story he actually cared about.",
       "video_id": "8Y1Qjegiprs",
       "title": "Before the Fame: Stan Lee's Untold Struggle",
-      "views": 148,
+      "views": 182,
       "likes": 4,
       "comments": 0,
       "shares": 0,
@@ -329,7 +329,7 @@
       "average_view_percentage": 49.48,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 2.7027
+      "engagement_rate": 2.1978
     },
     {
       "topic": "Carl Sagan: The choice to include Earth sounds and music on a golden record aboard Voyager spacecraft, risking ridicule from orthodox scientists.",
@@ -444,6 +444,20 @@
       "engagement_rate": 2.8571
     },
     {
+      "topic": "Valentina Tereshkova: A textile factory worker and amateur parachutist selected to become the first woman in space.",
+      "video_id": "J6alrNPd3lc",
+      "title": "The Untold Turning Point in Valentina Tereshkova's Story",
+      "views": 35,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    },
+    {
       "topic": "Morgan Freeman: Spending years serving in the United States Air Force before getting his big break on television and film.",
       "video_id": "3FgMmn1g8Ks",
       "title": "Before the Fame: Morgan Freeman's Untold Struggle",
@@ -500,9 +514,9 @@
       "engagement_rate": 7.1429
     },
     {
-      "topic": "Valentina Tereshkova: A textile factory worker and amateur parachutist selected to become the first woman in space.",
-      "video_id": "J6alrNPd3lc",
-      "title": "The Untold Turning Point in Valentina Tereshkova's Story",
+      "topic": "B-B King: The pivotal moment a damaged guitar and a dangerous fire shaped the signature sound of the Blues Boy.",
+      "video_id": "-zuakI9IPVU",
+      "title": "B-B King Lost Everything—Then Started Again",
       "views": 0,
       "likes": 0,
       "comments": 0,

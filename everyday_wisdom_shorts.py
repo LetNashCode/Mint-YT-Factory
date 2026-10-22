@@ -29,7 +29,6 @@ TARGET_SECONDS = 40.0
 MIN_NARRATION_WORDS = 80
 MAX_NARRATION_WORDS = 95
 TOPIC_HISTORY_PATH = Path("everyday_wisdom_topic_history.json")
-MAX_HISTORY_FOR_PROMPT = 120
 WHISPER_MODEL = os.getenv("WISDOM_WHISPER_MODEL", "tiny.en")
 BACKGROUND_MUSIC_PATH = Path(__file__).resolve().parent / "assets" / "music" / "blade_runner_2049.mp3"
 BACKGROUND_MUSIC_VOLUME = 0.10
@@ -214,27 +213,41 @@ def remember_topic(story):
     return entry
 
 
+def _is_transient_gemini_error(exc):
+    """Recognize temporary Gemini throttling and service failures."""
+    message = f"{type(exc).__name__}: {exc}".lower()
+    return any(marker in message for marker in (
+        "503", "unavailable", "429", "resource_exhausted",
+        "service unavailable", "internal server error", "deadline exceeded",
+        "temporarily unavailable", "too many requests",
+    ))
+
+
 def generate_story():
     history = load_topic_history()
-    used = history_strings(history)[-MAX_HISTORY_FOR_PROMPT:]
+    # Include the complete recorded history. The validator checks every entry,
+    # so the prompt must not hide older topics from the model.
+    used = history_strings(history)
     history_block = (
-        "\nAlready used topics. Do NOT create the same idea, even with different wording:\n"
+        "\nAlready used topics (complete history; never repeat any underlying idea):\n"
         + "\n".join(f"- {item}" for item in used)
         if used
         else "\nNo previous topics have been used yet.\n"
     )
     base_prompt = """
-Create one YouTube Short for a US audience about something Americans have
-heard forever but rarely stop to ask why: an old grandma saying, familiar
-phrase, household rule, childhood warning, common habit, or ordinary object.
+Create one YouTube Short for a US audience focused on familiar everyday wisdom:
+the things a grandma used to say, childhood warnings, old household rules,
+common sayings, family habits, and little lessons people heard growing up.
+The core feeling should be: “I heard that all my life, but never knew why.”
 
-The story must uncover the documented history, practical reason, cultural
-origin, or psychological reason behind it. Do not invent an origin; if the
-origin is uncertain, say so naturally and give the strongest explanation.
+Prioritize grandma sayings and familiar advice over generic trivia, unusual
+objects, or broad phrase-origin content. Explain the likely practical, cultural,
+or historical reason behind one specific saying or lesson. Do not invent facts;
+when an origin is uncertain, say so naturally.
 
 IMPORTANT: The topic must be genuinely different from every topic in the
-provided history. Do not reuse an old topic by changing only the wording,
-angle, title, or example. Choose a different underlying subject/question.
+complete history below. Do not reuse an old topic by changing wording, angle,
+title, or example. Choose a different underlying subject/question.
 
 Create a short canonical "topic_key" of 2-6 content words that identifies the
 underlying idea. The topic_key must make the same subject obvious even if the
@@ -244,13 +257,14 @@ Do not use politics, celebrities, medical advice, conspiracy, fearbait,
 lists, countdowns, "Did you know?", "Today we're going to", AI references,
 or a second topic. The narration must work without visuals.
 
-Write 80-95 words, approximately 30-38 seconds, as one connected mini-story.
-Never exceed 95 words. Keep sentences concise and natural so Kokoro narration fits under 40 seconds without speeding up.
-The first sentence must create immediate curiosity. End with a satisfying answer.
+Write 80-95 words as one connected mini-story. Never exceed 95 words.
+Keep sentences concise and natural so Kokoro narration fits under 40 seconds
+without speeding up. The first sentence must create immediate curiosity.
+End with a satisfying, specific answer.
 
 FIRST TWO SECONDS:
-- Start with the familiar phrase, belief, or object already in the viewer's mind.
-- Introduce a concrete contradiction, surprising consequence, or unanswered "why" immediately.
+- Start with the familiar saying, belief, or childhood advice already in the viewer's mind.
+- Introduce a concrete contradiction, surprising consequence, or unanswered “why” immediately.
 - Do not begin with background, a date, a definition, greetings, or a generic question.
 - Make every sentence add a new clue; delay the core explanation until the final third.
 - The final sentence must deliver a specific, memorable answer rather than a vague summary.
@@ -258,8 +272,8 @@ FIRST TWO SECONDS:
 TITLE RULES:
 - Create a curiosity-driven title for US viewers.
 - Prefer 35-65 characters when natural.
-- Make the familiar subject obvious while creating a reason to watch.
-- Do not use "Did you know?", ALL CAPS, fake shock, misleading claims, or generic titles like "You Won't Believe This".
+- Make the familiar saying or advice obvious while creating a reason to watch.
+- Do not use "Did you know?", ALL CAPS, fake shock, misleading claims, or generic titles.
 - Do not stuff keywords into the title.
 
 Return JSON only:
@@ -270,11 +284,19 @@ VISUAL BEATS: create 16-18 ordered visual_queries, one for each roughly 2.5-seco
 """ + history_block + performance_guidance()
 
     c = client()
+    feedback = ""
     for attempt in range(5):
+        prompt = base_prompt
+        if feedback:
+            prompt += (
+                "\n\nREQUIRED CORRECTION FOR THIS RETRY:\n"
+                + feedback
+                + "\nFollow this correction before returning JSON. Do not repeat the rejected result.\n"
+            )
         try:
             response = c.models.generate_content(
                 model=MODEL,
-                contents=base_prompt,
+                contents=prompt,
                 config={"temperature": 0.95, "response_mime_type": "application/json"},
             )
             data = json.loads(response.text)
@@ -292,10 +314,28 @@ VISUAL BEATS: create 16-18 ordered visual_queries, one for each roughly 2.5-seco
             }
             words = re.findall(r"\b[\w'-]+\b", story["narration"])
             if not story["topic"] or not story["topic_key"] or not story["narration"] or len(story["search_queries"]) < 3 or len(story["visual_queries"]) < 16:
+                feedback = (
+                    "The previous JSON was incomplete. Return every required field, exactly "
+                    "3 search_queries, and 16-18 narration-aligned visual_queries."
+                )
                 raise RuntimeError("Incomplete story JSON or fewer than 16 narration-aligned visual queries")
             if not MIN_NARRATION_WORDS <= len(words) <= MAX_NARRATION_WORDS:
-                raise RuntimeError(f"Narration word count {len(words)} outside {MIN_NARRATION_WORDS}-{MAX_NARRATION_WORDS}")
+                feedback = (
+                    f"The previous narration had {len(words)} words; the required range is "
+                    f"{MIN_NARRATION_WORDS}-{MAX_NARRATION_WORDS}. Rewrite the narration to "
+                    "80-95 words, preserving one clear idea and a natural spoken rhythm. "
+                    "Count the words before returning JSON; do not solve this by adding filler."
+                )
+                raise RuntimeError(
+                    f"Narration word count {len(words)} outside "
+                    f"{MIN_NARRATION_WORDS}-{MAX_NARRATION_WORDS}"
+                )
             if is_duplicate_topic(story, history):
+                feedback = (
+                    f"The following subject was rejected as a duplicate: topic={story['topic']!r}, "
+                    f"topic_key={story['topic_key']!r}. Choose a different underlying saying, "
+                    "childhood warning, or grandma lesson—not a new title or angle on that subject."
+                )
                 raise RuntimeError(
                     f"Duplicate topic rejected: {story['topic']} | key={story['topic_key']}"
                 )
@@ -303,10 +343,19 @@ VISUAL BEATS: create 16-18 ordered visual_queries, one for each roughly 2.5-seco
         except Exception as exc:
             if attempt == 4:
                 raise
-            print(f"Story generation retry {attempt + 1}/5: {type(exc).__name__}: {exc}")
-            time.sleep(2 + attempt)
+            transient = _is_transient_gemini_error(exc)
+            delay = min(20, 2 ** (attempt + 1)) if transient else min(8, 2 + attempt)
+            if transient:
+                feedback = (
+                    feedback + "\nThe previous API request failed temporarily. Retry the request; "
+                    "keep the content constraints and select a valid new result."
+                ).strip()
+            print(
+                f"Story generation retry {attempt + 1}/5: {type(exc).__name__}: {exc}; "
+                f"retrying in {delay}s"
+            )
+            time.sleep(delay)
     raise RuntimeError("Story generation failed")
-
 
 def synthesize(text, output):
     import numpy as np

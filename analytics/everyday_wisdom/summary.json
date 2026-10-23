@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-23T10:43:24.175607+00:00",
-  "refresh_attempted_at": "2026-10-23T10:43:24.175607+00:00",
+  "generated_at": "2026-10-23T10:55:52.341302+00:00",
+  "refresh_attempted_at": "2026-10-23T10:55:52.341302+00:00",
   "refresh_status": "success",
   "video_count": 7,
   "optimization_ready": true,
@@ -8,12 +8,12 @@
   "advanced_metrics_videos": 5,
   "reason": "",
   "totals": {
-    "views": 2353,
+    "views": 2351,
     "likes": 15,
     "comments": 0
   },
   "averages": {
-    "views": 336.14,
+    "views": 335.86,
     "likes": 2.14,
     "comments": 0.0,
     "average_view_percentage": 55.3,
@@ -25,7 +25,7 @@
       "topic": "The manufacturing origin and splitting design of wooden disposable takeout chopsticks",
       "video_id": "u9J-FuUlXWM",
       "title": "Why Are Takeout Chopsticks Joined at the Top?",
-      "views": 909,
+      "views": 907,
       "likes": 8,
       "comments": 0,
       "shares": 0,
@@ -33,7 +33,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.8801
+      "engagement_rate": 0.882
     },
     {
       "topic": "The historical and functional reason why golf club handles are wrapped in rubber or leather grips.",
@@ -125,7 +125,7 @@
       "topic": "The manufacturing origin and splitting design of wooden disposable takeout chopsticks",
       "video_id": "u9J-FuUlXWM",
       "title": "Why Are Takeout Chopsticks Joined at the Top?",
-      "views": 909,
+      "views": 907,
       "likes": 8,
       "comments": 0,
       "shares": 0,
@@ -133,7 +133,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.8801
+      "engagement_rate": 0.882
     },
     {
       "topic": "The historical and functional reason why golf club handles are wrapped in rubber or leather grips.",

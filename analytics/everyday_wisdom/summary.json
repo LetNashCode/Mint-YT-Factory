@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-10-23T11:58:00.692533+00:00",
-  "refresh_attempted_at": "2026-10-23T11:58:00.692533+00:00",
+  "generated_at": "2026-10-23T17:50:22.490027+00:00",
+  "refresh_attempted_at": "2026-10-23T17:50:22.490027+00:00",
   "refresh_status": "success",
-  "video_count": 8,
+  "video_count": 9,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 5,
   "reason": "",
   "totals": {
-    "views": 2360,
-    "likes": 15,
+    "views": 2790,
+    "likes": 20,
     "comments": 0
   },
   "averages": {
-    "views": 295.0,
-    "likes": 1.88,
+    "views": 310.0,
+    "likes": 2.22,
     "comments": 0.0,
-    "average_view_percentage": 48.39,
-    "subscribers_gained": 0.12,
+    "average_view_percentage": 43.01,
+    "subscribers_gained": 0.11,
     "shares": 0.0
   },
   "top_videos": [
@@ -25,7 +25,7 @@
       "topic": "The manufacturing origin and splitting design of wooden disposable takeout chopsticks",
       "video_id": "u9J-FuUlXWM",
       "title": "Why Are Takeout Chopsticks Joined at the Top?",
-      "views": 909,
+      "views": 913,
       "likes": 8,
       "comments": 0,
       "shares": 0,
@@ -33,7 +33,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.8801
+      "engagement_rate": 0.8762
     },
     {
       "topic": "The historical and functional reason why golf club handles are wrapped in rubber or leather grips.",
@@ -48,6 +48,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.1543
+    },
+    {
+      "topic": "The traditional family rule of waiting until everyone at the table has their food before eating, and its practical roots in hospitality and household pacing.",
+      "video_id": "ywTeKJhJ6pY",
+      "title": "Why We Wait to Eat Until Everyone Is Served",
+      "views": 433,
+      "likes": 5,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 1.1547
     },
     {
       "topic": "The structural engineering reason behind circular airplane windows",
@@ -106,10 +120,10 @@
       "engagement_rate": 0.0
     },
     {
-      "topic": "The traditional family rule of waiting until everyone at the table has their food before eating, and its practical roots in hospitality and household pacing.",
-      "video_id": "ywTeKJhJ6pY",
-      "title": "Why We Wait to Eat Until Everyone Is Served",
-      "views": 7,
+      "topic": "The historical reason behind the fabric button located on top of mortarboard graduation caps.",
+      "video_id": "oc4a0qVkla0",
+      "title": "Why Do Graduation Caps Have Buttons on Top?",
+      "views": 5,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -120,10 +134,10 @@
       "engagement_rate": 0.0
     },
     {
-      "topic": "The historical reason behind the fabric button located on top of mortarboard graduation caps.",
-      "video_id": "oc4a0qVkla0",
-      "title": "Why Do Graduation Caps Have Buttons on Top?",
-      "views": 5,
+      "topic": "The household politeness rule of saying excuse me when passing in front of someone, rooted in mutual respect, personal space, and everyday consideration.",
+      "video_id": "27qdcsQ7TB0",
+      "title": "Why We Always Had to Say Excuse Me When Passing Someone",
+      "views": 0,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -139,7 +153,7 @@
       "topic": "The manufacturing origin and splitting design of wooden disposable takeout chopsticks",
       "video_id": "u9J-FuUlXWM",
       "title": "Why Are Takeout Chopsticks Joined at the Top?",
-      "views": 909,
+      "views": 913,
       "likes": 8,
       "comments": 0,
       "shares": 0,
@@ -147,7 +161,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.8801
+      "engagement_rate": 0.8762
     },
     {
       "topic": "The historical and functional reason why golf club handles are wrapped in rubber or leather grips.",
@@ -162,6 +176,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.1543
+    },
+    {
+      "topic": "The traditional family rule of waiting until everyone at the table has their food before eating, and its practical roots in hospitality and household pacing.",
+      "video_id": "ywTeKJhJ6pY",
+      "title": "Why We Wait to Eat Until Everyone Is Served",
+      "views": 433,
+      "likes": 5,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 1.1547
     },
     {
       "topic": "The structural engineering reason behind circular airplane windows",
@@ -220,10 +248,10 @@
       "engagement_rate": 0.0
     },
     {
-      "topic": "The traditional family rule of waiting until everyone at the table has their food before eating, and its practical roots in hospitality and household pacing.",
-      "video_id": "ywTeKJhJ6pY",
-      "title": "Why We Wait to Eat Until Everyone Is Served",
-      "views": 7,
+      "topic": "The historical reason behind the fabric button located on top of mortarboard graduation caps.",
+      "video_id": "oc4a0qVkla0",
+      "title": "Why Do Graduation Caps Have Buttons on Top?",
+      "views": 5,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -234,10 +262,10 @@
       "engagement_rate": 0.0
     },
     {
-      "topic": "The historical reason behind the fabric button located on top of mortarboard graduation caps.",
-      "video_id": "oc4a0qVkla0",
-      "title": "Why Do Graduation Caps Have Buttons on Top?",
-      "views": 5,
+      "topic": "The household politeness rule of saying excuse me when passing in front of someone, rooted in mutual respect, personal space, and everyday consideration.",
+      "video_id": "27qdcsQ7TB0",
+      "title": "Why We Always Had to Say Excuse Me When Passing Someone",
+      "views": 0,
       "likes": 0,
       "comments": 0,
       "shares": 0,

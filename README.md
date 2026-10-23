@@ -4,6 +4,7 @@
 
 1. **Publish Shorts** — everyday curiosity/entertainment Shorts.
 2. **Story Shorts** — factual/person-centered story Shorts.
+3. **Wisdom Shorts** — familiar American sayings, family wisdom, and the stories behind everyday expressions.
 
 ## Factory-wide content lifecycle
 

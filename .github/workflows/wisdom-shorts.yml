@@ -1,4 +1,4 @@
-name: Everyday Wisdom Shorts
+name: Wisdom Shorts
 
 on:
   workflow_dispatch: {}
@@ -13,7 +13,7 @@ env:
   MINT_WORKFLOW_PROFILE: wisdom
 
 concurrency:
-  group: everyday-wisdom-shorts
+  group: wisdom-shorts
   cancel-in-progress: false
 
 jobs:

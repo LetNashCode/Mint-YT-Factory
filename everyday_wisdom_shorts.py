@@ -382,11 +382,15 @@ person, or setting relevant to that spoken beat. No generic filler such as
 """ + history_block + publish_history_block + performance_guidance()
 
     c = client()
-    for attempt in range(5):
+    max_attempts = 7
+    retry_feedback = ""
+    rejected_topics = []
+    for attempt in range(max_attempts):
+        story = None
         try:
             response = c.models.generate_content(
                 model=MODEL,
-                contents=base_prompt,
+                contents=base_prompt + retry_feedback,
                 config={"temperature": 0.95, "response_mime_type": "application/json"},
             )
             data = json.loads(response.text)
@@ -414,11 +418,42 @@ person, or setting relevant to that spoken beat. No generic filler such as
             story["editorial_scores"] = evaluate_story_quality(story)
             return story
         except Exception as exc:
-            if attempt == 4:
+            if story and (story.get("topic") or story.get("topic_key")):
+                rejected = {
+                    "topic": clean(story.get("topic"), 200),
+                    "topic_key": clean(story.get("topic_key"), 120),
+                    "title": clean(story.get("title"), 120),
+                }
+                if rejected not in rejected_topics:
+                    rejected_topics.append(rejected)
+
+            if attempt == max_attempts - 1:
                 raise
-            print(f"Story generation retry {attempt + 1}/5: {type(exc).__name__}: {exc}")
-            time.sleep(2 + attempt)
-    raise RuntimeError("Story generation failed")
+
+            reason = clean(exc, 400)
+            retry_feedback = (
+                "\n\nRETRY CORRECTION (mandatory; the previous draft failed validation):\n"
+                f"- Failure: {reason}\n"
+                "- Generate a genuinely different candidate; do not rephrase any rejected subject.\n"
+                "- Aim for 88-92 spoken words so the narration safely lands inside the required 80-95 range. "
+                "Count the narration words before returning JSON.\n"
+                "- Keep all 3 search queries and 16-18 ordered visual queries.\n"
+            )
+            if rejected_topics:
+                retry_feedback += (
+                    "Rejected subjects that must NOT be used again (same subject with a new title still counts):\n"
+                    + "\n".join(
+                        f"- {item['topic']} | key: {item['topic_key']} | title: {item['title']}"
+                        for item in rejected_topics[-7:]
+                    )
+                    + "\n"
+                )
+            print(
+                f"Story generation retry {attempt + 1}/{max_attempts}: "
+                f"{type(exc).__name__}: {exc}"
+            )
+            time.sleep(2 + min(attempt, 4))
+    raise RuntimeError("Story generation failed after all retries")
 
 
 def synthesize(text, output):

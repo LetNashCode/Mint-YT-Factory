@@ -25,9 +25,9 @@ PEXELS_URL = "https://api.pexels.com/videos/search"
 # Keep Everyday Wisdom on the same Gemini model as Publish Shorts, but isolated to this workflow.
 MODEL = "gemini-flash-lite-latest"
 VOICE = os.getenv("WISDOM_KOKORO_VOICE", "af_heart")
-TARGET_SECONDS = 40.0
-MIN_NARRATION_WORDS = 80
-MAX_NARRATION_WORDS = 95
+TARGET_SECONDS = 47.0
+MIN_NARRATION_WORDS = 100
+MAX_NARRATION_WORDS = 110
 TOPIC_HISTORY_PATH = Path("everyday_wisdom_topic_history.json")
 MAX_HISTORY_FOR_PROMPT = 120
 WHISPER_MODEL = os.getenv("WISDOM_WHISPER_MODEL", "tiny.en")
@@ -357,17 +357,14 @@ Do not start every script with "My grandma used to say". Avoid repeating the sam
 opening structure used by recent Wisdom scripts.
 
 STORY SHAPE:
-- 80-95 spoken words total; approximately 30-38 seconds.
-- The first sentence immediately names the familiar phrase/rule and creates a
-  curiosity gap or contradiction.
+- 100-110 spoken words total; target approximately 45 seconds at natural conversational delivery.
+- Open with an emotionally recognizable moment, tension, regret, surprise, or contradiction tied to the familiar custom. Make the first 1-2 sentences create a strong curiosity gap without clickbait.
 - Use first-person language naturally ("I", "my", "we", "our") throughout.
-- Move from familiar memory/belief -> genuine question -> evidence-supported
-  explanation -> satisfying takeaway.
-- Hold the clearest explanation until the final third, without hiding the answer
-  through fake suspense.
-- End with a specific, memorable meaning or practical reason.
+- Build an emotional mini-story: relatable moment -> personal stakes or feeling -> genuine question -> evidence-supported explanation -> emotionally resonant payoff. Use concrete details and contrast (what I believed then vs. what I understand now), without inventing a dramatic biography.
+- Sustain curiosity through the middle with a meaningful reveal or change in perspective. Deliver the clearest explanation in the final third; no fake suspense or withholding a simple answer.
+- End with a specific, memorable takeaway that lands emotionally (belonging, care, respect, growing up, or a lesson we pass on), not a generic moral. Invite reflection only when it feels natural.
 - Narration must work with stock footage alone and make sense without visuals.
-- Use natural US conversational English, contractions, short sentences, no jargon.
+- Use natural US conversational English, contractions, varied sentence length, vivid but believable details, and spoken rhythm. Make it entertaining to hear, not like an essay. Avoid melodrama, guilt-bait, fabricated quotes, or manipulative emotional pressure.
 
 ORIGINALITY:
 The underlying subject must differ from every Wisdom topic and every Publish Shorts
@@ -484,7 +481,7 @@ person, or setting relevant to that spoken beat. No generic filler such as
                 "- Generate a genuinely different candidate in the specified next topic lane; do not rephrase any rejected subject.\n"
                 "- Prioritize a concrete family rule, household routine, or US social custom over a saying's origin.\n"
                 "- Do not assert that a habit is universal to American families; frame it as a familiar custom some families use.\n"
-                "- Aim for 90-94 spoken words so the narration safely lands inside the required 80-95 range. "
+                "- Aim for 103-108 spoken words so the narration safely lands inside the required 100-110 range. "
                 "Count narration words before returning JSON; if the draft is short, add a meaningful personal observation and practical takeaway, not filler.\n"
                 "- Keep all 3 search queries and 16-18 ordered visual queries.\n"
             )
@@ -538,10 +535,10 @@ def synthesize(text, output):
     duration = len(audio) / 24000.0
     # Narration is intentionally generated short enough to fit naturally.
     # Do not time-compress speech: caption timestamps must reflect natural
-    # Kokoro delivery speed.
+    # Kokoro delivery speed. The 47s ceiling gives the 45s target a small buffer.
     if duration > TARGET_SECONDS:
         raise RuntimeError(
-            f"Narration synthesis exceeded 40s: {duration:.2f}s. "
+            f"Narration synthesis exceeded 47s: {duration:.2f}s. "
             "Regenerate with a shorter narration; audio speed-up is disabled."
         )
     return duration

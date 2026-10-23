@@ -231,7 +231,22 @@ NARRATION: {narration}
     dimensions = ("hook", "first_person_voice", "naturalness", "factual_caution",
                   "originality", "progression", "payoff")
     scores = {key: float(review.get(key, 0) or 0) for key in dimensions}
-    failures = [f"{key}={scores[key]:g}" for key in dimensions if scores[key] < 7]
+    # Keep factual reliability strict, but avoid rejecting every usable draft because
+    # the model-editor is subjective about individual style dimensions.
+    minimum_scores = {
+        "hook": 5,
+        "first_person_voice": 6,
+        "naturalness": 5,
+        "factual_caution": 7,
+        "originality": 6,
+        "progression": 5,
+        "payoff": 5,
+    }
+    failures = [
+        f"{key}={scores[key]:g}"
+        for key in dimensions
+        if scores[key] < minimum_scores[key]
+    ]
     if failures:
         raise RuntimeError(
             "Editorial quality gate failed (" + ", ".join(failures) + "): "
@@ -382,11 +397,23 @@ person, or setting relevant to that spoken beat. No generic filler such as
 "everyday life". Do not imply visuals can prove a historical claim.
 """ + history_block + publish_history_block + performance_guidance()
 
-    max_attempts = 7
+    max_attempts = 9
     retry_feedback = ""
     rejected_topics = []
+    topic_lanes = [
+        "familiar household rules and the practical reason behind them",
+        "parent or grandparent advice that has a real everyday explanation",
+        "American manners and small social customs people learn growing up",
+        "schoolyard expressions or childhood routines, avoiding disputed phrase origins",
+        "ordinary family habits around meals, guests, chores, or bedtime",
+        "common American sayings whose meaning is clear even if their origin is uncertain",
+        "everyday etiquette people follow without remembering who taught them",
+        "a familiar childhood warning and the practical concern behind it",
+        "a common phrase used in conversation, focusing on modern meaning rather than origin",
+    ]
     for attempt in range(max_attempts):
         story = None
+        lane = topic_lanes[attempt % len(topic_lanes)]
         try:
             # Use a fresh Gemini client per candidate attempt. Reusing a client after
             # a failed request can leave its underlying HTTP transport closed; using
@@ -395,7 +422,16 @@ person, or setting relevant to that spoken beat. No generic filler such as
             c = client()
             response = c.models.generate_content(
                 model=MODEL,
-                contents=base_prompt + retry_feedback,
+                contents=(
+                    base_prompt
+                    + "\n\nTOPIC LANE FOR THIS ATTEMPT: "
+                    + lane
+                    + "\nPrefer a concrete household custom or practical everyday explanation. "
+                    + "Do not default to phrase-origin trivia. Avoid idiom etymologies and folklore "
+                    + "unless the origin is well-supported; when uncertain, explain current meaning "
+                    + "or practical use instead.\n"
+                    + retry_feedback
+                ),
                 config={"temperature": 0.95, "response_mime_type": "application/json"},
             )
             data = json.loads(response.text)
@@ -439,7 +475,9 @@ person, or setting relevant to that spoken beat. No generic filler such as
             retry_feedback = (
                 "\n\nRETRY CORRECTION (mandatory; the previous draft failed validation):\n"
                 f"- Failure: {reason}\n"
+                f"- For the next attempt, follow this topic lane: {topic_lanes[(attempt + 1) % len(topic_lanes)]}.\n"
                 "- Generate a genuinely different candidate; do not rephrase any rejected subject.\n"
+                "- Do not choose a phrase-origin story if a practical household custom or familiar social rule fits.\n"
                 "- Aim for 88-92 spoken words so the narration safely lands inside the required 80-95 range. "
                 "Count the narration words before returning JSON.\n"
                 "- Keep all 3 search queries and 16-18 ordered visual queries.\n"

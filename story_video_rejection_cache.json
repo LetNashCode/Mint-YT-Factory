@@ -7898,6 +7898,285 @@
       "start": 5.0,
       "reason": "The sampled frames only show a concert schedule/billboard sign with B.B. King's name on it, not the artist himself or actual performance footage.",
       "reviewed_at": 1792703081.2755842
+    },
+    "426788a01ee55c6c43d608bc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Bon_Appetit_The_Life_and_Times_of_Julia_Child",
+      "source_url": "https://archive.org/details/Bon_Appetit_The_Life_and_Times_of_Julia_Child",
+      "person": "Julia Child",
+      "start": 1893.31,
+      "reason": "The footage features Sharon Hudgins (the speaker/biographer) giving a lecture about Julia Child, but Julia Child herself is not visible in any of the sampled frames.",
+      "reviewed_at": 1792779478.732516
+    },
+    "ca3d3d8f62605e56999f2a4a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+      "source_url": "https://archive.org/details/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+      "person": "Julia Child",
+      "start": 1431.78,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792779739.7452478
+    },
+    "dcd75cdaa0c60adbba52afa8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+      "source_url": "https://archive.org/details/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+      "person": "Julia Child",
+      "start": 1590.31,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792779743.698736
+    },
+    "7becc8b47b6ca48535b31c59": {
+      "kind": "segment_rejection",
+      "source_id": "archive:grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+      "source_url": "https://archive.org/details/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+      "person": "Julia Child",
+      "start": 1748.85,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792779747.605876
+    },
+    "2f3b43f1a75342009b2d7fc9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+      "source_url": "https://archive.org/details/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+      "person": "Julia Child",
+      "start": 1907.38,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792779751.300329
+    },
+    "1be4d5c2fb734c061550e1bf": {
+      "kind": "segment_rejection",
+      "source_id": "archive:grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+      "source_url": "https://archive.org/details/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+      "person": "Julia Child",
+      "start": 2065.91,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792779755.0554066
+    },
+    "7eb78303ceb9f4f575f637ef": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sc21wa-Art_Zone_-_Bon_Appetit_Actor_Anne_Allgood_takes_on_Julia_Child",
+      "source_url": "https://archive.org/details/sc21wa-Art_Zone_-_Bon_Appetit_Actor_Anne_Allgood_takes_on_Julia_Child",
+      "person": "Julia Child",
+      "start": 246.08,
+      "reason": "The footage shows an interview/segment with actor Anne Allgood portraying Julia Child in a stage production, not Julia Child herself.",
+      "reviewed_at": 1792779810.7142007
+    },
+    "c2ff0d28788012781b884007": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sc21wa-Art_Zone_-_Bon_Appetit_Actor_Anne_Allgood_takes_on_Julia_Child",
+      "source_url": "https://archive.org/details/sc21wa-Art_Zone_-_Bon_Appetit_Actor_Anne_Allgood_takes_on_Julia_Child",
+      "person": "Julia Child",
+      "start": 5.0,
+      "reason": "The video features actor Anne Allgood portraying Julia Child in a stage production, not the actual Julia Child. Therefore, it does not show the named subject and is not suitable archival footage for her biography.",
+      "reviewed_at": 1792779846.0797343
+    },
+    "0c0746a20c6c0142f3d2f228": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sc21wa-Art_Zone_-_Bon_Appetit_Actor_Anne_Allgood_takes_on_Julia_Child",
+      "source_url": "https://archive.org/details/sc21wa-Art_Zone_-_Bon_Appetit_Actor_Anne_Allgood_takes_on_Julia_Child",
+      "person": "Julia Child",
+      "start": 39.44,
+      "reason": "The video features an interview with actress Anne Allgood discussing her stage role portraying Julia Child, but Julia Child herself is not present in the footage (only appearing in promotional graphics/posters in the opening frames). Therefore, the subject Julia Child is not visible.",
+      "reviewed_at": 1792779888.9652877
+    },
+    "53ba1de43391dc71c675eba2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Rcdanek-JuliaPart1482-2",
+      "source_url": "https://archive.org/details/Rcdanek-JuliaPart1482-2",
+      "person": "Julia Child",
+      "start": 1210.09,
+      "reason": "The footage shows a contemporary cooking demonstration by a third party (Pam) in a modern kitchen discussing Julia Child, rather than archival footage of Julia Child herself.",
+      "reviewed_at": 1792779913.2536583
+    },
+    "20c0b7bf6ca40f56975c9bae": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Rcdanek-JuliaPart1482-2",
+      "source_url": "https://archive.org/details/Rcdanek-JuliaPart1482-2",
+      "person": "Julia Child",
+      "start": 1726.55,
+      "reason": "The footage shows Pam preparing a recipe in a kitchen, discussing Julia Child, but Julia Child herself is not present in the video clip or frames, making it unsuitable as identity footage for Julia Child.",
+      "reviewed_at": 1792779952.6199274
+    },
+    "e7394990a6a72af42a6c6981": {
+      "kind": "segment_rejection",
+      "source_id": "archive:WETA_20010915_160000_Julia_Child_Master_Chefs",
+      "source_url": "https://archive.org/details/WETA_20010915_160000_Julia_Child_Master_Chefs",
+      "person": "Julia Child",
+      "start": 969.62,
+      "reason": "The footage shows hands preparing and peeling seafood (shrimp and clams) in a cooking context, fitting archival cooking footage of Julia Child's style, but Julia Child's face/person is not visible in the frames.",
+      "reviewed_at": 1792779976.5059056
+    },
+    "90df5f17b7103438317ec898": {
+      "kind": "segment_rejection",
+      "source_id": "archive:WHIT09JohnPareInt",
+      "source_url": "https://archive.org/details/WHIT09JohnPareInt",
+      "person": "Louis Braille",
+      "start": 98.63,
+      "reason": "The video shows a modern interview or commentary about a commemorative coin celebrating Louis Braille, featuring speaker John Pare. Louis Braille lived in the 19th century and is not the person visible in the footage. Therefore, the footage cannot depict Louis Braille.",
+      "reviewed_at": 1792780048.1720593
+    },
+    "70e4a8be8934bb6608993204": {
+      "kind": "segment_rejection",
+      "source_id": "archive:WHIT09JohnPareInt",
+      "source_url": "https://archive.org/details/WHIT09JohnPareInt",
+      "person": "Louis Braille",
+      "start": 108.0,
+      "reason": "The video shows a modern speaker discussing a commemorative coin honoring Louis Braille, but Louis Braille lived in the 19th century and is not visible in the footage. Therefore, it cannot provide direct historical footage of Louis Braille.",
+      "reviewed_at": 1792780062.93509
+    },
+    "5f50680aff8f4d3753841a33": {
+      "kind": "segment_rejection",
+      "source_id": "archive:orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "source_url": "https://archive.org/details/orcavt-Abled_and_on_Air_-_History_of_Louis_Braille",
+      "person": "Louis Braille",
+      "start": 1357.23,
+      "reason": "blank/near-blank frames",
+      "reviewed_at": 1792780080.3240843
+    },
+    "d4a7387b1e2fe96ccc9a6050": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cunytv_BCSPA115",
+      "source_url": "https://archive.org/details/cunytv_BCSPA115",
+      "person": "Louis Braille",
+      "start": 2359.99,
+      "reason": "The video shows a modern academic lecture featuring C. Michael Mellor discussing Louis Braille in 2009. Louis Braille lived in the 19th century (1809–1852), so he cannot be the person depicted in the footage.",
+      "reviewed_at": 1792780141.2050683
+    },
+    "e49ec7571b29fc926cd0c189": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cunytv_BCSPA115",
+      "source_url": "https://archive.org/details/cunytv_BCSPA115",
+      "person": "Louis Braille",
+      "start": 2883.32,
+      "reason": "The footage features C. Michael Mellor discussing Louis Braille in a 2009 lecture/presentation. While Louis Braille himself is not visible (as he lived in the 19th century), this archival presentation provides relevant biographical discussion and context about Louis Braille's life and legacy.",
+      "reviewed_at": 1792780160.8196597
+    },
+    "7ab69e222107816500e0a6ab": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LouisBrailleAndTheBrailleAlphabet",
+      "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+      "person": "Louis Braille",
+      "start": 724.47,
+      "reason": "The footage shows a modern individual using a laptop in a contemporary room, which has no connection to Louis Braille (1809–1852).",
+      "reviewed_at": 1792780199.4227715
+    },
+    "3803cba717d4eada51455823": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LouisBrailleAndTheBrailleAlphabet",
+      "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+      "person": "Louis Braille",
+      "start": 789.87,
+      "reason": "The footage shows real historical context including an organ and embossed tactile braille sheet music, which directly illustrates the life, work, and inventions of Louis Braille, even though Louis Braille himself is not visible in the frames.",
+      "reviewed_at": 1792780223.7592607
+    },
+    "c1347cbb1d97de3d7a04ad75": {
+      "kind": "segment_rejection",
+      "source_id": "archive:videoplayback_20250330_2225",
+      "source_url": "https://archive.org/details/videoplayback_20250330_2225",
+      "person": "Bob Ross",
+      "start": 20.03,
+      "reason": "The footage shows a commercial toy model train (a Lionel Bob Ross Sound Boxcar) rather than actual archival footage or genuine historical context about Bob Ross's life.",
+      "reviewed_at": 1792780341.8220425
+    },
+    "397f3de2dcf3790beb719147": {
+      "kind": "segment_rejection",
+      "source_id": "archive:videoplayback_20250330_2225",
+      "source_url": "https://archive.org/details/videoplayback_20250330_2225",
+      "person": "Bob Ross",
+      "start": 2.1,
+      "reason": "The footage shows a toy model train with a graphic of Bob Ross on the side, not actual archival footage of Bob Ross himself. This is merchandise/a toy model and is unusable for a biographical short.",
+      "reviewed_at": 1792780362.5400436
+    },
+    "fe021e95351c415fe965c1ec": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
+      "source_url": "https://archive.org/details/sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
+      "person": "Bob Ross",
+      "start": 951.96,
+      "reason": "The footage shows Feliks Kaparchuk and other unrelated individuals/fashion models, but Bob Ross is the subject of the biography. Therefore, the person visible is incorrect for Bob Ross.",
+      "reviewed_at": 1792780417.9904575
+    },
+    "b00182f7becdffe88196f045": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
+      "source_url": "https://archive.org/details/sc21wa-Romance_dance_alt_rock_the_new_Bob_Ross_on_Art_Zone_with_Nancy_Guppy",
+      "person": "Bob Ross",
+      "start": 5.0,
+      "reason": "The segment shows unrelated content including a person lying on the ground, a sci-fi spaceship graphic, and dance rehearsals, with no actual footage of Bob Ross.",
+      "reviewed_at": 1792780473.9514928
+    },
+    "bba2a205130ce2d850fe4206": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "source_url": "https://archive.org/details/ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "person": "Bob Ross",
+      "start": 51.09,
+      "reason": "The footage features modern students working on a school art project inspired by Bob Ross, not Bob Ross himself. Bob Ross is not visible in any frame, making this modern student-produced content unusable as archival identity or direct historical footage for a Bob Ross biography.",
+      "reviewed_at": 1792780482.907778
+    },
+    "c097a20cedc11d617accb13f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "source_url": "https://archive.org/details/ttvemi-Classroom_Spotlight_-_Bob_Ross_Project",
+      "person": "Bob Ross",
+      "start": 78.74,
+      "reason": "The footage shows contemporary students working on a school art project in an art classroom, having no relation to Bob Ross archive footage or biography.",
+      "reviewed_at": 1792780510.7066069
+    },
+    "0400a44159d0ddb27bef0f3d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Bob_Ross_Christmas_Greeting",
+      "source_url": "https://archive.org/details/Bob_Ross_Christmas_Greeting",
+      "person": "Bob Ross",
+      "start": 10.99,
+      "reason": "The footage features a different person named Bob Ross (a public information officer in Kenner, Louisiana), not the famous painter Bob Ross, making it a mistaken identity or unrelated person.",
+      "reviewed_at": 1792780519.7056484
+    },
+    "322830a531bb0f4e2b5ee0fb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Bob_Ross_Christmas_Greeting",
+      "source_url": "https://archive.org/details/Bob_Ross_Christmas_Greeting",
+      "person": "Bob Ross",
+      "start": 1.2,
+      "reason": "The video features a different person named Bob Ross (a public information officer from Kenner, Louisiana), not the famous painter Bob Ross. This is a false identity match.",
+      "reviewed_at": 1792780535.0371609
+    },
+    "67b0a91690280250c5c55087": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nrhsme-2021_Paint_Like_Bob_Ross_with_Amanda_King",
+      "source_url": "https://archive.org/details/nrhsme-2021_Paint_Like_Bob_Ross_with_Amanda_King",
+      "person": "Bob Ross",
+      "start": 3510.92,
+      "reason": "The footage shows a contemporary painter/student (Amanda King) in a modern setting, with a digital superimposition of Bob Ross in later frames, rather than authentic archival footage of Bob Ross himself.",
+      "reviewed_at": 1792780559.530957
+    },
+    "51863f3951b0c8a3aa49de01": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nrhsme-2021_Paint_Like_Bob_Ross_with_Amanda_King",
+      "source_url": "https://archive.org/details/nrhsme-2021_Paint_Like_Bob_Ross_with_Amanda_King",
+      "person": "Bob Ross",
+      "start": 5013.46,
+      "reason": "The video shows a modern painting class in 2021 learning to paint like Bob Ross, but Bob Ross himself is not present in the footage and it does not depict any genuine historical events or biographical context of Bob Ross.",
+      "reviewed_at": 1792780577.7422469
+    },
+    "8b671f45e7ce8da2548a32da": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TomFrankStudiosJacobPaintswithBobRoss",
+      "source_url": "https://archive.org/details/TomFrankStudiosJacobPaintswithBobRoss",
+      "person": "Bob Ross",
+      "start": 5.0,
+      "reason": "The video features a parody or lookalike (or someone named Jacob) rather than Bob Ross himself. Therefore, it does not show the actual subject.",
+      "reviewed_at": 1792780590.941455
+    },
+    "6c1149b58a4d9979d8137812": {
+      "kind": "segment_rejection",
+      "source_id": "archive:TomFrankStudiosJacobPaintswithBobRoss",
+      "source_url": "https://archive.org/details/TomFrankStudiosJacobPaintswithBobRoss",
+      "person": "Bob Ross",
+      "start": 41.73,
+      "reason": "The footage features an impersonator or parody (Jacob) rather than Bob Ross himself, making it unusable for a genuine biographical short.",
+      "reviewed_at": 1792780652.8238504
     }
   }
 }

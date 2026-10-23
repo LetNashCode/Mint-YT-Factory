@@ -2,378 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Serena Williams",
-      "source": {
-        "id": "archive:BitChute-ZTxyR3E3vOba",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/BitChute-ZTxyR3E3vOba/Serena_Williams-ZTxyR3E3vOba.ia.mp4",
-        "source_url": "https://archive.org/details/BitChute-ZTxyR3E3vOba",
-        "title": "Serena Williams [2019-12-22]",
-        "description": "The Anatomy of Deception this channel is to preserve this extremely important information, and the work of MrE & Transpocalypse Now visit : https://www.bitchute.com/channel/mrsanonymous/ and https://www.bitchute.com/channel/truthers/ for more MrE content! all rights belong to Mre3000 & Transpocalypse Now. this video is for entertainment and educational purposes. MrE3000 , MrE , Transpocalypse Now , Transvestigation , Trans Investigation , Transgender Agenda , Trans Agenda Source: https://www.bitchute.com/video/ZTxyR3E3vOba Uploader: Red_Red video",
-        "creator": "Red_Red",
-        "license": "",
-        "subject": "video",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 589.09,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows Serena Williams in various archival clips (such as interviews and public appearances), which serves as valid biographical illustration for her life and career, though not specific direct event footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "fb65ab11967d19dc7def1d4769f7558dfe6a3c7298b7e98d4861efe518c4145a",
-      "reviewed_at": 1790680040.5319183
-    },
-    {
-      "person": "Stephen King",
-      "source": {
-        "id": "archive:JFKAssassinationStephenKing",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JFKAssassinationStephenKing/JFK%20Assassination%20-%20Stephen%20King.mp4",
-        "source_url": "https://archive.org/details/JFKAssassinationStephenKing",
-        "title": "JFK Assassination ~ Stephen King",
-        "description": "Stephen King Author Of 11/22/63 Talks About The Kennedy Assassination. ['Stephen King', '11/22/63', 'JFK', 'Kennedy', 'Oswald', 'Tippit', 'Jack Ruby', 'Carcano']",
-        "creator": "",
-        "license": "",
-        "subject": "['Stephen King', '11/22/63', 'JFK', 'Kennedy', 'Oswald', 'Tippit', 'Jack Ruby', 'Carcano']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 235.89,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows Stephen King participating in an interview/discussion on stage. While it does not depict historical events directly, it serves as biographical illustration of Stephen King discussing his work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "662fa77c1d93e4f09836a6775c382aa00b7a4fdb11ac8682cd460d1fcc025e58",
-      "reviewed_at": 1790680456.460213
-    },
-    {
-      "person": "Stephen King",
-      "source": {
-        "id": "archive:JFKAssassinationStephenKing",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JFKAssassinationStephenKing/JFK%20Assassination%20-%20Stephen%20King.mp4",
-        "source_url": "https://archive.org/details/JFKAssassinationStephenKing",
-        "title": "JFK Assassination ~ Stephen King",
-        "description": "Stephen King Author Of 11/22/63 Talks About The Kennedy Assassination. ['Stephen King', '11/22/63', 'JFK', 'Kennedy', 'Oswald', 'Tippit', 'Jack Ruby', 'Carcano']",
-        "creator": "",
-        "license": "",
-        "subject": "['Stephen King', '11/22/63', 'JFK', 'Kennedy', 'Oswald', 'Tippit', 'Jack Ruby', 'Carcano']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames show Stephen King participating in a panel/interview on stage, which can serve as biographical illustration for a video about him, though it is not direct event footage of the historical topics discussed.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "7ab37ef6ed46c15380fbd74c0a6a39a0d878db8eff72393b92be1225cdd9089d",
-      "reviewed_at": 1790680531.5959115
-    },
-    {
-      "person": "Stephen King",
-      "source": {
-        "id": "archive:twitter-1284080408800440320",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
-        "source_url": "https://archive.org/details/twitter-1284080408800440320",
-        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
-        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OTD']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 42.93,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video shows genuine archival footage of Stephen King in 1984 standing next to a car (Christine), which matches the historical context described.",
-        "usage": "direct_event"
-      },
-      "review_key": "b96b0c291c3bb168870a02067668912ebb2a398047c937357b08433595364ad0",
-      "reviewed_at": 1790680536.7786534
-    },
-    {
-      "person": "Stephen King",
-      "source": {
-        "id": "archive:JFKAssassinationStephenKing",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JFKAssassinationStephenKing/JFK%20Assassination%20-%20Stephen%20King.mp4",
-        "source_url": "https://archive.org/details/JFKAssassinationStephenKing",
-        "title": "JFK Assassination ~ Stephen King",
-        "description": "Stephen King Author Of 11/22/63 Talks About The Kennedy Assassination. ['Stephen King', '11/22/63', 'JFK', 'Kennedy', 'Oswald', 'Tippit', 'Jack Ruby', 'Carcano']",
-        "creator": "",
-        "license": "",
-        "subject": "['Stephen King', '11/22/63', 'JFK', 'Kennedy', 'Oswald', 'Tippit', 'Jack Ruby', 'Carcano']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 37.98,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames show Stephen King being interviewed on a stage about his work (specifically 11/22/63), which serves as biographical illustration for a documentary short, though it is not direct footage of the narrated historical events themselves.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "de5e261b8877b7f782bcf2c47b266aeedefcfe65df4610f22618d49fd7f615b4",
-      "reviewed_at": 1790680566.9181538
-    },
-    {
-      "person": "Stephen King",
-      "source": {
-        "id": "archive:JFKAssassinationStephenKing",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JFKAssassinationStephenKing/JFK%20Assassination%20-%20Stephen%20King.mp4",
-        "source_url": "https://archive.org/details/JFKAssassinationStephenKing",
-        "title": "JFK Assassination ~ Stephen King",
-        "description": "Stephen King Author Of 11/22/63 Talks About The Kennedy Assassination. ['Stephen King', '11/22/63', 'JFK', 'Kennedy', 'Oswald', 'Tippit', 'Jack Ruby', 'Carcano']",
-        "creator": "",
-        "license": "",
-        "subject": "['Stephen King', '11/22/63', 'JFK', 'Kennedy', 'Oswald', 'Tippit', 'Jack Ruby', 'Carcano']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 70.97,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage shows Stephen King in an interview setting discussing historical topics, which serves as biographical illustration for a video about him, though it does not directly depict the historical events themselves.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6521ac905cb0ff3027c9057688330c047a81df9ea9d8ade267bc3648878991fd",
-      "reviewed_at": 1790680576.9655302
-    },
-    {
-      "person": "Stephen King",
-      "source": {
-        "id": "archive:twitter-1284080408800440320",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
-        "source_url": "https://archive.org/details/twitter-1284080408800440320",
-        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
-        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OTD']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 137.76,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video shows real historical footage of Stephen King being interviewed in 1984, making it suitable biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "68bc98cff9401a0eeb2ecbe298e77295ff5ea7737157376a90f7b6a00f829fff",
-      "reviewed_at": 1790700323.721832
-    },
-    {
-      "person": "Stephen King",
-      "source": {
-        "id": "archive:Stephen_King_Lecture_Highlight",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Stephen_King_Lecture_Highlight/Stephen_King_Lecture_Highlight.mp4",
-        "source_url": "https://archive.org/details/Stephen_King_Lecture_Highlight",
-        "title": "Stephen King Lecture Highlight",
-        "description": "As part of DATV's 35th Anniversary Celebration we are airing a 1982 lecture taped at the University of Dayton as part of its Distinguished Speaker Series. In this clip King talks about his reaction to the screen adaptation of his book \"The Shining.\" The full lecture can be seen on Friday, May 10th at 8:00pm on DATV, Time Warner Cable channel 5 in Dayton. ['Ohio', 'Dayton', 'Dayton Access Television', 'DATV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'Stephen King', 'The Shining', 'University of Dayton', 'Books', 'Films', 'Authors', '2013']",
-        "creator": "DATV",
-        "license": "",
-        "subject": "['Ohio', 'Dayton', 'Dayton Access Television', 'DATV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'Stephen King', 'The Shining', 'University of Dayton', 'Books', 'Films', 'Authors', '2013']",
-        "runtime": "00:01:08",
-        "direct_subject": true,
-        "duration_hint": 68.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 47.77,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames show archival footage of Stephen King speaking at a lecture in 1982. While it is genuine archival footage, it serves as general biographical illustration rather than depicting a specific narrated event.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "78c04f443af6653f6277b35ce24aaddfd5f0b2a37ec5c95d937c01d6db4562b8",
-      "reviewed_at": 1790700338.7636635
-    },
-    {
-      "person": "Stephen King",
-      "source": {
-        "id": "archive:twitter-1284080408800440320",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
-        "source_url": "https://archive.org/details/twitter-1284080408800440320",
-        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
-        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OTD']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 23.97,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "Stephen King is clearly visible throughout all frames standing next to a vintage car on a television set, matching the biographical context of his archival appearances.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "dc162e2e4247af325d9ba62cf07ae840a4d98301187254f54738d36f51c96d64",
-      "reviewed_at": 1790700348.5519109
-    },
-    {
-      "person": "Stephen King",
-      "source": {
-        "id": "archive:Stephen_King_Lecture_Highlight",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Stephen_King_Lecture_Highlight/Stephen_King_Lecture_Highlight.mp4",
-        "source_url": "https://archive.org/details/Stephen_King_Lecture_Highlight",
-        "title": "Stephen King Lecture Highlight",
-        "description": "As part of DATV's 35th Anniversary Celebration we are airing a 1982 lecture taped at the University of Dayton as part of its Distinguished Speaker Series. In this clip King talks about his reaction to the screen adaptation of his book \"The Shining.\" The full lecture can be seen on Friday, May 10th at 8:00pm on DATV, Time Warner Cable channel 5 in Dayton. ['Ohio', 'Dayton', 'Dayton Access Television', 'DATV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'Stephen King', 'The Shining', 'University of Dayton', 'Books', 'Films', 'Authors', '2013']",
-        "creator": "DATV",
-        "license": "",
-        "subject": "['Ohio', 'Dayton', 'Dayton Access Television', 'DATV', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'Stephen King', 'The Shining', 'University of Dayton', 'Books', 'Films', 'Authors', '2013']",
-        "runtime": "00:01:08",
-        "direct_subject": true,
-        "duration_hint": 68.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 58.47,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows actual archival footage of Stephen King speaking at a lecture in 1982, but it has large lower-third graphic overlays that obstruct the view and make it less usable.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "634ab32ed253466b13da9872fbe359ca2584b3096905df27c6081e1694e9541d",
-      "reviewed_at": 1790700372.3864143
-    },
-    {
-      "person": "Stephen King",
-      "source": {
-        "id": "archive:twitter-1284080408800440320",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
-        "source_url": "https://archive.org/details/twitter-1284080408800440320",
-        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
-        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OTD']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 61.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The frames show genuine archival footage of Stephen King being interviewed in 1984. Since it is an interview discussing his work rather than depiction of the events in his books, it serves as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "981745cdb6c244faf3f5e843f4b976c5c5fac3c652b60e6faf57ab9a3ae81732",
-      "reviewed_at": 1790700391.5007942
-    },
-    {
-      "person": "Stephen King",
-      "source": {
-        "id": "archive:twitter-1284080408800440320",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1284080408800440320/1284080408800440320.mp4",
-        "source_url": "https://archive.org/details/twitter-1284080408800440320",
-        "title": "BBC Archive - #OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel.",
-        "description": "#OTD 1984: Fresh off the release of the cinematic adaptation of ‘Christine’, Stephen King appeared on breakfast to talk about his inspiration for originally writing the novel. https://t.co/WXeUeaU720 Source: https://twitter.com/BBCArchive/status/1284080408800440320 Uploader: BBC Archive ['Twitter', 'video', 'OTD']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OTD']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 99.83,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The clip features genuine archival interview footage of Stephen King talking about his work in 1984. While it is an interview rather than direct footage of the narrated events, it serves as excellent biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "587cc861e5f4437097a2803fcd6dbd3d8b25293a23502a761e7718a22133a420",
-      "reviewed_at": 1790700415.502848
-    },
-    {
       "person": "Stephen King",
       "source": {
         "id": "archive:twitter-1284080408800440320",
@@ -18591,6 +18219,378 @@
       },
       "review_key": "6ae10954209e799b5e8788a56a7bfecbcc744509bcd0a016df5babefbb2311bd",
       "reviewed_at": 1792703293.8919783
+    },
+    {
+      "person": "Julia Child",
+      "source": {
+        "id": "archive:grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989/Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989.mp4",
+        "source_url": "https://archive.org/details/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "title": "Julia Child with Richard Roth at the Hotel Jerome, 1989",
+        "description": "Step back in time to 1989 at the Aspen Food & Wine Classic! Join legendary chef Julia Child at the iconic Hotel Jerome for a delightful, candid conversation with Richard Roth. In this rare archival interview from GrassRoots Community Network TV, Julia shares her timeless wisdom on conquering America's \"fear of food,\" the joy of moderation (yes, butter and cream included!), French vs. American food culture, and why enjoying every bite matters. Watch as she tastes wines, reflects on launching The French Chef on public TV, discusses the American Institute of Wine & Food, her mentors like Escoffier, new cuisine trends, and offers inspiring advice for aspiring chefs. Full of warmth, humor, and gastronomic insight — a must for food lovers, wine enthusiasts, and Julia Child fans! Perfect for anyone interested in classic cooking, food history, Aspen events, or healthy enjoyment of great meals. Know Aspen. Watch GrassRoots. GrassRoots programming is made possible by the producers' creativity itself, direct contributions from viewers, members of the Roaring Fork Valley community, and through grants from the Pitkin County Healthy Community Fund, The Town of Snowmass Village, the City of Aspen Community Non-Profit Grant Program, and The Aspen Thrift Shop. Founded by citizens of Aspen, Colorado in 1972, GrassRoots TV is the first and oldest community operated and programmed open-source media center and television station in the United States. Virtually all of the programming is created by local residents, occasionally with world renown guests. In partnership with the American Archive of ['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "creator": "Grassroots Community Network",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "runtime": "00:34:35",
+        "direct_subject": true,
+        "duration_hint": 2074.908242,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1114.72,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature archival interview footage of the named subject, Julia Child, speaking in 1989. The footage is authentic, of acceptable quality, and directly illustrates her life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a729f7d4554e2054f02e76b2b53a5bfd8cf1e4845aae24c502b087378598edfd",
+      "reviewed_at": 1792779430.1930223
+    },
+    {
+      "person": "Julia Child",
+      "source": {
+        "id": "archive:Bon_Appetit_The_Life_and_Times_of_Julia_Child",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Bon_Appetit_The_Life_and_Times_of_Julia_Child/Bon_Appetit_The_Life_and_Times_of_Julia_Child.mp4",
+        "source_url": "https://archive.org/details/Bon_Appetit_The_Life_and_Times_of_Julia_Child",
+        "title": "Bon Appetit! The Life and Times of Julia Child",
+        "description": "Award-winning food writer Sharon Hudgins presents the life and times of Julia Child, who, at nearly 60 years of age, gained fame as \"America's French Chef.\" Sharon also shares personal recollections of her encounters with this legendary chef, whom she met in Paris during a 1984 interview for \"The Stars and Stripes.\" ['Texas', 'Allen', 'Allen City TV', 'ACTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'allen public library', 'texas', 'lecture', 'julia child', 'chef', 'french chef', 'bon appetit', '2017']",
+        "creator": "Allen City TV",
+        "license": "",
+        "subject": "['Texas', 'Allen', 'Allen City TV', 'ACTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'allen public library', 'texas', 'lecture', 'julia child', 'chef', 'french chef', 'bon appetit', '2017']",
+        "runtime": "00:58:41",
+        "direct_subject": true,
+        "duration_hint": 3520.854188,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly depict Julia Child in archival footage, making it suitable as biographical illustration for a short about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d1b8dcd8ed7231f5cd5842f1a5050e10793f4b1e4149fefcf3a75fc9cc98b1a4",
+      "reviewed_at": 1792779484.0364764
+    },
+    {
+      "person": "Julia Child",
+      "source": {
+        "id": "archive:grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989/Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989.mp4",
+        "source_url": "https://archive.org/details/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "title": "Julia Child with Richard Roth at the Hotel Jerome, 1989",
+        "description": "Step back in time to 1989 at the Aspen Food & Wine Classic! Join legendary chef Julia Child at the iconic Hotel Jerome for a delightful, candid conversation with Richard Roth. In this rare archival interview from GrassRoots Community Network TV, Julia shares her timeless wisdom on conquering America's \"fear of food,\" the joy of moderation (yes, butter and cream included!), French vs. American food culture, and why enjoying every bite matters. Watch as she tastes wines, reflects on launching The French Chef on public TV, discusses the American Institute of Wine & Food, her mentors like Escoffier, new cuisine trends, and offers inspiring advice for aspiring chefs. Full of warmth, humor, and gastronomic insight — a must for food lovers, wine enthusiasts, and Julia Child fans! Perfect for anyone interested in classic cooking, food history, Aspen events, or healthy enjoyment of great meals. Know Aspen. Watch GrassRoots. GrassRoots programming is made possible by the producers' creativity itself, direct contributions from viewers, members of the Roaring Fork Valley community, and through grants from the Pitkin County Healthy Community Fund, The Town of Snowmass Village, the City of Aspen Community Non-Profit Grant Program, and The Aspen Thrift Shop. Founded by citizens of Aspen, Colorado in 1972, GrassRoots TV is the first and oldest community operated and programmed open-source media center and television station in the United States. Virtually all of the programming is created by local residents, occasionally with world renown guests. In partnership with the American Archive of ['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "creator": "Grassroots Community Network",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "runtime": "00:34:35",
+        "direct_subject": true,
+        "duration_hint": 2074.908242,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features genuine archival interview footage of Julia Child in 1989 at the Hotel Jerome. She is clearly visible throughout the sampled frames, making it excellent biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5d26f958e95f300ac928dfd6ad012809bded35c2109d08635f000c192853baea",
+      "reviewed_at": 1792779491.9268441
+    },
+    {
+      "person": "Julia Child",
+      "source": {
+        "id": "archive:grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989/Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989.mp4",
+        "source_url": "https://archive.org/details/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "title": "Julia Child with Richard Roth at the Hotel Jerome, 1989",
+        "description": "Step back in time to 1989 at the Aspen Food & Wine Classic! Join legendary chef Julia Child at the iconic Hotel Jerome for a delightful, candid conversation with Richard Roth. In this rare archival interview from GrassRoots Community Network TV, Julia shares her timeless wisdom on conquering America's \"fear of food,\" the joy of moderation (yes, butter and cream included!), French vs. American food culture, and why enjoying every bite matters. Watch as she tastes wines, reflects on launching The French Chef on public TV, discusses the American Institute of Wine & Food, her mentors like Escoffier, new cuisine trends, and offers inspiring advice for aspiring chefs. Full of warmth, humor, and gastronomic insight — a must for food lovers, wine enthusiasts, and Julia Child fans! Perfect for anyone interested in classic cooking, food history, Aspen events, or healthy enjoyment of great meals. Know Aspen. Watch GrassRoots. GrassRoots programming is made possible by the producers' creativity itself, direct contributions from viewers, members of the Roaring Fork Valley community, and through grants from the Pitkin County Healthy Community Fund, The Town of Snowmass Village, the City of Aspen Community Non-Profit Grant Program, and The Aspen Thrift Shop. Founded by citizens of Aspen, Colorado in 1972, GrassRoots TV is the first and oldest community operated and programmed open-source media center and television station in the United States. Virtually all of the programming is created by local residents, occasionally with world renown guests. In partnership with the American Archive of ['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "creator": "Grassroots Community Network",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "runtime": "00:34:35",
+        "direct_subject": true,
+        "duration_hint": 2074.908242,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 163.53,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Julia Child being interviewed in 1989 at the Hotel Jerome, providing authentic archival visual content for her biography.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "42ebca6541a1f76ba138a30d94d1be41b7e4441ed8050103ea19ec1d93997ec2",
+      "reviewed_at": 1792779548.6392558
+    },
+    {
+      "person": "Julia Child",
+      "source": {
+        "id": "archive:grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989/Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989.mp4",
+        "source_url": "https://archive.org/details/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "title": "Julia Child with Richard Roth at the Hotel Jerome, 1989",
+        "description": "Step back in time to 1989 at the Aspen Food & Wine Classic! Join legendary chef Julia Child at the iconic Hotel Jerome for a delightful, candid conversation with Richard Roth. In this rare archival interview from GrassRoots Community Network TV, Julia shares her timeless wisdom on conquering America's \"fear of food,\" the joy of moderation (yes, butter and cream included!), French vs. American food culture, and why enjoying every bite matters. Watch as she tastes wines, reflects on launching The French Chef on public TV, discusses the American Institute of Wine & Food, her mentors like Escoffier, new cuisine trends, and offers inspiring advice for aspiring chefs. Full of warmth, humor, and gastronomic insight — a must for food lovers, wine enthusiasts, and Julia Child fans! Perfect for anyone interested in classic cooking, food history, Aspen events, or healthy enjoyment of great meals. Know Aspen. Watch GrassRoots. GrassRoots programming is made possible by the producers' creativity itself, direct contributions from viewers, members of the Roaring Fork Valley community, and through grants from the Pitkin County Healthy Community Fund, The Town of Snowmass Village, the City of Aspen Community Non-Profit Grant Program, and The Aspen Thrift Shop. Founded by citizens of Aspen, Colorado in 1972, GrassRoots TV is the first and oldest community operated and programmed open-source media center and television station in the United States. Virtually all of the programming is created by local residents, occasionally with world renown guests. In partnership with the American Archive of ['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "creator": "Grassroots Community Network",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "runtime": "00:34:35",
+        "direct_subject": true,
+        "duration_hint": 2074.908242,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 322.06,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature archival interview footage of Julia Child speaking with Richard Roth in 1989 at the Hotel Jerome, making it genuine, usable biographical footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f0ea1192c258686e8827f8ee956abf482d0ee03607eb9f9e1b9b0384bf14cc89",
+      "reviewed_at": 1792779575.4179444
+    },
+    {
+      "person": "Julia Child",
+      "source": {
+        "id": "archive:grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989/Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989.mp4",
+        "source_url": "https://archive.org/details/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "title": "Julia Child with Richard Roth at the Hotel Jerome, 1989",
+        "description": "Step back in time to 1989 at the Aspen Food & Wine Classic! Join legendary chef Julia Child at the iconic Hotel Jerome for a delightful, candid conversation with Richard Roth. In this rare archival interview from GrassRoots Community Network TV, Julia shares her timeless wisdom on conquering America's \"fear of food,\" the joy of moderation (yes, butter and cream included!), French vs. American food culture, and why enjoying every bite matters. Watch as she tastes wines, reflects on launching The French Chef on public TV, discusses the American Institute of Wine & Food, her mentors like Escoffier, new cuisine trends, and offers inspiring advice for aspiring chefs. Full of warmth, humor, and gastronomic insight — a must for food lovers, wine enthusiasts, and Julia Child fans! Perfect for anyone interested in classic cooking, food history, Aspen events, or healthy enjoyment of great meals. Know Aspen. Watch GrassRoots. GrassRoots programming is made possible by the producers' creativity itself, direct contributions from viewers, members of the Roaring Fork Valley community, and through grants from the Pitkin County Healthy Community Fund, The Town of Snowmass Village, the City of Aspen Community Non-Profit Grant Program, and The Aspen Thrift Shop. Founded by citizens of Aspen, Colorado in 1972, GrassRoots TV is the first and oldest community operated and programmed open-source media center and television station in the United States. Virtually all of the programming is created by local residents, occasionally with world renown guests. In partnership with the American Archive of ['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "creator": "Grassroots Community Network",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "runtime": "00:34:35",
+        "direct_subject": true,
+        "duration_hint": 2074.908242,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 480.59,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival interview footage of Julia Child at the Hotel Jerome in Aspen, 1989, where she is clearly visible and actively participating in the conversation.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bda1d581df409d31c19a14c35293573922fef79fe6176535e4a7c6dd54d85177",
+      "reviewed_at": 1792779617.2805026
+    },
+    {
+      "person": "Julia Child",
+      "source": {
+        "id": "archive:grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989/Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989.mp4",
+        "source_url": "https://archive.org/details/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "title": "Julia Child with Richard Roth at the Hotel Jerome, 1989",
+        "description": "Step back in time to 1989 at the Aspen Food & Wine Classic! Join legendary chef Julia Child at the iconic Hotel Jerome for a delightful, candid conversation with Richard Roth. In this rare archival interview from GrassRoots Community Network TV, Julia shares her timeless wisdom on conquering America's \"fear of food,\" the joy of moderation (yes, butter and cream included!), French vs. American food culture, and why enjoying every bite matters. Watch as she tastes wines, reflects on launching The French Chef on public TV, discusses the American Institute of Wine & Food, her mentors like Escoffier, new cuisine trends, and offers inspiring advice for aspiring chefs. Full of warmth, humor, and gastronomic insight — a must for food lovers, wine enthusiasts, and Julia Child fans! Perfect for anyone interested in classic cooking, food history, Aspen events, or healthy enjoyment of great meals. Know Aspen. Watch GrassRoots. GrassRoots programming is made possible by the producers' creativity itself, direct contributions from viewers, members of the Roaring Fork Valley community, and through grants from the Pitkin County Healthy Community Fund, The Town of Snowmass Village, the City of Aspen Community Non-Profit Grant Program, and The Aspen Thrift Shop. Founded by citizens of Aspen, Colorado in 1972, GrassRoots TV is the first and oldest community operated and programmed open-source media center and television station in the United States. Virtually all of the programming is created by local residents, occasionally with world renown guests. In partnership with the American Archive of ['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "creator": "Grassroots Community Network",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "runtime": "00:34:35",
+        "direct_subject": true,
+        "duration_hint": 2074.908242,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 639.13,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature Julia Child in a genuine archival interview from 1989, making it suitable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "70b018c01c65203dd5044777a72d620b07573bd867f855d0a919aeaeef82a787",
+      "reviewed_at": 1792779676.5248516
+    },
+    {
+      "person": "Julia Child",
+      "source": {
+        "id": "archive:grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989/Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989.mp4",
+        "source_url": "https://archive.org/details/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "title": "Julia Child with Richard Roth at the Hotel Jerome, 1989",
+        "description": "Step back in time to 1989 at the Aspen Food & Wine Classic! Join legendary chef Julia Child at the iconic Hotel Jerome for a delightful, candid conversation with Richard Roth. In this rare archival interview from GrassRoots Community Network TV, Julia shares her timeless wisdom on conquering America's \"fear of food,\" the joy of moderation (yes, butter and cream included!), French vs. American food culture, and why enjoying every bite matters. Watch as she tastes wines, reflects on launching The French Chef on public TV, discusses the American Institute of Wine & Food, her mentors like Escoffier, new cuisine trends, and offers inspiring advice for aspiring chefs. Full of warmth, humor, and gastronomic insight — a must for food lovers, wine enthusiasts, and Julia Child fans! Perfect for anyone interested in classic cooking, food history, Aspen events, or healthy enjoyment of great meals. Know Aspen. Watch GrassRoots. GrassRoots programming is made possible by the producers' creativity itself, direct contributions from viewers, members of the Roaring Fork Valley community, and through grants from the Pitkin County Healthy Community Fund, The Town of Snowmass Village, the City of Aspen Community Non-Profit Grant Program, and The Aspen Thrift Shop. Founded by citizens of Aspen, Colorado in 1972, GrassRoots TV is the first and oldest community operated and programmed open-source media center and television station in the United States. Virtually all of the programming is created by local residents, occasionally with world renown guests. In partnership with the American Archive of ['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "creator": "Grassroots Community Network",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "runtime": "00:34:35",
+        "direct_subject": true,
+        "duration_hint": 2074.908242,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 797.66,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The sampled frames clearly feature archival footage of Julia Child being interviewed in 1989. While it is an interview rather than direct historical footage of an event, it provides valid and usable biographical illustration of her life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "75a3882d04f0cdfced982b7887a25b896315851f05ff8274c003e5fdeec4dbfb",
+      "reviewed_at": 1792779683.4497752
+    },
+    {
+      "person": "Julia Child",
+      "source": {
+        "id": "archive:grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989/Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989.mp4",
+        "source_url": "https://archive.org/details/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "title": "Julia Child with Richard Roth at the Hotel Jerome, 1989",
+        "description": "Step back in time to 1989 at the Aspen Food & Wine Classic! Join legendary chef Julia Child at the iconic Hotel Jerome for a delightful, candid conversation with Richard Roth. In this rare archival interview from GrassRoots Community Network TV, Julia shares her timeless wisdom on conquering America's \"fear of food,\" the joy of moderation (yes, butter and cream included!), French vs. American food culture, and why enjoying every bite matters. Watch as she tastes wines, reflects on launching The French Chef on public TV, discusses the American Institute of Wine & Food, her mentors like Escoffier, new cuisine trends, and offers inspiring advice for aspiring chefs. Full of warmth, humor, and gastronomic insight — a must for food lovers, wine enthusiasts, and Julia Child fans! Perfect for anyone interested in classic cooking, food history, Aspen events, or healthy enjoyment of great meals. Know Aspen. Watch GrassRoots. GrassRoots programming is made possible by the producers' creativity itself, direct contributions from viewers, members of the Roaring Fork Valley community, and through grants from the Pitkin County Healthy Community Fund, The Town of Snowmass Village, the City of Aspen Community Non-Profit Grant Program, and The Aspen Thrift Shop. Founded by citizens of Aspen, Colorado in 1972, GrassRoots TV is the first and oldest community operated and programmed open-source media center and television station in the United States. Virtually all of the programming is created by local residents, occasionally with world renown guests. In partnership with the American Archive of ['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "creator": "Grassroots Community Network",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "runtime": "00:34:35",
+        "direct_subject": true,
+        "duration_hint": 2074.908242,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 956.19,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features real archival footage of Julia Child being interviewed in 1989 at the Aspen Food & Wine Classic. She is clearly visible throughout the sampled frames, making it excellent biographical illustration footage for a video about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5ee1c104c9738f4cf1bb4a4837e6a13b1258ea8c231c902f1c7120e6a380d247",
+      "reviewed_at": 1792779711.7624962
+    },
+    {
+      "person": "Julia Child",
+      "source": {
+        "id": "archive:grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989/Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989.mp4",
+        "source_url": "https://archive.org/details/grtvco-Julia_Child_with_Richard_Roth_at_the_Hotel_Jerome_1989",
+        "title": "Julia Child with Richard Roth at the Hotel Jerome, 1989",
+        "description": "Step back in time to 1989 at the Aspen Food & Wine Classic! Join legendary chef Julia Child at the iconic Hotel Jerome for a delightful, candid conversation with Richard Roth. In this rare archival interview from GrassRoots Community Network TV, Julia shares her timeless wisdom on conquering America's \"fear of food,\" the joy of moderation (yes, butter and cream included!), French vs. American food culture, and why enjoying every bite matters. Watch as she tastes wines, reflects on launching The French Chef on public TV, discusses the American Institute of Wine & Food, her mentors like Escoffier, new cuisine trends, and offers inspiring advice for aspiring chefs. Full of warmth, humor, and gastronomic insight — a must for food lovers, wine enthusiasts, and Julia Child fans! Perfect for anyone interested in classic cooking, food history, Aspen events, or healthy enjoyment of great meals. Know Aspen. Watch GrassRoots. GrassRoots programming is made possible by the producers' creativity itself, direct contributions from viewers, members of the Roaring Fork Valley community, and through grants from the Pitkin County Healthy Community Fund, The Town of Snowmass Village, the City of Aspen Community Non-Profit Grant Program, and The Aspen Thrift Shop. Founded by citizens of Aspen, Colorado in 1972, GrassRoots TV is the first and oldest community operated and programmed open-source media center and television station in the United States. Virtually all of the programming is created by local residents, occasionally with world renown guests. In partnership with the American Archive of ['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "creator": "Grassroots Community Network",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'Grassroots Community Network', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'grassroots tv', 'roaring fork valley', 'community television', 'aspen colorado', 'grassroots community network', 'grassrootstv', 'Julia Child', 'Aspen Food and Wine Classic 1989', 'Julia Child interview', 'Hotel Jerome Aspen', 'The French Chef', 'food and wine', 'American Institute of Wine and Food', 'cooking wisdom', 'Julia Child wine tasting', 'GrassRoots TV', 'Aspen history', 'classic French cooking', 'Richard Roth', 'public television', 'gastronomy', '2026']",
+        "runtime": "00:34:35",
+        "direct_subject": true,
+        "duration_hint": 2074.908242,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1273.25,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Julia Child in a genuine archival interview from 1989, making it directly relevant biographical footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "770ef312aa1b134c81925ebdc7cf189cf6da7591fc2c58a989e97b46f29df6bd",
+      "reviewed_at": 1792779731.7421215
+    },
+    {
+      "person": "Julia Child",
+      "source": {
+        "id": "archive:sc21wa-Art_Zone_-_Bon_Appetit_Actor_Anne_Allgood_takes_on_Julia_Child",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/sc21wa-Art_Zone_-_Bon_Appetit_Actor_Anne_Allgood_takes_on_Julia_Child/Art_Zone_-_Bon_Appetit_Actor_Anne_Allgood_takes_on_Julia_Child.mp4",
+        "source_url": "https://archive.org/details/sc21wa-Art_Zone_-_Bon_Appetit_Actor_Anne_Allgood_takes_on_Julia_Child",
+        "title": "Art Zone: Bon Appetit! Actor Anne Allgood takes on Julia Child",
+        "description": "Beloved Seattle actor Anne Allgood takes on the iconic Julia Child in the culinary stage production of \"Bon Appetit!: the Julia Child operetta.\" ['Washington', 'Seattle', 'City of Seattle', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Seattle Channel', 'Anne Allgood', 'Julia Child', '2018']",
+        "creator": "City of Seattle",
+        "license": "",
+        "subject": "['Washington', 'Seattle', 'City of Seattle', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Seattle Channel', 'Anne Allgood', 'Julia Child', '2018']",
+        "runtime": "00:07:42",
+        "direct_subject": true,
+        "duration_hint": 461.718098,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 349.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The frames show archival footage of Julia Child in the first two frames, followed by actress Anne Allgood portraying or discussing her in a theatrical production. Julia Child is clearly identifiable in the initial archival segment, making it valid biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9e38be134a5d10ba9da394a012c7f894152381a3acf11e28b39da53f0b751131",
+      "reviewed_at": 1792779816.022486
+    },
+    {
+      "person": "Bob Ross",
+      "source": {
+        "id": "archive:TomFrankStudiosJacobPaintswithBobRoss",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/TomFrankStudiosJacobPaintswithBobRoss/JacobPaints_512kb.mp4",
+        "source_url": "https://archive.org/details/TomFrankStudiosJacobPaintswithBobRoss",
+        "title": "Jacob Paints with Bob Ross",
+        "description": "Jacob Paints with Bob Ross from \"The Joy of Painting\" ['Bob Ross', 'The Joy of Painting']",
+        "creator": "Tom Frank Studios",
+        "license": "http://creativecommons.org/licenses/by-sa/2.5/",
+        "subject": "['Bob Ross', 'The Joy of Painting']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 491.491491,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 262.11,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features archival footage of Bob Ross painting in the first two frames, followed by someone painting in a similar style. Bob Ross is clearly identifiable in the second frame, making it useful biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5d43538b2e129a6d4dfe3cabcf4d5c14925de9367c1448d6da032ff0161fe88b",
+      "reviewed_at": 1792780366.988085
     }
   ]
 }

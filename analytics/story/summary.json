@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-22T21:16:59.322153+00:00",
-  "refresh_attempted_at": "2026-10-22T21:16:59.322153+00:00",
+  "generated_at": "2026-10-23T18:37:39.946950+00:00",
+  "refresh_attempted_at": "2026-10-23T18:37:39.946950+00:00",
   "refresh_status": "success",
   "video_count": 26,
   "optimization_ready": true,
@@ -8,15 +8,15 @@
   "advanced_metrics_videos": 24,
   "reason": "",
   "totals": {
-    "views": 9892,
-    "likes": 201,
+    "views": 10106,
+    "likes": 206,
     "comments": 5
   },
   "averages": {
-    "views": 380.46,
-    "likes": 7.73,
+    "views": 388.69,
+    "likes": 7.92,
     "comments": 0.19,
-    "average_view_percentage": 49.53,
+    "average_view_percentage": 49.49,
     "subscribers_gained": 0.46,
     "shares": 0.04
   },
@@ -25,15 +25,15 @@
       "topic": "Freddie Mercury: Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
       "video_id": "IT9pWnp_XvY",
       "title": "The Untold Turning Point in Freddie Mercury's Story",
-      "views": 1219,
+      "views": 1221,
       "likes": 44,
       "comments": 2,
       "shares": 0,
       "average_view_duration": 19.0,
-      "average_view_percentage": 45.3,
+      "average_view_percentage": 44.41,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7736
+      "engagement_rate": 3.7674
     },
     {
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
@@ -123,7 +123,7 @@
       "topic": "Audrey Hepburn: Walking away from a lucrative Hollywood contract to dedicate the rest of her life to UNICEF field work.",
       "video_id": "rK7ls_MANYg",
       "title": "The Untold Turning Point in Audrey Hepburn's Story",
-      "views": 428,
+      "views": 433,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -131,7 +131,7 @@
       "average_view_percentage": 52.18000000000001,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.4673
+      "engagement_rate": 0.4619
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -167,15 +167,15 @@
       "topic": "Freddie Mercury: Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
       "video_id": "IT9pWnp_XvY",
       "title": "The Untold Turning Point in Freddie Mercury's Story",
-      "views": 1219,
+      "views": 1221,
       "likes": 44,
       "comments": 2,
       "shares": 0,
       "average_view_duration": 19.0,
-      "average_view_percentage": 45.3,
+      "average_view_percentage": 44.41,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7736
+      "engagement_rate": 3.7674
     },
     {
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
@@ -265,7 +265,7 @@
       "topic": "Audrey Hepburn: Walking away from a lucrative Hollywood contract to dedicate the rest of her life to UNICEF field work.",
       "video_id": "rK7ls_MANYg",
       "title": "The Untold Turning Point in Audrey Hepburn's Story",
-      "views": 428,
+      "views": 433,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -273,7 +273,7 @@
       "average_view_percentage": 52.18000000000001,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.4673
+      "engagement_rate": 0.4619
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -321,7 +321,7 @@
       "topic": "Stan Lee: Planning to quit the comic book industry out of frustration in the early 1960s before his wife suggested writing a story he actually cared about.",
       "video_id": "8Y1Qjegiprs",
       "title": "Before the Fame: Stan Lee's Untold Struggle",
-      "views": 182,
+      "views": 187,
       "likes": 4,
       "comments": 0,
       "shares": 0,
@@ -329,7 +329,21 @@
       "average_view_percentage": 49.48,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 2.1978
+      "engagement_rate": 2.139
+    },
+    {
+      "topic": "B-B King: The pivotal moment a damaged guitar and a dangerous fire shaped the signature sound of the Blues Boy.",
+      "video_id": "-zuakI9IPVU",
+      "title": "B-B King Lost Everything—Then Started Again",
+      "views": 137,
+      "likes": 5,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 3.6496
     },
     {
       "topic": "Carl Sagan: The choice to include Earth sounds and music on a golden record aboard Voyager spacecraft, risking ridicule from orthodox scientists.",
@@ -346,10 +360,24 @@
       "engagement_rate": 2.5424
     },
     {
+      "topic": "Valentina Tereshkova: A textile factory worker and amateur parachutist selected to become the first woman in space.",
+      "video_id": "J6alrNPd3lc",
+      "title": "The Untold Turning Point in Valentina Tereshkova's Story",
+      "views": 94,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    },
+    {
       "topic": "Amitabh Bachchan: Facing persistent rejection from All India Radio due to his deep voice before becoming the defining star of Indian cinema.",
       "video_id": "OMXqyVG5lnw",
       "title": "Amitabh Bachchan Was Rejected... Then Everything Changed",
-      "views": 84,
+      "views": 85,
       "likes": 5,
       "comments": 0,
       "shares": 0,
@@ -357,7 +385,7 @@
       "average_view_percentage": 48.35,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 5.9524
+      "engagement_rate": 5.8824
     },
     {
       "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
@@ -377,7 +405,7 @@
       "topic": "Sylvester Stallone: Writing the script for Rocky while living in extreme poverty and refusing to sell it unless he played the lead role.",
       "video_id": "oiqGFKDULVE",
       "title": "Before the Fame: Sylvester Stallone's Untold Struggle",
-      "views": 61,
+      "views": 63,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -385,7 +413,7 @@
       "average_view_percentage": 75.27,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 3.2787
+      "engagement_rate": 3.1746
     },
     {
       "topic": "Edmund Hillary: The decades-long preparation and final push to conquer the world's highest peak.",
@@ -405,7 +433,7 @@
       "topic": "Neil Armstrong: Transitioning from a combat fighter pilot in Korea to an experimental test pilot, eventually leading to the Apollo 11 moon landing.",
       "video_id": "2Yjsc0D8RMg",
       "title": "The Untold Turning Point in Neil Armstrong's Story",
-      "views": 53,
+      "views": 54,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -413,7 +441,7 @@
       "average_view_percentage": 60.92999999999999,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7736
+      "engagement_rate": 3.7037
     },
     {
       "topic": "James Cameron: Conceiving the terrifying cyborg antagonist of 'The Terminator' after experiencing a high fever and delirium while sick in Rome.",
@@ -442,20 +470,6 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 2.8571
-    },
-    {
-      "topic": "Valentina Tereshkova: A textile factory worker and amateur parachutist selected to become the first woman in space.",
-      "video_id": "J6alrNPd3lc",
-      "title": "The Untold Turning Point in Valentina Tereshkova's Story",
-      "views": 35,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 0.0
     },
     {
       "topic": "Morgan Freeman: Spending years serving in the United States Air Force before getting his big break on television and film.",
@@ -489,7 +503,7 @@
       "topic": "Jane Goodall: Traveling to the Gombe Stream Reserve without a college degree to live among wild chimpanzees.",
       "video_id": "r7zA06lyxqo",
       "title": "The Untold Turning Point in Jane Goodall's Story",
-      "views": 20,
+      "views": 22,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -512,20 +526,6 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 7.1429
-    },
-    {
-      "topic": "B-B King: The pivotal moment a damaged guitar and a dangerous fire shaped the signature sound of the Blues Boy.",
-      "video_id": "-zuakI9IPVU",
-      "title": "B-B King Lost Everything—Then Started Again",
-      "views": 0,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 0.0
     }
   ],
   "optimization_rules": [

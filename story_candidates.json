@@ -1,43 +1,5 @@
 [
   {
-    "format": "strange_turning_point",
-    "person": "Linus Pauling",
-    "premise": "Transitioning from quantum chemistry to molecular biology and global activism after a passport revocation.",
-    "hook": "When the US government confiscated his passport during the Cold War, it accidentally changed his life's mission.",
-    "key_facts": [
-      "Won the Nobel Prize in Chemistry in 1954 for his research into the nature of chemical bonds.",
-      "Awarded the Nobel Peace Prize in 1962 for his campaign against atmospheric nuclear testing.",
-      "One of the few people in history to win two unshared Nobel Prizes in different fields."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Louis Braille",
-    "premise": "How a blinded French boy adapted a military night-writing code into a universal tactile alphabet that transformed education.",
-    "hook": "He was blinded in his father's workshop at age three, and later invented his reading system using an awl borrowed from that same harness shop.",
-    "key_facts": [
-      "Lost his sight due to an accidental eye injury in his childhood in Coupvray, France.",
-      "Attended the Royal Institution for Blind Youth in Paris.",
-      "Adapted Captain Charles Barbier's military 'night writing' tactile code into a simpler six-dot system.",
-      "The Braille system became the global standard for reading and writing among blind and visually impaired people."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Bob Ross",
-    "premise": "Transforming a strict military demeanor into a soothing artistic persona during his time in the United States Air Force.",
-    "hook": "The calmest painter on television spent two decades barking orders as a military master sergeant.",
-    "key_facts": [
-      "Served for 20 years in the United States Air Force, rising to the rank of master sergeant.",
-      "Promised himself that if he ever left the military, he would never yell at anyone again.",
-      "Developed the quick-drying 'wet-on-wet' oil painting technique to complete canvases within short broadcast windows.",
-      "Hosted the long-running public television program The Joy of Painting."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "impossible_odds",
     "person": "Marie Curie",
     "premise": "Processing tons of raw pitchblende ore by hand in a drafty, unventilated shed to isolate pure radium and polonium.",
@@ -64,19 +26,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "strange_turning_point",
-    "person": "Julia Child",
-    "premise": "How a simple sole meuniere meal in Rouen, France, transformed an intelligence officer into America's most famous culinary authority.",
-    "hook": "She was nearly forty years old and had never cooked a professional meal when a single lunch in Normandy changed her life.",
-    "key_facts": [
-      "Served with the Office of Strategic Services (OSS) during World War II.",
-      "Moved to France due to her husband's diplomatic posting in the late 1940s.",
-      "Enrolled in the rigorous Le Cordon Bleu cooking school in Paris.",
-      "Co-authored the landmark cookbook 'Mastering the Art of French Cooking'."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "impossible_odds",
     "person": "Subrahmanyan Chandrasekhar",
     "premise": "Deriving the maximum mass of white dwarf stars on a steamship voyage, only to face public ridicule from the scientific establishment.",
@@ -99,6 +48,66 @@
       "Inked the phrase 'Ever tried. Ever failed. No matter. Try again. Fail again. Fail better.' on his forearm.",
       "Brokered his mental breakthrough by accepting defeat as part of the process of improvement.",
       "Won three Grand Slam singles titles at the Australian Open, French Open, and US Open."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Srinivasa Ramanujan",
+    "premise": "A self-taught mathematical genius from rural India mailed his complex notebooks to British mathematician G.H. Hardy, upending Western mathematics without formal university training.",
+    "hook": "He had zero formal university training, yet he wrote formulas that baffled Cambridge professors.",
+    "key_facts": [
+      "Ramanujan was largely self-taught from a single mathematics textbook by G.S. Carr.",
+      "He worked as a low-paid shipping clerk in Madras while continuously developing his mathematical theorems.",
+      "G.H. Hardy recognized his genius and arranged for him to travel to Trinity College, Cambridge, in 1914."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Dwyane Wade",
+    "premise": "Raised amidst the gang violence of Chicago's South Side, Dwyane Wade reunited with his father in suburban Illinois and transformed his basketball career against steep odds.",
+    "hook": "He grew up surrounded by gang warfare before becoming a three-time NBA champion.",
+    "key_facts": [
+      "Wade spent his early childhood in the Robbins and South Side neighborhoods of Chicago during the height of the 1980s crack epidemic.",
+      "He chose to live with his father and stepmother in suburban Robbins to escape the high-risk environment.",
+      "He played college basketball at Marquette University before being drafted fifth overall in the 2003 NBA Draft."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Harrison Ford",
+    "premise": "Working primarily as a studio carpenter, Harrison Ford agreed to read lines for other actors during the 'Star Wars' auditions, leading directly to his casting as Han Solo.",
+    "hook": "He went to the studio just to fix a door. He ended up leaving as Han Solo.",
+    "key_facts": [
+      "Ford worked as a professional carpenter in Los Angeles to support his family after struggling to land major acting roles.",
+      "George Lucas hired him to build cabinets and read dialogue opposite auditioning actors for 'Star Wars'.",
+      "Lucas ultimately cast Ford in the iconic role after realizing his line delivery matched the character perfectly."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Viswanathan Anand",
+    "premise": "Emerging from India in an era dominated by Soviet chess grandmasters, Viswanathan Anand became the country's first grandmaster and changed the global chess landscape.",
+    "hook": "He took on the unbeatable Soviet chess machine and single-handedly put India on the global chess map.",
+    "key_facts": [
+      "Anand learned chess from his mother at age six while living in Chennai (then Madras).",
+      "He earned the International Master title at age 15 and became India's first Grandmaster at age 18 in 1988.",
+      "He won the undisputed World Chess Championship in 2007 and defended it multiple times."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Louis Armstrong",
+    "premise": "Sent to a Colored Waifs' Home in New Orleans as a troubled teenager, Louis Armstrong picked up the cornet for the first time and discovered his musical calling.",
+    "hook": "A celebratory gunshot on New Year's Eve sent him to reform school. It accidentally birthed the king of jazz.",
+    "key_facts": [
+      "Armstrong was arrested on New Year's Eve in 1912 after firing a pistol into the air during street celebrations.",
+      "He was placed in the Colored Waifs' Home for Boys, where he joined the institution's brass band.",
+      "He received formal instruction on the cornet from band leader Peter Davis, setting the foundation for his legendary career."
     ],
     "source": "gemini_original"
   }

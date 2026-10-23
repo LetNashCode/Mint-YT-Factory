@@ -397,19 +397,24 @@ person, or setting relevant to that spoken beat. No generic filler such as
 "everyday life". Do not imply visuals can prove a historical claim.
 """ + history_block + publish_history_block + performance_guidance()
 
-    max_attempts = 9
+    # More attempts are useful only when each one explores a meaningfully different
+    # cultural lane. Avoid letting the model fall back to idiom etymology trivia.
+    max_attempts = 12
     retry_feedback = ""
     rejected_topics = []
     topic_lanes = [
-        "familiar household rules and the practical reason behind them",
-        "parent or grandparent advice that has a real everyday explanation",
-        "American manners and small social customs people learn growing up",
-        "schoolyard expressions or childhood routines, avoiding disputed phrase origins",
-        "ordinary family habits around meals, guests, chores, or bedtime",
-        "common American sayings whose meaning is clear even if their origin is uncertain",
-        "everyday etiquette people follow without remembering who taught them",
-        "a familiar childhood warning and the practical concern behind it",
-        "a common phrase used in conversation, focusing on modern meaning rather than origin",
+        "family table rules: waiting until everyone is served, elbows, asking to be excused",
+        "visiting someone's home: knocking, greeting adults, offering help, saying thank you",
+        "being a guest: bringing a dish, taking leftovers politely, helping clean up",
+        "childhood chores: making the bed, putting things back, turning off lights when leaving",
+        "family food habits: saving leftovers, not wasting food, labeling food in a shared fridge",
+        "everyday politeness: interrupting, saying excuse me, holding a door, giving people space",
+        "old-fashioned advice about money or belongings: mend it, save it, take care of what you own",
+        "family routines before leaving home: checking the weather, locking doors, turning lights off",
+        "school and childhood routines: raising a hand, waiting your turn, using indoor voices",
+        "small neighborly customs: waving, returning borrowed items, bringing something back promptly",
+        "home privacy rules: knocking before entering, not opening someone else's mail, asking first",
+        "a familiar American saying only if its present-day meaning has a practical personal lesson",
     ]
     for attempt in range(max_attempts):
         story = None
@@ -426,10 +431,10 @@ person, or setting relevant to that spoken beat. No generic filler such as
                     base_prompt
                     + "\n\nTOPIC LANE FOR THIS ATTEMPT: "
                     + lane
-                    + "\nPrefer a concrete household custom or practical everyday explanation. "
-                    + "Do not default to phrase-origin trivia. Avoid idiom etymologies and folklore "
-                    + "unless the origin is well-supported; when uncertain, explain current meaning "
-                    + "or practical use instead.\n"
+                    + "\nChoose a concrete, recognizable behavior within this lane rather than a famous idiom or historical trivia item. "
+                    + "Treat the lane as a subject constraint, not a vague suggestion. Do not default to phrase-origin trivia, "
+                    + "theatrical trivia, folklore, or generic kitchen tips. Explain a practical social or family reason "
+                    + "and clearly qualify it if the reason varies by household.\n"
                     + retry_feedback
                 ),
                 config={"temperature": 0.95, "response_mime_type": "application/json"},
@@ -476,10 +481,11 @@ person, or setting relevant to that spoken beat. No generic filler such as
                 "\n\nRETRY CORRECTION (mandatory; the previous draft failed validation):\n"
                 f"- Failure: {reason}\n"
                 f"- For the next attempt, follow this topic lane: {topic_lanes[(attempt + 1) % len(topic_lanes)]}.\n"
-                "- Generate a genuinely different candidate; do not rephrase any rejected subject.\n"
-                "- Do not choose a phrase-origin story if a practical household custom or familiar social rule fits.\n"
-                "- Aim for 88-92 spoken words so the narration safely lands inside the required 80-95 range. "
-                "Count the narration words before returning JSON.\n"
+                "- Generate a genuinely different candidate in the specified next topic lane; do not rephrase any rejected subject.\n"
+                "- Prioritize a concrete family rule, household routine, or US social custom over a saying's origin.\n"
+                "- Do not assert that a habit is universal to American families; frame it as a familiar custom some families use.\n"
+                "- Aim for 90-94 spoken words so the narration safely lands inside the required 80-95 range. "
+                "Count narration words before returning JSON; if the draft is short, add a meaningful personal observation and practical takeaway, not filler.\n"
                 "- Keep all 3 search queries and 16-18 ordered visual queries.\n"
             )
             if rejected_topics:

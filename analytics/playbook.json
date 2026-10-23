@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-23T17:59:03.640507+00:00",
+  "generated_at": "2026-10-23T20:37:44.426323+00:00",
   "video_count": 165,
-  "learning_sample_size": 146,
+  "learning_sample_size": 148,
   "learning_ready": true,
   "metrics_available": true,
   "comparative_learning_ready": true,
-  "advanced_metrics_videos": 146,
+  "advanced_metrics_videos": 148,
   "creative_learning_version": "v6",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
@@ -27,14 +27,14 @@
   "winning_topics": [
     "quiet heartbreak: setting the dinner table for two out of pure muscle memory after a breakup",
     "Why do clothes shrink in dryers",
+    "Why do metal faucets drip slowly",
     "Steve Jobs: A college dropout builds a computer in his parents' garage with his friend during the 1970s tech boom.",
     "Why do earbuds tangle in pockets",
     "Why paperclips float on water",
     "Stephen King: The discouraging rejection phase before a manuscript fished out of the trash became a publishing phenomenon.",
     "Why window glass warps reflections",
     "Why ice cream gives you brain freeze",
-    "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes.",
-    "Why do wooden hangers smell"
+    "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes."
   ],
   "avoid_topics": [
     "Why do dry erase markers squeak",

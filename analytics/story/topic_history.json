@@ -436,5 +436,21 @@
     "video_id": "-zuakI9IPVU",
     "workdir": "",
     "published_at": 1792703814
+  },
+  {
+    "topic": "Jim Henson: Innovating early television puppetry for local Washington D.C. shows years before creating the Muppets.",
+    "normalized": "jim henson innovating early television puppetry for local washington d c shows years before creating the muppets",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1792785917,
+    "recorded_at": 1792785917,
+    "metadata": {
+      "person": "Jim Henson",
+      "pillar": "before_they_were_famous"
+    },
+    "title": "Jim Henson: Innovating early television puppetry for local Washington D.C. shows years before creating the Muppets.",
+    "video_id": "8keJ6vBhkhU",
+    "workdir": "",
+    "published_at": 1792786896
   }
 ]

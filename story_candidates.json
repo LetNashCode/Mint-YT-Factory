@@ -1,19 +1,6 @@
 [
   {
     "format": "impossible_odds",
-    "person": "Marie Curie",
-    "premise": "Processing tons of raw pitchblende ore by hand in a drafty, unventilated shed to isolate pure radium and polonium.",
-    "hook": "She spent four exhausting years shoveling boiling minerals in a leaky shed with zero institutional support.",
-    "key_facts": [
-      "Conducted pioneering research on radioactivity with her husband Pierre Curie in Paris.",
-      "Processed one ton of pitchblende ore in a poorly insulated shed to extract radioactive elements.",
-      "Became the first woman to win a Nobel Prize in 1903 (Physics).",
-      "Won a second Nobel Prize in 1911 (Chemistry), remaining the only person to win in two distinct scientific fields."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
     "person": "Satyajit Ray",
     "premise": "Financing and completing the masterwork 'Pather Panchali' over several agonizingly slow years of empty pockets.",
     "hook": "He had no production budget and paused filming for months at a time whenever the money completely ran out.",
@@ -52,30 +39,6 @@
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Srinivasa Ramanujan",
-    "premise": "A self-taught mathematical genius from rural India mailed his complex notebooks to British mathematician G.H. Hardy, upending Western mathematics without formal university training.",
-    "hook": "He had zero formal university training, yet he wrote formulas that baffled Cambridge professors.",
-    "key_facts": [
-      "Ramanujan was largely self-taught from a single mathematics textbook by G.S. Carr.",
-      "He worked as a low-paid shipping clerk in Madras while continuously developing his mathematical theorems.",
-      "G.H. Hardy recognized his genius and arranged for him to travel to Trinity College, Cambridge, in 1914."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
-    "person": "Dwyane Wade",
-    "premise": "Raised amidst the gang violence of Chicago's South Side, Dwyane Wade reunited with his father in suburban Illinois and transformed his basketball career against steep odds.",
-    "hook": "He grew up surrounded by gang warfare before becoming a three-time NBA champion.",
-    "key_facts": [
-      "Wade spent his early childhood in the Robbins and South Side neighborhoods of Chicago during the height of the 1980s crack epidemic.",
-      "He chose to live with his father and stepmother in suburban Robbins to escape the high-risk environment.",
-      "He played college basketball at Marquette University before being drafted fifth overall in the 2003 NBA Draft."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "one_decision",
     "person": "Harrison Ford",
     "premise": "Working primarily as a studio carpenter, Harrison Ford agreed to read lines for other actors during the 'Star Wars' auditions, leading directly to his casting as Han Solo.",
@@ -89,25 +52,66 @@
   },
   {
     "format": "impossible_odds",
-    "person": "Viswanathan Anand",
-    "premise": "Emerging from India in an era dominated by Soviet chess grandmasters, Viswanathan Anand became the country's first grandmaster and changed the global chess landscape.",
-    "hook": "He took on the unbeatable Soviet chess machine and single-handedly put India on the global chess map.",
+    "person": "Harbans Singh Purewal",
+    "premise": "Inventing and manufacturing the first commercial combine harvester suitable for heavy Indian soil conditions.",
+    "hook": "Agricultural experts told him it was impossible to build a heavy-duty harvester locally, so he built it in a backyard workshop using scrap metal.",
     "key_facts": [
-      "Anand learned chess from his mother at age six while living in Chennai (then Madras).",
-      "He earned the International Master title at age 15 and became India's first Grandmaster at age 18 in 1988.",
-      "He won the undisputed World Chess Championship in 2007 and defended it multiple times."
+      "Faced severe import restrictions and high costs for foreign farming machinery in Punjab.",
+      "Spent years testing and modifying gears and threshing mechanisms by hand.",
+      "Successfully produced the first prototype in the 1970s, transforming regional agriculture.",
+      "Received recognition from agricultural universities for indigenous mechanical engineering."
     ],
     "source": "gemini_original"
   },
   {
     "format": "strange_turning_point",
-    "person": "Louis Armstrong",
-    "premise": "Sent to a Colored Waifs' Home in New Orleans as a troubled teenager, Louis Armstrong picked up the cornet for the first time and discovered his musical calling.",
-    "hook": "A celebratory gunshot on New Year's Eve sent him to reform school. It accidentally birthed the king of jazz.",
+    "person": "Louis Braille",
+    "premise": "Adapting a military night-writing code into a tactile reading system for the blind after an accidental childhood injury.",
+    "hook": "A simple leather-working tool in his father's harness shop caused an infection that blinded him, which later led him to invent the world's most famous tactile alphabet.",
     "key_facts": [
-      "Armstrong was arrested on New Year's Eve in 1912 after firing a pistol into the air during street celebrations.",
-      "He was placed in the Colored Waifs' Home for Boys, where he joined the institution's brass band.",
-      "He received formal instruction on the cornet from band leader Peter Davis, setting the foundation for his legendary career."
+      "Blinded in one eye at age three by an accidental puncture wound, leading to total blindness.",
+      "Attended the Royal Institution for Blind Youth in Paris as a teenager.",
+      "Adapted Captain Charles Barbier's 12-dot military cryptography into a simpler 6-dot cell system.",
+      "Published his reading method in 1829, though it was only widely adopted after his death."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "rise_from_nothing",
+    "person": "Kalpana Chawla",
+    "premise": "Journeying from a small town in Haryana to become the first Indian-born woman to fly in space.",
+    "hook": "Growing up in Karnal, she looked at airplanes flying overhead and decided against all local expectations that she would touch the stars.",
+    "key_facts": [
+      "Earned an engineering degree from Punjab Engineering College against societal norms for women at the time.",
+      "Emigrated to the United States to pursue graduate studies in aerospace engineering.",
+      "Joined NASA as a research scientist and was selected as an astronaut candidate in 1994.",
+      "Flew her first space shuttle mission, STS-87, in 1997."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Enzo Ferrari",
+    "premise": "Shifting his company's entire focus from racing car development to building commercial sports cars to fund his racing team.",
+    "hook": "He hated selling road cars to the public, but realized it was the only way to keep his beloved racing division alive.",
+    "key_facts": [
+      "Initially ran the Alfa Romeo racing division before founding Auto Avio Costruzioni.",
+      "Built the first official Ferrari-badged car, the 125 S, in 1947.",
+      "Reluctantly sold road-going sports cars to finance his Scuderia Ferrari racing entries.",
+      "Achieved widespread international dominance in both Formula One and endurance racing."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Amundsen",
+    "premise": "Winning the grueling race to the South Pole against the British expedition led by Robert Falcon Scott.",
+    "hook": "He secretly changed his entire expedition destination from the North Pole to the South Pole mid-voyage, stunning his crew and the world.",
+    "key_facts": [
+      "Utilized traditional Inuit survival techniques, fur clothing, and experienced sled dogs.",
+      "Reached the geographic South Pole on December 14, 1911.",
+      "Maintained accurate navigation and optimal sledding speeds through treacherous Antarctic terrain.",
+      "Returned safely without losing a single expedition member to the elements."
     ],
     "source": "gemini_original"
   }

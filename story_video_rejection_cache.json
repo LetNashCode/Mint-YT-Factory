@@ -8177,6 +8177,222 @@
       "start": 41.73,
       "reason": "The footage features an impersonator or parody (Jacob) rather than Bob Ross himself, making it unusable for a genuine biographical short.",
       "reviewed_at": 1792780652.8238504
+    },
+    "e018df5b4b4057c94670fb01": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Dwyane_Wade_Receives_Award_in_Coral_Gables",
+      "source_url": "https://archive.org/details/Dwyane_Wade_Receives_Award_in_Coral_Gables",
+      "person": "Dwyane Wade",
+      "start": 5.0,
+      "reason": "Dwyane Wade is not visible in any of the sampled frames; the footage shows local event title cards and red carpet attendees, but not the named subject.",
+      "reviewed_at": 1792785170.7238982
+    },
+    "8b4c49f6a75b73df132e2dfb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Dwyane_Wade_Receives_Award_in_Coral_Gables",
+      "source_url": "https://archive.org/details/Dwyane_Wade_Receives_Award_in_Coral_Gables",
+      "person": "Dwyane Wade",
+      "start": 23.54,
+      "reason": "Dwyane Wade is not visible in any of the sampled frames from this archival event footage, making it unsuitable for a biographical segment focused on him.",
+      "reviewed_at": 1792785178.85194
+    },
+    "9739451b08e0aedd2c9ad413": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Dwyane_Wade_Visits_Lopez_and_Partners_in_Coral_Gables",
+      "source_url": "https://archive.org/details/Dwyane_Wade_Visits_Lopez_and_Partners_in_Coral_Gables",
+      "person": "Dwyane Wade",
+      "start": 5.0,
+      "reason": "The sampled frames consist of news intro titles ('What's Happening Coral Gables?') and generic B-roll footage (streets, cars, cyclists) without clearly showing Dwyane Wade. Therefore, it is not usable for a biography featuring him.",
+      "reviewed_at": 1792785184.9273741
+    },
+    "1724dc4a55998cbe0625cfd9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Dwyane_Wade_Visits_Lopez_and_Partners_in_Coral_Gables",
+      "source_url": "https://archive.org/details/Dwyane_Wade_Visits_Lopez_and_Partners_in_Coral_Gables",
+      "person": "Dwyane Wade",
+      "start": 28.95,
+      "reason": "The sampled frames show various individuals in an office setting, but Dwyane Wade is not clearly visible or identifiable in any of the frames, making this segment unusable for identity footage of the subject.",
+      "reviewed_at": 1792785193.5357804
+    },
+    "903766a027a934bac20b977f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NBAUNDENIABLETHERISEOFDWYANEWADEDVDFULL",
+      "source_url": "https://archive.org/details/NBAUNDENIABLETHERISEOFDWYANEWADEDVDFULL",
+      "person": "Dwyane Wade",
+      "start": 2506.08,
+      "reason": "The segment shows archival footage of a basketball game featuring Detroit Pistons players and crowd reactions, but Dwyane Wade is not clearly visible in any of the sampled frames.",
+      "reviewed_at": 1792785210.8159618
+    },
+    "f84f64dff8adeeb49ed7522d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:NBAUNDENIABLETHERISEOFDWYANEWADEDVDFULL",
+      "source_url": "https://archive.org/details/NBAUNDENIABLETHERISEOFDWYANEWADEDVDFULL",
+      "person": "Dwyane Wade",
+      "start": 3577.96,
+      "reason": "The video segment consists solely of a DVD copyright warning screen and black frames, containing no actual biographical footage or relevant historical context.",
+      "reviewed_at": 1792785216.9427629
+    },
+    "af561b5c5a680e601eedfe2d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Dwyane_Wade_visits_Coral_Gables",
+      "source_url": "https://archive.org/details/Dwyane_Wade_visits_Coral_Gables",
+      "person": "Dwyane Wade",
+      "start": 41.26,
+      "reason": "The footage shows fans waiting on the street, but Dwyane Wade is not visible in any of the sampled frames.",
+      "reviewed_at": 1792785225.224437
+    },
+    "d56fd87c23dbf07894e1af88": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Dwyane_Wade_visits_Coral_Gables",
+      "source_url": "https://archive.org/details/Dwyane_Wade_visits_Coral_Gables",
+      "person": "Dwyane Wade",
+      "start": 59.39,
+      "reason": "The sampled frames show fans and a brief glimpse of Dwyane Wade seated signing books from behind, but Dwyane Wade's face is never clearly identifiable in any of the five sampled frames. Therefore, it fails the identity footage requirement for a biography short.",
+      "reviewed_at": 1792785236.0388675
+    },
+    "c7bce6ed291a6eba5822889d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:2016-07-27_allenpalin_Bill-Burr-Dwyane-Wade-Flying-Elbow-to-Lance-Stephenson",
+      "source_url": "https://archive.org/details/2016-07-27_allenpalin_Bill-Burr-Dwyane-Wade-Flying-Elbow-to-Lance-Stephenson",
+      "person": "Dwyane Wade",
+      "start": 18.9,
+      "reason": "The video shows a basketball game featuring players such as Lance Stephenson and others, but Dwyane Wade is not playing in this game (he was with the Chicago Bulls at the time or this is a Celtics vs Pacers game where neither is Dwyane Wade). The named subject Dwyane Wade is not visibly present in the footage.",
+      "reviewed_at": 1792785269.1608179
+    },
+    "12d96c3f8c267cc759509274": {
+      "kind": "segment_rejection",
+      "source_id": "archive:2016-07-27_allenpalin_Bill-Burr-Dwyane-Wade-Flying-Elbow-to-Lance-Stephenson",
+      "source_url": "https://archive.org/details/2016-07-27_allenpalin_Bill-Burr-Dwyane-Wade-Flying-Elbow-to-Lance-Stephenson",
+      "person": "Dwyane Wade",
+      "start": 46.71,
+      "reason": "The video segment consists of unrelated wrestling footage (Stone Cold Steve Austin) and does not show Dwyane Wade or any relevant archival context.",
+      "reviewed_at": 1792785292.1313674
+    },
+    "8dbac6fb924907923968e252": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "source_url": "https://archive.org/details/Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "person": "Louis Armstrong",
+      "start": 5.0,
+      "reason": "The footage shows a press conference featuring Mayor Mitch Landrieu and other officials announcing the expansion of the Louis Armstrong International Airport in 2013. Louis Armstrong is deceased (died 1971) and is not present or visible in the video; this is modern news footage about an airport named after him, not archival footage of Louis Armstrong himself.",
+      "reviewed_at": 1792785431.6607637
+    },
+    "bc20b7c1ae5cbb5020918246": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "source_url": "https://archive.org/details/Louis_Armstrong_International_Airport_Expansion_Announcement",
+      "person": "Louis Armstrong",
+      "start": 140.21,
+      "reason": "The footage shows a press conference about the Louis Armstrong International Airport expansion, featuring Mayor Mitch Landrieu speaking. Louis Armstrong himself is not visible in any frame, and the video depicts a modern political event rather than historical footage of Louis Armstrong's life.",
+      "reviewed_at": 1792785439.2478297
+    },
+    "5b3cc1ed8f9af1a298d299f2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "source_url": "https://archive.org/details/Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "person": "Louis Armstrong",
+      "start": 5.0,
+      "reason": "The video footage shows modern politicians and events at the Louis Armstrong International Airport, completely unrelated to archival footage illustrating the life of jazz musician Louis Armstrong.",
+      "reviewed_at": 1792785452.2626474
+    },
+    "3faeb280980a4999fec98415": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "source_url": "https://archive.org/details/Mayor_Michael_S._Yenni_welcomes_WWII_veterans_at_the_Louis_Armstrong_International_Airport",
+      "person": "Louis Armstrong",
+      "start": 18.47,
+      "reason": "The video features Mayor Michael S. Yenni at the Louis Armstrong International Airport, not Louis Armstrong himself. Louis Armstrong is deceased and not visible in the footage, making it unsuitable for a biographical segment about him.",
+      "reviewed_at": 1792785462.2377079
+    },
+    "9da0ea80aa58a30677066a8b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:pctca-Robby_s_World_007_-_Louis_Armstrong_Armstrong_Training_CPT",
+      "source_url": "https://archive.org/details/pctca-Robby_s_World_007_-_Louis_Armstrong_Armstrong_Training_CPT",
+      "person": "Louis Armstrong",
+      "start": 1024.61,
+      "reason": "The video features a contemporary podcast interview discussing a private gym, which has no connection to Louis Armstrong. Louis Armstrong is not visible in any frame.",
+      "reviewed_at": 1792785480.5917678
+    },
+    "c4b756f498ff0eb36d703b5d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:pctca-Robby_s_World_007_-_Louis_Armstrong_Armstrong_Training_CPT",
+      "source_url": "https://archive.org/details/pctca-Robby_s_World_007_-_Louis_Armstrong_Armstrong_Training_CPT",
+      "person": "Louis Armstrong",
+      "start": 1461.59,
+      "reason": "The video shows a modern podcast interview ('Robby's World') discussing a local gym in Pacifica, California. The subject Louis Armstrong is a famous historical jazz musician who died in 1971, so this modern public access talk show footage is completely irrelevant and does not depict Louis Armstrong.",
+      "reviewed_at": 1792785496.1293669
+    },
+    "f7c45f163e58c22dd9520bc9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:louisarmstrongmakesacameoappearanceinparisblues1961",
+      "source_url": "https://archive.org/details/louisarmstrongmakesacameoappearanceinparisblues1961",
+      "person": "Louis Armstrong",
+      "start": 364.83,
+      "reason": "Louis Armstrong is not clearly identifiable or visible in any of the sampled frames (the footage features a crowded club scene and a woman working a cash register, but not Armstrong himself).",
+      "reviewed_at": 1792785664.902479
+    },
+    "3b59784b05e0c699e4ef03cd": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Rosa_Parks_a_Hero",
+      "source_url": "https://archive.org/details/btvin-Rosa_Parks_a_Hero",
+      "person": "Rosa Parks",
+      "start": 77.17,
+      "reason": "The segment consists of a slideshow transition of still archival photographs rather than moving historical footage, making it unsuitable for video usage.",
+      "reviewed_at": 1792785828.7452385
+    },
+    "14d9d2571e2a3e36a322b251": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Rosa_Parks_a_Hero",
+      "source_url": "https://archive.org/details/btvin-Rosa_Parks_a_Hero",
+      "person": "Rosa Parks",
+      "start": 108.1,
+      "reason": "The sampled frames consist entirely of static photographs rather than moving footage, which violates the requirement for real filmed footage.",
+      "reviewed_at": 1792785837.1620774
+    },
+    "4d8fb6d288d9a0472071741f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:defunct-tv-jim-henson",
+      "source_url": "https://archive.org/details/defunct-tv-jim-henson",
+      "person": "Jim Henson",
+      "start": 499.8,
+      "reason": "The sampled frames show archival footage featuring Muppets and people at a memorial/service, but Jim Henson himself is not clearly visible in any of the frames. However, it serves as biographical illustration footage related to his work and legacy.",
+      "reviewed_at": 1792785959.3010075
+    },
+    "00298c630e24e6e657feecd6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:defunct-tv-jim-henson",
+      "source_url": "https://archive.org/details/defunct-tv-jim-henson",
+      "person": "Jim Henson",
+      "start": 664.73,
+      "reason": "The clip features archival puppet footage from Jim Henson's work (Kermit the Frog and other Muppets), serving as valid biographical illustration for a segment about his life and creations, even though Jim Henson himself is not visibly present in the frames.",
+      "reviewed_at": 1792785967.2237735
+    },
+    "f06bba77778c0c57c45529b9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jim-henson-documentaries",
+      "source_url": "https://archive.org/details/jim-henson-documentaries",
+      "person": "Jim Henson",
+      "start": 3979.8,
+      "reason": "The frames show archival footage from The Muppet Show featuring Alice Cooper and a Muppet character, but Jim Henson himself is not visible in the footage. However, it serves as excellent biographical illustration of Jim Henson's work and creations.",
+      "reviewed_at": 1792786047.062085
+    },
+    "dc4f4f4712a40ebf9013b857": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jim-henson-documentaries",
+      "source_url": "https://archive.org/details/jim-henson-documentaries",
+      "person": "Jim Henson",
+      "start": 4973.5,
+      "reason": "The sampled frames show behind-the-scenes footage and interviews related to Jim Henson's work, but Jim Henson himself is not clearly visible in any of the sampled frames, and the segment does not directly depict the narrated historical context.",
+      "reviewed_at": 1792786079.8967998
+    },
+    "d0fca028fcce0f1d3d4ac95b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:jim-henson-documentaries",
+      "source_url": "https://archive.org/details/jim-henson-documentaries",
+      "person": "Jim Henson",
+      "start": 5470.35,
+      "reason": "The segment shows behind-the-scenes footage and a contemporary interview regarding Jim Henson's Labyrinth (featuring Jennifer Connelly), which serves as valid biographical illustration of his filmmaking career despite Jim Henson himself not being visible in the sampled frames.",
+      "reviewed_at": 1792786097.699048
     }
   }
 }

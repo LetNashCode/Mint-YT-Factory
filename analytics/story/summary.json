@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-10-23T18:37:39.946950+00:00",
-  "refresh_attempted_at": "2026-10-23T18:37:39.946950+00:00",
+  "generated_at": "2026-10-23T20:21:39.843584+00:00",
+  "refresh_attempted_at": "2026-10-23T20:21:39.843584+00:00",
   "refresh_status": "success",
-  "video_count": 26,
+  "video_count": 27,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 24,
   "reason": "",
   "totals": {
-    "views": 10106,
+    "views": 10110,
     "likes": 206,
     "comments": 5
   },
   "averages": {
-    "views": 388.69,
-    "likes": 7.92,
+    "views": 374.44,
+    "likes": 7.63,
     "comments": 0.19,
-    "average_view_percentage": 49.49,
-    "subscribers_gained": 0.46,
+    "average_view_percentage": 47.12,
+    "subscribers_gained": 0.44,
     "shares": 0.04
   },
   "top_videos": [
@@ -30,7 +30,7 @@
       "comments": 2,
       "shares": 0,
       "average_view_duration": 19.0,
-      "average_view_percentage": 44.41,
+      "average_view_percentage": 44.45,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 3.7674
@@ -127,8 +127,8 @@
       "likes": 2,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 20.0,
-      "average_view_percentage": 52.18000000000001,
+      "average_view_duration": 19.0,
+      "average_view_percentage": 48.43,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.4619
@@ -155,8 +155,8 @@
       "likes": 3,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 14.0,
-      "average_view_percentage": 42.58,
+      "average_view_duration": 13.0,
+      "average_view_percentage": 38.79,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 1.0563
@@ -172,7 +172,7 @@
       "comments": 2,
       "shares": 0,
       "average_view_duration": 19.0,
-      "average_view_percentage": 44.41,
+      "average_view_percentage": 44.45,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 3.7674
@@ -269,8 +269,8 @@
       "likes": 2,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 20.0,
-      "average_view_percentage": 52.18000000000001,
+      "average_view_duration": 19.0,
+      "average_view_percentage": 48.43,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.4619
@@ -297,8 +297,8 @@
       "likes": 3,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 14.0,
-      "average_view_percentage": 42.58,
+      "average_view_duration": 13.0,
+      "average_view_percentage": 38.79,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 1.0563
@@ -325,8 +325,8 @@
       "likes": 4,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 18.0,
-      "average_view_percentage": 49.48,
+      "average_view_duration": 16.0,
+      "average_view_percentage": 42.46,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 2.139
@@ -335,7 +335,7 @@
       "topic": "B-B King: The pivotal moment a damaged guitar and a dangerous fire shaped the signature sound of the Blues Boy.",
       "video_id": "-zuakI9IPVU",
       "title": "B-B King Lost Everything—Then Started Again",
-      "views": 137,
+      "views": 138,
       "likes": 5,
       "comments": 0,
       "shares": 0,
@@ -343,7 +343,7 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 3.6496
+      "engagement_rate": 3.6232
     },
     {
       "topic": "Carl Sagan: The choice to include Earth sounds and music on a golden record aboard Voyager spacecraft, risking ridicule from orthodox scientists.",
@@ -363,7 +363,7 @@
       "topic": "Valentina Tereshkova: A textile factory worker and amateur parachutist selected to become the first woman in space.",
       "video_id": "J6alrNPd3lc",
       "title": "The Untold Turning Point in Valentina Tereshkova's Story",
-      "views": 94,
+      "views": 97,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -381,8 +381,8 @@
       "likes": 5,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 18.0,
-      "average_view_percentage": 48.35,
+      "average_view_duration": 17.0,
+      "average_view_percentage": 47.29,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 5.8824
@@ -437,8 +437,8 @@
       "likes": 2,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 27.0,
-      "average_view_percentage": 60.92999999999999,
+      "average_view_duration": 25.0,
+      "average_view_percentage": 56.96,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 3.7037
@@ -507,8 +507,8 @@
       "likes": 0,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 16.0,
-      "average_view_percentage": 40.69,
+      "average_view_duration": 18.0,
+      "average_view_percentage": 45.72,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -526,6 +526,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 7.1429
+    },
+    {
+      "topic": "Jim Henson: Innovating early television puppetry for local Washington D.C. shows years before creating the Muppets.",
+      "video_id": "8keJ6vBhkhU",
+      "title": "Before the Fame: Jim Henson's Untold Struggle",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
     }
   ],
   "optimization_rules": [

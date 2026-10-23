@@ -195,8 +195,8 @@ def load_publish_topic_history():
     return entries
 
 
-def evaluate_story_quality(story):
-    """Second-pass editorial gate: score voice, hook, factual caution, originality and payoff."""
+def evaluate_story_quality(story, gemini_client=None):
+    """Second-pass editorial gate using the active generation client when available."""
     narration = story.get("narration", "")
     first_person = bool(re.search(r"\b(I|I'm|I've|I'd|my|me|we|our|ours)\b", narration, re.I))
     if not first_person:
@@ -221,7 +221,8 @@ TOPIC: {story.get("topic", "")}
 TITLE: {story.get("title", "")}
 NARRATION: {narration}
 '''
-    response = client().models.generate_content(
+    reviewer = gemini_client or client()
+    response = reviewer.models.generate_content(
         model=MODEL,
         contents=review_prompt,
         config={"temperature": 0.1, "response_mime_type": "application/json"},
@@ -381,13 +382,17 @@ person, or setting relevant to that spoken beat. No generic filler such as
 "everyday life". Do not imply visuals can prove a historical claim.
 """ + history_block + publish_history_block + performance_guidance()
 
-    c = client()
     max_attempts = 7
     retry_feedback = ""
     rejected_topics = []
     for attempt in range(max_attempts):
         story = None
         try:
+            # Use a fresh Gemini client per candidate attempt. Reusing a client after
+            # a failed request can leave its underlying HTTP transport closed; using
+            # the same live client for generation and editorial review also avoids
+            # short-lived temporary clients in the review gate.
+            c = client()
             response = c.models.generate_content(
                 model=MODEL,
                 contents=base_prompt + retry_feedback,
@@ -415,7 +420,7 @@ person, or setting relevant to that spoken beat. No generic filler such as
                 raise RuntimeError(
                     f"Duplicate topic rejected across Wisdom/Publish history: {story['topic']} | key={story['topic_key']}"
                 )
-            story["editorial_scores"] = evaluate_story_quality(story)
+            story["editorial_scores"] = evaluate_story_quality(story, c)
             return story
         except Exception as exc:
             if story and (story.get("topic") or story.get("topic_key")):

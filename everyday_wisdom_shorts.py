@@ -169,7 +169,79 @@ def performance_guidance():
     return "\n" + "\n".join(lines) + "\n"
 
 
+
+def load_publish_topic_history():
+    """Read Publish Shorts' durable topic ledger so Wisdom avoids cross-format reuse."""
+    path = Path("analytics/topic_history.json")
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+    except Exception as exc:
+        print(f"Publish topic history unavailable; continuing with Wisdom history only: {exc}")
+        return []
+    if not isinstance(payload, list):
+        return []
+    entries = []
+    for item in payload:
+        if not isinstance(item, dict):
+            continue
+        value = clean(item.get("topic"), 200)
+        title = clean(item.get("title"), 120)
+        if value or title:
+            entries.append({
+                "topic": value,
+                "title": title,
+                "topic_key": clean(item.get("normalized"), 120),
+            })
+    return entries
+
+
+def evaluate_story_quality(story):
+    """Second-pass editorial gate: score voice, hook, factual caution, originality and payoff."""
+    narration = story.get("narration", "")
+    first_person = bool(re.search(r"\b(I|I'm|I've|I'd|my|me|we|our|ours)\b", narration, re.I))
+    if not first_person:
+        raise RuntimeError("Narration lacks the required first-person storytelling voice")
+
+    review_prompt = f'''
+You are the independent editor for a US-culture Wisdom Shorts channel. Review this
+proposed script strictly. It must feel distinct from generic viral trivia / Publish
+Shorts and tell one warm first-person story about a common US phrase, family saying,
+custom, or household rule.
+
+Return JSON only:
+{{"hook":1,"first_person_voice":1,"naturalness":1,"factual_caution":1,"originality":1,"progression":1,"payoff":1,"notes":"brief reason"}}
+Score each numeric field from 1 to 10. Be strict. Factual_caution is high only when
+claims are carefully phrased, not when a confident but unsupported origin is asserted.
+Originality is high only if this is a specific familiar US saying/custom rather than
+generic trivia. Reject formulaic grandma openings if the rest of the script feels
+templated. The first sentence must earn attention, the story must progress, and the
+ending must give a concrete answer. Do not reward length alone.
+
+TOPIC: {story.get("topic", "")}
+TITLE: {story.get("title", "")}
+NARRATION: {narration}
+'''
+    response = client().models.generate_content(
+        model=MODEL,
+        contents=review_prompt,
+        config={"temperature": 0.1, "response_mime_type": "application/json"},
+    )
+    review = json.loads(response.text)
+    dimensions = ("hook", "first_person_voice", "naturalness", "factual_caution",
+                  "originality", "progression", "payoff")
+    scores = {key: float(review.get(key, 0) or 0) for key in dimensions}
+    failures = [f"{key}={scores[key]:g}" for key in dimensions if scores[key] < 7]
+    if failures:
+        raise RuntimeError(
+            "Editorial quality gate failed (" + ", ".join(failures) + "): "
+            + clean(review.get("notes", "No editor notes"), 300)
+        )
+    print("Editorial quality gate passed: " + json.dumps(scores, sort_keys=True))
+    return scores
+
 def is_duplicate_topic(candidate, history):
+    # Compare against both Wisdom's own history and Publish Shorts' durable ledger.
+    history = list(history) + load_publish_topic_history()
     candidate_key = normalize_topic(candidate.get("topic_key"))
     candidate_topic = clean(candidate.get("topic"), 200)
     candidate_title = clean(candidate.get("title"), 120)
@@ -218,56 +290,96 @@ def generate_story():
     history = load_topic_history()
     used = history_strings(history)[-MAX_HISTORY_FOR_PROMPT:]
     history_block = (
-        "\nAlready used topics. Do NOT create the same idea, even with different wording:\n"
+        "\nAlready used Wisdom topics. Do NOT create the same idea, even with different wording:\n"
         + "\n".join(f"- {item}" for item in used)
         if used
-        else "\nNo previous topics have been used yet.\n"
+        else "\nNo previous Wisdom topics have been used yet.\n"
+    )
+    publish_history = load_publish_topic_history()
+    publish_values = []
+    for entry in publish_history:
+        for key in ("topic", "title"):
+            value = clean(entry.get(key), 180)
+            if value and value not in publish_values:
+                publish_values.append(value)
+    publish_history_block = (
+        "\nPublish Shorts topics to avoid reusing across formats:\n"
+        + "\n".join(f"- {item}" for item in publish_values[-160:])
+        if publish_values else "\nNo Publish Shorts topic ledger available.\n"
     )
     base_prompt = """
-Create one YouTube Short for a US audience about something Americans have
-heard forever but rarely stop to ask why: an old grandma saying, familiar
-phrase, household rule, childhood warning, common habit, or ordinary object.
+You are the dedicated WRITER for the channel format WISDOM SHORTS. This format is
+deliberately separate from Publish Shorts: never write broad viral trivia, strange
+science/fact reveals, sensational mystery stories, object experiments, or generic
+"you won't believe this" entertainment. This channel is about familiar American
+language and everyday culture: things US people actually say, grandma/grandpa
+sayings, family rules, idioms, old-fashioned advice, manners, childhood warnings,
+school expressions, household customs, and the ordinary reasons behind them.
 
-The story must uncover the documented history, practical reason, cultural
-origin, or psychological reason behind it. Do not invent an origin; if the
-origin is uncertain, say so naturally and give the strongest explanation.
+Choose ONE specific, widely recognizable US phrase, saying, rule, or custom and
+explain what it means, why people say it, or what its documented cultural/history/
+practical origin is. Prefer topics an American viewer might have heard at home or
+growing up. Avoid niche trivia and do not make up an origin. If a phrase has several
+possible origins or the origin is uncertain, say that plainly and explain what is
+actually supported instead of inventing a neat story.
 
-IMPORTANT: The topic must be genuinely different from every topic in the
-provided history. Do not reuse an old topic by changing only the wording,
-angle, title, or example. Choose a different underlying subject/question.
+VOICE AND POV:
+Narrate in a warm, conversational FIRST-PERSON point of view, like someone telling
+a friend what they grew up hearing and what they later learned. The script should
+feel like a personal discovery, not a documentary narrator or listicle. A framing
+like "My grandma used to say..." is one option, NOT a mandatory formula. Rotate
+naturally among frames such as:
+- a saying a grandparent or parent repeated;
+- something the narrator heard as a kid and misunderstood;
+- a phrase the narrator caught themselves using;
+- a household rule that finally made sense;
+- a common expression the narrator looked up after wondering why;
+- a familiar piece of advice whose real explanation surprised them.
+Do not claim a specific personal memory as verified fact; use the first-person
+voice as a relatable storytelling frame and avoid overly detailed invented biography.
+Do not start every script with "My grandma used to say". Avoid repeating the same
+opening structure used by recent Wisdom scripts.
 
-Create a short canonical "topic_key" of 2-6 content words that identifies the
-underlying idea. The topic_key must make the same subject obvious even if the
-title is phrased differently.
+STORY SHAPE:
+- 80-95 spoken words total; approximately 30-38 seconds.
+- The first sentence immediately names the familiar phrase/rule and creates a
+  curiosity gap or contradiction.
+- Use first-person language naturally ("I", "my", "we", "our") throughout.
+- Move from familiar memory/belief -> genuine question -> evidence-supported
+  explanation -> satisfying takeaway.
+- Hold the clearest explanation until the final third, without hiding the answer
+  through fake suspense.
+- End with a specific, memorable meaning or practical reason.
+- Narration must work with stock footage alone and make sense without visuals.
+- Use natural US conversational English, contractions, short sentences, no jargon.
 
-Do not use politics, celebrities, medical advice, conspiracy, fearbait,
-lists, countdowns, "Did you know?", "Today we're going to", AI references,
-or a second topic. The narration must work without visuals.
+ORIGINALITY:
+The underlying subject must differ from every Wisdom topic and every Publish Shorts
+topic supplied below. A new title, wording, example, or angle on the same underlying
+idea is still a duplicate. Choose a different phrase/custom, not just a different
+hook. The "topic_key" must be a concise 2-6 content-word identifier of the actual
+underlying subject, not a generic label such as "grandma sayings".
 
-Write 80-95 words, approximately 30-38 seconds, as one connected mini-story.
-Never exceed 95 words. Keep sentences concise and natural so Kokoro narration fits under 40 seconds without speeding up.
-The first sentence must create immediate curiosity. End with a satisfying answer.
+DO NOT use politics, celebrities, medical advice, conspiracy, fearbait, lists,
+countdowns, "Did you know?", "Today we're going to", AI references, or a second topic.
+Do not present folklore as established fact. If the origin is uncertain, explicitly
+qualify it in natural language.
 
-FIRST TWO SECONDS:
-- Start with the familiar phrase, belief, or object already in the viewer's mind.
-- Introduce a concrete contradiction, surprising consequence, or unanswered "why" immediately.
-- Do not begin with background, a date, a definition, greetings, or a generic question.
-- Make every sentence add a new clue; delay the core explanation until the final third.
-- The final sentence must deliver a specific, memorable answer rather than a vague summary.
+TITLE:
+Curiosity-driven for US viewers, preferably 35-65 characters when natural. Make the
+phrase or custom recognizable. No ALL CAPS, fake shock, misleading claims, or
+generic clickbait.
 
-TITLE RULES:
-- Create a curiosity-driven title for US viewers.
-- Prefer 35-65 characters when natural.
-- Make the familiar subject obvious while creating a reason to watch.
-- Do not use "Did you know?", ALL CAPS, fake shock, misleading claims, or generic titles like "You Won't Believe This".
-- Do not stuff keywords into the title.
-
-Return JSON only:
+Return JSON only with this schema:
 {"title":"...","topic":"...","topic_key":"...","narration":"...","search_queries":["...","...","..."],"visual_queries":["..."]}
-Search queries must be concrete things a camera can show, 3-6 words each.
 
-VISUAL BEATS: create 16-18 ordered visual_queries, one for each roughly 2.5-second beat of the narration. Each query must depict the exact object, action, setting, or concrete visual metaphor being spoken about at that moment. Make every query materially different from the previous one. Follow the narration chronologically. Never use generic filler such as "american lifestyle", "happy family", "person thinking", "stock footage", or "everyday life". Queries must be 3-7 words each.
-""" + history_block + performance_guidance()
+search_queries: exactly 3 concrete stock-footage searches, 3-6 words each.
+visual_queries: 16-18 ordered, distinct visual beats that follow the narration
+chronologically. Each query is 3-7 words and depicts a concrete object, action,
+person, or setting relevant to that spoken beat. No generic filler such as
+"american lifestyle", "happy family", "person thinking", "stock footage", or
+"everyday life". Do not imply visuals can prove a historical claim.
+""" + history_block + publish_history_block + performance_guidance()
 
     c = client()
     for attempt in range(5):
@@ -297,8 +409,9 @@ VISUAL BEATS: create 16-18 ordered visual_queries, one for each roughly 2.5-seco
                 raise RuntimeError(f"Narration word count {len(words)} outside {MIN_NARRATION_WORDS}-{MAX_NARRATION_WORDS}")
             if is_duplicate_topic(story, history):
                 raise RuntimeError(
-                    f"Duplicate topic rejected: {story['topic']} | key={story['topic_key']}"
+                    f"Duplicate topic rejected across Wisdom/Publish history: {story['topic']} | key={story['topic_key']}"
                 )
+            story["editorial_scores"] = evaluate_story_quality(story)
             return story
         except Exception as exc:
             if attempt == 4:

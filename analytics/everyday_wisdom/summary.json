@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-10-23T11:04:28.129478+00:00",
-  "refresh_attempted_at": "2026-10-23T11:04:28.129478+00:00",
+  "generated_at": "2026-10-23T11:36:31.917645+00:00",
+  "refresh_attempted_at": "2026-10-23T11:36:31.917645+00:00",
   "refresh_status": "success",
-  "video_count": 7,
+  "video_count": 8,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 5,
@@ -13,11 +13,11 @@
     "comments": 0
   },
   "averages": {
-    "views": 336.14,
-    "likes": 2.14,
+    "views": 294.12,
+    "likes": 1.88,
     "comments": 0.0,
-    "average_view_percentage": 55.3,
-    "subscribers_gained": 0.14,
+    "average_view_percentage": 48.39,
+    "subscribers_gained": 0.12,
     "shares": 0.0
   },
   "top_videos": [
@@ -118,6 +118,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
+    },
+    {
+      "topic": "The traditional family rule of waiting until everyone at the table has their food before eating, and its practical roots in hospitality and household pacing.",
+      "video_id": "ywTeKJhJ6pY",
+      "title": "Why We Wait to Eat Until Everyone Is Served",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
     }
   ],
   "topic_performance": [
@@ -210,6 +224,20 @@
       "video_id": "oc4a0qVkla0",
       "title": "Why Do Graduation Caps Have Buttons on Top?",
       "views": 5,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    },
+    {
+      "topic": "The traditional family rule of waiting until everyone at the table has their food before eating, and its practical roots in hospitality and household pacing.",
+      "video_id": "ywTeKJhJ6pY",
+      "title": "Why We Wait to Eat Until Everyone Is Served",
+      "views": 0,
       "likes": 0,
       "comments": 0,
       "shares": 0,

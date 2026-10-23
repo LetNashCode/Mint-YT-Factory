@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-23T11:36:31.917645+00:00",
-  "refresh_attempted_at": "2026-10-23T11:36:31.917645+00:00",
+  "generated_at": "2026-10-23T11:58:00.692533+00:00",
+  "refresh_attempted_at": "2026-10-23T11:58:00.692533+00:00",
   "refresh_status": "success",
   "video_count": 8,
   "optimization_ready": true,
@@ -8,12 +8,12 @@
   "advanced_metrics_videos": 5,
   "reason": "",
   "totals": {
-    "views": 2353,
+    "views": 2360,
     "likes": 15,
     "comments": 0
   },
   "averages": {
-    "views": 294.12,
+    "views": 295.0,
     "likes": 1.88,
     "comments": 0.0,
     "average_view_percentage": 48.39,
@@ -106,10 +106,10 @@
       "engagement_rate": 0.0
     },
     {
-      "topic": "The historical reason behind the fabric button located on top of mortarboard graduation caps.",
-      "video_id": "oc4a0qVkla0",
-      "title": "Why Do Graduation Caps Have Buttons on Top?",
-      "views": 5,
+      "topic": "The traditional family rule of waiting until everyone at the table has their food before eating, and its practical roots in hospitality and household pacing.",
+      "video_id": "ywTeKJhJ6pY",
+      "title": "Why We Wait to Eat Until Everyone Is Served",
+      "views": 7,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -120,10 +120,10 @@
       "engagement_rate": 0.0
     },
     {
-      "topic": "The traditional family rule of waiting until everyone at the table has their food before eating, and its practical roots in hospitality and household pacing.",
-      "video_id": "ywTeKJhJ6pY",
-      "title": "Why We Wait to Eat Until Everyone Is Served",
-      "views": 0,
+      "topic": "The historical reason behind the fabric button located on top of mortarboard graduation caps.",
+      "video_id": "oc4a0qVkla0",
+      "title": "Why Do Graduation Caps Have Buttons on Top?",
+      "views": 5,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -220,10 +220,10 @@
       "engagement_rate": 0.0
     },
     {
-      "topic": "The historical reason behind the fabric button located on top of mortarboard graduation caps.",
-      "video_id": "oc4a0qVkla0",
-      "title": "Why Do Graduation Caps Have Buttons on Top?",
-      "views": 5,
+      "topic": "The traditional family rule of waiting until everyone at the table has their food before eating, and its practical roots in hospitality and household pacing.",
+      "video_id": "ywTeKJhJ6pY",
+      "title": "Why We Wait to Eat Until Everyone Is Served",
+      "views": 7,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -234,10 +234,10 @@
       "engagement_rate": 0.0
     },
     {
-      "topic": "The traditional family rule of waiting until everyone at the table has their food before eating, and its practical roots in hospitality and household pacing.",
-      "video_id": "ywTeKJhJ6pY",
-      "title": "Why We Wait to Eat Until Everyone Is Served",
-      "views": 0,
+      "topic": "The historical reason behind the fabric button located on top of mortarboard graduation caps.",
+      "video_id": "oc4a0qVkla0",
+      "title": "Why Do Graduation Caps Have Buttons on Top?",
+      "views": 5,
       "likes": 0,
       "comments": 0,
       "shares": 0,

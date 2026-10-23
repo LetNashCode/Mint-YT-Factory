@@ -198,7 +198,7 @@ def load_publish_topic_history():
 def evaluate_story_quality(story):
     """Second-pass editorial gate: score voice, hook, factual caution, originality and payoff."""
     narration = story.get("narration", "")
-    first_person = bool(re.search(r"\\b(I|I'm|I've|I'd|my|me|we|our|ours)\\b", narration, re.I))
+    first_person = bool(re.search(r"\b(I|I'm|I've|I'd|my|me|we|our|ours)\b", narration, re.I))
     if not first_person:
         raise RuntimeError("Narration lacks the required first-person storytelling voice")
 

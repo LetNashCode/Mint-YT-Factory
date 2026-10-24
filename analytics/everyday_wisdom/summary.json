@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-24T16:22:57.415254+00:00",
-  "refresh_attempted_at": "2026-10-24T16:22:57.415254+00:00",
+  "generated_at": "2026-10-24T18:21:08.213568+00:00",
+  "refresh_attempted_at": "2026-10-24T18:21:08.213568+00:00",
   "refresh_status": "success",
   "video_count": 11,
   "optimization_ready": true,
@@ -8,13 +8,13 @@
   "advanced_metrics_videos": 5,
   "reason": "",
   "totals": {
-    "views": 3438,
-    "likes": 23,
+    "views": 3465,
+    "likes": 24,
     "comments": 0
   },
   "averages": {
-    "views": 312.55,
-    "likes": 2.09,
+    "views": 315.0,
+    "likes": 2.18,
     "comments": 0.0,
     "average_view_percentage": 31.16,
     "subscribers_gained": 0.09,
@@ -134,24 +134,24 @@
       "engagement_rate": 0.0
     },
     {
-      "topic": "The family dinner custom of asking to be excused from the table, rooted in household manners, family pacing, and conversational respect.",
-      "video_id": "BTy4q50qAE4",
-      "title": "Why We Had to Ask to Be Excused From the Table",
-      "views": 22,
-      "likes": 0,
+      "topic": "The polite US guest custom of bringing empty containers for leftovers, rooted in family hospitality and shared meals",
+      "video_id": "h_gBPm8fDZA",
+      "title": "Why We Always Brought Tupperware to Dinner",
+      "views": 27,
+      "likes": 1,
       "comments": 0,
       "shares": 0,
       "average_view_duration": 0.0,
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.0
+      "engagement_rate": 3.7037
     },
     {
-      "topic": "The historical reason behind the fabric button located on top of mortarboard graduation caps.",
-      "video_id": "oc4a0qVkla0",
-      "title": "Why Do Graduation Caps Have Buttons on Top?",
-      "views": 8,
+      "topic": "The family dinner custom of asking to be excused from the table, rooted in household manners, family pacing, and conversational respect.",
+      "video_id": "BTy4q50qAE4",
+      "title": "Why We Had to Ask to Be Excused From the Table",
+      "views": 22,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -276,6 +276,20 @@
       "engagement_rate": 0.0
     },
     {
+      "topic": "The polite US guest custom of bringing empty containers for leftovers, rooted in family hospitality and shared meals",
+      "video_id": "h_gBPm8fDZA",
+      "title": "Why We Always Brought Tupperware to Dinner",
+      "views": 27,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 3.7037
+    },
+    {
       "topic": "The family dinner custom of asking to be excused from the table, rooted in household manners, family pacing, and conversational respect.",
       "video_id": "BTy4q50qAE4",
       "title": "Why We Had to Ask to Be Excused From the Table",
@@ -294,20 +308,6 @@
       "video_id": "oc4a0qVkla0",
       "title": "Why Do Graduation Caps Have Buttons on Top?",
       "views": 8,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 0.0
-    },
-    {
-      "topic": "The polite US guest custom of bringing empty containers for leftovers, rooted in family hospitality and shared meals",
-      "video_id": "h_gBPm8fDZA",
-      "title": "Why We Always Brought Tupperware to Dinner",
-      "views": 0,
       "likes": 0,
       "comments": 0,
       "shares": 0,

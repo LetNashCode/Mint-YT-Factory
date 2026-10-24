@@ -1,0 +1,31 @@
+name: Publish Shorts Regression
+
+on:
+  pull_request:
+    paths:
+      - "main.py"
+      - "everyday_wisdom_shorts.py"
+      - "social_publish.py"
+      - ".github/workflows/publish.yml"
+      - ".github/workflows/wisdom-shorts.yml"
+      - ".github/workflows/publish-regression.yml"
+      - "tests/test_social_publish_integration.py"
+
+permissions:
+  contents: read
+
+jobs:
+  social-publish-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test runner
+        run: python -m pip install --upgrade pip pytest
+      - name: Run social publishing integration tests
+        run: python -m pytest -q tests/test_social_publish_integration.py

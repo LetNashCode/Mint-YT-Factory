@@ -1,0 +1,35 @@
+name: Story Media Regression
+
+on:
+  pull_request:
+    paths:
+      - "story_real_video_media.py"
+      - "story_visual_upgrade.py"
+      - "story_media_preflight.py"
+      - "tests/test_story_real_video_media.py"
+      - ".github/workflows/story-media-regression.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  story-media-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install focused test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest requests pillow google-genai
+      - name: Compile Story media modules
+        run: |
+          python -m py_compile story_real_video_media.py story_visual_upgrade.py story_media_preflight.py
+      - name: Run Story media regression tests
+        run: |
+          python -m pytest -q tests/test_story_real_video_media.py

@@ -499,16 +499,24 @@ def search_archive(person):
             ]
             if not files:
                 continue
+            # Prefer compact, directly playable MP4s rather than the largest
+            # derivative. Some archive records expose broken or throttled first
+            # choices; retain alternate files and probe them before rejecting the
+            # entire record.
             files.sort(
                 key=lambda f: (
-                    not str(f["name"]).lower().endswith(".mp4"),
-                    -int(f.get("size") or 0),
+                    not str(f.get("name", "")).lower().endswith(".mp4"),
+                    int(f.get("size") or 10**18),
+                    str(f.get("name", "")).lower(),
                 )
             )
-            candidate["url"] = (
-                "https://archive.org/download/" + quote(identifier, safe="") +
-                "/" + quote(files[0]["name"], safe="/")
-            )
+            def archive_file_url(file):
+                return (
+                    "https://archive.org/download/" + quote(identifier, safe="") +
+                    "/" + quote(str(file["name"]), safe="/")
+                )
+            candidate["url"] = archive_file_url(files[0])
+            candidate["alternate_urls"] = [archive_file_url(file) for file in files[1:]]
             results.append(candidate)
             seen.add(identifier)
 
@@ -563,8 +571,24 @@ def reject_youtube_url(url):
 def resolve(item):
     if item.get("provider") == "YouTube":
         raise RuntimeError("YouTube downloads are disabled for Story Shorts")
-    reject_youtube_url(item["url"])
-    return item["url"], probe(item["url"])
+    urls = []
+    for url in [item.get("url"), *(item.get("alternate_urls") or [])]:
+        url = str(url or "").strip()
+        if url and url not in urls:
+            urls.append(url)
+    if not urls:
+        raise RuntimeError("Story media candidate has no direct media URL")
+    errors = []
+    for url in urls[:8]:
+        try:
+            reject_youtube_url(url)
+            return url, probe(url)
+        except Exception as exc:
+            errors.append(f"{type(exc).__name__}: {str(exc)[:120]}")
+    raise RuntimeError(
+        f"All {min(len(urls), 8)} candidate video files failed probing: "
+        + " | ".join(errors[-3:])
+    )
 
 
 def windows(duration, length=8.0, limit=8):

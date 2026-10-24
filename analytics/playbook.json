@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-24T16:54:55.055427+00:00",
+  "generated_at": "2026-10-24T19:43:04.335250+00:00",
   "video_count": 165,
-  "learning_sample_size": 148,
+  "learning_sample_size": 151,
   "learning_ready": true,
   "metrics_available": true,
   "comparative_learning_ready": true,
-  "advanced_metrics_videos": 148,
+  "advanced_metrics_videos": 151,
   "creative_learning_version": "v6",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
@@ -17,7 +17,7 @@
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 15.136,
+      "score": 15.129,
       "sample_size": 10
     }
   ],
@@ -37,7 +37,7 @@
     "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes."
   ],
   "avoid_topics": [
-    "Why do dry erase markers squeak",
+    "Why do rubber erasers smudge graphite",
     "Why do tea bags float",
     "Why do socks roll up",
     "Why does a lock jam",

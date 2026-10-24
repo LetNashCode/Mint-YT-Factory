@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-23T20:21:39.843584+00:00",
-  "refresh_attempted_at": "2026-10-23T20:21:39.843584+00:00",
+  "generated_at": "2026-10-24T17:37:33.172241+00:00",
+  "refresh_attempted_at": "2026-10-24T17:37:33.172241+00:00",
   "refresh_status": "success",
   "video_count": 27,
   "optimization_ready": true,
@@ -8,12 +8,12 @@
   "advanced_metrics_videos": 24,
   "reason": "",
   "totals": {
-    "views": 10110,
+    "views": 10286,
     "likes": 206,
     "comments": 5
   },
   "averages": {
-    "views": 374.44,
+    "views": 380.96,
     "likes": 7.63,
     "comments": 0.19,
     "average_view_percentage": 47.12,
@@ -39,7 +39,7 @@
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
       "video_id": "Pb1-aVVunGg",
       "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1208,
+      "views": 1211,
       "likes": 43,
       "comments": 2,
       "shares": 1,
@@ -47,7 +47,7 @@
       "average_view_percentage": 62.45,
       "subscribers_gained": 3,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7252
+      "engagement_rate": 3.7159
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -123,7 +123,7 @@
       "topic": "Audrey Hepburn: Walking away from a lucrative Hollywood contract to dedicate the rest of her life to UNICEF field work.",
       "video_id": "rK7ls_MANYg",
       "title": "The Untold Turning Point in Audrey Hepburn's Story",
-      "views": 433,
+      "views": 432,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -131,7 +131,7 @@
       "average_view_percentage": 48.43,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.4619
+      "engagement_rate": 0.463
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -148,18 +148,18 @@
       "engagement_rate": 0.266
     },
     {
-      "topic": "Diana Nyad: Attempting a historic 110-mile open-ocean swim from Cuba to Florida at the age of 64 after multiple prior failures.",
-      "video_id": "MPBaQ6ywruY",
-      "title": "Diana Nyad Was Rejected... Then Everything Changed",
-      "views": 284,
-      "likes": 3,
+      "topic": "B-B King: The pivotal moment a damaged guitar and a dangerous fire shaped the signature sound of the Blues Boy.",
+      "video_id": "-zuakI9IPVU",
+      "title": "B-B King Lost Everything—Then Started Again",
+      "views": 291,
+      "likes": 5,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 13.0,
-      "average_view_percentage": 38.79,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.0563
+      "engagement_rate": 1.7182
     }
   ],
   "topic_performance": [
@@ -181,7 +181,7 @@
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
       "video_id": "Pb1-aVVunGg",
       "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1208,
+      "views": 1211,
       "likes": 43,
       "comments": 2,
       "shares": 1,
@@ -189,7 +189,7 @@
       "average_view_percentage": 62.45,
       "subscribers_gained": 3,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7252
+      "engagement_rate": 3.7159
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -265,7 +265,7 @@
       "topic": "Audrey Hepburn: Walking away from a lucrative Hollywood contract to dedicate the rest of her life to UNICEF field work.",
       "video_id": "rK7ls_MANYg",
       "title": "The Untold Turning Point in Audrey Hepburn's Story",
-      "views": 433,
+      "views": 432,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -273,7 +273,7 @@
       "average_view_percentage": 48.43,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 0.4619
+      "engagement_rate": 0.463
     },
     {
       "topic": "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
@@ -288,6 +288,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.266
+    },
+    {
+      "topic": "B-B King: The pivotal moment a damaged guitar and a dangerous fire shaped the signature sound of the Blues Boy.",
+      "video_id": "-zuakI9IPVU",
+      "title": "B-B King Lost Everything—Then Started Again",
+      "views": 291,
+      "likes": 5,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 1.7182
     },
     {
       "topic": "Diana Nyad: Attempting a historic 110-mile open-ocean swim from Cuba to Florida at the age of 64 after multiple prior failures.",
@@ -332,20 +346,6 @@
       "engagement_rate": 2.139
     },
     {
-      "topic": "B-B King: The pivotal moment a damaged guitar and a dangerous fire shaped the signature sound of the Blues Boy.",
-      "video_id": "-zuakI9IPVU",
-      "title": "B-B King Lost Everything—Then Started Again",
-      "views": 138,
-      "likes": 5,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 3.6232
-    },
-    {
       "topic": "Carl Sagan: The choice to include Earth sounds and music on a golden record aboard Voyager spacecraft, risking ridicule from orthodox scientists.",
       "video_id": "LNw-QAQN8A0",
       "title": "The Decision That Changed Carl Sagan's Life",
@@ -363,7 +363,7 @@
       "topic": "Valentina Tereshkova: A textile factory worker and amateur parachutist selected to become the first woman in space.",
       "video_id": "J6alrNPd3lc",
       "title": "The Untold Turning Point in Valentina Tereshkova's Story",
-      "views": 97,
+      "views": 100,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -377,7 +377,7 @@
       "topic": "Amitabh Bachchan: Facing persistent rejection from All India Radio due to his deep voice before becoming the defining star of Indian cinema.",
       "video_id": "OMXqyVG5lnw",
       "title": "Amitabh Bachchan Was Rejected... Then Everything Changed",
-      "views": 85,
+      "views": 86,
       "likes": 5,
       "comments": 0,
       "shares": 0,
@@ -385,7 +385,7 @@
       "average_view_percentage": 47.29,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 5.8824
+      "engagement_rate": 5.814
     },
     {
       "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
@@ -419,7 +419,7 @@
       "topic": "Edmund Hillary: The decades-long preparation and final push to conquer the world's highest peak.",
       "video_id": "bGhh7WNvjJU",
       "title": "The Untold Turning Point in Edmund Hillary's Story",
-      "views": 57,
+      "views": 58,
       "likes": 1,
       "comments": 0,
       "shares": 0,
@@ -427,7 +427,7 @@
       "average_view_percentage": 43.7,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.7544
+      "engagement_rate": 1.7241
     },
     {
       "topic": "Neil Armstrong: Transitioning from a combat fighter pilot in Korea to an experimental test pilot, eventually leading to the Apollo 11 moon landing.",
@@ -514,6 +514,20 @@
       "engagement_rate": 0.0
     },
     {
+      "topic": "Jim Henson: Innovating early television puppetry for local Washington D.C. shows years before creating the Muppets.",
+      "video_id": "8keJ6vBhkhU",
+      "title": "Before the Fame: Jim Henson's Untold Struggle",
+      "views": 16,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    },
+    {
       "topic": "Alan Turing: A Bicycle Repair Habit and a Long-Distance Running Routine Saved His Sanity.",
       "video_id": "XyZRedw8lEA",
       "title": "The Moment Everything Changed: Alan Turing",
@@ -526,20 +540,6 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 7.1429
-    },
-    {
-      "topic": "Jim Henson: Innovating early television puppetry for local Washington D.C. shows years before creating the Muppets.",
-      "video_id": "8keJ6vBhkhU",
-      "title": "Before the Fame: Jim Henson's Untold Struggle",
-      "views": 0,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 0.0
     }
   ],
   "optimization_rules": [

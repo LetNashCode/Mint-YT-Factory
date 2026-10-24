@@ -2,130 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Louis Zamperini",
-      "source": {
-        "id": "archive:Louis_Zamperini_1917-2014_-_Triumph_of_The_Torrance_Tornado",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Louis_Zamperini_1917-2014_-_Triumph_of_The_Torrance_Tornado/Louis_Zamperini_1917-2014_-_Triumph_of_The_Torrance_Tornado.mp4",
-        "source_url": "https://archive.org/details/Louis_Zamperini_1917-2014_-_Triumph_of_The_Torrance_Tornado",
-        "title": "Louis Zamperini 1917-2014 - Triumph of The Torrance Tornado",
-        "description": "Louis Zamperini 1917-2014 ['California', 'Torrance', 'CitiCABLE 3', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Louis Zamperini (Olympic Athlete)', 'Torrance (City/Town/Village)', 'Torrance High School (School)', 'Louis zamperini', 'World War II (Military Conflict)', 'hero', 'pow', 'patriot', 'Angelina Jolie (Celebrity)', 'Zamperini Field (Airport)', 'Athlete (Profession)', 'runner', 'survivor', 'inspirational', 'profile', 'story', 'rip', 'passed away', 'died', 'death', 'tribute', '2014']",
-        "creator": "Torrance CitiCABLE",
-        "license": "",
-        "subject": "['California', 'Torrance', 'CitiCABLE 3', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Louis Zamperini (Olympic Athlete)', 'Torrance (City/Town/Village)', 'Torrance High School (School)', 'Louis zamperini', 'World War II (Military Conflict)', 'hero', 'pow', 'patriot', 'Angelina Jolie (Celebrity)', 'Zamperini Field (Airport)', 'Athlete (Profession)', 'runner', 'survivor', 'inspirational', 'profile', 'story', 'rip', 'passed away', 'died', 'death', 'tribute', '2014']",
-        "runtime": "00:15:00",
-        "direct_subject": true,
-        "duration_hint": 900.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 754.64,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The segment features real archival/video footage of Louis Zamperini (in the red cap) interacting with others at an event, providing valid biographical illustration of his later life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "46dd46137c45c1a12d692e5643632fd5d4f96c303da316f75f59bbcdcd9e58dc",
-      "reviewed_at": 1790811658.2480533
-    },
-    {
-      "person": "Louis Zamperini",
-      "source": {
-        "id": "archive:FallOfFranceMayJune1940",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/FallOfFranceMayJune1940/Unbroken%27s%20Louis%20Zamperini%20-%20His%20Story.mp4",
-        "source_url": "https://archive.org/details/FallOfFranceMayJune1940",
-        "title": "Unbroken - The Louis Zamperini Story",
-        "description": "Unbroken - The Louis Zamperini Story ['Fall Of France', 'Balkans', 'Eastern Front', 'Bob Hope', 'Betty Grable', 'Grey Ghost', 'USS Enterprise', 'Solomon Islands', 'USO', 'RAF', 'Call of Duty', 'World at War', 'Midway', 'Sake', 'Leyte Gulf', 'Battle', 'Wake Island', 'Truk Lagoon', 'Coral Sea', 'K Rations', 'Hiroshima', 'Aircraft Carrier', 'USS Hornet', 'Wehrmacht Soldiers', 'Manchuria', 'Zero Fighter', 'PT Boat', 'Naval Battle', 'Normandy Invasion', 'Waffen SS', 'Airplane', 'Deutschland', 'WW2', 'WW1', 'Hitler', 'Montgomery', 'Mussolini', 'Operation Overlord', 'Patton', 'General', 'Mcarthur', 'Nazi', 'Tank', 'Kamikaze', 'Third Reich', 'Genocide', 'Guadalcanal', 'Jews', 'Mein Krieg', 'Final Solution', 'Pearl Harbor', 'MRE', 'Battlefield', 'World War', 'Air Force', 'Army', 'Navy', 'Marines', 'U-Boat Wehrmacht', 'Luftwaffe', 'Fascist', 'SS', 'Roosevelt', 'Himmler', 'Adolf Hitler', 'Hitler Youth', 'V2', 'Aryan', 'Nuremberg', 'Mein Kampf', 'Blitzkrieg', 'V1', 'Western Front', 'Stalin', 'Fascism', 'Russia', 'Soviet Union', 'Stalingrad', 'Red Star', 'Communist', 'National Socialist', 'Nazi Party', 'Panzerjäger', 'Pacific Fleet', 'War Movie', 'War film', 'Munich', 'WW2 Movie', 'Japan', 'Imperial Japan', 'Bushido', 'Ninja', 'Concentration Camp', 'Tank Hunters', 'Auschwitz', 'Pacific Theatre', 'Tunisia', \"Schindler's List\", 'Emperor Hirohito', 'Battle of the Bulge', 'Sherman Tank', 'Tiger Tank', 'Messerschmitt', 'December 7th 1941', 'Winston Churchill', 'HMS Hood', 'USS Arizona', 'Bismark', 'Italian Campaign', 'Western Wall', 'Iwo Jima', 'WW2 Japanese Aircraft', 'Rommel', 'Anzio', 'Finis Belli', 'D-Day', 'Eisenhower', 'A",
-        "creator": "Finis Belli",
-        "license": "",
-        "subject": "['Fall Of France', 'Balkans', 'Eastern Front', 'Bob Hope', 'Betty Grable', 'Grey Ghost', 'USS Enterprise', 'Solomon Islands', 'USO', 'RAF', 'Call of Duty', 'World at War', 'Midway', 'Sake', 'Leyte Gulf', 'Battle', 'Wake Island', 'Truk Lagoon', 'Coral Sea', 'K Rations', 'Hiroshima', 'Aircraft Carrier', 'USS Hornet', 'Wehrmacht Soldiers', 'Manchuria', 'Zero Fighter', 'PT Boat', 'Naval Battle', 'Normandy Invasion', 'Waffen SS', 'Airplane', 'Deutschland', 'WW2', 'WW1', 'Hitler', 'Montgomery', 'Mussolini', 'Operation Overlord', 'Patton', 'General', 'Mcarthur', 'Nazi', 'Tank', 'Kamikaze', 'Third Reich', 'Genocide', 'Guadalcanal', 'Jews', 'Mein Krieg', 'Final Solution', 'Pearl Harbor', 'MRE', 'Battlefield', 'World War', 'Air Force', 'Army', 'Navy', 'Marines', 'U-Boat Wehrmacht', 'Luftwaffe', 'Fascist', 'SS', 'Roosevelt', 'Himmler', 'Adolf Hitler', 'Hitler Youth', 'V2', 'Aryan', 'Nuremberg', 'Mein Kampf', 'Blitzkrieg', 'V1', 'Western Front', 'Stalin', 'Fascism', 'Russia', 'Soviet Union', 'Stalingrad', 'Red Star', 'Communist', 'National Socialist', 'Nazi Party', 'Panzerjäger', 'Pacific Fleet', 'War Movie', 'War film', 'Munich', 'WW2 Movie', 'Japan', 'Imperial Japan', 'Bushido', 'Ninja', 'Concentration Camp', 'Tank Hunters', 'Auschwitz', 'Pacific Theatre', 'Tunisia', \"Schindler's List\", 'Emperor Hirohito', 'Battle of the Bulge', 'Sherman Tank', 'Tiger Tank', 'Messerschmitt', 'December 7th 1941', 'Winston Churchill', 'HMS Hood', 'USS Arizona', 'Bismark', 'Italian Campaign', 'Western Wall', 'Iwo Jima', 'WW2 Japanese Aircraft', 'Rommel', 'Anzio', 'Finis Belli', 'D-Day', 'Eisenhower', 'A",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 760.11,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6.0,
-        "reason": "The footage features the actual Louis Zamperini being interviewed later in life, but the CBN watermark in the corner and interview format reduce its utility for illustrating active historical events, making it better suited for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "88f0dc8def47035df5a10f3e19d6e7a68155231e94ff7640b3e71ec2a35aba47",
-      "reviewed_at": 1790811734.0253837
-    },
-    {
-      "person": "George Lucas",
-      "source": {
-        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
-        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
-        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
-        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
-        "creator": "The Aspen Institute",
-        "license": "",
-        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
-        "runtime": "00:31:43",
-        "direct_subject": true,
-        "duration_hint": 1903.2,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 1022.26,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows George Lucas participating in a panel discussion/interview on stage, which provides real archival footage of him suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ba590812108c5cf27740ddde3492ea634a73f6d3e5b61abb5d837b31c9f663ed",
-      "reviewed_at": 1790811811.5631065
-    },
-    {
-      "person": "George Lucas",
-      "source": {
-        "id": "archive:lucas_nolan",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/lucas_nolan/lucas_nolan.mp4",
-        "source_url": "https://archive.org/details/lucas_nolan",
-        "title": "George Lucas on the Impact of Star Wars",
-        "description": "Christopher Nolan interviews George Lucas george luca, christopher nolan, interviews, star wars, directors",
-        "creator": "George Lucas, Christopher Nolan",
-        "license": "",
-        "subject": "george luca, christopher nolan, interviews, star wars, directors",
-        "runtime": "57:57",
-        "direct_subject": true,
-        "duration_hint": 3477.106967,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2668.93,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames show George Lucas clearly in an interview setting, providing biographical illustration material, though it is a modern interview rather than historical event footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "2830bf4e46374b37586b75883953875ca3b3c779936e599f7c188ef128f017b7",
-      "reviewed_at": 1790811846.1935868
-    },
-    {
       "person": "George Lucas",
       "source": {
         "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
@@ -7101,223 +6977,6 @@
       "reviewed_at": 1791965565.7925394
     },
     {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 52.26,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment shows real archival footage of astronaut Kalpana Chawla in training wearing space gear, making it highly relevant and usable for a biographical short.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "41b43d2cb4741f913cd33bb060c1ad69e38a4ce4457d6e921541065ac716a2b7",
-      "reviewed_at": 1791965641.448398
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features archival footage and an interview segment directly discussing astronaut Kalpana Chawla, with her portrait and identity clearly visible in the opening frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "44bd87a6cf83cf06a39a22725c71c0e100ce38230774b2b715c155f0d1afdb40",
-      "reviewed_at": 1791965660.0686126
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 20.75,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "Kalpana Chawla is clearly visible in the first two sampled archive frames alongside a display board, providing authentic biographical illustration of her life and university legacy.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f30aa43d5483e6036a82ffed1ad6ee0c91ed3dfa94532d4c1810a5a4c4c61d6b",
-      "reviewed_at": 1791965665.4356732
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 36.51,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The clip features an interview with Dr. Don Wilson discussing Kalpana Chawla, with a large poster of Chawla clearly visible in the background throughout the sampled frames. This serves as valid biographical illustration for a video about Chawla.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e2201f0be967aef2af54a8c13a858dff4332a4f5f9b43c7707cb5d3be58cb394",
-      "reviewed_at": 1791965670.8109565
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 68.01,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment contains real archival footage and photos featuring Kalpana Chawla speaking at a microphone, alongside historical group astronaut photos, providing strong biographical illustration for a Short about her life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c078f1c659160967974d33df838e92593f2da624c4f46891735fa5f731a47241",
-      "reviewed_at": 1791965678.072556
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 99.52,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly show archival footage of Kalpana Chawla (visibly identifiable among the astronauts in orange flight suits walking out) and historical imagery illustrating her life and career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "8bc9484dd6e47dd56724173a34254670ec804dc7f30366db9643fb396d1af24f",
-      "reviewed_at": 1791965690.0392137
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 115.27,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "Kalpana Chawla is clearly visible in the archival crew photograph shown in the first frames, followed by relevant interview footage discussing her life and legacy.",
-        "usage": "direct_event"
-      },
-      "review_key": "cd1637b2d0b8428214bc8a6f7148416853493932c5428db01e253dcdfbcc4706",
-      "reviewed_at": 1791965696.2942421
-    },
-    {
       "person": "Amitabh Bachchan",
       "source": {
         "id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
@@ -9266,99 +8925,6 @@
       },
       "review_key": "aecd948ab7121708aab42c51f64a92b0e3722e09e468beea01333e8dc58a7055",
       "reviewed_at": 1792100915.0251157
-    },
-    {
-      "person": "Marie Curie",
-      "source": {
-        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
-        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
-        "title": "Marie Curie A Scientific Hero",
-        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
-        "creator": "Bloomington",
-        "license": "",
-        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
-        "runtime": "00:02:12",
-        "direct_subject": true,
-        "duration_hint": 132.3,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 23.2,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video segment includes archival photos and biographical imagery related to Marie Curie and Pierre Curie, though some frames show Pierre Curie or graphic overlays. Marie Curie is clearly identifiable in the fifth frame, making it usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "cac72da352e3db334f006f6184574dde384c52b3b97775b155502ad111907ecb",
-      "reviewed_at": 1792101103.4098778
-    },
-    {
-      "person": "Marie Curie",
-      "source": {
-        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
-        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
-        "title": "Marie Curie A Scientific Hero",
-        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
-        "creator": "Bloomington",
-        "license": "",
-        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
-        "runtime": "00:02:12",
-        "direct_subject": true,
-        "duration_hint": 132.3,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 32.3,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames clearly feature historical photographs and archival footage of Marie Curie in her laboratory environment, directly illustrating her life and work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "cd68060affd48e8d3c2eed7285714fc3f29184cea3dd90184da1178b7ae03453",
-      "reviewed_at": 1792101112.2130897
-    },
-    {
-      "person": "Marie Curie",
-      "source": {
-        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
-        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
-        "title": "Marie Curie A Scientific Hero",
-        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
-        "creator": "Bloomington",
-        "license": "",
-        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
-        "runtime": "00:02:12",
-        "direct_subject": true,
-        "duration_hint": 132.3,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 41.4,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features authentic historical footage and archival imagery depicting Marie Curie working in her laboratory and alongside Pierre Curie, directly illustrating her scientific career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9896d6c31d4dcd7a1d8a750a15ddab25d5797b48ea296f4d3f716b9dafa92d38",
-      "reviewed_at": 1792101119.1682143
     },
     {
       "person": "Marie Curie",
@@ -15712,37 +15278,6 @@
     {
       "person": "Jonas Salk",
       "source": {
-        "id": "archive:israel-wohltater-der-menschheit",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/israel-wohltater-der-menschheit/Israel_Wohlt%C3%A4ter_der_Menschheit.mp4",
-        "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
-        "title": "Israel ist Wohltäter der Menschheit ( JONAS SALK )",
-        "description": "Israel ist nicht Gaza ; Kolonialismus ; Gewalt und Leid sondern Wohltäter der Menscheit. ( z.B.: Jonas Salk ) Israel is not Gaza; colonialism; violence and suffering but a benefactor of humanity. (e.g., Jonas Salk) Israël n’est pas Gaza ; colonialisme ; violence et souffrance mais bienfaiteur de l’humanité. (ex. : Jonas Salk) ['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
-        "creator": "BBC ( England )",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 249.233333,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 77.38,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features real archival footage of Jonas Salk working in his laboratory and historical context related to the polio epidemic, with Salk clearly identifiable in the opening frames.",
-        "usage": "direct_event"
-      },
-      "review_key": "6d33d4d8cb3075d5a3efbed1d9353ea247414a3464dee55bb5f63d50f54e3e68",
-      "reviewed_at": 1792676618.047626
-    },
-    {
-      "person": "Jonas Salk",
-      "source": {
         "id": "archive:jonas-edward-salk",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
@@ -15832,37 +15367,6 @@
       },
       "review_key": "a386e3a447143b598f42c18ba365f168f0b264f73e4d97699455c36b3ac40bf3",
       "reviewed_at": 1792676724.595044
-    },
-    {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:jonas-edward-salk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
-        "source_url": "https://archive.org/details/jonas-edward-salk",
-        "title": "JONAS EDWARD SALK",
-        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
-        "creator": "",
-        "license": "",
-        "subject": "JONAS SALK",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 79.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 60.85,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows Jonas Salk (portrayed or archival representation) in laboratory settings and with his family, fitting the biographical context of his life and work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "61cf5de8741a212cbf919ff318890559031e9935ea98eb5584101c5a1815145c",
-      "reviewed_at": 1792676914.034734
     },
     {
       "person": "Ernest Shackleton",
@@ -16018,68 +15522,6 @@
       },
       "review_key": "c4b31c032c39dfd351ec6121124acdf5b5743bb7c85a00d0726239ba0edc2304",
       "reviewed_at": 1792677987.506657
-    },
-    {
-      "person": "Louis Braille",
-      "source": {
-        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
-        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
-        "title": "Louis Braille ~ The Braille Alphabet",
-        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "creator": "",
-        "license": "",
-        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 864.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 70.41,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features dramatized historical footage depicting a young Louis Braille working on his tactile writing system in the first frame, followed by period-appropriate landscape and village shots of his hometown, providing good biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5b2b4237d4c40a54101f34a1189fa1c4d42013f6f7943fd8b2e794e993ae60ab",
-      "reviewed_at": 1792678320.0680847
-    },
-    {
-      "person": "Louis Braille",
-      "source": {
-        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
-        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
-        "title": "Louis Braille ~ The Braille Alphabet",
-        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "creator": "",
-        "license": "",
-        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 864.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 332.03,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment shows dramatized biographical footage of Louis Braille as a young boy interacting with tactile objects and learning, which directly illustrates the subject's life and invention.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "94d56e1e5ff3c1814ecea13d0319ae21ae109eda3cb493bdd67a42d946da9b4a",
-      "reviewed_at": 1792678336.5642583
     },
     {
       "person": "Satyen Bose",
@@ -18591,6 +18033,564 @@
       },
       "review_key": "7840c6cbd3dfe5e6b3e9edef047972a945ef5eb5d074e77ab60f4af3fe1bdb24",
       "reviewed_at": 1792786123.5054722
+    },
+    {
+      "person": "Louis Braille",
+      "source": {
+        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
+        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+        "title": "Louis Braille ~ The Braille Alphabet",
+        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "creator": "",
+        "license": "",
+        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 864.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 70.41,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.0,
+        "reason": "The first frame clearly depicts an actor portraying Louis Braille as a young boy working on a writing apparatus, which fits the biographical illustration requirement. Subsequent frames show historical landscape context relevant to his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "cc42a0faf776834cc8a9033eeca2c7768d1d721da75ca841957aa270e330204d",
+      "reviewed_at": 1792862593.570368
+    },
+    {
+      "person": "Louis Braille",
+      "source": {
+        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
+        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+        "title": "Louis Braille ~ The Braille Alphabet",
+        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "creator": "",
+        "license": "",
+        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 864.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 332.03,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly depict a dramatic reconstruction of Louis Braille handling embossed/tactile objects (dice with raised dots), and the fifth frame clearly shows an actor portraying Louis Braille himself.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bf4eaa2090cc4c6631481104a89113b4048e16a416fad535ac40c00a8537dfab",
+      "reviewed_at": 1792862621.1425347
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 52.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The video segment clearly shows archival footage of Kalpana Chawla, the named astronaut, preparing for spaceflight, making it directly relevant and usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "baf7433fe07c801459b0a97cf319ea660eb77a1cc67d0c28619405602fddf57f",
+      "reviewed_at": 1792862686.242825
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features archival footage and a memorial interview discussing astronaut Kalpana Chawla, with Kalpana Chawla clearly visible in the first three sampled frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f33feb74652cc0595701dd120ad0768202fd8961a72fc7263e31171603512b90",
+      "reviewed_at": 1792862707.7534463
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 20.75,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "Kalpana Chawla is clearly visible in the first two sampled archive frames alongside an alumni display, providing biographical illustration for a video about her legacy.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "952fa014e7dcd026bcaf49605a1be58d44667ba895e87ec3853143d6c3aacf12",
+      "reviewed_at": 1792862727.5382242
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later/Remembering_the_Crew_of_Columbia_20_Years_Later.mp4",
+        "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+        "title": "Remembering the Crew of Columbia 20 Years Later",
+        "description": "Sen John Cornyn of Texas remembers the lost crew of the Space Shuttle, Columbia, who were lost when the Space Shuttle broke apart upon reentry, scattering debris over a large portion of Texas. The shuttle's left wing had been damaged upon takeoff when a large chunk of ice came off the main fuel tank and created a hole in the left wing about the size of basketball. Upon entering earth's atmosphere, the hot gasses entered the hole and the Columbia shuttle broke apart, just minutes before they were to have landed in Florida at the Kennedy Space Center. February 1, 2023 marks the 20th anniversary of the disaster, when the Space Shuttle Columbia disintegrated as it returned to Earth, killing all seven astronauts on board: commander Rick Husband, pilot Willie McCool, mission specialists Kalpana Chawla, Laurel Clark, Michael Anderson, David Brown and payload specialist Ilan Ramon of Israel. #Columbia #space #SpaceShuttleColumbia #ColumbiaCrew #IllinoisChannel #SenCornyn Politics, Personalities, Policies and business developments! Stay in touch with one of the most politically active, and important states in the USA!\\r \\r Follow us on Twitter: @IllinoisChannel\\r \\r \\r DONATE to help fund our Independent Coverage: https://illinoischannel.givingfuel.com/donatenow ['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
+        "creator": "ICTV",
+        "license": "",
+        "subject": "['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
+        "runtime": "00:06:55",
+        "direct_subject": true,
+        "duration_hint": 415.30442,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 251.96,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Kalpana Chawla is clearly visible in the group photograph of the Space Shuttle Columbia crew displayed behind the speaker, making this usable as biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c9c3304ed8356bb40b8ae3e9353122f8375cc8b1926c3481deea48bb8f6fe023",
+      "reviewed_at": 1792862747.3440769
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 36.51,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.5,
+        "reason": "The segment features an interview with Dr. Don Wilson discussing Kalpana Chawla, with a photograph of Kalpana Chawla clearly visible in the background throughout the frames. As an interview format discussing the subject with relevant biographical context, it is usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7665606258152d3bbfc8589b6c2aa770facb8fd6d0f55d9908f871abb8f4abdd",
+      "reviewed_at": 1792862755.8086803
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later/Remembering_the_Crew_of_Columbia_20_Years_Later.mp4",
+        "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+        "title": "Remembering the Crew of Columbia 20 Years Later",
+        "description": "Sen John Cornyn of Texas remembers the lost crew of the Space Shuttle, Columbia, who were lost when the Space Shuttle broke apart upon reentry, scattering debris over a large portion of Texas. The shuttle's left wing had been damaged upon takeoff when a large chunk of ice came off the main fuel tank and created a hole in the left wing about the size of basketball. Upon entering earth's atmosphere, the hot gasses entered the hole and the Columbia shuttle broke apart, just minutes before they were to have landed in Florida at the Kennedy Space Center. February 1, 2023 marks the 20th anniversary of the disaster, when the Space Shuttle Columbia disintegrated as it returned to Earth, killing all seven astronauts on board: commander Rick Husband, pilot Willie McCool, mission specialists Kalpana Chawla, Laurel Clark, Michael Anderson, David Brown and payload specialist Ilan Ramon of Israel. #Columbia #space #SpaceShuttleColumbia #ColumbiaCrew #IllinoisChannel #SenCornyn Politics, Personalities, Policies and business developments! Stay in touch with one of the most politically active, and important states in the USA!\\r \\r Follow us on Twitter: @IllinoisChannel\\r \\r \\r DONATE to help fund our Independent Coverage: https://illinoischannel.givingfuel.com/donatenow ['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
+        "creator": "ICTV",
+        "license": "",
+        "subject": "['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
+        "runtime": "00:06:55",
+        "direct_subject": true,
+        "duration_hint": 415.30442,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 282.83,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage shows US Senator John Cornyn speaking in the Senate alongside a displayed official crew photograph of the Space Shuttle Columbia mission, in which Kalpana Chawla is clearly visible. While this is secondary congressional footage rather than direct archival footage of Chawla herself, it is genuine news/government coverage commemorating her and the crew.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bf46b64c95df66fe0839a95be9c53413a247eeaebf4704ede4aa5aa967eb488e",
+      "reviewed_at": 1792862766.855259
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 68.01,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The footage contains archive/historical photos and video clips illustrating Kalpana Chawla's life, space missions, and memorial. While some frames show memorials and photos, frame 5 clearly shows Kalpana Chawla as part of the STS-87 crew in real archival footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "321575c067ba2c44cb35ded475a67d0a0d390386d4b1d04ecb5ddcfb7d4aeb77",
+      "reviewed_at": 1792862784.0597417
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later/Remembering_the_Crew_of_Columbia_20_Years_Later.mp4",
+        "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+        "title": "Remembering the Crew of Columbia 20 Years Later",
+        "description": "Sen John Cornyn of Texas remembers the lost crew of the Space Shuttle, Columbia, who were lost when the Space Shuttle broke apart upon reentry, scattering debris over a large portion of Texas. The shuttle's left wing had been damaged upon takeoff when a large chunk of ice came off the main fuel tank and created a hole in the left wing about the size of basketball. Upon entering earth's atmosphere, the hot gasses entered the hole and the Columbia shuttle broke apart, just minutes before they were to have landed in Florida at the Kennedy Space Center. February 1, 2023 marks the 20th anniversary of the disaster, when the Space Shuttle Columbia disintegrated as it returned to Earth, killing all seven astronauts on board: commander Rick Husband, pilot Willie McCool, mission specialists Kalpana Chawla, Laurel Clark, Michael Anderson, David Brown and payload specialist Ilan Ramon of Israel. #Columbia #space #SpaceShuttleColumbia #ColumbiaCrew #IllinoisChannel #SenCornyn Politics, Personalities, Policies and business developments! Stay in touch with one of the most politically active, and important states in the USA!\\r \\r Follow us on Twitter: @IllinoisChannel\\r \\r \\r DONATE to help fund our Independent Coverage: https://illinoischannel.givingfuel.com/donatenow ['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
+        "creator": "ICTV",
+        "license": "",
+        "subject": "['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
+        "runtime": "00:06:55",
+        "direct_subject": true,
+        "duration_hint": 415.30442,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 344.57,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival footage showing Kalpana Chawla as part of the Space Shuttle Columbia crew photo/video, accompanied by a speech discussing the crew.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5c8b7165fc902415660d9797c662eb3f7d4361cf8c672be1d05a7b93cdbb4fd0",
+      "reviewed_at": 1792862790.7884881
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 99.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video shows real archival footage of astronauts in orange flight suits walking out, with Kalpana Chawla clearly visible in the later frames, making it usable biographical illustration for her career as an astronaut.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b331d467d6b6634fc9dcd6fb915a4d9cc0d401e0f41769de93c0946e0631a598",
+      "reviewed_at": 1792862806.4407659
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later/Remembering_the_Crew_of_Columbia_20_Years_Later.mp4",
+        "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+        "title": "Remembering the Crew of Columbia 20 Years Later",
+        "description": "Sen John Cornyn of Texas remembers the lost crew of the Space Shuttle, Columbia, who were lost when the Space Shuttle broke apart upon reentry, scattering debris over a large portion of Texas. The shuttle's left wing had been damaged upon takeoff when a large chunk of ice came off the main fuel tank and created a hole in the left wing about the size of basketball. Upon entering earth's atmosphere, the hot gasses entered the hole and the Columbia shuttle broke apart, just minutes before they were to have landed in Florida at the Kennedy Space Center. February 1, 2023 marks the 20th anniversary of the disaster, when the Space Shuttle Columbia disintegrated as it returned to Earth, killing all seven astronauts on board: commander Rick Husband, pilot Willie McCool, mission specialists Kalpana Chawla, Laurel Clark, Michael Anderson, David Brown and payload specialist Ilan Ramon of Israel. #Columbia #space #SpaceShuttleColumbia #ColumbiaCrew #IllinoisChannel #SenCornyn Politics, Personalities, Policies and business developments! Stay in touch with one of the most politically active, and important states in the USA!\\r \\r Follow us on Twitter: @IllinoisChannel\\r \\r \\r DONATE to help fund our Independent Coverage: https://illinoischannel.givingfuel.com/donatenow ['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
+        "creator": "ICTV",
+        "license": "",
+        "subject": "['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
+        "runtime": "00:06:55",
+        "direct_subject": true,
+        "duration_hint": 415.30442,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 375.43,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features a US senator speaking about the Columbia space shuttle disaster alongside official archival crew portrait footage clearly showing Kalpana Chawla among the astronauts.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "66e1a048d9407742b728acfb5b8217428b7093c9dfd4d90d1e111d53e0ce5bfa",
+      "reviewed_at": 1792862814.5768898
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 115.27,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features authentic archival and interview footage. Kalpana Chawla is clearly identifiable in the space crew photo shown in the first two frames, and the subsequent interview frames provide historical context regarding her life and legacy.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "09a251c446059a97c978f64b4880bf5904346b511f6d3323326b3db6837df96e",
+      "reviewed_at": 1792862824.3337007
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:israel-wohltater-der-menschheit",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/israel-wohltater-der-menschheit/Israel_Wohlt%C3%A4ter_der_Menschheit.mp4",
+        "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+        "title": "Israel ist Wohltäter der Menschheit ( JONAS SALK )",
+        "description": "Israel ist nicht Gaza ; Kolonialismus ; Gewalt und Leid sondern Wohltäter der Menscheit. ( z.B.: Jonas Salk ) Israel is not Gaza; colonialism; violence and suffering but a benefactor of humanity. (e.g., Jonas Salk) Israël n’est pas Gaza ; colonialisme ; violence et souffrance mais bienfaiteur de l’humanité. (ex. : Jonas Salk) ['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
+        "creator": "BBC ( England )",
+        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+        "subject": "['Israel benefactor of humanity', 'Israel , polio vaccination', 'Jonas Salk', 'Polio']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 249.233333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 77.38,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment contains archival footage clearly showing Jonas Salk working in his laboratory with test tubes, as well as historical context footage about the 1952 polio epidemic. The subject is clearly identifiable in the early frames, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b14583b23ec2709f956c1296f4934cd10ab9cada8c3e1d6387f9dbc114524337",
+      "reviewed_at": 1792862980.7369084
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 60.85,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage clearly depicts Jonas Salk working in a laboratory setting with test tubes and appearing with his family in archival photos, perfectly illustrating his biographical life as narrated.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "94563a025362273c1e5265f43171af0827401bcc78597b06b502dff7215b8eb1",
+      "reviewed_at": 1792863020.0222447
+    },
+    {
+      "person": "Marie Curie",
+      "source": {
+        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+        "title": "Marie Curie A Scientific Hero",
+        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "runtime": "00:02:12",
+        "direct_subject": true,
+        "duration_hint": 132.3,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 23.2,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The sampled frames include archival photographs of Marie Curie alongside Pierre Curie and scientific illustrations, matching the biographical narration about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f8b050a9589811baa38079c3b7f58f93a2dc47c2b01ea4022be495017505fad1",
+      "reviewed_at": 1792863231.4426572
+    },
+    {
+      "person": "Marie Curie",
+      "source": {
+        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+        "title": "Marie Curie A Scientific Hero",
+        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "runtime": "00:02:12",
+        "direct_subject": true,
+        "duration_hint": 132.3,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 32.3,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly show archival photographs and footage of Marie Curie (alongside Pierre Curie and in her laboratory), making it valid biographical illustration footage for a short about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9f853092abf75ddb5a9a56a4dc91e73e61516e925c9afb1cb78ccae674f1514d",
+      "reviewed_at": 1792863241.2310498
+    },
+    {
+      "person": "Marie Curie",
+      "source": {
+        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+        "title": "Marie Curie A Scientific Hero",
+        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "runtime": "00:02:12",
+        "direct_subject": true,
+        "duration_hint": 132.3,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 41.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly depict archival footage and photographs of Marie Curie working in her laboratory along with Pierre Curie, directly illustrating her life and scientific work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e87a15fd1cfecf8cc332c347b0ed1ee7af1fdfb5f6075129cc1de27f7d9efea6",
+      "reviewed_at": 1792863250.771687
     }
   ]
 }

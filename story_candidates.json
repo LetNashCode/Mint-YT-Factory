@@ -1,95 +1,5 @@
 [
   {
-    "format": "impossible_odds",
-    "person": "Satyajit Ray",
-    "premise": "Financing and completing the masterwork 'Pather Panchali' over several agonizingly slow years of empty pockets.",
-    "hook": "He had no production budget and paused filming for months at a time whenever the money completely ran out.",
-    "key_facts": [
-      "Worked full-time as an advertising art director while trying to make his debut film.",
-      "Pawned his wife's jewelry and his own extensive book collection to fund initial shooting days.",
-      "Used an amateur cast and crew, working only on Sundays when funds or time permitted.",
-      "The finished film won Best Human Document at the 1956 Cannes Film Festival."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Subrahmanyan Chandrasekhar",
-    "premise": "Deriving the maximum mass of white dwarf stars on a steamship voyage, only to face public ridicule from the scientific establishment.",
-    "hook": "A brilliant young astrophysicist proved a star could collapse under its own weight, and a legendary British scientist publicly humiliated him for it.",
-    "key_facts": [
-      "Calculated the upper limit for white dwarf star masses while traveling from India to England in 1930.",
-      "His mathematical model implied the existence of black holes, which leading astronomers rejected at the time.",
-      "Endured decades of scientific skepticism before his theoretical predictions were universally vindicated.",
-      "Awarded the Nobel Prize in Physics in 1983 for his studies on the physical processes important to the structure and evolution of stars."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Stanislas Wawrinka",
-    "premise": "Tattooing a Samuel Beckett quote on his arm to embrace failure on his path to Grand Slam tennis glory.",
-    "hook": "He permanently inked a famous quote about failing better onto his skin after years of losing to the sport's dominant champions.",
-    "key_facts": [
-      "Competed for over a decade in the shadow of tennis greats like Roger Federer and Rafael Nadal.",
-      "Inked the phrase 'Ever tried. Ever failed. No matter. Try again. Fail again. Fail better.' on his forearm.",
-      "Brokered his mental breakthrough by accepting defeat as part of the process of improvement.",
-      "Won three Grand Slam singles titles at the Australian Open, French Open, and US Open."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Harrison Ford",
-    "premise": "Working primarily as a studio carpenter, Harrison Ford agreed to read lines for other actors during the 'Star Wars' auditions, leading directly to his casting as Han Solo.",
-    "hook": "He went to the studio just to fix a door. He ended up leaving as Han Solo.",
-    "key_facts": [
-      "Ford worked as a professional carpenter in Los Angeles to support his family after struggling to land major acting roles.",
-      "George Lucas hired him to build cabinets and read dialogue opposite auditioning actors for 'Star Wars'.",
-      "Lucas ultimately cast Ford in the iconic role after realizing his line delivery matched the character perfectly."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Harbans Singh Purewal",
-    "premise": "Inventing and manufacturing the first commercial combine harvester suitable for heavy Indian soil conditions.",
-    "hook": "Agricultural experts told him it was impossible to build a heavy-duty harvester locally, so he built it in a backyard workshop using scrap metal.",
-    "key_facts": [
-      "Faced severe import restrictions and high costs for foreign farming machinery in Punjab.",
-      "Spent years testing and modifying gears and threshing mechanisms by hand.",
-      "Successfully produced the first prototype in the 1970s, transforming regional agriculture.",
-      "Received recognition from agricultural universities for indigenous mechanical engineering."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "strange_turning_point",
-    "person": "Louis Braille",
-    "premise": "Adapting a military night-writing code into a tactile reading system for the blind after an accidental childhood injury.",
-    "hook": "A simple leather-working tool in his father's harness shop caused an infection that blinded him, which later led him to invent the world's most famous tactile alphabet.",
-    "key_facts": [
-      "Blinded in one eye at age three by an accidental puncture wound, leading to total blindness.",
-      "Attended the Royal Institution for Blind Youth in Paris as a teenager.",
-      "Adapted Captain Charles Barbier's 12-dot military cryptography into a simpler 6-dot cell system.",
-      "Published his reading method in 1829, though it was only widely adopted after his death."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "rise_from_nothing",
-    "person": "Kalpana Chawla",
-    "premise": "Journeying from a small town in Haryana to become the first Indian-born woman to fly in space.",
-    "hook": "Growing up in Karnal, she looked at airplanes flying overhead and decided against all local expectations that she would touch the stars.",
-    "key_facts": [
-      "Earned an engineering degree from Punjab Engineering College against societal norms for women at the time.",
-      "Emigrated to the United States to pursue graduate studies in aerospace engineering.",
-      "Joined NASA as a research scientist and was selected as an astronaut candidate in 1994.",
-      "Flew her first space shuttle mission, STS-87, in 1997."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "one_decision",
     "person": "Enzo Ferrari",
     "premise": "Shifting his company's entire focus from racing car development to building commercial sports cars to fund his racing team.",
@@ -103,15 +13,41 @@
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Amundsen",
-    "premise": "Winning the grueling race to the South Pole against the British expedition led by Robert Falcon Scott.",
-    "hook": "He secretly changed his entire expedition destination from the North Pole to the South Pole mid-voyage, stunning his crew and the world.",
+    "format": "one_decision",
+    "person": "Clara Barton",
+    "premise": "Stepping away from a secure government job to autonomously supply battlefields during the American Civil War.",
+    "hook": "A quiet government clerk packed her own wagons with medical supplies and rode directly onto active civil war battlefields.",
     "key_facts": [
-      "Utilized traditional Inuit survival techniques, fur clothing, and experienced sled dogs.",
-      "Reached the geographic South Pole on December 14, 1911.",
-      "Maintained accurate navigation and optimal sledding speeds through treacherous Antarctic terrain.",
-      "Returned safely without losing a single expedition member to the elements."
+      "Worked as one of the first female clerks in the US Patent Office.",
+      "Resigned her post in 1861 to independently distribute food and bandages to soldiers.",
+      "Gained permission from Union commanders to travel with army ambulances.",
+      "Later founded the American Red Cross in 1881."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Pelé",
+    "premise": "Rising from the slums of Bauru to win the World Cup at just 17 years old.",
+    "hook": "He played barefoot with socks stuffed with rags because his family could not afford a real leather football.",
+    "key_facts": [
+      "Born Edson Arantes do Nascimento in poverty in Minas Gerais, Brazil.",
+      "Learned to play soccer using grapefruits and rolled-up rags in the streets.",
+      "Made his international debut for Brazil at age 16.",
+      "Scored two goals in the 1958 World Cup final to secure Brazil's first title."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Rosa Parks",
+    "premise": "Refusing to give up her bus seat in Montgomery, sparking a pivotal movement against racial segregation.",
+    "hook": "Her decision on a crowded city bus was a deliberate, courageous stand built on years of civil rights activism.",
+    "key_facts": [
+      "Worked as a seamstress and served as secretary for the Montgomery chapter of the NAACP.",
+      "Was arrested on December 1, 1955, for violating Montgomery's segregation ordinances.",
+      "Triggered the 381-day Montgomery bus boycott organized by local Black leaders.",
+      "The boycott led to a U.S. Supreme Court ruling declaring segregated buses unconstitutional."
     ],
     "source": "gemini_original"
   }

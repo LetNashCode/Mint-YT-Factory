@@ -8393,6 +8393,231 @@
       "start": 5470.35,
       "reason": "The segment shows behind-the-scenes footage and a contemporary interview regarding Jim Henson's Labyrinth (featuring Jennifer Connelly), which serves as valid biographical illustration of his filmmaking career despite Jim Henson himself not being visible in the sampled frames.",
       "reviewed_at": 1792786097.699048
+    },
+    "83b05bef5ed7cc81212f1d0c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:WHIT09JohnPareInt",
+      "source_url": "https://archive.org/details/WHIT09JohnPareInt",
+      "person": "Louis Braille",
+      "start": 117.36,
+      "reason": "The sampled frames consist entirely of an animated logo title card for 'COINTELEVISION.COM'. There is no actual filmed historical footage or depiction of Louis Braille.",
+      "reviewed_at": 1792862563.6380217
+    },
+    "2e5d1bcc75065f2d09fce190": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cunytv_BCSPA115",
+      "source_url": "https://archive.org/details/cunytv_BCSPA115",
+      "person": "Louis Braille",
+      "start": 3406.65,
+      "reason": "The sampled frames consist entirely of college credits and title/copyright cards, containing no actual historical footage or depiction of Louis Braille.",
+      "reviewed_at": 1792862586.2929466
+    },
+    "8a8d06c2050810475ae9c108": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cunytv_BCSPA115",
+      "source_url": "https://archive.org/details/cunytv_BCSPA115",
+      "person": "Louis Braille",
+      "start": 3144.98,
+      "reason": "The footage shows a modern academic presentation/interview from 2009 featuring C. Michael Mellor discussing Louis Braille, not Louis Braille himself (who lived in the 19th century). Therefore, the person visible is not the biographical subject.",
+      "reviewed_at": 1792862617.0377564
+    },
+    "c19f94c280b85e7ce642d3cb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LouisBrailleAndTheBrailleAlphabet",
+      "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+      "person": "Louis Braille",
+      "start": 855.28,
+      "reason": "The frames consist entirely of rolling production credits over an exterior building shot, with no historical context or depiction of Louis Braille.",
+      "reviewed_at": 1792862644.7919447
+    },
+    "e732bd8aace54825dd269af5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "person": "Kalpana Chawla",
+      "start": 190.22,
+      "reason": "The footage shows a senator speaking in the US Senate next to a static photograph/poster of the Columbia crew. Kalpana Chawla is only seen as part of a still photograph, not in actual moving identity or event footage.",
+      "reviewed_at": 1792862744.4248579
+    },
+    "bc4fd42e24cfd72994d7ef4a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "person": "Kalpana Chawla",
+      "start": 406.3,
+      "reason": "The sampled frames show only a channel intro animation (\"Illinois Channel\") with a spinning globe. Kalpana Chawla is not visible, and the footage does not depict any relevant historical events or biographical context related to her.",
+      "reviewed_at": 1792862837.7069151
+    },
+    "a633a49b7e6240dce36ab557": {
+      "kind": "segment_rejection",
+      "source_id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+      "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+      "person": "Kalpana Chawla",
+      "start": 162.53,
+      "reason": "The footage shows a memorial plaque and a portrait poster of Kalpana Chawla, but she is not visibly present as a living subject in the moving footage. It serves as biographical illustration for her legacy and memorial at UT Arlington.",
+      "reviewed_at": 1792862851.9180927
+    },
+    "23e5ce74495dd40ff73ce4c5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+      "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+      "person": "Kalpana Chawla",
+      "start": 178.28,
+      "reason": "The video segment consists of a static shot of a framed plaque and certificate honoring Kalpana Chawla, which counts as a static photograph/display rather than dynamic archival footage. The subject herself is not clearly visible in the sampled frames, and the footage fails to meet the criteria for dynamic usable historical context.",
+      "reviewed_at": 1792862867.2365499
+    },
+    "b2180fd2d7b1a66399379600": {
+      "kind": "segment_rejection",
+      "source_id": "archive:israel-wohltater-der-menschheit",
+      "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+      "person": "Jonas Salk",
+      "start": 204.04,
+      "reason": "The footage shows Dr. Peter Salk (Jonas Salk's son), not Jonas Salk himself, speaking about his father in a BBC documentary clip. Therefore, Jonas Salk is not visibly present in the frames.",
+      "reviewed_at": 1792863009.1231794
+    },
+    "63e6817711bca3dfce3cfc1a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "source_url": "https://archive.org/details/ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "person": "Marie Curie",
+      "start": 73.23,
+      "reason": "The video segment shows modern actors and directors discussing a theatre production (\"The Half-Life of Marie Curie\"), not Marie Curie herself.",
+      "reviewed_at": 1792863196.3474061
+    },
+    "1c97200b924546cf91cdd2f2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "source_url": "https://archive.org/details/ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "person": "Marie Curie",
+      "start": 107.34,
+      "reason": "The footage shows modern participants discussing a theatre production about Marie Curie, not Marie Curie herself or historical footage of her life.",
+      "reviewed_at": 1792863205.544546
+    },
+    "066d493464c6f5f55de196f0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:rth_27169773_1200K",
+      "source_url": "https://archive.org/details/rth_27169773_1200K",
+      "person": "Marie Curie",
+      "start": 25.76,
+      "reason": "The segment features a modern studio host discussing Marie Curie in front of a screen displaying archival photos and graphic overlays. The actual subject, Marie Curie, is not visibly present in moving footage (only historical photographs on screen), making this a television talk show segment rather than usable historical or identity footage.",
+      "reviewed_at": 1792863218.1279612
+    },
+    "3db4996c3e7336d90fe0c2d0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:rth_27169773_1200K",
+      "source_url": "https://archive.org/details/rth_27169773_1200K",
+      "person": "Marie Curie",
+      "start": 56.9,
+      "reason": "The video segment is from a talk show or educational program featuring a host discussing Marie Curie in front of a screen displaying graphics and a portrait. Marie Curie herself is not visibly present in the footage; only the presenter and graphics/static photographs are shown.",
+      "reviewed_at": 1792863227.0348847
+    },
+    "f0f4c86f5b49f8e726ed775b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+      "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+      "person": "Marie Curie",
+      "start": 59.6,
+      "reason": "The segment primarily consists of static newspaper clippings, archival photos, and quote title cards rather than genuine moving archival footage of Marie Curie.",
+      "reviewed_at": 1792863264.2567017
+    },
+    "2e064245b2f767567a7b1c37": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+      "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+      "person": "Marie Curie",
+      "start": 105.1,
+      "reason": "The video shows a modern student talking in a bedroom, which does not depict Marie Curie or any historical context related to her life.",
+      "reviewed_at": 1792863276.534983
+    },
+    "55582b6b957d5003c0f04796": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cosdaz-Roald_Amundsen_Pullman_Car",
+      "source_url": "https://archive.org/details/cosdaz-Roald_Amundsen_Pullman_Car",
+      "person": "Amundsen",
+      "start": 364.97,
+      "reason": "The segment shows archival photographs of women in the 1940s and footage of a historic train car interior in Scottsdale. There is no connection to Roald Amundsen, the polar explorer.",
+      "reviewed_at": 1792863359.4747741
+    },
+    "28c01ee460214283b92446e9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cosdaz-Roald_Amundsen_Pullman_Car",
+      "source_url": "https://archive.org/details/cosdaz-Roald_Amundsen_Pullman_Car",
+      "person": "Amundsen",
+      "start": 519.24,
+      "reason": "The footage features an interview about a historic train car and shows an unrelated person (Earl D. Eisenhower) and static photographs, with no connection to Roald Amundsen.",
+      "reviewed_at": 1792863368.2655866
+    },
+    "a98353467225e7d756ad1cdf": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Meet_New_County_Commissioner_Roma_Amundsen",
+      "source_url": "https://archive.org/details/Meet_New_County_Commissioner_Roma_Amundsen",
+      "person": "Amundsen",
+      "start": 589.98,
+      "reason": "The video features Roma Amundson (Amundsen), but the subject of the biography is Roald Amundsen, the polar explorer. Therefore, this footage is entirely irrelevant.",
+      "reviewed_at": 1792863377.8684053
+    },
+    "9457f70f31cc23a93107e62b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Meet_New_County_Commissioner_Roma_Amundsen",
+      "source_url": "https://archive.org/details/Meet_New_County_Commissioner_Roma_Amundsen",
+      "person": "Amundsen",
+      "start": 840.69,
+      "reason": "The video features Roma Amundson, a local county commissioner in Nebraska, whereas the narration is about the polar explorer Amundsen. This is a mismatch of subjects.",
+      "reviewed_at": 1792863386.6461577
+    },
+    "9f5b7016df81fcc3bdcbb5d8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ualrar-Lucie_Amundsen_-_Building_an_Egg_Farm_PROMO",
+      "source_url": "https://archive.org/details/ualrar-Lucie_Amundsen_-_Building_an_Egg_Farm_PROMO",
+      "person": "Amundsen",
+      "start": 45.05,
+      "reason": "The footage shows Lucie Amundsen speaking at an event, not Roald Amundsen, making it entirely irrelevant to a biography of Roald Amundsen.",
+      "reviewed_at": 1792863397.5434349
+    },
+    "91d308b69fefb006efab2292": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ualrar-Lucie_Amundsen_-_Building_an_Egg_Farm_PROMO",
+      "source_url": "https://archive.org/details/ualrar-Lucie_Amundsen_-_Building_an_Egg_Farm_PROMO",
+      "person": "Amundsen",
+      "start": 65.07,
+      "reason": "The footage shows Lucie Amundsen speaking at an event, but the subject of the video biography is Amundsen (Roald Amundsen, the polar explorer). This is a severe mismatch in identity.",
+      "reviewed_at": 1792863407.4189022
+    },
+    "2c4abd6a3325428fdd762a5a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Amundsen_High_School",
+      "source_url": "https://archive.org/details/Amundsen_High_School",
+      "person": "Amundsen",
+      "start": 284.68,
+      "reason": "The video shows modern students presenting at a school project event ('Sounds in the City'), which has no connection to the historical explorer Roald Amundsen, despite the school's name.",
+      "reviewed_at": 1792863421.6611423
+    },
+    "96fce155849fcf14490617d9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Amundsen_High_School",
+      "source_url": "https://archive.org/details/Amundsen_High_School",
+      "person": "Amundsen",
+      "start": 404.54,
+      "reason": "The video shows a modern panel discussion at Amundsen High School, which has no connection to the historical explorer Roald Amundsen.",
+      "reviewed_at": 1792863429.716724
+    },
+    "bcc4c55944250dea66f58e3a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Roald_Amundsen_High_School",
+      "source_url": "https://archive.org/details/Roald_Amundsen_High_School",
+      "person": "Amundsen",
+      "start": 294.65,
+      "reason": "The video segment shows modern students presenting at a high school competition in 2016, which has no connection to the historical figure Roald Amundsen.",
+      "reviewed_at": 1792863438.4066343
+    },
+    "4ee4950185d38289cc04feda": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Roald_Amundsen_High_School",
+      "source_url": "https://archive.org/details/Roald_Amundsen_High_School",
+      "person": "Amundsen",
+      "start": 418.78,
+      "reason": "The footage shows modern students presenting a school project at the 2016 Aspen Challenge, which has no connection to the historical polar explorer Roald Amundsen despite the school's name.",
+      "reviewed_at": 1792863446.9589174
     }
   }
 }

@@ -11,7 +11,7 @@
       "likes": 14,
       "comments": 0,
       "engagement_rate": 1.2844,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 1090,
       "analytics_likes": 14,
       "analytics_comments": 0,
@@ -745,6 +745,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 128.0
+      },
+      {
+        "views": 1090,
+        "likes": 14,
+        "comments": 0,
+        "engagement_rate": 1.2844,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 1090,
+        "analytics_likes": 14,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 41.0,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 128.0
       }
     ]
   },
@@ -760,7 +776,7 @@
       "likes": 1,
       "comments": 0,
       "engagement_rate": 0.266,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 376,
       "analytics_likes": 1,
       "analytics_comments": 0,
@@ -1487,6 +1503,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 28.0
+      },
+      {
+        "views": 376,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 0.266,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 376,
+        "analytics_likes": 1,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 15.0,
+        "average_view_percentage": 38.03,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 28.0
       }
     ]
   },
@@ -1502,7 +1534,7 @@
       "likes": 16,
       "comments": 0,
       "engagement_rate": 1.4801,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 1081,
       "analytics_likes": 16,
       "analytics_comments": 0,
@@ -2222,6 +2254,22 @@
         "subscribers_gained": 2,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 182.0
+      },
+      {
+        "views": 1081,
+        "likes": 16,
+        "comments": 0,
+        "engagement_rate": 1.4801,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 1081,
+        "analytics_likes": 16,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 43.39,
+        "subscribers_gained": 2,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 182.0
       }
     ]
   },
@@ -2237,7 +2285,7 @@
       "likes": 13,
       "comments": 0,
       "engagement_rate": 1.2048,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 1079,
       "analytics_likes": 13,
       "analytics_comments": 0,
@@ -2950,6 +2998,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 221.0
+      },
+      {
+        "views": 1079,
+        "likes": 13,
+        "comments": 0,
+        "engagement_rate": 1.2048,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 1079,
+        "analytics_likes": 13,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 24.0,
+        "average_view_percentage": 60.809999999999995,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 221.0
       }
     ]
   },
@@ -2965,7 +3029,7 @@
       "likes": 15,
       "comments": 0,
       "engagement_rate": 1.4205,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 1056,
       "analytics_likes": 15,
       "analytics_comments": 0,
@@ -3671,6 +3735,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 150.0
+      },
+      {
+        "views": 1056,
+        "likes": 15,
+        "comments": 0,
+        "engagement_rate": 1.4205,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 1056,
+        "analytics_likes": 15,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 18.0,
+        "average_view_percentage": 41.49,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 150.0
       }
     ]
   },
@@ -3686,7 +3766,7 @@
       "likes": 1,
       "comments": 0,
       "engagement_rate": 7.1429,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 14,
       "analytics_likes": 1,
       "analytics_comments": 0,
@@ -4385,6 +4465,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 2.0
+      },
+      {
+        "views": 14,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 7.1429,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 14,
+        "analytics_likes": 1,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 16.0,
+        "average_view_percentage": 37.76,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 2.0
       }
     ]
   },
@@ -4400,7 +4496,7 @@
       "likes": 1,
       "comments": 0,
       "engagement_rate": 2.8571,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 35,
       "analytics_likes": 1,
       "analytics_comments": 0,
@@ -4931,6 +5027,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 8.0
+      },
+      {
+        "views": 35,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 2.8571,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 35,
+        "analytics_likes": 1,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 32.0,
+        "average_view_percentage": 71.81,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 8.0
       }
     ]
   },
@@ -4946,7 +5058,7 @@
       "likes": 1,
       "comments": 0,
       "engagement_rate": 3.0303,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 33,
       "analytics_likes": 1,
       "analytics_comments": 0,
@@ -5419,6 +5531,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 5.0
+      },
+      {
+        "views": 33,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 3.0303,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 33,
+        "analytics_likes": 1,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 19.0,
+        "average_view_percentage": 44.08,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 5.0
       }
     ]
   },
@@ -5434,7 +5562,7 @@
       "likes": 29,
       "comments": 0,
       "engagement_rate": 2.7885,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 1040,
       "analytics_likes": 29,
       "analytics_comments": 0,
@@ -5900,6 +6028,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 344.0
+      },
+      {
+        "views": 1040,
+        "likes": 29,
+        "comments": 0,
+        "engagement_rate": 2.7885,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 1040,
+        "analytics_likes": 29,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 38.0,
+        "average_view_percentage": 86.52,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 344.0
       }
     ]
   },
@@ -5915,7 +6059,7 @@
       "likes": 0,
       "comments": 0,
       "engagement_rate": 0.0,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 192,
       "analytics_likes": 0,
       "analytics_comments": 0,
@@ -6288,6 +6432,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 18.0
+      },
+      {
+        "views": 192,
+        "likes": 0,
+        "comments": 0,
+        "engagement_rate": 0.0,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 192,
+        "analytics_likes": 0,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 12.0,
+        "average_view_percentage": 28.470000000000002,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 18.0
       }
     ]
   },
@@ -6299,11 +6459,11 @@
     "title": "The Impossible Comeback: Dolly Parton",
     "workdir": "output/interactive/1791966510",
     "latest": {
-      "views": 1208,
+      "views": 1211,
       "likes": 43,
       "comments": 2,
-      "engagement_rate": 3.7252,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "engagement_rate": 3.7159,
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 1208,
       "analytics_likes": 43,
       "analytics_comments": 1,
@@ -6624,6 +6784,22 @@
         "subscribers_gained": 3,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 301.0
+      },
+      {
+        "views": 1211,
+        "likes": 43,
+        "comments": 2,
+        "engagement_rate": 3.7159,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 1208,
+        "analytics_likes": 43,
+        "analytics_comments": 1,
+        "shares": 1,
+        "average_view_duration": 28.0,
+        "average_view_percentage": 62.45,
+        "subscribers_gained": 3,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 301.0
       }
     ]
   },
@@ -6639,7 +6815,7 @@
       "likes": 1,
       "comments": 0,
       "engagement_rate": 1.3158,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 76,
       "analytics_likes": 1,
       "analytics_comments": 0,
@@ -6946,6 +7122,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 23.0
+      },
+      {
+        "views": 76,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 1.3158,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 76,
+        "analytics_likes": 1,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 49.0,
+        "average_view_percentage": 118.77,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 23.0
       }
     ]
   },
@@ -6961,7 +7153,7 @@
       "likes": 1,
       "comments": 0,
       "engagement_rate": 2.9412,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 34,
       "analytics_likes": 1,
       "analytics_comments": 0,
@@ -7227,6 +7419,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 8.0
+      },
+      {
+        "views": 34,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 2.9412,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 34,
+        "analytics_likes": 1,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 25.0,
+        "average_view_percentage": 57.04,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 8.0
       }
     ]
   },
@@ -7242,7 +7450,7 @@
       "likes": 0,
       "comments": 0,
       "engagement_rate": 0.0,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 20,
       "analytics_likes": 0,
       "analytics_comments": 0,
@@ -7439,6 +7647,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 2.0
+      },
+      {
+        "views": 22,
+        "likes": 0,
+        "comments": 0,
+        "engagement_rate": 0.0,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 20,
+        "analytics_likes": 0,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 18.0,
+        "average_view_percentage": 45.72,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 2.0
       }
     ]
   },
@@ -7450,11 +7674,11 @@
     "title": "Against Impossible Odds: Edmund Hillary",
     "workdir": "output/interactive/1792231655",
     "latest": {
-      "views": 57,
+      "views": 58,
       "likes": 1,
       "comments": 0,
-      "engagement_rate": 1.7544,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "engagement_rate": 1.7241,
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 57,
       "analytics_likes": 1,
       "analytics_comments": 0,
@@ -7644,6 +7868,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 6.0
+      },
+      {
+        "views": 58,
+        "likes": 1,
+        "comments": 0,
+        "engagement_rate": 1.7241,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 57,
+        "analytics_likes": 1,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 14.0,
+        "average_view_percentage": 43.7,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 6.0
       }
     ]
   },
@@ -7655,11 +7895,11 @@
     "title": "Before the Fame: Amitabh Bachchan",
     "workdir": "output/interactive/1792256810",
     "latest": {
-      "views": 85,
+      "views": 86,
       "likes": 5,
       "comments": 0,
-      "engagement_rate": 5.8824,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "engagement_rate": 5.814,
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 84,
       "analytics_likes": 5,
       "analytics_comments": 0,
@@ -7842,6 +8082,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 12.0
+      },
+      {
+        "views": 86,
+        "likes": 5,
+        "comments": 0,
+        "engagement_rate": 5.814,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 84,
+        "analytics_likes": 5,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 47.29,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 12.0
       }
     ]
   },
@@ -7857,7 +8113,7 @@
       "likes": 44,
       "comments": 2,
       "engagement_rate": 3.7674,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 1218,
       "analytics_likes": 44,
       "analytics_comments": 1,
@@ -8033,6 +8289,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 197.0
+      },
+      {
+        "views": 1221,
+        "likes": 44,
+        "comments": 2,
+        "engagement_rate": 3.7674,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 1218,
+        "analytics_likes": 44,
+        "analytics_comments": 1,
+        "shares": 0,
+        "average_view_duration": 19.0,
+        "average_view_percentage": 44.45,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 197.0
       }
     ]
   },
@@ -8048,7 +8320,7 @@
       "likes": 2,
       "comments": 0,
       "engagement_rate": 3.1746,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 61,
       "analytics_likes": 2,
       "analytics_comments": 0,
@@ -8190,6 +8462,22 @@
         "subscribers_gained": 1,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 4.0
+      },
+      {
+        "views": 63,
+        "likes": 2,
+        "comments": 0,
+        "engagement_rate": 3.1746,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 61,
+        "analytics_likes": 2,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 28.0,
+        "average_view_percentage": 75.27,
+        "subscribers_gained": 1,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 4.0
       }
     ]
   },
@@ -8205,7 +8493,7 @@
       "likes": 2,
       "comments": 1,
       "engagement_rate": 2.5424,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 118,
       "analytics_likes": 2,
       "analytics_comments": 1,
@@ -8340,6 +8628,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 16.0
+      },
+      {
+        "views": 118,
+        "likes": 2,
+        "comments": 1,
+        "engagement_rate": 2.5424,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 118,
+        "analytics_likes": 2,
+        "analytics_comments": 1,
+        "shares": 0,
+        "average_view_duration": 17.0,
+        "average_view_percentage": 38.94,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 16.0
       }
     ]
   },
@@ -8355,7 +8659,7 @@
       "likes": 0,
       "comments": 0,
       "engagement_rate": 0.0,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 37,
       "analytics_likes": 0,
       "analytics_comments": 0,
@@ -8483,6 +8787,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 3.0
+      },
+      {
+        "views": 37,
+        "likes": 0,
+        "comments": 0,
+        "engagement_rate": 0.0,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 37,
+        "analytics_likes": 0,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 21.0,
+        "average_view_percentage": 58.69,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 3.0
       }
     ]
   },
@@ -8498,7 +8818,7 @@
       "likes": 3,
       "comments": 0,
       "engagement_rate": 1.0563,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 285,
       "analytics_likes": 3,
       "analytics_comments": 0,
@@ -8610,6 +8930,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 19.0
+      },
+      {
+        "views": 284,
+        "likes": 3,
+        "comments": 0,
+        "engagement_rate": 1.0563,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 285,
+        "analytics_likes": 3,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 13.0,
+        "average_view_percentage": 38.79,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 19.0
       }
     ]
   },
@@ -8625,7 +8961,7 @@
       "likes": 2,
       "comments": 0,
       "engagement_rate": 3.7037,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 55,
       "analytics_likes": 2,
       "analytics_comments": 0,
@@ -8730,6 +9066,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 9.0
+      },
+      {
+        "views": 54,
+        "likes": 2,
+        "comments": 0,
+        "engagement_rate": 3.7037,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 55,
+        "analytics_likes": 2,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 25.0,
+        "average_view_percentage": 56.96,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 9.0
       }
     ]
   },
@@ -8745,7 +9097,7 @@
       "likes": 4,
       "comments": 0,
       "engagement_rate": 2.139,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 89,
       "analytics_likes": 1,
       "analytics_comments": 0,
@@ -8825,6 +9177,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 8.0
+      },
+      {
+        "views": 187,
+        "likes": 4,
+        "comments": 0,
+        "engagement_rate": 2.139,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 89,
+        "analytics_likes": 1,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 16.0,
+        "average_view_percentage": 42.46,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 8.0
       }
     ]
   },
@@ -8836,11 +9204,11 @@
     "title": "The Decision That Changed Everything: Audrey Hepburn",
     "workdir": "output/interactive/1792527445",
     "latest": {
-      "views": 433,
+      "views": 432,
       "likes": 2,
       "comments": 0,
-      "engagement_rate": 0.4619,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00",
+      "engagement_rate": 0.463,
+      "checked_at": "2026-10-24T17:22:13.448470+00:00",
       "analytics_views": 81,
       "analytics_likes": 1,
       "analytics_comments": 0,
@@ -8913,6 +9281,22 @@
         "subscribers_gained": 0,
         "subscribers_lost": 0,
         "estimated_minutes_watched": 7.0
+      },
+      {
+        "views": 432,
+        "likes": 2,
+        "comments": 0,
+        "engagement_rate": 0.463,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00",
+        "analytics_views": 81,
+        "analytics_likes": 1,
+        "analytics_comments": 0,
+        "shares": 0,
+        "average_view_duration": 19.0,
+        "average_view_percentage": 48.43,
+        "subscribers_gained": 0,
+        "subscribers_lost": 0,
+        "estimated_minutes_watched": 7.0
       }
     ]
   },
@@ -8924,11 +9308,11 @@
     "title": "Against Impossible Odds: Valentina Tereshkova",
     "workdir": "output/interactive/1792695847",
     "latest": {
-      "views": 96,
+      "views": 100,
       "likes": 0,
       "comments": 0,
       "engagement_rate": 0.0,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00"
+      "checked_at": "2026-10-24T17:22:13.448470+00:00"
     },
     "snapshots": [
       {
@@ -8951,6 +9335,13 @@
         "comments": 0,
         "engagement_rate": 0.0,
         "checked_at": "2026-10-23T19:51:19.656864+00:00"
+      },
+      {
+        "views": 100,
+        "likes": 0,
+        "comments": 0,
+        "engagement_rate": 0.0,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00"
       }
     ]
   },
@@ -8962,11 +9353,11 @@
     "title": "The Decision That Changed Everything: B-B King",
     "workdir": "output/interactive/1792703312",
     "latest": {
-      "views": 164,
+      "views": 284,
       "likes": 5,
       "comments": 0,
-      "engagement_rate": 3.0488,
-      "checked_at": "2026-10-23T19:51:19.656864+00:00"
+      "engagement_rate": 1.7606,
+      "checked_at": "2026-10-24T17:22:13.448470+00:00"
     },
     "snapshots": [
       {
@@ -8982,6 +9373,13 @@
         "comments": 0,
         "engagement_rate": 3.0488,
         "checked_at": "2026-10-23T19:51:19.656864+00:00"
+      },
+      {
+        "views": 284,
+        "likes": 5,
+        "comments": 0,
+        "engagement_rate": 1.7606,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00"
       }
     ]
   },
@@ -8992,7 +9390,21 @@
     "person": "Jim Henson",
     "title": "Before the Fame: Jim Henson",
     "workdir": "output/interactive/1792786141",
-    "latest": {},
-    "snapshots": []
+    "latest": {
+      "views": 12,
+      "likes": 0,
+      "comments": 0,
+      "engagement_rate": 0.0,
+      "checked_at": "2026-10-24T17:22:13.448470+00:00"
+    },
+    "snapshots": [
+      {
+        "views": 12,
+        "likes": 0,
+        "comments": 0,
+        "engagement_rate": 0.0,
+        "checked_at": "2026-10-24T17:22:13.448470+00:00"
+      }
+    ]
   }
 ]

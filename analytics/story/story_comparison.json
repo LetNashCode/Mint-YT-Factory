@@ -1,11 +1,11 @@
 {
   "story_shorts": {
-    "videos": 26,
-    "avg_views": 389.81,
+    "videos": 27,
+    "avg_views": 380.56,
     "avg_comments": 0.19,
     "avg_shares": 0.04,
-    "avg_likes": 7.92,
-    "avg_view_percentage": 48.94
+    "avg_likes": 7.63,
+    "avg_view_percentage": 47.12
   },
   "strange_turning_point": {
     "videos": 8,
@@ -17,7 +17,7 @@
   },
   "impossible_odds": {
     "videos": 5,
-    "avg_views": 169.2,
+    "avg_views": 170.2,
     "avg_comments": 0.0,
     "avg_shares": 0.0,
     "avg_likes": 1.2,
@@ -25,7 +25,7 @@
   },
   "rise_from_nothing": {
     "videos": 4,
-    "avg_views": 636.0,
+    "avg_views": 636.75,
     "avg_comments": 0.5,
     "avg_shares": 0.25,
     "avg_likes": 15.25,
@@ -33,7 +33,7 @@
   },
   "one_decision": {
     "videos": 5,
-    "avg_views": 363.2,
+    "avg_views": 387.0,
     "avg_comments": 0.2,
     "avg_shares": 0.0,
     "avg_likes": 4.4,
@@ -41,7 +41,7 @@
   },
   "before_they_were_famous": {
     "videos": 5,
-    "avg_views": 443.0,
+    "avg_views": 445.6,
     "avg_comments": 0.0,
     "avg_shares": 0.0,
     "avg_likes": 10.0,

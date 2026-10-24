@@ -1,19 +1,6 @@
 [
   {
     "format": "one_decision",
-    "person": "Enzo Ferrari",
-    "premise": "Shifting his company's entire focus from racing car development to building commercial sports cars to fund his racing team.",
-    "hook": "He hated selling road cars to the public, but realized it was the only way to keep his beloved racing division alive.",
-    "key_facts": [
-      "Initially ran the Alfa Romeo racing division before founding Auto Avio Costruzioni.",
-      "Built the first official Ferrari-badged car, the 125 S, in 1947.",
-      "Reluctantly sold road-going sports cars to finance his Scuderia Ferrari racing entries.",
-      "Achieved widespread international dominance in both Formula One and endurance racing."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
     "person": "Clara Barton",
     "premise": "Stepping away from a secure government job to autonomously supply battlefields during the American Civil War.",
     "hook": "A quiet government clerk packed her own wagons with medical supplies and rode directly onto active civil war battlefields.",
@@ -48,6 +35,19 @@
       "Was arrested on December 1, 1955, for violating Montgomery's segregation ordinances.",
       "Triggered the 381-day Montgomery bus boycott organized by local Black leaders.",
       "The boycott led to a U.S. Supreme Court ruling declaring segregated buses unconstitutional."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Jonas Salk",
+    "premise": "Choosing not to patent the polio vaccine, making it freely available to the public during a terrifying global epidemic.",
+    "hook": "When asked who owned the patent to the polio vaccine that saved millions of children, he simply replied: 'The people, I would say. There is no patent.'",
+    "key_facts": [
+      "Led the research team that developed one of the first successful polio vaccines in the early 1950s.",
+      "Polio epidemics regularly paralyzed or killed thousands of children annually prior to the vaccine.",
+      "The decision to forgo patenting meant losing billions of potential personal dollars for the greater public good.",
+      "Archival newsreels and press conferences capture the massive public relief following the vaccine trials."
     ],
     "source": "gemini_original"
   }

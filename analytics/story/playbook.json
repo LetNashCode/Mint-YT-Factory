@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-24T17:37:33.237856+00:00",
+  "generated_at": "2026-10-24T19:20:50.218945+00:00",
   "video_count": 27,
-  "learning_sample_size": 18,
+  "learning_sample_size": 20,
   "learning_ready": true,
   "metrics_available": true,
   "comparative_learning_ready": true,
-  "advanced_metrics_videos": 18,
+  "advanced_metrics_videos": 20,
   "creative_learning_version": "v6",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
@@ -17,7 +17,7 @@
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 20.457,
+      "score": 19.876,
       "sample_size": 5
     }
   ],
@@ -32,10 +32,10 @@
     "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes."
   ],
   "avoid_topics": [
-    "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
     "Carl Sagan: The choice to include Earth sounds and music on a golden record aboard Voyager spacecraft, risking ridicule from orthodox scientists.",
     "Diana Nyad: Attempting a historic 110-mile open-ocean swim from Cuba to Florida at the age of 64 after multiple prior failures.",
     "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
+    "Valentina Tereshkova: A textile factory worker and amateur parachutist selected to become the first woman in space.",
     "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age."
   ],
   "used_topic_count": 27,

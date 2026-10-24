@@ -2,905 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "George Lucas",
-      "source": {
-        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
-        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
-        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
-        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
-        "creator": "The Aspen Institute",
-        "license": "",
-        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
-        "runtime": "00:31:43",
-        "direct_subject": true,
-        "duration_hint": 1903.2,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 150.32,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage clearly shows George Lucas on stage at the Aspen Institute holding an award alongside Michael Eisner, serving as valid archival evidence of his life and career for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6b8f54f8869f3134635ecb52456e3357bc0b9189a73a8023436af8ae73ec8c76",
-      "reviewed_at": 1790811875.9177108
-    },
-    {
-      "person": "George Lucas",
-      "source": {
-        "id": "archive:lucas_nolan",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/lucas_nolan/lucas_nolan.mp4",
-        "source_url": "https://archive.org/details/lucas_nolan",
-        "title": "George Lucas on the Impact of Star Wars",
-        "description": "Christopher Nolan interviews George Lucas george luca, christopher nolan, interviews, star wars, directors",
-        "creator": "George Lucas, Christopher Nolan",
-        "license": "",
-        "subject": "george luca, christopher nolan, interviews, star wars, directors",
-        "runtime": "57:57",
-        "direct_subject": true,
-        "duration_hint": 3477.106967,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 271.39,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage clearly shows George Lucas speaking in an interview setting across all three frames. While it is an interview rather than direct historical event footage, it serves as usable biographical illustration of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "301d35eccefe0905521e744523eab4833e50019bb5a03938adb68a78919a3713",
-      "reviewed_at": 1790811891.9427557
-    },
-    {
-      "person": "George Lucas",
-      "source": {
-        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
-        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
-        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
-        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
-        "creator": "The Aspen Institute",
-        "license": "",
-        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
-        "runtime": "00:31:43",
-        "direct_subject": true,
-        "duration_hint": 1903.2,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 440.97,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video clip features actual moving archival footage of George Lucas participating in a conversation/interview, clearly visible in all three frames, serving as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "3708af92b7840492bbd14292533ec297523b4eddb5fdb4d9504d6ddf1b785b35",
-      "reviewed_at": 1790811901.7745435
-    },
-    {
-      "person": "George Lucas",
-      "source": {
-        "id": "archive:lucas_nolan",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/lucas_nolan/lucas_nolan.mp4",
-        "source_url": "https://archive.org/details/lucas_nolan",
-        "title": "George Lucas on the Impact of Star Wars",
-        "description": "Christopher Nolan interviews George Lucas george luca, christopher nolan, interviews, star wars, directors",
-        "creator": "George Lucas, Christopher Nolan",
-        "license": "",
-        "subject": "george luca, christopher nolan, interviews, star wars, directors",
-        "runtime": "57:57",
-        "direct_subject": true,
-        "duration_hint": 3477.106967,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 804.18,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "George Lucas is clearly visible in all three frames participating in an interview, providing genuine biographical footage suitable for illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a8bf34db893bd2cc2e5aa04514b9335007298664e0d5255ed7b12018f5dac3ad",
-      "reviewed_at": 1790811924.6193686
-    },
-    {
-      "person": "George Lucas",
-      "source": {
-        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
-        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
-        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
-        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
-        "creator": "The Aspen Institute",
-        "license": "",
-        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
-        "runtime": "00:31:43",
-        "direct_subject": true,
-        "duration_hint": 1903.2,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 731.62,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows actual filmed footage of George Lucas participating in a panel discussion/interview alongside Michael Eisner, providing biographical context, though it is a seated interview rather than direct historical event footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f213b0942de6a8dde22c5f74ec0dc836fe5ac5590fcf645525aad9632db58cd3",
-      "reviewed_at": 1790811933.7855456
-    },
-    {
-      "person": "George Lucas",
-      "source": {
-        "id": "archive:lucas_nolan",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/lucas_nolan/lucas_nolan.mp4",
-        "source_url": "https://archive.org/details/lucas_nolan",
-        "title": "George Lucas on the Impact of Star Wars",
-        "description": "Christopher Nolan interviews George Lucas george luca, christopher nolan, interviews, star wars, directors",
-        "creator": "George Lucas, Christopher Nolan",
-        "license": "",
-        "subject": "george luca, christopher nolan, interviews, star wars, directors",
-        "runtime": "57:57",
-        "direct_subject": true,
-        "duration_hint": 3477.106967,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 1070.57,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage clearly shows George Lucas being interviewed by Christopher Nolan, providing biographical illustration of his life and career, though it is a talking head/interview clip rather than direct event footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "82cdb26606b595fe5245e59c35fe01cdff5ba04391dd7d8310f15375f8f93707",
-      "reviewed_at": 1790811942.7279303
-    },
-    {
-      "person": "George Lucas",
-      "source": {
-        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
-        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
-        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
-        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
-        "creator": "The Aspen Institute",
-        "license": "",
-        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
-        "runtime": "00:31:43",
-        "direct_subject": true,
-        "duration_hint": 1903.2,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 586.29,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage features George Lucas participating in a live conversation event on stage, making him clearly visible throughout the frames. However, it is a speaking/interview setting rather than direct historical archival event footage, making it useful as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e14786e200199eab7738f46ae80a298af9ef155b830dc334ede5545350578522",
-      "reviewed_at": 1790811944.5808911
-    },
-    {
-      "person": "George Lucas",
-      "source": {
-        "id": "archive:lucas_nolan",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/lucas_nolan/lucas_nolan.mp4",
-        "source_url": "https://archive.org/details/lucas_nolan",
-        "title": "George Lucas on the Impact of Star Wars",
-        "description": "Christopher Nolan interviews George Lucas george luca, christopher nolan, interviews, star wars, directors",
-        "creator": "George Lucas, Christopher Nolan",
-        "license": "",
-        "subject": "george luca, christopher nolan, interviews, star wars, directors",
-        "runtime": "57:57",
-        "direct_subject": true,
-        "duration_hint": 3477.106967,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 1336.96,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage clearly shows George Lucas speaking in an interview setting across all three frames, providing valid biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9e1fb48084f52c0065d1d4e41d79baa1fc885cbf23008f402ee26405de8f6802",
-      "reviewed_at": 1790811952.2540956
-    },
-    {
-      "person": "George Lucas",
-      "source": {
-        "id": "archive:A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony.mp4",
-        "source_url": "https://archive.org/details/A_Conversation_with_George_Lucas_and_Michael_Eisner_from_the_2012_Annual_Awards_Ceremony",
-        "title": "A Conversation with George Lucas and Michael Eisner from the 2012 Annual Awards Ceremony",
-        "description": "Director George Lucas and Aspen Institute Trustee Michael Eisner discuss the LucasFilm Lmtd. sale to Disney, Lucas' early days in cinema and his philanthropic endeavors. Recorded: November 14, 2012 ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
-        "creator": "The Aspen Institute",
-        "license": "",
-        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Michael Eisner (Organization Leader)', 'Award (Chivalric Title)', 'George Lucas (Celebrity)', 'Edutopia (Website)', 'Star Wars (Film Series)', 'Indiana Jones (Film Character)', 'The Walt Disney Company (Production Company)', 'arts', 'movie', 'Aspen Institute (Nonprofit Organization)', 'Conversation with', '2012']",
-        "runtime": "00:31:43",
-        "direct_subject": true,
-        "duration_hint": 1903.2,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 1603.55,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows George Lucas participating in an on-stage conversation/interview, making him clearly visible throughout the frames. While it's discussion footage rather than archival event footage, it provides genuine usable biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6633e5b64b20473708bf5e5804afa7c89360e5a6467c6eccfc065660c0912028",
-      "reviewed_at": 1790811977.0342672
-    },
-    {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:g4tv.com-video49139-flvhd",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/g4tv.com-video49139-flvhd/as20101007_guillermo_flvhd.mp4",
-        "source_url": "https://archive.org/details/g4tv.com-video49139-flvhd",
-        "title": "g4tv.com-video49139-flvhd: Guillermo del Toro Talks About His New Book, The Fall",
-        "description": "Guillermo del Toro, the director behind 'Hellboy' and 'Pan's Labyrinth' is returning to the literary world with his latest book, 'The Fall,' the second installment of 'The Strain' Trilogy. He stops by the studio to talk about writing, vampires and more! ['G4TV.com videos', 'flvhd']",
-        "creator": "G4TV.com",
-        "license": "",
-        "subject": "['G4TV.com videos', 'flvhd']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 419.686353,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 223.45,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows Guillermo del Toro clearly visible and sitting for an interview across all three frames, providing valid biographical footage, though it is a studio interview rather than direct historical event footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "179e55a20b691ea91c06bfaaf1179235ac16e3d5fedbff00feba5204ceb02fbe",
-      "reviewed_at": 1790887842.1774356
-    },
-    {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:twitter-1181834179241107456",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
-        "source_url": "https://archive.org/details/twitter-1181834179241107456",
-        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
-        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 53.3,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Guillermo del Toro being interviewed on television (The Late Show with Mark Kermode), matching the biographical context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "1a738022f5c27f4d1ff9c99b3e75d34cc663ea326ab73baf08432922d2fd7ebb",
-      "reviewed_at": 1790887938.086584
-    },
-    {
-      "person": "Fred Smith",
-      "source": {
-        "id": "archive:cobpca-The_Mayor_s_Show_featuring_Mayor_Fred_Smith",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/cobpca-The_Mayor_s_Show_featuring_Mayor_Fred_Smith/The_Mayor_s_Show_featuring_Mayor_Fred_Smith.mp4",
-        "source_url": "https://archive.org/details/cobpca-The_Mayor_s_Show_featuring_Mayor_Fred_Smith",
-        "title": "The Mayor's Show featuring Mayor Fred Smith",
-        "description": "Visit with Mayor Fred Smith on the Mayor's Show. Find out a little about some of the activities he's been involved with in the City of Buena Park during his eight years on City Council. It's a fun and enjoyable interview with Mayor Fred Smith. ['California', 'Buena Park', 'City of Buena Park', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'CIty of Buena Park', 'Visit Buena Park', 'Mayor', 'City Council', 'The Source at Beach', 'Rock & Brews', '85c Bakery', 'Beach Boulevard', 'City Planning', '2016']",
-        "creator": "City of Buena Park",
-        "license": "",
-        "subject": "['California', 'Buena Park', 'City of Buena Park', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'CIty of Buena Park', 'Visit Buena Park', 'Mayor', 'City Council', 'The Source at Beach', 'Rock & Brews', '85c Bakery', 'Beach Boulevard', 'City Planning', '2016']",
-        "runtime": "00:17:00",
-        "direct_subject": true,
-        "duration_hint": 1020.02002,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 778.86,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Fred Smith being interviewed outdoors, with him visible across all three frames in genuine archival video footage suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c880d8c5d9a1b653574b2b8fcb4e98ea7d03384c0ecd7b1a77e81624f871ca76",
-      "reviewed_at": 1790902683.444025
-    },
-    {
-      "person": "Fred Smith",
-      "source": {
-        "id": "archive:cobpca-The_Mayor_s_Show_featuring_Fred_Smith",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/cobpca-The_Mayor_s_Show_featuring_Fred_Smith/The_Mayor_s_Show_featuring_Fred_Smith.mp4",
-        "source_url": "https://archive.org/details/cobpca-The_Mayor_s_Show_featuring_Fred_Smith",
-        "title": "The Mayor's Show featuring Fred Smith",
-        "description": "The Mayor's Show featuring Mayor Fred Smith. The year 2020 has been a hectic year for everyone including Mayor Smith. Visit with the Mayor and learn about how the City has coped during the pandemic and what his message is for being involved in the City. ['California', 'Buena Park', 'City of Buena Park', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Visit Buena Park', 'Fred Smith', 'Smith and Sons Glass', 'Mayor', 'City Council', 'Vista Media Services', '2020']",
-        "creator": "City of Buena Park",
-        "license": "",
-        "subject": "['California', 'Buena Park', 'City of Buena Park', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Visit Buena Park', 'Fred Smith', 'Smith and Sons Glass', 'Mayor', 'City Council', 'Vista Media Services', '2020']",
-        "runtime": "00:44:56",
-        "direct_subject": true,
-        "duration_hint": 2695.895896,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 2068.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The named subject, Fred Smith, is clearly visible across all three frames in an interview setting, serving as biographical illustration footage for a video segment about him.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "7fecdc181f472418a2262753a492b375883261bbc2b61bf394bad857ead83c59",
-      "reviewed_at": 1790902744.362786
-    },
-    {
-      "person": "Fred Smith",
-      "source": {
-        "id": "archive:cobpca-The_Mayor_s_Show_featuring_Fred_Smith",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/cobpca-The_Mayor_s_Show_featuring_Fred_Smith/The_Mayor_s_Show_featuring_Fred_Smith.mp4",
-        "source_url": "https://archive.org/details/cobpca-The_Mayor_s_Show_featuring_Fred_Smith",
-        "title": "The Mayor's Show featuring Fred Smith",
-        "description": "The Mayor's Show featuring Mayor Fred Smith. The year 2020 has been a hectic year for everyone including Mayor Smith. Visit with the Mayor and learn about how the City has coped during the pandemic and what his message is for being involved in the City. ['California', 'Buena Park', 'City of Buena Park', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Visit Buena Park', 'Fred Smith', 'Smith and Sons Glass', 'Mayor', 'City Council', 'Vista Media Services', '2020']",
-        "creator": "City of Buena Park",
-        "license": "",
-        "subject": "['California', 'Buena Park', 'City of Buena Park', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Visit Buena Park', 'Fred Smith', 'Smith and Sons Glass', 'Mayor', 'City Council', 'Vista Media Services', '2020']",
-        "runtime": "00:44:56",
-        "direct_subject": true,
-        "duration_hint": 2695.895896,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 211.3,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Fred Smith (the Mayor) speaking directly to the camera in his office, perfectly matching the subject of the biography.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d49f70119527e23706b6af9ce8ea59dac8f6429aa05d55d1a25ae19ef060f6aa",
-      "reviewed_at": 1790902800.397341
-    },
-    {
-      "person": "Fred Smith",
-      "source": {
-        "id": "archive:cobpca-The_Mayor_s_Show_featuring_Fred_Smith",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/cobpca-The_Mayor_s_Show_featuring_Fred_Smith/The_Mayor_s_Show_featuring_Fred_Smith.mp4",
-        "source_url": "https://archive.org/details/cobpca-The_Mayor_s_Show_featuring_Fred_Smith",
-        "title": "The Mayor's Show featuring Fred Smith",
-        "description": "The Mayor's Show featuring Mayor Fred Smith. The year 2020 has been a hectic year for everyone including Mayor Smith. Visit with the Mayor and learn about how the City has coped during the pandemic and what his message is for being involved in the City. ['California', 'Buena Park', 'City of Buena Park', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Visit Buena Park', 'Fred Smith', 'Smith and Sons Glass', 'Mayor', 'City Council', 'Vista Media Services', '2020']",
-        "creator": "City of Buena Park",
-        "license": "",
-        "subject": "['California', 'Buena Park', 'City of Buena Park', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Visit Buena Park', 'Fred Smith', 'Smith and Sons Glass', 'Mayor', 'City Council', 'Vista Media Services', '2020']",
-        "runtime": "00:44:56",
-        "direct_subject": true,
-        "duration_hint": 2695.895896,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 417.6,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The frames show Fred Smith sitting at a desk and speaking in a recorded interview/show context, providing usable biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a7d6a3c66d5be4131e221951c6f803e9577a0c4da503b1b55ba7461341411a78",
-      "reviewed_at": 1790902807.602891
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1268396403711082496",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1268396403711082496/Dwayne_Johnson_-_Where_are_you_normalizeequality_blacklivesmatter-1268396403711082496.mp4",
-        "source_url": "https://archive.org/details/twitter-1268396403711082496",
-        "title": "Dwayne Johnson - Where are you? #normalizeequality #blacklivesmatter",
-        "description": "Where are you? #normalizeequality #blacklivesmatter https://t.co/Xid3BC4B2n Source: https://twitter.com/TheRock/status/1268396403711082496 Uploader: Dwayne Johnson ['Twitter', 'video', 'normalizeequality', 'blacklivesmatter']",
-        "creator": "Dwayne Johnson",
-        "license": "",
-        "subject": "['Twitter', 'video', 'normalizeequality', 'blacklivesmatter']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 505.533333,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 269.67,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage features Dwayne Johnson clearly visible across all three frames, speaking directly to the camera in genuine archival video context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "2b63f5f53e6071510bfa4f003778fe02b8447065b0d5ab83b7e807bb0d2e71cc",
-      "reviewed_at": 1790903155.5102541
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1268396403711082496",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1268396403711082496/Dwayne_Johnson_-_Where_are_you_normalizeequality_blacklivesmatter-1268396403711082496.mp4",
-        "source_url": "https://archive.org/details/twitter-1268396403711082496",
-        "title": "Dwayne Johnson - Where are you? #normalizeequality #blacklivesmatter",
-        "description": "Where are you? #normalizeequality #blacklivesmatter https://t.co/Xid3BC4B2n Source: https://twitter.com/TheRock/status/1268396403711082496 Uploader: Dwayne Johnson ['Twitter', 'video', 'normalizeequality', 'blacklivesmatter']",
-        "creator": "Dwayne Johnson",
-        "license": "",
-        "subject": "['Twitter', 'video', 'normalizeequality', 'blacklivesmatter']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 505.533333,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 42.81,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Dwayne Johnson is clearly visible in all three frames speaking directly to the camera, serving as usable biographical illustration of the subject, although it is a talking head clip rather than historical footage of a specific biographical event.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9ccf337be7fd40eb5a2c1f41e8c2419da54f23395582af71609119863d88c548",
-      "reviewed_at": 1790903259.4045527
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1268396403711082496",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1268396403711082496/Dwayne_Johnson_-_Where_are_you_normalizeequality_blacklivesmatter-1268396403711082496.mp4",
-        "source_url": "https://archive.org/details/twitter-1268396403711082496",
-        "title": "Dwayne Johnson - Where are you? #normalizeequality #blacklivesmatter",
-        "description": "Where are you? #normalizeequality #blacklivesmatter https://t.co/Xid3BC4B2n Source: https://twitter.com/TheRock/status/1268396403711082496 Uploader: Dwayne Johnson ['Twitter', 'video', 'normalizeequality', 'blacklivesmatter']",
-        "creator": "Dwayne Johnson",
-        "license": "",
-        "subject": "['Twitter', 'video', 'normalizeequality', 'blacklivesmatter']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 505.533333,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 118.43,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features Dwayne Johnson speaking directly to the camera, which serves as biographical illustration footage matching the subject's identity.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c1267dc834d143b398f9f65eab14fd5b0d34a1ddc319745e36e7b8ed3d8cb62e",
-      "reviewed_at": 1790903374.3691883
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1268396403711082496",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1268396403711082496/Dwayne_Johnson_-_Where_are_you_normalizeequality_blacklivesmatter-1268396403711082496.mp4",
-        "source_url": "https://archive.org/details/twitter-1268396403711082496",
-        "title": "Dwayne Johnson - Where are you? #normalizeequality #blacklivesmatter",
-        "description": "Where are you? #normalizeequality #blacklivesmatter https://t.co/Xid3BC4B2n Source: https://twitter.com/TheRock/status/1268396403711082496 Uploader: Dwayne Johnson ['Twitter', 'video', 'normalizeequality', 'blacklivesmatter']",
-        "creator": "Dwayne Johnson",
-        "license": "",
-        "subject": "['Twitter', 'video', 'normalizeequality', 'blacklivesmatter']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 505.533333,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 194.05,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "Dwayne Johnson is clearly visible in all three frames, providing valid biographical footage of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e5d6b8d2cdaa0a8ac6a2849fe2c6ddbff80013a4eee2806369c2003cd149c979",
-      "reviewed_at": 1790903391.8688688
-    },
-    {
-      "person": "Bob Denver",
-      "source": {
-        "id": "archive:MonsterVisionBobDenver",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/MonsterVisionBobDenver/MonsterVision_Bob_Denver.mp4",
-        "source_url": "https://archive.org/details/MonsterVisionBobDenver",
-        "title": "Monster Vision Bob Denver",
-        "description": "single video monstervision",
-        "creator": "",
-        "license": "",
-        "subject": "monstervision",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 244.944945,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 129.35,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage shows Bob Denver acting in an archival clip/movie scene (holding a spear in costume), making it valid biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6fb07f199db3f07b9d740c4fc4ca3388e54e4f60a529eb317f824382b6e375fc",
-      "reviewed_at": 1790939647.724685
-    },
-    {
-      "person": "Bob Denver",
-      "source": {
-        "id": "archive:whatever-happened-to-dobie-gillis",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/whatever-happened-to-dobie-gillis/Whatever%20Happened%20to%20Dobie%20Gillis.mp4",
-        "source_url": "https://archive.org/details/whatever-happened-to-dobie-gillis",
-        "title": "Whatever Happened to Dobie Gillis? 1977",
-        "description": "A one-off special from 1977 and, though it is over a decade after the original series ended, it is like it never did! ['Dobie Gillis', 'Dwayne Hickman', 'Sheila Kuehl', 'Bob Denver', 'Frank Faylen', 'Zelda', 'Maynard']",
-        "creator": "",
-        "license": "",
-        "subject": "['Dobie Gillis', 'Dwayne Hickman', 'Sheila Kuehl', 'Bob Denver', 'Frank Faylen', 'Zelda', 'Maynard']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 1384.8835,
-        "identity_score": 10.0,
-        "archival_signal": 0
-      },
-      "start": 743.17,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The clip features genuine archival television footage of Bob Denver acting on a set from 1977 ('Whatever Happened to Dobie Gillis?'), making it relevant as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b2d40697bcde316a7480db29e1d52a3ba5c60a796373c1074e24a80cebc79637",
-      "reviewed_at": 1790939699.3549123
-    },
-    {
-      "person": "Steve Jobs",
-      "source": {
-        "id": "archive:brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version/Brutally%20Honest%20Advice%20From%20Steve%20Jobs%20_%20BEST%20SPEECH%20Ever%21%20%28HQ%20Version%29.mp4",
-        "source_url": "https://archive.org/details/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
-        "title": "Brutally Honest Advice From Steve Jobs BEST SPEECH Ever! ( HQ Version)",
-        "description": "Advice about life and success Steve Jobs",
-        "creator": "",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "Steve Jobs",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 870.8,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 466.35,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Steve Jobs speaking at a podium, matching the biographical context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "53b05fa6a94791c01210c56a6d5e6a3afe77bd1c91c09815d51be80ebe932b0f",
-      "reviewed_at": 1790940031.6660671
-    },
-    {
-      "person": "Steve Jobs",
-      "source": {
-        "id": "archive:brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version/Brutally%20Honest%20Advice%20From%20Steve%20Jobs%20_%20BEST%20SPEECH%20Ever%21%20%28HQ%20Version%29.mp4",
-        "source_url": "https://archive.org/details/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
-        "title": "Brutally Honest Advice From Steve Jobs BEST SPEECH Ever! ( HQ Version)",
-        "description": "Advice about life and success Steve Jobs",
-        "creator": "",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "Steve Jobs",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 870.8,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage shows Steve Jobs delivering his famous Stanford commencement address, clearly visible across all three frames, making it genuine direct event footage of his life.",
-        "usage": "direct_event"
-      },
-      "review_key": "5bb4f168e608346be8809533a14ccf3d868aa82c6e9e90a364f09c4ee447347e",
-      "reviewed_at": 1790940048.0740752
-    },
-    {
-      "person": "Steve Jobs",
-      "source": {
-        "id": "archive:brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version/Brutally%20Honest%20Advice%20From%20Steve%20Jobs%20_%20BEST%20SPEECH%20Ever%21%20%28HQ%20Version%29.mp4",
-        "source_url": "https://archive.org/details/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
-        "title": "Brutally Honest Advice From Steve Jobs BEST SPEECH Ever! ( HQ Version)",
-        "description": "Advice about life and success Steve Jobs",
-        "creator": "",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "Steve Jobs",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 870.8,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 136.82,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The frames clearly show Steve Jobs giving a speech (his famous Stanford commencement address), fulfilling the criteria for visible identity footage in biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "60218d1b4dac225dc05f5f70efa31404477f2b4f7817466dd8f6c13f5d827a8f",
-      "reviewed_at": 1790940114.4284632
-    },
-    {
-      "person": "Steve Jobs",
-      "source": {
-        "id": "archive:aspen-main-speech-v-05-improved-audio",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/aspen-main-speech-v-05-improved-audio/Aspen_Main_Speech_v05-Improved_Audio.mp4",
-        "source_url": "https://archive.org/details/aspen-main-speech-v-05-improved-audio",
-        "title": "Steve Jobs International Design Conference in Aspen (IDCA) - Main Speech",
-        "description": "The Steve Jobs speech at the 1983 International Design Conference in Aspen. I noticed that the video on the Steve Jobs Archive website had the audio processed with a a Echo Reduction effect, making it sound unnatural. My way of fixing this was replacing the audio with the copy of the speech that was uploaded by the Grassroots Community Network on August, 2025. Courtesy of GrassRoots Television and The Steve Jobs Archive. ['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
-        "creator": "['GrassRoots Community Network', 'The Steve Jobs Archive']",
-        "license": "",
-        "subject": "['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3313.843867,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 766.5,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Steve Jobs speaking at a podium across all three frames, matching the historical context of his archival speeches.",
-        "usage": "direct_event"
-      },
-      "review_key": "5712ba800de8793a7ed020aba389f0a9ab28bb2631261fcd1ae51764a98313bd",
-      "reviewed_at": 1790940131.8311136
-    },
-    {
-      "person": "Steve Jobs",
-      "source": {
-        "id": "archive:brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version/Brutally%20Honest%20Advice%20From%20Steve%20Jobs%20_%20BEST%20SPEECH%20Ever%21%20%28HQ%20Version%29.mp4",
-        "source_url": "https://archive.org/details/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
-        "title": "Brutally Honest Advice From Steve Jobs BEST SPEECH Ever! ( HQ Version)",
-        "description": "Advice about life and success Steve Jobs",
-        "creator": "",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "Steve Jobs",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 870.8,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 202.72,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Steve Jobs speaking at a podium in all three frames, matching the biographical illustration context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "0ba0fc0151c43793f2bad13a09ecaeda13493c16f61a9ca19acf68ca3257a225",
-      "reviewed_at": 1790940146.4667745
-    },
-    {
-      "person": "Steve Jobs",
-      "source": {
-        "id": "archive:brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version/Brutally%20Honest%20Advice%20From%20Steve%20Jobs%20_%20BEST%20SPEECH%20Ever%21%20%28HQ%20Version%29.mp4",
-        "source_url": "https://archive.org/details/brutally-honest-advice-from-steve-jobs-best-speech-ever-hq-version",
-        "title": "Brutally Honest Advice From Steve Jobs BEST SPEECH Ever! ( HQ Version)",
-        "description": "Advice about life and success Steve Jobs",
-        "creator": "",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "Steve Jobs",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 870.8,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 334.54,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The frames clearly show Steve Jobs delivering his famous Stanford commencement address in real archival footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "8e33b41763288b50f1f6fc4131613c1379664cab67da30e14b96875aa77f7ea5",
-      "reviewed_at": 1790959797.8438625
-    },
-    {
-      "person": "Steve Jobs",
-      "source": {
-        "id": "archive:aspen-main-speech-v-05-improved-audio",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/aspen-main-speech-v-05-improved-audio/Aspen_Main_Speech_v05-Improved_Audio.mp4",
-        "source_url": "https://archive.org/details/aspen-main-speech-v-05-improved-audio",
-        "title": "Steve Jobs International Design Conference in Aspen (IDCA) - Main Speech",
-        "description": "The Steve Jobs speech at the 1983 International Design Conference in Aspen. I noticed that the video on the Steve Jobs Archive website had the audio processed with a a Echo Reduction effect, making it sound unnatural. My way of fixing this was replacing the audio with the copy of the speech that was uploaded by the Grassroots Community Network on August, 2025. Courtesy of GrassRoots Television and The Steve Jobs Archive. ['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
-        "creator": "['GrassRoots Community Network', 'The Steve Jobs Archive']",
-        "license": "",
-        "subject": "['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3313.843867,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 1781.84,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Steve Jobs speaking at a podium during the 1983 International Design Conference in Aspen across all three frames. It is genuine historical archival footage matching the subject and biographical context.",
-        "usage": "direct_event"
-      },
-      "review_key": "95b4b05a94c5c61b083d20dc18260773a3bfb7060aeba6759cfc8e6791a7d229",
-      "reviewed_at": 1790981966.7085145
-    },
-    {
-      "person": "Steve Jobs",
-      "source": {
-        "id": "archive:aspen-main-speech-v-05-improved-audio",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/aspen-main-speech-v-05-improved-audio/Aspen_Main_Speech_v05-Improved_Audio.mp4",
-        "source_url": "https://archive.org/details/aspen-main-speech-v-05-improved-audio",
-        "title": "Steve Jobs International Design Conference in Aspen (IDCA) - Main Speech",
-        "description": "The Steve Jobs speech at the 1983 International Design Conference in Aspen. I noticed that the video on the Steve Jobs Archive website had the audio processed with a a Echo Reduction effect, making it sound unnatural. My way of fixing this was replacing the audio with the copy of the speech that was uploaded by the Grassroots Community Network on August, 2025. Courtesy of GrassRoots Television and The Steve Jobs Archive. ['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
-        "creator": "['GrassRoots Community Network', 'The Steve Jobs Archive']",
-        "license": "",
-        "subject": "['Apple Inc', 'Apple Lisa', 'Steve Jobs', 'IDCA']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3313.843867,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows the named subject, Steve Jobs, speaking at a podium during the 1983 International Design Conference in Aspen across all three frames. It is genuine archival footage directly relevant to his life and biography.",
-        "usage": "direct_event"
-      },
-      "review_key": "f179b51003e6f363a4b279fbb0edf07cb5ed5dc904538ad9f93dce2b246b237c",
-      "reviewed_at": 1790981978.0996387
-    },
-    {
       "person": "Steve Jobs",
       "source": {
         "id": "archive:aspen-main-speech-v-05-improved-audio",
@@ -8432,192 +7533,6 @@
       },
       "review_key": "ff7a215d392f21d66ccd01a6bb1e5187801e5cc9564e820cfe80e80f0ee4917e",
       "reviewed_at": 1792008464.3961642
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:PrideMonthShowedProgressExceptforJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/PrideMonthShowedProgressExceptforJKRowling/Pride%20Month%20Showed%20Progress%20%E2%80%94%20Except%20for%20J.K.%20Rowling%20%5BYSItxEJtW4s%5D.mp4",
-        "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
-        "title": "Pride Month Showed Progress — Except for J.K. Rowling",
-        "description": "The yearly tradition of companies and politicians falling over themselves to recognize queer people is here. Here's how the 50th anniversary of Pride Month was (and wasn't) celebrated this year. Subscribe to VICE News here: [URL REMOVED] Check out VICE News for more: [URL REMOVED] Follow VICE News here: Facebook: [URL REMOVED] Twitter: [URL REMOVED] Tumblr: [URL REMOVED] Instagram: [URL REMOVED] More videos from the VICE network: [URL REMOVED] ",
-        "creator": "VICE News",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 167.767768,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 52.31,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The segment includes genuine archival footage featuring J.K. Rowling (visible in frames 2, 3, and 5) along with related media, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "22f5666248ec29146d498a025734d2e8d3ccd0be772894e870f414c472458f87",
-      "reviewed_at": 1792009104.22654
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 114.11,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video features real archival footage of J.K. Rowling interacting with a prankster at an event, making her clearly visible and identifiable, though the context is a prank rather than formal biographical coverage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "1ef4c23018f6e459847602ec5cdb2b4395df7cb2b6df9c9963bc41612df6be64",
-      "reviewed_at": 1792009121.8011053
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 67.35,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video shows J.K. Rowling speaking at an event in frames 1 through 4, making her clearly identifiable, while frame 5 shows the camera crew/interviewer context. This is valid biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e952b5a5bbb2b72938ee226b9f9fe104f76ca3a77d848e634c9958c3362f1576",
-      "reviewed_at": 1792009135.0373168
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 36.18,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video segment clearly shows J.K. Rowling seated at a book signing event, making her visible and identifiable in the later frames, making it useful biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "319d5bd4252526c549a2d27a3928c2a3cfbed5ecb858cd3568a81825ba5fa3fd",
-      "reviewed_at": 1792009143.6131585
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 82.94,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "J.K. Rowling is clearly visible in the second sampled frame during an event/interview, and the footage is genuine moving archival material relevant to her biography, though part of the clip features a prank involving a phone.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5b99265ac68219eb6628b365aede429cbe021dd364bb547fb20dbe521ce2a293",
-      "reviewed_at": 1792009153.408062
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 145.29,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The sampled frames clearly depict J.K. Rowling interacting with a pranker at a book signing event, making it genuine archival footage of the subject suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b888430ea1fed2a4dbc2b87fa707ce172a7c4d306d2519e94d9de4ae86704a06",
-      "reviewed_at": 1792009161.4297354
     },
     {
       "person": "Morgan Freeman",
@@ -18099,99 +17014,6 @@
     {
       "person": "Kalpana Chawla",
       "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 52.26,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The video segment clearly shows archival footage of Kalpana Chawla, the named astronaut, preparing for spaceflight, making it directly relevant and usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "baf7433fe07c801459b0a97cf319ea660eb77a1cc67d0c28619405602fddf57f",
-      "reviewed_at": 1792862686.242825
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video features archival footage and a memorial interview discussing astronaut Kalpana Chawla, with Kalpana Chawla clearly visible in the first three sampled frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f33feb74652cc0595701dd120ad0768202fd8961a72fc7263e31171603512b90",
-      "reviewed_at": 1792862707.7534463
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 20.75,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "Kalpana Chawla is clearly visible in the first two sampled archive frames alongside an alumni display, providing biographical illustration for a video about her legacy.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "952fa014e7dcd026bcaf49605a1be58d44667ba895e87ec3853143d6c3aacf12",
-      "reviewed_at": 1792862727.5382242
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
         "id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later/Remembering_the_Crew_of_Columbia_20_Years_Later.mp4",
@@ -18285,99 +17107,6 @@
     {
       "person": "Kalpana Chawla",
       "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 68.01,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The footage contains archive/historical photos and video clips illustrating Kalpana Chawla's life, space missions, and memorial. While some frames show memorials and photos, frame 5 clearly shows Kalpana Chawla as part of the STS-87 crew in real archival footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "321575c067ba2c44cb35ded475a67d0a0d390386d4b1d04ecb5ddcfb7d4aeb77",
-      "reviewed_at": 1792862784.0597417
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later/Remembering_the_Crew_of_Columbia_20_Years_Later.mp4",
-        "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
-        "title": "Remembering the Crew of Columbia 20 Years Later",
-        "description": "Sen John Cornyn of Texas remembers the lost crew of the Space Shuttle, Columbia, who were lost when the Space Shuttle broke apart upon reentry, scattering debris over a large portion of Texas. The shuttle's left wing had been damaged upon takeoff when a large chunk of ice came off the main fuel tank and created a hole in the left wing about the size of basketball. Upon entering earth's atmosphere, the hot gasses entered the hole and the Columbia shuttle broke apart, just minutes before they were to have landed in Florida at the Kennedy Space Center. February 1, 2023 marks the 20th anniversary of the disaster, when the Space Shuttle Columbia disintegrated as it returned to Earth, killing all seven astronauts on board: commander Rick Husband, pilot Willie McCool, mission specialists Kalpana Chawla, Laurel Clark, Michael Anderson, David Brown and payload specialist Ilan Ramon of Israel. #Columbia #space #SpaceShuttleColumbia #ColumbiaCrew #IllinoisChannel #SenCornyn Politics, Personalities, Policies and business developments! Stay in touch with one of the most politically active, and important states in the USA!\\r \\r Follow us on Twitter: @IllinoisChannel\\r \\r \\r DONATE to help fund our Independent Coverage: https://illinoischannel.givingfuel.com/donatenow ['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
-        "creator": "ICTV",
-        "license": "",
-        "subject": "['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
-        "runtime": "00:06:55",
-        "direct_subject": true,
-        "duration_hint": 415.30442,
-        "identity_score": 10.0,
-        "archival_signal": 0
-      },
-      "start": 344.57,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features archival footage showing Kalpana Chawla as part of the Space Shuttle Columbia crew photo/video, accompanied by a speech discussing the crew.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5c8b7165fc902415660d9797c662eb3f7d4361cf8c672be1d05a7b93cdbb4fd0",
-      "reviewed_at": 1792862790.7884881
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 99.52,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video shows real archival footage of astronauts in orange flight suits walking out, with Kalpana Chawla clearly visible in the later frames, making it usable biographical illustration for her career as an astronaut.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b331d467d6b6634fc9dcd6fb915a4d9cc0d401e0f41769de93c0946e0631a598",
-      "reviewed_at": 1792862806.4407659
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
         "id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later/Remembering_the_Crew_of_Columbia_20_Years_Later.mp4",
@@ -18405,37 +17134,6 @@
       },
       "review_key": "66e1a048d9407742b728acfb5b8217428b7093c9dfd4d90d1e111d53e0ce5bfa",
       "reviewed_at": 1792862814.5768898
-    },
-    {
-      "person": "Kalpana Chawla",
-      "source": {
-        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
-        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
-        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
-        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "creator": "City of Arlington",
-        "license": "",
-        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
-        "runtime": "00:03:39",
-        "direct_subject": true,
-        "duration_hint": 219.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 115.27,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features authentic archival and interview footage. Kalpana Chawla is clearly identifiable in the space crew photo shown in the first two frames, and the subsequent interview frames provide historical context regarding her life and legacy.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "09a251c446059a97c978f64b4880bf5904346b511f6d3323326b3db6837df96e",
-      "reviewed_at": 1792862824.3337007
     },
     {
       "person": "Jonas Salk",
@@ -18517,6 +17215,1339 @@
         "identity_score": 13.0,
         "archival_signal": 0
       },
+      "start": 41.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly depict archival footage and photographs of Marie Curie working in her laboratory along with Pierre Curie, directly illustrating her life and scientific work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e87a15fd1cfecf8cc332c347b0ed1ee7af1fdfb5f6075129cc1de27f7d9efea6",
+      "reviewed_at": 1792863250.771687
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 52.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features real archival footage of astronaut Kalpana Chawla in her spacesuit, directly illustrating her life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f33563042a3d132dde00308aa0dcf0ccc31b1396c6b44a02fe51e95ea6661c7b",
+      "reviewed_at": 1792867249.7942061
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment includes clear photographic and archival footage of astronaut Kalpana Chawla in her NASA flight suit, as well as an interview discussing her legacy, making it highly relevant and usable for her biography.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "42d189ad3743993cf0539fb6ce3f88d406ea0ed65941b74c8b0db914e5e22a2a",
+      "reviewed_at": 1792867262.5096092
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 20.75,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.0,
+        "reason": "The sampled frames clearly feature archival photo/video evidence of Kalpana Chawla alongside commentary discussing her legacy at UT Arlington, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "285e91fa9e919992bc1f7335e874d4324103a36293c5e0842cc227fd2b46de47",
+      "reviewed_at": 1792867278.8805022
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later/Remembering_the_Crew_of_Columbia_20_Years_Later.mp4",
+        "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+        "title": "Remembering the Crew of Columbia 20 Years Later",
+        "description": "Sen John Cornyn of Texas remembers the lost crew of the Space Shuttle, Columbia, who were lost when the Space Shuttle broke apart upon reentry, scattering debris over a large portion of Texas. The shuttle's left wing had been damaged upon takeoff when a large chunk of ice came off the main fuel tank and created a hole in the left wing about the size of basketball. Upon entering earth's atmosphere, the hot gasses entered the hole and the Columbia shuttle broke apart, just minutes before they were to have landed in Florida at the Kennedy Space Center. February 1, 2023 marks the 20th anniversary of the disaster, when the Space Shuttle Columbia disintegrated as it returned to Earth, killing all seven astronauts on board: commander Rick Husband, pilot Willie McCool, mission specialists Kalpana Chawla, Laurel Clark, Michael Anderson, David Brown and payload specialist Ilan Ramon of Israel. #Columbia #space #SpaceShuttleColumbia #ColumbiaCrew #IllinoisChannel #SenCornyn Politics, Personalities, Policies and business developments! Stay in touch with one of the most politically active, and important states in the USA!\\r \\r Follow us on Twitter: @IllinoisChannel\\r \\r \\r DONATE to help fund our Independent Coverage: https://illinoischannel.givingfuel.com/donatenow ['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
+        "creator": "ICTV",
+        "license": "",
+        "subject": "['Springfield', 'Illinois', 'Illinois Channel TV', 'ICTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'IllinoisChannelTV', 'Illinois Channel', 'Remembering the Crew of Columbia', 'columbia space shuttle disaster', 'Rick Husband', 'pilot Willie McCool', 'mission specialists Kalpana Chawla', 'Laurel Clark', 'Michael Anderson', 'David Brown', 'payload specialist Ilan Ramon of Israel', '2023']",
+        "runtime": "00:06:55",
+        "direct_subject": true,
+        "duration_hint": 415.30442,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 344.57,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features archival footage including a photograph of the STS-107 crew of the Space Shuttle Columbia, where Kalpana Chawla is clearly visible and identifiable alongside her fellow astronauts, accompanied by a speech discussing the disaster.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a4ea7e712a80428a74f4f149bd55e9dc77699bcdc9b5cb081ff79f4d04c9f675",
+      "reviewed_at": 1792867302.9533763
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 68.01,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment contains real archival footage and photos clearly showing Kalpana Chawla speaking at a microphone and in official astronaut crew portraits, perfectly supporting her biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "69372a5bd844f48728eb318db2aafe2474e765f66e42308d55a22ceea282bdc2",
+      "reviewed_at": 1792867312.0561113
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 99.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features archival footage showing Kalpana Chawla among her fellow astronauts in orange flight suits walking and waving, providing clear visual evidence of her life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "44d6d33ad8ef7df0d7e7eade71868165f633e303cf32d346c81d4b232533c314",
+      "reviewed_at": 1792867325.8387694
+    },
+    {
+      "person": "Kalpana Chawla",
+      "source": {
+        "id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla/Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla.mp4",
+        "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+        "title": "Remember UT Arlington alumna and astronaut Kalpana Chawla",
+        "description": "February 1, 2023 marks the 20th anniversary of the explosion of the Columbia space shuttle over Texas, which took the life of astronaut and UT Arlington alumna Kalpana Chawla. UTA continues to honor the legacy of Chawla, who was the first Indian-born woman in space and remains an inspiration to Indian and Indian-American scientists. There is an on-campus memorial, a residence hall named in her honor and an annual scholarship for graduate students studying aerospace engineering. ['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "creator": "City of Arlington",
+        "license": "",
+        "subject": "['Texas', 'Arlington', 'City of Arlington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', '2023']",
+        "runtime": "00:03:39",
+        "direct_subject": true,
+        "duration_hint": 219.0,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 115.27,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Kalpana Chawla is clearly visible in the first two sampled frames as part of her astronaut crew, providing authentic archival identity footage.",
+        "usage": "direct_event"
+      },
+      "review_key": "5fd9014ec1a8762c3ed683db9bed55f0dd489b42dab64edc39d89b5f43f5188f",
+      "reviewed_at": 1792867332.3903515
+    },
+    {
+      "person": "M. S. Dhoni",
+      "source": {
+        "id": "archive:www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra/www.5MovieRulz.online%20-%20M.S%20Dhoni%20The%20Untold%20Story%20%282016%29%201080p%20Telugu%20HQ%20BluRay%20-%20HEVC%20-%20x265%20-%20%28DD%2B5.1%20-%20224Kbps%20%26%20AAC%29%20-%201.8GB%20-%20ESub.mp4",
+        "source_url": "https://archive.org/details/www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+        "title": "Www. 5 Movie Rulz.online M. S Dhoni The Untold Story ( 2016) 1080p Telugu HQ Blu Ray HEVC X 265 ( DD+ 5.1 224 Kbps & AAC) 1.8 GB ESub",
+        "description": "Ms dhoni movie Telugu movies",
+        "creator": "",
+        "license": "",
+        "subject": "Telugu movies",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 11080.541667,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5963.91,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The sampled frames show a dramatized scene from a biographical film depicting M. S. Dhoni walking outdoors with his father, illustrating his early life as requested by the narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "40048ae7e90ab7892c4ef4e22e5483d80df96232329d05008a7c1d33233a3c3d",
+      "reviewed_at": 1792867449.5574212
+    },
+    {
+      "person": "M. S. Dhoni",
+      "source": {
+        "id": "archive:www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta/www.8MovieRulz.sx%20-%20M.S.%20Dhoni%20The%20Untold%20Story%20%282016%29%20BR-Rip%20Org%20Auds%20%5BTelugu%20%2B%20Tamil%20%2B%20Hindi%5D%20750MB%20ESub.mp4",
+        "source_url": "https://archive.org/details/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+        "title": "Www. 8 Movie Rulz.sx M. S. Dhoni The Untold Story ( 2016) BR Rip Org Auds [ Telugu + Tamil + Hindi] 750 MB ESub",
+        "description": "gguy ygugyu",
+        "creator": "",
+        "license": "",
+        "subject": "ygugyu",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 11080.625,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1707.56,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The clip features biographical dramatic footage from a film about M. S. Dhoni, depicting him in his youth watching/playing cricket in a cricket ground setting, fitting biographical illustration of his early life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "25028fbf6919ddeacc1d68e1843655756e0d1919f2fd3a8182fe837ddd907f0b",
+      "reviewed_at": 1792867480.520223
+    },
+    {
+      "person": "M. S. Dhoni",
+      "source": {
+        "id": "archive:www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta/www.8MovieRulz.sx%20-%20M.S.%20Dhoni%20The%20Untold%20Story%20%282016%29%20BR-Rip%20Org%20Auds%20%5BTelugu%20%2B%20Tamil%20%2B%20Hindi%5D%20750MB%20ESub.mp4",
+        "source_url": "https://archive.org/details/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+        "title": "Www. 8 Movie Rulz.sx M. S. Dhoni The Untold Story ( 2016) BR Rip Org Auds [ Telugu + Tamil + Hindi] 750 MB ESub",
+        "description": "gguy ygugyu",
+        "creator": "",
+        "license": "",
+        "subject": "ygugyu",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 11080.625,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2558.84,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The sampled frames feature the actor playing M. S. Dhoni in a biographical film dramatizing his early life and school days. While this is a dramatization rather than genuine archival footage of the real person, it clearly depicts the subject's youth for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "00e46c24333f4ec70422b109243062c638fd48aad2dee070ab221a8b83cf2367",
+      "reviewed_at": 1792867489.48728
+    },
+    {
+      "person": "M. S. Dhoni",
+      "source": {
+        "id": "archive:www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta/www.8MovieRulz.sx%20-%20M.S.%20Dhoni%20The%20Untold%20Story%20%282016%29%20BR-Rip%20Org%20Auds%20%5BTelugu%20%2B%20Tamil%20%2B%20Hindi%5D%20750MB%20ESub.mp4",
+        "source_url": "https://archive.org/details/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+        "title": "Www. 8 Movie Rulz.sx M. S. Dhoni The Untold Story ( 2016) BR Rip Org Auds [ Telugu + Tamil + Hindi] 750 MB ESub",
+        "description": "gguy ygugyu",
+        "creator": "",
+        "license": "",
+        "subject": "ygugyu",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 11080.625,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 3410.12,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage features an actor portraying M.S. Dhoni in a biographical film dramatization. While not archival documentary footage of the actual subject, it depicts biographical scenes of his life suitable for illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "79ea4e383d95d6cba40bf415b1f1255623fe38bed87a77e81890e98017e4d344",
+      "reviewed_at": 1792867498.6523623
+    },
+    {
+      "person": "Satyajit Ray",
+      "source": {
+        "id": "archive:aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2/Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2.mp4",
+        "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
+        "title": "Essential Cinema: The Films of Satyajit Ray, Part 2",
+        "description": "AFS ESSENTIAL CINEMA: FILMS OF SATYAJIT RAY For tickets and more information see: https://www.austinfilm.org/essential-cinema/essential-cinema-films-of-satyajit-ray October 2 - November 6, 2014 Thursdays at 7:30 PM *Please note, KAPURUSH is on Tuesday, October 14* AFS at the Marchesa (6226 Middle Fiskville Rd) The very first “foreign” film I remember seeing (films from Mexico and Britain didn’t fit into that category) was PATHER PANCHALI (1955), directed by Satyajit Ray. Though that black & white film I was transported into the life of a small boy in a rural village in India. Through his family was poor, they were very loving toward one another (except for the nagging old aunt). Hearing a language I had never experienced and seeing people living in an area I had only heard of in geography textbooks was so fascinating that I didn’t mind reading the film’s subtitles at all. I felt that an entirely new and wonderful world was being opened for me. I was very fortunate that the director offering me that gift was the very talented and humanistic Bengali director Satyajit Ray. Not only would I see the other two parts of his “Apu” trilogy – APARAJITO (1956) and APU (1959) – but I would be on the verge of seeing hundreds of magnificent films as the 1960s brought an unprecedented number of subtitled films from all over Europe, Asia, and Latin America. Global cinema was finally within my grasp and Satyajit Ray had been the gracious man who opened the door to the treasure house. Thus, he has always held a special place in my heart and memory. Aside from his world-famous trilogy and a f ['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2014']",
+        "creator": "Austin Film Society",
+        "license": "",
+        "subject": "['Texas', 'Austin', 'Austin Film Society', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2014']",
+        "runtime": "00:01:05",
+        "direct_subject": true,
+        "duration_hint": 64.553795,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 55.55,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features archival footage that clearly shows Satyajit Ray in the sampled frames (waving from a vehicle), serving as good biographical illustration of his life and public appearances.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c8e429e803378f0e88de0646b2fb305b7c6168a9233b4f5a0753c25de3634ca9",
+      "reviewed_at": 1792867814.353294
+    },
+    {
+      "person": "Satyajit Ray",
+      "source": {
+        "id": "archive:Satyajit",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Satyajit/Satyajit.mp4",
+        "source_url": "https://archive.org/details/Satyajit",
+        "title": "Satyajit Ray",
+        "description": "a famous filmmaker ['India', 'filmmaking', 'movies', 'stars', 'famous', 'master']",
+        "creator": "antonwithagen",
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "subject": "['India', 'filmmaking', 'movies', 'stars', 'famous', 'master']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 181.139292,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 146.43,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment features real historical archival footage showing filmmaker Satyajit Ray, identifiable in multiple frames during a meeting or discussion.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "49ef3cb0b6e5e6f3664f4a0bd865cd1fd716d7757b4308d41fe5b9d6e64e1b87",
+      "reviewed_at": 1792867925.7448468
+    },
+    {
+      "person": "Satyajit Ray",
+      "source": {
+        "id": "archive:Satyajit",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Satyajit/Satyajit.mp4",
+        "source_url": "https://archive.org/details/Satyajit",
+        "title": "Satyajit Ray",
+        "description": "a famous filmmaker ['India', 'filmmaking', 'movies', 'stars', 'famous', 'master']",
+        "creator": "antonwithagen",
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "subject": "['India', 'filmmaking', 'movies', 'stars', 'famous', 'master']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 181.139292,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 172.14,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature archival footage of Satyajit Ray himself working at a desk, matching the biographical subject and narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b7946e2b126872a87f957bf0ff50cde2ebc94f9e071f210c8e4dcf3582ee24c2",
+      "reviewed_at": 1792867956.4459937
+    },
+    {
+      "person": "Ray Kroc",
+      "source": {
+        "id": "archive:ray-kroc",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ray-kroc/Ray%20Kroc.mp4",
+        "source_url": "https://archive.org/details/ray-kroc",
+        "title": "Ray Kroc",
+        "description": "Ray Kroc: Fast Food McMillionaire [\"McDonald's\", 'Ray Kroc', 'Documentary', 'Biography']",
+        "creator": "",
+        "license": "",
+        "subject": "[\"McDonald's\", 'Ray Kroc', 'Documentary', 'Biography']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2701.668335,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2072.44,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled archival video frames clearly show Ray Kroc interacting with others at a gathering, providing authentic biographical illustration of his life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f64074e6c57c84f1b43bb22d8b5e9297929bcf4453e6efcc0eb638a2f2f18759",
+      "reviewed_at": 1792868044.9679227
+    },
+    {
+      "person": "Manoj Bajpayee",
+      "source": {
+        "id": "archive:akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk/Akshay_Kumar_Latest_Action_Hindi_Full_Movie___Manoj_Bajpayee%2C_Anupam_Kher%2C_K.mp4",
+        "source_url": "https://archive.org/details/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+        "title": "Akshay Kumar Latest Action Hindi Full Movie Manoj Bajpayee, Anupam Kher, K",
+        "description": "Spc 26 Hindi",
+        "creator": "",
+        "license": "",
+        "subject": "Hindi",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 7425.033333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 3995.56,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video clip features actor Manoj Bajpayee clearly visible in the opening frames, showing genuine film footage suitable for biographical illustration, though the remaining frames show him from behind.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9674c23a99862ab1e21a64b6416e084cfe5393562608b4a8215f78015a8a2cdc",
+      "reviewed_at": 1792868171.805521
+    },
+    {
+      "person": "Manoj Bajpayee",
+      "source": {
+        "id": "archive:kaun-1999_202609",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/kaun-1999_202609/Kaun%3F%20%281999%29.ia.mp4",
+        "source_url": "https://archive.org/details/kaun-1999_202609",
+        "title": "Kaun? (1999)",
+        "description": "Kaun? (1999) Directed by Ram Gopal Verma Written by Anurag Kashyap Starring: Urmila Matondkar, Manoj Bajpayee, Sushant Singh ['Anurag Kashyap', 'Kaun?', 'Manoj Bajpayee', 'Ram Gopal Verma', 'Sushant Singh', 'Urmila Matondkar']",
+        "creator": "",
+        "license": "",
+        "subject": "['Anurag Kashyap', 'Kaun?', 'Manoj Bajpayee', 'Ram Gopal Verma', 'Sushant Singh', 'Urmila Matondkar']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 5995.44,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 4606.11,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The clip features genuine film footage from Manoj Bajpayee's acclaimed film 'Kaun?' (1999), clearly showing him acting in a key scene, making it highly relevant as biographical illustration for a Short about his career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "67a55564d2184446e78b4121cd672e6ca08616d4e7a286270297d85b63f50256",
+      "reviewed_at": 1792868280.1292489
+    },
+    {
+      "person": "Manoj Bajpayee",
+      "source": {
+        "id": "archive:akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk/Akshay_Kumar_Latest_Action_Hindi_Full_Movie___Manoj_Bajpayee%2C_Anupam_Kher%2C_K.mp4",
+        "source_url": "https://archive.org/details/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+        "title": "Akshay Kumar Latest Action Hindi Full Movie Manoj Bajpayee, Anupam Kher, K",
+        "description": "Spc 26 Hindi",
+        "creator": "",
+        "license": "",
+        "subject": "Hindi",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 7425.033333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 575.08,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment features Manoj Bajpayee in scenes from his film, acting as biographical illustration for his career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ac248e5c597cf432a061d4dabfa8a9bbe050e5b711c601f35734974b057f078c",
+      "reviewed_at": 1792868303.7362995
+    },
+    {
+      "person": "Manoj Bajpayee",
+      "source": {
+        "id": "archive:akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk/Akshay_Kumar_Latest_Action_Hindi_Full_Movie___Manoj_Bajpayee%2C_Anupam_Kher%2C_K.mp4",
+        "source_url": "https://archive.org/details/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+        "title": "Akshay Kumar Latest Action Hindi Full Movie Manoj Bajpayee, Anupam Kher, K",
+        "description": "Spc 26 Hindi",
+        "creator": "",
+        "license": "",
+        "subject": "Hindi",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 7425.033333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1715.24,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The clip features actor Manoj Bajpayee among an ensemble cast in a scene from a film, serving as biographical illustration of his acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a5ea45304b741856ccd02a2ae355e53ea4385b64c4372069eb78ffd896883af6",
+      "reviewed_at": 1792868353.0546608
+    },
+    {
+      "person": "Manoj Bajpayee",
+      "source": {
+        "id": "archive:akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk/Akshay_Kumar_Latest_Action_Hindi_Full_Movie___Manoj_Bajpayee%2C_Anupam_Kher%2C_K.mp4",
+        "source_url": "https://archive.org/details/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+        "title": "Akshay Kumar Latest Action Hindi Full Movie Manoj Bajpayee, Anupam Kher, K",
+        "description": "Spc 26 Hindi",
+        "creator": "",
+        "license": "",
+        "subject": "Hindi",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 7425.033333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 3425.48,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature actor Manoj Bajpayee in a film scene, serving as biographical illustration for his career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d1b64ebc6a2736e7c92679d4a65dfd769a47e98bb3524763871d315badb855e7",
+      "reviewed_at": 1792868449.8411672
+    },
+    {
+      "person": "Manoj Bajpayee",
+      "source": {
+        "id": "archive:akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk/Akshay_Kumar_Latest_Action_Hindi_Full_Movie___Manoj_Bajpayee%2C_Anupam_Kher%2C_K.mp4",
+        "source_url": "https://archive.org/details/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+        "title": "Akshay Kumar Latest Action Hindi Full Movie Manoj Bajpayee, Anupam Kher, K",
+        "description": "Spc 26 Hindi",
+        "creator": "",
+        "license": "",
+        "subject": "Hindi",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 7425.033333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2855.4,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features actual film footage from 'Special 26' where Manoj Bajpayee is clearly visible in the sampled frames, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "30aee196a32f0d6bc27bad86635b23becaa606e085b3a11f57051d50bf60f494",
+      "reviewed_at": 1792868464.286355
+    },
+    {
+      "person": "Manoj Bajpayee",
+      "source": {
+        "id": "archive:akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk/Akshay_Kumar_Latest_Action_Hindi_Full_Movie___Manoj_Bajpayee%2C_Anupam_Kher%2C_K.mp4",
+        "source_url": "https://archive.org/details/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+        "title": "Akshay Kumar Latest Action Hindi Full Movie Manoj Bajpayee, Anupam Kher, K",
+        "description": "Spc 26 Hindi",
+        "creator": "",
+        "license": "",
+        "subject": "Hindi",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 7425.033333,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5135.72,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The clip features Manoj Bajpayee entering a scene in frame 4, making him clearly identifiable, and serves as biographical film footage illustrating his acting career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "369ef7b2f621d8414b15739a7fb82430e13c64fcf3d382dd83f4c8a3f75f47c7",
+      "reviewed_at": 1792868493.5568166
+    },
+    {
+      "person": "Surya Bonaly",
+      "source": {
+        "id": "archive:artistry-on-ice-1994",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/artistry-on-ice-1994/Artistry%20on%20Ice%20-%201994.ia.mp4",
+        "source_url": "https://archive.org/details/artistry-on-ice-1994",
+        "title": "Artistry On Ice - Verne Lundquist, Tracy Wilson",
+        "description": "CBS broadcast ['Verne Lundquist', 'Tracy Wilson', 'Sergei Grinkov', 'Ekaterina Gordeeva', 'Oksana Baiul', 'Surya Bonaly', 'Nancy Kerrigan', 'Chen Lu', 'Brian Boitano', 'Scott Davis', 'Elvis Stojko']",
+        "creator": "",
+        "license": "",
+        "subject": "['Verne Lundquist', 'Tracy Wilson', 'Sergei Grinkov', 'Ekaterina Gordeeva', 'Oksana Baiul', 'Surya Bonaly', 'Nancy Kerrigan', 'Chen Lu', 'Brian Boitano', 'Scott Davis', 'Elvis Stojko']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3902.133333,
+        "identity_score": 10.0,
+        "archival_signal": 0
+      },
+      "start": 2098.61,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6.5,
+        "reason": "The frames feature archival footage of figure skater Surya Bonaly during a broadcast, showing her clearly in the earlier frames, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1e3a0e6f41b26328dace27215a2b0243a62e10049061e4572e7547b94916775a",
+      "reviewed_at": 1792868540.5397189
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
+        "title": "Tom Hanks Hits The Red Carpet at LARRY CROWNE Premiere",
+        "description": "Tom Hanks is starring with Julia Roberts in Larry Crowne. Here he enjoys the Red Carpet Premiere after riding in on a scooter in Hollywood. We like this movie a lot and we say GO SEE IT on Celebrity Wire Movie Reviews ['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
+        "creator": "",
+        "license": "",
+        "subject": "['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 96.996967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 51.11,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage clearly shows Tom Hanks being interviewed on the red carpet at the Larry Crowne premiere, making it valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7c3f0506db65b3863882f36418cf16d215b648f7209e6e4daafeab2fc84e26d4",
+      "reviewed_at": 1792868722.1312416
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:ts-5-bts",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ts-5-bts/TS5%20BTS.mp4",
+        "source_url": "https://archive.org/details/ts-5-bts",
+        "title": "\"It's So Cool to Be Part of an Artist Community\" Tom Hanks, Tim Allen & Joan Cusack on 'Toy Story 5'",
+        "description": " ['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "creator": "Fandango",
+        "license": "",
+        "subject": "['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1218.926042,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 653.81,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The sampled frames clearly feature Tom Hanks in an interview setting, though the segment transitions to animated film clips from Toy Story, which serve as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "39340366ac41038aa0dab6b97d94bc4e93cdccd71e3ada96ebf614bbde42fa85",
+      "reviewed_at": 1792868738.6661766
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
+        "title": "Tom Hanks Hits The Red Carpet at LARRY CROWNE Premiere",
+        "description": "Tom Hanks is starring with Julia Roberts in Larry Crowne. Here he enjoys the Red Carpet Premiere after riding in on a scooter in Hollywood. We like this movie a lot and we say GO SEE IT on Celebrity Wire Movie Reviews ['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
+        "creator": "",
+        "license": "",
+        "subject": "['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 96.996967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features real archival footage of Tom Hanks speaking at the premiere of Larry Crowne, making it a valid biographical illustration despite the initial title card frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8451da809542b128325924b2737a2c60bc4f54a9f15b84177bce825b454bdcb8",
+      "reviewed_at": 1792868747.9005501
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:ts-5-bts",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ts-5-bts/TS5%20BTS.mp4",
+        "source_url": "https://archive.org/details/ts-5-bts",
+        "title": "\"It's So Cool to Be Part of an Artist Community\" Tom Hanks, Tim Allen & Joan Cusack on 'Toy Story 5'",
+        "description": " ['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "creator": "Fandango",
+        "license": "",
+        "subject": "['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1218.926042,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 97.69,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage shows Tom Hanks participating in a cast interview/panel discussion. While it is recent promotional material rather than archival footage of his early life or career, Tom Hanks is clearly visible and identifiable throughout the sampled frames, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "02628f32bf0e321cd058d51586536a5be20ebc57cf7b423022b8bc288cd1e704",
+      "reviewed_at": 1792868769.6820483
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
+        "title": "Tom Hanks Hits The Red Carpet at LARRY CROWNE Premiere",
+        "description": "Tom Hanks is starring with Julia Roberts in Larry Crowne. Here he enjoys the Red Carpet Premiere after riding in on a scooter in Hollywood. We like this movie a lot and we say GO SEE IT on Celebrity Wire Movie Reviews ['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
+        "creator": "",
+        "license": "",
+        "subject": "['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 96.996967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 14.22,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "Tom Hanks is clearly visible in all sampled frames during a red carpet interview/premiere appearance, making it valid archival biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3e47af4291895b35d020b513611669c77c533c47a26a72c4bf184fb57baa0fbe",
+      "reviewed_at": 1792868791.4694395
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:ts-5-bts",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ts-5-bts/TS5%20BTS.mp4",
+        "source_url": "https://archive.org/details/ts-5-bts",
+        "title": "\"It's So Cool to Be Part of an Artist Community\" Tom Hanks, Tim Allen & Joan Cusack on 'Toy Story 5'",
+        "description": " ['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "creator": "Fandango",
+        "license": "",
+        "subject": "['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1218.926042,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 283.06,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "Tom Hanks is clearly visible in multiple sampled frames participating in a cast interview for Toy Story 5, making it suitable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "2d3d98e41578ba2b065242354d05e6b77ff1916dc42e1cdfc696ccadea1f99d6",
+      "reviewed_at": 1792868818.5023327
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
+        "title": "Tom Hanks Hits The Red Carpet at LARRY CROWNE Premiere",
+        "description": "Tom Hanks is starring with Julia Roberts in Larry Crowne. Here he enjoys the Red Carpet Premiere after riding in on a scooter in Hollywood. We like this movie a lot and we say GO SEE IT on Celebrity Wire Movie Reviews ['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
+        "creator": "",
+        "license": "",
+        "subject": "['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 96.996967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 23.44,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The clip features real archival footage of Tom Hanks speaking at a red carpet premiere, clearly visible and identifiable throughout the sampled frames, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "63b3e37a9bd14a91b3299d555c696e276497b70a83c1cc6a8f925c37f2c5c60a",
+      "reviewed_at": 1792868831.5066588
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:ts-5-bts",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ts-5-bts/TS5%20BTS.mp4",
+        "source_url": "https://archive.org/details/ts-5-bts",
+        "title": "\"It's So Cool to Be Part of an Artist Community\" Tom Hanks, Tim Allen & Joan Cusack on 'Toy Story 5'",
+        "description": " ['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "creator": "Fandango",
+        "license": "",
+        "subject": "['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1218.926042,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 468.43,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.0,
+        "reason": "The video segment features Tom Hanks clearly visible in an interview setting with other cast members. While usable as biographical illustration, the content is modern promotional material rather than archival footage matching the full historical scope of a comprehensive biography.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4a38ac5decc6e8eec9b8dde87debd26d1c612d8861af9ced2195b55841be7925",
+      "reviewed_at": 1792868884.1537704
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
+        "title": "Tom Hanks Hits The Red Carpet at LARRY CROWNE Premiere",
+        "description": "Tom Hanks is starring with Julia Roberts in Larry Crowne. Here he enjoys the Red Carpet Premiere after riding in on a scooter in Hollywood. We like this movie a lot and we say GO SEE IT on Celebrity Wire Movie Reviews ['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
+        "creator": "",
+        "license": "",
+        "subject": "['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 96.996967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 60.33,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage clearly shows Tom Hanks being interviewed on a red carpet premiere, making it valid biographical illustration footage for a short about his career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "39702ebc1e4aece61c9af199a2cbfa5179d383b145cf3b89fb67487eb149dbba",
+      "reviewed_at": 1792868926.5680807
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:ts-5-bts",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ts-5-bts/TS5%20BTS.mp4",
+        "source_url": "https://archive.org/details/ts-5-bts",
+        "title": "\"It's So Cool to Be Part of an Artist Community\" Tom Hanks, Tim Allen & Joan Cusack on 'Toy Story 5'",
+        "description": " ['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "creator": "Fandango",
+        "license": "",
+        "subject": "['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1218.926042,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 561.12,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video segment shows Tom Hanks participating in a modern panel interview alongside other cast members. While it does not depict historical archival material of his early life, he is clearly visible as the named subject in a real, high-quality interview setting suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0867daec08fa3ebb98e11ef320bece91e1bbcf645987dc3f6d5bb5a8b0574ed4",
+      "reviewed_at": 1792868944.236727
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
+        "title": "Tom Hanks Hits The Red Carpet at LARRY CROWNE Premiere",
+        "description": "Tom Hanks is starring with Julia Roberts in Larry Crowne. Here he enjoys the Red Carpet Premiere after riding in on a scooter in Hollywood. We like this movie a lot and we say GO SEE IT on Celebrity Wire Movie Reviews ['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
+        "creator": "",
+        "license": "",
+        "subject": "['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 96.996967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 32.67,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows real archival footage of Tom Hanks on the red carpet at the Larry Crowne premiere. He is clearly visible and identifiable throughout the sampled frames, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "02c7198190f79fce910a18f291d5469246d318aa6196ba1e3d8bb41f29793280",
+      "reviewed_at": 1792868960.4891334
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:ts-5-bts",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ts-5-bts/TS5%20BTS.mp4",
+        "source_url": "https://archive.org/details/ts-5-bts",
+        "title": "\"It's So Cool to Be Part of an Artist Community\" Tom Hanks, Tim Allen & Joan Cusack on 'Toy Story 5'",
+        "description": " ['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "creator": "Fandango",
+        "license": "",
+        "subject": "['YouTube', 'Toy Story 5', 'Pixar', 'Disney', 'Interview', 'Tom Hanks', 'Tim Allen', 'Joan Cusack', 'Greta Lee']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1218.926042,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 746.49,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage shows Tom Hanks participating in an interview panel discussing Toy Story 5 alongside Tim Allen and Joan Cusack/Greta Lee. While it is recent promotional interview footage rather than archival material from his early life or classic films, it is genuine video featuring the clearly identifiable subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "83d9b4412820a7d906b0042d7ef5f8b11bd58cfaa867d3ad8978e335eeb62c51",
+      "reviewed_at": 1792868979.3171082
+    },
+    {
+      "person": "Tom Hanks",
+      "source": {
+        "id": "archive:bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131031-040344-Celebritywire-TomHanksHitsTheRedCarpetAtLARRYCROWNEPremiere519",
+        "title": "Tom Hanks Hits The Red Carpet at LARRY CROWNE Premiere",
+        "description": "Tom Hanks is starring with Julia Roberts in Larry Crowne. Here he enjoys the Red Carpet Premiere after riding in on a scooter in Hollywood. We like this movie a lot and we say GO SEE IT on Celebrity Wire Movie Reviews ['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
+        "creator": "",
+        "license": "",
+        "subject": "['searchonly', 'tom hanks', 'entertainment news', 'red carpet', 'premiere', 'julia roberts', 'interview', 'wilmer valderrama', 'george takei', 'nia vardalos', 'cedric the entertainer', 'maria canals barrera', 'naking of', 'behind the scnes celebrity wire', 'celebrities', 'celebs', 'a-list stars', 'web tv', 'trailer', 'movie']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 96.996967,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 41.89,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage shows Tom Hanks on a red carpet premiere, which is real archival footage of the subject suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a16a89b1e7bbe7840cacc76301df08953b9fc9d1245e6ee79cb131609da2b53a",
+      "reviewed_at": 1792869000.040724
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/PrideMonthShowedProgressExceptforJKRowling/Pride%20Month%20Showed%20Progress%20%E2%80%94%20Except%20for%20J.K.%20Rowling%20%5BYSItxEJtW4s%5D.mp4",
+        "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+        "title": "Pride Month Showed Progress — Except for J.K. Rowling",
+        "description": "The yearly tradition of companies and politicians falling over themselves to recognize queer people is here. Here's how the 50th anniversary of Pride Month was (and wasn't) celebrated this year. Subscribe to VICE News here: [URL REMOVED] Check out VICE News for more: [URL REMOVED] Follow VICE News here: Facebook: [URL REMOVED] Twitter: [URL REMOVED] Tumblr: [URL REMOVED] Instagram: [URL REMOVED] More videos from the VICE network: [URL REMOVED] ",
+        "creator": "VICE News",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 167.767768,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 52.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames feature genuine archival footage and moving images of J.K. Rowling (as well as related cultural/media contexts like Harry Potter), making it useful as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "83636fe578398f9859eaded91a7a238b6905ddd2127173fff2d0d0566c2d3e4f",
+      "reviewed_at": 1792869195.969553
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 114.11,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features real footage of J.K. Rowling interacting with a prankster/interviewer at a book signing event, making it usable as biographical illustration despite the awkward framing.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f712fc063ed1081b965bc5be07e7f85763c697ee1e9b05a5894ced7ef44c1d08",
+      "reviewed_at": 1792869212.2240365
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 67.35,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage features J.K. Rowling speaking at an event, with her clearly visible in multiple sampled frames, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8b4f3a19815be6cf293f2cf17b814589a08cbbda5ea00c79121ad9561e9648dd",
+      "reviewed_at": 1792869224.3235261
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 36.18,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "J.K. Rowling is clearly visible seated at a table signing books in the later frames (frames 4 and 5), providing genuine archival footage of the subject at a book signing event.",
+        "usage": "direct_event"
+      },
+      "review_key": "f371c5b63ea604f70848c8bfb6343962a7685f849a964fc8b778ac96f86d8d0f",
+      "reviewed_at": 1792869237.2364812
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 82.94,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The segment includes genuine archival/interview footage of J.K. Rowling in frame 2, along with context related to her public appearances and controversies, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "77cf77197d40f4c502624b656d921ee833e09d435d7a9bfa579ca1320c3715f8",
+      "reviewed_at": 1792869248.8654273
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 145.29,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video segment shows real archival footage of J.K. Rowling at a book signing event, making her clearly visible and identifiable alongside a prankster.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "026e406470e2e79ee2d30c0abe1ff1fd01240d5947c526fe9f25581589677b96",
+      "reviewed_at": 1792869263.6414616
+    },
+    {
+      "person": "Marie Curie",
+      "source": {
+        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+        "title": "Marie Curie A Scientific Hero",
+        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
+        "runtime": "00:02:12",
+        "direct_subject": true,
+        "duration_hint": 132.3,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
       "start": 23.2,
       "length": 8.0,
       "verification": {
@@ -18524,11 +18555,11 @@
         "real_footage": true,
         "usable": true,
         "relevance": 7,
-        "reason": "The sampled frames include archival photographs of Marie Curie alongside Pierre Curie and scientific illustrations, matching the biographical narration about her life.",
+        "reason": "The sampled frames show historical photographs of Marie Curie and Pierre Curie combined with graphical scientific overlays, serving as biographical illustration for a documentary about Marie Curie.",
         "usage": "biographical_illustration"
       },
-      "review_key": "f8b050a9589811baa38079c3b7f58f93a2dc47c2b01ea4022be495017505fad1",
-      "reviewed_at": 1792863231.4426572
+      "review_key": "788839917a9ee3ee6b199b135853ac57341848ed2b68cec831eaccfc75038546",
+      "reviewed_at": 1792869587.9720526
     },
     {
       "person": "Marie Curie",
@@ -18555,42 +18586,11 @@
         "real_footage": true,
         "usable": true,
         "relevance": 9,
-        "reason": "The sampled frames clearly show archival photographs and footage of Marie Curie (alongside Pierre Curie and in her laboratory), making it valid biographical illustration footage for a short about her life.",
+        "reason": "The sampled frames clearly depict archival photographs and footage of Marie Curie and Pierre Curie, matching the subject and biographical context.",
         "usage": "biographical_illustration"
       },
-      "review_key": "9f853092abf75ddb5a9a56a4dc91e73e61516e925c9afb1cb78ccae674f1514d",
-      "reviewed_at": 1792863241.2310498
-    },
-    {
-      "person": "Marie Curie",
-      "source": {
-        "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/btvin-Marie_Curie_A_Scientific_Hero/Marie_Curie_A_Scientific_Hero.mp4",
-        "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
-        "title": "Marie Curie A Scientific Hero",
-        "description": "This is a documentary about scientific hero Marie Curie for the My Hero International Film Festival. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
-        "creator": "Bloomington",
-        "license": "",
-        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'science', 'Marie Curie', 'unsung hero', '2024']",
-        "runtime": "00:02:12",
-        "direct_subject": true,
-        "duration_hint": 132.3,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 41.4,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly depict archival footage and photographs of Marie Curie working in her laboratory along with Pierre Curie, directly illustrating her life and scientific work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e87a15fd1cfecf8cc332c347b0ed1ee7af1fdfb5f6075129cc1de27f7d9efea6",
-      "reviewed_at": 1792863250.771687
+      "review_key": "c430184eab1f1453c71d118a147ae8b310c1067469fa3e69815169e1675314a3",
+      "reviewed_at": 1792869618.3071342
     }
   ]
 }

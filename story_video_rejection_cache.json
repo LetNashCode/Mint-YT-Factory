@@ -8618,6 +8618,582 @@
       "start": 418.78,
       "reason": "The footage shows modern students presenting a school project at the 2016 Aspen Challenge, which has no connection to the historical polar explorer Roald Amundsen despite the school's name.",
       "reviewed_at": 1792863446.9589174
+    },
+    "9b40e310424ec555ee5b4a98": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "source_url": "https://archive.org/details/ictvil-Remembering_the_Crew_of_Columbia_20_Years_Later",
+      "person": "Kalpana Chawla",
+      "start": 251.96,
+      "reason": "The video features a US Senator speaking in the Senate chamber with a large photograph of the Space Shuttle Columbia crew visible next to him, clearly showing Kalpana Chawla among the astronauts.",
+      "reviewed_at": 1792867289.872315
+    },
+    "483c1d25edb5130d8330f00f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+      "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+      "person": "Kalpana Chawla",
+      "start": 194.03,
+      "reason": "The sampled frames consist of a static photograph of a framed collage and static portrait photos of Kalpana Chawla, lacking moving archival footage or genuine filmed historical context.",
+      "reviewed_at": 1792867344.9749742
+    },
+    "c5d68bf3a4476d013b78440a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+      "source_url": "https://archive.org/details/coarltx-Remember_UT_Arlington_alumna_and_astronaut_Kalpana_Chawla",
+      "person": "Kalpana Chawla",
+      "start": 209.79,
+      "reason": "The frames consist entirely of a static credits/acknowledgments title card with no actual footage or depiction of Kalpana Chawla.",
+      "reviewed_at": 1792867356.1702874
+    },
+    "9708fec796a97791d01cc48c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "source_url": "https://archive.org/details/m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "person": "M. S. Dhoni",
+      "start": 5.0,
+      "reason": "The sampled frames contain only title cards, disclaimers, and corporate logos without any actual footage of M. S. Dhoni.",
+      "reviewed_at": 1792867402.6662283
+    },
+    "ac3b26a30eae853a000282ac": {
+      "kind": "segment_rejection",
+      "source_id": "archive:m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "source_url": "https://archive.org/details/m.-s..-dhoni.-the.-untold.-story.-2016.1080p.-blu-ray.x-264-yts.-ag",
+      "person": "M. S. Dhoni",
+      "start": 856.27,
+      "reason": "The sampled frames depict scenes from the biographical film featuring M.S. Dhoni's family and childhood context, but the subject himself (M.S. Dhoni) is not visible in these specific frames.",
+      "reviewed_at": 1792867418.808598
+    },
+    "0f9bc64e57e8cb78f7ced6ad": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "source_url": "https://archive.org/details/kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "person": "M. S. Dhoni",
+      "start": 5.0,
+      "reason": "The clip features actors from a biographical feature film (MS Dhoni: The Untold Story), not actual archival identity footage or direct historical events of M. S. Dhoni.",
+      "reviewed_at": 1792867432.7443721
+    },
+    "2da6316eba892cbe6ea4db7e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "source_url": "https://archive.org/details/kaun-tujhe-full-video-m.-s.-dhoni-the-untold-story-amaal-mallik-palak-sushant-si",
+      "person": "M. S. Dhoni",
+      "start": 20.5,
+      "reason": "The clip features fictionalized biographical film footage (M. S. Dhoni: The Untold Story) showing actors portraying the subject and others in a marketplace. While real cinematic footage, M. S. Dhoni himself is not visibly present in the sampled frames.",
+      "reviewed_at": 1792867440.261188
+    },
+    "a061f172bd743f4a3c50784d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "source_url": "https://archive.org/details/www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "person": "M. S. Dhoni",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of disclaimer text, production notices, and company logos without any actual footage or depiction of M.S. Dhoni.",
+      "reviewed_at": 1792867465.3677998
+    },
+    "b201574eecfa3c04db56f9c5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "source_url": "https://archive.org/details/www.-5-movie-rulz.online-m.-s-dhoni-the-untold-story-2016-1080p-telugu-hq-blu-ra",
+      "person": "M. S. Dhoni",
+      "start": 856.27,
+      "reason": "The sampled frames show scenes from a biographical movie about M. S. Dhoni, depicting family members, but M. S. Dhoni himself is not visible in these specific frames. However, it is genuine film footage providing biographical context, so it is usable as biographical illustration.",
+      "reviewed_at": 1792867474.8850555
+    },
+    "390c9ba157f6f1c56abc5540": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "source_url": "https://archive.org/details/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "person": "M. S. Dhoni",
+      "start": 4261.39,
+      "reason": "The footage is from a biographical feature film dramatization ('M. S. Dhoni: The Untold Story') rather than actual archival documentary footage of M.S. Dhoni himself, showing actors playing the role.",
+      "reviewed_at": 1792867511.2874315
+    },
+    "ab7a48dd3a8c5beee696baa3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "source_url": "https://archive.org/details/www.-8-movie-rulz.sx-m.-s.-dhoni-the-untold-story-2016-br-rip-org-auds-telugu-ta",
+      "person": "M. S. Dhoni",
+      "start": 5112.67,
+      "reason": "The sampled frames depict biographical film reenactments featuring other characters/officials in a clubhouse setting, but M. S. Dhoni is not clearly visible in any of the frames.",
+      "reviewed_at": 1792867522.9613066
+    },
+    "062e79dd5b9b55074924de02": {
+      "kind": "segment_rejection",
+      "source_id": "archive:KaunTujheM.SDhoniPalakMuchhalRaveenaMehta",
+      "source_url": "https://archive.org/details/KaunTujheM.SDhoniPalakMuchhalRaveenaMehta",
+      "person": "M. S. Dhoni",
+      "start": 5.0,
+      "reason": "The video segment shows a music video featuring an unidentified woman walking down stairs, with no appearance of M. S. Dhoni.",
+      "reviewed_at": 1792867535.0565603
+    },
+    "0fe2ff6d6f49e9b2df171f9c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:KaunTujheM.SDhoniPalakMuchhalRaveenaMehta",
+      "source_url": "https://archive.org/details/KaunTujheM.SDhoniPalakMuchhalRaveenaMehta",
+      "person": "M. S. Dhoni",
+      "start": 22.62,
+      "reason": "The footage shows singer/model Raveena Mehta in a music video, not the subject M. S. Dhoni. Therefore, it is irrelevant and unusable for a biography about M. S. Dhoni.",
+      "reviewed_at": 1792867544.1215925
+    },
+    "086f1059fd1a3d21c2f9729c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Www.TamilMv.OrgM.S.Dhoni2016TamilBRRip720pX264DD5.12.5GBESub.mkv1",
+      "source_url": "https://archive.org/details/Www.TamilMv.OrgM.S.Dhoni2016TamilBRRip720pX264DD5.12.5GBESub.mkv1",
+      "person": "M. S. Dhoni",
+      "start": 1707.54,
+      "reason": "The sampled frames from the biographical film depict a cricket ground scene with individuals watching from chairs, but M. S. Dhoni is not clearly visible in this specific segment, making it usable as biographical illustration rather than direct event footage.",
+      "reviewed_at": 1792867557.884311
+    },
+    "7b77bea3e7511d7bd2d5d37d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Www.TamilMv.OrgM.S.Dhoni2016TamilBRRip720pX264DD5.12.5GBESub.mkv1",
+      "source_url": "https://archive.org/details/Www.TamilMv.OrgM.S.Dhoni2016TamilBRRip720pX264DD5.12.5GBESub.mkv1",
+      "person": "M. S. Dhoni",
+      "start": 2558.82,
+      "reason": "The sampled frames depict biographical fiction/dramatization scenes featuring M. S. Dhoni's younger years (played by an actor), showing school and travel settings relevant to his early life, suitable for biographical illustration.",
+      "reviewed_at": 1792867567.7155836
+    },
+    "d074f054928a2433c46371b9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "source_url": "https://archive.org/details/SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "person": "Satyajit Ray",
+      "start": 797.46,
+      "reason": "The sampled frames show historical documents (certificates and medals) related to Satyajit Ray's family history (specifically his father, Sukumar Ray), but Satyajit Ray himself is not visible in the footage. Therefore, person_visible is false and usage is biographical_illustration.",
+      "reviewed_at": 1792867786.138956
+    },
+    "620373410c60a0210eff7cd6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "source_url": "https://archive.org/details/SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "person": "Satyajit Ray",
+      "start": 1061.62,
+      "reason": "The sampled frames show static close-ups of printed pages of text in Bengali, functioning like a slideshow or b-roll of documents rather than real moving footage of Satyajit Ray or his actual environment. The subject is not visible.",
+      "reviewed_at": 1792867796.5490692
+    },
+    "8027e68c52b11feef9511d7e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
+      "source_url": "https://archive.org/details/aufstx-Essential_Cinema_-_The_Films_of_Satyajit_Ray_Part_2",
+      "person": "Satyajit Ray",
+      "start": 25.22,
+      "reason": "The segment shows film clips and scenes from Satyajit Ray's cinema, serving as biographical illustration of his work as a director, though Satyajit Ray himself is not clearly visible in the sampled frames.",
+      "reviewed_at": 1792867809.5245886
+    },
+    "7197665bb83b3df34c6c6e0a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.SatyajitRay_Eng",
+      "source_url": "https://archive.org/details/dli.MoI.SatyajitRay_Eng",
+      "person": "Satyajit Ray",
+      "start": 7244.4,
+      "reason": "The footage shows a young actor in a scene from a film (likely representing Ray's work or childhood), but Satyajit Ray himself as an adult filmmaker is not visible in the clip. It serves as biographical illustration.",
+      "reviewed_at": 1792867879.1341395
+    },
+    "fae1ae9502b1554655f97552": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.SatyajitRay_Eng",
+      "source_url": "https://archive.org/details/dli.MoI.SatyajitRay_Eng",
+      "person": "Satyajit Ray",
+      "start": 7847.68,
+      "reason": "The sampled frames consist entirely of title cards and 'The End' credits sequences, with no actual footage or visible subject.",
+      "reviewed_at": 1792867888.118961
+    },
+    "7ca697ca93707959ff39db5c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Satyajit",
+      "source_url": "https://archive.org/details/Satyajit",
+      "person": "Satyajit Ray",
+      "start": 120.71,
+      "reason": "The footage shows archival black and white film clips depicting people and musicians from India, serving as valid biographical illustration for the life and work of filmmaker Satyajit Ray, even though Ray himself is not visible in the frames.",
+      "reviewed_at": 1792867918.7390547
+    },
+    "157fcfe986efacc077a111bb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Satyajit",
+      "source_url": "https://archive.org/details/Satyajit",
+      "person": "Satyajit Ray",
+      "start": 159.28,
+      "reason": "The footage shows a scene from a film (likely one of Satyajit Ray's films or a dramatic depiction), but the person visible is an actor, not Satyajit Ray himself. Therefore, person_visible is false, but it is usable as biographical illustration of his cinematic work.",
+      "reviewed_at": 1792867949.1416688
+    },
+    "71626e49c635c5be7bdf113e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:satyajit-ray-films",
+      "source_url": "https://archive.org/details/satyajit-ray-films",
+      "person": "Satyajit Ray",
+      "start": 2688.62,
+      "reason": "The footage shows a scene from a classic film directed by Satyajit Ray (featuring actors Utpal Dutt and Rabi Ghosh in 'Mahapurush' or similar), serving as valid biographical illustration of his cinematic work, even though Satyajit Ray himself is not visible in the frames.",
+      "reviewed_at": 1792867977.2933593
+    },
+    "6b4ba28143e159264aad40f7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:satyajit-ray-films",
+      "source_url": "https://archive.org/details/satyajit-ray-films",
+      "person": "Satyajit Ray",
+      "start": 3359.53,
+      "reason": "The footage shows archival black and white film clips, likely from Satyajit Ray's works or related era, but Satyajit Ray himself (the director) is not clearly identifiable as the subject in these scenes, which feature actors in a fictional narrative setting. Usable as biographical illustration of his films.",
+      "reviewed_at": 1792867986.0372045
+    },
+    "9fd5c416e3be33596a1b0418": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ray-kroc",
+      "source_url": "https://archive.org/details/ray-kroc",
+      "person": "Ray Kroc",
+      "start": 1452.21,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1792868038.985479
+    },
+    "9e2a07dbb356780f79f6cff5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:coyaz-Arizona_Winter_League",
+      "source_url": "https://archive.org/details/coyaz-Arizona_Winter_League",
+      "person": "Ray Kroc",
+      "start": 132.21,
+      "reason": "The video footage shows modern baseball players and a coach/manager being interviewed at a 2016 Arizona Winter League event, which has no connection to Ray Kroc (who passed away in 1984, though the Ray Kroc baseball complex is named after him). Ray Kroc is not visible in any frame.",
+      "reviewed_at": 1792868094.0370162
+    },
+    "dfc76ae911d33ad9966c81bc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:coyaz-Arizona_Winter_League",
+      "source_url": "https://archive.org/details/coyaz-Arizona_Winter_League",
+      "person": "Ray Kroc",
+      "start": 186.73,
+      "reason": "The video shows modern baseball footage from a 2016 Arizona Winter League game at a facility named after Ray Kroc, but Ray Kroc (who died in 1984) is not visible. The footage does not depict Ray Kroc himself or his life events.",
+      "reviewed_at": 1792868100.9564438
+    },
+    "361c8458a700b3773d0fe825": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ray-kroc",
+      "source_url": "https://archive.org/details/ray-kroc",
+      "person": "Ray Kroc",
+      "start": 5.0,
+      "reason": "The frames show a stylized title sequence/introductory montage with heavy graphical overlays and glitch effects from a television show ('Biography'), rather than actual usable historical footage of Ray Kroc.",
+      "reviewed_at": 1792868107.0896778
+    },
+    "5ebb652130174c361041cffb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ray-kroc",
+      "source_url": "https://archive.org/details/ray-kroc",
+      "person": "Ray Kroc",
+      "start": 211.74,
+      "reason": "The sampled frames show an archival photo of a young boy (presumably Ray Kroc in his youth) and an interview with a cultural historian (Kathleen D. Toerpe), but Ray Kroc himself is not clearly identifiable as a living subject in any moving footage within this clip.",
+      "reviewed_at": 1792868119.9277058
+    },
+    "99955068f6abc86229fa1447": {
+      "kind": "segment_rejection",
+      "source_id": "archive:suraj-pe-mangal-bhari-hindi-full-movie-manoj-bajpayee-diljit-dosanjh-fatima-sana-shaikh",
+      "source_url": "https://archive.org/details/suraj-pe-mangal-bhari-hindi-full-movie-manoj-bajpayee-diljit-dosanjh-fatima-sana-shaikh",
+      "person": "Manoj Bajpayee",
+      "start": 4317.97,
+      "reason": "The sampled frames show other actors (Diljit Dosanjh, Fatima Sana Shaikh) and title cards, but Manoj Bajpayee is not clearly visible in any of the frames.",
+      "reviewed_at": 1792868188.6928995
+    },
+    "754981aa12f1fbca42efe790": {
+      "kind": "segment_rejection",
+      "source_id": "archive:suraj-pe-mangal-bhari-hindi-full-movie-manoj-bajpayee-diljit-dosanjh-fatima-sana-shaikh",
+      "source_url": "https://archive.org/details/suraj-pe-mangal-bhari-hindi-full-movie-manoj-bajpayee-diljit-dosanjh-fatima-sana-shaikh",
+      "person": "Manoj Bajpayee",
+      "start": 6166.38,
+      "reason": "The sampled frames feature Diljit Dosanjh and Manoj Joshi in a scene from the movie 'Suraj Pe Mangal Bhari', but the subject Manoj Bajpayee is not visible in any of the frames.",
+      "reviewed_at": 1792868201.8649597
+    },
+    "e07265a5b65de734a9a00411": {
+      "kind": "segment_rejection",
+      "source_id": "archive:JIOMAMIMOVIEMELAWITHMANYTOPCELEBS",
+      "source_url": "https://archive.org/details/JIOMAMIMOVIEMELAWITHMANYTOPCELEBS",
+      "person": "Manoj Bajpayee",
+      "start": 115.45,
+      "reason": "The sampled frames feature Tamannaah Bhatia instead of the named subject, Manoj Bajpayee.",
+      "reviewed_at": 1792868219.632895
+    },
+    "53297ba4c046c927ca8f47fe": {
+      "kind": "segment_rejection",
+      "source_id": "archive:JIOMAMIMOVIEMELAWITHMANYTOPCELEBS",
+      "source_url": "https://archive.org/details/JIOMAMIMOVIEMELAWITHMANYTOPCELEBS",
+      "person": "Manoj Bajpayee",
+      "start": 162.78,
+      "reason": "The sampled frames feature Prabhas, S. S. Rajamouli, and Tamannaah Bhatia, but Manoj Bajpayee is not visible in any of them, making this clip unusable for his biography.",
+      "reviewed_at": 1792868240.8122108
+    },
+    "43fe06893d6d7dcfb52d6126": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kaun-1999_202609",
+      "source_url": "https://archive.org/details/kaun-1999_202609",
+      "person": "Manoj Bajpayee",
+      "start": 3225.78,
+      "reason": "The footage is extremely dark and poorly lit, showing only vague silhouettes where Manoj Bajpayee is not clearly visible or identifiable in any of the sampled frames.",
+      "reviewed_at": 1792868272.5381114
+    },
+    "029d0b9afb68d2847e4997e6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+      "source_url": "https://archive.org/details/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+      "person": "Manoj Bajpayee",
+      "start": 5.0,
+      "reason": "The frames consist entirely of movie title cards and text credits ('Special 26', 'Akshay Kumar', 'Kajal Aggarwal') over a stylized background. The subject Manoj Bajpayee is not visible, and this is not usable footage or historical context.",
+      "reviewed_at": 1792868297.7672892
+    },
+    "1fd93dfb5c0c291b98feaf5b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kaun-1999_202609",
+      "source_url": "https://archive.org/details/kaun-1999_202609",
+      "person": "Manoj Bajpayee",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of title cards and production company credits with promotional watermarks, containing no actual footage of Manoj Bajpayee.",
+      "reviewed_at": 1792868319.9382293
+    },
+    "5cd99c8b5b146fbbb60626be": {
+      "kind": "segment_rejection",
+      "source_id": "archive:kaun-1999_202609",
+      "source_url": "https://archive.org/details/kaun-1999_202609",
+      "person": "Manoj Bajpayee",
+      "start": 465.11,
+      "reason": "The clip features archival film footage from Kaun? (1999) starring Urmila Matondkar, but Manoj Bajpayee is not visible in the sampled frames.",
+      "reviewed_at": 1792868332.9614422
+    },
+    "599e09f61cb72667431ec4f9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+      "source_url": "https://archive.org/details/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+      "person": "Manoj Bajpayee",
+      "start": 1145.16,
+      "reason": "The sampled frames clearly feature actor Manoj Bajpayee in a film scene set at a railway station. However, the narration broadly mentions archival footage illustrating his life without referring to a specific role or movie, making this usable as biographical illustration rather than direct event footage.",
+      "reviewed_at": 1792868346.8492966
+    },
+    "19cdadea1e9a7e9f4b7ac2c4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+      "source_url": "https://archive.org/details/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+      "person": "Manoj Bajpayee",
+      "start": 2285.32,
+      "reason": "The video features actor Akshay Kumar, not the named subject Manoj Bajpayee. Therefore, the footage is not usable for this biography.",
+      "reviewed_at": 1792868421.2202327
+    },
+    "10b9926e5744061df675d4be": {
+      "kind": "segment_rejection",
+      "source_id": "archive:akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+      "source_url": "https://archive.org/details/akshaykumarlatestactionhindifullmoviemanojbajpayeeanupamkherk",
+      "person": "Manoj Bajpayee",
+      "start": 4565.64,
+      "reason": "The clip features actor Manoj Bajpayee in a scene from a movie (Special 26), which can be used as biographical illustration of his acting work, though it does not depict his actual life events.",
+      "reviewed_at": 1792868486.7452629
+    },
+    "6c7894e9a9d337d0563860d8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:artistry-on-ice-1994",
+      "source_url": "https://archive.org/details/artistry-on-ice-1994",
+      "person": "Surya Bonaly",
+      "start": 5.0,
+      "reason": "The frames show static art pieces and wide arena shots of a crowd with no visible depiction of Surya Bonaly, making it unusable for direct event or biographical illustration.",
+      "reviewed_at": 1792868569.0341616
+    },
+    "bf2744b2a88a2cba2c1476c0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:artistry-on-ice-1994",
+      "source_url": "https://archive.org/details/artistry-on-ice-1994",
+      "person": "Surya Bonaly",
+      "start": 304.09,
+      "reason": "The frames show an unidentified male speaker instead of the biographical subject Surya Bonaly.",
+      "reviewed_at": 1792868584.568786
+    },
+    "37125bf0dcd63bf873410911": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131031-095001-Celebritywire-TomHanksRidesABlueScooterIntoPremiereOfLARRYCROWNE616",
+      "source_url": "https://archive.org/details/bliptv-20131031-095001-Celebritywire-TomHanksRidesABlueScooterIntoPremiereOfLARRYCROWNE616",
+      "person": "Tom Hanks",
+      "start": 11.6,
+      "reason": "Although Tom Hanks is mentioned in the description riding a scooter, the subject is not clearly identifiable in the sampled frames (the person on the scooter wears a helmet and face shield, and other frames show random attendees or are blurry), making it unsuitable as identity footage.",
+      "reviewed_at": 1792868702.1022477
+    },
+    "16ed2e311ac0ff3f76d9cd82": {
+      "kind": "segment_rejection",
+      "source_id": "archive:bliptv-20131031-095001-Celebritywire-TomHanksRidesABlueScooterIntoPremiereOfLARRYCROWNE616",
+      "source_url": "https://archive.org/details/bliptv-20131031-095001-Celebritywire-TomHanksRidesABlueScooterIntoPremiereOfLARRYCROWNE616",
+      "person": "Tom Hanks",
+      "start": 21.0,
+      "reason": "Tom Hanks is not clearly visible in any of the sampled frames (only distant figures and vehicles are shown), making this footage unusable for biographical identity representation.",
+      "reviewed_at": 1792868712.0540442
+    },
+    "9d11dfa32b6b167ec7eff427": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ts-5-bts",
+      "source_url": "https://archive.org/details/ts-5-bts",
+      "person": "Tom Hanks",
+      "start": 5.0,
+      "reason": "The footage features Tom Hanks in a panel interview, making him clearly visible and identifiable. However, it is a modern interview about Toy Story 5 rather than archival biographical material, so it is usable as biographical illustration with moderate relevance.",
+      "reviewed_at": 1792868760.4833565
+    },
+    "1640532f43352bc260f25dc0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ts-5-bts",
+      "source_url": "https://archive.org/details/ts-5-bts",
+      "person": "Tom Hanks",
+      "start": 190.37,
+      "reason": "Tom Hanks is clearly visible in the interview segment (frames 1 and 2), discussing Toy Story 5, serving as biographical illustration footage.",
+      "reviewed_at": 1792868809.7362945
+    },
+    "039aad0533efd42841a89da6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ts-5-bts",
+      "source_url": "https://archive.org/details/ts-5-bts",
+      "person": "Tom Hanks",
+      "start": 375.75,
+      "reason": "The sampled frames show an interviewer and Greta Lee, but Tom Hanks is not visible in any of the frames despite being mentioned in the source title and description.",
+      "reviewed_at": 1792868870.971285
+    },
+    "73547a0fbc4afe7128d95594": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Ramanujan",
+      "start": 5.0,
+      "reason": "blank/near-blank frames",
+      "reviewed_at": 1792869302.7152066
+    },
+    "24f996cb7ba011db4d472bb6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Ramanujan",
+      "start": 238.15,
+      "reason": "The footage shows a dramatized reenactment of a child writing on a slate, illustrating Ramanujan's early education and upbringing, but Ramanujan himself as an adult or distinct historical person is not visible.",
+      "reviewed_at": 1792869311.4345307
+    },
+    "7f2438ec2f5af810b010b471": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-20170518webm",
+      "person": "Ramanujan",
+      "start": 471.3,
+      "reason": "The video segment shows modern documentary footage of researchers discussing Ramanujan's working methods in a location associated with him. While Ramanujan is not visible, the footage provides valid biographical illustration and historical context about his notebooks and methods.",
+      "reviewed_at": 1792869320.416655
+    },
+    "0bac063b6e604736da3f2adc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Microsoft_Research_Video_118020",
+      "source_url": "https://archive.org/details/Microsoft_Research_Video_118020",
+      "person": "Ramanujan",
+      "start": 5.0,
+      "reason": "The video features Nikhil Srivastava presenting a lecture on graph theory ('Twice-Ramanujan Sparsifiers'). While the term Ramanujan appears in the presentation title, the subject of the video is modern computer science research and does not depict the mathematician Srinivasa Ramanujan.",
+      "reviewed_at": 1792869333.4352293
+    },
+    "551515feb2904b9dc41c2d25": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Microsoft_Research_Video_118020",
+      "source_url": "https://archive.org/details/Microsoft_Research_Video_118020",
+      "person": "Ramanujan",
+      "start": 245.26,
+      "reason": "The video features Nikhil Srivastava giving a lecture on graph theory and spectral sparsifiers (referencing Ramanujan graphs). However, the named subject of the biography short is the historical mathematician Srinivasa Ramanujan, not the contemporary speaker in the video. Therefore, this footage cannot be used to depict Ramanujan.",
+      "reviewed_at": 1792869345.663212
+    },
+    "83c5a3c037c73ced2ed2d92e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Microsoft_Research_Video_143258",
+      "source_url": "https://archive.org/details/Microsoft_Research_Video_143258",
+      "person": "Ramanujan",
+      "start": 5.0,
+      "reason": "The video shows a modern academic lecture or seminar about graph theory (specifically 'Twice-Ramanujan Sparsifiers'). The subject of the biography is the historical mathematician Srinivasa Ramanujan (1887–1920). The people visible are contemporary researchers and lecturers, not historical footage of Ramanujan. Therefore, the footage has no direct or valid illustrative connection to the biographical subject.",
+      "reviewed_at": 1792869359.0125096
+    },
+    "9a1150124468f12d6f3073af": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Microsoft_Research_Video_143258",
+      "source_url": "https://archive.org/details/Microsoft_Research_Video_143258",
+      "person": "Ramanujan",
+      "start": 326.69,
+      "reason": "The video features a modern academic lecture on graph theory by researchers such as Nikhil Srivastava discussing Ramanujan expanders, not the historical mathematician Srinivasa Ramanujan. Therefore, the footage is irrelevant to a biography of Ramanujan.",
+      "reviewed_at": 1792869421.5391653
+    },
+    "e4a31049402aaf1b6974883a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Ramanujan",
+      "start": 5.0,
+      "reason": "The sampled frames consist of introductory title cards and an interview with a contemporary speaker (K Srinivas) rather than the historical subject Ramanujan.",
+      "reviewed_at": 1792869431.6700814
+    },
+    "47b3c8a41dd05f2bff7fae63": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "source_url": "https://archive.org/details/SrinivasaRamanujan-TheMathematicianandHisLegacy-Trailer-20160420webm",
+      "person": "Ramanujan",
+      "start": 28.22,
+      "reason": "The sampled frames show an unrelated interviewed person, followed by illustrated/animated slides and formulas, with no actual filmed footage of Ramanujan himself.",
+      "reviewed_at": 1792869444.3266113
+    },
+    "592f9a03aa7c3525c2755a69": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dni.ncaa.ICCR-2121-VHS",
+      "source_url": "https://archive.org/details/dni.ncaa.ICCR-2121-VHS",
+      "person": "Ramanujan",
+      "start": 3133.46,
+      "reason": "The sampled frames show only static title cards with text ('RAMANAMA PAYASAKE') and no moving footage or visible subject, making it unusable.",
+      "reviewed_at": 1792869465.662011
+    },
+    "d8e56b614243651e7b42536d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dni.ncaa.ICCR-2121-VHS",
+      "source_url": "https://archive.org/details/dni.ncaa.ICCR-2121-VHS",
+      "person": "Ramanujan",
+      "start": 317.85,
+      "reason": "The video features a Carnatic music flute recital by Shri K. V. Ramanujan, but this is a different individual (a contemporary musician) and not the historical mathematician Srinivasa Ramanujan.",
+      "reviewed_at": 1792869473.4894226
+    },
+    "f5cead20ee8ce4b02c583dec": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v383511641",
+      "source_url": "https://archive.org/details/twitch-vod-v383511641",
+      "person": "Ramanujan",
+      "start": 5.0,
+      "reason": "The video segment shows gameplay footage from a video game (Harry Potter and the Prisoner of Azkaban) with bingo overlay UI, completely unrelated to Srinivasa Ramanujan.",
+      "reviewed_at": 1792869483.0879533
+    },
+    "b91f7f0a1f0db54dc3bfaaf8": {
+      "kind": "segment_rejection",
+      "source_id": "archive:twitch-vod-v383511641",
+      "source_url": "https://archive.org/details/twitch-vod-v383511641",
+      "person": "Ramanujan",
+      "start": 300.22,
+      "reason": "The video shows gameplay footage from a Harry Potter video game (Harry Potter and the Prisoner of Azkaban), which has no relation to the mathematician Srinivasa Ramanujan.",
+      "reviewed_at": 1792869492.6940844
+    },
+    "64dfe91ac6bd94a2a0466cd2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "source_url": "https://archive.org/details/ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "person": "Marie Curie",
+      "start": 141.45,
+      "reason": "The footage shows modern interviews and stage play actors portraying historical figures for a theatre production, not genuine historical footage or direct depiction of Marie Curie.",
+      "reviewed_at": 1792869573.3689375
+    },
+    "244a03b1f1f2d89bd91cd0d6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "source_url": "https://archive.org/details/ahca-Scene_in_Humboldt_-_The_Half-Life_of_Marie_Curie",
+      "person": "Marie Curie",
+      "start": 175.56,
+      "reason": "The video segment features actors and directors discussing a theatre production about Marie Curie, not Marie Curie herself.",
+      "reviewed_at": 1792869580.471288
+    },
+    "0a3b677fc3c8d34b6d13d80e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+      "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+      "person": "Marie Curie",
+      "start": 41.4,
+      "reason": "The segment contains a static graphic diagram in the first frame and transitions into a slideshow of historical photographs overlaid with dissolves rather than genuine moving archival footage of Marie Curie, making it unusable.",
+      "reviewed_at": 1792869637.226918
+    },
+    "b00fbf480af465bfcaa629a0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
+      "source_url": "https://archive.org/details/btvin-Marie_Curie_A_Scientific_Hero",
+      "person": "Marie Curie",
+      "start": 114.2,
+      "reason": "The segment consists of modern student credits and title/transition screens with an abstract background, completely unrelated to historical footage or context about Marie Curie.",
+      "reviewed_at": 1792869648.0747368
     }
   }
 }

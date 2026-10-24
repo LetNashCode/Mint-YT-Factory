@@ -143,6 +143,28 @@ def test_archive_search_excludes_youtube_imports_and_prefers_subject_records(mon
 
 
 
+def test_resolve_tries_alternate_archive_file_when_primary_fails(monkeypatch):
+    calls = []
+    def fake_probe(url):
+        calls.append(url)
+        if url.endswith("broken.mp4"):
+            raise RuntimeError("ffprobe failed")
+        return 125.0
+    monkeypatch.setattr(media, "probe", fake_probe)
+    item = {
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/record/broken.mp4",
+        "alternate_urls": [
+            "https://archive.org/download/record/working.mp4",
+            "https://archive.org/download/record/other.mp4",
+        ],
+    }
+    url, duration = media.resolve(item)
+    assert url.endswith("working.mp4")
+    assert duration == 125.0
+    assert calls == [item["url"], item["alternate_urls"][0]]
+
+
 def test_precheck_cache_is_scoped_by_person():
     item = candidate(99)
     assert media._precheck_cache_key(item, person="Nelson Mandela") != media._precheck_cache_key(

@@ -50,5 +50,44 @@
       "Archival newsreels and press conferences capture the massive public relief following the vaccine trials."
     ],
     "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Satyajit Ray",
+    "premise": "Financing his debut masterpiece 'Pather Panchali' through sheer persistence and piecemeal loans over three years.",
+    "hook": "He had to pawn his wife's jewelry and halt filming for months whenever the money completely ran out.",
+    "key_facts": [
+      "Worked as a commercial artist while struggling to secure film financing.",
+      "Shot the film intermittently over three years using amateur actors and crew.",
+      "The West Bengal government eventually provided a loan that allowed completion of the film.",
+      "Pather Panchali won Best Human Document at the 1956 Cannes Film Festival."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Viswanathan Anand",
+    "premise": "Breaking the Soviet hegemony in chess to become India's first Grandmaster and a multi-time World Chess Champion.",
+    "hook": "He learned chess from his mother in a small town in Tamil Nadu with virtually no local grandmaster infrastructure.",
+    "key_facts": [
+      "Became India's first Grandmaster at the age of 18 in 1988.",
+      "Won the World Chess Championship five times across different formats.",
+      "Popularized chess significantly across India, inspiring a new generation of players.",
+      "Awarded India's second-highest civilian award, the Padma Vibhushan."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Sachin Tendulkar",
+    "premise": "Making his international cricket debut for India at just 16 years old against a lethal Pakistani pace attack.",
+    "hook": "He walked out to bat against Waqar Younis and Wasim Akram with a bloodied nose after being hit by a bouncer, but refused to retire.",
+    "key_facts": [
+      "Made his Test match debut against Pakistan in Karachi in November 1989 at age 16.",
+      "Scored 100 international centuries over a 24-year career.",
+      "Became the first player to score a double century in a Men's One Day International.",
+      "Awarded the Bharat Ratna, India's highest civilian honor."
+    ],
+    "source": "gemini_original"
   }
 ]

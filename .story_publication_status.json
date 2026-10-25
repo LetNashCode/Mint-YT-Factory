@@ -1,6 +1,7 @@
 {
-  "status": "deferred",
+  "status": "pending",
   "video_id": "",
   "youtube_url": "",
-  "reason": "No unused Story subject with real-video candidates found in 16 attempts"
+  "reason": "",
+  "updated_at": 1792949744
 }

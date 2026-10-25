@@ -452,5 +452,18 @@
     "video_id": "8keJ6vBhkhU",
     "workdir": "",
     "published_at": 1792786896
+  },
+  {
+    "topic": "Linus Torvalds: Creating the Linux kernel as a student hobby project in 1991 that accidentally revolutionized global computing.",
+    "normalized": "linus torvalds creating the linux kernel as a student hobby project in 1991 that accidentally revolutionized global computing",
+    "workflow": "story",
+    "status": "reserved",
+    "reserved_at": 1792950125,
+    "recorded_at": 1792950125,
+    "metadata": {
+      "person": "Linus Torvalds",
+      "pillar": "strange_turning_point",
+      "source": "story_topic_selection"
+    }
   }
 ]

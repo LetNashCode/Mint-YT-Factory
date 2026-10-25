@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-24T19:20:50.121933+00:00",
-  "refresh_attempted_at": "2026-10-24T19:20:50.121933+00:00",
+  "generated_at": "2026-10-25T17:52:15.919590+00:00",
+  "refresh_attempted_at": "2026-10-25T17:52:15.919590+00:00",
   "refresh_status": "success",
   "video_count": 27,
   "optimization_ready": true,
@@ -8,12 +8,12 @@
   "advanced_metrics_videos": 26,
   "reason": "",
   "totals": {
-    "views": 10305,
+    "views": 10389,
     "likes": 206,
     "comments": 5
   },
   "averages": {
-    "views": 381.67,
+    "views": 384.78,
     "likes": 7.63,
     "comments": 0.19,
     "average_view_percentage": 50.39,
@@ -39,7 +39,7 @@
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
       "video_id": "Pb1-aVVunGg",
       "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1211,
+      "views": 1212,
       "likes": 43,
       "comments": 2,
       "shares": 1,
@@ -47,7 +47,7 @@
       "average_view_percentage": 62.45,
       "subscribers_gained": 3,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7159
+      "engagement_rate": 3.7129
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -151,7 +151,7 @@
       "topic": "B-B King: The pivotal moment a damaged guitar and a dangerous fire shaped the signature sound of the Blues Boy.",
       "video_id": "-zuakI9IPVU",
       "title": "B-B King Lost Everything—Then Started Again",
-      "views": 309,
+      "views": 314,
       "likes": 5,
       "comments": 0,
       "shares": 0,
@@ -159,7 +159,7 @@
       "average_view_percentage": 45.87,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.6181
+      "engagement_rate": 1.5924
     }
   ],
   "topic_performance": [
@@ -181,7 +181,7 @@
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
       "video_id": "Pb1-aVVunGg",
       "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1211,
+      "views": 1212,
       "likes": 43,
       "comments": 2,
       "shares": 1,
@@ -189,7 +189,7 @@
       "average_view_percentage": 62.45,
       "subscribers_gained": 3,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7159
+      "engagement_rate": 3.7129
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -293,7 +293,7 @@
       "topic": "B-B King: The pivotal moment a damaged guitar and a dangerous fire shaped the signature sound of the Blues Boy.",
       "video_id": "-zuakI9IPVU",
       "title": "B-B King Lost Everything—Then Started Again",
-      "views": 309,
+      "views": 314,
       "likes": 5,
       "comments": 0,
       "shares": 0,
@@ -301,13 +301,13 @@
       "average_view_percentage": 45.87,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.6181
+      "engagement_rate": 1.5924
     },
     {
       "topic": "Diana Nyad: Attempting a historic 110-mile open-ocean swim from Cuba to Florida at the age of 64 after multiple prior failures.",
       "video_id": "MPBaQ6ywruY",
       "title": "Diana Nyad Was Rejected... Then Everything Changed",
-      "views": 284,
+      "views": 286,
       "likes": 3,
       "comments": 0,
       "shares": 0,
@@ -315,7 +315,7 @@
       "average_view_percentage": 38.79,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 1.0563
+      "engagement_rate": 1.049
     },
     {
       "topic": "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age.",
@@ -363,7 +363,7 @@
       "topic": "Valentina Tereshkova: A textile factory worker and amateur parachutist selected to become the first woman in space.",
       "video_id": "J6alrNPd3lc",
       "title": "The Untold Turning Point in Valentina Tereshkova's Story",
-      "views": 100,
+      "views": 101,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -374,10 +374,24 @@
       "engagement_rate": 0.0
     },
     {
+      "topic": "Jim Henson: Innovating early television puppetry for local Washington D.C. shows years before creating the Muppets.",
+      "video_id": "8keJ6vBhkhU",
+      "title": "Before the Fame: Jim Henson's Untold Struggle",
+      "views": 90,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    },
+    {
       "topic": "Amitabh Bachchan: Facing persistent rejection from All India Radio due to his deep voice before becoming the defining star of Indian cinema.",
       "video_id": "OMXqyVG5lnw",
       "title": "Amitabh Bachchan Was Rejected... Then Everything Changed",
-      "views": 86,
+      "views": 87,
       "likes": 5,
       "comments": 0,
       "shares": 0,
@@ -385,7 +399,7 @@
       "average_view_percentage": 47.29,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 5.814
+      "engagement_rate": 5.7471
     },
     {
       "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
@@ -405,7 +419,7 @@
       "topic": "Sylvester Stallone: Writing the script for Rocky while living in extreme poverty and refusing to sell it unless he played the lead role.",
       "video_id": "oiqGFKDULVE",
       "title": "Before the Fame: Sylvester Stallone's Untold Struggle",
-      "views": 63,
+      "views": 64,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -413,7 +427,7 @@
       "average_view_percentage": 78.09,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 3.1746
+      "engagement_rate": 3.125
     },
     {
       "topic": "Edmund Hillary: The decades-long preparation and final push to conquer the world's highest peak.",
@@ -509,20 +523,6 @@
       "shares": 0,
       "average_view_duration": 16.0,
       "average_view_percentage": 42.3,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 0.0
-    },
-    {
-      "topic": "Jim Henson: Innovating early television puppetry for local Washington D.C. shows years before creating the Muppets.",
-      "video_id": "8keJ6vBhkhU",
-      "title": "Before the Fame: Jim Henson's Untold Struggle",
-      "views": 17,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0

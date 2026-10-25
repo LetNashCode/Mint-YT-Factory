@@ -9194,6 +9194,105 @@
       "start": 114.2,
       "reason": "The segment consists of modern student credits and title/transition screens with an abstract background, completely unrelated to historical footage or context about Marie Curie.",
       "reviewed_at": 1792869648.0747368
+    },
+    "8c981773ea2686b55fdad5bf": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "person": "Madam C.J. Walker",
+      "start": 69.4,
+      "reason": "The video shows A'Lelia Bundles (great-great-granddaughter of Madam C.J. Walker) speaking at an event and audience members in attendance. Madam C.J. Walker herself passed away in 1919 and is not visible in this 2017 modern archival footage, making the segment unusable for direct depiction of the subject.",
+      "reviewed_at": 1792949786.87605
+    },
+    "bb11dbb074213123ef298e76": {
+      "kind": "segment_rejection",
+      "source_id": "archive:mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "source_url": "https://archive.org/details/mtsutn-Descendant_of_Madam_C.J._Walker_kicks_off_MTSU_Women_s_History_Month",
+      "person": "Madam C.J. Walker",
+      "start": 78.6,
+      "reason": "The video features contemporary footage of A'Lelia Bundles (Madam C.J. Walker's great-great-granddaughter) speaking at a modern university event, not historical footage or direct depictions of Madam C.J. Walker herself.",
+      "reviewed_at": 1792949793.8268933
+    },
+    "29b98e3060ce95c3b0cbcea7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:yt_p3qjlLYszEI",
+      "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+      "person": "Madam C.J. Walker",
+      "start": 184.42,
+      "reason": "The sampled frames consist of an interview with A'Lelia Bundles (her great-great-granddaughter) followed by static historical photographs of Madam C.J. Walker. There is no moving filmed footage or video of Madam C.J. Walker herself, making the segment unusable as video footage.",
+      "reviewed_at": 1792949807.1668305
+    },
+    "140f07a22b02301b51e0425a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:yt_p3qjlLYszEI",
+      "source_url": "https://archive.org/details/yt_p3qjlLYszEI",
+      "person": "Madam C.J. Walker",
+      "start": 199.37,
+      "reason": "The sampled frames show a static book cover graphic with promotional text and a black screen, lacking any actual filmed footage or moving archival material of Madam C.J. Walker.",
+      "reviewed_at": 1792949812.2315793
+    },
+    "6a7b90cbf89d4bdbcffa34bc": {
+      "kind": "segment_rejection",
+      "source_id": "archive:InspirationalStoryOfAPJAbdulKalam",
+      "source_url": "https://archive.org/details/InspirationalStoryOfAPJAbdulKalam",
+      "person": "APJ Abdul Kalam",
+      "start": 62.5,
+      "reason": "The video consists entirely of animated vector graphics/cartoons depicting fictional characters and generic houses rather than genuine archival footage or real-life depiction of APJ Abdul Kalam.",
+      "reviewed_at": 1792949839.3142583
+    },
+    "1c5923a473c70c513b639f01": {
+      "kind": "segment_rejection",
+      "source_id": "archive:InspirationalStoryOfAPJAbdulKalam",
+      "source_url": "https://archive.org/details/InspirationalStoryOfAPJAbdulKalam",
+      "person": "APJ Abdul Kalam",
+      "start": 91.25,
+      "reason": "The video consists of generic animated silhouettes and line drawings rather than real historical footage or actual depictions of APJ Abdul Kalam, making it completely unusable for a biographical short.",
+      "reviewed_at": 1792949859.7137334
+    },
+    "e95285845e9118af139a6480": {
+      "kind": "segment_rejection",
+      "source_id": "commons:183824792",
+      "source_url": "https://commons.wikimedia.org/wiki/File:DR._APJ_Abdul_Kalam.webm",
+      "person": "APJ Abdul Kalam",
+      "start": 5.0,
+      "reason": "blank/near-blank frames",
+      "reviewed_at": 1792949903.9288118
+    },
+    "b19166c60b71c829b39aa95e": {
+      "kind": "segment_rejection",
+      "source_id": "commons:183824792",
+      "source_url": "https://commons.wikimedia.org/wiki/File:DR._APJ_Abdul_Kalam.webm",
+      "person": "APJ Abdul Kalam",
+      "start": 14.46,
+      "reason": "The video shows projected archive photographs of APJ Abdul Kalam participating in public events (such as viewing a portrait and looking at books), which serves as biographical illustration.",
+      "reviewed_at": 1792949915.7150745
+    },
+    "3c919a812bf1f93d34be61dd": {
+      "kind": "segment_rejection",
+      "source_id": "commons:183824792",
+      "source_url": "https://commons.wikimedia.org/wiki/File:DR._APJ_Abdul_Kalam.webm",
+      "person": "APJ Abdul Kalam",
+      "start": 23.93,
+      "reason": "The video segment consists of static photographs and projection screen slides being shown in a room, which violates the requirement for real moving film footage and constitutes a slideshow/presentation format rather than usable archival footage.",
+      "reviewed_at": 1792949930.781207
+    },
+    "c73fbb40eb302b0fb0863489": {
+      "kind": "segment_rejection",
+      "source_id": "archive:APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
+      "source_url": "https://archive.org/details/APJAbdulKalamInteractsWithChildrenAsianetNewsEdufestPart3",
+      "person": "APJ Abdul Kalam",
+      "start": 778.32,
+      "reason": "The sampled frames show children interacting during an event, but APJ Abdul Kalam himself is not visible in any of the frames. However, the footage serves as biographical illustration relating to his interactions with children.",
+      "reviewed_at": 1792950038.0658522
+    },
+    "ee21fd003aaf4d21527b36d1": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LinusTorvalds_2016",
+      "source_url": "https://archive.org/details/LinusTorvalds_2016",
+      "person": "Linus Torvalds",
+      "start": 5.0,
+      "reason": "The frames consist entirely of TED introduction title cards and logos, with the subject Linus Torvalds not appearing anywhere in the sampled interval.",
+      "reviewed_at": 1792950335.1106849
     }
   }
 }

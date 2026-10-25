@@ -1,7 +1,7 @@
 {
-  "pillar": "impossible_odds",
-  "topic": "Marie Curie: Conducting pioneering research on radioactivity in a draughty, unventilated shed with minimal equipment.",
-  "person": "Marie Curie",
+  "pillar": "strange_turning_point",
+  "topic": "Linus Torvalds: Creating the Linux kernel as a student hobby project in 1991 that accidentally revolutionized global computing.",
+  "person": "Linus Torvalds",
   "number": 0,
-  "status": "released"
+  "status": "reserved"
 }

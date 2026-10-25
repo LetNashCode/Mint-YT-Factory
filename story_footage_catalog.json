@@ -2,223 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Jim Henson",
-      "source": {
-        "id": "archive:JimHensonBloopers",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JimHensonBloopers/jim%20henson%20bloopers.mp4",
-        "source_url": "https://archive.org/details/JimHensonBloopers",
-        "title": "jim henson bloopers",
-        "description": "down in fraggle rock bloopers ['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
-        "creator": "",
-        "license": "",
-        "subject": "['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 121.1,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 43.95,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The frames clearly show Jim Henson performing with a puppet from Fraggle Rock, providing authentic archival footage of the subject suitable for a biography Short.",
-        "usage": "direct_event"
-      },
-      "review_key": "584fc57abfea5c4b44ad38f28d40fd31ac79b30204da3d36dd462d65ac7e0bed",
-      "reviewed_at": 1791331626.8688765
-    },
-    {
-      "person": "Jim Henson",
-      "source": {
-        "id": "archive:JimHensonBloopers",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JimHensonBloopers/jim%20henson%20bloopers.mp4",
-        "source_url": "https://archive.org/details/JimHensonBloopers",
-        "title": "jim henson bloopers",
-        "description": "down in fraggle rock bloopers ['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
-        "creator": "",
-        "license": "",
-        "subject": "['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 121.1,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 53.68,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The clip features actual archival footage of Jim Henson working with a puppet on set, clearly showing him across all three frames. It provides direct, usable biographical illustration for his life and work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "deb555b0e9b91e8f36865e6455f47494b97a353e881cd8453341a6f5afac39b0",
-      "reviewed_at": 1791331633.5919712
-    },
-    {
-      "person": "Jim Henson",
-      "source": {
-        "id": "archive:JimHensonBloopers",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JimHensonBloopers/jim%20henson%20bloopers.mp4",
-        "source_url": "https://archive.org/details/JimHensonBloopers",
-        "title": "jim henson bloopers",
-        "description": "down in fraggle rock bloopers ['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
-        "creator": "",
-        "license": "",
-        "subject": "['fraggle rock', 'jim henson', 'bloopers', 'documentary']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 121.1,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 73.15,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Jim Henson in archival behind-the-scenes material interacting with his creations/production environment, serving as excellent biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e81ac159602dc722dcae92ee44b2aeb429638c96ce600f97b5ef6a7a86608706",
-      "reviewed_at": 1791331639.454196
-    },
-    {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands/Cameron9.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
-        "title": "James Cameron Tar Sands Press Conference: Climate Change and Canada's Tar Sands",
-        "description": "http://www.tarsandstour.com - In the face of catastrophic climate change, James Cameron asks what the \"future proofing\" is for Alberta and the oil companies operating in the tar sands. He makes the case for strong regulation and boundaries to protect society from irresponsible resource extraction. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "creator": "tarsandstour",
-        "license": "",
-        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "runtime": "2:23",
-        "direct_subject": true,
-        "duration_hint": 142.692693,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 74.3,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The frames show James Cameron speaking at a press conference, matching the archival context.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "0cc06c71050540df42e4e24dc2430148c98d7048e80c029b379c98739acaf7fb",
-      "reviewed_at": 1791401643.4941843
-    },
-    {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise/Cameron7.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise",
-        "title": "James Cameron Tar Sands Press Conference: Allowed to Proceed on a Promise",
-        "description": "http://www.tarsandstour.com - James Cameron explains the pitfalls of tar sands mine land reclamation (unproven and very expensive) and criticizes the idea that companies should be allowed to \"proceed on a promise,\" when it will be our children left to make sure that the companies \"make good\" on their promises. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "creator": "tarsandstour",
-        "license": "",
-        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "runtime": "1:54",
-        "direct_subject": true,
-        "duration_hint": 114.364364,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 14.12,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage clearly shows James Cameron speaking at a podium, which serves as biographical illustration for his life and public activities, though it is a static talking-head clip rather than direct event footage of a specific historical milestone narrated.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "66bc478c066ffea716401c94934129fb0d392aaefc15c1193a66e98d269c1998",
-      "reviewed_at": 1791401690.5153468
-    },
-    {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise/Cameron7.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise",
-        "title": "James Cameron Tar Sands Press Conference: Allowed to Proceed on a Promise",
-        "description": "http://www.tarsandstour.com - James Cameron explains the pitfalls of tar sands mine land reclamation (unproven and very expensive) and criticizes the idea that companies should be allowed to \"proceed on a promise,\" when it will be our children left to make sure that the companies \"make good\" on their promises. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "creator": "tarsandstour",
-        "license": "",
-        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "runtime": "1:54",
-        "direct_subject": true,
-        "duration_hint": 114.364364,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 32.37,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames clearly show filmmaker James Cameron speaking at a podium (The Westin), which serves as biographical illustration for his public life and activism, though it is a modern recording rather than direct historical footage of his filmmaking career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "59bbb0d619a6a06d943786d5d10264995ab2a71806df4e8a9d2636ea56f3d574",
-      "reviewed_at": 1791401731.2861338
-    },
-    {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands/Cameron9.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
-        "title": "James Cameron Tar Sands Press Conference: Climate Change and Canada's Tar Sands",
-        "description": "http://www.tarsandstour.com - In the face of catastrophic climate change, James Cameron asks what the \"future proofing\" is for Alberta and the oil companies operating in the tar sands. He makes the case for strong regulation and boundaries to protect society from irresponsible resource extraction. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "creator": "tarsandstour",
-        "license": "",
-        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "runtime": "2:23",
-        "direct_subject": true,
-        "duration_hint": 142.692693,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 14.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames show James Cameron speaking at a podium, which is genuine archival footage of the subject, useful as biographical illustration for his life and public speaking engagements.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d1a237f4fcaff2641fd9c9a25c84e89ed56068c96064eb635bf636a10788f7df",
-      "reviewed_at": 1791401748.9654503
-    },
-    {
       "person": "James Cameron",
       "source": {
         "id": "archive:JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise",
@@ -18158,37 +17941,6 @@
     {
       "person": "Linus Torvalds",
       "source": {
-        "id": "archive:LinusTorvalds_2016",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LinusTorvalds_2016/LinusTorvalds_2016.mp4",
-        "source_url": "https://archive.org/details/LinusTorvalds_2016",
-        "title": "Linus Torvalds: The mind behind Linux",
-        "description": "Linus Torvalds transformed technology twice — first with the Linux kernel, which helps power the Internet, and again with Git, the source code management system used by developers worldwide. In a rare interview with TED Curator Chris Anderson, Torvalds discusses with remarkable openness the personality traits that prompted his unique philosophy of work, engineering and life. \"I am not a visionary, I'm an engineer,\" Torvalds says. \"I'm perfectly happy with all the people who are walking around and just staring at the clouds ... but I'm looking at the ground, and I want to fix the pothole that's right in front of me before I fall in.\" ['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
-        "runtime": "00:21:35",
-        "direct_subject": true,
-        "duration_hint": 1294.0,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 694.23,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The segment features real footage of Linus Torvalds participating in an interview at TED 2016, making it valid biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "2730398ca21ccf5a2f0a8903afae3e648125eb7daafc405598bab12db941fbbe",
-      "reviewed_at": 1792950174.7075443
-    },
-    {
-      "person": "Linus Torvalds",
-      "source": {
         "id": "archive:linus_202111",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/linus_202111/linus.mp4",
@@ -18220,37 +17972,6 @@
     {
       "person": "Linus Torvalds",
       "source": {
-        "id": "archive:LinusTorvalds_2016",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LinusTorvalds_2016/LinusTorvalds_2016.mp4",
-        "source_url": "https://archive.org/details/LinusTorvalds_2016",
-        "title": "Linus Torvalds: The mind behind Linux",
-        "description": "Linus Torvalds transformed technology twice — first with the Linux kernel, which helps power the Internet, and again with Git, the source code management system used by developers worldwide. In a rare interview with TED Curator Chris Anderson, Torvalds discusses with remarkable openness the personality traits that prompted his unique philosophy of work, engineering and life. \"I am not a visionary, I'm an engineer,\" Torvalds says. \"I'm perfectly happy with all the people who are walking around and just staring at the clouds ... but I'm looking at the ground, and I want to fix the pothole that's right in front of me before I fall in.\" ['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
-        "runtime": "00:21:35",
-        "direct_subject": true,
-        "duration_hint": 1294.0,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 103.46,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames clearly feature Linus Torvalds being interviewed on stage at a TED event, matching the biographical subject and providing genuine footage of him speaking.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "390ed1725e852a42f343ceffc89bd0deb8cc3eda5b9286df93d25fca47278a39",
-      "reviewed_at": 1792950343.5256085
-    },
-    {
-      "person": "Linus Torvalds",
-      "source": {
         "id": "archive:linus_202111",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/linus_202111/linus.mp4",
@@ -18278,37 +17999,6 @@
       },
       "review_key": "b7598e31d0f939bbc3fd7b8b4882b1df2d0238998d5b81d0c8955919e385f439",
       "reviewed_at": 1792950379.545838
-    },
-    {
-      "person": "Linus Torvalds",
-      "source": {
-        "id": "archive:LinusTorvalds_2016",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LinusTorvalds_2016/LinusTorvalds_2016.mp4",
-        "source_url": "https://archive.org/details/LinusTorvalds_2016",
-        "title": "Linus Torvalds: The mind behind Linux",
-        "description": "Linus Torvalds transformed technology twice — first with the Linux kernel, which helps power the Internet, and again with Git, the source code management system used by developers worldwide. In a rare interview with TED Curator Chris Anderson, Torvalds discusses with remarkable openness the personality traits that prompted his unique philosophy of work, engineering and life. \"I am not a visionary, I'm an engineer,\" Torvalds says. \"I'm perfectly happy with all the people who are walking around and just staring at the clouds ... but I'm looking at the ground, and I want to fix the pothole that's right in front of me before I fall in.\" ['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
-        "runtime": "00:21:35",
-        "direct_subject": true,
-        "duration_hint": 1294.0,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 201.92,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video shows genuine archival footage of Linus Torvalds participating in an interview at TED2016, making it directly relevant biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "add6a423e573a8f7c1a81489643957f8883cc24ab8d41f75c10c48530b71c409",
-      "reviewed_at": 1792950391.097666
     },
     {
       "person": "Linus Torvalds",
@@ -18468,37 +18158,6 @@
     {
       "person": "Linus Torvalds",
       "source": {
-        "id": "archive:LinusTorvalds_2016",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LinusTorvalds_2016/LinusTorvalds_2016.mp4",
-        "source_url": "https://archive.org/details/LinusTorvalds_2016",
-        "title": "Linus Torvalds: The mind behind Linux",
-        "description": "Linus Torvalds transformed technology twice — first with the Linux kernel, which helps power the Internet, and again with Git, the source code management system used by developers worldwide. In a rare interview with TED Curator Chris Anderson, Torvalds discusses with remarkable openness the personality traits that prompted his unique philosophy of work, engineering and life. \"I am not a visionary, I'm an engineer,\" Torvalds says. \"I'm perfectly happy with all the people who are walking around and just staring at the clouds ... but I'm looking at the ground, and I want to fix the pothole that's right in front of me before I fall in.\" ['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
-        "runtime": "00:21:35",
-        "direct_subject": true,
-        "duration_hint": 1294.0,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 497.31,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The sampled frames clearly feature Linus Torvalds speaking in an interview setting, matching the biographical subject and narration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "58d0ea9de74459163778b2273f601e7f57b2673551a132cf42ed6f3a9892d39c",
-      "reviewed_at": 1792950582.7806244
-    },
-    {
-      "person": "Linus Torvalds",
-      "source": {
         "id": "archive:linus_202111",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/linus_202111/linus.mp4",
@@ -18530,37 +18189,6 @@
     {
       "person": "Linus Torvalds",
       "source": {
-        "id": "archive:LinusTorvalds_2016",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LinusTorvalds_2016/LinusTorvalds_2016.mp4",
-        "source_url": "https://archive.org/details/LinusTorvalds_2016",
-        "title": "Linus Torvalds: The mind behind Linux",
-        "description": "Linus Torvalds transformed technology twice — first with the Linux kernel, which helps power the Internet, and again with Git, the source code management system used by developers worldwide. In a rare interview with TED Curator Chris Anderson, Torvalds discusses with remarkable openness the personality traits that prompted his unique philosophy of work, engineering and life. \"I am not a visionary, I'm an engineer,\" Torvalds says. \"I'm perfectly happy with all the people who are walking around and just staring at the clouds ... but I'm looking at the ground, and I want to fix the pothole that's right in front of me before I fall in.\" ['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
-        "creator": "TED.com",
-        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
-        "subject": "['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
-        "runtime": "00:21:35",
-        "direct_subject": true,
-        "duration_hint": 1294.0,
-        "identity_score": 13.0,
-        "archival_signal": 2
-      },
-      "start": 595.77,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video segment shows Linus Torvalds on stage at a TED talk, accompanied by archival childhood imagery on the screen above, providing authentic biographical context and direct interview footage of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e8dd003f6f1d643a38457b80de16bb7d603155cc458813b7134e96e93f91a10f",
-      "reviewed_at": 1792950635.7025993
-    },
-    {
-      "person": "Linus Torvalds",
-      "source": {
         "id": "archive:linus_202111",
         "provider": "Internet Archive",
         "url": "https://archive.org/download/linus_202111/linus.mp4",
@@ -18588,6 +18216,378 @@
       },
       "review_key": "5dc4ce72d6f17465b2623bca3756fe476d249930ce1685b56bcea8d90467f988",
       "reviewed_at": 1792950689.5872853
+    },
+    {
+      "person": "Linus Torvalds",
+      "source": {
+        "id": "archive:LinusTorvalds_2016",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LinusTorvalds_2016/LinusTorvalds_2016.mp4",
+        "source_url": "https://archive.org/details/LinusTorvalds_2016",
+        "title": "Linus Torvalds: The mind behind Linux",
+        "description": "Linus Torvalds transformed technology twice — first with the Linux kernel, which helps power the Internet, and again with Git, the source code management system used by developers worldwide. In a rare interview with TED Curator Chris Anderson, Torvalds discusses with remarkable openness the personality traits that prompted his unique philosophy of work, engineering and life. \"I am not a visionary, I'm an engineer,\" Torvalds says. \"I'm perfectly happy with all the people who are walking around and just staring at the clouds ... but I'm looking at the ground, and I want to fix the pothole that's right in front of me before I fall in.\" ['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
+        "creator": "TED.com",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
+        "subject": "['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
+        "runtime": "00:21:35",
+        "direct_subject": true,
+        "duration_hint": 1294.0,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 694.23,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features genuine interview footage of Linus Torvalds at TED2016, where he is clearly visible and identifiable throughout the sampled frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "33c998be9db5f23cc044baa0d812f59e3ae6c89e6b9d6f094924147a700c786a",
+      "reviewed_at": 1792954113.574915
+    },
+    {
+      "person": "Linus Torvalds",
+      "source": {
+        "id": "archive:AaltoTalkWithLinusTorvalds",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AaltoTalkWithLinusTorvalds/AaltoTalkWithLinusTorvalds.mp4",
+        "source_url": "https://archive.org/details/AaltoTalkWithLinusTorvalds",
+        "title": "Aalto Talk with Linus Torvalds",
+        "description": "Aalto Talk with Linus Torvalds, hosted by Aalto Center for Entrepreneurship (ACE) in Otaniemi on June 14, 2012. Linus was interviewed by Will Cardwell and followed with a Q&A session with the audience. Aalto Center for Entrepreneurship (ACE) aims at creating business success stories from the science and art within Aalto community, and working as a catalyst for elevating high ambition entrepreneurship from Finland and through the Baltic region. http://ace.aalto.fi/ Video by Oneminstory {http://www.oneminstory.com/en} ['2012', 'NVIDIA', 'Linus Torvalds', 'Linux', 'GPLv2', 'GPL', 'Finland', 'Q&A', 'GNU\\\\Linux', 'Internet']",
+        "creator": "Oneminstory",
+        "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+        "subject": "['2012', 'NVIDIA', 'Linus Torvalds', 'Linux', 'GPLv2', 'GPL', 'Finland', 'Q&A', 'GNU\\\\Linux', 'Internet']",
+        "runtime": "1:02:58",
+        "direct_subject": true,
+        "duration_hint": 3777.8,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 2031.66,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video shows Linus Torvalds participating in an interview/talk at Aalto University, making it valid biographical footage featuring the correct subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "f7f063b9368f057b67a2ffa85b0c529b78a0bca3eae09312678bce7786edf472",
+      "reviewed_at": 1792954168.7529461
+    },
+    {
+      "person": "Linus Torvalds",
+      "source": {
+        "id": "archive:LinusTorvalds_2016",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LinusTorvalds_2016/LinusTorvalds_2016.mp4",
+        "source_url": "https://archive.org/details/LinusTorvalds_2016",
+        "title": "Linus Torvalds: The mind behind Linux",
+        "description": "Linus Torvalds transformed technology twice — first with the Linux kernel, which helps power the Internet, and again with Git, the source code management system used by developers worldwide. In a rare interview with TED Curator Chris Anderson, Torvalds discusses with remarkable openness the personality traits that prompted his unique philosophy of work, engineering and life. \"I am not a visionary, I'm an engineer,\" Torvalds says. \"I'm perfectly happy with all the people who are walking around and just staring at the clouds ... but I'm looking at the ground, and I want to fix the pothole that's right in front of me before I fall in.\" ['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
+        "creator": "TED.com",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
+        "subject": "['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
+        "runtime": "00:21:35",
+        "direct_subject": true,
+        "duration_hint": 1294.0,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 103.46,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly show Linus Torvalds participating in a live interview on stage (TED talk format), providing valid biographical footage of the subject speaking and gesturing.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "023eb50f928c71c650528ea87cb816f6c0386afd0ac7ba307f68c6c621cbe3b8",
+      "reviewed_at": 1792954179.7645593
+    },
+    {
+      "person": "Linus Torvalds",
+      "source": {
+        "id": "archive:AaltoTalkWithLinusTorvalds",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AaltoTalkWithLinusTorvalds/AaltoTalkWithLinusTorvalds.mp4",
+        "source_url": "https://archive.org/details/AaltoTalkWithLinusTorvalds",
+        "title": "Aalto Talk with Linus Torvalds",
+        "description": "Aalto Talk with Linus Torvalds, hosted by Aalto Center for Entrepreneurship (ACE) in Otaniemi on June 14, 2012. Linus was interviewed by Will Cardwell and followed with a Q&A session with the audience. Aalto Center for Entrepreneurship (ACE) aims at creating business success stories from the science and art within Aalto community, and working as a catalyst for elevating high ambition entrepreneurship from Finland and through the Baltic region. http://ace.aalto.fi/ Video by Oneminstory {http://www.oneminstory.com/en} ['2012', 'NVIDIA', 'Linus Torvalds', 'Linux', 'GPLv2', 'GPL', 'Finland', 'Q&A', 'GNU\\\\Linux', 'Internet']",
+        "creator": "Oneminstory",
+        "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+        "subject": "['2012', 'NVIDIA', 'Linus Torvalds', 'Linux', 'GPLv2', 'GPL', 'Finland', 'Q&A', 'GNU\\\\Linux', 'Internet']",
+        "runtime": "1:02:58",
+        "direct_subject": true,
+        "duration_hint": 3777.8,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows Linus Torvalds seated on stage at the Aalto Talk event in 2012, making it valid biographical footage featuring the subject clearly visible.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "cd7b76b7fa888c37843e8b40db4f28a23d63a13e4dcb8a8950ba0f9bbe7e477b",
+      "reviewed_at": 1792954186.818096
+    },
+    {
+      "person": "Linus Torvalds",
+      "source": {
+        "id": "archive:LinusTorvalds_2016",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LinusTorvalds_2016/LinusTorvalds_2016.mp4",
+        "source_url": "https://archive.org/details/LinusTorvalds_2016",
+        "title": "Linus Torvalds: The mind behind Linux",
+        "description": "Linus Torvalds transformed technology twice — first with the Linux kernel, which helps power the Internet, and again with Git, the source code management system used by developers worldwide. In a rare interview with TED Curator Chris Anderson, Torvalds discusses with remarkable openness the personality traits that prompted his unique philosophy of work, engineering and life. \"I am not a visionary, I'm an engineer,\" Torvalds says. \"I'm perfectly happy with all the people who are walking around and just staring at the clouds ... but I'm looking at the ground, and I want to fix the pothole that's right in front of me before I fall in.\" ['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
+        "creator": "TED.com",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
+        "subject": "['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
+        "runtime": "00:21:35",
+        "direct_subject": true,
+        "duration_hint": 1294.0,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 201.92,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment shows Linus Torvalds participating in a stage interview, clearly identifiable throughout the frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "870bd820ef70d7de01cdde133f0a212395a3069dcfc05a59b92f2b6eeb9e4152",
+      "reviewed_at": 1792954197.1917212
+    },
+    {
+      "person": "Linus Torvalds",
+      "source": {
+        "id": "archive:AaltoTalkWithLinusTorvalds",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AaltoTalkWithLinusTorvalds/AaltoTalkWithLinusTorvalds.mp4",
+        "source_url": "https://archive.org/details/AaltoTalkWithLinusTorvalds",
+        "title": "Aalto Talk with Linus Torvalds",
+        "description": "Aalto Talk with Linus Torvalds, hosted by Aalto Center for Entrepreneurship (ACE) in Otaniemi on June 14, 2012. Linus was interviewed by Will Cardwell and followed with a Q&A session with the audience. Aalto Center for Entrepreneurship (ACE) aims at creating business success stories from the science and art within Aalto community, and working as a catalyst for elevating high ambition entrepreneurship from Finland and through the Baltic region. http://ace.aalto.fi/ Video by Oneminstory {http://www.oneminstory.com/en} ['2012', 'NVIDIA', 'Linus Torvalds', 'Linux', 'GPLv2', 'GPL', 'Finland', 'Q&A', 'GNU\\\\Linux', 'Internet']",
+        "creator": "Oneminstory",
+        "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+        "subject": "['2012', 'NVIDIA', 'Linus Torvalds', 'Linux', 'GPLv2', 'GPL', 'Finland', 'Q&A', 'GNU\\\\Linux', 'Internet']",
+        "runtime": "1:02:58",
+        "direct_subject": true,
+        "duration_hint": 3777.8,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 294.52,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly show Linus Torvalds speaking at an event, making it suitable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "361a5190e18476192a84b0172e92de78a5b04b98743b94ec97786a46627ee93c",
+      "reviewed_at": 1792954205.606912
+    },
+    {
+      "person": "Linus Torvalds",
+      "source": {
+        "id": "archive:AaltoTalkWithLinusTorvalds",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AaltoTalkWithLinusTorvalds/AaltoTalkWithLinusTorvalds.mp4",
+        "source_url": "https://archive.org/details/AaltoTalkWithLinusTorvalds",
+        "title": "Aalto Talk with Linus Torvalds",
+        "description": "Aalto Talk with Linus Torvalds, hosted by Aalto Center for Entrepreneurship (ACE) in Otaniemi on June 14, 2012. Linus was interviewed by Will Cardwell and followed with a Q&A session with the audience. Aalto Center for Entrepreneurship (ACE) aims at creating business success stories from the science and art within Aalto community, and working as a catalyst for elevating high ambition entrepreneurship from Finland and through the Baltic region. http://ace.aalto.fi/ Video by Oneminstory {http://www.oneminstory.com/en} ['2012', 'NVIDIA', 'Linus Torvalds', 'Linux', 'GPLv2', 'GPL', 'Finland', 'Q&A', 'GNU\\\\Linux', 'Internet']",
+        "creator": "Oneminstory",
+        "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+        "subject": "['2012', 'NVIDIA', 'Linus Torvalds', 'Linux', 'GPLv2', 'GPL', 'Finland', 'Q&A', 'GNU\\\\Linux', 'Internet']",
+        "runtime": "1:02:58",
+        "direct_subject": true,
+        "duration_hint": 3777.8,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 584.05,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features real archival footage of Linus Torvalds participating in a talk and Q&A session at Aalto University, making it fully usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4ca33a10502d2ece3ba4e184cc0d8bc4292e9d06572023f3b3d6a98d8e527c0b",
+      "reviewed_at": 1792954225.4507997
+    },
+    {
+      "person": "Linus Torvalds",
+      "source": {
+        "id": "archive:AaltoTalkWithLinusTorvalds",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AaltoTalkWithLinusTorvalds/AaltoTalkWithLinusTorvalds.mp4",
+        "source_url": "https://archive.org/details/AaltoTalkWithLinusTorvalds",
+        "title": "Aalto Talk with Linus Torvalds",
+        "description": "Aalto Talk with Linus Torvalds, hosted by Aalto Center for Entrepreneurship (ACE) in Otaniemi on June 14, 2012. Linus was interviewed by Will Cardwell and followed with a Q&A session with the audience. Aalto Center for Entrepreneurship (ACE) aims at creating business success stories from the science and art within Aalto community, and working as a catalyst for elevating high ambition entrepreneurship from Finland and through the Baltic region. http://ace.aalto.fi/ Video by Oneminstory {http://www.oneminstory.com/en} ['2012', 'NVIDIA', 'Linus Torvalds', 'Linux', 'GPLv2', 'GPL', 'Finland', 'Q&A', 'GNU\\\\Linux', 'Internet']",
+        "creator": "Oneminstory",
+        "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+        "subject": "['2012', 'NVIDIA', 'Linus Torvalds', 'Linux', 'GPLv2', 'GPL', 'Finland', 'Q&A', 'GNU\\\\Linux', 'Internet']",
+        "runtime": "1:02:58",
+        "direct_subject": true,
+        "duration_hint": 3777.8,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 873.57,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "Linus Torvalds is clearly visible speaking at an event, providing good biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6c559c34a1508db287667414ca69597944a1930e700694eed3906e353f441a25",
+      "reviewed_at": 1792954242.029555
+    },
+    {
+      "person": "Linus Torvalds",
+      "source": {
+        "id": "archive:LinusTorvalds_2016",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LinusTorvalds_2016/LinusTorvalds_2016.mp4",
+        "source_url": "https://archive.org/details/LinusTorvalds_2016",
+        "title": "Linus Torvalds: The mind behind Linux",
+        "description": "Linus Torvalds transformed technology twice — first with the Linux kernel, which helps power the Internet, and again with Git, the source code management system used by developers worldwide. In a rare interview with TED Curator Chris Anderson, Torvalds discusses with remarkable openness the personality traits that prompted his unique philosophy of work, engineering and life. \"I am not a visionary, I'm an engineer,\" Torvalds says. \"I'm perfectly happy with all the people who are walking around and just staring at the clouds ... but I'm looking at the ground, and I want to fix the pothole that's right in front of me before I fall in.\" ['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
+        "creator": "TED.com",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
+        "subject": "['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
+        "runtime": "00:21:35",
+        "direct_subject": true,
+        "duration_hint": 1294.0,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 497.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly show Linus Torvalds speaking in an interview setting, matching the biographical narration and providing high-quality archival interview footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "aaf9da54f219ffc74b575ee3c5951298b578fbd3295397e4049a8c0b16576320",
+      "reviewed_at": 1792954251.687382
+    },
+    {
+      "person": "Linus Torvalds",
+      "source": {
+        "id": "archive:AaltoTalkWithLinusTorvalds",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AaltoTalkWithLinusTorvalds/AaltoTalkWithLinusTorvalds.mp4",
+        "source_url": "https://archive.org/details/AaltoTalkWithLinusTorvalds",
+        "title": "Aalto Talk with Linus Torvalds",
+        "description": "Aalto Talk with Linus Torvalds, hosted by Aalto Center for Entrepreneurship (ACE) in Otaniemi on June 14, 2012. Linus was interviewed by Will Cardwell and followed with a Q&A session with the audience. Aalto Center for Entrepreneurship (ACE) aims at creating business success stories from the science and art within Aalto community, and working as a catalyst for elevating high ambition entrepreneurship from Finland and through the Baltic region. http://ace.aalto.fi/ Video by Oneminstory {http://www.oneminstory.com/en} ['2012', 'NVIDIA', 'Linus Torvalds', 'Linux', 'GPLv2', 'GPL', 'Finland', 'Q&A', 'GNU\\\\Linux', 'Internet']",
+        "creator": "Oneminstory",
+        "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+        "subject": "['2012', 'NVIDIA', 'Linus Torvalds', 'Linux', 'GPLv2', 'GPL', 'Finland', 'Q&A', 'GNU\\\\Linux', 'Internet']",
+        "runtime": "1:02:58",
+        "direct_subject": true,
+        "duration_hint": 3777.8,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1163.09,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows Linus Torvalds participating in a live talk/interview panel in 2012, making it valid biographical illustration footage where he is clearly visible throughout all frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c1f4a3fe6eac1637ac1cf8969657499720b36f0b6ca1159e4042a2650dfa2a81",
+      "reviewed_at": 1792954262.8778682
+    },
+    {
+      "person": "Linus Torvalds",
+      "source": {
+        "id": "archive:LinusTorvalds_2016",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LinusTorvalds_2016/LinusTorvalds_2016.mp4",
+        "source_url": "https://archive.org/details/LinusTorvalds_2016",
+        "title": "Linus Torvalds: The mind behind Linux",
+        "description": "Linus Torvalds transformed technology twice — first with the Linux kernel, which helps power the Internet, and again with Git, the source code management system used by developers worldwide. In a rare interview with TED Curator Chris Anderson, Torvalds discusses with remarkable openness the personality traits that prompted his unique philosophy of work, engineering and life. \"I am not a visionary, I'm an engineer,\" Torvalds says. \"I'm perfectly happy with all the people who are walking around and just staring at the clouds ... but I'm looking at the ground, and I want to fix the pothole that's right in front of me before I fall in.\" ['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
+        "creator": "TED.com",
+        "license": "http://creativecommons.org/licenses/by-nc-nd/3.0/",
+        "subject": "['Tedtalks', 'TED', 'Talks', 'Internet', 'code', 'communication', 'computers', 'data', 'engineering', 'interview', 'invention', 'programming', 'technology', 'web', 'TED2016', '2016']",
+        "runtime": "00:21:35",
+        "direct_subject": true,
+        "duration_hint": 1294.0,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 595.77,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Linus Torvalds is clearly visible on stage in a TED interview setting discussing his life and work, making this authentic and usable biographical footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8b81b6454e1363576415aaaa7dc5f2a26c5cc9577c1507121ea82bf96eae6349",
+      "reviewed_at": 1792954319.4752083
+    },
+    {
+      "person": "Linus Torvalds",
+      "source": {
+        "id": "archive:AaltoTalkWithLinusTorvalds",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/AaltoTalkWithLinusTorvalds/AaltoTalkWithLinusTorvalds.mp4",
+        "source_url": "https://archive.org/details/AaltoTalkWithLinusTorvalds",
+        "title": "Aalto Talk with Linus Torvalds",
+        "description": "Aalto Talk with Linus Torvalds, hosted by Aalto Center for Entrepreneurship (ACE) in Otaniemi on June 14, 2012. Linus was interviewed by Will Cardwell and followed with a Q&A session with the audience. Aalto Center for Entrepreneurship (ACE) aims at creating business success stories from the science and art within Aalto community, and working as a catalyst for elevating high ambition entrepreneurship from Finland and through the Baltic region. http://ace.aalto.fi/ Video by Oneminstory {http://www.oneminstory.com/en} ['2012', 'NVIDIA', 'Linus Torvalds', 'Linux', 'GPLv2', 'GPL', 'Finland', 'Q&A', 'GNU\\\\Linux', 'Internet']",
+        "creator": "Oneminstory",
+        "license": "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+        "subject": "['2012', 'NVIDIA', 'Linus Torvalds', 'Linux', 'GPLv2', 'GPL', 'Finland', 'Q&A', 'GNU\\\\Linux', 'Internet']",
+        "runtime": "1:02:58",
+        "direct_subject": true,
+        "duration_hint": 3777.8,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 1452.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features real archival footage of Linus Torvalds participating in an interview/talk (Aalto Talk, 2012). He is clearly visible across multiple frames speaking and gesturing. It provides good biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b3794a262a2599d71309374b2e9740ea109e416ee010cc3fcfcae512e93eacac",
+      "reviewed_at": 1792954327.30396
     }
   ]
 }

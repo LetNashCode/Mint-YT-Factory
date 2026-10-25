@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-25T17:52:15.919590+00:00",
-  "refresh_attempted_at": "2026-10-25T17:52:15.919590+00:00",
+  "generated_at": "2026-10-25T18:52:36.299491+00:00",
+  "refresh_attempted_at": "2026-10-25T18:52:36.299491+00:00",
   "refresh_status": "success",
   "video_count": 27,
   "optimization_ready": true,
@@ -8,12 +8,12 @@
   "advanced_metrics_videos": 26,
   "reason": "",
   "totals": {
-    "views": 10389,
+    "views": 10388,
     "likes": 206,
     "comments": 5
   },
   "averages": {
-    "views": 384.78,
+    "views": 384.74,
     "likes": 7.63,
     "comments": 0.19,
     "average_view_percentage": 50.39,
@@ -377,7 +377,7 @@
       "topic": "Jim Henson: Innovating early television puppetry for local Washington D.C. shows years before creating the Muppets.",
       "video_id": "8keJ6vBhkhU",
       "title": "Before the Fame: Jim Henson's Untold Struggle",
-      "views": 90,
+      "views": 89,
       "likes": 0,
       "comments": 0,
       "shares": 0,

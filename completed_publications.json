@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1788712079",
-    "video_id": "Ta7KRzGBH3A",
-    "topic": "Why does toothpaste foam",
-    "completed_at": 1788714394
-  },
-  {
     "workdir": "output/1788719851",
     "video_id": "NXaRoXa2xZg",
     "topic": "Why do metal spoons tingle",
@@ -598,5 +592,11 @@
     "video_id": "3-MOtjG9g70",
     "topic": "Why do shoe laces knot",
     "completed_at": 1793016668
+  },
+  {
+    "workdir": "output/1793051548",
+    "video_id": "omDs1XgCn7s",
+    "topic": "Why do metal zippers feel cold",
+    "completed_at": 1793052901
   }
 ]

@@ -9293,6 +9293,42 @@
       "start": 5.0,
       "reason": "The frames consist entirely of TED introduction title cards and logos, with the subject Linus Torvalds not appearing anywhere in the sampled interval.",
       "reviewed_at": 1792950335.1106849
+    },
+    "1b293bdc0975379f7dba5d1e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:israel-wohltater-der-menschheit",
+      "source_url": "https://archive.org/details/israel-wohltater-der-menschheit",
+      "person": "Jonas Salk",
+      "start": 77.38,
+      "reason": "The video segment consists of a screenshot of a BBC webpage containing embedded archival video footage, surrounded by website interface elements, banners, text captions, and large black padding areas. This makes it unsuitable for a clean biographical Short.",
+      "reviewed_at": 1793044431.1080809
+    },
+    "d18ef80a658c13033c69316b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "source_url": "https://archive.org/details/SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "person": "Satyajit Ray",
+      "start": 1193.69,
+      "reason": "The footage shows archival context related to the Brahmo Samaj and Rabindranath Tagore, which provides historical background for a biography of Satyajit Ray, but Satyajit Ray himself is not visible in the frames.",
+      "reviewed_at": 1793044573.6965303
+    },
+    "89fc58027729670622e093fe": {
+      "kind": "segment_rejection",
+      "source_id": "archive:SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "source_url": "https://archive.org/details/SUKUMARRAY1987DocumentaryBySatyajitRayYouTube360p",
+      "person": "Satyajit Ray",
+      "start": 1457.85,
+      "reason": "The clip features shadow puppetry or silhouette artistic animation from a documentary by Satyajit Ray about his family/work. Satyajit Ray himself is not visibly present as a real-life filmed subject, but it serves as genuine historical and artistic context related to his documentary work.",
+      "reviewed_at": 1793044587.7027912
+    },
+    "55cc89da9b13e7144f642eba": {
+      "kind": "segment_rejection",
+      "source_id": "archive:tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826",
+      "source_url": "https://archive.org/details/tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826",
+      "person": "Temple Grandin",
+      "start": 297.95,
+      "reason": "The footage shows Temple Grandin speaking at a podium, serving as biographical illustration, but it does not directly depict the historical events of her life narrated in the script.",
+      "reviewed_at": 1793045052.0273156
     }
   }
 }

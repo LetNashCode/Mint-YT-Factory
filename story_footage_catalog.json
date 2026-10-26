@@ -2,440 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise/Cameron7.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise",
-        "title": "James Cameron Tar Sands Press Conference: Allowed to Proceed on a Promise",
-        "description": "http://www.tarsandstour.com - James Cameron explains the pitfalls of tar sands mine land reclamation (unproven and very expensive) and criticizes the idea that companies should be allowed to \"proceed on a promise,\" when it will be our children left to make sure that the companies \"make good\" on their promises. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "creator": "tarsandstour",
-        "license": "",
-        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "runtime": "1:54",
-        "direct_subject": true,
-        "duration_hint": 114.364364,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 41.5,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames clearly show the named subject, James Cameron, speaking at a podium during a press conference. While it serves as biographical illustration rather than direct footage of a major film production, it is genuine archival footage of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "20d8627878b3a7f804be9f2c4b05ba51bebcd74e54118bcf94ba2005a7df51f1",
-      "reviewed_at": 1791401755.5487676
-    },
-    {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise/Cameron7.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise",
-        "title": "James Cameron Tar Sands Press Conference: Allowed to Proceed on a Promise",
-        "description": "http://www.tarsandstour.com - James Cameron explains the pitfalls of tar sands mine land reclamation (unproven and very expensive) and criticizes the idea that companies should be allowed to \"proceed on a promise,\" when it will be our children left to make sure that the companies \"make good\" on their promises. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "creator": "tarsandstour",
-        "license": "",
-        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "runtime": "1:54",
-        "direct_subject": true,
-        "duration_hint": 114.364364,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 50.62,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The frames clearly show the named subject, James Cameron, speaking at a press conference, providing direct and genuine biographical footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b2cd767b6df94821315f2ab7d50d65dd990c3f36081d3815d95e5c817b431087",
-      "reviewed_at": 1791401778.1001081
-    },
-    {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands/Cameron9.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
-        "title": "James Cameron Tar Sands Press Conference: Climate Change and Canada's Tar Sands",
-        "description": "http://www.tarsandstour.com - In the face of catastrophic climate change, James Cameron asks what the \"future proofing\" is for Alberta and the oil companies operating in the tar sands. He makes the case for strong regulation and boundaries to protect society from irresponsible resource extraction. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "creator": "tarsandstour",
-        "license": "",
-        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "runtime": "2:23",
-        "direct_subject": true,
-        "duration_hint": 142.692693,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 54.5,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The frames clearly show the named subject, James Cameron, speaking at a podium during a press conference. The footage is real, clear, and directly usable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9ddc56b4abb0304a527347051583df8d01426358fc2ffa2e3d50d32dea2dc69e",
-      "reviewed_at": 1791401793.3009057
-    },
-    {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceMoratorium",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceMoratorium/Cameron4.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceMoratorium",
-        "title": "James Cameron Tar Sands Press Conference: Moratorium",
-        "description": "http://www.tarsandstour.com - James Cameron calls for a moratorium on new tar sands tailings ponds until the pollution from current projects is better understood. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "creator": "tarsandstour",
-        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "runtime": "2:23",
-        "direct_subject": true,
-        "duration_hint": 142.625959,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 74.26,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The video shows real moving footage of James Cameron speaking at a podium, clearly visible across all frames, making it suitable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d3f0e08a396dad06e0e1d166c9ef865b634966f9446555594d8854719ac339b6",
-      "reviewed_at": 1791458276.1398706
-    },
-    {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceMoratorium",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceMoratorium/Cameron4.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceMoratorium",
-        "title": "James Cameron Tar Sands Press Conference: Moratorium",
-        "description": "http://www.tarsandstour.com - James Cameron calls for a moratorium on new tar sands tailings ponds until the pollution from current projects is better understood. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "creator": "tarsandstour",
-        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "runtime": "2:23",
-        "direct_subject": true,
-        "duration_hint": 142.625959,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 14.89,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames clearly show the named subject, James Cameron, speaking at a podium. However, the footage is static/talking-head style and only serves as biographical illustration for general archival use rather than depicting a specific narrated event directly.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "3284339fddc1d5f12045dc6a1ccf3c0f6d8c2cde6d578550b435c5a01dfe1100",
-      "reviewed_at": 1791458292.8687842
-    },
-    {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceMoratorium",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceMoratorium/Cameron4.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceMoratorium",
-        "title": "James Cameron Tar Sands Press Conference: Moratorium",
-        "description": "http://www.tarsandstour.com - James Cameron calls for a moratorium on new tar sands tailings ponds until the pollution from current projects is better understood. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "creator": "tarsandstour",
-        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "runtime": "2:23",
-        "direct_subject": true,
-        "duration_hint": 142.625959,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 24.79,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage clearly shows James Cameron speaking at a podium (The Westin), providing good biographical illustration material for his life and public appearances.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "469e8e235fda8f53dcd1909901dd82dd54c5165b3482f7ebf483b2bcbcd44f13",
-      "reviewed_at": 1791458353.2470956
-    },
-    {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronPressConferenceAtSolidworksWorld2010",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronPressConferenceAtSolidworksWorld2010/JamesCameron_SWW2010_PressConf.mp4",
-        "source_url": "https://archive.org/details/JamesCameronPressConferenceAtSolidworksWorld2010",
-        "title": "James Cameron Press Conference at SolidWorks World 2010",
-        "description": "This is the press conference with director James Cameron after the SolidWorks World 2010 General Session on Tuesday, February 2, 2010. See full conference coverage at http://www.cadfanatic.com/category/solidworks-world/ ['James Cameron', 'press conference', 'Terminator', 'Titanic', 'Avatar', 'SolidWorks', 'SolidWorks World']",
-        "creator": "Brian McElyea",
-        "license": "http://creativecommons.org/licenses/by-sa/3.0/us/",
-        "subject": "['James Cameron', 'press conference', 'Terminator', 'Titanic', 'Avatar', 'SolidWorks', 'SolidWorks World']",
-        "runtime": "22:14",
-        "direct_subject": true,
-        "duration_hint": 1333.7,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 715.61,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage clearly shows James Cameron speaking at a podium during a press conference. While it is not a direct clip of his filmmaking process, it is genuine archival footage of the subject that can be used for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e61cb1360e01385bed71e41bc3ec27cc78dea48c86c584fdd065345668ef99ea",
-      "reviewed_at": 1791458399.8133047
-    },
-    {
-      "person": "Amy Adams",
-      "source": {
-        "id": "archive:hbo-amy-adams-justice-league-2017-liga-de-la-justicia-2017",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/hbo-amy-adams-justice-league-2017-liga-de-la-justicia-2017/HBO%20_%20Amy%20Adams_%20Justice%20League%20%282017%29%20_%20Liga%20De%20La%20Justicia%20%282017%29.mp4",
-        "source_url": "https://archive.org/details/hbo-amy-adams-justice-league-2017-liga-de-la-justicia-2017",
-        "title": "HBO | Amy Adams: Justice League (2017) / Liga De La Justicia (2017)",
-        "description": ". ['HBO', 'Amy Adams', 'Justice league', 'liga de la justicia', '2017']",
-        "creator": "",
-        "license": "",
-        "subject": "['HBO', 'Amy Adams', 'Justice league', 'liga de la justicia', '2017']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 279.4,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 209.15,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8.0,
-        "reason": "The footage clearly shows Amy Adams appearing in all three frames as Lois Lane from Justice League (2017). However, because this is fictional movie footage used in a biographical context about her career rather than a direct documentary recording of a biographical event, it serves as biographical illustration rather than direct event footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "deb5dfae202b87b1d410040fb592aab48aff4700d02220848a726694c71b6292",
-      "reviewed_at": 1791458629.7594976
-    },
-    {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:g4tv.com-video49139-flvhd",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/g4tv.com-video49139-flvhd/as20101007_guillermo_flvhd.mp4",
-        "source_url": "https://archive.org/details/g4tv.com-video49139-flvhd",
-        "title": "g4tv.com-video49139-flvhd: Guillermo del Toro Talks About His New Book, The Fall",
-        "description": "Guillermo del Toro, the director behind 'Hellboy' and 'Pan's Labyrinth' is returning to the literary world with his latest book, 'The Fall,' the second installment of 'The Strain' Trilogy. He stops by the studio to talk about writing, vampires and more! ['G4TV.com videos', 'flvhd']",
-        "creator": "G4TV.com",
-        "license": "",
-        "subject": "['G4TV.com videos', 'flvhd']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 419.686353,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 317.07,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The clip shows Guillermo del Toro being interviewed on a TV show (Attack of the Show). While it is interview footage rather than archival or biographical documentary footage, the subject is clearly visible throughout all three frames and talking about his work, making it usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "651990386244928bcb891a5a38ef39b96f7ab927dc17bff5a24495e66585a903",
-      "reviewed_at": 1791459077.6827796
-    },
-    {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:g4tv.com-video49139",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/g4tv.com-video49139/as20101007_guillermo_flv.mp4",
-        "source_url": "https://archive.org/details/g4tv.com-video49139",
-        "title": "g4tv.com-video49139: Guillermo del Toro Talks About His New Book, The Fall",
-        "description": "Guillermo del Toro, the director behind 'Hellboy' and 'Pan's Labyrinth' is returning to the literary world with his latest book, 'The Fall,' the second installment of 'The Strain' Trilogy. He stops by the studio to talk about writing, vampires and more! G4TV.com videos",
-        "creator": "G4TV.com",
-        "license": "",
-        "subject": "G4TV.com videos",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 420.787454,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 224.04,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows Guillermo del Toro being interviewed in a studio setting, which serves as biographical illustration for his life and career, but it is an interview rather than direct archival footage of a historical event being narrated.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "83f15a70880a7753550ece11483bea417ec3c7fbfd63ed392968bddba34f644c",
-      "reviewed_at": 1791459085.6565092
-    },
-    {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:twitter-1181834179241107456",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
-        "source_url": "https://archive.org/details/twitter-1181834179241107456",
-        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
-        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 43.64,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Guillermo del Toro being interviewed on television in 2006, directly matching the biographical context and narration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ef568feacc4579174b6a2bb8e66e09f9d23af4ac8ba95c892095458188a80064",
-      "reviewed_at": 1791459117.215784
-    },
-    {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:twitter-1181834179241107456",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
-        "source_url": "https://archive.org/details/twitter-1181834179241107456",
-        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
-        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Guillermo del Toro participating in an interview, visible across all three frames, perfectly matching the biographical narration about his life and discussions on fantasy.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "412625165cf338630ede6fdf30516a9d43c79cece35461063811ec2e816f098f",
-      "reviewed_at": 1791459122.1604197
-    },
-    {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:twitter-1181834179241107456",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
-        "source_url": "https://archive.org/details/twitter-1181834179241107456",
-        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
-        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 14.66,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage shows Guillermo del Toro speaking in an interview setting, providing authentic archival footage of the named subject, though it depicts an interview rather than the specific historical event of his birth.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f238e5827d9884a8c6eb542c4a06efcdb06e079906b44af9159d1745ebd86937",
-      "reviewed_at": 1791459127.3875425
-    },
-    {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:twitter-1181834179241107456",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
-        "source_url": "https://archive.org/details/twitter-1181834179241107456",
-        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
-        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 24.32,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Guillermo del Toro being interviewed on The Late Show in 2006, satisfying the requirement for identity footage where the subject is visible across all frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "1cd580d58af44b073bfc04e9e0f5e531ae9ab27c92a5e762a36edd7081856a6b",
-      "reviewed_at": 1791459142.610336
-    },
-    {
       "person": "Guillermo del Toro",
       "source": {
         "id": "archive:twitter-1181834179241107456",
@@ -16082,37 +15648,6 @@
       "reviewed_at": 1792862980.7369084
     },
     {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:jonas-edward-salk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
-        "source_url": "https://archive.org/details/jonas-edward-salk",
-        "title": "JONAS EDWARD SALK",
-        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
-        "creator": "",
-        "license": "",
-        "subject": "JONAS SALK",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 79.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 60.85,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage clearly depicts Jonas Salk working in a laboratory setting with test tubes and appearing with his family in archival photos, perfectly illustrating his biographical life as narrated.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "94563a025362273c1e5265f43171af0827401bcc78597b06b502dff7215b8eb1",
-      "reviewed_at": 1792863020.0222447
-    },
-    {
       "person": "Marie Curie",
       "source": {
         "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
@@ -18588,6 +18123,471 @@
       },
       "review_key": "b3794a262a2599d71309374b2e9740ea109e416ee010cc3fcfcae512e93eacac",
       "reviewed_at": 1792954327.30396
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 60.85,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The segment features clear historical and biographical footage of Jonas Salk, showing him in a laboratory setting examining test tubes and with his family, supporting the biographical illustration of his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "61cf5de8741a212cbf919ff318890559031e9935ea98eb5584101c5a1815145c",
+      "reviewed_at": 1793044463.006033
+    },
+    {
+      "person": "Temple Grandin",
+      "source": {
+        "id": "archive:tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826/Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826.mp4",
+        "source_url": "https://archive.org/details/tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826",
+        "title": "Dr. Temple Grandin Addresses Texas A&M Graduates",
+        "description": "Addressing Texas A&M University graduates, Dr. Grandin gave a humor-laced presentation titled “The World Needs All Kinds of Minds,” and spoke her mind on variety of topics, including how she views the world, as well as how others view it—and even how animals take note of their surroundings. Subscribe → http://tx.ag/youtubesub Follow Texas A&M on social media: Instagram → http://instagram.com/tamu Facebook → http://facebook.com/tamu Twitter → http://twitter.com/tamu ['Texas', 'Kingsville', 'Texas ALONGNAMEM University', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Texas A&M University', 'A&M', 'University', 'College', 'TAMU', 'College Station', 'graduation', 'commencement', 'ceremony', 'address', 'speech', 'temple', 'grandin', 'graduate', 'graduates', 'Aggie', 'Aggies', 'Education', 'Higher education', 'motivation', 'inspiration', '2014']",
+        "creator": "Texas ALONGNAMEM University",
+        "license": "",
+        "subject": "['Texas', 'Kingsville', 'Texas ALONGNAMEM University', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Texas A&M University', 'A&M', 'University', 'College', 'TAMU', 'College Station', 'graduation', 'commencement', 'ceremony', 'address', 'speech', 'temple', 'grandin', 'graduate', 'graduates', 'Aggie', 'Aggies', 'Education', 'Higher education', 'motivation', 'inspiration', '2014']",
+        "runtime": "00:31:58",
+        "direct_subject": true,
+        "duration_hint": 1918.151485,
+        "identity_score": 13.0,
+        "archival_signal": 3
+      },
+      "start": 1030.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features Temple Grandin clearly visible and speaking at a podium during a commencement address, serving as biographical illustration footage of her later life and public speaking career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c2ccfce76869f7e21ccc0f8bc97a871c544759ca4cfcc65e5b8a1e9fa8297b06",
+      "reviewed_at": 1793044918.317163
+    },
+    {
+      "person": "Temple Grandin",
+      "source": {
+        "id": "archive:bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189",
+        "title": "Temple Grandin on Uniqueness",
+        "description": "Like Autism Live on Facebook at http://facebook.com/autismlive Temple Grandin answers questions on what she wore to the Emmy Awards the night the HBO Film based on her life won multiple awards. Was she pressured to wear an evening gown? Listen to Temple’s remarkable answer about the importance of being able to be uniquely who you are without offending anyone. This is wonderful example of Temple’s sense of humor, ability to take perspective and her passion for the rights of individuals on the Autism spectrum. Autism Live is a production of the Center for Autism and Related Disorders (CARD), headquartered in Tarzana, California, and with offices throughout the United States and around the globe. For more information on therapy for autism and other related disorders, visit the CARD website at http://centerforautism.com ['autism treatment', 'aba', 'autism live', 'autism speaks network', 'emmy awards', 'uniqueness', 'temple grandin', 'dealing with quirks', 'hbo', 'shannon penrod', 'autism', 'claire danes', 'thinking in pictures', 'ralph lauren']",
+        "creator": "",
+        "license": "",
+        "subject": "['autism treatment', 'aba', 'autism live', 'autism speaks network', 'emmy awards', 'uniqueness', 'temple grandin', 'dealing with quirks', 'hbo', 'shannon penrod', 'autism', 'claire danes', 'thinking in pictures', 'ralph lauren']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 106.064278,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 51.03,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.0,
+        "reason": "The video shows a clear interview with Temple Grandin, where she is visibly present and speaking, providing good biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "5bb677e2e0823e5f21935e0563c2d4467b7900b4d22e4be861623cdc93929c92",
+      "reviewed_at": 1793044957.459365
+    },
+    {
+      "person": "Temple Grandin",
+      "source": {
+        "id": "archive:tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826/Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826.mp4",
+        "source_url": "https://archive.org/details/tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826",
+        "title": "Dr. Temple Grandin Addresses Texas A&M Graduates",
+        "description": "Addressing Texas A&M University graduates, Dr. Grandin gave a humor-laced presentation titled “The World Needs All Kinds of Minds,” and spoke her mind on variety of topics, including how she views the world, as well as how others view it—and even how animals take note of their surroundings. Subscribe → http://tx.ag/youtubesub Follow Texas A&M on social media: Instagram → http://instagram.com/tamu Facebook → http://facebook.com/tamu Twitter → http://twitter.com/tamu ['Texas', 'Kingsville', 'Texas ALONGNAMEM University', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Texas A&M University', 'A&M', 'University', 'College', 'TAMU', 'College Station', 'graduation', 'commencement', 'ceremony', 'address', 'speech', 'temple', 'grandin', 'graduate', 'graduates', 'Aggie', 'Aggies', 'Education', 'Higher education', 'motivation', 'inspiration', '2014']",
+        "creator": "Texas ALONGNAMEM University",
+        "license": "",
+        "subject": "['Texas', 'Kingsville', 'Texas ALONGNAMEM University', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Texas A&M University', 'A&M', 'University', 'College', 'TAMU', 'College Station', 'graduation', 'commencement', 'ceremony', 'address', 'speech', 'temple', 'grandin', 'graduate', 'graduates', 'Aggie', 'Aggies', 'Education', 'Higher education', 'motivation', 'inspiration', '2014']",
+        "runtime": "00:31:58",
+        "direct_subject": true,
+        "duration_hint": 1918.151485,
+        "identity_score": 13.0,
+        "archival_signal": 3
+      },
+      "start": 151.47,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows Temple Grandin speaking at a podium during a graduation ceremony, providing good biographical illustration footage of her later life and public speaking engagements.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "784c9bc826213e27e73a8adcdd9d3cc7a14e12f7a0172e86268d88f4c23c8ff0",
+      "reviewed_at": 1793044966.7487552
+    },
+    {
+      "person": "Temple Grandin",
+      "source": {
+        "id": "archive:bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189",
+        "title": "Temple Grandin on Uniqueness",
+        "description": "Like Autism Live on Facebook at http://facebook.com/autismlive Temple Grandin answers questions on what she wore to the Emmy Awards the night the HBO Film based on her life won multiple awards. Was she pressured to wear an evening gown? Listen to Temple’s remarkable answer about the importance of being able to be uniquely who you are without offending anyone. This is wonderful example of Temple’s sense of humor, ability to take perspective and her passion for the rights of individuals on the Autism spectrum. Autism Live is a production of the Center for Autism and Related Disorders (CARD), headquartered in Tarzana, California, and with offices throughout the United States and around the globe. For more information on therapy for autism and other related disorders, visit the CARD website at http://centerforautism.com ['autism treatment', 'aba', 'autism live', 'autism speaks network', 'emmy awards', 'uniqueness', 'temple grandin', 'dealing with quirks', 'hbo', 'shannon penrod', 'autism', 'claire danes', 'thinking in pictures', 'ralph lauren']",
+        "creator": "",
+        "license": "",
+        "subject": "['autism treatment', 'aba', 'autism live', 'autism speaks network', 'emmy awards', 'uniqueness', 'temple grandin', 'dealing with quirks', 'hbo', 'shannon penrod', 'autism', 'claire danes', 'thinking in pictures', 'ralph lauren']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 106.064278,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features real interview footage of Temple Grandin clearly visible in the sampled frames, making it suitable as biographical illustration for a Short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "61d27b221ab7159157230bc1d5a9c309a81b35b6a1996d1a294b1bca777c53f9",
+      "reviewed_at": 1793044984.807199
+    },
+    {
+      "person": "Temple Grandin",
+      "source": {
+        "id": "archive:tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826/Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826.mp4",
+        "source_url": "https://archive.org/details/tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826",
+        "title": "Dr. Temple Grandin Addresses Texas A&M Graduates",
+        "description": "Addressing Texas A&M University graduates, Dr. Grandin gave a humor-laced presentation titled “The World Needs All Kinds of Minds,” and spoke her mind on variety of topics, including how she views the world, as well as how others view it—and even how animals take note of their surroundings. Subscribe → http://tx.ag/youtubesub Follow Texas A&M on social media: Instagram → http://instagram.com/tamu Facebook → http://facebook.com/tamu Twitter → http://twitter.com/tamu ['Texas', 'Kingsville', 'Texas ALONGNAMEM University', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Texas A&M University', 'A&M', 'University', 'College', 'TAMU', 'College Station', 'graduation', 'commencement', 'ceremony', 'address', 'speech', 'temple', 'grandin', 'graduate', 'graduates', 'Aggie', 'Aggies', 'Education', 'Higher education', 'motivation', 'inspiration', '2014']",
+        "creator": "Texas ALONGNAMEM University",
+        "license": "",
+        "subject": "['Texas', 'Kingsville', 'Texas ALONGNAMEM University', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Texas A&M University', 'A&M', 'University', 'College', 'TAMU', 'College Station', 'graduation', 'commencement', 'ceremony', 'address', 'speech', 'temple', 'grandin', 'graduate', 'graduates', 'Aggie', 'Aggies', 'Education', 'Higher education', 'motivation', 'inspiration', '2014']",
+        "runtime": "00:31:58",
+        "direct_subject": true,
+        "duration_hint": 1918.151485,
+        "identity_score": 13.0,
+        "archival_signal": 3
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows actual filmed footage of Temple Grandin speaking at a commencement ceremony. While the first frame is a title card, frames 2 through 5 clearly show Temple Grandin at the podium giving her address, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "da6de0d59848db4985b3dbb962998f57d407e61df3dfc74224b4a15d14616287",
+      "reviewed_at": 1793044992.5623293
+    },
+    {
+      "person": "Temple Grandin",
+      "source": {
+        "id": "archive:bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189",
+        "title": "Temple Grandin on Uniqueness",
+        "description": "Like Autism Live on Facebook at http://facebook.com/autismlive Temple Grandin answers questions on what she wore to the Emmy Awards the night the HBO Film based on her life won multiple awards. Was she pressured to wear an evening gown? Listen to Temple’s remarkable answer about the importance of being able to be uniquely who you are without offending anyone. This is wonderful example of Temple’s sense of humor, ability to take perspective and her passion for the rights of individuals on the Autism spectrum. Autism Live is a production of the Center for Autism and Related Disorders (CARD), headquartered in Tarzana, California, and with offices throughout the United States and around the globe. For more information on therapy for autism and other related disorders, visit the CARD website at http://centerforautism.com ['autism treatment', 'aba', 'autism live', 'autism speaks network', 'emmy awards', 'uniqueness', 'temple grandin', 'dealing with quirks', 'hbo', 'shannon penrod', 'autism', 'claire danes', 'thinking in pictures', 'ralph lauren']",
+        "creator": "",
+        "license": "",
+        "subject": "['autism treatment', 'aba', 'autism live', 'autism speaks network', 'emmy awards', 'uniqueness', 'temple grandin', 'dealing with quirks', 'hbo', 'shannon penrod', 'autism', 'claire danes', 'thinking in pictures', 'ralph lauren']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 106.064278,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 14.21,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment features real, clear interview footage of Temple Grandin, satisfying identity criteria for a biographical short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "43df0feac3911d44f7797a0f9355399b2131b1d058236fe99ae724476d9adf39",
+      "reviewed_at": 1793045041.39127
+    },
+    {
+      "person": "Temple Grandin",
+      "source": {
+        "id": "archive:tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826/Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826.mp4",
+        "source_url": "https://archive.org/details/tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826",
+        "title": "Dr. Temple Grandin Addresses Texas A&M Graduates",
+        "description": "Addressing Texas A&M University graduates, Dr. Grandin gave a humor-laced presentation titled “The World Needs All Kinds of Minds,” and spoke her mind on variety of topics, including how she views the world, as well as how others view it—and even how animals take note of their surroundings. Subscribe → http://tx.ag/youtubesub Follow Texas A&M on social media: Instagram → http://instagram.com/tamu Facebook → http://facebook.com/tamu Twitter → http://twitter.com/tamu ['Texas', 'Kingsville', 'Texas ALONGNAMEM University', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Texas A&M University', 'A&M', 'University', 'College', 'TAMU', 'College Station', 'graduation', 'commencement', 'ceremony', 'address', 'speech', 'temple', 'grandin', 'graduate', 'graduates', 'Aggie', 'Aggies', 'Education', 'Higher education', 'motivation', 'inspiration', '2014']",
+        "creator": "Texas ALONGNAMEM University",
+        "license": "",
+        "subject": "['Texas', 'Kingsville', 'Texas ALONGNAMEM University', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Texas A&M University', 'A&M', 'University', 'College', 'TAMU', 'College Station', 'graduation', 'commencement', 'ceremony', 'address', 'speech', 'temple', 'grandin', 'graduate', 'graduates', 'Aggie', 'Aggies', 'Education', 'Higher education', 'motivation', 'inspiration', '2014']",
+        "runtime": "00:31:58",
+        "direct_subject": true,
+        "duration_hint": 1918.151485,
+        "identity_score": 13.0,
+        "archival_signal": 3
+      },
+      "start": 444.42,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The frames show a scientific brain scan graphic comparing Temple Grandin's axon projection field to a normal subject, providing concrete historical and scientific context related to her neurology, even though Temple Grandin herself is not visibly present in the footage.",
+        "usage": "direct_event"
+      },
+      "review_key": "eccd27475c879473c3c7d3b1f1c8648103aa8faa8ad52426b21f847b1084d0c7",
+      "reviewed_at": 1793045056.7719803
+    },
+    {
+      "person": "Temple Grandin",
+      "source": {
+        "id": "archive:bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189",
+        "title": "Temple Grandin on Uniqueness",
+        "description": "Like Autism Live on Facebook at http://facebook.com/autismlive Temple Grandin answers questions on what she wore to the Emmy Awards the night the HBO Film based on her life won multiple awards. Was she pressured to wear an evening gown? Listen to Temple’s remarkable answer about the importance of being able to be uniquely who you are without offending anyone. This is wonderful example of Temple’s sense of humor, ability to take perspective and her passion for the rights of individuals on the Autism spectrum. Autism Live is a production of the Center for Autism and Related Disorders (CARD), headquartered in Tarzana, California, and with offices throughout the United States and around the globe. For more information on therapy for autism and other related disorders, visit the CARD website at http://centerforautism.com ['autism treatment', 'aba', 'autism live', 'autism speaks network', 'emmy awards', 'uniqueness', 'temple grandin', 'dealing with quirks', 'hbo', 'shannon penrod', 'autism', 'claire danes', 'thinking in pictures', 'ralph lauren']",
+        "creator": "",
+        "license": "",
+        "subject": "['autism treatment', 'aba', 'autism live', 'autism speaks network', 'emmy awards', 'uniqueness', 'temple grandin', 'dealing with quirks', 'hbo', 'shannon penrod', 'autism', 'claire danes', 'thinking in pictures', 'ralph lauren']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 106.064278,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 32.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The segment features authentic interview footage of Temple Grandin speaking about her life and experiences, making it valid biographical illustration despite cutting to the interviewer in the final frame.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "db4d7f6aedefd8b7942470eb9b213026fbc7d9e5e827837a5ac90ff874266056",
+      "reviewed_at": 1793045119.9789755
+    },
+    {
+      "person": "Temple Grandin",
+      "source": {
+        "id": "archive:tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826/Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826.mp4",
+        "source_url": "https://archive.org/details/tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826",
+        "title": "Dr. Temple Grandin Addresses Texas A&M Graduates",
+        "description": "Addressing Texas A&M University graduates, Dr. Grandin gave a humor-laced presentation titled “The World Needs All Kinds of Minds,” and spoke her mind on variety of topics, including how she views the world, as well as how others view it—and even how animals take note of their surroundings. Subscribe → http://tx.ag/youtubesub Follow Texas A&M on social media: Instagram → http://instagram.com/tamu Facebook → http://facebook.com/tamu Twitter → http://twitter.com/tamu ['Texas', 'Kingsville', 'Texas ALONGNAMEM University', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Texas A&M University', 'A&M', 'University', 'College', 'TAMU', 'College Station', 'graduation', 'commencement', 'ceremony', 'address', 'speech', 'temple', 'grandin', 'graduate', 'graduates', 'Aggie', 'Aggies', 'Education', 'Higher education', 'motivation', 'inspiration', '2014']",
+        "creator": "Texas ALONGNAMEM University",
+        "license": "",
+        "subject": "['Texas', 'Kingsville', 'Texas ALONGNAMEM University', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Texas A&M University', 'A&M', 'University', 'College', 'TAMU', 'College Station', 'graduation', 'commencement', 'ceremony', 'address', 'speech', 'temple', 'grandin', 'graduate', 'graduates', 'Aggie', 'Aggies', 'Education', 'Higher education', 'motivation', 'inspiration', '2014']",
+        "runtime": "00:31:58",
+        "direct_subject": true,
+        "duration_hint": 1918.151485,
+        "identity_score": 13.0,
+        "archival_signal": 3
+      },
+      "start": 590.89,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video segment shows real footage of Temple Grandin speaking at a podium (identifiable in the first four frames), followed by a presentation slide with text and historical imagery in the fifth frame. While it is a speech/presentation rather than archival life footage, Temple Grandin is clearly visible and it serves as valid biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "681da8f404a612ef42365318a4ea17bf71bf65460bfac38fd02474894c4b25a5",
+      "reviewed_at": 1793045130.4799898
+    },
+    {
+      "person": "Temple Grandin",
+      "source": {
+        "id": "archive:bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189",
+        "title": "Temple Grandin on Uniqueness",
+        "description": "Like Autism Live on Facebook at http://facebook.com/autismlive Temple Grandin answers questions on what she wore to the Emmy Awards the night the HBO Film based on her life won multiple awards. Was she pressured to wear an evening gown? Listen to Temple’s remarkable answer about the importance of being able to be uniquely who you are without offending anyone. This is wonderful example of Temple’s sense of humor, ability to take perspective and her passion for the rights of individuals on the Autism spectrum. Autism Live is a production of the Center for Autism and Related Disorders (CARD), headquartered in Tarzana, California, and with offices throughout the United States and around the globe. For more information on therapy for autism and other related disorders, visit the CARD website at http://centerforautism.com ['autism treatment', 'aba', 'autism live', 'autism speaks network', 'emmy awards', 'uniqueness', 'temple grandin', 'dealing with quirks', 'hbo', 'shannon penrod', 'autism', 'claire danes', 'thinking in pictures', 'ralph lauren']",
+        "creator": "",
+        "license": "",
+        "subject": "['autism treatment', 'aba', 'autism live', 'autism speaks network', 'emmy awards', 'uniqueness', 'temple grandin', 'dealing with quirks', 'hbo', 'shannon penrod', 'autism', 'claire danes', 'thinking in pictures', 'ralph lauren']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 106.064278,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 23.41,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features an interview with Temple Grandin herself, clearly identifiable in multiple frames (such as frame 3), making it valid biographical footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bff940dd04c7fb69e0c9a16d345fb3499632224c99dd9f54e37710ded84a3bf9",
+      "reviewed_at": 1793045152.1316578
+    },
+    {
+      "person": "Temple Grandin",
+      "source": {
+        "id": "archive:tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826/Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826.mp4",
+        "source_url": "https://archive.org/details/tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826",
+        "title": "Dr. Temple Grandin Addresses Texas A&M Graduates",
+        "description": "Addressing Texas A&M University graduates, Dr. Grandin gave a humor-laced presentation titled “The World Needs All Kinds of Minds,” and spoke her mind on variety of topics, including how she views the world, as well as how others view it—and even how animals take note of their surroundings. Subscribe → http://tx.ag/youtubesub Follow Texas A&M on social media: Instagram → http://instagram.com/tamu Facebook → http://facebook.com/tamu Twitter → http://twitter.com/tamu ['Texas', 'Kingsville', 'Texas ALONGNAMEM University', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Texas A&M University', 'A&M', 'University', 'College', 'TAMU', 'College Station', 'graduation', 'commencement', 'ceremony', 'address', 'speech', 'temple', 'grandin', 'graduate', 'graduates', 'Aggie', 'Aggies', 'Education', 'Higher education', 'motivation', 'inspiration', '2014']",
+        "creator": "Texas ALONGNAMEM University",
+        "license": "",
+        "subject": "['Texas', 'Kingsville', 'Texas ALONGNAMEM University', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Texas A&M University', 'A&M', 'University', 'College', 'TAMU', 'College Station', 'graduation', 'commencement', 'ceremony', 'address', 'speech', 'temple', 'grandin', 'graduate', 'graduates', 'Aggie', 'Aggies', 'Education', 'Higher education', 'motivation', 'inspiration', '2014']",
+        "runtime": "00:31:58",
+        "direct_subject": true,
+        "duration_hint": 1918.151485,
+        "identity_score": 13.0,
+        "archival_signal": 3
+      },
+      "start": 737.37,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "Temple Grandin is clearly visible giving her speech in the middle frames, but the clip also contains presentation slides and text overlays which are less ideal for biographical narrative footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7d73158829af2f04e0174535bf338de86eb5a36b96ad522279cf9401c267c3ea",
+      "reviewed_at": 1793045162.7728307
+    },
+    {
+      "person": "Temple Grandin",
+      "source": {
+        "id": "archive:bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189",
+        "title": "Temple Grandin on Uniqueness",
+        "description": "Like Autism Live on Facebook at http://facebook.com/autismlive Temple Grandin answers questions on what she wore to the Emmy Awards the night the HBO Film based on her life won multiple awards. Was she pressured to wear an evening gown? Listen to Temple’s remarkable answer about the importance of being able to be uniquely who you are without offending anyone. This is wonderful example of Temple’s sense of humor, ability to take perspective and her passion for the rights of individuals on the Autism spectrum. Autism Live is a production of the Center for Autism and Related Disorders (CARD), headquartered in Tarzana, California, and with offices throughout the United States and around the globe. For more information on therapy for autism and other related disorders, visit the CARD website at http://centerforautism.com ['autism treatment', 'aba', 'autism live', 'autism speaks network', 'emmy awards', 'uniqueness', 'temple grandin', 'dealing with quirks', 'hbo', 'shannon penrod', 'autism', 'claire danes', 'thinking in pictures', 'ralph lauren']",
+        "creator": "",
+        "license": "",
+        "subject": "['autism treatment', 'aba', 'autism live', 'autism speaks network', 'emmy awards', 'uniqueness', 'temple grandin', 'dealing with quirks', 'hbo', 'shannon penrod', 'autism', 'claire danes', 'thinking in pictures', 'ralph lauren']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 106.064278,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 41.83,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features genuine interview footage of Temple Grandin speaking about her life and experiences. Although the final frame shows the interviewer, Temple Grandin is clearly visible and identifiable in the first four sampled frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c3f06bba884ef2e773b84f9490776d18cbaaa73a75febfbac4aecafacb3d9a97",
+      "reviewed_at": 1793045183.2283573
+    },
+    {
+      "person": "Temple Grandin",
+      "source": {
+        "id": "archive:tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826/Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826.mp4",
+        "source_url": "https://archive.org/details/tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826",
+        "title": "Dr. Temple Grandin Addresses Texas A&M Graduates",
+        "description": "Addressing Texas A&M University graduates, Dr. Grandin gave a humor-laced presentation titled “The World Needs All Kinds of Minds,” and spoke her mind on variety of topics, including how she views the world, as well as how others view it—and even how animals take note of their surroundings. Subscribe → http://tx.ag/youtubesub Follow Texas A&M on social media: Instagram → http://instagram.com/tamu Facebook → http://facebook.com/tamu Twitter → http://twitter.com/tamu ['Texas', 'Kingsville', 'Texas ALONGNAMEM University', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Texas A&M University', 'A&M', 'University', 'College', 'TAMU', 'College Station', 'graduation', 'commencement', 'ceremony', 'address', 'speech', 'temple', 'grandin', 'graduate', 'graduates', 'Aggie', 'Aggies', 'Education', 'Higher education', 'motivation', 'inspiration', '2014']",
+        "creator": "Texas ALONGNAMEM University",
+        "license": "",
+        "subject": "['Texas', 'Kingsville', 'Texas ALONGNAMEM University', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'Texas A&M University', 'A&M', 'University', 'College', 'TAMU', 'College Station', 'graduation', 'commencement', 'ceremony', 'address', 'speech', 'temple', 'grandin', 'graduate', 'graduates', 'Aggie', 'Aggies', 'Education', 'Higher education', 'motivation', 'inspiration', '2014']",
+        "runtime": "00:31:58",
+        "direct_subject": true,
+        "duration_hint": 1918.151485,
+        "identity_score": 13.0,
+        "archival_signal": 3
+      },
+      "start": 883.84,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features real archival footage of Temple Grandin speaking at a podium, making her clearly visible and identifiable throughout the frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "eeaf1c0960ae3d2ec1eceded6ca14c18518ab0ff2e26546db438049cbaf28c61",
+      "reviewed_at": 1793045199.1183336
+    },
+    {
+      "person": "Temple Grandin",
+      "source": {
+        "id": "archive:bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189.mp4",
+        "source_url": "https://archive.org/details/bliptv-20131104-223143-AutismLive-TempleEmmysEccentric1189",
+        "title": "Temple Grandin on Uniqueness",
+        "description": "Like Autism Live on Facebook at http://facebook.com/autismlive Temple Grandin answers questions on what she wore to the Emmy Awards the night the HBO Film based on her life won multiple awards. Was she pressured to wear an evening gown? Listen to Temple’s remarkable answer about the importance of being able to be uniquely who you are without offending anyone. This is wonderful example of Temple’s sense of humor, ability to take perspective and her passion for the rights of individuals on the Autism spectrum. Autism Live is a production of the Center for Autism and Related Disorders (CARD), headquartered in Tarzana, California, and with offices throughout the United States and around the globe. For more information on therapy for autism and other related disorders, visit the CARD website at http://centerforautism.com ['autism treatment', 'aba', 'autism live', 'autism speaks network', 'emmy awards', 'uniqueness', 'temple grandin', 'dealing with quirks', 'hbo', 'shannon penrod', 'autism', 'claire danes', 'thinking in pictures', 'ralph lauren']",
+        "creator": "",
+        "license": "",
+        "subject": "['autism treatment', 'aba', 'autism live', 'autism speaks network', 'emmy awards', 'uniqueness', 'temple grandin', 'dealing with quirks', 'hbo', 'shannon penrod', 'autism', 'claire danes', 'thinking in pictures', 'ralph lauren']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 106.064278,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 60.24,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features real interview footage of Temple Grandin, making it valid biographical illustration material for a short about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ac3983a2c7bb8eb72ad161d371d6684270564e6f0701ea814c2e50b5e1b81ee1",
+      "reviewed_at": 1793045219.8378744
     }
   ]
 }

@@ -1,31 +1,31 @@
 {
-  "generated_at": "2026-10-26T12:05:55.049941+00:00",
-  "refresh_attempted_at": "2026-10-26T12:05:55.049941+00:00",
+  "generated_at": "2026-10-26T20:16:37.008580+00:00",
+  "refresh_attempted_at": "2026-10-26T20:16:37.008580+00:00",
   "refresh_status": "success",
-  "video_count": 28,
+  "video_count": 29,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 27,
   "reason": "",
   "totals": {
-    "views": 10415,
+    "views": 10445,
     "likes": 206,
     "comments": 5
   },
   "averages": {
-    "views": 371.96,
-    "likes": 7.36,
-    "comments": 0.18,
-    "average_view_percentage": 50.04,
-    "subscribers_gained": 0.46,
-    "shares": 0.04
+    "views": 360.17,
+    "likes": 7.1,
+    "comments": 0.17,
+    "average_view_percentage": 48.64,
+    "subscribers_gained": 0.45,
+    "shares": 0.03
   },
   "top_videos": [
     {
       "topic": "Freddie Mercury: Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
       "video_id": "IT9pWnp_XvY",
       "title": "The Untold Turning Point in Freddie Mercury's Story",
-      "views": 1221,
+      "views": 1222,
       "likes": 44,
       "comments": 2,
       "shares": 0,
@@ -33,7 +33,7 @@
       "average_view_percentage": 44.56,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7674
+      "engagement_rate": 3.7643
     },
     {
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
@@ -44,7 +44,7 @@
       "comments": 2,
       "shares": 1,
       "average_view_duration": 28.0,
-      "average_view_percentage": 62.45,
+      "average_view_percentage": 62.36000000000001,
       "subscribers_gained": 3,
       "subscribers_lost": 0,
       "engagement_rate": 3.7068
@@ -155,8 +155,8 @@
       "likes": 5,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 16.0,
-      "average_view_percentage": 40.27,
+      "average_view_duration": 18.0,
+      "average_view_percentage": 46.26,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 1.5873
@@ -167,7 +167,7 @@
       "topic": "Freddie Mercury: Joining the band Smile in London after casually meeting its members while working as an airport baggage handler.",
       "video_id": "IT9pWnp_XvY",
       "title": "The Untold Turning Point in Freddie Mercury's Story",
-      "views": 1221,
+      "views": 1222,
       "likes": 44,
       "comments": 2,
       "shares": 0,
@@ -175,7 +175,7 @@
       "average_view_percentage": 44.56,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7674
+      "engagement_rate": 3.7643
     },
     {
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
@@ -186,7 +186,7 @@
       "comments": 2,
       "shares": 1,
       "average_view_duration": 28.0,
-      "average_view_percentage": 62.45,
+      "average_view_percentage": 62.36000000000001,
       "subscribers_gained": 3,
       "subscribers_lost": 0,
       "engagement_rate": 3.7068
@@ -297,8 +297,8 @@
       "likes": 5,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 16.0,
-      "average_view_percentage": 40.27,
+      "average_view_duration": 18.0,
+      "average_view_percentage": 46.26,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 1.5873
@@ -363,12 +363,12 @@
       "topic": "Jim Henson: Innovating early television puppetry for local Washington D.C. shows years before creating the Muppets.",
       "video_id": "8keJ6vBhkhU",
       "title": "Before the Fame: Jim Henson's Untold Struggle",
-      "views": 109,
+      "views": 114,
       "likes": 0,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 18.0,
-      "average_view_percentage": 45.31,
+      "average_view_duration": 19.0,
+      "average_view_percentage": 49.6,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -382,7 +382,7 @@
       "comments": 0,
       "shares": 0,
       "average_view_duration": 13.0,
-      "average_view_percentage": 36.61,
+      "average_view_percentage": 35.87,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -514,6 +514,20 @@
       "engagement_rate": 3.0303
     },
     {
+      "topic": "Linus Torvalds: Creating the Linux kernel as a student hobby project in 1991 that accidentally revolutionized global computing.",
+      "video_id": "ARS24MyyCho",
+      "title": "The Untold Turning Point in Linus Torvalds's Story",
+      "views": 24,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    },
+    {
       "topic": "Jane Goodall: Traveling to the Gombe Stream Reserve without a college degree to live among wild chimpanzees.",
       "video_id": "r7zA06lyxqo",
       "title": "The Untold Turning Point in Jane Goodall's Story",
@@ -542,9 +556,9 @@
       "engagement_rate": 7.1429
     },
     {
-      "topic": "Linus Torvalds: Creating the Linux kernel as a student hobby project in 1991 that accidentally revolutionized global computing.",
-      "video_id": "ARS24MyyCho",
-      "title": "The Untold Turning Point in Linus Torvalds's Story",
+      "topic": "Temple Grandin: Transforming her lived experience with autism into a revolutionary career redesigning humane livestock handling facilities.",
+      "video_id": "2W0svCSK8r0",
+      "title": "The Untold Turning Point in Temple Grandin's Story",
       "views": 0,
       "likes": 0,
       "comments": 0,

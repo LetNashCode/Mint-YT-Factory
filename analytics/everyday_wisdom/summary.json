@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-10-25T18:33:15.231076+00:00",
-  "refresh_attempted_at": "2026-10-25T18:33:15.231076+00:00",
+  "generated_at": "2026-10-26T11:54:06.083641+00:00",
+  "refresh_attempted_at": "2026-10-26T11:54:06.083641+00:00",
   "refresh_status": "success",
-  "video_count": 11,
+  "video_count": 12,
   "optimization_ready": true,
   "live_metrics_ready": true,
-  "advanced_metrics_videos": 7,
+  "advanced_metrics_videos": 10,
   "reason": "",
   "totals": {
-    "views": 3664,
+    "views": 3678,
     "likes": 26,
     "comments": 0
   },
   "averages": {
-    "views": 333.09,
-    "likes": 2.36,
+    "views": 306.5,
+    "likes": 2.17,
     "comments": 0.0,
-    "average_view_percentage": 44.76,
-    "subscribers_gained": 0.09,
-    "shares": 0.0
+    "average_view_percentage": 54.99,
+    "subscribers_gained": 0.33,
+    "shares": 0.08
   },
   "top_videos": [
     {
@@ -28,10 +28,10 @@
       "views": 1017,
       "likes": 8,
       "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
+      "shares": 1,
+      "average_view_duration": 17.0,
+      "average_view_percentage": 63.63999999999999,
+      "subscribers_gained": 3,
       "subscribers_lost": 0,
       "engagement_rate": 0.7866
     },
@@ -44,7 +44,7 @@
       "comments": 0,
       "shares": 0,
       "average_view_duration": 15.0,
-      "average_view_percentage": 50.49,
+      "average_view_percentage": 50.74000000000001,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.8946
@@ -81,7 +81,7 @@
       "topic": "The historical railroad and shipping signal origin behind why traffic lights use red, yellow, and green.",
       "video_id": "5kXHdieMq34",
       "title": "Why Are Stoplight Lights Red Yellow and Green?",
-      "views": 253,
+      "views": 254,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -89,7 +89,7 @@
       "average_view_percentage": 70.7,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 0.7905
+      "engagement_rate": 0.7874
     },
     {
       "topic": "The historical safety regulations behind the amber indicator light on kitchen microwaves.",
@@ -113,8 +113,8 @@
       "likes": 0,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
+      "average_view_duration": 18.0,
+      "average_view_percentage": 55.27000000000001,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -123,7 +123,7 @@
       "topic": "The polite US guest custom of bringing empty containers for leftovers, rooted in family hospitality and shared meals",
       "video_id": "h_gBPm8fDZA",
       "title": "Why We Always Brought Tupperware to Dinner",
-      "views": 65,
+      "views": 77,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -131,18 +131,18 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 3.0769
+      "engagement_rate": 2.5974
     },
     {
       "topic": "The family dinner custom of asking to be excused from the table, rooted in household manners, family pacing, and conversational respect.",
       "video_id": "BTy4q50qAE4",
       "title": "Why We Had to Ask to Be Excused From the Table",
-      "views": 41,
+      "views": 42,
       "likes": 0,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
+      "average_view_duration": 16.0,
+      "average_view_percentage": 48.36,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -170,10 +170,10 @@
       "views": 1017,
       "likes": 8,
       "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
-      "subscribers_gained": 0,
+      "shares": 1,
+      "average_view_duration": 17.0,
+      "average_view_percentage": 63.63999999999999,
+      "subscribers_gained": 3,
       "subscribers_lost": 0,
       "engagement_rate": 0.7866
     },
@@ -186,7 +186,7 @@
       "comments": 0,
       "shares": 0,
       "average_view_duration": 15.0,
-      "average_view_percentage": 50.49,
+      "average_view_percentage": 50.74000000000001,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.8946
@@ -223,7 +223,7 @@
       "topic": "The historical railroad and shipping signal origin behind why traffic lights use red, yellow, and green.",
       "video_id": "5kXHdieMq34",
       "title": "Why Are Stoplight Lights Red Yellow and Green?",
-      "views": 253,
+      "views": 254,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -231,7 +231,7 @@
       "average_view_percentage": 70.7,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 0.7905
+      "engagement_rate": 0.7874
     },
     {
       "topic": "The historical safety regulations behind the amber indicator light on kitchen microwaves.",
@@ -255,8 +255,8 @@
       "likes": 0,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
+      "average_view_duration": 18.0,
+      "average_view_percentage": 55.27000000000001,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -265,7 +265,7 @@
       "topic": "The polite US guest custom of bringing empty containers for leftovers, rooted in family hospitality and shared meals",
       "video_id": "h_gBPm8fDZA",
       "title": "Why We Always Brought Tupperware to Dinner",
-      "views": 65,
+      "views": 77,
       "likes": 2,
       "comments": 0,
       "shares": 0,
@@ -273,18 +273,18 @@
       "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
-      "engagement_rate": 3.0769
+      "engagement_rate": 2.5974
     },
     {
       "topic": "The family dinner custom of asking to be excused from the table, rooted in household manners, family pacing, and conversational respect.",
       "video_id": "BTy4q50qAE4",
       "title": "Why We Had to Ask to Be Excused From the Table",
-      "views": 41,
+      "views": 42,
       "likes": 0,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
+      "average_view_duration": 16.0,
+      "average_view_percentage": 48.36,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -313,6 +313,20 @@
       "shares": 0,
       "average_view_duration": 33.0,
       "average_view_percentage": 100.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    },
+    {
+      "topic": "The household family fridge rule of writing names and dates on leftover containers, rooted in shared kitchen organization and household harmony.",
+      "video_id": "k3bCvbapZkI",
+      "title": "Why We Always Had to Label the Tupperware",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0

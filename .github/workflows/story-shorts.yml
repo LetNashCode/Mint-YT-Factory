@@ -12,10 +12,6 @@ on:
       - 'youtube_analytics.py'
       - 'topic_history.py'
       - 'generate_script/interactive.py'
-      - 'tests/test_story_*.py'
-      - 'tests/test_factory_content_memory.py'
-      - 'tests/test_learning_engine.py'
-      - 'tests/test_workflow_state_isolation.py'
       - '.github/workflows/story-shorts.yml'
   workflow_dispatch:
   schedule:

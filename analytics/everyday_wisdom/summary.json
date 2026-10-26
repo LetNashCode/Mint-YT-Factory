@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-10-26T19:16:10.549657+00:00",
-  "refresh_attempted_at": "2026-10-26T19:16:10.549657+00:00",
+  "generated_at": "2026-10-26T20:49:25.246214+00:00",
+  "refresh_attempted_at": "2026-10-26T20:49:25.246214+00:00",
   "refresh_status": "success",
-  "video_count": 13,
+  "video_count": 14,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 11,
   "reason": "",
   "totals": {
-    "views": 3699,
+    "views": 3701,
     "likes": 26,
     "comments": 0
   },
   "averages": {
-    "views": 284.54,
-    "likes": 2.0,
+    "views": 264.36,
+    "likes": 1.86,
     "comments": 0.0,
-    "average_view_percentage": 52.32,
-    "subscribers_gained": 0.31,
-    "shares": 0.08
+    "average_view_percentage": 48.59,
+    "subscribers_gained": 0.29,
+    "shares": 0.07
   },
   "top_videos": [
     {
@@ -307,7 +307,7 @@
       "topic": "The household family fridge rule of writing names and dates on leftover containers, rooted in shared kitchen organization and household harmony.",
       "video_id": "k3bCvbapZkI",
       "title": "Why We Always Had to Label the Tupperware",
-      "views": 16,
+      "views": 17,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -335,6 +335,20 @@
       "topic": "The polite US social custom of guests taking home leftover food in plastic containers, and its practical roots in hospitality and household sharing.",
       "video_id": "A-XbQd90es8",
       "title": "Why Hosts Insist You Take Leftovers Home",
+      "views": 1,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    },
+    {
+      "topic": "saving bacon grease in a jar",
+      "video_id": "-ydYAvv5VZ0",
+      "title": "Why We Saved Every Bacon Grease Jar",
       "views": 0,
       "likes": 0,
       "comments": 0,

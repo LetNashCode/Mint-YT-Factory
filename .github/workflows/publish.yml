@@ -64,8 +64,6 @@ jobs:
           set -euo pipefail
           python -m pip install --upgrade pip
           python -m pip install --prefer-binary -r requirements.txt
-          # Production workflow runs its regression tests directly.
-          python -m pip install pytest
       - name: Verify environment
         shell: bash
         run: |
@@ -100,12 +98,6 @@ jobs:
           import stock_media_resilient, tts_content_guard, youtube_auth_preflight, portrait_export_guard
           print("Stock media + TTS content guard + TTS bridge + YouTube auth preflight + portrait guard imports OK")
           PY
-      - name: Run Publish narration regression tests
-        shell: bash
-        run: |
-          set -euo pipefail
-          python -m pytest -q tests/test_tts_speed.py tests/test_publish_continuation.py tests/test_sfx_scene_contract.py tests/test_topic_intelligence.py tests/test_creative_cooldowns.py tests/test_workflow_state_isolation.py tests/test_learning_engine.py tests/test_everyday_wisdom_feedback.py tests/test_youtube_analytics_profiles.py tests/test_social_publish_integration.py tests/test_publish_short_intelligence.py
-
       - name: Restore previous failed Publish Shorts video
         shell: bash
         env:

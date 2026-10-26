@@ -3490,5 +3490,17 @@
       "source": "publish_topic_selector",
       "attempt": 1
     }
+  },
+  {
+    "topic": "Why do knuckles make popping sounds",
+    "normalized": "why do knuckles make popping sounds",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793043241,
+    "recorded_at": 1793043241,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

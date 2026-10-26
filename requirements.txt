@@ -17,6 +17,8 @@ google-api-python-client>=2.130.0
 
 # Local keyless TTS — Kokoro-82M primary; Edge remains fallback.
 kokoro>=0.9.4
+# Keep spaCy aligned with the Kokoro/Misaki English tokenizer model in GitHub Actions.
+spacy==3.8.0
 soundfile>=0.12.1
 edge-tts>=7.0.0
 

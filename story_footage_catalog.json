@@ -2,626 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:twitter-1181834179241107456",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
-        "source_url": "https://archive.org/details/twitter-1181834179241107456",
-        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
-        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 33.98,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Guillermo del Toro being interviewed on television, fulfilling the requirements for biographical illustration of his life and career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f292393e3e1b24205eff11d78d8087a7d6d6897a8f427bb1741fa4628e49413a",
-      "reviewed_at": 1791459148.0432675
-    },
-    {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:twitter-1181834179241107456",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
-        "source_url": "https://archive.org/details/twitter-1181834179241107456",
-        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
-        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 62.96,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features genuine archival interview footage of Guillermo del Toro speaking with Mark Kermode on The Late Show in 2006. The subject is clearly visible across all three frames and provides direct biographical illustration for his life and career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "179487ab5491530d04efa3d87ad7d1bc42df085678a33effab073a5860055c57",
-      "reviewed_at": 1791459159.3776526
-    },
-    {
-      "person": "Guillermo del Toro",
-      "source": {
-        "id": "archive:twitter-1181834179241107456",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1181834179241107456/1181834179241107456.mp4",
-        "source_url": "https://archive.org/details/twitter-1181834179241107456",
-        "title": "BBC Archive - #OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy.",
-        "description": "#OnThisDay 1964: Guillermo del Toro was born. He spoke with Mark Kermode on The Late Show in 2006 about monsters and the importance of fantasy. https://t.co/oNJtnJPtET Source: https://twitter.com/BBCArchive/status/1181834179241107456 Uploader: BBC Archive ['Twitter', 'video', 'OnThisDay']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'OnThisDay']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 91.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 72.62,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Guillermo del Toro being interviewed by Mark Kermode on The Late Show in 2006, making it authentic and directly usable historical footage of the named subject across all frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "cec251e4e4ba8f7d2af1b2e2bd02c909fc8856f9da34a734807a6df965cb91de",
-      "reviewed_at": 1791459164.692734
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1642939444922818560",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1642939444922818560/1642924928461848578.mp4",
-        "source_url": "https://archive.org/details/twitter-1642939444922818560",
-        "title": "Walt Disney Studios - JUST ANNOUNCED: From Dwayne Johnson and Auli’i Cravalho, a live-action reimagining of Disney’s Moana is in the works!",
-        "description": "JUST ANNOUNCED: From Dwayne Johnson and Auli’i Cravalho, a live-action reimagining of Disney’s Moana is in the works! https://t.co/4rQXLSJ5Zn ['Twitter', 'video']",
-        "creator": "Walt Disney Studios",
-        "license": "",
-        "subject": "['Twitter', 'video']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 128.128,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 62.06,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly and continuously shows Dwayne Johnson speaking directly to the camera on a beach, perfectly matching the subject and biographical context.",
-        "usage": "direct_event"
-      },
-      "review_key": "ab7f35403bd55730b8482889480b5dc94f5ceb53bd6574a169f0d86058c4fc5b",
-      "reviewed_at": 1791483432.6479588
-    },
-    {
-      "person": "Jacques Cousteau",
-      "source": {
-        "id": "archive:Jacques_Cousteau-The_Undersea_World-Octopus_Octopus",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Jacques_Cousteau-The_Undersea_World-Octopus_Octopus/The%20Undersea%20World%20of%20Jacques%20Cousteau%20-%20Octopus%2C%20Octopus.mp4",
-        "source_url": "https://archive.org/details/Jacques_Cousteau-The_Undersea_World-Octopus_Octopus",
-        "title": "The Undersea World of Jacques Cousteau: Octopus, Octopus",
-        "description": " ['Jacques Cousteau', 'Jacques-Yves Cousteau', 'ocean', 'octopus', 'documentary', 'sea', 'marine', 'Andy White', 'Metromedia Productions', 'Les Réquins Associés', 'Albert Falco', 'Frederick Dumas', 'Marshall Flaum', 'Leonard Rosenman', 'Michel Deloire', 'Pierre Goupil', 'Yves Omer', 'Jacques Renoir', 'John Soh', 'Lawrence E. Neiman', 'Rod Serling', 'The Cousteau Odyssey', 'mollusk', 'mollusca', 'molluscs', 'mollusks', 'phylum', 'invertebrate']",
-        "creator": "Jacques Cousteau",
-        "license": "",
-        "subject": "['Jacques Cousteau', 'Jacques-Yves Cousteau', 'ocean', 'octopus', 'documentary', 'sea', 'marine', 'Andy White', 'Metromedia Productions', 'Les Réquins Associés', 'Albert Falco', 'Frederick Dumas', 'Marshall Flaum', 'Leonard Rosenman', 'Michel Deloire', 'Pierre Goupil', 'Yves Omer', 'Jacques Renoir', 'John Soh', 'Lawrence E. Neiman', 'Rod Serling', 'The Cousteau Odyssey', 'mollusk', 'mollusca', 'molluscs', 'mollusks', 'phylum', 'invertebrate']",
-        "runtime": "02:06:56",
-        "direct_subject": true,
-        "duration_hint": 7616.124878,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 4098.45,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage shows Jacques Cousteau handling an octopus on a boat, which directly and authentically illustrates his life and documentary work.",
-        "usage": "direct_event"
-      },
-      "review_key": "43a1006dfa2dc60fd73f27e855aef5ababe39d05d25d9f942f729cc7a97c4fc3",
-      "reviewed_at": 1791532455.8019388
-    },
-    {
-      "person": "Jacques Cousteau",
-      "source": {
-        "id": "archive:Jacques_Cousteau-The_Undersea_World-Octopus_Octopus",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/Jacques_Cousteau-The_Undersea_World-Octopus_Octopus/The%20Undersea%20World%20of%20Jacques%20Cousteau%20-%20Octopus%2C%20Octopus.mp4",
-        "source_url": "https://archive.org/details/Jacques_Cousteau-The_Undersea_World-Octopus_Octopus",
-        "title": "The Undersea World of Jacques Cousteau: Octopus, Octopus",
-        "description": " ['Jacques Cousteau', 'Jacques-Yves Cousteau', 'ocean', 'octopus', 'documentary', 'sea', 'marine', 'Andy White', 'Metromedia Productions', 'Les Réquins Associés', 'Albert Falco', 'Frederick Dumas', 'Marshall Flaum', 'Leonard Rosenman', 'Michel Deloire', 'Pierre Goupil', 'Yves Omer', 'Jacques Renoir', 'John Soh', 'Lawrence E. Neiman', 'Rod Serling', 'The Cousteau Odyssey', 'mollusk', 'mollusca', 'molluscs', 'mollusks', 'phylum', 'invertebrate']",
-        "creator": "Jacques Cousteau",
-        "license": "",
-        "subject": "['Jacques Cousteau', 'Jacques-Yves Cousteau', 'ocean', 'octopus', 'documentary', 'sea', 'marine', 'Andy White', 'Metromedia Productions', 'Les Réquins Associés', 'Albert Falco', 'Frederick Dumas', 'Marshall Flaum', 'Leonard Rosenman', 'Michel Deloire', 'Pierre Goupil', 'Yves Omer', 'Jacques Renoir', 'John Soh', 'Lawrence E. Neiman', 'Rod Serling', 'The Cousteau Odyssey', 'mollusk', 'mollusca', 'molluscs', 'mollusks', 'phylum', 'invertebrate']",
-        "runtime": "02:06:56",
-        "direct_subject": true,
-        "duration_hint": 7616.124878,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 589.78,
-      "length": 8.0,
-      "verification": {
-        "person_visible": false,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows authentic archival underwater documentary footage of marine life (an octopus) directly relevant to Jacques Cousteau's work, but Jacques Cousteau is only clearly visible in the first frame, not all three frames. Therefore, person_visible is false, but it qualifies as genuine historical context (direct_event).",
-        "usage": "direct_event"
-      },
-      "review_key": "643174fe5bbaf1a5367ee64d44f21b6365366e869608792cf2dc8c6cda29dbbd",
-      "reviewed_at": 1791532585.4294856
-    },
-    {
-      "person": "Ke Huy Quan",
-      "source": {
-        "id": "archive:spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts/Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts.mp4",
-        "source_url": "https://archive.org/details/spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts",
-        "title": "Ke Huy Quan On Getting Ready for Everything Everywhere All At Once #shorts",
-        "description": "Ke Huy Quan shares how he got into character to play Waymond, which resulted in him winning best supporting actor at the Oscars. #shorts ['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'everything everywhere all at once', 'ke huy quan', 'everything everywhere all at once oscar', 'ke huy quan interview', 'ke huy quan everything everywhere all at once', 'everything everywhere all at once ke huy quan', 'waymond', 'ke huy quan waymond', 'ke huy quan on getting ready to play waymond', 'ke huy quan on getting ready for everything everywhere all at once', 'sneak peek', 'ke huy quan on playing waymond', 'ke huy quan oscars', 'best supporting actor ke huy quan', 'the oscars ke huy quan', 'eeaao', '2023']",
-        "creator": "Sneak Peek",
-        "license": "",
-        "subject": "['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'everything everywhere all at once', 'ke huy quan', 'everything everywhere all at once oscar', 'ke huy quan interview', 'ke huy quan everything everywhere all at once', 'everything everywhere all at once ke huy quan', 'waymond', 'ke huy quan waymond', 'ke huy quan on getting ready to play waymond', 'ke huy quan on getting ready for everything everywhere all at once', 'sneak peek', 'ke huy quan on playing waymond', 'ke huy quan oscars', 'best supporting actor ke huy quan', 'the oscars ke huy quan', 'eeaao', '2023']",
-        "runtime": "00:00:49",
-        "direct_subject": true,
-        "duration_hint": 48.666667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 39.67,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames show Ke Huy Quan clearly in an interview setting, but it is presenter/interview footage rather than archival footage of his life or film roles, serving as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "7fc2bb41119659d8a51841a571119777fec5814697d09f9c4a9ee4dd721c8ab4",
-      "reviewed_at": 1791533020.9534907
-    },
-    {
-      "person": "Ke Huy Quan",
-      "source": {
-        "id": "archive:ke-huy-quan-surprises-harrison-ford-at-the-indiana-jones-and-the-dial-of-destiny-premiere",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ke-huy-quan-surprises-harrison-ford-at-the-indiana-jones-and-the-dial-of-destiny-premiere/%23KeHuyQuan%20surprises%20%23HarrisonFord%20at%20the%20%23IndianaJones%20and%20the%20Dial%20of%20Destiny%20Premiere%20%F0%9F%AB%B6.mp4",
-        "source_url": "https://archive.org/details/ke-huy-quan-surprises-harrison-ford-at-the-indiana-jones-and-the-dial-of-destiny-premiere",
-        "title": "Ke Huy Quan Surprises Harrison Ford At The Indiana Jones And The Dial Of Destiny Premiere",
-        "description": "Ke Huy Quan Surprises Harrison Ford At The Indiana Jones And The Dial Of Destiny Premiere ['Ke Huy Quan, Harrison Ford, Indiana Jones, Indiana Jones and the Dial of Destiny', 'Harrison Ford', 'Indiana Jones and the Dial of Destiny']",
-        "creator": "Disney Studios",
-        "license": "",
-        "subject": "['Ke Huy Quan, Harrison Ford, Indiana Jones, Indiana Jones and the Dial of Destiny', 'Harrison Ford', 'Indiana Jones and the Dial of Destiny']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 28.6,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 19.6,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The frames clearly show Ke Huy Quan embracing Harrison Ford on a red carpet event, providing genuine biographical footage of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "489d1ee41b629b65856085d08cd475603fd3fc52a30033846baa09b5644abe31",
-      "reviewed_at": 1791533030.2906826
-    },
-    {
-      "person": "Ke Huy Quan",
-      "source": {
-        "id": "archive:spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts/Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts.mp4",
-        "source_url": "https://archive.org/details/spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts",
-        "title": "Ke Huy Quan On Getting Ready for Everything Everywhere All At Once #shorts",
-        "description": "Ke Huy Quan shares how he got into character to play Waymond, which resulted in him winning best supporting actor at the Oscars. #shorts ['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'everything everywhere all at once', 'ke huy quan', 'everything everywhere all at once oscar', 'ke huy quan interview', 'ke huy quan everything everywhere all at once', 'everything everywhere all at once ke huy quan', 'waymond', 'ke huy quan waymond', 'ke huy quan on getting ready to play waymond', 'ke huy quan on getting ready for everything everywhere all at once', 'sneak peek', 'ke huy quan on playing waymond', 'ke huy quan oscars', 'best supporting actor ke huy quan', 'the oscars ke huy quan', 'eeaao', '2023']",
-        "creator": "Sneak Peek",
-        "license": "",
-        "subject": "['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'everything everywhere all at once', 'ke huy quan', 'everything everywhere all at once oscar', 'ke huy quan interview', 'ke huy quan everything everywhere all at once', 'everything everywhere all at once ke huy quan', 'waymond', 'ke huy quan waymond', 'ke huy quan on getting ready to play waymond', 'ke huy quan on getting ready for everything everywhere all at once', 'sneak peek', 'ke huy quan on playing waymond', 'ke huy quan oscars', 'best supporting actor ke huy quan', 'the oscars ke huy quan', 'eeaao', '2023']",
-        "runtime": "00:00:49",
-        "direct_subject": true,
-        "duration_hint": 48.666667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 4.07,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The frames show actual moving footage of Ke Huy Quan participating in an interview at SXSW, talking about his role. Although it's an interview clip rather than direct historical archival footage of the event itself, it serves as good biographical illustration for a Short about him.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "447d4cc31ce0d1ca05c74391667021c0569b53d1c1e9b3d70de60b472d7b4c5c",
-      "reviewed_at": 1791533036.1064775
-    },
-    {
-      "person": "Ke Huy Quan",
-      "source": {
-        "id": "archive:spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts/Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts.mp4",
-        "source_url": "https://archive.org/details/spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts",
-        "title": "Ke Huy Quan On Getting Ready for Everything Everywhere All At Once #shorts",
-        "description": "Ke Huy Quan shares how he got into character to play Waymond, which resulted in him winning best supporting actor at the Oscars. #shorts ['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'everything everywhere all at once', 'ke huy quan', 'everything everywhere all at once oscar', 'ke huy quan interview', 'ke huy quan everything everywhere all at once', 'everything everywhere all at once ke huy quan', 'waymond', 'ke huy quan waymond', 'ke huy quan on getting ready to play waymond', 'ke huy quan on getting ready for everything everywhere all at once', 'sneak peek', 'ke huy quan on playing waymond', 'ke huy quan oscars', 'best supporting actor ke huy quan', 'the oscars ke huy quan', 'eeaao', '2023']",
-        "creator": "Sneak Peek",
-        "license": "",
-        "subject": "['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'everything everywhere all at once', 'ke huy quan', 'everything everywhere all at once oscar', 'ke huy quan interview', 'ke huy quan everything everywhere all at once', 'everything everywhere all at once ke huy quan', 'waymond', 'ke huy quan waymond', 'ke huy quan on getting ready to play waymond', 'ke huy quan on getting ready for everything everywhere all at once', 'sneak peek', 'ke huy quan on playing waymond', 'ke huy quan oscars', 'best supporting actor ke huy quan', 'the oscars ke huy quan', 'eeaao', '2023']",
-        "runtime": "00:00:49",
-        "direct_subject": true,
-        "duration_hint": 48.666667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 15.93,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The frames show Ke Huy Quan clearly in an interview setting discussing his role and experiences, which provides biographical illustration for his career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "014fbd25f44586123b16e7fc84749888b0b244159f729df931ec314e7bd7b737",
-      "reviewed_at": 1791533051.0121682
-    },
-    {
-      "person": "Ke Huy Quan",
-      "source": {
-        "id": "archive:spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts/Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts.mp4",
-        "source_url": "https://archive.org/details/spautx-Ke_Huy_Quan_On_Getting_Ready_for_Everything_Everywhere_All_At_Once_shorts",
-        "title": "Ke Huy Quan On Getting Ready for Everything Everywhere All At Once #shorts",
-        "description": "Ke Huy Quan shares how he got into character to play Waymond, which resulted in him winning best supporting actor at the Oscars. #shorts ['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'everything everywhere all at once', 'ke huy quan', 'everything everywhere all at once oscar', 'ke huy quan interview', 'ke huy quan everything everywhere all at once', 'everything everywhere all at once ke huy quan', 'waymond', 'ke huy quan waymond', 'ke huy quan on getting ready to play waymond', 'ke huy quan on getting ready for everything everywhere all at once', 'sneak peek', 'ke huy quan on playing waymond', 'ke huy quan oscars', 'best supporting actor ke huy quan', 'the oscars ke huy quan', 'eeaao', '2023']",
-        "creator": "Sneak Peek",
-        "license": "",
-        "subject": "['Texas', 'Austin', 'Sneak Peek', 'student run tv', 'Educational Access TV', 'Community Media', 'PEG', 'Youtube', 'everything everywhere all at once', 'ke huy quan', 'everything everywhere all at once oscar', 'ke huy quan interview', 'ke huy quan everything everywhere all at once', 'everything everywhere all at once ke huy quan', 'waymond', 'ke huy quan waymond', 'ke huy quan on getting ready to play waymond', 'ke huy quan on getting ready for everything everywhere all at once', 'sneak peek', 'ke huy quan on playing waymond', 'ke huy quan oscars', 'best supporting actor ke huy quan', 'the oscars ke huy quan', 'eeaao', '2023']",
-        "runtime": "00:00:49",
-        "direct_subject": true,
-        "duration_hint": 48.666667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 27.8,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The frames show genuine moving footage of the named subject, Ke Huy Quan, being interviewed at SXSW discussing his role, serving as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f6eb64e5d8de55c933ac8170163c0683a142f927c02e1e0b13aea2dc448b7ae6",
-      "reviewed_at": 1791533057.2141514
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1592586083484651521",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
-        "source_url": "https://archive.org/details/twitter-1592586083484651521",
-        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
-        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "creator": "Dwayne Johnson",
-        "license": "",
-        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 359.01,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 270.39,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Dwayne Johnson himself speaking directly to the camera in all three frames, matching the biographical subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "80b59525ca13675ef5e01f0843fc1d5a5f48c7e87d47a9679acd561804efb94f",
-      "reviewed_at": 1791533197.6211445
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1592586083484651521",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
-        "source_url": "https://archive.org/details/twitter-1592586083484651521",
-        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
-        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "creator": "Dwayne Johnson",
-        "license": "",
-        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 359.01,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 58.08,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Dwayne Johnson is clearly visible in all three frames speaking inside his truck, serving as biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "82f7907667371bdb45ca0b0d34aaf91a1e70f42735e82d280b4dfb78d3548792",
-      "reviewed_at": 1791533227.7821186
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1592586083484651521",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
-        "source_url": "https://archive.org/details/twitter-1592586083484651521",
-        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
-        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "creator": "Dwayne Johnson",
-        "license": "",
-        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 359.01,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 111.16,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Dwayne Johnson is clearly visible across all three frames in actual moving video footage speaking in his truck, but it serves as general biographical illustration rather than depicting a specific historical archival event from his career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "16989aec2dceb7282542e21897bf6e5dcb08e25cf2210544a40ca1586e7cc2d0",
-      "reviewed_at": 1791533246.371141
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1592586083484651521",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
-        "source_url": "https://archive.org/details/twitter-1592586083484651521",
-        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
-        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "creator": "Dwayne Johnson",
-        "license": "",
-        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 359.01,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 137.7,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video shows Dwayne Johnson speaking inside a vehicle, serving as biographical illustration for his life and personality, though it is casual selfie footage rather than a direct depiction of a specific narrated historical event.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "52bebeff3523d9caacc6daec613186cc66d842ce28a0ddfa6f3a5cd24d2194f9",
-      "reviewed_at": 1791533256.0684185
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1592586083484651521",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
-        "source_url": "https://archive.org/details/twitter-1592586083484651521",
-        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
-        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "creator": "Dwayne Johnson",
-        "license": "",
-        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 359.01,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 217.31,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage clearly shows Dwayne Johnson speaking directly to the camera from inside a vehicle, serving as usable biographical illustration of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "fe0a9d8ad5b7077da5e8b003dad18666c67d0a2b39cbb377e02a5e174cc216ce",
-      "reviewed_at": 1791533274.3162866
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1592586083484651521",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
-        "source_url": "https://archive.org/details/twitter-1592586083484651521",
-        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
-        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "creator": "Dwayne Johnson",
-        "license": "",
-        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 359.01,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 296.93,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The footage shows Dwayne Johnson clearly visible across all frames in a pickup truck, providing usable biographical illustration of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "21d223cd5cca1e49b5320564fb6b1ea2909caeffb8c2330fb17d76e810d08942",
-      "reviewed_at": 1791533292.0474362
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1592586083484651521",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
-        "source_url": "https://archive.org/details/twitter-1592586083484651521",
-        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
-        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "creator": "Dwayne Johnson",
-        "license": "",
-        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 359.01,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 350.01,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage clearly shows Dwayne Johnson speaking directly to the camera from a pickup truck, fitting the biographical illustration criteria well.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "c3d73c66fc23e9213d31328ae0e5a80d43393b96d9bb04e0f384c2a4d1d4ec8f",
-      "reviewed_at": 1791533309.2758386
-    },
-    {
-      "person": "Pelé",
-      "source": {
-        "id": "archive:pele-le-roi-tele-sahel-4-15-2026-incomplete",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/pele-le-roi-tele-sahel-4-15-2026-incomplete/Pel%C3%A9%20Le%20Roi%20%28April%2015%2C%202026%20T%C3%A9l%C3%A9%20Sahel%20airing%29%20%28partial%29.mp4",
-        "source_url": "https://archive.org/details/pele-le-roi-tele-sahel-4-15-2026-incomplete",
-        "title": "Pelé: Le Roi (April 15, 2026 Télé Sahel Airing) (partial)",
-        "description": "Documentary that aired on Télé Sahel. Une documentaire diffusée par Télé Sahel. ['Office de radiodiffusion et Télévision du Niger', 'Office of Radio and Television of Niger', 'Radio Television of Niger', 'Radio Télévision du Niger', 'RTN', 'ORTN', 'documentaire', 'documentary', 'old', '2010s', 'années 2010', '2000s', 'années 2000']",
-        "creator": "",
-        "license": "",
-        "subject": "['Office de radiodiffusion et Télévision du Niger', 'Office of Radio and Television of Niger', 'Radio Television of Niger', 'Radio Télévision du Niger', 'RTN', 'ORTN', 'documentaire', 'documentary', 'old', '2010s', 'années 2010', '2000s', 'années 2000']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3175.366667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 2436.82,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The frames show archival footage of Pelé playing football on the field, which directly illustrates his life and career as a soccer player.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b6d68a96251dc5fb3b33b0e37c688c9fc1d27a28bd7eda99804e5d26862d8652",
-      "reviewed_at": 1791577165.7148893
-    },
-    {
-      "person": "Pelé",
-      "source": {
-        "id": "archive:pele-video",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/pele-video/pele%20video.mp4",
-        "source_url": "https://archive.org/details/pele-video",
-        "title": "Pele Video",
-        "description": "pele goles ['mundial', 'goles', 'pele']",
-        "creator": "Caleb Alvarez",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['mundial', 'goles', 'pele']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 807.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 615.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Pelé playing in a historical match (Brazil vs Peru, 1970 World Cup), directly illustrating his career and life as requested.",
-        "usage": "direct_event"
-      },
-      "review_key": "bdb3b28d2f5f84dbcbe404fcd797ab04d80b40f9059b2369b5fc089b912893a2",
-      "reviewed_at": 1791577207.7671885
-    },
-    {
       "person": "Pelé",
       "source": {
         "id": "archive:pele-le-roi-tele-sahel-4-15-2026-incomplete",
@@ -12982,130 +12362,6 @@
       "reviewed_at": 1792694162.060575
     },
     {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Ernest Shackleton Documentaries Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1756.58,
-      "length": 8.0,
-      "verification": {
-        "person_visible": false,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows authentic historical archival material depicting Ernest Shackleton's ship trapped in the Antarctic ice during the Imperial Trans-Antarctic Expedition, providing direct historical context and illustration for his biography, although Shackleton himself is not clearly distinguishable among the figures in the distance.",
-        "usage": "direct_event"
-      },
-      "review_key": "85017721f68369df98afbd9b1a0b142e408ca2f3aa6ccad36e9a664d69892c7b",
-      "reviewed_at": 1792694637.1452606
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Ernest Shackleton Documentaries Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 442.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The frames depict authentic historical footage of Ernest Shackleton and his expedition team in Antarctica during their historic journey, perfectly matching the biographical narration.",
-        "usage": "direct_event"
-      },
-      "review_key": "ea125380e6f5cbfff1583ab7b5443ae2557e0559ccdb205064cdce22e4d8b224",
-      "reviewed_at": 1792694683.767534
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
-        "id": "archive:thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor/The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_history_film.mp4",
-        "source_url": "https://archive.org/details/thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
-        "title": "The FIRST #documentary on Rosa Parks is out this week. Learn more at our YT channel #history #film",
-        "description": " ['New York', 'The Laura Flanders Show', 'Youtube', '2022']",
-        "creator": "LF",
-        "license": "",
-        "subject": "['New York', 'The Laura Flanders Show', 'Youtube', '2022']",
-        "runtime": "00:00:40",
-        "direct_subject": true,
-        "duration_hint": 39.906573,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 21.67,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly feature archival footage of Rosa Parks herself (such as sitting on a bus and seated on a porch) alongside documentary/interview context, directly illustrating her life and history.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f81ca36f09e99373ce9e8f274c0e82fabc36c9dbf878c6efd1b31cfc928f3750",
-      "reviewed_at": 1792695243.4398298
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
-        "id": "archive:thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor/The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_history_film.mp4",
-        "source_url": "https://archive.org/details/thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
-        "title": "The FIRST #documentary on Rosa Parks is out this week. Learn more at our YT channel #history #film",
-        "description": " ['New York', 'The Laura Flanders Show', 'Youtube', '2022']",
-        "creator": "LF",
-        "license": "",
-        "subject": "['New York', 'The Laura Flanders Show', 'Youtube', '2022']",
-        "runtime": "00:00:40",
-        "direct_subject": true,
-        "duration_hint": 39.906573,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 12.43,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video features archival footage related to the civil rights movement and brief appearances of Rosa Parks seated near Martin Luther King Jr. in historical group footage, interspersed with modern interview commentary about her life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "4835f8047ab3a335a09b411f6b84a0174f267e812f7be4081bdf4a1772563f42",
-      "reviewed_at": 1792695324.5245662
-    },
-    {
       "person": "Rosa Parks",
       "source": {
         "id": "archive:hisdtx-Rosa_Parks_story_lives_on_at_Daily_Elementary",
@@ -15460,37 +14716,6 @@
       },
       "review_key": "cc42a0faf776834cc8a9033eeca2c7768d1d721da75ca841957aa270e330204d",
       "reviewed_at": 1792862593.570368
-    },
-    {
-      "person": "Louis Braille",
-      "source": {
-        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
-        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
-        "title": "Louis Braille ~ The Braille Alphabet",
-        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "creator": "",
-        "license": "",
-        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 864.28,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 332.03,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The sampled frames clearly depict a dramatic reconstruction of Louis Braille handling embossed/tactile objects (dice with raised dots), and the fifth frame clearly shows an actor portraying Louis Braille himself.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "bf4eaa2090cc4c6631481104a89113b4048e16a416fad535ac40c00a8537dfab",
-      "reviewed_at": 1792862621.1425347
     },
     {
       "person": "Kalpana Chawla",
@@ -18588,6 +17813,781 @@
       },
       "review_key": "ac3983a2c7bb8eb72ad161d371d6684270564e6f0701ea814c2e50b5e1b81ee1",
       "reviewed_at": 1793045219.8378744
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Ernest Shackleton Documentaries Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1756.58,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows authentic historical archival material depicting the Endurance ship trapped in Antarctic ice during Shackleton's expedition, perfectly matching the biographical narration. While Shackleton himself is not clearly distinguishable due to the distant figures, the historical context is concrete and direct.",
+        "usage": "direct_event"
+      },
+      "review_key": "75915e06dd450ed1dcd91b89d1cef145cac665cff36d1c84229cd394fcec3704",
+      "reviewed_at": 1793048323.5796947
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Ernest Shackleton Documentaries Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 442.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features authentic historical archival footage showing Ernest Shackleton and his team during their polar expedition, fulfilling the biographical illustration criteria.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "02ef616fe98df805259849b0c9564ef9e4c1c650af1b0415a7107af4497145cd",
+      "reviewed_at": 1793048337.5522156
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:antarctica-a-frozen-history",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/antarctica-a-frozen-history/Antarctica%20A%20Frozen%20History.mp4",
+        "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+        "title": "Antarctica A Frozen History",
+        "description": "Historical documentary about the history of Antarctic Exploration in Antarctica narrated by actor Edward Herrmann. ['Antarctica A Frozen History', 'Antarctica', 'Antarctic Exploration', 'Sir Ernest Shackleton', 'Robert Falcon Scott', 'History', 'Edward Herrmann', 'Documentary']",
+        "creator": "Devon Geen",
+        "license": "",
+        "subject": "['Antarctica A Frozen History', 'Antarctica', 'Antarctic Exploration', 'Sir Ernest Shackleton', 'Robert Falcon Scott', 'History', 'Edward Herrmann', 'Documentary']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 5509.9044,
+        "identity_score": 10.0,
+        "archival_signal": 1
+      },
+      "start": 3809.86,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features archival photographs and historical footage showing Ernest Shackleton alongside members of his crew during his Antarctic expeditions, providing authentic visual context that directly aligns with the biographical narration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "dc9e944666d4cbfe819b268fdcfa3417d497a87376e9842fb8f12a1c2443f9ae",
+      "reviewed_at": 1793048476.0085053
+    },
+    {
+      "person": "Sachin Tendulkar",
+      "source": {
+        "id": "archive:sachinmrindia-scn",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/sachinmrindia-scn/SACHINMRINDIA_SCN.mp4",
+        "source_url": "https://archive.org/details/sachinmrindia-scn",
+        "title": "Sachin Tendulkar The making of a legend",
+        "description": "Cricket, a passion of the nation, witnessed the stroke of a genius over a decade ago. The Little Master had arrived. Barely over 16, ready to take on the world, hammering away the toughest balls, dazzling bowlers and spectators alike. Sacghin Tendulkar. The man, the run machine, the don of the cricketing fraternity. Relentless and ever hungry for runs, the legend ontinues. Watch the legacy of a trailblazing cricketing career unfold ['Sachin Tendulkar', 'biography', 'cricket player', 'India']",
+        "creator": "Professional Management Group",
+        "license": "",
+        "subject": "['Sachin Tendulkar', 'biography', 'cricket player', 'India']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2422.155489,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1857.43,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment shows archival match footage of Sachin Tendulkar playing cricket and celebrating during the 2000-01 India vs Australia Test in Chennai, directly illustrating his career.",
+        "usage": "direct_event"
+      },
+      "review_key": "ef1c844f282606d35048985b29d5c5da462147de91f85b893067ffd4107099fd",
+      "reviewed_at": 1793048671.138658
+    },
+    {
+      "person": "Louis Braille",
+      "source": {
+        "id": "archive:LouisBrailleAndTheBrailleAlphabet",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/LouisBrailleAndTheBrailleAlphabet/Louis%20Braille%20and%20the%20Braille%20Alphabet.mp4",
+        "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+        "title": "Louis Braille ~ The Braille Alphabet",
+        "description": "Louis Braille (4 January 1809 – 6 January 1852) was a French educator and inventor of a system of reading and writing for use by the blind or visually impaired. His system remains known worldwide simply as braille. Blinded in both eyes as a result of an early childhood accident, Braille mastered his disability while still a boy. He excelled in his education and received scholarship to France's Royal Institute for Blind Youth. While still a student there, he began developing a system of tactile code that could allow blind persons to read and write quickly and efficiently. Inspired by the military cryptography of Charles Barbier, Braille constructed a new method built specifically for the needs of the blind. He presented his work to his peers for the first time in 1824. Braille is a tactile writing system used by the blind and the visually impaired. It is traditionally written with embossed paper. Braille-users can read computer screens and other electronic supports thanks to refreshable braille displays. They can write braille with the original slate and stylus or type it on a braille writer, such as a portable braille note-taker, or on a computer that prints with a braille embosser. ['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "creator": "",
+        "license": "",
+        "subject": "['Louis Braille', 'Braille Alphabet', 'Vonsmersh', 'Tactile', 'Writing', 'Reading', 'Blind', 'Braille']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 864.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 332.03,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames from the archival-style biographical footage clearly show an actor portraying Louis Braille working on a tactile reading/writing system for the blind, with his face visible in the final frame.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "94d56e1e5ff3c1814ecea13d0319ae21ae109eda3cb493bdd67a42d946da9b4a",
+      "reviewed_at": 1793048869.8558292
+    },
+    {
+      "person": "Malala Yousafzai",
+      "source": {
+        "id": "archive:Malala_Yousafzai_at_the_opening_of_the_2013_Aspen_Ideas_Festival",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Malala_Yousafzai_at_the_opening_of_the_2013_Aspen_Ideas_Festival/Malala_Yousafzai_at_the_opening_of_the_2013_Aspen_Ideas_Festival.mp4",
+        "source_url": "https://archive.org/details/Malala_Yousafzai_at_the_opening_of_the_2013_Aspen_Ideas_Festival",
+        "title": "Malala Yousafzai at the opening of the 2013 Aspen Ideas Festival",
+        "description": "Find out more at www.aspenideas.org. ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Malala Yousafzai (Award Winner)', 'united nations', 'education', 'girls', \"women's rights\", 'aspen institute', 'aspen ideas festival', 'aspen ideas', 'Aspen Ideas', '2013']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Malala Yousafzai (Award Winner)', 'united nations', 'education', 'girls', \"women's rights\", 'aspen institute', 'aspen ideas festival', 'aspen ideas', 'Aspen Ideas', '2013']",
+        "runtime": "00:00:42",
+        "direct_subject": true,
+        "duration_hint": 42.242242,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 23.3,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video shows actual filmed interview footage of Malala Yousafzai speaking outdoors, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "cb7ebe5efe806939b908d72620409fa021b8117e13357e82fb872dce01f15f11",
+      "reviewed_at": 1793048978.4639175
+    },
+    {
+      "person": "Malala Yousafzai",
+      "source": {
+        "id": "archive:Malala_Yousafzai_at_the_opening_of_the_2013_Aspen_Ideas_Festival",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Malala_Yousafzai_at_the_opening_of_the_2013_Aspen_Ideas_Festival/Malala_Yousafzai_at_the_opening_of_the_2013_Aspen_Ideas_Festival.mp4",
+        "source_url": "https://archive.org/details/Malala_Yousafzai_at_the_opening_of_the_2013_Aspen_Ideas_Festival",
+        "title": "Malala Yousafzai at the opening of the 2013 Aspen Ideas Festival",
+        "description": "Find out more at www.aspenideas.org. ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Malala Yousafzai (Award Winner)', 'united nations', 'education', 'girls', \"women's rights\", 'aspen institute', 'aspen ideas festival', 'aspen ideas', 'Aspen Ideas', '2013']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Malala Yousafzai (Award Winner)', 'united nations', 'education', 'girls', \"women's rights\", 'aspen institute', 'aspen ideas festival', 'aspen ideas', 'Aspen Ideas', '2013']",
+        "runtime": "00:00:42",
+        "direct_subject": true,
+        "duration_hint": 42.242242,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 3.42,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment clearly shows Malala Yousafzai speaking in an interview setting, providing excellent biographical footage for her profile.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d9f9f493478c53f8e399b8c3e0772daf2e37a7a5bba3959654960312b343050a",
+      "reviewed_at": 1793049020.4260232
+    },
+    {
+      "person": "Malala Yousafzai",
+      "source": {
+        "id": "archive:Malala_Yousafzai_at_the_opening_of_the_2013_Aspen_Ideas_Festival",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Malala_Yousafzai_at_the_opening_of_the_2013_Aspen_Ideas_Festival/Malala_Yousafzai_at_the_opening_of_the_2013_Aspen_Ideas_Festival.mp4",
+        "source_url": "https://archive.org/details/Malala_Yousafzai_at_the_opening_of_the_2013_Aspen_Ideas_Festival",
+        "title": "Malala Yousafzai at the opening of the 2013 Aspen Ideas Festival",
+        "description": "Find out more at www.aspenideas.org. ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Malala Yousafzai (Award Winner)', 'united nations', 'education', 'girls', \"women's rights\", 'aspen institute', 'aspen ideas festival', 'aspen ideas', 'Aspen Ideas', '2013']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Malala Yousafzai (Award Winner)', 'united nations', 'education', 'girls', \"women's rights\", 'aspen institute', 'aspen ideas festival', 'aspen ideas', 'Aspen Ideas', '2013']",
+        "runtime": "00:00:42",
+        "direct_subject": true,
+        "duration_hint": 42.242242,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 13.36,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features real archival footage of Malala Yousafzai speaking in an interview setting, making it highly usable as biographical illustration for her life and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "8293710fe96a8f7247abc060c3d5c4fe854a38635eeaabbfde14b53246e9b58b",
+      "reviewed_at": 1793049026.293876
+    },
+    {
+      "person": "Malala Yousafzai",
+      "source": {
+        "id": "archive:Malala_Yousafzai_at_the_opening_of_the_2013_Aspen_Ideas_Festival",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Malala_Yousafzai_at_the_opening_of_the_2013_Aspen_Ideas_Festival/Malala_Yousafzai_at_the_opening_of_the_2013_Aspen_Ideas_Festival.mp4",
+        "source_url": "https://archive.org/details/Malala_Yousafzai_at_the_opening_of_the_2013_Aspen_Ideas_Festival",
+        "title": "Malala Yousafzai at the opening of the 2013 Aspen Ideas Festival",
+        "description": "Find out more at www.aspenideas.org. ['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Malala Yousafzai (Award Winner)', 'united nations', 'education', 'girls', \"women's rights\", 'aspen institute', 'aspen ideas festival', 'aspen ideas', 'Aspen Ideas', '2013']",
+        "creator": "The Aspen Institute",
+        "license": "",
+        "subject": "['Colorado', 'Aspen', 'The Aspen Instititue', 'Youtube', 'Malala Yousafzai (Award Winner)', 'united nations', 'education', 'girls', \"women's rights\", 'aspen institute', 'aspen ideas festival', 'aspen ideas', 'Aspen Ideas', '2013']",
+        "runtime": "00:00:42",
+        "direct_subject": true,
+        "duration_hint": 42.242242,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 33.24,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature real filmed footage of Malala Yousafzai speaking, making it highly suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "75667f8b89a371ae7e54ceb24f807253502cf7b51a170ca2e2fb430d540ee792",
+      "reviewed_at": 1793049031.625681
+    },
+    {
+      "person": "Satyen Bose",
+      "source": {
+        "id": "archive:dli.MoI.films.111",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dli.MoI.films.111/Dr%20Satyen%20Bose.ia.mp4",
+        "source_url": "https://archive.org/details/dli.MoI.films.111",
+        "title": "Dr. Satyen Bose",
+        "description": "['In January 1974, Calcutta celebrated the 50th Anniversary of the Bose Statistics. In 1924, at the age of thirty Dr. Satyen Bosemade an original contribution to theoretical Physics. This biographical film, informs the viewer about the life story of the great scientist, to whom Rabindra Nath Tagore dedicated his work Viswa Parichaya way back in 1937. The Bangiya Vigyan Parishad was founded by Dr. Bose in 1948. In 1958 he became National Professor. A world-renowned scientist, Dr. Bose was also a great humanist. Dr. Bose died on February 4, 1974. Director: Gopal Sanyal', 'From the Government of India, Ministry of Information, Films Division'] GoI Films",
+        "creator": "Ministry of Information, Films Division",
+        "license": "",
+        "subject": "GoI Films",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1138.2,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 91.48,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled archival video frames clearly depict Satyen Bose speaking at a podium (specifically at the 50th Anniversary of Bose Statistics in January 1974), serving as authentic biographical footage illustrating his life and public presence.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7ca0979d50c23c56b30509a8ae22f38c58186bbd65bd6a094c0202f53cc309fd",
+      "reviewed_at": 1793049070.739696
+    },
+    {
+      "person": "Satyen Bose",
+      "source": {
+        "id": "archive:dli.MoI.films.111",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dli.MoI.films.111/Dr%20Satyen%20Bose.ia.mp4",
+        "source_url": "https://archive.org/details/dli.MoI.films.111",
+        "title": "Dr. Satyen Bose",
+        "description": "['In January 1974, Calcutta celebrated the 50th Anniversary of the Bose Statistics. In 1924, at the age of thirty Dr. Satyen Bosemade an original contribution to theoretical Physics. This biographical film, informs the viewer about the life story of the great scientist, to whom Rabindra Nath Tagore dedicated his work Viswa Parichaya way back in 1937. The Bangiya Vigyan Parishad was founded by Dr. Bose in 1948. In 1958 he became National Professor. A world-renowned scientist, Dr. Bose was also a great humanist. Dr. Bose died on February 4, 1974. Director: Gopal Sanyal', 'From the Government of India, Ministry of Information, Films Division'] GoI Films",
+        "creator": "Ministry of Information, Films Division",
+        "license": "",
+        "subject": "GoI Films",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1138.2,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 437.38,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The frames show historical documents and publications related to Bose statistics and Einstein's Gas Theory from 1924, providing valid historical context for Satyen Bose's scientific work, even though the person himself is not visible in the footage.",
+        "usage": "direct_event"
+      },
+      "review_key": "da40c8e53c3d2e0937002f4ddd803925fbd06ece96045c559ec6c58ff262ac61",
+      "reviewed_at": 1793049088.3731725
+    },
+    {
+      "person": "Satyen Bose",
+      "source": {
+        "id": "archive:dli.MoI.films.111",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dli.MoI.films.111/Dr%20Satyen%20Bose.ia.mp4",
+        "source_url": "https://archive.org/details/dli.MoI.films.111",
+        "title": "Dr. Satyen Bose",
+        "description": "['In January 1974, Calcutta celebrated the 50th Anniversary of the Bose Statistics. In 1924, at the age of thirty Dr. Satyen Bosemade an original contribution to theoretical Physics. This biographical film, informs the viewer about the life story of the great scientist, to whom Rabindra Nath Tagore dedicated his work Viswa Parichaya way back in 1937. The Bangiya Vigyan Parishad was founded by Dr. Bose in 1948. In 1958 he became National Professor. A world-renowned scientist, Dr. Bose was also a great humanist. Dr. Bose died on February 4, 1974. Director: Gopal Sanyal', 'From the Government of India, Ministry of Information, Films Division'] GoI Films",
+        "creator": "Ministry of Information, Films Division",
+        "license": "",
+        "subject": "GoI Films",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1138.2,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 696.82,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage features clear archival moving shots of Satyen Bose himself in the later frames, preceded by historical documents/equations relevant to his work, making it highly usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ad027f94deefb7802b5396b039a69427d70120a97af7b2c1e7f322c59bee1b8e",
+      "reviewed_at": 1793049111.3259444
+    },
+    {
+      "person": "Satyen Bose",
+      "source": {
+        "id": "archive:dli.MoI.films.111",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dli.MoI.films.111/Dr%20Satyen%20Bose.ia.mp4",
+        "source_url": "https://archive.org/details/dli.MoI.films.111",
+        "title": "Dr. Satyen Bose",
+        "description": "['In January 1974, Calcutta celebrated the 50th Anniversary of the Bose Statistics. In 1924, at the age of thirty Dr. Satyen Bosemade an original contribution to theoretical Physics. This biographical film, informs the viewer about the life story of the great scientist, to whom Rabindra Nath Tagore dedicated his work Viswa Parichaya way back in 1937. The Bangiya Vigyan Parishad was founded by Dr. Bose in 1948. In 1958 he became National Professor. A world-renowned scientist, Dr. Bose was also a great humanist. Dr. Bose died on February 4, 1974. Director: Gopal Sanyal', 'From the Government of India, Ministry of Information, Films Division'] GoI Films",
+        "creator": "Ministry of Information, Films Division",
+        "license": "",
+        "subject": "GoI Films",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1138.2,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 783.29,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature archival film footage of Satyen Bose in his later years, making it highly relevant and usable as biographical illustration for a documentary short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c2bcbd316cf86c1b57d1dc2579255fd10907dc8122559b1e93fe723d4a08c8f6",
+      "reviewed_at": 1793049122.385074
+    },
+    {
+      "person": "Satyen Bose",
+      "source": {
+        "id": "archive:dli.MoI.films.111",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dli.MoI.films.111/Dr%20Satyen%20Bose.ia.mp4",
+        "source_url": "https://archive.org/details/dli.MoI.films.111",
+        "title": "Dr. Satyen Bose",
+        "description": "['In January 1974, Calcutta celebrated the 50th Anniversary of the Bose Statistics. In 1924, at the age of thirty Dr. Satyen Bosemade an original contribution to theoretical Physics. This biographical film, informs the viewer about the life story of the great scientist, to whom Rabindra Nath Tagore dedicated his work Viswa Parichaya way back in 1937. The Bangiya Vigyan Parishad was founded by Dr. Bose in 1948. In 1958 he became National Professor. A world-renowned scientist, Dr. Bose was also a great humanist. Dr. Bose died on February 4, 1974. Director: Gopal Sanyal', 'From the Government of India, Ministry of Information, Films Division'] GoI Films",
+        "creator": "Ministry of Information, Films Division",
+        "license": "",
+        "subject": "GoI Films",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1138.2,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 869.77,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The archival footage clearly shows Satyen Bose speaking at a public gathering/celebration, matching the biographical context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "bff49a2fdf0262448e49e63511ae6028d6f3fea2a0410c6dcf8b798d1e57fd41",
+      "reviewed_at": 1793049145.6752124
+    },
+    {
+      "person": "Satyen Bose",
+      "source": {
+        "id": "archive:dli.MoI.films.111",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/dli.MoI.films.111/Dr%20Satyen%20Bose.ia.mp4",
+        "source_url": "https://archive.org/details/dli.MoI.films.111",
+        "title": "Dr. Satyen Bose",
+        "description": "['In January 1974, Calcutta celebrated the 50th Anniversary of the Bose Statistics. In 1924, at the age of thirty Dr. Satyen Bosemade an original contribution to theoretical Physics. This biographical film, informs the viewer about the life story of the great scientist, to whom Rabindra Nath Tagore dedicated his work Viswa Parichaya way back in 1937. The Bangiya Vigyan Parishad was founded by Dr. Bose in 1948. In 1958 he became National Professor. A world-renowned scientist, Dr. Bose was also a great humanist. Dr. Bose died on February 4, 1974. Director: Gopal Sanyal', 'From the Government of India, Ministry of Information, Films Division'] GoI Films",
+        "creator": "Ministry of Information, Films Division",
+        "license": "",
+        "subject": "GoI Films",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 1138.2,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1042.72,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled archival footage shows real historical context of a procession/crowd related to Satyen Bose, followed by a clear close-up profile shot of Satyen Bose himself in the later frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6a3cdf8b234d6a6b5eb57051699c5dd549c97e4532e806bc2cf87f9238474f25",
+      "reviewed_at": 1793049165.3340049
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor/The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_history_film.mp4",
+        "source_url": "https://archive.org/details/thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
+        "title": "The FIRST #documentary on Rosa Parks is out this week. Learn more at our YT channel #history #film",
+        "description": " ['New York', 'The Laura Flanders Show', 'Youtube', '2022']",
+        "creator": "LF",
+        "license": "",
+        "subject": "['New York', 'The Laura Flanders Show', 'Youtube', '2022']",
+        "runtime": "00:00:40",
+        "direct_subject": true,
+        "duration_hint": 39.906573,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 21.67,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video segment contains archival footage featuring Rosa Parks herself in historical film clips and photos, along with relevant documentary commentary, making it highly usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "ad0db4cbb12b5f4347d2a32145a50b3e0833abfb6680555a592085e452d3a372",
+      "reviewed_at": 1793049327.9812994
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor/The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_history_film.mp4",
+        "source_url": "https://archive.org/details/thelfshow-The_FIRST_documentary_on_Rosa_Parks_is_out_this_week._Learn_more_at_our_YT_channel_histor",
+        "title": "The FIRST #documentary on Rosa Parks is out this week. Learn more at our YT channel #history #film",
+        "description": " ['New York', 'The Laura Flanders Show', 'Youtube', '2022']",
+        "creator": "LF",
+        "license": "",
+        "subject": "['New York', 'The Laura Flanders Show', 'Youtube', '2022']",
+        "runtime": "00:00:40",
+        "direct_subject": true,
+        "duration_hint": 39.906573,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 12.43,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The segment includes archival footage and documentary interview footage discussing Rosa Parks, with Rosa Parks herself visible in historical group footage (such as frame 5 seated near MLK), making it usable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3ce0f10260475d9787be76a5c29b3de79b89e73ae5a4e796c6ff487c1cf80d0b",
+      "reviewed_at": 1793049342.5126772
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:btvin-Rosa_Parks_a_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Rosa_Parks_a_Hero/Rosa_Parks_a_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Rosa_Parks_a_Hero",
+        "title": "Rosa Parks a Hero",
+        "description": "This is a documentary about Rosa Parks and why she is a hero. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'unsung hero', 'documentary', '2023']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'unsung hero', 'documentary', '2023']",
+        "runtime": "00:02:28",
+        "direct_subject": true,
+        "duration_hint": 148.033333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video features historical footage and photographs illustrating the life and civil rights context of Rosa Parks, including Martin Luther King Jr.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7872aa45044832876f54d6f3cb8e67b98e9301ab917e4fb58039b5af2c16c749",
+      "reviewed_at": 1793049364.7644851
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:btvin-Rosa_Parks_a_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Rosa_Parks_a_Hero/Rosa_Parks_a_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Rosa_Parks_a_Hero",
+        "title": "Rosa Parks a Hero",
+        "description": "This is a documentary about Rosa Parks and why she is a hero. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'unsung hero', 'documentary', '2023']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'unsung hero', 'documentary', '2023']",
+        "runtime": "00:02:28",
+        "direct_subject": true,
+        "duration_hint": 148.033333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 25.62,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Rosa Parks in archival video footage and photographs, perfectly illustrating her life and biography.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "51742559796da59466127c699ce3872fd1885f9854ed010feace496f3d3a896d",
+      "reviewed_at": 1793049378.2229226
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:btvin-Rosa_Parks_a_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Rosa_Parks_a_Hero/Rosa_Parks_a_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Rosa_Parks_a_Hero",
+        "title": "Rosa Parks a Hero",
+        "description": "This is a documentary about Rosa Parks and why she is a hero. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'unsung hero', 'documentary', '2023']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'unsung hero', 'documentary', '2023']",
+        "runtime": "00:02:28",
+        "direct_subject": true,
+        "duration_hint": 148.033333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 35.93,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature archival footage of Rosa Parks herself, including historical imagery of her being fingerprinted after her arrest, making it highly relevant and usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "89e212515e35f63e24a3b84553f871f1eb6a82d5fcdc81aaf91fd0f219796205",
+      "reviewed_at": 1793049384.423697
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:btvin-Rosa_Parks_a_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Rosa_Parks_a_Hero/Rosa_Parks_a_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Rosa_Parks_a_Hero",
+        "title": "Rosa Parks a Hero",
+        "description": "This is a documentary about Rosa Parks and why she is a hero. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'unsung hero', 'documentary', '2023']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'unsung hero', 'documentary', '2023']",
+        "runtime": "00:02:28",
+        "direct_subject": true,
+        "duration_hint": 148.033333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 46.24,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features real archival photographs and footage of Rosa Parks, including her iconic bus depiction and historical moments, directly illustrating her life and biography.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b72276fdc34042fce04a756ddaa732e12e184cfcd738f13a24de87f2747078f5",
+      "reviewed_at": 1793049391.5753057
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:btvin-Rosa_Parks_a_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Rosa_Parks_a_Hero/Rosa_Parks_a_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Rosa_Parks_a_Hero",
+        "title": "Rosa Parks a Hero",
+        "description": "This is a documentary about Rosa Parks and why she is a hero. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'unsung hero', 'documentary', '2023']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'unsung hero', 'documentary', '2023']",
+        "runtime": "00:02:28",
+        "direct_subject": true,
+        "duration_hint": 148.033333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 56.55,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The video footage clearly shows Rosa Parks in archival photographs and historical context related to her life and civil rights activism, making it highly relevant and usable for a biographical short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "638920afd1449e6b181f83d4e5294a07631475dab5ac6e200fc99b4a108a4b6c",
+      "reviewed_at": 1793049398.533777
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:btvin-Rosa_Parks_a_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Rosa_Parks_a_Hero/Rosa_Parks_a_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Rosa_Parks_a_Hero",
+        "title": "Rosa Parks a Hero",
+        "description": "This is a documentary about Rosa Parks and why she is a hero. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'unsung hero', 'documentary', '2023']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'unsung hero', 'documentary', '2023']",
+        "runtime": "00:02:28",
+        "direct_subject": true,
+        "duration_hint": 148.033333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 66.86,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The sampled frames clearly feature archival footage of Rosa Parks, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c30271291b60e65a75af619138623afeca8a11ae0afc2baa74175ee171f63831",
+      "reviewed_at": 1793049405.151731
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:btvin-Rosa_Parks_a_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Rosa_Parks_a_Hero/Rosa_Parks_a_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Rosa_Parks_a_Hero",
+        "title": "Rosa Parks a Hero",
+        "description": "This is a documentary about Rosa Parks and why she is a hero. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'unsung hero', 'documentary', '2023']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'unsung hero', 'documentary', '2023']",
+        "runtime": "00:02:28",
+        "direct_subject": true,
+        "duration_hint": 148.033333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 87.48,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment contains archival footage featuring Rosa Parks clearly visible across multiple frames, serving as effective biographical illustration for her life and legacy.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1f3da2a673526777389dd587d14aebaa697d922c3b2bdd4471b69392df608a48",
+      "reviewed_at": 1793049423.4977076
+    },
+    {
+      "person": "Rosa Parks",
+      "source": {
+        "id": "archive:btvin-Rosa_Parks_a_Hero",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/btvin-Rosa_Parks_a_Hero/Rosa_Parks_a_Hero.mp4",
+        "source_url": "https://archive.org/details/btvin-Rosa_Parks_a_Hero",
+        "title": "Rosa Parks a Hero",
+        "description": "This is a documentary about Rosa Parks and why she is a hero. ['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'unsung hero', 'documentary', '2023']",
+        "creator": "Bloomington",
+        "license": "",
+        "subject": "['Batecholr Middle School - Batchelor Television', 'Indiana', 'Bloomington', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'Batchelor Middle School', 'unsung hero', 'documentary', '2023']",
+        "runtime": "00:02:28",
+        "direct_subject": true,
+        "duration_hint": 148.033333,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 97.79,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature archival documentary footage of Rosa Parks speaking and smiling, fitting the biographical illustration criteria.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e3e063fdbba88e43b4edf440f82ac1d8a7f37a328b43187acc65d6b0dc325328",
+      "reviewed_at": 1793049430.6973028
     }
   ]
 }

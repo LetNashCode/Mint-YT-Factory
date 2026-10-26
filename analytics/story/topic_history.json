@@ -484,5 +484,21 @@
     "video_id": "2W0svCSK8r0",
     "workdir": "",
     "published_at": 1793045793
+  },
+  {
+    "topic": "Rosa Parks: Refusing to give up her bus seat in Montgomery, sparking a pivotal movement against racial segregation.",
+    "normalized": "rosa parks refusing to give up her bus seat in montgomery sparking a pivotal movement against racial segregation",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1793049312,
+    "recorded_at": 1793049312,
+    "metadata": {
+      "person": "Rosa Parks",
+      "pillar": "one_decision"
+    },
+    "title": "Rosa Parks: Refusing to give up her bus seat in Montgomery, sparking a pivotal movement against racial segregation.",
+    "video_id": "BG8pfRtf2AM",
+    "workdir": "",
+    "published_at": 1793050109
   }
 ]

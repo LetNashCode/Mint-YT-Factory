@@ -9329,6 +9329,231 @@
       "start": 297.95,
       "reason": "The footage shows Temple Grandin speaking at a podium, serving as biographical illustration, but it does not directly depict the historical events of her life narrated in the script.",
       "reviewed_at": 1793045052.0273156
+    },
+    "4b9f8cd166d985bcef61daa7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+      "person": "Ernest Shackleton",
+      "start": 2632.37,
+      "reason": "The footage shows aerial shots of Antarctica and a modern interviewee speaking about Ernest Shackleton. Since Shackleton lived from 1874 to 1922, the person speaking is clearly not Shackleton himself, meaning person_visible is false. However, the B-roll of Antarctica provides useful historical context/illustration for a biography about Shackleton.",
+      "reviewed_at": 1793048354.3693042
+    },
+    "9ce0546cbc0ca1111c93f9b0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+      "person": "Ernest Shackleton",
+      "start": 2851.32,
+      "reason": "The sampled frames consist entirely of production credits and studio title cards (Cromwell Productions 1999) with no actual historical footage or depiction of Ernest Shackleton.",
+      "reviewed_at": 1793048381.178294
+    },
+    "c1ccd4f83c12214fc3b0f224": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202512",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
+      "person": "Ernest Shackleton",
+      "start": 3054.17,
+      "reason": "The footage shows an unidentified man speaking in an indoor setting, likely a modern documentary interview or reenactment, but does not depict Ernest Shackleton or his Antarctic expeditions.",
+      "reviewed_at": 1793048389.1187973
+    },
+    "45ec5b6c2db5b24a7000ed28": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202512",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
+      "person": "Ernest Shackleton",
+      "start": 3731.77,
+      "reason": "The video features archival illustration and documentary presentation related to Ernest Shackleton's life and expeditions, though Shackleton himself (who died in 1922) is not visibly present in the sampled frames. It serves as useful biographical illustration.",
+      "reviewed_at": 1793048417.830505
+    },
+    "1e84007d6d7683b3464445a4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:shackletons-expedition",
+      "source_url": "https://archive.org/details/shackletons-expedition",
+      "person": "Ernest Shackleton",
+      "start": 916.68,
+      "reason": "The video segment includes archival footage of the Antarctic expedition related to Ernest Shackleton, followed by documentary presenter commentary. While Shackleton himself is not clearly visible as a living subject in the footage (as he lived 1874-1922), the archival material depicts the historical context of his expedition.",
+      "reviewed_at": 1793048431.413833
+    },
+    "66b1ae6ae414ea5f49b7cb00": {
+      "kind": "segment_rejection",
+      "source_id": "archive:shackletons-expedition",
+      "source_url": "https://archive.org/details/shackletons-expedition",
+      "person": "Ernest Shackleton",
+      "start": 1119.28,
+      "reason": "The video features a modern presenter discussing Ernest Shackleton, followed by historical archival photographs of Shackleton's expedition team. Since the historical subject Ernest Shackleton is not visibly present in the contemporary presenter footage, person_visible is false, but the historical archive serves as usable biographical illustration.",
+      "reviewed_at": 1793048445.886146
+    },
+    "ec1c31993538bc79b5d280ef": {
+      "kind": "segment_rejection",
+      "source_id": "archive:antarctica-a-frozen-history",
+      "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+      "person": "Ernest Shackleton",
+      "start": 4655.38,
+      "reason": "The footage shows archival documentary scenes of Antarctic landscapes and a ship, providing general historical context for Ernest Shackleton's expeditions, though Shackleton himself is not visible.",
+      "reviewed_at": 1793048544.095724
+    },
+    "8a215a34dc00ce2e7451269b": {
+      "kind": "segment_rejection",
+      "source_id": "archive:antarctica-a-frozen-history",
+      "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+      "person": "Ernest Shackleton",
+      "start": 5078.14,
+      "reason": "The footage shows archival documentary scenes of penguins in Antarctica, which provides general historical context for Antarctic exploration, but Ernest Shackleton is not visible.",
+      "reviewed_at": 1793048565.2489758
+    },
+    "7ac7ddc8b61da4d57cef79d3": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sachinmrindia-scn",
+      "source_url": "https://archive.org/details/sachinmrindia-scn",
+      "person": "Sachin Tendulkar",
+      "start": 1301.7,
+      "reason": "The sampled frames feature V.V.S. Laxman, not Sachin Tendulkar, meaning the target person is not visible in the footage.",
+      "reviewed_at": 1793048665.7000196
+    },
+    "14d9d45a12a671b23607ec2a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sachin-tendulkar",
+      "source_url": "https://archive.org/details/sachin-tendulkar",
+      "person": "Sachin Tendulkar",
+      "start": 11.96,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793048679.00469
+    },
+    "d8a5f66841d002f7f5397b6f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sachin-tendulkar",
+      "source_url": "https://archive.org/details/sachin-tendulkar",
+      "person": "Sachin Tendulkar",
+      "start": 21.66,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793048682.680531
+    },
+    "63096525b80b7e0c866ab0b2": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sachin-tendulkar",
+      "source_url": "https://archive.org/details/sachin-tendulkar",
+      "person": "Sachin Tendulkar",
+      "start": 2.27,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793048685.3509545
+    },
+    "758aa0c84ba9485e28b5407c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sachinmrindia-scn",
+      "source_url": "https://archive.org/details/sachinmrindia-scn",
+      "person": "Sachin Tendulkar",
+      "start": 5.0,
+      "reason": "The video segment contains commercial advertisement graphics and footage for Citibank featuring unrelated individuals, with no appearance of Sachin Tendulkar.",
+      "reviewed_at": 1793048691.108737
+    },
+    "0189117bcd36cdffb8333e44": {
+      "kind": "segment_rejection",
+      "source_id": "archive:sachinmrindia-scn",
+      "source_url": "https://archive.org/details/sachinmrindia-scn",
+      "person": "Sachin Tendulkar",
+      "start": 190.24,
+      "reason": "The sampled frames show an unidentified person speaking in an interview setting, not Sachin Tendulkar. Sachin Tendulkar is not visible in any of the frames, making this clip unsuitable for biographical footage of him.",
+      "reviewed_at": 1793048699.2070832
+    },
+    "42ec1229340dfe22a57e9a0a": {
+      "kind": "segment_rejection",
+      "source_id": "commons:82812902",
+      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm",
+      "person": "A.P.J. Abdul Kalam",
+      "start": 61.37,
+      "reason": "The video shows architectural exterior footage and an organization logo (ISRO), which are relevant as contextual biographical illustration for A.P.J. Abdul Kalam's career, but the subject himself is not visible in any of the frames.",
+      "reviewed_at": 1793048727.6787426
+    },
+    "1c2b2bd828cb48199c3217a5": {
+      "kind": "segment_rejection",
+      "source_id": "commons:82812902",
+      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm",
+      "person": "A.P.J. Abdul Kalam",
+      "start": 80.16,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793048730.5930629
+    },
+    "34af72d7d343128e4f1ffc0e": {
+      "kind": "segment_rejection",
+      "source_id": "commons:82812902",
+      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm",
+      "person": "A.P.J. Abdul Kalam",
+      "start": 98.95,
+      "reason": "The footage shows Indian space launch vehicles and missile systems related to ISRO and DRDO, which is directly relevant to A.P.J. Abdul Kalam's career as an aerospace scientist and 'Missile Man of India'.",
+      "reviewed_at": 1793048736.4328156
+    },
+    "386dda3f7f0f46a2c3ad121a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:LouisBrailleAndTheBrailleAlphabet",
+      "source_url": "https://archive.org/details/LouisBrailleAndTheBrailleAlphabet",
+      "person": "Louis Braille",
+      "start": 70.41,
+      "reason": "The footage shows dramatic reconstruction of Louis Braille as a young boy working with tactile code and establishing historical context of his birthplace/surroundings, serving as biographical illustration.",
+      "reviewed_at": 1793048881.0788975
+    },
+    "bcf9534d5f9c12007feb93f0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Arundhati_Roy_on_Malala_Yousafzai_Kailash_Satyarthi_Nobel_Prize_Winners",
+      "source_url": "https://archive.org/details/Arundhati_Roy_on_Malala_Yousafzai_Kailash_Satyarthi_Nobel_Prize_Winners",
+      "person": "Malala Yousafzai",
+      "start": 71.59,
+      "reason": "The video features author and activist Arundhati Roy being interviewed about Malala Yousafzai. The subject of the biography, Malala Yousafzai, is not visible in the footage; the person shown is Arundhati Roy.",
+      "reviewed_at": 1793049009.5176375
+    },
+    "cc6654620bf0656c5236c4c6": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Arundhati_Roy_on_Malala_Yousafzai_Kailash_Satyarthi_Nobel_Prize_Winners",
+      "source_url": "https://archive.org/details/Arundhati_Roy_on_Malala_Yousafzai_Kailash_Satyarthi_Nobel_Prize_Winners",
+      "person": "Malala Yousafzai",
+      "start": 100.13,
+      "reason": "The video shows author Arundhati Roy being interviewed about Malala Yousafzai, but Malala Yousafzai herself is not visible in any of the sampled frames.",
+      "reviewed_at": 1793049017.3550758
+    },
+    "bdb9672dea037b80e87d87a9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.111",
+      "source_url": "https://archive.org/details/dli.MoI.films.111",
+      "person": "Satyen Bose",
+      "start": 350.91,
+      "reason": "The footage shows historical context (river scene in Calcutta) and biographical illustration material (book title page featuring S.N. Bose), but Satyen Bose is not visibly present in any of the sampled frames.",
+      "reviewed_at": 1793049081.9293008
+    },
+    "1b269469b90a5e2959b177f5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.111",
+      "source_url": "https://archive.org/details/dli.MoI.films.111",
+      "person": "Satyen Bose",
+      "start": 523.86,
+      "reason": "The footage shows archival panoramic views of an old European city and river (likely Budapest or similar early 20th-century setting), serving as biographical illustration for the life of Satyen Bose, though the subject himself is not visible.",
+      "reviewed_at": 1793049104.363249
+    },
+    "b45e4718e90f3e80580ab526": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.111",
+      "source_url": "https://archive.org/details/dli.MoI.films.111",
+      "person": "Satyen Bose",
+      "start": 956.25,
+      "reason": "The archival footage shows a laboratory setting associated with Prof. S.N. Bose's Helium Exploration Project in Bakreswar, providing relevant historical context about his scientific work, although Satyen Bose himself is not clearly visible in the frames.",
+      "reviewed_at": 1793049158.9507978
+    },
+    "6601c5fe981431c4f5bda5d4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:dli.MoI.films.111",
+      "source_url": "https://archive.org/details/dli.MoI.films.111",
+      "person": "Satyen Bose",
+      "start": 1129.2,
+      "reason": "The first frame shows Satyen Bose, but the remaining four frames are static title cards ('THE END'), making the segment unusable for biographical illustration.",
+      "reviewed_at": 1793049174.8398664
+    },
+    "f299c07a4fdb9df6158d3790": {
+      "kind": "segment_rejection",
+      "source_id": "archive:btvin-Rosa_Parks_a_Hero",
+      "source_url": "https://archive.org/details/btvin-Rosa_Parks_a_Hero",
+      "person": "Rosa Parks",
+      "start": 15.31,
+      "reason": "The frames show a static or poorly edited photo montage/transition with a double-exposure effect rather than genuine moving archival footage.",
+      "reviewed_at": 1793049373.9733446
     }
   }
 }

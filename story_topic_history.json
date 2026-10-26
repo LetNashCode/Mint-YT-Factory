@@ -302,5 +302,13 @@
     "title": "The Moment Everything Changed: Temple Grandin",
     "video_id": "2W0svCSK8r0",
     "workdir": "output/interactive/1793045249"
+  },
+  {
+    "topic": "Rosa Parks: Refusing to give up her bus seat in Montgomery, sparking a pivotal movement against racial segregation.",
+    "pillar": "one_decision",
+    "person": "Rosa Parks",
+    "title": "The Decision That Changed Everything: Rosa Parks",
+    "video_id": "BG8pfRtf2AM",
+    "workdir": "output/interactive/1793049477"
   }
 ]

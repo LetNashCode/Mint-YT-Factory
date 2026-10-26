@@ -1,83 +1,5 @@
 [
   {
-    "format": "impossible_odds",
-    "person": "Pelé",
-    "premise": "Rising from the slums of Bauru to win the World Cup at just 17 years old.",
-    "hook": "He played barefoot with socks stuffed with rags because his family could not afford a real leather football.",
-    "key_facts": [
-      "Born Edson Arantes do Nascimento in poverty in Minas Gerais, Brazil.",
-      "Learned to play soccer using grapefruits and rolled-up rags in the streets.",
-      "Made his international debut for Brazil at age 16.",
-      "Scored two goals in the 1958 World Cup final to secure Brazil's first title."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Rosa Parks",
-    "premise": "Refusing to give up her bus seat in Montgomery, sparking a pivotal movement against racial segregation.",
-    "hook": "Her decision on a crowded city bus was a deliberate, courageous stand built on years of civil rights activism.",
-    "key_facts": [
-      "Worked as a seamstress and served as secretary for the Montgomery chapter of the NAACP.",
-      "Was arrested on December 1, 1955, for violating Montgomery's segregation ordinances.",
-      "Triggered the 381-day Montgomery bus boycott organized by local Black leaders.",
-      "The boycott led to a U.S. Supreme Court ruling declaring segregated buses unconstitutional."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Viswanathan Anand",
-    "premise": "Breaking the Soviet hegemony in chess to become India's first Grandmaster and a multi-time World Chess Champion.",
-    "hook": "He learned chess from his mother in a small town in Tamil Nadu with virtually no local grandmaster infrastructure.",
-    "key_facts": [
-      "Became India's first Grandmaster at the age of 18 in 1988.",
-      "Won the World Chess Championship five times across different formats.",
-      "Popularized chess significantly across India, inspiring a new generation of players.",
-      "Awarded India's second-highest civilian award, the Padma Vibhushan."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Sachin Tendulkar",
-    "premise": "Making his international cricket debut for India at just 16 years old against a lethal Pakistani pace attack.",
-    "hook": "He walked out to bat against Waqar Younis and Wasim Akram with a bloodied nose after being hit by a bouncer, but refused to retire.",
-    "key_facts": [
-      "Made his Test match debut against Pakistan in Karachi in November 1989 at age 16.",
-      "Scored 100 international centuries over a 24-year career.",
-      "Became the first player to score a double century in a Men's One Day International.",
-      "Awarded the Bharat Ratna, India's highest civilian honor."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "one_decision",
-    "person": "Srinivasa Ramanujan",
-    "premise": "A self-taught mathematical genius from India mailing his raw theorems across the world to Cambridge in search of recognition.",
-    "hook": "Almost every top British mathematician threw his strange formulas in the trash—until one man opened the envelope.",
-    "key_facts": [
-      "Grew up in Erode, Tamil Nadu, with almost no formal training in pure mathematics.",
-      "Independently compiled nearly 3,900 mathematical results and identities.",
-      "Mailed letters containing his complex theorems to prominent Cambridge mathematicians in 1913.",
-      "Invited to Trinity College, Cambridge, by G.H. Hardy, leading to groundbreaking joint publications."
-    ],
-    "source": "gemini_original"
-  },
-  {
-    "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "Keeping his entire 28-man crew alive for nearly two years after their ship was crushed by Antarctic pack ice.",
-    "hook": "His ship was crushed and sunk by Antarctic ice, stranding 28 men on floating floes with no way to call for help.",
-    "key_facts": [
-      "Led the Imperial Trans-Antarctic Expedition aboard the Endurance, which became trapped in ice in 1915.",
-      "The ship sank, forcing the crew to camp on drifting ice floes for months.",
-      "Sailed an 22-foot lifeboat 800 miles across treacherous seas to South Georgia Island for rescue.",
-      "Successfully rescued every single member of his crew without a single loss of life."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "strange_turning_point",
     "person": "J.K. Rowling",
     "premise": "Writing portions of a fantasy manuscript in Edinburgh cafes while dealing with extreme financial hardship.",
@@ -91,15 +13,41 @@
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Louis Braille",
-    "premise": "Inventing a tactile reading and writing system as a teenager after losing his sight in a childhood accident.",
-    "hook": "Blinded at age three by a leather tool in his father's workshop, he refused to let darkness limit human knowledge.",
+    "format": "one_decision",
+    "person": "Tim Berners-Lee",
+    "premise": "Deciding to make the World Wide Web open-source and free for everyone instead of commercializing it.",
+    "hook": "He could have become the richest man on earth by patenting the World Wide Web, but he chose to give it away for free.",
     "key_facts": [
-      "Blinded in his right eye at age three due to an infection caused by an accidental puncture.",
-      "Attended the Royal Institution for Blind Youth in Paris, where books were extremely rare and hard to read.",
-      "Adapted a military 'night writing' code of raised dots into a streamlined six-dot alphabet by age 15.",
-      "The system was eventually adopted globally, transforming education for visually impaired people."
+      "Invented the World Wide Web while working at CERN in 1989",
+      "Wrote the first web browser and web server software",
+      "Persuaded CERN to make the underlying technology available on a royalty-free basis",
+      "Founded the World Wide Web Consortium to guide the open development of the web"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Marie Curie",
+    "premise": "Moving from partitioned Poland to Paris to study physics, where a chance meeting in a laboratory led to a historic scientific partnership.",
+    "hook": "She moved to Paris unable to afford proper meals, subsisting mostly on tea and bread until a laboratory space assignment changed physics forever.",
+    "key_facts": [
+      "Educated in the clandestine 'Flying University' in Warsaw before moving to Paris",
+      "Studied physics and mathematics at the Sorbonne while facing extreme poverty",
+      "Met Pierre Curie while looking for laboratory space to study magnetic properties of steels",
+      "Discovered the elements polonium and radium and won two Nobel Prizes in different sciences"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Stanislaf Petrov",
+    "premise": "The night a Soviet military officer made the split-second decision to ignore computer warning systems signaling an incoming US nuclear attack, preventing a global catastrophe.",
+    "hook": "One man's gut feeling stopped a nuclear war in 1983.",
+    "key_facts": [
+      "Served as a lieutenant colonel in the Soviet Air Defense Forces.",
+      "Oversaw the early-warning system for missile attacks on September 26, 1983.",
+      "Computers erroneously reported that the US had launched intercontinental ballistic missiles.",
+      "Decided the signal was a false alarm based on the low number of missiles detected."
     ],
     "source": "gemini_original"
   }

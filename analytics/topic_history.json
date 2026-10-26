@@ -3480,24 +3480,12 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do apples squeak when polished",
-    "normalized": "why do apples squeak when polished",
+    "topic": "Why do shoe laces knot",
+    "normalized": "why do shoe laces knot",
     "workflow": "publish",
     "status": "reserved",
-    "reserved_at": 1792692579,
-    "recorded_at": 1792692579,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do rubber erasers smudge graphite",
-    "normalized": "why do rubber erasers smudge graphite",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1792711315,
-    "recorded_at": 1792711315,
+    "reserved_at": 1793015148,
+    "recorded_at": 1793015148,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

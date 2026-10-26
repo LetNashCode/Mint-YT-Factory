@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1788623459",
-    "video_id": "u8ROtvnFVOY",
-    "topic": "Why do paper towels tear sideways",
-    "completed_at": 1757148240
-  },
-  {
     "workdir": "output/1788712079",
     "video_id": "Ta7KRzGBH3A",
     "topic": "Why does toothpaste foam",
@@ -598,5 +592,11 @@
     "video_id": "hDNI79r2n-I",
     "topic": "Why do rubber erasers smudge graphite",
     "completed_at": 1792712860
+  },
+  {
+    "workdir": "output/1793015189",
+    "video_id": "3-MOtjG9g70",
+    "topic": "Why do shoe laces knot",
+    "completed_at": 1793016668
   }
 ]

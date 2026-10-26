@@ -1,7 +1,20 @@
 {
-  "status": "pending",
-  "video_id": "",
-  "youtube_url": "",
-  "reason": "",
-  "updated_at": 1792954031
+  "status": "complete",
+  "video_id": "ARS24MyyCho",
+  "youtube_url": "https://www.youtube.com/shorts/ARS24MyyCho",
+  "platforms": {
+    "youtube": {
+      "status": "published",
+      "video_id": "ARS24MyyCho"
+    },
+    "instagram": {
+      "status": "published",
+      "media_id": "18082934696355726",
+      "container_id": "18501536959097136"
+    },
+    "facebook": {
+      "status": "published",
+      "video_id": "1148517430930336"
+    }
+  }
 }

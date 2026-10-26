@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-10-25T18:52:36.299491+00:00",
-  "refresh_attempted_at": "2026-10-25T18:52:36.299491+00:00",
+  "generated_at": "2026-10-26T12:05:55.049941+00:00",
+  "refresh_attempted_at": "2026-10-26T12:05:55.049941+00:00",
   "refresh_status": "success",
-  "video_count": 27,
+  "video_count": 28,
   "optimization_ready": true,
   "live_metrics_ready": true,
-  "advanced_metrics_videos": 26,
+  "advanced_metrics_videos": 27,
   "reason": "",
   "totals": {
-    "views": 10388,
+    "views": 10415,
     "likes": 206,
     "comments": 5
   },
   "averages": {
-    "views": 384.74,
-    "likes": 7.63,
-    "comments": 0.19,
-    "average_view_percentage": 50.39,
-    "subscribers_gained": 0.44,
+    "views": 371.96,
+    "likes": 7.36,
+    "comments": 0.18,
+    "average_view_percentage": 50.04,
+    "subscribers_gained": 0.46,
     "shares": 0.04
   },
   "top_videos": [
@@ -30,7 +30,7 @@
       "comments": 2,
       "shares": 0,
       "average_view_duration": 19.0,
-      "average_view_percentage": 44.45,
+      "average_view_percentage": 44.56,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 3.7674
@@ -39,7 +39,7 @@
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
       "video_id": "Pb1-aVVunGg",
       "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1212,
+      "views": 1214,
       "likes": 43,
       "comments": 2,
       "shares": 1,
@@ -47,7 +47,7 @@
       "average_view_percentage": 62.45,
       "subscribers_gained": 3,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7129
+      "engagement_rate": 3.7068
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -128,7 +128,7 @@
       "comments": 0,
       "shares": 0,
       "average_view_duration": 21.0,
-      "average_view_percentage": 52.81,
+      "average_view_percentage": 54.16,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.463
@@ -151,15 +151,15 @@
       "topic": "B-B King: The pivotal moment a damaged guitar and a dangerous fire shaped the signature sound of the Blues Boy.",
       "video_id": "-zuakI9IPVU",
       "title": "B-B King Lost Everything—Then Started Again",
-      "views": 314,
+      "views": 315,
       "likes": 5,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 18.0,
-      "average_view_percentage": 45.87,
-      "subscribers_gained": 0,
+      "average_view_duration": 16.0,
+      "average_view_percentage": 40.27,
+      "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 1.5924
+      "engagement_rate": 1.5873
     }
   ],
   "topic_performance": [
@@ -172,7 +172,7 @@
       "comments": 2,
       "shares": 0,
       "average_view_duration": 19.0,
-      "average_view_percentage": 44.45,
+      "average_view_percentage": 44.56,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
       "engagement_rate": 3.7674
@@ -181,7 +181,7 @@
       "topic": "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
       "video_id": "Pb1-aVVunGg",
       "title": "Before the Fame: Dolly Parton's Untold Struggle",
-      "views": 1212,
+      "views": 1214,
       "likes": 43,
       "comments": 2,
       "shares": 1,
@@ -189,7 +189,7 @@
       "average_view_percentage": 62.45,
       "subscribers_gained": 3,
       "subscribers_lost": 0,
-      "engagement_rate": 3.7129
+      "engagement_rate": 3.7068
     },
     {
       "topic": "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
@@ -270,7 +270,7 @@
       "comments": 0,
       "shares": 0,
       "average_view_duration": 21.0,
-      "average_view_percentage": 52.81,
+      "average_view_percentage": 54.16,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.463
@@ -293,15 +293,15 @@
       "topic": "B-B King: The pivotal moment a damaged guitar and a dangerous fire shaped the signature sound of the Blues Boy.",
       "video_id": "-zuakI9IPVU",
       "title": "B-B King Lost Everything—Then Started Again",
-      "views": 314,
+      "views": 315,
       "likes": 5,
       "comments": 0,
       "shares": 0,
-      "average_view_duration": 18.0,
-      "average_view_percentage": 45.87,
-      "subscribers_gained": 0,
+      "average_view_duration": 16.0,
+      "average_view_percentage": 40.27,
+      "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 1.5924
+      "engagement_rate": 1.5873
     },
     {
       "topic": "Diana Nyad: Attempting a historic 110-mile open-ocean swim from Cuba to Florida at the age of 64 after multiple prior failures.",
@@ -360,6 +360,20 @@
       "engagement_rate": 2.5424
     },
     {
+      "topic": "Jim Henson: Innovating early television puppetry for local Washington D.C. shows years before creating the Muppets.",
+      "video_id": "8keJ6vBhkhU",
+      "title": "Before the Fame: Jim Henson's Untold Struggle",
+      "views": 109,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 18.0,
+      "average_view_percentage": 45.31,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    },
+    {
       "topic": "Valentina Tereshkova: A textile factory worker and amateur parachutist selected to become the first woman in space.",
       "video_id": "J6alrNPd3lc",
       "title": "The Untold Turning Point in Valentina Tereshkova's Story",
@@ -368,21 +382,7 @@
       "comments": 0,
       "shares": 0,
       "average_view_duration": 13.0,
-      "average_view_percentage": 37.24,
-      "subscribers_gained": 0,
-      "subscribers_lost": 0,
-      "engagement_rate": 0.0
-    },
-    {
-      "topic": "Jim Henson: Innovating early television puppetry for local Washington D.C. shows years before creating the Muppets.",
-      "video_id": "8keJ6vBhkhU",
-      "title": "Before the Fame: Jim Henson's Untold Struggle",
-      "views": 89,
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "average_view_duration": 0.0,
-      "average_view_percentage": 0.0,
+      "average_view_percentage": 36.61,
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 0.0
@@ -391,7 +391,7 @@
       "topic": "Amitabh Bachchan: Facing persistent rejection from All India Radio due to his deep voice before becoming the defining star of Indian cinema.",
       "video_id": "OMXqyVG5lnw",
       "title": "Amitabh Bachchan Was Rejected... Then Everything Changed",
-      "views": 87,
+      "views": 91,
       "likes": 5,
       "comments": 0,
       "shares": 0,
@@ -399,7 +399,7 @@
       "average_view_percentage": 47.29,
       "subscribers_gained": 1,
       "subscribers_lost": 0,
-      "engagement_rate": 5.7471
+      "engagement_rate": 5.4945
     },
     {
       "topic": "J.R.R. Tolkien: While grading monotonous student exam papers, an Oxford professor happens upon a blank page and writes an impromptu opening line about a hobbit in a hole.",
@@ -540,6 +540,20 @@
       "subscribers_gained": 0,
       "subscribers_lost": 0,
       "engagement_rate": 7.1429
+    },
+    {
+      "topic": "Linus Torvalds: Creating the Linux kernel as a student hobby project in 1991 that accidentally revolutionized global computing.",
+      "video_id": "ARS24MyyCho",
+      "title": "The Untold Turning Point in Linus Torvalds's Story",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
     }
   ],
   "optimization_rules": [

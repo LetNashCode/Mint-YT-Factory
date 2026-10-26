@@ -286,5 +286,13 @@
     "title": "Before the Fame: Jim Henson",
     "video_id": "8keJ6vBhkhU",
     "workdir": "output/interactive/1792786141"
+  },
+  {
+    "topic": "Linus Torvalds: Creating the Linux kernel as a student hobby project in 1991 that accidentally revolutionized global computing.",
+    "pillar": "strange_turning_point",
+    "person": "Linus Torvalds",
+    "title": "The Moment Everything Changed: Linus Torvalds",
+    "video_id": "ARS24MyyCho",
+    "workdir": "output/interactive/1793015717"
   }
 ]

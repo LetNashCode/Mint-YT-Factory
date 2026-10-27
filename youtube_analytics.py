@@ -268,7 +268,6 @@ def _has_advanced_metrics(records):
 def _has_live_metrics(records):
     return any(any(float((r.get('latest',{}) or {}).get(k,0) or 0)>0 for k in ('views','likes','comments','average_view_percentage','subscribers_gained','shares')) for r in records)
 
-
 def _retention_objective(records):
     """Summarize the 70% average-viewed goal without treating immature data as a failure."""
     now = datetime.now(timezone.utc)
@@ -316,11 +315,11 @@ def _retention_objective(records):
         "metric": "average_view_percentage",
         "eligible_video_count": len(eligible),
         "immature_or_missing_metric_count": immature,
-        "videos_meeting_target": met,
+        "videos_meeting_target_count": met,
         "target_hit_rate_percentage": round(met / len(eligible) * 100, 2) if eligible else None,
         "average_view_percentage": round(sum(row["average_view_percentage"] for row in eligible) / len(eligible), 2) if eligible else None,
         "videos_needing_improvement": eligible[:10],
-        "videos_meeting_target": sorted(
+        "videos_meeting_target_examples": sorted(
             [row for row in eligible if row["target_met"]],
             key=lambda row: row["average_view_percentage"], reverse=True
         )[:10],
@@ -368,4 +367,3 @@ def main():
     if not args.refresh: parser.error('Use --refresh')
     refresh_registry()
 if __name__=='__main__': main()
-

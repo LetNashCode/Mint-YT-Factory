@@ -15,6 +15,7 @@ from validate_video import validate_final_video
 from learning_context import load_learning_context
 from learning_engine import refresh_playbook, get_playbook, score_candidate_topic, select_creative_strategy
 from topic_history import record_topic
+from publish_short_intelligence import score_hook
 
 CONTINUATION_MANIFEST = "continuation_state.json"
 EXPECTED_UPLOAD_BITRATE_MBPS = 100.0
@@ -329,12 +330,31 @@ def run(dry_run=False):
             publish_state = {}
     except (OSError, ValueError):
         publish_state = {}
+    first_scene = (script.get("scene_plan") or [{}])[0]
+    hook_text = str(first_scene.get("narration") or "").strip()
+    hook_quality = score_hook(hook_text)
+    scene_narration = " ".join(
+        str(scene.get("narration") or "").strip()
+        for scene in (script.get("scene_plan") or [])
+    ).strip()
+    performance_metadata = {
+        "workflow": "publish",
+        "hook_text": hook_text,
+        "hook_type": str(script.get("hook_type") or ""),
+        "hook_score": hook_quality.get("score"),
+        "hook_score_components": hook_quality.get("components", {}),
+        "script_word_count": _word_count(scene_narration),
+        "planned_duration_seconds": sum(SCENE_DURATIONS) if "SCENE_DURATIONS" in globals() else 38,
+        "creative_strategy": str((script.get("learning_experiment") or {}).get("strategy_id") or ""),
+        "published_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+    }
     publish_state.update({
         "video_id": youtube_video_id,
         "uploaded": True,
         "status": "partial",
         "topic": topic,
         "title": title,
+        "performance_metadata": performance_metadata,
     })
     publish_state["youtube"] = {
         "status": "published", "enabled": True, "video_id": youtube_video_id,

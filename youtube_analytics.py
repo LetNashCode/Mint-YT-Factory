@@ -213,6 +213,36 @@ def record_upload(video_id,topic,title,workdir='',production_metadata=None):
     _write(REGISTRY_PATH,records); _persist_registry_marker(record); print(f'📊 Analytics registry: recorded {video_id}')
 
 def _engagement_rate(v,l,c): return round(((l+c)/v)*100,4) if v>0 else 0.0
+
+def _views_at_age(record, target_hours):
+    """Return the first recorded view count at/after a publication-age checkpoint."""
+    published = record.get("published_at")
+    if not published:
+        return None
+    try:
+        published_dt = datetime.fromisoformat(str(published).replace("Z", "+00:00"))
+    except (TypeError, ValueError):
+        return None
+    if published_dt.tzinfo is None:
+        published_dt = published_dt.replace(tzinfo=timezone.utc)
+    target = published_dt.timestamp() + (float(target_hours) * 3600)
+    snapshots = record.get("snapshots", [])
+    if not isinstance(snapshots, list):
+        return None
+    eligible = []
+    for snap in snapshots:
+        if not isinstance(snap, dict) or snap.get("views") is None:
+            continue
+        try:
+            checked = datetime.fromisoformat(str(snap.get("checked_at") or "").replace("Z", "+00:00"))
+            if checked.tzinfo is None:
+                checked = checked.replace(tzinfo=timezone.utc)
+            if checked.timestamp() >= target:
+                eligible.append((checked.timestamp(), int(snap["views"])))
+        except (TypeError, ValueError):
+            continue
+    return min(eligible, key=lambda item: item[0])[1] if eligible else None
+
 def _materialize_records():
     files=_load(REGISTRY_PATH,[])
     files=files if isinstance(files,list) else []
@@ -271,7 +301,7 @@ def refresh_registry():
     avg={k:round(sum(float(x.get('latest',{}).get(k,0)) for x in records)/count,2) for k in ('views','likes','comments','average_view_percentage','subscribers_gained','shares')}
     rows=[]
     for r in sorted(records,key=lambda x:int(x.get('latest',{}).get('views',0)),reverse=True):
-        x=r.get('latest',{}); rows.append({'topic':r.get('topic',''),'video_id':r.get('video_id'),'title':r.get('title',''),'workflow':r.get('workflow','publish'),'published_at':r.get('published_at'),'hook_text':r.get('hook_text',''),'hook_type':r.get('hook_type',''),'hook_score':r.get('hook_score'),'script_word_count':r.get('script_word_count'),'planned_duration_seconds':r.get('planned_duration_seconds'),'creative_strategy':r.get('creative_strategy',''),'views':int(x.get('views',0)),'likes':int(x.get('likes',0)),'comments':int(x.get('comments',0)),'shares':int(x.get('shares',0)),'average_view_duration':float(x.get('average_view_duration',0)),'average_view_percentage':float(x.get('average_view_percentage',0)),'subscribers_gained':int(x.get('subscribers_gained',0)),'subscribers_lost':int(x.get('subscribers_lost',0)),'engagement_rate':float(x.get('engagement_rate',0))})
+        x=r.get('latest',{}); rows.append({'topic':r.get('topic',''),'video_id':r.get('video_id'),'title':r.get('title',''),'workflow':r.get('workflow','publish'),'published_at':r.get('published_at'),'hook_text':r.get('hook_text',''),'hook_type':r.get('hook_type',''),'hook_score':r.get('hook_score'),'hook_score_components':r.get('hook_score_components',{}),'script_word_count':r.get('script_word_count'),'planned_duration_seconds':r.get('planned_duration_seconds'),'creative_strategy':r.get('creative_strategy',''),'views':int(x.get('views',0)),'views_after_24h':_views_at_age(r,24),'views_after_7d':_views_at_age(r,168),'likes':int(x.get('likes',0)),'comments':int(x.get('comments',0)),'shares':int(x.get('shares',0)),'average_view_duration':float(x.get('average_view_duration',0)),'average_view_percentage':float(x.get('average_view_percentage',0)),'subscribers_gained':int(x.get('subscribers_gained',0)),'subscribers_lost':int(x.get('subscribers_lost',0)),'engagement_rate':float(x.get('engagement_rate',0))})
     advanced_count=_has_advanced_metrics(records); ready=count>=3 and advanced_count>=3; summary={'generated_at':now,'refresh_attempted_at':now,'refresh_status':'success' if advanced_count>=3 else 'partial','video_count':count,'optimization_ready':ready,'live_metrics_ready':live_ready,'advanced_metrics_videos':advanced_count,'reason':'' if ready else ('Basic YouTube statistics refreshed, but advanced retention metrics are incomplete.' if advanced_count<3 else 'Need at least 3 published videos before optimizing content.'),'totals':{'views':total_views,'likes':total_likes,'comments':total_comments},'averages':avg,'top_videos':rows[:10],'topic_performance':rows[:50],'optimization_rules':['Learn patterns, never copy winning topics literally.','Optimize for retention, subscriber conversion, comments and shares.','Prefer strong curiosity gaps and concrete everyday mysteries.','Keep experiments so the model does not overfit to one topic.'] if ready else []}; _write(SUMMARY_PATH,summary); print(f'📊 Tracked videos: {count}'); print(f'📊 Total views: {total_views:,}'); print(f'🧠 Optimization ready: {"YES" if ready else "NO"}'); return summary
 
 def main():

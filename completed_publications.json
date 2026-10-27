@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1788733535",
-    "video_id": "ucrNB-sACKs",
-    "topic": "Why do wet towels smell",
-    "completed_at": 1788734849
-  },
-  {
     "workdir": "output/1788764304",
     "video_id": "R87EDkU9hRQ",
     "topic": "Why do mirrors double reflections",
@@ -598,5 +592,11 @@
     "video_id": "VA6VAstmCmM",
     "topic": "How do wooden stairs always squeak",
     "completed_at": 1793120805
+  },
+  {
+    "workdir": "output/1793141719",
+    "video_id": "codSnL651PI",
+    "topic": "Why does dry pasta always snap",
+    "completed_at": 1793143271
   }
 ]

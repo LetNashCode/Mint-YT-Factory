@@ -3502,5 +3502,17 @@
       "source": "publish_topic_selector",
       "attempt": 2
     }
+  },
+  {
+    "topic": "Why does dry pasta always snap",
+    "normalized": "why does dry pasta always snap",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793141653,
+    "recorded_at": 1793141653,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
   }
 ]

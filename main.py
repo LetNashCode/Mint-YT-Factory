@@ -237,6 +237,13 @@ def run(dry_run=False):
             print("🧠 Channel learning context loaded.")
     except Exception as error:
         print(f"⚠️ Learning context unavailable: {type(error).__name__}: {error}")
+    try:
+        from retention_learning import build_retention_guidance
+        retention_context = build_retention_guidance("publish")
+        learning_context = (learning_context + "\n\n" if learning_context else "") + retention_context
+        print("🧠 Retention evidence attached to Publish Shorts prompt.")
+    except Exception as error:
+        print(f"⚠️ Retention guidance unavailable: {type(error).__name__}: {error}")
 
     print("=" * 80)
     print("✍️ GENERATING PUBLISH SHORT SCRIPT")

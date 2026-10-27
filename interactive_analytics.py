@@ -13,10 +13,21 @@ def _load(p,d):
 def _write(p,x):
     p.parent.mkdir(parents=True,exist_ok=True); p.write_text(json.dumps(x,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
 
-def record(video_id,topic,pillar,title,workdir="",person=""):
+def record(video_id,topic,pillar,title,workdir="",person="",script=None):
     rows=_load(PATH,[]); rows=rows if isinstance(rows,list) else []
-    if not any(isinstance(x,dict) and x.get("video_id")==video_id for x in rows):
-        rows.append({"video_id":video_id,"topic":topic,"pillar":pillar,"person":person,"title":title,"workdir":workdir,"latest":{},"snapshots":[]})
+    script = script if isinstance(script, dict) else {}
+    scenes = script.get("scene_plan") or []
+    hook_text = str((scenes[0] or {}).get("narration") or "") if scenes and isinstance(scenes[0], dict) else ""
+    metadata = {
+        "hook_text": hook_text,
+        "hook_type": str(script.get("hook_type") or pillar or ""),
+        "story_format": str(script.get("story_format") or pillar or ""),
+    }
+    existing = next((x for x in rows if isinstance(x, dict) and x.get("video_id") == video_id), None)
+    if existing is None:
+        existing = {"video_id":video_id,"topic":topic,"pillar":pillar,"person":person,"title":title,"workdir":workdir,"latest":{},"snapshots":[]}
+        rows.append(existing)
+    existing.update({key: value for key, value in metadata.items() if value})
     _write(PATH,rows)
 
 def refresh_live_metrics():
@@ -34,7 +45,9 @@ def refresh_live_metrics():
         if not isinstance(row,dict):continue
         vid=str(row.get("video_id",""))
         if vid not in basic:continue
-        b=basic[vid]; views=int(b.get("views",0)); likes=int(b.get("likes",0)); comments=int(b.get("comments",0))
+        b=basic[vid]
+        row["published_at"] = b.get("published_at") or row.get("published_at") or ""
+        views=int(b.get("views",0)); likes=int(b.get("likes",0)); comments=int(b.get("comments",0))
         latest={"views":views,"likes":likes,"comments":comments,"engagement_rate":round(((likes+comments)/views)*100,4) if views else 0.0,"checked_at":now}
         latest.update(advanced.get(vid,{})); row["latest"]=latest
         snaps=row.get("snapshots",[]); snaps=snaps if isinstance(snaps,list) else []; snaps.append(latest); row["snapshots"]=snaps[-60:]

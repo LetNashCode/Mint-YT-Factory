@@ -1,6 +1,6 @@
 """Mint-YT-Factory production pipeline."""
 from __future__ import annotations
-import argparse, json, os, re, time, yaml
+import argparse, json, os, re, time, yaml, subprocess
 from topics import get_next_topic, save_next_short, commit_topic, validate_topic_for_pipeline, _generate_topic, _read_used, _PENDING_PREFIX, reserve_next_short
 from generate_script import generate_script
 from tts import synthesize_script
@@ -36,6 +36,34 @@ def save_json(data, path):
     directory = os.path.dirname(path)
     if directory: os.makedirs(directory, exist_ok=True)
     with open(path, "w", encoding="utf-8") as handle: json.dump(data, handle, indent=2, ensure_ascii=False)
+
+def _probe_video_metadata(video_path):
+    """Read actual rendered duration and dimensions for the performance record."""
+    try:
+        result = subprocess.run(
+            [
+                "ffprobe", "-v", "error", "-show_entries",
+                "format=duration:stream=codec_type,width,height",
+                "-of", "json", str(video_path),
+            ],
+            check=True, capture_output=True, text=True, timeout=15,
+        )
+        payload = json.loads(result.stdout or "{}")
+        video_stream = next(
+            (stream for stream in payload.get("streams", []) if stream.get("codec_type") == "video"),
+            {},
+        )
+        duration = float((payload.get("format") or {}).get("duration") or 0)
+        width, height = int(video_stream.get("width") or 0), int(video_stream.get("height") or 0)
+        return {
+            "actual_duration_seconds": round(duration, 2) if duration else None,
+            "video_width": width or None,
+            "video_height": height or None,
+            "resolution": f"{width}x{height}" if width and height else "",
+        }
+    except Exception as error:
+        print(f"⚠️ Could not record rendered video properties: {type(error).__name__}: {error}")
+        return {}
 
 def _normalise_topic_text(value): return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
 def _word_count(value): return len(re.findall(r"\b[\w'-]+\b", str(value or "")))
@@ -338,6 +366,7 @@ def run(dry_run=False):
         for scene in (script.get("scene_plan") or [])
     ).strip()
     performance_metadata = {
+        **_probe_video_metadata(final_video),
         "workflow": "publish",
         "hook_text": hook_text,
         "hook_type": str(script.get("hook_type") or ""),

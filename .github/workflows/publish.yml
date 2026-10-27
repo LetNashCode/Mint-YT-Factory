@@ -2,8 +2,10 @@ name: Publish Short
 
 on:
   schedule:
-    - cron: "30 13 * * *"
-    - cron: "30 17 * * *"
+    - cron: "30 10 * * *" # 4:00 PM IST
+    - cron: "30 13 * * *" # 7:00 PM IST
+    - cron: "30 15 * * *" # 9:00 PM IST
+    - cron: "30 17 * * *" # 11:00 PM IST
   workflow_dispatch: {}
 
 permissions:

@@ -8,7 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 PATHS = {
     "publish": ROOT / "analytics" / "videos.json",
-    "story": ROOT / "analytics" / "story_videos.json",
+    "story": ROOT / "analytics" / "story" / "videos.json",
     "wisdom": ROOT / "analytics" / "everyday_wisdom" / "videos.json",
 }
 TARGET_APV = 70.0

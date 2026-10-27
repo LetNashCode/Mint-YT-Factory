@@ -22,22 +22,43 @@ def _install_factory_topic_memory():
         return
 
     def guarded_get_next_topic(*args, **kwargs):
+        # If the factory-wide gate rejects a topic, feed that rejection back into
+        # the selector for this call. Previously get_next_topic() had no knowledge
+        # of cross-workflow rejections, so it repeatedly returned the same cached
+        # Gemini winner 20 times and failed the entire production run.
+        rejected_keys = set()
+        original_candidate_check = topics._candidate_is_new
+
+        def reject_previously_blocked(candidate, used, exclude_topics=None):
+            key = " ".join(re.sub(r"[^a-z0-9]+", " ", str(candidate or "").lower()).split())
+            if key and key in rejected_keys:
+                return False
+            return original_candidate_check(candidate, used, exclude_topics=exclude_topics)
+
+        topics._candidate_is_new = reject_previously_blocked
         last = None
-        for attempt in range(1, 21):
-            candidate = original(*args, **kwargs)
-            topic = str(candidate or "").strip()
-            try:
-                claim(
-                    "publish",
-                    topic,
-                    {"source": "publish_topic_selector", "attempt": attempt},
-                )
-                print(f"🛡️ FACTORY TOPIC GATE: approved Publish topic | {topic}")
-                return candidate
-            except RuntimeError as exc:
-                last = exc
-                print(f"🚫 FACTORY TOPIC GATE: rejected Publish topic ({attempt}/20): {exc}")
-        raise RuntimeError(f"Publish topic selection exhausted after 20 factory-wide uniqueness checks: {last}")
+        try:
+            for attempt in range(1, 21):
+                candidate = original(*args, **kwargs)
+                topic = str(candidate or "").strip()
+                try:
+                    claim(
+                        "publish",
+                        topic,
+                        {"source": "publish_topic_selector", "attempt": attempt},
+                    )
+                    print(f"🛡️ FACTORY TOPIC GATE: approved Publish topic | {topic}")
+                    return candidate
+                except RuntimeError as exc:
+                    last = exc
+                    key = " ".join(re.sub(r"[^a-z0-9]+", " ", topic.lower()).split())
+                    if key:
+                        rejected_keys.add(key)
+                    print(f"🚫 FACTORY TOPIC GATE: rejected Publish topic ({attempt}/20): {exc}")
+                    print("🔁 Rejected topic added to this run's exclusion set; requesting a genuinely different candidate.")
+            raise RuntimeError(f"Publish topic selection exhausted after 20 distinct factory-wide uniqueness checks: {last}")
+        finally:
+            topics._candidate_is_new = original_candidate_check
 
     guarded_get_next_topic._mint_factory_topic_memory = True
     topics.get_next_topic = guarded_get_next_topic

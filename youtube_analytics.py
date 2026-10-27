@@ -77,13 +77,22 @@ def _read_durable_publications():
                 continue
             video_id = str(item.get("video_id") or "").strip()
             if video_id:
+                workdir = str(item.get("workdir") or "").strip()
+                metadata = {}
+                if workdir:
+                    state = _load(ROOT / workdir / "publish_state.json", {})
+                    if isinstance(state, dict):
+                        candidate = state.get("performance_metadata", {})
+                        if isinstance(candidate, dict):
+                            metadata = candidate
                 out.append({
                     "video_id": video_id,
                     "topic": str(item.get("topic") or "").strip(),
                     "title": str(item.get("title") or "").strip(),
-                    "workdir": str(item.get("workdir") or "").strip(),
-                    "published_at": item.get("completed_at"),
+                    "workdir": workdir,
+                    "published_at": item.get("completed_at") or metadata.get("published_at"),
                     "workflow": "publish",
+                    **metadata,
                 })
     return out
 
@@ -262,7 +271,7 @@ def refresh_registry():
     avg={k:round(sum(float(x.get('latest',{}).get(k,0)) for x in records)/count,2) for k in ('views','likes','comments','average_view_percentage','subscribers_gained','shares')}
     rows=[]
     for r in sorted(records,key=lambda x:int(x.get('latest',{}).get('views',0)),reverse=True):
-        x=r.get('latest',{}); rows.append({'topic':r.get('topic',''),'video_id':r.get('video_id'),'title':r.get('title',''),'views':int(x.get('views',0)),'likes':int(x.get('likes',0)),'comments':int(x.get('comments',0)),'shares':int(x.get('shares',0)),'average_view_duration':float(x.get('average_view_duration',0)),'average_view_percentage':float(x.get('average_view_percentage',0)),'subscribers_gained':int(x.get('subscribers_gained',0)),'subscribers_lost':int(x.get('subscribers_lost',0)),'engagement_rate':float(x.get('engagement_rate',0))})
+        x=r.get('latest',{}); rows.append({'topic':r.get('topic',''),'video_id':r.get('video_id'),'title':r.get('title',''),'workflow':r.get('workflow','publish'),'published_at':r.get('published_at'),'hook_text':r.get('hook_text',''),'hook_type':r.get('hook_type',''),'hook_score':r.get('hook_score'),'script_word_count':r.get('script_word_count'),'planned_duration_seconds':r.get('planned_duration_seconds'),'creative_strategy':r.get('creative_strategy',''),'views':int(x.get('views',0)),'likes':int(x.get('likes',0)),'comments':int(x.get('comments',0)),'shares':int(x.get('shares',0)),'average_view_duration':float(x.get('average_view_duration',0)),'average_view_percentage':float(x.get('average_view_percentage',0)),'subscribers_gained':int(x.get('subscribers_gained',0)),'subscribers_lost':int(x.get('subscribers_lost',0)),'engagement_rate':float(x.get('engagement_rate',0))})
     advanced_count=_has_advanced_metrics(records); ready=count>=3 and advanced_count>=3; summary={'generated_at':now,'refresh_attempted_at':now,'refresh_status':'success' if advanced_count>=3 else 'partial','video_count':count,'optimization_ready':ready,'live_metrics_ready':live_ready,'advanced_metrics_videos':advanced_count,'reason':'' if ready else ('Basic YouTube statistics refreshed, but advanced retention metrics are incomplete.' if advanced_count<3 else 'Need at least 3 published videos before optimizing content.'),'totals':{'views':total_views,'likes':total_likes,'comments':total_comments},'averages':avg,'top_videos':rows[:10],'topic_performance':rows[:50],'optimization_rules':['Learn patterns, never copy winning topics literally.','Optimize for retention, subscriber conversion, comments and shares.','Prefer strong curiosity gaps and concrete everyday mysteries.','Keep experiments so the model does not overfit to one topic.'] if ready else []}; _write(SUMMARY_PATH,summary); print(f'📊 Tracked videos: {count}'); print(f'📊 Total views: {total_views:,}'); print(f'🧠 Optimization ready: {"YES" if ready else "NO"}'); return summary
 
 def main():

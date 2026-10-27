@@ -2,905 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands/Cameron9.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
-        "title": "James Cameron Tar Sands Press Conference: Climate Change and Canada's Tar Sands",
-        "description": "http://www.tarsandstour.com - In the face of catastrophic climate change, James Cameron asks what the \"future proofing\" is for Alberta and the oil companies operating in the tar sands. He makes the case for strong regulation and boundaries to protect society from irresponsible resource extraction. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "creator": "tarsandstour",
-        "license": "",
-        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "runtime": "2:23",
-        "direct_subject": true,
-        "duration_hint": 142.692693,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage clearly shows the named subject James Cameron speaking at a press conference, providing biographical illustration material for a short video about him.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "bb9af58ddb81c78e130bd126c53ed5a347b5b36805ba8676f78c7a515f52abb0",
-      "reviewed_at": 1791622593.380016
-    },
-    {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands/Cameron9.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
-        "title": "James Cameron Tar Sands Press Conference: Climate Change and Canada's Tar Sands",
-        "description": "http://www.tarsandstour.com - In the face of catastrophic climate change, James Cameron asks what the \"future proofing\" is for Alberta and the oil companies operating in the tar sands. He makes the case for strong regulation and boundaries to protect society from irresponsible resource extraction. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "creator": "tarsandstour",
-        "license": "",
-        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "runtime": "2:23",
-        "direct_subject": true,
-        "duration_hint": 142.692693,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 34.7,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The frames show James Cameron speaking at a press conference, which provides real archival footage of the subject himself, usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ff2f0d891e1f95d972f0c26a0e3436a52a4fc5317b73319b08ee330cf12f6291",
-      "reviewed_at": 1791622614.7313657
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1642939444922818560",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1642939444922818560/1642924928461848578.mp4",
-        "source_url": "https://archive.org/details/twitter-1642939444922818560",
-        "title": "Walt Disney Studios - JUST ANNOUNCED: From Dwayne Johnson and Auli’i Cravalho, a live-action reimagining of Disney’s Moana is in the works!",
-        "description": "JUST ANNOUNCED: From Dwayne Johnson and Auli’i Cravalho, a live-action reimagining of Disney’s Moana is in the works! https://t.co/4rQXLSJ5Zn ['Twitter', 'video']",
-        "creator": "Walt Disney Studios",
-        "license": "",
-        "subject": "['Twitter', 'video']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 128.128,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 43.04,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows Dwayne Johnson speaking directly to the camera on a beach location, which matches his biography and public presence, although it serves as promotional/presenter style footage rather than a direct depiction of historical events.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ef3e506e2ff0b156f017f356a87d977be8c8ce70f06a044b6691a1686829e6da",
-      "reviewed_at": 1791622919.932099
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Ernest Shackleton Documentaries Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 223.95,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The segment includes archival imagery depicting Ernest Shackleton as a child, alongside documentary interview footage, providing valid biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "67b4f624eb9351f49398a9c7bf75d9e2654b845da796477f45a052e216c678c9",
-      "reviewed_at": 1791627524.5872452
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 114.51,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The video features genuine archival footage of Sir Alexander Fleming himself speaking during a 1955 television appearance, directly illustrating his life and work.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "642f4aff17ead299e5c6ddeee223916b80ed417a3d371fae1cbac4047b05cbb8",
-      "reviewed_at": 1791627751.0606914
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 37.85,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The segment features authentic archival footage of Alexander Fleming himself discussing his discovery of penicillin in 1955. He is clearly visible in the third frame, making this direct and usable identity footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "42f7a429ca601d199d379a6c40084ef6c13b732ce2b5a321e53c24dd62e8e664",
-      "reviewed_at": 1791627827.8965309
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 136.41,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage features actual archival moving images of Sir Alexander Fleming speaking and showing his original cultivation of penicillin, matching the biography subject and context perfectly.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "77e2681255fdb4f2f1e176015d127558364a9b8e7dbdf95009f8e2015edfe3b4",
-      "reviewed_at": 1791627841.3195953
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage features authentic archival video of Sir Alexander Fleming speaking in 1955 about his discovery of penicillin, making it direct, highly relevant primary material for a biographical short.",
-        "usage": "direct_event"
-      },
-      "review_key": "1a5164ee2e2800719aa1e3d1b71c3cf98500778f13ab5e39f1bfffd9e7405d36",
-      "reviewed_at": 1791627850.971374
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 26.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage shows genuine archival video of Sir Alexander Fleming speaking in 1955, clearly identifiable and directly illustrating his biography.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b452d13ed4f518fabc44194c483543ba4d8b56b696a45f6aa240e5067c43b4b1",
-      "reviewed_at": 1791627860.899289
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 48.8,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The video features archival footage of Sir Alexander Fleming himself discussing his discovery of penicillin on the BBC Panorama program in 1955, making it authentic direct identity footage.",
-        "usage": "direct_event"
-      },
-      "review_key": "909d83c7bded46c1cb161c7df6a441d4cf7f0445e325136e7fe7dbcf7ad23530",
-      "reviewed_at": 1791627868.8339264
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 59.75,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video shows authentic archival footage of Sir Alexander Fleming speaking in 1955 about his discovery of penicillin, making it highly relevant and usable for biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "a52d60d65a6fbf4efe7c0418d39207fc24afe79472572d9819f07930f4557ac3",
-      "reviewed_at": 1791627876.8356972
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 70.7,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features real archival footage of Sir Alexander Fleming speaking about his discovery of penicillin on the BBC Panorama program in 1955. He is clearly visible throughout the sampled frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9d3963ba69c56b77073ef18f261899d63b83c0e68c36d86b3b5b44315f9cac02",
-      "reviewed_at": 1791627884.583638
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 103.56,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Alexander Fleming himself speaking in archival broadcast material, perfectly matching the biographical subject and providing direct historical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "682aaec92d0880674eb55fdf3ccca688d8a1177f8d916c87e457feb40fa59d02",
-      "reviewed_at": 1791627894.0097482
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 125.46,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video features genuine archival footage of Alexander Fleming speaking in a 1955 interview about penicillin, making it highly relevant and usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9d4033859fe86f0f787785149a207e145f8da9710afe6246608cb84727aae454",
-      "reviewed_at": 1791627905.6553311
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 81.66,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows authentic archival video of Sir Alexander Fleming speaking in 1955 about his discovery of penicillin and displaying his original cultivation, making it directly relevant and usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "d435d3a0ee05bd4728f47c340d4a7fb8c5e6c5c1589746773e96eddfc62ee0e7",
-      "reviewed_at": 1791627925.9631236
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 147.36,
-      "length": 8.0,
-      "verification": {
-        "person_visible": false,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows archival demonstration of penicillin mold and staphylococci by Alexander Fleming's hands/re-enactment/demonstration, fitting historical context, though his face is not visible in these specific frames.",
-        "usage": "direct_event"
-      },
-      "review_key": "13ca11f4586b5a421c4e960fd5d8ec584f1b74ef9f6e6885875f7943adcb537b",
-      "reviewed_at": 1791627935.287789
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 15.95,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage is genuine archival BBC recording clearly showing Alexander Fleming speaking and demonstrating his cultivation methods in 1955, making it directly usable and highly relevant for his biography.",
-        "usage": "direct_event"
-      },
-      "review_key": "c4d06c9da0c59923b64019f59e479feb43cd3abea4114bbed3514fa27cd68e6f",
-      "reviewed_at": 1791627942.9589934
-    },
-    {
-      "person": "Alexander Fleming",
-      "source": {
-        "id": "archive:twitter-1349025542058733577",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1349025542058733577/1349025542058733577.mp4",
-        "source_url": "https://archive.org/details/twitter-1349025542058733577",
-        "title": "BBC Archive - #Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73.",
-        "description": "#Onthisday 1955: Sir Alexander Fleming described how he discovered penicillin by chance and discussed his hopes for future breakthroughs. Two months after he showed Panorama viewers his original cultivation that went on to save many millions of lives, he died at the age of 73. https://t.co/aI8vSqxSfa Source: https://twitter.com/BBCArchive/status/1349025542058733577 Uploader: BBC Archive ['Twitter', 'video', 'Onthisday']",
-        "creator": "BBC Archive",
-        "license": "",
-        "subject": "['Twitter', 'video', 'Onthisday']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 0.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 92.61,
-      "length": 8.0,
-      "verification": {
-        "person_visible": false,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows archival demonstration charts comparing penicillin and carbolic acid as discussed by Alexander Fleming, providing concrete and defensible historical context of his discovery and research.",
-        "usage": "direct_event"
-      },
-      "review_key": "e4697294bf2dcef6d6934eabb7a4880596b29b4fa7c356c3a6b003876937c87c",
-      "reviewed_at": 1791627952.6017349
-    },
-    {
-      "person": "Rosa Parks",
-      "source": {
-        "id": "archive:DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks.mp4",
-        "source_url": "https://archive.org/details/DCTV_Celebrates_Black_History_Month_-_Rosa_Parks",
-        "title": "DCTV Celebrates Black History Month - Rosa Parks",
-        "description": "Produced by DCTV (DeKalb County Television) Channel 23, this video recognizes those who made great impacts in and for the African American community and the world alike. Additional Information: DCTV celebrates Black History Month by recognizing Rosa Parks, known as the \"First Lady of Civil Rights.\" Parks is an American activist best known for not giving up her seat to a caucasian passenger in Alabama which helped spark the Montgomery Bus Boycott which started in December 1955. She received both the Presidential Medal of Freedom and the Congressional Gold Medal for her courageous act. For more DeKalb County news, visit http://www.dctvchannel23.tv. ['Georgia', 'DeKalb County', 'DeKalb County Television', 'DCTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'GA', 'Black History', 'Black History Month', 'Channel 23', 'Rosa Parks', '2020']",
-        "creator": "DCTV",
-        "license": "",
-        "subject": "['Georgia', 'DeKalb County', 'DeKalb County Television', 'DCTV', 'Government Access TV', 'Community Media', 'PEG', 'Youtube', 'GA', 'Black History', 'Black History Month', 'Channel 23', 'Rosa Parks', '2020']",
-        "runtime": "00:00:47",
-        "direct_subject": true,
-        "duration_hint": 47.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 3.87,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7.0,
-        "reason": "The video segment features archival images and footage of Rosa Parks (such as her seated on the bus and speaking into a megaphone), which corresponds directly to the biographical narration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "94a5c474b8dbe2e754086ad38e03dd5e2001db0a848d5cfca9fdd5c74799e386",
-      "reviewed_at": 1791631350.0055568
-    },
-    {
-      "person": "Droupadi Murmu",
-      "source": {
-        "id": "archive:president-droupadi-murmu-casts-her-vote-at-polling-booth-in-delhi-lok-sabha-elec",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/president-droupadi-murmu-casts-her-vote-at-polling-booth-in-delhi-lok-sabha-elec/President%20Droupadi%20Murmu%20Casts%20Her%20Vote%20At%20Polling%20Booth%20In%20Delhi%20_%20Lok%20Sabha%20Elections%202024%20Phase%206%281080P_HD%29.ia.mp4",
-        "source_url": "https://archive.org/details/president-droupadi-murmu-casts-her-vote-at-polling-booth-in-delhi-lok-sabha-elec",
-        "title": "Indian President Droupadi Murmu Casts Her Vote",
-        "description": "Voting in India India",
-        "creator": "India news channel",
-        "license": "",
-        "subject": "India",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 130.766667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 63.38,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video shows Droupadi Murmu participating in a voting process, which directly illustrates her public life and activities as a prominent Indian figure. The footage is authentic and clearly depicts her.",
-        "usage": "direct_event"
-      },
-      "review_key": "bff37d300677fa0c1535b4760e4556c2eea7c85925cffa3063e0f0eefc5993f1",
-      "reviewed_at": 1791631884.574749
-    },
-    {
-      "person": "Droupadi Murmu",
-      "source": {
-        "id": "archive:president-droupadi-murmu-casts-her-vote-at-polling-booth-in-delhi-lok-sabha-elec",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/president-droupadi-murmu-casts-her-vote-at-polling-booth-in-delhi-lok-sabha-elec/President%20Droupadi%20Murmu%20Casts%20Her%20Vote%20At%20Polling%20Booth%20In%20Delhi%20_%20Lok%20Sabha%20Elections%202024%20Phase%206%281080P_HD%29.ia.mp4",
-        "source_url": "https://archive.org/details/president-droupadi-murmu-casts-her-vote-at-polling-booth-in-delhi-lok-sabha-elec",
-        "title": "Indian President Droupadi Murmu Casts Her Vote",
-        "description": "Voting in India India",
-        "creator": "India news channel",
-        "license": "",
-        "subject": "India",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 130.766667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "Droupadi Murmu is clearly visible in the first and third sampled frames, showing genuine archival footage of her participating in an event. The second frame is a blurry pan shot, but since she is identifiable in the other frames, it qualifies as usable biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "03440da5db22bd0dd7913a90d72bf46d0bd6bf477253e0cd4a6ba0c920512017",
-      "reviewed_at": 1791631898.4728856
-    },
-    {
-      "person": "Droupadi Murmu",
-      "source": {
-        "id": "archive:president-droupadi-murmu-casts-her-vote-at-polling-booth-in-delhi-lok-sabha-elec",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/president-droupadi-murmu-casts-her-vote-at-polling-booth-in-delhi-lok-sabha-elec/President%20Droupadi%20Murmu%20Casts%20Her%20Vote%20At%20Polling%20Booth%20In%20Delhi%20_%20Lok%20Sabha%20Elections%202024%20Phase%206%281080P_HD%29.ia.mp4",
-        "source_url": "https://archive.org/details/president-droupadi-murmu-casts-her-vote-at-polling-booth-in-delhi-lok-sabha-elec",
-        "title": "Indian President Droupadi Murmu Casts Her Vote",
-        "description": "Voting in India India",
-        "creator": "India news channel",
-        "license": "",
-        "subject": "India",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 130.766667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 14.73,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video footage shows Droupadi Murmu casting her vote at a polling station, which directly illustrates her life and political events. The footage is real, of good quality, and features the subject clearly.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "843b041ccd2c8563a113508370d4f661e4b6a76827d1f667dbd7d8e898f25467",
-      "reviewed_at": 1791631911.0447488
-    },
-    {
-      "person": "Droupadi Murmu",
-      "source": {
-        "id": "archive:president-droupadi-murmu-casts-her-vote-at-polling-booth-in-delhi-lok-sabha-elec",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/president-droupadi-murmu-casts-her-vote-at-polling-booth-in-delhi-lok-sabha-elec/President%20Droupadi%20Murmu%20Casts%20Her%20Vote%20At%20Polling%20Booth%20In%20Delhi%20_%20Lok%20Sabha%20Elections%202024%20Phase%206%281080P_HD%29.ia.mp4",
-        "source_url": "https://archive.org/details/president-droupadi-murmu-casts-her-vote-at-polling-booth-in-delhi-lok-sabha-elec",
-        "title": "Indian President Droupadi Murmu Casts Her Vote",
-        "description": "Voting in India India",
-        "creator": "India news channel",
-        "license": "",
-        "subject": "India",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 130.766667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 24.46,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video shows Droupadi Murmu participating in the voting process, which directly illustrates her public life and activities as a prominent Indian figure.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "06e624d4d2c9180a2b618f29df02c745e00f63b54413388711cc3a4249d41a3e",
-      "reviewed_at": 1791631924.6606345
-    },
-    {
-      "person": "Droupadi Murmu",
-      "source": {
-        "id": "archive:president-droupadi-murmu-casts-her-vote-at-polling-booth-in-delhi-lok-sabha-elec",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/president-droupadi-murmu-casts-her-vote-at-polling-booth-in-delhi-lok-sabha-elec/President%20Droupadi%20Murmu%20Casts%20Her%20Vote%20At%20Polling%20Booth%20In%20Delhi%20_%20Lok%20Sabha%20Elections%202024%20Phase%206%281080P_HD%29.ia.mp4",
-        "source_url": "https://archive.org/details/president-droupadi-murmu-casts-her-vote-at-polling-booth-in-delhi-lok-sabha-elec",
-        "title": "Indian President Droupadi Murmu Casts Her Vote",
-        "description": "Voting in India India",
-        "creator": "India news channel",
-        "license": "",
-        "subject": "India",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 130.766667,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 73.11,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video shows Droupadi Murmu participating in a voting process at a polling station, which is genuine archival footage directly depicting an event from her presidency. She is clearly visible across all frames.",
-        "usage": "direct_event"
-      },
-      "review_key": "e16d1604e7c43c8b2249c52f2521a4c4075686b86a7697f93bcc93ba4d8db8c1",
-      "reviewed_at": 1791631975.3626385
-    },
-    {
-      "person": "J.R.R. Tolkien",
-      "source": {
-        "id": "archive:jrr-tolkien-1892-1973",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jrr-tolkien-1892-1973/JRR%20TOLKIEN%20%271892-1973%27%20-%20A%20Study%20Of%20The%20Maker%20Of%20Middle-earth.mp4",
-        "source_url": "https://archive.org/details/jrr-tolkien-1892-1973",
-        "title": "JRR TOLKIEN ' 1892-1973'",
-        "description": "J.R.R.T.: A Study Of The Maker Of Middle-earth is a 1992 documentary, narrated by Judi Dench, produced to celebrate the centenary of J.R.R. Tolkien’s birth. It is sometimes called “J.R.R. Tolkien: A Portrait” and “J.R.R. Tolkien – An Authorized Film Portrait”. It features archive footage and audio recordings of J.R.R. Tolkien, and interviews with three of his children Priscilla, John, and Christopher. It also includes interviews with Baillie Tolkien, Robert Murray, Queen Margrethe II of Denmark, Rayner Unwin, Tom Shippey, and Verlyn Flieger. ['jrr tolkien', 'documentary', 'middle earth']",
-        "creator": "Derek Bailey",
-        "license": "",
-        "subject": "['jrr tolkien', 'documentary', 'middle earth']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 6474.92,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage shows authentic archival video of J.R.R. Tolkien smoking a pipe, which is highly relevant for biographical illustration, although the first frame contains documentary title overlays.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b4e6eee9caec64f1a3c422e26cdf31f9c31e9ff50b20951fe722eb31cc4c4581",
-      "reviewed_at": 1791633214.2990983
-    },
-    {
-      "person": "Srinivasa Ramanujan",
-      "source": {
-        "id": "archive:TheManWhoLovedNumbers",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/TheManWhoLovedNumbers/NOVA.S15E09.The.Man.Who.Loved.Numbers.1988.VHSRip.AAC2.0.x264-astro.mp4",
-        "source_url": "https://archive.org/details/TheManWhoLovedNumbers",
-        "title": "The Man Who Loved Numbers",
-        "description": "Tells the story of the brilliant Indian mathematical genius Srinivasa Ramanujan and of his brief association at Trinity College in England with the English mathematicians G.H. Hardy and J.E. Littlewood. His full potential was never realized because of his tragic death from illness in India at age 32. 1 videocassette (approximately 58 min.) : 1/2 in. + Adult Biographical documentary Closed-captioned for the hearing impaired Title from data sheet Will Lyman Editor, Gregory Harris ; camera, Peter Middleton, Tom Ingle, Naresh Bedi ; researcher, Nicola Glucksmann ; executive producer, Paula S. Apsell \"An InCA production in association with WGBH, Boston and Channel 4 Ltd. for Nova.\" Issued as VHS 1/2 in ['nova (television program)', 'Ramanujan Aiyangar, Srinivasa, 1887-1920', 'Hardy, G. H. (Godfrey Harold), 1877-1947', 'Littlewood, John E. (John Edensor), 1885-1977', 'Biographical films', 'Documentary films', 'Mathematicians -- Biography', 'Films for the hearing impaired', 'Mathématiciens -- Biographies', 'Films pour personnes handicapées auditives', 'Mathematicians']",
-        "creator": "Christopher Sykes, Gregory Harris, Will Lyman, Paula S Apsell, Nicola Glucksmann, Peter Middleton, Tom Ingle, Naresh BediInca Films (Firm), Channel Four (Great Britain), WGBH (Television station : Boston, Mass.), Coronet (Firm), WGBH Educational Foundation.",
-        "license": "",
-        "subject": "['nova (television program)', 'Ramanujan Aiyangar, Srinivasa, 1887-1920', 'Hardy, G. H. (Godfrey Harold), 1877-1947', 'Littlewood, John E. (John Edensor), 1885-1977', 'Biographical films', 'Documentary films', 'Mathematicians -- Biography', 'Films for the hearing impaired', 'Mathématiciens -- Biographies', 'Films pour personnes handicapées auditives', 'Mathematicians']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3426.421667,
-        "identity_score": 10.0,
-        "archival_signal": 1
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8.0,
-        "reason": "The segment features archival documentary footage showing general street scenes of India in the earlier frames, followed by a clear photograph/portrait of Srinivasa Ramanujan in the final frame. This makes it usable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "fa5ba0442ae82eb4e8fce13ec019eb527d92c4f11b37997e2976999facd4f366",
-      "reviewed_at": 1791716834.3173642
-    },
-    {
-      "person": "Boman Irani",
-      "source": {
-        "id": "archive:parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am/Parmanu.The.Story.Of.Pokhran.2018.1080p.BluRay.x264-%5BYTS.AM%5D.mp4",
-        "source_url": "https://archive.org/details/parmanu.-the.-story.-of.-pokhran.-2018.1080p.-blu-ray.x-264-yts.-am",
-        "title": "Parmanu. The. Story. Of. Pokhran. 2018.1080p. Blu Ray.x 264 [ YTS. AM]",
-        "description": "Ashwat Raina and his teammates arrive in Pokhran to re-conduct a confidential nuclear test, where they face challenges from the American Lacrosse satellite and local spies. ['John Abraham', 'Boman Irani', 'Diana Penty']",
-        "creator": "Abhishek Sharma",
-        "license": "",
-        "subject": "['John Abraham', 'Boman Irani', 'Diana Penty']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 7433.08,
-        "identity_score": 10.0,
-        "archival_signal": 0
-      },
-      "start": 2287.79,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The sampled frames feature actor Boman Irani (visible in the first and fifth frames, among others), who is part of the film's cast, serving as biographical illustration for a short about his career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "442bf29d62f467c1394dd7fcbfcf729834fdb6bac9b1918c69703041e0284dd4",
-      "reviewed_at": 1791717598.7623336
-    },
-    {
-      "person": "Boman Irani",
-      "source": {
-        "id": "archive:romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1/Romeo%20Akbar%20Walter%20%282019%29%201080p%20AMZN%20WEB.DL%20AVC%20DDP%205.1.mp4",
-        "source_url": "https://archive.org/details/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
-        "title": "Romeo Akbar Walter (2019) 1080p AMZN WEB. DL AVC DDP 5.1",
-        "description": "1080p AMZN WEB. DL AVC DDP 5.1 ['JOHN ABRAHAM', 'GEETIKA VIDYA OHLYAN', 'ANIL GEORGE', 'MOUNI ROY', 'SIKANDER KHER', 'BOMAN IRANI', 'RAGHUBIR YADAV', 'GOVIND NAMDEV', 'JACKIE SHROFF']",
-        "creator": "BOLLYWEB",
-        "license": "",
-        "subject": "['JOHN ABRAHAM', 'GEETIKA VIDYA OHLYAN', 'ANIL GEORGE', 'MOUNI ROY', 'SIKANDER KHER', 'BOMAN IRANI', 'RAGHUBIR YADAV', 'GOVIND NAMDEV', 'JACKIE SHROFF']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 8176.88,
-        "identity_score": 10.0,
-        "archival_signal": 0
-      },
-      "start": 632.91,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The sampled frames feature actor Boman Irani in a dramatic film scene from 'Romeo Akbar Walter', making it suitable as biographical illustration for a segment about his acting career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "b8211682df6ceabc794f9c5646a6e5b024f507c72065739e6d8b9914b0a21327",
-      "reviewed_at": 1791717614.846306
-    },
-    {
-      "person": "Boman Irani",
-      "source": {
-        "id": "archive:romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1/Romeo%20Akbar%20Walter%20%282019%29%201080p%20AMZN%20WEB.DL%20AVC%20DDP%205.1.mp4",
-        "source_url": "https://archive.org/details/romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
-        "title": "Romeo Akbar Walter (2019) 1080p AMZN WEB. DL AVC DDP 5.1",
-        "description": "1080p AMZN WEB. DL AVC DDP 5.1 ['JOHN ABRAHAM', 'GEETIKA VIDYA OHLYAN', 'ANIL GEORGE', 'MOUNI ROY', 'SIKANDER KHER', 'BOMAN IRANI', 'RAGHUBIR YADAV', 'GOVIND NAMDEV', 'JACKIE SHROFF']",
-        "creator": "BOLLYWEB",
-        "license": "",
-        "subject": "['JOHN ABRAHAM', 'GEETIKA VIDYA OHLYAN', 'ANIL GEORGE', 'MOUNI ROY', 'SIKANDER KHER', 'BOMAN IRANI', 'RAGHUBIR YADAV', 'GOVIND NAMDEV', 'JACKIE SHROFF']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 8176.88,
-        "identity_score": 10.0,
-        "archival_signal": 0
-      },
-      "start": 1260.83,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The sampled frames clearly feature Boman Irani in a scene from the film Romeo Akbar Walter, making it usable as biographical illustration footage for his acting career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9abaed8526884e2ee167c1fbbae8d13d1a3b129277f7bf67731b10e378280109",
-      "reviewed_at": 1791717715.7688177
-    },
-    {
       "person": "Boman Irani",
       "source": {
         "id": "archive:romeo-akbar-walter-2019-1080p-amzn-web.-dl-avc-ddp-5.1",
@@ -11649,99 +10750,6 @@
       "reviewed_at": 1792676724.595044
     },
     {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Shackleton Documentary Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 442.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage shows genuine historical documentary imagery of Ernest Shackleton and his men on the Antarctic expedition, directly matching the biography subject and narration.",
-        "usage": "direct_event"
-      },
-      "review_key": "790c5c7cd4fd4553c4f8cfc96422c22b35e5b1ffc9f02548f1b4e7c1ce22420e",
-      "reviewed_at": 1792677206.4700477
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Shackleton Documentary Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 1756.58,
-      "length": 8.0,
-      "verification": {
-        "person_visible": false,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows authentic archival moving footage of the Endurance expedition in the Antarctic ice pack with crew members and sled dogs, matching the biographical context of Ernest Shackleton's life and expeditions, although Shackleton himself is not clearly identifiable among the distant crew members.",
-        "usage": "direct_event"
-      },
-      "review_key": "08059b781560e83ad003d5722e3c31cf42a11eb142bb734226136aa89237ccb2",
-      "reviewed_at": 1792677249.136149
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Shackleton Documentary Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 2413.42,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows archival moving images of explorers in polar gear, depicting the historical context of polar expeditions relevant to Ernest Shackleton's life.",
-        "usage": "direct_event"
-      },
-      "review_key": "560778fbe3c7268fed930ca398bddea68ef236674b4ca8d8054d207016502c4c",
-      "reviewed_at": 1792677326.865848
-    },
-    {
       "person": "Colonel Sanders",
       "source": {
         "id": "archive:rth_24344699_1200K",
@@ -15524,192 +14532,6 @@
       "reviewed_at": 1792869000.040724
     },
     {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:PrideMonthShowedProgressExceptforJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/PrideMonthShowedProgressExceptforJKRowling/Pride%20Month%20Showed%20Progress%20%E2%80%94%20Except%20for%20J.K.%20Rowling%20%5BYSItxEJtW4s%5D.mp4",
-        "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
-        "title": "Pride Month Showed Progress — Except for J.K. Rowling",
-        "description": "The yearly tradition of companies and politicians falling over themselves to recognize queer people is here. Here's how the 50th anniversary of Pride Month was (and wasn't) celebrated this year. Subscribe to VICE News here: [URL REMOVED] Check out VICE News for more: [URL REMOVED] Follow VICE News here: Facebook: [URL REMOVED] Twitter: [URL REMOVED] Tumblr: [URL REMOVED] Instagram: [URL REMOVED] More videos from the VICE network: [URL REMOVED] ",
-        "creator": "VICE News",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 167.767768,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 52.31,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The sampled frames feature genuine archival footage and moving images of J.K. Rowling (as well as related cultural/media contexts like Harry Potter), making it useful as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "83636fe578398f9859eaded91a7a238b6905ddd2127173fff2d0d0566c2d3e4f",
-      "reviewed_at": 1792869195.969553
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 114.11,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The video features real footage of J.K. Rowling interacting with a prankster/interviewer at a book signing event, making it usable as biographical illustration despite the awkward framing.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "f712fc063ed1081b965bc5be07e7f85763c697ee1e9b05a5894ced7ef44c1d08",
-      "reviewed_at": 1792869212.2240365
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 67.35,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage features J.K. Rowling speaking at an event, with her clearly visible in multiple sampled frames, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "8b4f3a19815be6cf293f2cf17b814589a08cbbda5ea00c79121ad9561e9648dd",
-      "reviewed_at": 1792869224.3235261
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 36.18,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "J.K. Rowling is clearly visible seated at a table signing books in the later frames (frames 4 and 5), providing genuine archival footage of the subject at a book signing event.",
-        "usage": "direct_event"
-      },
-      "review_key": "f371c5b63ea604f70848c8bfb6343962a7685f849a964fc8b778ac96f86d8d0f",
-      "reviewed_at": 1792869237.2364812
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 82.94,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The segment includes genuine archival/interview footage of J.K. Rowling in frame 2, along with context related to her public appearances and controversies, making it suitable as biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "77cf77197d40f4c502624b656d921ee833e09d435d7a9bfa579ca1320c3715f8",
-      "reviewed_at": 1792869248.8654273
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 145.29,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The video segment shows real archival footage of J.K. Rowling at a book signing event, making her clearly visible and identifiable alongside a prankster.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "026e406470e2e79ee2d30c0abe1ff1fd01240d5947c526fe9f25581589677b96",
-      "reviewed_at": 1792869263.6414616
-    },
-    {
       "person": "Marie Curie",
       "source": {
         "id": "archive:btvin-Marie_Curie_A_Scientific_Hero",
@@ -16854,37 +15676,6 @@
       "reviewed_at": 1792954327.30396
     },
     {
-      "person": "Jonas Salk",
-      "source": {
-        "id": "archive:jonas-edward-salk",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
-        "source_url": "https://archive.org/details/jonas-edward-salk",
-        "title": "JONAS EDWARD SALK",
-        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
-        "creator": "",
-        "license": "",
-        "subject": "JONAS SALK",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 79.16,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 60.85,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The segment features clear historical and biographical footage of Jonas Salk, showing him in a laboratory setting examining test tubes and with his family, supporting the biographical illustration of his life.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "61cf5de8741a212cbf919ff318890559031e9935ea98eb5584101c5a1815145c",
-      "reviewed_at": 1793044463.006033
-    },
-    {
       "person": "Temple Grandin",
       "source": {
         "id": "archive:tamutx-Dr._Temple_Grandin_Addresses_Texas_A_M_Graduates-20140826",
@@ -17348,37 +16139,6 @@
       },
       "review_key": "75915e06dd450ed1dcd91b89d1cef145cac665cff36d1c84229cd394fcec3704",
       "reviewed_at": 1793048323.5796947
-    },
-    {
-      "person": "Ernest Shackleton",
-      "source": {
-        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
-        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
-        "title": "Ernest Shackleton To The End Of The Earth",
-        "description": "Ernest Shackleton Documentaries Shackleton",
-        "creator": "",
-        "license": "",
-        "subject": "Shackleton",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2860.32,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 442.9,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The segment features authentic historical archival footage showing Ernest Shackleton and his team during their polar expedition, fulfilling the biographical illustration criteria.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "02ef616fe98df805259849b0c9564ef9e4c1c650af1b0415a7107af4497145cd",
-      "reviewed_at": 1793048337.5522156
     },
     {
       "person": "Ernest Shackleton",
@@ -18582,6 +17342,1246 @@
       },
       "review_key": "e392a6c13e0ca8cedb40fc1fc4c0808f06f997fbe2d2e4c021bbb59e83329bf8",
       "reviewed_at": 1793120369.9242256
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Ernest Shackleton Documentaries Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 442.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The frames depict archival footage of Ernest Shackleton and his team during their expedition in Antarctica, directly illustrating his life and historical exploits.",
+        "usage": "direct_event"
+      },
+      "review_key": "ea125380e6f5cbfff1583ab7b5443ae2557e0559ccdb205064cdce22e4d8b224",
+      "reviewed_at": 1793129092.098977
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Shackleton Documentary Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 442.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The frames show historical archival footage depicting Ernest Shackleton (centre/right in heavy polar gear) with his expedition team on the ice, directly matching the biographical narration.",
+        "usage": "direct_event"
+      },
+      "review_key": "2308371d9b56ead957f6ef4d745598595383553da16dc0ca32480a01c85446a9",
+      "reviewed_at": 1793129120.7424932
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Shackleton Documentary Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1756.58,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows authentic historical archival material of the ship Endurance trapped in pack ice during the Imperial Trans-Antarctic Expedition, serving as strong direct historical context for Ernest Shackleton's life, though Shackleton himself is not definitively identifiable among the crew figures.",
+        "usage": "direct_event"
+      },
+      "review_key": "aec722341d42829f7298ba31f193a3a4b4765eb813118db8b529eb901a7858cd",
+      "reviewed_at": 1793129127.3957741
+    },
+    {
+      "person": "Ernest Shackleton",
+      "source": {
+        "id": "archive:ernest-shackleton-to-the-end-of-the-earth_202601",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/ernest-shackleton-to-the-end-of-the-earth_202601/Ernest%20Shackleton%20%20To%20The%20End%20of%20The%20Earth.mp4",
+        "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202601",
+        "title": "Ernest Shackleton To The End Of The Earth",
+        "description": "Shackleton Documentary Shackleton",
+        "creator": "",
+        "license": "",
+        "subject": "Shackleton",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 2860.32,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 2413.42,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames show archival footage depicting Ernest Shackleton (likely during his Antarctic expeditions) with his men in extreme cold weather gear, matching the biographical context.",
+        "usage": "direct_event"
+      },
+      "review_key": "b49ef3afb004ff72430a3e9a1d72726d3b6e97c9746443f64bd5854e820df4a0",
+      "reviewed_at": 1793129131.7926157
+    },
+    {
+      "person": "Amelia Earhart",
+      "source": {
+        "id": "archive:lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH/tmpqw8fpuqb.mp4",
+        "source_url": "https://archive.org/details/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+        "title": "“ THE NEWS PARADE ” 1937 CASTLE FILMS NEWSREEL SPANISH CIVIL WAR AMELIA EARHART LOST (Sound version) 4242",
+        "description": "This film is a Castle Films production from 1937, edited by Eugene W. Castle. Castle Films was founded in California in 1924 by former newsreel cameraman Eugene W. Castle, and in 1937 he launched the “The News Parade” series. This “News Parade” is composed of newsreels covering major news internationally in 1937, including the Spanish Civil War, rising tensions in Europe as the fascist leaders of Italy and Germany threaten democratic nations, natural disasters in the USA, politics, and cultural events. “The News Parade of The Year” text overlay (00:10). Credits (00:20). “Europe’s Powder Keg!” title banner (00:26). Footage of the Spanish Civil War and explosions (00:36). Artillery (00:48). Smoke clouds from explosions during Nationalist offensive against Republicans (00:49). Views of the Spanish rebellion forces in Madrid, Spain, led by General Francisco Franco (00:52). Soldiers carrying a body on a gurney (00:54). Farmers walking with their cattle (00:56). Civilians walking through the war-torn streets in Madrid (01:00). Madrid being bombed (01:11). Buildings on fire (01:16). “Worst London Cloud Burst in 27 Years” title banner (01:20). Footage of the flooded streets of London, England (01:31). “In the U. S. Storms and Floods Render Thousands Homeless” title banner (01:48). Footage of the floods in the South and Midwest in the U. S. (01:55) and locals sailing through residential neighborhoods to perform rescues (02:09). Footage of cars, horses, and cattle moving through flooded streets (02:21). “George VI Reviews Grand Fleet” title banner (02:34). George IV and Queen Elizabe ['Reviews Grand Fleet', 'Castle Films', 'The News Parade', 'News Parade', 'Spanish Civil War', 'The Year', 'Powder Keg', 'General Francisco Franco', 'Worst London Cloud Burst', 'Floods Render Thousands Homeless', 'Stock Footage', 'Periscope Film']",
+        "creator": "",
+        "license": "",
+        "subject": "['Reviews Grand Fleet', 'Castle Films', 'The News Parade', 'News Parade', 'Spanish Civil War', 'The Year', 'Powder Keg', 'General Francisco Franco', 'Worst London Cloud Burst', 'Floods Render Thousands Homeless', 'Stock Footage', 'Periscope Film']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 584.11176,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 268.13,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Amelia Earhart is clearly visible in the first two frames interacting with a man, and the subsequent frames show archival newsreel footage related to historical figures, fulfilling biographical illustration criteria.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "9ee327a834ec3fdbc8bce1af2d4d79608b0adf70954af388e4548557581335d6",
+      "reviewed_at": 1793129302.4507334
+    },
+    {
+      "person": "Amelia Earhart",
+      "source": {
+        "id": "archive:42424-europes-powder-keg-vwr",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/42424-europes-powder-keg-vwr/42424%2BEuropes%2BPowder%2BKeg_vwr.mp4",
+        "source_url": "https://archive.org/details/42424-europes-powder-keg-vwr",
+        "title": "“ THE NEWS PARADE ” 1937 CASTLE FILMS NEWSREEL SPANISH CIVIL WAR AMELIA EARHART LOST (Sound version)42424",
+        "description": "This film is a Castle Films production from 1937, edited by Eugene W. Castle. Castle Films was founded in California in 1924 by former newsreel cameraman Eugene W. Castle, and in 1937 he launched the “The News Parade” series. This “News Parade” is composed of newsreels covering major news internationally in 1937, including the Spanish Civil War, rising tensions in Europe as the fascist leaders of Italy and Germany threaten democratic nations, natural disasters in the USA, politics, and cultural events. “The News Parade of The Year” text overlay (00:10). Credits (00:20). “Europe’s Powder Keg!” title banner (00:26). Footage of the Spanish Civil War and explosions (00:36). Artillery (00:48). Smoke clouds from explosions during Nationalist offensive against Republicans (00:49). Views of the Spanish rebellion forces in Madrid, Spain, led by General Francisco Franco (00:52). Soldiers carrying a body on a gurney (00:54). Farmers walking with their cattle (00:56). Civilians walking through the war-torn streets in Madrid (01:00). Madrid being bombed (01:11). Buildings on fire (01:16). “Worst London Cloud Burst in 27 Years” title banner (01:20). Footage of the flooded streets of London, England (01:31). “In the U. S. Storms and Floods Render Thousands Homeless” title banner (01:48). Footage of the floods in the South and Midwest in the U. S. (01:55) and locals sailing through residential neighborhoods to perform rescues (02:09). Footage of cars, horses, and cattle moving through flooded streets (02:21). “George VI Reviews Grand Fleet” title banner (02:34). George IV and Queen Elizabe ['The News Parade', '1937m Castle Films', 'Newsreel', 'Spanish Civil War', 'Amelia Earhart', 'Europe', 'Stock Footage', 'Periscope FIlm']",
+        "creator": "PeriscopeFIlm",
+        "license": "",
+        "subject": "['The News Parade', '1937m Castle Films', 'Newsreel', 'Spanish Civil War', 'Amelia Earhart', 'Europe', 'Stock Footage', 'Periscope FIlm']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 584.11176,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 268.13,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "Amelia Earhart is clearly visible and identifiable in the first two sampled frames, interacting with an older gentleman near an aircraft. The remaining frames show archival context relevant to the subject. The footage is authentic and usable for a biographical Short.",
+        "usage": "direct_event"
+      },
+      "review_key": "3eb1bffbab49d40f6b738235a1011fdd5fcdfff8bb9d16bb5319e693d65e9f4f",
+      "reviewed_at": 1793129309.5986078
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:PrideMonthShowedProgressExceptforJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/PrideMonthShowedProgressExceptforJKRowling/Pride%20Month%20Showed%20Progress%20%E2%80%94%20Except%20for%20J.K.%20Rowling%20%5BYSItxEJtW4s%5D.mp4",
+        "source_url": "https://archive.org/details/PrideMonthShowedProgressExceptforJKRowling",
+        "title": "Pride Month Showed Progress — Except for J.K. Rowling",
+        "description": "The yearly tradition of companies and politicians falling over themselves to recognize queer people is here. Here's how the 50th anniversary of Pride Month was (and wasn't) celebrated this year. Subscribe to VICE News here: [URL REMOVED] Check out VICE News for more: [URL REMOVED] Follow VICE News here: Facebook: [URL REMOVED] Twitter: [URL REMOVED] Tumblr: [URL REMOVED] Instagram: [URL REMOVED] More videos from the VICE network: [URL REMOVED] ",
+        "creator": "VICE News",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 167.767768,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 52.31,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The segment includes real archival footage where J.K. Rowling is clearly visible (frames 2, 3, and 5), suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0cab0308d4e2ee5c61c834934df5c9bc474560991ed6d13141653d91aca71fb6",
+      "reviewed_at": 1793129638.2039595
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 114.11,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features real archival footage of J.K. Rowling interacting with a prankster at an event, making her clearly visible and usable for biographical illustration, though the context is comedic/trolling rather than a formal interview or standard biographical event.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "16a769a0a8ff3fefd8d233f890264bf1ba6f617594b490137bce781b10425ec2",
+      "reviewed_at": 1793129650.0454118
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 67.35,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "J.K. Rowling is clearly visible speaking in the first four frames, making this usable as biographical illustration, though the fifth frame shows camera crew and the Vice watermark is present.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "d3ad4d110f21585e0eb3c1553ac49f8cf942700cc276efcd960deda3222fa9ce",
+      "reviewed_at": 1793129657.1378853
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 36.18,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features real archival footage of J.K. Rowling at a book signing event, making her clearly visible and identifiable in multiple sampled frames. It provides biographical illustration of her public appearances.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "accdc4493db5f707db86fb0cb2dc3243099bc58b019d4c5e24a40ce4096eae68",
+      "reviewed_at": 1793129663.368514
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 82.94,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The sampled frames feature genuine archival footage of J.K. Rowling speaking at an event, making her clearly identifiable, alongside some prank footage related to her book release.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "829cd84a4553644d81c8d2c223192d659af1d37aea581adddf2f524c679dca9e",
+      "reviewed_at": 1793129669.3227813
+    },
+    {
+      "person": "J.K. Rowling",
+      "source": {
+        "id": "archive:NimrodTrollsJKRowling",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
+        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
+        "title": "Nimrod Trolls JK Rowling",
+        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
+        "creator": "VICE",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 216.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 145.29,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features real archival footage of J.K. Rowling at a book signing interacting with the prankster Nimrod Kamer, making her clearly visible and identifiable in the frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "860f59ede43b8132c513a43b7e11016780f051738663864b869a509956fe9a8d",
+      "reviewed_at": 1793129676.4111812
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 403.27,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows Nadia Comaneci performing her famous gymnastics routine at the 1976 Olympics, directly illustrating her career and historical athletic achievements.",
+        "usage": "direct_event"
+      },
+      "review_key": "ba150e90e0a4d16dc8eadb705ac6305b50e48e8b95c6a6cb1e1f5cbcc1996df9",
+      "reviewed_at": 1793129816.6860175
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:nadia-comaneci-die-turnerin-und-der-diktator-arte",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/nadia-comaneci-die-turnerin-und-der-diktator-arte/Nadia%20Comaneci%20-%20Die%20Turnerin%20und%20der%20Diktator%20-%20ARTE.ia.mp4",
+        "source_url": "https://archive.org/details/nadia-comaneci-die-turnerin-und-der-diktator-arte",
+        "title": "Nadia Comaneci - Die Turnerin und der Diktator",
+        "description": "Nadia Comaneci - Die Turnerin und der Diktator Nadia Comaneci - Die Turnerin und der Diktator",
+        "creator": "ARTE",
+        "license": "",
+        "subject": "Nadia Comaneci - Die Turnerin und der Diktator",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3369.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1811.69,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The archival video features authentic footage of gymnast Nadia Comaneci performing on the uneven bars, perfectly matching the biographical subject and narration.",
+        "usage": "direct_event"
+      },
+      "review_key": "e80a36a96013babbafdd0523bb49c7ea31503e482b285bdad0536cb5c4fb4c52",
+      "reviewed_at": 1793129832.7836404
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 61.9,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage genuinely shows archival video of Nadia Comaneci at the 1976 Olympics, featuring her clearly in multiple frames with on-screen identification.",
+        "usage": "direct_event"
+      },
+      "review_key": "7d13f13d929168babe62769bd3ce296bcf4341c5085ef16a07aed5de5af5a780",
+      "reviewed_at": 1793129847.5035663
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:nadia-comaneci-die-turnerin-und-der-diktator-arte",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/nadia-comaneci-die-turnerin-und-der-diktator-arte/Nadia%20Comaneci%20-%20Die%20Turnerin%20und%20der%20Diktator%20-%20ARTE.ia.mp4",
+        "source_url": "https://archive.org/details/nadia-comaneci-die-turnerin-und-der-diktator-arte",
+        "title": "Nadia Comaneci - Die Turnerin und der Diktator",
+        "description": "Nadia Comaneci - Die Turnerin und der Diktator Nadia Comaneci - Die Turnerin und der Diktator",
+        "creator": "ARTE",
+        "license": "",
+        "subject": "Nadia Comaneci - Die Turnerin und der Diktator",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3369.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The video features genuine archival footage of Nadia Comaneci performing gymnastics on the uneven bars, perfectly matching the biographical context.",
+        "usage": "direct_event"
+      },
+      "review_key": "d24a64329974531014f3947929a9e0eb50b7522d54404271db1f37eb3d75391b",
+      "reviewed_at": 1793129866.0254624
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 118.79,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The video segment shows authentic historical archival footage of Nadia Comaneci performing gymnastics at the 1976 Olympics, with her clearly identifiable in the frames.",
+        "usage": "direct_event"
+      },
+      "review_key": "66ff928fa58c39ee96997da76f22e3796f80ec052d665af6e5882f4fcefdd708",
+      "reviewed_at": 1793129873.1082423
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:nadia-comaneci-die-turnerin-und-der-diktator-arte",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/nadia-comaneci-die-turnerin-und-der-diktator-arte/Nadia%20Comaneci%20-%20Die%20Turnerin%20und%20der%20Diktator%20-%20ARTE.ia.mp4",
+        "source_url": "https://archive.org/details/nadia-comaneci-die-turnerin-und-der-diktator-arte",
+        "title": "Nadia Comaneci - Die Turnerin und der Diktator",
+        "description": "Nadia Comaneci - Die Turnerin und der Diktator Nadia Comaneci - Die Turnerin und der Diktator",
+        "creator": "ARTE",
+        "license": "",
+        "subject": "Nadia Comaneci - Die Turnerin und der Diktator",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 3369.28,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 263.1,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The segment includes archival footage of political and historical context (tanks, crowds, officials) alongside a contemporary interview frame featuring Nadia Comaneci herself, making it usable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "7d43b6ecb3949c96a4d7f7adf7d6d02e3dbdcecdfa185a1cdba619bfc7718e3a",
+      "reviewed_at": 1793129890.2797291
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 175.69,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows Nadia Comaneci performing her famous gymnastics routine at the 1976 Olympics, directly depicting the historical event and her athletic achievements.",
+        "usage": "direct_event"
+      },
+      "review_key": "3eeff9977ec48c92b2ac0677f1c273e336b27754f5962dfdb0986b6d757965d6",
+      "reviewed_at": 1793129897.970112
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 232.58,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows real historical archival video of Nadia Comaneci performing her gymnastics routine at the 1976 Olympics, perfectly matching the narration.",
+        "usage": "direct_event"
+      },
+      "review_key": "df8dbbe8534b8e2de1af99754f1043cedd3953365bb008f0bba2a1e7230406f6",
+      "reviewed_at": 1793129936.5909653
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 289.48,
+      "length": 8.0,
+      "verification": {
+        "person_visible": false,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage shows archival material of a gymnast performing on the uneven bars at the Olympics, matching the biographical context of Nadia Comaneci's 1976 Olympic performance, although her face is not clearly discernible in these specific frames due to distance and movement.",
+        "usage": "direct_event"
+      },
+      "review_key": "a67325d97550e95fb94f0821ea228c0f6b2a559c4e52cfb4462b56e846a2d3c8",
+      "reviewed_at": 1793129941.946739
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 346.37,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows archival video of Nadia Comaneci performing her historic uneven bars routine at the 1976 Olympics, perfectly matching the narration and context.",
+        "usage": "direct_event"
+      },
+      "review_key": "c94a666904eb7d69cf76d15992210d727c0ec0f6b6a6b037d0647fb9f8dd510a",
+      "reviewed_at": 1793129947.618978
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 460.16,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows archival video of Nadia Comaneci performing her gymnastics routine at the 1976 Olympics, directly depicting the subject and her historical sporting achievements.",
+        "usage": "direct_event"
+      },
+      "review_key": "f1781c77614131cf3784eace87b6e1038270965653d5ea3a18044b3204d8cbf5",
+      "reviewed_at": 1793129985.1453483
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 517.06,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The sampled frames show genuine archival footage of Nadia Comaneci performing her legendary routine on the uneven bars at the 1976 Olympics. She is clearly identifiable as the gymnast, making this direct historical footage of the narrated subject and event.",
+        "usage": "direct_event"
+      },
+      "review_key": "916ae634ff42c49d9da7911dabc4ddbce4e4175648d924a9bafe984f7768008c",
+      "reviewed_at": 1793129991.0697117
+    },
+    {
+      "person": "Nadia Comaneci",
+      "source": {
+        "id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci/100%20Great%20Sporting%20Moments%20-%201976%20Olympics%20-%20Gymnastics%20-%20Nadia%20Comaneci.mp4",
+        "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+        "title": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci",
+        "description": "100 Great Sporting Moments 1976 Olympics Gymnastics Nadia Comaneci ['TV', 'Sports', 'Olympics']",
+        "creator": "",
+        "license": "",
+        "subject": "['TV', 'Sports', 'Olympics']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 753.64,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 573.95,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 10,
+        "reason": "The footage shows authentic archival material of Nadia Comaneci competing at the 1976 Olympics, featuring her clearly in multiple frames as she performs on the balance beam.",
+        "usage": "direct_event"
+      },
+      "review_key": "f043942aff17bfb020227578070e7926088df77031f3d405c41a2ad2b3a0b904",
+      "reviewed_at": 1793129997.1134546
+    },
+    {
+      "person": "Jonas Salk",
+      "source": {
+        "id": "archive:jonas-edward-salk",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/jonas-edward-salk/JONAS%20EDWARD%20SALK.mp4",
+        "source_url": "https://archive.org/details/jonas-edward-salk",
+        "title": "JONAS EDWARD SALK",
+        "description": "INVENTOR OF THE POLIO VACCINE JONAS SALK",
+        "creator": "",
+        "license": "",
+        "subject": "JONAS SALK",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 79.16,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 60.85,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The segment features clear historical and archival footage of Jonas Salk in both laboratory and family contexts, matching the biographical narration well.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "94563a025362273c1e5265f43171af0827401bcc78597b06b502dff7215b8eb1",
+      "reviewed_at": 1793130084.6054475
+    },
+    {
+      "person": "Sylvia Earle",
+      "source": {
+        "id": "archive:linktv_earth2011093018",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/linktv_earth2011093018/earth2011093018_1_5Mbps.mp4",
+        "source_url": "https://archive.org/details/linktv_earth2011093018",
+        "title": "Sylvia Earle on the Future of the Oceans",
+        "description": "Renowned oceanographer, explorer, and author Dr. Sylvia Earle, shares her insights with Earth Focus correspondent Miles Benson. ",
+        "creator": "Link Media, Inc.",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 588.988989,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 447.3,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage features Dr. Sylvia Earle speaking directly in an interview setting, providing valid biographical illustration of her life and insights.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "76fc6b129acdd13938fb10b153658702aeb96b960777a2da81200f37c913b926",
+      "reviewed_at": 1793130198.7687037
+    },
+    {
+      "person": "Sylvia Earle",
+      "source": {
+        "id": "archive:nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church/Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church.mp4",
+        "source_url": "https://archive.org/details/nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church",
+        "title": "Sylvia Earle with Schulder \"Blue Hope\" on 6/15/19 at the Methodist Church",
+        "description": " ['Massachusetts', 'Nantucket', 'Nantucket Community Television', 'NCTV18', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2019']",
+        "creator": "NCTV18",
+        "license": "",
+        "subject": "['Massachusetts', 'Nantucket', 'Nantucket Community Television', 'NCTV18', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2019']",
+        "runtime": "00:46:08",
+        "direct_subject": true,
+        "duration_hint": 2767.634301,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1487.73,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7.0,
+        "reason": "The footage shows Sylvia Earle speaking at an event in 2019, providing valid biographical illustration of her later life and public appearances.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "50ab6f12f858f1ef413abb62a46729bdd7ad43afb971e9493a2a22e9fa8a64f0",
+      "reviewed_at": 1793130206.6986773
+    },
+    {
+      "person": "Sylvia Earle",
+      "source": {
+        "id": "archive:linktv_earth2011093018",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/linktv_earth2011093018/earth2011093018_1_5Mbps.mp4",
+        "source_url": "https://archive.org/details/linktv_earth2011093018",
+        "title": "Sylvia Earle on the Future of the Oceans",
+        "description": "Renowned oceanographer, explorer, and author Dr. Sylvia Earle, shares her insights with Earth Focus correspondent Miles Benson. ",
+        "creator": "Link Media, Inc.",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 588.988989,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 49.23,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames clearly feature Dr. Sylvia Earle being interviewed in authentic video footage, making it highly relevant and usable as biographical illustration for a short about her life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "1926770309953c851194b3dffab6973875e96f17a4082a470f257569a8b847f4",
+      "reviewed_at": 1793130216.550189
+    },
+    {
+      "person": "Sylvia Earle",
+      "source": {
+        "id": "archive:nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church/Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church.mp4",
+        "source_url": "https://archive.org/details/nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church",
+        "title": "Sylvia Earle with Schulder \"Blue Hope\" on 6/15/19 at the Methodist Church",
+        "description": " ['Massachusetts', 'Nantucket', 'Nantucket Community Television', 'NCTV18', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2019']",
+        "creator": "NCTV18",
+        "license": "",
+        "subject": "['Massachusetts', 'Nantucket', 'Nantucket Community Television', 'NCTV18', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2019']",
+        "runtime": "00:46:08",
+        "direct_subject": true,
+        "duration_hint": 2767.634301,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The segment features genuine video footage of Sylvia Earle participating in an interview/discussion panel (specifically at the 2019 Book Fest). While it is not direct action footage of her underwater work, it provides valid biographical illustration showing the subject speaking about her life and work.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "b6e0d9c871c2bda276f467ac8c0bdc0dc27dcfc9f67bf9de7e930a596e57db53",
+      "reviewed_at": 1793130222.5333414
+    },
+    {
+      "person": "Sylvia Earle",
+      "source": {
+        "id": "archive:linktv_earth2011093018",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/linktv_earth2011093018/earth2011093018_1_5Mbps.mp4",
+        "source_url": "https://archive.org/details/linktv_earth2011093018",
+        "title": "Sylvia Earle on the Future of the Oceans",
+        "description": "Renowned oceanographer, explorer, and author Dr. Sylvia Earle, shares her insights with Earth Focus correspondent Miles Benson. ",
+        "creator": "Link Media, Inc.",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 588.988989,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 93.46,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The sampled frames feature real documentary footage, including a clear and identifiable appearance of Sylvia Earle herself in frame 3, accompanied by authentic underwater and marine environment footage illustrating her life's work as an oceanographer.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "51db4492a40a79d348c3760841d47a3da1b6b77c5cd50b47ab48468f4558fbde",
+      "reviewed_at": 1793130229.0767057
+    },
+    {
+      "person": "Sylvia Earle",
+      "source": {
+        "id": "archive:nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church/Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church.mp4",
+        "source_url": "https://archive.org/details/nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church",
+        "title": "Sylvia Earle with Schulder \"Blue Hope\" on 6/15/19 at the Methodist Church",
+        "description": " ['Massachusetts', 'Nantucket', 'Nantucket Community Television', 'NCTV18', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2019']",
+        "creator": "NCTV18",
+        "license": "",
+        "subject": "['Massachusetts', 'Nantucket', 'Nantucket Community Television', 'NCTV18', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2019']",
+        "runtime": "00:46:08",
+        "direct_subject": true,
+        "duration_hint": 2767.634301,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 216.82,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video shows Sylvia Earle participating in an interview event/talk, making her clearly visible and providing biographical illustration context.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "3490292d40c28baa4c4e9bf15a3ce33fde692fa8aa747f14e5a05d5f0a5b8c47",
+      "reviewed_at": 1793130236.231971
+    },
+    {
+      "person": "Sylvia Earle",
+      "source": {
+        "id": "archive:linktv_earth2011093018",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/linktv_earth2011093018/earth2011093018_1_5Mbps.mp4",
+        "source_url": "https://archive.org/details/linktv_earth2011093018",
+        "title": "Sylvia Earle on the Future of the Oceans",
+        "description": "Renowned oceanographer, explorer, and author Dr. Sylvia Earle, shares her insights with Earth Focus correspondent Miles Benson. ",
+        "creator": "Link Media, Inc.",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 588.988989,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 137.69,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The first frame clearly shows Sylvia Earle being interviewed, while the subsequent frames provide relevant microscopic marine life footage illustrating her work as an oceanographer.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "776665711485a5749969b640ee8e86d7fc64a646bd28e1a19096bc53d0b75b46",
+      "reviewed_at": 1793130241.746007
+    },
+    {
+      "person": "Sylvia Earle",
+      "source": {
+        "id": "archive:nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church/Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church.mp4",
+        "source_url": "https://archive.org/details/nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church",
+        "title": "Sylvia Earle with Schulder \"Blue Hope\" on 6/15/19 at the Methodist Church",
+        "description": " ['Massachusetts', 'Nantucket', 'Nantucket Community Television', 'NCTV18', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2019']",
+        "creator": "NCTV18",
+        "license": "",
+        "subject": "['Massachusetts', 'Nantucket', 'Nantucket Community Television', 'NCTV18', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2019']",
+        "runtime": "00:46:08",
+        "direct_subject": true,
+        "duration_hint": 2767.634301,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 428.64,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video features real archival footage of Sylvia Earle participating in an interview/panel discussion at the Nantucket Book Festival in 2019. She is clearly visible and speaking in all frames. While it is a discussion rather than direct event footage of her underwater marine work, it is valid biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "869195e569cc05c37133c65d1adad2b802c89315413726fefc457e55dbe94821",
+      "reviewed_at": 1793130249.654924
+    },
+    {
+      "person": "Sylvia Earle",
+      "source": {
+        "id": "archive:linktv_earth2011093018",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/linktv_earth2011093018/earth2011093018_1_5Mbps.mp4",
+        "source_url": "https://archive.org/details/linktv_earth2011093018",
+        "title": "Sylvia Earle on the Future of the Oceans",
+        "description": "Renowned oceanographer, explorer, and author Dr. Sylvia Earle, shares her insights with Earth Focus correspondent Miles Benson. ",
+        "creator": "Link Media, Inc.",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 588.988989,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 181.92,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment features archival interview footage of oceanographer Sylvia Earle speaking about ocean conservation, with her clearly identifiable in multiple frames.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "44290455d1ae3f879bd82d62b4893f7df3df4c9d079857b6c843f05709e8a4fa",
+      "reviewed_at": 1793130255.3512506
+    },
+    {
+      "person": "Sylvia Earle",
+      "source": {
+        "id": "archive:nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church/Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church.mp4",
+        "source_url": "https://archive.org/details/nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church",
+        "title": "Sylvia Earle with Schulder \"Blue Hope\" on 6/15/19 at the Methodist Church",
+        "description": " ['Massachusetts', 'Nantucket', 'Nantucket Community Television', 'NCTV18', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2019']",
+        "creator": "NCTV18",
+        "license": "",
+        "subject": "['Massachusetts', 'Nantucket', 'Nantucket Community Television', 'NCTV18', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2019']",
+        "runtime": "00:46:08",
+        "direct_subject": true,
+        "duration_hint": 2767.634301,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 640.45,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The footage shows Sylvia Earle seated at an event or panel in 2019, serving as valid biographical illustration footage of the subject later in life, though it does not depict any specific historical event from her career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "97b7dba3e7167dea8fe159a93e6b044437e0be72ef7367361d05d0d1e5233859",
+      "reviewed_at": 1793130261.9268975
+    },
+    {
+      "person": "Sylvia Earle",
+      "source": {
+        "id": "archive:linktv_earth2011093018",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/linktv_earth2011093018/earth2011093018_1_5Mbps.mp4",
+        "source_url": "https://archive.org/details/linktv_earth2011093018",
+        "title": "Sylvia Earle on the Future of the Oceans",
+        "description": "Renowned oceanographer, explorer, and author Dr. Sylvia Earle, shares her insights with Earth Focus correspondent Miles Benson. ",
+        "creator": "Link Media, Inc.",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 588.988989,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 226.15,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment features the named subject Sylvia Earle speaking in an interview format in the first four frames, and archival ocean footage in the fifth frame. The subject is clearly identifiable and the clip is suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "428d17a940558c79515a013b13b67a3806560790ac4cd1844608982fb8503204",
+      "reviewed_at": 1793130267.7268322
+    },
+    {
+      "person": "Sylvia Earle",
+      "source": {
+        "id": "archive:nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church/Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church.mp4",
+        "source_url": "https://archive.org/details/nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church",
+        "title": "Sylvia Earle with Schulder \"Blue Hope\" on 6/15/19 at the Methodist Church",
+        "description": " ['Massachusetts', 'Nantucket', 'Nantucket Community Television', 'NCTV18', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2019']",
+        "creator": "NCTV18",
+        "license": "",
+        "subject": "['Massachusetts', 'Nantucket', 'Nantucket Community Television', 'NCTV18', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2019']",
+        "runtime": "00:46:08",
+        "direct_subject": true,
+        "duration_hint": 2767.634301,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 852.27,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The footage features Sylvia Earle speaking on stage during an event, making it usable as biographical illustration footage for her life and career.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "37360fc5e34a7993c3a938260eca72c9cb96cf53da5a7483230e5269151e293b",
+      "reviewed_at": 1793130273.211619
+    },
+    {
+      "person": "Sylvia Earle",
+      "source": {
+        "id": "archive:linktv_earth2011093018",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/linktv_earth2011093018/earth2011093018_1_5Mbps.mp4",
+        "source_url": "https://archive.org/details/linktv_earth2011093018",
+        "title": "Sylvia Earle on the Future of the Oceans",
+        "description": "Renowned oceanographer, explorer, and author Dr. Sylvia Earle, shares her insights with Earth Focus correspondent Miles Benson. ",
+        "creator": "Link Media, Inc.",
+        "license": "",
+        "subject": "",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 588.988989,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 270.38,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features actual interview footage of Sylvia Earle discussing oceanography and marine conservation, followed by relevant B-roll of a ship at sea, making it usable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "a11008f4f4c24133ab801f1c07ff98e499f0a303d2afdf1715c82a1cd5d00f36",
+      "reviewed_at": 1793130279.0008981
+    },
+    {
+      "person": "Sylvia Earle",
+      "source": {
+        "id": "archive:nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church/Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church.mp4",
+        "source_url": "https://archive.org/details/nctv18ma-Sylvia_Earle_with_Schulder_Blue_Hope_on_6_15_19_at_the_Methodist_Church",
+        "title": "Sylvia Earle with Schulder \"Blue Hope\" on 6/15/19 at the Methodist Church",
+        "description": " ['Massachusetts', 'Nantucket', 'Nantucket Community Television', 'NCTV18', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2019']",
+        "creator": "NCTV18",
+        "license": "",
+        "subject": "['Massachusetts', 'Nantucket', 'Nantucket Community Television', 'NCTV18', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', '2019']",
+        "runtime": "00:46:08",
+        "direct_subject": true,
+        "duration_hint": 2767.634301,
+        "identity_score": 13.0,
+        "archival_signal": 0
+      },
+      "start": 1064.09,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features real archival footage of Sylvia Earle participating in an interview/panel discussion in 2019. She is clearly identifiable throughout the sampled frames, making it suitable biographical illustration footage.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "0c8a44a12dee2c9899da3f620ffac4e607b219a6543f6c7669223e03b5907337",
+      "reviewed_at": 1793130303.6011615
     }
   ]
 }

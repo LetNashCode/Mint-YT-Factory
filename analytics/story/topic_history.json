@@ -516,5 +516,21 @@
     "video_id": "uViLxhQaqrU",
     "workdir": "",
     "published_at": 1793120973
+  },
+  {
+    "topic": "Sylvia Earle: How the pioneering oceanographer logged thousands of hours underwater despite facing systemic exclusion in early marine research.",
+    "normalized": "sylvia earle how the pioneering oceanographer logged thousands of hours underwater despite facing systemic exclusion in early marine research",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1793130189,
+    "recorded_at": 1793130189,
+    "metadata": {
+      "person": "Sylvia Earle",
+      "pillar": "impossible_odds"
+    },
+    "title": "Sylvia Earle: How the pioneering oceanographer logged thousands of hours underwater despite facing systemic exclusion in early marine research.",
+    "video_id": "jFZr6neYq-w",
+    "workdir": "",
+    "published_at": 1793130788
   }
 ]

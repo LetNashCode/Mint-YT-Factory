@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-27T17:09:37.460629+00:00",
-  "video_count": 31,
-  "learning_sample_size": 20,
+  "generated_at": "2026-10-27T19:53:11.250694+00:00",
+  "video_count": 32,
+  "learning_sample_size": 21,
   "learning_ready": true,
   "metrics_available": true,
   "comparative_learning_ready": true,
-  "advanced_metrics_videos": 20,
+  "advanced_metrics_videos": 21,
   "creative_learning_version": "v6",
   "objective": "maximize viral growth signals — retention, sustainable views, shares and subscriber growth — while preserving originality",
   "strategy": {
@@ -17,8 +17,8 @@
   "weak_patterns": [
     {
       "pattern": "hook_type:curiosity_claim_hook + story_format:seven_scene_story + payoff_position:mid + explanation_position:mid + script_length:short + narration_pace:natural",
-      "score": 19.733,
-      "sample_size": 5
+      "score": 20.252,
+      "sample_size": 6
     }
   ],
   "winning_combinations": [],
@@ -29,16 +29,18 @@
     "Jackie Chan: The Years of Stunt Work and Background Roles Before Global Action Stardom.",
     "Sylvester Stallone: Writing the script for Rocky while living in extreme poverty and refusing to sell it unless he played the lead role.",
     "Dolly Parton: Growing up in a one-room cabin with twelve siblings in the Great Smoky Mountains before becoming a global country music icon.",
-    "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes."
+    "Phil Knight: A College Track Athlete Who Borrowed $50 to Import Japanese Running Shoes.",
+    "Jim Henson: Innovating early television puppetry for local Washington D.C. shows years before creating the Muppets."
   ],
   "avoid_topics": [
+    "Harland Sanders: A Failed Highway Business Led to a Global Fried Chicken Empire at Age 65.",
     "Carl Sagan: The choice to include Earth sounds and music on a golden record aboard Voyager spacecraft, risking ridicule from orthodox scientists.",
     "Diana Nyad: Attempting a historic 110-mile open-ocean swim from Cuba to Florida at the age of 64 after multiple prior failures.",
     "Mary Anning: The Working-Class Woman Who Discovered Prehistoric Giants Ignored by Academia.",
     "Valentina Tereshkova: A textile factory worker and amateur parachutist selected to become the first woman in space.",
     "Boman Irani: A journey from working at a family bakery and running a photographic studio to finding major acting success in Hindi cinema at a mature age."
   ],
-  "used_topic_count": 31,
+  "used_topic_count": 32,
   "rules": [
     "Learn combinations, not templates; never copy winning topics literally.",
     "Only repeated creative evidence with n>=2 is considered a proven pattern.",

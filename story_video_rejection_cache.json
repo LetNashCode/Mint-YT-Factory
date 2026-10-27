@@ -9608,6 +9608,200 @@
       "start": 532.58,
       "reason": "The video segment shows genuine interview footage of Steve Wozniak speaking. However, because it is a talking-head interview segment and does not directly depict the specific historical events narrated, it serves as biographical illustration rather than direct event footage.",
       "reviewed_at": 1793120324.861369
+    },
+    "2dd3068c2e7af7bf8bfab14f": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth",
+      "person": "Ernest Shackleton",
+      "start": 1756.58,
+      "reason": "The archival footage shows genuine historical moving imagery of Ernest Shackleton's Imperial Trans-Antarctic Expedition (specifically the ship Endurance trapped in pack ice), which directly illustrates his life and expeditions. While Shackleton himself is not clearly distinguishable among the figures on the ice, the footage serves as high-quality contextual historical illustration for his biographical narrative.",
+      "reviewed_at": 1793129088.3248453
+    },
+    "ccd28f9730e0051e9b438cd4": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202512",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
+      "person": "Ernest Shackleton",
+      "start": 4070.56,
+      "reason": "The frames show close-up shots of handwritten journal or diary pages, likely belonging to Ernest Shackleton, serving as biographical illustration. However, the subject himself is not visible in any frame.",
+      "reviewed_at": 1793129146.1511295
+    },
+    "9f917859a07d5585f12535ca": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ernest-shackleton-to-the-end-of-the-earth_202512",
+      "source_url": "https://archive.org/details/ernest-shackleton-to-the-end-of-the-earth_202512",
+      "person": "Ernest Shackleton",
+      "start": 4409.36,
+      "reason": "The frames depict a static drawing or bust of Ernest Shackleton rather than real filmed archival footage of the subject.",
+      "reviewed_at": 1793129150.7513778
+    },
+    "789bf17607e5eab6a9d918f0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:shackletons-expedition",
+      "source_url": "https://archive.org/details/shackletons-expedition",
+      "person": "Ernest Shackleton",
+      "start": 1220.58,
+      "reason": "The segment shows archival footage of the Endurance ship in Antarctica and scenery related to the expedition, providing historical context relevant to Ernest Shackleton's life, although Shackleton himself is not clearly identifiable in the sampled frames.",
+      "reviewed_at": 1793129161.993972
+    },
+    "18ef022fd7d31ef905ed4f9e": {
+      "kind": "segment_rejection",
+      "source_id": "archive:shackletons-expedition",
+      "source_url": "https://archive.org/details/shackletons-expedition",
+      "person": "Ernest Shackleton",
+      "start": 1321.88,
+      "reason": "The sampled frames consist entirely of title cards and credits displaying staff names (Host, Writer, Editor), with no actual footage or depiction of Ernest Shackleton.",
+      "reviewed_at": 1793129170.4547522
+    },
+    "f374f8617ae7427d3c32c31d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:antarctica-a-frozen-history",
+      "source_url": "https://archive.org/details/antarctica-a-frozen-history",
+      "person": "Ernest Shackleton",
+      "start": 5500.9,
+      "reason": "The sampled frames consist entirely of production company logos and network title cards (Hearst Entertainment and The History Channel), containing no actual footage or historical context regarding Ernest Shackleton.",
+      "reviewed_at": 1793129207.4597504
+    },
+    "1b31f49ef3b1ec07301433f7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:amelia.-earhart.-docu.-final",
+      "source_url": "https://archive.org/details/amelia.-earhart.-docu.-final",
+      "person": "Amelia Earhart",
+      "start": 165.75,
+      "reason": "The frames show a modern student creator or speaker being interviewed for a documentary project, not Amelia Earhart herself. Therefore, the person is not visible and the footage is unusable for depicting the biographical subject.",
+      "reviewed_at": 1793129284.6318145
+    },
+    "343b9646028601fb032721df": {
+      "kind": "segment_rejection",
+      "source_id": "archive:amelia.-earhart.-docu.-final",
+      "source_url": "https://archive.org/details/amelia.-earhart.-docu.-final",
+      "person": "Amelia Earhart",
+      "start": 219.34,
+      "reason": "The footage shows modern students recording a podcast or documentary interview about Amelia Earhart, not Amelia Earhart herself. Since Amelia Earhart is not visible and the footage does not depict her historical life or events, it is unusable for a biography short.",
+      "reviewed_at": 1793129298.2045212
+    },
+    "e2c1b6d11cbbd802b964c882": {
+      "kind": "segment_rejection",
+      "source_id": "archive:lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "source_url": "https://archive.org/details/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "person": "Amelia Earhart",
+      "start": 355.84,
+      "reason": "The footage shows Soviet flyers and newsreel title cards regarding aviation achievements in 1937, but Amelia Earhart is not visible in any frame, making this clip irrelevant and unusable for a biography about Amelia Earhart.",
+      "reviewed_at": 1793129318.4631236
+    },
+    "ff6bd4e50b9e92d082a5ed9d": {
+      "kind": "segment_rejection",
+      "source_id": "archive:lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "source_url": "https://archive.org/details/lAuHWL4U8jv7b6h7wprCTfYWIoCQnH",
+      "person": "Amelia Earhart",
+      "start": 399.69,
+      "reason": "The sampled frames show unrelated newsreel title cards and historical footage about Hugo Black and the US Supreme Court from 1937, with no connection to Amelia Earhart.",
+      "reviewed_at": 1793129324.7275367
+    },
+    "621bbacb8eec7220fae1a24a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:42424-europes-powder-keg-vwr",
+      "source_url": "https://archive.org/details/42424-europes-powder-keg-vwr",
+      "person": "Amelia Earhart",
+      "start": 355.84,
+      "reason": "The video segment features archival newsreel footage about Soviet flyers, completely unrelated to Amelia Earhart, and the subject is not visible in any frame.",
+      "reviewed_at": 1793129329.596969
+    },
+    "544365b91523a2b53a2ab4eb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:42424-europes-powder-keg-vwr",
+      "source_url": "https://archive.org/details/42424-europes-powder-keg-vwr",
+      "person": "Amelia Earhart",
+      "start": 399.69,
+      "reason": "The video segment shows unrelated historical newsreel content (Spanish Civil War, floods, and U.S. Supreme Court appointments) and contains no footage of Amelia Earhart or any material connection to her biography.",
+      "reviewed_at": 1793129334.802498
+    },
+    "894306b0ce700196631758fb": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cg_0740-Amelia_Earhart_Parks_Highlights",
+      "source_url": "https://archive.org/details/cg_0740-Amelia_Earhart_Parks_Highlights",
+      "person": "Amelia Earhart",
+      "start": 11.6,
+      "reason": "The footage shows unrelated modern park activities (wakeboarding, playgrounds, soccer) at Amelia Earhart Park, with no connection to Amelia Earhart herself.",
+      "reviewed_at": 1793129362.8014019
+    },
+    "b8244c0c807e6d7f44619c41": {
+      "kind": "segment_rejection",
+      "source_id": "archive:cg_0740-Amelia_Earhart_Parks_Highlights",
+      "source_url": "https://archive.org/details/cg_0740-Amelia_Earhart_Parks_Highlights",
+      "person": "Amelia Earhart",
+      "start": 21.0,
+      "reason": "The video shows modern footage of Amelia Earhart Park in Florida (a location named after her), but Amelia Earhart herself is not visible and the footage has no historical connection to her life or aviator career.",
+      "reviewed_at": 1793129369.409853
+    },
+    "ba806e101441f61b7ee72b53": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ochisorii-nasul-si-gurita-from-nadia-comaneci-raluca-moianu-1",
+      "source_url": "https://archive.org/details/ochisorii-nasul-si-gurita-from-nadia-comaneci-raluca-moianu-1",
+      "person": "Nadia Comaneci",
+      "start": 53.1,
+      "reason": "The frames show abstract, kaleidoscopic digital effects with heavy watermarking ('www.BANDICAM.com'), not actual filmed footage of Nadia Comaneci or historical context.",
+      "reviewed_at": 1793129794.2230184
+    },
+    "554cc54fc391d3a3bb584e6a": {
+      "kind": "segment_rejection",
+      "source_id": "archive:ochisorii-nasul-si-gurita-from-nadia-comaneci-raluca-moianu-1",
+      "source_url": "https://archive.org/details/ochisorii-nasul-si-gurita-from-nadia-comaneci-raluca-moianu-1",
+      "person": "Nadia Comaneci",
+      "start": 81.96,
+      "reason": "The frames show abstract, highly distorted visual effects and color artifacts with a Bandicam watermark, completely lacking any real filmed footage or depiction of the subject.",
+      "reviewed_at": 1793129812.0703661
+    },
+    "1319b5cbb5efc2f80384621c": {
+      "kind": "segment_rejection",
+      "source_id": "archive:100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+      "source_url": "https://archive.org/details/100-great-sporting-moments-1976-olympics-gymnastics-nadia-comaneci",
+      "person": "Nadia Comaneci",
+      "start": 5.0,
+      "reason": "The sampled frames consist entirely of title cards and series intro graphics (\"100 Great Sporting Moments\"). Nadia Comaneci is not visible in any frame, making this unusable as identity footage or relevant historical context.",
+      "reviewed_at": 1793129843.539744
+    },
+    "d06c960b9ec6f62756386208": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nadia-comaneci-die-turnerin-und-der-diktator-arte",
+      "source_url": "https://archive.org/details/nadia-comaneci-die-turnerin-und-der-diktator-arte",
+      "person": "Nadia Comaneci",
+      "start": 521.2,
+      "reason": "The footage shows archival motion imagery of gymnastics motion studies and establishing shots of Bucharest, which serve as useful biographical illustration and historical context for Nadia Comaneci's life and career, even though she is not clearly identifiable in the sampled frames.",
+      "reviewed_at": 1793129920.6020215
+    },
+    "14ac4ae474eb3285ae0a09ac": {
+      "kind": "segment_rejection",
+      "source_id": "archive:nadia-comaneci-die-turnerin-und-der-diktator-arte",
+      "source_url": "https://archive.org/details/nadia-comaneci-die-turnerin-und-der-diktator-arte",
+      "person": "Nadia Comaneci",
+      "start": 779.3,
+      "reason": "The footage clearly depicts Olga Korbut, another famous gymnast, with on-screen text explicitly identifying her as Olga Korbut (USSR), not the subject of the biography, Nadia Comaneci.",
+      "reviewed_at": 1793129933.2101088
+    },
+    "b3ac8425408a1ed06d614277": {
+      "source_id": "commons:54354796",
+      "source_url": "https://commons.wikimedia.org/wiki/File:President_Obama_visits_Midway_Atoll.webm",
+      "reason": "strong metadata exclusion: monument"
+    },
+    "1b6993b1aea26ff79f0cfaa9": {
+      "kind": "segment_rejection",
+      "source_id": "archive:linktv_earth2011093018",
+      "source_url": "https://archive.org/details/linktv_earth2011093018",
+      "person": "Sylvia Earle",
+      "start": 314.61,
+      "reason": "The footage shows archival environmental B-roll (an oil spill warning sign) relevant to Sylvia Earle's career and ocean conservation work, but the subject is not visible.",
+      "reviewed_at": 1793130195.3349862
+    },
+    "836510daafdbc61026b6ead5": {
+      "kind": "segment_rejection",
+      "source_id": "archive:linktv_earth2011093018",
+      "source_url": "https://archive.org/details/linktv_earth2011093018",
+      "person": "Sylvia Earle",
+      "start": 5.0,
+      "reason": "The sampled frames show only channel and program title cards ('Link TV' and 'Earth Focus'), with the subject Sylvia Earle completely absent.",
+      "reviewed_at": 1793130213.4146338
     }
   }
 }

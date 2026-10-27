@@ -1,18 +1,5 @@
 [
   {
-    "format": "one_decision",
-    "person": "Tim Berners-Lee",
-    "premise": "Deciding to make the World Wide Web open-source and free for everyone instead of commercializing it.",
-    "hook": "He could have become the richest man on earth by patenting the World Wide Web, but he chose to give it away for free.",
-    "key_facts": [
-      "Invented the World Wide Web while working at CERN in 1989",
-      "Wrote the first web browser and web server software",
-      "Persuaded CERN to make the underlying technology available on a royalty-free basis",
-      "Founded the World Wide Web Consortium to guide the open development of the web"
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "strange_turning_point",
     "person": "Marie Curie",
     "premise": "Moving from partitioned Poland to Paris to study physics, where a chance meeting in a laboratory led to a historic scientific partnership.",
@@ -27,66 +14,76 @@
   },
   {
     "format": "strange_turning_point",
-    "person": "Stanislaf Petrov",
-    "premise": "The night a Soviet military officer made the split-second decision to ignore computer warning systems signaling an incoming US nuclear attack, preventing a global catastrophe.",
-    "hook": "One man's gut feeling stopped a nuclear war in 1983.",
+    "person": "Sachin Tendulkar",
+    "premise": "Being sent out to bat against seasoned international fast bowlers at age sixteen after taking a severe blow to the face.",
+    "hook": "A devastating bouncer hit him square in the mouth. Instead of retiring hurt, a sixteen-year-old boy kept playing.",
     "key_facts": [
-      "Served as a lieutenant colonel in the Soviet Air Defense Forces.",
-      "Oversaw the early-warning system for missile attacks on September 26, 1983.",
-      "Computers erroneously reported that the US had launched intercontinental ballistic missiles.",
-      "Decided the signal was a false alarm based on the low number of missiles detected."
+      "Made his international Test cricket debut against Pakistan in Karachi in 1989 at age 16.",
+      "Struck on the nose by a Waqar Younis bouncer, causing heavy bleeding.",
+      "Declined medical retirement and continued batting to score a crucial half-century.",
+      "Went on to play international cricket for 24 years, setting numerous batting records."
     ],
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Ernest Shackleton",
-    "premise": "Keeping all 27 members of his crew alive for nearly two years after their ship was crushed by Antarctic pack ice.",
-    "hook": "His ship was completely crushed by ice floes a thousand miles from civilization, leaving his crew stranded on floating ice for months.",
+    "format": "one_decision",
+    "person": "Rosa Montero",
+    "premise": "Overcoming severe childhood illness and social isolation to become a celebrated journalist and novelist.",
+    "hook": "Bedridden for years with a crippling illness as a child, she learned to explore entire worlds inside her own mind.",
     "key_facts": [
-      "The Endurance became trapped and was eventually crushed by Antarctic ice in 1915",
-      "The crew camped on drifting ice floes for months before sailing lifeboats to Elephant Island",
-      "Shackleton and five men made an 800-mile open-boat journey to South Georgia Island for rescue",
-      "Successfully rescued every single member of the stranded expedition without a single loss of life"
+      "Suffered from severe pulmonary tuberculosis during early childhood, keeping her isolated.",
+      "Turned extensively to reading and writing as a solitary coping mechanism.",
+      "Became a prominent journalist for El País and an award-winning novelist.",
+      "Widely documented in Spanish literary archives and public television interviews."
     ],
     "source": "gemini_original"
   },
   {
     "format": "strange_turning_point",
     "person": "J.K. Rowling",
-    "premise": "Writing the manuscript of a rejected fantasy novel in Edinburgh cafes while facing severe financial hardship.",
-    "hook": "She wrote her first breakout manuscript sitting in cafes because it was cheaper than heating her apartment.",
+    "premise": "How a delayed train journey across England sparked the creation of a global literary phenomenon.",
+    "hook": "A stranded train ride on a rainy afternoon sparked the idea for a wizarding world.",
     "key_facts": [
-      "Worked on the first manuscript of the fantasy series as a struggling single mother in Edinburgh",
-      "The book proposal was rejected by multiple publishing houses over several years",
-      "Bloomsbury Publishing eventually accepted the manuscript in 1996",
-      "The resulting series became one of the best-selling book franchises in human history"
+      "Conceived the idea for a boy wizard while stuck on a delayed train from Manchester to London in 1990.",
+      "Wrote the first manuscript over several years while facing personal financial hardship.",
+      "The book was rejected by multiple publishers before being accepted by Bloomsbury.",
+      "Extensive recorded public readings, press conferences, and literary interviews exist."
     ],
     "source": "gemini_original"
   },
   {
     "format": "one_decision",
-    "person": "Rosa Weber",
-    "premise": "Serving a long judicial career in Brazil that culminated in her appointment as President of the Supreme Federal Court.",
-    "hook": "Faced with intense political pressure during landmark national trials, she chose strict adherence to institutional procedure over public populism.",
+    "person": "Harrison Ford",
+    "premise": "How a working carpenter installing a door for George Lucas accidentally landed the role of Han Solo.",
+    "hook": "He went to a movie studio to fix a cabinet and ended up starring in a multi-billion dollar franchise.",
     "key_facts": [
-      "Built a decades-long career as a labor judge and magistrate in Brazil",
-      "Appointed as a Justice of the Supreme Federal Court in 2011",
-      "Presided over the high court during politically sensitive constitutional cases",
-      "Served as President of the Supreme Federal Court from 2022 until her retirement"
+      "Worked primarily as a professional carpenter in Los Angeles to support his family.",
+      "Hired by George Lucas to build cabinets and help run auditions for Star Wars.",
+      "Cast as Han Solo after reading lines with other auditioning actors."
     ],
     "source": "gemini_original"
   },
   {
-    "format": "impossible_odds",
-    "person": "Amelia Earhart",
-    "premise": "Breaking aviation records as a female pilot during an era when long-distance flight was exceptionally perilous.",
-    "hook": "When she first crossed the Atlantic by air, she wasn't allowed to touch the controls—so she vowed to fly across alone next time.",
+    "format": "one_decision",
+    "person": "Chadwick Boseman",
+    "premise": "The pivotal moment when an aspiring director chose acting over behind-the-scenes roles after traveling to Africa.",
+    "hook": "He initially wanted to direct plays, but a trip to South Africa permanently changed his path to the silver screen.",
     "key_facts": [
-      "Became the first woman to fly solo across the Atlantic Ocean in 1932",
-      "Set multiple long-distance flight records and speed milestones during the 1930s",
-      "Faced severe mechanical and navigational challenges on early transoceanic flights",
-      "Disappeared over the central Pacific Ocean in 1937 during an attempt to circumnavigate the globe"
+      "Graduated from Howard University with a Bachelor of Fine Arts in directing.",
+      "Studied at the British American Drama Academy before pursuing screen acting.",
+      "Achieved global recognition starring as T'Challa in Marvel's Black Panther."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "Stanislov Petrov",
+    "premise": "The Soviet military officer who single-handedly prevented a nuclear disaster by ignoring a computer warning.",
+    "hook": "His intuition told him a high-tech early warning system was wrong, and his split-second choice saved the world.",
+    "key_facts": [
+      "Served as a lieutenant colonel in the Soviet Air Defense Forces in 1983.",
+      "Assessed a satellite system alert indicating incoming American nuclear missiles as a false alarm.",
+      "Followed protocol by not reporting the false signal up the chain of command, preventing a retaliatory strike."
     ],
     "source": "gemini_original"
   }

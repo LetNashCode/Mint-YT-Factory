@@ -35,18 +35,15 @@ BACKGROUND_MUSIC_PATH = Path(__file__).resolve().parent / "assets" / "music" / "
 BACKGROUND_MUSIC_VOLUME = 0.10
 NARRATION_VOLUME = 0.90
 
-
 def clean(value, limit=1000):
 
     return re.sub(r"\s+", " ", str(value or "")).strip()[:limit]
-
 
 def client():
     key = os.getenv("GEMINI_API_KEY", "").strip()
     if not key:
         raise RuntimeError("GEMINI_API_KEY is missing")
     return genai.Client(api_key=key)
-
 
 def normalize_topic(value):
     value = re.sub(r"[^a-z0-9\s]", " ", str(value or "").lower())
@@ -57,7 +54,6 @@ def normalize_topic(value):
         value,
     )
     return " ".join(value.split())
-
 
 def topic_similarity(left, right):
     left_norm = normalize_topic(left)
@@ -73,7 +69,6 @@ def topic_similarity(left, right):
     sequence = difflib.SequenceMatcher(None, left_norm, right_norm).ratio()
     return max(overlap, sequence)
 
-
 def load_topic_history():
     if not TOPIC_HISTORY_PATH.exists():
         return []
@@ -86,7 +81,6 @@ def load_topic_history():
         raise RuntimeError("Everyday Wisdom topic history is malformed")
     return [entry for entry in entries if isinstance(entry, dict)]
 
-
 def history_strings(history):
     values = []
     for entry in history:
@@ -95,7 +89,6 @@ def history_strings(history):
             if value and value not in values:
                 values.append(value)
     return values
-
 
 def performance_guidance():
     """Use mature, retention-rich Wisdom uploads as evidence without hard-banning topics."""
@@ -168,8 +161,6 @@ def performance_guidance():
     )
     return "\n" + "\n".join(lines) + "\n"
 
-
-
 def load_publish_topic_history():
     """Read Publish Shorts' durable topic ledger so Wisdom avoids cross-format reuse."""
     path = Path("analytics/topic_history.json")
@@ -193,7 +184,6 @@ def load_publish_topic_history():
                 "topic_key": clean(item.get("normalized"), 120),
             })
     return entries
-
 
 def evaluate_story_quality(story, gemini_client=None):
     """Second-pass editorial gate using the active generation client when available."""
@@ -234,7 +224,7 @@ NARRATION: {narration}
     # Keep factual reliability strict, but avoid rejecting every usable draft because
     # the model-editor is subjective about individual style dimensions.
     minimum_scores = {
-        "hook": 5,
+        "hook": 7,
         "first_person_voice": 6,
         "naturalness": 5,
         "factual_caution": 7,
@@ -282,7 +272,6 @@ def is_duplicate_topic(candidate, history):
 
     return False
 
-
 def remember_topic(story):
     history = load_topic_history()
     entry = {
@@ -300,7 +289,6 @@ def remember_topic(story):
     )
     print(f"Topic history updated: {entry['topic']} | key={entry['topic_key']}")
     return entry
-
 
 def generate_story():
     history = load_topic_history()
@@ -501,7 +489,6 @@ person, or setting relevant to that spoken beat. No generic filler such as
             time.sleep(2 + min(attempt, 4))
     raise RuntimeError("Story generation failed after all retries")
 
-
 def synthesize(text, output):
     import numpy as np
     import soundfile as sf
@@ -556,7 +543,6 @@ def search_videos(query):
     response.raise_for_status()
     return response.json().get("videos", [])
 
-
 def video_duration(path):
     return float(subprocess.check_output(
         [
@@ -567,7 +553,6 @@ def video_duration(path):
         ],
         text=True,
     ).strip())
-
 
 def download_stock(queries, required_duration):
     """Download one unique stock clip per narration visual beat.
@@ -713,7 +698,6 @@ def _make_2_5_second_visual_segments(clips, total_duration):
     )
     return concat
 
-
 def _ass_time(seconds):
     seconds = max(0.0, float(seconds))
     hours = int(seconds // 3600)
@@ -725,7 +709,6 @@ def _ass_time(seconds):
         centiseconds = 0
     return f"{hours}:{minutes:02d}:{whole:02d}.{centiseconds:02d}"
 
-
 def _ass_escape(text):
     return (
         str(text or "")
@@ -736,7 +719,6 @@ def _ass_escape(text):
         .strip()
     )
 
-
 def _publish_ass_color(index):
     colors = [
         "&H00FFFFFF",
@@ -746,7 +728,6 @@ def _publish_ass_color(index):
         "&H0063FF8D",
     ]
     return colors[index % len(colors)]
-
 
 def _normalize_caption_token(value):
     return re.sub(r"[^a-z0-9']+", "", str(value or "").lower()).strip("'")
@@ -838,11 +819,9 @@ WISDOM_CAPTION_EMPHASIS_WORDS = {
     "shocking", "proven", "fails", "works", "secretly", "turns", "until",
 }
 
-
 def _wisdom_caption_emphasized(item):
     token = _normalize_caption_token(item.get("word", ""))
     return token in WISDOM_CAPTION_EMPHASIS_WORDS or (len(token) >= 8 and token.isalpha())
-
 
 def create_animated_captions(narration, duration, audio_path):
     aligned_words = _align_caption_words(
@@ -891,7 +870,6 @@ def build_audio_filter(duration):
         "[narration][music]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[a]"
     )
 
-
 def render(clips, audio, output, duration, narration):
     ass_path = create_animated_captions(narration, duration, audio)
     subtitle_filter = f"subtitles='{ass_path.resolve()}'"
@@ -924,7 +902,6 @@ def render(clips, audio, output, duration, narration):
         ],
         check=True,
     )
-
 
 def validate_final_video(path):
     """Fail closed unless Everyday Wisdom renders the agreed 4K/60 H.264 master."""
@@ -969,7 +946,6 @@ def validate_final_video(path):
     if errors:
         raise RuntimeError("Everyday Wisdom video failed upload quality gate: " + "; ".join(errors))
     print("Everyday Wisdom 4K/60 H.264 upload quality gate passed.")
-
 
 def build_caption(story):
     topic = clean(story.get("topic"), 180)
@@ -1034,7 +1010,6 @@ def build_caption(story):
 
     return title, description[:2000], tags
 
-
 def upload(video, story):
     raw = os.getenv("YOUTUBE_TOKEN_JSON", "").strip()
     if not raw:
@@ -1098,7 +1073,6 @@ def upload(video, story):
 
     print(f"YOUTUBE UPLOADED: https://www.youtube.com/watch?v={video_id}")
     return video_id
-
 
 def main():
     print("EVERYDAY WISDOM SHORTS | isolated pipeline | START")
@@ -1178,7 +1152,6 @@ def main():
         encoding="utf-8",
     )
     print(f"EVERYDAY WISDOM COMPLETE: {video_id}")
-
 
 if __name__ == "__main__":
     main()

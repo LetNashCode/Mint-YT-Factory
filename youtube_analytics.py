@@ -28,7 +28,6 @@ else:
     USED_TOPICS_PATH = ROOT / "used_topics.json"
 ANALYTICS_MARKER='__MINT_ANALYTICS__::'
 
-
 def _utc_now(): return datetime.now(timezone.utc).isoformat()
 def _load(path,default):
     try:return json.loads(path.read_text(encoding='utf-8')) if path.exists() else default
@@ -41,7 +40,6 @@ def _credentials():
     return Credentials.from_authorized_user_info(json.loads(raw))
 def _youtube_service(): return build('youtube','v3',credentials=_credentials(),cache_discovery=False)
 def _analytics_service(): return build('youtubeAnalytics','v2',credentials=_credentials(),cache_discovery=False)
-
 
 def _read_durable_publications():
     """Recover only publications belonging to the active workflow profile."""
@@ -270,10 +268,71 @@ def _has_advanced_metrics(records):
 def _has_live_metrics(records):
     return any(any(float((r.get('latest',{}) or {}).get(k,0) or 0)>0 for k in ('views','likes','comments','average_view_percentage','subscribers_gained','shares')) for r in records)
 
+
+def _retention_objective(records):
+    """Summarize the 70% average-viewed goal without treating immature data as a failure."""
+    now = datetime.now(timezone.utc)
+    eligible = []
+    immature = 0
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        latest = record.get("latest") or {}
+        try:
+            retention = float(latest.get("average_view_percentage") or 0)
+        except (TypeError, ValueError):
+            retention = 0.0
+        published = str(record.get("published_at") or "")
+        if not published or retention <= 0:
+            immature += 1
+            continue
+        try:
+            published_dt = datetime.fromisoformat(published.replace("Z", "+00:00"))
+            if published_dt.tzinfo is None:
+                published_dt = published_dt.replace(tzinfo=timezone.utc)
+        except ValueError:
+            immature += 1
+            continue
+        age_hours = (now - published_dt.astimezone(timezone.utc)).total_seconds() / 3600
+        if age_hours < 24:
+            immature += 1
+            continue
+        eligible.append({
+            "video_id": record.get("video_id"),
+            "title": record.get("title", ""),
+            "topic": record.get("topic", ""),
+            "workflow": record.get("workflow", _PROFILE),
+            "average_view_percentage": round(retention, 2),
+            "average_view_duration": float(latest.get("average_view_duration") or 0),
+            "views": int(latest.get("views") or 0),
+            "age_hours": round(age_hours, 1),
+            "target_met": retention >= 70.0,
+            "status": "goal_met" if retention >= 70.0 else ("needs_improvement" if retention < 50.0 else "below_target"),
+        })
+    met = sum(1 for row in eligible if row["target_met"])
+    eligible.sort(key=lambda row: row["average_view_percentage"])
+    return {
+        "target_average_view_percentage": 70.0,
+        "metric": "average_view_percentage",
+        "eligible_video_count": len(eligible),
+        "immature_or_missing_metric_count": immature,
+        "videos_meeting_target": met,
+        "target_hit_rate_percentage": round(met / len(eligible) * 100, 2) if eligible else None,
+        "average_view_percentage": round(sum(row["average_view_percentage"] for row in eligible) / len(eligible), 2) if eligible else None,
+        "videos_needing_improvement": eligible[:10],
+        "videos_meeting_target": sorted(
+            [row for row in eligible if row["target_met"]],
+            key=lambda row: row["average_view_percentage"], reverse=True
+        )[:10],
+        "interpretation": (
+            "Goal is 70% average percentage viewed. Evaluate only videos at least 24 hours old with a valid retention metric; this is a target, not a guarantee."
+        ),
+    }
+
 def refresh_registry():
     records=_materialize_records()
     if not records:
-        summary={'generated_at':_utc_now(),'video_count':0,'optimization_ready':False,'live_metrics_ready':False,'advanced_metrics_videos':0,'reason':'Need published videos before optimizing content.','totals':{},'averages':{},'top_videos':[],'topic_performance':[]}; _write(REGISTRY_PATH,[]); _write(SUMMARY_PATH,summary); return summary
+        summary={'generated_at':_utc_now(),'video_count':0,'optimization_ready':False,'live_metrics_ready':False,'advanced_metrics_videos':0,'reason':'Need published videos before optimizing content.','totals':{},'averages':{},'top_videos':[],'topic_performance':[],'retention_objective':_retention_objective([])}; _write(REGISTRY_PATH,[]); _write(SUMMARY_PATH,summary); return summary
     _write(REGISTRY_PATH,records); ids=[str(x['video_id']) for x in records]
     try: basic=fetch_video_stats(ids)
     except Exception as exc:
@@ -302,10 +361,11 @@ def refresh_registry():
     rows=[]
     for r in sorted(records,key=lambda x:int(x.get('latest',{}).get('views',0)),reverse=True):
         x=r.get('latest',{}); rows.append({'topic':r.get('topic',''),'video_id':r.get('video_id'),'title':r.get('title',''),'workflow':r.get('workflow','publish'),'published_at':r.get('published_at'),'hook_text':r.get('hook_text',''),'hook_type':r.get('hook_type',''),'hook_score':r.get('hook_score'),'hook_score_components':r.get('hook_score_components',{}),'script_word_count':r.get('script_word_count'),'planned_duration_seconds':r.get('planned_duration_seconds'),'actual_duration_seconds':r.get('actual_duration_seconds'),'video_width':r.get('video_width'),'video_height':r.get('video_height'),'resolution':r.get('resolution',''),'creative_strategy':r.get('creative_strategy',''),'views':int(x.get('views',0)),'views_after_24h':_views_at_age(r,24),'views_after_7d':_views_at_age(r,168),'likes':int(x.get('likes',0)),'comments':int(x.get('comments',0)),'shares':int(x.get('shares',0)),'average_view_duration':float(x.get('average_view_duration',0)),'average_view_percentage':float(x.get('average_view_percentage',0)),'subscribers_gained':int(x.get('subscribers_gained',0)),'subscribers_lost':int(x.get('subscribers_lost',0)),'engagement_rate':float(x.get('engagement_rate',0))})
-    advanced_count=_has_advanced_metrics(records); ready=count>=3 and advanced_count>=3; summary={'generated_at':now,'refresh_attempted_at':now,'refresh_status':'success' if advanced_count>=3 else 'partial','video_count':count,'optimization_ready':ready,'live_metrics_ready':live_ready,'advanced_metrics_videos':advanced_count,'reason':'' if ready else ('Basic YouTube statistics refreshed, but advanced retention metrics are incomplete.' if advanced_count<3 else 'Need at least 3 published videos before optimizing content.'),'totals':{'views':total_views,'likes':total_likes,'comments':total_comments},'averages':avg,'top_videos':rows[:10],'topic_performance':rows[:50],'optimization_rules':['Learn patterns, never copy winning topics literally.','Optimize for retention, subscriber conversion, comments and shares.','Prefer strong curiosity gaps and concrete everyday mysteries.','Keep experiments so the model does not overfit to one topic.'] if ready else []}; _write(SUMMARY_PATH,summary); print(f'📊 Tracked videos: {count}'); print(f'📊 Total views: {total_views:,}'); print(f'🧠 Optimization ready: {"YES" if ready else "NO"}'); return summary
+    advanced_count=_has_advanced_metrics(records); ready=count>=3 and advanced_count>=3; summary={'generated_at':now,'refresh_attempted_at':now,'refresh_status':'success' if advanced_count>=3 else 'partial','video_count':count,'optimization_ready':ready,'live_metrics_ready':live_ready,'advanced_metrics_videos':advanced_count,'reason':'' if ready else ('Basic YouTube statistics refreshed, but advanced retention metrics are incomplete.' if advanced_count<3 else 'Need at least 3 published videos before optimizing content.'),'totals':{'views':total_views,'likes':total_likes,'comments':total_comments},'averages':avg,'top_videos':rows[:10],'topic_performance':rows[:50],'retention_objective':_retention_objective(records),'optimization_rules':['Learn patterns, never copy winning topics literally.','Optimize for retention, subscriber conversion, comments and shares.','Prefer strong curiosity gaps and concrete everyday mysteries.','Keep experiments so the model does not overfit to one topic.'] if ready else []}; _write(SUMMARY_PATH,summary); print(f'📊 Tracked videos: {count}'); print(f'📊 Total views: {total_views:,}'); print(f'🧠 Optimization ready: {"YES" if ready else "NO"}'); return summary
 
 def main():
     parser=argparse.ArgumentParser(); parser.add_argument('--refresh',action='store_true'); args=parser.parse_args()
     if not args.refresh: parser.error('Use --refresh')
     refresh_registry()
 if __name__=='__main__': main()
+

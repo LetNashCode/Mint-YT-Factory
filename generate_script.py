@@ -1089,8 +1089,26 @@ def generate_script(topic, config, research=None, extra_feedback=""):
             hook_check = score_hook((entertainment.get("scene_plan") or [{}])[0].get("narration", ""))
             print(
                 f"🪝 Deterministic hook check: {hook_check['score']}/10 "
-                f"({hook_check['word_count']} words; advisory, not a virality prediction)"
+                f"({hook_check['word_count']} words; heuristic quality gate, not a virality prediction)"
             )
+            # Hard pre-publish hook gate: generic openings and weak deterministic
+            # scores are rejected before visual generation. The existing LLM critic
+            # remains a second independent gate and still requires hook_score >= 8.
+            hook_text = _clean((entertainment.get("scene_plan") or [{}])[0].get("narration", ""))
+            generic_opening = any(hook_text.lower().startswith(prefix) for prefix in BANNED_LECTURE_PHRASES)
+            hook_failures = []
+            if hook_check["score"] < 7:
+                hook_failures.append(f"deterministic hook score {hook_check['score']}/10 is below 7")
+            if generic_opening:
+                hook_failures.append("opening uses a banned lecture/announcement phrase")
+            if hook_check["word_count"] > 22:
+                hook_failures.append("opening is longer than 22 words")
+            if hook_failures:
+                raise RuntimeError(
+                    "Opening-hook quality gate rejected narration: "
+                    + "; ".join(hook_failures)
+                    + ". Rewrite the first sentence with a concrete observable moment, a clear curiosity gap, and immediate topic relevance."
+                )
             _validate_retired_subject_bleed(" ".join(str(s.get("narration") or "") for s in entertainment.get("scene_plan") or []), "narration")
             _validate_no_future_topic_in_story(entertainment, topic)
             print(f"🎭 Entertainment writer pass: {word_count} words")

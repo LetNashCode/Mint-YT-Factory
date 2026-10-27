@@ -345,7 +345,7 @@ def run(dry_run=False):
         "hook_score_components": hook_quality.get("components", {}),
         "script_word_count": _word_count(scene_narration),
         "planned_duration_seconds": sum(int(scene.get("duration_seconds") or 0) for scene in (script.get("scene_plan") or [])) or 38,
-        "creative_strategy": str((script.get("learning_experiment") or {}).get("strategy_id") or ""),
+        "creative_strategy": str((script.get("learning_experiment") if isinstance(script.get("learning_experiment"), dict) else {}).get("strategy_id") or ""),
         "published_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
     }
     publish_state.update({

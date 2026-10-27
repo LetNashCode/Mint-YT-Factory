@@ -58,6 +58,28 @@ def _words(text):
     return re.findall(r"\b[\w'-]+\b", _clean(text))
 
 
+def validate_opening_hook(text):
+    """Hard, explainable pre-publish gate for the first spoken sentence."""
+    hook = _clean(text)
+    result = score_hook(hook)
+    failures = []
+    if result["score"] < 7:
+        failures.append(f"deterministic hook score {result['score']}/10 is below 7")
+    if not hook:
+        failures.append("opening narration is empty")
+    if any(hook.lower().startswith(prefix) for prefix in BANNED_LECTURE_PHRASES):
+        failures.append("opening uses a banned lecture/announcement phrase")
+    if result["word_count"] > 22:
+        failures.append("opening is longer than 22 words")
+    if failures:
+        raise RuntimeError(
+            "Opening-hook quality gate rejected narration: "
+            + "; ".join(failures)
+            + ". Rewrite the first sentence with a concrete observable moment, a clear curiosity gap, and immediate topic relevance."
+        )
+    return result
+
+
 def _api_key():
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
@@ -1095,20 +1117,7 @@ def generate_script(topic, config, research=None, extra_feedback=""):
             # scores are rejected before visual generation. The existing LLM critic
             # remains a second independent gate and still requires hook_score >= 8.
             hook_text = _clean((entertainment.get("scene_plan") or [{}])[0].get("narration", ""))
-            generic_opening = any(hook_text.lower().startswith(prefix) for prefix in BANNED_LECTURE_PHRASES)
-            hook_failures = []
-            if hook_check["score"] < 7:
-                hook_failures.append(f"deterministic hook score {hook_check['score']}/10 is below 7")
-            if generic_opening:
-                hook_failures.append("opening uses a banned lecture/announcement phrase")
-            if hook_check["word_count"] > 22:
-                hook_failures.append("opening is longer than 22 words")
-            if hook_failures:
-                raise RuntimeError(
-                    "Opening-hook quality gate rejected narration: "
-                    + "; ".join(hook_failures)
-                    + ". Rewrite the first sentence with a concrete observable moment, a clear curiosity gap, and immediate topic relevance."
-                )
+            hook_check = validate_opening_hook(hook_text)
             _validate_retired_subject_bleed(" ".join(str(s.get("narration") or "") for s in entertainment.get("scene_plan") or []), "narration")
             _validate_no_future_topic_in_story(entertainment, topic)
             print(f"🎭 Entertainment writer pass: {word_count} words")

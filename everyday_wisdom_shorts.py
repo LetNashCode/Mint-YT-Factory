@@ -311,6 +311,14 @@ def generate_story():
         + "\n".join(f"- {item}" for item in publish_values[-160:])
         if publish_values else "\nNo Publish Shorts topic ledger available.\n"
     )
+    try:
+        from retention_learning import build_retention_guidance
+        retention_learning_block = build_retention_guidance("wisdom")
+        print("🧠 Wisdom retention evidence attached to script prompt.")
+    except Exception as exc:
+        retention_learning_block = ""
+        print(f"Retention learning unavailable; continuing safely: {exc}")
+
     base_prompt = """
 You are the dedicated WRITER for the channel format WISDOM SHORTS. This format is
 deliberately separate from Publish Shorts: never write broad viral trivia, strange
@@ -380,7 +388,7 @@ chronologically. Each query is 3-7 words and depicts a concrete object, action,
 person, or setting relevant to that spoken beat. No generic filler such as
 "american lifestyle", "happy family", "person thinking", "stock footage", or
 "everyday life". Do not imply visuals can prove a historical claim.
-""" + history_block + publish_history_block + performance_guidance()
+""" + history_block + publish_history_block + performance_guidance() + "\n" + retention_learning_block
 
     # More attempts are useful only when each one explores a meaningfully different
     # cultural lane. Avoid letting the model fall back to idiom etymology trivia.

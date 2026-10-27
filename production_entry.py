@@ -13,7 +13,7 @@ from story_quality_gate import patch_story_generation
 
 MIN_NARRATION_SECONDS = 35.0
 MAX_NARRATION_SECONDS = 44.95
-MAX_SHORT_TTS_REGEN = 3
+MAX_SHORT_TTS_REGEN = 5
 COMPLETED_PUBLICATIONS = Path("completed_publications.json")
 
 
@@ -547,15 +547,27 @@ def _patch_tts_duration(main):
                     f"Narration duration remained outside production range after {MAX_SHORT_TTS_REGEN} regeneration attempts: {duration:.2f}s "
                     f"(allowed {MIN_NARRATION_SECONDS:.2f}-{MAX_NARRATION_SECONDS:.2f}s)."
                 )
-            direction = (
-                f"The previous narration rendered at {duration:.2f} seconds and is TOO LONG. Keep the CURRENT TOPIC and payoff but tighten the core narration toward 105-120 core words plus the locked continuation bridge. Remove filler and repeated explanation."
-                if duration > MAX_NARRATION_SECONDS
-                else f"The previous narration rendered at {duration:.2f} seconds and is TOO SHORT. Expand the CURRENT TOPIC explanation substantially: target roughly 105-120 core words plus the locked continuation bridge, for about 120-140 total spoken words. Add concrete everyday details, mechanism, escalation, and payoff; never add a second topic or filler."
-            )
+            if duration > MAX_NARRATION_SECONDS:
+                direction = (
+                    f"The previous narration rendered at {duration:.2f} seconds and is TOO LONG. "
+                    "Keep the CURRENT TOPIC and payoff but tighten the narration. Target 125-145 total spoken words after the locked continuation bridge."
+                )
+            else:
+                # A fixed 105-120-word target under-shot the duration gate in production.
+                # Scale the requested length from the measured audio duration so each
+                # retry makes a meaningful correction instead of repeating the same short script.
+                target_words = max(155, min(205, round(135 * 40.0 / max(duration, 1.0))))
+                direction = (
+                    f"The previous narration rendered at {duration:.2f} seconds and is TOO SHORT. "
+                    f"Substantially expand the CURRENT TOPIC story toward {target_words}-{min(215, target_words + 15)} "
+                    "total spoken words INCLUDING the continuation bridge. Do not solve this with faster speaking. "
+                    "Add a concrete opening observation, step-by-step cause and effect, a second everyday example, "
+                    "and a satisfying payoff. Every sentence must add new information."
+                )
             feedback = (
                 f"{direction} CURRENT TOPIC: {topic!r}. The canonical next topic is locked as metadata: {current_next!r}. "
                 "Write only the current-topic story. Do not add any continuation sentence; the pipeline appends the preview separately after generation. "
-                "For a short-duration recovery, target enough substance to produce roughly 120-140 total spoken words after the canonical bridge is restored."
+                "For short-duration recovery, materially increase the actual narrated scene text; do not merely change metadata, scene labels, or visual prompts."
             )
             try:
                 candidate = main.generate_script(topic, config, None, extra_feedback=feedback)

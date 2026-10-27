@@ -3,8 +3,7 @@ name: Wisdom Shorts
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: "30 12 * * *"
-    - cron: "30 15 * * *"
+    - cron: "30 12 * * *" # 6:00 PM IST
 
 permissions:
   contents: write

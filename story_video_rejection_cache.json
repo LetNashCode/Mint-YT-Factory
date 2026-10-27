@@ -9554,6 +9554,60 @@
       "start": 15.31,
       "reason": "The frames show a static or poorly edited photo montage/transition with a double-exposure effect rather than genuine moving archival footage.",
       "reviewed_at": 1793049373.9733446
+    },
+    "0feb6492b981aabc7219bdb1": {
+      "kind": "segment_rejection",
+      "source_id": "commons:82812902",
+      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm",
+      "person": "A.P.J. Abdul Kalam",
+      "start": 155.32,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793119746.8510244
+    },
+    "328e728acab570199b9ab648": {
+      "kind": "segment_rejection",
+      "source_id": "commons:82812902",
+      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm",
+      "person": "A.P.J. Abdul Kalam",
+      "start": 211.69,
+      "reason": "The sampled frames show A.P.J. Abdul Kalam in the first two frames, but the remaining frames and the later portion of the video depict his funeral attended by Pranab Mukherjee and military personnel. The subject (A.P.J. Abdul Kalam) is not visible in the majority of the frames, and the footage mixes unrelated archive events, making it unsuitable as direct identity or event footage for the named person.",
+      "reviewed_at": 1793119787.985213
+    },
+    "444ae142cb6df627e29af84e": {
+      "kind": "segment_rejection",
+      "source_id": "commons:82812902",
+      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm",
+      "person": "A.P.J. Abdul Kalam",
+      "start": 230.48,
+      "reason": "static frames/no detectable motion",
+      "reviewed_at": 1793119791.019031
+    },
+    "7e909f4cb163af60bb8eb63f": {
+      "kind": "segment_rejection",
+      "source_id": "commons:82812902",
+      "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm",
+      "person": "A.P.J. Abdul Kalam",
+      "start": 249.27,
+      "reason": "The sampled frames consist entirely of text showing Wikipedia reference lists and URLs, with no actual filmed footage or visual depiction of A.P.J. Abdul Kalam.",
+      "reviewed_at": 1793119818.5678105
+    },
+    "348623b9f3f85de3186d83c7": {
+      "kind": "segment_rejection",
+      "source_id": "archive:steve-wozniak-computing",
+      "source_url": "https://archive.org/details/steve-wozniak-computing",
+      "person": "Steve Wozniak",
+      "start": 5.0,
+      "reason": "The sampled frames only show a title card reading 'THE WOZ!' with color glitches and no actual footage of Steve Wozniak.",
+      "reviewed_at": 1793120030.934435
+    },
+    "8eab60965fe23b45493a57b0": {
+      "kind": "segment_rejection",
+      "source_id": "archive:Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer",
+      "source_url": "https://archive.org/details/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer",
+      "person": "Steve Wozniak",
+      "start": 532.58,
+      "reason": "The video segment shows genuine interview footage of Steve Wozniak speaking. However, because it is a talking-head interview segment and does not directly depict the specific historical events narrated, it serves as biographical illustration rather than direct event footage.",
+      "reviewed_at": 1793120324.861369
     }
   }
 }

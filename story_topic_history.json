@@ -310,5 +310,13 @@
     "title": "The Decision That Changed Everything: Rosa Parks",
     "video_id": "BG8pfRtf2AM",
     "workdir": "output/interactive/1793049477"
+  },
+  {
+    "topic": "Steve Wozniak: Designing unauthorized phone-hacking devices as a teenager before co-founding Apple Computer.",
+    "pillar": "before_they_were_famous",
+    "person": "Steve Wozniak",
+    "title": "Before the Fame: Steve Wozniak",
+    "video_id": "uViLxhQaqrU",
+    "workdir": "output/interactive/1793120415"
   }
 ]

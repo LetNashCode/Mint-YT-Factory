@@ -500,5 +500,21 @@
     "video_id": "BG8pfRtf2AM",
     "workdir": "",
     "published_at": 1793050109
+  },
+  {
+    "topic": "Steve Wozniak: Designing unauthorized phone-hacking devices as a teenager before co-founding Apple Computer.",
+    "normalized": "steve wozniak designing unauthorized phone hacking devices as a teenager before co founding apple computer",
+    "workflow": "story",
+    "status": "published",
+    "reserved_at": 1793119980,
+    "recorded_at": 1793119980,
+    "metadata": {
+      "person": "Steve Wozniak",
+      "pillar": "before_they_were_famous"
+    },
+    "title": "Steve Wozniak: Designing unauthorized phone-hacking devices as a teenager before co-founding Apple Computer.",
+    "video_id": "uViLxhQaqrU",
+    "workdir": "",
+    "published_at": 1793120973
   }
 ]

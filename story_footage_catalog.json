@@ -2,502 +2,6 @@
   "schema_version": 1,
   "segments": [
     {
-      "person": "Pelé",
-      "source": {
-        "id": "archive:pele-le-roi-tele-sahel-4-15-2026-incomplete",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/pele-le-roi-tele-sahel-4-15-2026-incomplete/Pel%C3%A9%20Le%20Roi%20%28April%2015%2C%202026%20T%C3%A9l%C3%A9%20Sahel%20airing%29%20%28partial%29.mp4",
-        "source_url": "https://archive.org/details/pele-le-roi-tele-sahel-4-15-2026-incomplete",
-        "title": "Pelé: Le Roi (April 15, 2026 Télé Sahel Airing) (partial)",
-        "description": "Documentary that aired on Télé Sahel. Une documentaire diffusée par Télé Sahel. ['Office de radiodiffusion et Télévision du Niger', 'Office of Radio and Television of Niger', 'Radio Television of Niger', 'Radio Télévision du Niger', 'RTN', 'ORTN', 'documentaire', 'documentary', 'old', '2010s', 'années 2010', '2000s', 'années 2000']",
-        "creator": "",
-        "license": "",
-        "subject": "['Office de radiodiffusion et Télévision du Niger', 'Office of Radio and Television of Niger', 'Radio Television of Niger', 'Radio Télévision du Niger', 'RTN', 'ORTN', 'documentaire', 'documentary', 'old', '2010s', 'années 2010', '2000s', 'années 2000']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3175.366667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 491.36,
-      "length": 8.0,
-      "verification": {
-        "person_visible": false,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage shows archival moving images of a historical football match matching the subject's career, but the named subject Pelé is not clearly visible across all three frames (frame 1 shows an unidentified speaker/presenter, while frames 2 and 3 show distant football action where players are not identifiable as Pelé). Therefore, person_visible is false, but it qualifies as usable historical context (direct_event).",
-        "usage": "direct_event"
-      },
-      "review_key": "1d6aaa1bfa379d83cad65f71caf167e3688afe89747cf1bf98b01a6db1ecaa1a",
-      "reviewed_at": 1791577291.9611914
-    },
-    {
-      "person": "Pelé",
-      "source": {
-        "id": "archive:pele-video",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/pele-video/pele%20video.mp4",
-        "source_url": "https://archive.org/details/pele-video",
-        "title": "Pele Video",
-        "description": "pele goles ['mundial', 'goles', 'pele']",
-        "creator": "Caleb Alvarez",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['mundial', 'goles', 'pele']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 807.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 5.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage clearly shows Pelé across all three frames (playing football in the first two and in archival black and white footage in the third), directly illustrating his life and career as narrated.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "576d1432f8cb0703e4d574c0715ad136d644e987bd0265bf30580de7c481ce55",
-      "reviewed_at": 1791577306.1428025
-    },
-    {
-      "person": "Pelé",
-      "source": {
-        "id": "archive:pele-le-roi-tele-sahel-4-15-2026-incomplete",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/pele-le-roi-tele-sahel-4-15-2026-incomplete/Pel%C3%A9%20Le%20Roi%20%28April%2015%2C%202026%20T%C3%A9l%C3%A9%20Sahel%20airing%29%20%28partial%29.mp4",
-        "source_url": "https://archive.org/details/pele-le-roi-tele-sahel-4-15-2026-incomplete",
-        "title": "Pelé: Le Roi (April 15, 2026 Télé Sahel Airing) (partial)",
-        "description": "Documentary that aired on Télé Sahel. Une documentaire diffusée par Télé Sahel. ['Office de radiodiffusion et Télévision du Niger', 'Office of Radio and Television of Niger', 'Radio Television of Niger', 'Radio Télévision du Niger', 'RTN', 'ORTN', 'documentaire', 'documentary', 'old', '2010s', 'années 2010', '2000s', 'années 2000']",
-        "creator": "",
-        "license": "",
-        "subject": "['Office de radiodiffusion et Télévision du Niger', 'Office of Radio and Television of Niger', 'Radio Television of Niger', 'Radio Télévision du Niger', 'RTN', 'ORTN', 'documentaire', 'documentary', 'old', '2010s', 'années 2010', '2000s', 'années 2000']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3175.366667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 734.55,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage shows historical archive moving footage depicting Pelé being helped or celebrating on the pitch, providing relevant biographical illustration.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "9539ab0f110845c9d28f388d1786f0076da8954e438f2a77183482b5cf37be3e",
-      "reviewed_at": 1791577328.709719
-    },
-    {
-      "person": "Pelé",
-      "source": {
-        "id": "archive:pele-video",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/pele-video/pele%20video.mp4",
-        "source_url": "https://archive.org/details/pele-video",
-        "title": "Pele Video",
-        "description": "pele goles ['mundial', 'goles', 'pele']",
-        "creator": "Caleb Alvarez",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['mundial', 'goles', 'pele']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 807.0,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 66.0,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The archival footage clearly shows Pelé across all three frames, depicting him during his youth and professional career, making it directly relevant and usable biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "36c411ff25e8aa37f48227f109871f6dd5d079a64bd060bbf7b1710b42c43193",
-      "reviewed_at": 1791577338.6272986
-    },
-    {
-      "person": "Pelé",
-      "source": {
-        "id": "archive:pele-le-roi-tele-sahel-4-15-2026-incomplete",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/pele-le-roi-tele-sahel-4-15-2026-incomplete/Pel%C3%A9%20Le%20Roi%20%28April%2015%2C%202026%20T%C3%A9l%C3%A9%20Sahel%20airing%29%20%28partial%29.mp4",
-        "source_url": "https://archive.org/details/pele-le-roi-tele-sahel-4-15-2026-incomplete",
-        "title": "Pelé: Le Roi (April 15, 2026 Télé Sahel Airing) (partial)",
-        "description": "Documentary that aired on Télé Sahel. Une documentaire diffusée par Télé Sahel. ['Office de radiodiffusion et Télévision du Niger', 'Office of Radio and Television of Niger', 'Radio Television of Niger', 'Radio Télévision du Niger', 'RTN', 'ORTN', 'documentaire', 'documentary', 'old', '2010s', 'années 2010', '2000s', 'années 2000']",
-        "creator": "",
-        "license": "",
-        "subject": "['Office de radiodiffusion et Télévision du Niger', 'Office of Radio and Television of Niger', 'Radio Television of Niger', 'Radio Télévision du Niger', 'RTN', 'ORTN', 'documentaire', 'documentary', 'old', '2010s', 'années 2010', '2000s', 'années 2000']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 3175.366667,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 1220.91,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The frames clearly depict Pelé playing soccer on the field in archival match footage, making him visible across all three frames and serving as direct event footage of his career.",
-        "usage": "direct_event"
-      },
-      "review_key": "f87bc982cb9ed99b0fccaaf61b9e27d97869255f3872ef1ebe5489dc8fe327fe",
-      "reviewed_at": 1791577379.7196674
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1642939444922818560",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1642939444922818560/1642924928461848578.mp4",
-        "source_url": "https://archive.org/details/twitter-1642939444922818560",
-        "title": "Walt Disney Studios - JUST ANNOUNCED: From Dwayne Johnson and Auli’i Cravalho, a live-action reimagining of Disney’s Moana is in the works!",
-        "description": "JUST ANNOUNCED: From Dwayne Johnson and Auli’i Cravalho, a live-action reimagining of Disney’s Moana is in the works! https://t.co/4rQXLSJ5Zn ['Twitter', 'video']",
-        "creator": "Walt Disney Studios",
-        "license": "",
-        "subject": "['Twitter', 'video']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 128.128,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 90.6,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Dwyane Johnson is clearly visible across all three frames in actual moving footage, serving as biographical illustration for a video segment about his life and career.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "8b923116f68f969482d1850553afca1ddaa45e8ac887d9ec0afdd7cd04d20678",
-      "reviewed_at": 1791581389.3893647
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1592586083484651521",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
-        "source_url": "https://archive.org/details/twitter-1592586083484651521",
-        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
-        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "creator": "Dwayne Johnson",
-        "license": "",
-        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 359.01,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 31.54,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "Dwayne Johnson is clearly visible in all three frames speaking inside a vehicle, serving as usable biographical illustration of the subject.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "8fd671c0d4bd9b72abd4e7ac2549989ed4dde57c8f782e35693068dfa3875cb0",
-      "reviewed_at": 1791581447.945539
-    },
-    {
-      "person": "Dwayne Johnson",
-      "source": {
-        "id": "archive:twitter-1592586083484651521",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/twitter-1592586083484651521/1592586083484651521.mp4",
-        "source_url": "https://archive.org/details/twitter-1592586083484651521",
-        "title": "Dwayne Johnson - #BlackAdam appreciation ☑️⚡️ #BlackPanther congrats ☑️ 💐 #XFLDraft TOMORROW ☑️ 🏈 Procrastinating in my pick up truck when my ass should be working ☑️🤣🛻👊🏾",
-        "description": " ['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "creator": "Dwayne Johnson",
-        "license": "",
-        "subject": "['Twitter', 'video', 'BlackAdam', 'BlackPanther', 'XFLDraft']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 359.01,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 84.62,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage clearly shows Dwayne Johnson speaking directly to the camera from his pickup truck, making it suitable as biographical illustration material.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "e2d4fef8df2c4f8c48983608dacdd512ebfeb8c77ec36798737cac141bea31b3",
-      "reviewed_at": 1791581473.5969572
-    },
-    {
-      "person": "J.K. Rowling",
-      "source": {
-        "id": "archive:NimrodTrollsJKRowling",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/NimrodTrollsJKRowling/Nimrod%20Trolls%20JK%20Rowling%20%5BS9OXplAb6Vk%5D.mp4",
-        "source_url": "https://archive.org/details/NimrodTrollsJKRowling",
-        "title": "Nimrod Trolls JK Rowling",
-        "description": "VICE's resident trolling mastermind Nimrod Kamer messes with J.K. Rowling at her own book signing. Created by Nimrod Kamer (@nnimrodd) & William Pine. Check out more Nimrod here: [URL REMOVED] Follow Nimrod on Twitter: [URL REMOVED] Check out the Best of VICE here: [URL REMOVED] Subscribe to VICE here! [URL REMOVED] Check out our full video catalog: [URL REMOVED] Videos, daily editorial and more: [URL REMOVED] Like VICE on Facebook: [URL REMOVED] Follow VICE on Twitter: [URL REMOVED] Read our tumblr: [URL REMOVED] ",
-        "creator": "VICE",
-        "license": "",
-        "subject": "",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 216.64,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 20.59,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The video shows real archival footage of J.K. Rowling at her book signing event (visible clearly in the third frame behind the desk signing books, while the first two show the crowd and the prankster Nimrod Kamer approaching). It provides good biographical illustration context for her career and public appearances.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "4814c1b0fcf303c0cddc9dec3150e9d27d33028cd97c6687e431e9fd44e9692c",
-      "reviewed_at": 1791582204.2309754
-    },
-    {
-      "person": "Amitabh Bachchan",
-      "source": {
-        "id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD/AMITABH%20BACHCHAN%20LAUNCH%20HIMESH%20%26%20LULIA%20VANTUR%20MUSIC%20ALBUM%20AAP%20SE%20MAUSIIQUII%20%20HD.mp4",
-        "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
-        "title": "Amitabh Bachchan unveils Himesh Reshammiya's album 'Aap Se Mausiiquii'",
-        "description": "Amitabh Bachchan launched Himesh Reshammiya's new album 'Aap Se Mausiiquii' along with Iulia Vantur, Alankrita Sahai and Manoj Muntashir. ['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
-        "creator": "",
-        "license": "",
-        "subject": "['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 165.6,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 86.63,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 6,
-        "reason": "The named person, Amitabh Bachchan, is clearly visible across all three frames at an event, providing valid biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "6c577a44e15fb29703ce4fa37b21bd2762c89d71f85338968c5ca152bd47fc39",
-      "reviewed_at": 1791620342.1990788
-    },
-    {
-      "person": "Amitabh Bachchan",
-      "source": {
-        "id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD/AMITABH%20BACHCHAN%20LAUNCH%20HIMESH%20%26%20LULIA%20VANTUR%20MUSIC%20ALBUM%20AAP%20SE%20MAUSIIQUII%20%20HD.mp4",
-        "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
-        "title": "Amitabh Bachchan unveils Himesh Reshammiya's album 'Aap Se Mausiiquii'",
-        "description": "Amitabh Bachchan launched Himesh Reshammiya's new album 'Aap Se Mausiiquii' along with Iulia Vantur, Alankrita Sahai and Manoj Muntashir. ['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
-        "creator": "",
-        "license": "",
-        "subject": "['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 165.6,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 39.98,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "Amitabh Bachchan is clearly visible across all three frames attending the album launch event, providing good biographical illustration footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "5c9c52a621b27fc1799857d695b3814b9f4d088773387a178c9a5a0a9e5d756c",
-      "reviewed_at": 1791620512.6101472
-    },
-    {
-      "person": "Amitabh Bachchan",
-      "source": {
-        "id": "archive:AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD/AMITABH%20BACHCHAN%20LAUNCH%20HIMESH%20%26%20LULIA%20VANTUR%20MUSIC%20ALBUM%20AAP%20SE%20MAUSIIQUII%20%20HD.mp4",
-        "source_url": "https://archive.org/details/AMITABHBACHCHANLAUNCHHIMESHLULIAVANTURMUSICALBUMAAPSEMAUSIIQUIIHD",
-        "title": "Amitabh Bachchan unveils Himesh Reshammiya's album 'Aap Se Mausiiquii'",
-        "description": "Amitabh Bachchan launched Himesh Reshammiya's new album 'Aap Se Mausiiquii' along with Iulia Vantur, Alankrita Sahai and Manoj Muntashir. ['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
-        "creator": "",
-        "license": "",
-        "subject": "['Amitabh Bachchan', 'Aap Se Mausiiquii', 'Himesh Reshammiya', 'Iulia Vantur', 'Alankrita Sahai', 'Manoj Muntashir']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 165.6,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 98.29,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 7,
-        "reason": "The footage clearly shows Amitabh Bachchan speaking at an event, serving as good biographical illustration of his public appearances, although it is not archival footage of his early career or major historical film events.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "1307be903a28ada0a6996d52d49527fa068ebb2dbc8487638344ca2b0418007d",
-      "reviewed_at": 1791620568.1954484
-    },
-    {
-      "person": "A. R. Rahman",
-      "source": {
-        "id": "archive:a-r-rahman-us-show",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/a-r-rahman-us-show/A%20R%20Rahman%20US%20show.mp4",
-        "source_url": "https://archive.org/details/a-r-rahman-us-show",
-        "title": "A R Rahman US Show",
-        "description": "A R Rahman US Show Los Angeles 2000 On October 8th, 2000, the Cow Palace in San Francisco was the epicenter as Rahman took the stage, captivating the crowd with his soulful compositions leaving the audience in awe of his musical prowess https://rahmaniac.com/interviews/01-05/2001/san-francisco-ar-rahman-concert/ A R Rahman",
-        "creator": "",
-        "license": "",
-        "subject": "A R Rahman",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 2964.094467,
-        "identity_score": 13.0,
-        "archival_signal": 0
-      },
-      "start": 2274.3,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The footage shows A. R. Rahman performing on stage in all three frames, matching the archival context of his US show.",
-        "usage": "direct_event"
-      },
-      "review_key": "14f7b18fa7e37c14dc24df5f27c8f0bbed1f0e1b3ce2187756f6ef35f82d4a30",
-      "reviewed_at": 1791620955.7889833
-    },
-    {
-      "person": "J. R. R. Tolkien",
-      "source": {
-        "id": "archive:j.-r.-r.-tolkien-1962-interview-subtitles",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/j.-r.-r.-tolkien-1962-interview-subtitles/J.R.R.%20Tolkien%201962%20interview%20%28subtitles%29.ia.mp4",
-        "source_url": "https://archive.org/details/j.-r.-r.-tolkien-1962-interview-subtitles",
-        "title": "J. R. R. Tolkien 1962 Interview (subtitles)",
-        "description": "Short interview by John Bowen with J.R.R. Tolkien for the BBC programme Bookstand in 1962. ['Tolkien', 'God', 'Creator']",
-        "creator": "BBC Archive",
-        "license": "https://creativecommons.org/publicdomain/mark/1.0/",
-        "subject": "['Tolkien', 'God', 'Creator']",
-        "runtime": "",
-        "direct_subject": true,
-        "duration_hint": 386.96,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 205.82,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 10,
-        "reason": "The frames clearly show the actual J.R.R. Tolkien in authentic archival interview footage from 1952/1962, remaining visible across all three frames.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "751dcea6de61ba38aca9b510d7b169a1c308d4d231aa589a8e0ead8f2d004716",
-      "reviewed_at": 1791622176.3628392
-    },
-    {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise/Cameron7.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceAllowedToProceedOnAPromise",
-        "title": "James Cameron Tar Sands Press Conference: Allowed to Proceed on a Promise",
-        "description": "http://www.tarsandstour.com - James Cameron explains the pitfalls of tar sands mine land reclamation (unproven and very expensive) and criticizes the idea that companies should be allowed to \"proceed on a promise,\" when it will be our children left to make sure that the companies \"make good\" on their promises. ['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "creator": "tarsandstour",
-        "license": "",
-        "subject": "['James Cameron', 'oil sands', 'tar sands', 'alberta', 'canada', 'climate change', 'pollution', 'avatar', 'tailing pongs', 'global warming']",
-        "runtime": "1:54",
-        "direct_subject": true,
-        "duration_hint": 114.364364,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 59.74,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 8,
-        "reason": "The footage clearly shows James Cameron speaking at a podium during a press conference about tar sands and environmental issues, providing relevant biographical illustration of his activism.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "131727e21ea363caebb6ff90e465d40334ed9bbc87899e1be930de2d241c0368",
-      "reviewed_at": 1791622507.4754062
-    },
-    {
-      "person": "James Cameron",
-      "source": {
-        "id": "archive:JamesCameronTarSandsPressConferenceoutsider",
-        "provider": "Internet Archive",
-        "url": "https://archive.org/download/JamesCameronTarSandsPressConferenceoutsider/Cameron1.mp4",
-        "source_url": "https://archive.org/details/JamesCameronTarSandsPressConferenceoutsider",
-        "title": "James Cameron Tar Sands Press Conference: \"Outsider\"",
-        "description": "James Cameron speaks to the media about his status as both an \"outsider\" and a Canadian in observing the tar sands - a status he thinks sharpens his observation and critique of the tar sands, and offers a fresh perspective on what needs to happen in the region. ['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
-        "creator": "tarsandstour",
-        "license": "http://creativecommons.org/licenses/by-nd/3.0/",
-        "subject": "['James Cameron', 'Cameron', 'Press Conference', 'oil', 'tar', 'tar sands', 'oil sands', 'Alberta', 'Canada', 'First Nations']",
-        "runtime": "1:34",
-        "direct_subject": true,
-        "duration_hint": 93.893894,
-        "identity_score": 13.0,
-        "archival_signal": 1
-      },
-      "start": 84.89,
-      "length": 8.0,
-      "verification": {
-        "person_visible": true,
-        "real_footage": true,
-        "usable": true,
-        "relevance": 9,
-        "reason": "The footage clearly shows James Cameron speaking at a press conference, matching the biographical illustration requirement for archival life footage.",
-        "usage": "biographical_illustration"
-      },
-      "review_key": "ab701f1d6891a09e14eaff7a5f38dff90d872e633d470450a1a50b10e3be8727",
-      "reviewed_at": 1791622577.6609452
-    },
-    {
       "person": "James Cameron",
       "source": {
         "id": "archive:JamesCameronTarSandsPressConferenceClimateChangeAndCanadasTarSands",
@@ -18588,6 +18092,496 @@
       },
       "review_key": "e3e063fdbba88e43b4edf440f82ac1d8a7f37a328b43187acc65d6b0dc325328",
       "reviewed_at": 1793049430.6973028
+    },
+    {
+      "person": "A.P.J. Abdul Kalam",
+      "source": {
+        "id": "commons:82812902",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm",
+        "title": "File:En.Wikipedia-VideoWiki-A. P. J. Abdul Kalam.webm",
+        "description": "Wikipedia:VideoWiki/A._P._J._Abdul_Kalam",
+        "creator": "See script and authors listed in details below.",
+        "license": "Public domain",
+        "direct_subject": false,
+        "identity_score": 10.0,
+        "duration_hint": 258.269
+      },
+      "start": 117.74,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The segment includes a depiction of A.P.J. Abdul Kalam on a postage stamp in the first frame, followed by historical archival imagery related to Indian defense and missile testing context. Although the subsequent frames show static aerial views of test sites, the segment provides valid biographical illustration for a documentary short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c92384bfe3f54f702cbd3050d7aaf507dc201b8ff63577669591d8ba1a06ac3f",
+      "reviewed_at": 1793119739.6809847
+    },
+    {
+      "person": "A.P.J. Abdul Kalam",
+      "source": {
+        "id": "commons:82812902",
+        "provider": "Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "source_url": "https://commons.wikimedia.org/wiki/File:En.Wikipedia-VideoWiki-A._P._J._Abdul_Kalam.webm",
+        "title": "File:En.Wikipedia-VideoWiki-A. P. J. Abdul Kalam.webm",
+        "description": "Wikipedia:VideoWiki/A._P._J._Abdul_Kalam",
+        "creator": "See script and authors listed in details below.",
+        "license": "Public domain",
+        "direct_subject": false,
+        "identity_score": 10.0,
+        "duration_hint": 258.269
+      },
+      "start": 174.11,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video footage shows A.P.J. Abdul Kalam speaking at a podium before an audience, with clear identity and good archival context. The final frame goes dark, but the initial frames clearly depict the subject.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "154550d66ec29af71dc4f9fbe3b0ebaa9f48d32b0c3a89b7a8e1ba91e407b8fd",
+      "reviewed_at": 1793119750.3804197
+    },
+    {
+      "person": "Steve Wozniak",
+      "source": {
+        "id": "archive:steve-wozniak-computing",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/steve-wozniak-computing/Rare%20video%20of%20Steve%20Wozniak%20from%201984%20talking%20about%20computing%2C%20joining%20Apple%20and%20the%20Mac.mp4",
+        "source_url": "https://archive.org/details/steve-wozniak-computing",
+        "title": "Steve Wozniak talking about computing, etc",
+        "description": "steve wozniak at the cleveland apple club, from 1984 ['apple', 'computing', 'steve wozniak', 'apple computer', 'interview', 'video']",
+        "creator": "",
+        "license": "",
+        "subject": "['apple', 'computing', 'steve wozniak', 'apple computer', 'interview', 'video']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6581.975,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 3541.6,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features genuine archival footage of Steve Wozniak speaking at the Cleveland Apple Club in 1984, making it relevant biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "6d6dc757e7a6ae75f205bc6411a5b1ac913246656d629d7315bb71f759f12fc7",
+      "reviewed_at": 1793119986.2533944
+    },
+    {
+      "person": "Steve Wozniak",
+      "source": {
+        "id": "archive:Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer.mp4",
+        "source_url": "https://archive.org/details/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer",
+        "title": "Give it a name with Jennylyn - Interview with Mr. Steve Wozniak Co-Founder Of Apple Computer",
+        "description": "A dynamic interview with Mr Steve Wozniak Co-Founder of Apple Computer. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', 'Give it a name with Jennylyn', 'Steve Wozniak', 'Apple computer', 'circuits', 'lights', 'books', 'chip boards', 'integrated circuits', 'dancing with the stars', 'dancing', 'Sunnyvale', 'San Jose', 'parts', 'HP', 'growing up', 'apple', 'Jennylyn Gleave', 'Steve Jobs', 'and success.', '2011']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', 'Give it a name with Jennylyn', 'Steve Wozniak', 'Apple computer', 'circuits', 'lights', 'books', 'chip boards', 'integrated circuits', 'dancing with the stars', 'dancing', 'Sunnyvale', 'San Jose', 'parts', 'HP', 'growing up', 'apple', 'Jennylyn Gleave', 'Steve Jobs', 'and success.', '2011']",
+        "runtime": "00:28:49",
+        "direct_subject": true,
+        "duration_hint": 1728.628629,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 928.26,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment features real interview footage of Steve Wozniak, clearly visible and speaking, serving as valid biographical illustration for a short about his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "98357c9553ed5b17bc9a45e9ec32620ecff69c852c10bdc56f000b87eab45ef7",
+      "reviewed_at": 1793120007.351732
+    },
+    {
+      "person": "Steve Wozniak",
+      "source": {
+        "id": "archive:steve-wozniak-computing",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/steve-wozniak-computing/Rare%20video%20of%20Steve%20Wozniak%20from%201984%20talking%20about%20computing%2C%20joining%20Apple%20and%20the%20Mac.mp4",
+        "source_url": "https://archive.org/details/steve-wozniak-computing",
+        "title": "Steve Wozniak talking about computing, etc",
+        "description": "steve wozniak at the cleveland apple club, from 1984 ['apple', 'computing', 'steve wozniak', 'apple computer', 'interview', 'video']",
+        "creator": "",
+        "license": "",
+        "subject": "['apple', 'computing', 'steve wozniak', 'apple computer', 'interview', 'video']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6581.975,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 510.23,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8.5,
+        "reason": "The video segment features real archival footage of Steve Wozniak speaking at a podium in 1984, making it relevant biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "226f35e30dee3941ba82238f39f7b4f8ae8fe0a70189d0606d4c20cedbf088ab",
+      "reviewed_at": 1793120035.9742656
+    },
+    {
+      "person": "Steve Wozniak",
+      "source": {
+        "id": "archive:Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer.mp4",
+        "source_url": "https://archive.org/details/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer",
+        "title": "Give it a name with Jennylyn - Interview with Mr. Steve Wozniak Co-Founder Of Apple Computer",
+        "description": "A dynamic interview with Mr Steve Wozniak Co-Founder of Apple Computer. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', 'Give it a name with Jennylyn', 'Steve Wozniak', 'Apple computer', 'circuits', 'lights', 'books', 'chip boards', 'integrated circuits', 'dancing with the stars', 'dancing', 'Sunnyvale', 'San Jose', 'parts', 'HP', 'growing up', 'apple', 'Jennylyn Gleave', 'Steve Jobs', 'and success.', '2011']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', 'Give it a name with Jennylyn', 'Steve Wozniak', 'Apple computer', 'circuits', 'lights', 'books', 'chip boards', 'integrated circuits', 'dancing with the stars', 'dancing', 'Sunnyvale', 'San Jose', 'parts', 'HP', 'growing up', 'apple', 'Jennylyn Gleave', 'Steve Jobs', 'and success.', '2011']",
+        "runtime": "00:28:49",
+        "direct_subject": true,
+        "duration_hint": 1728.628629,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 136.89,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features real interview footage of Steve Wozniak, clearly identifiable across all sampled frames, making it suitable for biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "048df459937f6859509230b56a8508e6c5e7e0909d4a17cf3e87adde576fc3ed",
+      "reviewed_at": 1793120082.668606
+    },
+    {
+      "person": "Steve Wozniak",
+      "source": {
+        "id": "archive:steve-wozniak-computing",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/steve-wozniak-computing/Rare%20video%20of%20Steve%20Wozniak%20from%201984%20talking%20about%20computing%2C%20joining%20Apple%20and%20the%20Mac.mp4",
+        "source_url": "https://archive.org/details/steve-wozniak-computing",
+        "title": "Steve Wozniak talking about computing, etc",
+        "description": "steve wozniak at the cleveland apple club, from 1984 ['apple', 'computing', 'steve wozniak', 'apple computer', 'interview', 'video']",
+        "creator": "",
+        "license": "",
+        "subject": "['apple', 'computing', 'steve wozniak', 'apple computer', 'interview', 'video']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6581.975,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 1015.46,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video features archival footage of Steve Wozniak speaking at the Cleveland Apple Club in 1984, making it relevant biographical illustration for a Short about his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "4a379f320b9c8d0b6c47792224f262eb5677c52d5e8c10a70fb84e7f9ea17010",
+      "reviewed_at": 1793120148.2656133
+    },
+    {
+      "person": "Steve Wozniak",
+      "source": {
+        "id": "archive:Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer.mp4",
+        "source_url": "https://archive.org/details/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer",
+        "title": "Give it a name with Jennylyn - Interview with Mr. Steve Wozniak Co-Founder Of Apple Computer",
+        "description": "A dynamic interview with Mr Steve Wozniak Co-Founder of Apple Computer. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', 'Give it a name with Jennylyn', 'Steve Wozniak', 'Apple computer', 'circuits', 'lights', 'books', 'chip boards', 'integrated circuits', 'dancing with the stars', 'dancing', 'Sunnyvale', 'San Jose', 'parts', 'HP', 'growing up', 'apple', 'Jennylyn Gleave', 'Steve Jobs', 'and success.', '2011']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', 'Give it a name with Jennylyn', 'Steve Wozniak', 'Apple computer', 'circuits', 'lights', 'books', 'chip boards', 'integrated circuits', 'dancing with the stars', 'dancing', 'Sunnyvale', 'San Jose', 'parts', 'HP', 'growing up', 'apple', 'Jennylyn Gleave', 'Steve Jobs', 'and success.', '2011']",
+        "runtime": "00:28:49",
+        "direct_subject": true,
+        "duration_hint": 1728.628629,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 5.0,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video segment features a genuine interview with Steve Wozniak, who is clearly visible and identifiable in several sampled frames. It provides useful biographical illustration footage of him talking.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e56c8d7ac5a91e2098e7b5bb338e072be9797c86fdef6eca62c964dd7f0f417a",
+      "reviewed_at": 1793120167.106828
+    },
+    {
+      "person": "Steve Wozniak",
+      "source": {
+        "id": "archive:steve-wozniak-computing",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/steve-wozniak-computing/Rare%20video%20of%20Steve%20Wozniak%20from%201984%20talking%20about%20computing%2C%20joining%20Apple%20and%20the%20Mac.mp4",
+        "source_url": "https://archive.org/details/steve-wozniak-computing",
+        "title": "Steve Wozniak talking about computing, etc",
+        "description": "steve wozniak at the cleveland apple club, from 1984 ['apple', 'computing', 'steve wozniak', 'apple computer', 'interview', 'video']",
+        "creator": "",
+        "license": "",
+        "subject": "['apple', 'computing', 'steve wozniak', 'apple computer', 'interview', 'video']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6581.975,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 1520.69,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The footage shows Steve Wozniak speaking at the Cleveland Apple Club in 1984, providing authentic biographical illustration material.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e93be464fecffed826a95d4bd39639584cec17cf8eb20aa5b01ed6735e4eeb8d",
+      "reviewed_at": 1793120186.6464198
+    },
+    {
+      "person": "Steve Wozniak",
+      "source": {
+        "id": "archive:Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer.mp4",
+        "source_url": "https://archive.org/details/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer",
+        "title": "Give it a name with Jennylyn - Interview with Mr. Steve Wozniak Co-Founder Of Apple Computer",
+        "description": "A dynamic interview with Mr Steve Wozniak Co-Founder of Apple Computer. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', 'Give it a name with Jennylyn', 'Steve Wozniak', 'Apple computer', 'circuits', 'lights', 'books', 'chip boards', 'integrated circuits', 'dancing with the stars', 'dancing', 'Sunnyvale', 'San Jose', 'parts', 'HP', 'growing up', 'apple', 'Jennylyn Gleave', 'Steve Jobs', 'and success.', '2011']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', 'Give it a name with Jennylyn', 'Steve Wozniak', 'Apple computer', 'circuits', 'lights', 'books', 'chip boards', 'integrated circuits', 'dancing with the stars', 'dancing', 'Sunnyvale', 'San Jose', 'parts', 'HP', 'growing up', 'apple', 'Jennylyn Gleave', 'Steve Jobs', 'and success.', '2011']",
+        "runtime": "00:28:49",
+        "direct_subject": true,
+        "duration_hint": 1728.628629,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 268.79,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video segment shows genuine interview footage of Steve Wozniak, making it suitable as biographical illustration for a documentary short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e064f4154f637f3a2759162b5b5a4d84752ac60f58e1ecc79667d0b1e389c52f",
+      "reviewed_at": 1793120204.7357585
+    },
+    {
+      "person": "Steve Wozniak",
+      "source": {
+        "id": "archive:steve-wozniak-computing",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/steve-wozniak-computing/Rare%20video%20of%20Steve%20Wozniak%20from%201984%20talking%20about%20computing%2C%20joining%20Apple%20and%20the%20Mac.mp4",
+        "source_url": "https://archive.org/details/steve-wozniak-computing",
+        "title": "Steve Wozniak talking about computing, etc",
+        "description": "steve wozniak at the cleveland apple club, from 1984 ['apple', 'computing', 'steve wozniak', 'apple computer', 'interview', 'video']",
+        "creator": "",
+        "license": "",
+        "subject": "['apple', 'computing', 'steve wozniak', 'apple computer', 'interview', 'video']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6581.975,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 2025.92,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video shows actual archival footage of Steve Wozniak speaking at the Cleveland Apple Club in 1984, making it highly relevant and usable as biographical illustration for a documentary short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "c1c01f000c94e4978e86096995480506abc64c5c92760709078d2392c088c541",
+      "reviewed_at": 1793120237.488547
+    },
+    {
+      "person": "Steve Wozniak",
+      "source": {
+        "id": "archive:Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer.mp4",
+        "source_url": "https://archive.org/details/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer",
+        "title": "Give it a name with Jennylyn - Interview with Mr. Steve Wozniak Co-Founder Of Apple Computer",
+        "description": "A dynamic interview with Mr Steve Wozniak Co-Founder of Apple Computer. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', 'Give it a name with Jennylyn', 'Steve Wozniak', 'Apple computer', 'circuits', 'lights', 'books', 'chip boards', 'integrated circuits', 'dancing with the stars', 'dancing', 'Sunnyvale', 'San Jose', 'parts', 'HP', 'growing up', 'apple', 'Jennylyn Gleave', 'Steve Jobs', 'and success.', '2011']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', 'Give it a name with Jennylyn', 'Steve Wozniak', 'Apple computer', 'circuits', 'lights', 'books', 'chip boards', 'integrated circuits', 'dancing with the stars', 'dancing', 'Sunnyvale', 'San Jose', 'parts', 'HP', 'growing up', 'apple', 'Jennylyn Gleave', 'Steve Jobs', 'and success.', '2011']",
+        "runtime": "00:28:49",
+        "direct_subject": true,
+        "duration_hint": 1728.628629,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 400.68,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 8,
+        "reason": "The video segment features real interview footage of Steve Wozniak discussing his life and career, clearly identifiable and suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "61fb279623626d9e6434eb156cacfe287b7cd9e0011b2f402659a132d7077e91",
+      "reviewed_at": 1793120260.2876718
+    },
+    {
+      "person": "Steve Wozniak",
+      "source": {
+        "id": "archive:steve-wozniak-computing",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/steve-wozniak-computing/Rare%20video%20of%20Steve%20Wozniak%20from%201984%20talking%20about%20computing%2C%20joining%20Apple%20and%20the%20Mac.mp4",
+        "source_url": "https://archive.org/details/steve-wozniak-computing",
+        "title": "Steve Wozniak talking about computing, etc",
+        "description": "steve wozniak at the cleveland apple club, from 1984 ['apple', 'computing', 'steve wozniak', 'apple computer', 'interview', 'video']",
+        "creator": "",
+        "license": "",
+        "subject": "['apple', 'computing', 'steve wozniak', 'apple computer', 'interview', 'video']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6581.975,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 2531.14,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The footage clearly shows Steve Wozniak speaking at a podium during a 1984 event (Cleveland Apple Club), providing authentic biographical material for a documentary or short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e674608dd3afcd9b368f58ddbf7da54465836aa70f592a133cd7218f03ace8af",
+      "reviewed_at": 1793120280.1212559
+    },
+    {
+      "person": "Steve Wozniak",
+      "source": {
+        "id": "archive:Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer.mp4",
+        "source_url": "https://archive.org/details/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer",
+        "title": "Give it a name with Jennylyn - Interview with Mr. Steve Wozniak Co-Founder Of Apple Computer",
+        "description": "A dynamic interview with Mr Steve Wozniak Co-Founder of Apple Computer. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', 'Give it a name with Jennylyn', 'Steve Wozniak', 'Apple computer', 'circuits', 'lights', 'books', 'chip boards', 'integrated circuits', 'dancing with the stars', 'dancing', 'Sunnyvale', 'San Jose', 'parts', 'HP', 'growing up', 'apple', 'Jennylyn Gleave', 'Steve Jobs', 'and success.', '2011']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', 'Give it a name with Jennylyn', 'Steve Wozniak', 'Apple computer', 'circuits', 'lights', 'books', 'chip boards', 'integrated circuits', 'dancing with the stars', 'dancing', 'Sunnyvale', 'San Jose', 'parts', 'HP', 'growing up', 'apple', 'Jennylyn Gleave', 'Steve Jobs', 'and success.', '2011']",
+        "runtime": "00:28:49",
+        "direct_subject": true,
+        "duration_hint": 1728.628629,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 664.47,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 7,
+        "reason": "The video features real interview footage of Steve Wozniak sitting and speaking with an interviewer, making it useful as biographical illustration material for a biography short.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "db196e1cfcc82588bbf0543e960a1a0cb336c292d910bde0d55272989b829218",
+      "reviewed_at": 1793120329.324911
+    },
+    {
+      "person": "Steve Wozniak",
+      "source": {
+        "id": "archive:steve-wozniak-computing",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/steve-wozniak-computing/Rare%20video%20of%20Steve%20Wozniak%20from%201984%20talking%20about%20computing%2C%20joining%20Apple%20and%20the%20Mac.mp4",
+        "source_url": "https://archive.org/details/steve-wozniak-computing",
+        "title": "Steve Wozniak talking about computing, etc",
+        "description": "steve wozniak at the cleveland apple club, from 1984 ['apple', 'computing', 'steve wozniak', 'apple computer', 'interview', 'video']",
+        "creator": "",
+        "license": "",
+        "subject": "['apple', 'computing', 'steve wozniak', 'apple computer', 'interview', 'video']",
+        "runtime": "",
+        "direct_subject": true,
+        "duration_hint": 6581.975,
+        "identity_score": 13.0,
+        "archival_signal": 2
+      },
+      "start": 3036.37,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 9,
+        "reason": "The video shows actual archival footage of Steve Wozniak speaking at the Cleveland Apple Club in 1984, making it highly relevant and usable as biographical illustration for a short about his life.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "34a1e988c024ebb14451cef285f18e41af1439bf738e83ed4af246bc6ff2906b",
+      "reviewed_at": 1793120348.763557
+    },
+    {
+      "person": "Steve Wozniak",
+      "source": {
+        "id": "archive:Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer",
+        "provider": "Internet Archive",
+        "url": "https://archive.org/download/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer.mp4",
+        "source_url": "https://archive.org/details/Give_it_a_name_with_Jennylyn_-_Interview_with_Mr._Steve_Wozniak_Co-Founder_Of_Apple_Computer",
+        "title": "Give it a name with Jennylyn - Interview with Mr. Steve Wozniak Co-Founder Of Apple Computer",
+        "description": "A dynamic interview with Mr Steve Wozniak Co-Founder of Apple Computer. ['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', 'Give it a name with Jennylyn', 'Steve Wozniak', 'Apple computer', 'circuits', 'lights', 'books', 'chip boards', 'integrated circuits', 'dancing with the stars', 'dancing', 'Sunnyvale', 'San Jose', 'parts', 'HP', 'growing up', 'apple', 'Jennylyn Gleave', 'Steve Jobs', 'and success.', '2011']",
+        "creator": "KMVT15 Community Media",
+        "license": "",
+        "subject": "['California', 'Mountain View', 'KMVT15 Community Media', 'Public Access TV', 'Community Media', 'PEG', 'Youtube', 'KMVT', 'Give it a name with Jennylyn', 'Steve Wozniak', 'Apple computer', 'circuits', 'lights', 'books', 'chip boards', 'integrated circuits', 'dancing with the stars', 'dancing', 'Sunnyvale', 'San Jose', 'parts', 'HP', 'growing up', 'apple', 'Jennylyn Gleave', 'Steve Jobs', 'and success.', '2011']",
+        "runtime": "00:28:49",
+        "direct_subject": true,
+        "duration_hint": 1728.628629,
+        "identity_score": 13.0,
+        "archival_signal": 1
+      },
+      "start": 796.37,
+      "length": 8.0,
+      "verification": {
+        "person_visible": true,
+        "real_footage": true,
+        "usable": true,
+        "relevance": 6,
+        "reason": "The video segment features real, usable interview footage of Steve Wozniak discussing his background and Apple, making it suitable as biographical illustration.",
+        "usage": "biographical_illustration"
+      },
+      "review_key": "e392a6c13e0ca8cedb40fc1fc4c0808f06f997fbe2d2e4c021bbb59e83329bf8",
+      "reviewed_at": 1793120369.9242256
     }
   ]
 }

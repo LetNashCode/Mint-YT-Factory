@@ -1,18 +1,5 @@
 [
   {
-    "format": "strange_turning_point",
-    "person": "J.K. Rowling",
-    "premise": "Writing portions of a fantasy manuscript in Edinburgh cafes while dealing with extreme financial hardship.",
-    "hook": "She wrote her first blockbuster manuscript in public cafes simply because it was warmer than her unheated apartment.",
-    "key_facts": [
-      "Lived as a single mother relying on state benefits in Edinburgh, Scotland.",
-      "Completed the first manuscript of the fantasy novel over several years during her daughter's nap times.",
-      "Rejected by a dozen publishing houses before Bloomsbury accepted the manuscript in 1996.",
-      "The book went on to launch one of the most successful literary and cinematic franchises in history."
-    ],
-    "source": "gemini_original"
-  },
-  {
     "format": "one_decision",
     "person": "Tim Berners-Lee",
     "premise": "Deciding to make the World Wide Web open-source and free for everyone instead of commercializing it.",
@@ -48,6 +35,58 @@
       "Oversaw the early-warning system for missile attacks on September 26, 1983.",
       "Computers erroneously reported that the US had launched intercontinental ballistic missiles.",
       "Decided the signal was a false alarm based on the low number of missiles detected."
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Ernest Shackleton",
+    "premise": "Keeping all 27 members of his crew alive for nearly two years after their ship was crushed by Antarctic pack ice.",
+    "hook": "His ship was completely crushed by ice floes a thousand miles from civilization, leaving his crew stranded on floating ice for months.",
+    "key_facts": [
+      "The Endurance became trapped and was eventually crushed by Antarctic ice in 1915",
+      "The crew camped on drifting ice floes for months before sailing lifeboats to Elephant Island",
+      "Shackleton and five men made an 800-mile open-boat journey to South Georgia Island for rescue",
+      "Successfully rescued every single member of the stranded expedition without a single loss of life"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "strange_turning_point",
+    "person": "J.K. Rowling",
+    "premise": "Writing the manuscript of a rejected fantasy novel in Edinburgh cafes while facing severe financial hardship.",
+    "hook": "She wrote her first breakout manuscript sitting in cafes because it was cheaper than heating her apartment.",
+    "key_facts": [
+      "Worked on the first manuscript of the fantasy series as a struggling single mother in Edinburgh",
+      "The book proposal was rejected by multiple publishing houses over several years",
+      "Bloomsbury Publishing eventually accepted the manuscript in 1996",
+      "The resulting series became one of the best-selling book franchises in human history"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "one_decision",
+    "person": "Rosa Weber",
+    "premise": "Serving a long judicial career in Brazil that culminated in her appointment as President of the Supreme Federal Court.",
+    "hook": "Faced with intense political pressure during landmark national trials, she chose strict adherence to institutional procedure over public populism.",
+    "key_facts": [
+      "Built a decades-long career as a labor judge and magistrate in Brazil",
+      "Appointed as a Justice of the Supreme Federal Court in 2011",
+      "Presided over the high court during politically sensitive constitutional cases",
+      "Served as President of the Supreme Federal Court from 2022 until her retirement"
+    ],
+    "source": "gemini_original"
+  },
+  {
+    "format": "impossible_odds",
+    "person": "Amelia Earhart",
+    "premise": "Breaking aviation records as a female pilot during an era when long-distance flight was exceptionally perilous.",
+    "hook": "When she first crossed the Atlantic by air, she wasn't allowed to touch the controls—so she vowed to fly across alone next time.",
+    "key_facts": [
+      "Became the first woman to fly solo across the Atlantic Ocean in 1932",
+      "Set multiple long-distance flight records and speed milestones during the 1930s",
+      "Faced severe mechanical and navigational challenges on early transoceanic flights",
+      "Disappeared over the central Pacific Ocean in 1937 during an attempt to circumnavigate the globe"
     ],
     "source": "gemini_original"
   }

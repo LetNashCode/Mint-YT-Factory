@@ -1143,7 +1143,15 @@ def main():
             story["topic"],
             story["title"],
             str(RUN_ROOT),
-            production_metadata={"workflow": "everyday_wisdom"},
+            production_metadata={
+                "workflow": "everyday_wisdom",
+                "hook_text": clean(story.get("narration", "").split(".")[0], 180),
+                "hook_type": "first_person_personal_discovery",
+                "story_format": "wisdom_emotional_mini_story",
+                "payoff_type": "emotional_takeaway",
+                "script_word_count": len(re.findall(r"\\b[\\w'-]+\\b", str(story.get("narration") or ""))),
+                "planned_duration_seconds": TARGET_SECONDS,
+            },
         )
     except Exception as exc:
         print(f"WARNING: Everyday Wisdom analytics registration failed: {exc}")

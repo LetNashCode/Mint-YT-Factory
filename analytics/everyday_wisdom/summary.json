@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-10-27T17:17:25.943036+00:00",
-  "refresh_attempted_at": "2026-10-27T17:17:25.943036+00:00",
+  "generated_at": "2026-10-27T18:22:01.043576+00:00",
+  "refresh_attempted_at": "2026-10-27T18:22:01.043576+00:00",
   "refresh_status": "success",
-  "video_count": 15,
+  "video_count": 16,
   "optimization_ready": true,
   "live_metrics_ready": true,
   "advanced_metrics_videos": 11,
   "reason": "",
   "totals": {
-    "views": 3747,
+    "views": 3748,
     "likes": 26,
     "comments": 0
   },
   "averages": {
-    "views": 249.8,
-    "likes": 1.73,
+    "views": 234.25,
+    "likes": 1.62,
     "comments": 0.0,
-    "average_view_percentage": 45.32,
-    "subscribers_gained": 0.27,
-    "shares": 0.07
+    "average_view_percentage": 42.49,
+    "subscribers_gained": 0.25,
+    "shares": 0.06
   },
   "top_videos": [
     {
@@ -736,6 +736,35 @@
       "video_height": null,
       "resolution": "",
       "creative_strategy": "",
+      "views": 1,
+      "views_after_24h": null,
+      "views_after_7d": null,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "average_view_duration": 0.0,
+      "average_view_percentage": 0.0,
+      "subscribers_gained": 0,
+      "subscribers_lost": 0,
+      "engagement_rate": 0.0
+    },
+    {
+      "topic": "The polite US custom of knocking or ringing the doorbell and waiting outside on the porch instead of walking right in, rooted in household privacy and boundaries.",
+      "video_id": "VzYl30zJdBc",
+      "title": "Why We Never Walked Right Into Someone's House",
+      "workflow": "everyday_wisdom",
+      "published_at": "2026-10-27T18:18:26Z",
+      "hook_text": "Growing up, my friends and I knew better than to just open someone's front door and walk right inside",
+      "hook_type": "first_person_personal_discovery",
+      "hook_score": null,
+      "hook_score_components": {},
+      "script_word_count": 101,
+      "planned_duration_seconds": 47.0,
+      "actual_duration_seconds": null,
+      "video_width": null,
+      "video_height": null,
+      "resolution": "",
+      "creative_strategy": "",
       "views": 0,
       "views_after_24h": null,
       "views_after_7d": null,
@@ -753,7 +782,7 @@
     "target_average_view_percentage": 70.0,
     "metric": "average_view_percentage",
     "eligible_video_count": 11,
-    "immature_or_missing_metric_count": 4,
+    "immature_or_missing_metric_count": 5,
     "videos_meeting_target_count": 2,
     "target_hit_rate_percentage": 18.18,
     "average_view_percentage": 61.8,
@@ -766,7 +795,7 @@
         "average_view_percentage": 40.4,
         "average_view_duration": 13.0,
         "views": 111,
-        "age_hours": 217.1,
+        "age_hours": 218.2,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -778,7 +807,7 @@
         "average_view_percentage": 43.75,
         "average_view_duration": 15.0,
         "views": 648,
-        "age_hours": 214.9,
+        "age_hours": 216.0,
         "target_met": false,
         "status": "needs_improvement"
       },
@@ -790,7 +819,7 @@
         "average_view_percentage": 50.11,
         "average_view_duration": 17.0,
         "views": 30,
-        "age_hours": 190.4,
+        "age_hours": 191.4,
         "target_met": false,
         "status": "below_target"
       },
@@ -802,7 +831,7 @@
         "average_view_percentage": 50.14,
         "average_view_duration": 15.0,
         "views": 1010,
-        "age_hours": 117.8,
+        "age_hours": 118.9,
         "target_met": false,
         "status": "below_target"
       },
@@ -814,7 +843,7 @@
         "average_view_percentage": 52.12,
         "average_view_duration": 17.0,
         "views": 9,
-        "age_hours": 122.3,
+        "age_hours": 123.4,
         "target_met": false,
         "status": "below_target"
       },
@@ -826,7 +855,7 @@
         "average_view_percentage": 56.02,
         "average_view_duration": 19.0,
         "views": 42,
-        "age_hours": 93.8,
+        "age_hours": 94.8,
         "target_met": false,
         "status": "below_target"
       },
@@ -838,7 +867,7 @@
         "average_view_percentage": 56.6,
         "average_view_duration": 18.0,
         "views": 88,
-        "age_hours": 95.5,
+        "age_hours": 96.5,
         "target_met": false,
         "status": "below_target"
       },
@@ -850,7 +879,7 @@
         "average_view_percentage": 59.51,
         "average_view_duration": 22.0,
         "views": 81,
-        "age_hours": 73.0,
+        "age_hours": 74.0,
         "target_met": false,
         "status": "below_target"
       },
@@ -862,7 +891,7 @@
         "average_view_percentage": 63.59,
         "average_view_duration": 17.0,
         "views": 1017,
-        "age_hours": 101.7,
+        "age_hours": 102.8,
         "target_met": false,
         "status": "below_target"
       },
@@ -874,7 +903,7 @@
         "average_view_percentage": 70.7,
         "average_view_duration": 24.0,
         "views": 254,
-        "age_hours": 222.8,
+        "age_hours": 223.9,
         "target_met": true,
         "status": "goal_met"
       }
@@ -888,7 +917,7 @@
         "average_view_percentage": 136.89,
         "average_view_duration": 53.0,
         "views": 398,
-        "age_hours": 188.5,
+        "age_hours": 189.6,
         "target_met": true,
         "status": "goal_met"
       },
@@ -900,7 +929,7 @@
         "average_view_percentage": 70.7,
         "average_view_duration": 24.0,
         "views": 254,
-        "age_hours": 222.8,
+        "age_hours": 223.9,
         "target_met": true,
         "status": "goal_met"
       }

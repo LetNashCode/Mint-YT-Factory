@@ -95,9 +95,9 @@ jobs:
           test -f portrait_export_guard.py
           test -f publish_short_intelligence.py
           test -f competitor_research.py
-          python -m py_compile main.py generate_script.py publish_short_intelligence.py competitor_research.py creative_memory.py learning_engine.py production_entry.py production_entry_runner.py stock_search.py stock_media_resilient.py tts.py tts_bridge.py tts_content_guard.py social_publish.py runtime_overrides.py youtube_auth_preflight.py portrait_export_guard.py
+          python -m py_compile retention_learning.py main.py generate_script.py publish_short_intelligence.py competitor_research.py creative_memory.py learning_engine.py production_entry.py production_entry_runner.py stock_search.py stock_media_resilient.py tts.py tts_bridge.py tts_content_guard.py social_publish.py runtime_overrides.py youtube_auth_preflight.py portrait_export_guard.py
           python - <<'PY'
-          import stock_media_resilient, tts_content_guard, youtube_auth_preflight, portrait_export_guard
+          import retention_learning, stock_media_resilient, tts_content_guard, youtube_auth_preflight, portrait_export_guard
           print("Stock media + TTS content guard + TTS bridge + YouTube auth preflight + portrait guard imports OK")
           PY
       - name: Restore previous failed Publish Shorts video

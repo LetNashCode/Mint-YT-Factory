@@ -61,7 +61,7 @@ def _words(text):
 def validate_opening_hook(text):
     """Hard, explainable pre-publish gate for the first spoken sentence."""
     narration = _clean(text)
-    sentences = [part.strip() for part in re.split(r"(?<=[.!?])\\s+", narration) if part.strip()]
+    sentences = [part.strip() for part in re.split(r"(?<=[.!?])\s+", narration) if part.strip()]
     hook = sentences[0] if sentences else ""
     result = score_hook(hook)
     failures = []

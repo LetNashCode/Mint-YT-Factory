@@ -201,5 +201,5 @@ Do not expose the loop with words like replay, loop, watch again, or back to the
         },
     }
     save_publication_state(".story_publication_status.json", status)
-    record_topic(topic,pillar,title,vid,workdir,person=person); save_pending_story(pillar,topic,person,number); record_analytics(vid,topic,pillar,title,workdir,person=person); print("📊 Story comparison:",json.dumps(build_comparison(),ensure_ascii=False))
+    record_topic(topic,pillar,title,vid,workdir,person=person); save_pending_story(pillar,topic,person,number); record_analytics(vid,topic,pillar,title,workdir,person=person,script=script); print("📊 Story comparison:",json.dumps(build_comparison(),ensure_ascii=False))
 if __name__=="__main__": run()

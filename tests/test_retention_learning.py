@@ -34,7 +34,7 @@ def test_retention_guidance_compares_high_and_low_retention_cohorts():
     assert "STORY WORKFLOW ONLY" in guidance
     assert "HIGHER-RETENTION EXAMPLES" in guidance
     assert "LOWER-RETENTION EXAMPLES" in guidance
-    assert "Do not copy" in guidance
+    assert "never copy topic" in guidance
 
 
 def test_immature_and_low_view_videos_are_excluded():

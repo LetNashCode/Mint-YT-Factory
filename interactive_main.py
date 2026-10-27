@@ -104,6 +104,13 @@ def run():
     previous=get_pending_story(); pillar,topic,person=get_next_topic(); number=next_story_number()
     if previous and number<=int(previous.get("number",0)): raise RuntimeError(f"Invalid story sequence state: next #{number} must follow pending Story #{previous.get('number')}.")
     print(f"📖 STORY SHORT #{number} | {pillar} | {person}")
+    retention_context = ""
+    try:
+        from retention_learning import build_retention_guidance
+        retention_context = build_retention_guidance("story")
+        print("🧠 Story retention evidence attached to script prompt.")
+    except Exception as error:
+        print(f"⚠️ Story retention guidance unavailable: {type(error).__name__}: {error}")
     feedback=f"""STORY SHORT #{number} — RETENTION-FIRST REAL-PERSON LOOP STORY.
 SUBJECT: {topic}
 PERSON: {person}
@@ -117,6 +124,7 @@ Use a hard hook, concrete stakes, an obstacle, a meaningful decision or turning 
 Do NOT include a subscribe/follow CTA in the narration. End the spoken story on the natural loop-closing sentence.
 Do not turn the ending into a motivational lecture. Do not create or mention a next-topic teaser; this Story Shorts line is standalone.
 Do not expose the loop with words like replay, loop, watch again, or back to the beginning.
+{retention_context}
 """
     try:
         script=_generate_story_script(topic,config,feedback); script.update({"topic":topic,"story_number":number,"story_person":person,"interactive_pillar":pillar,"story_visual_mode":"person_first_archival_video_first"}); _validate_story_contract(script)

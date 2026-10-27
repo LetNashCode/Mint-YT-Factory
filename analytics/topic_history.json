@@ -3480,30 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "Why do knuckles make popping sounds",
-    "normalized": "why do knuckles make popping sounds",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793043241,
-    "recorded_at": 1793043241,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
-    "topic": "Why do metal zippers feel cold",
-    "normalized": "why do metal zippers feel cold",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793051467,
-    "recorded_at": 1793051467,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "How do wooden stairs always squeak",
     "normalized": "how do wooden stairs always squeak",
     "workflow": "publish",
@@ -3513,6 +3489,18 @@
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do metal coins leave smells",
+    "normalized": "why do metal coins leave smells",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793138613,
+    "recorded_at": 1793138613,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 2
     }
   }
 ]

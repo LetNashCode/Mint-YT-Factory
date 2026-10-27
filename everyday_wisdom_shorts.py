@@ -1149,7 +1149,7 @@ def main():
                 "hook_type": "first_person_personal_discovery",
                 "story_format": "wisdom_emotional_mini_story",
                 "payoff_type": "emotional_takeaway",
-                "script_word_count": len(re.findall(r"\\b[\\w'-]+\\b", str(story.get("narration") or ""))),
+                "script_word_count": len(re.findall(r"\b[\w'-]+\b", str(story.get("narration") or ""))),
                 "planned_duration_seconds": TARGET_SECONDS,
             },
         )

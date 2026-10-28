@@ -17049,6 +17049,86 @@
       "shot": 2,
       "query": "cardboard coffee sleeves its own custom grip",
       "recorded_at": 1793207165
+    },
+    {
+      "asset_key": "pixabay:video:5635",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/09/22/5635-183850259_medium.mp4",
+      "scene": 1,
+      "shot": 2,
+      "query": "soda cans have clumsy rounded bump bottom",
+      "recorded_at": 1793214448
+    },
+    {
+      "asset_key": "pexels:video:4061898",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/4061898/4061898-hd_1280_720_24fps.mp4",
+      "scene": 3,
+      "shot": 1,
+      "query": "soda cans have flat bottom instantly bow",
+      "recorded_at": 1793214466
+    },
+    {
+      "asset_key": "pexels:video:40047619",
+      "provider": "Pexels",
+      "type": "video",
+      "source_url": "https://videos.pexels.com/video-files/40047619/17094752_720_1280_24fps.mp4",
+      "scene": 3,
+      "shot": 2,
+      "query": "soda cans have engineers steal trick bridges",
+      "recorded_at": 1793214471
+    },
+    {
+      "asset_key": "pixabay:video:170300",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2023/07/06/170300-843059179_medium.mp4",
+      "scene": 4,
+      "shot": 1,
+      "query": "soda cans have push arch inward fights",
+      "recorded_at": 1793214476
+    },
+    {
+      "asset_key": "pixabay:video:2333",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/02/29/2333-157269889_medium.mp4",
+      "scene": 4,
+      "shot": 2,
+      "query": "soda cans have dome shape redirects pressure",
+      "recorded_at": 1793214479
+    },
+    {
+      "asset_key": "pixabay:video:14869",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2018/03/07/14869-259623308_medium.mp4",
+      "scene": 5,
+      "shot": 1,
+      "query": "soda cans have soft looking curve microscopic",
+      "recorded_at": 1793214482
+    },
+    {
+      "asset_key": "pixabay:video:38084",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2020/05/04/38084-416330724_medium.mp4",
+      "scene": 5,
+      "shot": 2,
+      "query": "soda cans have holding back mini explosions",
+      "recorded_at": 1793214487
+    },
+    {
+      "asset_key": "pixabay:video:4852",
+      "provider": "Pixabay",
+      "type": "video",
+      "source_url": "https://cdn.pixabay.com/video/2016/08/30/4852-180847599_medium.mp4",
+      "scene": 6,
+      "shot": 1,
+      "query": "soda cans have without clever inward dome",
+      "recorded_at": 1793214490
     }
   ]
 }

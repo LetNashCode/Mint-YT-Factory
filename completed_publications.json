@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1788788245",
-    "video_id": "iOjvREgVldA",
-    "topic": "Why does a sponge expand",
-    "completed_at": 1788789770
-  },
-  {
     "workdir": "output/1788818845",
     "video_id": "aoBK-w-X7eg",
     "topic": "Why do toes wrinkle in water",
@@ -598,5 +592,11 @@
     "video_id": "o9rLjAWXd4g",
     "topic": "Why do cardboard coffee sleeves bend",
     "completed_at": 1793208179
+  },
+  {
+    "workdir": "output/1793214295",
+    "video_id": "X1JWZ4LpMDs",
+    "topic": "Why soda cans have indented bottoms",
+    "completed_at": 1793216229
   }
 ]

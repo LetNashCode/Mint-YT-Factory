@@ -3480,18 +3480,6 @@
     "published_at": 1791413984
   },
   {
-    "topic": "How do wooden stairs always squeak",
-    "normalized": "how do wooden stairs always squeak",
-    "workflow": "publish",
-    "status": "reserved",
-    "reserved_at": 1793118870,
-    "recorded_at": 1793118870,
-    "metadata": {
-      "source": "publish_topic_selector",
-      "attempt": 1
-    }
-  },
-  {
     "topic": "Why do metal coins leave smells",
     "normalized": "why do metal coins leave smells",
     "workflow": "publish",
@@ -3510,6 +3498,18 @@
     "status": "reserved",
     "reserved_at": 1793141653,
     "recorded_at": 1793141653,
+    "metadata": {
+      "source": "publish_topic_selector",
+      "attempt": 1
+    }
+  },
+  {
+    "topic": "Why do cardboard coffee sleeves bend",
+    "normalized": "why do cardboard coffee sleeves bend",
+    "workflow": "publish",
+    "status": "reserved",
+    "reserved_at": 1793206116,
+    "recorded_at": 1793206116,
     "metadata": {
       "source": "publish_topic_selector",
       "attempt": 1

@@ -1,11 +1,5 @@
 [
   {
-    "workdir": "output/1788764304",
-    "video_id": "R87EDkU9hRQ",
-    "topic": "Why do mirrors double reflections",
-    "completed_at": 1788765953
-  },
-  {
     "workdir": "output/1788788245",
     "video_id": "iOjvREgVldA",
     "topic": "Why does a sponge expand",
@@ -598,5 +592,11 @@
     "video_id": "codSnL651PI",
     "topic": "Why does dry pasta always snap",
     "completed_at": 1793143271
+  },
+  {
+    "workdir": "output/1793206142",
+    "video_id": "o9rLjAWXd4g",
+    "topic": "Why do cardboard coffee sleeves bend",
+    "completed_at": 1793208179
   }
 ]
